@@ -1,0 +1,33 @@
+# IntelliJ files
+/.idea/libraries/Gradle__*.xml
+/.idea/dataSources.xml
+/.idea/dataSources.ids
+/.idea/scssLintPlugin.xml
+/.idea/shelf
+/.idea/workspace.xml
+/.idea/watcherTasks.xml
+
+# Gradle files
+.gradle/
+
+# Node files
+/node_modules/
+
+# Bower files
+/bower_components/
+
+# Wiki checkout
+/*.wiki/
+
+# OS files
+.DS_Store
+._.DS_Store
+
+# Temporary files
+/.sass-cache
+*~
+
+/build/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*

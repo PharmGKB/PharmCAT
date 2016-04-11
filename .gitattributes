@@ -1,0 +1,100 @@
+# References:
+#  - http://timclem.wordpress.com/2012/03/01/mind-the-end-of-your-line/
+#  - https://help.github.com/articles/dealing-with-line-endings
+#  - http://davidlaing.com/2012/09/19/customise-your-gitattributes-to-become-a-git-ninja/
+
+#
+# Set default behaviour, in case users don't have core.autocrlf set
+#
+*                text=auto
+
+#
+# These files are text and should be normalized (convert crlf => lf)
+#
+.gitignore       text
+.gitattributes   text
+*.bat            text eol=crlf
+*.crt            text
+*.css            text
+*.csv            text
+*.ddl            text
+*.dtd            text
+*.gpml           text
+*.hbs            text
+*.htm            text diff=html
+*.html           text diff=html
+*.iml            text
+*.ini            text
+*.j2             text
+*.java           text diff=java
+*.js             text diff=javascript
+*.jsf            text
+*.json           text
+*.jsp            text
+*.jspf           text
+*.less           text
+*.log            text
+*.md             text
+*.markdown       text
+*.obo            text
+*.owl            text
+*.pl             text diff=perl
+*.pem            text
+*.pm             text diff=perl
+*.properties     text
+*.py             text diff=python
+*.rb             text diff=ruby
+*.scss           text
+*.sh             text eol=lf
+*.sql            text
+*.tag            text
+*.tsv            text
+*.txt            text
+*.vm             text
+*.xml            text
+*.xsd            text
+*.xsl            text
+*.yml            text
+
+
+#
+# Specific to PharmGKB.
+#
+/pgkb-pathvisio-plugin/bin/Info.plist            text eol=lf
+/pgkb-pathvisio-plugin/bin/JavaApplicationStub   text eol=lf
+
+
+#
+# Binary files should be left alone (binary is a macro for -text -diff)
+#
+*.ai      binary
+*.bmp     binary
+*.class   binary
+*.dll     binary
+*.doc     binary
+*.docx    binary
+*.exe     binary
+*.eot     binary
+*.gif     binary
+*.gz      binary
+*.ico     binary
+*.icns    binary
+*.jar     binary
+*.jnilib  binary
+*.jpeg    binary
+*.jpg     binary
+*.pdf     binary
+*.png     binary
+*.ppt     binary
+*.pptx    binary
+*.psd     binary
+*.so      binary
+*.svg     binary
+*.swf     binary
+*.tar     binary
+*.tgz     binary
+*.ttf     binary
+*.woff    binary
+*.xls     binary
+*.xlsx    binary
+*.zip     binary
