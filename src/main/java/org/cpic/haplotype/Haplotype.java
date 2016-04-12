@@ -7,7 +7,7 @@ import org.cpic.util.HaplotypeNameComparator;
 
 public class Haplotype implements Comparable<Haplotype> {
 
-	ArrayList <Variant> varaints;
+	ArrayList <Variant> variants;
 	String AlleleID;
 	String CommonName;
 	String FunctionStatus;
