@@ -56,14 +56,6 @@
 *.xsl            text
 *.yml            text
 
-
-#
-# Specific to PharmGKB.
-#
-/pgkb-pathvisio-plugin/bin/Info.plist            text eol=lf
-/pgkb-pathvisio-plugin/bin/JavaApplicationStub   text eol=lf
-
-
 #
 # Binary files should be left alone (binary is a macro for -text -diff)
 #
