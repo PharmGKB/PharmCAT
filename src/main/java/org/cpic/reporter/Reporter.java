@@ -2,14 +2,13 @@ package org.cpic.reporter;
 
 import org.apache.commons.cli.*;
 import org.apache.commons.io.FileUtils;
+import org.cpic.reporter.io.InteractionJsonReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
-
-
 
 
 public class Reporter {
@@ -21,6 +20,16 @@ public class Reporter {
    private Logger logger = LoggerFactory.getLogger( Reporter.class );
 
 
+   /**
+    * Exception list formated as json
+    */
+   private File exception;
+   
+   /**
+    * Drug Gene interaction json
+    */
+   private File interactions;
+   
     /**
      * Configuration properties loaded from file
      */
@@ -106,11 +115,24 @@ public class Reporter {
     }
 
     private void run() throws IOException {
+        
+        loadRequiredFiles();
+        InteractionJsonReader interactionReader = new InteractionJsonReader();
+        interactionReader.load();
+        
+        
 
 
         logger.info( "Complete" );
     }
-
+    
+    private void loadRequiredFiles(){
+        String exceptionLoc = props.getProperty("CPIC.reporter.exception");
+        this.exception = new File( exceptionLoc );
+        
+        String interactionLoc = props.getProperty("CPIC.reporter.guidlines");
+        this.interactions = new File(interactionLoc);
+    }
 
 
 
