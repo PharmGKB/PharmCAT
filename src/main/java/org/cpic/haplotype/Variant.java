@@ -14,7 +14,7 @@ public class Variant implements Comparable<Variant> {
 	private int GenePOS;
 	private ArrayList<String> HGVSg;
 	private ArrayList<String> cDNA = new ArrayList<>();
-	private ArrayList<String> ProteingEffect;
+	private ArrayList<String> ProteinEffect;
 	private ArrayList<String> ALTs;
 	private String REF;
 	private String rsID;
@@ -54,11 +54,11 @@ public class Variant implements Comparable<Variant> {
 		if (_ProteingEffect.contains(";")){
 			String [] fields = _ProteingEffect.split(";");
 			for (int i = 0; i < fields.length; i++){
-				ProteingEffect.add(fields[i].trim());
+				ProteinEffect.add(fields[i].trim());
 			}
 		}else{
 
-			ProteingEffect.add(_ProteingEffect);
+			ProteinEffect.add(_ProteingEffect);
 		}
 	}
 	public void addHGVSg(String _HGVSg){
