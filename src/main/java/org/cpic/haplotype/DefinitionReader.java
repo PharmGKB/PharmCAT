@@ -21,12 +21,17 @@ import java.util.regex.Pattern;
  */
 public class DefinitionReader {
   private TreeMultimap<String, Variant> m_haplotypePositions;
+  private TreeMultimap<String, Haplotype> m_haplotypes;
   
   private Set<TSVfile> s_files;
 
 
   public Multimap<String, Variant> getHaplotypePositions() {
     return m_haplotypePositions;
+  }
+  
+  public Multimap<String, Haplotype> getHaplotypes() {
+	    return m_haplotypes;
   }
 
 
