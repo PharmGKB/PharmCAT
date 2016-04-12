@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.GnuParser;
+import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
@@ -79,7 +79,7 @@ public class Reporter {
 
     public static void main(String[] args) throws Exception {
         Options options = createCommandLineOptions();
-        CommandLine cmdline = new GnuParser().parse( options,  args );
+        CommandLine cmdline = new DefaultParser().parse( options,  args );
         
         if( args.length == 0 ) {
             HelpFormatter formatter = new HelpFormatter();
