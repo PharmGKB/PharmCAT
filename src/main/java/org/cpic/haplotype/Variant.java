@@ -1,6 +1,8 @@
 package org.cpic.haplotype;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.ObjectUtils;
 
@@ -10,6 +12,7 @@ public class Variant implements Comparable<Variant> {
 	private String GeneName;
 	private int POS;
 	private int GenePOS;
+	private ArrayList<String> HGVSg;
 	private ArrayList<String> cDNA;
 	private ArrayList<String> ProteingEffect;
 	private ArrayList<String> ALTs;
@@ -27,8 +30,9 @@ public class Variant implements Comparable<Variant> {
 			for (int i = 0; i < fields.length; i++){
 				cDNA.add(fields[i].trim());
 			}
+		}else{
+			cDNA.add(_cDNA);
 		}
-		cDNA.add(_cDNA);
 	}
 	public String getCHROM(){
 		return CHROM;
@@ -42,18 +46,47 @@ public class Variant implements Comparable<Variant> {
 			for (int i = 0; i < fields.length; i++){
 				cDNA.add(fields[i].trim());
 			}
+		}else{
+			cDNA.add(_cDNA);
 		}
-		cDNA.add(_cDNA);
 	}
-	public void setProteingEffect(String _ProteingEffect){
+	public void addProteingEffect(String _ProteingEffect){
 		if (_ProteingEffect.contains(";")){
 			String [] fields = _ProteingEffect.split(";");
 			for (int i = 0; i < fields.length; i++){
 				ProteingEffect.add(fields[i].trim());
 			}
-		}
+		}else{
 			
-		ProteingEffect.add(_ProteingEffect);
+			ProteingEffect.add(_ProteingEffect);
+		}
+	}
+	public void addHGVSg(String _HGVSg){
+		if (_HGVSg.contains(";")){
+			String [] fields = _HGVSg.split(";");
+			for (int i = 0; i < fields.length; i++){
+				HGVSg.add(fields[i].trim());
+			}
+		}else{
+			
+			HGVSg.add(_HGVSg);
+		}
+	}
+	private int getStartPOS(String _HGVSg){
+		  
+		  Pattern p = Pattern.compile("\\d+");
+		  Matcher m = p.matcher(_HGVSg);
+		  
+		  return Integer.parseInt(m.group(1));
+		  
+	}
+	public boolean setStartPOS(){
+		if (HGVSg.isEmpty()){
+			return false;
+		}else{
+			POS = getStartPOS(HGVSg.get(0));
+			return true;
+		}
 	}
 	public void setPOS(String _POS){
 		POS = Integer.parseInt(_POS);
@@ -68,7 +101,7 @@ public class Variant implements Comparable<Variant> {
 		REF = (_REF);
 	}
 	public void set_rsID(String _rsID){
-		REF = (_rsID);
+		rsID = (_rsID);
 	}
 	public void addALT(String _ALT){
 		ALTs.add(_ALT);

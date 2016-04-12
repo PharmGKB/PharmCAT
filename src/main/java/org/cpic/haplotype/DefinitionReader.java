@@ -42,14 +42,7 @@ public class DefinitionReader {
     }
   }
   
-  private int getStartPOS(String _HGVSg){
-	  
-	  Pattern p = Pattern.compile("\\d+");
-	  Matcher m = p.matcher(_HGVSg);
-	  
-	  return Integer.parseInt(m.group(1));
-	  
-  }
+  
   
   
 
@@ -96,6 +89,27 @@ public class DefinitionReader {
             	for (int i = 4; i < fields.length; i++){
                 	Variant newVariant = new Variant(inProccessFile.getChromosome(),inProccessFile.getGeneName(),fields[i]);
                 	variants.add(newVariant);
+                }
+            }
+            else if (fields[0].equals("ProteinEffect")){
+            	for (int i = 4; i < fields.length; i++){
+                	variants.get(i-4).addProteingEffect(fields[i]);
+                }
+            }
+            else if (fields[0].equals("ChrPosition")){
+            	for (int i = 4; i < fields.length; i++){
+                	variants.get(i-4).addProteingEffect(fields[i]);
+                	variants.get(i-4).setStartPOS();
+                }
+            }
+            else if (fields[0].equals("GenePosition")){
+            	for (int i = 4; i < fields.length; i++){
+                	variants.get(i-4).addProteingEffect(fields[i]);
+                }
+            }
+            else if (fields[0].equals("rsID")){
+            	for (int i = 4; i < fields.length; i++){
+                	variants.get(i-4).set_rsID(fields[i]);
                 }
             }
             
