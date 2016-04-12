@@ -10,15 +10,17 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class Reporter {
+
     
     /**
      * Logging instance
      */
-   private Log logger = LogFactory.getLog( Reporter.class );
+   private Logger logger = LoggerFactory.getLogger( Reporter.class );
     
     /**
      * Configuration properties loaded from file
