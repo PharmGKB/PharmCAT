@@ -5,6 +5,8 @@ public class TSVfile {
 	private int FormatVersion;
 	private String GeneName;
 	private String GeneID;
+	private String ContentVersion;
+	private String ContentDate;
 	private String GenomeBuild;
 	private String ChromosomeID;
 	private String Chromosome;

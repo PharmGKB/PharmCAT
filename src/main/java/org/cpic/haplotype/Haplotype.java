@@ -1,16 +1,18 @@
 package org.cpic.haplotype;
 
+import java.util.ArrayList;
+
 import org.apache.commons.lang3.ObjectUtils;
 import org.cpic.util.HaplotypeNameComparator;
 
 public class Haplotype implements Comparable<Haplotype> {
 
-	Variant varaints[];
+	ArrayList <Variant> varaints;
 	String AlleleID;
 	String CommonName;
 	String FunctionStatus;
-	String NormalAlleles[];
-	String EffectAlleles[];
+	ArrayList <String> NormalAlleles;
+	ArrayList <String>  EffectAlleles;
 
 
   @Override
