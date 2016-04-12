@@ -3,6 +3,7 @@ package org.cpic.haplotype;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Multimap;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,10 +15,10 @@ import java.nio.file.Paths;
  * @author Mark Woon
  */
 public class DefinitionReader {
-  private Multimap<String, String> m_haplotypePositions;
+  private Multimap<String, Variant> m_haplotypePositions;
 
 
-  public Multimap<String, String> getHaplotypePositions() {
+  public Multimap<String, Variant> getHaplotypePositions() {
     return m_haplotypePositions;
   }
 
@@ -35,10 +36,16 @@ public class DefinitionReader {
   }
 
 
-  private void readFile(Path file) {
+  private void readFile(Path file)  {
 
     Preconditions.checkArgument(Files.isRegularFile(file));
     System.out.println(file);
+    try (BufferedReader bufferedReader = Files.newBufferedReader(file)) {
+    	
+    	
+    } catch (Exception ex) {
+    	throw new RuntimeException(ex);
+    }
   }
 
 
