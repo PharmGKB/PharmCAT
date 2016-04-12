@@ -1,0 +1,47 @@
+FormatVersion	1																				
+Gene	NG_012345.6	ABCD																			
+ContentVersion	1234.5	3/10/16																			
+GenomeBuild	GRCh38.p2																				
+Chromosome	NC_000006.12	chr6																			
+Protein	NP_000123.4																				
+cDNAChange				1A>G	2T>C	83A>T	106G>A	124C>G	146T>C	205C>G	211G>A	238G>C	292G>T								
+ProteinEffect				M1V	M1T	E28V	G36S	Q42E	L49S	L69V	G71R	A80P	E98X								
+ChrPosition				18149127	18149126	18149045	18149022	18149004	18147910	18147851	18147845	18143724	18143670								
+GenePosition				11017	11018	11099	11122	11140	12234	12293	12299	16420	16474								
+rsID				rs9333569	rs267607275	rs72552742			rs72552740	rs200591577		rs1800462	rs72552739								
+Header	AlleleID	StarAllele	Allele Functional Status											African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
+Allele	PA123.4	*1	Normal function	T	A	T	CTA	G	A	G	del	C	C	0.93901	0.962	0.95726	0.96987	0.98347	0.97837	0.95233	
+Allele	PA123.4	*1S	Normal function																		
+Allele	PA123.4	*2	No function									G		0.000792	0.004	0.0019	0.00749	0	0.0025	0.00876	
+Allele	PA123.4	*3A	No function											0.00198	0.008	0.0356	0.0114	0.000118	0.00583	0.0287	
+Allele	PA123.4	*3B	No function											0	0	0.000461	0.00562	0	0	0.000486	
+Allele	PA123.4	*3C	No function											0.0495	0.024	0.004205	0.00562	0.0157	0.0133	0.00924	
+Allele	PA123.4	*4	No function																	0.000486	
+Allele	PA123.4	*5	Probable decreased function						G												
+Allele	PA123.4	*6	Probable decreased function														0.000706				
+Allele	PA123.4	*7	Unknown function/Unclear function													0.0000576					
+Allele	PA123.4	*8	Probable decreased function											0.00872	0.002						
+Allele	PA123.4	*9	Probable decreased function													0.0002304					
+Allele	PA123.4	*10	Probable decreased function																		
+Allele	PA123.4	*11	Probable decreased function													0.0000576					
+Allele	PA123.4	*12	Probable decreased function													0.0000576					
+Allele	PA123.4	*13	Probable decreased function			A															
+Allele	PA123.4	*14	Unknown function/Unclear function	C																	
+Allele	PA123.4	*15	Unknown function/Unclear function																		
+Allele	PA123.4	*16	Probable decreased function													0.0000576					
+Allele	PA123.4	*17	Probable decreased function					C								0.0000576					
+Allele	PA123.4	*18	Probable decreased function								T					0.0000576					
+Allele	PA123.4	*19	Unknown function/Unclear function																		
+Allele	PA123.4	*20	Unknown function/Unclear function																		
+Allele	PA123.4	*21	Unknown function/Unclear function							C											
+Allele	PA123.4	*22	Unknown function/Unclear function																		
+Allele	PA123.4	*23	Unknown function/Unclear function																		
+Allele	PA123.4	*24	Unknown function/Unclear function																		
+Allele	PA123.4	*25	Unknown function/Unclear function																		
+Allele	PA123.4	*26	Unknown function/Unclear function																		
+Allele	PA123.4	*27	Unknown function/Unclear function																		
+Allele	PA123.4	*28	Unknown function/Unclear function																		
+Allele	PA123.4	*29	Unknown function/Unclear function		G																
+Allele	PA123.4	*30	Unknown function/Unclear function				delCTA														
+Allele	PA123.4	*31	Unknown function/Unclear function																		
+Note	Nomenclature as determined by TPMT nomenclature committee (www.imh.liu.se/tpmtalleles)																				
