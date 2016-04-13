@@ -2,7 +2,6 @@ package org.cpic.haplotype;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ListMultimap;
-import com.google.common.collect.SortedSetMultimap;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,13 +17,13 @@ import java.util.Set;
  * @author Mark Woon
  */
 public class DefinitionReader {
-  private SortedSetMultimap<String, Variant> m_haplotypePositions;
+  private ListMultimap<String, Variant> m_haplotypePositions;
   private ListMultimap<String, Haplotype> m_haplotypes;
 
   private Set<TSVfile> s_files;
 
 
-  public SortedSetMultimap<String, Variant> getHaplotypePositions() {
+  public ListMultimap<String, Variant> getHaplotypePositions() {
     return m_haplotypePositions;
   }
 
