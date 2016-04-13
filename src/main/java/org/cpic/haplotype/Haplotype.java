@@ -17,10 +17,12 @@ public class Haplotype implements Comparable<Haplotype> {
 		
 	}
 	
-	public Haplotype(String _AlleleID, String _CommonName, String _FunctionStatus){
+	public Haplotype(ArrayList <Variant> _Variants, String _AlleleID, String _CommonName, String _FunctionStatus, ArrayList <String> _Alleles){
+		Variants=_Variants;
 		AlleleID = _AlleleID;
 		CommonName = _CommonName;
 		FunctionStatus = _FunctionStatus;
+		Alleles=_Alleles;
 	}
 	
 	public void addVariant(Variant _Variant){

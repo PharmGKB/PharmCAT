@@ -125,20 +125,19 @@ public class DefinitionReader {
                 	
                 	if (NormalFunctionAllele){
                 		variants.get(i-4).setREF(fields[i]);
-                		alleles.add(fields[i])
+                		alleles.add(fields[i]);
                 		hapVariants.add(variants.get(i-4));
                 		
                 	}
                 	else{
                 		variants.get(i-4).addALT(fields[i]);
-                		alleles.add(fields[i])
+                		alleles.add(fields[i]);
                 		hapVariants.add(variants.get(i-4));
                 	}
                 	
             	}
             	NormalFunctionAllele=false;
-            	Haplotype hapToProcess = new Haplotype(fields[1],fields[2],fields[3],);
-            	
+            	haplotypes.add(new Haplotype(hapVariants,fields[1],fields[2],fields[3],alleles));
             	
             }
 
