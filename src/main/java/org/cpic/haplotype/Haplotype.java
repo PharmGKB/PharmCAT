@@ -15,7 +15,7 @@ public class Haplotype implements Comparable<Haplotype> {
 	private String CommonName;
 	private String FunctionStatus;
 	private List <String> Alleles = new ArrayList<>();
-  private Pattern m_permutations;
+	private Pattern m_permutations;
 
 
 	public Haplotype(){
