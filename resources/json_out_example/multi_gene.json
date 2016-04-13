@@ -46,9 +46,42 @@
       ],
       "metaData": {
         "cpicAnnotatorBuild": "20160410",
+        "cpicDataBuild:": "2016048",
+        "genomeAssembly": "GRCh38.p2",
+        "inputFile": "multigene.vcf",
+        "dateTime": "20160410"
+      }
+    },
+    {
+      "gene": "CYP2C9",
+      "geneVersion": "CPIC-v1.x",
+      "chromosome": "10",
+      "diplotypes": [
+        "*1/*2"
+      ],
+      "positionsUsed": [
+        {
+          "position": "g.94942290C>T",
+          "rsID": "rs1799853",
+          "VCFCall": "C/T"
+        }
+      ],
+      "haplotypesNotCalled": [
+        {
+          "haplotype": "*3",
+          "positionsMissing": [
+            {
+              "position": "g.94981296A>C",
+              "rsID": "rs1057910"
+            }
+          ]
+        }
+      ],
+      "metaData": {
+        "cpicAnnotatorBuild": "20160410",
         "cpicDataBuild": "20160408",
         "genomeAssembly": "GRCh38.p2",
-        "inputFile": "Multi_CYP2C19.vcf",
+        "inputFile": "multigene.vcf",
         "dateTime": "20160410"
       }
     }
