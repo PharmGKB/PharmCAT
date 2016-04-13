@@ -1,56 +1,60 @@
 {
-  "gene": "CYP2C19",
-  "geneVersion": "CPIC-CYP2C19-v1.x",
-  "chromosome": "10",
-  "diplotypes": [
-    "*1/*4A"
-  ],
-  "positionsUsed": [
+  "diplotypeCalls": [
     {
-      "position": "g.94762706A>G",
-      "rsID": "rs28399504",
-      "VCFCall": "A/G"
-    },
-    {
-      "position": "g.94761900C>T",
-      "rsID": "rs12248560",
-      "VCFCall": "C/C"
-    },
-    {
-      "position": "g.94762693G>A",
-      "rsID": "n/a",
-      "VCFCall": "G/G"
-    }
-  ],
-  "haplotypesNotCalled": [
-    {
-      "haplotype": "*28",
-      "positionsMissing": [
+      "gene": "CYP2C19",
+      "geneVersion": "CPIC-CYP2C19-v1.x",
+      "chromosome": "10",
+      "diplotypes": [
+        "*1/*4A"
+      ],
+      "positionsUsed": [
         {
-          "position": "g.94760676C>T",
-          "rsID": "rs113164681"
+          "position": "g.94762706A>G",
+          "rsID": "rs28399504",
+          "VCFCall": "A/G"
         },
         {
-          "position": "g.94760686C>A",
-          "rsID": "rs111490789"
-        }
-      ]
-    },
-    {
-      "haplotype": "*29",
-      "positionsMissing": [
+          "position": "g.94761900C>T",
+          "rsID": "rs12248560",
+          "VCFCall": "C/C"
+        },
         {
-          "position": "g.94762788A>T",
-          "rsID": "n/a"
+          "position": "g.94762693G>A",
+          "rsID": "n/a",
+          "VCFCall": "G/G"
         }
-      ]
+      ],
+      "haplotypesNotCalled": [
+        {
+          "haplotype": "*28",
+          "positionsMissing": [
+            {
+              "position": "g.94760676C>T",
+              "rsID": "rs113164681"
+            },
+            {
+              "position": "g.94760686C>A",
+              "rsID": "rs111490789"
+            }
+          ]
+        },
+        {
+          "haplotype": "*29",
+          "positionsMissing": [
+            {
+              "position": "g.94762788A>T",
+              "rsID": "n/a"
+            }
+          ]
+        }
+      ],
+      "metaData": {
+        "cpicAnnotatorBuild": "20160410",
+        "cpicDataBuild": "20160408",
+        "genomeAssembly": "GRCh38.p2",
+        "inputFile": "SAMPLE1a_CYP2C19.vcf",
+        "dateTime": "20160410"
+      }
     }
-  ],
-  "metaData": {
-    "cpicAnnotatorBuild": "20160410",
-    "cpicDataBuild": "20160408",
-    "genomeAssembly": "GRCh38.p2",
-    "inputFile": "SAMPLE1a_CYP2C19.vcf",
-    "dateTime": "20160410"
-  }
+  ]
 }
