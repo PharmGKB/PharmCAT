@@ -115,6 +115,7 @@ public class DefinitionReader {
             	for (int i = 4; i < fields.length; i++){
                 	variants.get(i-4).set_rsID(fields[i]);
                 }
+            	
             }
             else if (fields[0].equals("Allele")){
             	ArrayList <String> alleles = new ArrayList<>();
@@ -141,8 +142,10 @@ public class DefinitionReader {
             	
             }
 
-
         }
+    	
+    	m_haplotypePositions.putAll(inProccessFile.getGeneName(),variants);
+    	m_haplotypes.putAll(inProccessFile.getGeneName(),haplotypes);
 
     	s_files.add(inProccessFile);
 
