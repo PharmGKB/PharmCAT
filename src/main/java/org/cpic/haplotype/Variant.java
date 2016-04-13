@@ -100,6 +100,9 @@ public class Variant implements Comparable<Variant> {
 	public void setREF(String _REF){
 		REF = (_REF);
 	}
+	public String getREF(){
+		return REF;
+	}
 	public void set_rsID(String _rsID){
 		rsID = (_rsID);
 	}

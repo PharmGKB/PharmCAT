@@ -28,6 +28,13 @@ public class TSVfile {
 	public int getFormatVersion(){
 		return FormatVersion;
 	}
+	public void setGeneID(String _GeneID){
+		GeneID=_GeneID;
+	}
+	
+	public String getGeneID(){
+		return GeneID;
+	}
 	
 	public void setGeneName(String _GeneName){
 		GeneName=_GeneName;
@@ -35,6 +42,34 @@ public class TSVfile {
 	
 	public String getGeneName(){
 		return GeneName;
+	}
+	public void setContentVersion(String _ContentVersion){
+		ContentVersion=_ContentVersion;
+	}
+	
+	public String getContentVersion(){
+		return ContentVersion;
+	}
+	public void setContentDate(String _ContentDate){
+		ContentDate=_ContentDate;
+	}
+	
+	public String getContentDate(){
+		return ContentDate;
+	}
+	public void setGenomeBuild(String _GenomeBuild){
+		GenomeBuild=_GenomeBuild;
+	}
+	
+	public String getGenomeBuild(){
+		return GenomeBuild;
+	}
+	public void setProteinID(String _ProteinID){
+		ProteinID=_ProteinID;
+	}
+	
+	public String getProteinID(){
+		return ProteinID;
 	}
 	
 	public void setChromosome(String _Chromosome){

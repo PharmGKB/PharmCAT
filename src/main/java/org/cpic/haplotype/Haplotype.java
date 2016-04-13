@@ -1,22 +1,26 @@
 package org.cpic.haplotype;
 
-import java.util.ArrayList;
-
 import org.apache.commons.lang3.ObjectUtils;
 import org.cpic.util.HaplotypeNameComparator;
 
+import javax.annotation.Nonnull;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
 public class Haplotype implements Comparable<Haplotype> {
 
-	private ArrayList <Variant> Variants = new ArrayList<>();
+	private List <Variant> Variants = new ArrayList<>();
 	private String AlleleID;
 	private String CommonName;
 	private String FunctionStatus;
-	private ArrayList <String> Alleles = new ArrayList<>();
-	
+	private List <String> Alleles = new ArrayList<>();
+  private Pattern m_permutations;
+
+
 	public Haplotype(){
-		
 	}
-	
+
 	public Haplotype(ArrayList <Variant> _Variants, String _AlleleID, String _CommonName, String _FunctionStatus, ArrayList <String> _Alleles){
 		Variants=_Variants;
 		AlleleID = _AlleleID;
@@ -24,11 +28,11 @@ public class Haplotype implements Comparable<Haplotype> {
 		FunctionStatus = _FunctionStatus;
 		Alleles=_Alleles;
 	}
-	
+
 	public void addVariant(Variant _Variant){
 		Variants.add(_Variant);
 	}
-	public ArrayList<Variant> getVaraints(){
+	public List<Variant> getVariants(){
 		return Variants;
 	}
 	public void setAlleleID(String _AlleleID){
@@ -52,13 +56,13 @@ public class Haplotype implements Comparable<Haplotype> {
 	public void addAllele(String _Allele){
 		Alleles.add(_Allele);
 	}
-	public void addAlleles(ArrayList <String> _Alleles){
+	public void addAlleles(List <String> _Alleles){
 		Alleles = _Alleles;
 	}
-	public ArrayList<String> getAlleles(){
+	public List<String> getAlleles(){
 		return Alleles;
 	}
-	
+
 
   @Override
   public String toString() {
@@ -73,5 +77,33 @@ public class Haplotype implements Comparable<Haplotype> {
       return rez;
     }
     return ObjectUtils.compare(AlleleID, o.AlleleID);
+  }
+
+
+  private String resolveIupacCode(@Nonnull String allele) {
+    if (allele.length() == 1) {
+      return Iupac.lookup(allele).getRegex();
+    }
+    return allele;
+  }
+
+  public Pattern calculatePermutations(List<Variant> allVariants) {
+
+
+    StringBuilder builder = new StringBuilder();
+    int idx = 0;
+    for (int x = 0; x < allVariants.size(); x++) {
+      builder.append(allVariants.get(x).getPOS())
+          .append(":");
+      if (idx < Variants.size() && Variants.get(idx) == allVariants.get(x)) {
+        builder.append(resolveIupacCode(Alleles.get(idx)));
+        idx += 1;
+      } else {
+        builder.append(".?");
+      }
+      builder.append(";");
+    }
+    m_permutations = Pattern.compile(builder.toString());
+    return m_permutations;
   }
 }
