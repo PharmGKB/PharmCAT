@@ -1,0 +1,22 @@
+FormatVersion	1																					
+Gene	NG_012345.6	ABCD																				
+ContentVersion	1234.5	3/10/16																				
+GenomeBuild	GRCh38.p2																					
+Chromosome	NC_000006.12	chr6																				
+Protein	NP_000123.4																					
+cDNAChange				2T>C	488G>A; 488G>C	83A>T	10601delA	3531_3534delAGAT	27131_27132insT	105_106insGC	TA[5][6][7][8]	146T>C	205C>G	238G>C								
+ProteinEffect				M1T	R163H; R163P	E28V	273Frameshift	118 Frameshift	Thr346Tyrfs	foo	promoter region	L49S	L69V	A80P								
+ChrPosition				g.18149126A>G	g.18138969C>T; g.18138969C>G	g.18149045T>A	g.94949282delA	g.94942213_94942216delAGAT	g.99652770_99652771insA	g.654321_654322insGC	g.233760235TA[6]>TA[5]TA[7]TA[8]	g.18147910A>G	g.18147851G>C	g.18143724C>G								
+GenePosition				g.11018T>C	g.21175G>A; g.21175G>C	g.11099A>T	g.15625delA	g.8556_8559delAGAT	g.32228_32229insT	g.1234_1235insGC	g.175492TA[6]>TA[5]TA[7]TA[8]	g.12234T>C	g.12293C>G	g.16420G>C								
+rsID				rs267607275	rs144041067	rs72552742	rs9332131		rs41303343		rs8175347	rs72552740	rs200591577	rs1800462								
+Header	ID	Name	FunctionStatus												African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
+Allele	PA123001.1	*1	Normal function	A	C	T	A	AGAT	.	.	TATATATATATA	A	G	C	0.93901	0.962	0.95726	0.96987	0.98347	0.97837	0.95233	
+Allele	PA123002.1	*2	No function		T		.							G	0.000792	0.004	0.0019	0.00749	0	0.0025	0.00876	
+Allele	PA123003.1	*3A	Probable decreased function						A			G										
+Allele	PA123004.1	*3B	Probable decreased function			R																
+Allele	PA123005.1	*4	Unknown function/Unclear function								TATATATATA											
+Allele	PA123006.1	*5	Probable decreased function								TATATATATATATA						0.0000576					
+Allele	PA123006.1	*5	Probable decreased function								TATATATATATATATA						0.0000576					
+Allele	PA123007.1	*7	Unknown function/Unclear function		G			.					C									
+Allele	PA123008.1	*8	Unknown function/Unclear function	G						GC				T								
+Note	Nomenclature as determined by TPMT nomenclature committee (www.imh.liu.se/tpmtalleles)																					
