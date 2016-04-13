@@ -11,8 +11,17 @@ public class Haplotype implements Comparable<Haplotype> {
 	private String AlleleID;
 	private String CommonName;
 	private String FunctionStatus;
-	private ArrayList <String> NormalAlleles = new ArrayList<>();
-	private ArrayList <String>  EffectAlleles = new ArrayList<>();
+	private ArrayList <String> Alleles = new ArrayList<>();
+	
+	public Haplotype(){
+		
+	}
+	
+	public Haplotype(String _AlleleID, String _CommonName, String _FunctionStatus){
+		AlleleID = _AlleleID;
+		CommonName = _CommonName;
+		FunctionStatus = _FunctionStatus;
+	}
 	
 	public void addVariant(Variant _Variant){
 		Variants.add(_Variant);
@@ -38,19 +47,16 @@ public class Haplotype implements Comparable<Haplotype> {
 	public String getFunctionStatus(){
 		return FunctionStatus;
 	}
-	public void addNormalAlleles(String _NormalAlleles){
-		NormalAlleles.add(_NormalAlleles);
+	public void addAllele(String _Allele){
+		Alleles.add(_Allele);
 	}
-	public ArrayList<String> getNormalAlleles(){
-		return NormalAlleles;
+	public void addAlleles(ArrayList <String> _Alleles){
+		Alleles = _Alleles;
 	}
-	public void addEffectAlleles(String _EffectAlleles){
-		EffectAlleles.add(_EffectAlleles);
+	public ArrayList<String> getAlleles(){
+		return Alleles;
 	}
-	public ArrayList<String> getEffectAlleles(){
-		return EffectAlleles;
-	}
-
+	
 
   @Override
   public String toString() {

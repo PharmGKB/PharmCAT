@@ -55,11 +55,13 @@ public class DefinitionReader {
     System.out.println(file);
 
     TSVfile inProccessFile = new TSVfile(file.toString());
-    ArrayList<Variant> variants = new ArrayList<Variant>();
+    ArrayList<Variant> variants = new ArrayList<>();
+    ArrayList<Haplotype> haplotypes = new ArrayList<>();
 
     try (BufferedReader bufferedReader = Files.newBufferedReader(file)) {
 
         String line = null;
+        boolean NormalFunctionAllele = true;
 
     	while((line = bufferedReader.readLine()) != null) {
 
@@ -113,6 +115,31 @@ public class DefinitionReader {
             	for (int i = 4; i < fields.length; i++){
                 	variants.get(i-4).set_rsID(fields[i]);
                 }
+            }
+            else if (fields[0].equals("Allele")){
+            	ArrayList <String> alleles = new ArrayList<>();
+            	ArrayList <Variant> hapVariants = new ArrayList<>();
+            	
+            	
+            	for (int i = 4; i < variants.size()+4; i++){
+                	
+                	if (NormalFunctionAllele){
+                		variants.get(i-4).setREF(fields[i]);
+                		alleles.add(fields[i])
+                		hapVariants.add(variants.get(i-4));
+                		
+                	}
+                	else{
+                		variants.get(i-4).addALT(fields[i]);
+                		alleles.add(fields[i])
+                		hapVariants.add(variants.get(i-4));
+                	}
+                	
+            	}
+            	NormalFunctionAllele=false;
+            	Haplotype hapToProcess = new Haplotype(fields[1],fields[2],fields[3],);
+            	
+            	
             }
 
 
