@@ -1,8 +1,8 @@
 package org.cpic.haplotype;
 
 import com.google.common.base.Preconditions;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
+import com.google.common.collect.ListMultimap;
+import com.google.common.collect.SortedSetMultimap;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,8 +11,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Read in haplotype definition files.
@@ -20,17 +18,17 @@ import java.util.regex.Pattern;
  * @author Mark Woon
  */
 public class DefinitionReader {
-  private TreeMultimap<String, Variant> m_haplotypePositions;
-  private TreeMultimap<String, Haplotype> m_haplotypes;
-  
+  private SortedSetMultimap<String, Variant> m_haplotypePositions;
+  private ListMultimap<String, Haplotype> m_haplotypes;
+
   private Set<TSVfile> s_files;
 
 
-  public Multimap<String, Variant> getHaplotypePositions() {
+  public SortedSetMultimap<String, Variant> getHaplotypePositions() {
     return m_haplotypePositions;
   }
-  
-  public Multimap<String, Haplotype> getHaplotypes() {
+
+  public ListMultimap<String, Haplotype> getHaplotypes() {
 	    return m_haplotypes;
   }
 
@@ -46,31 +44,31 @@ public class DefinitionReader {
       readFile(path);
     }
   }
-  
-  
-  
-  
+
+
+
+
 
 
   private void readFile(Path file)  {
 
     Preconditions.checkArgument(Files.isRegularFile(file));
     System.out.println(file);
-    
+
     TSVfile inProccessFile = new TSVfile(file.toString());
     ArrayList<Variant> variants = new ArrayList<Variant>();
-    
+
     try (BufferedReader bufferedReader = Files.newBufferedReader(file)) {
-    	
+
         String line = null;
-   	
+
     	while((line = bufferedReader.readLine()) != null) {
-            
+
             String[] fields = line.trim().split("\t");
             for (int i = 0; i < fields.length; i++){
             	fields[i] = fields[i].trim();
             }
-            
+
             if (fields[0].equals("FormatVersion")){
             	inProccessFile.setFormatVersion(fields[1]);
             }
@@ -117,18 +115,18 @@ public class DefinitionReader {
                 	variants.get(i-4).set_rsID(fields[i]);
                 }
             }
-            
-            
-        } 
-    	
+
+
+        }
+
     	s_files.add(inProccessFile);
-    	
-    	
+
+
     } catch (Exception ex) {
     	throw new RuntimeException(ex);
     }
   }
-  
+
   public static void main(String[] args) {
 
     try {
