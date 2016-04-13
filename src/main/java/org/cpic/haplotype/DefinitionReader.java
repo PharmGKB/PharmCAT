@@ -64,6 +64,7 @@ public class DefinitionReader {
         boolean NormalFunctionAllele = true;
 
     	while((line = bufferedReader.readLine()) != null) {
+    		System.out.println(line);
 
             String[] fields = line.trim().split("\t");
             for (int i = 0; i < fields.length; i++){
@@ -74,20 +75,22 @@ public class DefinitionReader {
             	inProccessFile.setFormatVersion(fields[1]);
             }
             else if (fields[0].equals("Gene")){
-            	inProccessFile.setFormatVersion(fields[1]);
+            	inProccessFile.setGeneID(fields[0]);
+            	inProccessFile.setGeneName(fields[1]);
             }
             else if (fields[0].equals("ContentVersion")){
-            	//inProccessFile.setFormatVersion(fields[1]);
+            	inProccessFile.setContentVersion(fields[1]);
+            	inProccessFile.setContentDate(fields[1]);
             }
             else if (fields[0].equals("GenomeBuild")){
-            	//inProccessFile.setFormatVersion(fields[1]);
+            	inProccessFile.setGenomeBuild(fields[1]);
             }
             else if (fields[0].equals("Chomosome")){
             	inProccessFile.setChromosomeID(fields[1]);
             	inProccessFile.setChromosome(fields[2]);
             }
             else if (fields[0].equals("Protein")){
-            	//inProccessFile.setFormatVersion(fields[1]);
+            	inProccessFile.setProteinID(fields[1]);
             }
             else if (fields[0].equals("cDNAChange")){
             	for (int i = 4; i < fields.length; i++){
