@@ -1,0 +1,25 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166104944",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166104944",
+  "name" : "Dutch Pharmacogenetics Working Group Guideline for tegafur and DPYD",
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA452620",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA452620",
+    "name" : "tegafur"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA145",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA145",
+    "symbol" : "DPYD",
+    "name" : "dihydropyrimidine dehydrogenase"
+  } ],
+  "source" : "DPWG",
+  "summaryHtml" : "<p>Select an alternate drug (that is not metabolized by DPYD) rather than tegafur for DPYD poor metabolizers.</p>",
+  "textHtml" : "<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for tegafur/uracil combination based on DPYD genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].  They recommend that an alternate drug be used for poor metabolizer patients, but do not provide a recommendation for intermediate metabolizer patients.</p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th> Phenotype (Genotype) </th><th> Therapeutic Dose Recommendation </th><th> Level of Evidence </th><th> Clinical Relevance </th></tr><tr><td> PM (2 inactive alleles, 2 decreased activity alleles, or one inactive and one decreased activity alleles) </td><td> Select alterantive drug.  Fluorouracil or capecitabine are not suitable alternatives because both are also metabolized by DPD. </td><td> Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints. </td><td> Clinical effect (NS). Kinetic effect (NS). </td></tr><tr><td> IM (1 active allele and 1 inactive or decreased activity allele) </td><td> None.  </td><td> Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints. </td><td> Clinical effect (NS). Kinetic effect (NS). </td></tr></table><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th> Allele Type </th><th> Alleles </th></tr><tr><td> active </td><td> *1, *4, *5, *6, *9A </td></tr><tr><td> decreased activity </td><td> *9B, *10 </td></tr><tr><td> inactive </td><td> *2A, *3, *7, *8, *11, *12, *13, 496A&gt;G, IVS10-15T&gt;C, 1156G&gt;T, 1845G&gt;T </td></tr></table><ul><li>*See <a href=\"http://www.pharmgkb.org/home/dutch_pharmacogenetics_working_group.jsp\">Methods</a> or <a href=\"http://www.pharmgkb.org/pmid/18253145\">PMID: 18253145</a> for definition of \"moderate\" quality.</li><li>NS: not statistically significant difference.</li></ul>"
+}

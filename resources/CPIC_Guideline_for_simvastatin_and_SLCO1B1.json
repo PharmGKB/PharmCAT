@@ -1,0 +1,326 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166105005",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166105005",
+  "name" : "CPIC Guideline for simvastatin and SLCO1B1",
+  "groups" : [ {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128849",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128849",
+    "name" : "Intermediate function",
+    "annotations" : [ {
+      "id" : 1445949215,
+      "text" : "Intermediate myopathy risk",
+      "textHtml" : "<p>Intermediate myopathy risk</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "src" : "guidelineTags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1445949151,
+      "text" : "Intermediate function",
+      "textHtml" : "<p>Intermediate function</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "src" : "guidelineTags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1445949283,
+      "text" : "Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance",
+      "textHtml" : "<p>Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "SLCO1B1:*15/*1A", "SLCO1B1:*15/*1B", "SLCO1B1:*17/*1A", "SLCO1B1:*17/*1B", "SLCO1B1:*1A/*5", "SLCO1B1:*1B/*5" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "src" : "guidelineStrength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128850",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128850",
+    "name" : "Low function",
+    "annotations" : [ {
+      "id" : 1445949473,
+      "text" : "High myopathy risk",
+      "textHtml" : "<p>High myopathy risk</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "src" : "guidelineTags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1445949418,
+      "text" : "Low function",
+      "textHtml" : "<p>Low function</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "src" : "guidelineTags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1445949558,
+      "text" : "Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance",
+      "textHtml" : "<p>Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "SLCO1B1:*15/*15", "SLCO1B1:*15/*17", "SLCO1B1:*15/*5", "SLCO1B1:*17/*17", "SLCO1B1:*17/*5", "SLCO1B1:*5/*5" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "src" : "guidelineStrength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128848",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128848",
+    "name" : "Normal function",
+    "annotations" : [ {
+      "id" : 1445948918,
+      "text" : "Normal myopathy risk",
+      "textHtml" : "<p>Normal myopathy risk</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "src" : "guidelineTags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1445948818,
+      "text" : "Normal function",
+      "textHtml" : "<p>Normal function</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "src" : "guidelineTags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1445949054,
+      "text" : "Prescribe desired starting dose and adjust doses of simvastatin based on disease-specific guidelines",
+      "textHtml" : "<p>Prescribe desired starting dose and adjust doses of simvastatin based on disease-specific guidelines</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "SLCO1B1:*1A/*1A", "SLCO1B1:*1A/*1B", "SLCO1B1:*1B/*1B" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "src" : "guidelineStrength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128851",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128851",
+    "name" : "Possible Increased Function",
+    "annotations" : [ {
+      "id" : 1445950818,
+      "text" : "Possible Increased Function",
+      "textHtml" : "<p>Possible Increased Function</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "src" : "guidelineTags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1445951861,
+      "text" : "This patient MAY have increased SLCO1B1 function. There are no specific clinical recommendations to guide simvastatin therapy dosing, please consult a clinical pharmacist for more specific information about how SLCO1B1 function influences drug dosing.",
+      "textHtml" : "<p>This patient MAY have increased SLCO1B1 function. There are no specific clinical recommendations to guide simvastatin therapy dosing, please consult a clinical pharmacist for more specific information about how SLCO1B1 function influences drug dosing.</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "SLCO1B1:*14/*14", "SLCO1B1:*14/*1A", "SLCO1B1:*14/*1B", "SLCO1B1:*14/*35", "SLCO1B1:*1A/*35", "SLCO1B1:*1B/*35", "SLCO1B1:*35/*35" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "src" : "guidelineStrength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128852",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128852",
+    "name" : "Possible Intermediate Function",
+    "annotations" : [ {
+      "id" : 1445952001,
+      "text" : "The patient MAY be at risk for an adverse response to medications that are affected by SLCO1B1.",
+      "textHtml" : "<p>The patient MAY be at risk for an adverse response to medications that are affected by SLCO1B1. </p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "src" : "guidelineTags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1445950760,
+      "text" : "Possible Intermediate Function",
+      "textHtml" : "<p>Possible Intermediate Function</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "src" : "guidelineTags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1445952118,
+      "text" : "To avoid an untoward drug response, dose adjustments MAY be necessary for medications affected by SLCO1B1. If simvastatin is prescribed to a patient with intermediate SLCO1B1 function, there is an increased risk for developing simvastatin-associated myopathy; such patients may need a lower starting dose of simvastatin or an alternate statin agent. Please consult a clinical pharmacista for more specific information about how SLCO1B1 function influences drug dosing.",
+      "textHtml" : "<p>To avoid an untoward drug response, dose adjustments MAY be necessary for medications affected by SLCO1B1. If simvastatin is prescribed to a patient with intermediate SLCO1B1 function, there is an increased risk for developing simvastatin-associated myopathy; such patients may need a lower starting dose of simvastatin or an alternate statin agent. Please consult a clinical pharmacista for more specific information about how SLCO1B1 function influences drug dosing.</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "SLCO1B1:*10/*1A", "SLCO1B1:*10/*1B", "SLCO1B1:*1A/*2", "SLCO1B1:*1A/*23", "SLCO1B1:*1A/*3", "SLCO1B1:*1A/*31", "SLCO1B1:*1A/*6", "SLCO1B1:*1A/*9", "SLCO1B1:*1B/*2", "SLCO1B1:*1B/*23", "SLCO1B1:*1B/*3", "SLCO1B1:*1B/*31", "SLCO1B1:*1B/*6", "SLCO1B1:*1B/*9" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "src" : "guidelineStrength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128853",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128853",
+    "name" : "Possible Low Function",
+    "annotations" : [ {
+      "id" : 1445952333,
+      "text" : "The patient MAY be at a high risk for an adverse response to medications that are affected by SLCO1B1.",
+      "textHtml" : "<p>The patient MAY be at a high risk for an adverse response to medications that are affected by SLCO1B1.</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "src" : "guidelineTags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1445950977,
+      "text" : "Possible Low Function",
+      "textHtml" : "<p>Possible Low Function</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "src" : "guidelineTags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1445952403,
+      "text" : "To avoid an untoward drug response, dose adjustments or alternative therapeutic agents MAY be necessary for medications affected by SLCO1B1. If simvastatin is prescribed to a patient with low SLCO1B1 function, there is a high risk of developing simvastatin-associated myopathy; such patients may need an alternative statin agent, and creatine kinase levels (test name: CK) may need to be monitored routinely. Please consult a clinical pharmacista for more specific information about how SLCO1B1 function influences drug dosing.",
+      "textHtml" : "<p>To avoid an untoward drug response, dose adjustments or alternative therapeutic agents MAY be necessary for medications affected by SLCO1B1. If simvastatin is prescribed to a patient with low SLCO1B1 function, there is a high risk of developing simvastatin-associated myopathy; such patients may need an alternative statin agent, and creatine kinase levels (test name: CK) may need to be monitored routinely. Please consult a clinical pharmacista for more specific information about how SLCO1B1 function influences drug dosing.</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "SLCO1B1:*10/*10", "SLCO1B1:*10/*15", "SLCO1B1:*10/*17", "SLCO1B1:*10/*2", "SLCO1B1:*10/*23", "SLCO1B1:*10/*3", "SLCO1B1:*10/*31", "SLCO1B1:*10/*5", "SLCO1B1:*10/*6", "SLCO1B1:*10/*9", "SLCO1B1:*15/*2", "SLCO1B1:*15/*23", "SLCO1B1:*15/*3", "SLCO1B1:*15/*31", "SLCO1B1:*15/*6", "SLCO1B1:*15/*9", "SLCO1B1:*17/*2", "SLCO1B1:*17/*23", "SLCO1B1:*17/*3", "SLCO1B1:*17/*31", "SLCO1B1:*17/*6", "SLCO1B1:*17/*9", "SLCO1B1:*2/*2", "SLCO1B1:*2/*23", "SLCO1B1:*2/*3", "SLCO1B1:*2/*31", "SLCO1B1:*2/*5", "SLCO1B1:*2/*6", "SLCO1B1:*2/*9", "SLCO1B1:*23/*23", "SLCO1B1:*23/*3", "SLCO1B1:*23/*31", "SLCO1B1:*23/*5", "SLCO1B1:*23/*6", "SLCO1B1:*23/*9", "SLCO1B1:*3/*3", "SLCO1B1:*3/*31", "SLCO1B1:*3/*5", "SLCO1B1:*3/*6", "SLCO1B1:*3/*9", "SLCO1B1:*31/*31", "SLCO1B1:*31/*5", "SLCO1B1:*31/*6", "SLCO1B1:*31/*9", "SLCO1B1:*5/*6", "SLCO1B1:*5/*9", "SLCO1B1:*6/*6", "SLCO1B1:*6/*9", "SLCO1B1:*9/*9" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "src" : "guidelineStrength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929"
+    }
+  } ],
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA451363",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA451363",
+    "name" : "simvastatin"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA134865839",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA134865839",
+    "symbol" : "SLCO1B1",
+    "name" : "solute carrier organic anion transporter family, member 1B1"
+  } ],
+  "source" : "CPIC",
+  "summaryHtml" : "<p>The FDA recommends against 80mg daily simvastatin dosage. In patients with the C allele at SLCO1B1 <a href=\"/rsid/rs4149056\">rs4149056</a>, there are modest increases in myopathy risk even at lower simvastatin doses (40mg daily); if optimal efficacy is not achieved with a lower dose, alternate agents should be considered.</p>",
+  "textHtml" : "<h3 id=\"June2014Update\">June 2014 Update</h3><p><em>Advance online publication 9 July 2014.</em></p><ul><li>The <a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2014%2F24918167.pdf\" target=\"offsite\">2014 update of CPIC guideline regarding SLCO1B1 and simvastatin-induced myopathy</a>, has been published in Clinical Pharmacology and Therapeutics.  CPIC extensively reviewed the literature from February 2011 to December 2013 and concluded the dosing recommendations provided in the 2012 CPIC guideline for SLCO1B1 and simvastatin-induced myopathy have not changed. However, this updated guideline also provides a brief review regarding SLCO1B1 genotype and risk of myopathy for other statins.  Furthermore, comprehensive translation tables mapping SLCO1B1 genotypes to coded genotype/phenotype summaries, EHR priority result notation and interpretation (consultation) text were created to facilitate incorporation of SLCO1B1 pharmacogenetics into an electronic health record with clinical decision support.* </li></ul><ul><li>This guideline is applicable to:<ul><li>adult patients</li><li>pediatric patients </li></ul></li></ul><ul><li>Excerpt from the 2014 simvastatin dosing guideline:<ul><li>\"For simvastatin, the evidence linking myopathy to <a href=\"/rsid/rs4149056\">rs4149056</a> in SLCO1B1 is of high quality, and this association has been reproduced in randomized trials and clinical practice-based cohorts. Conversely, the association of <a href=\"/rsid/rs4149056\">rs4149056</a> with myopathy has been less compelling for other statins. We therefore focus this guideline on simvastatin.\"<br/>\"In 2011 and updated in 2013, the FDA added warnings to the simvastatin product label to direct providers away from initiating at the 80 mg simvastatin dose. \" <br/>\"At lower simvastatin doses (e.g., 40 mg daily), it is our position that SLCO1B1 genotype (if available) could be used to warn providers about modest increases in myopathy risk for patients with a C allele at <a href=\"/rsid/rs4149056\">rs4149056</a>. In these circumstances, we recommend a lower dose of simvastatin or use an alternative statin (e.g. pravastatin or rosuvastatin) and we also highlight the potential utility of routine CK surveillance (Table 2). If patients with a C allele at <a href=\"/rsid/rs4149056\">rs4149056</a> do not achieve optimal LDL cholesterol-lowering efficacy with a lower dose (e.g. 20 mg) of simvastatin, we recommend the prescribing physician consider an alternate statin based on (i) potency differences (i.e., use a lower dose of a higher potency statin such as atorvastatin, rosuvastatin, or pitavastatin), (ii) drug-drug interactions (e.g., boceprevir, clarithromycin, cyclosporine, strong CYP3A4 inhibitors, etc.), and (iii) relevant co-morbidities (e.g., trauma, significant renal impairment, post-solid organ transplant, thyroid disease etc.).\"<br/>\"At the time of this writing, there are no data available regarding SLCO1B1 genotype effects on simvastatin response or myopathy in pediatric patient populations, although there is no reason to suspect that the polymorphisms in SLCO1B1 will affect simvastatin's metabolism differently in children compared to adults.\"</li></ul></li></ul><ul><li>Download and read: <ul><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2014%2F24918167.pdf\" target=\"offsite\">The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update</a></li><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2014%2F24918167-supplement.pdf\" target=\"offsite\">2014 supplement</a></li><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2014%2F24918167.xlsx\" target=\"offsite\">2014 SLCO1B1 translation table</a></li></ul></li></ul><h3 id=\"Table1RecommendeddosingofsimvastatinbasedonSLCO1B1phenotype\">Table 1: Recommended dosing of simvastatin based on SLCO1B1 phenotype</h3><p><em>Adapted from Table 1 and 2 of the 2014 guideline update manuscript.</em></p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th>Phenotype</th><th>Examples of diplotypes <sup>a</sup></th><th>Genotype at <a href=\"/rsid/rs4149056\">rs4149056</a></th><th>Implications for simvastatin</th><th>Dosing recommendations for simvastatin <sup>b,c</sup></th><th>Classification of recommendations <sup>d</sup></th></tr><tr><td>Normal function, Homozygous wild-type (two normal function alleles)</td><td>*1a/*1a, *1a/*1b, *1b/*1b</td><td>TT</td><td>Normal myopathy risk</td><td>Prescribe desired starting dose and adjust doses of simvastatin based on disease-specific guidelines.</td><td>Strong</td></tr><tr><td>Intermediate function, Heterozygous (one normal function allele plus one decreased function allele)</td><td>*1a/*5, *1a/*15, *1a/*17, *1b/*5, *1b/*15, *1b/*17</td><td>TC</td><td>Intermediate myopathy risk</td><td>Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance.</td><td>Strong</td></tr><tr><td>Low function, Homozygous variant or mutant (two decreased function alleles)</td><td>*5/*5, *5/*15, *5/*17, *15/*15, *15/*17, *17/*17</td><td>CC</td><td>High myopathy risk</td><td>Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance.</td><td>Strong</td></tr></table><p>CK, creatine kinase.<br/><sup>a</sup> SLCO1B1 alleles are often named using * allele nomenclature, representing various SNPs alone or in combination (<a href=\"http://www.pharmgkb.org/gene/PA134865839#tabview=tab4&amp;subtab=33\">http://www.pharmgkb.org/gene/PA134865839#tabview=tab4&amp;subtab=33</a>) (2014 Update Supplemental Table S1) that are associated with low SLCO1B1 protein expression or function (2014 Update Supplemental Table S2). The minor C allele at <a href=\"/rsid/rs4149056\">rs4149056</a> is contained within SLCO1B1*5 (<a href=\"/rsid/rs4149056\">rs4149056</a> alone) as well as the *15 and *17 haplotypes and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 haplotypes.<br/><sup>b</sup> In all cases, the potential for drug-drug interaction should be evaluated prior to initiating a prescription. <br/><sup>c</sup> FDA recommends against 80mg (unless already tolerated 12 months).  <br/><sup>d</sup> See Supplementary Materials (text section entitled \"Levels of Evidence\") online for additional details regarding the three-tiered system used to grade the quality of evidence.  </p><h3 id=\"July2012\">July 2012</h3><p><em>Advance online publication May 2012.</em></p><ul><li>Guideline regarding the use of pharmacogenomic tests in dosing for simvastatin was published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium (<a href=\"/contributors/consortia/cpic_profile.jsp\">CPIC</a>).  </li><li>Download and read:  <ul><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2012%2F22617227.pdf\" target=\"offsite\">The clinical pharmacogenomics implementation consortium: CPIC guideline for SLCO1B1 and simvastatin-induced myopathy.</a> </li><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2012%2F22617227-supplement.pdf\" target=\"offsite\">2012 supplement</a></li></ul></li></ul>"
+}

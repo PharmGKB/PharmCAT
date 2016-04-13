@@ -1,0 +1,32 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166104999",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166104999",
+  "name" : "CPIC Dosing Guideline for imipramine and CYP2C19,CYP2D6",
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA449969",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA449969",
+    "name" : "imipramine"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA124",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA124",
+    "symbol" : "CYP2C19",
+    "name" : "cytochrome P450, family 2, subfamily C, polypeptide 19"
+  }, {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA128",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA128",
+    "symbol" : "CYP2D6",
+    "name" : "cytochrome P450, family 2, subfamily D, polypeptide 6"
+  } ],
+  "source" : "CPIC",
+  "summaryHtml" : "<p>Tricyclic antidepressants have comparable pharmacokinetic properties, it may be reasonable to apply the CPIC Dosing Guideline for amitriptyline and CYP2C19, CYP2D6 to other tricyclics including imipramine. In the guideline for amitriptyline, an alternative drug is recommended for CYP2D6 or CYP2C19 ultrarapid metabolizers and for CYP2D6 poor metabolizers. Consider a 50% dose reduction for CYP2C19 poor metabolizers and a 25% dose reduction for CYP2D6 intermediate metabolizers.</p>",
+  "textHtml" : "<p>Guidelines regarding the use of pharmacogenomic tests in dosing for tricyclic antidepressants have been published in Clinical Pharmacology and Therapeutics by the <a href=\"/contributors/consortia/cpic_profile.jsp\">Clinical Pharmacogenetics Implementation Consortium (CPIC)</a>.</p><p><strong>Download:</strong> <a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAguideline2012.pdf\">article</a> and <a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAsupplement2012.pdf\">supplement</a></p><h5 id=\"Excerptfromthedosingguidelines\">Excerpt from the dosing guidelines:</h5><p><a href=\"http://www.pharmgkb.org/drug/PA448385\">Amitriptyline</a> and nortriptyline are used as model drugs for this guideline because the majority of pharmacogenomic studies have focused on these two drugs. Because the tricyclics have comparable pharmacokinetic properties, it may be reasonable to apply this <a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAguideline2012.pdf\">guideline</a> to other tricyclics including imipramine (<a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAsupplement2012.pdf\">Supplementary Table S17</a>), with the acknowledgement that there are fewer data supporting dose adjustments for these drugs than for amitriptyline or nortriptyline.<br/><br/>See <a href=\"http://www.pharmgkb.org/drug/PA448385\">amitriptyline</a> for excerpts and tables that summarize <em>CYP2D6</em>-based and <em>CYP2C19</em>-based dosing recommendations for amitriptyline when higher initial starting doses are warranted (<a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAguideline2012.pdf\">article</a>).</p>"
+}

@@ -1,0 +1,25 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166104987",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166104987",
+  "name" : "Dutch Pharmacogenetics Working Group Guideline for lansoprazole and CYP2C19",
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA450180",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA450180",
+    "name" : "lansoprazole"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA124",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA124",
+    "symbol" : "CYP2C19",
+    "name" : "cytochrome P450, family 2, subfamily C, polypeptide 19"
+  } ],
+  "source" : "DPWG",
+  "summaryHtml" : "<p>For CYP2C19 ultrarapid metabolizers, be extra alert to insufficient response and consider increasing lansoprazole dose by 200%.</p>",
+  "textHtml" : "<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for lansoprazole based on <em>CYP2C19</em> genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].  For the <em>CYP2C19</em> UM phenotype, they conclude to be extra alert to insufficient response and recommend to consider dose increase by 200%.</p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th> Phenotype (Genotype) </th><th> Therapeutic Dose Recommendation </th><th> Level of Evidence </th><th> Clinical Relevance </th></tr><tr><td> <em>CYP2C19</em> PM (*2/*2, *2/*3, *3/*3) </td><td> None </td><td> Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints </td><td> Positive clinical effects  </td></tr><tr><td> <em>CYP2C19</em> IM (*1/*2, *1/*3, *17/*2, *17/*3) </td><td> None </td><td> Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints </td><td> Positive clinical effects  </td></tr><tr><td> <em>CYP2C19</em> UM (*17/*17) </td><td>  Helicobacter pylori eradication: increase dose by 200%. Be extra alert to insufficient response <br/>Other: be extra alert to insufficient response. Consider dose increase by 200% </td><td> no data was retrieved with the literature search </td><td> no data was retrieved with the literature search </td></tr></table><ul><li>*See <a href=\"http://www.pharmgkb.org/home/dutch_pharmacogenetics_working_group.jsp\">Methods</a> or <a href=\"http://www.pharmgkb.org/pmid/18253145\">PMID: 18253145</a> for definition of \"good quality.\"</li></ul>"
+}

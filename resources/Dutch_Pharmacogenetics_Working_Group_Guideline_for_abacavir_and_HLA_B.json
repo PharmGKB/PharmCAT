@@ -1,0 +1,25 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166104991",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166104991",
+  "name" : "Dutch Pharmacogenetics Working Group Guideline for abacavir and HLA-B",
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA448004",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA448004",
+    "name" : "abacavir"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA35056",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA35056",
+    "symbol" : "HLA-B",
+    "name" : "major histocompatibility complex, class I, B"
+  } ],
+  "source" : "DPWG",
+  "summaryHtml" : "<p>An alternate to abacavir should be selected for patients who have the HLA-B*57:01 allele (patients who are \"HLA-B*57:01-positive\").</p>",
+  "textHtml" : "<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for abacavir based on HLA-B*57:01 [Article:<a href=\"/pmid/21412232\">21412232</a>]. They conclude that an alternate drug should be selected for patients who are HLA-B*57:01 positive.</p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th> Genotype </th><th> Therapeutic Dose Recommendation </th><th> Level of Evidence </th><th> Clinical Relevance </th></tr><tr><td> HLA-B*57:01 </td><td> Select alternative drug </td><td> Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints. </td><td> Clinical effect (S): Failure of lifesaving therapy e.g. anticipated myelosuppression; prevention of breast cancer relapse; arrhythmia; neutropenia &lt; 0.5x109/l; leucopenia &lt; 1.0x109/l; thrombocytopenia &lt; 25x109/l; life-threatening complications from diarrhea. </td></tr></table><ul><li>*See <a href=\"http://www.pharmgkb.org/home/dutch_pharmacogenetics_working_group.jsp\">Methods</a> or <a href=\"http://www.pharmgkb.org/pmid/18253145\">PMID: 18253145</a> for definition of \"good quality.\"</li><li>S: statistically significant difference.</li></ul>"
+}

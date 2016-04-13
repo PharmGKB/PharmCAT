@@ -118,7 +118,7 @@ public class Reporter {
         
         loadRequiredFiles();
         InteractionJsonReader interactionReader = new InteractionJsonReader();
-        interactionReader.load();
+        //interactionReader.load();
         
         
 

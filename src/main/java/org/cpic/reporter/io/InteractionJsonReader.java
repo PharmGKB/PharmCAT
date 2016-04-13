@@ -12,11 +12,12 @@ import com.google.gson.GsonBuilder;
 
 public class InteractionJsonReader {
     
-    public void load( File fileToRead ){
+  /*  public void load( File fileToRead ){
         try(Reader reader = new InputStreamReader(CPICinteraction.class.getResourceAsStream( fileToRead ), "UTF-8")){
             Gson gson = new GsonBuilder().create();
             CPICinteraction p = gson.fromJson(reader, CPICinteraction.class);
             System.out.println(p);
         }
-
+    }
+*/
 }

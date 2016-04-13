@@ -1,0 +1,182 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166104965",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166104965",
+  "name" : "CPIC Dosing Guideline for thioguanine and TPMT",
+  "groups" : [ {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128796",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128796",
+    "name" : "Heterozygous or intermediate activity",
+    "annotations" : [ {
+      "id" : 1445583637,
+      "text" : "Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10x higher than TGN after mercaptopurine or azathioprine",
+      "textHtml" : "<p>Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10x higher than TGN after mercaptopurine or azathioprine</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "src" : "guidelineTags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1445583636,
+      "text" : "Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)",
+      "textHtml" : "<p>Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "src" : "guidelineTags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1445583638,
+      "text" : "Start with reduced doses (reduce by 30-50%) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady state after each dose adjustment. In setting of myelosuppression, and depending on other therapy, emphasis should be on reducing thioguanine over other agents.",
+      "textHtml" : "<p>Start with reduced doses (reduce by 30-50%) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady state after each dose adjustment. In setting of myelosuppression, and depending on other therapy, emphasis should be on reducing thioguanine over other agents.</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "TPMT:*1/*2", "TPMT:*1/*3A", "TPMT:*1/*3B", "TPMT:*1/*3C", "TPMT:*1/*4" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "src" : "guidelineStrength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128798",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128798",
+    "name" : "Homozygous variant, mutant, low, or deficient activity",
+    "annotations" : [ {
+      "id" : 1445583643,
+      "text" : "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease",
+      "textHtml" : "<p>Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "src" : "guidelineTags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1445583642,
+      "text" : "Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)",
+      "textHtml" : "<p>Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "src" : "guidelineTags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1445583644,
+      "text" : "Start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing thioguanine over other agents. For nonmalignant conditions, consider alternative nonthiopurine immunosuppressant therapy.",
+      "textHtml" : "<p>Start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing thioguanine over other agents. For nonmalignant conditions, consider alternative nonthiopurine immunosuppressant therapy.</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "TPMT:*2/*2", "TPMT:*2/*3A", "TPMT:*2/*3B", "TPMT:*2/*3C", "TPMT:*2/*4", "TPMT:*3A/*3A", "TPMT:*3A/*3B", "TPMT:*3A/*3C", "TPMT:*3A/*4", "TPMT:*3B/*3B", "TPMT:*3B/*3C", "TPMT:*3B/*4", "TPMT:*3C/*3C", "TPMT:*3C/*4", "TPMT:*4/*4" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "src" : "guidelineStrength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128797",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128797",
+    "name" : "Homozygous wild-type or normal, high activity",
+    "annotations" : [ {
+      "id" : 1445583639,
+      "text" : "Homozygous wild-type or normal, high activity (two functional *1 alleles)",
+      "textHtml" : "<p>Homozygous wild-type or normal, high activity (two functional *1 alleles)</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "src" : "guidelineTags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924"
+      }
+    }, {
+      "id" : 1445583640,
+      "text" : "Lower concentrations of TGN metabolites, but note that TGN after thioguanine are 5-10x higher than TGN after mercaptopurine or azathioprine",
+      "textHtml" : "<p>Lower concentrations of TGN metabolites, but note that TGN after thioguanine are 5-10x higher than TGN after mercaptopurine or azathioprine</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "src" : "guidelineTags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1445583641,
+      "text" : "Start with normal starting dose. Adjust doses of thioguanine and of other myelosuppressive therapy without any special emphasis on thioguanine. Allow 2 weeks to reach steady state after each dose adjustment.",
+      "textHtml" : "<p>Start with normal starting dose. Adjust doses of thioguanine and of other myelosuppressive therapy without any special emphasis on thioguanine. Allow 2 weeks to reach steady state after each dose adjustment.</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "TPMT:*1/*1" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "src" : "guidelineStrength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930"
+    }
+  } ],
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA451663",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA451663",
+    "name" : "thioguanine"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA356",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA356",
+    "symbol" : "TPMT",
+    "name" : "thiopurine S-methyltransferase"
+  } ],
+  "source" : "CPIC",
+  "summaryHtml" : "<p>Start with reduced doses of thioguanine for patients with one nonfunctional TPMT allele, or drastically reduced doses for patients with malignancy and two nonfunctional alleles; adjust dose based on degree of myelosuppression and disease-specific guidelines. Consider alternative nonthiopurine immunosuppressant therapy for patients with nonmalignant conditions and two nonfunctional alleles.</p>",
+  "textHtml" : "<h3 id=\"April2013Update\">April 2013 Update</h3><p><em>Advance online publication January 2013.</em></p><ul><li>The <a href=\"/redirect.jsp?p=http%3A%2F%2Fwww.nature.com%2Fclpt%2Fjournal%2Fvaop%2Fnaam%2Findex.html%2317012013\" target=\"offsite\">2013 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine</a>, have been published in Clinical Pharmacology and Therapeutics.  Literature published between June 2010-November 2012 was reviewed and there is <strong>no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current.</strong> </li><li>These guidelines are applicable to:<ul><li>pediatric patients </li><li>adult patients</li></ul></li><li>Download and read: <ul><li><a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TPMT_update.pdf\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update</a></li><li><a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TPMT_update_supp.pdf\">2013 supplement</a></li></ul></li></ul><h3 id=\"March2011\">March 2011</h3><p><em>Advance online publication January 2011.</em></p><ul><li>Guidelines regarding the use of pharmacogenomic tests in dosing for azathioprine, thioguanine and mercaptopurine were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium (<a href=\"/contributors/consortia/cpic_profile.jsp\">CPIC</a>).  </li><li>Excerpt from the 2011 thiopurine dosing guidelines:<ul><li>\"Thiopurines are most commonly used to treat nonmalignant conditions but are also critical anticancer agents. The approach to dosing adjustments based on TPMT status may differ depending on the clinical indication and the propensity to initiate therapy at higher vs. lower starting doses. We and others advocate testing for TPMT status prior to initiating thiopurine therapy, so that starting dosages can be adjusted accordingly.\"</li></ul></li><li>Download and read:  <ul><li><a href=\"/download.do?objCls=Attachment&amp;objId=cpic-tpmt-article.pdf\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing</a> </li><li><a href=\"/download.do?objCls=Attachment&amp;objId=cpic-tpmt-supplement.pdf\">2011 supplement</a></li></ul></li></ul><h3 id=\"Table1RecommendeddosingofthioguaninebyTPMTphenotype\">Table 1: Recommended dosing of thioguanine by TPMT phenotype</h3><p><em>Adapted from Tables 1 and 2 of the 2011 guideline manuscript.</em></p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th> Phenotype (Genotype) </th><th> Examples of diplotypes </th><th> Implications for pharmacologic measures after thioguanine </th><th> Dosing recommendations for thioguanine </th><th> Classification of recommendations </th></tr><tr><td> Homozygous wild-type or normal, high activity (two functional *1 alleles) </td><td> *1/*1 </td><td> Lower concentrations of TGN metabolites, but note that TGN after thioguanine are 5-10x higher than TGN after mercaptopurine or azathioprine </td><td> Start with normal starting dose. Adjust doses of thioguanine and of other myelosuppressive therapy without any special emphasis on thioguanine . Allow 2 weeks to reach steady state after each dose adjustment. </td><td> Strong </td></tr><tr><td> Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4) </td><td> *1/*2, *1/*3A, *1/*3B, *1/*3C, *1/*4 </td><td> Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10x higher than TGN after mercaptopurine or azathioprine </td><td> Start with reduced doses (reduce by 30-50%) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady state after each dose adjustment. In setting of myelosuppression, and depending on other therapy, emphasis should be on reducing thioguanine over other agents. </td><td> Medium </td></tr><tr><td> Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4) </td><td> *3A/*3A, *2/*3A, *3C/*3A, *3C/*4, *3C/*2, *3A/*4 </td><td> Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease </td><td> Start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing thioguanine over other agents. For nonmalignant conditions, consider alternative nonthiopurine immunosuppressant therapy. </td><td> Strong </td></tr></table>"
+}

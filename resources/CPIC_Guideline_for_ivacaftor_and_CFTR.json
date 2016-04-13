@@ -1,0 +1,210 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166114461",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166114461",
+  "name" : "CPIC Guideline for ivacaftor and CFTR",
+  "groups" : [ {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128744",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128744",
+    "name" : "Folding and Traffic (Moderate)",
+    "annotations" : [ {
+      "id" : 1445558513,
+      "text" : "No significant reduction in sweat chloride concentrations; no changes in other clinical measurements including spirometric measurements, pulmonary exacerbations, or body weight. Unlikely to respond to treatment.",
+      "textHtml" : "<p>No significant reduction in sweat chloride concentrations; no changes in other clinical measurements including spirometric measurements, pulmonary exacerbations, or body weight. Unlikely to respond to treatment.</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "src" : "guidelineTags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1445558511,
+      "text" : "Cystic Fibrosis patient homozygous for F508del-CFTR (rs113993960 or rs199826652 genotype del/del).",
+      "textHtml" : "<p>Cystic Fibrosis patient homozygous for F508del-CFTR (<a href=\"/rsid/rs113993960\">rs113993960</a> or <a href=\"/rsid/rs199826652\">rs199826652</a> genotype del/del).</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "src" : "guidelineTags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1445558514,
+      "text" : "Ivacaftor is not recommended.\r\n\r\n_The recommendation for patients with the F508del/F508del genotype is based on ivacaftor mechanism of action and clinical observational data. The clinical study however was a safety study and was not powered to detect a difference in efficacy [PMID:22383668]._",
+      "textHtml" : "<p>Ivacaftor is not recommended.</p><p><em>The recommendation for patients with the F508del/F508del genotype is based on ivacaftor mechanism of action and clinical observational data. The clinical study however was a safety study and was not powered to detect a difference in efficacy [Article:<a href=\"/pmid/22383668\">22383668</a>].</em></p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "CFTR:F508del(CTT)/F508del(CTT)", "CFTR:F508del(CTT)/F508del(TCT)", "CFTR:F508del(TCT)/F508del(TCT)" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "src" : "guidelineStrength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128746",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128746",
+    "name" : "Gating Variant (Moderate)",
+    "annotations" : [ {
+      "id" : 1445558520,
+      "text" : "Significantly enhanced channel open probability _in vitro_ [PMID:22293084].",
+      "textHtml" : "<p>Significantly enhanced channel open probability <em>in vitro</em> [Article:<a href=\"/pmid/22293084\">22293084</a>].</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "src" : "guidelineTags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1445558519,
+      "text" : "Cystic Fibrosis patient with at least one CFTR gating variant.",
+      "textHtml" : "<p>Cystic Fibrosis patient with at least one CFTR gating variant.</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "src" : "guidelineTags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1445558522,
+      "text" : "Use ivacaftor according to the product label (e.g., 150 mg every 12 hours for patients age 6 and older without other diseases; modify dose in patients with hepatic impairment).",
+      "textHtml" : "<p>Use ivacaftor according to the product label (e.g., 150 mg every 12 hours for patients age 6 and older without other diseases; modify dose in patients with hepatic impairment).</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "CFTR:F508del(CTT)/G1244E", "CFTR:F508del(CTT)/G1349D", "CFTR:F508del(CTT)/G178R", "CFTR:F508del(CTT)/G551S", "CFTR:F508del(CTT)/S1251N", "CFTR:F508del(CTT)/S1255P", "CFTR:F508del(CTT)/S549N", "CFTR:F508del(CTT)/S549R(A>C)", "CFTR:F508del(CTT)/S549R(T>G)", "CFTR:F508del(TCT)/G1244E", "CFTR:F508del(TCT)/G1349D", "CFTR:F508del(TCT)/G178R", "CFTR:F508del(TCT)/G551S", "CFTR:F508del(TCT)/S1251N", "CFTR:F508del(TCT)/S1255P", "CFTR:F508del(TCT)/S549N", "CFTR:F508del(TCT)/S549R(A>C)", "CFTR:F508del(TCT)/S549R(T>G)", "CFTR:G1244E/G1244E", "CFTR:G1244E/G1349D", "CFTR:G1244E/G178R", "CFTR:G1244E/G551S", "CFTR:G1244E/Other", "CFTR:G1244E/S1251N", "CFTR:G1244E/S1255P", "CFTR:G1244E/S549N", "CFTR:G1244E/S549R(A>C)", "CFTR:G1244E/S549R(T>G)", "CFTR:G1349D/G1349D", "CFTR:G1349D/G178R", "CFTR:G1349D/G551S", "CFTR:G1349D/Other", "CFTR:G1349D/S1251N", "CFTR:G1349D/S1255P", "CFTR:G1349D/S549N", "CFTR:G1349D/S549R(A>C)", "CFTR:G1349D/S549R(T>G)", "CFTR:G178R/G178R", "CFTR:G178R/G551S", "CFTR:G178R/Other", "CFTR:G178R/S1251N", "CFTR:G178R/S1255P", "CFTR:G178R/S549N", "CFTR:G178R/S549R(A>C)", "CFTR:G178R/S549R(T>G)", "CFTR:G551S/G551S", "CFTR:G551S/Other", "CFTR:G551S/S1251N", "CFTR:G551S/S1255P", "CFTR:G551S/S549N", "CFTR:G551S/S549R(A>C)", "CFTR:G551S/S549R(T>G)", "CFTR:S1251N/Other", "CFTR:S1251N/S1251N", "CFTR:S1251N/S1255P", "CFTR:S1251N/S549N", "CFTR:S1251N/S549R(A>C)", "CFTR:S1251N/S549R(T>G)", "CFTR:S1255P/Other", "CFTR:S1255P/S1255P", "CFTR:S1255P/S549N", "CFTR:S1255P/S549R(A>C)", "CFTR:S1255P/S549R(T>G)", "CFTR:S549N/Other", "CFTR:S549N/S549N", "CFTR:S549N/S549R(A>C)", "CFTR:S549N/S549R(T>G)", "CFTR:S549R(A>C)/Other", "CFTR:S549R(A>C)/S549R(A>C)", "CFTR:S549R(A>C)/S549R(T>G)", "CFTR:S549R(T>G)/Other", "CFTR:S549R(T>G)/S549R(T>G)" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "src" : "guidelineStrength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128745",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128745",
+    "name" : "Gating Variant (Strong)",
+    "annotations" : [ {
+      "id" : 1445558517,
+      "text" : "Significant improvement in lung function, weight, risk of pulmonary exacerbation, patient reported outcomes, and reduction in sweat chloride concentrations through enhanced CFTR channel activity (increase probability of open channel).",
+      "textHtml" : "<p>Significant improvement in lung function, weight, risk of pulmonary exacerbation, patient reported outcomes, and reduction in sweat chloride concentrations through enhanced CFTR channel activity (increase probability of open channel).</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "src" : "guidelineTags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1445558521,
+      "text" : "Cystic Fibrosis patient with at least one G551D-CFTR allele (rs75527207 genotype AA or AG).",
+      "textHtml" : "<p>Cystic Fibrosis patient with at least one G551D-CFTR allele (<a href=\"/rsid/rs75527207\">rs75527207</a> genotype AA or AG).</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "src" : "guidelineTags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1445558518,
+      "text" : "Use ivacaftor according to the product label (e.g., 150 mg every 12 hours for patients age 6 and older without other diseases; modify dose in patients with hepatic impairment)",
+      "textHtml" : "<p>Use ivacaftor according to the product label (e.g., 150 mg every 12 hours for patients age 6 and older without other diseases; modify dose in patients with hepatic impairment)</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "CFTR:F508del(CTT)/G551D", "CFTR:F508del(TCT)/G551D", "CFTR:G1244E/G551D", "CFTR:G1349D/G551D", "CFTR:G178R/G551D", "CFTR:G551D/G551D", "CFTR:G551D/G551S", "CFTR:G551D/Other", "CFTR:G551D/S1251N", "CFTR:G551D/S1255P", "CFTR:G551D/S549N", "CFTR:G551D/S549R(A>C)", "CFTR:G551D/S549R(T>G)" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "src" : "guidelineStrength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128808",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128808",
+    "name" : "Two other alleles",
+    "annotations" : [ {
+      "id" : 1445585352,
+      "text" : "This guideline does not contain recommendations for this allele combination.",
+      "textHtml" : "<p>This guideline does not contain recommendations for this allele combination.</p>",
+      "type" : {
+        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "src" : "guidelineTags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "CFTR:F508del(CTT)/Other", "CFTR:F508del(TCT)/Other", "CFTR:Other/Other" ],
+    "strength" : {
+      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "src" : "guidelineStrength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929"
+    }
+  } ],
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA165950341",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA165950341",
+    "name" : "ivacaftor"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA109",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA109",
+    "symbol" : "CFTR",
+    "name" : "cystic fibrosis transmembrane conductance regulator (ATP-binding cassette sub-family C, member 7)"
+  } ],
+  "source" : "CPIC",
+  "summaryHtml" : "<p>Ivacaftor treatment is recommended only in cystic fibrosis (CF) patients that are either homozygous or heterozygous for certain <em>CFTR</em> variants.  See full guideline for disclaimers, further details and supporting evidence. </p>",
+  "textHtml" : "<h3 id=\"April2014UpdateonPharmGKB\">April 2014 Update on PharmGKB</h3><ul><li>After the submission and review of the CPIC guideline manuscript, the <a href=\"/label/PA166104890\">FDA-approved drug label</a> for ivacaftor was updated to include additional variants. In light of these changes, the CPIC guideline annotation on this PharmGKB webpage has been updated to include additional <em>CFTR</em> variants, specifically G1244E (<a href=\"/rsid/rs267606723\">rs267606723</a>), G1349D (<a href=\"/rsid/rs193922525\">rs193922525</a>), G178R (<a href=\"/rsid/rs80282562\">rs80282562</a>), G551S (<a href=\"/rsid/rs121909013\">rs121909013</a>), S1251N (<a href=\"/rsid/rs74503330\">rs74503330</a>), S1255P (<a href=\"/rsid/rs121909041\">rs121909041</a>), S549N (<a href=\"/rsid/rs121908755\">rs121908755</a>) and S549R (<a href=\"/rsid/rs121908757\">rs121908757</a> and <a href=\"/rsid/rs121909005\">rs121909005</a>) (see Table 1 and Figure 1, below).  These variants are not discussed in the 2014 guideline publication.</li></ul><h3 id=\"March2014\">March 2014</h3><p><em>Accepted article preview online March 2014; Advance online publication March 2014.</em></p><ul><li>Guidelines regarding the use of pharmacogenomic tests in determining whether ivacaftor treatment should be undertaken have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium (<a href=\"/contributors/consortia/cpic_profile.jsp\">CPIC</a>). </li><li>These guidelines are applicable to <ul><li>cystic fibrosis patients</li><li>pediatrics, 6 years and older</li><li>adults</li></ul></li><li>Download and read:<ul><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fivacaftor%2F2014%2F24598717.pdf\" target=\"offsite\">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Ivacaftor Therapy in the Context of CFTR Genotype</a> </li><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fivacaftor%2F2014%2F24598717-supplement.pdf\" target=\"offsite\">2014 supplement</a></li></ul></li></ul><h3 id=\"Table1RecommendedtherapeuticuseofivacaftorbasedonCFTRgenotype\">Table 1: Recommended therapeutic use of ivacaftor based on <em>CFTR</em> genotype</h3><p><em>Adapted from Table 2 of the 2014 guideline manuscript (April 2014 Update on PharmGKB).  Variants have been added to the table below that are not in the published 2014 guideline or supplement; specifically, variants other than G551D and F508del.</em></p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th>CFTR Genotype</th><th>Examples of diplotypes</th><th>Implications for ivacaftor effects</th><th>Recommendations for ivacaftor therapy</th><th>Classification of recommendation for ivacaftor therapy <sup>c</sup></th></tr><tr><td>Homozygous or Heterozygous G551D-CFTR, <a href=\"/rsid/rs75527207\">rs75527207</a> genotype  AA or AG</td><td>G551D/ F508del, G551D/ G551D</td><td>Significant improvement in lung function, weight, risk of pulmonary exacerbation, patient reported outcomes, and reduction in sweat chloride concentrations through enhanced CFTR channel activity (increase probability of open channel).</td><td>Use ivacaftor according to the product label (e.g., 150 mg every 12 hours for patients age 6 and older without other diseases; modify dose in patients with hepatic impairment)</td><td>Strong</td></tr><tr><td>Homozygous for F508del-CFTR, <a href=\"/rsid/rs113993960\">rs113993960</a> or <a href=\"/rsid/rs199826652\">rs199826652</a> genotype del/del</td><td>F508del/F508del</td><td>No significant reduction in sweat chloride concentrations; no changes in other clinical measurements including spirometric measurements, pulmonary exacerbations, or body weight <sup>b</sup>. Unlikely to respond to treatment.</td><td>Ivacaftor is not recommended <sup>a</sup></td><td>Moderate <sup>b</sup></td></tr><tr><td>Homozygous or heterozygous for one of the following <em>CFTR</em> variants that affect gating: G1244E (<a href=\"/rsid/rs267606723\">rs267606723</a> genotype AA or AG), G1349D (<a href=\"/rsid/rs193922525\">rs193922525</a> genotype AA or AG), G178R (<a href=\"/rsid/rs80282562\">rs80282562</a> genotype AA or AG), G551S (<a href=\"/rsid/rs121909013\">rs121909013</a> genotype AA or AG), S1251N (<a href=\"/rsid/rs74503330\">rs74503330</a> genotype AA or AG), S1255P (<a href=\"/rsid/rs121909041\">rs121909041</a> genotype CC or CT), S549N (<a href=\"/rsid/rs121908755\">rs121908755</a> genotype AA or AG), S549R (<a href=\"/rsid/rs121909005\">rs121909005</a> genotype GG or GT, <a href=\"/rsid/rs121908757\">rs121908757</a> genotype CC or CA) <sup>d</sup></td><td>F508del/S549N</td><td>Significantly enhanced channel open probability <em>in vitro</em> [Article:<a href=\"/pmid/22293084\">22293084</a>]. <em>In vitro</em> assays with CFBEo- cells expressing S549N-CFTR showed ivacaftor potentiated chloride channel function [Article:<a href=\"/pmid/23027855\">23027855</a>], and a case study showed improved lung function after ivacaftor treatment in a 12-year-old girl with CF with a copy of the S549N variant [Article:<a href=\"/pmid/24081349\">24081349</a>].</td><td>Use ivacaftor according to the product label (e.g., 150 mg every 12 hours for patients age 6 and older without other diseases; modify dose in patients with hepatic impairment)</td><td>Moderate</td></tr></table><p><sup>a</sup> These recommendations are based on treatment of CF patients with ivacaftor alone and current evidence. Clinical trials are currently underway to investigate ivacaftor alone or in combination with other drugs to treat CF patients with CFTR variants other than G551D, therefore there is potential that ivacaftor may be effective in these patients. See the 2014 guidelines for further details.<br/><sup>b</sup> The recommendation for patients with the F508del/F508del genotype is based on ivacaftor mechanism of action and clinical observational data. The clinical study however was a safety study and was not powered to detect a difference in efficacy [Article:<a href=\"/pmid/22383668\">22383668</a>].<br/><sup>c</sup> Rating scheme described in the 2014 supplement.<br/><sup>d</sup> Variants listed in this table include those added to the amended <a href=\"/label/PA166104890\">drug label for ivacaftor</a> which was approved by the FDA on February 21, 2014. The modifications to this table were made after the acceptance of publication of the 2014 CPIC Ivacaftor-CFTR guideline [Article:<a href=\"/pmid/24598717\">24598717</a>] and are not reflected in the PDFs of the CPIC guideline main manuscript or supplement. </p><h3 id=\"Figure1TreatmentalgorithmforclinicaluseofIvacaftorforcysticfibrosispatientsbasedonCFTRgenotype.\">Figure 1: Treatment algorithm for clinical use of Ivacaftor for cystic fibrosis patients based on <em>CFTR</em> genotype.</h3><p><em>Adapted from Figure 1 of the 2014 guideline manuscript (April 2014 Update on PharmGKB).  Variants have been added to this figure that are not in the published 2014 guideline or supplement; specifically, variants other than G551D and F508del.</em></p><p><img border=\"0\" src=\"/download.do?objCls=Attachment&amp;objId=Slide1.png\"/></p><p><sup>e</sup> Ivacaftor is not recommended for CF patients with other CFTR variants or in patients homozygous for the F508del variant (see 2014 guideline for further details, supporting evidence and disclaimers). Future clinical trials for other CFTR variants are ongoing.</p>"
+}

@@ -1,0 +1,25 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166104947",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166104947",
+  "name" : "Dutch Pharmacogenetics Working Group Guideline for ribavirin and HLA-B",
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA451241",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA451241",
+    "name" : "ribavirin"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA35056",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA35056",
+    "symbol" : "HLA-B",
+    "name" : "major histocompatibility complex, class I, B"
+  } ],
+  "source" : "DPWG",
+  "summaryHtml" : "<p>Although there is some evidence for lower treatment response in HLA-B*44 negative patients,  there are no dosing recommendations for ribavirin at this time.</p>",
+  "textHtml" : "<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for ribavirin based on HLA-B*44 [Article:<a href=\"/pmid/21412232\">21412232</a>].  They found some evidence for lower treatment response in HLA-B*44 negative patients.  However, they conclude that there are no dosing recommendations at this time, \"given that ~90% of the population is HLA-B*44-negative and that no alternative treatment is available.\"</p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th> Genotype </th><th> Therapeutic Dose Recommendation </th><th> Level of Evidence </th><th> Clinical Relevance </th></tr><tr><td> HLA-B*44 </td><td> None </td><td> Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints. </td><td> Clinical effect (S): long-standing discomfort (48-168 hr) without permanent injury e.g. failure of therapy with tricyclic antidepressants, atypical antipsychotic drugs; extrapyramidal side effects; parkinsonism; ADE resulting from increased bioavailability of tricyclic antidepressants, metoprolol, propafenone (central effects e.g. dizziness); INR 4.5-6.0; neutropenia 1.0-1.5x109/l; leucopenia 2.0-3.0x109/l; thrombocytopenia 50-75x109/l </td></tr></table><ul><li>*See <a href=\"http://www.pharmgkb.org/home/dutch_pharmacogenetics_working_group.jsp\">Methods</a> or <a href=\"http://www.pharmgkb.org/pmid/18253145\">PMID: 18253145</a> for definition of \"good quality.\"</li><li>S: statistically significant difference.</li></ul>"
+}

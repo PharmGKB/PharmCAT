@@ -1,4 +1,4 @@
-package src.main.java.org.cpic.jparse;
+package org.cpic.jparse;
 
 public class Rec {
 	String id;

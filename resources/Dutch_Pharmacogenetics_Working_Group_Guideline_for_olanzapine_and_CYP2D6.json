@@ -1,0 +1,25 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166104946",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166104946",
+  "name" : "Dutch Pharmacogenetics Working Group Guideline for olanzapine and CYP2D6",
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA450688",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA450688",
+    "name" : "olanzapine"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA128",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA128",
+    "symbol" : "CYP2D6",
+    "name" : "cytochrome P450, family 2, subfamily D, polypeptide 6"
+  } ],
+  "source" : "DPWG",
+  "summaryHtml" : "<p>There are currently no dosing recommendations for olanzapine based on CYP2D6 genotype.</p>",
+  "textHtml" : "<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for olanzapine based on CYP2D6 genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].  They do not provide dosing recommendations at this time.</p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th> Phenotype (Genotype) </th><th> Therapeutic Dose Recommendation </th><th> Level of Evidence </th><th> Clinical Relevance </th></tr><tr><td> PM (2 inactive alleles) </td><td> None. </td><td> Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints. </td><td> Clinical effect (NS). Kinetic effect (NS). </td></tr><tr><td> IM (2 decreased activity alleles, or 1 active and 1 inactive allele, or 1 decreased activity and 1 inactive allele) </td><td> None.  </td><td> Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints. </td><td> Clinical effect (NS). Kinetic effect (NS). </td></tr><tr><td> UM (gene duplication in absence of inactive or decreased activity alleles) </td><td> None. </td><td> None. </td><td> None. </td></tr></table><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th> Allele Type </th><th> Alleles </th></tr><tr><td> active </td><td> *1, *2, *33, *35 </td></tr><tr><td> decreased activity </td><td> *9, *10, *17, *29, *36, *41  </td></tr><tr><td> inactive </td><td> *3-*8, *11-*16, *19-*21, *38, *40, *42 </td></tr></table><ul><li>*See <a href=\"http://www.pharmgkb.org/home/dutch_pharmacogenetics_working_group.jsp\">Methods</a> or <a href=\"http://www.pharmgkb.org/pmid/18253145\">PMID: 18253145</a> for definition of \"moderate\" quality.</li><li>NS: not statistically significant difference.</li></ul>"
+}

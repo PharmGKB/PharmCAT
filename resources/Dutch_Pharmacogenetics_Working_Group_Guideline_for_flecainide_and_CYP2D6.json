@@ -1,0 +1,25 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166104969",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166104969",
+  "name" : "Dutch Pharmacogenetics Working Group Guideline for flecainide and CYP2D6",
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA449646",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA449646",
+    "name" : "flecainide"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA128",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA128",
+    "symbol" : "CYP2D6",
+    "name" : "cytochrome P450, family 2, subfamily D, polypeptide 6"
+  } ],
+  "source" : "DPWG",
+  "summaryHtml" : "<p>Reduce flecainide dose by 50% for CYP2D6 poor metabolizer (PM) and by 25% for CYP2D6 intermediate metabolizer (IM) patients.</p>",
+  "textHtml" : "<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for flecainide based on CYP2D6 genotypes [Article:<a href=\"/pmid/21412232\">21412232</a>].  They recommend a lower dose for patients carrying the poor metabolizer (PM) alleles and intermediate metabolizer (IM) alleles.</p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th> Phenotype (Genotype) </th><th> Therapeutic Dose Recommendation </th><th> Level of Evidence </th><th> Clinical Relevance </th></tr><tr><td> PM (two inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) alleles) </td><td> Reduce dose by 50%, record ECG, monitor plasma concentration. </td><td> Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints. </td><td> Minor clinical effect (S): QTc prolongation (&lt;450 ms female, &lt;470 ms male); INR increase &lt; 4.5; Kinetic effect (S)</td></tr><tr><td> IM (two decreased-activity (*9, *10, *17, *29, *36, *41) alleles or carrying one active (*1, *2, *33, *35) and one inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) allele, or carrying one decreased-activity (*9, *10, *17, *29, *36, *41) allele and one inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) allele) </td><td> Reduce dose by 25%, record ECG, monitor plasma concentration. </td><td> Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints. </td><td> Minor clinical effect (S): QTc prolongation (&lt;450 ms female, &lt;470 ms male); INR increase &lt; 4.5; Kinetic effect (S) </td></tr><tr><td> UM (a gene duplication in absence of inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) or decreased-activity (*9, *10, *17, *29, *36, *41) alleles) </td><td> Record ECG and monitor plasma concentration or select alternative drug (e.g., sotalol, disopyramide, quinidine, amiodarone). </td><td> no evidence. </td><td> -- </td></tr></table><ul><li>*See <a href=\"http://www.pharmgkb.org/home/dutch_pharmacogenetics_working_group.jsp\">Methods</a> or <a href=\"http://www.pharmgkb.org/pmid/18253145\">PMID: 18253145</a> for definition of \"good\" and \"moderate\" quality.</li><li>S: statistically significant difference.</li></ul>"
+}

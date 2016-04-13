@@ -1,0 +1,25 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166122666",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166122666",
+  "name" : "Professional Society Guideline for codeine and CYP2D6",
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA449088",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA449088",
+    "name" : "codeine"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA128",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA128",
+    "symbol" : "CYP2D6",
+    "name" : "cytochrome P450, family 2, subfamily D, polypeptide 6"
+  } ],
+  "source" : "PRO",
+  "summaryHtml" : "<p>The Canadian Pharmacogenomics Network for Drug Safety (CPNDS) clinical recommendation group has published guidelines for the use of <em>CYP2D6</em> genotype when prescribing codeine. They recommend that poor metabolizers of CYP2D6 should not receive codeine for pain relief, and ultrametabolizers of CYP2D6 should avoid codeine for pain relief.</p>",
+  "textHtml" : "<p>The Canadian Pharmacogenomics Network for Drug Safety (CPNDS) clinical recommendation group has published CYP2D6 genotype-based drug dosing guidelines for codeine in the <em>Journal of Population Therapeutics and Clinical Pharmacology</em>. Excerpts from \"Clinical Practice Guideline: <em>CYP2D6</em> genotyping for safe and efficacious codeine therapy\" [Article:<a href=\"/pmid/24214521\">24214521</a>] follow: </p><blockquote><p> </p><ul><li>Poor metabolizers of CYP2D6 should not receive codeine for pain relief (Grade A - strong recommendation).</li></ul><ul><li>Ultrarapid metabolizers of CYP2D6 should avoid codeine for pain relief and receive alternative analgesics that do not have potent CYP2D6 metabolites (Grade B - moderate recommendation).</li></ul><ul><li>Certain populations, especially opioid naïve breastfed neonates of mothers with functional CYP2D6 gene duplications taking codeine and young children may be particularly susceptible to codeine-induced central nervous system depression. Breastfeeding mothers and young children who are ultrarapid metabolizers of CYP2D6 should avoid codeine (Grade A - strong recommendation).</li></ul><ul><li>In individuals with IM (intermediate metabolizer) or EM (extensive metabolizer) CYP2D6 genotypes, codeine can be used as per standard of care. Existing evidence suggests that caution is still warranted in CYP2D6 EMs receiving codeine if they are receiving maximal therapeutic doses of codeine and have additional risk factors for toxicity.</li></ul></blockquote><p>See full guideline ([Article:<a href=\"/pmid/24214521\">24214521</a>]) for further details and grading scheme.  </p>"
+}

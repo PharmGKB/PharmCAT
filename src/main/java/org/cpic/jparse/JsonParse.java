@@ -1,4 +1,4 @@
-package src.main.java.org.cpic.jparse;
+package org.cpic.jparse;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

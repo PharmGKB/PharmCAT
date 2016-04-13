@@ -1,0 +1,25 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://www.pharmgkb.org/data/guideline/PA166104962",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166104962",
+  "name" : "Dutch Pharmacogenetics Working Group Guideline for propafenone and CYP2D6",
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://www.pharmgkb.org/data/chemical/PA451131",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA451131",
+    "name" : "propafenone"
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://www.pharmgkb.org/data/gene/PA128",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA128",
+    "symbol" : "CYP2D6",
+    "name" : "cytochrome P450, family 2, subfamily D, polypeptide 6"
+  } ],
+  "source" : "DPWG",
+  "summaryHtml" : "<p>Reduce the dose of propafenone by 70% for CYP2D6 poor metabolizers, and adjust propafenone dose according to plasma concentrations or use an alternative drug for CYP2D6 intermediate and ultrarapid metabolizers.</p>",
+  "textHtml" : "<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for propafenone based on CYP2D6 genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].  They suggest a reduced dose for poor metabolizers, and adjusting dose according to plasma concentrations or using an alternative drug for intermediate and ultrarapid metabolizers. </p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th> Phenotype (Genotype) </th><th> Therapeutic Dose Recommendation </th><th> Level of Evidence </th><th> Clinical Relevance </th></tr><tr><td> PM (2 inactive alleles) </td><td> Reduce dose by 70%, record ECG, monitor plasma concentration </td><td> Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints. </td><td> Clinical effect (S): long-standing discomfort (48-168 hr) without permanent injury e.g. failure of therapy with tricyclic antidepressants, atypical antipsychotic drugs; extrapyramidal side effects; parkinsonism; ADE resulting from increased bioavailability of tricyclic antidepressants, metoprolol, propafenone (central effects e.g. dizziness); INR 4.5-6.0; neutropenia 1.0-1.5x10 <sup>9</sup>/l; leucopenia 2.0-3.0x10 <sup>9</sup>/l; thrombocytopenia 50-75x10 <sup>9</sup>/l </td></tr><tr><td> IM (2 decreased activity alleles, or 1 active and 1 inactive allele, or 1 decreased activity and 1 inactive allele) </td><td> Insufficient data to allow calculation of dose adjustment. Adjust dose in response to plasma concentration and record ECG or select alternative drug (e.g., sotalol, disopyramide, quinidine, amiodarone) </td><td> Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints. </td><td> Minor clinical effect (S): QTc prolongation (&lt;450 ms male, &lt;470 ms female); INR increase &lt; 4.5, Kinetic effect (S) </td></tr><tr><td> UM (gene duplication in absence of inactive or decreased activity alleles) </td><td> Insufficient data to allow calculation of dose adjustment. Adjust dose in response to plasma concentration and record ECG or select alternative drug (e.g., sotalol, disopyramide, quinidine, amiodarone) </td><td> Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.  </td><td> Clinical effect (S): long-standing discomfort (&gt; 168 hr), permanent symptom or invalidating injury e.g. failure of prophylaxis of atrial fibrillation; venous thromboembolism; decreased effect of clopidogrel on inhibition of platelet aggregation; ADE resulting from increased bioavailability of phenytoin; INR &gt; 6.0; neutropenia 0.5-1.0x10 <sup>9</sup>/l; leucopenia 1.0-2.0x10 <sup>9</sup>/l; thrombocytopenia 25-50x10 <sup>9</sup>/l; severe diarrhea </td></tr></table><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th> Allele Type </th><th> Alleles </th></tr><tr><td> active </td><td> *1, *2, *33, *35 </td></tr><tr><td> decreased activity </td><td> *9, *10, *17, *29, *36, *41  </td></tr><tr><td> inactive </td><td> *3-*8, *11-*16, *19-*21, *38, *40, *42 </td></tr></table><ul><li>*See <a href=\"http://www.pharmgkb.org/home/dutch_pharmacogenetics_working_group.jsp\">Methods</a> or <a href=\"http://www.pharmgkb.org/pmid/18253145\">PMID: 18253145</a> for definition of \"good\" and \"moderate\" quality.</li><li> S: statistically significant difference.</li></ul>"
+}
