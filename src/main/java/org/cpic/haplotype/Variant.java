@@ -12,10 +12,10 @@ public class Variant implements Comparable<Variant> {
 	private String GeneName;
 	private int POS;
 	private int GenePOS;
-	private ArrayList<String> HGVSg;
+	private ArrayList<String> HGVSg  = new ArrayList<>();
 	private ArrayList<String> cDNA = new ArrayList<>();
-	private ArrayList<String> ProteinEffect;
-	private ArrayList<String> ALTs;
+	private ArrayList<String> ProteinEffect  = new ArrayList<>();
+	private ArrayList<String> ALTs  = new ArrayList<>();
 	private String REF;
 	private String rsID;
 
