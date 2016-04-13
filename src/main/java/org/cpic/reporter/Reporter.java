@@ -3,6 +3,7 @@ package org.cpic.reporter;
 import org.apache.commons.cli.*;
 import org.apache.commons.io.FileUtils;
 import org.cpic.reporter.io.InteractionJsonReader;
+import org.cpic.reporter.io.JsonFileLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -79,11 +80,11 @@ public class Reporter {
     /**
      * Read config file into props object
      */
-    private Properties readConfFile( File file ) throws IOException {
+    /*private Properties readConfFile( File file ) throws IOException {
         Properties props = new Properties();
         props.load( FileUtils.openInputStream( file ) );
         return props;
-    }
+    }*/
 
     public static Options createCommandLineOptions() {
         Options options = new Options();
@@ -132,8 +133,11 @@ public class Reporter {
     private void run() throws IOException {
         
         //loadRequiredFiles(); TODO undelete this and use actual args and real code for plumbing the system
-        InteractionJsonReader interactionReader = new InteractionJsonReader();
-        //interactionReader.load();
+        
+        JsonFileLoader loader = new JsonFileLoader();
+        loader.loadHaplotypeGeneCalls(this.inFile);
+        loader.loadExceptions(this.exception);
+        loader.loadDrugGeneRecommendations(this.interactions);
         
         
 
