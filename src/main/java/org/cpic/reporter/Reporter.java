@@ -1,17 +1,17 @@
 package org.cpic.reporter;
 
-import org.apache.commons.cli.*;
-import org.apache.commons.io.FileUtils;
-import org.cpic.reporter.io.InteractionJsonReader;
-import org.cpic.reporter.io.JsonFileLoader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
+
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+import org.cpic.reporter.io.JsonFileLoader;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 
 public class Reporter {
@@ -20,13 +20,13 @@ public class Reporter {
     /**
      * Logging instance
      */
-   private Logger logger = LoggerFactory.getLogger( Reporter.class );
+   //private Logger logger = LoggerFactory.getLogger( Reporter.class );
 
 
    /**
     * Exception list formated as json
     */
-   String exceptionPath = ""; //TODO don't do this, done for wiring purposes only
+   String exceptionPath = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/cpic_exceptions/exceptions.json"; //TODO don't do this, done for wiring purposes only
    private File exception = new File(exceptionPath);
    
    /**
@@ -49,7 +49,7 @@ public class Reporter {
      * TODO CLEAN THIS UP FOR TEST BUILDING AND WIRING ONLY
      */
     String multiFilePath = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/json_out_example/CYP2C19_multiple.json";
-    String singleFilePath = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/json_out_example/CYP2C19_single.json";
+    String singleFilePath = "";
     private File inFile = new File(multiFilePath);
 
     /**
@@ -71,8 +71,8 @@ public class Reporter {
         //String out_location = cmdline.getOptionValue( "outFile" );
         //this.outFile = new File( out_location );
 
-        String in_file = cmdline.getOptionValue("inFile");
-        this.inFile = new File( in_file );
+       // String in_file = cmdline.getOptionValue("inFile");
+        //this.inFile = new File( in_file );
 
 
     }
@@ -142,7 +142,7 @@ public class Reporter {
         
 
 
-        logger.info( "Complete" );
+       // logger.info( "Complete" );
     }
     
     /*private void loadRequiredFiles(){
