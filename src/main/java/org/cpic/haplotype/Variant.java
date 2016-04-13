@@ -1,25 +1,25 @@
 package org.cpic.haplotype;
 
+import org.apache.commons.lang3.ObjectUtils;
+
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang3.ObjectUtils;
-
 public class Variant implements Comparable<Variant> {
-	
+
 	private String CHROM;
 	private String GeneName;
 	private int POS;
 	private int GenePOS;
 	private ArrayList<String> HGVSg;
-	private ArrayList<String> cDNA;
-	private ArrayList<String> ProteingEffect;
+	private ArrayList<String> cDNA = new ArrayList<>();
+	private ArrayList<String> ProteinEffect;
 	private ArrayList<String> ALTs;
 	private String REF;
 	private String rsID;
-	
-	
+
+
 	public Variant(){
 	}
 	public Variant(String _CHROM, String _GeneName,String _cDNA){
@@ -54,11 +54,11 @@ public class Variant implements Comparable<Variant> {
 		if (_ProteingEffect.contains(";")){
 			String [] fields = _ProteingEffect.split(";");
 			for (int i = 0; i < fields.length; i++){
-				ProteingEffect.add(fields[i].trim());
+				ProteinEffect.add(fields[i].trim());
 			}
 		}else{
-			
-			ProteingEffect.add(_ProteingEffect);
+
+			ProteinEffect.add(_ProteingEffect);
 		}
 	}
 	public void addHGVSg(String _HGVSg){
@@ -68,17 +68,17 @@ public class Variant implements Comparable<Variant> {
 				HGVSg.add(fields[i].trim());
 			}
 		}else{
-			
+
 			HGVSg.add(_HGVSg);
 		}
 	}
 	private int getStartPOS(String _HGVSg){
-		  
+
 		  Pattern p = Pattern.compile("\\d+");
 		  Matcher m = p.matcher(_HGVSg);
-		  
+
 		  return Integer.parseInt(m.group(1));
-		  
+
 	}
 	public boolean setStartPOS(){
 		if (HGVSg.isEmpty()){
