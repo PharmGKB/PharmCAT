@@ -40,16 +40,16 @@
 ##contig=<ID=chr22,length=50818468>
 ##contig=<ID=chrX,length=156040895>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	NA12878
-chr1	97515839	.	T	C	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=26	GT	0|1
-chr1	97515865	.	C	T	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=26	GT	1|0
+chr1	97515839	.	T	C	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=26	GT	0/1
+chr1	97515865	.	C	T	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=26	GT	1/0
 chr10	94761665	.	G	A	.	PASS	2c19-star27	GT	0/1
 chr10	94780653	.	G	A	.	PASS	2c19-star3	GT	0/1
-chr12	21176804	.	A	G	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=258	GT	1|0
-chr12	21178615	.	T	C	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=50	GT	1|0
-chr12	21178665	.	T	C	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=26	GT	0|1
-chr12	21178691	.	C	T	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=26	GT	1|0
-chr16	31096368	.	C	T	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=1020	GT	1|0
-chr19	39248147	.	C	T	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=209	GT	0|1
-chr2	233757013	.	T	G	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=123	GT	0|1
-chr2	233759924	.	C	T	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=309	GT	0|1
-chr7	99672916	.	T	C	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=1652	GT	1|1
+chr12	21176804	.	A	G	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=258	GT	1/0
+chr12	21178615	.	T	C	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=50	GT	1/0
+chr12	21178665	.	T	C	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=26	GT	0/1
+chr12	21178691	.	C	T	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=26	GT	1/0
+chr16	31096368	.	C	T	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=1020	GT	1/0
+chr19	39248147	.	C	T	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=209	GT	0/1
+chr2	233757013	.	T	G	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=123	GT	0/1
+chr2	233759924	.	C	T	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=309	GT	0/1
+chr7	99672916	.	T	C	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=1652	GT	1/1
