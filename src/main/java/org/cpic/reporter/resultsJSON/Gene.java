@@ -1,5 +1,6 @@
 package org.cpic.reporter.resultsJSON;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -9,9 +10,9 @@ import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
 public class Gene {
     
     private String gene;
-    Set<String> diplotypes;
-    List<CPICException> exceptlist; 
-    List<Interaction> drugGene;
+    Set<String> diplotypes ;
+    List<CPICException> exceptList = new ArrayList(); 
+    List<Interaction> drugGene = new ArrayList();;
     
     public Gene( DiplotypeCall call){
         this.gene = call.getGene();
@@ -19,9 +20,20 @@ public class Gene {
     }
     
     public void addException( CPICException except ){
-        exceptlist.add(except);
+        exceptList.add(except);
     }
     
+    public Set<String> getDips(){
+        return diplotypes;
+    }
+    
+    public String getGene(){
+        return gene;
+    }
+    
+    public List<CPICException> getExceptionList(){
+        return exceptList;
+    }
 
 }
  

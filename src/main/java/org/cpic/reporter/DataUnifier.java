@@ -12,13 +12,13 @@ import org.cpic.reporter.resultsJSON.Gene;
 public class DataUnifier {
     List<DiplotypeCall> calls;
     Map<String, List<CPICException>> exceptions;
-    List<CPICinteraction> drugGenes;
+    Map<String, List<CPICinteraction>> drugGenes;
     
    
     
    public DataUnifier( List<DiplotypeCall> calls, 
-                                   Map<String, List<CPICException>> matches,
-                                   List<CPICinteraction> drugGenes){
+                       Map<String, List<CPICException>> matches,
+                       Map<String, List<CPICinteraction>> drugGenes){
         this.calls = calls;
         this.exceptions = matches;
         this.drugGenes = drugGenes;
@@ -35,7 +35,7 @@ public class DataUnifier {
             
             if( exceptions.containsKey(call.getGene()) ){
                 for( CPICException exception : exceptions.get(call.getGene() ) ){
-                   if( matchTest( gene, exception.getRule_name()) ){
+                   if( matchTest.test( gene, exception.getMatches()) ){
                        gene.addException(exception);
                    }
                        
@@ -43,17 +43,25 @@ public class DataUnifier {
                 
             }
             
+            if( drugGenes.containsKey(call.getGene()) ){
+                
+                
+            }
+            
+            
+            
+            
+            
+            
             callSetToReturn.add(gene);
+            
+            
         }
+        
+        
+        
         return callSetToReturn;
     }
 
-    private boolean matchTest(Gene gene, String rule_name) {
-        String[] parts = rule_name.split(",");
-        
-        
-        
-        return false;
-    }
 
 }

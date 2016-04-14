@@ -36,7 +36,6 @@ public class JsonFileLoader {
         Map<String, List<CPICException>> matcher = new HashMap<String, List<CPICException>>();
         BufferedReader br = new BufferedReader(new FileReader( exceptions ));
         CPICExceptionList except = gson.fromJson(br, CPICExceptionList.class);
-        System.out.println( "Exception test" );
         for (CPICException rule : except.getRules()) {
             if( matcher.containsKey(rule.getGene())){
                 matcher.get(rule.getGene()).add(rule);
@@ -57,20 +56,29 @@ public class JsonFileLoader {
      * DANGER WILL ROBINSON! A DUMB ASSUMPTION HAS BEEN MADE!
      * FIXME : assumption of single gene and single drug interaction here
      *
-     * I (Greyson) did not see any actual data in any of the multi gene drug
-     * guidelines however I made a note to ask about it tomorrow.  If this is
-     * still broken or you are the person that is responsible to fix this I apologize.
-     * @return
+     * Multi gene drugs need alteration in this file to work but this will be 
+     * acceptable for hackathon standards but should be fixed as part of a the 
+     * next version.  This is a critical flaw in the design
      *
      */
-    public List<CPICinteraction> loadDrugGeneRecommendations( List<File> interactions ) throws IOException {
-        List<CPICinteraction> drugGenes = new ArrayList<CPICinteraction>();
+    public Map<String, List<CPICinteraction>> loadDrugGeneRecommendations( List<File> interactions ) throws IOException {
+        Map<String,List<CPICinteraction>> drugGenes = new HashMap<String, List<CPICinteraction>>();
         for( File interact: interactions ){
+           
             BufferedReader br = new BufferedReader(new FileReader( interact ));
             CPICinteraction act = gson.fromJson(br, CPICinteraction.class);
-            drugGenes.add(act);
+            String geneSymbol = act.getRelatedGenes().get(0).getSymbol(); //FIXME setting index to 0 will only allow the first gene if there are multiple
+            
+            if( drugGenes.containsKey(geneSymbol)){
+                drugGenes.get(geneSymbol).add(act);
+            } else {
+                List<CPICinteraction> parts = new ArrayList<CPICinteraction>();
+                parts.add(act);
+                drugGenes.put(geneSymbol, parts);
+            }
             br.close();
         }
+        
         return drugGenes;
 
     }

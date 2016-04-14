@@ -39,9 +39,9 @@ public class Reporter {
     */
    
    //TODO don't do any of this load from props file like a read engineer
-   String test1 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/CPIC_Guideline_for_citalopram_escitalopram_and_CYP2C19.json";
-   String test2 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/CPIC_Guideline_for_clopidogrel_and_CYP2C19.json";
-   String test3 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/CPIC_Guideline_for_sertraline_and_CYP2C19.json";
+   String test1 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/dosing_guidelines/CPIC_Guideline_for_citalopram_escitalopram_and_CYP2C19.json";
+   String test2 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/dosing_guidelines/CPIC_Guideline_for_clopidogrel_and_CYP2C19.json";
+   String test3 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/dosing_guidelines/CPIC_Guideline_for_sertraline_and_CYP2C19.json";
    private List<File> interactions = new ArrayList<File>();
    
     /**
@@ -142,10 +142,11 @@ public class Reporter {
         
         List<DiplotypeCall> calls = loader.loadHaplotypeGeneCalls(this.inFile);
         Map<String, List<CPICException>> exceptions = loader.loadExceptions(this.exception);
-        List<CPICinteraction> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
+        Map<String, List<CPICinteraction>> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
         
         DataUnifier checker = new DataUnifier(calls, exceptions, drugGenes);
         List<Gene> results = checker.findMatches();
+   
         
         
          //print results here!!!!!
