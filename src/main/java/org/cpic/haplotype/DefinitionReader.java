@@ -10,7 +10,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -23,6 +25,15 @@ public class DefinitionReader {
   private ListMultimap<String, Haplotype> m_haplotypes = ArrayListMultimap.create();
 
   private Set<TSVfile> s_files = new HashSet<>();
+  
+  public Map<String, TSVfile> getFiles() {
+	  Map<String, TSVfile> m_files = new HashMap<>();
+	  for (TSVfile f : s_files) {
+		  m_files.put(f.getGeneName(),f);
+		  
+	  }
+	  return m_files;
+  }
 
 
   public ListMultimap<String, Variant> getHaplotypePositions() {
