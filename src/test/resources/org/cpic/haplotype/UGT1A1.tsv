@@ -1,0 +1,30 @@
+FormatVersion	1
+GeneName	UGT1A1
+GeneRefSeq	NG_002601.2
+GeneOrientation	null
+ContentDate	04/06/16
+ContentVersion	null
+GenomeBuild	GRCh38.p2
+ChrName	chr2
+ChrRefSeq	NC_000002.12
+ProteinRefSeq	NP_000454.1
+ResourceNote					-364(C>T)	TA[5][6][7][8]	211(G>A)	686(C>A)
+ProteinNote				5' of UGT1A1; intronic for other UGT1As e.g. UGT1A4	nearGene-5	promoter region	Gly71Arg	p.Pro229Gln
+ChrPosition				g.233757013T>G	g.233759924C>T	g.233760235TA[6]>TA[5]TA[7]TA[8]	g.233760498G>A	g.233760973C>A
+GenePosition				g.172270T>G	g.175181C>T	g.175492TA[6]>TA[5]TA[7]TA[8]	g.175755G>A	g.176230C>A
+rsID				rs4124874	rs887829	rs8175347	rs4148323	rs35350960
+Header	ID	Name	FunctionStatus
+Allele		*1	Normal function	T	C	TATATATATATA	G	C
+Allele		*6	Decreased function				A	
+Allele		*27	Decreased function					A
+Allele		*28	Decreased function			TATATATATATATA		
+Allele		*36	Increased function			TATATATATA		
+Allele		*37	Decreased function			TATATATATATATATA		
+Allele		*60	Unknown/Uncertain function	G				
+Allele		*80	Decreased function		T			
+Note	To see a full list of known UGT1A1 alleles see http://www.pharmacogenomics.pha.ulaval.ca/files/content/sites/pharmacogenomics/files/Nomen clature/UGT1A/UGT1A1.htm.	
+Note	Bases reported on the positive chromosomal strand from dbSNP (http://www.ncbi.nlm.nih.gov/SNP/). Alleles are derived from the UDP-Glucoronosyltransferase (UGT) Alleles Nomenclature page (http://www.pharmacogenomics.pha.ulaval.ca/cms/site/pharmacogenomics/ugt_alleles). See https://www.pharmgkb.org/gene/PA420 for updates on UGT1A1 gene alleles and nomenclature.	
+Note	To see a full list of known UGT1A1 alleles and function see http://www.pharmacogenomics.pha.ulaval.ca/files/content/sites/pharmacogenomics/files/Nomen clature/UGT1A/UGT1A1.htm.	
+Note	An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”.	
+Note	UGT1A1*60 is in incomplete linkage disequilibrium with *28 and to date, there are no data to suggest that *60 by itself results in decreased UGT1A1 function.	
+Note	For full details and references please see https://www.pharmgkb.org/download.do?objCls=Attachment&objId=CPIC_atazanavir_UGT1A1_allele_frequency.xlsx	

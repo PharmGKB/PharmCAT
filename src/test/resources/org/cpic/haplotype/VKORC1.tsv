@@ -1,0 +1,18 @@
+FormatVersion	1
+GeneName	VKORC1
+GeneRefSeq	NG_011564.1
+GeneOrientation	null
+ContentDate	04/12/16
+ContentVersion	null
+GenomeBuild	GRCh38.p2
+ChrName	chr16
+ChrRefSeq	NC_000016.10
+ProteinRefSeq	NP_076869.1
+ResourceNote				-1639G>A
+ProteinNote				nearGene-5
+ChrPosition				g.31096368C>T
+GenePosition				g.3588G>A
+rsID				rs9923231
+Header	ID	Name	FunctionStatus
+Allele		-1639G		C
+Allele		-1639A		T
