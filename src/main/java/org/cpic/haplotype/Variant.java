@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Object to hold information about varaints from the tsv file. 
+ * @author nate
+ *
+ */
 public class Variant implements Comparable<Variant> {
 
 	private String CHROM;
@@ -19,9 +24,11 @@ public class Variant implements Comparable<Variant> {
 	private String REF;
 	private String rsID;
 
-
-	public Variant(){
-	}
+	/**
+	 * @param _CHROM
+	 * @param _GeneName
+	 * @param _cDNA
+	 */
 	public Variant(String _CHROM, String _GeneName,String _cDNA){
 		CHROM = _CHROM;
 		GeneName = _GeneName;
@@ -34,12 +41,21 @@ public class Variant implements Comparable<Variant> {
 			cDNA.add(_cDNA);
 		}
 	}
+	/**
+	 * @return
+	 */
 	public String getCHROM(){
 		return CHROM;
 	}
+	/**
+	 * @return
+	 */
 	public String getGeneName(){
 		return GeneName;
 	}
+	/**
+	 * @param _cDNA
+	 */
 	public void set_cDNA(String _cDNA){
 		if (_cDNA.contains(";")){
 			String [] fields = _cDNA.split(";");
@@ -50,6 +66,9 @@ public class Variant implements Comparable<Variant> {
 			cDNA.add(_cDNA);
 		}
 	}
+	/**
+	 * @param _ProteingEffect
+	 */
 	public void addProteingEffect(String _ProteingEffect){
 		if (_ProteingEffect.contains(";")){
 			String [] fields = _ProteingEffect.split(";");
@@ -61,6 +80,9 @@ public class Variant implements Comparable<Variant> {
 			ProteinEffect.add(_ProteingEffect);
 		}
 	}
+	/**
+	 * @param _HGVSg
+	 */
 	public void addHGVSg(String _HGVSg){
 		if (_HGVSg.contains(";")){
 			String [] fields = _HGVSg.split(";");
@@ -72,6 +94,10 @@ public class Variant implements Comparable<Variant> {
 			HGVSg.add(_HGVSg);
 		}
 	}
+	/**
+	 * @param _HGVSg
+	 * @return
+	 */
 	private int getStartPOS(String _HGVSg){
 
 		  Pattern p = Pattern.compile("\\d+");
@@ -80,6 +106,9 @@ public class Variant implements Comparable<Variant> {
 		  return Integer.parseInt(m.group(1));
 
 	}
+	/**
+	 * @return
+	 */
 	public boolean setStartPOS(){
 		if (HGVSg.isEmpty()){
 			return false;
@@ -88,33 +117,63 @@ public class Variant implements Comparable<Variant> {
 			return true;
 		}
 	}
+	/**
+	 * @param _POS
+	 */
 	public void setPOS(String _POS){
 		POS = Integer.parseInt(_POS);
 	}
+	/**
+	 * @return
+	 */
 	public int getPOS(){
 		return POS;
 	}
+	/**
+	 * @param _GenePOS
+	 */
 	public void setGenePOS(String _GenePOS){
 		GenePOS = Integer.parseInt(_GenePOS);
 	}
+	/**
+	 * @return
+	 */
 	public int getGenePOS(){
 		return GenePOS;
 	}
+	/**
+	 * @param _REF
+	 */
 	public void setREF(String _REF){
 		REF = (_REF);
 	}
+	/**
+	 * @return
+	 */
 	public String getREF(){
 		return REF;
 	}
+	/**
+	 * @param _rsID
+	 */
 	public void set_rsID(String _rsID){
 		rsID = (_rsID);
 	}
+	/**
+	 * @return
+	 */
 	public String get_rsID(){
 		return rsID;
 	}
+	/**
+	 * @param _ALT
+	 */
 	public void addALT(String _ALT){
 		ALTs.add(_ALT);
 	}
+	/**
+	 * @return
+	 */
 	public ArrayList<String> getALTs(){
 		return ALTs;
 	}
