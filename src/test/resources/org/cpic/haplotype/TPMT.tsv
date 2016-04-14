@@ -1,9 +1,9 @@
 FormatVersion	1
 GeneName	TPMT
 GeneRefSeq	NG_012137.2
-GeneOrientation	null
+GeneOrientation	
 ContentDate	03/10/16
-ContentVersion	null
+ContentVersion	1460658431
 GenomeBuild	GRCh38.p2
 ChrName	chr6
 ChrRefSeq	NC_000006.12
@@ -18,8 +18,8 @@ Allele	PA165819268.8	*1	Normal function	T	A	T	C	G	A	G	C	C	C	A	C	T	T	G	C	C	C	G	C	
 Allele		*1S	Normal function																			A													
 Allele	PA165819269.8	*2	No function									G																							
 Allele	PA165819270.9	*3A	No function																		T														C
-Allele	PA165819271.8	*3B	No function																		T														D
-Allele	PA165819272.8	*3C	No function																		V														C
+Allele	PA165819271.8	*3B	No function																		T														
+Allele	PA165819272.8	*3C	No function																																C
 Allele	PA165819274.8	*4	No function																											T					
 Allele		*5	Probable decreased function						G																										
 Allele		*6	Probable decreased function																								A								

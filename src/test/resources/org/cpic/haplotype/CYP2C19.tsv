@@ -1,23 +1,23 @@
 FormatVersion	1
 GeneName	CYP2C19
 GeneRefSeq	NG_008384.2
-GeneOrientation	null
-ContentDate	02/20/16
-ContentVersion	null
+GeneOrientation	
+ContentDate	04/13/16
+ContentVersion	1460658431
 GenomeBuild	GRCh38.p2
 ChrName	chr10
 ChrRefSeq	NC_000010.11
 ProteinRefSeq	NP_000760.1
-ResourceNote				-2030C>T	-2020C>A	-1439T>C	-1041G>A	-806C>T	-13G>A	1A>G	7C>T	10T>C	50T>C	55A>C	83A>T	151A>G	12401C>T	12416C>T	12455G>C	12480A>G	12662A>G	12711T>C	12748G>A	12784G>A	12802G>A	17869G>C	17874G>A	17948G>A	19153C>T	19154G>A	19239G>A	19294T>A	80156G>A	80174G>A	80290G>A	87106T>C	87259A>G	87920C>T	90033C>T	90060C>T	90080C>G	90209A>C
+ResourceNote				-2030C>T	-2020C>A	-1439T>C	-1041G>A	-806C>T	-13G>A	1A>G	7C>T	10T>C	50T>C	55A>C	83A>T	151A>G	12401C>T	12416C>T	12455G>C	12480A>G	12662A>G	12711T>C	12748G>A	12784G>A	12802G>A	17869G>C	17874G>A	17948G>A	19153C>T	19154G>A	19239G>A	19294T>A	80156G>A	80174G>A	80290G>A	87106T>C	87259A>G	87290C>T	90033C>T	90060C>T	90080C>G	90209A>C
 ProteinNote				5' region	5' region	5' region	5' region	5' region	5' region	M1V	P3S	F4L	L17P	I19L	K28I	S51G	R73C	H78Y	G91R	H99R	splicing defect	W120R	R132Q	R144H	R150H	R186P	D188N	W212X	P227L	splicing defect	D256N	splicing defect	R329H	R335Q	V374I	intronic	K399=	R410C	R433W	R442C	F448L	X491C (26 extra AA)
 ChrPosition				g.94760676C>T	g.94760686C>A	g.94761267T>C	g.94761665G>A	g.94761900C>T	g.94762693G>A	g.94762706A>G	g.94762712C>T	g.94762715T>C	g.94762755T>C	g.94762760A>C	g.94762788A>T	g.94762856A>G	g.94775106C>T	g.94775121C>T	g.94775160G>C	g.94775185A>G	g.94775367A>G	g.94775416T>C	g.94775453G>A	g.94775489G>A	g.94775507G>A	g.94780574G>C	g.94780579G>A	g.94780653G>A	g.94781858C>T	g.94781859G>A	g.94781944G>A	g.94781999T>A	g.94842861G>A	g.94842879G>A	g.94842995G>A	g.94849811T>C	g.94849964A>G	g.94849995C>T	g.94852738C>T	g.94852765C>T	g.94852785C>G	g.94852914A>C
 GenePosition				g.2971C>T	g.2981C>A	g.3562T>C	g.3960G>A	g.4195C>T	g.4988G>A	g.5001A>G	g.5007C>T	g.5010T>C	g.5050T>C	g.5055A>C	g.5083A>T	g.5151A>G	g.17401C>T	g.17416C>T	g.17455G>C	g.17480A>G	g.17662A>G	g.17711T>C	g.17748G>A	g.17784G>A	g.17802G>A	g.22869G>C	g.22874G>A	g.22948G>A	g.24153C>T	g.24154G>A	g.24239G>A	g.24294T>A	g.85156G>A	g.85174G>A	g.85290G>A	g.92106T>C	g.92259A>G	g.92290C>T	g.95033C>T	g.95060C>T	g.95080C>G	g.95209A>C
-rsID				rs113164681	rs111490789	rs17878739	rs7902257	rs12248560	rs367543001	rs28399504	rs367543002	rs367543003	rs55752065	rs17882687			rs145328984		rs118203756		rs12769205	rs41291556	rs72552267 	rs17884712	rs58973490	rs140278421	rs370803989	rs4986893	rs6413438	rs4244285		rs72558186	rs138142612	rs118203757	rs113934938	rs4917623	rs377184510	rs17879685	rs56337013	rs192154563	rs118203759	rs55640102
+rsID				rs113164681	rs111490789	rs17878739	rs7902257	rs12248560	rs367543001	rs28399504	rs367543002	rs367543003	rs55752064	rs17882687			rs145328984		rs118203756		rs12769205	rs41291556	rs72552267 	rs17884712	rs58973490	rs140278421	rs370803989	rs4986893	rs6413438	rs4244285		rs72558186	rs138142612	rs118203757	rs113934938	rs4917623	rs377184510	rs17879685	rs56337013	rs192154563	rs118203759	rs55640102
 Header	ID	Name	FunctionStatus
 Allele	PA166128324.2	*1	Normal function	C	C	T	G	C	G	A	C	T	T	A	A	A	C	C	G	A	A	T	G	G	G	G	G	G	C	G	G	T	G	G	G	T	A	C	C	C	C	A
 Allele	PA166128325.2	*2	No function																											A												
 Allele	PA166128326.2	*3	No function																									A														
-Allele		*4A	No function					V		G																																
+Allele		*4A	No function							G																																
 Allele		*4B	No function					T		G																																
 Allele	PA166128328.2	*5	No function																																				T			
 Allele	PA166128329.2	*6	No function																				A																			
@@ -29,9 +29,9 @@ Allele	PA166128335.2	*11	Normal function																						A
 Allele		*12	Unknown function																																							C
 Allele	PA166128336.2	*13	Normal function																																			T				
 Allele		*14	Unknown function										C																													
-Allele	PA166128337.2	*15	Normal function	V	B	D								C																					B							
+Allele	PA166128337.2	*15	Normal function											C																												
 Allele	PA166128338.2	*16	Decreased function																																					T		
-Allele	PA166128332.2	*17	Increased function					T		H																																
+Allele	PA166128332.2	*17	Increased function					T																																		
 Allele	PA166128339.2	*18	Normal function																														A			C						
 Allele	PA166128340.2	*19	Decreased function													G																				C						
 Allele	PA166128341.2	*22	No function																							C																

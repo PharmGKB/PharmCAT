@@ -1,9 +1,9 @@
 FormatVersion	1
 GeneName	IFNL3
 GeneRefSeq	NG_042193.1
-GeneOrientation	null
+GeneOrientation	
 ContentDate	04/12/16
-ContentVersion	null
+ContentVersion	1460569836
 GenomeBuild	GRCh38.p2
 ChrName	chr19
 ChrRefSeq	NC_000019.10
