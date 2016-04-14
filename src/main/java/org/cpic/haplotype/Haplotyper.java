@@ -43,15 +43,17 @@ public class Haplotyper {
 
   public void call(@Nonnull Path vcfFile) throws IOException {
 
+    JsonReport report = new JsonReport(m_definitionReader)
+        .forFile(vcfFile);
     Map<String, SampleAllele> alleles = m_vcfReader.read(vcfFile);
     // call haplotypes
     for (String gene : m_definitionReader.getHaplotypePositions().keySet()) {
-      callHaplotype(alleles, gene);
+      report.haplotype(gene, callHaplotype(alleles, gene), alleles.values());
     }
   }
 
 
-  public void callHaplotype(Map<String, SampleAllele> alleleMap, String gene) {
+  public List<List<HaplotypeMatch>>  callHaplotype(Map<String, SampleAllele> alleleMap, String gene) {
 
     List<Variant> variants = m_definitionReader.getHaplotypePositions().get(gene);
     List<Haplotype> haplotypes = m_definitionReader.getHaplotypes().get(gene);
@@ -73,6 +75,6 @@ public class Haplotyper {
 
     // find pair-wise matches
     List<List<Haplotype>> pairs = CombinationUtil.generatePerfectPairs(haplotypes);
-    ComparisonUtil.determinePairs(matches, pairs);
+    return ComparisonUtil.determinePairs(matches, pairs);
   }
 }
