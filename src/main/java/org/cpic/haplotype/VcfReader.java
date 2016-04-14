@@ -71,11 +71,12 @@ public class VcfReader implements VcfLineParser {
   @Override
   public void parseLine(VcfMetadata metadata, VcfPosition position, List<VcfSample> sampleData) {
 
-    if (position.getIds().isEmpty() || sampleData.isEmpty()) {
+    String chrPos = position.getChromosome() + ":" + position.getPosition();
+
+    if (sampleData.isEmpty()) {
+      sf_logger.warn("Missing sample data on {}", chrPos);
       return;
     }
-
-    String chrPos = position.getChromosome() + ":" + position.getPosition();
 
     if (!m_locationsOfInterest.contains(chrPos)) {
       sf_logger.warn("Ignoring {}", chrPos);
