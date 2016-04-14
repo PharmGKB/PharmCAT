@@ -20,7 +20,7 @@ public class DefinitionReaderTest {
 		
 		DefinitionReader dr = new DefinitionReader();
 		//ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(DefinitionReader.class.getResource("CYP2C19.tsv").getFile());
+        File file = new File(DefinitionReader.class.getResource("SLCO1B1.tsv").getFile());
         Path path = Paths.get(file.getAbsolutePath());
 		dr.read(path);
 		
@@ -30,14 +30,14 @@ public class DefinitionReaderTest {
 		System.out.println(m_haplotypes);
 		System.out.println(m_haplotypePositions);
 		
-		List<Variant> v_list = m_haplotypePositions.get("CYP2C19");
-		List<Haplotype> h_list = m_haplotypes.get("CYP2C19");
+		List<Variant> v_list = m_haplotypePositions.get("SLCO1B1");
+		List<Haplotype> h_list = m_haplotypes.get("SLCO1B1");
 
 		System.out.println(v_list.size());
 		System.out.println(h_list.size());
 		
-		assertEquals(39,v_list.size());
-		assertEquals(33,h_list.size());
+		assertEquals(29,v_list.size());
+		assertEquals(37,h_list.size());
 		
 		for (Variant v : v_list) {
 			//System.out.println(v.getREF());
