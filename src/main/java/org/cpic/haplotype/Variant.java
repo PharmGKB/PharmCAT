@@ -102,8 +102,10 @@ public class Variant implements Comparable<Variant> {
 
 		  Pattern p = Pattern.compile("\\d+");
 		  Matcher m = p.matcher(_HGVSg);
+		  System.out.println( m.group(1));
 
 		  return Integer.parseInt(m.group(1));
+		  
 
 	}
 	/**

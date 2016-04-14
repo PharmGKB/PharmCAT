@@ -119,28 +119,28 @@ public class DefinitionReader {
             	}
             }
             else if (fields[0].equals("GenomeBuild")){
-            	if (fields.length>0){
+            	if (fields.length>1){
             		inProccessFile.setGenomeBuild(fields[1]);
             	}else{
             		inProccessFile.setGenomeBuild("");
             	}
             }
             else if (fields[0].equals("ChrName")){
-            	if (fields.length>0){
+            	if (fields.length>1){
             		inProccessFile.setChromosome(fields[1]);
             	}else{
             		inProccessFile.setChromosome("");
             	}
             }
             else if (fields[0].equals("ChrRefSeq")){
-            	if (fields.length>0){
+            	if (fields.length>1){
             		inProccessFile.setChromosomeID(fields[1]);
             	}else{
             		inProccessFile.setChromosomeID("");
             	}
             }
             else if (fields[0].equals("ProteinRefSeq")){
-            	if (fields.length>0){
+            	if (fields.length>1){
             		inProccessFile.setProteinID(fields[1]);
             	}else{
             		inProccessFile.setProteinID("");
