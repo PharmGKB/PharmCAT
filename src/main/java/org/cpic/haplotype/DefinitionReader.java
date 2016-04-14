@@ -159,13 +159,16 @@ public class DefinitionReader {
             }
             else if (fields[0].equals("ChrPosition")){
             	for (int i = 4; i < fields.length; i++){
-                	variants.get(i-4).addProteingEffect(fields[i]);
-                	variants.get(i-4).setStartPOS();
+                	variants.get(i-4).addHGVSg(fields[i]);
+                	if (variants.get(i-4).setStartPOS()){
+                	}
+                	else{
+                	}
                 }
             }
             else if (fields[0].equals("GenePosition")){
             	for (int i = 4; i < fields.length; i++){
-                	variants.get(i-4).addProteingEffect(fields[i]);
+                	variants.get(i-4).setGenePOS(fields[i]);
                 }
             }
             else if (fields[0].equals("rsID")){
