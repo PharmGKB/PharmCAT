@@ -19,7 +19,7 @@ Allele		*2	Decreased function																B				T
 Allele		*3	Decreased function																																											C						D					
 Allele		*4	Possible decreased function																																												C										
 Allele		*5	Possible decreased function																																													G									
-Allele		*6	No function																																delA																						
+Allele		*6	No function																																-																						
 Allele		*7	Unknown function/Uncertain function		A																																																				
 Allele		*8	Possible decreased function																						A																																
 Allele		*9	Normal function																														G																								
@@ -38,7 +38,7 @@ Allele		*21	Unknown function/Uncertain function			T
 Allele		*22	Unknown function/Uncertain function				G																																																		
 Allele		*23	Unknown function/Uncertain function							A																																															
 Allele		*24	Unknown function/Uncertain function																				Y																						A												
-Allele		*25	No function												delAGAAATGGAA																																										
+Allele		*25	No function												-																																										
 Allele		*26	Unknown function/Uncertain function																	G																																					
 Allele		*27	Unknown function/Uncertain function																						T																																
 Allele		*28	Unknown function/Uncertain function																											T																											

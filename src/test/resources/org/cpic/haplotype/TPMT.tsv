@@ -1,0 +1,51 @@
+FormatVersion	1
+GeneName	TPMT
+GeneRefSeq	NG_012137.2
+GeneOrientation	null
+ContentDate	03/10/16
+ContentVersion	null
+GenomeBuild	GRCh38.p2
+ChrName	chr6
+ChrRefSeq	NC_000006.12
+ProteinRefSeq	NP_000358.1
+ResourceNote				1A>G	2T>C	83A>T	106G>A	124C>G	146T>C	205C>G	211G>A	238G>C	292G>T	319T>G	349G>C	356A>C	365A>C	374C>T	395G>A	430G>C	460G>A	474C>T	488G>A; 488G>C	495-1G>A	500C>G	537G>T	539A>T	611T>C	622T>C	626-1G>A	634T>C	644G>A	681T>G	712A>G	719A>G
+ProteinNote				M1V	M1T	E28V	G36S	Q42E	L49S	L69V	G71R	A80P	E98X	Y107D	G117R	K119T	K122T	S125L	C132Y	G144R	A154T	I158=	R163H; R163P		A167G	Q179H	Y180F	I204T	F308L		C212R	R215H	H227Q	K238E	Y240C
+ChrPosition				g.18149127T>C	g.18149126A>G	g.18149045T>A	g.18149022C>T	g.18149004G>C	g.18147910A>G	g.18147851G>C	g.18147845C>T	g.18143724C>G	g.18143670C>A	g.18143643A>C	g.18143613C>G	g.18143606T>G	g.18143597T>G	g.18139710G>A	g.18139689C>T	g.18139027C>G	g.18138997C>T	g.18138983G>A	g.18138969C>T; g.18138969C>G	g.18133890C>T	g.18133884G>C	g.18133847C>A	g.18133845T>A	g.18132147A>G	g.18132136A>G	g.18130781C>T	g.18130772A>G	g.18130762C>T	g.18130725A>C	g.18130694T>C	g.18130687T>C
+GenePosition				g.11017A>G	g.11018T>C	g.11099A>T	g.11122G>A	g.11140C>G	g.12234T>C	g.12293C>G	g.12299G>A	g.16420G>C	g.16474G>T	g.16501T>G	g.16531G>C	g.16538A>C	g.16547A>C	g.20434C>T	g.20455G>A	g.21117G>C	g.21147G>A	g.21161T>C	g.21175G>A; g.21175G>C	g.26254G>A	g.26260C>G	g.26297G>T	g.26299A>T	g.27997T>C	g.28008T>C	g.29363G>A	g.29372T>C	g.29382G>A	g.18130725A>C	g.29450A>G	g.29457A>G
+rsID				rs9333569	rs267607275	rs72552742			rs72552740	rs200591577		rs1800462	rs72552739			rs151149760		rs200220210	rs72552738	rs72552737	rs1800460	rs2842934	rs144041067	rs9333570	rs74423290	rs6921269	rs75543815	rs79901429	rs72556347	rs1800584	rs377085266	rs56161402	rs72552736	rs150900439	rs1142345
+Header	ID	Name	FunctionStatus
+Allele		*1	Normal function	T	A	T	C	G	A	G	C	C	C	A	C	T	T	G	C	C	C	G	C	C	G	C	T	A	A	C	A	C	A	T	T
+Allele		*1S	Normal function																			A													
+Allele		*2	No function									G																							
+Allele		*3A	No function																		T														C
+Allele		*3B	No function																		T														D
+Allele		*3C	No function																		V														C
+Allele		*4	No function																											T					
+Allele		*5	Probable decreased function						G																										
+Allele		*6	Probable decreased function																								A								
+Allele		*7	Unknown function/Unclear function																														C		
+Allele		*8	Probable decreased function																													T			
+Allele		*9	Probable decreased function													G																			
+Allele		*10	Probable decreased function																	G															
+Allele		*11	Probable decreased function																T																
+Allele		*12	Probable decreased function															A																	
+Allele		*13	Probable decreased function			A																													
+Allele		*14	Unknown function/Unclear function	C																															
+Allele		*15	Unknown function/Unclear function																					T											
+Allele		*16	Probable decreased function																				T												
+Allele		*17	Probable decreased function					C																											
+Allele		*18	Probable decreased function								T																								
+Allele		*19	Unknown function/Unclear function														G																		
+Allele		*20	Unknown function/Unclear function																															C	
+Allele		*21	Unknown function/Unclear function							C																									
+Allele		*22	Unknown function/Unclear function																				G												
+Allele		*23	Unknown function/Unclear function																						C										
+Allele		*24	Unknown function/Unclear function																							A									
+Allele		*25	Unknown function/Unclear function																												G				
+Allele		*26	Unknown function/Unclear function																										G						
+Allele		*27	Unknown function/Unclear function											C																					
+Allele		*28	Unknown function/Unclear function												G																				
+Allele		*29	Unknown function/Unclear function		G																														
+Allele		*30	Unknown function/Unclear function				T																												
+Allele		*31	Unknown function/Unclear function																									G							
+Note	Nomenclature as determined by TPMT nomenclature committee (www.imh.liu.se/tpmtalleles)																																	
