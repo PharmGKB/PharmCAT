@@ -18,6 +18,7 @@ public class TSVfile {
 	private String ChromosomeID;
 	private String Chromosome;
 	private String ProteinID;
+	private int NumberOfVariants;
 	
 	/**
 	 * @param _FileName
@@ -158,6 +159,16 @@ public class TSVfile {
 	 */
 	public String getChromosomeID(){
 		return ChromosomeID;
+	}
+	public void setNumberOfVariants(String _NumberOfVariants){
+		NumberOfVariants=Integer.parseInt(_NumberOfVariants);
+	}
+	
+	/**
+	 * @return
+	 */
+	public int getNumberOfVariants(){
+		return NumberOfVariants;
 	}
 	
 

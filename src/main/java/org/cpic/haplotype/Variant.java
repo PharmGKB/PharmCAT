@@ -42,6 +42,15 @@ public class Variant implements Comparable<Variant> {
 		}
 	}
 	/**
+	 * @param _CHROM
+	 * @param _GeneName
+	 */
+	public Variant(String _CHROM, String _GeneName){
+		CHROM = _CHROM;
+		GeneName = _GeneName;
+		
+	}
+	/**
 	 * @return
 	 */
 	public String getCHROM(){

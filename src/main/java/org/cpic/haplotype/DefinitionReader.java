@@ -145,25 +145,35 @@ public class DefinitionReader {
             	}else{
             		inProccessFile.setProteinID("");
             	}
+            	
+            	
             }
-            else if (fields[0].equals("ResourceNote")){
-            	for (int i = 4; i < fields.length; i++){
-                	Variant newVariant = new Variant(inProccessFile.getChromosome(),inProccessFile.getGeneName(),fields[i]);
+            else if (fields[0].equals("NumVariants")){
+            	inProccessFile.setNumberOfVariants(fields[1]);
+            	for (int i = 0; i < inProccessFile.getNumberOfVariants(); i++){
+                	Variant newVariant = new Variant(inProccessFile.getChromosome(),inProccessFile.getGeneName());
                 	variants.add(newVariant);
                 }
             }
+            else if (fields[0].equals("ResourceNote")){
+            	if (fields.length>4){
+	            	for (int i = 4; i < fields.length; i++){
+	                	variants.get(i-4).addProteingEffect(fields[i]);
+	                }
+            	}
+            	
+            }
             else if (fields[0].equals("ProteinNote")){
-            	for (int i = 4; i < fields.length; i++){
-                	variants.get(i-4).addProteingEffect(fields[i]);
-                }
+            	if (fields.length>4){
+	            	for (int i = 4; i < fields.length; i++){
+	                	variants.get(i-4).addProteingEffect(fields[i]);
+	            	}
+            	}
             }
             else if (fields[0].equals("ChrPosition")){
             	for (int i = 4; i < fields.length; i++){
                 	variants.get(i-4).addHGVSg(fields[i]);
-                	if (variants.get(i-4).setStartPOS()){
-                	}
-                	else{
-                	}
+                
                 }
             }
             else if (fields[0].equals("GenePosition")){
@@ -172,9 +182,11 @@ public class DefinitionReader {
                 }
             }
             else if (fields[0].equals("rsID")){
-            	for (int i = 4; i < fields.length; i++){
-                	variants.get(i-4).set_rsID(fields[i]);
-                }
+            	if (fields.length>4){
+	            	for (int i = 4; i < fields.length; i++){
+	                	variants.get(i-4).set_rsID(fields[i]);
+	                }
+            	}
 
             }
             else if (fields[0].equals("Allele")){
