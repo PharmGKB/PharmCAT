@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 
 
@@ -23,37 +24,45 @@ public class Haplotyper {
 
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
+    m_vcfReader = new VcfReader(calculateLocationsOfInterest(m_definitionReader));
+  }
+
+  protected static Set<String> calculateLocationsOfInterest(DefinitionReader definitionReader) {
 
     Set<String> locationsOfInterest = new HashSet<>();
-    for (String gene : m_definitionReader.getHaplotypes().keySet()) {
-      List<Variant> variants = m_definitionReader.getHaplotypePositions().get(gene);
+    for (String gene : definitionReader.getHaplotypes().keySet()) {
+      List<Variant> variants = definitionReader.getHaplotypePositions().get(gene);
       // map variant to chr:position
       for (Variant v : variants) {
         String chrPos = v.getCHROM() + ":" + v.getPOS();
         locationsOfInterest.add(chrPos);
       }
       // calculate permutations of all haplotypes
-      for (Haplotype hap : m_definitionReader.getHaplotypes().get(gene)) {
+      for (Haplotype hap : definitionReader.getHaplotypes().get(gene)) {
         hap.calculatePermutations(variants);
       }
     }
-    m_vcfReader = new VcfReader(locationsOfInterest);
+    return locationsOfInterest;
   }
 
 
-  public void call(@Nonnull Path vcfFile) throws IOException {
+  public void call(@Nonnull Path vcfFile, @Nullable Path jsonFile) throws IOException {
 
+    Map<String, SampleAllele> alleles = m_vcfReader.read(vcfFile);
     JsonReport report = new JsonReport(m_definitionReader)
         .forFile(vcfFile);
-    Map<String, SampleAllele> alleles = m_vcfReader.read(vcfFile);
+    if (jsonFile != null) {
+      report.toFile(jsonFile);
+    }
     // call haplotypes
     for (String gene : m_definitionReader.getHaplotypePositions().keySet()) {
       report.haplotype(gene, callHaplotype(alleles, gene), alleles.values());
     }
+    report.print();
   }
 
 
-  public List<List<HaplotypeMatch>>  callHaplotype(Map<String, SampleAllele> alleleMap, String gene) {
+  public List<List<HaplotypeMatch>> callHaplotype(Map<String, SampleAllele> alleleMap, String gene) {
 
     List<Variant> variants = m_definitionReader.getHaplotypePositions().get(gene);
     List<Haplotype> haplotypes = m_definitionReader.getHaplotypes().get(gene);
@@ -63,7 +72,7 @@ public class Haplotyper {
       String chrPos = variant.getCHROM() + ":" + variant.getPOS();
       SampleAllele allele = alleleMap.get(chrPos);
       if (allele == null) {
-        throw new RuntimeException("Sample has no allele for " + chrPos);
+        throw new RuntimeException("Sample has no allele for " + chrPos + " (ref is " + variant.getREF() + ")");
       }
       alleles.add(allele);
     }
