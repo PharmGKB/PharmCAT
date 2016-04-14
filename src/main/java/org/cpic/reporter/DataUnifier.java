@@ -23,6 +23,7 @@ public class DataUnifier {
     public void findMatches(){
         ExceptionMatcher matchTest = new ExceptionMatcher();
         for(DiplotypeCall call : calls){
+            
             if( exceptions.containsKey(call.getGene()) ){
                 for( CPICException exception : exceptions.get(call.getGene() ) ){
                     
