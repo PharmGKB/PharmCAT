@@ -79,7 +79,7 @@ public class DefinitionReader {
             }
 
             if (fields[0].equals("FormatVersion")){
-            	if (fields.length>0){
+            	if (fields.length>1){
             		inProccessFile.setFormatVersion(fields[1]);
             	}else{
             		inProccessFile.setFormatVersion("");
@@ -87,7 +87,7 @@ public class DefinitionReader {
             	
             }
             else if (fields[0].equals("GeneName")){
-            	if (fields.length>0){
+            	if (fields.length>1){
             		inProccessFile.setGeneName(fields[1]);
             	}else{
             		inProccessFile.setGeneName("");
@@ -98,21 +98,21 @@ public class DefinitionReader {
             	inProccessFile.setGeneID(fields[1]);
             }
             else if (fields[0].equals("GeneOrientation")){
-            	if (fields.length>0){
+            	if (fields.length>1){
             		inProccessFile.setGeneOrientation(fields[1]);
             	}else{
             		inProccessFile.setGeneOrientation("");
             	}
             }
             else if (fields[0].equals("ContentDate")){
-            	if (fields.length>0){
+            	if (fields.length>1){
             		inProccessFile.setContentDate(fields[1]);
             	}else{
             		inProccessFile.setContentDate("");
             	}
             }
             else if (fields[0].equals("ContentVersion")){
-            	if (fields.length>0){
+            	if (fields.length>1){
             		inProccessFile.setContentVersion(fields[1]);
             	}else{
             		inProccessFile.setContentVersion("");
