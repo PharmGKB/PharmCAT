@@ -1,0 +1,79 @@
+FormatVersion	1
+GeneName	CYP2C9
+GeneRefSeq	NG_008385.1
+GeneOrientation	null
+ContentDate	03/30/16
+ContentVersion	null
+GenomeBuild	GRCh38.p2
+ChrName	chr10
+ChrRefSeq	NC_000010.11
+ProteinRefSeq	NP_000762.2
+ResourceNote				1A>G	55C>A	89C>T	121A>G	146A>G	3215G>C	3233G>A	3276T>C	3294G>C	3300G>T	3336T>C	3531_3540delAGAAATGGAA	3534A>G	3548C>T	3549G>A	3552G>A	3567C>T; 3567C>G	3572C>T	3573G>A	3608C>T	3623G>A	3627G>A; 3627G>T	9100C>A	9103C>T	9225A>C	9235T>C	9256A>T	10447A>G	10462C>T	10535A>G	10598A>G	10601delA	33437C>A	33452A>G	33497A>G	33498C>G	33551C>T	42519T>C	42542C>T	42543G>A	42568C>A	42599G>A	42614A>C	42615T>C	42619C>G	42620C>A	42683C>T	47360A>G	47391A>C	50235G>C	50298A>T	50302G>A	50338C>T	50341G>T
+ProteinNote				M1V(Start)	L19I	P30L	N41D	D49G	G70R	V76M	L90P	G96A	G98V	F110S	118 Frameshift	K119R	R124W	R124Q	R125H	T130M; T130R	R132W	R132Q	R144C	A149T	R150H; R150L	S162X	P163L	N204H	I207T	Q214L	I222V	P227S	H251R	E272G	273Frameshift	P279T	I284V	T299A	T299R	P317S	I327T	R335W	R335Q	S343R	E354K	I359L	I359T	D360E	L361I	P382S	I387V	D397A	Q454H	G475=	A477T	P489S	V490F
+ChrPosition				g.94938683A>G	g.94938737C>A	g.94938771C>T	g.94938803A>G	g.94938828A>G	g.94941897G>C	g.94941915G>A	g.94941958T>C	g.94941976G>C	g.94941982G>T	g.94942018T>C	g.94942213_94942222delAGAAATGGAA	g.94942216A>G	g.94942230C>T	g.94942231G>A	g.94942234G>A	g.94942249C>T;g.94942249C>G	g.94942254C>T	g.94942255G>A	g.94942290C>T	g.94942305G>A	g.94942309G>A;g.94942309G>T	g.94947782C>A	g.94947785C>T	g.94947907A>C	g.94947917T>C	g.94947938A>T	g.94949129A>G	g.94949144C>T	g.94949217A>G	g.94949280A>G	g.94949282delA	g.94972119C>A	g.94972134A>G	g.94972179A>G	g.94972180C>G	g.94972233C>T	g.94981201T>C	g.94981224C>T	g.94981225G>A	g.94981250C>A	g.94981281G>A	g.94981296A>C	g.94981297T>C	g.94981301C>G	g.94981302C>A	g.94981365C>T	g.94986042A>G	g.94986073A>C	g.94988917G>C	g.94988980A>T	g.94988984G>A	g.94989020C>T	g.94989023G>T
+GenePosition				g.5026A>G	g.5080C>A	g.5114C>T	g.5146A>G	g.5171A>G	g.8240G>C	g.8258G>A	g.8301T>C	g.8319G>C	g.8325G>T	g.8361T>C	g.8556_8565delAGAAATGGAA	g.8559A>G	g.8573C>T	g.8574G>A	g.8577G>A	g.8592C>T;g.8592C>G	g.8597C>T	g.8598G>A	g.8633C>T	g.8648G>A	g.8652G>A;g.8652G>T	g.14125C>A	g.14128C>T	g.14250A>C	g.14260T>C	g.14281A>T	g.15472A>G	g.15487C>T	g.15560A>G	g.15623A>G	g.15625delA	g.38462C>A	g.38477A>G	g.38522A>G	g.38523C>G	g.38576C>T	g.47544T>C	g.47567C>T	g.47568G>A	g.47593C>A	g.47624G>A	g.47639A>C	g.47640T>C	g.47644C>G	g.47645C>A	g.47708C>T	g.52385A>G	g.52416A>C	g.55260G>C	g.55323A>T	g.55327G>A	g.55363C>T	g.55366G>T
+rsID				rs114071557	rs67807361	rs142240658		rs564813580	rs371055887		rs72558187		rs762239445				rs767576260	rs12414460      	rs72558189	rs200965026	rs199523631	rs200183364	rs1799853	rs754487195	rs7900194	rs72558190	rs774550549						rs2256871	rs9332130	rs9332131	rs182132442		rs72558192			rs57505750	rs28371685	rs367826293	rs750820937	rs749060448	rs1057910	rs56165452	rs28371686			rs764211126	rs72558193	rs769942899	rs1057911	rs781583846	rs9332239	
+Header	ID	Name	FunctionStatus
+Allele		*1	Normal function	A	C	C	A	A	G	G	T	G	G	T	AGAAATGGAA	A	C	G	G	C	C	G	C	G	G	C	C	A	T	A	A	C	A	A	A	C	A	A	C	C	T	C	G	C	G	A	T	C	C	C	A	A	G	A	G	C	G
+Allele		*2	Decreased function																B				T																																		
+Allele		*3	Decreased function																																											C						D					
+Allele		*4	Possible decreased function																																												C										
+Allele		*5	Possible decreased function																																													G									
+Allele		*6	No function																																delA																						
+Allele		*7	Unknown function/Uncertain function		A																																																				
+Allele		*8	Possible decreased function																						A																																
+Allele		*9	Normal function																														G																								
+Allele		*10	Unknown function/Uncertain function																															G																							
+Allele		*11	Possible decreased function																																							T															
+Allele		*12	Possible decreased function																																																					T	
+Allele		*13	Possible decreased function								C																																														
+Allele		*14	Possible decreased function																A				V																																		
+Allele		*15	No function																							A																															
+Allele		*16	Unknown function/Uncertain function																																			G																			
+Allele		*17	Unknown function/Uncertain function																																															T							
+Allele		*18	Unknown function/Uncertain function																																											C						C		T			
+Allele		*19	Unknown function/Uncertain function																																																		C				
+Allele		*20	Unknown function/Uncertain function						C																																																
+Allele		*21	Unknown function/Uncertain function			T																																																			
+Allele		*22	Unknown function/Uncertain function				G																																																		
+Allele		*23	Unknown function/Uncertain function							A																																															
+Allele		*24	Unknown function/Uncertain function																				Y																						A												
+Allele		*25	No function												delAGAAATGGAA																																										
+Allele		*26	Unknown function/Uncertain function																	G																																					
+Allele		*27	Unknown function/Uncertain function																						T																																
+Allele		*28	Unknown function/Uncertain function																											T																											
+Allele		*29	Unknown function/Uncertain function																																	A																					
+Allele		*30	Unknown function/Uncertain function																																																				A		
+Allele		*31	Possible decreased function																																						C																
+Allele		*32	Unknown function/Uncertain function																																																						T
+Allele		*33	Unknown function/Uncertain function																			A																																			
+Allele		*34	Unknown function/Uncertain function																																								A														
+Allele		*35	Unknown function/Uncertain function																A				T																																		
+Allele		*36	Unknown function/Uncertain function	G																																																					
+Allele		*37	Unknown function/Uncertain function					G																																																	
+Allele		*38	Unknown function/Uncertain function									C																																													
+Allele		*39	Unknown function/Uncertain function										T																																												
+Allele		*40	Unknown function/Uncertain function											C																																											
+Allele		*41	Unknown function/Uncertain function													G																																									
+Allele		*42	Unknown function/Uncertain function															A																																							
+Allele		*43	Unknown function/Uncertain function														T																																								
+Allele		*44	Unknown function/Uncertain function																	T																																					
+Allele		*45	Unknown function/Uncertain function																		T																																				
+Allele		*46	Unknown function/Uncertain function																					A																																	
+Allele		*47	Unknown function/Uncertain function																								T																														
+Allele		*48	Unknown function/Uncertain function																										C																												
+Allele		*49	Unknown function/Uncertain function																												G																										
+Allele		*50	Unknown function/Uncertain function																													T																									
+Allele		*51	Unknown function/Uncertain function																																		G																				
+Allele		*52	Unknown function/Uncertain function																																				G																		
+Allele		*53	Unknown function/Uncertain function																																					T																	
+Allele		*54	Unknown function/Uncertain function																																									A													
+Allele		*55	Unknown function/Uncertain function																																														A								
+Allele		*56	Unknown function/Uncertain function																																																G						
+Allele		*57	Unknown function/Uncertain function																									C																													
+Note	rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)																																																		
+Note	All variants are annotated to the positive DNA strand.																																																		
+Note	See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP2C9 variant alleles and updated allele information.																																																		
+Note	Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see Supplemental Table S5 in the CPIC  guideline supplement for phenytoin at https://www.pharmgkb.org/guideline/PA166122806 (1000 Genomes populations)																																																		
+Note	Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].																																																		
+Note	An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”																																																		

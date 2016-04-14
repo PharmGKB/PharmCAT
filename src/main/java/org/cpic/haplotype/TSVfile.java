@@ -5,6 +5,7 @@ public class TSVfile {
 	private int FormatVersion;
 	private String GeneName;
 	private String GeneID;
+	private String GeneOrientation;
 	private String ContentVersion;
 	private String ContentDate;
 	private String GenomeBuild;
@@ -35,7 +36,13 @@ public class TSVfile {
 	public String getGeneID(){
 		return GeneID;
 	}
+	public void setGeneOrientation(String _GeneOrientation){
+		GeneOrientation=_GeneOrientation;
+	}
 	
+	public String getGeneOrientation(){
+		return GeneOrientation;
+	}
 	public void setGeneName(String _GeneName){
 		GeneName=_GeneName;
 	}
