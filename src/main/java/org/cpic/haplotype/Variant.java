@@ -97,6 +97,9 @@ public class Variant implements Comparable<Variant> {
 	public void setGenePOS(String _GenePOS){
 		GenePOS = Integer.parseInt(_GenePOS);
 	}
+	public int getGenePOS(){
+		return GenePOS;
+	}
 	public void setREF(String _REF){
 		REF = (_REF);
 	}
@@ -106,12 +109,16 @@ public class Variant implements Comparable<Variant> {
 	public void set_rsID(String _rsID){
 		rsID = (_rsID);
 	}
+	public String get_rsID(){
+		return rsID;
+	}
 	public void addALT(String _ALT){
 		ALTs.add(_ALT);
 	}
 	public ArrayList<String> getALTs(){
 		return ALTs;
 	}
+	
 
 
 
