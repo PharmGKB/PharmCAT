@@ -1,6 +1,7 @@
 # IntelliJ files
 /.idea/libraries/Gradle__*.xml
-/.idea/shelf
+/.idea/dictionaries/
+/.idea/shelf/
 /.idea/workspace.xml
 
 # Gradle files

@@ -3,10 +3,13 @@ package org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+
+/**
+ * Haplotypes that cannot be called because of missing data in VCF file.
+ */
 public class HaplotypesNotCalled {
 
     @SerializedName("haplotype")
@@ -14,10 +17,10 @@ public class HaplotypesNotCalled {
     private String haplotype;
     @SerializedName("positionsMissing")
     @Expose
-    private List<PositionsMissing> positionsMissing = new ArrayList<PositionsMissing>();
+    private List<PositionsMissing> positionsMissing = new ArrayList<>();
 
     /**
-     * 
+     *
      * @return
      *     The haplotype
      */
@@ -26,7 +29,7 @@ public class HaplotypesNotCalled {
     }
 
     /**
-     * 
+     *
      * @param haplotype
      *     The haplotype
      */
@@ -35,7 +38,7 @@ public class HaplotypesNotCalled {
     }
 
     /**
-     * 
+     *
      * @return
      *     The positionsMissing
      */
@@ -44,7 +47,7 @@ public class HaplotypesNotCalled {
     }
 
     /**
-     * 
+     *
      * @param positionsMissing
      *     The positionsMissing
      */
