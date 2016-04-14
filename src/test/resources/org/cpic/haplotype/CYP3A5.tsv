@@ -1,22 +1,22 @@
 FormatVersion	1
 GeneName	CYP3A5
 GeneRefSeq	NG_007938.1
-GeneOrientation	null
+GeneOrientation	
 ContentDate	04/06/16
-ContentVersion	null
+ContentVersion	1460658431
 GenomeBuild	GRCh38.p2
 ChrName	chr7
 ChrRefSeq	NC_000007.14
 ProteinRefSeq	NP_000768.1
 ResourceNote				3699C>T	6986A>G	12952T>C	14665A>G	14690G>A	19386G>A	27131_27132insT	27289C>A
-ProteinNote				Arg28Cys	intron 3; frameshift	intron5; splicing	Gln200Arg	Lys208=; alternative splicing	Ala337Thr	Thr346Tyrfs	Thr398Asn
+ProteinNote				R28C	Splicing defect	Splicing defect	Q200R	Splicing defect	A337T	346Frameshift	T398N
 ChrPosition				g.99676198G>A	g.99672916T>C	g.99666950A>G	g.99665237T>C	g.99665212C>T	g.99660516C>T	g.99652770_99652771insA	g.99652613G>T
-GenePosition				g.8801C>T	g.12083G>A	g.18049T>C	g.19762A>G	g.19787G>A	g.24483G>A	g.32228_32229insT	g.32386C>A
+GenePosition				g.8801C>T	g.12083A>G	g.18049T>C	g.19762A>G	g.19787G>A	g.24483G>A	g.32228_32229insT	g.32386C>A
 rsID				rs55817950	rs776746	rs55965422	rs56411402	rs10264272	rs28383479	rs41303343	rs28365083
 Header	ID	Name	FunctionStatus
 Allele	PA166128213.0	*1	Normal function	G	T	A	T	C	C	-	G
 Allele	PA166128218.0	*2	Unknown/Uncertain function								T
-Allele	PA166128219.0	*3	No function		C				V		
+Allele	PA166128219.0	*3	No function		C						
 Allele	PA166128231.0	*4	Unknown/Uncertain function				C				
 Allele	PA166128232.0	*5	Unknown/Uncertain function			G					
 Allele	PA166128233.0	*6	No function					T			
@@ -25,7 +25,7 @@ Allele	PA166128235.0	*8	Unknown/Uncertain function	A
 Allele	PA166128236.0	*9	Unknown/Uncertain function		Y				T		
 Note	See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP3A5 variant alleles and updated allele information.	
 Note	Cytochrome database references nucleotide changes based on NCBI Reference Sequence NG_000004.3 as detailed at http://www.cypalleles.ki.se/cyp3a5.htm.	
-Note	For *9 the existence of the rs776746 (*3) polymorphism on the same allele Cannot be exclude .	
+Note	For *9 the existence of the rs776746 (*3) polymorphism on the same allele cannot be excluded.	
 Note	Regarding functional status: an important caveat for all genotyping tests is that the decision to assign an allele a “wild- type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of- function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”	
 Note	Allele frequencies: Average allele frequencies are based on the actual number of subjects with each allele reported
 Note	in multiple studies and then grouped according to major race/ethnic groups for studies as defined in http://www.pharmgkb.org/download.action?filename=CYP3A5_Literature_Table.xlsx (details and references).	

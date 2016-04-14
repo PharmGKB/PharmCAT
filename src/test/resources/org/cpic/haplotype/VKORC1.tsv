@@ -1,9 +1,9 @@
 FormatVersion	1
 GeneName	VKORC1
 GeneRefSeq	NG_011564.1
-GeneOrientation	null
+GeneOrientation	
 ContentDate	04/12/16
-ContentVersion	null
+ContentVersion	1460658431
 GenomeBuild	GRCh38.p2
 ChrName	chr16
 ChrRefSeq	NC_000016.10

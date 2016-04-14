@@ -1,9 +1,9 @@
 FormatVersion	1
 GeneName	CYP2C9
 GeneRefSeq	NG_008385.1
-GeneOrientation	null
+GeneOrientation	
 ContentDate	03/30/16
-ContentVersion	null
+ContentVersion	1460658431
 GenomeBuild	GRCh38.p2
 ChrName	chr10
 ChrRefSeq	NC_000010.11
@@ -15,8 +15,8 @@ GenePosition				g.5026A>G	g.5080C>A	g.5114C>T	g.5146A>G	g.5171A>G	g.8240G>C	g.82
 rsID				rs114071557	rs67807361	rs142240658		rs564813580	rs371055887		rs72558187		rs762239445				rs767576260	rs12414460      	rs72558189	rs200965026	rs199523631	rs200183364	rs1799853	rs754487195	rs7900194	rs72558190	rs774550549						rs2256871	rs9332130	rs9332131	rs182132442		rs72558192			rs57505750	rs28371685	rs367826293	rs750820937	rs749060448	rs1057910	rs56165452	rs28371686			rs764211126	rs72558193	rs769942899	rs1057911	rs781583846	rs9332239	
 Header	ID	Name	FunctionStatus
 Allele	PA165816542.5	*1	Normal function	A	C	C	A	A	G	G	T	G	G	T	AGAAATGGAA	A	C	G	G	C	C	G	C	G	G	C	C	A	T	A	A	C	A	A	A	C	A	A	C	C	T	C	G	C	G	A	T	C	C	C	A	A	G	A	G	C	G
-Allele	PA165816543.6	*2	Decreased function																B				T																																		
-Allele	PA165816544.6	*3	Decreased function																																											C						D					
+Allele	PA165816543.6	*2	Decreased function																				T																																		
+Allele	PA165816544.6	*3	Decreased function																																											C											
 Allele	PA165816545.5	*4	Possible decreased function																																												C										
 Allele	PA165816546.5	*5	Possible decreased function																																													G									
 Allele	PA165816547.5	*6	No function																																-																						
@@ -27,7 +27,7 @@ Allele		*10	Unknown function/Uncertain function																															G
 Allele	PA165816552.5	*11	Possible decreased function																																							T															
 Allele	PA165816553.5	*12	Possible decreased function																																																					T	
 Allele	PA165816554.5	*13	Possible decreased function								C																																														
-Allele		*14	Possible decreased function																A				V																																		
+Allele		*14	Possible decreased function																A																																						
 Allele	PA165816556.5	*15	No function																							A																															
 Allele		*16	Unknown function/Uncertain function																																			G																			
 Allele		*17	Unknown function/Uncertain function																																															T							
@@ -71,9 +71,9 @@ Allele		*54	Unknown function/Uncertain function																																	
 Allele		*55	Unknown function/Uncertain function																																														A								
 Allele		*56	Unknown function/Uncertain function																																																G						
 Allele		*57	Unknown function/Uncertain function																									C																													
-Note	rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)																																																		
-Note	All variants are annotated to the positive DNA strand.																																																		
-Note	See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP2C9 variant alleles and updated allele information.																																																		
-Note	Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see Supplemental Table S5 in the CPIC  guideline supplement for phenytoin at https://www.pharmgkb.org/guideline/PA166122806 (1000 Genomes populations)																																																		
-Note	Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].																																																		
-Note	An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”																																																		
+Note	rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)	
+Note	All variants are annotated to the positive DNA strand.	
+Note	See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP2C9 variant alleles and updated allele information.	
+Note	Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see Supplemental Table S5 in the CPIC  guideline supplement for phenytoin at https://www.pharmgkb.org/guideline/PA166122806 (1000 Genomes populations)	
+Note	Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].	
+Note	An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”	
