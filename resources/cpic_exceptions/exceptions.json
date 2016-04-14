@@ -4,15 +4,15 @@
       "rule_name": "CYP2C19 *17 check for *4B",
       "version": "1.0",
       "gene": "CYP2C19",
-      "matches": "GENE_NAME==CYP2C19 and COVERAGE('*4B','INCOMPLETE')",
+      "matches": "gene='CYP2C19', hap='*17', dip=''",
       "exception_type": "ambiguity",
-      "message": "Haplotype matches *17 (increased function), however due to the lack of coverage for *4B we can't also rule out this position (no function)."
+      "message": "Warning!: haplotype matches *17 (increased function), however due to the lack of coverage for *4B we can't also rule out this position (no function)."
     },
     {
       "rule_name": "TPMT *1/*3 warning",
       "version": "1.0",
       "gene": "TPMT",
-      "matches": "GENE_NAME=='TPMT' and Diplotype=='*1/*3A'",
+      "matches": "gene='TPMT', hap='', dip='*1/*3A'",
       "exception_type": "ambiguity",
       "message": "We have detected *1/*3A. Most likely the diplotype is *1/*3A but  *3B/*3C can't be ruled out."
     },
@@ -21,7 +21,7 @@
       "rule_name": "TPMT reverse complement footnote",
       "version": "1.0",
       "gene": "TPMT",
-      "matches": "GENE_NAME=='TPMT'",
+      "matches": "gene='TPMT', hap='', dip=''",
       "exception_type": "footnote",
       "message": "CPIC table refers to the reverse strand."
     },
@@ -30,7 +30,7 @@
       "rule_name": "VKORC1",
       "version": "1.0",
       "gene": "VKORC1",
-      "matches": "GENE_NAME=='VKORC1'",
+      "matches": "gene='VKORC1', hap='', dip=''",
       "exception_type": "footnote",
       "message": "This haplotype only uses a single position, and may not be applicable  to all populations."
     },
@@ -39,7 +39,7 @@
       "rule_name": "UGT1A1 repeat warning",
       "version": "1.0",
       "gene": "UGT1A1",
-      "matches": "GENE_NAME=='UGT1A1'",
+      "matches": "gene='UGT1A1', hap='', dip=''",
       "exception_type": "footnote",
       "message": "This genes relies on a multiple repeat to differentiate between several star allelles.  Some technologies may struggle to make this call accurately."
     },
@@ -48,7 +48,7 @@
       "rule_name": "UGT1A1 trans rule breaker *28 and *80",
       "version": "1.0",
       "gene": "UGT1A1",
-      "matches": "GENE_NAME=='UGT1A1' and diplotype=='*28/*80'",
+      "matches": "gene='UGT1A1', hap='', dip='*28/*80'",
       "exception_type": "ambiguity",
       "message": "We have detected matches to *28 and *80.  These are usually seen in trans suggesting subject is *1/*28+80, however we cannot rule out *28/*80."
     },
@@ -57,7 +57,7 @@
       "rule_name": "CYP3A5 Exome warning",
       "version": "1.0",
       "gene": "CYP3A5",
-      "matches": "GENE_NAME=='CYP3A5' and (RSID('rs1234', 'Missing') or RSID('rsid2345', 'Missing'))",
+      "matches": "gene='CYP3A5', hap='', dip=''",
       "exception_type": "ambiguity",
       "message": "There was one or more functional variants in an intron; intronic variants are important for CYP3A5 so you want to do further testing."
     }
