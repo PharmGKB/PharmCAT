@@ -1,12 +1,11 @@
 package org.cpic.haplotype;
 
-import org.apache.commons.lang3.ObjectUtils;
-import org.cpic.util.HaplotypeNameComparator;
-
-import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import javax.annotation.Nonnull;
+import org.apache.commons.lang3.ObjectUtils;
+import org.cpic.util.HaplotypeNameComparator;
 
 public class Haplotype implements Comparable<Haplotype> {
 
@@ -21,7 +20,7 @@ public class Haplotype implements Comparable<Haplotype> {
 	public Haplotype(){
 	}
 
-	public Haplotype(ArrayList <Variant> _Variants, String _AlleleID, String _CommonName, String _FunctionStatus, ArrayList <String> _Alleles){
+	public Haplotype(List <Variant> _Variants, String _AlleleID, String _CommonName, String _FunctionStatus, List <String> _Alleles){
 		Variants=_Variants;
 		AlleleID = _AlleleID;
 		CommonName = _CommonName;
@@ -85,6 +84,10 @@ public class Haplotype implements Comparable<Haplotype> {
       return Iupac.lookup(allele).getRegex();
     }
     return allele;
+  }
+
+  public Pattern getPermutations() {
+    return m_permutations;
   }
 
   public Pattern calculatePermutations(List<Variant> allVariants) {
