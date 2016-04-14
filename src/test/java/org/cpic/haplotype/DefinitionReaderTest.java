@@ -20,7 +20,7 @@ public class DefinitionReaderTest {
 
 		DefinitionReader dr = new DefinitionReader();
 		//ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(DefinitionReader.class.getResource("CYP2C19.tsv").getFile());
+        File file = new File(DefinitionReader.class.getResource("VKORC1.tsv").getFile());
         Path path = Paths.get(file.getAbsolutePath());
 		dr.read(path);
 
@@ -29,25 +29,25 @@ public class DefinitionReaderTest {
 
 		System.out.println(m_haplotypes);
 		System.out.println(m_haplotypePositions);
-
-		List<Variant> v_list = m_haplotypePositions.get("CYP2C19");
-		List<Haplotype> h_list = m_haplotypes.get("CYP2C19");
+		
+		List<Variant> v_list = m_haplotypePositions.get("VKORC1");
+		List<Haplotype> h_list = m_haplotypes.get("VKORC1");
 
 		System.out.println(v_list.size());
 		System.out.println(h_list.size());
+		 for (Variant v : v_list){
+			 //System.out.println(v.get_rsID());
+			 //System.out.println(v.getHGVSg());
+			 //System.out.println(v.getPOS());
+		 }
 
-		assertEquals(39,v_list.size());
-		assertEquals(33,h_list.size());
+		
+		assertEquals(1,v_list.size());
+		assertEquals(2,h_list.size());
+		
+		
 
-		for (Variant v : v_list) {
-			//System.out.println(v.getREF());
-		    //System.out.println(v.getALTs());
-		}
 
-		for (Haplotype h : h_list) {
-			//System.out.println(v.getREF());
-		    //System.out.println(v.getALTs());
-		}
 	}
 
 
@@ -57,6 +57,29 @@ public class DefinitionReaderTest {
     Path file = TestUtil.getFile("org/cpic/haplotype/CYP2C19.tsv");
     DefinitionReader reader = new DefinitionReader();
     reader.read(file.getParent());
+
+    for (String gene : reader.getHaplotypePositions().keySet()) {
+      for (Variant variant : reader.getHaplotypePositions().get(gene)) {
+        assertTrue(variant.getCHROM().startsWith("chr"));
+        	if (variant.getPOS() <1){
+        		//System.out.println(variant.getPOS());
+        		//System.out.println(gene);
+        		//System.out.println(variant);
+        	}
+        	//System.out.println(variant.getPOS());
+        	assertTrue(variant.getPOS() > 0);
+      }
+    }
+  }
+
+
+
+  @Test
+  public void testReadCyp2c19() throws Exception {
+
+    Path file = TestUtil.getFile("org/cpic/haplotype/CYP2C19.tsv");
+    DefinitionReader reader = new DefinitionReader();
+    reader.read(file);
 
     for (String gene : reader.getHaplotypePositions().keySet()) {
       for (Variant variant : reader.getHaplotypePositions().get(gene)) {

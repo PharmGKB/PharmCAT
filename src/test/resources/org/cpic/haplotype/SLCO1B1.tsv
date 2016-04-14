@@ -15,43 +15,43 @@ ChrPosition				g.21130388G>A	g.21172734C>T	g.21172776G>A	g.21172782T>C	g.2117459
 GenePosition				g.4195G>A	g.46541C>T	g.46583G>A	g.46589T>C	g.48402T>C	g.50611A>G	g.50634G>A	g.50675A>G	g.50686C>A	g.50690A>G	g.52422T>C	g.52472T>C	g.52479T>G	g.52498C>T	g.52764A>G	g.70758A>G	g.70783G>A	g.74402T>C	g.76360T>G	g.76362C>G	g.76456A>G	g.76471G>A	g.79728A>G	g.79806G>C	g.112849A>C	g.112884A>G	g.112920A>G	g.112952C>T	g.112965C>T
 rsID				rs4149015	rs139257324	rs373327528	rs56101265	rs56061388	rs2306283	rs11045818	rs2306282	rs11045819	rs72559745	rs4149056	rs4149057	rs72559746	rs2291075	rs79135870	rs11045852	rs11045853	rs55901008		rs59113707	rs56387224	rs142965323	rs72559748	rs59502379	rs34671512	rs56199088	rs55737008	rs200995543	rs140790673
 Header	ID	Name	FunctionStatus
-Allele	PA166128239.1	*1A	Normal function	G	C	G	T	T	A	G	A	C	A	T	T	T	C	A	A	G	T	T	C	A	G	A	G	A	A	A	C	C
-Allele	PA166128240.1	*1B	Normal function						G																							
-Allele	PA166128242.1	*2	Possible decreased function				C																									
-Allele	PA166128243.1	*3	Possible decreased function					C					G																			
-Allele		*4	Unknown function/Unclear function									A																				
-Allele	PA166128245.1	*5	Decreased function											C																		
-Allele	PA166128246.1	*6	Possible decreased function																		C											
-Allele		*7	Unknown function/Unclear function																					G								
-Allele		*8	Unknown function/Unclear function																							G						
-Allele	PA166128249.1	*9	Possible decreased function																								C					
-Allele	PA166128250.1	*10	Possible decreased function																										G			
-Allele		*11	Unknown function/Unclear function																											G		
-Allele		*12	Unknown function/Unclear function				C																						G			
-Allele		*13	Unknown function/Unclear function					C					G																	G		
-Allele	PA166128254.1	*14	Possible increased function						G			A																				
-Allele	PA166128255.1	*15	Decreased function						G					C																		
-Allele		*16	Unknown function/Unclear function								G																					
-Allele	PA166128257.1	*17	Decreased function	A					G					C																		
-Allele		*18	Unknown function/Unclear function						G	A		A			C	G																
-Allele		*19	Unknown function/Unclear function												C													C				
-Allele		*20	Unknown function/Unclear function						G								T											C				
-Allele		*21	Unknown function/Unclear function	A					G								T															
-Allele		*22	Unknown function/Unclear function																									C				
-Allele	PA166128263.1	*23	Possible decreased function			A																										
-Allele		*24	Unknown function/Unclear function						G										G													
-Allele		*25	Unknown function/Unclear function						G			A							G	A												
-Allele		*26	Unknown function/Unclear function																						A							
-Allele		*27	Unknown function/Unclear function						G														G									
-Allele		*28	Unknown function/Unclear function						G										G	A												
-Allele		*29	Unknown function/Unclear function						G																							T
-Allele		*30	Unknown function/Unclear function						G									G														
-Allele	PA166128271.1	*31	Possible decreased function						G																		C					
-Allele		*32	Unknown function/Unclear function						G			A							G													
-Allele		*33	Unknown function/Unclear function		T				G										G	A												
-Allele		*34	Unknown function/Unclear function																												T	
-Allele	PA166128275.1	*35	Possible increased function						G																			C				
-Allele		*36	Unknown function/Unclear function																			G										
+Allele	CA100152.1	*1A	Normal function	G	C	G	T	T	A	G	A	C	A	T	T	T	C	A	A	G	T	T	C	A	G	A	G	A	A	A	C	C
+Allele	CA100153.1	*1B	Normal function						G																							
+Allele	CA100154.1	*2	Possible decreased function				C																									
+Allele	CA100155.1	*3	Possible decreased function					C					G																			
+Allele	CA100156.1	*4	Unknown function/Unclear function									A																				
+Allele	CA100157.1	*5	Decreased function											C																		
+Allele	CA100158.1	*6	Possible decreased function																		C											
+Allele	CA100159.1	*7	Unknown function/Unclear function																					G								
+Allele	CA100160.1	*8	Unknown function/Unclear function																							G						
+Allele	CA100161.1	*9	Possible decreased function																								C					
+Allele	CA100162.1	*10	Possible decreased function																										G			
+Allele	CA100163.1	*11	Unknown function/Unclear function																											G		
+Allele	CA100164.1	*12	Unknown function/Unclear function				C																						G			
+Allele	CA100165.1	*13	Unknown function/Unclear function					C					G																	G		
+Allele	CA100166.1	*14	Possible increased function						G			A																				
+Allele	CA100167.1	*15	Decreased function						G					C																		
+Allele	CA100168.1	*16	Unknown function/Unclear function								G																					
+Allele	CA100169.1	*17	Decreased function	A					G					C																		
+Allele	CA100170.1	*18	Unknown function/Unclear function						G	A		A			C	G																
+Allele	CA100171.1	*19	Unknown function/Unclear function												C													C				
+Allele	CA100172.1	*20	Unknown function/Unclear function						G								T											C				
+Allele	CA100173.1	*21	Unknown function/Unclear function	A					G								T															
+Allele	CA100174.1	*22	Unknown function/Unclear function																									C				
+Allele	CA100175.1	*23	Possible decreased function			A																										
+Allele	CA100176.1	*24	Unknown function/Unclear function						G										G													
+Allele	CA100177.1	*25	Unknown function/Unclear function						G			A							G	A												
+Allele	CA100178.1	*26	Unknown function/Unclear function																						A							
+Allele	CA100179.1	*27	Unknown function/Unclear function						G														G									
+Allele	CA100180.1	*28	Unknown function/Unclear function						G										G	A												
+Allele	CA100181.1	*29	Unknown function/Unclear function						G																							T
+Allele	CA100182.1	*30	Unknown function/Unclear function						G									G														
+Allele	CA100183.1	*31	Possible decreased function						G																		C					
+Allele	CA100184.1	*32	Unknown function/Unclear function						G			A							G													
+Allele	CA100185.1	*33	Unknown function/Unclear function		T				G										G	A												
+Allele	CA100186.1	*34	Unknown function/Unclear function																												T	
+Allele	CA100187.1	*35	Possible increased function						G																			C				
+Allele	CA100188.1	*36	Unknown function/Unclear function																			G										
 Note	rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)																														
 Note	All variants are annotated to the positive DNA strand.																														
 Note	Transport function was tested for methotrexate, and may not be generalizable to statins. *23 was observed only once in 700 patients, but in vitro transport assays showed little/no function. *31 was observed only in patients of African ancestry, and in vitro transport assays showed little/no function for this haplotype also. *14 and *35 were associated with higher methotrexate clearance in patients, but were not tested for in vitro transport function.																														

@@ -103,6 +103,9 @@ public class Variant implements Comparable<Variant> {
 			HGVSg.add(_HGVSg);
 		}
 	}
+	public String getHGVSg(){
+		return HGVSg.toString();
+	}
 	/**
 	 * @param _HGVSg
 	 * @return

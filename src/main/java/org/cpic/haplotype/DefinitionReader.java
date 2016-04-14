@@ -156,7 +156,7 @@ public class DefinitionReader {
                 }
             }
             else if (fields[0].equals("ResourceNote")){
-            	if (fields.length>4){
+            	if (fields.length>=4){
 	            	for (int i = 4; i < fields.length; i++){
 	                	variants.get(i-4).addProteingEffect(fields[i]);
 	                }
@@ -164,7 +164,7 @@ public class DefinitionReader {
             	
             }
             else if (fields[0].equals("ProteinNote")){
-            	if (fields.length>4){
+            	if (fields.length>=4){
 	            	for (int i = 4; i < fields.length; i++){
 	                	variants.get(i-4).addProteingEffect(fields[i]);
 	            	}
@@ -173,6 +173,7 @@ public class DefinitionReader {
             else if (fields[0].equals("ChrPosition")){
             	for (int i = 4; i < fields.length; i++){
                 	variants.get(i-4).addHGVSg(fields[i]);
+                	variants.get(i-4).setStartPOS();
                 
                 }
             }
@@ -182,7 +183,7 @@ public class DefinitionReader {
                 }
             }
             else if (fields[0].equals("rsID")){
-            	if (fields.length>4){
+            	if (fields.length>=4){
 	            	for (int i = 4; i < fields.length; i++){
 	                	variants.get(i-4).set_rsID(fields[i]);
 	                }

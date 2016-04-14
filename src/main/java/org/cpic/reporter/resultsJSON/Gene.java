@@ -40,4 +40,4 @@ public class Gene {
         drugGene.add(interact);
     }
 }
- 
+
