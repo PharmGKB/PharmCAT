@@ -152,9 +152,11 @@ public class DefinitionReader {
                 		
                 	}
                 	else{
-                		variants.get(i-4).addALT(fields[i]);
-                		alleles.add(fields[i]);
-                		hapVariants.add(variants.get(i-4));
+                		if (!fields[i].trim().equals("")){
+	                		variants.get(i-4).addALT(fields[i]);
+	                		alleles.add(fields[i]);
+	                		hapVariants.add(variants.get(i-4));
+                		}
                 	}
                 	
             	}
