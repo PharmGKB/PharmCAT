@@ -6,7 +6,7 @@ import java.util.List;
 import org.cpic.reporter.model.CPICException;
 import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
 
-public class GeneReporter extends DiplotypeCall {
+public class GeneReporter {
     
     List<CPICException> exceptList = new ArrayList<CPICException>();
     

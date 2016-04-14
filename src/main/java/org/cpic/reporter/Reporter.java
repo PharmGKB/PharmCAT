@@ -143,6 +143,8 @@ public class Reporter {
         Map<String, List<CPICException>> exceptions = loader.loadExceptions(this.exception);
         List<CPICinteraction> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
         
+        DataUnifier checker = new DataUnifier(calls, exceptions, drugGenes);
+        checker.findMatches();
         
         
 
