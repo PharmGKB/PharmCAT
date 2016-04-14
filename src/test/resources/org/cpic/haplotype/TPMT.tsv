@@ -15,38 +15,38 @@ ChrPosition				g.18149127T>C	g.18149126A>G	g.18149045T>A	g.18149022C>T	g.1814900
 GenePosition				g.11017A>G	g.11018T>C	g.11099A>T	g.11122G>A	g.11140C>G	g.12234T>C	g.12293C>G	g.12299G>A	g.16420G>C	g.16474G>T	g.16501T>G	g.16531G>C	g.16538A>C	g.16547A>C	g.20434C>T	g.20455G>A	g.21117G>C	g.21147G>A	g.21161T>C	g.21175G>A; g.21175G>C	g.26254G>A	g.26260C>G	g.26297G>T	g.26299A>T	g.27997T>C	g.28008T>C	g.29363G>A	g.29372T>C	g.29382G>A	g.18130725A>C	g.29450A>G	g.29457A>G
 rsID				rs9333569	rs267607275	rs72552742			rs72552740	rs200591577		rs1800462	rs72552739			rs151149760		rs200220210	rs72552738	rs72552737	rs1800460	rs2842934	rs144041067	rs9333570	rs74423290	rs6921269	rs75543815	rs79901429	rs72556347	rs1800584	rs377085266	rs56161402	rs72552736	rs150900439	rs1142345
 Header	ID	Name	FunctionStatus
-Allele	PA165819268.8	*1	Normal function	T	A	T	C	G	A	G	C	C	C	A	C	T	T	G	C	C	C	G	C	C	G	C	T	A	A	C	A	C	A	T	T
-Allele		*1S	Normal function																			A													
-Allele	PA165819269.8	*2	No function									G																							
-Allele	PA165819270.9	*3A	No function																		T														C
-Allele	PA165819271.8	*3B	No function																		T														
-Allele	PA165819272.8	*3C	No function																																C
-Allele	PA165819274.8	*4	No function																											T					
-Allele		*5	Probable decreased function						G																										
-Allele		*6	Probable decreased function																								A								
-Allele		*7	Unknown function/Unclear function																														C		
-Allele		*8	Probable decreased function																													T			
-Allele		*9	Probable decreased function													G																			
-Allele		*10	Probable decreased function																	G															
-Allele		*11	Probable decreased function																T																
-Allele		*12	Probable decreased function															A																	
-Allele		*13	Probable decreased function			A																													
-Allele		*14	Unknown function/Unclear function	C																															
-Allele		*15	Unknown function/Unclear function																					T											
-Allele		*16	Probable decreased function																				T												
-Allele		*17	Probable decreased function					C																											
-Allele		*18	Probable decreased function								T																								
-Allele		*19	Unknown function/Unclear function														G																		
-Allele		*20	Unknown function/Unclear function																															C	
-Allele		*21	Unknown function/Unclear function							C																									
-Allele		*22	Unknown function/Unclear function																				G												
-Allele		*23	Unknown function/Unclear function																						C										
-Allele		*24	Unknown function/Unclear function																							A									
-Allele		*25	Unknown function/Unclear function																												G				
-Allele		*26	Unknown function/Unclear function																										G						
-Allele		*27	Unknown function/Unclear function											C																					
-Allele		*28	Unknown function/Unclear function												G																				
-Allele		*29	Unknown function/Unclear function		G																														
-Allele		*30	Unknown function/Unclear function				T																												
-Allele		*31	Unknown function/Unclear function																									G							
+Allele	CA100189.1	*1	Normal function	T	A	T	C	G	A	G	C	C	C	A	C	T	T	G	C	C	C	G	C	C	G	C	T	A	A	C	A	C	A	T	T
+Allele	CA100190.1	*1S	Normal function																			A													
+Allele	CA100191.1	*2	No function									G																							
+Allele	CA100192.1	*3A	No function																		T														C
+Allele	CA100193.1	*3B	No function																		T														
+Allele	CA100194.1	*3C	No function																																C
+Allele	CA100195.1	*4	No function																											T					
+Allele	CA100196.1	*5	Probable decreased function						G																										
+Allele	CA100197.1	*6	Probable decreased function																								A								
+Allele	CA100198.1	*7	Unknown function/Unclear function																														C		
+Allele	CA100199.1	*8	Probable decreased function																													T			
+Allele	CA100200.1	*9	Probable decreased function													G																			
+Allele	CA100201.1	*10	Probable decreased function																	G															
+Allele	CA100202.1	*11	Probable decreased function																T																
+Allele	CA100203.1	*12	Probable decreased function															A																	
+Allele	CA100204.1	*13	Probable decreased function			A																													
+Allele	CA100205.1	*14	Unknown function/Unclear function	C																															
+Allele	CA100206.1	*15	Unknown function/Unclear function																					T											
+Allele	CA100207.1	*16	Probable decreased function																				T												
+Allele	CA100208.1	*17	Probable decreased function					C																											
+Allele	CA100209.1	*18	Probable decreased function								T																								
+Allele	CA100210.1	*19	Unknown function/Unclear function														G																		
+Allele	CA100211.1	*20	Unknown function/Unclear function																															C	
+Allele	CA100212.1	*21	Unknown function/Unclear function							C																									
+Allele	CA100213.1	*22	Unknown function/Unclear function																				G												
+Allele	CA100214.1	*23	Unknown function/Unclear function																						C										
+Allele	CA100215.1	*24	Unknown function/Unclear function																							A									
+Allele	CA100216.1	*25	Unknown function/Unclear function																												G				
+Allele	CA100217.1	*26	Unknown function/Unclear function																										G						
+Allele	CA100218.1	*27	Unknown function/Unclear function											C																					
+Allele	CA100219.1	*28	Unknown function/Unclear function												G																				
+Allele	CA100220.1	*29	Unknown function/Unclear function		G																														
+Allele	CA100221.1	*30	Unknown function/Unclear function				T																												
+Allele	CA100222.1	*31	Unknown function/Unclear function																									G							
 Note	Nomenclature as determined by TPMT nomenclature committee (www.imh.liu.se/tpmtalleles)																																	

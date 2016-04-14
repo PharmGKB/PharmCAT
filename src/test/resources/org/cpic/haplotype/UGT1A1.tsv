@@ -15,14 +15,14 @@ ChrPosition				g.233757013T>G	g.233759924C>T	g.233760234	g.233760498G>A	g.233760
 GenePosition				g.172270T>G	g.175181C>T	g.175491	g.175755G>A	g.176230C>A
 rsID				rs4124874	rs887829		rs4148323	rs35350960
 Header	ID	Name	FunctionStatus
-Allele	PA166115841.5	*1	Normal function	T	C	ATATATATATATATAA	G	C
-Allele	PA166115858.5	*6	Decreased function				A	
-Allele		*27	Decreased function					A
-Allele	PA166115842.5	*28	Decreased function			ATATATATATATATATAA		
-Allele	PA166115843.5	*36	Increased function			ATATATATATATAA		
-Allele	PA166115844.5	*37	Decreased function			ATATATATATATATATATAA		
-Allele		*60	Unknown/Uncertain function	G				
-Allele	PA166115850.5	*80	Decreased function		T			
+Allele	CA100223.1	*1	Normal function	T	C	ATATATATATATATAA	G	C
+Allele	CA100224.1	*6	Decreased function				A	
+Allele	CA100225.1	*27	Decreased function					A
+Allele	CA100226.1	*28	Decreased function			ATATATATATATATATAA		
+Allele	CA100227.1	*36	Increased function			ATATATATATATAA		
+Allele	CA100228.1	*37	Decreased function			ATATATATATATATATATAA		
+Allele	CA100229.1	*60	Unknown/Uncertain function	G				
+Allele	CA100230.1	*80	Decreased function		T			
 Note	To see a full list of known UGT1A1 alleles see https://www.pharmacogenomics.pha.ulaval.ca/wp-content/uploads/2015/04/UGT1A1-allele-nomenclature.html	
 Note	Bases reported on the positive chromosomal strand from dbSNP (http://www.ncbi.nlm.nih.gov/SNP/). Alleles are derived from the UDP-Glucoronosyltransferase (UGT) Alleles Nomenclature page (http://www.pharmacogenomics.pha.ulaval.ca/cms/site/pharmacogenomics/ugt_alleles). See https://www.pharmgkb.org/gene/PA420 for updates on UGT1A1 gene alleles and nomenclature.	
 Note	To see a full list of known UGT1A1 alleles and function see http://www.pharmacogenomics.pha.ulaval.ca/files/content/sites/pharmacogenomics/files/Nomen clature/UGT1A/UGT1A1.htm.	
