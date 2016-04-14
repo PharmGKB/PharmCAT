@@ -24,7 +24,7 @@ public class DataUnifier {
         this.drugGenes = drugGenes;
     }
     
-    public void findMatches(){
+    public List<Gene> findMatches(){
         
         List<Gene> callSetToReturn = new ArrayList<Gene>();
         ExceptionMatcher matchTest = new ExceptionMatcher();
@@ -42,7 +42,18 @@ public class DataUnifier {
                 }
                 
             }
+            
+            callSetToReturn.add(gene);
         }
+        return callSetToReturn;
+    }
+
+    private boolean matchTest(Gene gene, String rule_name) {
+        String[] parts = rule_name.split(",");
+        
+        
+        
+        return false;
     }
 
 }
