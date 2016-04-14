@@ -14,21 +14,21 @@ ChrPosition				g.97450058C>T	g.97883352C>T	g.97883329A>G	g.97740415_97740418delA
 GenePosition				g.476002G>A	g.42708G>A	g.42731T>C	g.185642_185645delTCAT	g.234284C>T	g.332717G>T	g.352117G>T	g.410195G>A	g.410221A>G	g.410273T>G	g.475994delC	g.620696G>A	g.827462G>A	g.843669A>T	g.846989G>T
 rsID				rs3918290	rs80081766	rs1801265	rs72549309	rs1801266	rs72549306	rs78060119	rs1801158	rs1801159	rs55886062	rs72549303	rs1801160	rs1801267	rs67376798	rs1801268
 Header	ID	Name	FunctionStatus
-Allele		*1	Normal Function	C	C	A	ATGA	G	C	C	C	T	A	G	C	C	T	C
-Allele		*2A	No Function	T								D						
+Allele	PA166128308.0	*1	Normal Function	C	C	A	ATGA	G	C	C	C	T	A	G	C	C	T	C
+Allele	PA166128309.0	*2A	No Function	T								D						
 Allele		*2B		T								C						
 Allele		*3	Probable Decreased Function											-				
-Allele		*4	Normal Function								T							
-Allele		*5	Normal Function	V								C						
-Allele		*6	Normal Function												T			
+Allele	PA166128312.0	*4	Normal Function								T							
+Allele	PA166128313.0	*5	Normal Function	V								C						
+Allele	PA166128314.0	*6	Normal Function												T			
 Allele		*7	Probable Decreased Function				-											
 Allele		*8	Probable Decreased Function					A										
-Allele		*9A	Normal Function			G										V		
+Allele	PA166128317.0	*9A	Normal Function			G										V		
 Allele		*9B	Probable Decreased Function			G										T		
 Allele		*10	Probable Decreased Function															A
 Allele		*11	Probable Decreased Function						A									
 Allele		*12	Probable Decreased Function		T					A								
-Allele		*13	No Function										C					
+Allele	PA166128322.0	*13	No Function										C					
 Allele		rs67376798T/A	No Function														A	
 Note	Bases reported on the positive chromosomal strand from Golden Path.										
 Note	Nomenclature from *1-10 from McLeod et al (PMID: 9918128), *11 and *12 from Mattison et al, (PMID: 11875367), *13 from Johnson et al, (PMID: 11895907).										

@@ -15,18 +15,18 @@ GenePosition				g.98809_98811delCTT	g.98808_98810delTCT	g.127023G>A	g.181668G>A	
 rsID				rs113993960	rs199826652	rs75527207	rs267606723	rs193922525	rs80282562	rs121909013	rs74503330	rs121909041	rs121908755 	rs121908757	rs121909005	rs113993959	rs80034486	rs77010898	rs78655421	rs74597325	rs76713772	rs78756941	rs80224560	rs75039782	rs74767530	rs75961395	rs75096551	rs121908745	rs121908748	rs121908747	rs77932196	rs80055610	rs121909011	rs74551128	rs121908746	rs77188391
 Header	ID	Name	FunctionStatus
 Allele		Reference		CTT	TCT	G	G	G	G	G	G	T	G	A	T	G	C	G	G	C	G	G	G	C	C	G	G	ATC	G	C	G	G	C	C	A	G
-Allele		F508del(CTT)		-																																
-Allele		F508del(TCT)			-																															
-Allele		G551D				A																														
-Allele		G1244E					A																													
-Allele		G1349D						A																												
-Allele		G178R							A																											
-Allele		G551S								A																										
-Allele		S1251N									A																									
-Allele		S1255P										C																								
-Allele		S549N											A																							
-Allele		S549R(A>C)												C																						
-Allele		S549R(T>G)													G																					
+Allele	PA166117963.2	F508del(CTT)		-																																
+Allele	PA166117964.2	F508del(TCT)			-																															
+Allele	PA166117965.2	G551D				A																														
+Allele	PA166117966.2	G1244E					A																													
+Allele	PA166117967.2	G1349D						A																												
+Allele	PA166117968.2	G178R							A																											
+Allele	PA166117969.2	G551S								A																										
+Allele	PA166117970.2	S1251N									A																									
+Allele	PA166117971.2	S1255P										C																								
+Allele	PA166117972.2	S549N											A																							
+Allele	PA166117973.2	S549R(A>C)												C																						
+Allele	PA166117974.2	S549R(T>G)													G																					
 Allele		G542X														T																				
 Allele		N1303K															G																			
 Allele		W1282X																A																		

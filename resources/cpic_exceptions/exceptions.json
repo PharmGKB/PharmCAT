@@ -1,6 +1,14 @@
 {
   "rules": [
     {
+      "rule_name": "CYP2C19 *17 check for *4B",
+      "version": "1.0",
+      "gene": "CYP2C19",
+      "matches": "GENE_NAME==CYP2C19 and COVERAGE('*4B','INCOMPLETE')",
+      "exception_type": "ambiguity",
+      "message": "Haplotype matches *17 (increased function), however due to the lack of coverage for *4B we can't also rule out this position (no function)."
+    },
+    {
       "rule_name": "TPMT *1/*3 warning",
       "version": "1.0",
       "gene": "TPMT",
@@ -49,7 +57,7 @@
       "rule_name": "CYP3A5 Exome warning",
       "version": "1.0",
       "gene": "CYP3A5",
-      "matches": "GENE_NAME=='CYP3A5'",
+      "matches": "GENE_NAME=='CYP3A5' and (RSID('rs1234', 'Missing') or RSID('rsid2345', 'Missing'))",
       "exception_type": "ambiguity",
       "message": "There was one or more functional variants in an intron; intronic variants are important for CYP3A5 so you want to do further testing."
     }
