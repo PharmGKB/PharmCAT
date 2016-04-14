@@ -16,7 +16,7 @@ public class Variant implements Comparable<Variant> {
 	private String CHROM;
 	private String GeneName;
 	private int POS;
-	private int GenePOS;
+	private String GenePOS;
 	private ArrayList<String> HGVSg  = new ArrayList<>();
 	private ArrayList<String> cDNA = new ArrayList<>();
 	private ArrayList<String> ProteinEffect  = new ArrayList<>();
@@ -40,6 +40,15 @@ public class Variant implements Comparable<Variant> {
 		}else{
 			cDNA.add(_cDNA);
 		}
+	}
+	/**
+	 * @param _CHROM
+	 * @param _GeneName
+	 */
+	public Variant(String _CHROM, String _GeneName){
+		CHROM = _CHROM;
+		GeneName = _GeneName;
+		
 	}
 	/**
 	 * @return
@@ -100,10 +109,15 @@ public class Variant implements Comparable<Variant> {
 	 */
 	private int getStartPOS(String _HGVSg){
 
-		  Pattern p = Pattern.compile("\\d+");
+		  Pattern p = Pattern.compile("(\\d+)");
 		  Matcher m = p.matcher(_HGVSg);
-
+		  //System.out.println(_HGVSg);
+		  if(m.find()){
+		  System.out.println(m.group(1));
+		  
 		  return Integer.parseInt(m.group(1));
+		  }
+		  else {return -1;}
 
 	}
 	/**
@@ -133,12 +147,12 @@ public class Variant implements Comparable<Variant> {
 	 * @param _GenePOS
 	 */
 	public void setGenePOS(String _GenePOS){
-		GenePOS = Integer.parseInt(_GenePOS);
+		GenePOS = _GenePOS;
 	}
 	/**
 	 * @return
 	 */
-	public int getGenePOS(){
+	public String getGenePOS(){
 		return GenePOS;
 	}
 	/**

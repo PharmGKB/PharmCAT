@@ -8,6 +8,7 @@ GenomeBuild	GRCh38.p2
 ChrName	chr16
 ChrRefSeq	NC_000016.10
 ProteinRefSeq	NP_076869.1
+NumVariants	1
 ResourceNote				-1639G>A
 ProteinNote				nearGene-5
 ChrPosition				g.31096368C>T
