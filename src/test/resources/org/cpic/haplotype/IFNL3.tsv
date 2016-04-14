@@ -8,6 +8,7 @@ GenomeBuild	GRCh38.p2
 ChrName	chr19
 ChrRefSeq	NC_000019.10
 ProteinRefSeq	NP_742151.2
+NumVariants	1
 ResourceNote				rs12979860C/T
 ProteinNote				nearGene-5
 ChrPosition				g.39248147C>T

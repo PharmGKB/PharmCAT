@@ -8,6 +8,7 @@ GenomeBuild	GRCh38.p2
 ChrName	chr2
 ChrRefSeq	NC_000002.12
 ProteinRefSeq	NP_000454.1
+NumVariants	5
 ResourceNote				-3275T>G	-364C>T	A(TA)5TAA                     A(TA)6TAA                     A(TA)7TAA                     A(TA)8TAA	211G>A	686C>A
 ProteinNote				5' of UGT1A1; intronic for other UGT1As e.g. UGT1A4	nearGene-5	Promoter region	G71R	P229Q
 ChrPosition				g.233757013T>G	g.233759924C>T	g.233760234	g.233760498G>A	g.233760973C>A
