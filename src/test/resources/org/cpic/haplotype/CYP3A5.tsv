@@ -14,15 +14,15 @@ ChrPosition				g.99676198G>A	g.99672916T>C	g.99666950A>G	g.99665237T>C	g.9966521
 GenePosition				g.8801C>T	g.12083G>A	g.18049T>C	g.19762A>G	g.19787G>A	g.24483G>A	g.32228_32229insT	g.32386C>A
 rsID				rs55817950	rs776746	rs55965422	rs56411402	rs10264272	rs28383479	rs41303343	rs28365083
 Header	ID	Name	FunctionStatus
-Allele		*1	Normal function	G	T	A	T	C	C	-	G
-Allele		*2	Unknown/Uncertain function								T
-Allele		*3	No function		C				V		
-Allele		*4	Unknown/Uncertain function				C				
-Allele		*5	Unknown/Uncertain function			G					
-Allele		*6	No function					T			
-Allele		*7	No function							A	
-Allele		*8	Unknown/Uncertain function	A							
-Allele		*9	Unknown/Uncertain function		Y				T		
+Allele	PA166128213.0	*1	Normal function	G	T	A	T	C	C	-	G
+Allele	PA166128218.0	*2	Unknown/Uncertain function								T
+Allele	PA166128219.0	*3	No function		C				V		
+Allele	PA166128231.0	*4	Unknown/Uncertain function				C				
+Allele	PA166128232.0	*5	Unknown/Uncertain function			G					
+Allele	PA166128233.0	*6	No function					T			
+Allele	PA166128234.0	*7	No function							A	
+Allele	PA166128235.0	*8	Unknown/Uncertain function	A							
+Allele	PA166128236.0	*9	Unknown/Uncertain function		Y				T		
 Note	See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP3A5 variant alleles and updated allele information.	
 Note	Cytochrome database references nucleotide changes based on NCBI Reference Sequence NG_000004.3 as detailed at http://www.cypalleles.ki.se/cyp3a5.htm.	
 Note	For *9 the existence of the rs776746 (*3) polymorphism on the same allele Cannot be exclude .	

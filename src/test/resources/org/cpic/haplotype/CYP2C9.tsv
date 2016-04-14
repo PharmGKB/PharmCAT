@@ -14,21 +14,21 @@ ChrPosition				g.94938683A>G	g.94938737C>A	g.94938771C>T	g.94938803A>G	g.9493882
 GenePosition				g.5026A>G	g.5080C>A	g.5114C>T	g.5146A>G	g.5171A>G	g.8240G>C	g.8258G>A	g.8301T>C	g.8319G>C	g.8325G>T	g.8361T>C	g.8556_8565delAGAAATGGAA	g.8559A>G	g.8573C>T	g.8574G>A	g.8577G>A	g.8592C>T;g.8592C>G	g.8597C>T	g.8598G>A	g.8633C>T	g.8648G>A	g.8652G>A;g.8652G>T	g.14125C>A	g.14128C>T	g.14250A>C	g.14260T>C	g.14281A>T	g.15472A>G	g.15487C>T	g.15560A>G	g.15623A>G	g.15625delA	g.38462C>A	g.38477A>G	g.38522A>G	g.38523C>G	g.38576C>T	g.47544T>C	g.47567C>T	g.47568G>A	g.47593C>A	g.47624G>A	g.47639A>C	g.47640T>C	g.47644C>G	g.47645C>A	g.47708C>T	g.52385A>G	g.52416A>C	g.55260G>C	g.55323A>T	g.55327G>A	g.55363C>T	g.55366G>T
 rsID				rs114071557	rs67807361	rs142240658		rs564813580	rs371055887		rs72558187		rs762239445				rs767576260	rs12414460      	rs72558189	rs200965026	rs199523631	rs200183364	rs1799853	rs754487195	rs7900194	rs72558190	rs774550549						rs2256871	rs9332130	rs9332131	rs182132442		rs72558192			rs57505750	rs28371685	rs367826293	rs750820937	rs749060448	rs1057910	rs56165452	rs28371686			rs764211126	rs72558193	rs769942899	rs1057911	rs781583846	rs9332239	
 Header	ID	Name	FunctionStatus
-Allele		*1	Normal function	A	C	C	A	A	G	G	T	G	G	T	AGAAATGGAA	A	C	G	G	C	C	G	C	G	G	C	C	A	T	A	A	C	A	A	A	C	A	A	C	C	T	C	G	C	G	A	T	C	C	C	A	A	G	A	G	C	G
-Allele		*2	Decreased function																B				T																																		
-Allele		*3	Decreased function																																											C						D					
-Allele		*4	Possible decreased function																																												C										
-Allele		*5	Possible decreased function																																													G									
-Allele		*6	No function																																-																						
+Allele	PA165816542.5	*1	Normal function	A	C	C	A	A	G	G	T	G	G	T	AGAAATGGAA	A	C	G	G	C	C	G	C	G	G	C	C	A	T	A	A	C	A	A	A	C	A	A	C	C	T	C	G	C	G	A	T	C	C	C	A	A	G	A	G	C	G
+Allele	PA165816543.6	*2	Decreased function																B				T																																		
+Allele	PA165816544.6	*3	Decreased function																																											C						D					
+Allele	PA165816545.5	*4	Possible decreased function																																												C										
+Allele	PA165816546.5	*5	Possible decreased function																																													G									
+Allele	PA165816547.5	*6	No function																																-																						
 Allele		*7	Unknown function/Uncertain function		A																																																				
-Allele		*8	Possible decreased function																						A																																
-Allele		*9	Normal function																														G																								
+Allele	PA165816549.5	*8	Possible decreased function																						A																																
+Allele	PA165816550.5	*9	Normal function																														G																								
 Allele		*10	Unknown function/Uncertain function																															G																							
-Allele		*11	Possible decreased function																																							T															
-Allele		*12	Possible decreased function																																																					T	
-Allele		*13	Possible decreased function								C																																														
+Allele	PA165816552.5	*11	Possible decreased function																																							T															
+Allele	PA165816553.5	*12	Possible decreased function																																																					T	
+Allele	PA165816554.5	*13	Possible decreased function								C																																														
 Allele		*14	Possible decreased function																A				V																																		
-Allele		*15	No function																							A																															
+Allele	PA165816556.5	*15	No function																							A																															
 Allele		*16	Unknown function/Uncertain function																																			G																			
 Allele		*17	Unknown function/Uncertain function																																															T							
 Allele		*18	Unknown function/Uncertain function																																											C						C		T			
@@ -38,13 +38,13 @@ Allele		*21	Unknown function/Uncertain function			T
 Allele		*22	Unknown function/Uncertain function				G																																																		
 Allele		*23	Unknown function/Uncertain function							A																																															
 Allele		*24	Unknown function/Uncertain function																				Y																						A												
-Allele		*25	No function												-																																										
+Allele	PA165816559.5	*25	No function												-																																										
 Allele		*26	Unknown function/Uncertain function																	G																																					
 Allele		*27	Unknown function/Uncertain function																						T																																
 Allele		*28	Unknown function/Uncertain function																											T																											
 Allele		*29	Unknown function/Uncertain function																																	A																					
 Allele		*30	Unknown function/Uncertain function																																																				A		
-Allele		*31	Possible decreased function																																						C																
+Allele	PA165816560.5	*31	Possible decreased function																																						C																
 Allele		*32	Unknown function/Uncertain function																																																						T
 Allele		*33	Unknown function/Uncertain function																			A																																			
 Allele		*34	Unknown function/Uncertain function																																								A														

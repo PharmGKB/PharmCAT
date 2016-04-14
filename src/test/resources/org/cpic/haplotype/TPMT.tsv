@@ -14,13 +14,13 @@ ChrPosition				g.18149127T>C	g.18149126A>G	g.18149045T>A	g.18149022C>T	g.1814900
 GenePosition				g.11017A>G	g.11018T>C	g.11099A>T	g.11122G>A	g.11140C>G	g.12234T>C	g.12293C>G	g.12299G>A	g.16420G>C	g.16474G>T	g.16501T>G	g.16531G>C	g.16538A>C	g.16547A>C	g.20434C>T	g.20455G>A	g.21117G>C	g.21147G>A	g.21161T>C	g.21175G>A; g.21175G>C	g.26254G>A	g.26260C>G	g.26297G>T	g.26299A>T	g.27997T>C	g.28008T>C	g.29363G>A	g.29372T>C	g.29382G>A	g.18130725A>C	g.29450A>G	g.29457A>G
 rsID				rs9333569	rs267607275	rs72552742			rs72552740	rs200591577		rs1800462	rs72552739			rs151149760		rs200220210	rs72552738	rs72552737	rs1800460	rs2842934	rs144041067	rs9333570	rs74423290	rs6921269	rs75543815	rs79901429	rs72556347	rs1800584	rs377085266	rs56161402	rs72552736	rs150900439	rs1142345
 Header	ID	Name	FunctionStatus
-Allele		*1	Normal function	T	A	T	C	G	A	G	C	C	C	A	C	T	T	G	C	C	C	G	C	C	G	C	T	A	A	C	A	C	A	T	T
+Allele	PA165819268.8	*1	Normal function	T	A	T	C	G	A	G	C	C	C	A	C	T	T	G	C	C	C	G	C	C	G	C	T	A	A	C	A	C	A	T	T
 Allele		*1S	Normal function																			A													
-Allele		*2	No function									G																							
-Allele		*3A	No function																		T														C
-Allele		*3B	No function																		T														D
-Allele		*3C	No function																		V														C
-Allele		*4	No function																											T					
+Allele	PA165819269.8	*2	No function									G																							
+Allele	PA165819270.9	*3A	No function																		T														C
+Allele	PA165819271.8	*3B	No function																		T														D
+Allele	PA165819272.8	*3C	No function																		V														C
+Allele	PA165819274.8	*4	No function																											T					
 Allele		*5	Probable decreased function						G																										
 Allele		*6	Probable decreased function																								A								
 Allele		*7	Unknown function/Unclear function																														C		
