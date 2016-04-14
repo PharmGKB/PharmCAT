@@ -2,160 +2,108 @@
 package org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import javax.annotation.Generated;
+import java.util.Set;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
 public class DiplotypeCall {
+  @SerializedName("gene")
+  @Expose
+  private String gene;
+  @SerializedName("geneVersion")
+  @Expose
+  private String geneVersion;
+  @SerializedName("chromosome")
+  @Expose
+  private String chromosome;
+  @SerializedName("diplotypes")
+  @Expose
+  private Set<String> diplotypes = new HashSet<>();
+  @SerializedName("haplotypes")
+  @Expose
+  private Set<HaplotypeCall> m_haplotypes = new HashSet<>();
+  @SerializedName("variants")
+  @Expose
+  private List<Variant> m_variants = new ArrayList<>();
+  @SerializedName("haplotypesNotCalled")
+  @Expose
+  private List<HaplotypesNotCalled> haplotypesNotCalled = new ArrayList<>();
 
-    @SerializedName("gene")
-    @Expose
-    private String gene;
-    @SerializedName("geneVersion")
-    @Expose
-    private String geneVersion;
-    @SerializedName("chromosome")
-    @Expose
-    private String chromosome;
-    @SerializedName("diplotypes")
-    @Expose
-    private List<String> diplotypes = new ArrayList<String>();
-    @SerializedName("positionsUsed")
-    @Expose
-    private List<PositionsUsed> positionsUsed = new ArrayList<PositionsUsed>();
-    @SerializedName("haplotypesNotCalled")
-    @Expose
-    private List<HaplotypesNotCalled> haplotypesNotCalled = new ArrayList<HaplotypesNotCalled>();
-    @SerializedName("metaData")
-    @Expose
-    private MetaData metaData;
 
-    /**
-     * 
-     * @return
-     *     The gene
-     */
-    public String getGene() {
-        return gene;
-    }
 
-    /**
-     * 
-     * @param gene
-     *     The gene
-     */
-    public void setGene(String gene) {
-        this.gene = gene;
-    }
+  public String getGene() {
+    return gene;
+  }
 
-    /**
-     * 
-     * @return
-     *     The geneVersion
-     */
-    public String getGeneVersion() {
-        return geneVersion;
-    }
+  public void setGene(String gene) {
+    this.gene = gene;
+  }
 
-    /**
-     * 
-     * @param geneVersion
-     *     The geneVersion
-     */
-    public void setGeneVersion(String geneVersion) {
-        this.geneVersion = geneVersion;
-    }
 
-    /**
-     * 
-     * @return
-     *     The chromosome
-     */
-    public String getChromosome() {
-        return chromosome;
-    }
+  /**
+   * Gets the version of the definition file used to make this call.
+   */
+  public String getGeneVersion() {
+    return geneVersion;
+  }
 
-    /**
-     * 
-     * @param chromosome
-     *     The chromosome
-     */
-    public void setChromosome(String chromosome) {
-        this.chromosome = chromosome;
-    }
+  public void setGeneVersion(String geneVersion) {
+    this.geneVersion = geneVersion;
+  }
 
-    /**
-     * 
-     * @return
-     *     The diplotypes
-     */
-    public List<String> getDiplotypes() {
-        return diplotypes;
-    }
 
-    /**
-     * 
-     * @param diplotypes
-     *     The diplotypes
-     */
-    public void setDiplotypes(List<String> diplotypes) {
-        this.diplotypes = diplotypes;
-    }
+  public String getChromosome() {
+    return chromosome;
+  }
 
-    /**
-     * 
-     * @return
-     *     The positionsUsed
-     */
-    public List<PositionsUsed> getPositionsUsed() {
-        return positionsUsed;
-    }
+  public void setChromosome(String chromosome) {
+    this.chromosome = chromosome;
+  }
 
-    /**
-     * 
-     * @param positionsUsed
-     *     The positionsUsed
-     */
-    public void setPositionsUsed(List<PositionsUsed> positionsUsed) {
-        this.positionsUsed = positionsUsed;
-    }
 
-    /**
-     * 
-     * @return
-     *     The haplotypesNotCalled
-     */
-    public List<HaplotypesNotCalled> getHaplotypesNotCalled() {
-        return haplotypesNotCalled;
-    }
+  public Set<String> getDiplotypes() {
+    return diplotypes;
+  }
 
-    /**
-     * 
-     * @param haplotypesNotCalled
-     *     The haplotypesNotCalled
-     */
-    public void setHaplotypesNotCalled(List<HaplotypesNotCalled> haplotypesNotCalled) {
-        this.haplotypesNotCalled = haplotypesNotCalled;
-    }
+  public void setDiplotypes(Set<String> diplotypes) {
+    this.diplotypes = diplotypes;
+  }
 
-    /**
-     * 
-     * @return
-     *     The metaData
-     */
-    public MetaData getMetaData() {
-        return metaData;
-    }
+  public void addDiplotype(String diplotype) {
+    diplotypes.add(diplotype);
+  }
 
-    /**
-     * 
-     * @param metaData
-     *     The metaData
-     */
-    public void setMetaData(MetaData metaData) {
-        this.metaData = metaData;
-    }
 
+  public Set<HaplotypeCall> getHaplotypes() {
+    return m_haplotypes;
+  }
+
+  public void setHaplotypes(Set<HaplotypeCall> haplotypes) {
+    m_haplotypes = haplotypes;
+  }
+
+
+  public List<Variant> getVariants() {
+    return m_variants;
+  }
+
+  public void setVariants(List<Variant> variants) {
+    this.m_variants = variants;
+  }
+
+  public void add(Variant pos) {
+    this.m_variants.add(pos);
+  }
+
+
+  public List<HaplotypesNotCalled> getHaplotypesNotCalled() {
+    return haplotypesNotCalled;
+  }
+
+  public void setHaplotypesNotCalled(List<HaplotypesNotCalled> haplotypesNotCalled) {
+    this.haplotypesNotCalled = haplotypesNotCalled;
+  }
 }
