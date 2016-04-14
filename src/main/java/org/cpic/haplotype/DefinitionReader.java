@@ -78,31 +78,40 @@ public class DefinitionReader {
             if (fields[0].equals("FormatVersion")){
             	inProccessFile.setFormatVersion(fields[1]);
             }
-            else if (fields[0].equals("Gene")){
+            else if (fields[0].equals("GeneName")){
+            	inProccessFile.setGeneName(fields[1]);
+            }
+            else if (fields[0].equals("GeneRefSeq")){
             	inProccessFile.setGeneID(fields[1]);
-            	inProccessFile.setGeneName(fields[2]);
+            }
+            else if (fields[0].equals("GeneOrientation")){
+            	inProccessFile.setGeneID(fields[1]);
+            }
+            else if (fields[0].equals("ContentDate")){
+            	inProccessFile.setContentDate(fields[1]);
             }
             else if (fields[0].equals("ContentVersion")){
             	inProccessFile.setContentVersion(fields[1]);
-            	inProccessFile.setContentDate(fields[2]);
             }
             else if (fields[0].equals("GenomeBuild")){
             	inProccessFile.setGenomeBuild(fields[1]);
             }
-            else if (fields[0].equals("Chomosome")){
-            	inProccessFile.setChromosomeID(fields[1]);
-            	inProccessFile.setChromosome(fields[2]);
+            else if (fields[0].equals("ChrName")){
+            	inProccessFile.setChromosome(fields[1]);
             }
-            else if (fields[0].equals("Protein")){
+            else if (fields[0].equals("ChrRefSeq")){
+            	inProccessFile.setChromosomeID(fields[1]);
+            }
+            else if (fields[0].equals("ProteinRefSeq")){
             	inProccessFile.setProteinID(fields[1]);
             }
-            else if (fields[0].equals("cDNAChange")){
+            else if (fields[0].equals("ResourceNote")){
             	for (int i = 4; i < fields.length; i++){
                 	Variant newVariant = new Variant(inProccessFile.getChromosome(),inProccessFile.getGeneName(),fields[i]);
                 	variants.add(newVariant);
                 }
             }
-            else if (fields[0].equals("ProteinEffect")){
+            else if (fields[0].equals("ProteinNote")){
             	for (int i = 4; i < fields.length; i++){
                 	variants.get(i-4).addProteingEffect(fields[i]);
                 }
