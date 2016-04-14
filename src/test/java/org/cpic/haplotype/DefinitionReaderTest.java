@@ -62,4 +62,20 @@ public class DefinitionReaderTest {
       }
     }
   }
+
+
+  @Test
+  public void testReadCyp2c19() throws Exception {
+
+    Path file = TestUtil.getFile("org/cpic/haplotype/CYP2C19.tsv");
+    DefinitionReader reader = new DefinitionReader();
+    reader.read(file);
+
+    for (String gene : reader.getHaplotypePositions().keySet()) {
+      for (Variant variant : reader.getHaplotypePositions().get(gene)) {
+        assertTrue(variant.getCHROM().startsWith("chr"));
+        assertTrue(variant.getPOS() > 0);
+      }
+    }
+  }
 }
