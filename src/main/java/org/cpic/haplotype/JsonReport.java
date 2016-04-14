@@ -40,6 +40,8 @@ public class JsonReport {
 
   public JsonReport forFile(@Nonnull Path vcfFile) {
     Preconditions.checkNotNull(vcfFile);
+    Preconditions.checkArgument(vcfFile.toString().endsWith(".vcf"));
+    Preconditions.checkArgument(Files.isRegularFile(vcfFile));
 
     Metadata md = new Metadata();
     //md.setCpicAnnotatorBuild();
@@ -49,9 +51,21 @@ public class JsonReport {
     md.setInputFile(vcfFile.getName(vcfFile.getNameCount() - 1).toString());
     m_root.setMetadata(md);
 
-    String baseFilename = vcfFile.getName(vcfFile.getNameCount() - 1).toString();
-    baseFilename = baseFilename.substring(0, baseFilename.length() - 4);
-    m_jsonFile = vcfFile.getParent().resolve(baseFilename + ".json");
+    if (m_jsonFile == null) {
+      String baseFilename = vcfFile.getName(vcfFile.getNameCount() - 1).toString();
+      baseFilename = baseFilename.substring(0, baseFilename.length() - 4);
+      m_jsonFile = vcfFile.getParent().resolve(baseFilename + ".json");
+    }
+    return this;
+  }
+
+
+  public JsonReport toFile(@Nonnull Path jsonFile) {
+    Preconditions.checkNotNull(jsonFile);
+    Preconditions.checkArgument(jsonFile.toString().endsWith(".json"));
+    Preconditions.checkArgument(Files.isRegularFile(jsonFile));
+
+    m_jsonFile = jsonFile;
     return this;
   }
 
