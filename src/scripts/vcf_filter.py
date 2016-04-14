@@ -2,11 +2,20 @@
 # between human genome assemblies
 #
 # Author: Chunlei Wu
+#
+# This script requires pyVCF module, which can be installed easily as:
+#     pip install pyVCF
+#
+
 from __future__ import print_function
+import sys
+
 import vcf.filters
+
 
 CPIC_POS_MAPPING_FILE = './cpic_pos_mapping.txt'
 SUPPORTED_ASSEMBLIES = ['hg19', 'hg38']
+
 
 def get_pos_mapping():
     hg38_pos_li = []
@@ -63,8 +72,20 @@ def vcf_filter(input_vcf, output_vcf=None):
                     output.write_record(record)
                 else:
                     output.append(record)
-        print("Find {} qualified VCF lines".format(cnt))
+        print("Found {} qualified VCF lines".format(cnt))
         if output_vcf:
             output.close()
         else:
             return output
+
+
+def main():
+    if len(sys.argv) != 3:
+        print("Usage: python vcf_filter.py <input_vcf_file> <output_vcf_file>")
+    else:
+        input_vcf, output_vcf = sys.argv[1], sys.argv[2]
+        vcf_filter(input_vcf, output_vcf)
+
+
+if __name__ == '__main__':
+    main()
