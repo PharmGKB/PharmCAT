@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.cpic.reporter.model.CPICException;
-import org.cpic.reporter.model.CPICinteraction;
 import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
 
 public class Gene {
@@ -19,6 +18,10 @@ public class Gene {
         this.diplotypes = call.getDiplotypes();
     }
     
+    public void addException( CPICException except ){
+        exceptlist.add(except);
+    }
     
 
 }
+ 

@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
@@ -54,8 +55,9 @@ public class DefinitionReader {
 
 
 
-  private void readFile(Path file)  {
+  private void readFile(@Nonnull Path file)  {
 
+    Preconditions.checkNotNull(file);
     Preconditions.checkArgument(Files.isRegularFile(file));
     System.out.println(file);
 
@@ -192,7 +194,7 @@ public class DefinitionReader {
 
 
     } catch (Exception ex) {
-    	throw new RuntimeException(ex);
+	throw new RuntimeException("Failed to parse " + file, ex);
     }
   }
 

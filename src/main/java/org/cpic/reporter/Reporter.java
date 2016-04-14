@@ -16,6 +16,7 @@ import org.cpic.reporter.model.CPICinteraction;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
+import org.cpic.reporter.resultsJSON.Gene;
 
 
 public class Reporter {
@@ -144,10 +145,10 @@ public class Reporter {
         List<CPICinteraction> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
         
         DataUnifier checker = new DataUnifier(calls, exceptions, drugGenes);
-        checker.findMatches();
+        List<Gene> results = checker.findMatches();
         
         
-
+         //print results here!!!!!
 
        // logger.info( "Complete" );
     }
