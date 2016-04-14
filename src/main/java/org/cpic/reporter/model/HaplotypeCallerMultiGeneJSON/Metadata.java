@@ -1,13 +1,12 @@
 
 package org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON;
 
-import javax.annotation.Generated;
+import java.util.Date;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
-public class MetaData {
-
+public class Metadata {
     @SerializedName("cpicAnnotatorBuild")
     @Expose
     private String cpicAnnotatorBuild;
@@ -22,10 +21,10 @@ public class MetaData {
     private String inputFile;
     @SerializedName("dateTime")
     @Expose
-    private String dateTime;
+    private Date date;
 
     /**
-     * 
+     *
      * @return
      *     The cpicAnnotatorBuild
      */
@@ -34,7 +33,7 @@ public class MetaData {
     }
 
     /**
-     * 
+     *
      * @param cpicAnnotatorBuild
      *     The cpicAnnotatorBuild
      */
@@ -43,7 +42,7 @@ public class MetaData {
     }
 
     /**
-     * 
+     *
      * @return
      *     The cpicDataBuild
      */
@@ -52,7 +51,7 @@ public class MetaData {
     }
 
     /**
-     * 
+     *
      * @param cpicDataBuild
      *     The cpicDataBuild
      */
@@ -61,7 +60,7 @@ public class MetaData {
     }
 
     /**
-     * 
+     *
      * @return
      *     The genomeAssembly
      */
@@ -70,7 +69,7 @@ public class MetaData {
     }
 
     /**
-     * 
+     *
      * @param genomeAssembly
      *     The genomeAssembly
      */
@@ -79,7 +78,7 @@ public class MetaData {
     }
 
     /**
-     * 
+     *
      * @return
      *     The inputFile
      */
@@ -88,7 +87,7 @@ public class MetaData {
     }
 
     /**
-     * 
+     *
      * @param inputFile
      *     The inputFile
      */
@@ -97,21 +96,21 @@ public class MetaData {
     }
 
     /**
-     * 
+     *
      * @return
      *     The dateTime
      */
-    public String getDateTime() {
-        return dateTime;
+    public Date getDate() {
+        return date;
     }
 
     /**
-     * 
-     * @param dateTime
+     *
+     * @param date
      *     The dateTime
      */
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
 }
