@@ -79,12 +79,12 @@ public class DefinitionReader {
             	inProccessFile.setFormatVersion(fields[1]);
             }
             else if (fields[0].equals("Gene")){
-            	inProccessFile.setGeneID(fields[0]);
-            	inProccessFile.setGeneName(fields[1]);
+            	inProccessFile.setGeneID(fields[1]);
+            	inProccessFile.setGeneName(fields[2]);
             }
             else if (fields[0].equals("ContentVersion")){
             	inProccessFile.setContentVersion(fields[1]);
-            	inProccessFile.setContentDate(fields[1]);
+            	inProccessFile.setContentDate(fields[2]);
             }
             else if (fields[0].equals("GenomeBuild")){
             	inProccessFile.setGenomeBuild(fields[1]);
@@ -157,7 +157,7 @@ public class DefinitionReader {
     	for (int i = 0; i < haplotypes.size(); i++){
     		m_haplotypes.put(inProccessFile.getGeneName(),haplotypes.get(i));    		
         }
-    	for (int i = 0; i < haplotypes.size(); i++){
+    	for (int i = 0; i < variants.size(); i++){
     		m_haplotypePositions.put(inProccessFile.getGeneName(),variants.get(i));
         }
     	
