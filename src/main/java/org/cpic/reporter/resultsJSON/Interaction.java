@@ -1,14 +1,10 @@
 package org.cpic.reporter.resultsJSON;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.cpic.reporter.model.CPICinteraction;
 import org.cpic.reporter.model.Group;
 import org.cpic.reporter.model.RelatedChemical;
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 public class Interaction {
     private List<Group> groupList;
@@ -24,4 +20,7 @@ public class Interaction {
         this.textHtml = inter.getTextHtml();        
     }
 
+    public void addAllToGroup(List<Group> gList ){
+        groupList.addAll( gList );
+    }
 }
