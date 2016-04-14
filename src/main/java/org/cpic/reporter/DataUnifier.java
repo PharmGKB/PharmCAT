@@ -7,7 +7,7 @@ import org.cpic.reporter.model.CPICException;
 import org.cpic.reporter.model.CPICinteraction;
 import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
 
-public class RecommendationMatcher {
+public class DataUnifier {
     List<DiplotypeCall> calls;
     Map<String, List<CPICException>> exceptions;
     Map<String, CPICinteraction> drugGenes;

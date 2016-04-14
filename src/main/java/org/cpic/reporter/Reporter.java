@@ -138,9 +138,10 @@ public class Reporter {
         //loadRequiredFiles(); TODO undelete this and use actual args and real code for plumbing the system
         
         JsonFileLoader loader = new JsonFileLoader();
+        
         List<DiplotypeCall> calls = loader.loadHaplotypeGeneCalls(this.inFile);
         Map<String, List<CPICException>> exceptions = loader.loadExceptions(this.exception);
-        Map<String, CPICinteraction> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
+        List<CPICinteraction> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
         
         
         
