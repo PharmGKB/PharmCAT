@@ -150,7 +150,7 @@ public class TSVfile {
 	 * @param _ChromosomeID
 	 */
 	public void setChromosomeID(String _ChromosomeID){
-		Chromosome=_ChromosomeID;
+		ChromosomeID=_ChromosomeID;
 	}
 	
 	/**
