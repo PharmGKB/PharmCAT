@@ -105,22 +105,46 @@ public class DefinitionReader {
             	}
             }
             else if (fields[0].equals("ContentDate")){
-            	inProccessFile.setContentDate(fields[1]);
+            	if (fields.length>0){
+            		inProccessFile.setContentDate(fields[1]);
+            	}else{
+            		inProccessFile.setContentDate("");
+            	}
             }
             else if (fields[0].equals("ContentVersion")){
-            	inProccessFile.setContentVersion(fields[1]);
+            	if (fields.length>0){
+            		inProccessFile.setContentVersion(fields[1]);
+            	}else{
+            		inProccessFile.setContentVersion("");
+            	}
             }
             else if (fields[0].equals("GenomeBuild")){
-            	inProccessFile.setGenomeBuild(fields[1]);
+            	if (fields.length>0){
+            		inProccessFile.setGenomeBuild(fields[1]);
+            	}else{
+            		inProccessFile.setGenomeBuild("");
+            	}
             }
             else if (fields[0].equals("ChrName")){
-            	inProccessFile.setChromosome(fields[1]);
+            	if (fields.length>0){
+            		inProccessFile.setChromosome(fields[1]);
+            	}else{
+            		inProccessFile.setChromosome("");
+            	}
             }
             else if (fields[0].equals("ChrRefSeq")){
-            	inProccessFile.setChromosomeID(fields[1]);
+            	if (fields.length>0){
+            		inProccessFile.setChromosomeID(fields[1]);
+            	}else{
+            		inProccessFile.setChromosomeID("");
+            	}
             }
             else if (fields[0].equals("ProteinRefSeq")){
-            	inProccessFile.setProteinID(fields[1]);
+            	if (fields.length>0){
+            		inProccessFile.setProteinID(fields[1]);
+            	}else{
+            		inProccessFile.setProteinID("");
+            	}
             }
             else if (fields[0].equals("ResourceNote")){
             	for (int i = 4; i < fields.length; i++){
