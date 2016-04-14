@@ -1,14 +1,21 @@
 package org.cpic.reporter;
 
-import org.apache.commons.cli.*;
-import org.apache.commons.io.FileUtils;
-import org.cpic.reporter.io.InteractionJsonReader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.Properties;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+import org.cpic.reporter.io.JsonFileLoader;
+import org.cpic.reporter.model.CPICException;
+import org.cpic.reporter.model.CPICinteraction;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
 
 
 public class Reporter {
@@ -17,47 +24,58 @@ public class Reporter {
     /**
      * Logging instance
      */
-   private Logger logger = LoggerFactory.getLogger( Reporter.class );
+   //private Logger logger = LoggerFactory.getLogger( Reporter.class );
 
 
    /**
     * Exception list formated as json
     */
-   private File exception;
+   String exceptionPath = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/cpic_exceptions/exceptions.json"; //TODO don't do this, done for wiring purposes only
+   private File exception = new File(exceptionPath);
    
    /**
     * Drug Gene interaction json
     */
-   private File interactions;
+   
+   //TODO don't do any of this load from props file like a read engineer
+   String test1 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/CPIC_Guideline_for_citalopram_escitalopram_and_CYP2C19.json";
+   String test2 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/CPIC_Guideline_for_clopidogrel_and_CYP2C19.json";
+   String test3 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/CPIC_Guideline_for_sertraline_and_CYP2C19.json";
+   private List<File> interactions = new ArrayList<File>();
    
     /**
      * Configuration properties loaded from file
      */
-    private Properties props;
+   // private Properties props;
 
     /**
      * File in
+     * TODO CLEAN THIS UP FOR TEST BUILDING AND WIRING ONLY
      */
-    private File inFile;
+    String multiGeneFile = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/json_out_example/multi_gene.json";
+    private File inFile = new File(multiGeneFile);
 
     /**
      * File to write final results to
      */
-    private File outFile;
+   // private File outFile;
 
 
 
     //parse command line options
     private Reporter( CommandLine cmdline )  throws IOException {
+        interactions.add( new File(test1));
+        interactions.add( new File(test2));
+        interactions.add( new File(test3));
+        
+        //File propsFile = new File( cmdline.getOptionValue( "conf" ) );
+       // props = readConfFile( propsFile );
 
-        File propsFile = new File( cmdline.getOptionValue( "conf" ) );
-        props = readConfFile( propsFile );
+        //String out_location = cmdline.getOptionValue( "outFile" );
+        //this.outFile = new File( out_location );
 
-        String out_location = cmdline.getOptionValue( "outFile" );
-        this.outFile = new File( out_location );
-
-        String in_file = cmdline.getOptionValue("inFile");
-        this.inFile = new File( in_file );
+       // String in_file = cmdline.getOptionValue("inFile");
+        //this.inFile = new File( in_file );
 
 
     }
@@ -65,11 +83,11 @@ public class Reporter {
     /**
      * Read config file into props object
      */
-    private Properties readConfFile( File file ) throws IOException {
+    /*private Properties readConfFile( File file ) throws IOException {
         Properties props = new Properties();
         props.load( FileUtils.openInputStream( file ) );
         return props;
-    }
+    }*/
 
     public static Options createCommandLineOptions() {
         Options options = new Options();
@@ -91,7 +109,7 @@ public class Reporter {
         Options options = createCommandLineOptions();
         CommandLine cmdline = new DefaultParser().parse( options,  args );
 
-        if( args.length == 0 ) {
+        /*/8if( args.length == 0 ) {
             HelpFormatter formatter = new HelpFormatter();
             formatter.printHelp( "CPIC-Reporter", options );
             System.exit( 0 );
@@ -106,8 +124,9 @@ public class Reporter {
 
         } else if ( !cmdline.hasOption("inputBam")){
             System.out.println( "WARNING: No bam file provided" );
-        }
+        }*/
 
+        
         //if minimal required parameters are set parse command line
         Reporter report = new Reporter( cmdline );
         //run genotyper workflow
@@ -116,23 +135,28 @@ public class Reporter {
 
     private void run() throws IOException {
         
-        loadRequiredFiles();
-        InteractionJsonReader interactionReader = new InteractionJsonReader();
-        //interactionReader.load();
+        //loadRequiredFiles(); TODO undelete this and use actual args and real code for plumbing the system
+        
+        JsonFileLoader loader = new JsonFileLoader();
+        List<DiplotypeCall> calls = loader.loadHaplotypeGeneCalls(this.inFile);
+        Map<String, List<CPICException>> exceptions = loader.loadExceptions(this.exception);
+        Map<String, CPICinteraction> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
+        
         
         
 
 
-        logger.info( "Complete" );
+       // logger.info( "Complete" );
     }
     
-    private void loadRequiredFiles(){
+    /*private void loadRequiredFiles(){
         String exceptionLoc = props.getProperty("CPIC.reporter.exception");
         this.exception = new File( exceptionLoc );
         
         String interactionLoc = props.getProperty("CPIC.reporter.guidlines");
         this.interactions = new File(interactionLoc);
-    }
+    }*/
+    
 
 
 
