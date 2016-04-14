@@ -7,9 +7,10 @@ import java.io.IOException;
 import java.util.List;
 
 import org.cpic.reporter.model.CPICinteraction;
-import org.cpic.reporter.model.CalledType;
 import org.cpic.reporter.model.CpicException;
 import org.cpic.reporter.model.CpicExceptionList;
+import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
+import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.HaplotypeCallsMultiGene;
 
 import com.google.gson.Gson;
 
@@ -19,9 +20,11 @@ public class JsonFileLoader {
 
     public void loadHaplotypeGeneCalls( File haplotypeCalledFile ) throws IOException{
         BufferedReader br = new BufferedReader(new FileReader( haplotypeCalledFile ));
-        CalledType call = gson.fromJson(br, CalledType.class);
+        HaplotypeCallsMultiGene calls = gson.fromJson(br, HaplotypeCallsMultiGene.class);
         System.out.println( "Haplotype Caller test" );
-        System.out.println( call.getGene() );
+        for (DiplotypeCall call : calls.getDiplotypeCalls() ) {
+            System.out.println(call.getGene());
+        }
         br.close();
         
     }
@@ -32,8 +35,8 @@ public class JsonFileLoader {
         System.out.println( "Exception test" );
         for (CpicException rule : except.getRules()) {
             System.out.println(rule.getGene());
-            break;
-          }
+          
+        }
 
         br.close();
         

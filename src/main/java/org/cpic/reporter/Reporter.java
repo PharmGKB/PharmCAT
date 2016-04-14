@@ -48,9 +48,8 @@ public class Reporter {
      * File in
      * TODO CLEAN THIS UP FOR TEST BUILDING AND WIRING ONLY
      */
-    String multiFilePath = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/json_out_example/CYP2C19_multiple.json";
-    String singleFilePath = "";
-    private File inFile = new File(multiFilePath);
+    String multiGeneFile = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/cpic_exceptions/exceptions.json";
+    private File inFile = new File(multiGeneFile);
 
     /**
      * File to write final results to
