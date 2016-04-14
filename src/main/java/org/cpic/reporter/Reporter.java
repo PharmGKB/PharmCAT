@@ -139,7 +139,7 @@ public class Reporter {
         
         JsonFileLoader loader = new JsonFileLoader();
         List<DiplotypeCall> calls = loader.loadHaplotypeGeneCalls(this.inFile);
-        Map<String, CPICException> matcher = loader.loadExceptions(this.exception);
+        Map<String, List<CPICException>> exceptions = loader.loadExceptions(this.exception);
         Map<String, CPICinteraction> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
         
         

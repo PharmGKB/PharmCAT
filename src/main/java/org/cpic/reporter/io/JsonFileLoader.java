@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,13 +28,19 @@ public class JsonFileLoader {
         
     }
     
-    public Map<String, CPICException> loadExceptions( File exceptions )throws IOException {
-        Map<String, CPICException> matcher = new HashMap<String, CPICException>();
+    public Map<String, List<CPICException>> loadExceptions( File exceptions )throws IOException {
+        Map<String, List<CPICException>> matcher = new HashMap<String, List<CPICException>>();
         BufferedReader br = new BufferedReader(new FileReader( exceptions ));
         CPICExceptionList except = gson.fromJson(br, CPICExceptionList.class);
         System.out.println( "Exception test" );
         for (CPICException rule : except.getRules()) {
-           matcher.put(rule.getGene(), rule);
+            if( matcher.containsKey(rule.getGene())){
+                matcher.get(rule.getGene()).add(rule);
+            } else {
+                List<CPICException> parts = new ArrayList<CPICException>();
+                parts.add(rule);
+                matcher.put(rule.getGene(), parts);
+            }
         }
 
         br.close();
