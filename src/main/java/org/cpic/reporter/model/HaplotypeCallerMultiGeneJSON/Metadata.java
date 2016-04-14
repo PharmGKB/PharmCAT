@@ -6,8 +6,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
-public class Foo {
-
+public class Metadata {
     @SerializedName("cpicAnnotatorBuild")
     @Expose
     private String cpicAnnotatorBuild;
