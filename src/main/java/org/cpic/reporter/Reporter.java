@@ -4,14 +4,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.cpic.reporter.io.JsonFileLoader;
+import org.cpic.reporter.model.CPICException;
+import org.cpic.reporter.model.CPICinteraction;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
+import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
 
 
 public class Reporter {
@@ -48,7 +52,7 @@ public class Reporter {
      * File in
      * TODO CLEAN THIS UP FOR TEST BUILDING AND WIRING ONLY
      */
-    String multiGeneFile = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/cpic_exceptions/exceptions.json";
+    String multiGeneFile = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/json_out_example/multi_gene.json";
     private File inFile = new File(multiGeneFile);
 
     /**
@@ -134,9 +138,10 @@ public class Reporter {
         //loadRequiredFiles(); TODO undelete this and use actual args and real code for plumbing the system
         
         JsonFileLoader loader = new JsonFileLoader();
-        loader.loadHaplotypeGeneCalls(this.inFile);
-        loader.loadExceptions(this.exception);
-        loader.loadDrugGeneRecommendations(this.interactions);
+        List<DiplotypeCall> calls = loader.loadHaplotypeGeneCalls(this.inFile);
+        Map<String, CPICException> matcher = loader.loadExceptions(this.exception);
+        Map<String, CPICinteraction> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
+        
         
         
 

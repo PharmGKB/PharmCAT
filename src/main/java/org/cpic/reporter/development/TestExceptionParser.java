@@ -1,8 +1,8 @@
 package org.cpic.reporter.development;
 
 import com.google.gson.Gson;
-import org.cpic.reporter.model.CpicException;
-import org.cpic.reporter.model.CpicExceptionList;
+import org.cpic.reporter.model.CPICException;
+import org.cpic.reporter.model.CPICExceptionList;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -25,10 +25,10 @@ public class TestExceptionParser {
 
     Gson gson = new Gson();
 
-    CpicExceptionList cpicExceptions = gson.fromJson(br, CpicExceptionList.class);
+    CPICExceptionList cpicExceptions = gson.fromJson(br, CPICExceptionList.class);
     System.out.println(cpicExceptions.getRules()  );
 
-    for (CpicException rule : cpicExceptions.getRules()) {
+    for (CPICException rule : cpicExceptions.getRules()) {
       System.out.println(rule.getGene());
       System.out.println("\t" + rule.getException_type());
       System.out.println("\t" + rule.getMatches());
