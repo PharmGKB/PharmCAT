@@ -5,8 +5,8 @@ import java.util.Date;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
 public class Metadata {
+
     @SerializedName("cpicAnnotatorBuild")
     @Expose
     private String cpicAnnotatorBuild;

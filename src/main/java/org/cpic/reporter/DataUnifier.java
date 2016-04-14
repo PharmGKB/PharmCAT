@@ -7,26 +7,27 @@ import org.cpic.reporter.model.CPICException;
 import org.cpic.reporter.model.CPICinteraction;
 import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
 
-public class RecommendationMatcher {
+public class DataUnifier {
     List<DiplotypeCall> calls;
     Map<String, List<CPICException>> exceptions;
-    Map<String, CPICinteraction> drugGenes;
+    List<CPICinteraction> drugGenes;
     
-    public void RecoommendationMatcher( List<DiplotypeCall> calls, 
+   public DataUnifier( List<DiplotypeCall> calls, 
                                    Map<String, List<CPICException>> matches,
-                                   Map<String, CPICinteraction> drugGenes){
+                                   List<CPICinteraction> drugGenes){
         this.calls = calls;
         this.exceptions = matches;
         this.drugGenes = drugGenes;
     }
     
     public void findMatches(){
+        ExceptionMatcher matchTest = new ExceptionMatcher();
         for(DiplotypeCall call : calls){
-            System.out.println("Gene: " + call.getGene());
             
             if( exceptions.containsKey(call.getGene()) ){
-                
-            } else {
+                for( CPICException exception : exceptions.get(call.getGene() ) ){
+                    
+                }
                 
             }
         }

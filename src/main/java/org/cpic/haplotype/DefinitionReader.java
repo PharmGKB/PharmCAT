@@ -1,9 +1,5 @@
 package org.cpic.haplotype;
 
-import com.google.common.base.Preconditions;
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.ListMultimap;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,9 +7,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
 
 /**
  * Read in haplotype definition files.
@@ -23,15 +20,10 @@ import java.util.Set;
 public class DefinitionReader {
   private ListMultimap<String, Variant> m_haplotypePositions  = ArrayListMultimap.create();
   private ListMultimap<String, Haplotype> m_haplotypes = ArrayListMultimap.create();
+  private Map<String, TSVfile> m_files = new HashMap<>();
 
-  private Set<TSVfile> s_files = new HashSet<>();
-  
+
   public Map<String, TSVfile> getFiles() {
-	  Map<String, TSVfile> m_files = new HashMap<>();
-	  for (TSVfile f : s_files) {
-		  m_files.put(f.getGeneName(),f);
-		  
-	  }
 	  return m_files;
   }
 
@@ -67,15 +59,13 @@ public class DefinitionReader {
     Preconditions.checkArgument(Files.isRegularFile(file));
     System.out.println(file);
 
-    
-
     try (BufferedReader bufferedReader = Files.newBufferedReader(file)) {
-    	
+
     	TSVfile inProccessFile = new TSVfile(file.toString());
         ArrayList<Variant> variants = new ArrayList<>();
         ArrayList<Haplotype> haplotypes = new ArrayList<>();
 
-        String line = null;
+        String line;
         boolean NormalFunctionAllele = true;
 
     	while((line = bufferedReader.readLine()) != null) {
@@ -142,25 +132,25 @@ public class DefinitionReader {
             	for (int i = 4; i < fields.length; i++){
                 	variants.get(i-4).set_rsID(fields[i]);
                 }
-            	
+
             }
             else if (fields[0].equals("Allele")){
             	ArrayList <String> alleles = new ArrayList<>();
             	ArrayList <Variant> hapVariants = new ArrayList<>();
-            	
+
             	int forLength = variants.size()+4;
             	if (forLength>fields.length){
             		forLength=fields.length;
             	}
-            	
-            	
+
+
             	for (int i = 4; i < forLength; i++){
-                	
+
                 	if (NormalFunctionAllele){
                 		variants.get(i-4).setREF(fields[i]);
                 		alleles.add(fields[i]);
                 		hapVariants.add(variants.get(i-4));
-                		
+
                 	}
                 	else{
                 		if (!fields[i].trim().equals("")){
@@ -169,21 +159,21 @@ public class DefinitionReader {
 	                		hapVariants.add(variants.get(i-4));
                 		}
                 	}
-                	
+
             	}
             	NormalFunctionAllele=false;
             	haplotypes.add(new Haplotype(hapVariants,fields[1],fields[2],fields[3],alleles));
-            	
+
             }
         }
-    	for (int i = 0; i < haplotypes.size(); i++){
-    		m_haplotypes.put(inProccessFile.getGeneName(),haplotypes.get(i));    		
-        }
-    	for (int i = 0; i < variants.size(); i++){
-    		m_haplotypePositions.put(inProccessFile.getGeneName(),variants.get(i));
-        }
-    	
-    	s_files.add(inProccessFile);
+      for (int i = 0; i < haplotypes.size(); i++){
+        m_haplotypes.put(inProccessFile.getGeneName(),haplotypes.get(i));
+      }
+      for (int i = 0; i < variants.size(); i++){
+        m_haplotypePositions.put(inProccessFile.getGeneName(),variants.get(i));
+      }
+
+	m_files.put(inProccessFile.getGeneName(), inProccessFile);
 
 
 

@@ -70,7 +70,7 @@ public class ComparisonUtilTest {
     List<List<Haplotype>> pairs = CombinationUtil.generatePerfectPairs(new TreeSet<>(Sets.newHashSet(hap1, hap2, hap3)));
 
     SortedSet<HaplotypeMatch> matches = ComparisonUtil.comparePermutations(permutations, Lists.newArrayList(hap1, hap2, hap3));
-    ComparisonUtil.determinePairs(matches, pairs);
-
+    List<List<HaplotypeMatch>> pairMatches = ComparisonUtil.determinePairs(matches, pairs);
+    ComparisonUtil.printMatchPairs(pairMatches);
   }
 }

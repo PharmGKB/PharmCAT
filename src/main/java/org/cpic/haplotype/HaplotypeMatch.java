@@ -44,4 +44,9 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
     }
     return ObjectUtils.compare(m_sequences.size(), o.getSequences().size());
   }
+
+  @Override
+  public String toString() {
+    return m_haplotype.toString();
+  }
 }

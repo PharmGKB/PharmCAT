@@ -25,7 +25,13 @@ public class JsonFileLoader {
         return calls.getDiplotypeCalls();
 
     }
-
+    
+    /**
+     * This turns the json exception list into a fragmented list under the header
+     * of the relevant gene.
+     * FIXME dumb assumption that the exception are for single gene issues and not for 
+     * multi gene interactions
+     */
     public Map<String, List<CPICException>> loadExceptions( File exceptions )throws IOException {
         Map<String, List<CPICException>> matcher = new HashMap<String, List<CPICException>>();
         BufferedReader br = new BufferedReader(new FileReader( exceptions ));
@@ -57,12 +63,12 @@ public class JsonFileLoader {
      * @return
      *
      */
-    public Map<String, CPICinteraction> loadDrugGeneRecommendations( List<File> interactions ) throws IOException {
-        Map<String, CPICinteraction> drugGenes = new HashMap<String, CPICinteraction>();
+    public List<CPICinteraction> loadDrugGeneRecommendations( List<File> interactions ) throws IOException {
+        List<CPICinteraction> drugGenes = new ArrayList<CPICinteraction>();
         for( File interact: interactions ){
             BufferedReader br = new BufferedReader(new FileReader( interact ));
             CPICinteraction act = gson.fromJson(br, CPICinteraction.class);
-            drugGenes.put(act.getRelatedGenes().get(0).getSymbol(), act);
+            drugGenes.add(act);
             br.close();
         }
         return drugGenes;

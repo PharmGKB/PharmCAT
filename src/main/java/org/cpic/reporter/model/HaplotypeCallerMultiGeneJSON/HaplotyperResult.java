@@ -12,7 +12,7 @@ public class HaplotyperResult {
   private List<DiplotypeCall> m_diplotypeCalls = new ArrayList<>();
   @SerializedName("metadata")
   @Expose
-  private Metadata m_metadata;
+  private MetaData m_metadata;
 
 
   public List<DiplotypeCall> getDiplotypeCalls() {
@@ -24,11 +24,11 @@ public class HaplotyperResult {
   }
 
 
-  public Metadata getMetadata() {
+  public MetaData getMetadata() {
     return m_metadata;
   }
 
-  public void setMetadata(Metadata metadata) {
+  public void setMetadata(MetaData metadata) {
     this.m_metadata = metadata;
   }
 }
