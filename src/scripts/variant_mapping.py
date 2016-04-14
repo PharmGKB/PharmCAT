@@ -60,7 +60,10 @@ def get_variant_list(input_tsv_files, as_ucsc_region=True):
 
 
 def _get_variant_region(var, as_ucsc_region=False):
-    '''A helper function, input is a tuple from above get_variant_list function.'''
+    '''A helper function, input is a tuple from above get_variant_list function.
+       Note that the returned ucsc region has the start position consistent with VCF style,
+       that is, for del/ins, start is 1-based ahead.
+    '''
 
     assert isinstance(var, (tuple, list)) and len(var) == 3, "Should be a tuple/list of three items"
     chr = chr_mapping_d.get(var[1].split('.')[0], None)
@@ -82,6 +85,8 @@ def _get_variant_region(var, as_ucsc_region=False):
             else:
                 # it is a position
                 start, end = pos, pos
+            # move start pos 1-base ahead to match pos in VCF file
+            start = str(int(start) - 1)
         else:
             # skipping other types for now
             print("\"{}\" is skipped".format(var))
