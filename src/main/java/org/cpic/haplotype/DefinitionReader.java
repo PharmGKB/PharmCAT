@@ -77,16 +77,30 @@ public class DefinitionReader {
             }
 
             if (fields[0].equals("FormatVersion")){
-            	inProccessFile.setFormatVersion(fields[1]);
+            	if (fields.length>0){
+            		inProccessFile.setFormatVersion(fields[1]);
+            	}else{
+            		inProccessFile.setFormatVersion("");
+            	}
+            	
             }
             else if (fields[0].equals("GeneName")){
+            	if (fields.length>0){
+            		inProccessFile.setGeneName(fields[1]);
+            	}else{
+            		inProccessFile.setGeneName("");
+            	}
             	inProccessFile.setGeneName(fields[1]);
             }
             else if (fields[0].equals("GeneRefSeq")){
             	inProccessFile.setGeneID(fields[1]);
             }
             else if (fields[0].equals("GeneOrientation")){
-            	inProccessFile.setGeneID(fields[1]);
+            	if (fields.length>0){
+            		inProccessFile.setGeneOrientation(fields[1]);
+            	}else{
+            		inProccessFile.setGeneOrientation("");
+            	}
             }
             else if (fields[0].equals("ContentDate")){
             	inProccessFile.setContentDate(fields[1]);
