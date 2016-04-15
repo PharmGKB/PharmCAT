@@ -1,6 +1,9 @@
 # IntelliJ files
 /.idea/libraries/Gradle__*.xml
 /.idea/dictionaries/
+/.idea/gradle.xml
+/.idea/modules/
+/.idea/modules.xml
 /.idea/shelf/
 /.idea/workspace.xml
 
@@ -23,7 +26,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
 
 # for Eclipse
 /bin/
