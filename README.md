@@ -1,4 +1,5 @@
-# cpic-annotator
+# PharmCAT
+
 Take genome data, make haplotype calls, get CPIC annotations.
 
 ## License
