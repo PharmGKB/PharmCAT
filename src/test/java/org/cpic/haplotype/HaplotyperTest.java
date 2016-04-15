@@ -9,6 +9,8 @@ import org.junit.Test;
 
 
 /**
+ * JUnit test for {@link Haplotyper}.
+ *
  * @author Mark Woon
  */
 public class HaplotyperTest {
@@ -28,6 +30,7 @@ public class HaplotyperTest {
   }
 
 
+  @Test
   public void test1() throws Exception {
 
     Path tsvFile = TestUtil.getFile("org/cpic/haplotype/CYP2C19.tsv");
@@ -40,8 +43,14 @@ public class HaplotyperTest {
     VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
 
     Haplotyper haplotyper = new Haplotyper(definitionReader);
+    for (String key : definitionReader.getHaplotypes().keySet()) {
+      for (Haplotype hap : definitionReader.getHaplotypes().get(key)) {
+        System.out.println(hap.getPermutations().pattern());
+      }
+    }
     Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
-    List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
 
+    List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
+    System.out.println(matches);
   }
 }

@@ -19,7 +19,11 @@ public class CombinationUtil {
    * Builds permutations for given alleles based on phasing.
    */
   public static Set<String> generatePermutations(@Nonnull List<SampleAllele> alleles) {
-    return generatePermutations(alleles, 0, true, "");
+    Set<String> rez = generatePermutations(alleles, 0, true, "");
+    if (rez.size() == 0) {
+      throw new IllegalStateException("No permutations generated from " + alleles.size() + " alleles");
+    }
+    return rez;
   }
 
 
@@ -36,7 +40,7 @@ public class CombinationUtil {
 
     Set<String> alleles = new HashSet<>();
     if (allele.isPhased()) {
-      generatePermutations(sampleAlleles, position + 1, isFirst, appendAllele(alleleSoFar, allele, isFirst));
+      alleles.addAll(generatePermutations(sampleAlleles, position + 1, isFirst, appendAllele(alleleSoFar, allele, isFirst)));
     } else {
       alleles.addAll(generatePermutations(sampleAlleles, position + 1, isFirst, appendAllele(alleleSoFar, allele, true)));
       alleles.addAll(generatePermutations(sampleAlleles, position + 1, isFirst, appendAllele(alleleSoFar, allele, false)));
