@@ -1,13 +1,15 @@
 package org.cpic.haplotype;
 
-import org.apache.commons.lang3.ObjectUtils;
-
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.annotation.Nonnull;
+import org.apache.commons.lang3.ObjectUtils;
+
 
 /**
- * Object to hold information about varaints from the tsv file. 
+ * Object to hold information about varaints from the tsv file.
+ *
  * @author nate
  *
  */
@@ -48,7 +50,7 @@ public class Variant implements Comparable<Variant> {
 	public Variant(String _CHROM, String _GeneName){
 		CHROM = _CHROM;
 		GeneName = _GeneName;
-		
+
 	}
 	/**
 	 * @return
@@ -117,7 +119,7 @@ public class Variant implements Comparable<Variant> {
 		  //System.out.println(_HGVSg);
 		  if(m.find()){
 		  System.out.println(m.group(1));
-		  
+
 		  return Integer.parseInt(m.group(1));
 		  }
 		  else {return -1;}
@@ -194,14 +196,14 @@ public class Variant implements Comparable<Variant> {
 	public ArrayList<String> getALTs(){
 		return ALTs;
 	}
-	
+
 
 
 
 
 
   @Override
-  public int compareTo(Variant o) {
+  public int compareTo(@Nonnull Variant o) {
 
     int rez = ObjectUtils.compare(CHROM, o.CHROM);
     if (rez != 0) {

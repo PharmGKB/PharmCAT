@@ -36,7 +36,7 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
 
 
   @Override
-  public int compareTo(HaplotypeMatch o) {
+  public int compareTo(@Nonnull HaplotypeMatch o) {
 
     int rez = ObjectUtils.compare(m_haplotype, o.getHaplotype());
     if (rez != 0) {

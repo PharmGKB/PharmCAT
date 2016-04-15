@@ -70,7 +70,7 @@ public class Haplotype implements Comparable<Haplotype> {
 
 
   @Override
-  public int compareTo(Haplotype o) {
+  public int compareTo(@Nonnull Haplotype o) {
     int rez = HaplotypeNameComparator.getComparator().compare(CommonName, o.CommonName);
     if (rez != 0) {
       return rez;
