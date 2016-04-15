@@ -6,13 +6,13 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class Variant {
-  @SerializedName("m_position")
+  @SerializedName("position")
   @Expose
   private int m_position;
-  @SerializedName("m_rsid")
+  @SerializedName("rsid")
   @Expose
   private String m_rsid;
-  @SerializedName("m_vcfCall")
+  @SerializedName("vcfCall")
   @Expose
   private String m_vcfCall;
 
