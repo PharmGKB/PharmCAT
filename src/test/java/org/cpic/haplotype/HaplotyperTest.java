@@ -4,6 +4,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import com.google.common.collect.Sets;
 import org.cpic.TestUtil;
 import org.junit.Test;
 
@@ -43,14 +45,11 @@ public class HaplotyperTest {
     VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
 
     Haplotyper haplotyper = new Haplotyper(definitionReader);
-    for (String key : definitionReader.getHaplotypes().keySet()) {
-      for (Haplotype hap : definitionReader.getHaplotypes().get(key)) {
-        System.out.println(hap.getPermutations().pattern());
-      }
-    }
     Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
 
     List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
+    Set<String> expectedMatches = Sets.newHashSet("*1/*3", "*1/*27", "*3/*3", "*3/*27", "*27/*27");
+    TestUtil.assertDiplotypePairs(expectedMatches, matches);
     System.out.println(matches);
   }
 }
