@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="vcf-parser">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/vcf-parser.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
