@@ -119,7 +119,7 @@ public class JsonReport {
 
 
     //diplotypeCall.setHaplotypesNotCalled();
-    TSVfile tsvFile = m_definitionReader.getFiles().get(gene);
+    DefinitionFile tsvFile = m_definitionReader.getDefinitionFiles().get(gene);
     diplotypeCall.setGeneVersion(tsvFile.getContentVersion() + " (" + tsvFile.getContentDate() + ")");
     diplotypeCall.setChromosome(tsvFile.getChromosome());
     m_root.addDiplotypeCall(diplotypeCall);

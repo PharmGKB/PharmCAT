@@ -21,10 +21,10 @@ import com.google.common.collect.ListMultimap;
 public class DefinitionReader {
   private ListMultimap<String, Variant> m_haplotypePositions  = ArrayListMultimap.create();
   private ListMultimap<String, Haplotype> m_haplotypes = ArrayListMultimap.create();
-  private Map<String, TSVfile> m_files = new HashMap<>();
+  private Map<String, DefinitionFile> m_files = new HashMap<>();
 
 
-  public Map<String, TSVfile> getFiles() {
+  public Map<String, DefinitionFile> getDefinitionFiles() {
 	  return m_files;
   }
 
@@ -51,10 +51,6 @@ public class DefinitionReader {
   }
 
 
-
-
-
-
   private void readFile(@Nonnull Path file)  {
 
     Preconditions.checkNotNull(file);
@@ -63,7 +59,7 @@ public class DefinitionReader {
 
     try (BufferedReader bufferedReader = Files.newBufferedReader(file)) {
 
-    	TSVfile inProccessFile = new TSVfile(file.toString());
+    	DefinitionFile inProccessFile = new DefinitionFile(file.toString());
         ArrayList<Variant> variants = new ArrayList<>();
         ArrayList<Haplotype> haplotypes = new ArrayList<>();
 
@@ -84,7 +80,7 @@ public class DefinitionReader {
             	}else{
             		inProccessFile.setFormatVersion("");
             	}
-            	
+
             }
             else if (fields[0].equals("GeneName")){
             	if (fields.length>1){
@@ -145,8 +141,8 @@ public class DefinitionReader {
             	}else{
             		inProccessFile.setProteinID("");
             	}
-            	
-            	
+
+
             }
             else if (fields[0].equals("NumVariants")){
             	inProccessFile.setNumberOfVariants(fields[1]);
@@ -161,7 +157,7 @@ public class DefinitionReader {
 	                	variants.get(i-4).addProteingEffect(fields[i]);
 	                }
             	}
-            	
+
             }
             else if (fields[0].equals("ProteinNote")){
             	if (fields.length>=4){
@@ -174,7 +170,7 @@ public class DefinitionReader {
             	for (int i = 4; i < fields.length; i++){
                 	variants.get(i-4).addHGVSg(fields[i]);
                 	variants.get(i-4).setStartPOS();
-                
+
                 }
             }
             else if (fields[0].equals("GenePosition")){
