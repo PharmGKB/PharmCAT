@@ -1,5 +1,5 @@
 
-package org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON;
+package org.cpic.haplotype.model.json;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

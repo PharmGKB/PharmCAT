@@ -1,4 +1,4 @@
-package org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON;
+package org.cpic.haplotype.model.json;
 
 import java.util.Set;
 

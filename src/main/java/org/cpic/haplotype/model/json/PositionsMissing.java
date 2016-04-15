@@ -1,7 +1,6 @@
 
-package org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON;
+package org.cpic.haplotype.model.json;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -16,7 +15,7 @@ public class PositionsMissing {
     private String rsID;
 
     /**
-     * 
+     *
      * @return
      *     The position
      */
@@ -25,7 +24,7 @@ public class PositionsMissing {
     }
 
     /**
-     * 
+     *
      * @param position
      *     The position
      */
@@ -34,7 +33,7 @@ public class PositionsMissing {
     }
 
     /**
-     * 
+     *
      * @return
      *     The rsID
      */
@@ -43,7 +42,7 @@ public class PositionsMissing {
     }
 
     /**
-     * 
+     *
      * @param rsID
      *     The rsID
      */

@@ -9,11 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.google.gson.Gson;
+import org.cpic.haplotype.model.json.DiplotypeCall;
+import org.cpic.haplotype.model.json.HaplotyperResult;
 import org.cpic.reporter.model.CPICException;
 import org.cpic.reporter.model.CPICExceptionList;
 import org.cpic.reporter.model.CPICinteraction;
-import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
-import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.HaplotyperResult;
 public class JsonFileLoader {
 
     Gson gson = new Gson();
@@ -25,11 +25,11 @@ public class JsonFileLoader {
         return calls.getDiplotypeCalls();
 
     }
-    
+
     /**
      * This turns the json exception list into a fragmented list under the header
      * of the relevant gene.
-     * FIXME dumb assumption that the exception are for single gene issues and not for 
+     * FIXME dumb assumption that the exception are for single gene issues and not for
      * multi gene interactions
      */
     public Map<String, List<CPICException>> loadExceptions( File exceptions )throws IOException {
@@ -56,19 +56,19 @@ public class JsonFileLoader {
      * DANGER WILL ROBINSON! A DUMB ASSUMPTION HAS BEEN MADE!
      * FIXME : assumption of single gene and single drug interaction here
      *
-     * Multi gene drugs need alteration in this file to work but this will be 
-     * acceptable for hackathon standards but should be fixed as part of a the 
+     * Multi gene drugs need alteration in this file to work but this will be
+     * acceptable for hackathon standards but should be fixed as part of a the
      * next version.  This is a critical flaw in the design
      *
      */
     public Map<String, List<CPICinteraction>> loadDrugGeneRecommendations( List<File> interactions ) throws IOException {
         Map<String,List<CPICinteraction>> drugGenes = new HashMap<String, List<CPICinteraction>>();
         for( File interact: interactions ){
-           
+
             BufferedReader br = new BufferedReader(new FileReader( interact ));
             CPICinteraction act = gson.fromJson(br, CPICinteraction.class);
             String geneSymbol = act.getRelatedGenes().get(0).getSymbol(); //FIXME setting index to 0 will only allow the first gene if there are multiple
-            
+
             if( drugGenes.containsKey(geneSymbol)){
                 drugGenes.get(geneSymbol).add(act);
             } else {
@@ -78,7 +78,7 @@ public class JsonFileLoader {
             }
             br.close();
         }
-        
+
         return drugGenes;
 
     }

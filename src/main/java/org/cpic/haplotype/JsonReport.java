@@ -17,10 +17,10 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
-import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.HaplotypeCall;
-import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.HaplotyperResult;
-import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.Metadata;
+import org.cpic.haplotype.model.json.DiplotypeCall;
+import org.cpic.haplotype.model.json.HaplotypeCall;
+import org.cpic.haplotype.model.json.HaplotyperResult;
+import org.cpic.haplotype.model.json.Metadata;
 
 
 /**
@@ -114,7 +114,7 @@ public class JsonReport {
       } else {
         call = allele.getAllele1() + "/" + allele.getAllele2();
       }
-      diplotypeCall.add(new org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.Variant(variant.getPOS(), variant.get_rsID(), call));
+      diplotypeCall.add(new org.cpic.haplotype.model.json.Variant(variant.getPOS(), variant.get_rsID(), call));
     }
 
 

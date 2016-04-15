@@ -5,18 +5,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
+import org.cpic.haplotype.model.json.DiplotypeCall;
 import org.cpic.reporter.io.JsonFileLoader;
 import org.cpic.reporter.model.CPICException;
 import org.cpic.reporter.model.CPICinteraction;
+import org.cpic.reporter.resultsJSON.Gene;
+
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
-import org.cpic.reporter.model.HaplotypeCallerMultiGeneJSON.DiplotypeCall;
-import org.cpic.reporter.resultsJSON.Gene;
 
 
 public class Reporter {
@@ -33,17 +33,17 @@ public class Reporter {
     */
    String exceptionPath = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/cpic_exceptions/exceptions.json"; //TODO don't do this, done for wiring purposes only
    private File exception = new File(exceptionPath);
-   
+
    /**
     * Drug Gene interaction json
     */
-   
+
    //TODO don't do any of this load from props file like a read engineer
    String test1 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/dosing_guidelines/CPIC_Guideline_for_citalopram_escitalopram_and_CYP2C19.json";
    String test2 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/dosing_guidelines/CPIC_Guideline_for_clopidogrel_and_CYP2C19.json";
    String test3 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/dosing_guidelines/CPIC_Guideline_for_sertraline_and_CYP2C19.json";
    private List<File> interactions = new ArrayList<File>();
-   
+
     /**
      * Configuration properties loaded from file
      */
@@ -68,7 +68,7 @@ public class Reporter {
         interactions.add( new File(test1));
         interactions.add( new File(test2));
         interactions.add( new File(test3));
-        
+
         //File propsFile = new File( cmdline.getOptionValue( "conf" ) );
        // props = readConfFile( propsFile );
 
@@ -127,7 +127,7 @@ public class Reporter {
             System.out.println( "WARNING: No bam file provided" );
         }*/
 
-        
+
         //if minimal required parameters are set parse command line
         Reporter report = new Reporter( cmdline );
         //run genotyper workflow
@@ -135,33 +135,33 @@ public class Reporter {
     }
 
     private void run() throws IOException {
-        
+
         //loadRequiredFiles(); TODO undelete this and use actual args and real code for plumbing the system
-        
+
         JsonFileLoader loader = new JsonFileLoader();
-        
+
         List<DiplotypeCall> calls = loader.loadHaplotypeGeneCalls(this.inFile);
         Map<String, List<CPICException>> exceptions = loader.loadExceptions(this.exception);
         Map<String, List<CPICinteraction>> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
-        
+
         DataUnifier checker = new DataUnifier(calls, exceptions, drugGenes);
         List<Gene> results = checker.findMatches();
-   
-        
-        
+
+
+
          //print results here!!!!!
 
        // logger.info( "Complete" );
     }
-    
+
     /*private void loadRequiredFiles(){
         String exceptionLoc = props.getProperty("CPIC.reporter.exception");
         this.exception = new File( exceptionLoc );
-        
+
         String interactionLoc = props.getProperty("CPIC.reporter.guidlines");
         this.interactions = new File(interactionLoc);
     }*/
-    
+
 
 
 
