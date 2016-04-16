@@ -1,6 +1,12 @@
 # PharmCAT
 
-Take genome data, make haplotype calls, get CPIC annotations.
+Take genome data, make haplotype calls, get [CPIC](https://cpicpgx.org) annotations.
+
+
+## Status
+
+This is all pre-alpha and the result of a 1 week hackathon.
+
 
 ## License
 
