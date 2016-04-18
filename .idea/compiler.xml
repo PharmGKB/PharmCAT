@@ -19,8 +19,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="cpic-annotator_main" target="1.8" />
-      <module name="cpic-annotator_test" target="1.8" />
+      <module name="PharmCAT_main" target="1.8" />
+      <module name="PharmCAT_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
