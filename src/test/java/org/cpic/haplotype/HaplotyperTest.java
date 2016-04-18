@@ -51,5 +51,52 @@ public class HaplotyperTest {
     Set<String> expectedMatches = Sets.newHashSet("*1/*3", "*1/*27", "*3/*3", "*3/*27", "*27/*27");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
     System.out.println(matches);
+    ComparisonUtil.printMatchPairs(matches);
   }
+
+
+  @Test
+  public void cyp2c19s1s1() throws Exception {
+    // Fails no matches. WARN org.cpic.haplotype.VcfReader - Unexpected state: no alt alleles for chr10:94760676 etc
+    Path tsvFile = TestUtil.getFile("org/cpic/haplotype/CYP2C19.tsv");
+    Path vcfFile = TestUtil.getFile("org/cpic/haplotype/NA12878.cyp2c19.s1s1.vcf");
+    String gene = "CYP2C19";
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(tsvFile);
+
+    VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
+
+    Haplotyper haplotyper = new Haplotyper(definitionReader);
+    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+
+    List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
+    Set<String> expectedMatches = Sets.newHashSet("*1/*1");
+    TestUtil.assertDiplotypePairs(expectedMatches, matches);
+    System.out.println(matches);
+    ComparisonUtil.printMatchPairs(matches);
+  }
+
+  @Test
+  public void cyp2c19s1s1Alt() throws Exception {
+    // Fails with no matches
+    Path tsvFile = TestUtil.getFile("org/cpic/haplotype/CYP2C19.tsv");
+    Path vcfFile = TestUtil.getFile("org/cpic/haplotype/NA12878.cyp2c19.s1s1.alt.vcf");
+    String gene = "CYP2C19";
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(tsvFile);
+
+    VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
+
+    Haplotyper haplotyper = new Haplotyper(definitionReader);
+    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+
+    List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
+    Set<String> expectedMatches = Sets.newHashSet("*1/*1");
+    TestUtil.assertDiplotypePairs(expectedMatches, matches);
+    System.out.println(matches);
+    ComparisonUtil.printMatchPairs(matches);
+  }
+
 }
