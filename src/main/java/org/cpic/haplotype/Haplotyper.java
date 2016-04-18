@@ -11,6 +11,7 @@ import java.util.SortedSet;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 
 
 /**
@@ -81,6 +82,15 @@ public class Haplotyper {
     Set<String> permutations = CombinationUtil.generatePermutations(alleles);
     // compare sample permutations to haplotypes
     SortedSet<HaplotypeMatch> matches = ComparisonUtil.comparePermutations(permutations, haplotypes);
+
+    if (permutations.size() == 1 && matches.size() == 1) {
+      // sample is homozygous for all positions and it matches a single allele,
+      // so we need to return that as a diplotype
+      HaplotypeMatch hm = matches.first();
+      List<List<HaplotypeMatch>> diplotype = new ArrayList<>();
+      diplotype.add(Lists.newArrayList(hm, hm));
+      return diplotype;
+    }
 
     // find pair-wise matches
     List<List<Haplotype>> pairs = CombinationUtil.generatePerfectPairs(haplotypes);
