@@ -1,8 +1,7 @@
 package org.cpic.haplotype;
 
-import org.junit.Test;
-
 import java.util.Arrays;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -48,7 +47,7 @@ public class HaplotypeTest {
     hap2.addAlleles(Arrays.asList("C", "Y"));
 
     assertEquals("1:T;2:A;3:G;4:C;", ref.calculatePermutations(ref.getVariants()).pattern());
-    assertEquals("1:C;2:.?;3:.?;4:T;", hap1.calculatePermutations(ref.getVariants()).pattern());
+    assertEquals("1:C;2:T;3:.?;4:.?;", hap1.calculatePermutations(ref.getVariants()).pattern());
     assertEquals("1:C;2:.?;3:.?;4:C|T;", hap2.calculatePermutations(ref.getVariants()).pattern());
   }
 }
