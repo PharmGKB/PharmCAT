@@ -1,0 +1,20 @@
+language: java
+jdk:
+- oraclejdk8
+notifications:
+  slack:
+    secure: I4OIELFscbYzyPzIBhGftvVmlWB48F/swqumcQxjoIKJlbl8YSS9x1fXVdbT7qXBojJ/MQeZ6Tf0+IfcRN+2zUmOjmvIajp8FtdWYzEr2Ff5otSq/SaqURVtaQaHA6DoIPI7GnLOqJ3cl7282KoJUkHLUEf21VuXxIogo+Honvjl24UpBp7XHLzdv5LaLQneyC4zSC5Lhxea2FQrutA025QoepJAWlz4j9NSJYqJ/1aHrFcJCrqwwILKo720NLR+TFoqSPoLhxBfLqqcUToZboUsFZSRDMmsJa3ZOHmKl+yhSFU3qg6ArTm840BhiG+DG8NZ7toxs/DL/SkUgnl4iOa3NGdINQJZTBMYzavwbENbDg7NL+ICLCFOZ86enB9fdjPPxkP9ch5bAN3+cENdZNhHSvLUi0g9WushpYSHqZBQYiKJbWCb6vSi9XUCDZihkHPk9cdR9oUmyELp3RQSb2c+T9SZNwUZ8SIKt7a26WRz+RFs4+yrPkiNI0mEwQXFbrauywRiXoVpK1OZ5VXld2Tl+iEapuSMapZhiLBxwao1NtXfnThkXMuT4xm14GF7HcRpL3D9JwrGtgED+6fGv5GoDMiDWgYd47hn8kdUF34MkNDGqZHjrlQx2mX7+dOxru++H7hsxYm00+B0K4fnYuHzYoiCWIZ3zPgXXUI/17A=
+
+install: "./gradlew jar"
+
+after_success:
+- "./gradlew jacocoTestReport coveralls"
+- "bash <(curl -s https://codecov.io/bash)"
+
+# gradle-specific cache configuration:
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
