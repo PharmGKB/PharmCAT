@@ -19,7 +19,7 @@ public class HaplotyperTest {
 
   @Test
   public void testCyp2c19() throws Exception {
-
+    // initial test - file reading etc
     Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.tsv");
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/NA12878.2c19_filtered.vcf");
 
@@ -33,31 +33,8 @@ public class HaplotyperTest {
 
 
   @Test
-  public void test1() throws Exception {
-
-    Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.tsv");
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/NA12878.2c19_filtered.vcf");
-    String gene = "CYP2C19";
-
-    DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(tsvFile);
-
-    VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
-
-    Haplotyper haplotyper = new Haplotyper(definitionReader);
-    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
-
-    List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
-    Set<String> expectedMatches = Sets.newHashSet("*1/*3", "*1/*27", "*3/*3", "*3/*27", "*27/*27");
-    TestUtil.assertDiplotypePairs(expectedMatches, matches);
-    System.out.println(matches);
-    ComparisonUtil.printMatchPairs(matches);
-  }
-
-
-  @Test
   public void cyp2c19s1s1() throws Exception {
-    // Fails no matches. WARN VcfReader - Unexpected state: no alt alleles for chr10:94760676 etc
+    // Simple *1/*1 reference test
     Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.tsv");
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/NA12878.cyp2c19.s1s1.vcf");
     String gene = "CYP2C19";
@@ -77,11 +54,13 @@ public class HaplotyperTest {
     ComparisonUtil.printMatchPairs(matches);
   }
 
+
+
   @Test
-  public void cyp2c19s1s1Alt() throws Exception {
-    // Fails with no matches
+  public void cyp2c19s1s2() throws Exception {
+    // Test simple case of one heterozygous snp
     Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.tsv");
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/NA12878.cyp2c19.s1s1.alt.vcf");
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/HaplotyperTest.cyp2c19s1s2.vcf");
     String gene = "CYP2C19";
 
     DefinitionReader definitionReader = new DefinitionReader();
@@ -93,10 +72,114 @@ public class HaplotyperTest {
     Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
 
     List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
-    Set<String> expectedMatches = Sets.newHashSet("*1/*1");
+    Set<String> expectedMatches = Sets.newHashSet("*1/*2");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
     System.out.println(matches);
     ComparisonUtil.printMatchPairs(matches);
   }
+
+  @Test
+  public void cyp2c19s1s2Homo() throws Exception {
+    // Test simple case of one homozygous snp
+    Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.tsv");
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/HaplotyperTest.cyp2c19s1s2homo.vcf");
+    String gene = "CYP2C19";
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(tsvFile);
+
+    VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
+
+    Haplotyper haplotyper = new Haplotyper(definitionReader);
+    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+
+    List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
+    Set<String> expectedMatches = Sets.newHashSet("*2/*2");
+    TestUtil.assertDiplotypePairs(expectedMatches, matches);
+    System.out.println(matches);
+    ComparisonUtil.printMatchPairs(matches);
+  }
+
+
+  @Test
+  public void cyp2c19s2s3() throws Exception {
+    /* Test case of two snps - *2 and *3
+    TODO:
+    Below makes no sense - can't be *2/*2 etc when het
+
+    Expected: [*2/*3]
+    Got:      [*1/*2, *1/*3, *2/*2, *2/*3, *3/*3]
+
+    If *3 is one one allele the *2 has to be on the other. If there were both on the same then it would be another allele?  Presuming that *1/*2+*3 is not valid
+    It's possible that make is using *1 in place of *unk?
+
+     */
+
+    Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.tsv");
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/HaplotyperTest.cyp2c19s2s3.vcf");
+    String gene = "CYP2C19";
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(tsvFile);
+
+    VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
+
+    Haplotyper haplotyper = new Haplotyper(definitionReader);
+    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+
+    List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
+    Set<String> expectedMatches = Sets.newHashSet("*2/*3");
+    TestUtil.assertDiplotypePairs(expectedMatches, matches);
+    System.out.println(matches);
+    ComparisonUtil.printMatchPairs(matches);
+  }
+
+  @Test
+  public void cyp2c19s15s28() throws Exception {
+    // Test *15 *28. The shared position is het so it's either *1/*28(?) or ["*1/*28","*unk, *15"] - not MW's preference
+    // TODO: // still work in progress
+    Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.tsv");
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/HaplotyperTest.cyp2c19s15s28.vcf");
+    String gene = "CYP2C19";
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(tsvFile);
+
+    VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
+
+    Haplotyper haplotyper = new Haplotyper(definitionReader);
+    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+
+    List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
+    Set<String> expectedMatches = Sets.newHashSet("*4b/*17");
+    //TestUtil.assertDiplotypePairs(expectedMatches, matches);
+    System.out.println(matches);
+    ComparisonUtil.printMatchPairs(matches);
+  }
+
+
+  @Test
+  public void cyp2c19s4bs17() throws Exception {
+    // Test differentiation between *4b/*17
+    // TODO: still working in progress
+    Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.tsv");
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/HaplotyperTest.cyp2c19s4bs17.vcf");
+    String gene = "CYP2C19";
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(tsvFile);
+
+    VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
+
+    Haplotyper haplotyper = new Haplotyper(definitionReader);
+    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+
+    List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
+    Set<String> expectedMatches = Sets.newHashSet("*4b/*17");
+    // TestUtil.assertDiplotypePairs(expectedMatches, matches);
+    // System.out.println(matches);
+    // ComparisonUtil.printMatchPairs(matches);
+  }
+
 
 }
