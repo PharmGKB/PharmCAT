@@ -5,8 +5,8 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.SortedSet;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -49,7 +49,7 @@ public class Haplotyper {
 
   public void call(@Nonnull Path vcfFile, @Nullable Path jsonFile) throws IOException {
 
-    Map<String, SampleAllele> alleles = m_vcfReader.read(vcfFile);
+    SortedMap<String, SampleAllele> alleles = m_vcfReader.read(vcfFile);
     JsonReport report = new JsonReport(m_definitionReader)
         .forFile(vcfFile);
     if (jsonFile != null) {
@@ -63,7 +63,7 @@ public class Haplotyper {
   }
 
 
-  public List<List<HaplotypeMatch>> callHaplotype(Map<String, SampleAllele> alleleMap, String gene) {
+  public List<List<HaplotypeMatch>> callHaplotype(SortedMap<String, SampleAllele> alleleMap, String gene) {
 
     List<Variant> variants = m_definitionReader.getHaplotypePositions().get(gene);
     List<Haplotype> haplotypes = m_definitionReader.getHaplotypes().get(gene);

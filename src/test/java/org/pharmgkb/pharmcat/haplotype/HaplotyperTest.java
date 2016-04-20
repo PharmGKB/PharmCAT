@@ -1,10 +1,12 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.TestUtil;
@@ -45,7 +47,7 @@ public class HaplotyperTest {
     VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
 
     Haplotyper haplotyper = new Haplotyper(definitionReader);
-    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+    SortedMap<String, SampleAllele> alleles = vcfReader.read(vcfFile);
 
     List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
     Set<String> expectedMatches = Sets.newHashSet("*1/*1");
@@ -69,7 +71,7 @@ public class HaplotyperTest {
     VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
 
     Haplotyper haplotyper = new Haplotyper(definitionReader);
-    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+    SortedMap<String, SampleAllele> alleles = vcfReader.read(vcfFile);
 
     List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
     Set<String> expectedMatches = Sets.newHashSet("*1/*2");
@@ -91,7 +93,7 @@ public class HaplotyperTest {
     VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
 
     Haplotyper haplotyper = new Haplotyper(definitionReader);
-    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+    SortedMap<String, SampleAllele> alleles = vcfReader.read(vcfFile);
 
     List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
     Set<String> expectedMatches = Sets.newHashSet("*2/*2");
@@ -125,9 +127,10 @@ public class HaplotyperTest {
     VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
 
     Haplotyper haplotyper = new Haplotyper(definitionReader);
-    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+    SortedMap<String, SampleAllele> alleles = vcfReader.read(vcfFile);
 
     List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
+    printReport(definitionReader, vcfFile, gene, matches, alleles.values());
     Set<String> expectedMatches = Sets.newHashSet("*2/*3");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
     System.out.println(matches);
@@ -148,7 +151,7 @@ public class HaplotyperTest {
     VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
 
     Haplotyper haplotyper = new Haplotyper(definitionReader);
-    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+    SortedMap<String, SampleAllele> alleles = vcfReader.read(vcfFile);
 
     List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
     Set<String> expectedMatches = Sets.newHashSet("*4b/*17");
@@ -172,7 +175,7 @@ public class HaplotyperTest {
     VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
 
     Haplotyper haplotyper = new Haplotyper(definitionReader);
-    Map<String, SampleAllele> alleles = vcfReader.read(vcfFile);
+    SortedMap<String, SampleAllele> alleles = vcfReader.read(vcfFile);
 
     List<List<HaplotypeMatch>> matches = haplotyper.callHaplotype(alleles, gene);
     Set<String> expectedMatches = Sets.newHashSet("*4b/*17");
@@ -181,5 +184,14 @@ public class HaplotyperTest {
     // ComparisonUtil.printMatchPairs(matches);
   }
 
+
+  private void printReport(DefinitionReader definitionReader, Path vcfFile, String gene,
+      List<List<HaplotypeMatch>> matches, Collection<SampleAllele> alleles) throws IOException {
+
+    new JsonReport(definitionReader)
+        .forFile(vcfFile)
+        .haplotype(gene, matches, alleles)
+        .printHtml();
+  }
 
 }
