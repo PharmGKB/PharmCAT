@@ -1,12 +1,15 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
-import java.util.TreeSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.Test;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
+
+import static org.junit.Assert.assertEquals;
 
 
 /**
@@ -67,10 +70,10 @@ public class ComparisonUtilTest {
     );
     hap3.calculatePermutations(variants);
 
-    List<List<Haplotype>> pairs = CombinationUtil.generatePerfectPairs(new TreeSet<>(Sets.newHashSet(hap1, hap2, hap3)));
-
     SortedSet<HaplotypeMatch> matches = ComparisonUtil.comparePermutations(permutations, Lists.newArrayList(hap1, hap2, hap3));
-    List<List<HaplotypeMatch>> pairMatches = ComparisonUtil.determinePairs(matches, pairs);
-    ComparisonUtil.printMatchPairs(pairMatches);
+    assertEquals(2, matches.size());
+    Iterator<HaplotypeMatch> it = matches.iterator();
+    assertEquals(hap1, it.next().getHaplotype());
+    assertEquals(hap2, it.next().getHaplotype());
   }
 }

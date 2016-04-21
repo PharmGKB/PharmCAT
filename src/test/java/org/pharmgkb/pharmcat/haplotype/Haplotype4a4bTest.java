@@ -3,10 +3,14 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import com.google.common.collect.Lists;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
 
 /**
@@ -14,7 +18,6 @@ import org.junit.Test;
  */
 public class Haplotype4a4bTest {
   private static List<Haplotype> s_haplotypes;
-  private static List<List<Haplotype>> s_hapPairs;
 
 
 
@@ -71,7 +74,6 @@ public class Haplotype4a4bTest {
     s_hap4.calculatePermutations(s_variants);
 
     s_haplotypes = Lists.newArrayList(s_hap1, s_hap2, s_hap3, s_hap4);
-    s_hapPairs = CombinationUtil.generatePerfectPairs(s_haplotypes);
   }
 
 
@@ -83,9 +85,8 @@ public class Haplotype4a4bTest {
         new SampleAllele("chr1", 2, "C", "C", false),
         new SampleAllele("chr1", 3, "C", "C", false)
     );
-    Set<String> permutations = CombinationUtil.generatePermutations(alleles);
 
-    List<List<HaplotypeMatch>> pairMatches = findHaplotypes(permutations);
+    List<DiplotypeMatch> pairMatches = findHaplotypes(alleles);
     ComparisonUtil.printMatchPairs(pairMatches);
   }
 
@@ -98,9 +99,8 @@ public class Haplotype4a4bTest {
         new SampleAllele("chr1", 2, "C", "T", false),
         new SampleAllele("chr1", 3, "C", "T", false)
     );
-    Set<String> permutations = CombinationUtil.generatePermutations(alleles);
 
-    List<List<HaplotypeMatch>> pairMatches = findHaplotypes(permutations);
+    List<DiplotypeMatch> pairMatches = findHaplotypes(alleles);
     ComparisonUtil.printMatchPairs(pairMatches);
   }
 
@@ -113,9 +113,8 @@ public class Haplotype4a4bTest {
         new SampleAllele("chr1", 2, "C", "T", false),
         new SampleAllele("chr1", 3, "C", "T", false)
     );
-    Set<String> permutations = CombinationUtil.generatePermutations(alleles);
 
-    List<List<HaplotypeMatch>> pairMatches = findHaplotypes(permutations);
+    List<DiplotypeMatch> pairMatches = findHaplotypes(alleles);
     ComparisonUtil.printMatchPairs(pairMatches);
   }
 
@@ -128,9 +127,8 @@ public class Haplotype4a4bTest {
         new SampleAllele("chr1", 2, "T", "T", false),
         new SampleAllele("chr1", 3, "C", "T", false)
     );
-    Set<String> permutations = CombinationUtil.generatePermutations(alleles);
 
-    List<List<HaplotypeMatch>> pairMatches = findHaplotypes(permutations);
+    List<DiplotypeMatch> pairMatches = findHaplotypes(alleles);
     ComparisonUtil.printMatchPairs(pairMatches);
   }
 
@@ -143,15 +141,20 @@ public class Haplotype4a4bTest {
         new SampleAllele("chr1", 2, "C", "T", false),
         new SampleAllele("chr1", 3, "C", "T", false)
     );
-    Set<String> permutations = CombinationUtil.generatePermutations(alleles);
-
-    List<List<HaplotypeMatch>> pairMatches = findHaplotypes(permutations);
+    List<DiplotypeMatch> pairMatches = findHaplotypes(alleles);
     ComparisonUtil.printMatchPairs(pairMatches);
   }
 
 
-  private List<List<HaplotypeMatch>> findHaplotypes(Set<String> permutations) {
+  private List<DiplotypeMatch> findHaplotypes(List<SampleAllele> alleles) {
+
+    Set<String> permutations = CombinationUtil.generatePermutations(alleles);
     SortedSet<HaplotypeMatch> matches = ComparisonUtil.comparePermutations(permutations, s_haplotypes);
-    return ComparisonUtil.determinePairs(matches, s_hapPairs);
+
+    SortedMap<Integer, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    for (SampleAllele sa : alleles) {
+      sampleAlleleMap.put(sa.getPosition(), sa);
+    }
+    return ComparisonUtil.determinePairs(sampleAlleleMap, matches);
   }
 }

@@ -5,8 +5,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
 
 public class DiplotypeCall {
@@ -24,7 +28,7 @@ public class DiplotypeCall {
   private Set<String> diplotypes = new HashSet<>();
   @SerializedName("haplotypes")
   @Expose
-  private Set<HaplotypeCall> m_haplotypes = new HashSet<>();
+  private SortedSet<HaplotypeMatch> m_haplotypes = new TreeSet<>();
   @SerializedName("variants")
   @Expose
   private List<Variant> m_variants = new ArrayList<>();
@@ -72,17 +76,15 @@ public class DiplotypeCall {
     this.diplotypes = diplotypes;
   }
 
-  public void addDiplotype(String diplotype) {
-    diplotypes.add(diplotype);
+  public void addDiplotype(DiplotypeMatch diplotype) {
+    diplotypes.add(diplotype.getName());
+    m_haplotypes.add(diplotype.getHaplotype1());
+    m_haplotypes.add(diplotype.getHaplotype2());
   }
 
 
-  public Set<HaplotypeCall> getHaplotypes() {
+  public Set<HaplotypeMatch> getHaplotypes() {
     return m_haplotypes;
-  }
-
-  public void setHaplotypes(Set<HaplotypeCall> haplotypes) {
-    m_haplotypes = haplotypes;
   }
 
 

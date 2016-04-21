@@ -4,7 +4,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.haplotype.Haplotype;
-import org.pharmgkb.pharmcat.haplotype.HaplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
 
 /**
@@ -33,18 +34,18 @@ public class TestUtilTest {
     TestUtil.assertDiplotypePairs(
         Sets.newHashSet("*1/*1", "*2/*4"),
         Lists.newArrayList(
-            Lists.newArrayList(hm1, hm1),
-            Lists.newArrayList(hm2, hm4)
+            new DiplotypeMatch(hm1, hm1),
+            new DiplotypeMatch(hm2, hm4)
         )
     );
 
     TestUtil.assertDiplotypePairs(
         Sets.newHashSet("*1/*1", "*1/*3", "*2/*4", "*3/*4"),
         Lists.newArrayList(
-            Lists.newArrayList(hm1, hm1),
-            Lists.newArrayList(hm1, hm3),
-            Lists.newArrayList(hm2, hm4),
-            Lists.newArrayList(hm3, hm4)
+            new DiplotypeMatch(hm1, hm1),
+            new DiplotypeMatch(hm1, hm3),
+            new DiplotypeMatch(hm2, hm4),
+            new DiplotypeMatch(hm3, hm4)
         )
     );
 
@@ -65,8 +66,8 @@ public class TestUtilTest {
     TestUtil.assertDiplotypePairs(
         Sets.newHashSet("*1/*1", "*2/*4"),
         Lists.newArrayList(
-            Lists.newArrayList(hm1, hm1),
-            Lists.newArrayList(hm2, hm2)
+            new DiplotypeMatch(hm1, hm1),
+            new DiplotypeMatch(hm2, hm2)
         )
     );
   }

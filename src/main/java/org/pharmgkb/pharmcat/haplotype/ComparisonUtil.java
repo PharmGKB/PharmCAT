@@ -2,14 +2,17 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import com.google.common.collect.Lists;
+import javax.annotation.Nonnull;
+import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
 
 /**
@@ -21,8 +24,8 @@ public class ComparisonUtil {
   /**
    * Compares a sample's allele permutations to haplotype definitions and return matches.
    */
-  public static SortedSet<HaplotypeMatch> comparePermutations(Set<String> permutations,
-      Collection<Haplotype> haplotypes) {
+  public static @Nonnull SortedSet<HaplotypeMatch> comparePermutations(@Nonnull Set<String> permutations,
+      @Nonnull Collection<Haplotype> haplotypes) {
 
     Set<HaplotypeMatch> haplotypeMatches = haplotypes.stream()
         .map(HaplotypeMatch::new)
@@ -42,16 +45,21 @@ public class ComparisonUtil {
 
   /**
    * Determine possible diplotypes given a set of {@link HaplotypeMatch}'s.
+   *
+   * @param haplotypeMatches the matches that were found via {@link #comparePermutations(Set, Collection)}
    */
-  public static List<List<HaplotypeMatch>> determinePairs(Set<HaplotypeMatch> haplotypeMatches,
-      List<List<Haplotype>> pairs) {
+  public static List<DiplotypeMatch> determinePairs(@Nonnull SortedMap<Integer, SampleAllele> haplotypeSampleMap,
+      @Nonnull SortedSet<HaplotypeMatch> haplotypeMatches) {
 
-    Map<Haplotype, HaplotypeMatch> hapMap = new HashMap<>();
+    SortedMap<Haplotype, HaplotypeMatch> hapMap = new TreeMap<>();
     for (HaplotypeMatch hm : haplotypeMatches) {
       hapMap.put(hm.getHaplotype(), hm);
     }
 
-    List<List<HaplotypeMatch>> matches = new ArrayList<>();
+    // possible pairs from what got matched
+    List<List<Haplotype>> pairs = CombinationUtil.generatePerfectPairs(hapMap.keySet());
+
+    List<DiplotypeMatch> matches = new ArrayList<>();
     for (List<Haplotype> pair : pairs) {
       Haplotype hap1 = pair.get(0);
       HaplotypeMatch hm1 = hapMap.get(hap1);
@@ -68,17 +76,71 @@ public class ComparisonUtil {
         // cannot call homozygous unless more than one sequence matches
         continue;
       }
-      matches.add(Lists.newArrayList(hm1, hm2));
+
+      Set<String[]> sequencePairs = findSequencePairs(haplotypeSampleMap, hm1, hm2);
+      if (!sequencePairs.isEmpty()) {
+        DiplotypeMatch dm = new DiplotypeMatch(hm1, hm2);
+        sequencePairs.stream().forEach(dm::addSequencePair);
+        matches.add(dm);
+      }
     }
     return matches;
   }
 
 
-  public static void printMatchPairs(List<List<HaplotypeMatch>> matches) {
+  private static Set<String[]> findSequencePairs(@Nonnull SortedMap<Integer, SampleAllele> haplotypeSampleMap,
+      @Nonnull HaplotypeMatch hm1, @Nonnull HaplotypeMatch hm2) {
 
-    for (List<HaplotypeMatch> pair : matches) {
-      HaplotypeMatch hm1 = pair.get(0);
-      HaplotypeMatch hm2 = pair.get(1);
+    Set<String[]> sequencePairs = new HashSet<>();
+    for (String seq1 : hm1.getSequences()) {
+      for (String seq2 : hm2.getSequences()) {
+        if (isViableComplement(haplotypeSampleMap, seq1, seq2)) {
+          sequencePairs.add(new String[] { seq1, seq2 });
+        }
+      }
+    }
+    return sequencePairs;
+  }
+
+
+  /**
+   * Checks whether the two sequences is complementary based on sample alleles.
+   */
+  private static boolean isViableComplement(@Nonnull SortedMap<Integer, SampleAllele> haplotypeSampleMap,
+      @Nonnull String sequence1, @Nonnull String sequence2) {
+
+    String[] seq1 = sequence1.split(";");
+    String[] seq2 = sequence2.split(";");
+
+    for (int x = 0; x < seq1.length; x += 1) {
+      String[] s1 = seq1[x].split(":");
+      String[] s2 = seq2[x].split(":");
+      SampleAllele sampleAllele = haplotypeSampleMap.get(Integer.valueOf(s1[0]));
+      if (sampleAllele == null) {
+        throw new IllegalStateException("Missing sample for haplotype position " + s1[0]);
+      }
+      if (sampleAllele.getAllele1().equals(sampleAllele.getAllele2())) {
+        // expecting homozygous
+        if (!s1[1].equals(s2[1])) {
+          return false;
+        }
+      } else {
+        // expecting heterozygous
+        if (s1[1].equals(s2[1])) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
+
+  public static void printMatchPairs(List<DiplotypeMatch> matches) {
+
+    for (DiplotypeMatch pair : matches) {
+      HaplotypeMatch hm1 = pair.getHaplotype1();
+      HaplotypeMatch hm2 = pair.getHaplotype2();
 
       System.out.println(pair);
       System.out.println(hm1.getHaplotype());

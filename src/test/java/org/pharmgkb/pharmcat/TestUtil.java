@@ -10,7 +10,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
-import org.pharmgkb.pharmcat.haplotype.HaplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 
 import static org.junit.Assert.*;
 
@@ -45,13 +45,13 @@ public class TestUtil {
    * @param matches the list of haplotype matches
    */
   public static void assertDiplotypePairs(@Nonnull Set<String> expectedPairs,
-      @Nonnull List<List<HaplotypeMatch>> matches) {
+      @Nonnull List<DiplotypeMatch> matches) {
 
     Preconditions.checkNotNull(expectedPairs);
     Preconditions.checkNotNull(matches);
 
     Set<String> pairs = matches.stream()
-        .map(pair -> pair.get(0).getHaplotype().getCommonName() + "/" + pair.get(1).getHaplotype().getCommonName())
+        .map(DiplotypeMatch::getName)
         .collect(Collectors.toCollection(TreeSet::new));
     assertEquals("Incoming matches has non-unique pairs", matches.size(), pairs.size());
 

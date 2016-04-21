@@ -1,26 +1,42 @@
-package org.pharmgkb.pharmcat.haplotype;
+package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nonnull;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
+import org.pharmgkb.pharmcat.haplotype.Haplotype;
 
 
 /**
+ * This represents a haplotype and the sequences that matched it.
+ *
  * @author Mark Woon
  */
 public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
+  @SerializedName("name")
+  @Expose
+  private String m_name;
   private Haplotype m_haplotype;
+  @Expose
   private Set<String> m_sequences = new HashSet<>();
 
 
   public HaplotypeMatch(@Nonnull Haplotype haplotype) {
     m_haplotype = haplotype;
+    m_name = m_haplotype.getCommonName();
+  }
+
+
+  public String getName() {
+    return m_name;
   }
 
   public @Nonnull Haplotype getHaplotype() {
     return m_haplotype;
   }
+
 
   public boolean match(@Nonnull String seq) {
     if (m_haplotype.getPermutations().matcher(seq).matches()) {
