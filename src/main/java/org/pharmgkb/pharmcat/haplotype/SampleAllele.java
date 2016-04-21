@@ -1,8 +1,8 @@
 package org.pharmgkb.pharmcat.haplotype;
 
-import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
 import org.apache.commons.lang3.ObjectUtils;
+import org.pharmgkb.common.comparator.ChromosomeNameComparator;
 
 
 /**
@@ -13,7 +13,6 @@ import org.apache.commons.lang3.ObjectUtils;
  * @author Mark Woon
  */
 public class SampleAllele implements Comparable<SampleAllele> {
-  private static final Pattern sf_chrNumPattern = Pattern.compile("^\\d+$");
   private String m_chromosome;
   private int m_position;
   private String m_allele1;
@@ -60,29 +59,9 @@ public class SampleAllele implements Comparable<SampleAllele> {
   @Override
   public int compareTo(@Nonnull SampleAllele o) {
 
-    String chr1 = m_chromosome.substring(3);
-    String chr2 = o.getChromosome().substring(3);
-
-    if (sf_chrNumPattern.matcher(chr1).matches()) {
-      if (sf_chrNumPattern.matcher(chr2).matches()) {
-        int rez = ObjectUtils.compare(Integer.parseInt(chr1), Integer.parseInt(chr2));
-        if (rez != 0) {
-          return rez;
-        }
-      } else {
-        // numeric vs. non-numeric
-        return -1;
-      }
-    } else {
-      if (sf_chrNumPattern.matcher(chr2).matches()) {
-        // non-numeric vs. numeric
-        return 1;
-      } else {
-        int rez = ObjectUtils.compare(chr1, chr2);
-        if (rez != 0) {
-          return rez;
-        }
-      }
+    int rez = ChromosomeNameComparator.getComparator().compare(m_chromosome, o.getChromosome());
+    if (rez != 0) {
+      return rez;
     }
     return ObjectUtils.compare(m_position, o.getPosition());
   }
