@@ -25,7 +25,7 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
 
   public HaplotypeMatch(@Nonnull Haplotype haplotype) {
     m_haplotype = haplotype;
-    m_name = m_haplotype.getCommonName();
+    m_name = m_haplotype.getName();
   }
 
 

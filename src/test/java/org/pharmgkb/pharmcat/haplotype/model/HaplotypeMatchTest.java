@@ -20,9 +20,9 @@ public class HaplotypeMatchTest {
   public void testCompare() {
 
     SortedSet<HaplotypeMatch> sortedSet = new TreeSet<>();
-    HaplotypeMatch hm1 = new HaplotypeMatch(new Haplotype(null, null, "*4", null, null));
+    HaplotypeMatch hm1 = new HaplotypeMatch(new Haplotype(null, "*4", null, null, null));
     sortedSet.add(hm1);
-    HaplotypeMatch hm2 = new HaplotypeMatch(new Haplotype(null, null, "*1", null, null));
+    HaplotypeMatch hm2 = new HaplotypeMatch(new Haplotype(null, "*1", null, null, null));
     sortedSet.add(hm2);
     assertEquals(hm2, sortedSet.first());
   }

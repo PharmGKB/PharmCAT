@@ -79,14 +79,14 @@ public class Report {
       alleleMap.put(allele.getPosition(), allele);
     }
     for (Variant variant : m_definitionReader.getHaplotypePositions().get(gene)) {
-      SampleAllele allele = alleleMap.get(variant.getPOS());
+      SampleAllele allele = alleleMap.get(variant.getPosition());
       String call;
       if (allele.isPhased()) {
         call = allele.getAllele1() + "|" + allele.getAllele2();
       } else {
         call = allele.getAllele1() + "/" + allele.getAllele2();
       }
-      diplotypeCall.add(new org.pharmgkb.pharmcat.haplotype.model.json.Variant(variant.getPOS(), variant.get_rsID(), call));
+      diplotypeCall.add(new org.pharmgkb.pharmcat.haplotype.model.json.Variant(variant.getPosition(), variant.getRsid(), call));
     }
 
 
@@ -142,7 +142,7 @@ public class Report {
       builder.append("</tr>");
 
       for (HaplotypeMatch hm : call.getHaplotypes()) {
-        printAllele(builder, hm.getHaplotype().getCommonName(), hm.getHaplotype().getPermutations().pattern());
+        printAllele(builder, hm.getHaplotype().getName(), hm.getHaplotype().getPermutations().pattern());
         for (String seq : hm.getSequences()) {
           printAllele(builder, null, seq);
         }

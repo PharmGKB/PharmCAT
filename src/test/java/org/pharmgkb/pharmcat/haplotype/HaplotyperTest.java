@@ -133,7 +133,7 @@ public class HaplotyperTest {
 
 
     List<DiplotypeMatch> matches = haplotyper.callHaplotype(alleleMap, gene);
-    //matches = ComparisonUtil.validatePairs(definitionReader.getHaplotypePositions().get(gene).get(0).getCHROM(), matches, alleleMap);
+    //matches = ComparisonUtil.validatePairs(definitionReader.getHaplotypePositions().get(gene).get(0).getChromosome(), matches, alleleMap);
     printReport(definitionReader, vcfFile, gene, matches, alleleMap.values());
     Set<String> expectedMatches = Sets.newHashSet("*2/*3");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);

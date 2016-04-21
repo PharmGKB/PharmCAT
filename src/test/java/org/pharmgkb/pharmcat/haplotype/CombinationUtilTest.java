@@ -48,20 +48,16 @@ public class CombinationUtilTest {
 
     SortedSet<Haplotype> haplotypes = new TreeSet<>();
 
-    Haplotype hap = new Haplotype();
-    hap.setCommonName("*1");
+    Haplotype hap = new Haplotype(null, "*1");
     haplotypes.add(hap);
 
-    hap = new Haplotype();
-    hap.setCommonName("*4");
+    hap = new Haplotype(null, "*4");
     haplotypes.add(hap);
 
-    hap = new Haplotype();
-    hap.setCommonName("*3");
+    hap = new Haplotype(null, "*3");
     haplotypes.add(hap);
 
-    hap = new Haplotype();
-    hap.setCommonName("*2");
+    hap = new Haplotype(null, "*2");
     haplotypes.add(hap);
 
     assertEquals(4, haplotypes.size());
@@ -84,7 +80,7 @@ public class CombinationUtilTest {
 
     for (List<Haplotype> pair : pairs) {
       System.out.println(pair);
-      String p = pair.get(0).getCommonName() + pair.get(1).getCommonName();
+      String p = pair.get(0).getName() + pair.get(1).getName();
       assertTrue(expectedPairs.remove(p));
     }
     assertEquals(0, expectedPairs.size());

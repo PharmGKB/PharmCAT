@@ -20,54 +20,45 @@ public class Haplotype4a4bTest {
   private static List<Haplotype> s_haplotypes;
 
 
-
   @BeforeClass
   public static void beforeClass() {
 
     // initialize test variants
-    Variant s_var1 = new Variant("chr1", "test", "cdna");
-    s_var1.setPOS("1");
+    Variant s_var1 = new Variant("chr1", "test");
+    s_var1.setPosition("1");
 
-    Variant s_var2 = new Variant("chr1", "test", "cdna");
-    s_var2.setPOS("2");
+    Variant s_var2 = new Variant("chr1", "test");
+    s_var2.setPosition("2");
 
-    Variant s_var3 = new Variant("chr1", "test", "cdna");
-    s_var3.setPOS("3");
+    Variant s_var3 = new Variant("chr1", "test");
+    s_var3.setPosition("3");
 
     List<Variant> s_variants = Lists.newArrayList(s_var1, s_var2, s_var3);
 
     // initialize test haplotypes
     Haplotype s_hap1 = new Haplotype(
-        s_variants,
-        null,
-        "*1",
+        null, "*1", s_variants,
         null,
         Lists.newArrayList("A", "C", "C")
     );
     s_hap1.calculatePermutations(s_variants);
 
     Haplotype s_hap2 = new Haplotype(
-        Lists.newArrayList(s_var1),
-        null,
-        "*4a",
+        null, "*4a", Lists.newArrayList(s_var1),
         null,
         Lists.newArrayList("G")
     );
     s_hap2.calculatePermutations(s_variants);
 
     Haplotype s_hap3 = new Haplotype(
-        s_variants,
-        null,
-        "*4b",
+        null, "*4b", s_variants,
         null,
         Lists.newArrayList("G", "T", "T")
     );
     s_hap3.calculatePermutations(s_variants);
 
     Haplotype s_hap4 = new Haplotype(
-        Lists.newArrayList(s_var2, s_var3),
-        null,
-        "*17",
+        null, "*17", Lists.newArrayList(s_var2, s_var3),
         null,
         Lists.newArrayList("T", "T")
     );

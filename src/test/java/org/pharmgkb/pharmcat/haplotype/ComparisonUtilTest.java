@@ -29,42 +29,36 @@ public class ComparisonUtilTest {
         "1:T;2:T;3:C;4:G;"
     );
 
-    Variant var1 = new Variant("chr1", "test", "cdna");
-    var1.setPOS("1");
+    Variant var1 = new Variant("chr1", "test");
+    var1.setPosition("1");
 
-    Variant var2 = new Variant("chr1", "test", "cdna");
-    var2.setPOS("2");
+    Variant var2 = new Variant("chr1", "test");
+    var2.setPosition("2");
 
-    Variant var3 = new Variant("chr1", "test", "cdna");
-    var3.setPOS("3");
+    Variant var3 = new Variant("chr1", "test");
+    var3.setPosition("3");
 
-    Variant var4 = new Variant("chr1", "test", "cdna");
-    var4.setPOS("4");
+    Variant var4 = new Variant("chr1", "test");
+    var4.setPosition("4");
 
     List<Variant> variants = Lists.newArrayList(var1, var2, var3, var4);
 
     Haplotype hap1 = new Haplotype(
-        variants,
-        null,
-        "*1",
+        null, "*1", variants,
         null,
         Lists.newArrayList("T", "A", "C", "C")
     );
     hap1.calculatePermutations(variants);
 
     Haplotype hap2 = new Haplotype(
-        Lists.newArrayList(var2, var3),
-        null,
-        "*2",
+        null, "*2", Lists.newArrayList(var2, var3),
         null,
         Lists.newArrayList("T", "C")
     );
     hap2.calculatePermutations(variants);
 
     Haplotype hap3 = new Haplotype(
-        Lists.newArrayList(var4),
-        null,
-        "*3",
+        null, "*3", Lists.newArrayList(var4),
         null,
         Lists.newArrayList("GG")
     );

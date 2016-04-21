@@ -37,7 +37,7 @@ public class Haplotyper {
       List<Variant> variants = definitionReader.getHaplotypePositions().get(gene);
       // map variant to chr:position
       for (Variant v : variants) {
-        String chrPos = v.getCHROM() + ":" + v.getPOS();
+        String chrPos = v.getChromosome() + ":" + v.getPosition();
         locationsOfInterest.add(chrPos);
       }
       // calculate permutations of all haplotypes
@@ -69,12 +69,12 @@ public class Haplotyper {
 
     SortedMap<Integer, SampleAllele> haplotypeSampleMap = new TreeMap<>();
     for (Variant variant : variants) {
-      String chrPos = variant.getCHROM() + ":" + variant.getPOS();
+      String chrPos = variant.getChromosome() + ":" + variant.getPosition();
       SampleAllele allele = alleleMap.get(chrPos);
       if (allele == null) {
         throw new RuntimeException("Sample has no allele for " + chrPos + " (ref is " + variant.getREF() + ")");
       }
-      haplotypeSampleMap.put(variant.getPOS(), allele);
+      haplotypeSampleMap.put(variant.getPosition(), allele);
     }
 
     // get sample permutations

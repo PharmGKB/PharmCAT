@@ -17,7 +17,7 @@ public class TestUtilTest {
 
 
   private HaplotypeMatch createHaplotypeMatch(String haplotypeName) {
-    Haplotype hap = new Haplotype(null, null, haplotypeName, null, null);
+    Haplotype hap = new Haplotype(null, haplotypeName);
     return new HaplotypeMatch(hap);
   }
 
