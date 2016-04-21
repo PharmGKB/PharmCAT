@@ -118,9 +118,7 @@ public class Variant implements Comparable<Variant> {
 		  Matcher m = p.matcher(_HGVSg);
 		  //System.out.println(_HGVSg);
 		  if(m.find()){
-		  System.out.println(m.group(1));
-
-		  return Integer.parseInt(m.group(1));
+        return Integer.parseInt(m.group(1));
 		  }
 		  else {return -1;}
 
@@ -136,54 +134,63 @@ public class Variant implements Comparable<Variant> {
 			return true;
 		}
 	}
-	/**
-	 * @param _POS
-	 */
-	public void setPOS(String _POS){
-		POS = Integer.parseInt(_POS);
-	}
+
 	/**
 	 * @return
 	 */
 	public int getPOS(){
 		return POS;
 	}
+
 	/**
-	 * @param _GenePOS
+	 * @param _POS
 	 */
-	public void setGenePOS(String _GenePOS){
-		GenePOS = _GenePOS;
+	public void setPOS(String _POS){
+		POS = Integer.parseInt(_POS);
 	}
+
 	/**
 	 * @return
 	 */
 	public String getGenePOS(){
 		return GenePOS;
 	}
+
 	/**
-	 * @param _REF
+	 * @param _GenePOS
 	 */
-	public void setREF(String _REF){
-		REF = (_REF);
+	public void setGenePOS(String _GenePOS){
+		GenePOS = _GenePOS;
 	}
+
 	/**
 	 * @return
 	 */
 	public String getREF(){
 		return REF;
 	}
+
 	/**
-	 * @param _rsID
+	 * @param _REF
 	 */
-	public void set_rsID(String _rsID){
-		rsID = (_rsID);
+	public void setREF(String _REF){
+		REF = (_REF);
 	}
+
 	/**
 	 * @return
 	 */
 	public String get_rsID(){
 		return rsID;
 	}
+
+	/**
+	 * @param _rsID
+	 */
+	public void set_rsID(String _rsID){
+		rsID = (_rsID);
+	}
+
 	/**
 	 * @param _ALT
 	 */
