@@ -13,6 +13,7 @@ import java.util.TreeMap;
 import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
+import org.pharmgkb.common.comparator.ChromosomePositionComparator;
 import org.pharmgkb.parser.vcf.VcfLineParser;
 import org.pharmgkb.parser.vcf.VcfParser;
 import org.pharmgkb.parser.vcf.model.VcfMetadata;
@@ -63,7 +64,7 @@ public class VcfReader {
 
   private class SimpleLineParser implements VcfLineParser {
     // <chr:position, allele>
-    private SortedMap<String, SampleAllele> m_alleleMap = new TreeMap<>();
+    private SortedMap<String, SampleAllele> m_alleleMap = new TreeMap<>(ChromosomePositionComparator.getComparator());
 
 
     public SortedMap<String, SampleAllele> getAlleleMap() {
