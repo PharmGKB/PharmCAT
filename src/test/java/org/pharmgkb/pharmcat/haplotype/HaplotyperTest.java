@@ -54,7 +54,6 @@ public class HaplotyperTest {
     Set<String> expectedMatches = Sets.newHashSet("*1/*1");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
     System.out.println(matches);
-    ComparisonUtil.printMatchPairs(matches);
   }
 
 
@@ -164,8 +163,8 @@ public class HaplotyperTest {
     // Test *15 *28. The shared position is homo
     /* TODO: still in progress
 
-Expected: [*15/*28]
-Got:      [*15/*15, *15/*28]
+    Expected: [*15/*28]
+    Got:      [*15/*15, *15/*28]
 
     *15/*15 is wrong here - if *15 then all the *28 positions would mean it can't be another *15.
 
