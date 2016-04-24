@@ -5,6 +5,13 @@ import org.pharmgkb.pharmcat.reporter.resultsJSON.Gene;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
+/**
+ * 
+ * Core class for matching called genes and haplotypes to the exceptions list
+ * 
+ * @author greytwist
+ */
+
 public class ExceptionMatcher {
 
     /**
@@ -38,8 +45,7 @@ public class ExceptionMatcher {
                } else {
                    String cleanDip = type[1].replaceAll("'", "");
                    dipTest = testForDipCall( cleanDip, gene.getDips() );
-               }
-                   
+               }                   
            }
         }
         if( geneTest && hapTest && dipTest ){

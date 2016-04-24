@@ -18,6 +18,21 @@ import org.pharmgkb.pharmcat.reporter.resultsJSON.Gene;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 
+/**
+ * This is contains the main function for running the CPIC reporting tool.
+ * 
+ * As of today  (4-23-2016) this tool is still in development currently this tool 
+ * there are many broken, missing, and commented out pieces of this code due to
+ * ongoing work to produce a working output.  
+ * 
+ * Please contact me (Greyson Twist) on slack or at gtwist@cmh.edu if there are 
+ * questions and I will try to improve documentation to make thing more clear
+ * 
+ * 
+ * @author greytwist
+ *
+ */
+
 
 public class Reporter {
 
@@ -28,20 +43,21 @@ public class Reporter {
    //private Logger logger = LoggerFactory.getLogger( Reporter.class );
 
 
+	String locationOfResources = "C:\\Users\\greytwist\\Desktop\\CLONES\\PharmCAT\\";
    /**
     * Exception list formated as json
     */
-   String exceptionPath = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/cpic_exceptions/exceptions.json"; //TODO don't do this, done for wiring purposes only
-   private File exception = new File(exceptionPath);
+   String exceptionPath = "resources\\cpic_exceptions\\exceptions.json"; //TODO don't do this, done for wiring purposes only
+   private File exception = new File(locationOfResources + exceptionPath);
 
    /**
     * Drug Gene interaction json
     */
 
    //TODO don't do any of this load from props file like a read engineer
-   String test1 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/dosing_guidelines/CPIC_Guideline_for_citalopram_escitalopram_and_CYP2C19.json";
-   String test2 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/dosing_guidelines/CPIC_Guideline_for_clopidogrel_and_CYP2C19.json";
-   String test3 = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/dosing_guidelines/CPIC_Guideline_for_sertraline_and_CYP2C19.json";
+   String test1 = "resources\\dosing_guidelines\\CPIC_Guideline_for_citalopram_escitalopram_and_CYP2C19.json";
+   String test2 = "resources\\dosing_guidelines\\CPIC_Guideline_for_clopidogrel_and_CYP2C19.json";
+   String test3 = "resources\\dosing_guidelines\\CPIC_Guideline_for_sertraline_and_CYP2C19.json";
    private List<File> interactions = new ArrayList<File>();
 
     /**
@@ -53,8 +69,8 @@ public class Reporter {
      * File in
      * TODO CLEAN THIS UP FOR TEST BUILDING AND WIRING ONLY
      */
-    String multiGeneFile = "/gpfs/data/home/gtwist/tmp/CPIC/cpic-annotator/resources/json_out_example/multi_gene.json";
-    private File inFile = new File(multiGeneFile);
+    String multiGeneFile = "resources\\json_out_example\\multi_gene.json";
+    private File inFile = new File(locationOfResources + multiGeneFile);
 
     /**
      * File to write final results to
@@ -65,9 +81,9 @@ public class Reporter {
 
     //parse command line options
     private Reporter( CommandLine cmdline )  throws IOException {
-        interactions.add( new File(test1));
-        interactions.add( new File(test2));
-        interactions.add( new File(test3));
+        interactions.add( new File(locationOfResources + test1));
+        interactions.add( new File(locationOfResources + test2));
+        interactions.add( new File(locationOfResources + test3));
 
         //File propsFile = new File( cmdline.getOptionValue( "conf" ) );
        // props = readConfFile( propsFile );
@@ -110,7 +126,7 @@ public class Reporter {
         Options options = createCommandLineOptions();
         CommandLine cmdline = new DefaultParser().parse( options,  args );
 
-        /*/8if( args.length == 0 ) {
+        /*if( args.length == 0 ) {
             HelpFormatter formatter = new HelpFormatter();
             formatter.printHelp( "CPIC-Reporter", options );
             System.exit( 0 );
@@ -138,18 +154,26 @@ public class Reporter {
 
         //loadRequiredFiles(); TODO undelete this and use actual args and real code for plumbing the system
 
+    	//Generate class used for loading JSON into 
         JsonFileLoader loader = new JsonFileLoader();
 
+        //Load the haplotype json, this is pointed at a test json and will likely break when meeting real 
+        // requiring some if not all rewriting
         List<DiplotypeCall> calls = loader.loadHaplotypeGeneCalls(this.inFile);
+        
+        //Load the gene rule exception json
         Map<String, List<CPICException>> exceptions = loader.loadExceptions(this.exception);
-        Map<String, List<CPICinteraction>> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
+        
+        //Load the gene drug interaction list. This currently only handles single gene drug interactions and will require updating to handle multi gene drug interaction
+        List<CPICinteraction> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
 
-        DataUnifier checker = new DataUnifier(calls, exceptions, drugGenes);
-        List<Gene> results = checker.findMatches();
+        //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene interactions based on reported haplotypes
+        DataUnifier checker = new DataUnifier(calls, exceptions, drugGenes); // prime with data
+        checker.findMatches(); // run the actual comparison
 
 
 
-         //print results here!!!!!
+         //TODO print results here!!!!!
 
        // logger.info( "Complete" );
     }

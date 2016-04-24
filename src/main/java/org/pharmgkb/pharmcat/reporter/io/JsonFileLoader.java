@@ -61,21 +61,13 @@ public class JsonFileLoader {
      * next version.  This is a critical flaw in the design
      *
      */
-    public Map<String, List<CPICinteraction>> loadDrugGeneRecommendations( List<File> interactions ) throws IOException {
-        Map<String,List<CPICinteraction>> drugGenes = new HashMap<String, List<CPICinteraction>>();
+    public List<CPICinteraction> loadDrugGeneRecommendations( List<File> interactions ) throws IOException {
+        List<CPICinteraction> drugGenes = new ArrayList<CPICinteraction>();
         for( File interact: interactions ){
 
             BufferedReader br = new BufferedReader(new FileReader( interact ));
             CPICinteraction act = gson.fromJson(br, CPICinteraction.class);
-            String geneSymbol = act.getRelatedGenes().get(0).getSymbol(); //FIXME setting index to 0 will only allow the first gene if there are multiple
-
-            if( drugGenes.containsKey(geneSymbol)){
-                drugGenes.get(geneSymbol).add(act);
-            } else {
-                List<CPICinteraction> parts = new ArrayList<CPICinteraction>();
-                parts.add(act);
-                drugGenes.put(geneSymbol, parts);
-            }
+            drugGenes.add(act);          
             br.close();
         }
 

@@ -6,6 +6,13 @@ import java.util.Set;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 
+/**
+ * 
+ * Core for matching called genes and haplotypes to the list of available drug recommendations
+ * 
+ * @author greytwist
+ *
+ */
 public class DrugRecommendationMatcher {
 
     public List<Group> test(Set<String> dips, CPICinteraction interact) {
