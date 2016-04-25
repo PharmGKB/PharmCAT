@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.reporter;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -102,20 +103,41 @@ public class DataUnifier {
          * This is the loop for looking through the cpic drug gene interactions and trying to figure out which apply to the situation
          */ 
         for( CPICinteraction interact : drugGenes ){
-        	
+
         	//if statment only that will handle all single gene drug interactions
         	if( interact.getRelatedChemicals().size() == 1 ){
+        
+        		if( geneReport.containsKey( interact.getRelatedGenes().get(0).getSymbol() )){
+        			Interaction interactionToAdd = new Interaction(interact);
+        			for( Group test : interact.getGroups() ){
+        				Set<String> searchSet = dipCheckSet.get(interact.getRelatedGenes().get(0).getSymbol());
+	            		Set<String> diplotypesForAnnot =  new HashSet<String>(test.getGenotypes()) ;
+	            	
+	            		boolean associationMatch = false;
+	            		
+	            		for( String dip : diplotypesForAnnot ){
+	            			if( searchSet.contains(dip)){
+	            				associationMatch = true;
+	            				break;
+	            			}
+	            		}
+	            		
+	            		if( associationMatch ){
+	            			interactionToAdd.addToGroup(test);	
+	            		}	            	
+        			}// group test loop end
+        			
+        			geneReport.get( interact.getRelatedGenes().get(0).getSymbol() ).addInteraction(interactionToAdd);
+        			
+        		}// end of containsKey check
+        	} /*else if( interact.getRelatedChemicals().size() > 1 ){
         		
-            	Interaction check = new Interaction(interact);
-            	for( Group test : interact.getGroups() ){
-            		
-            	}
-            	//multi gene system
-        	} else if( interact.getRelatedChemicals().size() > 1 ){
-        		boolean geneMatch = true;
         		MultiGeneInteraction multiCheck = new MultiGeneInteraction( interact );
+        		boolean geneMatch = true;
+        
         		
-        	} else {
+        	}*/ else {
+        		continue;
         		//Throw error about having no defined chemicals for a guideline and do not process
         	}
 
