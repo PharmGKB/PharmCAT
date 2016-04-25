@@ -10,8 +10,9 @@ import org.pharmgkb.pharmcat.haplotype.model.json.DiplotypeCall;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.pharmgkb.pharmcat.reporter.model.Group;
-import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Gene;
+import org.pharmgkb.pharmcat.reporter.resultsJSON.Interaction;
+import org.pharmgkb.pharmcat.reporter.resultsJSON.MultiGeneInteraction;
 
 /**
  * 
@@ -53,7 +54,7 @@ public class DataUnifier {
      *  
      *  This is going to need to be rethought through and reconstructed
      */
-    public void findMatches(){
+    public void findMatches(List<Gene> geneListToReturn, List<MultiGeneInteraction> multiInteractionsToReturn ){
 
     	// this map will be used to search through the drug gene requirements 
     	Map< String, Gene> geneReport = new HashMap<String, Gene>();
@@ -101,29 +102,25 @@ public class DataUnifier {
          * This is the loop for looking through the cpic drug gene interactions and trying to figure out which apply to the situation
          */ 
         for( CPICinteraction interact : drugGenes ){
-        	//variable to handle quick check for gene requirments
-        	System.out.println(interact.getName());
-        	boolean geneMatch = true;
-        	for( Group test : interact.getGroups() ){
-
-        		System.out.println( test.getName() );
-        		System.out.println( test.getGenotypes().toString() );
-        		System.out.println( test.getAnnotations().toString() );
-        	}
         	
-        	/*for( RelatedGene geneRelated : interact.getRelatedGenes()) {
-        		if( !dipCheckSet.containsKey(geneRelated.getSymbol() )){
-        			geneMatch = false;
-        			break;
-        		}
-        	}	
-        	
-        	if( geneMatch ){
+        	//if statment only that will handle all single gene drug interactions
+        	if( interact.getRelatedChemicals().size() == 1 ){
         		
-        	}*/
+            	Interaction check = new Interaction(interact);
+            	for( Group test : interact.getGroups() ){
+            		
+            	}
+            	//multi gene system
+        	} else if( interact.getRelatedChemicals().size() > 1 ){
+        		boolean geneMatch = true;
+        		MultiGeneInteraction multiCheck = new MultiGeneInteraction( interact );
+        		
+        	} else {
+        		//Throw error about having no defined chemicals for a guideline and do not process
+        	}
+
+        	
         }
         //return thing here!
     }
-
-
 }

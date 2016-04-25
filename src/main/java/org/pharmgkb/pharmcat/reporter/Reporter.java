@@ -14,6 +14,7 @@ import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Gene;
+import org.pharmgkb.pharmcat.reporter.resultsJSON.MultiGeneInteraction;
 
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
@@ -152,6 +153,8 @@ public class Reporter {
 
     private void run() throws IOException {
 
+    	List<Gene> geneListToReport = new ArrayList<Gene>();
+    	List<MultiGeneInteraction> multiInteractionsToReport = new ArrayList<MultiGeneInteraction>(); 
         //loadRequiredFiles(); TODO undelete this and use actual args and real code for plumbing the system
 
     	//Generate class used for loading JSON into 
@@ -169,7 +172,7 @@ public class Reporter {
 
         //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene interactions based on reported haplotypes
         DataUnifier checker = new DataUnifier(calls, exceptions, drugGenes); // prime with data
-        checker.findMatches(); // run the actual comparison
+        checker.findMatches(geneListToReport, multiInteractionsToReport ); // run the actual comparison
 
 
 
