@@ -3,7 +3,9 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
@@ -28,27 +30,30 @@ public class Haplotyper {
   private static Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private DefinitionReader m_definitionReader;
   private VcfReader m_vcfReader;
+  private boolean m_assumeReferenceInDefinitions;
   private boolean m_topCandidateOnly;
 
 
   /**
    * Default constructor.
-   * Will only call top candidate(s) by default.
+   * This will only call the top candidate(s) and assume reference.
    */
   public Haplotyper(@Nonnull DefinitionReader definitionReader) {
-    this(definitionReader, true);
+    this(definitionReader, true, true);
   }
 
   /**
    * Constructor.
    *
    * @param topCandidateOnly true if only top candidate(s) should be called, false to call all possible candidates
+   * @param assumeReference true if missing alleles in definitions should be treated as reference, false otherwise
    */
-  public Haplotyper(@Nonnull DefinitionReader definitionReader, boolean topCandidateOnly) {
+  public Haplotyper(@Nonnull DefinitionReader definitionReader, boolean assumeReference, boolean topCandidateOnly) {
 
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
     m_vcfReader = new VcfReader(calculateLocationsOfInterest(m_definitionReader));
+    m_assumeReferenceInDefinitions = assumeReference;
     m_topCandidateOnly = topCandidateOnly;
   }
 
@@ -129,6 +134,10 @@ public class Haplotyper {
       throw new UnsupportedOperationException("Sample is missing alleles for " + missingPositions);
     }
 
+    if (m_assumeReferenceInDefinitions) {
+      haplotypes = assumeReferenceInDefinition(haplotypes);
+    }
+
     // find matched pairs
     List<DiplotypeMatch> pairs = new DiplotypeMatcher(geneSampleMap, permutations, haplotypes).compute();
     if (m_topCandidateOnly) {
@@ -140,5 +149,48 @@ public class Haplotyper {
       }
     }
     return pairs;
+  }
+
+
+  /**
+   * Assumes that missing alleles in definition files should be the reference.
+   */
+  protected List<Haplotype> assumeReferenceInDefinition(List<Haplotype> haplotypes) {
+
+    List<Haplotype> updatedHaplotypes = new ArrayList<>();
+    Haplotype referenceHaplotype = null;
+    for (Haplotype h : haplotypes) {
+      if (referenceHaplotype == null) {
+        referenceHaplotype = h;
+        updatedHaplotypes.add(h);
+        continue;
+      }
+
+      Iterator<String> refAlleleIt = referenceHaplotype.getAlleles().iterator();
+      Iterator<String> curAlleleIt = h.getAlleles().iterator();
+      Iterator<Variant> curVariantIt = h.getVariants().iterator();
+      Variant curVar = curVariantIt.next();
+
+      Haplotype fixedHap = new Haplotype(h.getAlleleId(), h.getName());
+      for (Variant v : referenceHaplotype.getVariants()) {
+        String refAllele = refAlleleIt.next();
+        if (curVar.getPosition() == v.getPosition()) {
+          fixedHap.addVariant(curVar);
+          fixedHap.addAllele(curAlleleIt.next());
+          if (curVariantIt.hasNext()) {
+            curVar = curVariantIt.next();
+          }
+        } else {
+          fixedHap.addVariant(v);
+          fixedHap.addAllele(refAllele);
+        }
+      }
+
+      fixedHap.calculatePermutations(referenceHaplotype.getVariants());
+      updatedHaplotypes.add(fixedHap);
+    }
+
+
+    return updatedHaplotypes;
   }
 }
