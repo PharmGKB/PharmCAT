@@ -12,7 +12,7 @@ import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Gene;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Interaction;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.MultiGeneInteraction;
-import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
+import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 
 /**
  * 
