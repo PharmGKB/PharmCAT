@@ -11,12 +11,14 @@ public class Gene {
 
     private String gene;
     Set<String> diplotypes ;
-    List<CPICException> exceptList = new ArrayList();
-    List<Interaction> drugGene = new ArrayList();;
+    List<CPICException> exceptList = new ArrayList<CPICException>();
+    List<Interaction> drugGene = new ArrayList<Interaction>();;
 
     public Gene( DiplotypeCall call){
         this.gene = call.getGene();
         this.diplotypes = call.getDiplotypes();
+        
+        
     }
 
     public void addException( CPICException except ){
@@ -37,6 +39,10 @@ public class Gene {
 
     public void addInteraction( Interaction interact) {
         drugGene.add(interact);
+    }
+    
+    public List<Interaction> getInteractionList(){
+    	return drugGene;
     }
 }
 

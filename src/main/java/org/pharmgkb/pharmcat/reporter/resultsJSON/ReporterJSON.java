@@ -10,7 +10,7 @@ public class ReporterJSON {
 		JsonObject jsonObject = new JsonObject();
 //		Gson gson = new Gson();\
 		
-		ReporterResult results = new ReporterResult();
+		//ReporterResult results = new ReporterResult();
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 				
 		

@@ -11,6 +11,7 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.pharmgkb.pharmcat.haplotype.model.json.DiplotypeCall;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
+import org.pharmgkb.pharmcat.reporter.io.ReporterWriter;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Gene;
@@ -55,7 +56,7 @@ public class Reporter {
     * Drug Gene interaction json
     */
 
-   //TODO don't do any of this load from props file like a read engineer
+   //TODO don't do any of this load from props file like an actual engineer
    String test1 = "resources\\dosing_guidelines\\CPIC_Guideline_for_citalopram_escitalopram_and_CYP2C19.json";
    String test2 = "resources\\dosing_guidelines\\CPIC_Guideline_for_clopidogrel_and_CYP2C19.json";
    String test3 = "resources\\dosing_guidelines\\CPIC_Guideline_for_sertraline_and_CYP2C19.json";
@@ -174,9 +175,7 @@ public class Reporter {
         DataUnifier checker = new DataUnifier(calls, exceptions, drugGenes); // prime with data
         checker.findMatches(geneListToReport, multiInteractionsToReport ); // run the actual comparison
 
-
-
-         //TODO print results here!!!!!
+        ReporterWriter.printResults( /*outfile, */geneListToReport, multiInteractionsToReport );
 
        // logger.info( "Complete" );
     }

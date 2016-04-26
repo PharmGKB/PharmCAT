@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.reporter.resultsJSON;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.pharmgkb.pharmcat.reporter.model.Group;
@@ -10,7 +11,7 @@ public class Interaction {
   
 	private String name;
 	
-	private List<Group> groupList;
+	private List<Group> groupList = new ArrayList<Group>();
     private List<RelatedChemical> relatedChemicals;
     private String source;
     private String summaryHtml;

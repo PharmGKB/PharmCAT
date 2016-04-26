@@ -5,12 +5,10 @@
       "geneVersion": "CPIC-v1.x",
       "chromosome": "10",
       "diplotypes": [
-        "*4a/*17",
-        "*4b/*17",
-        "*4a/*4b",
+        "*4/*17",
+        "*4/*4",
         "*17/*1",
-        "*4a/*1",
-        "*4b/*1"
+        "*4/*1"
       ],
       "positionsUsed": [
         {
