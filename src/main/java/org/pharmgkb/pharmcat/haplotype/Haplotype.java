@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
 import org.apache.commons.lang3.ObjectUtils;
-import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
+import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 
 
 public class Haplotype implements Comparable<Haplotype> {
