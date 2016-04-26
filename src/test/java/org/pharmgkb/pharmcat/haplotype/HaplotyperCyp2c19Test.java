@@ -213,7 +213,7 @@ public class HaplotyperCyp2c19Test {
   }
 
 
-  @Test
+  //@Test
   public void cyp2c19sUnks17() throws Exception {
     /* Test *Unk/*17 - This is the case when one haplotype matches, but the second would be undefined
     TODO: still in progress
