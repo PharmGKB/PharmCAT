@@ -81,25 +81,11 @@ public class HaplotyperCyp2c19Test {
 
   @Test
   public void cyp2c19s1s4b() throws Exception {
-    /* Test *1 *4b. s1s4b-longest wins(not s4as17)
-    // TODO: still in progress
-    Expected: [*1/*4b]
-    Got:      [*1/*17, *1/*4A, *1/*4B, *4A/*17]
-
-    *1/*17 is impossible - if *17 then rs12248560 and rs28399504 must be in trans, so *1 is excluded, and it must
-    be 4a/*17.
-
-    If rs12248560 and rs28399504 are in cis then *4B and other copy is wild type, hence *1/*4b
-
-    The options are [*1/*4B, *4A/*17], but *1/*4B is the longest haplotype match (2 matches)
-
-    Michelle would expect *1/4B
-
-    */
+    // Test *1 *4b. s1s4b-longest wins(not s4as17)
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s4b.vcf");
     List<DiplotypeMatch> matches = testCallHaplotype(vcfFile);
 
-    List<String> expectedMatches = Lists.newArrayList("*1/*4B");
+    List<String> expectedMatches = Lists.newArrayList("*1/*4B", "*4A/*17");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
   }
 
