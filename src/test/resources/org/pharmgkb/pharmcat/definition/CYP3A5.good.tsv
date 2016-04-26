@@ -1,0 +1,23 @@
+GENE:CYP3A5	04/06/16
+	Nucleotide change per gene from http://www.cypalleles.ki.se/cyp3a5.htm	3699C>T	6986A>G	12952T>C	14665A>G	14690G>A	19386G>A	27131_27132insT	27289C>A
+	Effect on protein (NP_000768.1)	R28C	Splicing defect	Splicing defect	Q200R	Splicing defect	A337T	346Frameshift	T398N
+	Position at NC_000007.14 (Homo sapiens chromosome 7, GRCh38.p2)	g.99676198G>A	g.99672916T>C	g.99666950A>G	g.99665237T>C	g.99665212C>T	g.99660516C>T	g.99652770_99652771insA	g.99652613G>T
+	Position at NG_007938.1 (CYP3A5 RefSeqGene)	g.8801C>T	g.12083A>G	g.18049T>C	g.19762A>G	g.19787G>A	g.24483G>A	g.32228_32229insT	g.32386C>A
+	rsID	rs55817950	rs776746	rs55965422	rs56411402	rs10264272	rs28383479	rs41303343	rs28365083
+Allele	Allele Functional Status									African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
+*1	Normal function	G	T	A	T	C	C	del	G
+*2	Unknown/Uncertain function								T
+*3	No function		C
+*4	Unknown/Uncertain function				C
+*5	Unknown/Uncertain function			G
+*6	No function					T
+*7	No function							insA
+*8	Unknown/Uncertain function	A
+*9	Unknown/Uncertain function		Y				T
+NOTES:
+See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP3A5 variant alleles and updated allele information.
+Cytochrome database references nucleotide changes based on NCBI Reference Sequence NG_000004.3 as detailed at http://www.cypalleles.ki.se/cyp3a5.htm.
+For *9 the existence of the rs776746 (*3) polymorphism on the same allele cannot be excluded.
+Regarding functional status: an important caveat for all genotyping tests is that the decision to assign an allele a “wild- type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of- function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”
+Allele frequencies: Average allele frequencies are based on the actual number of subjects with each allele reported
+in multiple studies and then grouped according to major race/ethnic groups for studies as defined in http://www.pharmgkb.org/download.action?filename=CYP3A5_Literature_Table.xlsx (details and references).

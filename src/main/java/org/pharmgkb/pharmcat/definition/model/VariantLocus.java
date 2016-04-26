@@ -1,21 +1,28 @@
 package org.pharmgkb.pharmcat.definition.model;
 
+import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
+
+
 /**
- * All the information used to describe a particular location of a Variant
+ * All the information used to describe a particular location of a variant.
  *
  * @author Ryan Whaley
  */
 public class VariantLocus {
-
-  private String m_resourceNote;
-  private String m_proteinNote;
-  private String m_chrPosition;
-  private String m_genePosition;
+  @SerializedName("rsid")
   private String m_rsid;
+  @SerializedName("chrPosition")
+  private String m_chrPosition;
+  @SerializedName("genePosition")
+  private String m_genePosition;
+  @SerializedName("proteinNote")
+  private String m_proteinNote;
+  @SerializedName("resourceNote")
+  private String m_resourceNote;
+  @SerializedName("isInDel")
+  private boolean m_isInDel;
 
-  public String toString() {
-    return m_chrPosition;
-  }
 
   /**
    * A common name for this variant, usually specified by some specialized resource
@@ -26,17 +33,6 @@ public class VariantLocus {
 
   public void setResourceNote(String resourceNote) {
     m_resourceNote = resourceNote;
-  }
-
-  /**
-   * The name use for this location on the protein sequence
-   */
-  public String getProteinNote() {
-    return m_proteinNote;
-  }
-
-  public void setProteinNote(String proteinNote) {
-    m_proteinNote = proteinNote;
   }
 
   /**
@@ -62,6 +58,17 @@ public class VariantLocus {
   }
 
   /**
+   * The name use for this location on the protein sequence
+   */
+  public String getProteinNote() {
+    return m_proteinNote;
+  }
+
+  public void setProteinNote(String proteinNote) {
+    m_proteinNote = proteinNote;
+  }
+
+  /**
    * The identifier use for this location from dbSNP
    */
   public String getRsid() {
@@ -70,5 +77,37 @@ public class VariantLocus {
 
   public void setRsid(String rsid) {
     m_rsid = rsid;
+  }
+
+
+  public boolean isInDel() {
+    return m_isInDel;
+  }
+
+  public void setInDel(boolean inDel) {
+    m_isInDel = inDel;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof VariantLocus)) {
+      return false;
+    }
+    VariantLocus that = (VariantLocus)o;
+    return m_isInDel == that.isInDel() &&
+        Objects.equals(m_rsid, that.getRsid()) &&
+        Objects.equals(m_chrPosition, that.getChrPosition()) &&
+        Objects.equals(m_genePosition, that.getGenePosition()) &&
+        Objects.equals(m_proteinNote, that.getProteinNote()) &&
+        Objects.equals(m_resourceNote, that.getResourceNote());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(m_rsid, m_chrPosition, m_genePosition, m_proteinNote, m_resourceNote, m_isInDel);
   }
 }
