@@ -13,9 +13,9 @@ public class HaplotyperResult {
   @SerializedName("metadata")
   @Expose
   private Metadata m_metadata;
-  @SerializedName("diplotypeCalls")
+  @SerializedName("results")
   @Expose
-  private List<DiplotypeCall> m_diplotypeCalls = new ArrayList<>();
+  private List<GeneCall> m_geneCalls = new ArrayList<>();
 
 
   public Metadata getMetadata() {
@@ -27,11 +27,11 @@ public class HaplotyperResult {
   }
 
 
-  public List<DiplotypeCall> getDiplotypeCalls() {
-    return m_diplotypeCalls;
+  public List<GeneCall> getGeneCalls() {
+    return m_geneCalls;
   }
 
-  public void addDiplotypeCall(DiplotypeCall call) {
-    m_diplotypeCalls.add(call);
+  public void addDiplotypeCall(GeneCall call) {
+    m_geneCalls.add(call);
   }
 }

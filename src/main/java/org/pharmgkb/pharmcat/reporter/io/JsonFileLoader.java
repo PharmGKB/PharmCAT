@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.google.gson.Gson;
-import org.pharmgkb.pharmcat.haplotype.model.json.DiplotypeCall;
+import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.json.HaplotyperResult;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICExceptionList;
@@ -18,11 +18,11 @@ public class JsonFileLoader {
 
     Gson gson = new Gson();
 
-    public List<DiplotypeCall> loadHaplotypeGeneCalls( File haplotypeCalledFile ) throws IOException{
+    public List<GeneCall> loadHaplotypeGeneCalls( File haplotypeCalledFile ) throws IOException{
         BufferedReader br = new BufferedReader(new FileReader( haplotypeCalledFile ));
         HaplotyperResult calls = gson.fromJson(br, HaplotyperResult.class);
         br.close();
-        return calls.getDiplotypeCalls();
+        return calls.getGeneCalls();
 
     }
 

@@ -5,8 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import org.pharmgkb.pharmcat.haplotype.model.json.DiplotypeCall;
+import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.pharmgkb.pharmcat.reporter.model.Group;
@@ -25,7 +24,7 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
  *
  */
 public class DataUnifier {
-    List<DiplotypeCall> calls;
+    List<GeneCall> calls;
     Map<String, List<CPICException>> exceptions;
     List<CPICinteraction> drugGenes;
     
@@ -34,7 +33,7 @@ public class DataUnifier {
 	
 
 
-   public DataUnifier( List<DiplotypeCall> calls,
+   public DataUnifier( List<GeneCall> calls,
                        Map<String, List<CPICException>> matches,
                        List<CPICinteraction> drugGenes){
         this.calls = calls;
@@ -71,7 +70,7 @@ public class DataUnifier {
          * 
          */
         
-        for( DiplotypeCall call : calls ){
+        for( GeneCall call : calls ){
 
         	//1 - convert calls from haplotype call set to gene reportable format
             Gene gene = new Gene(call);

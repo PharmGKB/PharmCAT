@@ -1,8 +1,8 @@
 package org.pharmgkb.pharmcat.reporter;
 
 import java.util.Set;
+import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Gene;
-import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**

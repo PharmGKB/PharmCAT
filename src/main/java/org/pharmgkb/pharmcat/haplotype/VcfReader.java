@@ -7,12 +7,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
+import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableSet;
 import org.pharmgkb.common.comparator.ChromosomePositionComparator;
 import org.pharmgkb.parser.vcf.VcfLineParser;
 import org.pharmgkb.parser.vcf.VcfParser;
@@ -24,12 +25,16 @@ import org.slf4j.LoggerFactory;
 
 
 /**
+ * This class reads VCF files and pulls the sample's alleles for positions of interest (i.e. is necessary to make a
+ * haplotype call).
+ *
  * @author Mark Woon
  */
+@ThreadSafe
 public class VcfReader {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Pattern sf_gtDelimiter = Pattern.compile("[\\|/]");
-  private Set<String> m_locationsOfInterest;
+  private ImmutableSet<String> m_locationsOfInterest;
 
 
   /**
@@ -37,12 +42,17 @@ public class VcfReader {
    *
    * @param locationsOfInterest set of chr:positions to pull alleles for
    */
-  public VcfReader(Set<String> locationsOfInterest) {
+  public VcfReader(ImmutableSet<String> locationsOfInterest) {
     m_locationsOfInterest = locationsOfInterest;
   }
 
 
-  public SortedMap<String, SampleAllele>  read(Path vcfFile) throws IOException {
+  /**
+   * Read VCF file and pull the sample's alleles for positions of interest.
+   *
+   * @return map of {@code <chr:position, SampleAllele>}
+   */
+  public SortedMap<String, SampleAllele> read(Path vcfFile) throws IOException {
 
     Preconditions.checkNotNull(vcfFile);
     Preconditions.checkArgument(Files.isRegularFile(vcfFile), "Not a file");

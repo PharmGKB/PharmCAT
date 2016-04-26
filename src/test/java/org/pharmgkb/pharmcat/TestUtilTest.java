@@ -1,7 +1,6 @@
 package org.pharmgkb.pharmcat;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.haplotype.Haplotype;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -32,7 +31,7 @@ public class TestUtilTest {
     HaplotypeMatch hm4 = createHaplotypeMatch("*4");
 
     TestUtil.assertDiplotypePairs(
-        Sets.newHashSet("*1/*1", "*2/*4"),
+        Lists.newArrayList("*1/*1", "*2/*4"),
         Lists.newArrayList(
             new DiplotypeMatch(hm1, hm1),
             new DiplotypeMatch(hm2, hm4)
@@ -40,7 +39,7 @@ public class TestUtilTest {
     );
 
     TestUtil.assertDiplotypePairs(
-        Sets.newHashSet("*1/*1", "*1/*3", "*2/*4", "*3/*4"),
+        Lists.newArrayList("*1/*1", "*1/*3", "*2/*4", "*3/*4"),
         Lists.newArrayList(
             new DiplotypeMatch(hm1, hm1),
             new DiplotypeMatch(hm1, hm3),
@@ -50,7 +49,7 @@ public class TestUtilTest {
     );
 
     TestUtil.assertDiplotypePairs(
-        Sets.newHashSet(),
+        Lists.newArrayList(),
         Lists.newArrayList(
         )
     );
@@ -64,10 +63,43 @@ public class TestUtilTest {
     HaplotypeMatch hm2 = createHaplotypeMatch("*2");
 
     TestUtil.assertDiplotypePairs(
-        Sets.newHashSet("*1/*1", "*2/*4"),
+        Lists.newArrayList("*1/*1", "*2/*4"),
         Lists.newArrayList(
             new DiplotypeMatch(hm1, hm1),
             new DiplotypeMatch(hm2, hm2)
+        )
+    );
+  }
+
+
+  @Test
+  @SuppressWarnings("unchecked")
+  public void testAssertDiplotypePairsRightOrder() {
+
+    HaplotypeMatch hm1 = createHaplotypeMatch("*1");
+    HaplotypeMatch hm2 = createHaplotypeMatch("*2");
+
+    TestUtil.assertDiplotypePairs(
+        Lists.newArrayList("*2/*1", "*1/*2"),
+        Lists.newArrayList(
+            new DiplotypeMatch(hm2, hm1),
+            new DiplotypeMatch(hm1, hm2)
+        )
+    );
+  }
+
+  @Test(expected = AssertionError.class)
+  @SuppressWarnings("unchecked")
+  public void testAssertDiplotypePairsWrongOrder() {
+
+    HaplotypeMatch hm1 = createHaplotypeMatch("*1");
+    HaplotypeMatch hm2 = createHaplotypeMatch("*2");
+
+    TestUtil.assertDiplotypePairs(
+        Lists.newArrayList("*1/*2", "*2/*1"),
+        Lists.newArrayList(
+            new DiplotypeMatch(hm2, hm1),
+            new DiplotypeMatch(hm1, hm2)
         )
     );
   }

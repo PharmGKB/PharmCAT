@@ -1,8 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.Map;
-import java.util.Set;
-import com.google.common.collect.Sets;
+import com.google.common.collect.ImmutableSet;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.TestUtil;
 
@@ -19,7 +18,7 @@ public class VcfReaderTest {
   @Test
   public void testPhasing() throws Exception {
 
-    Set<String> locationsOfInterest = Sets.newHashSet();
+    ImmutableSet<String> locationsOfInterest = ImmutableSet.of();
     VcfReader reader = new VcfReader(locationsOfInterest);
     Map<String, SampleAllele> alleleMap = reader.read(TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-phasing.vcf"));
     for (String chrPos : alleleMap.keySet()) {
