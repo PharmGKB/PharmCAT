@@ -9,7 +9,7 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
-import org.pharmgkb.pharmcat.haplotype.model.json.DiplotypeCall;
+import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
@@ -162,7 +162,7 @@ public class Reporter {
 
         //Load the haplotype json, this is pointed at a test json and will likely break when meeting real 
         // requiring some if not all rewriting
-        List<DiplotypeCall> calls = loader.loadHaplotypeGeneCalls(this.inFile);
+        List<GeneCall> calls = loader.loadHaplotypeGeneCalls(this.inFile);
         
         //Load the gene rule exception json
         Map<String, List<CPICException>> exceptions = loader.loadExceptions(this.exception);

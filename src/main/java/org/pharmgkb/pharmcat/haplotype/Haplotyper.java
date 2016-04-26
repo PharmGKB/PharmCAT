@@ -96,6 +96,13 @@ public class Haplotyper {
     }
 
     // find matched pairs
-    return ComparisonUtil.determinePairs(haplotypeSampleMap, matches);
+    List<DiplotypeMatch> pairs = ComparisonUtil.determinePairs(haplotypeSampleMap, matches);
+    if (pairs.size() > 1) {
+      int topScore = pairs.get(0).getScore();
+      pairs = pairs.stream()
+          .filter(dm -> dm.getScore() == topScore)
+          .collect(Collectors.toList());
+    }
+    return pairs;
   }
 }

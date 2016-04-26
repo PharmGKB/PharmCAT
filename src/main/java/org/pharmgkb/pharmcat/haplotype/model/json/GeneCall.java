@@ -13,7 +13,7 @@ import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
 
-public class DiplotypeCall {
+public class GeneCall {
   @SerializedName("gene")
   @Expose
   private String gene;
@@ -25,7 +25,7 @@ public class DiplotypeCall {
   private String chromosome;
   @SerializedName("diplotypes")
   @Expose
-  private Set<String> diplotypes = new HashSet<>();
+  private Set<DiplotypeMatch> diplotypes = new HashSet<>();
   @SerializedName("haplotypes")
   @Expose
   private SortedSet<HaplotypeMatch> m_haplotypes = new TreeSet<>();
@@ -68,16 +68,16 @@ public class DiplotypeCall {
   }
 
 
-  public Set<String> getDiplotypes() {
+  public Set<DiplotypeMatch> getDiplotypes() {
     return diplotypes;
   }
 
-  public void setDiplotypes(Set<String> diplotypes) {
+  public void setDiplotypes(Set<DiplotypeMatch> diplotypes) {
     this.diplotypes = diplotypes;
   }
 
   public void addDiplotype(DiplotypeMatch diplotype) {
-    diplotypes.add(diplotype.getName());
+    diplotypes.add(diplotype);
     m_haplotypes.add(diplotype.getHaplotype1());
     m_haplotypes.add(diplotype.getHaplotype2());
   }

@@ -21,7 +21,7 @@ import org.apache.commons.lang3.text.StrSubstitutor;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
-import org.pharmgkb.pharmcat.haplotype.model.json.DiplotypeCall;
+import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.json.HaplotyperResult;
 import org.pharmgkb.pharmcat.haplotype.model.json.Metadata;
 
@@ -59,18 +59,18 @@ public class Report {
   }
 
 
-  public Report gene(@Nonnull String gene, @Nonnull List<DiplotypeMatch> matches,
+  protected Report gene(@Nonnull String gene, @Nonnull List<DiplotypeMatch> matches,
       Collection<SampleAllele> sampleAlleles) {
 
     Preconditions.checkNotNull(gene);
     Preconditions.checkNotNull(matches);
 
-    DiplotypeCall diplotypeCall = new DiplotypeCall();
-    diplotypeCall.setGene(gene);
+    GeneCall geneCall = new GeneCall();
+    geneCall.setGene(gene);
 
     // get haplotype/diplotype info
     for (DiplotypeMatch dm : matches) {
-      diplotypeCall.addDiplotype(dm);
+      geneCall.addDiplotype(dm);
     }
 
     // get position info
@@ -86,15 +86,14 @@ public class Report {
       } else {
         call = allele.getAllele1() + "/" + allele.getAllele2();
       }
-      diplotypeCall.add(new org.pharmgkb.pharmcat.haplotype.model.json.Variant(variant.getPosition(), variant.getRsid(), call));
+      geneCall.add(new org.pharmgkb.pharmcat.haplotype.model.json.Variant(variant.getPosition(), variant.getRsid(), call));
     }
 
-
-    //diplotypeCall.setHaplotypesNotCalled();
+    //geneCall.setHaplotypesNotCalled();
     DefinitionFile tsvFile = m_definitionReader.getDefinitionFiles().get(gene);
-    diplotypeCall.setGeneVersion(tsvFile.getContentVersion() + " (" + tsvFile.getContentDate() + ")");
-    diplotypeCall.setChromosome(tsvFile.getChromosome());
-    m_root.addDiplotypeCall(diplotypeCall);
+    geneCall.setGeneVersion(tsvFile.getContentVersion() + " (" + tsvFile.getContentDate() + ")");
+    geneCall.setChromosome(tsvFile.getChromosome());
+    m_root.addDiplotypeCall(geneCall);
 
     return this;
   }
@@ -118,25 +117,48 @@ public class Report {
     Path htmlFile = m_vcfFile.getParent().resolve(PathUtils.getBaseFilename(m_vcfFile) + ".html");
 
     StringBuilder builder = new StringBuilder();
-    for (DiplotypeCall call : m_root.getDiplotypeCalls()) {
+    for (GeneCall call : m_root.getGeneCalls()) {
       builder.append("<h3>")
           .append(call.getGene())
           .append("</h3>");
 
       builder.append("<ul>");
-      for (String diplotype : call.getDiplotypes()) {
+      for (DiplotypeMatch diplotype : call.getDiplotypes()) {
         builder.append("<li>")
-            .append(diplotype)
-            .append("</li>");
+            .append(diplotype.getName())
+            .append(" (")
+            .append(diplotype.getScore())
+            .append(")</li>");
       }
       builder.append("</ul>");
 
       builder.append("<table class=\"table table-striped table-hover table-condensed\">");
+      // position
       builder.append("<tr>");
       builder.append("<th></th>");
       for (org.pharmgkb.pharmcat.haplotype.model.json.Variant v : call.getVariants()) {
         builder.append("<th>")
             .append(v.getPosition())
+            .append("</th>");
+      }
+      builder.append("</tr>");
+      // rsid
+      builder.append("<tr>");
+      builder.append("<th></th>");
+      for (org.pharmgkb.pharmcat.haplotype.model.json.Variant v : call.getVariants()) {
+        builder.append("<th>");
+            if (v.getRsid() != null) {
+              builder.append(v.getRsid());
+            }
+            builder.append("</th>");
+      }
+      builder.append("</tr>");
+      // sample
+      builder.append("<tr class=\"success\">");
+      builder.append("<th>VCF</th>");
+      for (org.pharmgkb.pharmcat.haplotype.model.json.Variant v : call.getVariants()) {
+        builder.append("<th>")
+            .append(v.getVcfCall())
             .append("</th>");
       }
       builder.append("</tr>");
