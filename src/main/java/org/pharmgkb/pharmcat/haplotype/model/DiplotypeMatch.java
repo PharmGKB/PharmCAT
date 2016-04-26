@@ -62,7 +62,7 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
   @Override
   public int compareTo(@Nonnull DiplotypeMatch o) {
 
-    int rez = ObjectUtils.compare(m_score, o.getScore());
+    int rez = ObjectUtils.compare(o.getScore(), m_score);
     if (rez != 0) {
       return rez;
     }
