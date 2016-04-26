@@ -1,14 +1,6 @@
 package org.pharmgkb.pharmcat.haplotype;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.SortedSet;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -84,6 +76,7 @@ public class ComparisonUtil {
         matches.add(dm);
       }
     }
+    Collections.sort(matches);
     return matches;
   }
 
