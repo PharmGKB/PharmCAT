@@ -1,29 +1,71 @@
 package org.pharmgkb.pharmcat.haplotype;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
+import com.google.common.collect.Lists;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
 
 /**
+ * This is the main class responsible for calling diplotypes.
+ *
  * @author Mark Woon
  */
-public class ComparisonUtil {
+public class DiplotypeMatcher {
+  private SortedMap<Integer, SampleAllele> m_geneSampleMap;
+  private Set<String> m_permutations;
+  private List<Haplotype> m_haplotypes;
+
+
+  public DiplotypeMatcher(@Nonnull SortedMap<Integer, SampleAllele> geneSampleMap, @Nonnull Set<String> permutations,
+      @Nonnull List<Haplotype> haplotypes) {
+
+    m_geneSampleMap = geneSampleMap;
+    m_permutations = permutations;
+    m_haplotypes = haplotypes;
+  }
+
+
+  public List<DiplotypeMatch> compute() {
+
+    // compare sample permutations to haplotypes
+    SortedSet<HaplotypeMatch> matches = comparePermutations();
+
+    if (m_permutations.size() == 1 && matches.size() == 1) {
+      // sample is homozygous for all positions and it matches a single allele,
+      // so we need to return that as a diplotype
+      HaplotypeMatch hm = matches.first();
+      DiplotypeMatch dm = new DiplotypeMatch(hm, hm);
+      String seq = m_permutations.iterator().next();
+      dm.addSequencePair(new String[] { seq, seq });
+      return Lists.newArrayList(dm);
+    }
+
+    // find matched pairs
+    return determinePairs(matches);
+  }
 
 
   /**
    * Compares a sample's allele permutations to haplotype definitions and return matches.
    */
-  public static @Nonnull SortedSet<HaplotypeMatch> comparePermutations(@Nonnull Set<String> permutations,
-      @Nonnull Collection<Haplotype> haplotypes) {
+  protected @Nonnull SortedSet<HaplotypeMatch> comparePermutations() {
 
-    Set<HaplotypeMatch> haplotypeMatches = haplotypes.stream()
+    Set<HaplotypeMatch> haplotypeMatches = m_haplotypes.stream()
         .map(HaplotypeMatch::new)
         .collect(Collectors.toSet());
 
-    for (String p : permutations) {
+    for (String p : m_permutations) {
       for (HaplotypeMatch hm : haplotypeMatches) {
         hm.match(p);
       }
@@ -38,10 +80,9 @@ public class ComparisonUtil {
   /**
    * Determine possible diplotypes given a set of {@link HaplotypeMatch}'s.
    *
-   * @param haplotypeMatches the matches that were found via {@link #comparePermutations(Set, Collection)}
+   * @param haplotypeMatches the matches that were found via {@link #comparePermutations()}
    */
-  public static List<DiplotypeMatch> determinePairs(@Nonnull SortedMap<Integer, SampleAllele> haplotypeSampleMap,
-      @Nonnull SortedSet<HaplotypeMatch> haplotypeMatches) {
+  protected @Nonnull List<DiplotypeMatch> determinePairs(@Nonnull SortedSet<HaplotypeMatch> haplotypeMatches) {
 
     SortedMap<Haplotype, HaplotypeMatch> hapMap = new TreeMap<>();
     for (HaplotypeMatch hm : haplotypeMatches) {
@@ -69,7 +110,7 @@ public class ComparisonUtil {
         continue;
       }
 
-      Set<String[]> sequencePairs = findSequencePairs(haplotypeSampleMap, hm1, hm2);
+      Set<String[]> sequencePairs = findSequencePairs(hm1, hm2);
       if (!sequencePairs.isEmpty()) {
         DiplotypeMatch dm = new DiplotypeMatch(hm1, hm2);
         sequencePairs.stream().forEach(dm::addSequencePair);
@@ -81,13 +122,15 @@ public class ComparisonUtil {
   }
 
 
-  private static Set<String[]> findSequencePairs(@Nonnull SortedMap<Integer, SampleAllele> haplotypeSampleMap,
-      @Nonnull HaplotypeMatch hm1, @Nonnull HaplotypeMatch hm2) {
+  /**
+   * Finds valid complementary pairs of sample's alleles for possible diplotype match.
+   */
+  private Set<String[]> findSequencePairs(@Nonnull HaplotypeMatch hm1, @Nonnull HaplotypeMatch hm2) {
 
     Set<String[]> sequencePairs = new HashSet<>();
     for (String seq1 : hm1.getSequences()) {
       for (String seq2 : hm2.getSequences()) {
-        if (isViableComplement(haplotypeSampleMap, seq1, seq2)) {
+        if (isViableComplement(seq1, seq2)) {
           sequencePairs.add(new String[] { seq1, seq2 });
         }
       }
@@ -99,8 +142,7 @@ public class ComparisonUtil {
   /**
    * Checks whether the two sequences is complementary based on sample alleles.
    */
-  private static boolean isViableComplement(@Nonnull SortedMap<Integer, SampleAllele> haplotypeSampleMap,
-      @Nonnull String sequence1, @Nonnull String sequence2) {
+  private boolean isViableComplement(@Nonnull String sequence1, @Nonnull String sequence2) {
 
     String[] seq1 = sequence1.split(";");
     String[] seq2 = sequence2.split(";");
@@ -108,7 +150,7 @@ public class ComparisonUtil {
     for (int x = 0; x < seq1.length; x += 1) {
       String[] s1 = seq1[x].split(":");
       String[] s2 = seq2[x].split(":");
-      SampleAllele sampleAllele = haplotypeSampleMap.get(Integer.valueOf(s1[0]));
+      SampleAllele sampleAllele = m_geneSampleMap.get(Integer.valueOf(s1[0]));
       if (sampleAllele == null) {
         throw new IllegalStateException("Missing sample for haplotype position " + s1[0]);
       }
@@ -126,25 +168,5 @@ public class ComparisonUtil {
     }
 
     return true;
-  }
-
-
-  public static void printMatchPairs(List<DiplotypeMatch> matches) {
-
-    for (DiplotypeMatch pair : matches) {
-      HaplotypeMatch hm1 = pair.getHaplotype1();
-      HaplotypeMatch hm2 = pair.getHaplotype2();
-
-      System.out.println(pair);
-      System.out.println(hm1.getHaplotype());
-      System.out.println(hm1.getSequences());
-      if (hm1.getHaplotype() != hm2.getHaplotype()) {
-        System.out.println(hm2.getHaplotype());
-        System.out.println(hm2.getSequences());
-      }
-      System.out.println();
-      System.out.println("------------");
-      System.out.println();
-    }
   }
 }

@@ -6,6 +6,8 @@ import org.pharmgkb.pharmcat.TestUtil;
 
 
 /**
+ * JUnit test for {@link Haplotyper}.
+ *
  * @author Mark Woon
  */
 public class HaplotyperTest {

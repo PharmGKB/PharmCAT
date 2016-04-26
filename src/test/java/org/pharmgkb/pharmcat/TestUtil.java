@@ -4,8 +4,8 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
@@ -44,16 +44,16 @@ public class TestUtil {
    * @param expectedPairs the set of expected diplotypes in "*1/*2" format
    * @param matches the list of haplotype matches
    */
-  public static void assertDiplotypePairs(@Nonnull Set<String> expectedPairs,
+  public static void assertDiplotypePairs(@Nonnull List<String> expectedPairs,
       @Nonnull List<DiplotypeMatch> matches) {
 
     Preconditions.checkNotNull(expectedPairs);
     Preconditions.checkNotNull(matches);
 
-    Set<String> pairs = matches.stream()
+    List<String> pairs = matches.stream()
         .map(DiplotypeMatch::getName)
-        .collect(Collectors.toCollection(TreeSet::new));
-    assertEquals("Incoming matches has non-unique pairs", matches.size(), pairs.size());
+        .collect(Collectors.toList());
+    assertEquals("Incoming matches has non-unique pairs", matches.size(), new HashSet<>(pairs).size());
 
     if (expectedPairs.size() != pairs.size() || !expectedPairs.equals(pairs)) {
       System.out.println("Expected: " + new TreeSet<>(expectedPairs));
