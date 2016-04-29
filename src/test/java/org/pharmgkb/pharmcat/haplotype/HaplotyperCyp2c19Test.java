@@ -92,9 +92,7 @@ public class HaplotyperCyp2c19Test {
 
   @Test
   public void cyp2c19s1s28() throws Exception {
-    // Test *1 *28. The longest possible match should win.  *15 is possible but should be excluded by longest match
-    // *1/*15 would be excluded because if *15 the other snps would preclude *1.
-    // TODO: still in progress
+    // Test *1 *28. The longest possible match should win.
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s28.vcf");
     List<DiplotypeMatch> matches = testCallHaplotype(vcfFile);
 
@@ -116,15 +114,7 @@ public class HaplotyperCyp2c19Test {
 
   @Test
   public void cyp2c19s2s3() throws Exception {
-    /* Test case of two snps - *2 and *3
-    TODO: still in progress
-    Initial *2/*2 bug fixed.  However:
-
-    Expected: [*2/*3]
-    Got:      [*1/*2, *1/*3, *2/*3]
-
-    If *2 is on one copy, then the *3 must be on the other, excluding *1.
-     */
+    // Test case of two snps - *2 and *3
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/s2s3.vcf");
     List<DiplotypeMatch> matches = testCallHaplotype(vcfFile);
 
@@ -135,23 +125,7 @@ public class HaplotyperCyp2c19Test {
 
   @Test
   public void cyp2c19s4as4b() throws Exception {
-    /* Test *4a *4b. het and homo rsids
-    // TODO: still in progress
-    Expected: [*4a/*4b]
-    Got:      [*4A/*17, *4A/*4A, *4A/*4B]
-
-    rs12248560 (*4b and *17) is het
-    rs28399504 (4b and 4a) is homo
-
-    Possible options;
-          rs12248560 (C/T)  rs28399504 (G/G)
-               1 2              1 2
-               C T              G G     *4a *4b
-               T C              G G     *4b *4a (same as above)
-    Can't be any of the following:
-     if *4A*17 C  T              G G     *4a - G in first position means T must be second, *17 matches, but *4b is longest
-     IF *4a*4a C !T              G G     *4a - G in first position means T must be second, second *2
-    */
+    // Test *4a *4b. het and homo rsids
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4as4b.vcf");
     List<DiplotypeMatch> matches = testCallHaplotype(vcfFile);
 
@@ -162,15 +136,7 @@ public class HaplotyperCyp2c19Test {
 
   @Test
   public void cyp2c19s4bs17() throws Exception {
-    /* Test *4b/*17
-    TODO: still in progress
-    Expected: [*4b/*17]
-    Got:      [*17/*17, *4A/*17, *4B/*17]
-
-    *17/*17 diplotype not possible due to rs28399504 het call
-    * 4A/*17 not possible because rs12248560 is homo, so 4a will have to become the 4b call
-
-    */
+    // Test *4b/*17
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4bs17.vcf");
     List<DiplotypeMatch> matches = testCallHaplotype(vcfFile);
 
@@ -182,15 +148,6 @@ public class HaplotyperCyp2c19Test {
   @Test
   public void cyp2c19s15s28() throws Exception {
     // Test *15 *28. The shared position is homo
-    /* TODO: still in progress
-
-    Expected: [*15/*28]
-    Got:      [*15/*15, *15/*28]
-
-    *15/*15 is wrong here - if *15 then all the *28 positions would mean it can't be another *15.
-
-     */
-
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/s15s28.vcf");
     List<DiplotypeMatch> matches = testCallHaplotype(vcfFile);
 
@@ -199,24 +156,13 @@ public class HaplotyperCyp2c19Test {
   }
 
 
-  //@Test
+  @Test
   public void cyp2c19sUnks17() throws Exception {
-    /* Test *Unk/*17 - This is the case when one haplotype matches, but the second would be undefined
-    TODO: still in progress
-    Expected: [*Unk/*17]
-    Got:      [*17/*17]
-
-    Can't be *17/*17
-          rs12248560 (T/T)  rs28399504 (A/C)
-            1   2               1   2
-            T   T               A   C   TA matches *17, however TC matches nothing in table
-            T   T               C   A   As above
-    */
-
+    // Test *Unk/*17 - only one haplotype matches, so no diploid match
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/sUnks17.vcf");
     List<DiplotypeMatch> matches = testCallHaplotype(vcfFile);
-
-    List<String> expectedMatches = Lists.newArrayList("*Unk/*1","*Unk/*17");
+    // no matches
+    List<String> expectedMatches = Lists.newArrayList();
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
   }
 }
