@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -163,13 +164,19 @@ public class Report {
       }
       builder.append("</tr>");
 
-      for (HaplotypeMatch hm : call.getHaplotypes()) {
-        printAllele(builder, hm.getHaplotype().getName(), hm.getHaplotype().getPermutations().pattern());
-        for (String seq : hm.getSequences()) {
-          printAllele(builder, null, seq);
+      if (call.getHaplotypes().size() > 0) {
+        for (HaplotypeMatch hm : call.getHaplotypes()) {
+          printAllele(builder, hm.getHaplotype().getName(), hm.getHaplotype().getPermutations().pattern(), "info");
+          for (String seq : hm.getSequences()) {
+            printAllele(builder, null, seq, null);
+          }
         }
-        builder.append("</tr>");
+      } else {
+        for (Haplotype haplotype : m_definitionReader.getHaplotypes().get(call.getGene())) {
+          printAllele(builder, haplotype.getName(), haplotype.getPermutations().pattern(), "danger");
+        }
       }
+
       builder.append("</table>");
 
     }
@@ -187,15 +194,18 @@ public class Report {
   }
 
 
-  private void printAllele(StringBuilder builder, String name, String allele) {
+  private void printAllele(@Nonnull StringBuilder builder, @Nullable String name, @Nonnull String allele,
+      @Nullable String rowClass) {
 
+    builder.append("<tr");
+    if (rowClass != null) {
+      builder.append(" class=\"")
+          .append(rowClass)
+          .append("\"");
+    }
+    builder.append("><th>");
     if (name != null) {
-      builder.append("<tr class=\"info\">")
-          .append("<th>")
-          .append(name);
-    } else {
-      builder.append("<tr>")
-          .append("<th>");
+      builder.append(name);
     }
     builder.append("</th>");
 
