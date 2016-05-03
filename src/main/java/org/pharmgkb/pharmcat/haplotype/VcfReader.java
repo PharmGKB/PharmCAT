@@ -21,7 +21,7 @@ import org.pharmgkb.parser.vcf.VcfParser;
 import org.pharmgkb.parser.vcf.model.VcfMetadata;
 import org.pharmgkb.parser.vcf.model.VcfPosition;
 import org.pharmgkb.parser.vcf.model.VcfSample;
-import org.pharmgkb.pharmcat.definition.ParseException;
+import org.pharmgkb.pharmcat.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
