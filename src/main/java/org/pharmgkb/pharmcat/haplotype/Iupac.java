@@ -26,7 +26,7 @@ public enum Iupac {
   H("H", "A|C|T"),
   V("V", "A|C|G"),
   N("N", "A|C|G|T"),
-  DEL(".", null);
+  DEL(".", "-");
 
 
   private String m_code;
@@ -52,7 +52,7 @@ public enum Iupac {
   public static @Nonnull Iupac lookup(@Nonnull String value) {
     Preconditions.checkNotNull(value);
 
-    if (value.equals(".")) {
+    if (value.equals("-")) {
       return DEL;
     }
     return valueOf(value.toUpperCase());

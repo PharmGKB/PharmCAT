@@ -11,6 +11,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
@@ -20,6 +21,7 @@ import org.pharmgkb.parser.vcf.VcfParser;
 import org.pharmgkb.parser.vcf.model.VcfMetadata;
 import org.pharmgkb.parser.vcf.model.VcfPosition;
 import org.pharmgkb.parser.vcf.model.VcfSample;
+import org.pharmgkb.pharmcat.definition.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,6 +36,8 @@ import org.slf4j.LoggerFactory;
 public class VcfReader {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Pattern sf_gtDelimiter = Pattern.compile("[\\|/]");
+  private static final Pattern sf_noCallPattern = Pattern.compile("^[\\.\\|/]+$");
+  private static final Pattern sf_allelePattern = Pattern.compile("^[AaCcGgTt]+$");
   private ImmutableSet<String> m_locationsOfInterest;
 
 
@@ -110,7 +114,8 @@ public class VcfReader {
         sf_logger.warn("No genotype for {}", chrPos);
         return;
       }
-      if (gt.equals(".") || gt.equals("./.")) {
+      if (sf_noCallPattern.matcher(gt).matches()) {
+        sf_logger.info("No call ({}) at {}", gt, chrPos);
         return;
       }
 
@@ -120,11 +125,18 @@ public class VcfReader {
       // normalize alleles to use same syntax as haplotype definition
       List<String> alleles = new ArrayList<>();
       if (position.getAltBases().size() == 0) {
-        alleles.add(position.getAllele(0).toUpperCase());
-        sf_logger.warn("Unexpected state: no alt alleles for {}",  chrPos);
+        String gt1 = position.getAllele(0);
+        validateAlleles(chrPos, gt1, null);
+
+        String g[] = normalizeAlleles(gt1, null);
+        alleles.add(g[0]);
+
       } else {
-        for (int y = 0; y < position.getAltBases().size(); y += 1) {
-          String g[] = normalizeAlleles(position.getAllele(0).toUpperCase(), position.getAltBases().get(y).toUpperCase());
+        for (String gt2 : position.getAltBases()) {
+          String gt1 = position.getAllele(0);
+          validateAlleles(chrPos, gt1, gt2);
+
+          String g[] = normalizeAlleles(gt1, gt2);
           String g1 = g[0];
           String g2 = g[1];
           if (alleles.size() == 0) {
@@ -155,8 +167,84 @@ public class VcfReader {
       m_alleleMap.put(chrPos, new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased));
     }
 
-    private String[] normalizeAlleles(@Nonnull String refAllele, @Nonnull String varAllele) {
-      return new String[] { refAllele, varAllele };
+
+    /**
+     * Normalize alleles from VCF to match syntax from allele definitions
+     */
+    private String[] normalizeAlleles(@Nonnull String refAllele, @Nullable String varAllele) {
+
+      refAllele = refAllele.toUpperCase();
+
+      if (varAllele != null) {
+        varAllele = varAllele.toUpperCase();
+
+        if (varAllele.length() < refAllele.length()) {
+          // deletion
+          refAllele = refAllele.substring(refAllele.length() - varAllele.length());
+          varAllele = "-";
+        }
+
+        return new String[] { refAllele, varAllele };
+
+      } else {
+        return new String[] { refAllele };
+      }
+    }
+  }
+
+
+  /**
+   * Validate GT input per VCF 4.2 specification.
+   */
+  private static void validateAlleles(@Nonnull String chrPos, @Nonnull String gt1, @Nullable String gt2) {
+
+    StringBuilder problems = new StringBuilder();
+    if (gt1.startsWith("<")) {
+      problems.append("Don't know how to handle ref structural variant '")
+          .append(gt1)
+          .append("'");
+    } else if (gt1.toUpperCase().contains("N")) {
+      problems.append("Don't know how to handle ambiguous allele in ref '")
+          .append(gt1)
+          .append("'");
+    } else if (!sf_allelePattern.matcher(gt1).matches()) {
+      problems.append("Unsupported bases in ref '")
+          .append(gt1)
+          .append("'");
+    }
+
+    if (gt2 != null) {
+      if (gt2.startsWith("<")) {
+        if (problems.length() > 0) {
+          problems.append(System.lineSeparator());
+        }
+        problems.append("Don't know how to handle alt structural variant '")
+            .append(gt2)
+            .append("'");
+      } else {
+        if (!sf_allelePattern.matcher(gt1).matches()) {
+          if (problems.length() > 0) {
+            problems.append(System.lineSeparator());
+          }
+          if (gt2.toUpperCase().contains("N")) {
+            problems.append("Don't know how to handle ambiguous allele in alt '")
+                .append(gt2)
+                .append("'");
+          } else if (gt2.contains("*")) {
+            problems.append("Don't know how to handle missing allele in alt '")
+                .append(gt2)
+                .append("'");
+          } else {
+            problems.append("Unsupported bases in alt '")
+                .append(gt1)
+                .append("'");
+          }
+        }
+      }
+    }
+
+    if (problems.length() > 0) {
+      throw new ParseException("Problem at " + chrPos + ":" + System.lineSeparator() + problems.toString());
     }
   }
 }
