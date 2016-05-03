@@ -1,8 +1,11 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import org.apache.commons.lang3.ObjectUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
@@ -103,22 +106,26 @@ public class Haplotype implements Comparable<Haplotype> {
     return m_permutations;
   }
 
-  public Pattern calculatePermutations(List<Variant> allVariants) {
+  public Pattern calculatePermutations(List<Variant> refVariants) {
 
+    List<Variant> sortedRefVariants = refVariants.stream().sorted().collect(Collectors.toList());
+    Map<Variant, String> varAlleleMap = new HashMap<>();
+    for (int x = 0; x < m_alleles.size(); x += 1) {
+      varAlleleMap.put(m_variants.get(x), m_alleles.get(x));
+    }
 
     StringBuilder builder = new StringBuilder();
-    int idx = 0;
-    for (int x = 0; x < allVariants.size(); x++) {
-      builder.append(allVariants.get(x).getPosition())
+    for (Variant variant : sortedRefVariants) {
+      builder.append(variant.getPosition())
           .append(":");
-      if (idx < m_variants.size() && m_variants.get(idx) == allVariants.get(x)) {
-        builder.append(resolveIupacCode(m_alleles.get(idx)));
-        idx += 1;
+      if (varAlleleMap.containsKey(variant)) {
+        builder.append(resolveIupacCode(varAlleleMap.get(variant)));
       } else {
         builder.append(".?");
       }
       builder.append(";");
     }
+
     m_permutations = Pattern.compile(builder.toString());
     return m_permutations;
   }

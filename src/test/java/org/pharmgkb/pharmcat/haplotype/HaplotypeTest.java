@@ -45,8 +45,15 @@ public class HaplotypeTest {
     hap3.addVariant(var4);
     hap3.addAlleles(Arrays.asList("C", "Y"));
 
+    // permutations should be consistent even if positions are out-of-order
+    Haplotype hap4 = new Haplotype(null, "*3");
+    hap4.addVariant(var4);
+    hap4.addVariant(var1);
+    hap4.addAlleles(Arrays.asList("Y", "C"));
+
     assertEquals("1:T;2:A;3:G;4:C;", ref.calculatePermutations(ref.getVariants()).pattern());
     assertEquals("1:C;2:T;3:.?;4:.?;", hap2.calculatePermutations(ref.getVariants()).pattern());
     assertEquals("1:C;2:.?;3:.?;4:C|T;", hap3.calculatePermutations(ref.getVariants()).pattern());
+    assertEquals("1:C;2:.?;3:.?;4:C|T;", hap4.calculatePermutations(ref.getVariants()).pattern());
   }
 }
