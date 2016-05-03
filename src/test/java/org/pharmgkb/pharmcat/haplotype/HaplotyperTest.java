@@ -1,8 +1,12 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.nio.file.Path;
+import java.util.List;
+import java.util.SortedMap;
+import javax.annotation.Nonnull;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.TestUtil;
+import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 
 
 /**
@@ -11,6 +15,39 @@ import org.pharmgkb.pharmcat.TestUtil;
  * @author Mark Woon
  */
 public class HaplotyperTest {
+
+
+  static List<DiplotypeMatch> testCallHaplotype(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(tsvFile);
+    String gene = definitionReader.getHaplotypes().keySet().iterator().next();
+
+    VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
+    SortedMap<String, SampleAllele> alleleMap = vcfReader.read(vcfFile);
+
+    Haplotyper haplotyper = new Haplotyper(definitionReader);
+    List<DiplotypeMatch> matches = haplotyper.callDiplotypes(alleleMap, gene);
+    StringBuilder rezBuilder = new StringBuilder();
+    for (DiplotypeMatch dm : matches) {
+      if (rezBuilder.length() > 0) {
+        rezBuilder.append(", ");
+      }
+      rezBuilder.append(dm.getName())
+          .append(" (")
+          .append(dm.getScore())
+          .append(")");
+    }
+    System.out.println(rezBuilder);
+
+    // print
+    new Report(definitionReader)
+        .forFile(vcfFile)
+        .gene(gene, matches, alleleMap.values())
+        .printHtml();
+
+    return matches;
+  }
 
 
   @Test

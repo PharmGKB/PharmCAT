@@ -24,38 +24,6 @@ public class HaplotyperCyp3a5Test {
   }
 
 
-  private List<DiplotypeMatch> testCallHaplotype(Path vcfFile) throws Exception {
-
-    DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(m_tsvFile);
-    String gene = definitionReader.getHaplotypes().keySet().iterator().next();
-
-    VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
-    SortedMap<String, SampleAllele> alleleMap = vcfReader.read(vcfFile);
-
-    Haplotyper haplotyper = new Haplotyper(definitionReader);
-    List<DiplotypeMatch> matches = haplotyper.callDiplotypes(alleleMap, gene);
-    StringBuilder rezBuilder = new StringBuilder();
-    for (DiplotypeMatch dm : matches) {
-      if (rezBuilder.length() > 0) {
-        rezBuilder.append(", ");
-      }
-      rezBuilder.append(dm.getName())
-          .append(" (")
-          .append(dm.getScore())
-          .append(")");
-    }
-    System.out.println(rezBuilder);
-
-    // print
-    new Report(definitionReader)
-        .forFile(vcfFile)
-        .gene(gene, matches, alleleMap.values())
-        .printHtml();
-
-    return matches;
-  }
-
   /*
   TODO Lester - CYP3A5 tsv file contains a range. Does input vcf need just first position or all?  Check with Mark
   This example shows two substantial issues that will effect all the more complex examples
@@ -78,7 +46,7 @@ public class HaplotyperCyp3a5Test {
 
      */
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9.vcf");
-    List<DiplotypeMatch> matches = testCallHaplotype(vcfFile);
+    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_tsvFile, vcfFile);
 
     List<String> expectedMatches = Lists.newArrayList("*3/*9");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
@@ -100,7 +68,7 @@ public class HaplotyperCyp3a5Test {
      */
 
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp3a5/s1s7.vcf");
-    List<DiplotypeMatch> matches = testCallHaplotype(vcfFile);
+    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_tsvFile, vcfFile);
 
     List<String> expectedMatches = Lists.newArrayList("*1/*7");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
