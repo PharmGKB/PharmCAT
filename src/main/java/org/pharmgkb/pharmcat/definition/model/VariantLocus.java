@@ -10,12 +10,14 @@ import com.google.gson.annotations.SerializedName;
  * @author Ryan Whaley
  */
 public class VariantLocus {
+  @SerializedName("position")
+  private int m_position;
   @SerializedName("rsid")
   private String m_rsid;
-  @SerializedName("chrPosition")
-  private String m_chrPosition;
-  @SerializedName("genePosition")
-  private String m_genePosition;
+  @SerializedName("chromosomeHgvsName")
+  private String m_chromosomeHgvsName;
+  @SerializedName("geneHgvsName")
+  private String m_geneHgvsName;
   @SerializedName("proteinNote")
   private String m_proteinNote;
   @SerializedName("resourceNote")
@@ -24,37 +26,36 @@ public class VariantLocus {
   private boolean m_isInDel;
 
 
-  /**
-   * A common name for this variant, usually specified by some specialized resource
-   */
-  public String getResourceNote() {
-    return m_resourceNote;
+  public VariantLocus(int position, String chromosomeHgvsName) {
+    m_position = position;
+    m_chromosomeHgvsName = chromosomeHgvsName;
   }
 
-  public void setResourceNote(String resourceNote) {
-    m_resourceNote = resourceNote;
+
+  /**
+   * The (start) position on the chromosomal sequence.
+   */
+  public int getPosition() {
+    return m_position;
   }
 
   /**
    * The name use for this location on the chromosomal sequence, should be relative to plus strand
    */
-  public String getChrPosition() {
-    return m_chrPosition;
+  public String getChromosomeHgvsName() {
+    return m_chromosomeHgvsName;
   }
 
-  public void setChrPosition(String chrPosition) {
-    m_chrPosition = chrPosition;
-  }
 
   /**
    * The name use for this location on the gene sequence, relative to the strand the gene is on
    */
-  public String getGenePosition() {
-    return m_genePosition;
+  public String getGeneHgvsName() {
+    return m_geneHgvsName;
   }
 
-  public void setGenePosition(String genePosition) {
-    m_genePosition = genePosition;
+  public void setGeneHgvsName(String geneHgvsName) {
+    m_geneHgvsName = geneHgvsName;
   }
 
   /**
@@ -80,6 +81,18 @@ public class VariantLocus {
   }
 
 
+  /**
+   * A common name for this variant, usually specified by some specialized resource
+   */
+  public String getResourceNote() {
+    return m_resourceNote;
+  }
+
+  public void setResourceNote(String resourceNote) {
+    m_resourceNote = resourceNote;
+  }
+
+
   public boolean isInDel() {
     return m_isInDel;
   }
@@ -99,15 +112,16 @@ public class VariantLocus {
     }
     VariantLocus that = (VariantLocus)o;
     return m_isInDel == that.isInDel() &&
-        Objects.equals(m_rsid, that.getRsid()) &&
-        Objects.equals(m_chrPosition, that.getChrPosition()) &&
-        Objects.equals(m_genePosition, that.getGenePosition()) &&
+        m_position == that.getPosition() &&
+        Objects.equals(m_chromosomeHgvsName, that.getChromosomeHgvsName()) &&
+        Objects.equals(m_geneHgvsName, that.getGeneHgvsName()) &&
         Objects.equals(m_proteinNote, that.getProteinNote()) &&
+        Objects.equals(m_rsid, that.getRsid()) &&
         Objects.equals(m_resourceNote, that.getResourceNote());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(m_rsid, m_chrPosition, m_genePosition, m_proteinNote, m_resourceNote, m_isInDel);
+    return Objects.hash(m_position, m_chromosomeHgvsName, m_geneHgvsName, m_proteinNote, m_rsid, m_resourceNote, m_isInDel);
   }
 }

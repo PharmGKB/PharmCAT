@@ -179,19 +179,24 @@ public class CuratedDefinitionParser {
 
   private VariantLocus parseVariantLocus(int col, String text) {
 
-    VariantLocus variantLocus = new VariantLocus();
-    sf_hgvsSplitter.splitToList(text).stream()
-        .map(StringUtils::strip)
-        .forEach(p -> {
-          if (!sf_hgvsPosition.matcher(p).matches()) {
-            m_errors.add("Invalid HGVS position format in " + prettyLineCol(LINE_CHROMOSOME, col) + ": '" + p + "'");
-          }
-        });
+    int position = -1;
+    for (String hgvs : sf_hgvsSplitter.splitToList(text)) {
+      Matcher m = sf_hgvsPosition.matcher(hgvs);
+      if (m.matches()) {
+        int p =  Integer.parseInt(m.group(1), 10);
+        if (position == -1) {
+          position = p;
+        } else if (position != p) {
+          m_errors.add("Cannot handle HGVS name with multiple positions in " + prettyLineCol(LINE_CHROMOSOME, col) +
+              ": '" + hgvs + "'");
+        }
+      } else {
+        m_errors.add("Invalid HGVS format in " + prettyLineCol(LINE_CHROMOSOME, col) + ": '" + hgvs + "'");
+      }
 
-    // TODO(markwoon): should grab position here
+    }
 
-
-    variantLocus.setChrPosition(text);
+    VariantLocus variantLocus = new VariantLocus(position, text);
     return variantLocus;
   }
 
@@ -255,7 +260,7 @@ public class CuratedDefinitionParser {
     for (int i = 2; i < fields.size(); i++) {
       String val = StringUtils.stripToNull(fields.get(i));
       if (val != null) {
-        m_definitionFile.getVariants()[i - 2].setGenePosition(fields.get(i));
+        m_definitionFile.getVariants()[i - 2].setGeneHgvsName(fields.get(i));
       }
     }
   }

@@ -24,7 +24,8 @@ public class GeneratedDefinitionSerializerTest {
     Path inFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
     DefinitionFile[] definitionFiles = testJson(inFile);
     assertEquals(8, definitionFiles[1].getVariants().length);
-    assertEquals("g.99652770_99652771insA", definitionFiles[1].getVariants()[6].getChrPosition());
+    assertEquals("g.99652770_99652771insA", definitionFiles[1].getVariants()[6].getChromosomeHgvsName());
+    assertEquals(99652770, definitionFiles[1].getVariants()[6].getPosition());
     assertTrue(definitionFiles[1].getVariants()[6].isInDel());
   }
 

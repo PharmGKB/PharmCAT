@@ -93,10 +93,10 @@ public class GeneratedDefinitionSerializer {
     output.println(Arrays.stream(definitionFile.getVariants()).map(VariantLocus::getProteinNote).collect(Collectors.joining("\t")));
 
     output.print("ChrPosition\t\t\t\t");
-    output.println(Arrays.stream(definitionFile.getVariants()).map(VariantLocus::getChrPosition).collect(Collectors.joining("\t")));
+    output.println(Arrays.stream(definitionFile.getVariants()).map(VariantLocus::getChromosomeHgvsName).collect(Collectors.joining("\t")));
 
     output.print("GenePosition\t\t\t\t");
-    output.println(Arrays.stream(definitionFile.getVariants()).map(VariantLocus::getGenePosition).collect(Collectors.joining("\t")));
+    output.println(Arrays.stream(definitionFile.getVariants()).map(VariantLocus::getGeneHgvsName).collect(Collectors.joining("\t")));
 
     output.print("rsID\t\t\t\t");
     output.println(Arrays.stream(definitionFile.getVariants()).map(VariantLocus::getRsid).collect(Collectors.joining("\t")));
