@@ -92,6 +92,18 @@ public class CuratedDefinitionParser {
     if (m_errors.size() > 0) {
       throw new ParseException(Joiner.on("\n").join(m_errors));
     }
+
+    for (int x = 0; x < m_definitionFile.getVariants().length; x += 1) {
+      VariantLocus locus = m_definitionFile.getVariants()[x];
+      for (NamedAllele namedAllele : m_definitionFile.getNamedAlleles()) {
+        String allele = namedAllele.getAlleles()[x];
+        if (allele != null && (allele.contains("ins") || allele.contains("del"))) {
+          locus.setInDel(true);
+          break;
+        }
+      }
+    }
+
     return m_definitionFile;
   }
 
