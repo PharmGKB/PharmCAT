@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +29,7 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 public class CuratedDefinitionParser {
   public static final String ASSEMBLY = AssemblyMap.GRCH38;
   private static final int sf_minLineCount = 7;
-  private static final String sf_separator = "\t";
+  private static final Splitter sf_tsvSplitter = Splitter.on("\t").trimResults();
   private static final Splitter sf_hgvsSplitter = Splitter.on(";").trimResults();
 
   private static final int LINE_GENE = 0;
@@ -79,13 +78,14 @@ public class CuratedDefinitionParser {
     }
     Preconditions.checkState(lines.size() >= sf_minLineCount, "Not enough lines in the translation file");
 
-    parseGeneLine(lines.get(LINE_GENE).split(sf_separator));
-    parseChromosomeLine(lines.get(LINE_CHROMOSOME).split(sf_separator));
-    parseNamingLine(lines.get(LINE_NAMING).split(sf_separator));
-    parseProteinLine(lines.get(LINE_PROTEIN).split(sf_separator));
-    parseGeneSeqLine(lines.get(LINE_GENESEQ).split(sf_separator));
-    parseRSIDLine(lines.get(LINE_RSID).split(sf_separator));
-    parsePopLine(lines.get(LINE_POPS).split(sf_separator));
+    parseGeneLine(sf_tsvSplitter.splitToList(lines.get(LINE_GENE)));
+    // must parse chromosome first to initialize variants
+    parseChromosomeLine(sf_tsvSplitter.splitToList(lines.get(LINE_CHROMOSOME)));
+    parseNamingLine(sf_tsvSplitter.splitToList(lines.get(LINE_NAMING)));
+    parseProteinLine(sf_tsvSplitter.splitToList(lines.get(LINE_PROTEIN)));
+    parseGeneSeqLine(sf_tsvSplitter.splitToList(lines.get(LINE_GENESEQ)));
+    parseRSIDLine(sf_tsvSplitter.splitToList(lines.get(LINE_RSID)));
+    parsePopLine(sf_tsvSplitter.splitToList(lines.get(LINE_POPS)));
     parseVariantLines(lines);
 
     // TODO(markwoon): this is temporary, to maintain compatibility with current behavior
@@ -107,27 +107,27 @@ public class CuratedDefinitionParser {
     return m_definitionFile;
   }
 
-  private void parseGeneLine(String[] fields) {
+  private void parseGeneLine(List<String> fields) {
     Preconditions.checkNotNull(fields);
-    Preconditions.checkArgument(fields.length >= 2);
+    Preconditions.checkArgument(fields.size() >= 2);
 
-    Matcher m = sf_geneFieldPattern.matcher(fields[0]);
+    Matcher m = sf_geneFieldPattern.matcher(fields.get(0));
     if (!m.matches()) {
-      m_errors.add("Gene field not in expected format.  Expecting 'GENE:geneSymbol', got '" + fields[0] + "'");
+      m_errors.add("Gene field not in expected format.  Expecting 'GENE:geneSymbol', got '" + fields.get(0) + "'");
     } else {
       m_definitionFile.setGeneSymbol(m.group(1));
     }
 
     try {
-      Date date = sf_dateFormat.parse(fields[1]);
+      Date date = sf_dateFormat.parse(fields.get(1));
       m_definitionFile.setModificationDate(date);
     } catch (java.text.ParseException e) {
-      m_errors.add("Couldn't parse date. Expecting " + sf_dateFormat.toPattern() + ", got '" + fields[1] + "'");
+      m_errors.add("Couldn't parse date. Expecting " + sf_dateFormat.toPattern() + ", got '" + fields.get(1) + "'");
     }
   }
 
-  private void parseChromosomeLine(String[] fields) {
-    String title = fields[1];
+  private void parseChromosomeLine(List<String> fields) {
+    String title = fields.get(1);
     Preconditions.checkState(StringUtils.isNotBlank(title), "No chromosomal position description specified");
 
     Matcher m = sf_refSeqPattern.matcher(title);
@@ -167,61 +167,81 @@ public class CuratedDefinitionParser {
       m_definitionFile.setChromosome(chromosomeName);
     }
 
-    m_definitionFile.setVariants(new VariantLocus[fields.length-2]);
-    for (int i=2; i<fields.length; i++) {
-      if (StringUtils.isNotBlank(fields[i])) {
-        VariantLocus variantLocus = parseVariantLocus(i, fields[i]);
-        m_definitionFile.getVariants()[i-2] = variantLocus;
+    VariantLocus[] variants = new VariantLocus[fields.size() - 2];
+    for (int i = 2; i < fields.size(); i++) {
+      String val = StringUtils.stripToNull(fields.get(i));
+      if (val != null) {
+        variants[i - 2] = parseVariantLocus(i, val);
       }
     }
-  }
-
-  private void parseNamingLine(String[] fields) {
-    if (fields.length <= 2) {
-      return;
-    }
-
-    for (int i=2; i<fields.length; i++) {
-      m_definitionFile.getVariants()[i-2].setResourceNote(fields[i]);
-    }
-  }
-
-  private void parseProteinLine(String[] fields) {
-    String title = fields[1];
-    Preconditions.checkState(StringUtils.isNotBlank(title), "No protein position description specified");
-
-    Matcher m = sf_refSeqPattern.matcher(title);
-    if (!m.matches()) {
-      throw new RuntimeException("Expected protein RefSeq ID in line "+LINE_PROTEIN);
-    }
-    m_definitionFile.setRefSeqProtein(m.group(1));
-
-    for (int i=2; i<fields.length; i++) {
-      m_definitionFile.getVariants()[i-2].setProteinNote(fields[i]);
-    }
+    m_definitionFile.setVariants(variants);
   }
 
   private VariantLocus parseVariantLocus(int col, String text) {
-    VariantLocus variantLocus = new VariantLocus();
 
+    VariantLocus variantLocus = new VariantLocus();
     sf_hgvsSplitter.splitToList(text).stream()
+        .map(StringUtils::strip)
         .forEach(p -> {
-          if (!sf_hgvsPosition.matcher(StringUtils.strip(p)).matches()) {
-            m_errors.add("Invalid HGVS position format in column " + columnNumberToName(col) + ": '" + p + "'");
+          if (!sf_hgvsPosition.matcher(p).matches()) {
+            m_errors.add("Invalid HGVS position format in " + prettyLineCol(LINE_CHROMOSOME, col) + ": '" + p + "'");
           }
         });
+
+    // TODO(markwoon): should grab position here
+
 
     variantLocus.setChrPosition(text);
     return variantLocus;
   }
 
-  private void parseGeneSeqLine(String[] fields) {
-    String title = fields[1];
-    Preconditions.checkState(StringUtils.isNotBlank(title), "No gene position description specified");
+  private void parseNamingLine(List<String> fields) {
+    if (fields.size() <= 2) {
+      return;
+    }
+
+    for (int i = 2; i < fields.size(); i++) {
+      String val = StringUtils.stripToNull(fields.get(i));
+      if (val != null) {
+        m_definitionFile.getVariants()[i - 2].setResourceNote(val);
+      }
+    }
+  }
+
+  private void parseProteinLine(List<String> fields) {
+    String title = fields.get(1);
+    if (StringUtils.isBlank(title)) {
+      m_errors.add("No protein position description specified in " + prettyLineCol(LINE_PROTEIN, 1));
+      return;
+    }
 
     Matcher m = sf_refSeqPattern.matcher(title);
     if (!m.matches()) {
-      throw new RuntimeException("Expected gene RefSeq ID in line " + LINE_GENESEQ);
+      m_errors.add("Expected protein RefSeq ID in " + prettyLineCol(LINE_PROTEIN, 1));
+      return;
+    }
+    m_definitionFile.setRefSeqProtein(m.group(1));
+
+    for (int i = 2; i < fields.size(); i++) {
+      String val = StringUtils.stripToNull(fields.get(i));
+      if (val != null) {
+        m_definitionFile.getVariants()[i - 2].setProteinNote(fields.get(i));
+      }
+    }
+  }
+
+  private void parseGeneSeqLine(List<String> fields) {
+
+    String title = fields.get(1);
+    if (StringUtils.isBlank(title)) {
+      m_errors.add("No gene position description specified in " + prettyLineCol(LINE_GENESEQ, 1));
+      return;
+    }
+
+    Matcher m = sf_refSeqPattern.matcher(title);
+    if (!m.matches()) {
+      m_errors.add("Expected gene RefSeq ID in " + prettyLineCol(LINE_GENESEQ, 1));
+      return;
     }
     m_definitionFile.setRefSeqGene(m.group(1));
     if (title.contains(" forward ")) {
@@ -229,33 +249,53 @@ public class CuratedDefinitionParser {
     } else if (title.contains(" reverse ")) {
       m_definitionFile.setOrientation("reverse");
     } else {
-      m_warnings.add("Missing orientation");
+      m_warnings.add("Missing orientation in " + prettyLineCol(LINE_GENESEQ, 1));
     }
 
-    for (int i=2; i<fields.length; i++) {
-      m_definitionFile.getVariants()[i-2].setGenePosition(fields[i]);
-    }
-  }
-
-  private void parseRSIDLine(String[] fields) {
-    for (int i=2; i < fields.length; i++) {
-      m_definitionFile.getVariants()[i-2].setRsid(fields[i]);
+    for (int i = 2; i < fields.size(); i++) {
+      String val = StringUtils.stripToNull(fields.get(i));
+      if (val != null) {
+        m_definitionFile.getVariants()[i - 2].setGenePosition(fields.get(i));
+      }
     }
   }
 
-  private void parsePopLine(String[] fields) {
-    Preconditions.checkArgument(fields[0].equals("Allele"),
-        "Expected the title 'Allele' in first column of row " + (LINE_POPS+1));
-    Preconditions.checkArgument(fields[1].equals("Allele Functional Status"),
-        "Expected the title 'Allele Functional Status' in second column of row " + (LINE_POPS+1));
-    Preconditions.checkArgument(fields.length>2, "No populations specified");
+  private void parseRSIDLine(List<String> fields) {
+    for (int i = 2; i < fields.size(); i++) {
+      String val = StringUtils.stripToNull(fields.get(i));
+      if (val != null) {
+        m_definitionFile.getVariants()[i - 2].setRsid(val);
+      }
+    }
+  }
 
-    for (int i=2; i<fields.length; i++) {
-      String pop = fields[i];
-      Matcher m = sf_populationTitle.matcher(pop);
-      if (m.matches()) {
-        m_definitionFile.addPopulation(pop);
-        m_populationPositionMap.put(i, pop);
+  private void parsePopLine(List<String> fields) {
+
+    boolean hasError = false;
+    if (!fields.get(0).equals("Allele")) {
+      m_errors.add("Expected the title 'Allele' in " + prettyLineCol(LINE_POPS, 0));
+      hasError = true;
+    }
+    if (!fields.get(1).equals("Allele Functional Status")) {
+      m_errors.add("Expected the title 'Allele Functional Status' in " + prettyLineCol(LINE_POPS, 1));
+      hasError = true;
+    }
+    if (hasError) {
+      return;
+    }
+    if (fields.size() <= 2) {
+      m_warnings.add("No populations specified");
+      return;
+    }
+
+    for (int i = 2; i < fields.size(); i++) {
+      String val = StringUtils.stripToNull(fields.get(i));
+      if (val != null) {
+        Matcher m = sf_populationTitle.matcher(val);
+        if (m.matches()) {
+          m_definitionFile.addPopulation(val);
+          m_populationPositionMap.put(i, val);
+        }
       }
     }
   }
@@ -264,9 +304,10 @@ public class CuratedDefinitionParser {
   private void parseVariantLines(List<String> lines) {
     boolean isVariantLine = false;
     boolean isNoteLine = false;
-    int lastVariantIndex = 2 + m_definitionFile.getVariants().length;
 
-    for (String line : lines) {
+    for (int lineNum = 0; lineNum < lines.size(); lineNum += 1) {
+      String line = lines.get(lineNum);
+
       if (isNoteLine) {
         m_definitionFile.addNote(StringUtils.strip(line));
 
@@ -275,28 +316,34 @@ public class CuratedDefinitionParser {
         isNoteLine = true;
 
       } else if (isVariantLine) {
-        String[] fields = line.split(sf_separator);
-        if (fields.length > 2) {
-          String[] variantAlleles = Arrays.copyOfRange(fields, 2, lastVariantIndex);
-          for (int i = 0; i < variantAlleles.length; i++) {
-            variantAlleles[i] = StringUtils.stripToNull(variantAlleles[i]);
+        List<String> fields = sf_tsvSplitter.splitToList(line);
+        if (fields.size() > 2) {
+
+          String[] variantAlleles = new String[m_definitionFile.getVariants().length];
+          for (int i = 2; i < fields.size() && i < variantAlleles.length + 2; i++) {
+            String val = StringUtils.stripToNull(fields.get(i));
+            if (val != null) {
+              if (!sf_basePattern.matcher(val).matches()) {
+                m_errors.add("Invalid bases (" + val + ") in " + prettyLineCol(lineNum, i));
+              }
+              variantAlleles[i - 2] = val;
+            }
           }
-          validateAlleles(fields[0], variantAlleles);
 
           NamedAllele namedAllele = new NamedAllele();
-          namedAllele.setName(fields[0]);
-          namedAllele.setFunction(fields[1]);
+          namedAllele.setName(fields.get(0));
+          namedAllele.setFunction(fields.get(1));
           namedAllele.setAlleles(variantAlleles);
 
           Map<String,String> popFreqMap = new HashMap<>();
           m_populationPositionMap.keySet().stream()
-              .filter(i -> i < fields.length)
-              .forEach(i -> popFreqMap.put(m_populationPositionMap.get(i), fields[i]));
+              .filter(i -> i < fields.size())
+              .forEach(i -> popFreqMap.put(m_populationPositionMap.get(i), fields.get(i)));
           namedAllele.setPopFreqMap(popFreqMap);
 
           String id = m_haplotypeIdMap.get(m_definitionFile.getGeneSymbol(), namedAllele.getName());
           if (id == null) {
-            throw new ParseException("Allele has no ID: " + m_definitionFile.getGeneSymbol() + " " + namedAllele.getName());
+            m_errors.add("Allele has no ID: " + m_definitionFile.getGeneSymbol() + " " + namedAllele.getName());
           }
           namedAllele.setId(id);
 
@@ -309,29 +356,31 @@ public class CuratedDefinitionParser {
     }
   }
 
-  private void validateAlleles(String alleleName, String[] alleles) {
 
-    StringBuilder errBuilder = new StringBuilder();
-    for (String allele : alleles) {
-      if (allele != null && !sf_basePattern.matcher(allele).matches()) {
-        if (errBuilder.length() > 0){
-          errBuilder.append("; ");
-        }
-        errBuilder.append(allele);
-      }
-    }
-    if (errBuilder.length() > 0) {
-      throw new ParseException("Allele " + alleleName + " has bad base pair values: " + errBuilder.toString());
-    }
-  }
-
-
+  /**
+   * Converts a column number to an Excel column name.
+   *
+   * @param number column number (where 0 = A)
+   */
   private static String columnNumberToName(int number) {
+    if (number == 0) {
+      return "A";
+    }
     StringBuilder sb = new StringBuilder();
     while (number > 0) {
       sb.append((char)('A' + (number % 26)));
       number = (number / 26) - 1;
     }
     return sb.reverse().toString();
+  }
+
+  /**
+   * Formats (0-based) line/column numbers for display.
+   *
+   * @param line line number
+   * @param col column number
+   */
+  private static String prettyLineCol(int line, int col) {
+    return "line " + (line + 1) + ", column " + columnNumberToName(col);
   }
 }

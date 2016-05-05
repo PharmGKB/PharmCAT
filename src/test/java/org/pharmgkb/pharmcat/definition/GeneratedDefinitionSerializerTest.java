@@ -7,7 +7,7 @@ import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.TestUtil;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 
 /**
@@ -20,8 +20,12 @@ public class GeneratedDefinitionSerializerTest {
   @Test
   public void testJson1() throws Exception {
 
+    // has indels
     Path inFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
-    testJson(inFile);
+    DefinitionFile[] definitionFiles = testJson(inFile);
+    assertEquals(8, definitionFiles[1].getVariants().length);
+    assertEquals("g.99652770_99652771insA", definitionFiles[1].getVariants()[6].getChrPosition());
+    assertTrue(definitionFiles[1].getVariants()[6].isInDel());
   }
 
   @Test
@@ -29,10 +33,14 @@ public class GeneratedDefinitionSerializerTest {
 
     // contains population frequencies
     Path inFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/CYP2C19.tsv");
-    testJson(inFile);
+    DefinitionFile[] definitionFiles = testJson(inFile);
+    assertEquals(8, definitionFiles[1].getPopulations().size());
+    assertNotNull(definitionFiles[1].getNamedAlleles().get(0).getPopFreqMap());
+    assertFalse(definitionFiles[1].getNamedAlleles().get(0).getPopFreqMap().isEmpty());
+    assertEquals("0.34", definitionFiles[1].getNamedAlleles().get(0).getPopFreqMap().get("African Allele Frequency"));
   }
 
-  private void testJson(Path inFile) throws IOException {
+  private DefinitionFile[] testJson(Path inFile) throws IOException {
     DefinitionFile definitionFile = new CuratedDefinitionParser(inFile).parse();
 
     Path jsonFile = inFile.getParent().resolve(PathUtils.getBaseFilename(inFile) + ".json");
@@ -43,6 +51,7 @@ public class GeneratedDefinitionSerializerTest {
     DefinitionFile jsonDefinitionFile = cdSerializer.deserializeFromJson(jsonFile);
 
     assertEquals(definitionFile, jsonDefinitionFile);
+    return new DefinitionFile[] { definitionFile, jsonDefinitionFile };
   }
 
 
