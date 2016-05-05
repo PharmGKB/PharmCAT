@@ -1,12 +1,12 @@
 {
   "objCls" : "Guideline",
-  "@id" : "https://www.pharmgkb.org/data/guideline/PA166104933",
+  "@id" : "https://api.pharmgkb.org/data/guideline/PA166104933",
   "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
   "id" : "PA166104933",
   "name" : "CPIC Guideline for azathioprine and TPMT",
   "groups" : [ {
     "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128791",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128791",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128791",
     "name" : "Heterozygote or intermediate activity",
@@ -15,10 +15,10 @@
       "text" : "If disease treatment normally starts at the \"full dose\", consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment.",
       "textHtml" : "<p>If disease treatment normally starts at the \"full dose\", consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment.</p>",
       "type" : {
-        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
         "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501924,
-        "src" : "guidelineTags",
+        "resource" : "Guideline Tags",
         "term" : "Activity Score",
         "termId" : "guidelineTags:981501924"
       }
@@ -27,10 +27,10 @@
       "text" : "Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP",
       "textHtml" : "<p>Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP</p>",
       "type" : {
-        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
         "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
-        "src" : "guidelineTags",
+        "resource" : "Guideline Tags",
         "term" : "Implications",
         "termId" : "guidelineTags:981501925"
       }
@@ -39,26 +39,26 @@
       "text" : "Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)",
       "textHtml" : "<p>Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)</p>",
       "type" : {
-        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
         "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
-        "src" : "guidelineTags",
+        "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
         "termId" : "guidelineTags:981501927"
       }
     } ],
     "genotypes" : [ "TPMT:*1/*2", "TPMT:*1/*3A", "TPMT:*1/*3B", "TPMT:*1/*3C", "TPMT:*1/*4" ],
     "strength" : {
-      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
-      "src" : "guidelineStrength",
+      "resource" : "Guideline Strength",
       "term" : "Strong",
       "termId" : "guidelineStrength:981501930"
     }
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128790",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128790",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128790",
     "name" : "Homozygous normal or High Activity",
@@ -67,10 +67,10 @@
       "text" : "Lower concentrations of TGN metabolites, higher methylTIMP, this is the \"normal\" pattern",
       "textHtml" : "<p>Lower concentrations of TGN metabolites, higher methylTIMP, this is the \"normal\" pattern</p>",
       "type" : {
-        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
         "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
-        "src" : "guidelineTags",
+        "resource" : "Guideline Tags",
         "term" : "Implications",
         "termId" : "guidelineTags:981501925"
       }
@@ -79,10 +79,10 @@
       "text" : "Homozygous wild-type or normal, high activity (two functional *1 alleles)",
       "textHtml" : "<p>Homozygous wild-type or normal, high activity (two functional *1 alleles)</p>",
       "type" : {
-        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
         "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
-        "src" : "guidelineTags",
+        "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
         "termId" : "guidelineTags:981501927"
       }
@@ -91,26 +91,26 @@
       "text" : "Start with normal starting dose (e.g., 2-3 mg/kg/d) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady state after each dose adjustment.",
       "textHtml" : "<p>Start with normal starting dose (e.g., 2-3 mg/kg/d) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady state after each dose adjustment.</p>",
       "type" : {
-        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
         "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
-        "src" : "guidelineTags",
+        "resource" : "Guideline Tags",
         "term" : "Recommendations",
         "termId" : "guidelineTags:981501928"
       }
     } ],
     "genotypes" : [ "TPMT:*1/*1" ],
     "strength" : {
-      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
-      "src" : "guidelineStrength",
+      "resource" : "Guideline Strength",
       "term" : "Strong",
       "termId" : "guidelineStrength:981501930"
     }
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://www.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128792",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128792",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128792",
     "name" : "Homozygous variant, mutant, low, or deficient activity",
@@ -119,10 +119,10 @@
       "text" : "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites",
       "textHtml" : "<p>Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites</p>",
       "type" : {
-        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
         "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
-        "src" : "guidelineTags",
+        "resource" : "Guideline Tags",
         "term" : "Implications",
         "termId" : "guidelineTags:981501925"
       }
@@ -131,10 +131,10 @@
       "text" : "Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)",
       "textHtml" : "<p>Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)</p>",
       "type" : {
-        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
         "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
-        "src" : "guidelineTags",
+        "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
         "termId" : "guidelineTags:981501927"
       }
@@ -143,40 +143,80 @@
       "text" : "Consider alternative agents. If using azathioprine start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. Azathioprine is the likely cause of myelosuppression.",
       "textHtml" : "<p>Consider alternative agents. If using azathioprine start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. Azathioprine is the likely cause of myelosuppression.</p>",
       "type" : {
-        "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
         "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
-        "src" : "guidelineTags",
+        "resource" : "Guideline Tags",
         "term" : "Recommendations",
         "termId" : "guidelineTags:981501928"
       }
     } ],
     "genotypes" : [ "TPMT:*2/*2", "TPMT:*2/*3A", "TPMT:*2/*3B", "TPMT:*2/*3C", "TPMT:*2/*4", "TPMT:*3A/*3A", "TPMT:*3A/*3B", "TPMT:*3A/*3C", "TPMT:*3A/*4", "TPMT:*3B/*3B", "TPMT:*3B/*3C", "TPMT:*3B/*4", "TPMT:*3C/*3C", "TPMT:*3C/*4", "TPMT:*4/*4" ],
     "strength" : {
-      "@id" : "https://www.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
-      "src" : "guidelineStrength",
+      "resource" : "Guideline Strength",
       "term" : "Strong",
       "termId" : "guidelineStrength:981501930"
     }
   } ],
+  "history" : [ {
+    "id" : 1183699765,
+    "date" : "2011-01-26T00:00:00-08:00",
+    "type" : "create"
+  }, {
+    "id" : 1183699766,
+    "date" : "2013-01-17T00:00:00-08:00",
+    "type" : "update"
+  }, {
+    "id" : 1183704553,
+    "date" : "2014-02-07T09:32:42.341-08:00",
+    "type" : "approve"
+  } ],
   "relatedChemicals" : [ {
     "objCls" : "Chemical",
-    "@id" : "https://www.pharmgkb.org/data/chemical/PA448515",
+    "@id" : "https://api.pharmgkb.org/data/chemical/PA448515",
     "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
     "id" : "PA448515",
-    "name" : "azathioprine"
+    "name" : "azathioprine",
+    "version" : 22
   } ],
   "relatedGenes" : [ {
     "objCls" : "Gene",
-    "@id" : "https://www.pharmgkb.org/data/gene/PA356",
+    "@id" : "https://api.pharmgkb.org/data/gene/PA356",
     "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
     "id" : "PA356",
     "symbol" : "TPMT",
-    "name" : "thiopurine S-methyltransferase"
+    "name" : "thiopurine S-methyltransferase",
+    "version" : 7542
   } ],
   "source" : "CPIC",
+  "summary" : "Consider an alternate agent or extreme dose reduction of azathioprine for patients with low or deficient TPMT activity.  Start at 30-70% of target dose for patients with intermediate enzyme activity. ",
   "summaryHtml" : "<p>Consider an alternate agent or extreme dose reduction of azathioprine for patients with low or deficient TPMT activity.  Start at 30-70% of target dose for patients with intermediate enzyme activity. </p>",
-  "textHtml" : "<h3 id=\"April2013Update\">April 2013 Update</h3><p><em>Advance online publication January 2013.</em></p><ul><li>The <a href=\"/redirect.jsp?p=http%3A%2F%2Fwww.nature.com%2Fclpt%2Fjournal%2Fvaop%2Fnaam%2Findex.html%2317012013\" target=\"offsite\">2013 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine</a>, have been published in Clinical Pharmacology and Therapeutics.  Literature published between June 2010-November 2012 was reviewed and there is <strong>no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current.</strong> </li><li>These guidelines are applicable to:<ul><li>pediatric patients </li><li>adult patients</li></ul></li><li>Download and read: <ul><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2013%2F23422873.pdf\" target=\"offsite\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update</a></li><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2013%2F23422873-supplement.pdf\" target=\"offsite\">2013 supplement</a></li></ul></li></ul><h3 id=\"March2011\">March 2011</h3><p><em>Advance online publication January 2011.</em></p><ul><li>Guidelines regarding the use of pharmacogenomic tests in dosing for azathioprine, thioguanine and mercaptopurine were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium (<a href=\"/contributors/consortia/cpic_profile.jsp\">CPIC</a>).  </li><li>Excerpt from the 2011 thiopurine dosing guidelines:<ul><li>\"Thiopurines are most commonly used to treat nonmalignant conditions but are also critical anticancer agents. The approach to dosing adjustments based on TPMT status may differ depending on the clinical indication and the propensity to initiate therapy at higher vs. lower starting doses. We and others advocate testing for TPMT status prior to initiating thiopurine therapy, so that starting dosages can be adjusted accordingly.\"</li></ul></li><li>Download and read:  <ul><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2011%2F21270794.pdf\" target=\"offsite\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing</a> </li><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2011%2F21270794-supplement.pdf\" target=\"offsite\">2011 supplement</a></li></ul></li></ul><h3 id=\"Table1RecommendeddosingofazathioprinebyTPMTphenotype\">Table 1: Recommended dosing of azathioprine by TPMT phenotype</h3><p><em>Adapted from Tables 1 and 2 of the 2011 guideline manuscript.</em></p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th>Phenotype (Genotype)</th><th>Examples of diplotypes</th><th>Implications for azathioprine pharmacologic measures</th><th>Dosing recommendations for azathioprine</th><th>Classification of recommendations</th></tr><tr><td>Homozygous wild-type or normal, high activity (two functional *1 alleles)</td><td>*1/*1</td><td>Lower concentrations of TGN metabolites, higher methylTIMP, this is the \"normal\" pattern</td><td>Start with normal starting dose (e.g., 2-3 mg/kg/d) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady state after each dose adjustment.</td><td>Strong</td></tr><tr><td>Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)</td><td>*1/*2, *1/*3A, *1/*3B, *1/*3C, *1/*4</td><td>Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP</td><td>If disease treatment normally starts at the \"full dose\", consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment.</td><td>Strong</td></tr><tr><td>Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)</td><td>*3A/*3A, *2/*3A, *3C/*3A, *3C/*4, *3C/*2, *3A/*4</td><td>Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites</td><td>Consider alternative agents. If using azathioprine start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. Azathioprine is the likely cause of myelosuppression.</td><td>Strong</td></tr></table>"
+  "summaryMarkdown" : {
+    "id" : 1447981846,
+    "html" : "<p>Consider an alternate agent or extreme dose reduction of azathioprine for patients with low or deficient TPMT activity.  Start at 30-70% of target dose for patients with intermediate enzyme activity.</p>\n",
+    "internalLinks" : [ ],
+    "markdown" : "Consider an alternate agent or extreme dose reduction of azathioprine for patients with low or deficient TPMT activity.  Start at 30-70% of target dose for patients with intermediate enzyme activity.",
+    "pmids" : [ ],
+    "relatedObjects" : [ ],
+    "rsids" : [ ]
+  },
+  "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+  "text" : "h3. April 2013 Update\r\n_Advance online publication January 2013._\r\n* The [2013 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine|http://www.nature.com/clpt/journal/vaop/naam/index.html#17012013], have been published in Clinical Pharmacology and Therapeutics.  Literature published between June 2010-November 2012 was reviewed and there is *no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current.* \r\n* These guidelines are applicable to:\r\n** pediatric patients \r\n** adult patients\r\n* Download and read: \r\n** [Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update| https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2013/23422873.pdf]\r\n** [2013 supplement| https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2013/23422873-supplement.pdf]\r\n\r\nh3. March 2011\r\n_Advance online publication January 2011._\r\n* Guidelines regarding the use of pharmacogenomic tests in dosing for azathioprine, thioguanine and mercaptopurine were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium ([CPIC|/contributors/consortia/cpic_profile.jsp]).  \r\n* Excerpt from the 2011 thiopurine dosing guidelines:\r\n** \"Thiopurines are most commonly used to treat nonmalignant conditions but are also critical anticancer agents. The approach to dosing adjustments based on TPMT status may differ depending on the clinical indication and the propensity to initiate therapy at higher vs. lower starting doses. We and others advocate testing for TPMT status prior to initiating thiopurine therapy, so that starting dosages can be adjusted accordingly.\"\r\n* Download and read:  \r\n** [Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing|https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2011/21270794.pdf] \r\n** [2011 supplement|https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2011/21270794-supplement.pdf]\r\nh3. Table 1: Recommended dosing of azathioprine by TPMT phenotype\r\n_Adapted from Tables 1 and 2 of the 2011 guideline manuscript._\r\n\r\n|| Phenotype (Genotype) || Examples of diplotypes || Implications for azathioprine pharmacologic measures || Dosing recommendations for azathioprine || Classification of recommendations ||\r\n| Homozygous wild-type or normal, high activity (two functional *1 alleles) | *1/*1 | Lower concentrations of TGN metabolites, higher methylTIMP, this is the \"normal\" pattern | Start with normal starting dose (e.g., 2-3 mg/kg/d) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady state after each dose adjustment. | Strong |\r\n| Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4) | *1/*2, *1/*3A, *1/*3B, *1/*3C, *1/*4 | Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP | If disease treatment normally starts at the \"full dose\", consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment. | Strong |\r\n| Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4) | *3A/*3A, *2/*3A, *3C/*3A, *3C/*4, *3C/*2, *3A/*4 | Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites | Consider alternative agents. If using azathioprine start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. Azathioprine is the likely cause of myelosuppression. | Strong |",
+  "textHtml" : "<h3 id=\"April2013Update\">April 2013 Update</h3><p><em>Advance online publication January 2013.</em></p><ul><li>The <a href=\"/redirect.jsp?p=http%3A%2F%2Fwww.nature.com%2Fclpt%2Fjournal%2Fvaop%2Fnaam%2Findex.html%2317012013\" target=\"offsite\">2013 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine</a>, have been published in Clinical Pharmacology and Therapeutics.  Literature published between June 2010-November 2012 was reviewed and there is <strong>no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current.</strong> </li><li>These guidelines are applicable to:<ul><li>pediatric patients </li><li>adult patients</li></ul></li><li>Download and read: <ul><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2013%2F23422873.pdf\" target=\"offsite\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update</a></li><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2013%2F23422873-supplement.pdf\" target=\"offsite\">2013 supplement</a></li></ul></li></ul><h3 id=\"March2011\">March 2011</h3><p><em>Advance online publication January 2011.</em></p><ul><li>Guidelines regarding the use of pharmacogenomic tests in dosing for azathioprine, thioguanine and mercaptopurine were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium (<a href=\"/contributors/consortia/cpic_profile.jsp\">CPIC</a>).  </li><li>Excerpt from the 2011 thiopurine dosing guidelines:<ul><li>\"Thiopurines are most commonly used to treat nonmalignant conditions but are also critical anticancer agents. The approach to dosing adjustments based on TPMT status may differ depending on the clinical indication and the propensity to initiate therapy at higher vs. lower starting doses. We and others advocate testing for TPMT status prior to initiating thiopurine therapy, so that starting dosages can be adjusted accordingly.\"</li></ul></li><li>Download and read:  <ul><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2011%2F21270794.pdf\" target=\"offsite\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing</a> </li><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2011%2F21270794-supplement.pdf\" target=\"offsite\">2011 supplement</a></li></ul></li></ul><h3 id=\"Table1RecommendeddosingofazathioprinebyTPMTphenotype\">Table 1: Recommended dosing of azathioprine by TPMT phenotype</h3><p><em>Adapted from Tables 1 and 2 of the 2011 guideline manuscript.</em></p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th>Phenotype (Genotype)</th><th>Examples of diplotypes</th><th>Implications for azathioprine pharmacologic measures</th><th>Dosing recommendations for azathioprine</th><th>Classification of recommendations</th></tr><tr><td>Homozygous wild-type or normal, high activity (two functional *1 alleles)</td><td>*1/*1</td><td>Lower concentrations of TGN metabolites, higher methylTIMP, this is the \"normal\" pattern</td><td>Start with normal starting dose (e.g., 2-3 mg/kg/d) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady state after each dose adjustment.</td><td>Strong</td></tr><tr><td>Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)</td><td>*1/*2, *1/*3A, *1/*3B, *1/*3C, *1/*4</td><td>Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP</td><td>If disease treatment normally starts at the \"full dose\", consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment.</td><td>Strong</td></tr><tr><td>Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)</td><td>*3A/*3A, *2/*3A, *3C/*3A, *3C/*4, *3C/*2, *3A/*4</td><td>Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites</td><td>Consider alternative agents. If using azathioprine start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. Azathioprine is the likely cause of myelosuppression.</td><td>Strong</td></tr></table>",
+  "textMarkdown" : {
+    "id" : 1447981845,
+    "html" : "<h3>April 2013 Update</h3>\n<p><em>Advance online publication January 2013.</em></p>\n<ul>\n<li>The <a href=\"/redirect.jsp?p=http%3A%2F%2Fwww.nature.com%2Fclpt%2Fjournal%2Fvaop%2Fnaam%2Findex.html%23%2317012013\" target=\"offsite\">2013 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine</a>, have been published in Clinical Pharmacology and Therapeutics.  Literature published between June 2010-November 2012 was reviewed and there is <strong>no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current.</strong></li>\n<li>These guidelines are applicable to:\n<ul>\n<li>pediatric patients</li>\n<li>adult patients</li>\n</ul>\n</li>\n<li>Download and read:\n<ul>\n<li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2013%2F23422873.pdf\" target=\"offsite\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update</a></li>\n<li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2013%2F23422873-supplement.pdf\" target=\"offsite\">2013 supplement</a></li>\n</ul>\n</li>\n</ul>\n<h3>March 2011</h3>\n<p><em>Advance online publication January 2011.</em></p>\n<ul>\n<li>Guidelines regarding the use of pharmacogenomic tests in dosing for azathioprine, thioguanine and mercaptopurine were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium (<a href=\"/contributors/consortia/cpic_profile.jsp\">CPIC</a>).</li>\n<li>Excerpt from the 2011 thiopurine dosing guidelines:\n<ul>\n<li>&quot;Thiopurines are most commonly used to treat nonmalignant conditions but are also critical anticancer agents. The approach to dosing adjustments based on TPMT status may differ depending on the clinical indication and the propensity to initiate therapy at higher vs. lower starting doses. We and others advocate testing for TPMT status prior to initiating thiopurine therapy, so that starting dosages can be adjusted accordingly.&quot;</li>\n</ul>\n</li>\n<li>Download and read:\n<ul>\n<li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2011%2F21270794.pdf\" target=\"offsite\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing</a></li>\n<li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fthiopurines%2F2011%2F21270794-supplement.pdf\" target=\"offsite\">2011 supplement</a></li>\n</ul>\n</li>\n</ul>\n<h3>Table 1: Recommended dosing of azathioprine by TPMT phenotype</h3>\n<p><em>Adapted from Tables 1 and 2 of the 2011 guideline manuscript.</em></p>\n<table class=\"table table-striped table-condensed table-hover table-bordered\">\n<thead>\n<tr><th>Phenotype (Genotype)</th><th>Examples of diplotypes</th><th>Implications for azathioprine pharmacologic measures</th><th>Dosing recommendations for azathioprine</th><th>Classification of recommendations</th></tr>\n</thead>\n<tbody>\n<tr><td>Homozygous wild-type or normal, high activity (two functional *1 alleles)</td><td>*1/*1</td><td>Lower concentrations of TGN metabolites, higher methylTIMP, this is the &quot;normal&quot; pattern</td><td>Start with normal starting dose (e.g., 2-3 mg/kg/d) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady state after each dose adjustment.</td><td>Strong</td></tr>\n<tr><td>Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)</td><td>*1/*2, *1/*3A, *1/*3B, *1/*3C, *1/*4</td><td>Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP</td><td>If disease treatment normally starts at the &quot;full dose&quot;, consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment.</td><td>Strong</td></tr>\n<tr><td>Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)</td><td>*3A/*3A, *2/*3A, *3C/*3A, *3C/*4, *3C/*2, *3A/*4</td><td>Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites</td><td>Consider alternative agents. If using azathioprine start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. Azathioprine is the likely cause of myelosuppression.</td><td>Strong</td></tr>\n</tbody>\n</table>\n",
+    "internalLinks" : [ "/contributors/consortia/cpic_profile.jsp" ],
+    "markdown" : "## April 2013 Update\r\n\r\n_Advance online publication January 2013._\r\n- The [2013 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine](http://www.nature.com/clpt/journal/vaop/naam/index.html#17012013), have been published in Clinical Pharmacology and Therapeutics.  Literature published between June 2010-November 2012 was reviewed and there is __no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current.__ \r\n- These guidelines are applicable to:\r\n  - pediatric patients \r\n  - adult patients\r\n- Download and read: \r\n  - [Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update](https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2013/23422873.pdf)\r\n  - [2013 supplement]( https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2013/23422873-supplement.pdf)\r\n\r\n## March 2011\r\n\r\n_Advance online publication January 2011._\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing for azathioprine, thioguanine and mercaptopurine were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium ([CPIC](/contributors/consortia/cpic_profile.jsp)).  \r\n- Excerpt from the 2011 thiopurine dosing guidelines:\r\n  - \"Thiopurines are most commonly used to treat nonmalignant conditions but are also critical anticancer agents. The approach to dosing adjustments based on TPMT status may differ depending on the clinical indication and the propensity to initiate therapy at higher vs. lower starting doses. We and others advocate testing for TPMT status prior to initiating thiopurine therapy, so that starting dosages can be adjusted accordingly.\"\r\n- Download and read:  \r\n  - [Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing](https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2011/21270794.pdf) \r\n  - [2011 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2011/21270794-supplement.pdf)\r\n\r\n## Table 1: Recommended dosing of azathioprine by TPMT phenotype\r\n\r\n_Adapted from Tables 1 and 2 of the 2011 guideline manuscript._\r\n\r\n| Phenotype (Genotype) | Examples of diplotypes | Implications for azathioprine pharmacologic measures | Dosing recommendations for azathioprine | Classification of recommendations |\r\n| --- | --- | --- | --- | --- |\r\n| Homozygous wild-type or normal, high activity (two functional *1 alleles) | *1/*1 | Lower concentrations of TGN metabolites, higher methylTIMP, this is the \"normal\" pattern | Start with normal starting dose (e.g., 2-3 mg/kg/d) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady state after each dose adjustment. | Strong |\r\n| Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4) | *1/*2, *1/*3A, *1/*3B, *1/*3C, *1/*4 | Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP | If disease treatment normally starts at the \"full dose\", consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment. | Strong |\r\n| Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4) | *3A/*3A, *2/*3A, *3C/*3A, *3C/*4, *3C/*2, *3A/*4 | Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites | Consider alternative agents. If using azathioprine start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. Azathioprine is the likely cause of myelosuppression. | Strong |",
+    "pmids" : [ ],
+    "relatedObjects" : [ ],
+    "rsids" : [ ],
+    "version" : 1
+  },
+  "variants" : [ ],
+  "version" : 13,
+  "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983453,"resource":"Web Resource","xrefId":"https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/"} ]
 }

@@ -1,0 +1,70 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://api.pharmgkb.org/data/guideline/PA166105000",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166105000",
+  "name" : "CPIC Guideline for doxepin and CYP2C19,CYP2D6",
+  "groups" : [ ],
+  "history" : [ {
+    "id" : 1183699772,
+    "date" : "2013-01-16T00:00:00-08:00",
+    "type" : "create"
+  }, {
+    "id" : 1183704560,
+    "date" : "2014-02-07T09:34:58.642-08:00",
+    "type" : "approve"
+  } ],
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://api.pharmgkb.org/data/chemical/PA449409",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA449409",
+    "name" : "doxepin",
+    "version" : 4
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://api.pharmgkb.org/data/gene/PA124",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA124",
+    "symbol" : "CYP2C19",
+    "name" : "cytochrome P450, family 2, subfamily C, polypeptide 19",
+    "version" : 7207
+  }, {
+    "objCls" : "Gene",
+    "@id" : "https://api.pharmgkb.org/data/gene/PA128",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA128",
+    "symbol" : "CYP2D6",
+    "name" : "cytochrome P450, family 2, subfamily D, polypeptide 6",
+    "version" : 7887
+  } ],
+  "source" : "CPIC",
+  "summary" : "Tricyclic antidepressants have comparable pharmacokinetic properties, it may be reasonable to apply the CPIC Dosing Guideline for amitriptyline and CYP2C19, CYP2D6 to other tricyclics including doxepin. In the guideline for amitriptyline, an alternative drug is recommended for CYP2D6 or CYP2C19 ultrarapid metabolizers and for CYP2D6 poor metabolizers. Consider a 50% dose reduction for CYP2C19 poor metabolizers and a 25% dose reduction for CYP2D6 intermediate metabolizers.",
+  "summaryHtml" : "<p>Tricyclic antidepressants have comparable pharmacokinetic properties, it may be reasonable to apply the CPIC Dosing Guideline for amitriptyline and CYP2C19, CYP2D6 to other tricyclics including doxepin. In the guideline for amitriptyline, an alternative drug is recommended for CYP2D6 or CYP2C19 ultrarapid metabolizers and for CYP2D6 poor metabolizers. Consider a 50% dose reduction for CYP2C19 poor metabolizers and a 25% dose reduction for CYP2D6 intermediate metabolizers.</p>",
+  "summaryMarkdown" : {
+    "id" : 1447981938,
+    "html" : "<p>Tricyclic antidepressants have comparable pharmacokinetic properties, it may be reasonable to apply the CPIC Dosing Guideline for amitriptyline and CYP2C19, CYP2D6 to other tricyclics including doxepin. In the guideline for amitriptyline, an alternative drug is recommended for CYP2D6 or CYP2C19 ultrarapid metabolizers and for CYP2D6 poor metabolizers. Consider a 50% dose reduction for CYP2C19 poor metabolizers and a 25% dose reduction for CYP2D6 intermediate metabolizers.</p>\n",
+    "internalLinks" : [ ],
+    "markdown" : "Tricyclic antidepressants have comparable pharmacokinetic properties, it may be reasonable to apply the CPIC Dosing Guideline for amitriptyline and CYP2C19, CYP2D6 to other tricyclics including doxepin. In the guideline for amitriptyline, an alternative drug is recommended for CYP2D6 or CYP2C19 ultrarapid metabolizers and for CYP2D6 poor metabolizers. Consider a 50% dose reduction for CYP2C19 poor metabolizers and a 25% dose reduction for CYP2D6 intermediate metabolizers.",
+    "pmids" : [ ],
+    "relatedObjects" : [ ],
+    "rsids" : [ ]
+  },
+  "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847845","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847845,"resource":"CPIC Status","term":"B","termId":"cpicStatus:1183847845"} ],
+  "text" : "Guidelines regarding the use of pharmacogenomic tests in dosing for tricyclic antidepressants have been published in Clinical Pharmacology and Therapeutics by the [Clinical Pharmacogenetics Implementation Consortium (CPIC)|/contributors/consortia/cpic_profile.jsp].\r\n\r\n*Download:* [article|^CPIC_TCAguideline2012.pdf] and [supplement|^CPIC_TCAsupplement2012.pdf]\r\n\r\nh5. Excerpt from the dosing guidelines:\r\n\r\n[Amitriptyline|http://www.pharmgkb.org/drug/PA448385] and nortriptyline are used as model drugs for this guideline because the majority of pharmacogenomic studies have focused on these two drugs. Because the tricyclics have comparable pharmacokinetic properties, it may be reasonable to apply this [guideline|^CPIC_TCAguideline2012.pdf] to other tricyclics including doxepin ([Supplementary Table S16|^CPIC_TCAsupplement2012.pdf]), with the acknowledgement that there are fewer data supporting dose adjustments for these drugs than for amitriptyline or nortriptyline.\\\\\r\nSee [amitriptyline|http://www.pharmgkb.org/drug/PA448385] for excerpts and tables that summarize _CYP2D6_-based and _CYP2C19_-based dosing recommendations for amitriptyline when higher initial starting doses are warranted ([article|^CPIC_TCAguideline2012.pdf]).",
+  "textHtml" : "<p>Guidelines regarding the use of pharmacogenomic tests in dosing for tricyclic antidepressants have been published in Clinical Pharmacology and Therapeutics by the <a href=\"/contributors/consortia/cpic_profile.jsp\">Clinical Pharmacogenetics Implementation Consortium (CPIC)</a>.</p><p><strong>Download:</strong> <a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAguideline2012.pdf\">article</a> and <a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAsupplement2012.pdf\">supplement</a></p><h5 id=\"Excerptfromthedosingguidelines\">Excerpt from the dosing guidelines:</h5><p><a href=\"http://www.pharmgkb.org/drug/PA448385\">Amitriptyline</a> and nortriptyline are used as model drugs for this guideline because the majority of pharmacogenomic studies have focused on these two drugs. Because the tricyclics have comparable pharmacokinetic properties, it may be reasonable to apply this <a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAguideline2012.pdf\">guideline</a> to other tricyclics including doxepin (<a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAsupplement2012.pdf\">Supplementary Table S16</a>), with the acknowledgement that there are fewer data supporting dose adjustments for these drugs than for amitriptyline or nortriptyline.<br/><br/>See <a href=\"http://www.pharmgkb.org/drug/PA448385\">amitriptyline</a> for excerpts and tables that summarize <em>CYP2D6</em>-based and <em>CYP2C19</em>-based dosing recommendations for amitriptyline when higher initial starting doses are warranted (<a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAguideline2012.pdf\">article</a>).</p>",
+  "textMarkdown" : {
+    "id" : 1447981937,
+    "html" : "<p>Guidelines regarding the use of pharmacogenomic tests in dosing for tricyclic antidepressants have been published in Clinical Pharmacology and Therapeutics by the <a href=\"/contributors/consortia/cpic_profile.jsp\">Clinical Pharmacogenetics Implementation Consortium (CPIC)</a>.</p>\n<p><strong>Download:</strong> <a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAguideline2012.pdf\">article</a> and <a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAsupplement2012.pdf\">supplement</a></p>\n<h5>Excerpt from the dosing guidelines:</h5>\n<p><a href=\"http://www.pharmgkb.org/drug/PA448385\">Amitriptyline</a> and nortriptyline are used as model drugs for this guideline because the majority of pharmacogenomic studies have focused on these two drugs. Because the tricyclics have comparable pharmacokinetic properties, it may be reasonable to apply this <a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAguideline2012.pdf\">guideline</a> to other tricyclics including doxepin (<a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAsupplement2012.pdf\">Supplementary Table S16</a>), with the acknowledgement that there are fewer data supporting dose adjustments for these drugs than for amitriptyline or nortriptyline.</p>\n<p>See <a href=\"http://www.pharmgkb.org/drug/PA448385\">amitriptyline</a> for excerpts and tables that summarize <em>CYP2D6</em>-based and <em>CYP2C19</em>-based dosing recommendations for amitriptyline when higher initial starting doses are warranted (<a href=\"/download.do?objCls=Attachment&amp;objId=CPIC_TCAguideline2012.pdf\">article</a>).</p>\n",
+    "internalLinks" : [ "/drug/PA448385", "/contributors/consortia/cpic_profile.jsp" ],
+    "markdown" : "Guidelines regarding the use of pharmacogenomic tests in dosing for tricyclic antidepressants have been published in Clinical Pharmacology and Therapeutics by the [Clinical Pharmacogenetics Implementation Consortium (CPIC)](/contributors/consortia/cpic_profile.jsp).\r\n\r\n__Download:__ [article](^CPIC_TCAguideline2012.pdf) and [supplement](^CPIC_TCAsupplement2012.pdf)\r\n\r\n#### Excerpt from the dosing guidelines:\r\n\r\n[Amitriptyline](http://www.pharmgkb.org/drug/PA448385) and nortriptyline are used as model drugs for this guideline because the majority of pharmacogenomic studies have focused on these two drugs. Because the tricyclics have comparable pharmacokinetic properties, it may be reasonable to apply this [guideline](^CPIC_TCAguideline2012.pdf) to other tricyclics including doxepin ([Supplementary Table S16](^CPIC_TCAsupplement2012.pdf)), with the acknowledgement that there are fewer data supporting dose adjustments for these drugs than for amitriptyline or nortriptyline.\r\n\r\n\r\nSee [amitriptyline](http://www.pharmgkb.org/drug/PA448385) for excerpts and tables that summarize _CYP2D6_-based and _CYP2C19_-based dosing recommendations for amitriptyline when higher initial starting doses are warranted ([article](^CPIC_TCAguideline2012.pdf)).",
+    "pmids" : [ ],
+    "relatedObjects" : [ ],
+    "rsids" : [ ],
+    "version" : 1
+  },
+  "variants" : [ ],
+  "version" : 8,
+  "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/http://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983873,"resource":"Web Resource","xrefId":"http://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/"} ]
+}
