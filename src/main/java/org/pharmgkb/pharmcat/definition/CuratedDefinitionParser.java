@@ -43,7 +43,9 @@ public class CuratedDefinitionParser {
   private static final Pattern sf_geneFieldPattern = Pattern.compile("^GENE:\\s*(\\w+)$");
   private static final Pattern sf_refSeqPattern = Pattern.compile("^.*(N\\w_(\\d+)\\.\\d+).*$");
   private static final Pattern sf_populationTitle = Pattern.compile("^(.*) Allele Frequency$");
-  private static final Pattern sf_basePattern = Pattern.compile("^(del[ATCG]*)|(ins[ATCG]*)|([ATCGMRWSYKVHDBN]*)$");
+  private static final Pattern sf_basePattern = Pattern.compile("^(del[ATCG]*)|(ins[ATCG]*)|([ATCGMRWSYKVHDBN]+)|" +
+      "([ACTG]+\\([ACTG]+\\)\\d+[ACTG]+)|" +
+      "$");
   private static final Pattern sf_hgvsPosition = Pattern.compile("^[cgp]\\.(\\d+).*$");
   private static final SimpleDateFormat sf_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
@@ -177,10 +179,10 @@ public class CuratedDefinitionParser {
     m_definitionFile.setVariants(variants);
   }
 
-  private VariantLocus parseVariantLocus(int col, String text) {
+  private VariantLocus parseVariantLocus(int col, String chrHgvsName) {
 
     int position = -1;
-    for (String hgvs : sf_hgvsSplitter.splitToList(text)) {
+    for (String hgvs : sf_hgvsSplitter.splitToList(chrHgvsName)) {
       Matcher m = sf_hgvsPosition.matcher(hgvs);
       if (m.matches()) {
         int p =  Integer.parseInt(m.group(1), 10);
@@ -196,8 +198,7 @@ public class CuratedDefinitionParser {
 
     }
 
-    VariantLocus variantLocus = new VariantLocus(position, text);
-    return variantLocus;
+    return new VariantLocus(position, chrHgvsName);
   }
 
   private void parseNamingLine(List<String> fields) {
