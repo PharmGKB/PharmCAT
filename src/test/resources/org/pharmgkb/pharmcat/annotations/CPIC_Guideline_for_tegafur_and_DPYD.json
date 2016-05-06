@@ -1,0 +1,217 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://api.pharmgkb.org/data/guideline/PA166122687",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166122687",
+  "name" : "CPIC Guideline for tegafur and DPYD",
+  "groups" : [ {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128878",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128878",
+    "name" : "Deficient activity",
+    "annotations" : [ {
+      "id" : 1446441852,
+      "text" : "Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs.",
+      "textHtml" : "<p>Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1446441867,
+      "text" : "Homozygous for deficient activity alleles; DPD deficiency.",
+      "textHtml" : "<p>Homozygous for deficient activity alleles; DPD deficiency.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1446441884,
+      "text" : "Select alternative drug.",
+      "textHtml" : "<p>Select alternative drug.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "DPYD:*13/*13", "DPYD:*13/*2A", "DPYD:*13/rs67376798A", "DPYD:*2A/*2A", "DPYD:*2A/rs67376798A", "DPYD:rs67376798A/rs67376798A" ],
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128879",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128879",
+    "name" : "Intermediate activity",
+    "annotations" : [ {
+      "id" : 1446441900,
+      "text" : "Decreased DPD activity (leukocyte DPD activity at 30-70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs.",
+      "textHtml" : "<p>Decreased DPD activity (leukocyte DPD activity at 30-70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1446441920,
+      "text" : "Heterozyogous; intermediate DPD activity, at risk for toxicity with drug exposure.",
+      "textHtml" : "<p>Heterozyogous; intermediate DPD activity, at risk for toxicity with drug exposure.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1446441935,
+      "text" : "Start with at least a 50% reduction in starting dose, followed by titration of dose based on toxicity (increase the dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities) or pharmacokinetic test (if available).",
+      "textHtml" : "<p>Start with at least a 50% reduction in starting dose, followed by titration of dose based on toxicity (increase the dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities) or pharmacokinetic test (if available).</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "DPYD:*1/*13", "DPYD:*1/*2A", "DPYD:*1/rs67376798A", "DPYD:*13/*4", "DPYD:*13/*5", "DPYD:*13/*6", "DPYD:*13/*9A", "DPYD:*13/rs67376798T", "DPYD:*2A/*4", "DPYD:*2A/*5", "DPYD:*2A/*6", "DPYD:*2A/*9A", "DPYD:*2A/rs67376798T", "DPYD:*4/rs67376798A", "DPYD:*5/rs67376798A", "DPYD:*6/rs67376798A", "DPYD:*9A/rs67376798A", "DPYD:rs67376798A/rs67376798T" ],
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128880",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128880",
+    "name" : "Normal activity",
+    "annotations" : [ {
+      "id" : 1446441946,
+      "text" : "Normal DPD activity and \"normal\" risk for fluoropyrimidine toxicity.",
+      "textHtml" : "<p>Normal DPD activity and \"normal\" risk for fluoropyrimidine toxicity.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1446441976,
+      "text" : "Homozygous for normal activity alleles; high DPD activity.",
+      "textHtml" : "<p>Homozygous for normal activity alleles; high DPD activity.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1446441996,
+      "text" : "Use label-recommended dosage and administration.",
+      "textHtml" : "<p>Use label-recommended dosage and administration.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "DPYD:*1/*1", "DPYD:*1/*4", "DPYD:*1/*5", "DPYD:*1/*6", "DPYD:*1/*9A", "DPYD:*1/rs67376798T", "DPYD:*4/*4", "DPYD:*4/*5", "DPYD:*4/*6", "DPYD:*4/*9A", "DPYD:*4/rs67376798T", "DPYD:*5/*5", "DPYD:*5/*6", "DPYD:*5/*9A", "DPYD:*5/rs67376798T", "DPYD:*6/*6", "DPYD:*6/*9A", "DPYD:*6/rs67376798T", "DPYD:*9A/*9A", "DPYD:*9A/rs67376798T", "DPYD:rs67376798T/rs67376798T" ],
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931"
+    }
+  } ],
+  "history" : [ {
+    "id" : 1184511813,
+    "date" : "2014-07-30T00:00:00-07:00",
+    "type" : "update"
+  }, {
+    "id" : 1184511814,
+    "date" : "2014-07-30T12:36:47.391-07:00",
+    "type" : "approve"
+  } ],
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://api.pharmgkb.org/data/chemical/PA452620",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA452620",
+    "name" : "tegafur",
+    "version" : 18
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://api.pharmgkb.org/data/gene/PA145",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA145",
+    "symbol" : "DPYD",
+    "name" : "dihydropyrimidine dehydrogenase",
+    "version" : 6905
+  } ],
+  "source" : "CPIC",
+  "summary" : "The CPIC Dosing Guidelines for fluoropyrimidines (i.e. 5-fluorouracil, capecitabine or tegafur) recommends an alternative drug for patients who are homozygous for DPYD non-functional variants - *2A (rs3918290), *13 (rs55886062), and rs67376798 A (on the positive chromosomal strand) - as these patients are typically DPD deficient.  Consider a 50% reduction in starting dose for heterozygous patients (intermediate activity).",
+  "summaryHtml" : "<p>The CPIC Dosing Guidelines for fluoropyrimidines (i.e. 5-fluorouracil, capecitabine or tegafur) recommends an alternative drug for patients who are homozygous for DPYD non-functional variants - *2A (<a href=\"/rsid/rs3918290\">rs3918290</a>), *13 (<a href=\"/rsid/rs55886062\">rs55886062</a>), and <a href=\"/rsid/rs67376798\">rs67376798</a> A (on the positive chromosomal strand) - as these patients are typically DPD deficient.  Consider a 50% reduction in starting dose for heterozygous patients (intermediate activity).</p>",
+  "summaryMarkdown" : {
+    "id" : 1447982075,
+    "html" : "<p>The CPIC Dosing Guidelines for fluoropyrimidines (i.e. 5-fluorouracil, capecitabine or tegafur) recommends an alternative drug for patients who are homozygous for DPYD non-functional variants - *2A (<a href=\"/rsid/rs3918290\">rs3918290</a>), *13 (<a href=\"/rsid/rs55886062\">rs55886062</a>), and <a href=\"/rsid/rs67376798\">rs67376798</a> A (on the positive chromosomal strand) - as these patients are typically DPD deficient.  Consider a 50% reduction in starting dose for heterozygous patients (intermediate activity).</p>\n",
+    "internalLinks" : [ ],
+    "markdown" : "The CPIC Dosing Guidelines for fluoropyrimidines (i.e. 5-fluorouracil, capecitabine or tegafur) recommends an alternative drug for patients who are homozygous for DPYD non-functional variants - *2A ([variant:rs3918290]), *13 ([variant:rs55886062]), and [variant:rs67376798] A (on the positive chromosomal strand) - as these patients are typically DPD deficient.  Consider a 50% reduction in starting dose for heterozygous patients (intermediate activity).",
+    "pmids" : [ ],
+    "relatedObjects" : [ ],
+    "rsids" : [ "rs3918290", "rs67376798", "rs55886062" ]
+  },
+  "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+  "text" : "h3.  May 2014 Update on PharmGKB\r\n*  The CPIC authors recommend that the _DPYD*4_, _*5_, _*6_ and _*9A_ alleles be categorized as \"normal\" activity, in part based upon the recent publication [Comparative Functional Analysis of DPYD Variants of Potential Clinical Relevance to Dihydropyrimidine Dehydrogenase Activity|http://www.ncbi.nlm.nih.gov/pubmed/?term=24648345]. \r\n\r\nh3. December 2013 Publication\r\n_Accepted article preview online August 2013; Advance online publication October 2013._\r\n* Guidelines regarding the use of pharmacogenomic tests in dosing for fluoropyrimidines have been published in _Clinical Pharmacology and Therapeutics_ by the Clinical Pharmacogenetics Implementation Consortium ([CPIC|/contributors/consortia/cpic_profile.jsp]).\r\n* These guidelines are applicable to:\r\n** at the time of this writing, there are no data available on the possible role of DPYD*2A, *13, or rs67376798 in 5-fluorouracil toxicities in pediatric patient populations; however, there is no reason to suspect that DPYD variant alleles would affect 5-fluorouracil metabolism differently in children compared to adults.\r\n* Excerpt from the fluoropyrimidine dosing guideline based on DPYD genotype:\r\n** \"The strength of the dosing recommendations is based on the fact that some variants (DPYD*2A, *13, and rs67376798) clearly affect DPD activity, and DPD activity is clearly related to 5-fluorouracil clearance, and 5-fluorouracil exposure is associated with its toxic effects. Therefore, reduction of fluoropyrimidine dosage in patients with these variants may prevent severe and possibly life-threatening toxicities. However, available evidence does not clearly indicate a degree of dose reduction needed to prevent fluoropyrimidine related toxicities...\\[Based on literature review (see full manuscript),] our recommendation is to start with at least a 50% reduction of the starting dose followed by an increase in dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy, a decrease in dose in patients who do not tolerate the starting dose to minimize toxicities or pharmacokinetic guided dose adjustments (if available). Patients who are homozygous for DPYD*2A, *13, or rs67376798 may demonstrate complete DPD deficiency and the use of 5-fluorouracil or capecitabine is not recommended in these patients.\" \r\n* Download and read:\r\n** [Clinical Pharmacogenetics Implementation Consortium Guidelines for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing|https://github.com/PharmGKB/cpic-guidelines/raw/master/fluoropyrimidines/2013/23988873.pdf]\r\n** [2013 supplement|https://github.com/PharmGKB/cpic-guidelines/raw/master/fluoropyrimidines/2013/23988873-supplement.pdf]\r\n \r\nh5.  \r\n\r\nh3.  Table 1: Recommended dosing of fluoropyrimidines by genotype/phenotype.\r\n_Adapted from Tables 1 and 2 of the 2013 guideline manuscript._\r\n|| Phenotype (genotype) || Examples of diplotypes || Implications for phenotypic measures || Dosing recommendations || Classification of recommendations ^a^ ||\r\n| Homozygous wild-type or normal, high DPD activity (two or more functional *1 alleles) | *1/*1 | Normal DPD activity and \"normal\" risk for fluoropyrimidine toxicity | Use label-recommended dosage and administration | Moderate |\r\n| Heterozygous or intermediate activity (~3-5% of patients), may have partial DPD deficiency, at risk for toxicity with drug exposure (one functional allele *1, plus one nonfunctional allele - *2A, *13 or rs67376798A ^c^) | *1/*2A; *1/*13; *1/ rs67376798A ^c^) | Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs | Start with at least a 50% reduction in starting dose followed by titration of dose based on toxicity ^b^ or pharmacokinetic test (if available) | Moderate |\r\n| Homozygous variant, DPD deficiency (~0.2% of patients), at risk for toxicity with drug exposure (2 nonfunctional alleles - *2A, *13 or rs67376798A ^c^) | *2A/*2A; *13/*13; rs67376798A ^c^ / rs67376798A ^c^ | Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs | Select alternate drug | Strong |\r\n^a^ Rating scheme described in 2013 supplement.\r\n^b^ Increase the dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.\r\n^c^ Note that the rs67376798A allele refers to the allele on the positive chromosomal strand.  This is important because DPYD is on the minus chromosomal strand and rs67376798 is a T/A snp.  Therefore, the T allele on the gene confers the deficiency, while the complement on the positive chromosomal strand (A allele) is indicative of deficiency.",
+  "textHtml" : "<h3 id=\"May2014UpdateonPharmGKB\">May 2014 Update on PharmGKB</h3><ul><li> The CPIC authors recommend that the <em>DPYD*4</em>, <em>*5</em>, <em>*6</em> and <em>*9A</em> alleles be categorized as \"normal\" activity, in part based upon the recent publication <a href=\"/redirect.jsp?p=http%3A%2F%2Fwww.ncbi.nlm.nih.gov%2Fpubmed%2F%3Fterm%3D24648345\" target=\"offsite\">Comparative Functional Analysis of DPYD Variants of Potential Clinical Relevance to Dihydropyrimidine Dehydrogenase Activity</a>. </li></ul><h3 id=\"December2013Publication\">December 2013 Publication</h3><p><em>Accepted article preview online August 2013; Advance online publication October 2013.</em></p><ul><li>Guidelines regarding the use of pharmacogenomic tests in dosing for fluoropyrimidines have been published in <em>Clinical Pharmacology and Therapeutics</em> by the Clinical Pharmacogenetics Implementation Consortium (<a href=\"/contributors/consortia/cpic_profile.jsp\">CPIC</a>).</li><li>These guidelines are applicable to:<ul><li>at the time of this writing, there are no data available on the possible role of DPYD*2A, *13, or <a href=\"/rsid/rs67376798\">rs67376798</a> in 5-fluorouracil toxicities in pediatric patient populations; however, there is no reason to suspect that DPYD variant alleles would affect 5-fluorouracil metabolism differently in children compared to adults.</li></ul></li><li>Excerpt from the fluoropyrimidine dosing guideline based on DPYD genotype:<ul><li>\"The strength of the dosing recommendations is based on the fact that some variants (DPYD*2A, *13, and <a href=\"/rsid/rs67376798\">rs67376798</a>) clearly affect DPD activity, and DPD activity is clearly related to 5-fluorouracil clearance, and 5-fluorouracil exposure is associated with its toxic effects. Therefore, reduction of fluoropyrimidine dosage in patients with these variants may prevent severe and possibly life-threatening toxicities. However, available evidence does not clearly indicate a degree of dose reduction needed to prevent fluoropyrimidine related toxicities...[Based on literature review (see full manuscript),] our recommendation is to start with at least a 50% reduction of the starting dose followed by an increase in dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy, a decrease in dose in patients who do not tolerate the starting dose to minimize toxicities or pharmacokinetic guided dose adjustments (if available). Patients who are homozygous for DPYD*2A, *13, or <a href=\"/rsid/rs67376798\">rs67376798</a> may demonstrate complete DPD deficiency and the use of 5-fluorouracil or capecitabine is not recommended in these patients.\" </li></ul></li><li>Download and read:<ul><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Ffluoropyrimidines%2F2013%2F23988873.pdf\" target=\"offsite\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing</a></li><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Ffluoropyrimidines%2F2013%2F23988873-supplement.pdf\" target=\"offsite\">2013 supplement</a></li></ul></li></ul><h5 id=\"h5-1\"></h5><h3 id=\"Table1Recommendeddosingoffluoropyrimidinesbygenotypephenotype.\">Table 1: Recommended dosing of fluoropyrimidines by genotype/phenotype.</h3><p><em>Adapted from Tables 1 and 2 of the 2013 guideline manuscript.</em></p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><th>Phenotype (genotype)</th><th>Examples of diplotypes</th><th>Implications for phenotypic measures</th><th>Dosing recommendations</th><th>Classification of recommendations <sup>a</sup></th></tr><tr><td>Homozygous wild-type or normal, high DPD activity (two or more functional *1 alleles)</td><td>*1/*1</td><td>Normal DPD activity and \"normal\" risk for fluoropyrimidine toxicity</td><td>Use label-recommended dosage and administration</td><td>Moderate</td></tr><tr><td>Heterozygous or intermediate activity (~3-5% of patients), may have partial DPD deficiency, at risk for toxicity with drug exposure (one functional allele *1, plus one nonfunctional allele - *2A, *13 or rs67376798A <sup>c</sup>)</td><td>*1/*2A; *1/*13; *1/ rs67376798A <sup>c</sup>)</td><td>Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs</td><td>Start with at least a 50% reduction in starting dose followed by titration of dose based on toxicity <sup>b</sup> or pharmacokinetic test (if available)</td><td>Moderate</td></tr><tr><td>Homozygous variant, DPD deficiency (~0.2% of patients), at risk for toxicity with drug exposure (2 nonfunctional alleles - *2A, *13 or rs67376798A <sup>c</sup>)</td><td>*2A/*2A; *13/*13; rs67376798A <sup>c</sup> / rs67376798A <sup>c</sup></td><td>Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs</td><td>Select alternate drug</td><td>Strong</td></tr></table><p><sup>a</sup> Rating scheme described in 2013 supplement.<br/><sup>b</sup> Increase the dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.<br/><sup>c</sup> Note that the rs67376798A allele refers to the allele on the positive chromosomal strand.  This is important because DPYD is on the minus chromosomal strand and <a href=\"/rsid/rs67376798\">rs67376798</a> is a T/A snp.  Therefore, the T allele on the gene confers the deficiency, while the complement on the positive chromosomal strand (A allele) is indicative of deficiency.</p>",
+  "textMarkdown" : {
+    "id" : 1447982074,
+    "html" : "<h3>May 2014 Update on PharmGKB</h3>\n<ul>\n<li>The CPIC authors recommend that the <em>DPYD*4</em>, <em>*5</em>, <em>*6</em> and <em>*9A</em> alleles be categorized as &quot;normal&quot; activity, in part based upon the recent publication <a href=\"/redirect.jsp?p=http%3A%2F%2Fwww.ncbi.nlm.nih.gov%2Fpubmed%2F%3Fterm%3D24648345\" target=\"offsite\">Comparative Functional Analysis of DPYD Variants of Potential Clinical Relevance to Dihydropyrimidine Dehydrogenase Activity</a>.</li>\n</ul>\n<h3>December 2013 Publication</h3>\n<p><em>Accepted article preview online August 2013; Advance online publication October 2013.</em></p>\n<ul>\n<li>Guidelines regarding the use of pharmacogenomic tests in dosing for fluoropyrimidines have been published in <em>Clinical Pharmacology and Therapeutics</em> by the Clinical Pharmacogenetics Implementation Consortium (<a href=\"/contributors/consortia/cpic_profile.jsp\">CPIC</a>).</li>\n<li>These guidelines are applicable to:\n<ul>\n<li>at the time of this writing, there are no data available on the possible role of DPYD*2A, *13, or <a href=\"/rsid/rs67376798\">rs67376798</a> in 5-fluorouracil toxicities in pediatric patient populations; however, there is no reason to suspect that DPYD variant alleles would affect 5-fluorouracil metabolism differently in children compared to adults.</li>\n</ul>\n</li>\n<li>Excerpt from the fluoropyrimidine dosing guideline based on DPYD genotype:\n<ul>\n<li>&quot;The strength of the dosing recommendations is based on the fact that some variants (DPYD*2A, *13, and <a href=\"/rsid/rs67376798\">rs67376798</a>) clearly affect DPD activity, and DPD activity is clearly related to 5-fluorouracil clearance, and 5-fluorouracil exposure is associated with its toxic effects. Therefore, reduction of fluoropyrimidine dosage in patients with these variants may prevent severe and possibly life-threatening toxicities. However, available evidence does not clearly indicate a degree of dose reduction needed to prevent fluoropyrimidine related toxicities...[Based on literature review (see full manuscript),] our recommendation is to start with at least a 50% reduction of the starting dose followed by an increase in dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy, a decrease in dose in patients who do not tolerate the starting dose to minimize toxicities or pharmacokinetic guided dose adjustments (if available). Patients who are homozygous for DPYD*2A, *13, or <a href=\"/rsid/rs67376798\">rs67376798</a> may demonstrate complete DPD deficiency and the use of 5-fluorouracil or capecitabine is not recommended in these patients.&quot;</li>\n</ul>\n</li>\n<li>Download and read:\n<ul>\n<li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Ffluoropyrimidines%2F2013%2F23988873.pdf\" target=\"offsite\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing</a></li>\n<li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Ffluoropyrimidines%2F2013%2F23988873-supplement.pdf\" target=\"offsite\">2013 supplement</a></li>\n</ul>\n</li>\n</ul>\n<h3>Table 1: Recommended dosing of fluoropyrimidines by genotype/phenotype.</h3>\n<p><em>Adapted from Tables 1 and 2 of the 2013 guideline manuscript.</em></p>\n<table class=\"table table-striped table-condensed table-hover table-bordered\">\n<thead>\n<tr><th>Phenotype (genotype)</th><th>Examples of diplotypes</th><th>Implications for phenotypic measures</th><th>Dosing recommendations</th><th>Classification of recommendations <sup>a</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>Homozygous wild-type or normal, high DPD activity (two or more functional *1 alleles)</td><td>*1/*1</td><td>Normal DPD activity and &quot;normal&quot; risk for fluoropyrimidine toxicity</td><td>Use label-recommended dosage and administration</td><td>Moderate</td></tr>\n<tr><td>Heterozygous or intermediate activity (~3-5% of patients), may have partial DPD deficiency, at risk for toxicity with drug exposure (one functional allele *1, plus one nonfunctional allele - *2A, *13 or rs67376798A <sup>c</sup>)</td><td>*1/*2A; *1/*13; *1/ rs67376798A <sup>c</sup>)</td><td>Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs</td><td>Start with at least a 50% reduction in starting dose followed by titration of dose based on toxicity <sup>b</sup> or pharmacokinetic test (if available)</td><td>Moderate</td></tr>\n<tr><td>Homozygous variant, DPD deficiency (~0.2% of patients), at risk for toxicity with drug exposure (2 nonfunctional alleles - *2A, *13 or rs67376798A <sup>c</sup>)</td><td>*2A/*2A; *13/*13; rs67376798A <sup>c</sup> / rs67376798A <sup>c</sup></td><td>Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs</td><td>Select alternate drug</td><td>Strong</td></tr>\n</tbody>\n</table>\n<p><sup>a</sup> Rating scheme described in 2013 supplement.</p>\n<p><sup>b</sup> Increase the dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.</p>\n<p><sup>c</sup> Note that the rs67376798A allele refers to the allele on the positive chromosomal strand.  This is important because DPYD is on the minus chromosomal strand and <a href=\"/rsid/rs67376798\">rs67376798</a> is a T/A snp.  Therefore, the T allele on the gene confers the deficiency, while the complement on the positive chromosomal strand (A allele) is indicative of deficiency.</p>\n",
+    "internalLinks" : [ "/contributors/consortia/cpic_profile.jsp" ],
+    "markdown" : "##  May 2014 Update on PharmGKB\r\n- The CPIC authors recommend that the _DPYD*4_, _*5_, _*6_ and _*9A_ alleles be categorized as \"normal\" activity, in part based upon the recent publication [Comparative Functional Analysis of DPYD Variants of Potential Clinical Relevance to Dihydropyrimidine Dehydrogenase Activity](http://www.ncbi.nlm.nih.gov/pubmed/?term=24648345). \r\n\r\n## December 2013 Publication\r\n\r\n_Accepted article preview online August 2013; Advance online publication October 2013._\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing for fluoropyrimidines have been published in _Clinical Pharmacology and Therapeutics_ by the Clinical Pharmacogenetics Implementation Consortium ([CPIC](/contributors/consortia/cpic_profile.jsp)).\r\n- These guidelines are applicable to:\r\n  - at the time of this writing, there are no data available on the possible role of DPYD*2A, *13, or [variant:rs67376798] in 5-fluorouracil toxicities in pediatric patient populations; however, there is no reason to suspect that DPYD variant alleles would affect 5-fluorouracil metabolism differently in children compared to adults.\r\n- Excerpt from the fluoropyrimidine dosing guideline based on DPYD genotype:\r\n  - \"The strength of the dosing recommendations is based on the fact that some variants (DPYD*2A, *13, and [variant:rs67376798]) clearly affect DPD activity, and DPD activity is clearly related to 5-fluorouracil clearance, and 5-fluorouracil exposure is associated with its toxic effects. Therefore, reduction of fluoropyrimidine dosage in patients with these variants may prevent severe and possibly life-threatening toxicities. However, available evidence does not clearly indicate a degree of dose reduction needed to prevent fluoropyrimidine related toxicities...\\[Based on literature review (see full manuscript),] our recommendation is to start with at least a 50% reduction of the starting dose followed by an increase in dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy, a decrease in dose in patients who do not tolerate the starting dose to minimize toxicities or pharmacokinetic guided dose adjustments (if available). Patients who are homozygous for DPYD*2A, *13, or [variant:rs67376798] may demonstrate complete DPD deficiency and the use of 5-fluorouracil or capecitabine is not recommended in these patients.\" \r\n- Download and read:\r\n  - [Clinical Pharmacogenetics Implementation Consortium Guidelines for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing](https://github.com/PharmGKB/cpic-guidelines/raw/master/fluoropyrimidines/2013/23988873.pdf)\r\n  - [2013 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/fluoropyrimidines/2013/23988873-supplement.pdf)\r\n\r\n\r\n##  Table 1: Recommended dosing of fluoropyrimidines by genotype/phenotype.\r\n\r\n_Adapted from Tables 1 and 2 of the 2013 guideline manuscript._\r\n\r\n| Phenotype (genotype) | Examples of diplotypes | Implications for phenotypic measures | Dosing recommendations | Classification of recommendations ^a^ |\r\n| --- | --- | --- | --- | --- |\r\n| Homozygous wild-type or normal, high DPD activity (two or more functional *1 alleles) | *1/*1 | Normal DPD activity and \"normal\" risk for fluoropyrimidine toxicity | Use label-recommended dosage and administration | Moderate |\r\n| Heterozygous or intermediate activity (~3-5% of patients), may have partial DPD deficiency, at risk for toxicity with drug exposure (one functional allele *1, plus one nonfunctional allele - *2A, *13 or rs67376798A ^c^) | *1/*2A; *1/*13; *1/ rs67376798A ^c^) | Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs | Start with at least a 50% reduction in starting dose followed by titration of dose based on toxicity ^b^ or pharmacokinetic test (if available) | Moderate |\r\n| Homozygous variant, DPD deficiency (~0.2% of patients), at risk for toxicity with drug exposure (2 nonfunctional alleles - *2A, *13 or rs67376798A ^c^) | *2A/*2A; *13/*13; rs67376798A ^c^ / rs67376798A ^c^ | Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs | Select alternate drug | Strong |\r\n\r\n^a^ Rating scheme described in 2013 supplement.\r\n\r\n^b^ Increase the dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.\r\n\r\n^c^ Note that the rs67376798A allele refers to the allele on the positive chromosomal strand.  This is important because DPYD is on the minus chromosomal strand and [variant:rs67376798] is a T/A snp.  Therefore, the T allele on the gene confers the deficiency, while the complement on the positive chromosomal strand (A allele) is indicative of deficiency.",
+    "pmids" : [ ],
+    "relatedObjects" : [ ],
+    "rsids" : [ "rs67376798" ]
+  },
+  "variants" : [ ],
+  "version" : 5,
+  "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-fluoropyrimidines-and-dpyd/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983463,"resource":"Web Resource","xrefId":"https://cpicpgx.org/guidelines/guideline-for-fluoropyrimidines-and-dpyd/"} ]
+}

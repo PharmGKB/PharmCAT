@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 
@@ -14,9 +16,13 @@ import org.pharmgkb.pharmcat.haplotype.MatchData;
  * @author Mark Woon
  */
 public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
+  @Expose
+  @SerializedName("name")
   private String m_name;
   private HaplotypeMatch m_haplotype1;
   private HaplotypeMatch m_haplotype2;
+  @Expose
+  @SerializedName("score")
   private int m_score;
   private Set<String[]> m_sequences = new HashSet<>();
   private MatchData m_dataset;

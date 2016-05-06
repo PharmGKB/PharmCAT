@@ -33,7 +33,7 @@ public class TestUtil {
 
     Preconditions.checkNotNull(filename);
     URL url = TestUtil.class.getClassLoader().getResource(filename);
-    assertNotNull(url);
+    assertNotNull(filename + " is null", url);
     return Paths.get(url.toURI());
   }
 

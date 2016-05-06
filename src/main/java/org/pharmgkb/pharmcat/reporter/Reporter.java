@@ -2,9 +2,16 @@ package org.pharmgkb.pharmcat.reporter;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import javax.annotation.Nonnull;
+import com.google.common.base.Preconditions;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
@@ -16,181 +23,123 @@ import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Gene;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.MultiGeneInteraction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
 
 /**
  * This is contains the main function for running the CPIC reporting tool.
- * 
+ *
  * As of today  (4-23-2016) this tool is still in development currently this tool 
  * there are many broken, missing, and commented out pieces of this code due to
  * ongoing work to produce a working output.  
- * 
+ *
  * Please contact me (Greyson Twist) on slack or at gtwist@cmh.edu if there are 
  * questions and I will try to improve documentation to make thing more clear
- * 
- * 
+ *
+ *
  * @author greytwist
  *
  */
-
-
 public class Reporter {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
+  private List<File> m_annotationFiles = null;
+  private File m_callFile = null;
+  private File m_exceptionFile = null;
+  private Path m_reportDir = null;
 
 
-    /**
-     * Logging instance
-     */
-   //private Logger logger = LoggerFactory.getLogger( Reporter.class );
+  /**
+   * main
+   * @param args command line args
+   * @throws Exception
+   */
+  public static void main(String[] args) throws Exception {
+    Options options = new Options();
 
+    options.addOption(new Option("annotationsDir", true, "required - directory holding all the annotations files"));
+    options.addOption(new Option("callFile", true, "required - file from the Haplotyper"));
+    options.addOption(new Option("exceptionsFile", true, "required - file with the exception logic"));
+    options.addOption(new Option("reportDir", true, "required - directory to store output reports"));
 
-	String locationOfResources = "C:\\Users\\greytwist\\Desktop\\CLONES\\PharmCAT\\";
-   /**
-    * Exception list formated as json
-    */
-   String exceptionPath = "resources\\cpic_exceptions\\exceptions.json"; //TODO don't do this, done for wiring purposes only
-   private File exception = new File(locationOfResources + exceptionPath);
+    CommandLine cmdline = new DefaultParser().parse(options, args);
+    File annotationsDir = new File(cmdline.getOptionValue("annotationsDir"));
+    File callFile       = new File(cmdline.getOptionValue("callFile"));
+    File exceptionsFile = new File(cmdline.getOptionValue("exceptionsFile"));
+    Path outputDir      = Paths.get(cmdline.getOptionValue("reportDir"));
 
-   /**
-    * Drug Gene interaction json
-    */
+    //if minimal required parameters are set parse command line
+    Reporter report = new Reporter(annotationsDir, callFile, exceptionsFile, outputDir);
+    //run genotyper workflow
+    report.run();
+  }
 
-   //TODO don't do any of this load from props file like an actual engineer
-   String test1 = "resources\\dosing_guidelines\\CPIC_Guideline_for_citalopram_escitalopram_and_CYP2C19.json";
-   String test2 = "resources\\dosing_guidelines\\CPIC_Guideline_for_clopidogrel_and_CYP2C19.json";
-   String test3 = "resources\\dosing_guidelines\\CPIC_Guideline_for_sertraline_and_CYP2C19.json";
-   private List<File> interactions = new ArrayList<File>();
+  /**
+   * parse command line options
+   * @param annotationsDir directory of annotations files
+   * @param callFile file of haplotype calls
+   * @param reportDir directory to write output to
+   * @throws IOException
+   */
+  public Reporter(@Nonnull File annotationsDir, @Nonnull File callFile, @Nonnull File exceptionFile, @Nonnull Path reportDir)  throws IOException {
+    Preconditions.checkNotNull(annotationsDir);
+    Preconditions.checkArgument(annotationsDir.exists());
+    Preconditions.checkArgument(annotationsDir.isDirectory());
 
-    /**
-     * Configuration properties loaded from file
-     */
-   // private Properties props;
+    Preconditions.checkNotNull(reportDir);
+    Preconditions.checkArgument(reportDir.toFile().exists());
+    Preconditions.checkArgument(reportDir.toFile().isDirectory());
 
-    /**
-     * File in
-     * TODO CLEAN THIS UP FOR TEST BUILDING AND WIRING ONLY
-     */
-    String multiGeneFile = "resources\\json_out_example\\multi_gene.json";
-    private File inFile = new File(locationOfResources + multiGeneFile);
+    Preconditions.checkNotNull(callFile);
+    Preconditions.checkArgument(callFile.exists());
+    Preconditions.checkArgument(callFile.isFile());
 
-    /**
-     * File to write final results to
-     */
-   // private File outFile;
+    Preconditions.checkNotNull(exceptionFile);
+    Preconditions.checkArgument(exceptionFile.exists());
+    Preconditions.checkArgument(exceptionFile.isFile());
 
-
-
-    //parse command line options
-    private Reporter( CommandLine cmdline )  throws IOException {
-        interactions.add( new File(locationOfResources + test1));
-        interactions.add( new File(locationOfResources + test2));
-        interactions.add( new File(locationOfResources + test3));
-
-        //File propsFile = new File( cmdline.getOptionValue( "conf" ) );
-       // props = readConfFile( propsFile );
-
-        //String out_location = cmdline.getOptionValue( "outFile" );
-        //this.outFile = new File( out_location );
-
-       // String in_file = cmdline.getOptionValue("inFile");
-        //this.inFile = new File( in_file );
-
-
+    File[] annotationFiles = annotationsDir.listFiles();
+    if (annotationFiles == null || annotationFiles.length == 0) {
+      throw new IOException("No annotation definitions to read from");
     }
 
-    /**
-     * Read config file into props object
-     */
-    /*private Properties readConfFile( File file ) throws IOException {
-        Properties props = new Properties();
-        props.load( FileUtils.openInputStream( file ) );
-        return props;
-    }*/
+    m_annotationFiles = Arrays.stream(annotationFiles)
+        .filter(f -> f.getName().endsWith(".json"))
+        .collect(Collectors.toList());
 
-    public static Options createCommandLineOptions() {
-        Options options = new Options();
+    m_reportDir = reportDir;
+    sf_logger.debug("Writing output to {}", m_reportDir);
 
-        Option infile = new Option("inFile", true, "required - haplotype result to generate report");
-        options.addOption(infile);
+    m_callFile = callFile;
 
-        Option conf = new Option( "conf", true, "required - configuration file" );
-        options.addOption( conf );
+    m_exceptionFile = exceptionFile;
+  }
 
+  public void run() throws IOException {
 
-        Option outfile = new Option( "outFile", true, "required - location to write final file" );
-        options.addOption( outfile );
+    List<Gene> geneListToReport = new ArrayList<>();
+    List<MultiGeneInteraction> multiInteractionsToReport = new ArrayList<>();
 
-        return options;
-    }
+    //Generate class used for loading JSON into
+    JsonFileLoader loader = new JsonFileLoader();
 
-    public static void main(String[] args) throws Exception {
-        Options options = createCommandLineOptions();
-        CommandLine cmdline = new DefaultParser().parse( options,  args );
+    //Load the haplotype json, this is pointed at a test json and will likely break when meeting real
+    // requiring some if not all rewriting
+    List<GeneCall> calls = loader.loadHaplotypeGeneCalls(m_callFile);
 
-        /*if( args.length == 0 ) {
-            HelpFormatter formatter = new HelpFormatter();
-            formatter.printHelp( "CPIC-Reporter", options );
-            System.exit( 0 );
-        } else if ( !cmdline.hasOption("conf") ||
-                    !cmdline.hasOption( "in" ) ||
-                    !cmdline.hasOption("out") ) {
-            HelpFormatter formatter = new HelpFormatter();
-            formatter.printHelp( "CPIC-Reporter", options );
-            System.out.println( "Error in options in, out, conf" +
-                    " are required variables" );
-            System.exit( 1 );
+    //Load the gene rule sf_exceptionFile json
+    Map<String, List<CPICException>> exceptions = loader.loadExceptions(m_exceptionFile);
 
-        } else if ( !cmdline.hasOption("inputBam")){
-            System.out.println( "WARNING: No bam file provided" );
-        }*/
+    //Load the gene drug interaction list. This currently only handles single gene drug m_guidelineFiles and will require updating to handle multi gene drug interaction
+    List<CPICinteraction> guidelines = loader.loadDrugGeneRecommendations(m_annotationFiles);
 
+    //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
+    DataUnifier checker = new DataUnifier(calls, exceptions, guidelines); // prime with data
+    checker.findMatches(geneListToReport, multiInteractionsToReport); // run the actual comparison
 
-        //if minimal required parameters are set parse command line
-        Reporter report = new Reporter( cmdline );
-        //run genotyper workflow
-        report.run();
-    }
+    ReporterWriter.printResults(m_reportDir, geneListToReport, multiInteractionsToReport );
 
-    private void run() throws IOException {
-
-    	List<Gene> geneListToReport = new ArrayList<Gene>();
-    	List<MultiGeneInteraction> multiInteractionsToReport = new ArrayList<MultiGeneInteraction>(); 
-        //loadRequiredFiles(); TODO undelete this and use actual args and real code for plumbing the system
-
-    	//Generate class used for loading JSON into 
-        JsonFileLoader loader = new JsonFileLoader();
-
-        //Load the haplotype json, this is pointed at a test json and will likely break when meeting real 
-        // requiring some if not all rewriting
-        List<GeneCall> calls = loader.loadHaplotypeGeneCalls(this.inFile);
-        
-        //Load the gene rule exception json
-        Map<String, List<CPICException>> exceptions = loader.loadExceptions(this.exception);
-        
-        //Load the gene drug interaction list. This currently only handles single gene drug interactions and will require updating to handle multi gene drug interaction
-        List<CPICinteraction> drugGenes = loader.loadDrugGeneRecommendations(this.interactions);
-
-        //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene interactions based on reported haplotypes
-        DataUnifier checker = new DataUnifier(calls, exceptions, drugGenes); // prime with data
-        checker.findMatches(geneListToReport, multiInteractionsToReport ); // run the actual comparison
-
-        ReporterWriter.printResults( /*outfile, */geneListToReport, multiInteractionsToReport );
-
-       // logger.info( "Complete" );
-    }
-
-    /*private void loadRequiredFiles(){
-        String exceptionLoc = props.getProperty("CPIC.reporter.exception");
-        this.exception = new File( exceptionLoc );
-
-        String interactionLoc = props.getProperty("CPIC.reporter.guidlines");
-        this.interactions = new File(interactionLoc);
-    }*/
-
-
-
-
-
-
+    sf_logger.info("Complete");
+  }
 }

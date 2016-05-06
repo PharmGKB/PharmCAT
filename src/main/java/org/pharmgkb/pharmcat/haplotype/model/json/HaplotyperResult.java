@@ -13,6 +13,7 @@ public class HaplotyperResult {
   @SerializedName("metadata")
   @Expose
   private Metadata m_metadata;
+
   @SerializedName("results")
   @Expose
   private List<GeneCall> m_geneCalls = new ArrayList<>();

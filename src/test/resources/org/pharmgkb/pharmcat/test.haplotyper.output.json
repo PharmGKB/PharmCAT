@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "cpicAnnotatorBuild": "20160410",
+    "cpicDataBuild:": "2016048",
+    "genomeAssembly": "GRCh38.p2",
+    "inputFile": "multigene.vcf",
+    "dateTime": "20160410"
+  },
+  "results": [
+    {
+      "gene": "CYP2C19",
+      "geneVersion": "CPIC-v1.x",
+      "chromosome": "10",
+      "diplotypes": [
+        {
+          "name": "CYP2C19:*4/*17",
+          "score": 1
+        },
+        {
+          "name": "CYP2C19:*4/*4",
+          "score": 1
+        },
+        {
+          "name": "CYP2C19:*1/*17",
+          "score": 1
+        },
+        {
+          "name": "CYP2C19:*1/*4",
+          "score": 1
+        }
+      ],
+      "positionsUsed": [
+        {
+          "position": "g.94762706A>G",
+          "rsID": "rs28399504",
+          "VCFCall": "A/G"
+        },
+        {
+          "position": "g.94761900C>T",
+          "rsID": "rs12248560",
+          "VCFCall": "C/T"
+        }
+      ],
+      "haplotypesNotCalled": [
+        {
+          "haplotype": "*2",
+          "positionsMissing": [
+            {
+              "position": "g.94781859G>A",
+              "rsID": "rs4244285"
+            }
+          ]
+        },
+        {
+          "haplotype": "*3",
+          "positionsMissing": [
+            {
+              "position": "g.94780653G>A",
+              "rsID": "rs4986893"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "gene": "CYP2C9",
+      "geneVersion": "CPIC-v1.x",
+      "chromosome": "10",
+      "diplotypes": [
+        {
+          "name": "CYP2C9:*1/*2",
+          "score": 2
+        }
+      ],
+      "positionsUsed": [
+        {
+          "position": "g.94942290C>T",
+          "rsID": "rs1799853",
+          "VCFCall": "C/T"
+        }
+      ],
+      "haplotypesNotCalled": [
+        {
+          "haplotype": "*3",
+          "positionsMissing": [
+            {
+              "position": "g.94981296A>C",
+              "rsID": "rs1057910"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

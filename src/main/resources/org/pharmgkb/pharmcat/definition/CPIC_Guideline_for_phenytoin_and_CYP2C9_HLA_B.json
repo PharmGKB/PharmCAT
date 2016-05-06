@@ -1,0 +1,451 @@
+{
+  "objCls" : "Guideline",
+  "@id" : "https://api.pharmgkb.org/data/guideline/PA166122806",
+  "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+  "id" : "PA166122806",
+  "name" : "CPIC Guideline for phenytoin and CYP2C9,HLA-B",
+  "groups" : [ {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128867",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128867",
+    "name" : "CYP2C9 Extensive metabolizer",
+    "annotations" : [ {
+      "id" : 1446426268,
+      "text" : "Normal phenytoin metabolism.",
+      "textHtml" : "<p>Normal phenytoin metabolism.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1446432108,
+      "text" : "Extensive metabolizer (normal activity) (constitutes ~91% of patients)",
+      "textHtml" : "<p>Extensive metabolizer (normal activity) (constitutes ~91% of patients)</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926"
+      }
+    }, {
+      "id" : 1446426250,
+      "text" : "An individual carrying two normal activity alleles.",
+      "textHtml" : "<p>An individual carrying two normal activity alleles.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1446426305,
+      "text" : "Initiate therapy with recommended maintenance dose (based on patient’s clinical characteristics).",
+      "textHtml" : "<p>Initiate therapy with recommended maintenance dose (based on patient’s clinical characteristics).</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "CYP2C9:*1/*1;HLA-B:Other/Other", "CYP2C9:*1/*9;HLA-B:Other/Other", "CYP2C9:*9/*9;HLA-B:Other/Other" ],
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128868",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128868",
+    "name" : "CYP2C9 Intermediate metabolizer",
+    "annotations" : [ {
+      "id" : 1446426426,
+      "text" : "Reduced phenytoin metabolism; higher plasma concentrations will increase probability of toxicities.",
+      "textHtml" : "<p>Reduced phenytoin metabolism; higher plasma concentrations will increase probability of toxicities.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1446432122,
+      "text" : "Intermediate metabolizer (intermediate activity) (constitutes ~8% of patients)",
+      "textHtml" : "<p>Intermediate metabolizer (intermediate activity) (constitutes ~8% of patients)</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926"
+      }
+    }, {
+      "id" : 1446426378,
+      "text" : "An individual carrying one normal activity allele plus one decreased or no function allele.",
+      "textHtml" : "<p>An individual carrying one normal activity allele plus one decreased or no function allele.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1446426474,
+      "text" : "Consider 25% reduction of recommended starting maintenance dosed (based on patient’s clinical characteristics). Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.",
+      "textHtml" : "<p>Consider 25% reduction of recommended starting maintenance dosed (based on patient’s clinical characteristics). Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "CYP2C9:*1/*15;HLA-B:Other/Other", "CYP2C9:*1/*25;HLA-B:Other/Other", "CYP2C9:*1/*2;HLA-B:Other/Other", "CYP2C9:*1/*3;HLA-B:Other/Other", "CYP2C9:*1/*6;HLA-B:Other/Other", "CYP2C9:*15/*9;HLA-B:Other/Other", "CYP2C9:*2/*9;HLA-B:Other/Other", "CYP2C9:*25/*9;HLA-B:Other/Other", "CYP2C9:*3/*9;HLA-B:Other/Other", "CYP2C9:*6/*9;HLA-B:Other/Other" ],
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128869",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128869",
+    "name" : "CYP2C9 Poor metabolizer",
+    "annotations" : [ {
+      "id" : 1446426511,
+      "text" : "Reduced phenytoin metabolism; higher plasma concentrations will increase probability of toxicities.",
+      "textHtml" : "<p>Reduced phenytoin metabolism; higher plasma concentrations will increase probability of toxicities.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1446432134,
+      "text" : "Poor metabolizer (low or deficient activity) (constitutes ~1% of patients)",
+      "textHtml" : "<p>Poor metabolizer (low or deficient activity) (constitutes ~1% of patients)</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926"
+      }
+    }, {
+      "id" : 1446426488,
+      "text" : "An individual carrying two decreased function alleles, or two no function alleles, or one decreased function allele and one no function allele.",
+      "textHtml" : "<p>An individual carrying two decreased function alleles, or two no function alleles, or one decreased function allele and one no function allele.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1446426541,
+      "text" : "Consider 50% reduction of recommended starting maintenance dose (based on patient’s clinical characteristics). Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.",
+      "textHtml" : "<p>Consider 50% reduction of recommended starting maintenance dose (based on patient’s clinical characteristics). Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "CYP2C9:*15/*15;HLA-B:Other/Other", "CYP2C9:*15/*25;HLA-B:Other/Other", "CYP2C9:*15/*2;HLA-B:Other/Other", "CYP2C9:*15/*3;HLA-B:Other/Other", "CYP2C9:*15/*6;HLA-B:Other/Other", "CYP2C9:*2/*25;HLA-B:Other/Other", "CYP2C9:*2/*2;HLA-B:Other/Other", "CYP2C9:*2/*3;HLA-B:Other/Other", "CYP2C9:*2/*6;HLA-B:Other/Other", "CYP2C9:*25/*25;HLA-B:Other/Other", "CYP2C9:*25/*3;HLA-B:Other/Other", "CYP2C9:*25/*6;HLA-B:Other/Other", "CYP2C9:*3/*3;HLA-B:Other/Other", "CYP2C9:*3/*6;HLA-B:Other/Other", "CYP2C9:*6/*6;HLA-B:Other/Other" ],
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930"
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128871",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128871",
+    "name" : "CYP2C9 Possible Intermediate Metabolizer",
+    "annotations" : [ {
+      "id" : 1446432560,
+      "text" : "Reduced phenytoin metabolism; higher plasma concentrations will increase probability of toxicities.",
+      "textHtml" : "<p>Reduced phenytoin metabolism; higher plasma concentrations will increase probability of toxicities.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1446432595,
+      "text" : "Possible intermediate metabolizer",
+      "textHtml" : "<p>Possible intermediate metabolizer</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926"
+      }
+    }, {
+      "id" : 1446432639,
+      "text" : "An individual carrying one normal activity allele plus one possibly decreased function allele.",
+      "textHtml" : "<p>An individual carrying one normal activity allele plus one possibly decreased function allele.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1446432801,
+      "text" : "Due to the presence of a _possibly_ decreased function allele in combination with a normal function allele, this diplotype has been assigned as a _possible_ intermediate metabolizer. The CPIC dosing guideline recommendation for phenytoin for intermediate metabolizers is: Consider 25% reduction of recommended starting maintenance dosed (based on patient’s clinical characteristics). Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.",
+      "textHtml" : "<p>Due to the presence of a <em>possibly</em> decreased function allele in combination with a normal function allele, this diplotype has been assigned as a <em>possible</em> intermediate metabolizer. The CPIC dosing guideline recommendation for phenytoin for intermediate metabolizers is: Consider 25% reduction of recommended starting maintenance dosed (based on patient’s clinical characteristics). Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "CYP2C9:*1/*11;HLA-B:Other/Other", "CYP2C9:*1/*12;HLA-B:Other/Other", "CYP2C9:*1/*13;HLA-B:Other/Other", "CYP2C9:*1/*31;HLA-B:Other/Other", "CYP2C9:*1/*4;HLA-B:Other/Other", "CYP2C9:*1/*5;HLA-B:Other/Other", "CYP2C9:*1/*8;HLA-B:Other/Other", "CYP2C9:*11/*9;HLA-B:Other/Other", "CYP2C9:*12/*9;HLA-B:Other/Other", "CYP2C9:*13/*9;HLA-B:Other/Other", "CYP2C9:*31/*9;HLA-B:Other/Other", "CYP2C9:*4/*9;HLA-B:Other/Other", "CYP2C9:*5/*9;HLA-B:Other/Other", "CYP2C9:*8/*9;HLA-B:Other/Other" ],
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128870",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128870",
+    "name" : "CYP2C9 Possible Poor Metabolizer",
+    "annotations" : [ {
+      "id" : 1446429968,
+      "text" : "Reduced phenytoin metabolism; higher plasma concentrations will increase probability of toxicities.",
+      "textHtml" : "<p>Reduced phenytoin metabolism; higher plasma concentrations will increase probability of toxicities.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1446432150,
+      "text" : "Possible poor metabolizer",
+      "textHtml" : "<p>Possible poor metabolizer</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926"
+      }
+    }, {
+      "id" : 1446429950,
+      "text" : "An individual carrying one of the following allele combinations: (1) two possibly decreased function alleles, (2) one possibly decreased function allele and one decreased function allele, (3) one possibly decreased function allele and one no function allele.",
+      "textHtml" : "<p>An individual carrying one of the following allele combinations: (1) two possibly decreased function alleles, (2) one possibly decreased function allele and one decreased function allele, (3) one possibly decreased function allele and one no function allele.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1446429994,
+      "text" : "Due to the presence of at least one _possibly_ decreased function allele, this diplotype has been assigned as a _possible_ poor metabolizer.  The CPIC dosing guideline recommendation for phenytoin for poor metabolizers is: Consider 50% reduction of recommended starting maintenance dose (based on patient’s clinical characteristics). Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.",
+      "textHtml" : "<p>Due to the presence of at least one <em>possibly</em> decreased function allele, this diplotype has been assigned as a <em>possible</em> poor metabolizer.  The CPIC dosing guideline recommendation for phenytoin for poor metabolizers is: Consider 50% reduction of recommended starting maintenance dose (based on patient’s clinical characteristics). Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "CYP2C9:*11/*11;HLA-B:Other/Other", "CYP2C9:*11/*12;HLA-B:Other/Other", "CYP2C9:*11/*13;HLA-B:Other/Other", "CYP2C9:*11/*15;HLA-B:Other/Other", "CYP2C9:*11/*25;HLA-B:Other/Other", "CYP2C9:*11/*2;HLA-B:Other/Other", "CYP2C9:*11/*31;HLA-B:Other/Other", "CYP2C9:*11/*3;HLA-B:Other/Other", "CYP2C9:*11/*4;HLA-B:Other/Other", "CYP2C9:*11/*5;HLA-B:Other/Other", "CYP2C9:*11/*6;HLA-B:Other/Other", "CYP2C9:*11/*8;HLA-B:Other/Other", "CYP2C9:*12/*12;HLA-B:Other/Other", "CYP2C9:*12/*13;HLA-B:Other/Other", "CYP2C9:*12/*15;HLA-B:Other/Other", "CYP2C9:*12/*25;HLA-B:Other/Other", "CYP2C9:*12/*2;HLA-B:Other/Other", "CYP2C9:*12/*31;HLA-B:Other/Other", "CYP2C9:*12/*3;HLA-B:Other/Other", "CYP2C9:*12/*4;HLA-B:Other/Other", "CYP2C9:*12/*5;HLA-B:Other/Other", "CYP2C9:*12/*6;HLA-B:Other/Other", "CYP2C9:*12/*8;HLA-B:Other/Other", "CYP2C9:*13/*13;HLA-B:Other/Other", "CYP2C9:*13/*15;HLA-B:Other/Other", "CYP2C9:*13/*25;HLA-B:Other/Other", "CYP2C9:*13/*2;HLA-B:Other/Other", "CYP2C9:*13/*31;HLA-B:Other/Other", "CYP2C9:*13/*3;HLA-B:Other/Other", "CYP2C9:*13/*4;HLA-B:Other/Other", "CYP2C9:*13/*5;HLA-B:Other/Other", "CYP2C9:*13/*6;HLA-B:Other/Other", "CYP2C9:*13/*8;HLA-B:Other/Other", "CYP2C9:*15/*31;HLA-B:Other/Other", "CYP2C9:*15/*4;HLA-B:Other/Other", "CYP2C9:*15/*5;HLA-B:Other/Other", "CYP2C9:*15/*8;HLA-B:Other/Other", "CYP2C9:*2/*31;HLA-B:Other/Other", "CYP2C9:*2/*4;HLA-B:Other/Other", "CYP2C9:*2/*5;HLA-B:Other/Other", "CYP2C9:*2/*8;HLA-B:Other/Other", "CYP2C9:*25/*31;HLA-B:Other/Other", "CYP2C9:*25/*4;HLA-B:Other/Other", "CYP2C9:*25/*5;HLA-B:Other/Other", "CYP2C9:*25/*8;HLA-B:Other/Other", "CYP2C9:*3/*31;HLA-B:Other/Other", "CYP2C9:*3/*4;HLA-B:Other/Other", "CYP2C9:*3/*5;HLA-B:Other/Other", "CYP2C9:*3/*8;HLA-B:Other/Other", "CYP2C9:*31/*31;HLA-B:Other/Other", "CYP2C9:*31/*4;HLA-B:Other/Other", "CYP2C9:*31/*5;HLA-B:Other/Other", "CYP2C9:*31/*6;HLA-B:Other/Other", "CYP2C9:*31/*8;HLA-B:Other/Other", "CYP2C9:*4/*4;HLA-B:Other/Other", "CYP2C9:*4/*5;HLA-B:Other/Other", "CYP2C9:*4/*6;HLA-B:Other/Other", "CYP2C9:*4/*8;HLA-B:Other/Other", "CYP2C9:*5/*5;HLA-B:Other/Other", "CYP2C9:*5/*6;HLA-B:Other/Other", "CYP2C9:*5/*8;HLA-B:Other/Other", "CYP2C9:*6/*8;HLA-B:Other/Other", "CYP2C9:*8/*8;HLA-B:Other/Other" ],
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    }
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128866",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128866",
+    "name" : "HLA-B*15:02 positive",
+    "annotations" : [ {
+      "id" : 1446426066,
+      "text" : "Increased risk of phenytoin-induced SJS/TEN.",
+      "textHtml" : "<p>Increased risk of phenytoin-induced SJS/TEN. </p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925"
+      }
+    }, {
+      "id" : 1446426164,
+      "text" : "Heterozygote or homozygous HLA-B*15:02 variant; at significantly increased risk of phenytoin-associated cutaneous adverse reactions (constitutes ~ 1.4% of patients).",
+      "textHtml" : "<p>Heterozygote or homozygous HLA-B*15:02 variant; at significantly increased risk of phenytoin-associated cutaneous adverse reactions (constitutes ~ 1.4% of patients).</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927"
+      }
+    }, {
+      "id" : 1446426118,
+      "text" : "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin.\r\n\r\nIf patient has previously used phenytoin for longer than 3 months without incidence of cutaneous adverse reactions, reinitiate phenytoin with caution.\r\n\r\nNote that carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele and thus caution should be used in choosing alternatives to phenytoin (see guideline supplement for details).",
+      "textHtml" : "<p>If patient is phenytoin-naive, do not use phenytoin/fosphenytoin.</p><p>If patient has previously used phenytoin for longer than 3 months without incidence of cutaneous adverse reactions, reinitiate phenytoin with caution.</p><p>Note that carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele and thus caution should be used in choosing alternatives to phenytoin (see guideline supplement for details).</p>",
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928"
+      }
+    } ],
+    "genotypes" : [ "CYP2C9:*1/*11;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*11;HLA-B:*15:02:01/Other", "CYP2C9:*1/*12;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*12;HLA-B:*15:02:01/Other", "CYP2C9:*1/*13;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*13;HLA-B:*15:02:01/Other", "CYP2C9:*1/*15;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*15;HLA-B:*15:02:01/Other", "CYP2C9:*1/*1;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*1;HLA-B:*15:02:01/Other", "CYP2C9:*1/*25;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*25;HLA-B:*15:02:01/Other", "CYP2C9:*1/*2;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*2;HLA-B:*15:02:01/Other", "CYP2C9:*1/*31;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*31;HLA-B:*15:02:01/Other", "CYP2C9:*1/*3;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*3;HLA-B:*15:02:01/Other", "CYP2C9:*1/*4;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*4;HLA-B:*15:02:01/Other", "CYP2C9:*1/*5;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*5;HLA-B:*15:02:01/Other", "CYP2C9:*1/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*6;HLA-B:*15:02:01/Other", "CYP2C9:*1/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*8;HLA-B:*15:02:01/Other", "CYP2C9:*1/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*1/*9;HLA-B:*15:02:01/Other", "CYP2C9:*11/*11;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*11;HLA-B:*15:02:01/Other", "CYP2C9:*11/*12;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*12;HLA-B:*15:02:01/Other", "CYP2C9:*11/*13;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*13;HLA-B:*15:02:01/Other", "CYP2C9:*11/*15;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*15;HLA-B:*15:02:01/Other", "CYP2C9:*11/*25;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*25;HLA-B:*15:02:01/Other", "CYP2C9:*11/*2;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*2;HLA-B:*15:02:01/Other", "CYP2C9:*11/*31;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*31;HLA-B:*15:02:01/Other", "CYP2C9:*11/*3;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*3;HLA-B:*15:02:01/Other", "CYP2C9:*11/*4;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*4;HLA-B:*15:02:01/Other", "CYP2C9:*11/*5;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*5;HLA-B:*15:02:01/Other", "CYP2C9:*11/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*6;HLA-B:*15:02:01/Other", "CYP2C9:*11/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*8;HLA-B:*15:02:01/Other", "CYP2C9:*11/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*11/*9;HLA-B:*15:02:01/Other", "CYP2C9:*12/*12;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*12;HLA-B:*15:02:01/Other", "CYP2C9:*12/*13;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*13;HLA-B:*15:02:01/Other", "CYP2C9:*12/*15;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*15;HLA-B:*15:02:01/Other", "CYP2C9:*12/*25;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*25;HLA-B:*15:02:01/Other", "CYP2C9:*12/*2;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*2;HLA-B:*15:02:01/Other", "CYP2C9:*12/*31;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*31;HLA-B:*15:02:01/Other", "CYP2C9:*12/*3;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*3;HLA-B:*15:02:01/Other", "CYP2C9:*12/*4;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*4;HLA-B:*15:02:01/Other", "CYP2C9:*12/*5;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*5;HLA-B:*15:02:01/Other", "CYP2C9:*12/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*6;HLA-B:*15:02:01/Other", "CYP2C9:*12/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*8;HLA-B:*15:02:01/Other", "CYP2C9:*12/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*12/*9;HLA-B:*15:02:01/Other", "CYP2C9:*13/*13;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*13/*13;HLA-B:*15:02:01/Other", "CYP2C9:*13/*15;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*13/*15;HLA-B:*15:02:01/Other", "CYP2C9:*13/*25;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*13/*25;HLA-B:*15:02:01/Other", "CYP2C9:*13/*2;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*13/*2;HLA-B:*15:02:01/Other", "CYP2C9:*13/*31;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*13/*31;HLA-B:*15:02:01/Other", "CYP2C9:*13/*3;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*13/*3;HLA-B:*15:02:01/Other", "CYP2C9:*13/*4;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*13/*4;HLA-B:*15:02:01/Other", "CYP2C9:*13/*5;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*13/*5;HLA-B:*15:02:01/Other", "CYP2C9:*13/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*13/*6;HLA-B:*15:02:01/Other", "CYP2C9:*13/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*13/*8;HLA-B:*15:02:01/Other", "CYP2C9:*13/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*13/*9;HLA-B:*15:02:01/Other", "CYP2C9:*15/*15;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*15/*15;HLA-B:*15:02:01/Other", "CYP2C9:*15/*25;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*15/*25;HLA-B:*15:02:01/Other", "CYP2C9:*15/*2;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*15/*2;HLA-B:*15:02:01/Other", "CYP2C9:*15/*31;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*15/*31;HLA-B:*15:02:01/Other", "CYP2C9:*15/*3;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*15/*3;HLA-B:*15:02:01/Other", "CYP2C9:*15/*4;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*15/*4;HLA-B:*15:02:01/Other", "CYP2C9:*15/*5;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*15/*5;HLA-B:*15:02:01/Other", "CYP2C9:*15/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*15/*6;HLA-B:*15:02:01/Other", "CYP2C9:*15/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*15/*8;HLA-B:*15:02:01/Other", "CYP2C9:*15/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*15/*9;HLA-B:*15:02:01/Other", "CYP2C9:*2/*25;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*2/*25;HLA-B:*15:02:01/Other", "CYP2C9:*2/*2;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*2/*2;HLA-B:*15:02:01/Other", "CYP2C9:*2/*31;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*2/*31;HLA-B:*15:02:01/Other", "CYP2C9:*2/*3;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*2/*3;HLA-B:*15:02:01/Other", "CYP2C9:*2/*4;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*2/*4;HLA-B:*15:02:01/Other", "CYP2C9:*2/*5;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*2/*5;HLA-B:*15:02:01/Other", "CYP2C9:*2/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*2/*6;HLA-B:*15:02:01/Other", "CYP2C9:*2/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*2/*8;HLA-B:*15:02:01/Other", "CYP2C9:*2/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*2/*9;HLA-B:*15:02:01/Other", "CYP2C9:*25/*25;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*25/*25;HLA-B:*15:02:01/Other", "CYP2C9:*25/*31;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*25/*31;HLA-B:*15:02:01/Other", "CYP2C9:*25/*3;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*25/*3;HLA-B:*15:02:01/Other", "CYP2C9:*25/*4;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*25/*4;HLA-B:*15:02:01/Other", "CYP2C9:*25/*5;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*25/*5;HLA-B:*15:02:01/Other", "CYP2C9:*25/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*25/*6;HLA-B:*15:02:01/Other", "CYP2C9:*25/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*25/*8;HLA-B:*15:02:01/Other", "CYP2C9:*25/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*25/*9;HLA-B:*15:02:01/Other", "CYP2C9:*3/*31;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*3/*31;HLA-B:*15:02:01/Other", "CYP2C9:*3/*3;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*3/*3;HLA-B:*15:02:01/Other", "CYP2C9:*3/*4;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*3/*4;HLA-B:*15:02:01/Other", "CYP2C9:*3/*5;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*3/*5;HLA-B:*15:02:01/Other", "CYP2C9:*3/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*3/*6;HLA-B:*15:02:01/Other", "CYP2C9:*3/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*3/*8;HLA-B:*15:02:01/Other", "CYP2C9:*3/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*3/*9;HLA-B:*15:02:01/Other", "CYP2C9:*31/*31;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*31/*31;HLA-B:*15:02:01/Other", "CYP2C9:*31/*4;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*31/*4;HLA-B:*15:02:01/Other", "CYP2C9:*31/*5;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*31/*5;HLA-B:*15:02:01/Other", "CYP2C9:*31/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*31/*6;HLA-B:*15:02:01/Other", "CYP2C9:*31/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*31/*8;HLA-B:*15:02:01/Other", "CYP2C9:*31/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*31/*9;HLA-B:*15:02:01/Other", "CYP2C9:*4/*4;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*4/*4;HLA-B:*15:02:01/Other", "CYP2C9:*4/*5;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*4/*5;HLA-B:*15:02:01/Other", "CYP2C9:*4/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*4/*6;HLA-B:*15:02:01/Other", "CYP2C9:*4/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*4/*8;HLA-B:*15:02:01/Other", "CYP2C9:*4/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*4/*9;HLA-B:*15:02:01/Other", "CYP2C9:*5/*5;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*5/*5;HLA-B:*15:02:01/Other", "CYP2C9:*5/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*5/*6;HLA-B:*15:02:01/Other", "CYP2C9:*5/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*5/*8;HLA-B:*15:02:01/Other", "CYP2C9:*5/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*5/*9;HLA-B:*15:02:01/Other", "CYP2C9:*6/*6;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*6/*6;HLA-B:*15:02:01/Other", "CYP2C9:*6/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*6/*8;HLA-B:*15:02:01/Other", "CYP2C9:*6/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*6/*9;HLA-B:*15:02:01/Other", "CYP2C9:*8/*8;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*8/*8;HLA-B:*15:02:01/Other", "CYP2C9:*8/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*8/*9;HLA-B:*15:02:01/Other", "CYP2C9:*9/*9;HLA-B:*15:02:01/*15:02:01", "CYP2C9:*9/*9;HLA-B:*15:02:01/Other" ],
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930"
+    }
+  } ],
+  "history" : [ {
+    "id" : 1184512517,
+    "date" : "2014-08-05T00:00:00-07:00",
+    "type" : "create"
+  }, {
+    "id" : 1444687173,
+    "date" : "2015-02-03T10:18:28.158-08:00",
+    "type" : "approve"
+  } ],
+  "relatedChemicals" : [ {
+    "objCls" : "Chemical",
+    "@id" : "https://api.pharmgkb.org/data/chemical/PA450947",
+    "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+    "id" : "PA450947",
+    "name" : "phenytoin",
+    "version" : 10
+  } ],
+  "relatedGenes" : [ {
+    "objCls" : "Gene",
+    "@id" : "https://api.pharmgkb.org/data/gene/PA126",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA126",
+    "symbol" : "CYP2C9",
+    "name" : "cytochrome P450, family 2, subfamily C, polypeptide 9",
+    "version" : 7873
+  }, {
+    "objCls" : "Gene",
+    "@id" : "https://api.pharmgkb.org/data/gene/PA35056",
+    "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+    "id" : "PA35056",
+    "symbol" : "HLA-B",
+    "name" : "major histocompatibility complex, class I, B",
+    "version" : 38
+  } ],
+  "source" : "CPIC",
+  "summary" : "Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN).  Additionally, patients with the CYP2C9 poor metabolizer phenotype may require reduced doses of phenytoin.",
+  "summaryHtml" : "<p>Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN).  Additionally, patients with the CYP2C9 poor metabolizer phenotype may require reduced doses of phenytoin.</p>",
+  "summaryMarkdown" : {
+    "id" : 1447981650,
+    "html" : "<p>Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (&quot;HLA-B*15:02-positive&quot;) due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN).  Additionally, patients with the CYP2C9 poor metabolizer phenotype may require reduced doses of phenytoin.</p>\n",
+    "internalLinks" : [ ],
+    "markdown" : "Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN).  Additionally, patients with the CYP2C9 poor metabolizer phenotype may require reduced doses of phenytoin.",
+    "pmids" : [ ],
+    "relatedObjects" : [ ],
+    "rsids" : [ ]
+  },
+  "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+  "text" : "h3. August 2014\r\n_Accepted article preview online August 2014; Advance online publication September 2014_\r\n\r\n* Guidelines regarding the use of pharmacogenomic tests in dosing for phenytoin have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium ([CPIC|/contributors/consortia/cpic_profile.jsp]).\r\n* Excerpt from the 2014 phenytoin dosing guidelines:\r\n** \"[A]t least a 25% reduction of the recommended starting maintenance dose may be considered for CYP2C9 intermediate metabolizers with subsequent maintenance doses adjusted based on therapeutic drug monitoring and response. For CYP2C9 poor metabolizers, consider at least a 50% reduction of starting maintenance dose with subsequent maintenance doses adjusted based on therapeutic drug monitoring or response.\"\r\n** \"[R]egardless of the CYP2C9 genotype and individual's ancestry or age, if the HLA-B*15:02 test result is positive, the recommendation is to consider using an anticonvulsant other than carbamazepine and phenytoin unless the benefits of treating the underlying disease clearly outweigh the risks... Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele and thus caution should be used in choosing alternatives to phenytoin.\"\r\n* Download and read:\r\n** [Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP2C9 and HLA-B Genotype and Phenytoin Dosing|https://github.com/PharmGKB/cpic-guidelines/raw/master/phenytoin/2014/25099164.pdf] \r\n** [2014 supplement|https://github.com/PharmGKB/cpic-guidelines/raw/master/phenytoin/2014/25099164-supplement.pdf]\r\n** [2014 phenytoin translation table|https://github.com/PharmGKB/cpic-guidelines/raw/master/phenytoin/2014/25099164-Phenytoin_translation_table_final.xlsx]\r\n\r\nh3. Table 1: Phenytoin/fosphenytoin therapy recommendations based on _HLA-B_ and _CYP2C9_ phenotype/genotype\r\n_Adapted from Tables 1 and 2 of the 2014 guideline manuscript._\r\n\r\n| *Phenotype/Genotype* | *_HLA-B*15:02_ carrier* \\\\ _Genotype:_ 1 or 2 *15:02 alleles; \"positive\" | *_HLA-B*15:02_ non-carrier* \\\\ _Genotype:_ No HLA-B*15:02 alleles reported; \"negative\" |\r\n| *CYP2C9 Extensive Metabolizer* \\\\ normal activity ~91% of patients \\\\ _Genotype:_ An individual carrying 2 normal activity alleles \\\\ _Example diplotype:_ *1/*1 | _Implication:_ Increased risk of phenytoin-induced SJS/TEN. \\\\ *_Therapeutic Recommendation:_  If patient is phenytoin-naive ^b^, do not use phenytoin/fosphenytoin.* \\\\ _Strength of Recommendation: STRONG_ | _Implication:_ Normal phenytoin metabolism. \\\\ *_Therapeutic Recommendation:_ Initiate therapy with recommended maintenance dose ^d^.* \\\\ _Strength of Recommendation: STRONG_ |\r\n| *CYP2C9 Intermediate Metabolizer* \\\\ heterozygote ~8% of patients \\\\ _Genotype:_  An individual carrying one normal activity allele plus one decreased function allele \\\\ _Example diplotypes:_ *1/*3, *1/*2 | _Implication:_ Increased risk of phenytoin-induced SJS/TEN. \\\\ *_Therapeutic Recommendation:_ If patient is phenytoin-naive ^b^, do not use phenytoin/fosphenytoin.* \\\\ _Strength of Recommendation: STRONG_ | _Implication:_ Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities. \\\\ *_Therapeutic Recommendation:_ Consider 25% reduction of recommended starting maintenance dose ^d^.  Subsequent doses should be adjusted according to therapeutic drug monitoring and response.* \\\\ _Strength of Recommendation: MODERATE_ |\r\n| *CYP2C9 Poor Metabolizer* \\\\ homozygous variant ~1% of patients \\\\ _Genotype:_ An individual carrying 2 decreased function alleles \\\\ _Example diplotypes:_ *2/*2, *3/*3, *2/*3 | _Implication:_ Increased risk of phenytoin-induced SJS/TEN. \\\\ *_Therapeutic Recommendation:_ If patient is phenytoin-naive ^b^, do not use phenytoin/fosphenytoin.* \\\\ _Strength of Recommendation: STRONG_ | _Implication:_ Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities. \\\\ *_Therapeutic Recommendation:_ Consider 50% reduction of recommended starting maintenance dose ^d^.  Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.*  \\\\ _Strength of Recommendation: STRONG_ |",
+  "textHtml" : "<h3 id=\"August2014\">August 2014</h3><p><em>Accepted article preview online August 2014; Advance online publication September 2014</em></p><ul><li>Guidelines regarding the use of pharmacogenomic tests in dosing for phenytoin have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium (<a href=\"/contributors/consortia/cpic_profile.jsp\">CPIC</a>).</li><li>Excerpt from the 2014 phenytoin dosing guidelines:<ul><li>\"[A]t least a 25% reduction of the recommended starting maintenance dose may be considered for CYP2C9 intermediate metabolizers with subsequent maintenance doses adjusted based on therapeutic drug monitoring and response. For CYP2C9 poor metabolizers, consider at least a 50% reduction of starting maintenance dose with subsequent maintenance doses adjusted based on therapeutic drug monitoring or response.\"</li><li>\"[R]egardless of the CYP2C9 genotype and individual's ancestry or age, if the HLA-B*15:02 test result is positive, the recommendation is to consider using an anticonvulsant other than carbamazepine and phenytoin unless the benefits of treating the underlying disease clearly outweigh the risks... Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele and thus caution should be used in choosing alternatives to phenytoin.\"</li></ul></li><li>Download and read:<ul><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fphenytoin%2F2014%2F25099164.pdf\" target=\"offsite\">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP2C9 and HLA-B Genotype and Phenytoin Dosing</a> </li><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fphenytoin%2F2014%2F25099164-supplement.pdf\" target=\"offsite\">2014 supplement</a></li><li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fphenytoin%2F2014%2F25099164-Phenytoin_translation_table_final.xlsx\" target=\"offsite\">2014 phenytoin translation table</a></li></ul></li></ul><h3 id=\"Table1PhenytoinfosphenytointherapyrecommendationsbasedonHLABandCYP2C9phenotypegenotype\">Table 1: Phenytoin/fosphenytoin therapy recommendations based on <em>HLA-B</em> and <em>CYP2C9</em> phenotype/genotype</h3><p><em>Adapted from Tables 1 and 2 of the 2014 guideline manuscript.</em></p><table class=\"table table-striped table-condensed table-hover table-bordered\"><tr><td><strong>Phenotype/Genotype</strong></td><td><strong><em>HLA-B*15:02</em> carrier</strong> <br/><em>Genotype:</em> 1 or 2 *15:02 alleles; \"positive\"</td><td><strong><em>HLA-B*15:02</em> non-carrier</strong> <br/><em>Genotype:</em> No HLA-B*15:02 alleles reported; \"negative\"</td></tr><tr><td><strong>CYP2C9 Extensive Metabolizer</strong> <br/>normal activity ~91% of patients <br/><em>Genotype:</em> An individual carrying 2 normal activity alleles <br/><em>Example diplotype:</em> *1/*1</td><td><em>Implication:</em> Increased risk of phenytoin-induced SJS/TEN. <br/><strong><em>Therapeutic Recommendation:</em>  If patient is phenytoin-naive <sup>b</sup>, do not use phenytoin/fosphenytoin.</strong> <br/><em>Strength of Recommendation: STRONG</em></td><td><em>Implication:</em> Normal phenytoin metabolism. <br/><strong><em>Therapeutic Recommendation:</em> Initiate therapy with recommended maintenance dose <sup>d</sup>.</strong> <br/><em>Strength of Recommendation: STRONG</em></td></tr><tr><td><strong>CYP2C9 Intermediate Metabolizer</strong> <br/>heterozygote ~8% of patients <br/><em>Genotype:</em>  An individual carrying one normal activity allele plus one decreased function allele <br/><em>Example diplotypes:</em> *1/*3, *1/*2</td><td><em>Implication:</em> Increased risk of phenytoin-induced SJS/TEN. <br/><strong><em>Therapeutic Recommendation:</em> If patient is phenytoin-naive <sup>b</sup>, do not use phenytoin/fosphenytoin.</strong> <br/><em>Strength of Recommendation: STRONG</em></td><td><em>Implication:</em> Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities. <br/><strong><em>Therapeutic Recommendation:</em> Consider 25% reduction of recommended starting maintenance dose <sup>d</sup>.  Subsequent doses should be adjusted according to therapeutic drug monitoring and response.</strong> <br/><em>Strength of Recommendation: MODERATE</em></td></tr><tr><td><strong>CYP2C9 Poor Metabolizer</strong> <br/>homozygous variant ~1% of patients <br/><em>Genotype:</em> An individual carrying 2 decreased function alleles <br/><em>Example diplotypes:</em> *2/*2, *3/*3, *2/*3</td><td><em>Implication:</em> Increased risk of phenytoin-induced SJS/TEN. <br/><strong><em>Therapeutic Recommendation:</em> If patient is phenytoin-naive <sup>b</sup>, do not use phenytoin/fosphenytoin.</strong> <br/><em>Strength of Recommendation: STRONG</em></td><td><em>Implication:</em> Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities. <br/><strong><em>Therapeutic Recommendation:</em> Consider 50% reduction of recommended starting maintenance dose <sup>d</sup>.  Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.</strong>  <br/><em>Strength of Recommendation: STRONG</em></td></tr></table>",
+  "textMarkdown" : {
+    "id" : 1447981649,
+    "html" : "<h3>November 2014</h3>\n<p><em>Accepted article preview online August 2014; Advance online publication September 2014</em></p>\n<ul>\n<li>Guidelines regarding the use of pharmacogenomic tests in dosing for phenytoin have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium (<a href=\"/contributors/consortia/cpic_profile.jsp\">CPIC</a>).</li>\n<li>Excerpt from the 2014 phenytoin dosing guidelines:\n<ul>\n<li>&quot;[A]t least a 25% reduction of the recommended starting maintenance dose may be considered for CYP2C9 intermediate metabolizers with subsequent maintenance doses adjusted based on therapeutic drug monitoring and response. For CYP2C9 poor metabolizers, consider at least a 50% reduction of starting maintenance dose with subsequent maintenance doses adjusted based on therapeutic drug monitoring or response.&quot;</li>\n<li>&quot;[R]egardless of the CYP2C9 genotype and individual's ancestry or age, if the HLA-B*15:02 test result is positive, the recommendation is to consider using an anticonvulsant other than carbamazepine and phenytoin unless the benefits of treating the underlying disease clearly outweigh the risks... Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele and thus caution should be used in choosing alternatives to phenytoin.&quot;</li>\n</ul>\n</li>\n<li>Download and read:\n<ul>\n<li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fphenytoin%2F2014%2F25099164.pdf\" target=\"offsite\">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP2C9 and HLA-B Genotype and Phenytoin Dosing</a></li>\n<li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fphenytoin%2F2014%2F25099164-supplement.pdf\" target=\"offsite\">2014 supplement</a></li>\n<li><a href=\"/redirect.jsp?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fphenytoin%2F2014%2F25099164-Phenytoin_translation_table_final.xlsx\" target=\"offsite\">2014 phenytoin translation table</a></li>\n</ul>\n</li>\n</ul>\n<h3>Table 1: Phenytoin/fosphenytoin therapy recommendations based on <em>HLA-B</em> and <em>CYP2C9</em> phenotype/genotype</h3>\n<p><em>Adapted from Tables 1 and 2 of the 2014 guideline manuscript.</em></p>\n<p>| <strong>Phenotype/Genotype</strong> | <strong><em>HLA-B*15:02</em> carrier</strong></p>\n<p><em>Genotype:</em> 1 or 2 *15:02 alleles; &quot;positive&quot; | <strong><em>HLA-B*15:02</em> non-carrier</strong></p>\n<p><em>Genotype:</em> No HLA-B*15:02 alleles reported; &quot;negative&quot; |\n| <strong>CYP2C9 Extensive Metabolizer</strong></p>\n<p>normal activity ~91% of patients</p>\n<p><em>Genotype:</em> An individual carrying 2 normal activity alleles</p>\n<p><em>Example diplotype:</em> *1/*1 | <em>Implication:</em> Increased risk of phenytoin-induced SJS/TEN.</p>\n<p><strong><em>Therapeutic Recommendation:</em>  If patient is phenytoin-naive <sup>b</sup>, do not use phenytoin/fosphenytoin.</strong></p>\n<p><em>Strength of Recommendation: STRONG</em> | <em>Implication:</em> Normal phenytoin metabolism.</p>\n<p><strong><em>Therapeutic Recommendation:</em> Initiate therapy with recommended maintenance dose <sup>d</sup>.</strong></p>\n<p><em>Strength of Recommendation: STRONG</em> |\n| <strong>CYP2C9 Intermediate Metabolizer</strong></p>\n<p>heterozygote ~8% of patients</p>\n<p><em>Genotype:</em>  An individual carrying one normal activity allele plus one decreased function allele</p>\n<p><em>Example diplotypes:</em> *1/*3, *1/*2 | <em>Implication:</em> Increased risk of phenytoin-induced SJS/TEN.</p>\n<p><strong><em>Therapeutic Recommendation:</em> If patient is phenytoin-naive <sup>b</sup>, do not use phenytoin/fosphenytoin.</strong></p>\n<p><em>Strength of Recommendation: STRONG</em> | <em>Implication:</em> Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities.</p>\n<p><strong><em>Therapeutic Recommendation:</em> Consider 25% reduction of recommended starting maintenance dose <sup>d</sup>.  Subsequent doses should be adjusted according to therapeutic drug monitoring and response.</strong></p>\n<p><em>Strength of Recommendation: MODERATE</em> |\n| <strong>CYP2C9 Poor Metabolizer</strong></p>\n<p>homozygous variant ~1% of patients</p>\n<p><em>Genotype:</em> An individual carrying 2 decreased function alleles</p>\n<p><em>Example diplotypes:</em> *2/*2, *3/*3, *2/*3 | <em>Implication:</em> Increased risk of phenytoin-induced SJS/TEN.</p>\n<p><strong><em>Therapeutic Recommendation:</em> If patient is phenytoin-naive <sup>b</sup>, do not use phenytoin/fosphenytoin.</strong></p>\n<p><em>Strength of Recommendation: STRONG</em> | <em>Implication:</em> Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities.</p>\n<p><strong><em>Therapeutic Recommendation:</em> Consider 50% reduction of recommended starting maintenance dose <sup>d</sup>.  Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.</strong></p>\n<p><em>Strength of Recommendation: STRONG</em> |</p>\n",
+    "internalLinks" : [ "/contributors/consortia/cpic_profile.jsp" ],
+    "markdown" : "## November 2014\r\n\r\n_Accepted article preview online August 2014; Advance online publication September 2014_\r\n\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing for phenytoin have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium ([CPIC](/contributors/consortia/cpic_profile.jsp)).\r\n- Excerpt from the 2014 phenytoin dosing guidelines:\r\n  - \"\\[A]t least a 25% reduction of the recommended starting maintenance dose may be considered for CYP2C9 intermediate metabolizers with subsequent maintenance doses adjusted based on therapeutic drug monitoring and response. For CYP2C9 poor metabolizers, consider at least a 50% reduction of starting maintenance dose with subsequent maintenance doses adjusted based on therapeutic drug monitoring or response.\"\r\n  - \"\\[R]egardless of the CYP2C9 genotype and individual's ancestry or age, if the HLA-B*15:02 test result is positive, the recommendation is to consider using an anticonvulsant other than carbamazepine and phenytoin unless the benefits of treating the underlying disease clearly outweigh the risks... Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele and thus caution should be used in choosing alternatives to phenytoin.\"\r\n- Download and read:\r\n  - [Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP2C9 and HLA-B Genotype and Phenytoin Dosing](https://github.com/PharmGKB/cpic-guidelines/raw/master/phenytoin/2014/25099164.pdf) \r\n  - [2014 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/phenytoin/2014/25099164-supplement.pdf)\r\n  - [2014 phenytoin translation table](https://github.com/PharmGKB/cpic-guidelines/raw/master/phenytoin/2014/25099164-Phenytoin_translation_table_final.xlsx)\r\n\r\n## Table 1: Phenytoin/fosphenytoin therapy recommendations based on _HLA-B_ and _CYP2C9_ phenotype/genotype\r\n\r\n_Adapted from Tables 1 and 2 of the 2014 guideline manuscript._\r\n\r\n| __Phenotype/Genotype__ | ___HLA-B*15:02_ carrier__ \r\n\r\n _Genotype:_ 1 or 2 *15:02 alleles; \"positive\" | ___HLA-B*15:02_ non-carrier__ \r\n\r\n _Genotype:_ No HLA-B*15:02 alleles reported; \"negative\" |\r\n| __CYP2C9 Extensive Metabolizer__ \r\n\r\n normal activity ~91% of patients \r\n\r\n _Genotype:_ An individual carrying 2 normal activity alleles \r\n\r\n _Example diplotype:_ *1/*1 | _Implication:_ Increased risk of phenytoin-induced SJS/TEN. \r\n\r\n ___Therapeutic Recommendation:_  If patient is phenytoin-naive ^b^, do not use phenytoin/fosphenytoin.__ \r\n\r\n _Strength of Recommendation: STRONG_ | _Implication:_ Normal phenytoin metabolism. \r\n\r\n ___Therapeutic Recommendation:_ Initiate therapy with recommended maintenance dose ^d^.__ \r\n\r\n _Strength of Recommendation: STRONG_ |\r\n| __CYP2C9 Intermediate Metabolizer__ \r\n\r\n heterozygote ~8% of patients \r\n\r\n _Genotype:_  An individual carrying one normal activity allele plus one decreased function allele \r\n\r\n _Example diplotypes:_ *1/*3, *1/*2 | _Implication:_ Increased risk of phenytoin-induced SJS/TEN. \r\n\r\n ___Therapeutic Recommendation:_ If patient is phenytoin-naive ^b^, do not use phenytoin/fosphenytoin.__ \r\n\r\n _Strength of Recommendation: STRONG_ | _Implication:_ Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities. \r\n\r\n ___Therapeutic Recommendation:_ Consider 25% reduction of recommended starting maintenance dose ^d^.  Subsequent doses should be adjusted according to therapeutic drug monitoring and response.__ \r\n\r\n _Strength of Recommendation: MODERATE_ |\r\n| __CYP2C9 Poor Metabolizer__ \r\n\r\n homozygous variant ~1% of patients \r\n\r\n _Genotype:_ An individual carrying 2 decreased function alleles \r\n\r\n _Example diplotypes:_ *2/*2, *3/*3, *2/*3 | _Implication:_ Increased risk of phenytoin-induced SJS/TEN. \r\n\r\n ___Therapeutic Recommendation:_ If patient is phenytoin-naive ^b^, do not use phenytoin/fosphenytoin.__ \r\n\r\n _Strength of Recommendation: STRONG_ | _Implication:_ Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities. \r\n\r\n ___Therapeutic Recommendation:_ Consider 50% reduction of recommended starting maintenance dose ^d^.  Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response.__  \r\n\r\n _Strength of Recommendation: STRONG_ |",
+    "pmids" : [ ],
+    "relatedObjects" : [ ],
+    "rsids" : [ ],
+    "version" : 1
+  },
+  "variants" : [ ],
+  "version" : 10,
+  "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-phenytoin-and-cyp2c9-and-hla-b/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983504,"resource":"Web Resource","xrefId":"https://cpicpgx.org/guidelines/guideline-for-phenytoin-and-cyp2c9-and-hla-b/"} ]
+}
