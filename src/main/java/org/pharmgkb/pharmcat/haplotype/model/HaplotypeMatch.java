@@ -6,7 +6,7 @@ import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
-import org.pharmgkb.pharmcat.haplotype.Haplotype;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 
 
 /**
@@ -18,12 +18,12 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
   @SerializedName("name")
   @Expose
   private String m_name;
-  private Haplotype m_haplotype;
+  private NamedAllele m_haplotype;
   @Expose
   private Set<String> m_sequences = new HashSet<>();
 
 
-  public HaplotypeMatch(@Nonnull Haplotype haplotype) {
+  public HaplotypeMatch(@Nonnull NamedAllele haplotype) {
     m_haplotype = haplotype;
     m_name = m_haplotype.getName();
   }
@@ -33,7 +33,7 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
     return m_name;
   }
 
-  public @Nonnull Haplotype getHaplotype() {
+  public @Nonnull NamedAllele getHaplotype() {
     return m_haplotype;
   }
 

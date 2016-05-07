@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
@@ -18,33 +19,47 @@ import com.google.gson.annotations.SerializedName;
 public class DefinitionFile {
   public static final String FORMAT_VERSION = "1";
   // metadata
+  @Expose
   @SerializedName("formatVersion")
   private String m_formatVersion = FORMAT_VERSION;
+  @Expose
   @SerializedName("contentVersion")
   private String m_contentVersion;
+  @Expose
   @SerializedName("modificationDate")
   private Date m_modificationDate;
+  @Expose
   @SerializedName("gene")
   private String m_geneSymbol;
+  @Expose
   @SerializedName("orientation")
   private String m_orientation;
+  @Expose
   @SerializedName("chromosome")
   private String m_chromosome;
+  @Expose
   @SerializedName("genomeBuild")
   private String m_genomeBuild;
+  @Expose
   @SerializedName("refSeqChromosomeId")
   private String m_refSeqChromosome;
+  @Expose
   @SerializedName("refSeqGeneId")
   private String m_refSeqGene;
+  @Expose
   @SerializedName("refSeqProteinId")
   private String m_refSeqProtein;
+  @Expose
   @SerializedName("notes")
   private List<String> m_notes;
+  @Expose
   @SerializedName("populations")
   private SortedSet<String> m_populations;
   // definitions
+  @Expose
   @SerializedName("variants")
   private VariantLocus[] m_variants;
+  @Expose
   @SerializedName("namedAlleles")
   private List<NamedAllele> m_namedAlleles;
 

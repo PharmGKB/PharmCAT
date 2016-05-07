@@ -93,11 +93,11 @@ public class GeneCall {
   }
 
   public void setVariants(List<Variant> variants) {
-    this.m_variants = variants;
+    m_variants = variants;
   }
 
   public void add(Variant pos) {
-    this.m_variants.add(pos);
+    m_variants.add(pos);
   }
 
 

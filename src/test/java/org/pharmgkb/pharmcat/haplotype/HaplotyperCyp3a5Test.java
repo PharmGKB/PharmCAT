@@ -20,7 +20,7 @@ public class HaplotyperCyp3a5Test {
 
   @Before
   public void before() throws Exception {
-    m_tsvFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP3A5.tsv");
+    m_tsvFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP3A5.json");
   }
 
 

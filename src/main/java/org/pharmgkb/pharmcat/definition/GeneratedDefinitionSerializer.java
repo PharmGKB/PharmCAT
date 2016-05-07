@@ -26,7 +26,8 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
  * @author Mark Woon
  */
 public class GeneratedDefinitionSerializer {
-  private static final Gson sf_gson = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
+  private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
+      .setPrettyPrinting().create();
   private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
 
@@ -47,7 +48,11 @@ public class GeneratedDefinitionSerializer {
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: file name does not end with .json");
 
     try (BufferedReader reader = Files.newBufferedReader(jsonFile, StandardCharsets.UTF_8)) {
-      return sf_gson.fromJson(reader, DefinitionFile.class);
+      DefinitionFile definitionFile = sf_gson.fromJson(reader, DefinitionFile.class);
+      for (NamedAllele namedAllele : definitionFile.getNamedAlleles()) {
+        namedAllele.finalize(definitionFile.getVariants());
+      }
+      return definitionFile;
     }
   }
 

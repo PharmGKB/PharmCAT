@@ -1,6 +1,9 @@
 package org.pharmgkb.pharmcat.definition.model;
 
 import java.util.Objects;
+import javax.annotation.Nonnull;
+import com.google.common.base.Preconditions;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
@@ -9,24 +12,35 @@ import com.google.gson.annotations.SerializedName;
  *
  * @author Ryan Whaley
  */
-public class VariantLocus {
+public class VariantLocus implements Comparable<VariantLocus> {
+  @Expose
   @SerializedName("position")
   private int m_position;
+  @Expose
   @SerializedName("rsid")
   private String m_rsid;
+  @Expose
   @SerializedName("chromosomeHgvsName")
   private String m_chromosomeHgvsName;
+  @Expose
   @SerializedName("geneHgvsName")
   private String m_geneHgvsName;
+  @Expose
   @SerializedName("proteinNote")
   private String m_proteinNote;
+  @Expose
   @SerializedName("resourceNote")
   private String m_resourceNote;
+  @Expose
   @SerializedName("isInDel")
   private boolean m_isInDel;
+  @Expose
+  @SerializedName("isRepeat")
+  private boolean m_isRepeat;
 
 
-  public VariantLocus(int position, String chromosomeHgvsName) {
+  public VariantLocus(int position, @Nonnull String chromosomeHgvsName) {
+    Preconditions.checkNotNull(chromosomeHgvsName);
     m_position = position;
     m_chromosomeHgvsName = chromosomeHgvsName;
   }
@@ -42,7 +56,7 @@ public class VariantLocus {
   /**
    * The name use for this location on the chromosomal sequence, should be relative to plus strand
    */
-  public String getChromosomeHgvsName() {
+  public @Nonnull String getChromosomeHgvsName() {
     return m_chromosomeHgvsName;
   }
 
@@ -93,12 +107,28 @@ public class VariantLocus {
   }
 
 
+  /**
+   * Gets whether this locus has an insertion or deletion.
+   */
   public boolean isInDel() {
     return m_isInDel;
   }
 
   public void setInDel(boolean inDel) {
+    Preconditions.checkState(!m_isInDel, "Cannot be both indel and repeat");
     m_isInDel = inDel;
+  }
+
+  /**
+   * Gets whether this locus has a repeat.
+   */
+  public boolean isRepeat() {
+    return m_isRepeat;
+  }
+
+  public void setRepeat(boolean repeat) {
+    Preconditions.checkState(!m_isRepeat, "Cannot be both indel and repeat");
+    m_isRepeat = repeat;
   }
 
 
@@ -111,8 +141,9 @@ public class VariantLocus {
       return false;
     }
     VariantLocus that = (VariantLocus)o;
-    return m_isInDel == that.isInDel() &&
-        m_position == that.getPosition() &&
+    return m_position == that.getPosition() &&
+        m_isInDel == that.isInDel() &&
+        m_isRepeat == that.isRepeat() &&
         Objects.equals(m_chromosomeHgvsName, that.getChromosomeHgvsName()) &&
         Objects.equals(m_geneHgvsName, that.getGeneHgvsName()) &&
         Objects.equals(m_proteinNote, that.getProteinNote()) &&
@@ -122,6 +153,17 @@ public class VariantLocus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(m_position, m_chromosomeHgvsName, m_geneHgvsName, m_proteinNote, m_rsid, m_resourceNote, m_isInDel);
+    return Objects.hash(m_position, m_chromosomeHgvsName, m_geneHgvsName, m_proteinNote, m_rsid, m_resourceNote);
+  }
+
+
+  @Override
+  public int compareTo(@Nonnull VariantLocus o) {
+
+    int rez = Integer.compare(m_position, o.getPosition());
+    if (rez != 0) {
+      return rez;
+    }
+    return m_chromosomeHgvsName.compareTo(o.getChromosomeHgvsName());
   }
 }

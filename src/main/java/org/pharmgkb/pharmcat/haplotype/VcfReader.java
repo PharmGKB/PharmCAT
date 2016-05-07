@@ -177,15 +177,7 @@ public class VcfReader {
 
       if (varAllele != null) {
         varAllele = varAllele.toUpperCase();
-
-        if (varAllele.length() < refAllele.length()) {
-          // deletion
-          refAllele = refAllele.substring(refAllele.length() - varAllele.length());
-          varAllele = "-";
-        }
-
         return new String[] { refAllele, varAllele };
-
       } else {
         return new String[] { refAllele };
       }

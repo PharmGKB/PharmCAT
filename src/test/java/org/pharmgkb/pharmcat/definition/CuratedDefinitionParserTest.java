@@ -36,7 +36,7 @@ public class CuratedDefinitionParserTest {
       fail("Missed invalid alleles");
     } catch (ParseException ex) {
       System.out.println(ex.getMessage());
-      assertTrue(ex.getMessage().contains(" bad base "));
+      assertTrue(ex.getMessage().contains("Invalid bases (BBQ)"));
     }
   }
 }

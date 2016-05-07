@@ -1,0 +1,54 @@
+{
+  "formatVersion": "1",
+  "contentVersion": null,
+  "modificationDate": "Apr 12, 2016 12:00:00 AM",
+  "gene": "IFNL3",
+  "orientation": null,
+  "chromosome": "chr19",
+  "genomeBuild": "b38",
+  "refSeqChromosomeId": "NC_000019.10",
+  "refSeqGeneId": "NG_042193.1",
+  "refSeqProteinId": "NP_742151.2",
+  "notes": null,
+  "populations": [
+    "African Allele Frequency",
+    "African American Allele Frequency",
+    "Americas Allele Frequency",
+    "Caucasian (European + North American) Allele Frequency",
+    "East Asian Allele Frequency",
+    "Middle Eastern Allele Frequency",
+    "Oceanian Allele Frequency",
+    "South/Central Asian Allele Frequency"
+  ],
+  "variants": [
+    {
+      "position": 39248147,
+      "rsid": "rs12979860",
+      "chromosomeHgvsName": "g.39248147C\u003eT",
+      "geneHgvsName": "g.1825G\u003eA",
+      "proteinNote": "nearGene-5",
+      "resourceNote": "rs12979860C/T",
+      "isInDel": false
+    }
+  ],
+  "namedAlleles": [
+    {
+      "name": "rs12979860C",
+      "id": "CA100150.1",
+      "function": "",
+      "alleles": [
+        "C"
+      ],
+      "populationFrequency": {}
+    },
+    {
+      "name": "rs12979860T",
+      "id": "CA100151.1",
+      "function": "",
+      "alleles": [
+        "T"
+      ],
+      "populationFrequency": {}
+    }
+  ]
+}

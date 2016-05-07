@@ -20,7 +20,7 @@ public class HaplotyperCyp2c19Test {
 
   @Before
   public void before() throws Exception {
-    m_tsvFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.tsv");
+    m_tsvFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.json");
   }
 
 

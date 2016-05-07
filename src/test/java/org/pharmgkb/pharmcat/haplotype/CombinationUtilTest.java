@@ -7,6 +7,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.common.collect.Sets;
 import org.junit.Test;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -46,18 +47,18 @@ public class CombinationUtilTest {
   @Test
   public void testGeneratePerfectPairs() {
 
-    SortedSet<Haplotype> haplotypes = new TreeSet<>();
+    SortedSet<NamedAllele> haplotypes = new TreeSet<>();
 
-    Haplotype hap = new Haplotype(null, "*1");
+    NamedAllele hap = new NamedAllele("*1", "*1", new String[1]);
     haplotypes.add(hap);
 
-    hap = new Haplotype(null, "*4");
+    hap = new NamedAllele("*4", "*4", new String[1]);
     haplotypes.add(hap);
 
-    hap = new Haplotype(null, "*3");
+    hap = new NamedAllele("*3", "*3", new String[1]);
     haplotypes.add(hap);
 
-    hap = new Haplotype(null, "*2");
+    hap = new NamedAllele("*2", "*2", new String[1]);
     haplotypes.add(hap);
 
     assertEquals(4, haplotypes.size());
@@ -75,10 +76,10 @@ public class CombinationUtilTest {
         "*3*4",
         "*4*4"
     );
-    List<List<Haplotype>> pairs = CombinationUtil.generatePerfectPairs(haplotypes);
+    List<List<NamedAllele>> pairs = CombinationUtil.generatePerfectPairs(haplotypes);
     assertEquals(expectedPairs.size(), pairs.size());
 
-    for (List<Haplotype> pair : pairs) {
+    for (List<NamedAllele> pair : pairs) {
       System.out.println(pair);
       String p = pair.get(0).getName() + pair.get(1).getName();
       assertTrue(expectedPairs.remove(p));

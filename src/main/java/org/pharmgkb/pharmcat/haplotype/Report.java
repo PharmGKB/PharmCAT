@@ -20,6 +20,9 @@ import com.google.gson.GsonBuilder;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.text.StrSubstitutor;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
@@ -34,6 +37,7 @@ public class Report {
   private DefinitionReader m_definitionReader;
   private Path m_vcfFile;
   private HaplotyperResult m_root = new HaplotyperResult();
+  private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
 
   public Report(@Nonnull DefinitionReader definitionReader) {
@@ -79,7 +83,7 @@ public class Report {
     for (SampleAllele allele : sampleAlleles) {
       alleleMap.put(allele.getPosition(), allele);
     }
-    for (Variant variant : m_definitionReader.getHaplotypePositions().get(gene)) {
+    for (VariantLocus variant : m_definitionReader.getPositions(gene)) {
       SampleAllele allele = alleleMap.get(variant.getPosition());
       String call;
       if (allele.isPhased()) {
@@ -91,8 +95,8 @@ public class Report {
     }
 
     //geneCall.setHaplotypesNotCalled();
-    DefinitionFile tsvFile = m_definitionReader.getDefinitionFiles().get(gene);
-    geneCall.setGeneVersion(tsvFile.getContentVersion() + " (" + tsvFile.getContentDate() + ")");
+    DefinitionFile tsvFile = m_definitionReader.getDefinitionFile(gene);
+    geneCall.setGeneVersion(tsvFile.getContentVersion() + " (" + m_dateFormat.format(tsvFile.getModificationDate()) + ")");
     geneCall.setChromosome(tsvFile.getChromosome());
     m_root.addDiplotypeCall(geneCall);
 
@@ -172,7 +176,7 @@ public class Report {
           }
         }
       } else {
-        for (Haplotype haplotype : m_definitionReader.getHaplotypes().get(call.getGene())) {
+        for (NamedAllele haplotype : m_definitionReader.getHaplotypes(call.getGene())) {
           printAllele(builder, haplotype.getName(), haplotype.getPermutations().pattern(), "danger");
         }
       }
@@ -186,7 +190,7 @@ public class Report {
       Map<String, String> varMap = new HashMap<>();
       varMap.put("title", "PharmCAT Allele Call Report for " + m_root.getMetadata().getInputFile());
       varMap.put("content", builder.toString());
-      varMap.put("timestamp", SimpleDateFormat.getDateTimeInstance().format(new Date()));
+      varMap.put("timestamp", m_dateFormat.format(new Date()));
       StrSubstitutor sub = new StrSubstitutor(varMap);
       String template = IOUtils.toString(getClass().getResourceAsStream("template.html"));
       writer.println(sub.replace(template));

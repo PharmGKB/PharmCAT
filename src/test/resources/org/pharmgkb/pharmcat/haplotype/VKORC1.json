@@ -1,0 +1,54 @@
+{
+  "formatVersion": "1",
+  "contentVersion": null,
+  "modificationDate": "Apr 12, 2016 12:00:00 AM",
+  "gene": "VKORC1",
+  "orientation": null,
+  "chromosome": "chr16",
+  "genomeBuild": "b38",
+  "refSeqChromosomeId": "NC_000016.10",
+  "refSeqGeneId": "NG_011564.1",
+  "refSeqProteinId": "NP_076869.1",
+  "notes": null,
+  "populations": [
+    "African Allele Frequency",
+    "African American Allele Frequency",
+    "Americas Allele Frequency",
+    "Caucasian (European + North American) Allele Frequency",
+    "East Asian Allele Frequency",
+    "Middle Eastern Allele Frequency",
+    "Oceanian Allele Frequency",
+    "South/Central Asian Allele Frequency"
+  ],
+  "variants": [
+    {
+      "position": 31096368,
+      "rsid": "rs9923231",
+      "chromosomeHgvsName": "g.31096368C\u003eT",
+      "geneHgvsName": "g.3588G\u003eA",
+      "proteinNote": "nearGene-5",
+      "resourceNote": "-1639G\u003eA",
+      "isInDel": false
+    }
+  ],
+  "namedAlleles": [
+    {
+      "name": "-1639G",
+      "id": "CA100231.1",
+      "function": "",
+      "alleles": [
+        "C"
+      ],
+      "populationFrequency": {}
+    },
+    {
+      "name": "-1639A",
+      "id": "CA100232.1",
+      "function": "",
+      "alleles": [
+        "T"
+      ],
+      "populationFrequency": {}
+    }
+  ]
+}

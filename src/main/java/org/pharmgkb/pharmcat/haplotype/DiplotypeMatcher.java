@@ -12,6 +12,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.collect.Lists;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
@@ -24,11 +25,11 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 public class DiplotypeMatcher {
   private SortedMap<Integer, SampleAllele> m_geneSampleMap;
   private Set<String> m_permutations;
-  private List<Haplotype> m_haplotypes;
+  private List<NamedAllele> m_haplotypes;
 
 
   public DiplotypeMatcher(@Nonnull SortedMap<Integer, SampleAllele> geneSampleMap, @Nonnull Set<String> permutations,
-      @Nonnull List<Haplotype> haplotypes) {
+      @Nonnull List<NamedAllele> haplotypes) {
 
     m_geneSampleMap = geneSampleMap;
     m_permutations = permutations;
@@ -84,22 +85,22 @@ public class DiplotypeMatcher {
    */
   protected @Nonnull List<DiplotypeMatch> determinePairs(@Nonnull SortedSet<HaplotypeMatch> haplotypeMatches) {
 
-    SortedMap<Haplotype, HaplotypeMatch> hapMap = new TreeMap<>();
+    SortedMap<NamedAllele, HaplotypeMatch> hapMap = new TreeMap<>();
     for (HaplotypeMatch hm : haplotypeMatches) {
       hapMap.put(hm.getHaplotype(), hm);
     }
 
     // possible pairs from what got matched
-    List<List<Haplotype>> pairs = CombinationUtil.generatePerfectPairs(hapMap.keySet());
+    List<List<NamedAllele>> pairs = CombinationUtil.generatePerfectPairs(hapMap.keySet());
 
     List<DiplotypeMatch> matches = new ArrayList<>();
-    for (List<Haplotype> pair : pairs) {
-      Haplotype hap1 = pair.get(0);
+    for (List<NamedAllele> pair : pairs) {
+      NamedAllele hap1 = pair.get(0);
       HaplotypeMatch hm1 = hapMap.get(hap1);
       if (hm1 == null) {
         continue;
       }
-      Haplotype hap2 = pair.get(1);
+      NamedAllele hap2 = pair.get(1);
       HaplotypeMatch hm2 = hapMap.get(hap2);
       if (hm2 == null) {
         continue;

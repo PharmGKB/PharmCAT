@@ -5,7 +5,6 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
@@ -15,6 +14,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,16 +67,13 @@ public class Haplotyper {
   protected static ImmutableSet<String> calculateLocationsOfInterest(DefinitionReader definitionReader) {
 
     ImmutableSet.Builder<String> setBuilder = ImmutableSet.builder();
-    for (String gene : definitionReader.getHaplotypes().keySet()) {
-      List<Variant> variants = definitionReader.getHaplotypePositions().get(gene);
+    for (String gene : definitionReader.getGenes()) {
+      VariantLocus[] variants = definitionReader.getPositions(gene);
+      String chromosome = definitionReader.getDefinitionFile(gene).getChromosome();
       // map variant to chr:position
-      for (Variant v : variants) {
-        String chrPos = v.getChromosome() + ":" + v.getPosition();
+      for (VariantLocus v : variants) {
+        String chrPos = chromosome + ":" + v.getPosition();
         setBuilder.add(chrPos);
-      }
-      // calculate permutations of all haplotypes
-      for (Haplotype hap : definitionReader.getHaplotypes().get(gene)) {
-        hap.calculatePermutations(variants);
       }
     }
     return setBuilder.build();
@@ -91,7 +89,7 @@ public class Haplotyper {
     Report report = new Report(m_definitionReader)
         .forFile(vcfFile);
     // call haplotypes
-    for (String gene : m_definitionReader.getHaplotypePositions().keySet()) {
+    for (String gene : m_definitionReader.getGenes()) {
       report.gene(gene, callDiplotypes(alleles, gene), alleles.values());
     }
     return report;
@@ -105,13 +103,14 @@ public class Haplotyper {
 
     // grab SampleAlleles for all positions related to current gene
     SortedMap<Integer, SampleAllele> geneSampleMap = new TreeMap<>();
-    Set<String> missingPositions = new HashSet<>();
-    for (Variant variant : m_definitionReader.getHaplotypePositions().get(gene)) {
-      String chrPos = variant.getChromosome() + ":" + variant.getPosition();
+    Set<VariantLocus> missingPositions = new HashSet<>();
+    String chromosome = m_definitionReader.getDefinitionFile(gene).getChromosome();
+    for (VariantLocus variant : m_definitionReader.getPositions(gene)) {
+      String chrPos = chromosome + ":" + variant.getPosition();
       SampleAllele allele = alleleMap.get(chrPos);
       if (allele == null) {
-        missingPositions.add(chrPos);
-        sf_logger.info("Sample has no allele for {} (ref is {})", chrPos, variant.getREF());
+        missingPositions.add(variant);
+        sf_logger.info("Sample has no allele for {}", chrPos);
         continue;
       }
       geneSampleMap.put(variant.getPosition(), allele);
@@ -126,16 +125,43 @@ public class Haplotyper {
 
 
     // handle missing positions of interest in sample
-    List<Haplotype> haplotypes;
+    VariantLocus[] positions = m_definitionReader.getPositions(gene);
+    List<NamedAllele> haplotypes;
     if (missingPositions.isEmpty()) {
-      haplotypes = m_definitionReader.getHaplotypes().get(gene);
+      haplotypes = m_definitionReader.getHaplotypes(gene);
     } else {
-      // TODO(markwoon): can probably just clone haplotype here and recompute permutations
-      throw new UnsupportedOperationException("Sample is missing alleles for " + missingPositions);
+      // handle missing positions by duplicating haplotype and eliminating missing positions
+      VariantLocus[] availablePositions = new VariantLocus[positions.length - missingPositions.size()];
+      for (int x = 0, y = 0; x < positions.length; x += 1) {
+        if (!missingPositions.contains(positions[x])) {
+          availablePositions[y] = positions[x];
+          y += 1;
+        }
+      }
+      positions = availablePositions;
+      haplotypes = new ArrayList<>();
+      for (NamedAllele hap : m_definitionReader.getHaplotypes(gene)) {
+        // get alleles for positions we have data on
+        String[] availableAlleles = new String[positions.length];
+        for (int x = 0; x < positions.length; x += 1) {
+          availableAlleles[x] = hap.getAllele(positions[x]);
+          if (availableAlleles[x] != null) {
+            sf_logger.info("{} cannot be matched due to missing positions", hap.getName());
+            break;
+          }
+        }
+        NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles);
+        newHap.setFunction(hap.getFunction());
+        newHap.setPopFreqMap(hap.getPopFreqMap());
+        newHap.finalize(positions);
+        if (newHap.getNumValidAlleles() > 0) {
+          haplotypes.add(newHap);
+        }
+      }
     }
 
     if (m_assumeReferenceInDefinitions) {
-      haplotypes = assumeReferenceInDefinition(haplotypes);
+      haplotypes = assumeReferenceInDefinition(positions, haplotypes);
     }
 
     // find matched pairs
@@ -155,41 +181,33 @@ public class Haplotyper {
   /**
    * Assumes that missing alleles in definition files should be the reference.
    */
-  protected List<Haplotype> assumeReferenceInDefinition(List<Haplotype> haplotypes) {
+  protected List<NamedAllele> assumeReferenceInDefinition(VariantLocus[] refVariants, List<NamedAllele> haplotypes) {
 
-    List<Haplotype> updatedHaplotypes = new ArrayList<>();
-    Haplotype referenceHaplotype = null;
-    for (Haplotype h : haplotypes) {
+    List<NamedAllele> updatedHaplotypes = new ArrayList<>();
+    NamedAllele referenceHaplotype = null;
+    for (NamedAllele hap : haplotypes) {
       if (referenceHaplotype == null) {
-        referenceHaplotype = h;
-        updatedHaplotypes.add(h);
+        referenceHaplotype = hap;
+        updatedHaplotypes.add(hap);
         continue;
       }
 
-      Iterator<String> refAlleleIt = referenceHaplotype.getAlleles().iterator();
-      Iterator<String> curAlleleIt = h.getAlleles().iterator();
-      Iterator<Variant> curVariantIt = h.getVariants().iterator();
-      Variant curVar = curVariantIt.next();
-
-      Haplotype fixedHap = new Haplotype(h.getAlleleId(), h.getName());
-      for (Variant v : referenceHaplotype.getVariants()) {
-        String refAllele = refAlleleIt.next();
-        if (curVar.getPosition() == v.getPosition()) {
-          fixedHap.addVariant(curVar);
-          fixedHap.addAllele(curAlleleIt.next());
-          if (curVariantIt.hasNext()) {
-            curVar = curVariantIt.next();
-          }
+      String[] refAlleles = referenceHaplotype.getAlleles();
+      String[] hapAlleles = hap.getAlleles();
+      String[] newAlleles = new String[refAlleles.length];
+      for (int x = 0; x < refAlleles.length; x += 1) {
+        if (hapAlleles[x] == null) {
+          newAlleles[x] = refAlleles[x];
         } else {
-          fixedHap.addVariant(v);
-          fixedHap.addAllele(refAllele);
+          newAlleles[x] = hapAlleles[x];
         }
       }
-
-      fixedHap.calculatePermutations(referenceHaplotype.getVariants());
+      NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles);
+      fixedHap.setFunction(hap.getFunction());
+      fixedHap.setPopFreqMap(hap.getPopFreqMap());
+      fixedHap.finalize(refVariants);
       updatedHaplotypes.add(fixedHap);
     }
-
 
     return updatedHaplotypes;
   }

@@ -1,0 +1,250 @@
+{
+  "formatVersion": "1",
+  "contentVersion": null,
+  "modificationDate": "Apr 6, 2016 12:00:00 AM",
+  "gene": "CYP3A5",
+  "orientation": null,
+  "chromosome": "chr7",
+  "genomeBuild": "b38",
+  "refSeqChromosomeId": "NC_000007.14",
+  "refSeqGeneId": "NG_007938.1",
+  "refSeqProteinId": "NP_000768.1",
+  "notes": [
+    "See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP3A5 variant alleles and updated allele information.",
+    "Cytochrome database references nucleotide changes based on NCBI Reference Sequence NG_000004.3 as detailed at http://www.cypalleles.ki.se/cyp3a5.htm.",
+    "For *9 the existence of the rs776746 (*3) polymorphism on the same allele cannot be excluded.",
+    "Regarding functional status: an important caveat for all genotyping tests is that the decision to assign an allele a “wild- type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of- function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”",
+    "Allele frequencies: Average allele frequencies are based on the actual number of subjects with each allele reported",
+    "in multiple studies and then grouped according to major race/ethnic groups for studies as defined in http://www.pharmgkb.org/download.action?filename\u003dCYP3A5_Literature_Table.xlsx (details and references)."
+  ],
+  "populations": [
+    "African Allele Frequency",
+    "African American Allele Frequency",
+    "Americas Allele Frequency",
+    "Caucasian (European + North American) Allele Frequency",
+    "East Asian Allele Frequency",
+    "Middle Eastern Allele Frequency",
+    "Oceanian Allele Frequency",
+    "South/Central Asian Allele Frequency"
+  ],
+  "variants": [
+    {
+      "position": 99676198,
+      "rsid": "rs55817950",
+      "chromosomeHgvsName": "g.99676198G\u003eA",
+      "geneHgvsName": "g.8801C\u003eT",
+      "proteinNote": "R28C",
+      "resourceNote": "3699C\u003eT",
+      "isInDel": false
+    },
+    {
+      "position": 99672916,
+      "rsid": "rs776746",
+      "chromosomeHgvsName": "g.99672916T\u003eC",
+      "geneHgvsName": "g.12083A\u003eG",
+      "proteinNote": "Splicing defect",
+      "resourceNote": "6986A\u003eG",
+      "isInDel": false
+    },
+    {
+      "position": 99666950,
+      "rsid": "rs55965422",
+      "chromosomeHgvsName": "g.99666950A\u003eG",
+      "geneHgvsName": "g.18049T\u003eC",
+      "proteinNote": "Splicing defect",
+      "resourceNote": "12952T\u003eC",
+      "isInDel": false
+    },
+    {
+      "position": 99665237,
+      "rsid": "rs56411402",
+      "chromosomeHgvsName": "g.99665237T\u003eC",
+      "geneHgvsName": "g.19762A\u003eG",
+      "proteinNote": "Q200R",
+      "resourceNote": "14665A\u003eG",
+      "isInDel": false
+    },
+    {
+      "position": 99665212,
+      "rsid": "rs10264272",
+      "chromosomeHgvsName": "g.99665212C\u003eT",
+      "geneHgvsName": "g.19787G\u003eA",
+      "proteinNote": "Splicing defect",
+      "resourceNote": "14690G\u003eA",
+      "isInDel": false
+    },
+    {
+      "position": 99660516,
+      "rsid": "rs28383479",
+      "chromosomeHgvsName": "g.99660516C\u003eT",
+      "geneHgvsName": "g.24483G\u003eA",
+      "proteinNote": "A337T",
+      "resourceNote": "19386G\u003eA",
+      "isInDel": false
+    },
+    {
+      "position": 99652770,
+      "rsid": "rs41303343",
+      "chromosomeHgvsName": "g.99652770_99652771insA",
+      "geneHgvsName": "g.32228_32229insT",
+      "proteinNote": "346Frameshift",
+      "resourceNote": "27131_27132insT",
+      "isInDel": true
+    },
+    {
+      "position": 99652613,
+      "rsid": "rs28365083",
+      "chromosomeHgvsName": "g.99652613G\u003eT",
+      "geneHgvsName": "g.32386C\u003eA",
+      "proteinNote": "T398N",
+      "resourceNote": "27289C\u003eA",
+      "isInDel": false
+    }
+  ],
+  "namedAlleles": [
+    {
+      "name": "*1",
+      "id": "CA100125.1",
+      "function": "Normal function",
+      "alleles": [
+        "G",
+        "T",
+        "A",
+        "T",
+        "C",
+        "C",
+        "del",
+        "G"
+      ],
+      "populationFrequency": {}
+    },
+    {
+      "name": "*2",
+      "id": "CA100126.1",
+      "function": "Unknown/Uncertain function",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T"
+      ],
+      "populationFrequency": {}
+    },
+    {
+      "name": "*3",
+      "id": "CA100127.1",
+      "function": "No function",
+      "alleles": [
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "populationFrequency": {}
+    },
+    {
+      "name": "*4",
+      "id": "CA100128.1",
+      "function": "Unknown/Uncertain function",
+      "alleles": [
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null
+      ],
+      "populationFrequency": {}
+    },
+    {
+      "name": "*5",
+      "id": "CA100129.1",
+      "function": "Unknown/Uncertain function",
+      "alleles": [
+        null,
+        null,
+        "G",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "populationFrequency": {}
+    },
+    {
+      "name": "*6",
+      "id": "CA100130.1",
+      "function": "No function",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null
+      ],
+      "populationFrequency": {}
+    },
+    {
+      "name": "*7",
+      "id": "CA100131.1",
+      "function": "No function",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "insA",
+        null
+      ],
+      "populationFrequency": {}
+    },
+    {
+      "name": "*8",
+      "id": "CA100132.1",
+      "function": "Unknown/Uncertain function",
+      "alleles": [
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "populationFrequency": {}
+    },
+    {
+      "name": "*9",
+      "id": "CA100133.1",
+      "function": "Unknown/Uncertain function",
+      "alleles": [
+        null,
+        "Y",
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null
+      ],
+      "populationFrequency": {}
+    }
+  ]
+}

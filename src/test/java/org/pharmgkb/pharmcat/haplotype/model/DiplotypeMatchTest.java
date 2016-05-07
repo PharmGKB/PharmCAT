@@ -4,8 +4,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.common.collect.Lists;
 import org.junit.Test;
-import org.pharmgkb.pharmcat.haplotype.Haplotype;
-import org.pharmgkb.pharmcat.haplotype.Variant;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,18 +21,22 @@ public class DiplotypeMatchTest {
   @Test
   public void testCompareTo() {
 
-    Variant var1 = new Variant("chr1", "test");
-    var1.setPosition("1");
+    VariantLocus var1 = new VariantLocus(1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus(2, "g.2T>A");
+    VariantLocus var3 = new VariantLocus(3, "g.3T>A");
+    VariantLocus[] variants = new VariantLocus[] { var1, var2, var3 };
 
-    Variant var2 = new Variant("chr1", "test");
-    var2.setPosition("2");
 
-    Variant var3 = new Variant("chr1", "test");
-    var3.setPosition("3");
+    NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "T", "T", "T" });
+    hap1.finalize(variants);
+    NamedAllele hap2 = new NamedAllele("*4", "*4", new String[] { "A", "A", "A" });
+    hap2.finalize(variants);
+    NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { "T", "A", null });
+    hap3.finalize(variants);
 
-    HaplotypeMatch hm1 = new HaplotypeMatch(new Haplotype(null, "*1", Lists.newArrayList(var1, var2, var3), null, null));
-    HaplotypeMatch hm2 = new HaplotypeMatch(new Haplotype(null, "*4", Lists.newArrayList(var1, var2, var3), null, null));
-    HaplotypeMatch hm3 = new HaplotypeMatch(new Haplotype(null, "*3", Lists.newArrayList(var1, var2), null, null));
+    HaplotypeMatch hm1 = new HaplotypeMatch(hap1);
+    HaplotypeMatch hm2 = new HaplotypeMatch(hap2);
+    HaplotypeMatch hm3 = new HaplotypeMatch(hap3);
 
     DiplotypeMatch dm1 = new DiplotypeMatch(hm1, hm1);
     DiplotypeMatch dm2 = new DiplotypeMatch(hm1, hm2);

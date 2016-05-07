@@ -2,7 +2,7 @@ package org.pharmgkb.pharmcat;
 
 import com.google.common.collect.Lists;
 import org.junit.Test;
-import org.pharmgkb.pharmcat.haplotype.Haplotype;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
@@ -16,8 +16,7 @@ public class TestUtilTest {
 
 
   private HaplotypeMatch createHaplotypeMatch(String haplotypeName) {
-    Haplotype hap = new Haplotype(null, haplotypeName);
-    return new HaplotypeMatch(hap);
+    return new HaplotypeMatch(new NamedAllele(haplotypeName, haplotypeName, new String[1]));
   }
 
 

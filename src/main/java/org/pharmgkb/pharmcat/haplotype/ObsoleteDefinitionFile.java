@@ -6,7 +6,7 @@ package org.pharmgkb.pharmcat.haplotype;
  * @author nate
  */
 
-public class DefinitionFile {
+public class ObsoleteDefinitionFile {
 	private String FileName;
 	private int FormatVersion;
 	private String GeneName;
@@ -23,7 +23,7 @@ public class DefinitionFile {
 	/**
 	 * @param _FileName
 	 */
-	public DefinitionFile(String _FileName){
+	public ObsoleteDefinitionFile(String _FileName){
 		FileName=_FileName;
 	}
 

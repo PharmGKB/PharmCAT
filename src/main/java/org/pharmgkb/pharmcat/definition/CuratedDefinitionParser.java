@@ -47,7 +47,7 @@ public class CuratedDefinitionParser {
       "([ACTG]+\\([ACTG]+\\)\\d+[ACTG]+)|" +
       "$");
   private static final Pattern sf_hgvsPosition = Pattern.compile("^[cgp]\\.(\\d+).*$");
-  private static final SimpleDateFormat sf_dateFormat = new SimpleDateFormat("MM/dd/yy");
+  private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
   private Path m_filePath;
   private DefinitionFile m_definitionFile;
@@ -95,15 +95,25 @@ public class CuratedDefinitionParser {
       throw new ParseException(Joiner.on("\n").join(m_errors));
     }
 
+    // find indels and repeats
     for (int x = 0; x < m_definitionFile.getVariants().length; x += 1) {
       VariantLocus locus = m_definitionFile.getVariants()[x];
       for (NamedAllele namedAllele : m_definitionFile.getNamedAlleles()) {
         String allele = namedAllele.getAlleles()[x];
-        if (allele != null && (allele.contains("ins") || allele.contains("del"))) {
-          locus.setInDel(true);
-          break;
+        if (allele != null) {
+          if (allele.contains("ins") || allele.contains("del")) {
+            locus.setInDel(true);
+            break;
+          } else if (allele.contains("\\(")) {
+            locus.setRepeat(true);
+          }
         }
       }
+    }
+
+    // finalize NamedAlleles
+    for (NamedAllele namedAllele : m_definitionFile.getNamedAlleles()) {
+      namedAllele.finalize(m_definitionFile.getVariants());
     }
 
     return m_definitionFile;
@@ -121,10 +131,10 @@ public class CuratedDefinitionParser {
     }
 
     try {
-      Date date = sf_dateFormat.parse(fields.get(1));
+      Date date = m_dateFormat.parse(fields.get(1));
       m_definitionFile.setModificationDate(date);
     } catch (java.text.ParseException e) {
-      m_errors.add("Couldn't parse date. Expecting " + sf_dateFormat.toPattern() + ", got '" + fields.get(1) + "'");
+      m_errors.add("Couldn't parse date. Expecting " + m_dateFormat.toPattern() + ", got '" + fields.get(1) + "'");
     }
   }
 
@@ -336,22 +346,21 @@ public class CuratedDefinitionParser {
             }
           }
 
-          NamedAllele namedAllele = new NamedAllele();
-          namedAllele.setName(fields.get(0));
+          String name = StringUtils.stripToNull(fields.get(0));
+          String id = m_haplotypeIdMap.get(m_definitionFile.getGeneSymbol(), name);
+          if (id == null) {
+            m_errors.add("Allele has no ID: " + m_definitionFile.getGeneSymbol() + " " + name);
+            return;
+          }
+
+          NamedAllele namedAllele = new NamedAllele(id, name, variantAlleles);
           namedAllele.setFunction(fields.get(1));
-          namedAllele.setAlleles(variantAlleles);
 
           Map<String,String> popFreqMap = new HashMap<>();
           m_populationPositionMap.keySet().stream()
               .filter(i -> i < fields.size())
               .forEach(i -> popFreqMap.put(m_populationPositionMap.get(i), fields.get(i)));
           namedAllele.setPopFreqMap(popFreqMap);
-
-          String id = m_haplotypeIdMap.get(m_definitionFile.getGeneSymbol(), namedAllele.getName());
-          if (id == null) {
-            m_errors.add("Allele has no ID: " + m_definitionFile.getGeneSymbol() + " " + namedAllele.getName());
-          }
-          namedAllele.setId(id);
 
           m_definitionFile.addNamedAllele(namedAllele);
         }

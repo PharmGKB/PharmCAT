@@ -21,7 +21,7 @@ public class HaplotyperTest {
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(tsvFile);
-    String gene = definitionReader.getHaplotypes().keySet().iterator().next();
+    String gene = definitionReader.getGenes().iterator().next();
 
     VcfReader vcfReader = new VcfReader(Haplotyper.calculateLocationsOfInterest(definitionReader));
     SortedMap<String, SampleAllele> alleleMap = vcfReader.read(vcfFile);
@@ -53,7 +53,7 @@ public class HaplotyperTest {
   @Test
   public void testCyp2c19() throws Exception {
     // initial test - file reading etc
-    Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.tsv");
+    Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.json");
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/NA12878.2c19_filtered.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader();

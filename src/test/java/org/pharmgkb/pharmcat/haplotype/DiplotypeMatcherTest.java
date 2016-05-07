@@ -12,6 +12,8 @@ import com.google.common.collect.Sets;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.TestUtil;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
@@ -24,54 +26,33 @@ import static org.junit.Assert.assertEquals;
  * @author Mark Woon
  */
 public class DiplotypeMatcherTest {
-  private static List<Haplotype> s_haplotypes;
+  private static List<NamedAllele> s_haplotypes;
 
 
   @BeforeClass
   public static void beforeClass() {
 
     // initialize test variants
-    Variant s_var1 = new Variant("chr1", "test");
-    s_var1.setPosition("1");
+    VariantLocus var1 = new VariantLocus(1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus(2, "g.2T>A");
+    VariantLocus var3 = new VariantLocus(3, "g.3T>A");
 
-    Variant s_var2 = new Variant("chr1", "test");
-    s_var2.setPosition("2");
-
-    Variant s_var3 = new Variant("chr1", "test");
-    s_var3.setPosition("3");
-
-    List<Variant> s_variants = Lists.newArrayList(s_var1, s_var2, s_var3);
+    VariantLocus[] variants = new VariantLocus[] { var1, var2, var3 };
 
     // initialize test haplotypes
-    Haplotype s_hap1 = new Haplotype(
-        null, "*1", s_variants,
-        null,
-        Lists.newArrayList("A", "C", "C")
-    );
-    s_hap1.calculatePermutations(s_variants);
+    NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "A", "C", "C" });
+    hap1.finalize(variants);
 
-    Haplotype s_hap2 = new Haplotype(
-        null, "*4a", Lists.newArrayList(s_var1),
-        null,
-        Lists.newArrayList("G")
-    );
-    s_hap2.calculatePermutations(s_variants);
+    NamedAllele hap2 = new NamedAllele("*4a", "*4a", new String[] { "G", null, null });
+    hap2.finalize(variants);
 
-    Haplotype s_hap3 = new Haplotype(
-        null, "*4b", s_variants,
-        null,
-        Lists.newArrayList("G", "T", "T")
-    );
-    s_hap3.calculatePermutations(s_variants);
+    NamedAllele hap3 = new NamedAllele("*4b", "*4b", new String[] { "G", "T", "T" });
+    hap3.finalize(variants);
 
-    Haplotype s_hap4 = new Haplotype(
-        null, "*17", Lists.newArrayList(s_var2, s_var3),
-        null,
-        Lists.newArrayList("T", "T")
-    );
-    s_hap4.calculatePermutations(s_variants);
+    NamedAllele hap4 = new NamedAllele("*17", "*17", new String[] { null, "T", "T" });
+    hap4.finalize(variants);
 
-    s_haplotypes = Lists.newArrayList(s_hap1, s_hap2, s_hap3, s_hap4);
+    s_haplotypes = Lists.newArrayList(hap1, hap2, hap3, hap4);
 
     /*
             | 1 | 2 | 3 |
@@ -179,40 +160,20 @@ public class DiplotypeMatcherTest {
         "1:T;2:T;3:C;4:G;"
     );
 
-    Variant var1 = new Variant("chr1", "test");
-    var1.setPosition("1");
+    VariantLocus var1 = new VariantLocus(1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus(2, "g.2T>A");
+    VariantLocus var3 = new VariantLocus(3, "g.3T>A");
+    VariantLocus var4 = new VariantLocus(4, "g.3T>A");
+    VariantLocus[] variants = new VariantLocus[] { var1, var2, var3, var4 };
 
-    Variant var2 = new Variant("chr1", "test");
-    var2.setPosition("2");
+    NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "T", "A", "C", "C" });
+    hap1.finalize(variants);
 
-    Variant var3 = new Variant("chr1", "test");
-    var3.setPosition("3");
+    NamedAllele hap2 = new NamedAllele("*2", "*2", new String[] { null, "T", "C", null });
+    hap2.finalize(variants);
 
-    Variant var4 = new Variant("chr1", "test");
-    var4.setPosition("4");
-
-    List<Variant> variants = Lists.newArrayList(var1, var2, var3, var4);
-
-    Haplotype hap1 = new Haplotype(
-        null, "*1", variants,
-        null,
-        Lists.newArrayList("T", "A", "C", "C")
-    );
-    hap1.calculatePermutations(variants);
-
-    Haplotype hap2 = new Haplotype(
-        null, "*2", Lists.newArrayList(var2, var3),
-        null,
-        Lists.newArrayList("T", "C")
-    );
-    hap2.calculatePermutations(variants);
-
-    Haplotype hap3 = new Haplotype(
-        null, "*3", Lists.newArrayList(var4),
-        null,
-        Lists.newArrayList("GG")
-    );
-    hap3.calculatePermutations(variants);
+    NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { null, null, "GG", null });
+    hap3.finalize(variants);
 
     DiplotypeMatcher diplotypeMatcher = new DiplotypeMatcher(new TreeMap<>(), permutations, Lists.newArrayList(hap1, hap2, hap3));
 
