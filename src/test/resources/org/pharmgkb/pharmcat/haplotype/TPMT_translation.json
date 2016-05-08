@@ -3,14 +3,19 @@
   "contentVersion": null,
   "modificationDate": "Mar 10, 2016 12:00:00 AM",
   "gene": "TPMT",
-  "orientation": null,
+  "orientation": "reverse",
   "chromosome": "chr6",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000006.12",
   "refSeqGeneId": "NG_012137.2",
   "refSeqProteinId": "NP_000358.1",
   "notes": [
-    "Nomenclature as determined by TPMT nomenclature committee (www.imh.liu.se/tpmtalleles)"
+    "rsID\u003dRefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
+    "All variants are annotated to the positive DNA strand.",
+    "Nomenclature as determined by TPMT nomenclature committee (www.imh.liu.se/tpmtalleles)",
+    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”.",
+    "Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see supplement at https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2013/23422873-supplement.pdf",
+    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d\u0027Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
   ],
   "populations": [
     "African Allele Frequency",
@@ -30,7 +35,7 @@
       "geneHgvsName": "g.11017A\u003eG",
       "proteinNote": "M1V",
       "resourceNote": "1A\u003eG",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18149126,
@@ -39,7 +44,7 @@
       "geneHgvsName": "g.11018T\u003eC",
       "proteinNote": "M1T",
       "resourceNote": "2T\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18149045,
@@ -48,7 +53,7 @@
       "geneHgvsName": "g.11099A\u003eT",
       "proteinNote": "E28V",
       "resourceNote": "83A\u003eT",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18149022,
@@ -57,7 +62,7 @@
       "geneHgvsName": "g.11122G\u003eA",
       "proteinNote": "G36S",
       "resourceNote": "106G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18149004,
@@ -66,7 +71,7 @@
       "geneHgvsName": "g.11140C\u003eG",
       "proteinNote": "Q42E",
       "resourceNote": "124C\u003eG",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18147910,
@@ -75,7 +80,7 @@
       "geneHgvsName": "g.12234T\u003eC",
       "proteinNote": "L49S",
       "resourceNote": "146T\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18147851,
@@ -84,7 +89,7 @@
       "geneHgvsName": "g.12293C\u003eG",
       "proteinNote": "L69V",
       "resourceNote": "205C\u003eG",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18147845,
@@ -93,7 +98,7 @@
       "geneHgvsName": "g.12299G\u003eA",
       "proteinNote": "G71R",
       "resourceNote": "211G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18143724,
@@ -102,7 +107,7 @@
       "geneHgvsName": "g.16420G\u003eC",
       "proteinNote": "A80P",
       "resourceNote": "238G\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18143670,
@@ -111,7 +116,7 @@
       "geneHgvsName": "g.16474G\u003eT",
       "proteinNote": "E98X",
       "resourceNote": "292G\u003eT",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18143643,
@@ -120,7 +125,7 @@
       "geneHgvsName": "g.16501T\u003eG",
       "proteinNote": "Y107D",
       "resourceNote": "319T\u003eG",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18143613,
@@ -129,7 +134,7 @@
       "geneHgvsName": "g.16531G\u003eC",
       "proteinNote": "G117R",
       "resourceNote": "349G\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18143606,
@@ -138,7 +143,7 @@
       "geneHgvsName": "g.16538A\u003eC",
       "proteinNote": "K119T",
       "resourceNote": "356A\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18143597,
@@ -147,7 +152,7 @@
       "geneHgvsName": "g.16547A\u003eC",
       "proteinNote": "K122T",
       "resourceNote": "365A\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18139710,
@@ -156,7 +161,7 @@
       "geneHgvsName": "g.20434C\u003eT",
       "proteinNote": "S125L",
       "resourceNote": "374C\u003eT",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18139689,
@@ -165,7 +170,7 @@
       "geneHgvsName": "g.20455G\u003eA",
       "proteinNote": "C132Y",
       "resourceNote": "395G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18139027,
@@ -174,7 +179,7 @@
       "geneHgvsName": "g.21117G\u003eC",
       "proteinNote": "G144R",
       "resourceNote": "430G\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18138997,
@@ -183,7 +188,7 @@
       "geneHgvsName": "g.21147G\u003eA",
       "proteinNote": "A154T",
       "resourceNote": "460G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18138983,
@@ -192,7 +197,7 @@
       "geneHgvsName": "g.21161T\u003eC",
       "proteinNote": "I158\u003d",
       "resourceNote": "474C\u003eT",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18138969,
@@ -201,7 +206,7 @@
       "geneHgvsName": "g.21175G\u003eA; g.21175G\u003eC",
       "proteinNote": "R163H; R163P",
       "resourceNote": "488G\u003eA; 488G\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18133890,
@@ -210,7 +215,7 @@
       "geneHgvsName": "g.26254G\u003eA",
       "proteinNote": null,
       "resourceNote": "495-1G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18133884,
@@ -219,7 +224,7 @@
       "geneHgvsName": "g.26260C\u003eG",
       "proteinNote": "A167G",
       "resourceNote": "500C\u003eG",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18133847,
@@ -228,7 +233,7 @@
       "geneHgvsName": "g.26297G\u003eT",
       "proteinNote": "Q179H",
       "resourceNote": "537G\u003eT",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18133845,
@@ -237,7 +242,7 @@
       "geneHgvsName": "g.26299A\u003eT",
       "proteinNote": "Y180F",
       "resourceNote": "539A\u003eT",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18132147,
@@ -246,7 +251,7 @@
       "geneHgvsName": "g.27997T\u003eC",
       "proteinNote": "I204T",
       "resourceNote": "611T\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18132136,
@@ -255,7 +260,7 @@
       "geneHgvsName": "g.28008T\u003eC",
       "proteinNote": "F308L",
       "resourceNote": "622T\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18130781,
@@ -264,7 +269,7 @@
       "geneHgvsName": "g.29363G\u003eA",
       "proteinNote": null,
       "resourceNote": "626-1G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18130772,
@@ -273,7 +278,7 @@
       "geneHgvsName": "g.29372T\u003eC",
       "proteinNote": "C212R",
       "resourceNote": "634T\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18130762,
@@ -282,7 +287,7 @@
       "geneHgvsName": "g.29382G\u003eA",
       "proteinNote": "R215H",
       "resourceNote": "644G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18130725,
@@ -291,7 +296,7 @@
       "geneHgvsName": "g.18130725A\u003eC",
       "proteinNote": "H227Q",
       "resourceNote": "681T\u003eG",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18130694,
@@ -300,7 +305,7 @@
       "geneHgvsName": "g.29450A\u003eG",
       "proteinNote": "K238E",
       "resourceNote": "712A\u003eG",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 18130687,
@@ -309,7 +314,7 @@
       "geneHgvsName": "g.29457A\u003eG",
       "proteinNote": "Y240C",
       "resourceNote": "719A\u003eG",
-      "isInDel": false
+      "type": "SNP"
     }
   ],
   "namedAlleles": [

@@ -3,13 +3,18 @@
   "contentVersion": null,
   "modificationDate": "Apr 12, 2016 12:00:00 AM",
   "gene": "VKORC1",
-  "orientation": null,
+  "orientation": "reverse",
   "chromosome": "chr16",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000016.10",
   "refSeqGeneId": "NG_011564.1",
   "refSeqProteinId": "NP_076869.1",
-  "notes": null,
+  "notes": [
+    "rsID\u003dRefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
+    "All variants are annotated to the positive DNA strand.",
+    "Allele frequencies based on the CPIC Warfarin Guideline supplement: https://github.com/PharmGKB/cpic-guidelines/raw/master/warfarin/2011/21900891-supplement.pdf",
+    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d\u0027Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
+  ],
   "populations": [
     "African Allele Frequency",
     "African American Allele Frequency",
@@ -28,7 +33,7 @@
       "geneHgvsName": "g.3588G\u003eA",
       "proteinNote": "nearGene-5",
       "resourceNote": "-1639G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     }
   ],
   "namedAlleles": [
@@ -48,7 +53,13 @@
       "alleles": [
         "T"
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "African American Allele Frequency": "0.11",
+        "Caucasian (European + North American) Allele Frequency": "0.39",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "0.91",
+        "African Allele Frequency": ""
+      }
     }
   ]
 }

@@ -3,19 +3,20 @@
   "contentVersion": null,
   "modificationDate": "Apr 6, 2016 12:00:00 AM",
   "gene": "CYP3A5",
-  "orientation": null,
+  "orientation": "reverse",
   "chromosome": "chr7",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000007.14",
   "refSeqGeneId": "NG_007938.1",
   "refSeqProteinId": "NP_000768.1",
   "notes": [
+    "rsID\u003dRefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP3A5 variant alleles and updated allele information.",
     "Cytochrome database references nucleotide changes based on NCBI Reference Sequence NG_000004.3 as detailed at http://www.cypalleles.ki.se/cyp3a5.htm.",
     "For *9 the existence of the rs776746 (*3) polymorphism on the same allele cannot be excluded.",
-    "Regarding functional status: an important caveat for all genotyping tests is that the decision to assign an allele a “wild- type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of- function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”",
-    "Allele frequencies: Average allele frequencies are based on the actual number of subjects with each allele reported",
-    "in multiple studies and then grouped according to major race/ethnic groups for studies as defined in http://www.pharmgkb.org/download.action?filename\u003dCYP3A5_Literature_Table.xlsx (details and references)."
+    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild- type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of- function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”",
+    "Average allele frequencies are based on the actual number of subjects with each allele reported in multiple studies and then grouped according to major race/ethnic groups for studies as defined in https://github.com/PharmGKB/cpic-guidelines/raw/master/tacrolimus/2015/25801146-CYP3A5%20allele%20frequency%20table.xlsx (details and references).",
+    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d\u0027Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
   ],
   "populations": [
     "African Allele Frequency",
@@ -35,7 +36,7 @@
       "geneHgvsName": "g.8801C\u003eT",
       "proteinNote": "R28C",
       "resourceNote": "3699C\u003eT",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 99672916,
@@ -44,7 +45,7 @@
       "geneHgvsName": "g.12083A\u003eG",
       "proteinNote": "Splicing defect",
       "resourceNote": "6986A\u003eG",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 99666950,
@@ -53,7 +54,7 @@
       "geneHgvsName": "g.18049T\u003eC",
       "proteinNote": "Splicing defect",
       "resourceNote": "12952T\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 99665237,
@@ -62,7 +63,7 @@
       "geneHgvsName": "g.19762A\u003eG",
       "proteinNote": "Q200R",
       "resourceNote": "14665A\u003eG",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 99665212,
@@ -71,7 +72,7 @@
       "geneHgvsName": "g.19787G\u003eA",
       "proteinNote": "Splicing defect",
       "resourceNote": "14690G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 99660516,
@@ -80,7 +81,7 @@
       "geneHgvsName": "g.24483G\u003eA",
       "proteinNote": "A337T",
       "resourceNote": "19386G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 99652770,
@@ -89,7 +90,7 @@
       "geneHgvsName": "g.32228_32229insT",
       "proteinNote": "346Frameshift",
       "resourceNote": "27131_27132insT",
-      "isInDel": true
+      "type": "INS"
     },
     {
       "position": 99652613,
@@ -98,7 +99,7 @@
       "geneHgvsName": "g.32386C\u003eA",
       "proteinNote": "T398N",
       "resourceNote": "27289C\u003eA",
-      "isInDel": false
+      "type": "SNP"
     }
   ],
   "namedAlleles": [

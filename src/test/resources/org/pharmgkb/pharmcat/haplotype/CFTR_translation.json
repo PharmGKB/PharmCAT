@@ -1,21 +1,25 @@
 {
   "formatVersion": "1",
   "contentVersion": null,
-  "modificationDate": "Apr 14, 2016 12:00:00 AM",
+  "modificationDate": "May 7, 2016 12:00:00 AM",
   "gene": "CFTR",
-  "orientation": null,
+  "orientation": "forward",
   "chromosome": "chr7",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000007.14",
   "refSeqGeneId": "NG_016465.3",
   "refSeqProteinId": "NP_000483.3",
   "notes": [
-    "After the submission and review of this CPIC guideline, the FDA-approved drug label for ivacaftor has been updated to include additional variants. Consequently, the CPIC guideline annotation on PharmGKBhas been updated to include the following CFTR variants: G1244E (rs267606723), G1349D (rs193922525), G178R (rs80282562), G551S (rs121909013), S1251N (rs74503330), S1255P (rs121909041), S549N (rs121908755) and S549R (rs121908757 and rs121909005).",
+    "rsID\u003dRefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
+    "All variants are annotated to the positive DNA strand.",
+    "After the submission and review of this CPIC guideline, the FDA-approved drug label for ivacaftor has been updated to include additional variants. Consequently, this table includes the following CFTR variants: G1244E (rs267606723), G1349D (rs193922525), G178R (rs80282562), G551S (rs121909013), S1251N (rs74503330), S1255P (rs121909041), S549N (rs121908755) and S549R (rs121908757 and rs121909005).",
     "Legacy name; Information sourced from dbSNP http://www.ncbi.nlm.nih.gov/projects/SNP/ and/ or http://www.genet.sickkids.on.ca/Home.html or http://www.cftr2.org/acmg_mutations.php (accessed 3rd April 2013).",
     "Class is defined in PMID: 20932301.",
     "The F508del CFTR variant can result from a CTT deletion at cDNA position NM_000492.3.c.1521_1523 (rs113993960) or a TCT deletion at cDNA position NM_000492.3.c.1520_1522 (rs199826652). Both result in the same sequence change: ATC ATC TTT GGT GTT \u003e ATC ATT GGT GTT, corresponding to a deletion of Phe at amino acid position 508. Here we include both rsIDs from dbSNP which result in the same deletion of Phe at position 508; rs113993960 is deletion CTT, the cDNA reference position name that is referred to on the CFTR1 website (c.1521_1523delCTT) and is flagged on dbSNP as “with pathogenic allele” due to its association with cystic fibrosis. Rs199826652 is deletion TCT and is more likely to be called in sequencing data due to the left justification of indels; hence this has a minor allele frequency from 1000 genomes.",
     "This list of CFTR genotypes includes the 23 CFTR variants recommended by the American College of Medical Genetics (ACMG) Cystic Fibrosis Carrier Screening Working Group that should be tested to determine carrier status as a part of population screening programs (Watson, M.S. et al. Cystic fibrosis population carrier screening: 2004 revision of American College of Medical Genetics mutation panel. Genetics in medicine : official journal of the American College of Medical Genetics 6, 387-91 (2004), PMID: 15371902.",
-    "The 5T variant is not included in this list; however, it has been added here to provide further information regarding this polymorphism. RsID rs200454589 describes the 7T and 9T repeats but not 5T. cDNA reference sequence NM_000492.3: c.1210-12T(5_9) V (AJ574948.1:g152T(5_9) (poly-T tract variations; 5T, 7T or 9T). See reference (PMID: 17251329) for more details regarding exon numbering and correct nomenclature for nucleotide repeat sequences."
+    "The 5T variant is not included in this list; however, it has been added here to provide further information regarding this polymorphism. RsID rs200454589 describes the 7T and 9T repeats but not 5T. cDNA reference sequence NM_000492.3: c.1210-12T(5_9) V (AJ574948.1:g152T(5_9) (poly-T tract variations; 5T, 7T or 9T). See reference (PMID: 17251329) for more details regarding exon numbering and correct nomenclature for nucleotide repeat sequences.",
+    "Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see supplement at https://github.com/PharmGKB/cpic-guidelines/raw/master/ivacaftor/2014/24598717-supplement.pdf",
+    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d\u0027Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
   ],
   "populations": [
     "African Allele Frequency",
@@ -35,7 +39,7 @@
       "geneHgvsName": "g.98809_98811delCTT",
       "proteinNote": "F508del",
       "resourceNote": "F508del/Class: II, VI",
-      "isInDel": true
+      "type": "DEL"
     },
     {
       "position": 117559591,
@@ -44,7 +48,7 @@
       "geneHgvsName": "g.98808_98810delTCT",
       "proteinNote": "F508del",
       "resourceNote": "F508del/Class: II, VI",
-      "isInDel": true
+      "type": "DEL"
     },
     {
       "position": 117587806,
@@ -53,7 +57,7 @@
       "geneHgvsName": "g.127023G\u003eA",
       "proteinNote": "G551D",
       "resourceNote": "G551D/Class: III",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117642451,
@@ -62,7 +66,7 @@
       "geneHgvsName": "g.181668G\u003eA",
       "proteinNote": "G1244E",
       "resourceNote": "G1244E",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117664770,
@@ -71,7 +75,7 @@
       "geneHgvsName": "g.203987G\u003eA",
       "proteinNote": "G1349D",
       "resourceNote": "G1349D",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117534318,
@@ -80,7 +84,7 @@
       "geneHgvsName": "g.73535G\u003eA",
       "proteinNote": "G178R",
       "resourceNote": "G178R",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117587805,
@@ -89,7 +93,7 @@
       "geneHgvsName": "g.127022G\u003eA",
       "proteinNote": "G551S",
       "resourceNote": "G551S",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117642472,
@@ -98,7 +102,7 @@
       "geneHgvsName": "g.181689G\u003eA",
       "proteinNote": "S1251N",
       "resourceNote": "S1251N",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117642483,
@@ -107,7 +111,7 @@
       "geneHgvsName": "g.181700T\u003eC",
       "proteinNote": "S1255P",
       "resourceNote": "S1255P",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117587800,
@@ -116,7 +120,7 @@
       "geneHgvsName": "g.127017G\u003eA",
       "proteinNote": "S549N",
       "resourceNote": "S549N",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117587799,
@@ -125,7 +129,7 @@
       "geneHgvsName": "g.127016A\u003eC",
       "proteinNote": "S549R",
       "resourceNote": "S549R",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117587801,
@@ -134,7 +138,7 @@
       "geneHgvsName": "g.127018T\u003eG",
       "proteinNote": "S549R",
       "resourceNote": "S549R",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117587778,
@@ -143,7 +147,7 @@
       "geneHgvsName": "g.126995G\u003eT",
       "proteinNote": "G542X",
       "resourceNote": "G542X/Class: I",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117652877,
@@ -152,7 +156,7 @@
       "geneHgvsName": "g.192094C\u003eG",
       "proteinNote": "N1303K",
       "resourceNote": "N1303K/Class: II",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117642566,
@@ -161,7 +165,7 @@
       "geneHgvsName": "g.181783G\u003eA",
       "proteinNote": "W1282X",
       "resourceNote": "W1282X/ Class: I",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117530975,
@@ -170,7 +174,7 @@
       "geneHgvsName": "g.70192G\u003eA",
       "proteinNote": "R117H",
       "resourceNote": "R117H/ Class: IV",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117587811,
@@ -179,7 +183,7 @@
       "geneHgvsName": "g.127028C\u003eT",
       "proteinNote": "R553X",
       "resourceNote": "R553X/ Class: I",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117587738,
@@ -188,7 +192,7 @@
       "geneHgvsName": "g.126955G\u003eA",
       "proteinNote": "intron",
       "resourceNote": "1717-1G-\u003eA/ Class: I",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117531115,
@@ -197,7 +201,7 @@
       "geneHgvsName": "g.70332G\u003eT",
       "proteinNote": "splice-5",
       "resourceNote": "621+1G-\u003eT/ Class: I",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117602868,
@@ -206,7 +210,7 @@
       "geneHgvsName": "g.142085G\u003eA",
       "proteinNote": "intron",
       "resourceNote": "2789+5G-\u003eA/ Class: V",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117639961,
@@ -215,7 +219,7 @@
       "geneHgvsName": "g.179178C\u003eT",
       "proteinNote": "intron",
       "resourceNote": "3849+10kbC- \u003eT/ Class: V",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117627537,
@@ -224,7 +228,7 @@
       "geneHgvsName": "g.166754C\u003eT",
       "proteinNote": "R1162X",
       "resourceNote": "R1162X/ Class: I",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117509123,
@@ -233,7 +237,7 @@
       "geneHgvsName": "g.48340G\u003eA",
       "proteinNote": "G85E",
       "resourceNote": "G85E/ Class: II",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117606754,
@@ -242,7 +246,7 @@
       "geneHgvsName": "g.145971G\u003eA",
       "proteinNote": "splice-5",
       "resourceNote": "3120+1G-\u003eA/ Class: I",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117559590,
@@ -251,7 +255,7 @@
       "geneHgvsName": "g.98807_98809delATC",
       "proteinNote": "I507del",
       "resourceNote": "∆I507/ Class: II",
-      "isInDel": true
+      "type": "DEL"
     },
     {
       "position": 117590440,
@@ -260,7 +264,7 @@
       "geneHgvsName": "g.129657G\u003eA",
       "proteinNote": "splice-5",
       "resourceNote": "1898+1G-\u003eA/ Class: I",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117627581,
@@ -269,7 +273,7 @@
       "geneHgvsName": "g.166798delC",
       "proteinNote": "L1177Frameshift",
       "resourceNote": "3659delC/ Class: I",
-      "isInDel": true
+      "type": "DEL"
     },
     {
       "position": 117540270,
@@ -278,7 +282,7 @@
       "geneHgvsName": "g.79487G\u003eC",
       "proteinNote": "R347P",
       "resourceNote": "R347P/ Class:  IV",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117587833,
@@ -287,7 +291,7 @@
       "geneHgvsName": "g.127050G\u003eC",
       "proteinNote": "R560T",
       "resourceNote": "R560T/ Class: III",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117540230,
@@ -296,7 +300,7 @@
       "geneHgvsName": "g.79447C\u003eT",
       "proteinNote": "R334W",
       "resourceNote": "R334W/ Class: IV",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117548795,
@@ -305,7 +309,7 @@
       "geneHgvsName": "g.88012C\u003eA",
       "proteinNote": "A455E",
       "resourceNote": "A455E/ Class: V",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 117592219,
@@ -314,7 +318,7 @@
       "geneHgvsName": "g.131436delA",
       "proteinNote": "K684Frameshift",
       "resourceNote": "2184delA/ Class: I",
-      "isInDel": true
+      "type": "DEL"
     },
     {
       "position": 117534366,
@@ -323,16 +327,16 @@
       "geneHgvsName": "g.73583G\u003eT",
       "proteinNote": "splice-5",
       "resourceNote": "711+1G-\u003eT/ Class: I",
-      "isInDel": false
+      "type": "SNP"
     },
     {
-      "position": 777548628,
+      "position": 117548628,
       "rsid": null,
-      "chromosomeHgvsName": "g.777548628",
+      "chromosomeHgvsName": "g.117548628",
       "geneHgvsName": "g.87845",
       "proteinNote": "intron",
       "resourceNote": "5T/ Class:V",
-      "isInDel": false
+      "type": "SNP"
     }
   ],
   "namedAlleles": [

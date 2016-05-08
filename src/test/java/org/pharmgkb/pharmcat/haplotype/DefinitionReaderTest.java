@@ -32,7 +32,7 @@ public class DefinitionReaderTest {
   @Test
   public void testReadAllDefinitions() throws Exception {
 
-    Path file = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19.json");
+    Path file = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19_translation.json");
     DefinitionReader reader = new DefinitionReader();
     reader.read(file.getParent());
 

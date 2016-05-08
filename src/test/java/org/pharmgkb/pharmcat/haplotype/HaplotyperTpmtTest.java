@@ -20,7 +20,7 @@ public class HaplotyperTpmtTest {
 
   @Before
   public void before() throws Exception {
-    m_tsvFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/TPMT.json");
+    m_tsvFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/TPMT_translation.json");
   }
 
 

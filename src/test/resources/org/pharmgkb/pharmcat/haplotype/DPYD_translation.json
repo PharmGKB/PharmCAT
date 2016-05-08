@@ -3,17 +3,21 @@
   "contentVersion": null,
   "modificationDate": "Apr 5, 2016 12:00:00 AM",
   "gene": "DPYD",
-  "orientation": null,
+  "orientation": "reverse",
   "chromosome": "chr1",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000001.11",
   "refSeqGeneId": "NG_008807.2",
   "refSeqProteinId": "NP_000101.2",
   "notes": [
-    "Bases reported on the positive chromosomal strand from Golden Path.",
+    "rsID\u003dRefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
+    "All variants are annotated to the positive DNA strand.",
     "Nomenclature from *1-10 from McLeod et al (PMID: 9918128), *11 and *12 from Mattison et al, (PMID: 11875367), *13 from Johnson et al, (PMID: 11895907).",
+    "In a 2014 update on PharmGKB (https://www.pharmgkb.org/guideline/PA166109594) the CPIC authors recommend that the DPYD*4, *5, *6 and *9A alleles be categorized as \"normal\" activity, in part based upon the recent publication: Comparative Functional Analysis of DPYD Variants of Potential Clinical Relevance to Dihydropyrimidine Dehydrogenase Activity (PMID: 24648345).",
     "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”",
-    "In a 2014 update on PharmGKB (https://www.pharmgkb.org/guideline/PA166109594) the CPIC authors recommend that the DPYD*4, *5, *6 and *9A alleles be categorized as \"normal\" activity, in part based upon the recent publication: Comparative Functional Analysis of DPYD Variants of Potential Clinical Relevance to Dihydropyrimidine Dehydrogenase Activity (PMID: 24648345)."
+    "Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see",
+    "https://github.com/PharmGKB/cpic-guidelines/raw/master/fluoropyrimidines/2013/23988873-supplement.pdf",
+    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d\u0027Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
   ],
   "populations": [
     "African Allele Frequency",
@@ -33,7 +37,7 @@
       "geneHgvsName": "g.476002G\u003eA",
       "proteinNote": "n/a",
       "resourceNote": "1905+1G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97883352,
@@ -42,7 +46,7 @@
       "geneHgvsName": "g.42708G\u003eA",
       "proteinNote": "R21Q",
       "resourceNote": "62G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97883329,
@@ -51,7 +55,7 @@
       "geneHgvsName": "g.42731T\u003eC",
       "proteinNote": "C29R",
       "resourceNote": "85T\u003eC",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97740415,
@@ -60,7 +64,7 @@
       "geneHgvsName": "g.185642_185645delTCAT",
       "proteinNote": "F100Frameshift",
       "resourceNote": "295_298delTCAT",
-      "isInDel": true
+      "type": "DEL"
     },
     {
       "position": 97691776,
@@ -69,7 +73,7 @@
       "geneHgvsName": "g.234284C\u003eT",
       "proteinNote": "R235W",
       "resourceNote": "703C\u003eT",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97593343,
@@ -78,7 +82,7 @@
       "geneHgvsName": "g.332717G\u003eT",
       "proteinNote": "V335L",
       "resourceNote": "1003G\u003eT",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97573943,
@@ -87,7 +91,7 @@
       "geneHgvsName": "g.352117G\u003eT",
       "proteinNote": "E386X",
       "resourceNote": "1156G\u003eT",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97515865,
@@ -96,7 +100,7 @@
       "geneHgvsName": "g.410195G\u003eA",
       "proteinNote": "S534N",
       "resourceNote": "1601G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97515839,
@@ -105,7 +109,7 @@
       "geneHgvsName": "g.410221A\u003eG",
       "proteinNote": "I543V",
       "resourceNote": "1627A\u003eG",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97515787,
@@ -114,7 +118,7 @@
       "geneHgvsName": "g.410273T\u003eG",
       "proteinNote": "I560S",
       "resourceNote": "1679T\u003eG",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97450066,
@@ -123,7 +127,7 @@
       "geneHgvsName": "g.475994delC",
       "proteinNote": "P633Frameshift",
       "resourceNote": "1898delC",
-      "isInDel": true
+      "type": "DEL"
     },
     {
       "position": 97305364,
@@ -132,7 +136,7 @@
       "geneHgvsName": "g.620696G\u003eA",
       "proteinNote": "V732I",
       "resourceNote": "2194G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97098598,
@@ -141,7 +145,7 @@
       "geneHgvsName": "g.827462G\u003eA",
       "proteinNote": "R886H",
       "resourceNote": "2657G\u003eA",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97082391,
@@ -150,7 +154,7 @@
       "geneHgvsName": "g.843669A\u003eT",
       "proteinNote": "D949V",
       "resourceNote": "c.2846A\u003eT",
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 97079071,
@@ -159,7 +163,7 @@
       "geneHgvsName": "g.846989G\u003eT",
       "proteinNote": "V995F",
       "resourceNote": "2983G\u003eT",
-      "isInDel": false
+      "type": "SNP"
     }
   ],
   "namedAlleles": [

@@ -3,7 +3,7 @@
   "contentVersion": null,
   "modificationDate": "Mar 30, 2016 12:00:00 AM",
   "gene": "SLCO1B1",
-  "orientation": null,
+  "orientation": "forward",
   "chromosome": "chr12",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000012.12",
@@ -13,9 +13,9 @@
     "rsID\u003dRefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
     "Transport function was tested for methotrexate, and may not be generalizable to statins. *23 was observed only once in 700 patients, but in vitro transport assays showed little/no function. *31 was observed only in patients of African ancestry, and in vitro transport assays showed little/no function for this haplotype also. *14 and *35 were associated with higher methotrexate clearance in patients, but were not tested for in vitro transport function.",
-    "Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see Supplemental Table S4 in the CPIC  guideline supplement for simvastatin at https://www.pharmgkb.org/guideline/PA166105005",
-    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d\u0027Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”"
+    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”",
+    "Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see Supplemental Table S4 in the CPIC  guideline supplement for simvastatin at https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167-supplement.pdf",
+    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d\u0027Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
   ],
   "populations": [
     "African Allele Frequency",
@@ -35,7 +35,7 @@
       "geneHgvsName": "g.4195G\u003eA",
       "proteinNote": null,
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21172734,
@@ -44,7 +44,7 @@
       "geneHgvsName": "g.46541C\u003eT",
       "proteinNote": "R57W",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21172776,
@@ -53,7 +53,7 @@
       "geneHgvsName": "g.46583G\u003eA",
       "proteinNote": "G71R",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21172782,
@@ -62,7 +62,7 @@
       "geneHgvsName": "g.46589T\u003eC",
       "proteinNote": "F73L",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21174595,
@@ -71,7 +71,7 @@
       "geneHgvsName": "g.48402T\u003eC",
       "proteinNote": "V82A",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21176804,
@@ -80,7 +80,7 @@
       "geneHgvsName": "g.50611A\u003eG",
       "proteinNote": "N130D",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21176827,
@@ -89,7 +89,7 @@
       "geneHgvsName": "g.50634G\u003eA",
       "proteinNote": "S137\u003d",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21176868,
@@ -98,7 +98,7 @@
       "geneHgvsName": "g.50675A\u003eG",
       "proteinNote": "N151S",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21176879,
@@ -107,7 +107,7 @@
       "geneHgvsName": "g.50686C\u003eA",
       "proteinNote": "P155T",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21176883,
@@ -116,7 +116,7 @@
       "geneHgvsName": "g.50690A\u003eG",
       "proteinNote": "E156G",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21178615,
@@ -125,7 +125,7 @@
       "geneHgvsName": "g.52422T\u003eC",
       "proteinNote": "V174A",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21178665,
@@ -134,7 +134,7 @@
       "geneHgvsName": "g.52472T\u003eC",
       "proteinNote": "L191\u003d",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21178672,
@@ -143,7 +143,7 @@
       "geneHgvsName": "g.52479T\u003eG",
       "proteinNote": "L193R",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21178691,
@@ -152,7 +152,7 @@
       "geneHgvsName": "g.52498C\u003eT",
       "proteinNote": "F199\u003d",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21178957,
@@ -161,7 +161,7 @@
       "geneHgvsName": "g.52764A\u003eG",
       "proteinNote": "I222V",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21196951,
@@ -170,7 +170,7 @@
       "geneHgvsName": "g.70758A\u003eG",
       "proteinNote": "I245V",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21196976,
@@ -179,7 +179,7 @@
       "geneHgvsName": "g.70783G\u003eA",
       "proteinNote": "R253Q",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21200595,
@@ -188,7 +188,7 @@
       "geneHgvsName": "g.74402T\u003eC",
       "proteinNote": "I353T",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21202553,
@@ -197,7 +197,7 @@
       "geneHgvsName": "g.76360T\u003eG",
       "proteinNote": "F400V",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21202555,
@@ -206,7 +206,7 @@
       "geneHgvsName": "g.76362C\u003eG",
       "proteinNote": "F400L",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21202649,
@@ -215,7 +215,7 @@
       "geneHgvsName": "g.76456A\u003eG",
       "proteinNote": "N432D",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21202664,
@@ -224,7 +224,7 @@
       "geneHgvsName": "g.76471G\u003eA",
       "proteinNote": "G437R",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21205921,
@@ -233,7 +233,7 @@
       "geneHgvsName": "g.79728A\u003eG",
       "proteinNote": "D462G",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21205999,
@@ -242,7 +242,7 @@
       "geneHgvsName": "g.79806G\u003eC",
       "proteinNote": "G488A",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21239042,
@@ -251,7 +251,7 @@
       "geneHgvsName": "g.112849A\u003eC",
       "proteinNote": "L643F",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21239077,
@@ -260,7 +260,7 @@
       "geneHgvsName": "g.112884A\u003eG",
       "proteinNote": "D655G",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21239113,
@@ -269,7 +269,7 @@
       "geneHgvsName": "g.112920A\u003eG",
       "proteinNote": "E667G",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21239145,
@@ -278,7 +278,7 @@
       "geneHgvsName": "g.112952C\u003eT",
       "proteinNote": "H678Y",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     },
     {
       "position": 21239158,
@@ -287,7 +287,7 @@
       "geneHgvsName": "g.112965C\u003eT",
       "proteinNote": "S682F",
       "resourceNote": null,
-      "isInDel": false
+      "type": "SNP"
     }
   ],
   "namedAlleles": [
@@ -334,7 +334,7 @@
         "East Asian Allele Frequency": "0.27",
         "South/Central Asian Allele Frequency": "0.33",
         "Americas Allele Frequency": "0.37",
-        "African Allele Frequency": "0.225"
+        "African Allele Frequency": "0.23"
       }
     },
     {
