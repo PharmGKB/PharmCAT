@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.TestUtil;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.definition.model.VariantType;
 
 import static org.junit.Assert.*;
 
@@ -20,13 +21,18 @@ public class GeneratedDefinitionSerializerTest {
   @Test
   public void testJson1() throws Exception {
 
-    // has indels
+    // is INS
     Path inFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
     DefinitionFile[] definitionFiles = testJson(inFile);
     assertEquals(8, definitionFiles[1].getVariants().length);
     assertEquals("g.99652770_99652771insA", definitionFiles[1].getVariants()[6].getChromosomeHgvsName());
     assertEquals(99652770, definitionFiles[1].getVariants()[6].getPosition());
-    assertTrue(definitionFiles[1].getVariants()[6].isInDel());
+    assertEquals(VariantType.INS, definitionFiles[1].getVariants()[6].getType());
+  }
+
+  @Test
+  public void testVariantTypes() {
+    // TODO(markwoon): test to make sure we handle all variant types: INS, DEL, REPEATS
   }
 
   @Test

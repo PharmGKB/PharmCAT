@@ -32,11 +32,8 @@ public class VariantLocus implements Comparable<VariantLocus> {
   @SerializedName("resourceNote")
   private String m_resourceNote;
   @Expose
-  @SerializedName("isInDel")
-  private boolean m_isInDel;
-  @Expose
-  @SerializedName("isRepeat")
-  private boolean m_isRepeat;
+  @SerializedName("type")
+  private VariantType m_type = VariantType.SNP;
 
 
   public VariantLocus(int position, @Nonnull String chromosomeHgvsName) {
@@ -108,27 +105,14 @@ public class VariantLocus implements Comparable<VariantLocus> {
 
 
   /**
-   * Gets whether this locus has an insertion or deletion.
+   * Gets the type of variant.
    */
-  public boolean isInDel() {
-    return m_isInDel;
+  public VariantType getType() {
+    return m_type;
   }
 
-  public void setInDel(boolean inDel) {
-    Preconditions.checkState(!m_isInDel, "Cannot be both indel and repeat");
-    m_isInDel = inDel;
-  }
-
-  /**
-   * Gets whether this locus has a repeat.
-   */
-  public boolean isRepeat() {
-    return m_isRepeat;
-  }
-
-  public void setRepeat(boolean repeat) {
-    Preconditions.checkState(!m_isRepeat, "Cannot be both indel and repeat");
-    m_isRepeat = repeat;
+  public void setType(VariantType type) {
+    m_type = type;
   }
 
 
@@ -142,8 +126,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
     }
     VariantLocus that = (VariantLocus)o;
     return m_position == that.getPosition() &&
-        m_isInDel == that.isInDel() &&
-        m_isRepeat == that.isRepeat() &&
+        m_type == that.getType() &&
         Objects.equals(m_chromosomeHgvsName, that.getChromosomeHgvsName()) &&
         Objects.equals(m_geneHgvsName, that.getGeneHgvsName()) &&
         Objects.equals(m_proteinNote, that.getProteinNote()) &&

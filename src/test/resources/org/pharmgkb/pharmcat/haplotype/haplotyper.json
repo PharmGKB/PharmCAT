@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1",
+  "contentVersion": null,
+  "modificationDate": "Apr 12, 2016 12:00:00 AM",
+  "gene": "CYP3A5",
+  "orientation": null,
+  "chromosome": "chr1",
+  "genomeBuild": "b38",
+  "refSeqChromosomeId": "NC_000001.11",
+  "refSeqGeneId": "NG_042193.1",
+  "refSeqProteinId": "NP_742151.2",
+  "notes": null,
+  "populations": null,
+  "variants": [
+    {
+      "position": 1,
+      "rsid": null,
+      "chromosomeHgvsName": "g.1C\u003eT",
+      "geneHgvsName": "g.1C\u003eT",
+      "proteinNote": null,
+      "resourceNote": null,
+      "type": "SNP"
+    },
+    {
+      "position": 2,
+      "rsid": null,
+      "chromosomeHgvsName": "g.2TC\u003eTCA",
+      "geneHgvsName": "g.2TC\u003eTCA",
+      "proteinNote": null,
+      "resourceNote": null,
+      "type": "INS"
+    },
+    {
+      "position": 3,
+      "rsid": null,
+      "chromosomeHgvsName": "g.3TCA\u003eT",
+      "geneHgvsName": "g.3TCA\u003eT",
+      "proteinNote": null,
+      "resourceNote": null,
+      "type": "DEL"
+    }
+  ],
+  "namedAlleles": [
+    {
+      "name": "*1",
+      "id": "CA100125.1",
+      "function": "",
+      "alleles": [
+        "C",
+        "del",
+        "C"
+      ],
+      "populationFrequency": {}
+    },
+    {
+      "name": "*2",
+      "id": "CA100126.1",
+      "function": "",
+      "alleles": [
+        "T",
+        "insA",
+        "delC"
+      ],
+      "populationFrequency": {}
+    }
+  ]
+}

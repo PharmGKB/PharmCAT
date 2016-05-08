@@ -19,6 +19,7 @@ import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.definition.model.VariantType;
 
 
 /**
@@ -98,14 +99,23 @@ public class CuratedDefinitionParser {
     // find indels and repeats
     for (int x = 0; x < m_definitionFile.getVariants().length; x += 1) {
       VariantLocus locus = m_definitionFile.getVariants()[x];
-      for (NamedAllele namedAllele : m_definitionFile.getNamedAlleles()) {
-        String allele = namedAllele.getAlleles()[x];
+      NamedAllele refHap = null;
+      for (NamedAllele hap : m_definitionFile.getNamedAlleles()) {
+        if (refHap == null) {
+          refHap = hap;
+        }
+        String allele = hap.getAlleles()[x];
         if (allele != null) {
-          if (allele.contains("ins") || allele.contains("del")) {
-            locus.setInDel(true);
-            break;
-          } else if (allele.contains("\\(")) {
-            locus.setRepeat(true);
+          if (allele.contains("del")) {
+            if (hap == refHap) {
+              locus.setType(VariantType.INS);
+              break;
+            } else {
+              locus.setType(VariantType.DEL);
+            }
+          }
+          if (allele.contains("\\(")) {
+            locus.setType(VariantType.REPEAT);
           }
         }
       }

@@ -45,6 +45,10 @@ public class Report {
     m_definitionReader = definitionReader;
   }
 
+  HaplotyperResult getResults() {
+    return m_root;
+  }
+
 
   public Report forFile(@Nonnull Path vcfFile) {
     Preconditions.checkNotNull(vcfFile);

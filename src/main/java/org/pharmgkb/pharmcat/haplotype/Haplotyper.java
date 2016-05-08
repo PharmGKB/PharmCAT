@@ -59,6 +59,11 @@ public class Haplotyper {
   }
 
 
+  VcfReader getVcfReader() {
+    return m_vcfReader;
+  }
+
+
   /**
    * Collects all locations of interest (i.e. positions necessary to make a haplotype call).
    *
@@ -98,74 +103,32 @@ public class Haplotyper {
 
   /**
    * Calls the possible diplotypes for a single gene.
+   *
+   * @param alleleMap map of {@link SampleAllele}s from VCF
    */
   protected List<DiplotypeMatch> callDiplotypes(SortedMap<String, SampleAllele> alleleMap, String gene) {
 
+    Dataset data = new Dataset();
     // grab SampleAlleles for all positions related to current gene
-    SortedMap<Integer, SampleAllele> geneSampleMap = new TreeMap<>();
-    Set<VariantLocus> missingPositions = new HashSet<>();
-    String chromosome = m_definitionReader.getDefinitionFile(gene).getChromosome();
-    for (VariantLocus variant : m_definitionReader.getPositions(gene)) {
-      String chrPos = chromosome + ":" + variant.getPosition();
-      SampleAllele allele = alleleMap.get(chrPos);
-      if (allele == null) {
-        missingPositions.add(variant);
-        sf_logger.info("Sample has no allele for {}", chrPos);
-        continue;
-      }
-      geneSampleMap.put(variant.getPosition(), allele);
+    data.marshallSampleData(alleleMap, m_definitionReader.getDefinitionFile(gene).getChromosome(),
+        m_definitionReader.getPositions(gene));
+    // handle missing positions (if any)
+    data.marshallHaplotypes(m_definitionReader.getPositions(gene), m_definitionReader.getHaplotypes(gene));
+
+    if (m_assumeReferenceInDefinitions) {
+      data.defaultMissingAllelesToReference();
     }
 
     // get all permutations of sample at positions of interest
     Set<String> permutations = CombinationUtil.generatePermutations(
-        geneSampleMap.values().stream()
+        data.geneSampleMap.values().stream()
             .sorted()
             .collect(Collectors.toList())
     );
 
-
-    // handle missing positions of interest in sample
-    VariantLocus[] positions = m_definitionReader.getPositions(gene);
-    List<NamedAllele> haplotypes;
-    if (missingPositions.isEmpty()) {
-      haplotypes = m_definitionReader.getHaplotypes(gene);
-    } else {
-      // handle missing positions by duplicating haplotype and eliminating missing positions
-      VariantLocus[] availablePositions = new VariantLocus[positions.length - missingPositions.size()];
-      for (int x = 0, y = 0; x < positions.length; x += 1) {
-        if (!missingPositions.contains(positions[x])) {
-          availablePositions[y] = positions[x];
-          y += 1;
-        }
-      }
-      positions = availablePositions;
-      haplotypes = new ArrayList<>();
-      for (NamedAllele hap : m_definitionReader.getHaplotypes(gene)) {
-        // get alleles for positions we have data on
-        String[] availableAlleles = new String[positions.length];
-        for (int x = 0; x < positions.length; x += 1) {
-          availableAlleles[x] = hap.getAllele(positions[x]);
-          if (availableAlleles[x] != null) {
-            sf_logger.info("{} cannot be matched due to missing positions", hap.getName());
-            break;
-          }
-        }
-        NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles);
-        newHap.setFunction(hap.getFunction());
-        newHap.setPopFreqMap(hap.getPopFreqMap());
-        newHap.finalize(positions);
-        if (newHap.getNumValidAlleles() > 0) {
-          haplotypes.add(newHap);
-        }
-      }
-    }
-
-    if (m_assumeReferenceInDefinitions) {
-      haplotypes = assumeReferenceInDefinition(positions, haplotypes);
-    }
-
     // find matched pairs
-    List<DiplotypeMatch> pairs = new DiplotypeMatcher(geneSampleMap, permutations, haplotypes).compute();
+    List<DiplotypeMatch> pairs = new DiplotypeMatcher(data.geneSampleMap, permutations, data.haplotypes)
+        .compute();
     if (m_topCandidateOnly) {
       if (pairs.size() > 1) {
         int topScore = pairs.get(0).getScore();
@@ -178,37 +141,112 @@ public class Haplotyper {
   }
 
 
-  /**
-   * Assumes that missing alleles in definition files should be the reference.
-   */
-  protected List<NamedAllele> assumeReferenceInDefinition(VariantLocus[] refVariants, List<NamedAllele> haplotypes) {
+  static class Dataset {
+    SortedMap<Integer, SampleAllele> geneSampleMap = new TreeMap<>();
+    Set<VariantLocus> missingPositions = new HashSet<>();
+    VariantLocus[] positions;
+    List<NamedAllele> haplotypes;
 
-    List<NamedAllele> updatedHaplotypes = new ArrayList<>();
-    NamedAllele referenceHaplotype = null;
-    for (NamedAllele hap : haplotypes) {
-      if (referenceHaplotype == null) {
-        referenceHaplotype = hap;
-        updatedHaplotypes.add(hap);
-        continue;
-      }
 
-      String[] refAlleles = referenceHaplotype.getAlleles();
-      String[] hapAlleles = hap.getAlleles();
-      String[] newAlleles = new String[refAlleles.length];
-      for (int x = 0; x < refAlleles.length; x += 1) {
-        if (hapAlleles[x] == null) {
-          newAlleles[x] = refAlleles[x];
-        } else {
-          newAlleles[x] = hapAlleles[x];
+    /**
+     * Organizes the {@link SampleAllele} data related to the {@code gene} of interest.
+     *
+     * @param alleleMap map of {@link SampleAllele}s from VCF
+     */
+    void marshallSampleData(@Nonnull SortedMap<String, SampleAllele> alleleMap, @Nonnull String chromosome,
+        @Nonnull VariantLocus[] positions) {
+
+      for (VariantLocus variant : positions) {
+        String chrPos = chromosome + ":" + variant.getPosition();
+        SampleAllele allele = alleleMap.get(chrPos);
+        if (allele == null) {
+          missingPositions.add(variant);
+          sf_logger.info("Sample has no allele for {}", chrPos);
+          continue;
         }
+        allele = allele.forVariant(variant);
+        geneSampleMap.put(variant.getPosition(), allele);
       }
-      NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles);
-      fixedHap.setFunction(hap.getFunction());
-      fixedHap.setPopFreqMap(hap.getPopFreqMap());
-      fixedHap.finalize(refVariants);
-      updatedHaplotypes.add(fixedHap);
     }
 
-    return updatedHaplotypes;
+    /**
+     * Organizes the {@link NamedAllele} data for analysis.
+     * This will also reorganize haplotypes to deal with samples that have missing alleles.
+     */
+    void marshallHaplotypes(VariantLocus[] allPositions, List<NamedAllele> allHaplotypes) {
+
+      if (missingPositions.isEmpty()) {
+        positions = allPositions;
+        haplotypes = allHaplotypes;
+
+      } else {
+        // handle missing positions by duplicating haplotype and eliminating missing positions
+        VariantLocus[] availablePositions = new VariantLocus[allPositions.length - missingPositions.size()];
+        for (int x = 0, y = 0; x < allPositions.length; x += 1) {
+          if (!missingPositions.contains(allPositions[x])) {
+            availablePositions[y] = allPositions[x];
+            y += 1;
+          }
+        }
+        positions = availablePositions;
+        haplotypes = new ArrayList<>();
+        for (NamedAllele hap : allHaplotypes) {
+          // get alleles for positions we have data on
+          String[] availableAlleles = new String[positions.length];
+          for (int x = 0; x < positions.length; x += 1) {
+            availableAlleles[x] = hap.getAllele(positions[x]);
+            if (availableAlleles[x] != null) {
+              sf_logger.info("{} cannot be matched due to missing positions", hap.getName());
+              break;
+            }
+          }
+          NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles);
+          newHap.setFunction(hap.getFunction());
+          newHap.setPopFreqMap(hap.getPopFreqMap());
+          newHap.finalize(positions);
+          if (newHap.getNumValidAlleles() > 0) {
+            haplotypes.add(newHap);
+          }
+        }
+      }
+    }
+
+
+    /**
+     * Assumes that missing alleles in {@link NamedAllele}s should be the reference.
+     */
+    void defaultMissingAllelesToReference() {
+
+      List<NamedAllele> updatedHaplotypes = new ArrayList<>();
+      NamedAllele referenceHaplotype = null;
+      for (NamedAllele hap : haplotypes) {
+        if (referenceHaplotype == null) {
+          referenceHaplotype = hap;
+          updatedHaplotypes.add(hap);
+          continue;
+        }
+
+        String[] refAlleles = referenceHaplotype.getAlleles();
+        String[] curAlleles = hap.getAlleles();
+        Preconditions.checkState(refAlleles.length == curAlleles.length);
+
+        String[] newAlleles = new String[refAlleles.length];
+        for (int x = 0; x < refAlleles.length; x += 1) {
+          if (curAlleles[x] == null) {
+            newAlleles[x] = refAlleles[x];
+          } else {
+            newAlleles[x] = curAlleles[x];
+          }
+        }
+
+        NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles);
+        fixedHap.setFunction(hap.getFunction());
+        fixedHap.setPopFreqMap(hap.getPopFreqMap());
+        fixedHap.finalize(positions);
+        updatedHaplotypes.add(fixedHap);
+      }
+
+      haplotypes = updatedHaplotypes;
+    }
   }
 }

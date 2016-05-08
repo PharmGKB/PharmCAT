@@ -33,4 +33,9 @@ public class SampleAlleleTest {
     assertTrue(Sets.newTreeSet(Sets.newHashSet(sa5, sa4)).first() == sa4);
   }
 
+  @Test
+  public void testForVariant() {
+
+    // TODO(markwoon): test to make sure we handle all variant types: INS, DEL, REPEATS
+  }
 }

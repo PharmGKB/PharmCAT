@@ -1,0 +1,20 @@
+##fileformat=VCFv4.1
+##fileDate=2015-08-04
+##source=IlluminaPlatinumGenomes, version: hg38_2.0.1
+##reference=hg38
+##Method=<ID=isaac2,Description="Aligner=isaac_aligner-02.15.02.28;VariantCaller=isaac_variant_caller-2.1.4.2">
+##Method=<ID=bwa_freebayes,Description="Aligner=bwa-mem-0.7.12;VariantCaller=freebayes-0.9.21-15-g8a06a0b">
+##Method=<ID=bwa_platypus,Description="Aligner=bwa-mem-0.7.12;VariantCaller=platypus-0.8.1">
+##Method=<ID=bwa_gatk3,Description="Aligner=bwa-mem-0.7.12;VariantCaller=gatk-3.2.2">
+##INFO=<ID=metal,Number=1,Type=String,Description="Confidence tranche. Platinum is better than silver.">
+##INFO=<ID=isaac2,Number=2,Type=String,Description="Variant calling method.">
+##INFO=<ID=bwa_freebayes,Number=2,Type=String,Description="Variant calling method.">
+##INFO=<ID=bwa_platypus,Number=2,Type=String,Description="Variant calling method.">
+##INFO=<ID=bwa_gatk3,Number=2,Type=String,Description="Variant calling method.">
+##INFO=<ID=dist2closest,Number=1,Type=Integer,Description="Distance to closest variant.">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FILTER=<ID=PASS,Description="All filters passed">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	NA12878
+chr1	1	.	T	C	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=26	GT	1|0
+chr1	2	.	TC	TCA	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=26	GT	0|1
+chr1	3	.	TC	T	.	PASS	metal=platinum;isaac2=HD:0,LOOHD:0;bwa_freebayes=HD:0,LOOHD:0;bwa_platypus=HD:0,LOOHD:0;bwa_gatk3=HD:0,LOOHD:0;dist2closest=123	GT	0|1
