@@ -14,13 +14,15 @@ import static org.junit.Assert.assertTrue;
 
 
 /**
+ * JUnit test for {@link CombinationUtil}.
+ *
  * @author Mark Woon
  */
 public class CombinationUtilTest {
 
 
   @Test
-  public void testGeneratePermutations() {
+  public void testGeneratePermutationsNotPhased() {
 
     List<SampleAllele> alleles = Arrays.asList(
         new SampleAllele("chr1", 1, "T", "T", false),
@@ -35,6 +37,28 @@ public class CombinationUtilTest {
         "1:T;2:T;3:C;4:C;",
         "1:T;2:T;3:C;4:G;"
         );
+    Set<String> permutations = CombinationUtil.generatePermutations(alleles);
+    assertEquals(expectedPermutations.size(), permutations.size());
+    for (String p : permutations) {
+      System.out.println(p);
+      assertTrue(expectedPermutations.remove(p));
+    }
+  }
+
+  @Test
+  public void testGeneratePermutationPhased() {
+
+    List<SampleAllele> alleles = Arrays.asList(
+        new SampleAllele("chr1", 1, "T", "T", true),
+        new SampleAllele("chr1", 2, "A", "T", true),
+        new SampleAllele("chr1", 3, "C", "C", true),
+        new SampleAllele("chr1", 4, "C", "G", true)
+    );
+
+    Set<String> expectedPermutations = Sets.newHashSet(
+        "1:T;2:A;3:C;4:C;",
+        "1:T;2:T;3:C;4:G;"
+    );
     Set<String> permutations = CombinationUtil.generatePermutations(alleles);
     assertEquals(expectedPermutations.size(), permutations.size());
     for (String p : permutations) {

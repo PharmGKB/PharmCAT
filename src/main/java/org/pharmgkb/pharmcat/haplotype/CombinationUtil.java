@@ -20,6 +20,9 @@ public class CombinationUtil {
    */
   public static Set<String> generatePermutations(@Nonnull List<SampleAllele> alleles) {
     Set<String> rez = generatePermutations(alleles, 0, true, "");
+    if (alleles.get(0).isPhased()) {
+      rez.addAll(generatePermutations(alleles, 0, false, ""));
+    }
     if (rez.size() == 0) {
       throw new IllegalStateException("No permutations generated from " + alleles.size() + " alleles");
     }
@@ -30,8 +33,8 @@ public class CombinationUtil {
   /**
    * Builds permutations for given variants based on phasing.
    */
-  private static Set<String> generatePermutations(@Nonnull List<SampleAllele> sampleAlleles, int position, boolean isFirst,
-      @Nonnull String alleleSoFar) {
+  private static Set<String> generatePermutations(@Nonnull List<SampleAllele> sampleAlleles, int position,
+      boolean firstAllele, @Nonnull String alleleSoFar) {
 
     if (position >= sampleAlleles.size()) {
       return Sets.newHashSet(alleleSoFar);
@@ -40,20 +43,20 @@ public class CombinationUtil {
 
     Set<String> alleles = new HashSet<>();
     if (allele.isPhased()) {
-      alleles.addAll(generatePermutations(sampleAlleles, position + 1, isFirst, appendAllele(alleleSoFar, allele, isFirst)));
+      alleles.addAll(generatePermutations(sampleAlleles, position + 1, firstAllele, appendAllele(alleleSoFar, allele, firstAllele)));
     } else {
-      alleles.addAll(generatePermutations(sampleAlleles, position + 1, isFirst, appendAllele(alleleSoFar, allele, true)));
-      alleles.addAll(generatePermutations(sampleAlleles, position + 1, isFirst, appendAllele(alleleSoFar, allele, false)));
+      alleles.addAll(generatePermutations(sampleAlleles, position + 1, firstAllele, appendAllele(alleleSoFar, allele, true)));
+      alleles.addAll(generatePermutations(sampleAlleles, position + 1, firstAllele, appendAllele(alleleSoFar, allele, false)));
     }
     return alleles;
   }
 
-  private static String appendAllele(String alleleSoFar, SampleAllele allele, boolean isFirst) {
+  private static String appendAllele(String alleleSoFar, SampleAllele allele, boolean firstAllele) {
     StringBuilder sb = new StringBuilder()
         .append(alleleSoFar)
         .append(allele.getPosition())
         .append(":");
-    if (isFirst) {
+    if (firstAllele) {
       sb.append(allele.getAllele1());
     } else {
       sb.append(allele.getAllele2());
