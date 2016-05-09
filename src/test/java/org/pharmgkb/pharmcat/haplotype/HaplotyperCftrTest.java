@@ -25,12 +25,12 @@ public class HaplotyperCftrTest {
   // TODO: Lester - need to double check vcf.
 
   @Test
-  public void cftrs1s1() throws Exception {
+  public void cftrF508delF508del() throws Exception {
     // Test *1/*1 TODO: Lester - check that the star is defined correctly. Fails now as *1 contains ATATATATATATATAA
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CFTR/s1s1.vcf");
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CFTR/F508delF508del.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
 
-    List<String> expectedMatches = Lists.newArrayList("*1/*1");
+    List<String> expectedMatches = Lists.newArrayList("F508del/F508del");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
   }
 
