@@ -63,6 +63,11 @@ public class ReporterWriter {
         writer.write("### Guideline: " + guideline.getName() + "\n");
         writer.write("[guideline on PharmGKB]("+guideline.getUrl()+")\n");
 
+        if (guideline.getMatchingGroups() == null) {
+          writer.write("_no matching annotations found_\n");
+          continue;
+        }
+
         for (Group group : guideline.getMatchingGroups()) {
           writer.write("_");
           writer.write(group.getName());
