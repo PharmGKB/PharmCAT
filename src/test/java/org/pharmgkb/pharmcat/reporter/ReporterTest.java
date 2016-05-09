@@ -14,18 +14,17 @@ public class ReporterTest {
   public void reporterTest() throws Exception {
 
     Path annotationsDir = TestUtil.getFile("org/pharmgkb/pharmcat/annotations");
-    Path exceptionsFile = TestUtil.getFile("org/pharmgkb/pharmcat/exceptions.json");
     Path callerFile     = TestUtil.getFile("org/pharmgkb/pharmcat/test.haplotyper.output.json");
     Path outputDir      = TestUtil.getFile("").resolve("output");
 
     if (!outputDir.toFile().exists()) {
+      //noinspection ResultOfMethodCallIgnored
       outputDir.toFile().mkdir();
     }
 
     Reporter reporter = new Reporter(
         annotationsDir.toFile(),
         callerFile.toFile(),
-        exceptionsFile.toFile(),
         outputDir);
     reporter.run();
   }

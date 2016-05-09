@@ -55,17 +55,15 @@ public class Reporter {
 
     options.addOption(new Option("annotationsDir", true, "required - directory holding all the annotations files"));
     options.addOption(new Option("callFile", true, "required - file from the Haplotyper"));
-    options.addOption(new Option("exceptionsFile", true, "required - file with the exception logic"));
     options.addOption(new Option("reportDir", true, "required - directory to store output reports"));
 
     CommandLine cmdline = new DefaultParser().parse(options, args);
     File annotationsDir = new File(cmdline.getOptionValue("annotationsDir"));
     File callFile       = new File(cmdline.getOptionValue("callFile"));
-    File exceptionsFile = new File(cmdline.getOptionValue("exceptionsFile"));
     Path outputDir      = Paths.get(cmdline.getOptionValue("reportDir"));
 
     //if minimal required parameters are set parse command line
-    Reporter report = new Reporter(annotationsDir, callFile, exceptionsFile, outputDir);
+    Reporter report = new Reporter(annotationsDir, callFile, outputDir);
     //run reporter workflow
     report.run();
   }
@@ -77,7 +75,7 @@ public class Reporter {
    * @param reportDir directory to write output to
    * @throws IOException
    */
-  public Reporter(@Nonnull File annotationsDir, @Nonnull File callFile, @Nonnull File exceptionFile, @Nonnull Path reportDir)  throws IOException {
+  public Reporter(@Nonnull File annotationsDir, @Nonnull File callFile, @Nonnull Path reportDir)  throws IOException {
     Preconditions.checkNotNull(annotationsDir);
     Preconditions.checkArgument(annotationsDir.exists());
     Preconditions.checkArgument(annotationsDir.isDirectory());
@@ -89,10 +87,6 @@ public class Reporter {
     Preconditions.checkNotNull(callFile);
     Preconditions.checkArgument(callFile.exists());
     Preconditions.checkArgument(callFile.isFile());
-
-    Preconditions.checkNotNull(exceptionFile);
-    Preconditions.checkArgument(exceptionFile.exists());
-    Preconditions.checkArgument(exceptionFile.isFile());
 
     File[] annotationFiles = annotationsDir.listFiles();
     if (annotationFiles == null || annotationFiles.length == 0) {
