@@ -57,6 +57,26 @@ public class HaplotyperCyp2c19Test {
 
 
   @Test
+  public void cyp2c19s1s4bMissingCalls() throws Exception {
+    // Test *1 *4b - but with some of the calls deleted from the vcf.  As requested by Michelle.
+    /* TODO: Allow for not all positions being present
+    Positions at bottom removed. Changes correct result (above) to:
+
+    Expected: [*1/*4B, *4A/*17]
+    Got:      [*4A/*4B, *4A/*17]
+
+    Despite the fact that none of the involved snps were removed.
+    */
+
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s4bMissing.vcf");
+    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype( m_jsonFile, vcfFile);
+
+    List<String> expectedMatches = Lists.newArrayList("*1/*4B", "*4A/*17");
+    TestUtil.assertDiplotypePairs(expectedMatches, matches);
+  }
+
+
+  @Test
   public void cyp2c19s1s28() throws Exception {
     // Test *1 *28. The longest possible match should win.
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s28.vcf");
