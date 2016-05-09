@@ -20,7 +20,7 @@ public class DefinitionReaderTest {
     System.out.println("DefinitionReaderTest");
 
     DefinitionReader dr = new DefinitionReader();
-    File file = new File(DefinitionReader.class.getResource("VKORC1.json").getFile());
+    File file = new File(DefinitionReader.class.getResource("VKORC1_translation.json").getFile());
     Path path = Paths.get(file.getAbsolutePath());
     dr.read(path);
 

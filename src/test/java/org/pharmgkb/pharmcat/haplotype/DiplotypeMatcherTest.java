@@ -146,7 +146,12 @@ public class DiplotypeMatcherTest {
     }
     Set<String> permutations = CombinationUtil.generatePermutations(alleles);
 
-    return new DiplotypeMatcher(sampleAlleleMap, permutations, s_haplotypes).compute();
+    MatchData dataset = new MatchData();
+    dataset.geneSampleMap = sampleAlleleMap;
+    dataset.haplotypes = s_haplotypes;
+    dataset.permutations = permutations;
+
+    return new DiplotypeMatcher(dataset).compute();
   }
 
 
@@ -175,7 +180,12 @@ public class DiplotypeMatcherTest {
     NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { null, null, "GG", null });
     hap3.finalize(variants);
 
-    DiplotypeMatcher diplotypeMatcher = new DiplotypeMatcher(new TreeMap<>(), permutations, Lists.newArrayList(hap1, hap2, hap3));
+    MatchData dataset = new MatchData();
+    dataset.geneSampleMap = new TreeMap<>();
+    dataset.haplotypes = Lists.newArrayList(hap1, hap2, hap3);
+    dataset.permutations = permutations;
+
+    DiplotypeMatcher diplotypeMatcher = new DiplotypeMatcher(dataset);
 
     SortedSet<HaplotypeMatch> matches = diplotypeMatcher.comparePermutations();
     assertEquals(2, matches.size());

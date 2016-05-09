@@ -31,7 +31,7 @@ public class GeneCall {
   private SortedSet<HaplotypeMatch> m_haplotypes = new TreeSet<>();
   @SerializedName("variants")
   @Expose
-  private List<Variant> m_variants = new ArrayList<>();
+  private SortedSet<Variant> m_variants = new TreeSet<>();
   @SerializedName("haplotypesNotCalled")
   @Expose
   private List<HaplotypesNotCalled> haplotypesNotCalled = new ArrayList<>();
@@ -88,11 +88,11 @@ public class GeneCall {
   }
 
 
-  public List<Variant> getVariants() {
+  public SortedSet<Variant> getVariants() {
     return m_variants;
   }
 
-  public void setVariants(List<Variant> variants) {
+  public void setVariants(SortedSet<Variant> variants) {
     m_variants = variants;
   }
 

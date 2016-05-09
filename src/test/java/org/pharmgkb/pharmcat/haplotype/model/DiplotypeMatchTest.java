@@ -6,6 +6,7 @@ import com.google.common.collect.Lists;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.haplotype.MatchData;
 
 import static org.junit.Assert.assertEquals;
 
@@ -38,10 +39,12 @@ public class DiplotypeMatchTest {
     HaplotypeMatch hm2 = new HaplotypeMatch(hap2);
     HaplotypeMatch hm3 = new HaplotypeMatch(hap3);
 
-    DiplotypeMatch dm1 = new DiplotypeMatch(hm1, hm1);
-    DiplotypeMatch dm2 = new DiplotypeMatch(hm1, hm2);
-    DiplotypeMatch dm3 = new DiplotypeMatch(hm2, hm2);
-    DiplotypeMatch dm4 = new DiplotypeMatch(hm3, hm2);
+    MatchData dataset = new MatchData();
+
+    DiplotypeMatch dm1 = new DiplotypeMatch(hm1, hm1, dataset);
+    DiplotypeMatch dm2 = new DiplotypeMatch(hm1, hm2, dataset);
+    DiplotypeMatch dm3 = new DiplotypeMatch(hm2, hm2, dataset);
+    DiplotypeMatch dm4 = new DiplotypeMatch(hm3, hm2, dataset);
 
     SortedSet<DiplotypeMatch> matches = new TreeSet<>(Lists.newArrayList(dm1, dm2));
     assertEquals(dm1, matches.first());

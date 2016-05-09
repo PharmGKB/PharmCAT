@@ -4,7 +4,6 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
-import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.TestUtil;
@@ -34,7 +33,8 @@ public class HaplotyperTest {
     Haplotyper haplotyper = new Haplotyper(definitionReader);
     SortedMap<String, SampleAllele> alleleMap = haplotyper.getVcfReader().read(vcfFile);
 
-    List<DiplotypeMatch> matches = haplotyper.callDiplotypes(alleleMap, gene);
+    MatchData dataset = haplotyper.initializeCallData(alleleMap, gene);
+    List<DiplotypeMatch> matches = haplotyper.callDiplotypes(dataset);
     StringBuilder rezBuilder = new StringBuilder();
     for (DiplotypeMatch dm : matches) {
       if (rezBuilder.length() > 0) {
@@ -50,7 +50,7 @@ public class HaplotyperTest {
     // print
     new Report(definitionReader)
         .forFile(vcfFile)
-        .gene(gene, matches, alleleMap.values())
+        .gene(gene, matches, dataset)
         .printHtml();
 
     return matches;
@@ -92,7 +92,7 @@ public class HaplotyperTest {
     Haplotyper haplotyper = new Haplotyper(definitionReader);
     SortedMap<String, SampleAllele> alleles = haplotyper.getVcfReader().read(vcfFile);
 
-    Haplotyper.Dataset data = new Haplotyper.Dataset();
+    MatchData data = new MatchData();
     // grab SampleAlleles for all positions related to current gene
     data.marshallSampleData(alleles, "chr1", definitionReader.getPositions(gene));
     assertEquals(3, data.geneSampleMap.size());
@@ -103,20 +103,16 @@ public class HaplotyperTest {
     assertEquals(2, data.haplotypes.size());
 
     // get all permutations of sample at positions of interest
-    Set<String> permutations = CombinationUtil.generatePermutations(
-        data.geneSampleMap.values().stream()
-            .sorted()
-            .collect(Collectors.toList())
-    );
-    assertEquals(2, permutations.size());
-    assertTrue(permutations.contains("1:C;2:del;3:C;"));
-    assertTrue(permutations.contains("1:T;2:insA;3:delC;"));
+    data.generateSamplePermutations();
+    assertEquals(2, data.permutations.size());
+    assertTrue(data.permutations.contains("1:C;2:del;3:C;"));
+    assertTrue(data.permutations.contains("1:T;2:insA;3:delC;"));
 
     for (NamedAllele hap : data.haplotypes) {
       System.out.println(hap.getName() + ": " + hap.getPermutations().pattern());
     }
 
-    List<DiplotypeMatch> pairs = new DiplotypeMatcher(data.geneSampleMap, permutations, data.haplotypes).compute();
+    List<DiplotypeMatch> pairs = new DiplotypeMatcher(data).compute();
     assertNotNull(pairs);
     assertEquals(1, pairs.size());
     assertEquals("*1/*2", pairs.get(0).getName());

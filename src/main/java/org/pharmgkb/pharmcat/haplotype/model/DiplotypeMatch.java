@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.ObjectUtils;
+import org.pharmgkb.pharmcat.haplotype.MatchData;
 
 
 /**
@@ -18,14 +19,16 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
   private HaplotypeMatch m_haplotype2;
   private int m_score;
   private Set<String[]> m_sequences = new HashSet<>();
+  private MatchData m_dataset;
 
 
 
-  public DiplotypeMatch(@Nonnull HaplotypeMatch hm1, @Nonnull HaplotypeMatch hm2) {
+  public DiplotypeMatch(@Nonnull HaplotypeMatch hm1, @Nonnull HaplotypeMatch hm2, @Nonnull MatchData dataset) {
     m_haplotype1 = hm1;
     m_haplotype2 = hm2;
     m_name = m_haplotype1.getName() + "/" + m_haplotype2.getName();
     m_score = m_haplotype1.getHaplotype().getNumValidAlleles() + m_haplotype2.getHaplotype().getNumValidAlleles();
+    m_dataset = dataset;
   }
 
   public String getName() {
@@ -53,6 +56,12 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
     Preconditions.checkArgument(pair.length == 2, "Sequence pair must have 2 sequences");
     m_sequences.add(pair);
   }
+
+
+  public MatchData getDataset() {
+    return m_dataset;
+  }
+
 
   @Override
   public String toString() {

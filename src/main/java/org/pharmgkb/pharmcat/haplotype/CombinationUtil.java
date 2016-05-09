@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.annotation.Nonnull;
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 
 
@@ -19,6 +20,9 @@ public class CombinationUtil {
    * Builds permutations for given alleles based on phasing.
    */
   public static Set<String> generatePermutations(@Nonnull List<SampleAllele> alleles) {
+    Preconditions.checkNotNull(alleles);
+    Preconditions.checkArgument(alleles.size() > 0, "No alleles to generate permutations for");
+
     Set<String> rez = generatePermutations(alleles, 0, true, "");
     if (alleles.get(0).isPhased()) {
       rez.addAll(generatePermutations(alleles, 0, false, ""));

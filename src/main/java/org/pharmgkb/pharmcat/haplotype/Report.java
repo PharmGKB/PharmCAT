@@ -7,11 +7,12 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
@@ -28,6 +29,7 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.json.HaplotyperResult;
 import org.pharmgkb.pharmcat.haplotype.model.json.Metadata;
+import org.pharmgkb.pharmcat.haplotype.model.json.Variant;
 
 
 /**
@@ -38,6 +40,7 @@ public class Report {
   private Path m_vcfFile;
   private HaplotyperResult m_root = new HaplotyperResult();
   private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
+  private Map<String, MatchData> m_dataMap = new HashMap<>();
 
 
   public Report(@Nonnull DefinitionReader definitionReader) {
@@ -68,11 +71,12 @@ public class Report {
   }
 
 
-  protected Report gene(@Nonnull String gene, @Nonnull List<DiplotypeMatch> matches,
-      Collection<SampleAllele> sampleAlleles) {
+  protected Report gene(@Nonnull String gene, @Nonnull List<DiplotypeMatch> matches, @Nonnull MatchData dataset) {
 
     Preconditions.checkNotNull(gene);
     Preconditions.checkNotNull(matches);
+
+    m_dataMap.put(gene, dataset);
 
     GeneCall geneCall = new GeneCall();
     geneCall.setGene(gene);
@@ -84,10 +88,10 @@ public class Report {
 
     // get position info
     Map<Integer, SampleAllele> alleleMap = new HashMap<>();
-    for (SampleAllele allele : sampleAlleles) {
+    for (SampleAllele allele : dataset.geneSampleMap.values()) {
       alleleMap.put(allele.getPosition(), allele);
     }
-    for (VariantLocus variant : m_definitionReader.getPositions(gene)) {
+    for (VariantLocus variant : dataset.positions) {
       SampleAllele allele = alleleMap.get(variant.getPosition());
       String call;
       if (allele.isPhased()) {
@@ -95,7 +99,7 @@ public class Report {
       } else {
         call = allele.getAllele1() + "/" + allele.getAllele2();
       }
-      geneCall.add(new org.pharmgkb.pharmcat.haplotype.model.json.Variant(variant.getPosition(), variant.getRsid(), call));
+      geneCall.add(new Variant(variant.getPosition(), variant.getRsid(), call));
     }
 
     //geneCall.setHaplotypesNotCalled();
@@ -145,7 +149,7 @@ public class Report {
       // position
       builder.append("<tr>");
       builder.append("<th></th>");
-      for (org.pharmgkb.pharmcat.haplotype.model.json.Variant v : call.getVariants()) {
+      for (Variant v : call.getVariants()) {
         builder.append("<th>")
             .append(v.getPosition())
             .append("</th>");
@@ -154,7 +158,7 @@ public class Report {
       // rsid
       builder.append("<tr>");
       builder.append("<th></th>");
-      for (org.pharmgkb.pharmcat.haplotype.model.json.Variant v : call.getVariants()) {
+      for (Variant v : call.getVariants()) {
         builder.append("<th>");
             if (v.getRsid() != null) {
               builder.append(v.getRsid());
@@ -165,7 +169,7 @@ public class Report {
       // sample
       builder.append("<tr class=\"success\">");
       builder.append("<th>VCF</th>");
-      for (org.pharmgkb.pharmcat.haplotype.model.json.Variant v : call.getVariants()) {
+      for (Variant v : call.getVariants()) {
         builder.append("<th>")
             .append(v.getVcfCall())
             .append("</th>");
@@ -180,7 +184,7 @@ public class Report {
           }
         }
       } else {
-        for (NamedAllele haplotype : m_definitionReader.getHaplotypes(call.getGene())) {
+        for (NamedAllele haplotype : m_dataMap.get(call.getGene()).haplotypes) {
           printAllele(builder, haplotype.getName(), haplotype.getPermutations().pattern(), "danger");
         }
       }
@@ -205,6 +209,16 @@ public class Report {
   private void printAllele(@Nonnull StringBuilder builder, @Nullable String name, @Nonnull String allele,
       @Nullable String rowClass) {
 
+    SortedSet<Variant> variants = new TreeSet<>();
+    for (String posAllele : allele.split(";")) {
+      String[] parts = posAllele.split(":");
+      String a = parts[1];
+      if (a.equals(".?")) {
+        a = "";
+      }
+      variants.add(new Variant(Integer.parseInt(parts[0]), null, a));
+    }
+
     builder.append("<tr");
     if (rowClass != null) {
       builder.append(" class=\"")
@@ -217,17 +231,13 @@ public class Report {
     }
     builder.append("</th>");
 
-    for (String part : allele.split(";")) {
-      String a = part.split(":")[1];
-      if (a.equals(".?")) {
-        a = "";
-      }
+    for (Variant variant : variants) {
       builder.append("<td>");
       if (name == null) {
-        builder.append(a);
+        builder.append(variant.getVcfCall());
       } else {
         builder.append("<b>")
-            .append(a)
+            .append(variant.getVcfCall())
             .append("</b>");
       }
       builder.append("</td>");
