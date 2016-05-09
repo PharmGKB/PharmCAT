@@ -13,7 +13,7 @@
       "chromosome": "10",
       "diplotypes": [
         {
-          "name": "CYP2C19:*4/*17",
+          "name": "CYP2C19:*17/*4",
           "score": 1
         },
         {
