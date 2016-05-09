@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.Set;
+import java.util.TreeSet;
 import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -19,7 +20,7 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
   private String m_name;
   private NamedAllele m_haplotype;
   @Expose
-  private Set<String> m_sequences;
+  private Set<String> m_sequences = new TreeSet<>();
 
 
   public HaplotypeMatch(@Nonnull NamedAllele haplotype) {
