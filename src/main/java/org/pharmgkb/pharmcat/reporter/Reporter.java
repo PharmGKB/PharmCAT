@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.Multimap;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
@@ -18,7 +17,6 @@ import org.apache.commons.cli.Options;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.ReporterWriter;
-import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Interaction;
 import org.slf4j.Logger;
@@ -44,7 +42,6 @@ public class Reporter {
 
   private List<File> m_annotationFiles = null;
   private File m_callFile = null;
-  private File m_exceptionFile = null;
   private Path m_reportDir = null;
 
 
@@ -110,8 +107,6 @@ public class Reporter {
     sf_logger.debug("Writing output to {}", m_reportDir);
 
     m_callFile = callFile;
-
-    m_exceptionFile = exceptionFile;
   }
 
   public void run() throws Exception {
@@ -123,14 +118,11 @@ public class Reporter {
     // requiring some if not all rewriting
     List<GeneCall> calls = loader.loadHaplotypeGeneCalls(m_callFile);
 
-    //Load a map of Gene symbol to Exception list
-    Multimap<String, CPICException> exceptionMap = loader.loadExceptions(m_exceptionFile);
-
     //Load the gene drug interaction list. This currently only handles single gene drug m_guidelineFiles and will require updating to handle multi gene drug interaction
     List<CPICinteraction> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
-    DataUnifier checker = new DataUnifier(calls, guidelines, exceptionMap); // prime with data
+    DataUnifier checker = new DataUnifier(calls, guidelines); // prime with data
     List<Interaction> results = checker.findMatches(); // run the actual comparison
 
     ReporterWriter.printResults(m_reportDir, results, checker.getSymbolToGeneReportMap());

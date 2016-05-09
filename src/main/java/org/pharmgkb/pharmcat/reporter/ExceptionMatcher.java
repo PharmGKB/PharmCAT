@@ -1,7 +1,18 @@
 package org.pharmgkb.pharmcat.reporter;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Set;
+import javax.annotation.Nonnull;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.gson.Gson;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
+import org.pharmgkb.pharmcat.reporter.model.CPICException;
+import org.pharmgkb.pharmcat.reporter.model.CPICExceptionList;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.GeneReport;
 
 
@@ -13,6 +24,31 @@ import org.pharmgkb.pharmcat.reporter.resultsJSON.GeneReport;
  */
 
 public class ExceptionMatcher {
+  private Multimap<String, CPICException> m_exceptionMap;
+
+  public ExceptionMatcher() throws Exception {
+    try {
+      File exceptionFile = new File(getClass().getResource("exceptions.json").toURI());
+      m_exceptionMap = loadExceptions(exceptionFile);
+    } catch (IOException|URISyntaxException e) {
+      throw new Exception("Not able to parse excepiton list", e);
+    }
+  }
+
+  /**
+   * Adds any matching exceptions to the given {@link GeneReport}
+   * @param geneReport
+   */
+  public void addExceptions(@Nonnull GeneReport geneReport) {
+    String geneSymbol = geneReport.getGene();
+
+    if (m_exceptionMap.containsKey(geneSymbol) ){
+      // add any known gene exceptions
+      m_exceptionMap.get(geneSymbol).stream()
+          .filter(exception -> test(geneReport, exception.getMatches()))
+          .forEach(geneReport::addException);
+    }
+  }
 
   /**
    * FIXME: here I make the assumption of three different rule types
@@ -77,4 +113,17 @@ public class ExceptionMatcher {
     return test;
   }
 
+  private Multimap<String, CPICException> loadExceptions(File exceptions)throws IOException {
+    Gson gson = new Gson();
+    Multimap<String, CPICException> matcher = HashMultimap.create();
+
+    try (BufferedReader br = new BufferedReader(new FileReader(exceptions))) {
+      CPICExceptionList exceptionList = gson.fromJson(br, CPICExceptionList.class);
+
+      for (CPICException rule : exceptionList.getRules()) {
+        matcher.put(rule.getGene(), rule);
+      }
+    }
+    return matcher;
+  }
 }

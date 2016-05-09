@@ -13,7 +13,6 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
-import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.GeneReport;
@@ -44,27 +43,22 @@ public class DataUnifier {
    * @param calls GeneCall objects from the sample data
    * @param guidelines a List of all the guidelines to try to apply
    */
-  public DataUnifier(List<GeneCall> calls, List<CPICinteraction> guidelines, Multimap<String, CPICException> exceptionMap) {
+  public DataUnifier(List<GeneCall> calls, List<CPICinteraction> guidelines) throws Exception {
     m_calls = calls;
     m_guidelines = guidelines;
-    compileGeneData(exceptionMap);
+    compileGeneData();
   }
 
 
-  private void compileGeneData(Multimap<String, CPICException> exceptionMap) {
+  private void compileGeneData() throws Exception {
     ExceptionMatcher exceptionMatcher = new ExceptionMatcher();
 
     for (GeneCall call : m_calls) {
 
-      // convert GeneCalls to GeneReports
+      // starts a new GeneReport based on data in the GeneCall
       GeneReport gene = new GeneReport(call);
-
-      if (exceptionMap.containsKey(call.getGene()) ){
-        // add any known gene exceptions
-        exceptionMap.get(call.getGene()).stream()
-            .filter(exception -> exceptionMatcher.test(gene, exception.getMatches()))
-            .forEach(gene::addException);
-      }
+      // adds exceptions to the GeneReport
+      exceptionMatcher.addExceptions(gene);
 
       m_sampleGeneToDiplotypeMap.putAll(gene.getGene(), gene.getDips());
 

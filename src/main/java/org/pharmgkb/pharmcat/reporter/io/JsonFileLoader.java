@@ -9,13 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 import com.google.gson.Gson;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.json.HaplotyperResult;
-import org.pharmgkb.pharmcat.reporter.model.CPICException;
-import org.pharmgkb.pharmcat.reporter.model.CPICExceptionList;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,25 +32,6 @@ public class JsonFileLoader {
       HaplotyperResult calls = gson.fromJson(br, HaplotyperResult.class);
       return calls.getGeneCalls();
     }
-  }
-
-  /**
-   * This turns the json exception list into a fragmented list under the header
-   * of the relevant gene.
-   * FIXME dumb assumption that the exception are for single gene issues and not for
-   * multi gene interactions
-   */
-  public Multimap<String, CPICException> loadExceptions(File exceptions)throws IOException {
-    Multimap<String, CPICException> matcher = HashMultimap.create();
-
-    try (BufferedReader br = new BufferedReader(new FileReader(exceptions))) {
-      CPICExceptionList exceptionList = gson.fromJson(br, CPICExceptionList.class);
-
-      for (CPICException rule : exceptionList.getRules()) {
-        matcher.put(rule.getGene(), rule);
-      }
-    }
-    return matcher;
   }
 
   /**
