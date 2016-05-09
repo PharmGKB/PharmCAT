@@ -17,7 +17,7 @@ import org.apache.commons.cli.Options;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.ReporterWriter;
-import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
+import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Interaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -113,7 +113,7 @@ public class Reporter {
     List<GeneCall> calls = loader.loadHaplotypeGeneCalls(m_callFile);
 
     //Load the gene drug interaction list. This currently only handles single gene drug m_guidelineFiles and will require updating to handle multi gene drug interaction
-    List<CPICinteraction> guidelines = loader.loadGuidelines(m_annotationFiles);
+    List<DosingGuideline> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
     DataUnifier checker = new DataUnifier(calls, guidelines); // prime with data

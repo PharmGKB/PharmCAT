@@ -6,17 +6,11 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
-public class CPICinteraction {
+public class DosingGuideline {
 
   @SerializedName("objCls")
   @Expose
   private String objCls;
-  @SerializedName("@id")
-  @Expose
-  private String Id;
-  @SerializedName("@context")
-  @Expose
-  private String Context;
   @SerializedName("id")
   @Expose
   private String id;
@@ -28,10 +22,10 @@ public class CPICinteraction {
   private List<Group> groups = new ArrayList<>();
   @SerializedName("relatedChemicals")
   @Expose
-  private List<RelatedChemical> relatedChemicals = new ArrayList<RelatedChemical>();
+  private List<RelatedChemical> relatedChemicals = new ArrayList<>();
   @SerializedName("relatedGenes")
   @Expose
-  private List<RelatedGene> relatedGenes = new ArrayList<RelatedGene>();
+  private List<RelatedGene> relatedGenes = new ArrayList<>();
   @SerializedName("source")
   @Expose
   private String source;
@@ -58,42 +52,6 @@ public class CPICinteraction {
    */
   public void setObjCls(String objCls) {
     this.objCls = objCls;
-  }
-
-  /**
-   *
-   * @return
-   *     The Id
-   *
-  public String getId() {
-  return Id;
-  }
-
-  /**
-   *
-   * @param Id
-   *     The @id
-   *
-  public void setId(String Id) {
-  this.Id = Id;
-  }
-
-  /**
-   *
-   * @return
-   *     The Context
-   *
-  public String getContext() {
-  return Context;
-  }
-
-  /**
-   *
-   * @param Context
-   *     The @context
-   */
-  public void setContext(String Context) {
-    this.Context = Context;
   }
 
   /**

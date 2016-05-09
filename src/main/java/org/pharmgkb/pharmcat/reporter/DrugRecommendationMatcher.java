@@ -3,7 +3,7 @@ package org.pharmgkb.pharmcat.reporter;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
-import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
+import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 
 
@@ -18,7 +18,7 @@ public class DrugRecommendationMatcher {
   private Set<String> m_neededGenes;
   private Set<String> m_definedGeneSymbolSet;
 
-  public DrugRecommendationMatcher(@Nonnull Set<String> availableGenes, @Nonnull CPICinteraction guideline) throws Exception {
+  public DrugRecommendationMatcher(@Nonnull Set<String> availableGenes, @Nonnull DosingGuideline guideline) throws Exception {
     if (guideline == null || availableGenes == null) {
       throw new Exception("Missing data for constructor");
     }

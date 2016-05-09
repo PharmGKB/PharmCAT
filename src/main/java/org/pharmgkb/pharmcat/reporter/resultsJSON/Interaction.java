@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
+import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.RelatedChemical;
 
@@ -22,7 +22,7 @@ public class Interaction {
   private String m_url;
   private Multimap<String,String> m_matchedDiplotypes = TreeMultimap.create();
 
-  public Interaction( CPICinteraction inter){
+  public Interaction( DosingGuideline inter){
     this.name = inter.getName();
     this.relatedChemicals = inter.getRelatedChemicals();
     this.source = inter.getSource();

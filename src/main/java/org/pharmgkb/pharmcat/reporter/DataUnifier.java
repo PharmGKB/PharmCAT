@@ -13,7 +13,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
-import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
+import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.GeneReport;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Interaction;
@@ -34,7 +34,7 @@ public class DataUnifier {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   private List<GeneCall> m_calls;
-  private List<CPICinteraction> m_guidelines;
+  private List<DosingGuideline> m_guidelines;
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
   private Map<String, GeneReport> m_symbolToGeneReportMap = new HashMap<>();
 
@@ -43,7 +43,7 @@ public class DataUnifier {
    * @param calls GeneCall objects from the sample data
    * @param guidelines a List of all the guidelines to try to apply
    */
-  public DataUnifier(List<GeneCall> calls, List<CPICinteraction> guidelines) throws Exception {
+  public DataUnifier(List<GeneCall> calls, List<DosingGuideline> guidelines) throws Exception {
     m_calls = calls;
     m_guidelines = guidelines;
     compileGeneData();
@@ -78,7 +78,7 @@ public class DataUnifier {
     // This is the loop for looking through the cpic drug gene interactions and trying to figure out which apply to the situation
     List<Interaction> resultInteractions = new ArrayList<>();
 
-    for(CPICinteraction guideline : m_guidelines) {
+    for(DosingGuideline guideline : m_guidelines) {
       DrugRecommendationMatcher drugRecommendationMatcher = new DrugRecommendationMatcher(m_symbolToGeneReportMap.keySet(), guideline);
       if (!drugRecommendationMatcher.matches()) {
         sf_logger.warn("Can't annotate guideline {}, it's missing {}",

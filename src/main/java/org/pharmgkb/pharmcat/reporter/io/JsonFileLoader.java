@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 import org.pharmgkb.pharmcat.haplotype.Haplotyper;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.json.HaplotyperResult;
-import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
+import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,15 +41,16 @@ public class JsonFileLoader {
   }
 
   /**
-   * Load all the guideline annotations into {@link CPICinteraction} objects from the list of guideline {@link File}
+   * Load all the guideline annotations into {@link DosingGuideline} objects from the list of guideline {@link File}
    * list
    */
-  public List<CPICinteraction> loadGuidelines(List<File> guidelineFileList) throws IOException {
-    List<CPICinteraction> drugGenes = new ArrayList<>();
+  public List<DosingGuideline> loadGuidelines(List<File> guidelineFileList) throws IOException {
+    List<DosingGuideline> drugGenes = new ArrayList<>();
 
-    for (File guideline : guidelineFileList) {
-      try (BufferedReader br = new BufferedReader(new FileReader(guideline))) {
-        drugGenes.add(gson.fromJson(br, CPICinteraction.class));
+    for (File guidelineFile : guidelineFileList) {
+      try (BufferedReader br = new BufferedReader(new FileReader(guidelineFile))) {
+        DosingGuideline dosingGuideline = gson.fromJson(br, DosingGuideline.class);
+        drugGenes.add(dosingGuideline);
       }
     }
 
