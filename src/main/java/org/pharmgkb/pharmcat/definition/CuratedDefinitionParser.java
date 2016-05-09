@@ -357,7 +357,7 @@ public class CuratedDefinitionParser {
           }
 
           String name = StringUtils.stripToNull(fields.get(0));
-          String id = m_haplotypeIdMap.get(m_definitionFile.getGeneSymbol(), name);
+          String id = m_haplotypeIdMap.getId(m_definitionFile.getGeneSymbol(), name);
           if (id == null) {
             m_errors.add("Allele has no ID: " + m_definitionFile.getGeneSymbol() + " " + name);
             return;
