@@ -1,0 +1,8 @@
+##fileformat=VCFv4.1
+##fileDate=2015-08-04
+##source=IlluminaPlatinumGenomes, version: hg38_2.0.1
+##reference=hg38
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FILTER=<ID=PASS,Description="All filters passed">
+#CHROM  POS  ID REF  ALT  QUAL FILTER INFO FORMAT NA12878
+chr19	39248147	rs12979860	C	T	.	PASS	assume-default	GT	0/0
