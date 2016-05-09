@@ -68,9 +68,9 @@ public class DiplotypeMatcherTest {
   public void test1() throws Exception {
 
     List<SampleAllele> alleles = Arrays.asList(
-        new SampleAllele("chr1", 1, "A", "G", false),
-        new SampleAllele("chr1", 2, "C", "C", false),
-        new SampleAllele("chr1", 3, "C", "C", false)
+        new SampleAllele("chr1", 1, "A", "G", false, Lists.newArrayList("A", "G")),
+        new SampleAllele("chr1", 2, "C", "C", false, Lists.newArrayList("C", "T")),
+        new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C", "T"))
     );
 
     List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
@@ -83,9 +83,9 @@ public class DiplotypeMatcherTest {
   public void test2() throws Exception {
 
     List<SampleAllele> alleles = Arrays.asList(
-        new SampleAllele("chr1", 1, "A", "G", false),
-        new SampleAllele("chr1", 2, "C", "T", false),
-        new SampleAllele("chr1", 3, "C", "T", false)
+        new SampleAllele("chr1", 1, "A", "G", false, Lists.newArrayList("A", "G")),
+        new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T")),
+        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
     );
 
     List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
@@ -98,9 +98,9 @@ public class DiplotypeMatcherTest {
   public void test3() throws Exception {
 
     List<SampleAllele> alleles = Arrays.asList(
-        new SampleAllele("chr1", 1, "A", "A", false),
-        new SampleAllele("chr1", 2, "C", "T", false),
-        new SampleAllele("chr1", 3, "C", "T", false)
+        new SampleAllele("chr1", 1, "A", "A", false, Lists.newArrayList("A", "G")),
+        new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T")),
+        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
     );
 
     List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
@@ -113,9 +113,9 @@ public class DiplotypeMatcherTest {
   public void test4() throws Exception {
 
     List<SampleAllele> alleles = Arrays.asList(
-        new SampleAllele("chr1", 1, "G", "G", false),
-        new SampleAllele("chr1", 2, "T", "T", false),
-        new SampleAllele("chr1", 3, "C", "T", false)
+        new SampleAllele("chr1", 1, "G", "G", false, Lists.newArrayList("A", "G")),
+        new SampleAllele("chr1", 2, "T", "T", false, Lists.newArrayList("C", "T")),
+        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
     );
 
     List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
@@ -128,9 +128,9 @@ public class DiplotypeMatcherTest {
   public void test5() throws Exception {
 
     List<SampleAllele> alleles = Arrays.asList(
-        new SampleAllele("chr1", 1, "G", "G", false),
-        new SampleAllele("chr1", 2, "C", "T", false),
-        new SampleAllele("chr1", 3, "C", "T", false)
+        new SampleAllele("chr1", 1, "G", "G", false, Lists.newArrayList("A", "G")),
+        new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T")),
+        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
     );
     List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*4a/*4b", "*4a/*17", "*4a/*4a");

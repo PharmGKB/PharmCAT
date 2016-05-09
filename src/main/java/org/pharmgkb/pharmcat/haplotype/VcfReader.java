@@ -164,7 +164,12 @@ public class VcfReader {
       if (gt.contains("/") && a2 != null && !a1.equalsIgnoreCase(a2)) {
         isPhased = false;
       }
-      m_alleleMap.put(chrPos, new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased));
+
+      List<String> vcfAlleles = new ArrayList<>();
+      vcfAlleles.add(position.getRef());
+      vcfAlleles.addAll(position.getAltBases());
+
+      m_alleleMap.put(chrPos, new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased, vcfAlleles));
     }
 
 

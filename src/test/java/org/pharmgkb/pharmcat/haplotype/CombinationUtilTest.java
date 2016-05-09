@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -25,10 +26,10 @@ public class CombinationUtilTest {
   public void testGeneratePermutationsNotPhased() {
 
     List<SampleAllele> alleles = Arrays.asList(
-        new SampleAllele("chr1", 1, "T", "T", false),
-        new SampleAllele("chr1", 2, "A", "T", false),
-        new SampleAllele("chr1", 3, "C", "C", false),
-        new SampleAllele("chr1", 4, "C", "G", false)
+        new SampleAllele("chr1", 1, "T", "T", false, Lists.newArrayList("T", "C")),
+        new SampleAllele("chr1", 2, "A", "T", false, Lists.newArrayList("A", "T")),
+        new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C", "C")),
+        new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C", "G"))
     );
 
     Set<String> expectedPermutations = Sets.newHashSet(
@@ -49,10 +50,10 @@ public class CombinationUtilTest {
   public void testGeneratePermutationPhased() {
 
     List<SampleAllele> alleles = Arrays.asList(
-        new SampleAllele("chr1", 1, "T", "T", true),
-        new SampleAllele("chr1", 2, "A", "T", true),
-        new SampleAllele("chr1", 3, "C", "C", true),
-        new SampleAllele("chr1", 4, "C", "G", true)
+        new SampleAllele("chr1", 1, "T", "T", true, Lists.newArrayList("T", "C")),
+        new SampleAllele("chr1", 2, "A", "T", true, Lists.newArrayList("A", "T")),
+        new SampleAllele("chr1", 3, "C", "C", true, Lists.newArrayList("C", "C")),
+        new SampleAllele("chr1", 4, "C", "G", true, Lists.newArrayList("C", "G"))
     );
 
     Set<String> expectedPermutations = Sets.newHashSet(

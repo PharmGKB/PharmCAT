@@ -1,6 +1,9 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.util.List;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.ObjectUtils;
 import org.pharmgkb.common.comparator.ChromosomeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -20,13 +23,16 @@ public class SampleAllele implements Comparable<SampleAllele> {
   private String m_allele1;
   private String m_allele2;
   private boolean m_isPhased;
+  private List<String> m_vcfAlleles;
 
-  public SampleAllele(@Nonnull String chromosome, long position, @Nonnull String a1, String a2, boolean isPhased) {
+  public SampleAllele(@Nonnull String chromosome, long position, @Nonnull String a1, @Nullable String a2,
+      boolean isPhased, @Nonnull List<String> vcfAlleles) {
     m_chromosome = chromosome;
     m_position = (int)position;
     m_allele1 = a1;
     m_allele2 = a2;
     m_isPhased = isPhased;
+    m_vcfAlleles = vcfAlleles;
   }
 
   public String getChromosome() {
@@ -51,6 +57,10 @@ public class SampleAllele implements Comparable<SampleAllele> {
 
   public boolean isPhased() {
     return m_isPhased;
+  }
+
+  public List<String> getVcfAlleles() {
+    return m_vcfAlleles;
   }
 
   @Override
@@ -85,25 +95,69 @@ public class SampleAllele implements Comparable<SampleAllele> {
     if (variant.getType() == VariantType.INS) {
       // VCF:         TC  -> TCA
       // definition:  del -> insA
-      if (a1.length() > a2.length()) {
-        a1 = "ins" + a1.substring(a2.length());
-        a2 = "del";
-      } else {
-        a2 = "ins" + a2.substring(a1.length());
-        a1 = "del";
-      }
+      a1 = convertInsertion(m_allele1);
+      a2 = convertInsertion(m_allele2);
 
     } else if (variant.getType() == VariantType.DEL) {
       // VCF:         TC -> T
       // definition:  C  -> delC
-      if (a1.length() > a2.length()) {
-        a1 = a1.substring(1);
-        a2 = "del" + a1;
-      } else {
-        a2 = a2.substring(1);
-        a1 = "del" + a2;
+      a1 = convertDeletion(m_allele1);
+      a2 = convertDeletion(m_allele2);
+    }
+    return new SampleAllele(m_chromosome, m_position, a1, a2, m_isPhased, m_vcfAlleles);
+  }
+
+
+  /**
+   * Convert from VCF insertion to allele definition insertion format.
+   * <pre><code>
+   * VCF:         TC  -> TCA
+   * definition:  del -> insA
+   * </code></pre>
+   */
+  private @Nonnull String convertInsertion(@Nonnull String allele) {
+
+    String ref = m_vcfAlleles.get(0);
+    if (allele.equals(ref)) {
+      return "del";
+    }
+
+    // must be an ALT, and therefore longer than REF
+    Preconditions.checkState(allele.length() > ref.length(), "Not an insertion: " + ref + " >" + allele);
+    return "ins" + allele.substring(ref.length());
+  }
+
+  /**
+   * Convert from VCF deletion to allele definition deletion format.
+   * <pre><code>
+   * VCF:         TC -> T
+   * definition:  C  -> delC
+   * </code></pre>
+   */
+  private @Nonnull String convertDeletion(@Nonnull String allele) {
+
+    String ref = m_vcfAlleles.get(0);
+    if (allele.equals(ref)) {
+      return allele.substring(1);
+    }
+
+    // must be an ALT, and therefore shorter than REF
+    Preconditions.checkState(allele.length() < ref.length(), "Not an deletion: " + ref + " >" + allele);
+    return "del" + ref.substring(1);
+  }
+
+  private @Nonnull String findVcfAlt(String allele) {
+
+    String alt = null;
+    for (int x = 1; x < m_vcfAlleles.size(); x += 1) {
+      if (allele.equals(m_vcfAlleles.get(x))) {
+        alt = m_vcfAlleles.get(x);
+        break;
       }
     }
-    return new SampleAllele(m_chromosome, m_position, a1, a2, m_isPhased);
+    if (alt == null) {
+      throw new IllegalStateException(allele + " is not a valid ALT for " + m_position);
+    }
+    return alt;
   }
 }

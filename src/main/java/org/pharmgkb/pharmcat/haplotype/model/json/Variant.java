@@ -9,22 +9,24 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class Variant implements Comparable<Variant>  {
+  @Expose
   @SerializedName("position")
-  @Expose
   private int m_position;
+  @Expose
   @SerializedName("rsid")
-  @Expose
   private String m_rsid;
-  @SerializedName("vcfCall")
   @Expose
+  @SerializedName("vcfCall")
   private String m_vcfCall;
+  private String m_vcfAlleles;
 
 
-  public Variant(int pos, @Nullable String rsids, @Nonnull String call) {
+  public Variant(int pos, @Nullable String rsids, @Nonnull String call, @Nonnull String vcfAlleles) {
     Preconditions.checkNotNull(call);
     m_position = pos;
     m_rsid = rsids;
     m_vcfCall = call;
+    m_vcfAlleles = vcfAlleles;
   }
 
 
@@ -38,6 +40,10 @@ public class Variant implements Comparable<Variant>  {
 
   public String getVcfCall() {
     return m_vcfCall;
+  }
+
+  public String getVcfAlleles() {
+    return m_vcfAlleles;
   }
 
   @Override

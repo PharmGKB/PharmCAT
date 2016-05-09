@@ -15,6 +15,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import com.google.api.client.repackaged.com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,6 +37,7 @@ import org.pharmgkb.pharmcat.haplotype.model.json.Variant;
  * @author Mark Woon
  */
 public class Report {
+  private static final Joiner sf_vcfAlleleJoiner = Joiner.on(",");
   private DefinitionReader m_definitionReader;
   private Path m_vcfFile;
   private HaplotyperResult m_root = new HaplotyperResult();
@@ -94,12 +96,13 @@ public class Report {
     for (VariantLocus variant : dataset.positions) {
       SampleAllele allele = alleleMap.get(variant.getPosition());
       String call;
+      String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
       if (allele.isPhased()) {
         call = allele.getAllele1() + "|" + allele.getAllele2();
       } else {
         call = allele.getAllele1() + "/" + allele.getAllele2();
       }
-      geneCall.add(new Variant(variant.getPosition(), variant.getRsid(), call));
+      geneCall.add(new Variant(variant.getPosition(), variant.getRsid(), call, vcfAlleles));
     }
 
     //geneCall.setHaplotypesNotCalled();
@@ -167,8 +170,17 @@ public class Report {
       }
       builder.append("</tr>");
       // sample
+      builder.append("<tr>");
+      builder.append("<th>VCF REF,ALTs</th>");
+      for (Variant v : call.getVariants()) {
+        builder.append("<th>")
+            .append(v.getVcfAlleles())
+            .append("</th>");
+      }
+      builder.append("</tr>");
+
       builder.append("<tr class=\"success\">");
-      builder.append("<th>VCF</th>");
+      builder.append("<th>VCF Call</th>");
       for (Variant v : call.getVariants()) {
         builder.append("<th>")
             .append(v.getVcfCall())
@@ -216,7 +228,7 @@ public class Report {
       if (a.equals(".?")) {
         a = "";
       }
-      variants.add(new Variant(Integer.parseInt(parts[0]), null, a));
+      variants.add(new Variant(Integer.parseInt(parts[0]), null, a, ""));
     }
 
     builder.append("<tr");
