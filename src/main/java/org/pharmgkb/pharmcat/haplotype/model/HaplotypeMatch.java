@@ -1,6 +1,6 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
-import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
@@ -15,12 +15,13 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
  * @author Mark Woon
  */
 public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
-  @SerializedName("name")
   @Expose
+  @SerializedName("name")
   private String m_name;
   private NamedAllele m_haplotype;
   @Expose
-  private Set<String> m_sequences = new TreeSet<>();
+  @SerializedName("sequences")
+  private SortedSet<String> m_sequences = new TreeSet<>();
 
 
   public HaplotypeMatch(@Nonnull NamedAllele haplotype) {
@@ -46,7 +47,7 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
     return false;
   }
 
-  public Set<String> getSequences() {
+  public @Nonnull SortedSet<String> getSequences() {
     return m_sequences;
   }
 
@@ -57,15 +58,6 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
     int rez = ObjectUtils.compare(m_haplotype, o.getHaplotype());
     if (rez != 0) {
       return rez;
-    }
-    if (m_sequences == null && o.getSequences() == null) {
-      return 0;
-    }
-    if (m_sequences == null) {
-      return -1;
-    }
-    if (o.getSequences() == null) {
-      return 1;
     }
     return ObjectUtils.compare(m_sequences.size(), o.getSequences().size());
   }
