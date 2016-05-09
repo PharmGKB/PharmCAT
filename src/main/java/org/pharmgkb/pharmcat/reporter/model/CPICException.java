@@ -1,23 +1,29 @@
 package org.pharmgkb.pharmcat.reporter.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+
 /**
  * Created by lester on 4/13/16.
  */
 public class CPICException {
 
-  String rule_name;
+  @SerializedName("rule_name")
+  @Expose
+  private String m_name;
   String version;
   String gene;
   String matches;
   String exception_type;
   String message;
 
-  public String getRule_name() {
-    return rule_name;
+  public String getName() {
+    return m_name;
   }
 
-  public void setRule_name(String rule_name) {
-    this.rule_name = rule_name;
+  public void setName(String rule_name) {
+    m_name = rule_name;
   }
 
   public String getVersion() {

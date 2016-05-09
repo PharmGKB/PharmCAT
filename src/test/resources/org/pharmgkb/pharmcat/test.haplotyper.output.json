@@ -29,6 +29,29 @@
           "score": 1
         }
       ],
+      "haplotypes": [
+        {
+          "name": "*1",
+          "sequences": [
+            "foo",
+            "bar"
+          ]
+        },
+        {
+          "name": "*4",
+          "sequences": [
+            "fizz",
+            "buzz"
+          ]
+        },
+        {
+          "name": "*17",
+          "sequences": [
+            "alice",
+            "bob"
+          ]
+        }
+      ],
       "positionsUsed": [
         {
           "position": "g.94762706A>G",
@@ -70,6 +93,22 @@
         {
           "name": "CYP2C9:*1/*2",
           "score": 2
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "*1",
+          "sequences": [
+            "foo",
+            "bar"
+          ]
+        },
+        {
+          "name": "*2",
+          "sequences": [
+            "fizz",
+            "buzz"
+          ]
         }
       ],
       "positionsUsed": [

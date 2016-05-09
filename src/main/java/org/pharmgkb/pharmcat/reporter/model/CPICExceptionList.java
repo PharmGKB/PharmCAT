@@ -1,6 +1,8 @@
 package org.pharmgkb.pharmcat.reporter.model;
 
 import java.util.ArrayList;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 
 /**
@@ -8,14 +10,15 @@ import java.util.ArrayList;
  */
 public class CPICExceptionList {
 
-  ArrayList<CPICException> rules;
+  @SerializedName("rules")
+  @Expose
+  private ArrayList<CPICException> m_rules;
 
   public ArrayList<CPICException> getRules() {
-    return rules;
+    return m_rules;
   }
 
   public void setRules(ArrayList<CPICException> rules) {
-    this.rules = rules;
+    m_rules = rules;
   }
-
 }

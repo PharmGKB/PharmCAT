@@ -5,13 +5,12 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Multimap;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
@@ -21,8 +20,7 @@ import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.ReporterWriter;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.Gene;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.MultiGeneInteraction;
+import org.pharmgkb.pharmcat.reporter.resultsJSON.Interaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,7 +69,7 @@ public class Reporter {
 
     //if minimal required parameters are set parse command line
     Reporter report = new Reporter(annotationsDir, callFile, exceptionsFile, outputDir);
-    //run genotyper workflow
+    //run reporter workflow
     report.run();
   }
 
@@ -116,10 +114,7 @@ public class Reporter {
     m_exceptionFile = exceptionFile;
   }
 
-  public void run() throws IOException {
-
-    List<Gene> geneListToReport = new ArrayList<>();
-    List<MultiGeneInteraction> multiInteractionsToReport = new ArrayList<>();
+  public void run() throws Exception {
 
     //Generate class used for loading JSON into
     JsonFileLoader loader = new JsonFileLoader();
@@ -128,17 +123,17 @@ public class Reporter {
     // requiring some if not all rewriting
     List<GeneCall> calls = loader.loadHaplotypeGeneCalls(m_callFile);
 
-    //Load the gene rule sf_exceptionFile json
-    Map<String, List<CPICException>> exceptions = loader.loadExceptions(m_exceptionFile);
+    //Load a map of Gene symbol to Exception list
+    Multimap<String, CPICException> exceptionMap = loader.loadExceptions(m_exceptionFile);
 
     //Load the gene drug interaction list. This currently only handles single gene drug m_guidelineFiles and will require updating to handle multi gene drug interaction
-    List<CPICinteraction> guidelines = loader.loadDrugGeneRecommendations(m_annotationFiles);
+    List<CPICinteraction> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
-    DataUnifier checker = new DataUnifier(calls, exceptions, guidelines); // prime with data
-    checker.findMatches(geneListToReport, multiInteractionsToReport); // run the actual comparison
+    DataUnifier checker = new DataUnifier(calls, guidelines, exceptionMap); // prime with data
+    List<Interaction> results = checker.findMatches(); // run the actual comparison
 
-    ReporterWriter.printResults(m_reportDir, geneListToReport, multiInteractionsToReport );
+    ReporterWriter.printResults(m_reportDir, results, checker.getSymbolToGeneReportMap());
 
     sf_logger.info("Complete");
   }

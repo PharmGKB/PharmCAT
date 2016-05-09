@@ -6,11 +6,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import com.google.gson.Gson;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.json.HaplotyperResult;
@@ -44,22 +44,16 @@ public class JsonFileLoader {
    * FIXME dumb assumption that the exception are for single gene issues and not for
    * multi gene interactions
    */
-  public Map<String, List<CPICException>> loadExceptions( File exceptions )throws IOException {
-    Map<String, List<CPICException>> matcher = new HashMap<>();
-    BufferedReader br = new BufferedReader(new FileReader( exceptions ));
-    CPICExceptionList except = gson.fromJson(br, CPICExceptionList.class);
-    for (CPICException rule : except.getRules()) {
-      if( matcher.containsKey(rule.getGene())){
-        matcher.get(rule.getGene()).add(rule);
-      } else {
-        List<CPICException> parts = new ArrayList<>();
-        parts.add(rule);
-        matcher.put(rule.getGene(), parts);
+  public Multimap<String, CPICException> loadExceptions(File exceptions)throws IOException {
+    Multimap<String, CPICException> matcher = HashMultimap.create();
+
+    try (BufferedReader br = new BufferedReader(new FileReader(exceptions))) {
+      CPICExceptionList exceptionList = gson.fromJson(br, CPICExceptionList.class);
+
+      for (CPICException rule : exceptionList.getRules()) {
+        matcher.put(rule.getGene(), rule);
       }
     }
-
-    br.close();
-
     return matcher;
   }
 
@@ -72,14 +66,13 @@ public class JsonFileLoader {
    * next version.  This is a critical flaw in the design
    *
    */
-  public List<CPICinteraction> loadDrugGeneRecommendations( List<File> interactions ) throws IOException {
+  public List<CPICinteraction> loadGuidelines(List<File> guidelineFileList) throws IOException {
     List<CPICinteraction> drugGenes = new ArrayList<>();
-    for( File interact: interactions ){
 
-      BufferedReader br = new BufferedReader(new FileReader( interact ));
-      CPICinteraction act = gson.fromJson(br, CPICinteraction.class);
-      drugGenes.add(act);
-      br.close();
+    for (File guideline : guidelineFileList) {
+      try (BufferedReader br = new BufferedReader(new FileReader(guideline))) {
+        drugGenes.add(gson.fromJson(br, CPICinteraction.class));
+      }
     }
 
     return drugGenes;

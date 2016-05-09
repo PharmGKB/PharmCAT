@@ -1,151 +1,143 @@
 package org.pharmgkb.pharmcat.reporter;
 
+import java.lang.invoke.MethodHandles;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.pharmgkb.pharmcat.reporter.model.Group;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.Gene;
+import org.pharmgkb.pharmcat.reporter.resultsJSON.GeneReport;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Interaction;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.MultiGeneInteraction;
-import org.pharmgkb.common.comparator.HaplotypeNameComparator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 /**
- * 
+ *
  * This is the primary class and method for matching data the the three different sources.
  * I hate just about everything about how this was done, but for the sake of a quick hack to get
  * reports up and running it will have to do.
- * 
+ *
  * @author greytwist
  *
  */
 public class DataUnifier {
-    List<GeneCall> calls;
-    Map<String, List<CPICException>> exceptions;
-    List<CPICinteraction> drugGenes;
-    
-    Map<String, Set<String>> dipCheckSet; 
-	
-	
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
+  private List<GeneCall> m_calls;
+  private List<CPICinteraction> m_guidelines;
+  private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
+  private Map<String, GeneReport> m_symbolToGeneReportMap = new HashMap<>();
+
+  /**
+   * public constructor
+   * @param calls GeneCall objects from the sample data
+   * @param guidelines a List of all the guidelines to try to apply
+   */
+  public DataUnifier(List<GeneCall> calls, List<CPICinteraction> guidelines, Multimap<String, CPICException> exceptionMap) {
+    m_calls = calls;
+    m_guidelines = guidelines;
+    compileGeneData(exceptionMap);
+  }
 
 
-   public DataUnifier( List<GeneCall> calls,
-                       Map<String, List<CPICException>> matches,
-                       List<CPICinteraction> drugGenes){
-        this.calls = calls;
-        this.exceptions = matches;
-        this.drugGenes = drugGenes;
-        
-        
-        this.dipCheckSet = new HashMap< String, Set<String>>();
-        
+  private void compileGeneData(Multimap<String, CPICException> exceptionMap) {
+    ExceptionMatcher exceptionMatcher = new ExceptionMatcher();
+
+    for (GeneCall call : m_calls) {
+
+      // convert GeneCalls to GeneReports
+      GeneReport gene = new GeneReport(call);
+
+      if (exceptionMap.containsKey(call.getGene()) ){
+        // add any known gene exceptions
+        exceptionMap.get(call.getGene()).stream()
+            .filter(exception -> exceptionMatcher.test(gene, exception.getMatches()))
+            .forEach(gene::addException);
+      }
+
+      m_sampleGeneToDiplotypeMap.putAll(gene.getGene(), gene.getDips());
+
+      m_symbolToGeneReportMap.put(call.getGene(), gene);
     }
+  }
 
+  /**
+   *  Call to do the actual matching, this should all be broken out into
+   *  independent methods so errors are clearly and atomically identified
+   *  and handled.
+   *
+   *  This is going to need to be rethought through and reconstructed
+   */
+  public List<Interaction> findMatches() throws Exception {
 
-	
-	/*
-     *  Call to do the actual matching, this should all be broken out into
-     *  independent methods so errors are clearly and atomically identified 
-     *  and handled.
-     *  
-     *  This is going to need to be rethought through and reconstructed
-     */
-    public void findMatches(List<Gene> geneListToReturn, List<MultiGeneInteraction> multiInteractionsToReturn ){
+    // This is the loop for looking through the cpic drug gene interactions and trying to figure out which apply to the situation
+    List<Interaction> resultInteractions = new ArrayList<>();
 
-    	// this map will be used to search through the drug gene requirements 
-    	Map< String, Gene> geneReport = new HashMap<String, Gene>();
-    	
-        ExceptionMatcher exceptMatchTest = new ExceptionMatcher();
-     
-        /*
-         * This loop performs 4 functions at the same time
-         * 1 - converts each diplotype call object into a reportable gene object, and add to hashmap for quick look up
-         * 2 - searches through exception list and adds any exceptions to the called genes
-         * 3 - constructs the big gene can called diplotye sets for checking through 
-         *  drug gene interactions
-         * 
-         */
-        
-        for( GeneCall call : calls ){
+    for(CPICinteraction guideline : m_guidelines) {
+      DrugRecommendationMatcher drugRecommendationMatcher = new DrugRecommendationMatcher(m_symbolToGeneReportMap.keySet(), guideline);
+      if (!drugRecommendationMatcher.matches()) {
+        sf_logger.warn("Can't annotate guideline {}, it's missing {}",
+            guideline.getName(),
+            drugRecommendationMatcher.getNeededGenes());
+        continue;
+      }
 
-        	//1 - convert calls from haplotype call set to gene reportable format
-            Gene gene = new Gene(call);
+      sf_logger.info("Able to use {}", guideline.getName());
+      Interaction guidelineResult = new Interaction(guideline);
 
-            //2 - get exceptions for each gene called if a specific exception exists
-            if( exceptions.containsKey(call.getGene()) ){
-            	// add any known gene exceptions
-                for( CPICException exception : exceptions.get(call.getGene() ) ){
-                   if( exceptMatchTest.test( gene, exception.getMatches()) ){
-                       gene.addException(exception);
-                   }
-                }
-            }
-            //1 - add gene to report hash for quick searching later
-            geneReport.put(gene.getGene(), gene);
+      Set<String> calledGenotypesForGuideline = makeAllCalledGenotypes(drugRecommendationMatcher.getDefinedGeneSymbolSet());
 
-            //3 - convert diplotype calls to single objects
-            Set<String> tmp = new HashSet<String>(); 
-            for ( Object single : gene.getDips().toArray() ){
-            	tmp.add( single.toString() );
-            	
-            }
-                     
-            dipCheckSet.put(gene.getGene(), tmp);
-            
+      for (Group annotationGroup : guideline.getGroups()) {
+        calledGenotypesForGuideline.stream()
+            .filter(calledGenotype -> annotationGroup.getGenotypes().contains(calledGenotype))
+            .forEach(calledGenotype -> {
+              guidelineResult.addMatchingGroup(annotationGroup);
+              guidelineResult.putMatchedDiplotype(annotationGroup.getId(), calledGenotype);
+            });
+      }
+      resultInteractions.add(guidelineResult);
+    }
+    return resultInteractions;
+  }
+
+  private Set<String> makeAllCalledGenotypes(Collection<String> geneSymbols) {
+    Set<String> results = new TreeSet<>();
+    for (String symbol : geneSymbols) {
+      results = makeCalledGenotypes(symbol, results);
+    }
+    return results;
+  }
+
+  private Set<String> makeCalledGenotypes(String symbol, Set<String> results) {
+    if (results.size() == 0) {
+      return Sets.newHashSet(m_sampleGeneToDiplotypeMap.get(symbol));
+    }
+    else {
+      Set<String> newResults = new TreeSet<>();
+      for (String geno1 : results) {
+        for (String geno2 : m_sampleGeneToDiplotypeMap.get(symbol)) {
+          Set<String> genos = new TreeSet<>();
+          genos.add(geno1);
+          genos.add(geno2);
+          newResults.add(genos.stream().collect(Collectors.joining(";")));
         }
-       
-        /*
-         * This is the loop for looking through the cpic drug gene interactions and trying to figure out which apply to the situation
-         */ 
-        for( CPICinteraction interact : drugGenes ){ // holy macaroni TODO move most of this to the DrugRecommendationMatcher
-        	//if statment only that will handle all single gene drug interactions
-        	if( interact.getRelatedChemicals().size() == 1 ){
-        		Interaction interactionToAdd = new Interaction(interact);
-            	
-        		if( geneReport.containsKey( interact.getRelatedGenes().get(0).getSymbol() )){
-        			
-        			for( Group test : interact.getGroups() ){
-        				
-	            		List<String> diplotypesForAnnot =  test.getGenotypes() ;	            		
-	            		for( String dip : diplotypesForAnnot ){
-	            			if( dip.contains(";")){
-	            				//throw error this is a 2 gene required match for now ignore
-	            			}
-	            			String[] parts =  dip.split(":");
-	            			String cleanedGene = parts[0].replaceAll("\\s+", "");
-	            			String cleanedDip = parts[1].replaceAll("\\s+", "");
-	            			
-	            			for( String dipCall : dipCheckSet.get(cleanedGene) ){
-	            				if(HaplotypeNameComparator.getComparator().compare(cleanedDip, dipCall) == 0 ){ 
-		            				interactionToAdd.addToGroup(test);	
-		            				break;
-		            			}
-	            			}
-	            		}
-	            	           	
-        			}// group test loop end
-        			
-        			geneReport.get( interact.getRelatedGenes().get(0).getSymbol() ).addInteraction(interactionToAdd);
-        			
-        		}// end of containsKey check
-        	} /*else if( interact.getRelatedChemicals().size() > 1 ){
-        		
-        		MultiGeneInteraction multiCheck = new MultiGeneInteraction( interact );
-        		boolean geneMatch = true;
-        
-        		
-        	}*/ else {
-        		continue;
-        		//Throw error about having no defined chemicals for a guideline and do not process
-        	} // end of big if
-
-        	
-        } // end of interaction for loop 
- 
-        geneListToReturn.addAll(geneReport.values());
+      }
+      return newResults;
     }
+  }
+
+  public Map<String, GeneReport> getSymbolToGeneReportMap() {
+    return m_symbolToGeneReportMap;
+  }
 }

@@ -6,59 +6,84 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.Gene;
+import java.util.Map;
+import java.util.stream.Collectors;
+import org.pharmgkb.pharmcat.reporter.model.Annotation;
+import org.pharmgkb.pharmcat.reporter.model.CPICException;
+import org.pharmgkb.pharmcat.reporter.model.Group;
+import org.pharmgkb.pharmcat.reporter.resultsJSON.GeneReport;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.Interaction;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.MultiGeneInteraction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 public class ReporterWriter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private static final String sf_outputFileName = "reporter.output.txt";
+  private static final String sf_outputFileName = "reporter.output.md";
 
-  public static void printResults(Path outputDir, List<Gene> geneListToReport, List<MultiGeneInteraction> multiInteractionsToReport) throws IOException {
+  public static void printResults(Path outputDir, List<Interaction> guidelineResultList, Map<String, GeneReport> symbolToGeneReportMap) throws IOException {
     Path reportPath = outputDir.resolve(sf_outputFileName);
     sf_logger.info("Writing report to {}", reportPath);
 
     try (BufferedWriter writer = Files.newBufferedWriter(reportPath)) {
-      for (Gene geneToWrite : geneListToReport) {
-        writer.write("Gene: " + geneToWrite.getGene());
-        writer.write("\n");
-        writer.write("Called Diplotypes: " + geneToWrite.getGene());
-        writer.write("\n");
+      writer.write("# PharmCAT Report\n\n\n");
 
-        int exceptCount = geneToWrite.getExceptionList().size();
-        for (int i = 0; i < exceptCount; i++) {
-          if (i == 0) {
-            writer.write("Exceptions:");
-            writer.write("\n");
+      writer.write("## Haplotype Calls\n\n");
+      for (String gene : symbolToGeneReportMap.keySet()) {
+        writer.write("### Gene: " + gene + "\n");
+        GeneReport geneReport = symbolToGeneReportMap.get(gene);
+
+        if (geneReport.getDips().size() == 1) {
+          writer.write("call: `" + geneReport.getDips().iterator().next() + "`\n");
+        } else {
+          writer.write("__possible calls__:\n\n");
+          for (String dip : geneReport.getDips()) {
+            writer.write(" * `" + dip + "`\n");
           }
-          writer.write("Rule: " + geneToWrite.getExceptionList().get(i).getRule_name());
-          writer.write("\n");
-          writer.write("Version: " + geneToWrite.getExceptionList().get(i).getVersion());
-          writer.write("\n");
-          writer.write("Matches: " + geneToWrite.getExceptionList().get(i).getMatches());
-          writer.write("\n");
-          writer.write("Exception type: " + geneToWrite.getExceptionList().get(i).getException_type());
-          writer.write("\n");
-          writer.write("Message: " + geneToWrite.getExceptionList().get(i).getMessage());
           writer.write("\n");
         }
 
-        int interactionCount = geneToWrite.getInteractionList().size();
-        for (int i = 0; i < interactionCount; i++) {
-          Interaction toWrite = geneToWrite.getInteractionList().get(i);
-          writer.write("Name: " + toWrite.getName());
-          writer.write("\n");
-          writer.write("Source: " + toWrite.getSource());
-          writer.write("\n");
-          writer.write("SummaryHtml: " + toWrite.getSummaryHtml());
-          writer.write("\n");
-          writer.write("Html Text: " + toWrite.getTextHtml());
+        writer.write("__warnings__: ");
+        if (geneReport.getExceptionList() == null || geneReport.getExceptionList().size() == 0) {
+          writer.write("none applicable\n");
+        } else {
+          writer.write("\n\n");
+          for (CPICException exception : geneReport.getExceptionList()) {
+            writer.write(" * "+exception.getMessage()+"\n");
+          }
+        }
+        writer.write("\n");
+      }
+
+      writer.write("\n\n");
+
+      writer.write("## Guidelines\n\n");
+
+      for (Interaction guideline : guidelineResultList) {
+        writer.write("### Guideline: " + guideline.getName() + "\n");
+        writer.write("[guideline on PharmGKB]("+guideline.getUrl()+")\n");
+
+        for (Group group : guideline.getMatchingGroups()) {
+          writer.write("_");
+          writer.write(group.getName());
+          writer.write("_ ");
+          writer.write(guideline.getMatchedDiplotypes().get(group.getId()).stream()
+              .map(d -> "`"+d+"`")
+              .collect(Collectors.joining(", ")));
+          writer.write("\n\n");
+
+          writer.write("|Type|Annotation|\n");
+          writer.write("|---|---|\n");
+          for (Annotation ann : group.getAnnotations()) {
+            writer.write("|");
+            writer.write(ann.getType().getTerm());
+            writer.write("|");
+            writer.write(ann.getText().replaceAll("[\\n\\r]", " "));
+            writer.write("|\n");
+          }
           writer.write("\n");
         }
-        writer.write("\n\n");
+       writer.write("\n\n");
       }
     }
   }

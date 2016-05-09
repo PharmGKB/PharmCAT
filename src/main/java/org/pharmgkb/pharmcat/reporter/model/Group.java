@@ -8,7 +8,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("org.jsonschema2pojo")
-public class Group {
+public class Group implements Comparable<Group> {
 
   @SerializedName("objCls")
   @Expose
@@ -177,5 +177,19 @@ public class Group {
    */
   public void setStrength(Strength strength) {
     this.strength = strength;
+  }
+
+  @Override
+  public int compareTo(Group o) {
+
+    if (id == null) {
+      return -1;
+    }
+    else if (o.id == null) {
+      return 1;
+    }
+    else {
+      return id.compareTo(o.getId());
+    }
   }
 }

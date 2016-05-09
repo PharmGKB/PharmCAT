@@ -25,7 +25,7 @@ public class CPICinteraction {
   private String name;
   @SerializedName("groups")
   @Expose
-  private List<Group> groups = new ArrayList<Group>();
+  private List<Group> groups = new ArrayList<>();
   @SerializedName("relatedChemicals")
   @Expose
   private List<RelatedChemical> relatedChemicals = new ArrayList<RelatedChemical>();
