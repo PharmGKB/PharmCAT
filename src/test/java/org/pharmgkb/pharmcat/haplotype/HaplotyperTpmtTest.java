@@ -2,7 +2,6 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.nio.file.Path;
 import java.util.List;
-import java.util.SortedMap;
 import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,12 +10,13 @@ import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 
 
 /**
- * JUnit test for {@link Haplotyper#callDiplotypes(SortedMap, String)}.
+ * JUnit test for {@link Haplotyper#callDiplotypes(MatchData)}.
  *
  * @author Lester Carter
  */
 public class HaplotyperTpmtTest {
   private Path m_tsvFile;
+
 
   @Before
   public void before() throws Exception {

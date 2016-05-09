@@ -6,10 +6,10 @@
 ##FILTER=<ID=PASS,Description="All filters passed">
 #CHROM  POS  ID REF  ALT  QUAL FILTER INFO FORMAT NA12878
 chr7	99676198	rs55817950	G	.	.	PASS	assume-default	GT	0/0
-chr7	99672916	rs776746	T	C	.	PASS	star-3	GT	0/1
+chr7	99672916	rs776746	T	C	.	PASS	star-3-star-9	GT	1/1
 chr7	99666950	rs55965422	A	.	.	PASS	assume-default	GT	0/0
 chr7	99665237	rs56411402	T	.	.	PASS	assume-default	GT	0/0
 chr7	99665212	rs10264272	C	.	.	PASS	assume-default	GT	0/0
-chr7	99660516	rs28383479	C	T	.	PASS	star-9	GT	1/1
+chr7	99660516	rs28383479	C	T	.	PASS	star-9	GT	0/1
 chr7	99652770	rs41303343	T	.	.	PASS	assume-default	GT	0/0
 chr7	99652613	rs28365083	G	.	.	PASS	assume-default	GT	0/0
