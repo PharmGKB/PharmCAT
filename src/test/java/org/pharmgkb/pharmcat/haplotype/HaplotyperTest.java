@@ -51,7 +51,8 @@ public class HaplotyperTest {
     new Report(definitionReader)
         .forFile(vcfFile)
         .gene(gene, matches, dataset)
-        .printHtml();
+        .printHtml()
+        .print();
 
     return matches;
   }

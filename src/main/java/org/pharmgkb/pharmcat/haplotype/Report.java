@@ -38,6 +38,9 @@ import org.pharmgkb.pharmcat.haplotype.model.json.Variant;
  */
 public class Report {
   private static final Joiner sf_vcfAlleleJoiner = Joiner.on(",");
+  private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
+      .setPrettyPrinting().create();
+
   private DefinitionReader m_definitionReader;
   private Path m_vcfFile;
   private HaplotyperResult m_root = new HaplotyperResult();
@@ -115,19 +118,19 @@ public class Report {
   }
 
 
-  public void print() throws IOException {
+  public Report print() throws IOException {
 
     Preconditions.checkState(m_vcfFile != null);
     Path jsonFile = m_vcfFile.getParent().resolve(PathUtils.getBaseFilename(m_vcfFile) + ".json");
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
-      writer.write(gson.toJson(m_root));
+      writer.write(sf_gson.toJson(m_root));
     }
+    return this;
   }
 
 
-  public void printHtml() throws IOException {
+  public Report printHtml() throws IOException {
 
     Preconditions.checkState(m_vcfFile != null);
     Path htmlFile = m_vcfFile.getParent().resolve(PathUtils.getBaseFilename(m_vcfFile) + ".html");
@@ -215,6 +218,7 @@ public class Report {
       String template = IOUtils.toString(getClass().getResourceAsStream("template.html"));
       writer.println(sub.replace(template));
     }
+    return this;
   }
 
 
