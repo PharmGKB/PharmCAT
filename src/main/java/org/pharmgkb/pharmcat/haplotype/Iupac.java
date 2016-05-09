@@ -15,18 +15,18 @@ public enum Iupac {
   C("C", "C"),
   G("G", "G"),
   T("T", "T"),
-  R("R", "A|G"),
-  Y("Y", "C|T"),
-  S("S", "G|C"),
-  W("W", "A|T"),
-  K("K", "G|T"),
-  M("M", "A|C"),
-  B("B", "C|G|T"),
-  D("D", "A|G|T"),
-  H("H", "A|C|T"),
-  V("V", "A|C|G"),
-  N("N", "A|C|G|T"),
-  DEL(".", "-");
+  R("R", "[AG]"),
+  Y("Y", "[CT]"),
+  S("S", "[GC]"),
+  W("W", "[AT]"),
+  K("K", "[GT]"),
+  M("M", "[AC]"),
+  B("B", "[CGT]"),
+  D("D", "[AGT]"),
+  H("H", "[ACT]"),
+  V("V", "[ACG]"),
+  N("N", "[ACGT]"),
+  DEL("-", "del");
 
 
   private String m_code;

@@ -2,9 +2,11 @@ package org.pharmgkb.pharmcat.definition.model;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.regex.Pattern;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -40,7 +42,16 @@ public class NamedAlleleTest {
 
     assertEquals("1:T;2:A;3:G;4:C;", ref.getPermutations().pattern());
     assertEquals("1:C;2:T;3:.?;4:.?;", hap2.getPermutations().pattern());
-    assertEquals("1:C;2:.?;3:.?;4:C|T;", hap3.getPermutations().pattern());
-    assertEquals("1:C;2:.?;3:.?;4:C|T;", hap4.getPermutations().pattern());
+    assertEquals("1:C;2:.?;3:.?;4:[CT];", hap3.getPermutations().pattern());
+    assertEquals("1:C;2:.?;3:.?;4:[CT];", hap4.getPermutations().pattern());
+  }
+
+
+  @Test
+  public void testPermutationPattern() {
+
+    String seq = "1:C;2:C;3:C;4:C;";
+    Pattern p = Pattern.compile("1:C;2:.?;3:.?;4:[CT];");
+    assertTrue(p.matcher(seq).matches());
   }
 }
