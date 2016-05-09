@@ -10,18 +10,24 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
+import org.pharmgkb.pharmcat.haplotype.Haplotyper;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.json.HaplotyperResult;
 import org.pharmgkb.pharmcat.reporter.model.CPICinteraction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+/**
+ * This class takes JSON files and deserializes them into Objects through GSON.
+ */
 public class JsonFileLoader {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   private final Gson gson = new Gson();
 
+  /**
+   * Load all the gene calls coming from the {@link Haplotyper} utility
+   */
   public List<GeneCall> loadHaplotypeGeneCalls(@Nonnull File haplotypeCalledFile) throws IOException{
     Preconditions.checkNotNull(haplotypeCalledFile);
     Preconditions.checkArgument(haplotypeCalledFile.exists());
@@ -35,13 +41,8 @@ public class JsonFileLoader {
   }
 
   /**
-   * DANGER WILL ROBINSON! A DUMB ASSUMPTION HAS BEEN MADE!
-   * FIXME : assumption of single gene and single drug interaction here
-   *
-   * Multi gene drugs need alteration in this file to work but this will be
-   * acceptable for hackathon standards but should be fixed as part of a the
-   * next version.  This is a critical flaw in the design
-   *
+   * Load all the guideline annotations into {@link CPICinteraction} objects from the list of guideline {@link File}
+   * list
    */
   public List<CPICinteraction> loadGuidelines(List<File> guidelineFileList) throws IOException {
     List<CPICinteraction> drugGenes = new ArrayList<>();
