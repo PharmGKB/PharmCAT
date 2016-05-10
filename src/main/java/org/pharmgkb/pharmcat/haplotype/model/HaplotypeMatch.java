@@ -55,7 +55,11 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
   @Override
   public int compareTo(@Nonnull HaplotypeMatch o) {
 
-    int rez = ObjectUtils.compare(m_haplotype, o.getHaplotype());
+    int rez = ObjectUtils.compare(m_name, o.getName());
+    if (rez != 0) {
+      return rez;
+    }
+    rez = ObjectUtils.compare(m_haplotype, o.getHaplotype());
     if (rez != 0) {
       return rez;
     }
@@ -64,6 +68,6 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
 
   @Override
   public String toString() {
-    return m_haplotype.toString();
+    return m_name;
   }
 }
