@@ -1,134 +1,283 @@
 {
   "metadata": {
-    "cpicAnnotatorBuild": "20160410",
-    "cpicDataBuild:": "2016048",
-    "genomeAssembly": "GRCh38.p2",
-    "inputFile": "multigene.vcf",
-    "dateTime": "20160410"
+    "cpicAnnotatorBuild": "0.1",
+    "cpicDataBuild": "0.1",
+    "genomeAssembly": "GRCh37",
+    "inputFile": "non-existing.vcf",
+    "dateTime": "May 9, 2016 2:43:10 PM"
   },
   "results": [
     {
-      "gene": "CYP2C19",
-      "geneVersion": "CPIC-v1.x",
-      "chromosome": "10",
+      "gene": "CYP3A5",
+      "geneVersion": "null (04/06/16)",
+      "chromosome": "chr7",
       "diplotypes": [
         {
-          "name": "CYP2C19:*17/*4",
-          "score": 1
-        },
-        {
-          "name": "CYP2C19:*4/*4",
-          "score": 1
-        },
-        {
-          "name": "CYP2C19:*1/*17",
-          "score": 1
-        },
-        {
-          "name": "CYP2C19:*1/*4",
-          "score": 1
+          "name": "*1/*7",
+          "score": 16
         }
       ],
       "haplotypes": [
         {
           "name": "*1",
           "sequences": [
-            "foo",
-            "bar"
+            "99652613:G;99652770:del;99660516:C;99665212:C;99665237:T;99666950:A;99672916:T;99676198:G;"
           ]
         },
         {
-          "name": "*4",
+          "name": "*7",
           "sequences": [
-            "fizz",
-            "buzz"
-          ]
-        },
-        {
-          "name": "*17",
-          "sequences": [
-            "alice",
-            "bob"
+            "99652613:G;99652770:insA;99660516:C;99665212:C;99665237:T;99666950:A;99672916:T;99676198:G;"
           ]
         }
       ],
-      "positionsUsed": [
+      "variants": [
         {
-          "position": "g.94762706A>G",
-          "rsID": "rs28399504",
-          "VCFCall": "A/G"
+          "position": 99652613,
+          "rsid": "rs28365083",
+          "vcfCall": "G|G"
         },
         {
-          "position": "g.94761900C>T",
-          "rsID": "rs12248560",
-          "VCFCall": "C/T"
+          "position": 99652770,
+          "rsid": "rs41303343",
+          "vcfCall": "del/insA"
+        },
+        {
+          "position": 99660516,
+          "rsid": "rs28383479",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 99665212,
+          "rsid": "rs10264272",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 99665237,
+          "rsid": "rs56411402",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 99666950,
+          "rsid": "rs55965422",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 99672916,
+          "rsid": "rs776746",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 99676198,
+          "rsid": "rs55817950",
+          "vcfCall": "G|G"
         }
       ],
-      "haplotypesNotCalled": [
-        {
-          "haplotype": "*2",
-          "positionsMissing": [
-            {
-              "position": "g.94781859G>A",
-              "rsID": "rs4244285"
-            }
-          ]
-        },
-        {
-          "haplotype": "*3",
-          "positionsMissing": [
-            {
-              "position": "g.94780653G>A",
-              "rsID": "rs4986893"
-            }
-          ]
-        }
-      ]
+      "haplotypesNotCalled": []
     },
     {
-      "gene": "CYP2C9",
-      "geneVersion": "CPIC-v1.x",
-      "chromosome": "10",
+      "gene": "TPMT",
+      "geneVersion": "null (03/10/16)",
+      "chromosome": "chr6",
       "diplotypes": [
         {
-          "name": "CYP2C9:*1/*2",
-          "score": 2
+          "name": "*1/*3A",
+          "score": 64
+        },
+        {
+          "name": "*3B/*3C",
+          "score": 64
         }
       ],
       "haplotypes": [
         {
           "name": "*1",
           "sequences": [
-            "foo",
-            "bar"
+            "18130687:T;18130694:T;18130725:A;18130762:C;18130772:A;18130781:C;18132136:A;18132147:A;18133845:T;18133847:C;18133884:G;18133890:C;18138969:C;18138983:G;18138997:C;18139027:C;18139689:C;18139710:G;18143597:T;18143606:T;18143613:C;18143643:A;18143670:C;18143724:C;18147845:C;18147851:G;18147910:A;18149004:G;18149022:C;18149045:T;18149126:A;18149127:T;"
           ]
         },
         {
-          "name": "*2",
+          "name": "*3A",
           "sequences": [
-            "fizz",
-            "buzz"
+            "18130687:C;18130694:T;18130725:A;18130762:C;18130772:A;18130781:C;18132136:A;18132147:A;18133845:T;18133847:C;18133884:G;18133890:C;18138969:C;18138983:G;18138997:T;18139027:C;18139689:C;18139710:G;18143597:T;18143606:T;18143613:C;18143643:A;18143670:C;18143724:C;18147845:C;18147851:G;18147910:A;18149004:G;18149022:C;18149045:T;18149126:A;18149127:T;"
+          ]
+        },
+        {
+          "name": "*3B",
+          "sequences": [
+            "18130687:T;18130694:T;18130725:A;18130762:C;18130772:A;18130781:C;18132136:A;18132147:A;18133845:T;18133847:C;18133884:G;18133890:C;18138969:C;18138983:G;18138997:T;18139027:C;18139689:C;18139710:G;18143597:T;18143606:T;18143613:C;18143643:A;18143670:C;18143724:C;18147845:C;18147851:G;18147910:A;18149004:G;18149022:C;18149045:T;18149126:A;18149127:T;"
+          ]
+        },
+        {
+          "name": "*3C",
+          "sequences": [
+            "18130687:C;18130694:T;18130725:A;18130762:C;18130772:A;18130781:C;18132136:A;18132147:A;18133845:T;18133847:C;18133884:G;18133890:C;18138969:C;18138983:G;18138997:C;18139027:C;18139689:C;18139710:G;18143597:T;18143606:T;18143613:C;18143643:A;18143670:C;18143724:C;18147845:C;18147851:G;18147910:A;18149004:G;18149022:C;18149045:T;18149126:A;18149127:T;"
           ]
         }
       ],
-      "positionsUsed": [
+      "variants": [
         {
-          "position": "g.94942290C>T",
-          "rsID": "rs1799853",
-          "VCFCall": "C/T"
+          "position": 18130687,
+          "rsid": "rs1142345",
+          "vcfCall": "T/C"
+        },
+        {
+          "position": 18130694,
+          "rsid": "rs150900439",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 18130725,
+          "rsid": "rs72552736",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18130762,
+          "rsid": "rs56161402",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18130772,
+          "rsid": "rs377085266",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18130781,
+          "rsid": "rs1800584",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18132136,
+          "rsid": "rs72556347",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18132147,
+          "rsid": "rs79901429",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18133845,
+          "rsid": "rs75543815",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 18133847,
+          "rsid": "rs6921269",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18133884,
+          "rsid": "rs74423290",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 18133890,
+          "rsid": "rs9333570",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18138969,
+          "rsid": "rs144041067",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18138983,
+          "rsid": "rs2842934",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 18138997,
+          "rsid": "rs1800460",
+          "vcfCall": "C/T"
+        },
+        {
+          "position": 18139027,
+          "rsid": "rs72552737",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18139689,
+          "rsid": "rs72552738",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18139710,
+          "rsid": "rs200220210",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 18143597,
+          "rsid": null,
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 18143606,
+          "rsid": "rs151149760",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 18143613,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18143643,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18143670,
+          "rsid": "rs72552739",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18143724,
+          "rsid": "rs1800462",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18147845,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18147851,
+          "rsid": "rs200591577",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 18147910,
+          "rsid": "rs72552740",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18149004,
+          "rsid": null,
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 18149022,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18149045,
+          "rsid": "rs72552742",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 18149126,
+          "rsid": "rs267607275",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18149127,
+          "rsid": "rs9333569",
+          "vcfCall": "T|T"
         }
       ],
-      "haplotypesNotCalled": [
-        {
-          "haplotype": "*3",
-          "positionsMissing": [
-            {
-              "position": "g.94981296A>C",
-              "rsID": "rs1057910"
-            }
-          ]
-        }
-      ]
+      "haplotypesNotCalled": []
     }
   ]
 }
