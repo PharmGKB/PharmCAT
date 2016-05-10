@@ -119,7 +119,8 @@ public class Reporter {
     DataUnifier checker = new DataUnifier(calls, guidelines); // prime with data
     List<Interaction> results = checker.findMatches(); // run the actual comparison
 
-    ReporterWriter.printResults(m_reportDir, results, checker.getSymbolToGeneReportMap());
+    new ReporterWriter(m_reportDir)
+        .print(results, checker.getSymbolToGeneReportMap());
 
     sf_logger.info("Complete");
   }

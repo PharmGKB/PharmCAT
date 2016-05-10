@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.haplotype.model.json.Variant;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
@@ -23,10 +24,16 @@ import org.slf4j.LoggerFactory;
  */
 public class ReporterWriter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private static final String sf_outputFileName = "reporter.output.md";
+  private static final String sf_outputFileName = "annotation.report.md";
 
-  public static void printResults(Path outputDir, List<Interaction> guidelineResultList, Map<String, GeneReport> symbolToGeneReportMap) throws IOException {
-    Path reportPath = outputDir.resolve(sf_outputFileName);
+  private Path m_outputDir;
+
+  public ReporterWriter(@Nonnull Path outputDir) {
+    m_outputDir = outputDir;
+  }
+
+  public void print(List<Interaction> guidelineResultList, Map<String, GeneReport> symbolToGeneReportMap) throws IOException {
+    Path reportPath = m_outputDir.resolve(sf_outputFileName);
     sf_logger.info("Writing report to {}", reportPath);
 
     try (BufferedWriter writer = Files.newBufferedWriter(reportPath)) {
@@ -74,6 +81,7 @@ public class ReporterWriter {
       writer.write("## Guidelines\n\n");
 
       for (Interaction guideline : guidelineResultList) {
+        writer.write("---------------------\n\n");
         writer.write("### " + guideline.getName() + "\n\n");
         writer.write("For more information see the [full guideline on PharmGKB]("+guideline.getUrl()+").\n\n");
 
@@ -107,7 +115,7 @@ public class ReporterWriter {
           }
           writer.write("\n");
         }
-       writer.write("\n---------------------\n\n");
+        writer.write("\n");
       }
     }
   }

@@ -15,7 +15,7 @@ public class ReporterTest {
 
     Path annotationsDir = TestUtil.getFile("org/pharmgkb/pharmcat/annotations");
     Path callerFile     = TestUtil.getFile("org/pharmgkb/pharmcat/test.haplotyper.output.json");
-    Path outputDir      = TestUtil.getFile("").resolve("output");
+    Path outputDir      = annotationsDir.getParent();
 
     if (!outputDir.toFile().exists()) {
       //noinspection ResultOfMethodCallIgnored
