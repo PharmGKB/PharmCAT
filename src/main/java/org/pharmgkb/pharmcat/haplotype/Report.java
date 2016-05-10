@@ -9,10 +9,13 @@ import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.api.client.repackaged.com.google.common.base.Joiner;
@@ -42,6 +45,7 @@ public class Report {
       .setPrettyPrinting().create();
 
   private DefinitionReader m_definitionReader;
+  private boolean m_alwaysShowUnmatchedHaplotypes;
   private Path m_vcfFile;
   private HaplotyperResult m_root = new HaplotyperResult();
   private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
@@ -51,6 +55,11 @@ public class Report {
   public Report(@Nonnull DefinitionReader definitionReader) {
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
+  }
+
+  public Report alwaysShowUnmatchedHaplotypes(boolean alwaysShowUnmatchedHaplotypes) {
+    m_alwaysShowUnmatchedHaplotypes = alwaysShowUnmatchedHaplotypes;
+    return this;
   }
 
   HaplotyperResult getResults() {
@@ -133,6 +142,8 @@ public class Report {
 
     StringBuilder builder = new StringBuilder();
     for (GeneCall call : m_root.getGeneCalls()) {
+      MatchData matchData = m_dataMap.get(call.getGene());
+
       builder.append("<h3>")
           .append(call.getGene())
           .append("</h3>");
@@ -187,21 +198,63 @@ public class Report {
       }
       builder.append("</tr>");
 
+      Set<String> matchedHaplotpyeNames = new HashSet<>();
       if (call.getHaplotypes().size() > 0) {
         for (HaplotypeMatch hm : call.getHaplotypes()) {
+          matchedHaplotpyeNames.add(hm.getHaplotype().getName());
           printAllele(builder, hm.getHaplotype().getName(), hm.getHaplotype().getPermutations().pattern(), "info");
           for (String seq : hm.getSequences()) {
             printAllele(builder, null, seq, null);
           }
         }
-      } else {
-        for (NamedAllele haplotype : m_dataMap.get(call.getGene()).haplotypes) {
-          printAllele(builder, haplotype.getName(), haplotype.getPermutations().pattern(), "danger");
+      }
+      if (m_alwaysShowUnmatchedHaplotypes || matchedHaplotpyeNames.size() == 0) {
+        for (NamedAllele haplotype : matchData.haplotypes) {
+          if (!matchedHaplotpyeNames.contains(haplotype.getName())) {
+            printAllele(builder, haplotype.getName(), haplotype.getPermutations().pattern(), "danger");
+          }
         }
       }
 
       builder.append("</table>");
 
+      if (matchData.missingPositions.size() > 0) {
+        builder.append("<p>There ");
+        if (matchData.missingPositions.size() > 1) {
+          builder.append("were ");
+        } else {
+          builder.append("was ");
+        }
+        builder.append(matchData.missingPositions.size())
+            .append(" missing positions from the VCF file:</p>")
+            .append("<ul>");
+        for (VariantLocus variant : matchData.missingPositions) {
+          builder.append("<li>")
+              .append(variant.getPosition())
+              .append(" (")
+              .append(variant.getChromosomeHgvsName())
+              .append(")</li>");
+        }
+        builder.append("</ul>");
+
+        Set<String> matchableHaps = matchData.haplotypes.stream()
+            .map(NamedAllele::getName)
+            .collect(Collectors.toSet());
+        Set<String> missingHaps = m_definitionReader.getHaplotypes(call.getGene()).stream()
+            .map(NamedAllele::getName)
+            .filter(n -> !matchableHaps.contains(n))
+            .collect(Collectors.toSet());
+        if (missingHaps.size() > 0) {
+          builder.append("<p>The following haplotype(s) were eliminated from consideration:</p>")
+              .append("<ul>");
+          for (String name : missingHaps) {
+            builder.append("<li>")
+                .append(name)
+                .append("</li>");
+          }
+          builder.append(".</ul>");
+        }
+      }
     }
 
     System.out.println("Printing to " + htmlFile);

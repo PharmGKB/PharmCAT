@@ -78,10 +78,6 @@ public class MatchData {
         String[] availableAlleles = new String[positions.length];
         for (int x = 0; x < positions.length; x += 1) {
           availableAlleles[x] = hap.getAllele(positions[x]);
-          if (availableAlleles[x] != null) {
-            sf_logger.info("{} cannot be matched due to missing positions", hap.getName());
-            break;
-          }
         }
         NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles);
         newHap.setFunction(hap.getFunction());
