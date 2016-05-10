@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.TestUtil;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
-import org.pharmgkb.pharmcat.definition.model.VariantType;
 
 import static org.junit.Assert.*;
 
@@ -24,16 +23,18 @@ public class GeneratedDefinitionSerializerTest {
     // is INS
     Path inFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
     DefinitionFile[] definitionFiles = testJson(inFile);
-    assertEquals(8, definitionFiles[1].getVariants().length);
-    assertEquals("g.99652770_99652771insA", definitionFiles[1].getVariants()[6].getChromosomeHgvsName());
-    assertEquals(99652770, definitionFiles[1].getVariants()[6].getPosition());
-    assertEquals(VariantType.INS, definitionFiles[1].getVariants()[6].getType());
+    CuratedDefinitionParserTest.assertInsertFromCyp3a5GoodTsv(definitionFiles[1]);
   }
 
+
   @Test
-  public void testVariantTypes() {
-    // TODO(markwoon): test to make sure we handle all variant types: INS, DEL, REPEATS
+  public void testJsonRepeat() throws Exception {
+
+    Path inFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/repeats.tsv");
+    DefinitionFile[] definitionFiles = testJson(inFile);
+    CuratedDefinitionParserTest.assertRepeatFromRepeatsTsv(definitionFiles[1]);
   }
+
 
   @Test
   public void testJson2() throws Exception {
@@ -46,6 +47,7 @@ public class GeneratedDefinitionSerializerTest {
     assertFalse(definitionFiles[1].getNamedAlleles().get(0).getPopFreqMap().isEmpty());
     assertEquals("0.34", definitionFiles[1].getNamedAlleles().get(0).getPopFreqMap().get("African Allele Frequency"));
   }
+
 
   private DefinitionFile[] testJson(Path inFile) throws IOException {
     DefinitionFile definitionFile = new CuratedDefinitionParser(inFile).parse();

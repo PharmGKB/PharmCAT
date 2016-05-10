@@ -19,10 +19,15 @@ public class CuratedDefinitionParserTest {
 
     Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
     CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
-    DefinitionFile definitionFile = parser.parse();
+    assertInsertFromCyp3a5GoodTsv(parser.parse());
+  }
+
+  static void assertInsertFromCyp3a5GoodTsv(DefinitionFile definitionFile) {
     assertEquals(9, definitionFile.getNamedAlleles().size());
-    NamedAllele na = definitionFile.getNamedAlleles().iterator().next();
-    System.out.println(Joiner.on("; ").join(na.getAlleles()));
+    assertEquals(8, definitionFile.getVariants().length);
+    assertEquals("g.99652770_99652771insA", definitionFile.getVariants()[6].getChromosomeHgvsName());
+    assertEquals(99652770, definitionFile.getVariants()[6].getPosition());
+    assertEquals(VariantType.INS, definitionFile.getVariants()[6].getType());
   }
 
 
@@ -31,14 +36,19 @@ public class CuratedDefinitionParserTest {
 
     Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/repeats.tsv");
     CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
-    DefinitionFile definitionFile = parser.parse();
+    assertRepeatFromRepeatsTsv(parser.parse());
+  }
+
+  static void assertRepeatFromRepeatsTsv(DefinitionFile definitionFile) {
     assertEquals(8, definitionFile.getNamedAlleles().size());
-    NamedAllele na = definitionFile.getNamedAlleles().iterator().next();
     assertEquals(233760234, definitionFile.getVariants()[2].getPosition());
     assertEquals(VariantType.REPEAT, definitionFile.getVariants()[2].getType());
     assertEquals("A(TA)6TAA", definitionFile.getVariants()[2].getReferenceRepeat());
+
+    NamedAllele na = definitionFile.getNamedAlleles().iterator().next();
     System.out.println(Joiner.on("; ").join(na.getAlleles()));
   }
+
 
 
   @Test
