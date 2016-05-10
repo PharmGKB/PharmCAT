@@ -39,7 +39,8 @@
       "geneHgvsName": "g.98809_98811delCTT",
       "proteinNote": "F508del",
       "resourceNote": "F508del/Class: II, VI",
-      "type": "DEL"
+      "type": "DEL",
+      "referenceRepeat": null
     },
     {
       "position": 117559591,
@@ -48,7 +49,8 @@
       "geneHgvsName": "g.98808_98810delTCT",
       "proteinNote": "F508del",
       "resourceNote": "F508del/Class: II, VI",
-      "type": "DEL"
+      "type": "DEL",
+      "referenceRepeat": null
     },
     {
       "position": 117587806,
@@ -57,7 +59,8 @@
       "geneHgvsName": "g.127023G\u003eA",
       "proteinNote": "G551D",
       "resourceNote": "G551D/Class: III",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117642451,
@@ -66,7 +69,8 @@
       "geneHgvsName": "g.181668G\u003eA",
       "proteinNote": "G1244E",
       "resourceNote": "G1244E",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117664770,
@@ -75,7 +79,8 @@
       "geneHgvsName": "g.203987G\u003eA",
       "proteinNote": "G1349D",
       "resourceNote": "G1349D",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117534318,
@@ -84,7 +89,8 @@
       "geneHgvsName": "g.73535G\u003eA",
       "proteinNote": "G178R",
       "resourceNote": "G178R",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117587805,
@@ -93,7 +99,8 @@
       "geneHgvsName": "g.127022G\u003eA",
       "proteinNote": "G551S",
       "resourceNote": "G551S",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117642472,
@@ -102,7 +109,8 @@
       "geneHgvsName": "g.181689G\u003eA",
       "proteinNote": "S1251N",
       "resourceNote": "S1251N",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117642483,
@@ -111,7 +119,8 @@
       "geneHgvsName": "g.181700T\u003eC",
       "proteinNote": "S1255P",
       "resourceNote": "S1255P",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117587800,
@@ -120,7 +129,8 @@
       "geneHgvsName": "g.127017G\u003eA",
       "proteinNote": "S549N",
       "resourceNote": "S549N",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117587799,
@@ -129,7 +139,8 @@
       "geneHgvsName": "g.127016A\u003eC",
       "proteinNote": "S549R",
       "resourceNote": "S549R",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117587801,
@@ -138,7 +149,8 @@
       "geneHgvsName": "g.127018T\u003eG",
       "proteinNote": "S549R",
       "resourceNote": "S549R",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117587778,
@@ -147,7 +159,8 @@
       "geneHgvsName": "g.126995G\u003eT",
       "proteinNote": "G542X",
       "resourceNote": "G542X/Class: I",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117652877,
@@ -156,7 +169,8 @@
       "geneHgvsName": "g.192094C\u003eG",
       "proteinNote": "N1303K",
       "resourceNote": "N1303K/Class: II",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117642566,
@@ -165,7 +179,8 @@
       "geneHgvsName": "g.181783G\u003eA",
       "proteinNote": "W1282X",
       "resourceNote": "W1282X/ Class: I",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117530975,
@@ -174,7 +189,8 @@
       "geneHgvsName": "g.70192G\u003eA",
       "proteinNote": "R117H",
       "resourceNote": "R117H/ Class: IV",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117587811,
@@ -183,7 +199,8 @@
       "geneHgvsName": "g.127028C\u003eT",
       "proteinNote": "R553X",
       "resourceNote": "R553X/ Class: I",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117587738,
@@ -192,7 +209,8 @@
       "geneHgvsName": "g.126955G\u003eA",
       "proteinNote": "intron",
       "resourceNote": "1717-1G-\u003eA/ Class: I",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117531115,
@@ -201,7 +219,8 @@
       "geneHgvsName": "g.70332G\u003eT",
       "proteinNote": "splice-5",
       "resourceNote": "621+1G-\u003eT/ Class: I",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117602868,
@@ -210,7 +229,8 @@
       "geneHgvsName": "g.142085G\u003eA",
       "proteinNote": "intron",
       "resourceNote": "2789+5G-\u003eA/ Class: V",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117639961,
@@ -219,7 +239,8 @@
       "geneHgvsName": "g.179178C\u003eT",
       "proteinNote": "intron",
       "resourceNote": "3849+10kbC- \u003eT/ Class: V",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117627537,
@@ -228,7 +249,8 @@
       "geneHgvsName": "g.166754C\u003eT",
       "proteinNote": "R1162X",
       "resourceNote": "R1162X/ Class: I",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117509123,
@@ -237,7 +259,8 @@
       "geneHgvsName": "g.48340G\u003eA",
       "proteinNote": "G85E",
       "resourceNote": "G85E/ Class: II",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117606754,
@@ -246,7 +269,8 @@
       "geneHgvsName": "g.145971G\u003eA",
       "proteinNote": "splice-5",
       "resourceNote": "3120+1G-\u003eA/ Class: I",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117559590,
@@ -255,7 +279,8 @@
       "geneHgvsName": "g.98807_98809delATC",
       "proteinNote": "I507del",
       "resourceNote": "∆I507/ Class: II",
-      "type": "DEL"
+      "type": "DEL",
+      "referenceRepeat": null
     },
     {
       "position": 117590440,
@@ -264,7 +289,8 @@
       "geneHgvsName": "g.129657G\u003eA",
       "proteinNote": "splice-5",
       "resourceNote": "1898+1G-\u003eA/ Class: I",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117627581,
@@ -273,7 +299,8 @@
       "geneHgvsName": "g.166798delC",
       "proteinNote": "L1177Frameshift",
       "resourceNote": "3659delC/ Class: I",
-      "type": "DEL"
+      "type": "DEL",
+      "referenceRepeat": null
     },
     {
       "position": 117540270,
@@ -282,7 +309,8 @@
       "geneHgvsName": "g.79487G\u003eC",
       "proteinNote": "R347P",
       "resourceNote": "R347P/ Class:  IV",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117587833,
@@ -291,7 +319,8 @@
       "geneHgvsName": "g.127050G\u003eC",
       "proteinNote": "R560T",
       "resourceNote": "R560T/ Class: III",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117540230,
@@ -300,7 +329,8 @@
       "geneHgvsName": "g.79447C\u003eT",
       "proteinNote": "R334W",
       "resourceNote": "R334W/ Class: IV",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117548795,
@@ -309,7 +339,8 @@
       "geneHgvsName": "g.88012C\u003eA",
       "proteinNote": "A455E",
       "resourceNote": "A455E/ Class: V",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117592219,
@@ -318,7 +349,8 @@
       "geneHgvsName": "g.131436delA",
       "proteinNote": "K684Frameshift",
       "resourceNote": "2184delA/ Class: I",
-      "type": "DEL"
+      "type": "DEL",
+      "referenceRepeat": null
     },
     {
       "position": 117534366,
@@ -327,7 +359,8 @@
       "geneHgvsName": "g.73583G\u003eT",
       "proteinNote": "splice-5",
       "resourceNote": "711+1G-\u003eT/ Class: I",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 117548628,
@@ -336,7 +369,8 @@
       "geneHgvsName": "g.87845",
       "proteinNote": "intron",
       "resourceNote": "5T/ Class:V",
-      "type": "SNP"
+      "type": "REPEAT",
+      "referenceRepeat": "G(T)7A"
     }
   ],
   "namedAlleles": [

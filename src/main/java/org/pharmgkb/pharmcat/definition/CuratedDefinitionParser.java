@@ -112,10 +112,13 @@ public class CuratedDefinitionParser {
               break;
             } else {
               locus.setType(VariantType.DEL);
+              break;
             }
           }
-          if (allele.contains("\\(")) {
+          if (allele.contains("(")) {
             locus.setType(VariantType.REPEAT);
+            locus.setReferenceRepeat(allele);
+            break;
           }
         }
       }

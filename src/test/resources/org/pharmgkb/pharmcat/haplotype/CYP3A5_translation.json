@@ -36,7 +36,8 @@
       "geneHgvsName": "g.8801C\u003eT",
       "proteinNote": "R28C",
       "resourceNote": "3699C\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 99672916,
@@ -45,7 +46,8 @@
       "geneHgvsName": "g.12083A\u003eG",
       "proteinNote": "Splicing defect",
       "resourceNote": "6986A\u003eG",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 99666950,
@@ -54,7 +56,8 @@
       "geneHgvsName": "g.18049T\u003eC",
       "proteinNote": "Splicing defect",
       "resourceNote": "12952T\u003eC",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 99665237,
@@ -63,7 +66,8 @@
       "geneHgvsName": "g.19762A\u003eG",
       "proteinNote": "Q200R",
       "resourceNote": "14665A\u003eG",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 99665212,
@@ -72,7 +76,8 @@
       "geneHgvsName": "g.19787G\u003eA",
       "proteinNote": "Splicing defect",
       "resourceNote": "14690G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 99660516,
@@ -81,7 +86,8 @@
       "geneHgvsName": "g.24483G\u003eA",
       "proteinNote": "A337T",
       "resourceNote": "19386G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 99652770,
@@ -90,7 +96,8 @@
       "geneHgvsName": "g.32228_32229insT",
       "proteinNote": "346Frameshift",
       "resourceNote": "27131_27132insT",
-      "type": "INS"
+      "type": "INS",
+      "referenceRepeat": null
     },
     {
       "position": 99652613,
@@ -99,7 +106,8 @@
       "geneHgvsName": "g.32386C\u003eA",
       "proteinNote": "T398N",
       "resourceNote": "27289C\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     }
   ],
   "namedAlleles": [

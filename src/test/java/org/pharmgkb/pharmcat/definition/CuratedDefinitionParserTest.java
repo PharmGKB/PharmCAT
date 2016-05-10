@@ -7,6 +7,7 @@ import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.TestUtil;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantType;
 
 import static org.junit.Assert.*;
 
@@ -21,6 +22,21 @@ public class CuratedDefinitionParserTest {
     DefinitionFile definitionFile = parser.parse();
     assertEquals(9, definitionFile.getNamedAlleles().size());
     NamedAllele na = definitionFile.getNamedAlleles().iterator().next();
+    System.out.println(Joiner.on("; ").join(na.getAlleles()));
+  }
+
+
+  @Test
+  public void testReaderRepeats() throws Exception {
+
+    Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/repeats.tsv");
+    CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
+    DefinitionFile definitionFile = parser.parse();
+    assertEquals(8, definitionFile.getNamedAlleles().size());
+    NamedAllele na = definitionFile.getNamedAlleles().iterator().next();
+    assertEquals(233760234, definitionFile.getVariants()[2].getPosition());
+    assertEquals(VariantType.REPEAT, definitionFile.getVariants()[2].getType());
+    assertEquals("A(TA)6TAA", definitionFile.getVariants()[2].getReferenceRepeat());
     System.out.println(Joiner.on("; ").join(na.getAlleles()));
   }
 

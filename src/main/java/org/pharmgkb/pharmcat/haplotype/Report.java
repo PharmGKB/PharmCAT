@@ -92,12 +92,8 @@ public class Report {
     }
 
     // get position info
-    Map<Integer, SampleAllele> alleleMap = new HashMap<>();
-    for (SampleAllele allele : dataset.geneSampleMap.values()) {
-      alleleMap.put(allele.getPosition(), allele);
-    }
     for (VariantLocus variant : dataset.positions) {
-      SampleAllele allele = alleleMap.get(variant.getPosition());
+      SampleAllele allele = dataset.geneSampleMap.get(variant.getPosition());
       String call;
       String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
       if (allele.isPhased()) {

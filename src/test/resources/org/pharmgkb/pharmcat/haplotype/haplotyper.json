@@ -19,7 +19,8 @@
       "geneHgvsName": "g.1C\u003eT",
       "proteinNote": null,
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 2,
@@ -28,7 +29,8 @@
       "geneHgvsName": "g.2TC\u003eTCA",
       "proteinNote": null,
       "resourceNote": null,
-      "type": "INS"
+      "type": "INS",
+      "referenceRepeat": null
     },
     {
       "position": 3,
@@ -37,7 +39,8 @@
       "geneHgvsName": "g.3TCA\u003eT",
       "proteinNote": null,
       "resourceNote": null,
-      "type": "DEL"
+      "type": "DEL",
+      "referenceRepeat": null
     }
   ],
   "namedAlleles": [

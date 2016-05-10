@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.definition.model;
 
 import java.util.Objects;
+import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
@@ -13,6 +14,7 @@ import com.google.gson.annotations.SerializedName;
  * @author Ryan Whaley
  */
 public class VariantLocus implements Comparable<VariantLocus> {
+  public static final Pattern REPEAT_PATTERN = Pattern.compile("([ACGT]+)\\(([ACGT]+)\\)(\\d+)([ACGT]+)");
   @Expose
   @SerializedName("position")
   private int m_position;
@@ -34,6 +36,9 @@ public class VariantLocus implements Comparable<VariantLocus> {
   @Expose
   @SerializedName("type")
   private VariantType m_type = VariantType.SNP;
+  @Expose
+  @SerializedName("referenceRepeat")
+  private String m_referenceRepeat;
 
 
   public VariantLocus(int position, @Nonnull String chromosomeHgvsName) {
@@ -113,6 +118,19 @@ public class VariantLocus implements Comparable<VariantLocus> {
 
   public void setType(VariantType type) {
     m_type = type;
+  }
+
+
+  /**
+   * Gets the reference repeat, if this is a {@link VariantType#REPEAT}.
+   */
+  public String getReferenceRepeat() {
+    return m_referenceRepeat;
+  }
+
+  public void setReferenceRepeat(String referenceRepeat) {
+    Preconditions.checkArgument(REPEAT_PATTERN.matcher(referenceRepeat).matches());
+    m_referenceRepeat = referenceRepeat;
   }
 
 

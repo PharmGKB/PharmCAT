@@ -39,7 +39,8 @@
       "geneHgvsName": "g.2971C\u003eT",
       "proteinNote": "5\u0027 region",
       "resourceNote": "-2030C\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94760686,
@@ -48,7 +49,8 @@
       "geneHgvsName": "g.2981C\u003eA",
       "proteinNote": "5\u0027 region",
       "resourceNote": "-2020C\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94761267,
@@ -57,7 +59,8 @@
       "geneHgvsName": "g.3562T\u003eC",
       "proteinNote": "5\u0027 region",
       "resourceNote": "-1439T\u003eC",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94761665,
@@ -66,7 +69,8 @@
       "geneHgvsName": "g.3960G\u003eA",
       "proteinNote": "5\u0027 region",
       "resourceNote": "-1041G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94761900,
@@ -75,7 +79,8 @@
       "geneHgvsName": "g.4195C\u003eT",
       "proteinNote": "5\u0027 region",
       "resourceNote": "-806C\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94762693,
@@ -84,7 +89,8 @@
       "geneHgvsName": "g.4988G\u003eA",
       "proteinNote": "5\u0027 region",
       "resourceNote": "-13G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94762706,
@@ -93,7 +99,8 @@
       "geneHgvsName": "g.5001A\u003eG",
       "proteinNote": "M1V",
       "resourceNote": "1A\u003eG",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94762712,
@@ -102,7 +109,8 @@
       "geneHgvsName": "g.5007C\u003eT",
       "proteinNote": "P3S",
       "resourceNote": "7C\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94762715,
@@ -111,7 +119,8 @@
       "geneHgvsName": "g.5010T\u003eC",
       "proteinNote": "F4L",
       "resourceNote": "10T\u003eC",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94762755,
@@ -120,7 +129,8 @@
       "geneHgvsName": "g.5050T\u003eC",
       "proteinNote": "L17P",
       "resourceNote": "50T\u003eC",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94762760,
@@ -129,7 +139,8 @@
       "geneHgvsName": "g.5055A\u003eC",
       "proteinNote": "I19L",
       "resourceNote": "55A\u003eC",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94762788,
@@ -138,7 +149,8 @@
       "geneHgvsName": "g.5083A\u003eT",
       "proteinNote": "K28I",
       "resourceNote": "83A\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94762856,
@@ -147,7 +159,8 @@
       "geneHgvsName": "g.5151A\u003eG",
       "proteinNote": "S51G",
       "resourceNote": "151A\u003eG",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94775106,
@@ -156,7 +169,8 @@
       "geneHgvsName": "g.17401C\u003eT",
       "proteinNote": "R73C",
       "resourceNote": "12401C\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94775121,
@@ -165,7 +179,8 @@
       "geneHgvsName": "g.17416C\u003eT",
       "proteinNote": "H78Y",
       "resourceNote": "12416C\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94775160,
@@ -174,7 +189,8 @@
       "geneHgvsName": "g.17455G\u003eC",
       "proteinNote": "G91R",
       "resourceNote": "12455G\u003eC",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94775185,
@@ -183,7 +199,8 @@
       "geneHgvsName": "g.17480A\u003eG",
       "proteinNote": "H99R",
       "resourceNote": "12480A\u003eG",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94775367,
@@ -192,7 +209,8 @@
       "geneHgvsName": "g.17662A\u003eG",
       "proteinNote": "splicing defect",
       "resourceNote": "12662A\u003eG",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94775416,
@@ -201,7 +219,8 @@
       "geneHgvsName": "g.17711T\u003eC",
       "proteinNote": "W120R",
       "resourceNote": "12711T\u003eC",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94775453,
@@ -210,7 +229,8 @@
       "geneHgvsName": "g.17748G\u003eA",
       "proteinNote": "R132Q",
       "resourceNote": "12748G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94775489,
@@ -219,7 +239,8 @@
       "geneHgvsName": "g.17784G\u003eA",
       "proteinNote": "R144H",
       "resourceNote": "12784G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94775507,
@@ -228,7 +249,8 @@
       "geneHgvsName": "g.17802G\u003eA",
       "proteinNote": "R150H",
       "resourceNote": "12802G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94780574,
@@ -237,7 +259,8 @@
       "geneHgvsName": "g.22869G\u003eC",
       "proteinNote": "R186P",
       "resourceNote": "17869G\u003eC",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94780579,
@@ -246,7 +269,8 @@
       "geneHgvsName": "g.22874G\u003eA",
       "proteinNote": "D188N",
       "resourceNote": "17874G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94780653,
@@ -255,7 +279,8 @@
       "geneHgvsName": "g.22948G\u003eA",
       "proteinNote": "W212X",
       "resourceNote": "17948G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94781858,
@@ -264,7 +289,8 @@
       "geneHgvsName": "g.24153C\u003eT",
       "proteinNote": "P227L",
       "resourceNote": "19153C\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94781859,
@@ -273,7 +299,8 @@
       "geneHgvsName": "g.24154G\u003eA",
       "proteinNote": "splicing defect",
       "resourceNote": "19154G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94781944,
@@ -282,7 +309,8 @@
       "geneHgvsName": "g.24239G\u003eA",
       "proteinNote": "D256N",
       "resourceNote": "19239G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94781999,
@@ -291,7 +319,8 @@
       "geneHgvsName": "g.24294T\u003eA",
       "proteinNote": "splicing defect",
       "resourceNote": "19294T\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94842861,
@@ -300,7 +329,8 @@
       "geneHgvsName": "g.85156G\u003eA",
       "proteinNote": "R329H",
       "resourceNote": "80156G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94842879,
@@ -309,7 +339,8 @@
       "geneHgvsName": "g.85174G\u003eA",
       "proteinNote": "R335Q",
       "resourceNote": "80174G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94842995,
@@ -318,7 +349,8 @@
       "geneHgvsName": "g.85290G\u003eA",
       "proteinNote": "V374I",
       "resourceNote": "80290G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94849811,
@@ -327,7 +359,8 @@
       "geneHgvsName": "g.92106T\u003eC",
       "proteinNote": "intronic",
       "resourceNote": "87106T\u003eC",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94849964,
@@ -336,7 +369,8 @@
       "geneHgvsName": "g.92259A\u003eG",
       "proteinNote": "K399\u003d",
       "resourceNote": "87259A\u003eG",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94849995,
@@ -345,7 +379,8 @@
       "geneHgvsName": "g.92290C\u003eT",
       "proteinNote": "R410C",
       "resourceNote": "87290C\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94852738,
@@ -354,7 +389,8 @@
       "geneHgvsName": "g.95033C\u003eT",
       "proteinNote": "R433W",
       "resourceNote": "90033C\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94852765,
@@ -363,7 +399,8 @@
       "geneHgvsName": "g.95060C\u003eT",
       "proteinNote": "R442C",
       "resourceNote": "90060C\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94852785,
@@ -372,7 +409,8 @@
       "geneHgvsName": "g.95080C\u003eG",
       "proteinNote": "F448L",
       "resourceNote": "90080C\u003eG",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 94852914,
@@ -381,7 +419,8 @@
       "geneHgvsName": "g.95209A\u003eC",
       "proteinNote": "X491C (26 extra AA)",
       "resourceNote": "90209A\u003eC",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     }
   ],
   "namedAlleles": [
@@ -432,12 +471,12 @@
       ],
       "populationFrequency": {
         "Oceanian Allele Frequency": "0.286",
-        "African American Allele Frequency": "0.57",
+        "African American Allele Frequency": "0.570",
         "Caucasian (European + North American) Allele Frequency": "0.621",
         "Middle Eastern Allele Frequency": "0.648",
         "East Asian Allele Frequency": "0.576",
         "South/Central Asian Allele Frequency": "0.485",
-        "Americas Allele Frequency": "0.67",
+        "Americas Allele Frequency": "0.670",
         "African Allele Frequency": "0.331"
       }
     },
@@ -544,12 +583,12 @@
       ],
       "populationFrequency": {
         "Oceanian Allele Frequency": "0.139",
-        "African American Allele Frequency": "3.00E-03",
-        "Caucasian (European + North American) Allele Frequency": "6.00E-03",
-        "Middle Eastern Allele Frequency": "2.60E-02",
-        "East Asian Allele Frequency": "8.60E-02",
+        "African American Allele Frequency": "0.003",
+        "Caucasian (European + North American) Allele Frequency": "0.006",
+        "Middle Eastern Allele Frequency": "0.026",
+        "East Asian Allele Frequency": "0.086",
         "South/Central Asian Allele Frequency": "0.016",
-        "Americas Allele Frequency": "3.00E-03",
+        "Americas Allele Frequency": "0.003",
         "African Allele Frequency": "0.008"
       }
     },
@@ -599,9 +638,8 @@
         null
       ],
       "populationFrequency": {
-        "Oceanian Allele Frequency": "ND",
         "African American Allele Frequency": "0.000",
-        "Caucasian (European + North American) Allele Frequency": "3.00E-03",
+        "Caucasian (European + North American) Allele Frequency": "0.003",
         "Middle Eastern Allele Frequency": "",
         "East Asian Allele Frequency": "0.001",
         "South/Central Asian Allele Frequency": "0.000",
@@ -705,7 +743,6 @@
         null
       ],
       "populationFrequency": {
-        "Oceanian Allele Frequency": "ND",
         "African American Allele Frequency": "0.000",
         "Caucasian (European + North American) Allele Frequency": "0.000",
         "Middle Eastern Allele Frequency": "",
@@ -761,9 +798,8 @@
         null
       ],
       "populationFrequency": {
-        "Oceanian Allele Frequency": "ND",
         "African American Allele Frequency": "0.000",
-        "Caucasian (European + North American) Allele Frequency": "1.00E-03",
+        "Caucasian (European + North American) Allele Frequency": "0.001",
         "Middle Eastern Allele Frequency": "",
         "East Asian Allele Frequency": "0.000",
         "South/Central Asian Allele Frequency": "0.000",
@@ -872,13 +908,12 @@
         null
       ],
       "populationFrequency": {
-        "Oceanian Allele Frequency": "ND",
-        "African American Allele Frequency": "2.00E-03",
-        "Caucasian (European + North American) Allele Frequency": "3.00E-03",
+        "African American Allele Frequency": "0.002",
+        "Caucasian (European + North American) Allele Frequency": "0.003",
         "Middle Eastern Allele Frequency": "",
         "East Asian Allele Frequency": "0.000",
         "South/Central Asian Allele Frequency": "0.000",
-        "Americas Allele Frequency": "1.00E-03",
+        "Americas Allele Frequency": "0.001",
         "African Allele Frequency": "0.000"
       }
     },
@@ -1366,11 +1401,11 @@
         null
       ],
       "populationFrequency": {
-        "Oceanian Allele Frequency": "2.50E-02",
+        "Oceanian Allele Frequency": "0.025",
         "African American Allele Frequency": "0.201",
         "Caucasian (European + North American) Allele Frequency": "0.213",
         "Middle Eastern Allele Frequency": "0.195",
-        "East Asian Allele Frequency": "1.60E-02",
+        "East Asian Allele Frequency": "0.016",
         "South/Central Asian Allele Frequency": "0.169",
         "Americas Allele Frequency": "0.163",
         "African Allele Frequency": "0.151"

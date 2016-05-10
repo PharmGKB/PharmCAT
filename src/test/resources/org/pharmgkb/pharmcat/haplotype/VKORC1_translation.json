@@ -33,7 +33,8 @@
       "geneHgvsName": "g.3588G\u003eA",
       "proteinNote": "nearGene-5",
       "resourceNote": "-1639G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     }
   ],
   "namedAlleles": [

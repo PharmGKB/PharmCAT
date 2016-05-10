@@ -38,7 +38,8 @@
       "geneHgvsName": "g.172270T\u003eG",
       "proteinNote": "5\u0027 of UGT1A1; intronic for other UGT1As e.g. UGT1A4",
       "resourceNote": "-3275T\u003eG",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 233759924,
@@ -47,7 +48,8 @@
       "geneHgvsName": "g.175181C\u003eT",
       "proteinNote": "nearGene-5",
       "resourceNote": "-364C\u003eT",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 233760234,
@@ -56,7 +58,8 @@
       "geneHgvsName": "g.175491",
       "proteinNote": "Promoter region",
       "resourceNote": "A(TA)5TAA, A(TA)6TAA, A(TA)7TAA, A(TA)8TAA",
-      "type": "SNP"
+      "type": "REPEAT",
+      "referenceRepeat": "A(TA)6TAA"
     },
     {
       "position": 233760498,
@@ -65,7 +68,8 @@
       "geneHgvsName": "g.175755G\u003eA",
       "proteinNote": "G71R",
       "resourceNote": "211G\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 233760973,
@@ -74,7 +78,8 @@
       "geneHgvsName": "g.176230C\u003eA",
       "proteinNote": "P229Q",
       "resourceNote": "686C\u003eA",
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     }
   ],
   "namedAlleles": [

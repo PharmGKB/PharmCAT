@@ -68,5 +68,20 @@ public class SampleAlleleTest {
     assertEquals("CAT", rez.getAllele1());
     assertEquals("delCAT", rez.getAllele2());
 
+
+    // repeats
+    insVariant.setType(VariantType.REPEAT);
+    insVariant.setReferenceRepeat("A(TA)6TAA");
+
+    ins1 = new SampleAllele("chr1", 1, "ATATAA", "ATATATATATATAA", true, Lists.newArrayList("ATATAA", "ATATATATATATAA"));
+    rez = ins1.forVariant(insVariant);
+    assertEquals("A(TA)1TAA", rez.getAllele1());
+    assertEquals("A(TA)5TAA", rez.getAllele2());
+
+    ins1 = new SampleAllele("chr1", 1, "ATATATATATATATATAA", "ATATATATATATAA", true,
+        Lists.newArrayList("ATATATATATATATATAA", "ATATATATATATAA"));
+    rez = ins1.forVariant(insVariant);
+    assertEquals("A(TA)7TAA", rez.getAllele1());
+    assertEquals("A(TA)5TAA", rez.getAllele2());
   }
 }

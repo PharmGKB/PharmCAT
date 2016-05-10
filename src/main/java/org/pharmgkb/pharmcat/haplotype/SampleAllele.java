@@ -1,10 +1,12 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.List;
+import java.util.regex.Matcher;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.ChromosomeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.definition.model.VariantType;
@@ -18,6 +20,7 @@ import org.pharmgkb.pharmcat.definition.model.VariantType;
  * @author Mark Woon
  */
 public class SampleAllele implements Comparable<SampleAllele> {
+  static boolean STRICT_CHECKING = false;
   private String m_chromosome;
   private int m_position;
   private String m_allele1;
@@ -29,8 +32,18 @@ public class SampleAllele implements Comparable<SampleAllele> {
       boolean isPhased, @Nonnull List<String> vcfAlleles) {
     m_chromosome = chromosome;
     m_position = (int)position;
-    m_allele1 = a1;
-    m_allele2 = a2;
+    if (a1.contains("ins") || a1.contains("del")) {
+      m_allele1 = a1;
+    } else {
+      m_allele1 = a1.toUpperCase();
+    }
+    if (a2 != null) {
+      if (a2.contains("ins") || a2.contains("del")) {
+        m_allele2 = a2;
+      } else {
+        m_allele2 = a2.toUpperCase();
+      }
+    }
     m_isPhased = isPhased;
     m_vcfAlleles = vcfAlleles;
   }
@@ -103,6 +116,18 @@ public class SampleAllele implements Comparable<SampleAllele> {
       // definition:  C  -> delC
       a1 = convertDeletion(m_allele1);
       a2 = convertDeletion(m_allele2);
+    } else if (variant.getType() == VariantType.REPEAT) {
+      // VCF:         ATAA -> ATATATATATATATATAA
+      // definition:  A(TA)6TAA  -> A(TA)7TAA
+      Matcher m = VariantLocus.REPEAT_PATTERN.matcher(variant.getReferenceRepeat());
+      if (!m.matches()) {
+        throw new IllegalStateException("Invalid repeat format for " + variant.getChromosomeHgvsName());
+      }
+      String prefix = m.group(1);
+      String repeat = m.group(2);
+      String postfix = m.group(4);
+      a1 = convertRepeat(variant, prefix, repeat, postfix, m_allele1);
+      a2 = convertRepeat(variant, prefix, repeat, postfix, m_allele2);
     }
     return new SampleAllele(m_chromosome, m_position, a1, a2, m_isPhased, m_vcfAlleles);
   }
@@ -146,18 +171,45 @@ public class SampleAllele implements Comparable<SampleAllele> {
     return "del" + ref.substring(1);
   }
 
-  private @Nonnull String findVcfAlt(String allele) {
+  private @Nonnull String convertRepeat(@Nonnull VariantLocus variant, @Nonnull String prefix, @Nonnull String repeat,
+      @Nonnull String postfix, @Nonnull String allele) {
 
-    String alt = null;
-    for (int x = 1; x < m_vcfAlleles.size(); x += 1) {
-      if (allele.equals(m_vcfAlleles.get(x))) {
-        alt = m_vcfAlleles.get(x);
-        break;
+    if (allele.contains("(")) {
+      // already a repeat
+      if (STRICT_CHECKING) {
+        Matcher m = VariantLocus.REPEAT_PATTERN.matcher(allele);
+        if (!m.matches()) {
+          throw new IllegalArgumentException("Sample has " + allele + ", which is an invalid repeat format @ " +
+              variant.getChromosomeHgvsName());
+        }
+        if (!m.group(1).startsWith(repeat) || !m.group(2).endsWith(postfix) || !m.group(4).endsWith(postfix)) {
+          throw new IllegalArgumentException("Sample has " + allele + ", which doesn't match expected repeat (" +
+              prefix + "(" + repeat + ")#" + postfix + " @ " + variant.getChromosomeHgvsName());
+        }
+      }
+      return allele;
+    }
+
+    // validate
+    if (!allele.startsWith(prefix) || !allele.endsWith(postfix)) {
+      if (STRICT_CHECKING) {
+        throw new IllegalArgumentException("Sample has " + allele + ", which doesn't match expected repeat " +
+            prefix + "(" + repeat + ")#" + postfix + " @ " + variant.getChromosomeHgvsName());
+      }
+      return allele;
+    }
+
+    String rep = allele.substring(prefix.length(), allele.length() - postfix.length());
+    int numReps =  rep.length() / repeat.length();
+    if (!rep.equals(StringUtils.repeat(repeat, numReps))) {
+      if (STRICT_CHECKING) {
+        throw new IllegalArgumentException("Sample has " + allele + ", which doesn't match expected repeat " +
+            prefix + "(" + repeat + ")#" + postfix + " @ " + variant.getChromosomeHgvsName());
+      } else {
+        return allele;
       }
     }
-    if (alt == null) {
-      throw new IllegalStateException(allele + " is not a valid ALT for " + m_position);
-    }
-    return alt;
+
+    return prefix + "(" + repeat + ")" + numReps + postfix;
   }
 }

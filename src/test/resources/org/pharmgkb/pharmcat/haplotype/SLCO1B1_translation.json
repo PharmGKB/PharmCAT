@@ -35,7 +35,8 @@
       "geneHgvsName": "g.4195G\u003eA",
       "proteinNote": null,
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21172734,
@@ -44,7 +45,8 @@
       "geneHgvsName": "g.46541C\u003eT",
       "proteinNote": "R57W",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21172776,
@@ -53,7 +55,8 @@
       "geneHgvsName": "g.46583G\u003eA",
       "proteinNote": "G71R",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21172782,
@@ -62,7 +65,8 @@
       "geneHgvsName": "g.46589T\u003eC",
       "proteinNote": "F73L",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21174595,
@@ -71,7 +75,8 @@
       "geneHgvsName": "g.48402T\u003eC",
       "proteinNote": "V82A",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21176804,
@@ -80,7 +85,8 @@
       "geneHgvsName": "g.50611A\u003eG",
       "proteinNote": "N130D",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21176827,
@@ -89,7 +95,8 @@
       "geneHgvsName": "g.50634G\u003eA",
       "proteinNote": "S137\u003d",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21176868,
@@ -98,7 +105,8 @@
       "geneHgvsName": "g.50675A\u003eG",
       "proteinNote": "N151S",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21176879,
@@ -107,7 +115,8 @@
       "geneHgvsName": "g.50686C\u003eA",
       "proteinNote": "P155T",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21176883,
@@ -116,7 +125,8 @@
       "geneHgvsName": "g.50690A\u003eG",
       "proteinNote": "E156G",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21178615,
@@ -125,7 +135,8 @@
       "geneHgvsName": "g.52422T\u003eC",
       "proteinNote": "V174A",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21178665,
@@ -134,7 +145,8 @@
       "geneHgvsName": "g.52472T\u003eC",
       "proteinNote": "L191\u003d",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21178672,
@@ -143,7 +155,8 @@
       "geneHgvsName": "g.52479T\u003eG",
       "proteinNote": "L193R",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21178691,
@@ -152,7 +165,8 @@
       "geneHgvsName": "g.52498C\u003eT",
       "proteinNote": "F199\u003d",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21178957,
@@ -161,7 +175,8 @@
       "geneHgvsName": "g.52764A\u003eG",
       "proteinNote": "I222V",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21196951,
@@ -170,7 +185,8 @@
       "geneHgvsName": "g.70758A\u003eG",
       "proteinNote": "I245V",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21196976,
@@ -179,7 +195,8 @@
       "geneHgvsName": "g.70783G\u003eA",
       "proteinNote": "R253Q",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21200595,
@@ -188,7 +205,8 @@
       "geneHgvsName": "g.74402T\u003eC",
       "proteinNote": "I353T",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21202553,
@@ -197,7 +215,8 @@
       "geneHgvsName": "g.76360T\u003eG",
       "proteinNote": "F400V",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21202555,
@@ -206,7 +225,8 @@
       "geneHgvsName": "g.76362C\u003eG",
       "proteinNote": "F400L",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21202649,
@@ -215,7 +235,8 @@
       "geneHgvsName": "g.76456A\u003eG",
       "proteinNote": "N432D",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21202664,
@@ -224,7 +245,8 @@
       "geneHgvsName": "g.76471G\u003eA",
       "proteinNote": "G437R",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21205921,
@@ -233,7 +255,8 @@
       "geneHgvsName": "g.79728A\u003eG",
       "proteinNote": "D462G",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21205999,
@@ -242,7 +265,8 @@
       "geneHgvsName": "g.79806G\u003eC",
       "proteinNote": "G488A",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21239042,
@@ -251,7 +275,8 @@
       "geneHgvsName": "g.112849A\u003eC",
       "proteinNote": "L643F",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21239077,
@@ -260,7 +285,8 @@
       "geneHgvsName": "g.112884A\u003eG",
       "proteinNote": "D655G",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21239113,
@@ -269,7 +295,8 @@
       "geneHgvsName": "g.112920A\u003eG",
       "proteinNote": "E667G",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21239145,
@@ -278,7 +305,8 @@
       "geneHgvsName": "g.112952C\u003eT",
       "proteinNote": "H678Y",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
       "position": 21239158,
@@ -287,7 +315,8 @@
       "geneHgvsName": "g.112965C\u003eT",
       "proteinNote": "S682F",
       "resourceNote": null,
-      "type": "SNP"
+      "type": "SNP",
+      "referenceRepeat": null
     }
   ],
   "namedAlleles": [
