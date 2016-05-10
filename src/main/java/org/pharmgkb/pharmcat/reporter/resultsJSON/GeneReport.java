@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 
@@ -18,7 +17,7 @@ public class GeneReport {
   public GeneReport(GeneCall call) {
     m_gene = call.getGene();
     m_diplotypes = call.getDiplotypes().stream()
-        .map(DiplotypeMatch::getName)
+        .map(m -> call.getGene() + ":" + m.getName())
         .collect(Collectors.toSet());
   }
 
