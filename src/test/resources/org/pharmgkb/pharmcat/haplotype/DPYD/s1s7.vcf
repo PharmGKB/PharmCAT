@@ -1,0 +1,23 @@
+##fileformat=VCFv4.1
+##fileDate=2015-08-04
+##source=IlluminaPlatinumGenomes, version: hg38_2.0.1
+##reference=hg38
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FILTER=<ID=PASS,Description="All filters passed">
+#CHROM  POS  ID REF  ALT  QUAL FILTER INFO FORMAT NA12878
+chr1	97450058	rs3918290	C	.	.	PASS	assume-default	GT	0/0
+chr1	97883352	rs80081766	C	.	.	PASS	assume-default	GT	0/0
+chr1	97883329	rs1801265	A	.	.	PASS	assume-default	GT	0/0
+chr1	97740414	.	GATGA	G	.	PASS	deletion	GT	0/1
+chr1	97740415	rs72549309	A	.	.	PASS	assume-default	GT	0/0
+chr1	97691776	rs1801266	G	.	.	PASS	assume-default	GT	0/0
+chr1	97593343	rs72549306	C	.	.	PASS	assume-default	GT	0/0
+chr1	97573943	rs78060119	C	.	.	PASS	assume-default	GT	0/0
+chr1	97515865	rs1801158	C	.	.	PASS	assume-default	GT	0/0
+chr1	97515839	rs1801159	T	.	.	PASS	assume-default	GT	0/0
+chr1	97515787	rs55886062	A	.	.	PASS	assume-default	GT	0/0
+chr1	97450066	rs72549303	G	.	.	PASS	assume-default	GT	0/0
+chr1	97305364	rs1801160	C	.	.	PASS	assume-default	GT	0/0
+chr1	97098598	rs1801267	C	.	.	PASS	assume-default	GT	0/0
+chr1	97082391	rs67376798	T	.	.	PASS	assume-default	GT	0/0
+chr1	97079071	rs1801268	C	.	.	PASS	assume-default	GT	0/0
