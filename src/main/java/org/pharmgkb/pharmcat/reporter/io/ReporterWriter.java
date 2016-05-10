@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.pharmgkb.pharmcat.haplotype.model.json.Variant;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.Group;
@@ -17,6 +18,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
+/**
+ * Write out a report of information in Markdown format
+ */
 public class ReporterWriter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final String sf_outputFileName = "reporter.output.md";
@@ -34,25 +38,35 @@ public class ReporterWriter {
         GeneReport geneReport = symbolToGeneReportMap.get(gene);
 
         if (geneReport.getDips().size() == 1) {
-          writer.write("call: `" + geneReport.getDips().iterator().next() + "`\n");
+          writer.write("#### Call\n\n");
+          writer.write(escapeMd(geneReport.getDips().iterator().next()) + "\n");
         } else {
-          writer.write("__possible calls__:\n\n");
+          writer.write("#### Possible Calls\n\n");
           for (String dip : geneReport.getDips()) {
-            writer.write(" * `" + dip + "`\n");
+            writer.write(" * " + escapeMd(dip) + "\n");
           }
           writer.write("\n");
         }
 
-        writer.write("__warnings__: ");
+        writer.write("#### Warnings ");
         if (geneReport.getExceptionList() == null || geneReport.getExceptionList().size() == 0) {
           writer.write("none applicable\n");
         } else {
           writer.write("\n\n");
+          int i=0;
           for (CPICException exception : geneReport.getExceptionList()) {
-            writer.write(" * "+exception.getMessage()+"\n");
+            writer.write(++i + ". " + escapeMd(exception.getMessage())+"\n");
           }
         }
-        writer.write("\n");
+        writer.write("\n\n");
+
+        writer.write("#### Calls at Positions\n\n");
+        writer.write("| Position | RSID | Call |\n");
+        writer.write("| -------- | ---- | ---- |\n");
+        for (Variant v : geneReport.getVariants()) {
+          String rsidDisplay = v.getRsid() == null ? "None" : v.getRsid();
+          writer.write(String.format("|%d|%s|%s|\n", v.getPosition(), rsidDisplay, v.getVcfCall()));
+        }
       }
 
       writer.write("\n\n");
@@ -73,9 +87,9 @@ public class ReporterWriter {
         }
 
         for (Group group : guideline.getMatchingGroups()) {
-          writer.write("#### Annotations for: ");
+          writer.write("#### Annotations for ");
           writer.write(guideline.getMatchedDiplotypes().get(group.getId()).stream()
-              .map(d -> "`"+d+"`")
+              .map(ReporterWriter::escapeMd)
               .collect(Collectors.joining(", ")));
           writer.write("\n\n");
 
@@ -85,13 +99,23 @@ public class ReporterWriter {
             writer.write("|");
             writer.write(ann.getType().getTerm());
             writer.write("|");
-            writer.write(ann.getText().replaceAll("[\\n\\r]", " "));
+            writer.write(escapeMd(ann.getText().replaceAll("[\\n\\r]", " ")));
             writer.write("|\n");
+          }
+          if (group.getStrength() != null) {
+            writer.write("|Classification of Recommendation|"+group.getStrength().getTerm()+"|\n");
           }
           writer.write("\n");
         }
        writer.write("\n---------------------\n\n");
       }
     }
+  }
+
+  private static String escapeMd(String string) {
+    if (string == null) {
+      return null;
+    }
+    return string.replaceAll("\\*", "\\\\*");
   }
 }
