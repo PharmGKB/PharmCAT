@@ -60,18 +60,20 @@ public class ReporterWriter {
       writer.write("## Guidelines\n\n");
 
       for (Interaction guideline : guidelineResultList) {
-        writer.write("### Guideline: " + guideline.getName() + "\n");
-        writer.write("[guideline on PharmGKB]("+guideline.getUrl()+")\n");
+        writer.write("### " + guideline.getName() + "\n\n");
+        writer.write("For more information see the [full guideline on PharmGKB]("+guideline.getUrl()+").\n\n");
 
         if (guideline.getMatchingGroups() == null) {
           writer.write("_no matching annotations found_\n");
           continue;
         }
 
+        if (guideline.getMatchingGroups().size()>1) {
+          writer.write("_Note: More than one call was made for the applicable gene so multiple annotation groups could be shown_\n\n");
+        }
+
         for (Group group : guideline.getMatchingGroups()) {
-          writer.write("_");
-          writer.write(group.getName());
-          writer.write("_ ");
+          writer.write("#### Annotations for: ");
           writer.write(guideline.getMatchedDiplotypes().get(group.getId()).stream()
               .map(d -> "`"+d+"`")
               .collect(Collectors.joining(", ")));
@@ -88,7 +90,7 @@ public class ReporterWriter {
           }
           writer.write("\n");
         }
-       writer.write("\n\n");
+       writer.write("\n---------------------\n\n");
       }
     }
   }
