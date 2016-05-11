@@ -22,15 +22,35 @@ public class HaplotyperCftrTest {
     m_jsonFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CFTR_translation.json");
   }
 
-  // TODO: Lester - need to double check vcf.
+
+  @Test
+  public void cftrReferenceReference() throws Exception {
+    // Test reference
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CFTR/refref.vcf");
+    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
+
+    List<String> expectedMatches = Lists.newArrayList("Reference/Reference");
+    TestUtil.assertDiplotypePairs(expectedMatches, matches);
+  }
+
 
   @Test
   public void cftrF508delF508del() throws Exception {
-    // Test *1/*1 TODO: Lester - check that the star is defined correctly. Fails now as *1 contains ATATATATATATATAA
+    // Test F508del(TCT)/F508del(TCT)
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CFTR/F508delF508del.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
 
-    List<String> expectedMatches = Lists.newArrayList("F508del/F508del");
+    List<String> expectedMatches = Lists.newArrayList("F508del(TCT)/F508del(TCT)");
+    TestUtil.assertDiplotypePairs(expectedMatches, matches);
+  }
+
+  @Test
+  public void cftrWt5T() throws Exception {
+    // Test Reference/5T - TODO - assumption is that repeat is represented correctly
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CFTR/ref5t.vcf");
+    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
+
+    List<String> expectedMatches = Lists.newArrayList("5T/Reference");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
   }
 }
