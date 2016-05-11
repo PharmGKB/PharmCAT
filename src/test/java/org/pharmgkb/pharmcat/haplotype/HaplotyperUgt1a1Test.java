@@ -17,7 +17,7 @@ import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 public class HaplotyperUgt1a1Test {
   private Path m_jsonFile;
 
-  // TODO: lester - work in progress
+  // TODO: lester - work in progress.  This needs checking against real world examples.
 
   @Before
   public void before() throws Exception {
@@ -26,7 +26,7 @@ public class HaplotyperUgt1a1Test {
 
   @Test
   public void ugt1a1s1s1() throws Exception {
-    // Test *1/*1 TODO: Lester - check that the star is defined correctly *1 contains ATATATATATATATAA
+    // Test *1/*1
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s1.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
 
@@ -37,6 +37,8 @@ public class HaplotyperUgt1a1Test {
   @Test
   public void ugt1a1s28s37() throws Exception {
     // Test *28/*37 contains TA repeat
+
+
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s37.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
 
@@ -44,9 +46,9 @@ public class HaplotyperUgt1a1Test {
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
   }
 
-  @Test
+  //@Test
   public void ugt1a1s28s80() throws Exception {
-    // Test *28/*80 Another TA repeat example
+    // Test *28/*80 Another TA repeat example  - as above. Skipping for now as same logic.
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
 
@@ -63,5 +65,6 @@ public class HaplotyperUgt1a1Test {
     List<String> expectedMatches = Lists.newArrayList("*6/*6");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
   }
+
 
 }
