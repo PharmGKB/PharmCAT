@@ -49,6 +49,17 @@ public class VariantLocus implements Comparable<VariantLocus> {
 
 
   /**
+   * Gets the VCF position for this variant.
+   */
+  public int getVcfPosition() {
+    if (m_type == VariantType.DEL) {
+      return m_position - 1;
+    }
+    return m_position;
+  }
+
+
+  /**
    * The (start) position on the chromosomal sequence.
    */
   public int getPosition() {

@@ -40,7 +40,7 @@ public class MatchData {
       @Nonnull VariantLocus[] positions) {
 
     for (VariantLocus variant : positions) {
-      String chrPos = chromosome + ":" + variant.getPosition();
+      String chrPos = chromosome + ":" + variant.getVcfPosition();
       SampleAllele allele = alleleMap.get(chrPos);
       if (allele == null) {
         missingPositions.add(variant);
@@ -48,7 +48,7 @@ public class MatchData {
         continue;
       }
       allele = allele.forVariant(variant);
-      geneSampleMap.put(variant.getPosition(), allele);
+      geneSampleMap.put(variant.getVcfPosition(), allele);
     }
   }
 

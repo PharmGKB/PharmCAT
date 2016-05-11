@@ -27,6 +27,7 @@ public class CuratedDefinitionParserTest {
     assertEquals(8, definitionFile.getVariants().length);
     assertEquals("g.99652770_99652771insA", definitionFile.getVariants()[6].getChromosomeHgvsName());
     assertEquals(99652770, definitionFile.getVariants()[6].getPosition());
+    assertEquals(99652770, definitionFile.getVariants()[6].getVcfPosition());
     assertEquals(VariantType.INS, definitionFile.getVariants()[6].getType());
   }
 
@@ -42,11 +43,17 @@ public class CuratedDefinitionParserTest {
   static void assertRepeatFromRepeatsTsv(DefinitionFile definitionFile) {
     assertEquals(8, definitionFile.getNamedAlleles().size());
     assertEquals(233760234, definitionFile.getVariants()[2].getPosition());
+    assertEquals(233760234, definitionFile.getVariants()[2].getVcfPosition());
     assertEquals(VariantType.REPEAT, definitionFile.getVariants()[2].getType());
     assertEquals("A(TA)6TAA", definitionFile.getVariants()[2].getReferenceRepeat());
 
     NamedAllele na = definitionFile.getNamedAlleles().iterator().next();
     System.out.println(Joiner.on("; ").join(na.getAlleles()));
+  }
+
+  @Test
+  public void testReaderDeletes() throws Exception {
+    // TODO(markwoon): finish this
   }
 
 

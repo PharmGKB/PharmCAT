@@ -114,8 +114,8 @@ public class SampleAllele implements Comparable<SampleAllele> {
     } else if (variant.getType() == VariantType.DEL) {
       // VCF:         TC -> T
       // definition:  C  -> delC
-      a1 = convertDeletion(m_allele1);
-      a2 = convertDeletion(m_allele2);
+      a1 = convertDeletion(variant, m_allele1);
+      a2 = convertDeletion(variant, m_allele2);
     } else if (variant.getType() == VariantType.REPEAT) {
       // VCF:         ATAA -> ATATATATATATATATAA
       // definition:  A(TA)6TAA  -> A(TA)7TAA
@@ -159,7 +159,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
    * definition:  C  -> delC
    * </code></pre>
    */
-  private @Nonnull String convertDeletion(@Nonnull String allele) {
+  private @Nonnull String convertDeletion(@Nonnull VariantLocus variant, @Nonnull String allele) {
 
     String ref = m_vcfAlleles.get(0);
     if (allele.equals(ref)) {
@@ -167,7 +167,8 @@ public class SampleAllele implements Comparable<SampleAllele> {
     }
 
     // must be an ALT, and therefore shorter than REF
-    Preconditions.checkState(allele.length() < ref.length(), "Not an deletion: " + ref + " >" + allele);
+    Preconditions.checkState(allele.length() < ref.length(), "Not an deletion: " + ref + " >" + allele + " @ " +
+        variant.getChromosomeHgvsName());
     return "del" + ref.substring(1);
   }
 

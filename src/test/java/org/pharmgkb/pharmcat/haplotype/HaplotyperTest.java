@@ -20,11 +20,17 @@ import static org.junit.Assert.*;
  */
 public class HaplotyperTest {
 
+
+  static List<DiplotypeMatch> testCallHaplotype(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
+    return testCallHaplotype(tsvFile, vcfFile, false);
+  }
+
   /**
    * Helper method for running Haplotyper.
    * This is used by the more specific gene tests.
    */
-  static List<DiplotypeMatch> testCallHaplotype(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
+  static List<DiplotypeMatch> testCallHaplotype(@Nonnull Path tsvFile, @Nonnull Path vcfFile, boolean showUnmatched)
+      throws Exception {
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(tsvFile);
@@ -49,6 +55,7 @@ public class HaplotyperTest {
 
     // print
     new Report(definitionReader)
+        .alwaysShowUnmatchedHaplotypes(showUnmatched)
         .forFile(vcfFile)
         .gene(gene, matches, dataset)
         .printHtml()

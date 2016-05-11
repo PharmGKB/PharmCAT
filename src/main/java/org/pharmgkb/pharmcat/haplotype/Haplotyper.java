@@ -68,8 +68,7 @@ public class Haplotyper {
       String chromosome = definitionReader.getDefinitionFile(gene).getChromosome();
       // map variant to chr:position
       for (VariantLocus v : variants) {
-        String chrPos = chromosome + ":" + v.getPosition();
-        setBuilder.add(chrPos);
+        setBuilder.add(chromosome + ":" + v.getVcfPosition());
       }
     }
     return setBuilder.build();

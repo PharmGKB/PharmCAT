@@ -18,14 +18,16 @@ public class Variant implements Comparable<Variant>  {
   @Expose
   @SerializedName("vcfCall")
   private String m_vcfCall;
+  private int m_vcfPosition;
   private String m_vcfAlleles;
 
 
-  public Variant(int pos, @Nullable String rsids, @Nonnull String call, @Nonnull String vcfAlleles) {
+  public Variant(int pos, @Nullable String rsids, @Nonnull String call, int vcfPosition, @Nonnull String vcfAlleles) {
     Preconditions.checkNotNull(call);
     m_position = pos;
     m_rsid = rsids;
     m_vcfCall = call;
+    m_vcfPosition = vcfPosition;
     m_vcfAlleles = vcfAlleles;
   }
 
@@ -42,6 +44,10 @@ public class Variant implements Comparable<Variant>  {
     return m_vcfCall;
   }
 
+  public int getVcfPosition() {
+    return m_vcfPosition;
+  }
+
   public String getVcfAlleles() {
     return m_vcfAlleles;
   }
@@ -50,6 +56,10 @@ public class Variant implements Comparable<Variant>  {
   public int compareTo(@Nonnull Variant o) {
 
     int rez = Integer.compare(m_position, o.getPosition());
+    if (rez != 0) {
+      return rez;
+    }
+    rez = Integer.compare(m_vcfPosition, o.getVcfPosition());
     if (rez != 0) {
       return rez;
     }

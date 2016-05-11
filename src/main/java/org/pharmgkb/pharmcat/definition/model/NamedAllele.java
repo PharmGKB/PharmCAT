@@ -184,11 +184,18 @@ public class NamedAllele implements Comparable<NamedAllele> {
     List<VariantLocus> sortedRefVariants = Arrays.stream(refVariants).sorted().collect(Collectors.toList());
     StringBuilder builder = new StringBuilder();
     for (VariantLocus variant : sortedRefVariants) {
-      builder.append(variant.getPosition())
+      builder.append(variant.getVcfPosition())
           .append(":");
       String allele = m_alleleMap.get(variant);
       if (allele != null) {
-        builder.append(resolveIupacCode(m_alleleMap.get(variant)));
+        if (variant.getType() == VariantType.REPEAT) {
+          allele = allele
+              .replaceAll("\\(", "\\\\\\(")
+              .replaceAll("\\)", "\\\\\\)");
+        } else if (variant.getType() == VariantType.SNP && allele.length() == 1) {
+          allele = Iupac.lookup(allele).getRegex();
+        }
+        builder.append(allele);
       } else {
         builder.append(".?");
       }

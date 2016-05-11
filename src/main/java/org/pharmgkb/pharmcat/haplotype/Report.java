@@ -102,7 +102,7 @@ public class Report {
 
     // get position info
     for (VariantLocus variant : dataset.positions) {
-      SampleAllele allele = dataset.geneSampleMap.get(variant.getPosition());
+      SampleAllele allele = dataset.geneSampleMap.get(variant.getVcfPosition());
       String call;
       String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
       if (allele.isPhased()) {
@@ -110,7 +110,7 @@ public class Report {
       } else {
         call = allele.getAllele1() + "/" + allele.getAllele2();
       }
-      geneCall.add(new Variant(variant.getPosition(), variant.getRsid(), call, vcfAlleles));
+      geneCall.add(new Variant(variant.getPosition(), variant.getRsid(), call, variant.getVcfPosition(), vcfAlleles));
     }
 
     //geneCall.setHaplotypesNotCalled();
@@ -161,7 +161,7 @@ public class Report {
       builder.append("<table class=\"table table-striped table-hover table-condensed\">");
       // position
       builder.append("<tr>");
-      builder.append("<th></th>");
+      builder.append("<th>Definition Position</th>");
       for (Variant v : call.getVariants()) {
         builder.append("<th>")
             .append(v.getPosition())
@@ -177,6 +177,15 @@ public class Report {
               builder.append(v.getRsid());
             }
             builder.append("</th>");
+      }
+      builder.append("</tr>");
+      // VCF position
+      builder.append("<tr>");
+      builder.append("<th>VCF Position</th>");
+      for (Variant v : call.getVariants()) {
+        builder.append("<th>")
+            .append(v.getVcfPosition())
+            .append("</th>");
       }
       builder.append("</tr>");
       // sample
@@ -230,7 +239,7 @@ public class Report {
             .append("<ul>");
         for (VariantLocus variant : matchData.missingPositions) {
           builder.append("<li>")
-              .append(variant.getPosition())
+              .append(variant.getVcfPosition())
               .append(" (")
               .append(variant.getChromosomeHgvsName())
               .append(")</li>");
@@ -252,7 +261,7 @@ public class Report {
                 .append(name)
                 .append("</li>");
           }
-          builder.append(".</ul>");
+          builder.append("</ul>");
         }
       }
     }
@@ -281,7 +290,8 @@ public class Report {
       if (a.equals(".?")) {
         a = "";
       }
-      variants.add(new Variant(Integer.parseInt(parts[0]), null, a, ""));
+      int vcfPosition = Integer.parseInt(parts[0]);
+      variants.add(new Variant(-1, null, a, vcfPosition, ""));
     }
 
     builder.append("<tr");
@@ -297,12 +307,16 @@ public class Report {
     builder.append("</th>");
 
     for (Variant variant : variants) {
+      String vcfCall = variant.getVcfCall();
+      if (vcfCall.contains("\\")) {
+        vcfCall = vcfCall.replaceAll("\\\\", "");
+      }
       builder.append("<td>");
       if (name == null) {
-        builder.append(variant.getVcfCall());
+        builder.append(vcfCall);
       } else {
         builder.append("<b>")
-            .append(variant.getVcfCall())
+            .append(vcfCall)
             .append("</b>");
       }
       builder.append("</td>");

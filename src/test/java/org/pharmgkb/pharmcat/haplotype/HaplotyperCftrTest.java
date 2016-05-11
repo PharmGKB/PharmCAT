@@ -33,5 +33,4 @@ public class HaplotyperCftrTest {
     List<String> expectedMatches = Lists.newArrayList("F508del/F508del");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
   }
-
 }
