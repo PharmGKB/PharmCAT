@@ -26,12 +26,6 @@ public class HaplotyperDpydTest {
   @Test
   public void dpyds1s1() throws Exception {
     // Test *1/*1 - contains a del
-    /* TODO: Lester/Mark - Fails. In the output vcf for *1*1 there is no call for rs72549303 position ("|")
-    This issue is also seen in cftr F508d/F508d example.  Here there is two  dels
-
-    Also, per my understanding, we are not looking for ATGA in *1 for rs72549309, but just A
-
-    */
 
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
@@ -43,16 +37,7 @@ public class HaplotyperDpydTest {
 
   @Test
   public void dpyds2aRs67376798A() throws Exception {
-    // Test s2aRs67376798A
-    /* TODO: Lester/Mark - Fails.
-
-    There is a '/' in the star name. Could cause issues?
-    Expected: [*2A/rs67376798T/A]
-    Got:      []
-
-    Again no vcf calls in rs72549303 or 	rs72549309 so probably failing because of that
-
-    */
+    // Test *2a/Rs67376798A
 
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD/s2aRs67376798A.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
@@ -62,11 +47,22 @@ public class HaplotyperDpydTest {
   }
 
   @Test
+  public void dpyds1s2b() throws Exception {
+    // Test *1/*2b - however can't be distinguished from *2A/*5
+
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD/s1s2b.vcf");
+    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
+
+    List<String> expectedMatches = Lists.newArrayList("*1/*2B", "*2A/*5");
+    TestUtil.assertDiplotypePairs(expectedMatches, matches);
+  }
+
+  @Test
   public void dpyds1s7() throws Exception {
     // Test *1/*7
-    /* TODO: Lester/Mark - Fails. Combination of above issue (blanks in vcf match) and below issue:
 
-    IMPORTANT! - this is how I think the vcf should be represented:
+    /*
+    IMPORTANT TEST CASE! - this is how I think the vcf should be represented:
     chr1	97740414	rs72549308	GATGA	G	.	PASS	assume-default	GT	0/1
     chr1	97740415	rs72549309	A	.	.	PASS	assume-default	GT	0/0
 
@@ -76,7 +72,7 @@ public class HaplotyperDpydTest {
     be null/empty, the REF and ALT Strings must include the base before the event (which must be
     reflected in the POS field)".
 
-    My reading - for deletions we need to look at position -1. For insertions the -1 chr to where the insertions start
+    My reading - for deletions we need to look at position -1. For insertions the -1 position to where the insertions start
     is the equivalent to where the rsid is already, so don't need to go back a position.
 
     */
