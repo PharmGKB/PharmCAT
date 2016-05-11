@@ -1,5 +1,5 @@
 
-package org.pharmgkb.pharmcat.haplotype.model.json;
+package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.Date;
 import com.google.gson.annotations.Expose;

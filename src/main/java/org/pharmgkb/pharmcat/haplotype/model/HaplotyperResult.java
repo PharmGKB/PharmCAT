@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.haplotype.model.json;
+package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.ArrayList;
 import java.util.List;

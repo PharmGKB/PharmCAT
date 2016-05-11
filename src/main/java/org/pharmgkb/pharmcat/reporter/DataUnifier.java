@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
-import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.GeneReport;

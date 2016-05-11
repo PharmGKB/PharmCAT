@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
-import org.pharmgkb.pharmcat.haplotype.model.json.Variant;
+import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.Group;

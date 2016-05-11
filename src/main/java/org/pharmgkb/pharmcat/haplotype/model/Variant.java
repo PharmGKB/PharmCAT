@@ -1,5 +1,5 @@
 
-package org.pharmgkb.pharmcat.haplotype.model.json;
+package org.pharmgkb.pharmcat.haplotype.model;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

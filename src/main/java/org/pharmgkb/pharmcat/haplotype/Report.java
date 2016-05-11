@@ -29,11 +29,11 @@ import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
-import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
-import org.pharmgkb.pharmcat.haplotype.model.json.HaplotyperResult;
-import org.pharmgkb.pharmcat.haplotype.model.json.Metadata;
-import org.pharmgkb.pharmcat.haplotype.model.json.Variant;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
+import org.pharmgkb.pharmcat.haplotype.model.Metadata;
+import org.pharmgkb.pharmcat.haplotype.model.Variant;
 
 
 /**

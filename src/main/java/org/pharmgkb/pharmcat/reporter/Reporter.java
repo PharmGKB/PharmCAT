@@ -14,7 +14,7 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
-import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.ReporterWriter;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;

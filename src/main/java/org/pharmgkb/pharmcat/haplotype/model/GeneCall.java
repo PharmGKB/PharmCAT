@@ -1,5 +1,5 @@
 
-package org.pharmgkb.pharmcat.haplotype.model.json;
+package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,8 +9,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
 
 public class GeneCall {

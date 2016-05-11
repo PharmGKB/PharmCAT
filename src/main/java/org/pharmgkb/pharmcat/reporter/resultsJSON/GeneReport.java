@@ -6,8 +6,8 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import org.pharmgkb.pharmcat.haplotype.model.json.GeneCall;
-import org.pharmgkb.pharmcat.haplotype.model.json.Variant;
+import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 
 
