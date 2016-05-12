@@ -25,7 +25,6 @@ public class HaplotyperCyp3a5Test {
   @Test
   public void cyp3a5s3d9() throws Exception {
     // Test *3/*9.  Note Y in 99672916 position
-    //TODO: lester - test fails.  Check vcf?
 
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_tsvFile, vcfFile);

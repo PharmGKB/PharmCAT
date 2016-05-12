@@ -51,7 +51,7 @@ public class HaplotyperSlco1b1Test {
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1bs15.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_tsvFile, vcfFile);
 
-    List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5","*5/*29");
+    List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
   }
 
