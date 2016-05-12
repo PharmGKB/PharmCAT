@@ -12,8 +12,8 @@ import org.pharmgkb.pharmcat.reporter.DataUnifier;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.Group;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.GeneReport;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.GuidelineReport;
+import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

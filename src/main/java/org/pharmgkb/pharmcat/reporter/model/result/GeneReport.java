@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.reporter.resultsJSON;
+package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICExceptionList;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 
 /**
