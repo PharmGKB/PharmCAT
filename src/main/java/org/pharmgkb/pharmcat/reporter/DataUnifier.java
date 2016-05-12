@@ -15,7 +15,7 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.GeneReport;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.Interaction;
+import org.pharmgkb.pharmcat.reporter.resultsJSON.GuidelineReport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +35,7 @@ public class DataUnifier {
   private List<GeneCall> m_calls;
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
   private Map<String, GeneReport> m_symbolToGeneReportMap = new HashMap<>();
-  private List<Interaction> m_interactionList;
+  private List<GuidelineReport> m_interactionList;
   private Set<String> m_calledGenes;
 
   /**
@@ -45,7 +45,7 @@ public class DataUnifier {
    */
   public DataUnifier(List<GeneCall> calls, List<DosingGuideline> guidelines) throws Exception {
     m_calls = calls;
-    m_interactionList = guidelines.stream().map(Interaction::new).collect(Collectors.toList());
+    m_interactionList = guidelines.stream().map(GuidelineReport::new).collect(Collectors.toList());
     compileGeneData();
     findMatches();
   }
@@ -81,7 +81,7 @@ public class DataUnifier {
    */
   private void findMatches() throws Exception {
 
-    for(Interaction guideline : m_interactionList) {
+    for(GuidelineReport guideline : m_interactionList) {
       guideline.setReportable(m_calledGenes);
       if (!guideline.isReportable()) {
         sf_logger.warn("Can't annotate guideline {}, it's missing {}",
@@ -137,7 +137,7 @@ public class DataUnifier {
     }
   }
 
-  public List<Interaction> getGuidelineResults() {
+  public List<GuidelineReport> getGuidelineResults() {
     return m_interactionList;
   }
 

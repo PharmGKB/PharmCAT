@@ -13,7 +13,7 @@ import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.resultsJSON.GeneReport;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.Interaction;
+import org.pharmgkb.pharmcat.reporter.resultsJSON.GuidelineReport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -88,7 +88,7 @@ public class ReporterWriter {
 
       writer.write("## Guidelines\n\n");
 
-      for (Interaction guideline : dataUnifier.getGuidelineResults()) {
+      for (GuidelineReport guideline : dataUnifier.getGuidelineResults()) {
         writer.write("---------------------\n\n");
         writer.write("### " + guideline.getName() + "\n\n");
 

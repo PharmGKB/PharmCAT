@@ -18,14 +18,14 @@ import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
  *
  * @author Ryan Whaley
  */
-public class Interaction {
+public class GuidelineReport {
 
   private DosingGuideline m_dosingGuideline;
   private Set<Group> m_matchingGroups;
   private Multimap<String,String> m_matchedDiplotypes = TreeMultimap.create();
   private boolean m_reportable = false;
 
-  public Interaction( DosingGuideline guideline){
+  public GuidelineReport( DosingGuideline guideline){
     m_dosingGuideline = guideline;
   }
 
