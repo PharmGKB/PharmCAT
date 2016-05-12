@@ -26,7 +26,7 @@ public class HaplotyperCftrTest {
   @Test
   public void cftrReferenceReference() throws Exception {
     // Test reference
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CFTR/refref.vcf");
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/foo/refref.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
 
     List<String> expectedMatches = Lists.newArrayList("Reference/Reference");
@@ -37,7 +37,7 @@ public class HaplotyperCftrTest {
   @Test
   public void cftrF508delF508del() throws Exception {
     // Test F508del(TCT)/F508del(TCT)
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CFTR/F508delF508del.vcf");
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/foo/F508delF508del.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
 
     List<String> expectedMatches = Lists.newArrayList("F508del(TCT)/F508del(TCT)");
@@ -47,7 +47,7 @@ public class HaplotyperCftrTest {
   @Test
   public void cftrWt5T() throws Exception {
     // Test Reference/5T - TODO - assumption is that repeat is represented correctly
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CFTR/ref5t.vcf");
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/foo/ref5foo.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
 
     List<String> expectedMatches = Lists.newArrayList("5T/Reference");
