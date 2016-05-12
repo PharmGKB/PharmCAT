@@ -5,14 +5,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import org.pharmgkb.pharmcat.haplotype.Haplotyper;
+import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,16 +30,13 @@ public class JsonFileLoader {
   /**
    * Load all the gene calls coming from the {@link Haplotyper} utility
    */
-  public List<GeneCall> loadHaplotypeGeneCalls(@Nonnull File haplotypeCalledFile) throws IOException{
+  public List<GeneCall> loadHaplotypeGeneCalls(@Nonnull Path haplotypeCalledFile) throws IOException{
     Preconditions.checkNotNull(haplotypeCalledFile);
-    Preconditions.checkArgument(haplotypeCalledFile.exists());
-    Preconditions.checkArgument(haplotypeCalledFile.isFile());
+    Preconditions.checkArgument(Files.exists(haplotypeCalledFile));
+    Preconditions.checkArgument(Files.isRegularFile(haplotypeCalledFile));
 
     sf_logger.debug("Loading haplotyper file {}", haplotypeCalledFile);
-    try (BufferedReader br = new BufferedReader(new FileReader( haplotypeCalledFile ))) {
-      HaplotyperResult calls = gson.fromJson(br, HaplotyperResult.class);
-      return calls.getGeneCalls();
-    }
+    return new ResultSerializer().fromJson(haplotypeCalledFile).getGeneCalls();
   }
 
   /**

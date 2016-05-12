@@ -6,9 +6,11 @@ import java.util.Set;
 import java.util.SortedMap;
 import javax.annotation.Nonnull;
 import org.junit.Test;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.TestUtil;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
 
 import static org.junit.Assert.*;
 
@@ -53,13 +55,15 @@ public class HaplotyperTest {
     }
     System.out.println(rezBuilder);
 
-    // print
-    new Report(definitionReader)
-        .alwaysShowUnmatchedHaplotypes(showUnmatched)
+    HaplotyperResult result = new ResultBuilder(definitionReader)
         .forFile(vcfFile)
-        .gene(gene, matches, dataset)
-        .printHtml()
-        .print();
+        .gene(gene, dataset, matches)
+        .build();
+    // print
+    new ResultSerializer()
+        .alwaysShowUnmatchedHaplotypes(showUnmatched)
+        .toHtml(result, vcfFile.getParent().resolve(PathUtils.getBaseFilename(vcfFile) + ".html"))
+        .toJson(result, vcfFile.getParent().resolve(PathUtils.getBaseFilename(vcfFile) + ".json"));
 
     return matches;
   }
@@ -75,8 +79,8 @@ public class HaplotyperTest {
     definitionReader.read(jsonFile);
 
     Haplotyper haplotyper = new Haplotyper(definitionReader);
-    Report report = haplotyper.call(vcfFile);
-    Set<DiplotypeMatch> pairs = report.getResults().getGeneCalls().get(0).getDiplotypes();
+    HaplotyperResult result = haplotyper.call(vcfFile);
+    Set<DiplotypeMatch> pairs = result.getGeneCalls().get(0).getDiplotypes();
     assertNotNull(pairs);
     assertEquals(1, pairs.size());
     assertEquals("*1/*2", pairs.iterator().next().getName());

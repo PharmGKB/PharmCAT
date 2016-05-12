@@ -1,81 +1,85 @@
 
 package org.pharmgkb.pharmcat.haplotype.model;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.haplotype.MatchData;
 
 
+/**
+ * The Haplotyper results for a single gene.
+ *
+ * @author Mark Woon
+ */
 public class GeneCall {
-  @SerializedName("gene")
   @Expose
-  private String gene;
-  @SerializedName("geneVersion")
+  @SerializedName("alleleDefinitionVersion")
+  private String m_alleleDefinitionVersion;
   @Expose
-  private String geneVersion;
   @SerializedName("chromosome")
+  private String m_chromosome;
   @Expose
-  private String chromosome;
+  @SerializedName("gene")
+  private String m_gene;
+  @Expose
   @SerializedName("diplotypes")
+  private Set<DiplotypeMatch> m_diplotypes = new HashSet<>();
   @Expose
-  private Set<DiplotypeMatch> diplotypes = new HashSet<>();
   @SerializedName("haplotypes")
-  @Expose
   private SortedSet<HaplotypeMatch> m_haplotypes = new TreeSet<>();
+  @Expose
   @SerializedName("variants")
-  @Expose
   private SortedSet<Variant> m_variants = new TreeSet<>();
-  @SerializedName("haplotypesNotCalled")
-  @Expose
-  private List<HaplotypesNotCalled> haplotypesNotCalled = new ArrayList<>();
+  private MatchData m_matchData;
+  private Set<String> m_uncallableHaplotypes;
 
 
+  public GeneCall(@Nonnull String alleleDefinitionVersion, @Nonnull String chromosome, @Nonnull String gene,
+      @Nonnull MatchData matchData, @Nonnull Set<String> uncallableHaplotypes) {
 
-  public String getGene() {
-    return gene;
-  }
-
-  public void setGene(String gene) {
-    this.gene = gene;
+    m_alleleDefinitionVersion = alleleDefinitionVersion;
+    m_chromosome = chromosome;
+    m_gene = gene;
+    m_matchData = matchData;
+    m_uncallableHaplotypes = uncallableHaplotypes;
   }
 
 
   /**
    * Gets the version of the definition file used to make this call.
    */
-  public String getGeneVersion() {
-    return geneVersion;
+  public @Nonnull String getAlleleDefinitionVersion() {
+    return m_alleleDefinitionVersion;
   }
 
-  public void setGeneVersion(String geneVersion) {
-    this.geneVersion = geneVersion;
+  public @Nonnull String getChromosome() {
+    return m_chromosome;
   }
 
-
-  public String getChromosome() {
-    return chromosome;
+  public @Nonnull String getGene() {
+    return m_gene;
   }
 
-  public void setChromosome(String chromosome) {
-    this.chromosome = chromosome;
+  public @Nonnull MatchData getMatchData() {
+    return m_matchData;
+  }
+
+  public @Nonnull Set<String> getUncallableHaplotypes() {
+    return m_uncallableHaplotypes;
   }
 
 
   public Set<DiplotypeMatch> getDiplotypes() {
-    return diplotypes;
-  }
-
-  public void setDiplotypes(Set<DiplotypeMatch> diplotypes) {
-    this.diplotypes = diplotypes;
+    return m_diplotypes;
   }
 
   public void addDiplotype(DiplotypeMatch diplotype) {
-    diplotypes.add(diplotype);
+    m_diplotypes.add(diplotype);
     m_haplotypes.add(diplotype.getHaplotype1());
     m_haplotypes.add(diplotype.getHaplotype2());
   }
@@ -96,14 +100,5 @@ public class GeneCall {
 
   public void add(Variant pos) {
     m_variants.add(pos);
-  }
-
-
-  public List<HaplotypesNotCalled> getHaplotypesNotCalled() {
-    return haplotypesNotCalled;
-  }
-
-  public void setHaplotypesNotCalled(List<HaplotypesNotCalled> haplotypesNotCalled) {
-    this.haplotypesNotCalled = haplotypesNotCalled;
   }
 }

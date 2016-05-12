@@ -11,6 +11,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
 
 
 /**
@@ -78,17 +79,17 @@ public class Haplotyper {
   /**
    * Calls diplotypes for the given VCF file for all genes for which a definition exists.
    */
-  public Report call(@Nonnull Path vcfFile) throws IOException {
+  public HaplotyperResult call(@Nonnull Path vcfFile) throws IOException {
 
     SortedMap<String, SampleAllele> alleles = m_vcfReader.read(vcfFile);
-    Report report = new Report(m_definitionReader)
+    ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader)
         .forFile(vcfFile);
     // call haplotypes
     for (String gene : m_definitionReader.getGenes()) {
       MatchData data = initializeCallData(alleles, gene);
-      report.gene(gene, callDiplotypes(data), data);
+      resultBuilder.gene(gene, data, callDiplotypes(data));
     }
-    return report;
+    return resultBuilder.build();
   }
 
 

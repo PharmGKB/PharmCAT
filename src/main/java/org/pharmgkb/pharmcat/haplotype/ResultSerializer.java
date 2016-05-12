@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,139 +11,81 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import com.google.api.client.repackaged.com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.text.StrSubstitutor;
-import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
-import org.pharmgkb.pharmcat.haplotype.model.Metadata;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 
 
 /**
+ * Serializer/Deserializer for {@link HaplotyperResult}.
+ *
  * @author Mark Woon
  */
-public class Report {
-  private static final Joiner sf_vcfAlleleJoiner = Joiner.on(",");
+public class ResultSerializer {
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
-
-  private DefinitionReader m_definitionReader;
   private boolean m_alwaysShowUnmatchedHaplotypes;
-  private Path m_vcfFile;
-  private HaplotyperResult m_root = new HaplotyperResult();
   private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
-  private Map<String, MatchData> m_dataMap = new HashMap<>();
 
 
-  public Report(@Nonnull DefinitionReader definitionReader) {
-    Preconditions.checkNotNull(definitionReader);
-    m_definitionReader = definitionReader;
+  public ResultSerializer() {
   }
 
-  public Report alwaysShowUnmatchedHaplotypes(boolean alwaysShowUnmatchedHaplotypes) {
+
+  public ResultSerializer alwaysShowUnmatchedHaplotypes(boolean alwaysShowUnmatchedHaplotypes) {
     m_alwaysShowUnmatchedHaplotypes = alwaysShowUnmatchedHaplotypes;
     return this;
   }
 
-  HaplotyperResult getResults() {
-    return m_root;
-  }
 
 
-  public Report forFile(@Nonnull Path vcfFile) {
-    Preconditions.checkNotNull(vcfFile);
-    Preconditions.checkArgument(vcfFile.toString().endsWith(".vcf"));
-    Preconditions.checkArgument(Files.isRegularFile(vcfFile));
-
-    m_vcfFile = vcfFile;
-    Metadata md = new Metadata();
-    //md.setCpicAnnotatorBuild();
-    //md.setCpicDataBuild();
-    md.setDate(new Date());
-    //md.setGenomeAssembly();
-    md.setInputFile(vcfFile.getName(vcfFile.getNameCount() - 1).toString());
-    m_root.setMetadata(md);
-
-    return this;
-  }
-
-
-  protected Report gene(@Nonnull String gene, @Nonnull List<DiplotypeMatch> matches, @Nonnull MatchData dataset) {
-
-    Preconditions.checkNotNull(gene);
-    Preconditions.checkNotNull(matches);
-
-    m_dataMap.put(gene, dataset);
-
-    GeneCall geneCall = new GeneCall();
-    geneCall.setGene(gene);
-
-    // get haplotype/diplotype info
-    for (DiplotypeMatch dm : matches) {
-      geneCall.addDiplotype(dm);
-    }
-
-    // get position info
-    for (VariantLocus variant : dataset.positions) {
-      SampleAllele allele = dataset.geneSampleMap.get(variant.getVcfPosition());
-      String call;
-      String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
-      if (allele.isPhased()) {
-        call = allele.getAllele1() + "|" + allele.getAllele2();
-      } else {
-        call = allele.getAllele1() + "/" + allele.getAllele2();
-      }
-      geneCall.add(new Variant(variant.getPosition(), variant.getRsid(), call, variant.getVcfPosition(), vcfAlleles));
-    }
-
-    //geneCall.setHaplotypesNotCalled();
-    DefinitionFile tsvFile = m_definitionReader.getDefinitionFile(gene);
-    geneCall.setGeneVersion(tsvFile.getContentVersion() + " (" + m_dateFormat.format(tsvFile.getModificationDate()) + ")");
-    geneCall.setChromosome(tsvFile.getChromosome());
-    m_root.addDiplotypeCall(geneCall);
-
-    return this;
-  }
-
-
-  public Report print() throws IOException {
-
-    Preconditions.checkState(m_vcfFile != null);
-    Path jsonFile = m_vcfFile.getParent().resolve(PathUtils.getBaseFilename(m_vcfFile) + ".json");
+  public ResultSerializer toJson(@Nonnull HaplotyperResult result, @Nonnull Path jsonFile) throws IOException {
+    Preconditions.checkNotNull(result);
+    Preconditions.checkNotNull(jsonFile);
+    Preconditions.checkArgument(jsonFile.toString().endsWith(".json"));
 
     try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
-      writer.write(sf_gson.toJson(m_root));
+      writer.write(sf_gson.toJson(result));
     }
     return this;
   }
 
 
-  public Report printHtml() throws IOException {
+  public HaplotyperResult fromJson(@Nonnull Path jsonFile) throws IOException {
+    Preconditions.checkNotNull(jsonFile);
+    Preconditions.checkArgument(jsonFile.toString().endsWith(".json"));
+    Preconditions.checkArgument(Files.isRegularFile(jsonFile));
 
-    Preconditions.checkState(m_vcfFile != null);
-    Path htmlFile = m_vcfFile.getParent().resolve(PathUtils.getBaseFilename(m_vcfFile) + ".html");
+    try (BufferedReader reader = Files.newBufferedReader(jsonFile, StandardCharsets.UTF_8)) {
+      return sf_gson.fromJson(reader, HaplotyperResult.class);
+    }
+  }
+
+
+
+  public ResultSerializer toHtml(@Nonnull HaplotyperResult result, @Nonnull Path htmlFile) throws IOException {
+    Preconditions.checkNotNull(result);
+    Preconditions.checkNotNull(htmlFile);
+    Preconditions.checkArgument(htmlFile.toString().endsWith(".html"));
 
     StringBuilder builder = new StringBuilder();
-    for (GeneCall call : m_root.getGeneCalls()) {
-      MatchData matchData = m_dataMap.get(call.getGene());
+    for (GeneCall call : result.getGeneCalls()) {
+      MatchData matchData = call.getMatchData();
 
       builder.append("<h3>")
           .append(call.getGene())
@@ -173,10 +116,10 @@ public class Report {
       builder.append("<th></th>");
       for (Variant v : call.getVariants()) {
         builder.append("<th>");
-            if (v.getRsid() != null) {
-              builder.append(v.getRsid());
-            }
-            builder.append("</th>");
+        if (v.getRsid() != null) {
+          builder.append(v.getRsid());
+        }
+        builder.append("</th>");
       }
       builder.append("</tr>");
       // VCF position
@@ -207,19 +150,19 @@ public class Report {
       }
       builder.append("</tr>");
 
-      Set<String> matchedHaplotpyeNames = new HashSet<>();
+      Set<String> matchedHaplotypeNames = new HashSet<>();
       if (call.getHaplotypes().size() > 0) {
         for (HaplotypeMatch hm : call.getHaplotypes()) {
-          matchedHaplotpyeNames.add(hm.getHaplotype().getName());
+          matchedHaplotypeNames.add(hm.getHaplotype().getName());
           printAllele(builder, hm.getHaplotype().getName(), hm.getHaplotype().getPermutations().pattern(), "info");
           for (String seq : hm.getSequences()) {
             printAllele(builder, null, seq, null);
           }
         }
       }
-      if (m_alwaysShowUnmatchedHaplotypes || matchedHaplotpyeNames.size() == 0) {
+      if (m_alwaysShowUnmatchedHaplotypes || matchedHaplotypeNames.size() == 0) {
         for (NamedAllele haplotype : matchData.haplotypes) {
-          if (!matchedHaplotpyeNames.contains(haplotype.getName())) {
+          if (!matchedHaplotypeNames.contains(haplotype.getName())) {
             printAllele(builder, haplotype.getName(), haplotype.getPermutations().pattern(), "danger");
           }
         }
@@ -246,17 +189,10 @@ public class Report {
         }
         builder.append("</ul>");
 
-        Set<String> matchableHaps = matchData.haplotypes.stream()
-            .map(NamedAllele::getName)
-            .collect(Collectors.toSet());
-        Set<String> missingHaps = m_definitionReader.getHaplotypes(call.getGene()).stream()
-            .map(NamedAllele::getName)
-            .filter(n -> !matchableHaps.contains(n))
-            .collect(Collectors.toSet());
-        if (missingHaps.size() > 0) {
+        if (call.getUncallableHaplotypes().size() > 0) {
           builder.append("<p>The following haplotype(s) were eliminated from consideration:</p>")
               .append("<ul>");
-          for (String name : missingHaps) {
+          for (String name : call.getUncallableHaplotypes()) {
             builder.append("<li>")
                 .append(name)
                 .append("</li>");
@@ -269,7 +205,7 @@ public class Report {
     System.out.println("Printing to " + htmlFile);
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(htmlFile, StandardCharsets.UTF_8))) {
       Map<String, String> varMap = new HashMap<>();
-      varMap.put("title", "PharmCAT Allele Call Report for " + m_root.getMetadata().getInputFile());
+      varMap.put("title", "PharmCAT Allele Call Report for " + result.getMetadata().getInputFile());
       varMap.put("content", builder.toString());
       varMap.put("timestamp", m_dateFormat.format(new Date()));
       StrSubstitutor sub = new StrSubstitutor(varMap);

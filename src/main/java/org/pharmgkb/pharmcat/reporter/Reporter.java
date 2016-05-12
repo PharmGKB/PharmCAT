@@ -110,7 +110,7 @@ public class Reporter {
 
     //Load the haplotype json, this is pointed at a test json and will likely break when meeting real
     // requiring some if not all rewriting
-    List<GeneCall> calls = loader.loadHaplotypeGeneCalls(m_callFile);
+    List<GeneCall> calls = loader.loadHaplotypeGeneCalls(m_callFile.toPath());
 
     //Load the gene drug interaction list. This currently only handles single gene drug m_guidelineFiles and will require updating to handle multi gene drug interaction
     List<DosingGuideline> guidelines = loader.loadGuidelines(m_annotationFiles);
