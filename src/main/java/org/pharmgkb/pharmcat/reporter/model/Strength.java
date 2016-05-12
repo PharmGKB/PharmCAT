@@ -7,17 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 @Generated("org.jsonschema2pojo")
 public class Strength {
-/*
-    @SerializedName("@id")
-    @Expose
-    private String Id;
-    @SerializedName("@context")
-    @Expose
-    private String Context;
-    @SerializedName("id")
-    @Expose
-    private Integer id;
-    */
+
     @SerializedName("src")
     @Expose
     private String src;
@@ -28,60 +18,7 @@ public class Strength {
     @Expose
     private String termId;
 
-    /**
-     * 
-     * @return
-     *     The Id
-     */
- /*   public String getId() {
-        return Id;
-    }
-*/
-    /**
-     * 
-     * @param Id
-     *     The @id
-     */
- /*   public void setId(String Id) {
-        this.Id = Id;
-    }
-*/
-    /**
-     * 
-     * @return
-     *     The Context
-     *
-    public String getContext() {
-        return Context;
-    }
-*/
-    /**
-     * 
-     * @param Context
-     *     The @context
-     *
-    public void setContext(String Context) {
-        this.Context = Context;
-    }
-*/
-    /**
-     * 
-     * @return
-     *     The id
-     *
-    public Integer getId() {
-        return id;
-    }
 
-    /**
-     * 
-     * @param id
-     *     The id
-     *
-    public void setId(Integer id) {
-        this.id = id;
-    }
-*/
     /**
      * 
      * @return

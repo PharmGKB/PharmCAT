@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 
 /**
- * Created by lester on 4/13/16.
+ * @author Lester Carter
  */
 public class CPICExceptionList {
 
