@@ -5,11 +5,10 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
+import org.pharmgkb.pharmcat.reporter.DataUnifier;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.Group;
@@ -28,11 +27,20 @@ public class ReporterWriter {
 
   private Path m_outputDir;
 
+  /**
+   * public constructor
+   * @param outputDir path to a directory to write output to
+   */
   public ReporterWriter(@Nonnull Path outputDir) {
     m_outputDir = outputDir;
   }
 
-  public void print(List<Interaction> guidelineResultList, Map<String, GeneReport> symbolToGeneReportMap) throws IOException {
+  /**
+   * Print out a report file based on data found in the {@link DataUnifier}
+   * @param dataUnifier a {@link DataUnifier} with all data needed to report
+   * @throws IOException
+   */
+  public void print(DataUnifier dataUnifier) throws IOException {
     Path reportPath = m_outputDir.resolve(sf_outputFileName);
     sf_logger.info("Writing report to {}", reportPath);
 
@@ -40,15 +48,15 @@ public class ReporterWriter {
       writer.write("# PharmCAT Report\n\n\n");
 
       writer.write("## Haplotype Calls\n\n");
-      for (String gene : symbolToGeneReportMap.keySet()) {
+      for (String gene : dataUnifier.getSymbolToGeneReportMap().keySet()) {
         writer.write("### Gene: " + gene + "\n");
-        GeneReport geneReport = symbolToGeneReportMap.get(gene);
+        GeneReport geneReport = dataUnifier.getSymbolToGeneReportMap().get(gene);
 
+        writer.write("#### Call\n\n");
         if (geneReport.getDips().size() == 1) {
-          writer.write("#### Call\n\n");
           writer.write(escapeMd(geneReport.getDips().iterator().next()) + "\n");
         } else {
-          writer.write("#### Possible Calls\n\n");
+          writer.write(geneReport.getDips().size()+" possible calls\n\n");
           for (String dip : geneReport.getDips()) {
             writer.write(" * " + escapeMd(dip) + "\n");
           }
@@ -80,13 +88,28 @@ public class ReporterWriter {
 
       writer.write("## Guidelines\n\n");
 
-      for (Interaction guideline : guidelineResultList) {
+      for (Interaction guideline : dataUnifier.getGuidelineResults()) {
         writer.write("---------------------\n\n");
         writer.write("### " + guideline.getName() + "\n\n");
-        writer.write("For more information see the [full guideline on PharmGKB]("+guideline.getUrl()+").\n\n");
+
+        writer.write(guideline.getSummaryHtml());
+        writer.write("\n\n");
+
+        writer.write("For more information see the [full guideline on PharmGKB]("+guideline.getUrl()+").");
+        writer.write("\n\n");
+
+        if (!guideline.isReportable()) {
+          writer.write("_gene calls insufficient to filter annotations, missing ");
+          String missingGenes = guideline.getRelatedGeneSymbols().stream()
+              .filter(s -> !dataUnifier.getSymbolToGeneReportMap().keySet().contains(s))
+              .collect(Collectors.joining(", "));
+          writer.write(missingGenes);
+          writer.write("_\n\n");
+          continue;
+        }
 
         if (guideline.getMatchingGroups() == null) {
-          writer.write("_no matching annotations found_\n");
+          writer.write("_related genes present but no matching annotations found, check genotype calls_\n\n");
           continue;
         }
 
@@ -120,6 +143,11 @@ public class ReporterWriter {
     }
   }
 
+  /**
+   * Make text safe for markdown output. Currently just escapes asterisks (*) so they can be visible in markdown.
+   * @param string a string of text to be output to markdown
+   * @return the same string but with certain characters escaped
+   */
   private static String escapeMd(String string) {
     if (string == null) {
       return null;

@@ -1,7 +1,6 @@
 package org.pharmgkb.pharmcat.reporter;
 
 import java.lang.invoke.MethodHandles;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -28,15 +27,16 @@ import org.slf4j.LoggerFactory;
  * reports up and running it will have to do.
  *
  * @author greytwist
- *
+ * @author Ryan Whaley
  */
 public class DataUnifier {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   private List<GeneCall> m_calls;
-  private List<DosingGuideline> m_guidelines;
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
   private Map<String, GeneReport> m_symbolToGeneReportMap = new HashMap<>();
+  private List<Interaction> m_interactionList;
+  private Set<String> m_calledGenes;
 
   /**
    * public constructor
@@ -45,11 +45,16 @@ public class DataUnifier {
    */
   public DataUnifier(List<GeneCall> calls, List<DosingGuideline> guidelines) throws Exception {
     m_calls = calls;
-    m_guidelines = guidelines;
+    m_interactionList = guidelines.stream().map(Interaction::new).collect(Collectors.toList());
     compileGeneData();
+    findMatches();
   }
 
-
+  /**
+   * Takes {@link GeneCall} data and preps internal data structures for usage. Also prepares exception logic and applies
+   * it to the calling data
+   * @throws Exception
+   */
   private void compileGeneData() throws Exception {
     ExceptionMatcher exceptionMatcher = new ExceptionMatcher();
 
@@ -64,6 +69,7 @@ public class DataUnifier {
 
       m_symbolToGeneReportMap.put(call.getGene(), geneReport);
     }
+    m_calledGenes = m_calls.stream().map(GeneCall::getGene).collect(Collectors.toSet());
   }
 
   /**
@@ -73,38 +79,38 @@ public class DataUnifier {
    *
    *  This is going to need to be rethought through and reconstructed
    */
-  public List<Interaction> findMatches() throws Exception {
+  private void findMatches() throws Exception {
 
-    // This is the loop for looking through the cpic drug gene interactions and trying to figure out which apply to the situation
-    List<Interaction> resultInteractions = new ArrayList<>();
-
-    for(DosingGuideline guideline : m_guidelines) {
-      DrugRecommendationMatcher drugRecommendationMatcher = new DrugRecommendationMatcher(m_symbolToGeneReportMap.keySet(), guideline);
-      if (!drugRecommendationMatcher.matches()) {
+    for(Interaction guideline : m_interactionList) {
+      guideline.setReportable(m_calledGenes);
+      if (!guideline.isReportable()) {
         sf_logger.warn("Can't annotate guideline {}, it's missing {}",
             guideline.getName(),
-            drugRecommendationMatcher.getNeededGenes());
+            guideline.getRelatedGeneSymbols().stream().filter(s -> !m_calledGenes.contains(s)).collect(Collectors.joining(",")));
         continue;
       }
 
       sf_logger.info("Able to use {}", guideline.getName());
-      Interaction guidelineResult = new Interaction(guideline);
 
-      Set<String> calledGenotypesForGuideline = makeAllCalledGenotypes(drugRecommendationMatcher.getDefinedGeneSymbolSet());
+      Set<String> calledGenotypesForGuideline = makeAllCalledGenotypes(guideline.getRelatedGeneSymbols());
 
       for (Group annotationGroup : guideline.getGroups()) {
         calledGenotypesForGuideline.stream()
             .filter(calledGenotype -> annotationGroup.getGenotypes().contains(calledGenotype))
             .forEach(calledGenotype -> {
-              guidelineResult.addMatchingGroup(annotationGroup);
-              guidelineResult.putMatchedDiplotype(annotationGroup.getId(), calledGenotype);
+              guideline.addMatchingGroup(annotationGroup);
+              guideline.putMatchedDiplotype(annotationGroup.getId(), calledGenotype);
             });
       }
-      resultInteractions.add(guidelineResult);
     }
-    return resultInteractions;
   }
 
+  /**
+   * Makes a set of called genotype Strings for the given collection of genes. This can be used later for matching to
+   * annotation group genotypes
+   * @param geneSymbols the gene symbols to include in the genotype strings
+   * @return a Set of string genotype calls in the form "GENEA:*1/*2;GENEB:*2/*3"
+   */
   private Set<String> makeAllCalledGenotypes(Collection<String> geneSymbols) {
     Set<String> results = new TreeSet<>();
     for (String symbol : geneSymbols) {
@@ -129,6 +135,10 @@ public class DataUnifier {
       }
       return newResults;
     }
+  }
+
+  public List<Interaction> getGuidelineResults() {
+    return m_interactionList;
   }
 
   public Map<String, GeneReport> getSymbolToGeneReportMap() {

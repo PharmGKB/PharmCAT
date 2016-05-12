@@ -18,24 +18,18 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.ReporterWriter;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
-import org.pharmgkb.pharmcat.reporter.resultsJSON.Interaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 /**
- * This is contains the main function for running the CPIC reporting tool.
+ * This is contains the main class for running the reporting tool. It's responsible for taking input of all the
+ * necessary data files, parsing them, and running the reporter codes.
  *
- * As of today  (4-23-2016) this tool is still in development currently this tool 
- * there are many broken, missing, and commented out pieces of this code due to
- * ongoing work to produce a working output.  
- *
- * Please contact me (Greyson Twist) on slack or at gtwist@cmh.edu if there are 
- * questions and I will try to improve documentation to make thing more clear
- *
+ * This can be run both on the command line and procedurally.
  *
  * @author greytwist
- *
+ * @author Ryan Whaley
  */
 public class Reporter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -103,6 +97,10 @@ public class Reporter {
     m_callFile = callFile;
   }
 
+  /**
+   * Run the actual report process. Parse the input files, do the matching, and write the report files.
+   * @throws Exception
+   */
   public void run() throws Exception {
 
     //Generate class used for loading JSON into
@@ -116,11 +114,9 @@ public class Reporter {
     List<DosingGuideline> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
-    DataUnifier checker = new DataUnifier(calls, guidelines); // prime with data
-    List<Interaction> results = checker.findMatches(); // run the actual comparison
-
+    DataUnifier dataUnifier = new DataUnifier(calls, guidelines);
     new ReporterWriter(m_reportDir)
-        .print(results, checker.getSymbolToGeneReportMap());
+        .print(dataUnifier);
 
     sf_logger.info("Complete");
   }
