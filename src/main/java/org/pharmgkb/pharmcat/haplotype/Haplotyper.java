@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.SortedMap;
@@ -9,6 +10,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
+import org.pharmgkb.common.io.CliHelper;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
@@ -49,6 +51,43 @@ public class Haplotyper {
     m_assumeReferenceInDefinitions = assumeReference;
     m_topCandidateOnly = topCandidateOnly;
   }
+
+
+  public static void main(String[] args) {
+
+    try {
+      CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
+          .addOption("in", "definition-dir", "directory of allele definition files", true, "in")
+          .addOption("f", "vcf-file", "VCF file", true, "f")
+          .addOption("j", "json-file", "file to save results to (in JSON format)", false, "j")
+          .addOption("h", "html-file", "file to svae results to (in HTML format)", false, "h");
+
+      if (cliHelper.parse(args)) {
+        System.exit(1);
+      }
+
+      Path definitionDir = cliHelper.getValidDirectory("in", false);
+      Path vcfFile = cliHelper.getValidFile("f", false);
+
+      DefinitionReader definitionReader = new DefinitionReader();
+      definitionReader.read(definitionDir);
+
+      Haplotyper haplotyper = new Haplotyper(definitionReader);
+      HaplotyperResult result = haplotyper.call(vcfFile);
+
+      ResultSerializer resultSerializer = new ResultSerializer();
+      if (cliHelper.hasOption("j")) {
+        resultSerializer.toJson(result, cliHelper.getPath("j"));
+      }
+      if (cliHelper.hasOption("h")) {
+        resultSerializer.toHtml(result, cliHelper.getPath("h"));
+      }
+
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+
 
 
   VcfReader getVcfReader() {

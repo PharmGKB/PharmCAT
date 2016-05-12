@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.definition;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.Properties;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
+import org.pharmgkb.common.io.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 
@@ -39,40 +41,48 @@ public class DefinitionManager {
   public static void main(String[] args) {
 
     try {
-      String home = StringUtils.stripToNull(System.getenv("HOME"));
-      if (home == null) {
-        home = System.getProperty("user.home");
-      }
-      if (home == null) {
-        System.out.println("Cannot determine home directory.  Please specify property file.");
-        System.exit(1);
-      }
-      Path propsFile = Paths.get(home).resolve("pharmcat.properties");
-      System.out.println("Looking for " + propsFile);
+      CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
+          .addOption("p", "properties-file", "PharmCAT properties file", false, "p")
+          .addOption("in", "download-dir", "directory of save curated allele definition files", true, "in")
+          .addOption("out", "generated-dir", "directory of save generated allele definition files", true, "out")
+          .addOption("d", "download", "download curated allele definition files");
 
-      if (!Files.exists(propsFile)) {
-        System.out.println("Cannot find " + propsFile);
-        System.exit(1);
-      }
-      if (!Files.isRegularFile(propsFile)) {
-        System.out.println("Not a file: " + propsFile);
+      if (cliHelper.parse(args)) {
         System.exit(1);
       }
 
-      Path downloadDir = Paths.get(args[0]);
-      Path generatedDir = Paths.get(args[1]);
-      if (!Files.exists(downloadDir)) {
-        Files.createDirectories(downloadDir);
+      Path propsFile;
+      if (cliHelper.hasOption("p")) {
+        propsFile = cliHelper.getValidFile("p", true);
+      } else {
+        String home = StringUtils.stripToNull(System.getenv("HOME"));
+        if (home == null) {
+          home = System.getProperty("user.home");
+        }
+        if (home == null) {
+          System.out.println("Cannot determine home directory.  Please specify property file.");
+          System.exit(1);
+        }
+        propsFile = Paths.get(home).resolve("pharmcat.properties");
+        System.out.println("Looking for properties file in: " + propsFile);
+        if (!Files.exists(propsFile)) {
+          System.out.println("Cannot find " + propsFile);
+          System.exit(1);
+        }
+        if (!Files.isRegularFile(propsFile)) {
+          System.out.println("Not a file: " + propsFile);
+          System.exit(1);
+        }
       }
-      if (!Files.exists(generatedDir)) {
-        Files.createDirectories(generatedDir);
-      }
+
+      Path downloadDir = cliHelper.getValidDirectory("in", true);
+      Path generatedDir = cliHelper.getValidDirectory("out", true);
 
       DefinitionManager manager = new DefinitionManager(propsFile);
-
-      manager.download(downloadDir);
+      if (cliHelper.hasOption("d")) {
+        manager.download(downloadDir);
+      }
       manager.transform(downloadDir, generatedDir);
-
 
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -85,7 +95,6 @@ public class DefinitionManager {
     SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
     sh.downloadAlleleDefinitions(downloadDir);
   }
-
 
 
   /**
@@ -114,5 +123,4 @@ public class DefinitionManager {
       }
     }
   }
-
 }
