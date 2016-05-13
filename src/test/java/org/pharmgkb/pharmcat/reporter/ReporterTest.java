@@ -1,8 +1,9 @@
 package org.pharmgkb.pharmcat.reporter;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.TestUtil;
 
@@ -14,11 +15,12 @@ import org.pharmgkb.pharmcat.TestUtil;
  */
 public class ReporterTest {
 
-  private Path m_annotationsDir;
+  private static Reporter s_reporter;
 
-  @Before
-  public void before() throws URISyntaxException {
-    m_annotationsDir = TestUtil.getFile("org/pharmgkb/pharmcat/annotations");
+  @BeforeClass
+  public static void before() throws URISyntaxException, IOException {
+    Path annotationsDir = TestUtil.getFile("org/pharmgkb/pharmcat/annotations");
+    s_reporter = new Reporter(annotationsDir.toFile());
   }
 
   @Test
@@ -26,11 +28,7 @@ public class ReporterTest {
     Path callerFile     = TestUtil.getFile("org/pharmgkb/pharmcat/reporter/test.haplotyper.output.json");
     Path outputFile     = callerFile.getParent().resolve("test.haplotyper.output.md");
 
-    Reporter reporter = new Reporter(
-        m_annotationsDir.toFile(),
-        callerFile.toFile(),
-        outputFile);
-    reporter.run();
+    s_reporter.analyze(callerFile.toFile()).printMarkdown(outputFile);
   }
 
   @Test
@@ -38,11 +36,7 @@ public class ReporterTest {
     Path callerFile     = TestUtil.getFile("org/pharmgkb/pharmcat/reporter/big.sample.json");
     Path outputFile     = callerFile.getParent().resolve("big.sample.md");
 
-    Reporter reporter = new Reporter(
-        m_annotationsDir.toFile(),
-        callerFile.toFile(),
-        outputFile);
-    reporter.run();
+    s_reporter.analyze(callerFile.toFile()).printMarkdown(outputFile);
   }
 
   @Test
@@ -50,10 +44,6 @@ public class ReporterTest {
     Path callerFile     = TestUtil.getFile("org/pharmgkb/pharmcat/reporter/big.sample.missing.2c19.loc.json");
     Path outputFile     = callerFile.getParent().resolve("big.sample.missing.2c19.loc.md");
 
-    Reporter reporter = new Reporter(
-        m_annotationsDir.toFile(),
-        callerFile.toFile(),
-        outputFile);
-    reporter.run();
+    s_reporter.analyze(callerFile.toFile()).printMarkdown(outputFile);
   }
 }

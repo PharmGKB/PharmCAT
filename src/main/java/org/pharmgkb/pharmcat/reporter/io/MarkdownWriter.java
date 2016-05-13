@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Write out a report of information in Markdown format
  */
-public class ReporterWriter {
+public class MarkdownWriter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   private Path m_outputFile;
@@ -32,7 +32,7 @@ public class ReporterWriter {
    * public constructor
    * @param outputFile path to write report file output to
    */
-  public ReporterWriter(@Nonnull Path outputFile) {
+  public MarkdownWriter(@Nonnull Path outputFile) {
     m_outputFile = outputFile;
   }
 
@@ -121,7 +121,7 @@ public class ReporterWriter {
         for (Group group : guideline.getMatchingGroups()) {
           writer.write("#### Annotations for ");
           writer.write(guideline.getMatchedDiplotypes().get(group.getId()).stream()
-              .map(ReporterWriter::escapeMd)
+              .map(MarkdownWriter::escapeMd)
               .collect(Collectors.joining(", ")));
           writer.write("\n\n");
 

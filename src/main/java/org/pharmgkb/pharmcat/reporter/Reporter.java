@@ -16,7 +16,7 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
-import org.pharmgkb.pharmcat.reporter.io.ReporterWriter;
+import org.pharmgkb.pharmcat.reporter.io.MarkdownWriter;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,9 +35,7 @@ public class Reporter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   private List<File> m_annotationFiles = null;
-  private File m_callFile = null;
-  private Path m_reportFile = null;
-
+  private DataUnifier m_dataUnifier = null;
 
   /**
    * main
@@ -56,29 +54,20 @@ public class Reporter {
     File callFile       = new File(cmdline.getOptionValue("callFile"));
     Path outputFile     = Paths.get(cmdline.getOptionValue("reportFile"));
 
-    //if minimal required parameters are set parse command line
-    Reporter report = new Reporter(annotationsDir, callFile, outputFile);
-    //run reporter workflow
-    report.run();
+    new Reporter(annotationsDir)
+        .analyze(callFile)
+        .printMarkdown(outputFile);
   }
 
   /**
-   * parse command line options
+   * public constructor. start a new reporter based on annotation data found in the given <code>annotationsDir</code>.
    * @param annotationsDir directory of annotations files
-   * @param callFile file of haplotype calls
-   * @param reportFile directory to write output to
    * @throws IOException
    */
-  public Reporter(@Nonnull File annotationsDir, @Nonnull File callFile, @Nonnull Path reportFile)  throws IOException {
+  public Reporter(@Nonnull File annotationsDir)  throws IOException {
     Preconditions.checkNotNull(annotationsDir);
     Preconditions.checkArgument(annotationsDir.exists());
     Preconditions.checkArgument(annotationsDir.isDirectory());
-
-    Preconditions.checkNotNull(reportFile);
-
-    Preconditions.checkNotNull(callFile);
-    Preconditions.checkArgument(callFile.exists());
-    Preconditions.checkArgument(callFile.isFile());
 
     File[] annotationFiles = annotationsDir.listFiles();
     if (annotationFiles == null || annotationFiles.length == 0) {
@@ -88,34 +77,44 @@ public class Reporter {
     m_annotationFiles = Arrays.stream(annotationFiles)
         .filter(f -> f.getName().endsWith(".json"))
         .collect(Collectors.toList());
-
-    m_reportFile = reportFile;
-    sf_logger.debug("Writing output to {}", m_reportFile);
-
-    m_callFile = callFile;
   }
 
   /**
-   * Run the actual report process. Parse the input files, do the matching, and write the report files.
+   * Run the actual report process. Parse the input file, do the matching, and write the report files.
+   * @param callFile file of haplotype calls
    * @throws Exception
    */
-  public void run() throws Exception {
+  public Reporter analyze(@Nonnull File callFile) throws Exception {
+    Preconditions.checkNotNull(callFile);
+    Preconditions.checkArgument(callFile.exists());
+    Preconditions.checkArgument(callFile.isFile());
 
     //Generate class used for loading JSON into
     JsonFileLoader loader = new JsonFileLoader();
 
     //Load the haplotype json, this is pointed at a test json and will likely break when meeting real
     // requiring some if not all rewriting
-    List<GeneCall> calls = loader.loadHaplotypeGeneCalls(m_callFile.toPath());
+    List<GeneCall> calls = loader.loadHaplotypeGeneCalls(callFile.toPath());
 
     //Load the gene drug interaction list. This currently only handles single gene drug m_guidelineFiles and will require updating to handle multi gene drug interaction
     List<DosingGuideline> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
-    DataUnifier dataUnifier = new DataUnifier(calls, guidelines);
-    new ReporterWriter(m_reportFile)
-        .print(dataUnifier);
+    m_dataUnifier = new DataUnifier(calls, guidelines);
 
-    sf_logger.info("Complete");
+    return this;
+  }
+
+  /**
+   * Print a Markdown file of compiled report data
+   * @param reportFile directory to write output to
+   * @throws IOException
+   */
+  public void printMarkdown(@Nonnull Path reportFile) throws IOException {
+    Preconditions.checkNotNull(reportFile);
+    sf_logger.debug("Writing output to {}", reportFile);
+
+    new MarkdownWriter(reportFile)
+        .print(m_dataUnifier);
   }
 }
