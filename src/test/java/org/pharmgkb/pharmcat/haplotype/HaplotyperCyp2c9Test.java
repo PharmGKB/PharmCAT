@@ -64,7 +64,7 @@ public class HaplotyperCyp2c9Test {
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c9/s2s24.vcf");
     List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_tsvFile, vcfFile);
 
-    List<String> expectedMatches = Lists.newArrayList("*2/*24", "*1/*24");
+    List<String> expectedMatches = Lists.newArrayList("*1/*24", "*2/*24");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
   }
 
@@ -81,11 +81,9 @@ public class HaplotyperCyp2c9Test {
      */
 
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c9/s2s24hom.vcf");
-    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_tsvFile, vcfFile);
+    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_tsvFile, vcfFile, true, false, true);
 
     List<String> expectedMatches = Lists.newArrayList("*2/*24");
     TestUtil.assertDiplotypePairs(expectedMatches, matches);
   }
-
-
 }

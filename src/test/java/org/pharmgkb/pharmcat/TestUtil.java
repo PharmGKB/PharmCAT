@@ -6,9 +6,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.List;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
+import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 
@@ -56,7 +56,7 @@ public class TestUtil {
     assertEquals("Incoming matches has non-unique pairs", matches.size(), new HashSet<>(pairs).size());
 
     if (expectedPairs.size() != pairs.size() || !expectedPairs.equals(pairs)) {
-      System.out.println("Expected: " + new TreeSet<>(expectedPairs));
+      System.out.println("Expected: [" + Joiner.on(", ").join(expectedPairs));
       System.out.println("Got:      " + pairs);
       fail("Did not get expected matches");
     }

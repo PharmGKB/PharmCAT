@@ -24,18 +24,18 @@ public class HaplotyperTest {
 
 
   static List<DiplotypeMatch> testCallHaplotype(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
-    return testCallHaplotype(tsvFile, vcfFile, false);
+    return testCallHaplotype(tsvFile, vcfFile, true, true, false);
   }
 
   /**
    * Helper method for running Haplotyper.
    * This is used by the more specific gene tests.
    */
-  static List<DiplotypeMatch> testCallHaplotype(@Nonnull Path tsvFile, @Nonnull Path vcfFile, boolean showUnmatched)
-      throws Exception {
+  static List<DiplotypeMatch> testCallHaplotype(@Nonnull Path definitionFile, @Nonnull Path vcfFile,
+      boolean assumeReference, boolean topCandidateOnly, boolean showUnmatched) throws Exception {
 
     DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(tsvFile);
+    definitionReader.read(definitionFile);
     String gene = definitionReader.getGenes().iterator().next();
 
     Haplotyper haplotyper = new Haplotyper(definitionReader);
