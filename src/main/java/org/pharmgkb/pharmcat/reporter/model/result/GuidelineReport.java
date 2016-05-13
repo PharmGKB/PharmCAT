@@ -2,9 +2,11 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import javax.annotation.Nonnull;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
@@ -18,7 +20,7 @@ import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
  *
  * @author Ryan Whaley
  */
-public class GuidelineReport {
+public class GuidelineReport implements Comparable<GuidelineReport> {
 
   private DosingGuideline m_dosingGuideline;
   private Set<Group> m_matchingGroups;
@@ -102,5 +104,18 @@ public class GuidelineReport {
    */
   public void setReportable(Collection<String> calledGenes) {
     m_reportable = getRelatedGeneSymbols().stream().allMatch(calledGenes::contains);
+  }
+
+  @Override
+  public int compareTo(@Nonnull GuidelineReport o) {
+    int rez = Boolean.compare(isReportable(), o.isReportable());
+    if (rez != 0) {
+      return rez * -1;
+    }
+    rez = Objects.compare(getName(), o.getName(), String.CASE_INSENSITIVE_ORDER);
+    if (rez != 0) {
+      return rez;
+    }
+    return 0;
   }
 }

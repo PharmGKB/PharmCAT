@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
@@ -88,7 +90,8 @@ public class ReporterWriter {
 
       writer.write("## Guidelines\n\n");
 
-      for (GuidelineReport guideline : dataUnifier.getGuidelineResults()) {
+      Set<GuidelineReport> guidelines = new TreeSet<>(dataUnifier.getGuidelineResults());
+      for (GuidelineReport guideline : guidelines) {
         writer.write("---------------------\n\n");
         writer.write("### " + guideline.getName() + "\n\n");
 
