@@ -25,16 +25,15 @@ import org.slf4j.LoggerFactory;
  */
 public class ReporterWriter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private static final String sf_outputFileName = "annotation.report.md";
 
-  private Path m_outputDir;
+  private Path m_outputFile;
 
   /**
    * public constructor
-   * @param outputDir path to a directory to write output to
+   * @param outputFile path to write report file output to
    */
-  public ReporterWriter(@Nonnull Path outputDir) {
-    m_outputDir = outputDir;
+  public ReporterWriter(@Nonnull Path outputFile) {
+    m_outputFile = outputFile;
   }
 
   /**
@@ -43,10 +42,9 @@ public class ReporterWriter {
    * @throws IOException
    */
   public void print(DataUnifier dataUnifier) throws IOException {
-    Path reportPath = m_outputDir.resolve(sf_outputFileName);
-    sf_logger.info("Writing report to {}", reportPath);
+    sf_logger.info("Writing report to {}", m_outputFile);
 
-    try (BufferedWriter writer = Files.newBufferedWriter(reportPath)) {
+    try (BufferedWriter writer = Files.newBufferedWriter(m_outputFile)) {
       writer.write("# PharmCAT Report\n\n\n");
 
       writer.write("## Haplotype Calls\n\n");

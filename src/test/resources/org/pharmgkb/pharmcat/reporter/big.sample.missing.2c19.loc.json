@@ -1,0 +1,1198 @@
+{
+  "metadata": {
+    "cpicAnnotatorBuild": null,
+    "cpicDataBuild": null,
+    "genomeAssembly": null,
+    "inputFile": "sample.data.vcf",
+    "dateTime": "May 12, 2016 12:04:04 PM"
+  },
+  "results": [
+    {
+      "alleleDefinitionVersion": "null (05/07/16)",
+      "chromosome": "chr7",
+      "gene": "CFTR",
+      "diplotypes": [
+        {
+          "name": "5T/Reference",
+          "score": 64
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "5T",
+          "sequences": [
+            "117509123:G;117530975:G;117531115:G;117534318:G;117534366:G;117540230:C;117540270:G;117548628:G(T)5A;117548795:C;117559589:ATC;117559590:TCT;117559591:CTT;117587738:G;117587778:G;117587799:A;117587800:G;117587801:T;117587805:G;117587806:G;117587811:C;117587833:G;117590440:G;117602868:G;117606754:G;117627537:C;117639961:C;117642451:G;117642472:G;117642483:T;117642566:G;117652877:C;117664770:G;"
+          ]
+        },
+        {
+          "name": "Reference",
+          "sequences": [
+            "117509123:G;117530975:G;117531115:G;117534318:G;117534366:G;117540230:C;117540270:G;117548628:G(T)7A;117548795:C;117559589:ATC;117559590:TCT;117559591:CTT;117587738:G;117587778:G;117587799:A;117587800:G;117587801:T;117587805:G;117587806:G;117587811:C;117587833:G;117590440:G;117602868:G;117606754:G;117627537:C;117639961:C;117642451:G;117642472:G;117642483:T;117642566:G;117652877:C;117664770:G;"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "position": 117509123,
+          "rsid": "rs75961395",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117530975,
+          "rsid": "rs78655421",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117531115,
+          "rsid": "rs78756941",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117534318,
+          "rsid": "rs80282562",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117534366,
+          "rsid": "rs77188391",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117540230,
+          "rsid": "rs121909011",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 117540270,
+          "rsid": "rs77932196",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117548628,
+          "rsid": null,
+          "vcfCall": "G(T)7A/G(T)5A"
+        },
+        {
+          "position": 117548795,
+          "rsid": "rs74551128",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 117559590,
+          "rsid": "rs121908745",
+          "vcfCall": "ATC|ATC"
+        },
+        {
+          "position": 117559591,
+          "rsid": "rs199826652",
+          "vcfCall": "TCT|TCT"
+        },
+        {
+          "position": 117559592,
+          "rsid": "rs113993960",
+          "vcfCall": "CTT|CTT"
+        },
+        {
+          "position": 117587738,
+          "rsid": "rs76713772",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117587778,
+          "rsid": "rs113993959",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117587799,
+          "rsid": "rs121908757",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 117587800,
+          "rsid": "rs121908755",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117587801,
+          "rsid": "rs121909005",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 117587805,
+          "rsid": "rs121909013",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117587806,
+          "rsid": "rs75527207",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117587811,
+          "rsid": "rs74597325",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 117587833,
+          "rsid": "rs80055610",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117590440,
+          "rsid": "rs121908748",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117602868,
+          "rsid": "rs80224560",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117606754,
+          "rsid": "rs75096551",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117627537,
+          "rsid": "rs74767530",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 117639961,
+          "rsid": "rs75039782",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 117642451,
+          "rsid": "rs267606723",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117642472,
+          "rsid": "rs74503330",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117642483,
+          "rsid": "rs121909041",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 117642566,
+          "rsid": "rs77010898",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 117652877,
+          "rsid": "rs80034486",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 117664770,
+          "rsid": "rs193922525",
+          "vcfCall": "G|G"
+        }
+      ]
+    },
+    {
+      "alleleDefinitionVersion": "null (03/30/16)",
+      "chromosome": "chr10",
+      "gene": "CYP2C9",
+      "diplotypes": [
+        {
+          "name": "*1/*1",
+          "score": 108
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "*1",
+          "sequences": [
+            "94938683:A;94938737:C;94938771:C;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941976:G;94941982:G;94942018:T;94942212:AGAAATGGAA;94942216:A;94942230:C;94942231:G;94942234:G;94942249:C;94942254:C;94942255:G;94942290:C;94942305:G;94942309:G;94947782:C;94947785:C;94947907:A;94947917:T;94947938:A;94949129:A;94949144:C;94949217:A;94949280:A;94949281:A;94972119:C;94972134:A;94972179:A;94972180:C;94972233:C;94981201:T;94981224:C;94981225:G;94981250:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981365:C;94986042:A;94986073:A;94988917:G;94988980:A;94988984:G;94989020:C;94989023:G;"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "position": 94938683,
+          "rsid": "rs114071557",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94938737,
+          "rsid": "rs67807361",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94938771,
+          "rsid": "rs142240658",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94938803,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94938828,
+          "rsid": "rs564813580",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94941897,
+          "rsid": "rs371055887",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94941915,
+          "rsid": null,
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94941958,
+          "rsid": "rs72558187",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94941976,
+          "rsid": null,
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94941982,
+          "rsid": "rs762239445",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94942018,
+          "rsid": null,
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94942213,
+          "rsid": null,
+          "vcfCall": "AGAAATGGAA|AGAAATGGAA"
+        },
+        {
+          "position": 94942216,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94942230,
+          "rsid": "rs767576260",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94942231,
+          "rsid": "rs12414460",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94942234,
+          "rsid": "rs72558189",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94942249,
+          "rsid": "rs200965026",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94942254,
+          "rsid": "rs199523631",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94942255,
+          "rsid": "rs200183364",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94942290,
+          "rsid": "rs1799853",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94942305,
+          "rsid": "rs754487195",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94942309,
+          "rsid": "rs7900194",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94947782,
+          "rsid": "rs72558190",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94947785,
+          "rsid": "rs774550549",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94947907,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94947917,
+          "rsid": null,
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94947938,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94949129,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94949144,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94949217,
+          "rsid": "rs2256871",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94949280,
+          "rsid": "rs9332130",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94949282,
+          "rsid": "rs9332131",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94972119,
+          "rsid": "rs182132442",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94972134,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94972179,
+          "rsid": "rs72558192",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94972180,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94972233,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94981201,
+          "rsid": "rs57505750",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94981224,
+          "rsid": "rs28371685",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94981225,
+          "rsid": "rs367826293",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94981250,
+          "rsid": "rs750820937",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94981281,
+          "rsid": "rs749060448",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94981296,
+          "rsid": "rs1057910",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94981297,
+          "rsid": "rs56165452",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94981301,
+          "rsid": "rs28371686",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94981302,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94981365,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94986042,
+          "rsid": "rs764211126",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94986073,
+          "rsid": "rs72558193",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94988917,
+          "rsid": "rs769942899",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94988980,
+          "rsid": "rs1057911",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94988984,
+          "rsid": "rs781583846",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94989020,
+          "rsid": "rs9332239",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94989023,
+          "rsid": null,
+          "vcfCall": "G|G"
+        }
+      ]
+    },
+    {
+      "alleleDefinitionVersion": "null (05/06/16)",
+      "chromosome": "chr10",
+      "gene": "CYP2C19",
+      "diplotypes": [
+        {
+          "name": "*1/*4B",
+          "score": 76
+        },
+        {
+          "name": "*4A/*17",
+          "score": 76
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "*1",
+          "sequences": [
+            "94760676:C;94760686:C;94761267:T;94761665:G;94761900:C;94762693:G;94762706:A;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849811:T;94849964:A;94849995:C;94852738:C;94852765:C;94852785:C;"
+          ]
+        },
+        {
+          "name": "*17",
+          "sequences": [
+            "94760676:C;94760686:C;94761267:T;94761665:G;94761900:T;94762693:G;94762706:A;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849811:T;94849964:A;94849995:C;94852738:C;94852765:C;94852785:C;"
+          ]
+        },
+        {
+          "name": "*4A",
+          "sequences": [
+            "94760676:C;94760686:C;94761267:T;94761665:G;94761900:C;94762693:G;94762706:G;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849811:T;94849964:A;94849995:C;94852738:C;94852765:C;94852785:C;"
+          ]
+        },
+        {
+          "name": "*4B",
+          "sequences": [
+            "94760676:C;94760686:C;94761267:T;94761665:G;94761900:T;94762693:G;94762706:G;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849811:T;94849964:A;94849995:C;94852738:C;94852765:C;94852785:C;"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "position": 94760676,
+          "rsid": "rs113164681",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94760686,
+          "rsid": "rs111490789",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94761267,
+          "rsid": "rs17878739",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94761665,
+          "rsid": "rs7902257",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94761900,
+          "rsid": "rs12248560",
+          "vcfCall": "C/T"
+        },
+        {
+          "position": 94762693,
+          "rsid": "rs367543001",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94762706,
+          "rsid": "rs28399504",
+          "vcfCall": "A/G"
+        },
+        {
+          "position": 94762712,
+          "rsid": "rs367543002",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94762715,
+          "rsid": "rs367543003",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94762755,
+          "rsid": "rs55752064",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94762760,
+          "rsid": "rs17882687",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94762788,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94762856,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94775106,
+          "rsid": "rs145328984",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94775121,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94775160,
+          "rsid": "rs118203756",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94775185,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94775367,
+          "rsid": "rs12769205",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94775416,
+          "rsid": "rs41291556",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94775453,
+          "rsid": "rs72552267",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94775489,
+          "rsid": "rs17884712",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94775507,
+          "rsid": "rs58973490",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94780574,
+          "rsid": "rs140278421",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94780579,
+          "rsid": "rs370803989",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94780653,
+          "rsid": "rs4986893",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94781858,
+          "rsid": "rs6413438",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94781859,
+          "rsid": "rs4244285",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94781944,
+          "rsid": null,
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94781999,
+          "rsid": "rs72558186",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94842861,
+          "rsid": "rs138142612",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94842879,
+          "rsid": "rs118203757",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94842995,
+          "rsid": "rs113934938",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94849811,
+          "rsid": "rs4917623",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94849964,
+          "rsid": "rs377184510",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94849995,
+          "rsid": "rs17879685",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94852738,
+          "rsid": "rs56337013",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94852765,
+          "rsid": "rs192154563",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94852785,
+          "rsid": "rs118203759",
+          "vcfCall": "C|C"
+        }
+      ]
+    },
+    {
+      "alleleDefinitionVersion": "null (04/06/16)",
+      "chromosome": "chr7",
+      "gene": "CYP3A5",
+      "diplotypes": [
+        {
+          "name": "*1/*7",
+          "score": 16
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "*1",
+          "sequences": [
+            "99652613:G;99652770:del;99660516:C;99665212:C;99665237:T;99666950:A;99672916:T;99676198:G;"
+          ]
+        },
+        {
+          "name": "*7",
+          "sequences": [
+            "99652613:G;99652770:insA;99660516:C;99665212:C;99665237:T;99666950:A;99672916:T;99676198:G;"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "position": 99652613,
+          "rsid": "rs28365083",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 99652770,
+          "rsid": "rs41303343",
+          "vcfCall": "del/insA"
+        },
+        {
+          "position": 99660516,
+          "rsid": "rs28383479",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 99665212,
+          "rsid": "rs10264272",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 99665237,
+          "rsid": "rs56411402",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 99666950,
+          "rsid": "rs55965422",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 99672916,
+          "rsid": "rs776746",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 99676198,
+          "rsid": "rs55817950",
+          "vcfCall": "G|G"
+        }
+      ]
+    },
+    {
+      "alleleDefinitionVersion": "null (04/05/16)",
+      "chromosome": "chr1",
+      "gene": "DPYD",
+      "diplotypes": [
+        {
+          "name": "*1/*1",
+          "score": 26
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "*1",
+          "sequences": [
+            "97079071:C;97082391:T;97098598:C;97305364:C;97450058:C;97515787:A;97515839:T;97515865:C;97573943:C;97593343:C;97691776:G;97883329:A;97883352:C;"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "position": 97079071,
+          "rsid": "rs1801268",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 97082391,
+          "rsid": "rs67376798",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 97098598,
+          "rsid": "rs1801267",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 97305364,
+          "rsid": "rs1801160",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 97450058,
+          "rsid": "rs3918290",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 97515787,
+          "rsid": "rs55886062",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 97515839,
+          "rsid": "rs1801159",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 97515865,
+          "rsid": "rs1801158",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 97573943,
+          "rsid": "rs78060119",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 97593343,
+          "rsid": "rs72549306",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 97691776,
+          "rsid": "rs1801266",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 97883329,
+          "rsid": "rs1801265",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 97883352,
+          "rsid": "rs80081766",
+          "vcfCall": "C|C"
+        }
+      ]
+    },
+    {
+      "alleleDefinitionVersion": "null (04/12/16)",
+      "chromosome": "chr19",
+      "gene": "IFNL3",
+      "diplotypes": [
+        {
+          "name": "rs12979860C/rs12979860T",
+          "score": 2
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "rs12979860C",
+          "sequences": [
+            "39248147:C;"
+          ]
+        },
+        {
+          "name": "rs12979860T",
+          "sequences": [
+            "39248147:T;"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "position": 39248147,
+          "rsid": "rs12979860",
+          "vcfCall": "C/T"
+        }
+      ]
+    },
+    {
+      "alleleDefinitionVersion": "null (04/12/16)",
+      "chromosome": "chr19",
+      "gene": "IFNL3",
+      "diplotypes": [
+        {
+          "name": "rs12979860C/rs12979860T",
+          "score": 2
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "rs12979860C",
+          "sequences": [
+            "39248147:C;"
+          ]
+        },
+        {
+          "name": "rs12979860T",
+          "sequences": [
+            "39248147:T;"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "position": 39248147,
+          "rsid": "rs12979860",
+          "vcfCall": "C/T"
+        }
+      ]
+    },
+    {
+      "alleleDefinitionVersion": "null (03/10/16)",
+      "chromosome": "chr6",
+      "gene": "TPMT",
+      "diplotypes": [
+        {
+          "name": "*1/*1",
+          "score": 64
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "*1",
+          "sequences": [
+            "18130687:T;18130694:T;18130725:A;18130762:C;18130772:A;18130781:C;18132136:A;18132147:A;18133845:T;18133847:C;18133884:G;18133890:C;18138969:C;18138983:G;18138997:C;18139027:C;18139689:C;18139710:G;18143597:T;18143606:T;18143613:C;18143643:A;18143670:C;18143724:C;18147845:C;18147851:G;18147910:A;18149004:G;18149022:C;18149045:T;18149126:A;18149127:T;"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "position": 18130687,
+          "rsid": "rs1142345",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 18130694,
+          "rsid": "rs150900439",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 18130725,
+          "rsid": "rs72552736",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18130762,
+          "rsid": "rs56161402",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18130772,
+          "rsid": "rs377085266",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18130781,
+          "rsid": "rs1800584",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18132136,
+          "rsid": "rs72556347",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18132147,
+          "rsid": "rs79901429",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18133845,
+          "rsid": "rs75543815",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 18133847,
+          "rsid": "rs6921269",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18133884,
+          "rsid": "rs74423290",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 18133890,
+          "rsid": "rs9333570",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18138969,
+          "rsid": "rs144041067",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18138983,
+          "rsid": "rs2842934",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 18138997,
+          "rsid": "rs1800460",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18139027,
+          "rsid": "rs72552737",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18139689,
+          "rsid": "rs72552738",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18139710,
+          "rsid": "rs200220210",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 18143597,
+          "rsid": null,
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 18143606,
+          "rsid": "rs151149760",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 18143613,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18143643,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18143670,
+          "rsid": "rs72552739",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18143724,
+          "rsid": "rs1800462",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18147845,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18147851,
+          "rsid": "rs200591577",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 18147910,
+          "rsid": "rs72552740",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18149004,
+          "rsid": null,
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 18149022,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 18149045,
+          "rsid": "rs72552742",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 18149126,
+          "rsid": "rs267607275",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 18149127,
+          "rsid": "rs9333569",
+          "vcfCall": "T|T"
+        }
+      ]
+    },
+    {
+      "alleleDefinitionVersion": "null (04/14/16)",
+      "chromosome": "chr2",
+      "gene": "UGT1A1",
+      "diplotypes": [
+        {
+          "name": "*1/*1",
+          "score": 10
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "*1",
+          "sequences": [
+            "233757013:T;233759924:C;233760234:A(TA)6TAA;233760498:G;233760973:C;"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "position": 233757013,
+          "rsid": "rs4124874",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 233759924,
+          "rsid": "rs887829",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 233760234,
+          "rsid": null,
+          "vcfCall": "A(TA)6TAA|A(TA)6TAA"
+        },
+        {
+          "position": 233760498,
+          "rsid": "rs4148323",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 233760973,
+          "rsid": "rs35350960",
+          "vcfCall": "C|C"
+        }
+      ]
+    },
+    {
+      "alleleDefinitionVersion": "null (04/12/16)",
+      "chromosome": "chr16",
+      "gene": "VKORC1",
+      "diplotypes": [
+        {
+          "name": "-1639A/-1639G",
+          "score": 2
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "-1639A",
+          "sequences": [
+            "31096368:T;"
+          ]
+        },
+        {
+          "name": "-1639G",
+          "sequences": [
+            "31096368:C;"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "position": 31096368,
+          "rsid": "rs9923231",
+          "vcfCall": "C/T"
+        }
+      ]
+    }
+  ]
+}

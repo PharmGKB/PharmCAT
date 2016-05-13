@@ -36,7 +36,7 @@ public class Reporter {
 
   private List<File> m_annotationFiles = null;
   private File m_callFile = null;
-  private Path m_reportDir = null;
+  private Path m_reportFile = null;
 
 
   /**
@@ -49,15 +49,15 @@ public class Reporter {
 
     options.addOption(new Option("annotationsDir", true, "required - directory holding all the annotations files"));
     options.addOption(new Option("callFile", true, "required - file from the Haplotyper"));
-    options.addOption(new Option("reportDir", true, "required - directory to store output reports"));
+    options.addOption(new Option("reportFile", true, "required - file to write report output to"));
 
     CommandLine cmdline = new DefaultParser().parse(options, args);
     File annotationsDir = new File(cmdline.getOptionValue("annotationsDir"));
     File callFile       = new File(cmdline.getOptionValue("callFile"));
-    Path outputDir      = Paths.get(cmdline.getOptionValue("reportDir"));
+    Path outputFile     = Paths.get(cmdline.getOptionValue("reportFile"));
 
     //if minimal required parameters are set parse command line
-    Reporter report = new Reporter(annotationsDir, callFile, outputDir);
+    Reporter report = new Reporter(annotationsDir, callFile, outputFile);
     //run reporter workflow
     report.run();
   }
@@ -66,17 +66,15 @@ public class Reporter {
    * parse command line options
    * @param annotationsDir directory of annotations files
    * @param callFile file of haplotype calls
-   * @param reportDir directory to write output to
+   * @param reportFile directory to write output to
    * @throws IOException
    */
-  public Reporter(@Nonnull File annotationsDir, @Nonnull File callFile, @Nonnull Path reportDir)  throws IOException {
+  public Reporter(@Nonnull File annotationsDir, @Nonnull File callFile, @Nonnull Path reportFile)  throws IOException {
     Preconditions.checkNotNull(annotationsDir);
     Preconditions.checkArgument(annotationsDir.exists());
     Preconditions.checkArgument(annotationsDir.isDirectory());
 
-    Preconditions.checkNotNull(reportDir);
-    Preconditions.checkArgument(reportDir.toFile().exists());
-    Preconditions.checkArgument(reportDir.toFile().isDirectory());
+    Preconditions.checkNotNull(reportFile);
 
     Preconditions.checkNotNull(callFile);
     Preconditions.checkArgument(callFile.exists());
@@ -91,8 +89,8 @@ public class Reporter {
         .filter(f -> f.getName().endsWith(".json"))
         .collect(Collectors.toList());
 
-    m_reportDir = reportDir;
-    sf_logger.debug("Writing output to {}", m_reportDir);
+    m_reportFile = reportFile;
+    sf_logger.debug("Writing output to {}", m_reportFile);
 
     m_callFile = callFile;
   }
@@ -115,7 +113,7 @@ public class Reporter {
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
     DataUnifier dataUnifier = new DataUnifier(calls, guidelines);
-    new ReporterWriter(m_reportDir)
+    new ReporterWriter(m_reportFile)
         .print(dataUnifier);
 
     sf_logger.info("Complete");
