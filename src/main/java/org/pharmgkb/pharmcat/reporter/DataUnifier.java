@@ -2,10 +2,10 @@ package org.pharmgkb.pharmcat.reporter;
 
 import java.lang.invoke.MethodHandles;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.collect.Multimap;
@@ -34,7 +34,7 @@ public class DataUnifier {
 
   private List<GeneCall> m_calls;
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
-  private Map<String, GeneReport> m_symbolToGeneReportMap = new HashMap<>();
+  private Map<String, GeneReport> m_symbolToGeneReportMap = new TreeMap<>();
   private List<GuidelineReport> m_interactionList;
   private Set<String> m_calledGenes;
 
@@ -69,7 +69,24 @@ public class DataUnifier {
 
       m_symbolToGeneReportMap.put(call.getGene(), geneReport);
     }
+    fixCyp2c19();
     m_calledGenes = m_calls.stream().map(GeneCall::getGene).collect(Collectors.toSet());
+  }
+
+  /**
+   * Substitutes "*4" for "*4A" or "*4B" in the map of called diplotypes
+   *
+   * This is a temporary fix while the allele definitions for CYP2C19 don't match what's been annotated by CPIC
+   *
+   */
+  private void fixCyp2c19() {
+    if (m_sampleGeneToDiplotypeMap.keySet().contains("CYP2C19")) {
+      List<String> fixedDiplotypes = m_sampleGeneToDiplotypeMap.get("CYP2C19").stream()
+          .map(d -> d.replaceAll("\\*4[AB]", "*4"))
+          .collect(Collectors.toList());
+      m_sampleGeneToDiplotypeMap.removeAll("CYP2C19");
+      m_sampleGeneToDiplotypeMap.putAll("CYP2C19", fixedDiplotypes);
+    }
   }
 
   /**

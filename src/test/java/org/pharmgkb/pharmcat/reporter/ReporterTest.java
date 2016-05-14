@@ -7,6 +7,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.TestUtil;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 
 /**
  * Test class for running the reporter to get output.
@@ -44,6 +47,27 @@ public class ReporterTest {
     Path callerFile     = TestUtil.getFile("org/pharmgkb/pharmcat/reporter/big.sample.missing.2c19.loc.json");
     Path outputFile     = callerFile.getParent().resolve("big.sample.missing.2c19.loc.md");
 
-    s_reporter.analyze(callerFile.toFile()).printMarkdown(outputFile);
+    Reporter reporter = s_reporter.analyze(callerFile.toFile());
+    assertNotNull(reporter.getGuidelineReports());
+
+    reporter.printMarkdown(outputFile);
+
+    assertTrue(
+        "atazanavir and UGT1A1 guideline not called",
+        reporter.getGuidelineReports().stream()
+            .anyMatch(r -> r.isReportable() && r.getName().contains("atazanavir") && !r.getMatchingGroups().isEmpty())
+    );
+
+    assertTrue(
+        "citalopram and CYP2C19 guideline not called",
+        reporter.getGuidelineReports().stream()
+            .anyMatch(r -> r.isReportable() && r.getName().contains("citalopram") && !r.getMatchingGroups().isEmpty())
+    );
+
+    assertTrue(
+        "ivacaftor and CFTR guideline called but should not be, we don't have reference annotated yet",
+        reporter.getGuidelineReports().stream()
+            .anyMatch(r -> r.isReportable() && r.getName().contains("ivacaftor") && r.getMatchingGroups() == null)
+    );
   }
 }

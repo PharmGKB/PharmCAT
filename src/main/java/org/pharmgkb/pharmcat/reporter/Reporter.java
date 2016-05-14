@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
@@ -18,6 +19,7 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.MarkdownWriter;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
+import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -116,5 +118,13 @@ public class Reporter {
 
     new MarkdownWriter(reportFile)
         .print(m_dataUnifier);
+  }
+
+  @Nullable
+  public List<GuidelineReport> getGuidelineReports() {
+    if (m_dataUnifier == null) {
+      return null;
+    }
+    return m_dataUnifier.getGuidelineResults();
   }
 }
