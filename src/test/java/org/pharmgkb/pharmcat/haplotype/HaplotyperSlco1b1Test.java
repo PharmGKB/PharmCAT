@@ -87,7 +87,7 @@ public class HaplotyperSlco1b1Test {
 
     It would be useful if the output html still showed all the tsv positions, as it's easier to scan along by eye.
 
-    TIL: we don't currently expect to match *5/*29. This needs discussing to make sure Michelle etc are okay adding this to the
+    TLDR: we don't currently expect to match *5/*29. This needs discussing to make sure Michelle etc are okay adding this to the
     expected matches. The output does not show *29 was called using incomplete data.
      */
 
