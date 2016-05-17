@@ -139,11 +139,10 @@ public class Haplotyper {
    */
   MatchData initializeCallData(SortedMap<String, SampleAllele> alleleMap, String gene) {
 
-    MatchData data = new MatchData();
     // grab SampleAlleles for all positions related to current gene
-    data.marshallSampleData(alleleMap, m_definitionReader.getDefinitionFile(gene).getChromosome(),
+    MatchData data = new MatchData(alleleMap, m_definitionReader.getDefinitionFile(gene).getChromosome(),
         m_definitionReader.getPositions(gene));
-    if (data.geneSampleMap.size() == 0) {
+    if (data.getNumSampleAlleles() == 0) {
       throw new IllegalStateException("No alleles in sample for " + gene);
     }
     // handle missing positions (if any)

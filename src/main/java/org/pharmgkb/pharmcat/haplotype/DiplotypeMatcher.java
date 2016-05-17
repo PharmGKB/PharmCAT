@@ -37,12 +37,12 @@ public class DiplotypeMatcher {
     // compare sample permutations to haplotypes
     SortedSet<HaplotypeMatch> matches = comparePermutations();
 
-    if (m_dataset.permutations.size() == 1 && matches.size() == 1) {
+    if (m_dataset.getPermutations().size() == 1 && matches.size() == 1) {
       // sample is homozygous for all positions and it matches a single allele,
       // so we need to return that as a diplotype
       HaplotypeMatch hm = matches.first();
       DiplotypeMatch dm = new DiplotypeMatch(hm, hm, m_dataset);
-      String seq = m_dataset.permutations.iterator().next();
+      String seq = m_dataset.getPermutations().iterator().next();
       dm.addSequencePair(new String[] { seq, seq });
       return Lists.newArrayList(dm);
     }
@@ -57,11 +57,11 @@ public class DiplotypeMatcher {
    */
   protected @Nonnull SortedSet<HaplotypeMatch> comparePermutations() {
 
-    Set<HaplotypeMatch> haplotypeMatches = m_dataset.haplotypes.stream()
+    Set<HaplotypeMatch> haplotypeMatches = m_dataset.getHaplotypes().stream()
         .map(HaplotypeMatch::new)
         .collect(Collectors.toSet());
 
-    for (String p : m_dataset.permutations) {
+    for (String p : m_dataset.getPermutations()) {
       for (HaplotypeMatch hm : haplotypeMatches) {
         hm.match(p);
       }
@@ -146,10 +146,7 @@ public class DiplotypeMatcher {
     for (int x = 0; x < seq1.length; x += 1) {
       String[] s1 = seq1[x].split(":");
       String[] s2 = seq2[x].split(":");
-      SampleAllele sampleAllele = m_dataset.geneSampleMap.get(Integer.valueOf(s1[0]));
-      if (sampleAllele == null) {
-        throw new IllegalStateException("Missing sample for haplotype position " + s1[0]);
-      }
+      SampleAllele sampleAllele = m_dataset.getSampleAllele(Integer.valueOf(s1[0]));
       if (sampleAllele.getAllele1().equals(sampleAllele.getAllele2())) {
         // expecting homozygous
         if (!s1[1].equals(s2[1])) {

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
 import javax.annotation.Nonnull;
+import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.TestUtil;
@@ -12,6 +13,7 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
 
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
 
 
@@ -95,7 +97,10 @@ public class HaplotyperTest {
 
     Path vcfFile  = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/haplotyper.vcf");
     Path jsonFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/haplotyper.json");
-
+    Set<String> permutations = Sets.newHashSet(
+        "1:C;2:del;3:C;",
+        "1:T;2:insA;3:delC;"
+    );
     String gene = "CYP3A5";
 
     DefinitionReader definitionReader = new DefinitionReader();
@@ -104,23 +109,20 @@ public class HaplotyperTest {
     Haplotyper haplotyper = new Haplotyper(definitionReader);
     SortedMap<String, SampleAllele> alleles = haplotyper.getVcfReader().read(vcfFile);
 
-    MatchData data = new MatchData();
     // grab SampleAlleles for all positions related to current gene
-    data.marshallSampleData(alleles, "chr1", definitionReader.getPositions(gene));
-    assertEquals(3, data.geneSampleMap.size());
-    assertEquals(0, data.missingPositions.size());
+    MatchData data = new MatchData(alleles, "chr1", definitionReader.getPositions(gene));
+    assertEquals(3, data.getNumSampleAlleles());
+    assertEquals(0, data.getMissingPositions().size());
     // handle missing positions of interest in sample
     data.marshallHaplotypes(definitionReader.getPositions(gene), definitionReader.getHaplotypes(gene));
-    assertEquals(3, data.positions.length);
-    assertEquals(2, data.haplotypes.size());
+    assertEquals(3, data.getPositions().length);
+    assertEquals(2, data.getHaplotypes().size());
 
     // get all permutations of sample at positions of interest
     data.generateSamplePermutations();
-    assertEquals(2, data.permutations.size());
-    assertTrue(data.permutations.contains("1:C;2:del;3:C;"));
-    assertTrue(data.permutations.contains("1:T;2:insA;3:delC;"));
+    assertThat(data.getPermutations(), equalTo(permutations));
 
-    for (NamedAllele hap : data.haplotypes) {
+    for (NamedAllele hap : data.getHaplotypes()) {
       System.out.println(hap.getName() + ": " + hap.getPermutations().pattern());
     }
 

@@ -7,6 +7,9 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.BeforeClass;
@@ -17,7 +20,9 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 
 /**
@@ -26,6 +31,7 @@ import static org.junit.Assert.assertEquals;
  * @author Mark Woon
  */
 public class DiplotypeMatcherTest {
+  private static VariantLocus[] s_positions;
   private static List<NamedAllele> s_haplotypes;
 
 
@@ -37,20 +43,20 @@ public class DiplotypeMatcherTest {
     VariantLocus var2 = new VariantLocus(2, "g.2T>A");
     VariantLocus var3 = new VariantLocus(3, "g.3T>A");
 
-    VariantLocus[] variants = new VariantLocus[] { var1, var2, var3 };
+    s_positions = new VariantLocus[] { var1, var2, var3 };
 
     // initialize test haplotypes
     NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "A", "C", "C" });
-    hap1.finalize(variants);
+    hap1.finalize(s_positions);
 
     NamedAllele hap2 = new NamedAllele("*4a", "*4a", new String[] { "G", null, null });
-    hap2.finalize(variants);
+    hap2.finalize(s_positions);
 
     NamedAllele hap3 = new NamedAllele("*4b", "*4b", new String[] { "G", "T", "T" });
-    hap3.finalize(variants);
+    hap3.finalize(s_positions);
 
     NamedAllele hap4 = new NamedAllele("*17", "*17", new String[] { null, "T", "T" });
-    hap4.finalize(variants);
+    hap4.finalize(s_positions);
 
     s_haplotypes = Lists.newArrayList(hap1, hap2, hap3, hap4);
 
@@ -140,30 +146,29 @@ public class DiplotypeMatcherTest {
 
   private List<DiplotypeMatch> computeHaplotypes(List<SampleAllele> alleles) {
 
-    SortedMap<Integer, SampleAllele> sampleAlleleMap = new TreeMap<>();
-    for (SampleAllele sa : alleles) {
-      sampleAlleleMap.put(sa.getPosition(), sa);
-    }
-    Set<String> permutations = CombinationUtil.generatePermutations(alleles);
+    SortedMap<String, SampleAllele> sampleAlleleMap = alleles.stream()
+        .collect(Collectors.toMap(s -> "chr1:" + s.getPosition(),
+        Function.identity(), new NonnullMergeFunction<>(), TreeMap::new));
 
-    MatchData dataset = new MatchData();
-    dataset.geneSampleMap = sampleAlleleMap;
-    dataset.haplotypes = s_haplotypes;
-    dataset.permutations = permutations;
+    MatchData dataset = new MatchData(sampleAlleleMap, "chr1", s_positions);
+    dataset.marshallHaplotypes(s_positions, s_haplotypes);
+    dataset.generateSamplePermutations();
 
     return new DiplotypeMatcher(dataset).compute();
   }
 
 
+  public static class NonnullMergeFunction<T> implements BinaryOperator<T> {
+
+    @Override
+    public T apply(T o, T o2) {
+      throw new RuntimeException(String.format("Duplicate key %s", o));
+    }
+  }
+
+
   @Test
   public void testComparePermutations() throws Exception {
-
-    Set<String> permutations = Sets.newHashSet(
-        "1:T;2:A;3:C;4:C;",
-        "1:T;2:A;3:C;4:G;",
-        "1:T;2:T;3:C;4:C;",
-        "1:T;2:T;3:C;4:G;"
-    );
 
     VariantLocus var1 = new VariantLocus(1, "g.1T>A");
     VariantLocus var2 = new VariantLocus(2, "g.2T>A");
@@ -180,10 +185,22 @@ public class DiplotypeMatcherTest {
     NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { null, null, "GG", null });
     hap3.finalize(variants);
 
-    MatchData dataset = new MatchData();
-    dataset.geneSampleMap = new TreeMap<>();
-    dataset.haplotypes = Lists.newArrayList(hap1, hap2, hap3);
-    dataset.permutations = permutations;
+    Set<String> permutations = Sets.newHashSet(
+        "1:T;2:A;3:C;4:C;",
+        "1:T;2:A;3:C;4:G;",
+        "1:T;2:T;3:C;4:C;",
+        "1:T;2:T;3:C;4:G;"
+    );
+    SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "T", "T", true, Lists.newArrayList("T")));
+    sampleAlleleMap.put("chr1:2", new SampleAllele("chr1", 2, "A", "T", false, Lists.newArrayList("T")));
+    sampleAlleleMap.put("chr1:3", new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C")));
+    sampleAlleleMap.put("chr1:4", new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C")));
+
+    MatchData dataset = new MatchData(sampleAlleleMap, "chr1", variants);
+    dataset.marshallHaplotypes(variants, Lists.newArrayList(hap1, hap2, hap3));
+    dataset.generateSamplePermutations();
+    assertThat(dataset.getPermutations(), equalTo(permutations));
 
     DiplotypeMatcher diplotypeMatcher = new DiplotypeMatcher(dataset);
 

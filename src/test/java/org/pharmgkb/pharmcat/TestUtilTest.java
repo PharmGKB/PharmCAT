@@ -1,8 +1,10 @@
 package org.pharmgkb.pharmcat;
 
+import java.util.TreeMap;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
@@ -30,7 +32,7 @@ public class TestUtilTest {
     HaplotypeMatch hm3 = createHaplotypeMatch("*3");
     HaplotypeMatch hm4 = createHaplotypeMatch("*4");
 
-    MatchData dataset = new MatchData();
+    MatchData dataset = new MatchData(new TreeMap<>(), "chr1", new VariantLocus[0]);
 
     TestUtil.assertDiplotypePairs(
         Lists.newArrayList("*1/*1", "*2/*4"),
@@ -64,7 +66,7 @@ public class TestUtilTest {
     HaplotypeMatch hm1 = createHaplotypeMatch("*1");
     HaplotypeMatch hm2 = createHaplotypeMatch("*2");
 
-    MatchData dataset = new MatchData();
+    MatchData dataset = new MatchData(new TreeMap<>(), "chr1", new VariantLocus[0]);
 
     TestUtil.assertDiplotypePairs(
         Lists.newArrayList("*1/*1", "*2/*4"),
@@ -83,7 +85,7 @@ public class TestUtilTest {
     HaplotypeMatch hm1 = createHaplotypeMatch("*1");
     HaplotypeMatch hm2 = createHaplotypeMatch("*2");
 
-    MatchData dataset = new MatchData();
+    MatchData dataset = new MatchData(new TreeMap<>(), "chr1", new VariantLocus[0]);
 
     TestUtil.assertDiplotypePairs(
         Lists.newArrayList("*2/*1", "*1/*2"),
@@ -101,7 +103,7 @@ public class TestUtilTest {
     HaplotypeMatch hm1 = createHaplotypeMatch("*1");
     HaplotypeMatch hm2 = createHaplotypeMatch("*2");
 
-    MatchData dataset = new MatchData();
+    MatchData dataset = new MatchData(new TreeMap<>(), "chr1", new VariantLocus[0]);
 
     TestUtil.assertDiplotypePairs(
         Lists.newArrayList("*1/*2", "*2/*1"),

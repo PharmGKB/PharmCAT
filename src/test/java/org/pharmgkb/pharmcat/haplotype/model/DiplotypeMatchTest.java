@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import com.google.common.collect.Lists;
 import org.junit.Test;
@@ -39,7 +40,7 @@ public class DiplotypeMatchTest {
     HaplotypeMatch hm2 = new HaplotypeMatch(hap2);
     HaplotypeMatch hm3 = new HaplotypeMatch(hap3);
 
-    MatchData dataset = new MatchData();
+    MatchData dataset = new MatchData(new TreeMap<>(), "chr1", variants);
 
     DiplotypeMatch dm1 = new DiplotypeMatch(hm1, hm1, dataset);
     DiplotypeMatch dm2 = new DiplotypeMatch(hm1, hm2, dataset);

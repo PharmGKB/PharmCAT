@@ -161,7 +161,7 @@ public class ResultSerializer {
         }
       }
       if (m_alwaysShowUnmatchedHaplotypes || matchedHaplotypeNames.size() == 0) {
-        for (NamedAllele haplotype : matchData.haplotypes) {
+        for (NamedAllele haplotype : matchData.getHaplotypes()) {
           if (!matchedHaplotypeNames.contains(haplotype.getName())) {
             printAllele(builder, haplotype.getName(), haplotype.getPermutations().pattern(), "danger");
           }
@@ -170,17 +170,17 @@ public class ResultSerializer {
 
       builder.append("</table>");
 
-      if (matchData.missingPositions.size() > 0) {
+      if (matchData.getMissingPositions().size() > 0) {
         builder.append("<p>There ");
-        if (matchData.missingPositions.size() > 1) {
+        if (matchData.getMissingPositions().size() > 1) {
           builder.append("were ");
         } else {
           builder.append("was ");
         }
-        builder.append(matchData.missingPositions.size())
+        builder.append(matchData.getMissingPositions().size())
             .append(" missing positions from the VCF file:</p>")
             .append("<ul>");
-        for (VariantLocus variant : matchData.missingPositions) {
+        for (VariantLocus variant : matchData.getMissingPositions()) {
           builder.append("<li>")
               .append(variant.getVcfPosition())
               .append(" (")

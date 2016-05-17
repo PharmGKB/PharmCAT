@@ -68,7 +68,7 @@ public class ResultBuilder {
     String definitionVersion = tsvFile.getContentVersion() + " (" + m_dateFormat.format(tsvFile.getModificationDate()) + ")";
     String chromosome = tsvFile.getChromosome();
 
-    Set<String> matchableHaps = matchData.haplotypes.stream()
+    Set<String> matchableHaps = matchData.getHaplotypes().stream()
         .map(NamedAllele::getName)
         .collect(Collectors.toSet());
     Set<String> uncallableHaplotypes = m_definitionReader.getHaplotypes(gene).stream()
@@ -84,8 +84,8 @@ public class ResultBuilder {
     }
 
     // get position info
-    for (VariantLocus variant : matchData.positions) {
-      SampleAllele allele = matchData.geneSampleMap.get(variant.getVcfPosition());
+    for (VariantLocus variant : matchData.getPositions()) {
+      SampleAllele allele = matchData.getSampleAllele(variant.getVcfPosition());
       String call;
       String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
       if (allele.isPhased()) {
