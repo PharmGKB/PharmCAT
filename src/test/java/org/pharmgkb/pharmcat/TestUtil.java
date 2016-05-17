@@ -4,15 +4,10 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashSet;
-import java.util.List;
-import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
-import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
-import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 
 /**
@@ -35,30 +30,5 @@ public class TestUtil {
     URL url = TestUtil.class.getClassLoader().getResource(filename);
     assertNotNull(filename + " is null", url);
     return Paths.get(url.toURI());
-  }
-
-
-  /**
-   * Checks that the list of diplotype matches are what we expect.
-   *
-   * @param expectedPairs the set of expected diplotypes in "*1/*2" format
-   * @param matches the list of haplotype matches
-   */
-  public static void assertDiplotypePairs(@Nonnull List<String> expectedPairs,
-      @Nonnull List<DiplotypeMatch> matches) {
-
-    Preconditions.checkNotNull(expectedPairs);
-    Preconditions.checkNotNull(matches);
-
-    List<String> pairs = matches.stream()
-        .map(DiplotypeMatch::getName)
-        .collect(Collectors.toList());
-    assertEquals("Incoming matches has non-unique pairs", matches.size(), new HashSet<>(pairs).size());
-
-    if (expectedPairs.size() != pairs.size() || !expectedPairs.equals(pairs)) {
-      System.out.println("Expected: [" + Joiner.on(", ").join(expectedPairs));
-      System.out.println("Got:      " + pairs);
-      fail("Did not get expected matches");
-    }
   }
 }

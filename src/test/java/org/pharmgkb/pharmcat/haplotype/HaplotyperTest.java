@@ -1,10 +1,13 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
 import javax.annotation.Nonnull;
+import com.google.common.base.Joiner;
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
@@ -25,7 +28,7 @@ import static org.junit.Assert.*;
 public class HaplotyperTest {
 
 
-  static List<DiplotypeMatch> testCallHaplotype(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
+  static HaplotyperResult testCallHaplotype(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
     return testCallHaplotype(tsvFile, vcfFile, true, true, false);
   }
 
@@ -33,41 +36,47 @@ public class HaplotyperTest {
    * Helper method for running Haplotyper.
    * This is used by the more specific gene tests.
    */
-  static List<DiplotypeMatch> testCallHaplotype(@Nonnull Path definitionFile, @Nonnull Path vcfFile,
+  static HaplotyperResult testCallHaplotype(@Nonnull Path definitionFile, @Nonnull Path vcfFile,
       boolean assumeReference, boolean topCandidateOnly, boolean showUnmatched) throws Exception {
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionFile);
-    String gene = definitionReader.getGenes().iterator().next();
 
-    Haplotyper haplotyper = new Haplotyper(definitionReader);
-    SortedMap<String, SampleAllele> alleleMap = haplotyper.getVcfReader().read(vcfFile);
+    Haplotyper haplotyper = new Haplotyper(definitionReader, assumeReference, topCandidateOnly);
+    HaplotyperResult result = haplotyper.call(vcfFile);
 
-    MatchData dataset = haplotyper.initializeCallData(alleleMap, gene);
-    List<DiplotypeMatch> matches = haplotyper.callDiplotypes(dataset);
-    StringBuilder rezBuilder = new StringBuilder();
-    for (DiplotypeMatch dm : matches) {
-      if (rezBuilder.length() > 0) {
-        rezBuilder.append(", ");
-      }
-      rezBuilder.append(dm.getName())
-          .append(" (")
-          .append(dm.getScore())
-          .append(")");
-    }
-    System.out.println(rezBuilder);
-
-    HaplotyperResult result = new ResultBuilder(definitionReader)
-        .forFile(vcfFile)
-        .gene(gene, dataset, matches)
-        .build();
     // print
     new ResultSerializer()
         .alwaysShowUnmatchedHaplotypes(showUnmatched)
         .toHtml(result, vcfFile.getParent().resolve(PathUtils.getBaseFilename(vcfFile) + ".html"))
         .toJson(result, vcfFile.getParent().resolve(PathUtils.getBaseFilename(vcfFile) + ".json"));
 
-    return matches;
+    return result;
+  }
+
+
+  /**
+   * Checks that the list of diplotype matches are what we expect.
+   *
+   * @param expectedPairs the set of expected diplotypes in "*1/*2" format
+   * @param result the {@link Haplotyper} results
+   */
+  static void assertDiplotypePairs(@Nonnull List<String> expectedPairs,
+      @Nonnull HaplotyperResult result) {
+
+    Preconditions.checkNotNull(expectedPairs);
+    Preconditions.checkNotNull(result);
+
+    List<String> pairs = new ArrayList<>();
+    for (DiplotypeMatch dm : result.getGeneCalls().get(0).getDiplotypes()) {
+      pairs.add(dm.getName());
+    }
+
+    if (expectedPairs.size() != pairs.size() || !expectedPairs.equals(pairs)) {
+      System.out.println("Expected: [" + Joiner.on(", ").join(expectedPairs));
+      System.out.println("Got:      " + pairs);
+      fail("Did not get expected matches");
+    }
   }
 
 

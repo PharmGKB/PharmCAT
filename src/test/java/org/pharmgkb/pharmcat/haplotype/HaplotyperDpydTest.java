@@ -6,7 +6,10 @@ import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.TestUtil;
-import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
+
+import static org.pharmgkb.pharmcat.haplotype.HaplotyperTest.assertDiplotypePairs;
+import static org.pharmgkb.pharmcat.haplotype.HaplotyperTest.testCallHaplotype;
 
 
 /**
@@ -15,11 +18,11 @@ import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
  * @author Lester Carter
  */
 public class HaplotyperDpydTest {
-  private Path m_jsonFile;
+  private Path m_definitionFile;
 
   @Before
   public void before() throws Exception {
-    m_jsonFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD_translation.json");
+    m_definitionFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD_translation.json");
   }
 
 
@@ -28,10 +31,10 @@ public class HaplotyperDpydTest {
     // Test *1/*1 - contains a del
 
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf");
-    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
-
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
-    TestUtil.assertDiplotypePairs(expectedMatches, matches);
+
+    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
   }
 
 
@@ -40,10 +43,10 @@ public class HaplotyperDpydTest {
     // Test *2a/Rs67376798A
 
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD/s2aRs67376798A.vcf");
-    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
-
     List<String> expectedMatches = Lists.newArrayList("*2A/rs67376798T/A");
-    TestUtil.assertDiplotypePairs(expectedMatches, matches);
+
+    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
   }
 
   @Test
@@ -51,10 +54,10 @@ public class HaplotyperDpydTest {
     // Test *1/*2b - however can't be distinguished from *2A/*5
 
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD/s1s2b.vcf");
-    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
-
     List<String> expectedMatches = Lists.newArrayList("*1/*2B", "*2A/*5");
-    TestUtil.assertDiplotypePairs(expectedMatches, matches);
+
+    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
   }
 
   @Test
@@ -78,10 +81,9 @@ public class HaplotyperDpydTest {
     */
 
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD/s1s7.vcf");
-    List<DiplotypeMatch> matches = HaplotyperTest.testCallHaplotype(m_jsonFile, vcfFile);
-
     List<String> expectedMatches = Lists.newArrayList("*1/*7");
-    TestUtil.assertDiplotypePairs(expectedMatches, matches);
-  }
 
+    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
+  }
 }

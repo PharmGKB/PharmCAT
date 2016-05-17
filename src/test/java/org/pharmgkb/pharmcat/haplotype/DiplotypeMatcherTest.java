@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -10,19 +11,20 @@ import java.util.TreeMap;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import javax.annotation.Nonnull;
+import com.google.common.base.Joiner;
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.pharmgkb.pharmcat.TestUtil;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 
 /**
@@ -81,7 +83,7 @@ public class DiplotypeMatcherTest {
 
     List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*1/*4a");
-    TestUtil.assertDiplotypePairs(expectedMatches, pairMatches);
+    assertDiplotypePairs(expectedMatches, pairMatches);
   }
 
 
@@ -96,7 +98,7 @@ public class DiplotypeMatcherTest {
 
     List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*1/*4b", "*1/*17", "*1/*4a", "*4a/*17");
-    TestUtil.assertDiplotypePairs(expectedMatches, pairMatches);
+    assertDiplotypePairs(expectedMatches, pairMatches);
   }
 
 
@@ -111,7 +113,7 @@ public class DiplotypeMatcherTest {
 
     List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*1/*17");
-    TestUtil.assertDiplotypePairs(expectedMatches, pairMatches);
+    assertDiplotypePairs(expectedMatches, pairMatches);
   }
 
 
@@ -126,7 +128,7 @@ public class DiplotypeMatcherTest {
 
     List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*4a/*4b", "*4a/*17", "*4a/*4a");
-    TestUtil.assertDiplotypePairs(expectedMatches, pairMatches);
+    assertDiplotypePairs(expectedMatches, pairMatches);
   }
 
 
@@ -140,7 +142,7 @@ public class DiplotypeMatcherTest {
     );
     List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*4a/*4b", "*4a/*17", "*4a/*4a");
-    TestUtil.assertDiplotypePairs(expectedMatches, pairMatches);
+    assertDiplotypePairs(expectedMatches, pairMatches);
   }
 
 
@@ -148,7 +150,7 @@ public class DiplotypeMatcherTest {
 
     SortedMap<String, SampleAllele> sampleAlleleMap = alleles.stream()
         .collect(Collectors.toMap(s -> "chr1:" + s.getPosition(),
-        Function.identity(), new NonnullMergeFunction<>(), TreeMap::new));
+        Function.identity(), new NoDuplicateMergeFunction<>(), TreeMap::new));
 
     MatchData dataset = new MatchData(sampleAlleleMap, "chr1", s_positions);
     dataset.marshallHaplotypes(s_haplotypes);
@@ -158,7 +160,26 @@ public class DiplotypeMatcherTest {
   }
 
 
-  public static class NonnullMergeFunction<T> implements BinaryOperator<T> {
+
+  private void assertDiplotypePairs(@Nonnull List<String> expectedPairs, @Nonnull List<DiplotypeMatch> matches) {
+
+    Preconditions.checkNotNull(expectedPairs);
+    Preconditions.checkNotNull(matches);
+
+    List<String> pairs = matches.stream()
+        .map(DiplotypeMatch::getName)
+        .collect(Collectors.toList());
+    assertEquals("Incoming matches has non-unique pairs", matches.size(), new HashSet<>(pairs).size());
+
+    if (expectedPairs.size() != pairs.size() || !expectedPairs.equals(pairs)) {
+      System.out.println("Expected: [" + Joiner.on(", ").join(expectedPairs));
+      System.out.println("Got:      " + pairs);
+      fail("Did not get expected matches");
+    }
+  }
+
+
+  private static class NoDuplicateMergeFunction<T> implements BinaryOperator<T> {
 
     @Override
     public T apply(T o, T o2) {
