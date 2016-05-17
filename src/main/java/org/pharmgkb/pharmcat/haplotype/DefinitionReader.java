@@ -24,6 +24,28 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 public class DefinitionReader {
   private GeneratedDefinitionSerializer m_definitionSerializer = new GeneratedDefinitionSerializer();
   private SortedMap<String, DefinitionFile> m_definitionFiles = new TreeMap<>();
+  private String m_genomeBuild;
+
+
+  /**
+   * Gets the genome build used by the allele definitions.
+   * This should be called <em>after</em> all allele definitions have been read.
+   */
+  public String getGenomeBuild() {
+    Preconditions.checkState(m_definitionFiles.size() > 0);
+
+    if (m_genomeBuild == null) {
+      for (DefinitionFile definitionFile : m_definitionFiles.values()) {
+        if (m_genomeBuild == null) {
+          m_genomeBuild = definitionFile.getGenomeBuild();
+        } else if (!m_genomeBuild.equalsIgnoreCase(definitionFile.getGenomeBuild())) {
+          throw new IllegalStateException("Definition files use different genome builds (" + m_genomeBuild + " vs " +
+              definitionFile.getGenomeBuild() + " for " + definitionFile.getGeneSymbol() + ")");
+        }
+      }
+    }
+    return m_genomeBuild;
+  }
 
 
   public @Nonnull Set<String> getGenes() {

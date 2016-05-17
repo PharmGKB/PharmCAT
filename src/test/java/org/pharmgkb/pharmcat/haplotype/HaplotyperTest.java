@@ -4,7 +4,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.SortedMap;
 import javax.annotation.Nonnull;
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
@@ -116,10 +115,10 @@ public class HaplotyperTest {
     definitionReader.read(jsonFile);
 
     Haplotyper haplotyper = new Haplotyper(definitionReader);
-    SortedMap<String, SampleAllele> alleles = haplotyper.getVcfReader().read(vcfFile);
+    VcfReader vcfReader = haplotyper.buildVcfReader(vcfFile);
 
     // grab SampleAlleles for all positions related to current gene
-    MatchData data = new MatchData(alleles, "chr1", definitionReader.getPositions(gene));
+    MatchData data = new MatchData(vcfReader.getAlleleMap(), "chr1", definitionReader.getPositions(gene));
     assertEquals(3, data.getNumSampleAlleles());
     assertEquals(0, data.getMissingPositions().size());
     // handle missing positions of interest in sample

@@ -223,7 +223,7 @@ public class ResultSerializer {
     System.out.println("Printing to " + htmlFile);
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(htmlFile, StandardCharsets.UTF_8))) {
       Map<String, String> varMap = new HashMap<>();
-      varMap.put("title", "PharmCAT Allele Call Report for " + result.getMetadata().getInputFile());
+      varMap.put("title", "PharmCAT Allele Call Report for " + result.getMetadata().getInputFilename());
       varMap.put("content", builder.toString());
       varMap.put("timestamp", m_dateFormat.format(new Date()));
       StrSubstitutor sub = new StrSubstitutor(varMap);

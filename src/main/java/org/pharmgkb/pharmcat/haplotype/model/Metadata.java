@@ -7,91 +7,41 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class Metadata {
-
-  @SerializedName("cpicAnnotatorBuild")
   @Expose
-  private String cpicAnnotatorBuild;
-  @SerializedName("cpicDataBuild")
+  @SerializedName("haplotyperVersion")
+  private String m_haplotyperVersion;
   @Expose
-  private String cpicDataBuild;
-  @SerializedName("genomeAssembly")
+  @SerializedName("genomeBuild")
+  private String m_genomeBuild;
   @Expose
-  private String genomeAssembly;
-  @SerializedName("inputFile")
+  @SerializedName("inputFilename")
+  private String m_inputFilename;
   @Expose
-  private String inputFile;
-  @SerializedName("dateTime")
-  @Expose
-  private Date date;
+  @SerializedName("timestamp")
+  private Date m_timetamp;
 
-  /**
-   * @return The cpicAnnotatorBuild
-   */
-  public String getCpicAnnotatorBuild() {
-    return cpicAnnotatorBuild;
+
+  public Metadata(String haplotyperVersion, String genomeBuild, String vcfFilename, Date date) {
+    m_haplotyperVersion = haplotyperVersion;
+    m_genomeBuild = genomeBuild;
+    m_inputFilename = vcfFilename;
+    m_timetamp = date;
   }
 
-  /**
-   * @param cpicAnnotatorBuild The cpicAnnotatorBuild
-   */
-  public void setCpicAnnotatorBuild(String cpicAnnotatorBuild) {
-    this.cpicAnnotatorBuild = cpicAnnotatorBuild;
+
+  public String getHaplotyperVersion() {
+    return m_haplotyperVersion;
   }
 
-  /**
-   * @return The cpicDataBuild
-   */
-  public String getCpicDataBuild() {
-    return cpicDataBuild;
+  public String getGenomeBuild() {
+    return m_genomeBuild;
   }
 
-  /**
-   * @param cpicDataBuild The cpicDataBuild
-   */
-  public void setCpicDataBuild(String cpicDataBuild) {
-    this.cpicDataBuild = cpicDataBuild;
+  public String getInputFilename() {
+    return m_inputFilename;
   }
 
-  /**
-   * @return The genomeAssembly
-   */
-  public String getGenomeAssembly() {
-    return genomeAssembly;
+  public Date getTimetamp() {
+    return m_timetamp;
   }
-
-  /**
-   * @param genomeAssembly The genomeAssembly
-   */
-  public void setGenomeAssembly(String genomeAssembly) {
-    this.genomeAssembly = genomeAssembly;
-  }
-
-  /**
-   * @return The inputFile
-   */
-  public String getInputFile() {
-    return inputFile;
-  }
-
-  /**
-   * @param inputFile The inputFile
-   */
-  public void setInputFile(String inputFile) {
-    this.inputFile = inputFile;
-  }
-
-  /**
-   * @return The dateTime
-   */
-  public Date getDate() {
-    return date;
-  }
-
-  /**
-   * @param date The dateTime
-   */
-  public void setDate(Date date) {
-    this.date = date;
-  }
-
 }

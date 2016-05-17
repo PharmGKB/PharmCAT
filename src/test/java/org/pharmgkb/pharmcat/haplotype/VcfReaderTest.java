@@ -19,8 +19,9 @@ public class VcfReaderTest {
   public void testPhasing() throws Exception {
 
     ImmutableSet<String> locationsOfInterest = ImmutableSet.of();
-    VcfReader reader = new VcfReader(locationsOfInterest);
-    Map<String, SampleAllele> alleleMap = reader.read(TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-phasing.vcf"));
+    VcfReader reader = new VcfReader(locationsOfInterest,
+        TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-phasing.vcf"));
+    Map<String, SampleAllele> alleleMap = reader.getAlleleMap();
     for (String chrPos : alleleMap.keySet()) {
       SampleAllele sa = alleleMap.get(chrPos);
       assertEquals(chrPos, sa.getChrPosition());

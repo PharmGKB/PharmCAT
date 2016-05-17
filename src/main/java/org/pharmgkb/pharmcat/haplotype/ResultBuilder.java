@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.api.client.repackaged.com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -47,14 +48,8 @@ public class ResultBuilder {
     Preconditions.checkArgument(vcfFile.toString().endsWith(".vcf"));
     Preconditions.checkArgument(Files.isRegularFile(vcfFile));
 
-    Metadata md = new Metadata();
-    //md.setCpicAnnotatorBuild();
-    //md.setCpicDataBuild();
-    md.setDate(new Date());
-    //md.setGenomeAssembly();
-    md.setInputFile(vcfFile.getName(vcfFile.getNameCount() - 1).toString());
-    m_result.setMetadata(md);
-
+    m_result.setMetadata(new Metadata(Haplotyper.VERSION, m_definitionReader.getGenomeBuild(),
+        PathUtils.getFilename(vcfFile), new Date()));
     return this;
   }
 

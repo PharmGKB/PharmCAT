@@ -23,8 +23,9 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
  */
 @ThreadSafe
 public class Haplotyper {
+  public static final String VERSION = "1.0.0";
   private DefinitionReader m_definitionReader;
-  private VcfReader m_vcfReader;
+  private ImmutableSet<String> m_locationsOfInterest;
   private boolean m_assumeReferenceInDefinitions;
   private boolean m_topCandidateOnly;
 
@@ -47,7 +48,7 @@ public class Haplotyper {
 
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
-    m_vcfReader = new VcfReader(calculateLocationsOfInterest(m_definitionReader));
+    m_locationsOfInterest = calculateLocationsOfInterest(m_definitionReader);
     m_assumeReferenceInDefinitions = assumeReference;
     m_topCandidateOnly = topCandidateOnly;
   }
@@ -89,9 +90,11 @@ public class Haplotyper {
   }
 
 
-
-  VcfReader getVcfReader() {
-    return m_vcfReader;
+  /**
+   * Builds a new VCF reader for the given file.
+   */
+  VcfReader buildVcfReader(Path vcfFile) throws IOException {
+    return new VcfReader(m_locationsOfInterest, vcfFile);
   }
 
 
@@ -120,7 +123,8 @@ public class Haplotyper {
    */
   public HaplotyperResult call(@Nonnull Path vcfFile) throws IOException {
 
-    SortedMap<String, SampleAllele> alleles = m_vcfReader.read(vcfFile);
+    VcfReader vcfReader = buildVcfReader(vcfFile);
+    SortedMap<String, SampleAllele> alleles = vcfReader.getAlleleMap();
     ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader)
         .forFile(vcfFile);
     // call haplotypes
