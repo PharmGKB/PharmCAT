@@ -1,7 +1,7 @@
 
 package org.pharmgkb.pharmcat.haplotype.model;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -28,7 +28,7 @@ public class GeneCall {
   private String m_gene;
   @Expose
   @SerializedName("diplotypes")
-  private Set<DiplotypeMatch> m_diplotypes = new HashSet<>();
+  private LinkedHashSet<DiplotypeMatch> m_diplotypes = new LinkedHashSet<>();
   @Expose
   @SerializedName("haplotypes")
   private SortedSet<HaplotypeMatch> m_haplotypes = new TreeSet<>();
@@ -74,7 +74,7 @@ public class GeneCall {
   }
 
 
-  public Set<DiplotypeMatch> getDiplotypes() {
+  public LinkedHashSet<DiplotypeMatch> getDiplotypes() {
     return m_diplotypes;
   }
 
