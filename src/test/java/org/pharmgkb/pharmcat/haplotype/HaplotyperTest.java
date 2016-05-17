@@ -114,7 +114,7 @@ public class HaplotyperTest {
     assertEquals(3, data.getNumSampleAlleles());
     assertEquals(0, data.getMissingPositions().size());
     // handle missing positions of interest in sample
-    data.marshallHaplotypes(definitionReader.getPositions(gene), definitionReader.getHaplotypes(gene));
+    data.marshallHaplotypes(definitionReader.getHaplotypes(gene));
     assertEquals(3, data.getPositions().length);
     assertEquals(2, data.getHaplotypes().size());
 

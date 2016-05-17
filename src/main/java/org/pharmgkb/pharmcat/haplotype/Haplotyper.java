@@ -146,7 +146,7 @@ public class Haplotyper {
       throw new IllegalStateException("No alleles in sample for " + gene);
     }
     // handle missing positions (if any)
-    data.marshallHaplotypes(m_definitionReader.getPositions(gene), m_definitionReader.getHaplotypes(gene));
+    data.marshallHaplotypes(m_definitionReader.getHaplotypes(gene));
 
     if (m_assumeReferenceInDefinitions) {
       data.defaultMissingAllelesToReference();

@@ -6,7 +6,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
@@ -18,29 +20,31 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * This is the data used to compute a {@link DiplotypeMatch}.
+ * This is the data used to compute a {@link DiplotypeMatch} for a specific gene.
  *
  * @author Mark Woon
  */
 public class MatchData {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private SortedMap<Integer, SampleAllele> m_sampleMap = new TreeMap<>();
-  private Set<VariantLocus> m_missingPositions = new HashSet<>();
   private VariantLocus[] m_positions;
+  private Set<VariantLocus> m_missingPositions = new HashSet<>();
   private List<NamedAllele> m_haplotypes;
   private Set<String> m_permutations;
 
 
   /**
    * Constructor.
-   * Organizes the {@link SampleAllele} data related for a single gene of interest.
+   * Organizes the {@link SampleAllele} data related for the gene of interest.
    *
    * @param alleleMap map of chr:positions to {@link SampleAllele}s from VCF
+   * @param allPositions all {@link VariantLocus} positions of interest for the gene
    */
   public MatchData(@Nonnull SortedMap<String, SampleAllele> alleleMap, @Nonnull String chromosome,
-      @Nonnull VariantLocus[] positions) {
+      @Nonnull VariantLocus[] allPositions) {
 
-    for (VariantLocus variant : positions) {
+    List<VariantLocus> positions = new ArrayList<>();
+    for (VariantLocus variant : allPositions) {
       String chrPos = chromosome + ":" + variant.getVcfPosition();
       SampleAllele allele = alleleMap.get(chrPos);
       if (allele == null) {
@@ -48,9 +52,11 @@ public class MatchData {
         sf_logger.info("Sample has no allele for {}", chrPos);
         continue;
       }
+      positions.add(variant);
       allele = allele.forVariant(variant);
       m_sampleMap.put(variant.getVcfPosition(), allele);
     }
+    m_positions = positions.toArray(new VariantLocus[0]);
   }
 
 
@@ -58,22 +64,13 @@ public class MatchData {
    * Organizes the {@link NamedAllele} data for analysis.
    * This will also reorganize haplotypes to deal with samples that have missing alleles.
    */
-  void marshallHaplotypes(VariantLocus[] allPositions, List<NamedAllele> allHaplotypes) {
+  void marshallHaplotypes(List<NamedAllele> allHaplotypes) {
 
     if (m_missingPositions.isEmpty()) {
-      m_positions = allPositions;
       m_haplotypes = allHaplotypes;
 
     } else {
       // handle missing positions by duplicating haplotype and eliminating missing positions
-      VariantLocus[] availablePositions = new VariantLocus[allPositions.length - m_missingPositions.size()];
-      for (int x = 0, y = 0; x < allPositions.length; x += 1) {
-        if (!m_missingPositions.contains(allPositions[x])) {
-          availablePositions[y] = allPositions[x];
-          y += 1;
-        }
-      }
-      m_positions = availablePositions;
       m_haplotypes = new ArrayList<>();
       for (NamedAllele hap : allHaplotypes) {
         // get alleles for positions we have data on
@@ -81,7 +78,12 @@ public class MatchData {
         for (int x = 0; x < m_positions.length; x += 1) {
           availableAlleles[x] = hap.getAllele(m_positions[x]);
         }
-        NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles);
+
+        SortedSet<VariantLocus> missingPositions = m_missingPositions.stream()
+            .filter(l -> hap.getAllele(l) != null)
+            .collect(Collectors.toCollection(TreeSet::new));
+
+        NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles, missingPositions);
         newHap.setFunction(hap.getFunction());
         newHap.setPopFreqMap(hap.getPopFreqMap());
         newHap.finalize(m_positions);
@@ -120,7 +122,7 @@ public class MatchData {
         }
       }
 
-      NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles);
+      NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles, hap.getMissingPositions());
       fixedHap.setFunction(hap.getFunction());
       fixedHap.setPopFreqMap(hap.getPopFreqMap());
       fixedHap.finalize(m_positions);
@@ -143,15 +145,18 @@ public class MatchData {
     return sampleAllele;
   }
 
+  /**
+   * Gets all permutations of sample alleles at positions of interest.
+   */
   public @Nonnull Set<String> getPermutations() {
-    if (m_positions == null) {
+    if (m_permutations == null) {
       throw new IllegalStateException("Not initialized - call generateSamplePermutations()");
     }
     return m_permutations;
   }
 
   /**
-   * Generate all permutations of sample at positions of interest.
+   * Generate all permutations of sample alleles at positions of interest.
    */
   void generateSamplePermutations() {
 
@@ -163,17 +168,24 @@ public class MatchData {
   }
 
 
+  /**
+   * Gets the positions available for calling the haplotypes for the gene.
+   */
   public @Nonnull VariantLocus[] getPositions() {
-    if (m_positions == null) {
-      throw new IllegalStateException("Not initialized - call marshallHaplotypes()");
-    }
     return m_positions;
   }
 
+  /**
+   * Gets the positions that are missing from the sample VCF that would have been helpful for calling the haplotypes for
+   * the gene.
+   */
   public @Nonnull Set<VariantLocus> getMissingPositions() {
     return m_missingPositions;
   }
 
+  /**
+   * Gets the callable haplotypes for the gene based on the available positions.
+   */
   public @Nonnull List<NamedAllele> getHaplotypes() {
     if (m_haplotypes == null) {
       throw new IllegalStateException("Not initialized - call marshallHaplotypes()");

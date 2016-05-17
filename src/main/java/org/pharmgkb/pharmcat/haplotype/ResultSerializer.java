@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
@@ -196,6 +197,23 @@ public class ResultSerializer {
             builder.append("<li>")
                 .append(name)
                 .append("</li>");
+          }
+          builder.append("</ul>");
+        }
+
+        if (call.getHaplotypes().size() > 0) {
+          builder.append("<p>The following haplotypes were called even though tag positions were missing:</p>")
+              .append("<ul>");
+          for (HaplotypeMatch hm : call.getHaplotypes()) {
+            if (hm.getHaplotype().getMissingPositions().size() > 0) {
+              builder.append("<li>Called ")
+                  .append(hm.getName())
+                  .append(" without ")
+                  .append(hm.getHaplotype().getMissingPositions().stream()
+                      .map(VariantLocus::getChromosomeHgvsName)
+                      .collect(Collectors.joining(", ")))
+                  .append("</li>");
+            }
           }
           builder.append("</ul>");
         }
