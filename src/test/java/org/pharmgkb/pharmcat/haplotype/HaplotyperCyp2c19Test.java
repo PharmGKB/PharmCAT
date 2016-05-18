@@ -71,6 +71,35 @@ public class HaplotyperCyp2c19Test {
 
 
   @Test
+  public void cyp2c19s1s17s1s4bMissingCalls() throws Exception {
+    // Test *1 *4b - but with 94762706	rs28399504	A	G	.	PASS	star-4a-4b	GT	./. to test partial call
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s17s1s4bmissing.vcf");
+    List<String> expectedMatches = Lists.newArrayList("*1/*17", "*1/*4B");
+
+    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
+  }
+
+
+  @Test
+  public void cyp2c19s1s17s1s4bMissingMoreCalls() throws Exception {
+    // Test *1 *4b - but many calls deleted from the vcf.
+
+    /*
+    TODO - returned results are correct.  In the html report *4A and *15 are reported as excluded. However
+    as far as I can tell all positions for *28 are also excluded, so why doesn't his make the list? Presume
+    this is becuase it's multi position, so similar to *1, but may be worth discussing.
+
+     */
+    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s17s1s4bmissingmore.vcf");
+    List<String> expectedMatches = Lists.newArrayList("*1/*17", "*1/*4B");
+
+    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
+  }
+
+
+  @Test
   public void cyp2c19s1s28() throws Exception {
     // Test *1 *28. The longest possible match should win.
     Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s28.vcf");
