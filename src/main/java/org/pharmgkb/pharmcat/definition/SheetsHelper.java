@@ -10,8 +10,8 @@ import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
 import com.google.common.base.Preconditions;
 import com.google.gdata.util.ServiceException;
-import org.pharmgkb.common.io.GoogleApiHelper;
-import org.pharmgkb.common.io.GoogleSheetsHelper;
+import org.pharmgkb.common.io.google.GoogleApiHelper;
+import org.pharmgkb.common.io.google.GoogleSheetsHelper;
 
 
 /**

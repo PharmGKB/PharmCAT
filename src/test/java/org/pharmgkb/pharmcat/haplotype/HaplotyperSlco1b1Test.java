@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
-import org.pharmgkb.pharmcat.TestUtil;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
 
 import static org.pharmgkb.pharmcat.haplotype.HaplotyperTest.assertDiplotypePairs;
@@ -22,14 +22,14 @@ public class HaplotyperSlco1b1Test {
 
   @Before
   public void before() throws Exception {
-    m_definitionFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/SLCO1B1_translation.json");
+    m_definitionFile =  PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1_translation.json");
   }
 
   @Test
   public void slco1b1s1as1a() throws Exception {
     // Test *1/*1
 
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as1a.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as1a.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1A/*1A");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
@@ -40,7 +40,7 @@ public class HaplotyperSlco1b1Test {
   public void slco1b1s5s15() throws Exception {
     // Test *5/*15
 
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s5s15.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s5s15.vcf");
     List<String> expectedMatches = Lists.newArrayList("*5/*15");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
@@ -51,7 +51,7 @@ public class HaplotyperSlco1b1Test {
   public void slco1b1s1as15() throws Exception {
     // Test *1a/*15. Except we can't distinguish *1B/*5.
 
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
@@ -71,7 +71,7 @@ public class HaplotyperSlco1b1Test {
     Output should report that *29 is only partially called.
      */
 
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5missing.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5missing.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5", "*5/*29");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
@@ -93,7 +93,7 @@ public class HaplotyperSlco1b1Test {
      TODO: test passes, but we need to make sure the output makes this distinction clear
      */
 
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5twomissing.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5twomissing.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5", "*5/*29");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
@@ -105,7 +105,7 @@ public class HaplotyperSlco1b1Test {
   public void s1as15s1bs5NotCalled() throws Exception {
     // Test *1a/*15. Except we can't distinguish *1B/*5 or *5/*29, because final position is ./.
 
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5notcalled.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5notcalled.vcf");
     // same as above, but using ./. to signify missing snp.
     List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5", "*5/*29");
 
@@ -118,7 +118,7 @@ public class HaplotyperSlco1b1Test {
   public void slco1b17s1bs21() throws Exception {
     // Test *17/*21
 
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s17s21.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s17s21.vcf");
     List<String> expectedMatches = Lists.newArrayList("*17/*21");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);

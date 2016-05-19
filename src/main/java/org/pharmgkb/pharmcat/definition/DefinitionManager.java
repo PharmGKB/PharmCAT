@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 import java.util.Properties;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
-import org.pharmgkb.common.io.CliHelper;
+import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 

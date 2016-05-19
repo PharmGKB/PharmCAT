@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.TestUtil;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 
 import static org.junit.Assert.*;
@@ -21,7 +20,7 @@ public class GeneratedDefinitionSerializerTest {
   public void testJson1() throws Exception {
 
     // is INS
-    Path inFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
+    Path inFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
     DefinitionFile[] definitionFiles = testJson(inFile);
     CuratedDefinitionParserTest.assertInsertFromCyp3a5GoodTsv(definitionFiles[1]);
   }
@@ -30,7 +29,7 @@ public class GeneratedDefinitionSerializerTest {
   @Test
   public void testJsonRepeat() throws Exception {
 
-    Path inFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/repeats.tsv");
+    Path inFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/repeats.tsv");
     DefinitionFile[] definitionFiles = testJson(inFile);
     CuratedDefinitionParserTest.assertRepeatFromRepeatsTsv(definitionFiles[1]);
   }
@@ -40,7 +39,7 @@ public class GeneratedDefinitionSerializerTest {
   public void testJson2() throws Exception {
 
     // contains population frequencies
-    Path inFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/CYP2C19.tsv");
+    Path inFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP2C19.tsv");
     DefinitionFile[] definitionFiles = testJson(inFile);
     assertEquals(8, definitionFiles[1].getPopulations().size());
     assertNotNull(definitionFiles[1].getNamedAlleles().get(0).getPopFreqMap());
@@ -67,7 +66,7 @@ public class GeneratedDefinitionSerializerTest {
   @Test
   public void testTsv() throws Exception {
 
-    Path inFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
+    Path inFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
     DefinitionFile definitionFile = new CuratedDefinitionParser(inFile).parse();
 
     Path tsvFile = inFile.getParent().resolve(PathUtils.getBaseFilename(inFile) + "-generated.tsv");

@@ -5,7 +5,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.pharmgkb.pharmcat.TestUtil;
+import org.pharmgkb.common.util.PathUtils;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -22,13 +22,13 @@ public class ReporterTest {
 
   @BeforeClass
   public static void before() throws URISyntaxException, IOException {
-    Path annotationsDir = TestUtil.getFile("org/pharmgkb/pharmcat/annotations");
+    Path annotationsDir = PathUtils.getPathToResource("org/pharmgkb/pharmcat/annotations");
     s_reporter = new Reporter(annotationsDir.toFile());
   }
 
   @Test
   public void reporterTest() throws Exception {
-    Path callerFile     = TestUtil.getFile("org/pharmgkb/pharmcat/reporter/test.haplotyper.output.json");
+    Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.haplotyper.output.json");
     Path outputFile     = callerFile.getParent().resolve("test.haplotyper.output.md");
 
     s_reporter.analyze(callerFile.toFile()).printMarkdown(outputFile);
@@ -36,7 +36,7 @@ public class ReporterTest {
 
   @Test
   public void bigSampleTest() throws Exception {
-    Path callerFile     = TestUtil.getFile("org/pharmgkb/pharmcat/reporter/big.sample.json");
+    Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/big.sample.json");
     Path outputFile     = callerFile.getParent().resolve("big.sample.md");
 
     s_reporter.analyze(callerFile.toFile()).printMarkdown(outputFile);
@@ -44,7 +44,7 @@ public class ReporterTest {
 
   @Test
   public void bigMissingTest() throws Exception {
-    Path callerFile     = TestUtil.getFile("org/pharmgkb/pharmcat/reporter/big.sample.missing.2c19.loc.json");
+    Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/big.sample.missing.2c19.loc.json");
     Path outputFile     = callerFile.getParent().resolve("big.sample.missing.2c19.loc.md");
 
     Reporter reporter = s_reporter.analyze(callerFile.toFile());

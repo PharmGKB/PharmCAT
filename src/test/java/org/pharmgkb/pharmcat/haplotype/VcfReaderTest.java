@@ -3,7 +3,7 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.util.Map;
 import com.google.common.collect.ImmutableSet;
 import org.junit.Test;
-import org.pharmgkb.pharmcat.TestUtil;
+import org.pharmgkb.common.util.PathUtils;
 
 import static org.junit.Assert.*;
 
@@ -20,7 +20,7 @@ public class VcfReaderTest {
 
     ImmutableSet<String> locationsOfInterest = ImmutableSet.of();
     VcfReader reader = new VcfReader(locationsOfInterest,
-        TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-phasing.vcf"));
+        PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-phasing.vcf"));
     Map<String, SampleAllele> alleleMap = reader.getAlleleMap();
     for (String chrPos : alleleMap.keySet()) {
       SampleAllele sa = alleleMap.get(chrPos);

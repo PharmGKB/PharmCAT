@@ -8,7 +8,6 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
-import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
@@ -18,6 +17,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.pharmgkb.common.util.NoDuplicateMergeFunction;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -175,15 +175,6 @@ public class DiplotypeMatcherTest {
       System.out.println("Expected: [" + Joiner.on(", ").join(expectedPairs));
       System.out.println("Got:      " + pairs);
       fail("Did not get expected matches");
-    }
-  }
-
-
-  private static class NoDuplicateMergeFunction<T> implements BinaryOperator<T> {
-
-    @Override
-    public T apply(T o, T o2) {
-      throw new RuntimeException(String.format("Duplicate key %s", o));
     }
   }
 

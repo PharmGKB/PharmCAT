@@ -3,8 +3,8 @@ package org.pharmgkb.pharmcat.definition;
 import java.nio.file.Path;
 import com.google.common.base.Joiner;
 import org.junit.Test;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.ParseException;
-import org.pharmgkb.pharmcat.TestUtil;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantType;
@@ -17,7 +17,7 @@ public class CuratedDefinitionParserTest {
   @Test
   public void testReaderGood() throws Exception {
 
-    Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
+    Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
     CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
     assertInsertFromCyp3a5GoodTsv(parser.parse());
   }
@@ -35,7 +35,7 @@ public class CuratedDefinitionParserTest {
   @Test
   public void testReaderRepeats() throws Exception {
 
-    Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/repeats.tsv");
+    Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/repeats.tsv");
     CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
     assertRepeatFromRepeatsTsv(parser.parse());
   }
@@ -62,7 +62,7 @@ public class CuratedDefinitionParserTest {
   public void testReaderBad() throws Exception {
 
     try {
-      Path tsvFile = TestUtil.getFile("org/pharmgkb/pharmcat/definition/CYP3A5.bad.tsv");
+      Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP3A5.bad.tsv");
       CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
       DefinitionFile definitionFile = parser.parse();
       assertEquals(9, definitionFile.getNamedAlleles().size());

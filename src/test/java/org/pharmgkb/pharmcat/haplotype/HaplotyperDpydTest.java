@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
-import org.pharmgkb.pharmcat.TestUtil;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
 
 import static org.pharmgkb.pharmcat.haplotype.HaplotyperTest.assertDiplotypePairs;
@@ -22,7 +22,7 @@ public class HaplotyperDpydTest {
 
   @Before
   public void before() throws Exception {
-    m_definitionFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD_translation.json");
+    m_definitionFile =  PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD_translation.json");
   }
 
 
@@ -30,7 +30,7 @@ public class HaplotyperDpydTest {
   public void dpyds1s1() throws Exception {
     // Test *1/*1 - contains a del
 
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
@@ -42,7 +42,7 @@ public class HaplotyperDpydTest {
   public void dpyds2aRs67376798A() throws Exception {
     // Test *2a/Rs67376798A
 
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD/s2aRs67376798A.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD/s2aRs67376798A.vcf");
     List<String> expectedMatches = Lists.newArrayList("*2A/rs67376798T/A");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
@@ -53,7 +53,7 @@ public class HaplotyperDpydTest {
   public void dpyds1s2b() throws Exception {
     // Test *1/*2b - however can't be distinguished from *2A/*5
 
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD/s1s2b.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD/s1s2b.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*2B", "*2A/*5");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
@@ -80,7 +80,7 @@ public class HaplotyperDpydTest {
 
     */
 
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/DPYD/s1s7.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD/s1s7.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*7");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);

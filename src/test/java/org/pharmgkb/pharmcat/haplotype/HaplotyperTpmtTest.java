@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
-import org.pharmgkb.pharmcat.TestUtil;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
 
 import static org.pharmgkb.pharmcat.haplotype.HaplotyperTest.assertDiplotypePairs;
@@ -23,14 +23,14 @@ public class HaplotyperTpmtTest {
 
   @Before
   public void before() throws Exception {
-    m_definitionFile =  TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/TPMT_translation.json");
+    m_definitionFile =  PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT_translation.json");
   }
 
 
   @Test
   public void tpmts1s1() throws Exception {
     // Test *1/*1
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/TPMT/s1s1.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s1s1.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
@@ -40,7 +40,7 @@ public class HaplotyperTpmtTest {
   @Test
   public void tpmts3bs3c() throws Exception {
     // Test *3b/*3c.  However due to lack of phasing *1/*3a is also an option
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/TPMT/s3bs3c.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s3bs3c.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*3A","*3B/*3C");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
@@ -50,7 +50,7 @@ public class HaplotyperTpmtTest {
   @Test
   public void tpmts3as3b() throws Exception {
     // Test *3a/*3b.
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/TPMT/s3as3b.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s3as3b.vcf");
     List<String> expectedMatches = Lists.newArrayList("*3A/*3B");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
@@ -60,7 +60,7 @@ public class HaplotyperTpmtTest {
   @Test
   public void tpmts16s22() throws Exception {
     // Test *16/*22. rs144041067 is bi-allelic
-    Path vcfFile = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/TPMT/s16s22.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s16s22.vcf");
     List<String> expectedMatches = Lists.newArrayList("*16/*22");
 
     HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);

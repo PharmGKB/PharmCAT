@@ -4,7 +4,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.junit.Test;
-import org.pharmgkb.pharmcat.TestUtil;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 
 import static org.junit.Assert.assertEquals;
@@ -32,7 +32,7 @@ public class DefinitionReaderTest {
   @Test
   public void testReadAllDefinitions() throws Exception {
 
-    Path file = TestUtil.getFile("org/pharmgkb/pharmcat/haplotype/CYP2C19_translation.json");
+    Path file = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/CYP2C19_translation.json");
     DefinitionReader reader = new DefinitionReader();
     reader.read(file.getParent());
 
