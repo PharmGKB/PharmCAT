@@ -61,20 +61,4 @@ public class GeneratedDefinitionSerializerTest {
     assertEquals(definitionFile, jsonDefinitionFile);
     return new DefinitionFile[] { definitionFile, jsonDefinitionFile };
   }
-
-
-  @Test
-  public void testTsv() throws Exception {
-
-    Path inFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
-    DefinitionFile definitionFile = new CuratedDefinitionParser(inFile).parse();
-
-    Path tsvFile = inFile.getParent().resolve(PathUtils.getBaseFilename(inFile) + "-generated.tsv");
-    GeneratedDefinitionSerializer cdSerializer = new GeneratedDefinitionSerializer();
-    // write it out
-    cdSerializer.serializeToTsv(definitionFile, tsvFile);
-
-    // TODO(markwoon): check that file is correct!
-    System.out.println(tsvFile);
-  }
 }

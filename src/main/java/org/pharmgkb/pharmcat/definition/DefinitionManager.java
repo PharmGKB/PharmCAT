@@ -115,7 +115,6 @@ public class DefinitionManager {
               .forEach(System.out::println);
         }
 
-        serializer.serializeToTsv(definitionFile, outDir.resolve(definitionFile.getGeneSymbol() + ".tsv"));
         Path jsonFile = outDir.resolve(PathUtils.getBaseFilename(file) + ".json");
         serializer.serializeToJson(definitionFile, jsonFile);
         System.out.println("Wrote " + jsonFile);
