@@ -26,7 +26,10 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
  * @author Mark Woon
  */
 public class GeneratedDefinitionSerializer {
-  private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
+  private static final Gson sf_gson = new GsonBuilder()
+      .serializeNulls()
+      .disableHtmlEscaping()
+      .excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
   private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
