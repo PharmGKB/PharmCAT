@@ -47,7 +47,7 @@ public class DefinitionManager {
           .addOption("out", "generated-dir", "directory of save generated allele definition files", true, "out")
           .addOption("d", "download", "download curated allele definition files");
 
-      if (cliHelper.parse(args)) {
+      if (!cliHelper.parse(args)) {
         System.exit(1);
       }
 
@@ -109,7 +109,7 @@ public class DefinitionManager {
         CuratedDefinitionParser parser = new CuratedDefinitionParser(file);
 
         DefinitionFile definitionFile = parser.parse();
-        if (parser.getWarnings().isEmpty()) {
+        if (!parser.getWarnings().isEmpty()) {
           System.out.println("Warnings for " + file);
           parser.getWarnings().stream()
               .forEach(System.out::println);

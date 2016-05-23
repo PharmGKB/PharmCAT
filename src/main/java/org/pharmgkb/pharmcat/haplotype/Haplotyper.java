@@ -63,7 +63,7 @@ public class Haplotyper {
           .addOption("j", "json-file", "file to save results to (in JSON format)", false, "j")
           .addOption("h", "html-file", "file to svae results to (in HTML format)", false, "h");
 
-      if (cliHelper.parse(args)) {
+      if (!cliHelper.parse(args)) {
         System.exit(1);
       }
 
