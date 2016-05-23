@@ -1,117 +1,31 @@
 
 package org.pharmgkb.pharmcat.reporter.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("org.jsonschema2pojo")
 public class RelatedChemical {
+  @Expose
+  @SerializedName("id")
+  private String id;
+  @Expose
+  @SerializedName("name")
+  private String name;
 
-    @SerializedName("objCls")
-    @Expose
-    private String objCls;
-    @SerializedName("@id")
-    @Expose
-    private String Id;
-    @SerializedName("@context")
-    @Expose
-    private String Context;
-    @SerializedName("id")
-    @Expose
-    private String id;
-    @SerializedName("name")
-    @Expose
-    private String name;
 
-    /**
-     * 
-     * @return
-     *     The objCls
-     */
-    public String getObjCls() {
-        return objCls;
-    }
+  public String getId() {
+    return id;
+  }
 
-    /**
-     * 
-     * @param objCls
-     *     The objCls
-     */
-    public void setObjCls(String objCls) {
-        this.objCls = objCls;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    /**
-     * 
-     * @return
-     *     The Id
-     *
-    public String getId() {
-        return Id;
-    }
+  public String getName() {
+    return name;
+  }
 
-    /**
-     * 
-     * @param Id
-     *     The @id
-     *
-    public void setId(String Id) {
-        this.Id = Id;
-    }
-
-    /**
-     * 
-     * @return
-     *     The Context
-     *
-    public String getContext() {
-        return Context;
-    }
-
-    /**
-     * 
-     * @param Context
-     *     The @context
-     */
-    public void setContext(String Context) {
-        this.Context = Context;
-    }
-
-    /**
-     * 
-     * @return
-     *     The id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * 
-     * @param id
-     *     The id
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * 
-     * @return
-     *     The name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 
-     * @param name
-     *     The name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
+  public void setName(String name) {
+    this.name = name;
+  }
 }

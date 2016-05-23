@@ -37,7 +37,6 @@ public class ExceptionMatcher {
 
   /**
    * Adds any matching exceptions to the given {@link GeneReport}
-   * @param geneReport
    */
   public void addExceptions(@Nonnull GeneReport geneReport) {
     String geneSymbol = geneReport.getGene();

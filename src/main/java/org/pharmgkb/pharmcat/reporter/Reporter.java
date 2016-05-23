@@ -42,7 +42,6 @@ public class Reporter {
   /**
    * main
    * @param args command line args
-   * @throws Exception
    */
   public static void main(String[] args) throws Exception {
     Options options = new Options();
@@ -64,7 +63,6 @@ public class Reporter {
   /**
    * public constructor. start a new reporter based on annotation data found in the given <code>annotationsDir</code>.
    * @param annotationsDir directory of annotations files
-   * @throws IOException
    */
   public Reporter(@Nonnull File annotationsDir)  throws IOException {
     Preconditions.checkNotNull(annotationsDir);
@@ -84,7 +82,6 @@ public class Reporter {
   /**
    * Run the actual report process. Parse the input file, do the matching, and write the report files.
    * @param callFile file of haplotype calls
-   * @throws Exception
    */
   public Reporter analyze(@Nonnull File callFile) throws Exception {
     Preconditions.checkNotNull(callFile);
@@ -110,7 +107,6 @@ public class Reporter {
   /**
    * Print a Markdown file of compiled report data
    * @param reportFile directory to write output to
-   * @throws IOException
    */
   public void printMarkdown(@Nonnull Path reportFile) throws IOException {
     Preconditions.checkNotNull(reportFile);

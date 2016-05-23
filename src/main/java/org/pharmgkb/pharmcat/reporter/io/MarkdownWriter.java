@@ -39,7 +39,6 @@ public class MarkdownWriter {
   /**
    * Print out a report file based on data found in the {@link DataUnifier}
    * @param dataUnifier a {@link DataUnifier} with all data needed to report
-   * @throws IOException
    */
   public void print(DataUnifier dataUnifier) throws IOException {
     sf_logger.info("Writing report to {}", m_outputFile);
