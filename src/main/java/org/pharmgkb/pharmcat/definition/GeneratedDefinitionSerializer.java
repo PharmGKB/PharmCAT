@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import javax.annotation.Nonnull;
+import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -19,6 +20,7 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
  *
  * @author Mark Woon
  */
+@ThreadSafe
 public class GeneratedDefinitionSerializer {
   private static final Gson sf_gson = new GsonBuilder()
       .serializeNulls()
