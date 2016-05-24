@@ -72,6 +72,10 @@ public class Haplotyper {
 
       DefinitionReader definitionReader = new DefinitionReader();
       definitionReader.read(definitionDir);
+      if (definitionReader.getGenes().size() == 0) {
+        System.out.println("Did not find any allele definitions at " + definitionDir);
+        System.exit(1);
+      }
 
       Haplotyper haplotyper = new Haplotyper(definitionReader);
       HaplotyperResult result = haplotyper.call(vcfFile);
