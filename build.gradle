@@ -7,6 +7,7 @@ plugins {
   id 'signing'
   id 'com.jfrog.bintray' version '1.6'
   id 'maven-publish'
+  id 'com.github.johnrengelman.shadow' version '1.2.3'
 }
 
 
