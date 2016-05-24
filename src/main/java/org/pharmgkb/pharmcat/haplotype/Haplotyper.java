@@ -58,7 +58,7 @@ public class Haplotyper {
 
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-          .addOption("in", "definition-dir", "directory of allele definition files", true, "in")
+          .addOption("d", "definition-dir", "directory of allele definition files", true, "d")
           .addOption("vcf", "vcf-in", "VCF file", true, "vcf")
           .addOption("json", "json-out", "file to save results to (in JSON format)", false, "json")
           .addOption("html", "html-out", "file to save results to (in HTML format)", false, "html");
@@ -67,7 +67,7 @@ public class Haplotyper {
         System.exit(1);
       }
 
-      Path definitionDir = cliHelper.getValidDirectory("in", false);
+      Path definitionDir = cliHelper.getValidDirectory("d", false);
       Path vcfFile = cliHelper.getValidFile("v", false);
 
       DefinitionReader definitionReader = new DefinitionReader();
