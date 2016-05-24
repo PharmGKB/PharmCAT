@@ -59,16 +59,16 @@ public class Haplotyper {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addOption("in", "definition-dir", "directory of allele definition files", true, "in")
-          .addOption("f", "vcf-file", "VCF file", true, "f")
-          .addOption("j", "json-file", "file to save results to (in JSON format)", false, "j")
-          .addOption("h", "html-file", "file to svae results to (in HTML format)", false, "h");
+          .addOption("vcf", "vcf-in", "VCF file", true, "vcf")
+          .addOption("json", "json-out", "file to save results to (in JSON format)", false, "json")
+          .addOption("html", "html-out", "file to save results to (in HTML format)", false, "html");
 
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
 
       Path definitionDir = cliHelper.getValidDirectory("in", false);
-      Path vcfFile = cliHelper.getValidFile("f", false);
+      Path vcfFile = cliHelper.getValidFile("v", false);
 
       DefinitionReader definitionReader = new DefinitionReader();
       definitionReader.read(definitionDir);
@@ -80,8 +80,8 @@ public class Haplotyper {
       if (cliHelper.hasOption("j")) {
         resultSerializer.toJson(result, cliHelper.getPath("j"));
       }
-      if (cliHelper.hasOption("h")) {
-        resultSerializer.toHtml(result, cliHelper.getPath("h"));
+      if (cliHelper.hasOption("w")) {
+        resultSerializer.toHtml(result, cliHelper.getPath("w"));
       }
 
     } catch (Exception ex) {
