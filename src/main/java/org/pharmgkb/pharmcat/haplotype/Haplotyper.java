@@ -68,7 +68,7 @@ public class Haplotyper {
       }
 
       Path definitionDir = cliHelper.getValidDirectory("d", false);
-      Path vcfFile = cliHelper.getValidFile("v", false);
+      Path vcfFile = cliHelper.getValidFile("vcf", false);
 
       DefinitionReader definitionReader = new DefinitionReader();
       definitionReader.read(definitionDir);
@@ -77,11 +77,11 @@ public class Haplotyper {
       HaplotyperResult result = haplotyper.call(vcfFile);
 
       ResultSerializer resultSerializer = new ResultSerializer();
-      if (cliHelper.hasOption("j")) {
-        resultSerializer.toJson(result, cliHelper.getPath("j"));
+      if (cliHelper.hasOption("json")) {
+        resultSerializer.toJson(result, cliHelper.getPath("json"));
       }
-      if (cliHelper.hasOption("w")) {
-        resultSerializer.toHtml(result, cliHelper.getPath("w"));
+      if (cliHelper.hasOption("html")) {
+        resultSerializer.toHtml(result, cliHelper.getPath("html"));
       }
 
     } catch (Exception ex) {
