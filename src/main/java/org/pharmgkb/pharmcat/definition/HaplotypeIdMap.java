@@ -17,7 +17,7 @@ public class HaplotypeIdMap {
   private Map<String,Map<String,String>> m_geneHaplotypeMap = new HashMap<>();
 
 
-  public HaplotypeIdMap() throws IOException {
+  public HaplotypeIdMap() {
     try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("haplotype.id.list.tsv")))) {
       // first line is the sequence
       m_idSequence = Integer.parseInt(reader.readLine());
@@ -32,6 +32,8 @@ public class HaplotypeIdMap {
         }
         hapMap.put(fields[1], fields[2]);
       }
+    } catch (IOException ex) {
+      throw new IllegalStateException("Cannot find haplotype.id.list.tsv", ex);
     }
   }
 

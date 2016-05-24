@@ -58,7 +58,7 @@ public class CuratedDefinitionParser {
   private HaplotypeIdMap m_haplotypeIdMap;
 
 
-  public CuratedDefinitionParser(Path filePath) throws IOException {
+  public CuratedDefinitionParser(Path filePath) {
     Preconditions.checkNotNull(filePath);
     Preconditions.checkArgument(filePath.toFile().exists());
     Preconditions.checkArgument(filePath.toFile().isFile());
@@ -69,6 +69,10 @@ public class CuratedDefinitionParser {
 
   public List<String> getWarnings() {
     return m_warnings;
+  }
+
+  public List<String> getErrors() {
+    return m_errors;
   }
 
   public DefinitionFile parse() {
