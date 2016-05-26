@@ -54,10 +54,8 @@ public class ResultBuilder {
   }
 
 
-  protected ResultBuilder gene(@Nonnull String gene, @Nonnull MatchData matchData,
-      @Nonnull List<DiplotypeMatch> matches) {
+  protected ResultBuilder gene(@Nonnull String gene, @Nonnull MatchData matchData, List<DiplotypeMatch> matches) {
     Preconditions.checkNotNull(gene);
-    Preconditions.checkNotNull(matches);
 
     DefinitionFile tsvFile = m_definitionReader.getDefinitionFile(gene);
     String definitionVersion = tsvFile.getContentVersion() + " (" + m_dateFormat.format(tsvFile.getModificationDate()) + ")";
@@ -73,9 +71,11 @@ public class ResultBuilder {
 
     GeneCall geneCall = new GeneCall(definitionVersion, chromosome, gene, matchData, uncallableHaplotypes);
 
-    // get haplotype/diplotype info
-    for (DiplotypeMatch dm : matches) {
-      geneCall.addDiplotype(dm);
+    if (matches != null) {
+      // get haplotype/diplotype info
+      for (DiplotypeMatch dm : matches) {
+        geneCall.addDiplotype(dm);
+      }
     }
 
     // get position info

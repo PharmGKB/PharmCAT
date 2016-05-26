@@ -134,7 +134,12 @@ public class Haplotyper {
     // call haplotypes
     for (String gene : m_definitionReader.getGenes()) {
       MatchData data = initializeCallData(alleles, gene);
-      resultBuilder.gene(gene, data, callDiplotypes(data));
+
+      List<DiplotypeMatch> matches = null;
+      if (data.getNumSampleAlleles() > 0) {
+        matches = callDiplotypes(data);
+      }
+      resultBuilder.gene(gene, data, matches);
     }
     return resultBuilder.build();
   }
@@ -145,13 +150,13 @@ public class Haplotyper {
    *
    * @param alleleMap map of {@link SampleAllele}s from VCF
    */
-  MatchData initializeCallData(SortedMap<String, SampleAllele> alleleMap, String gene) {
+  private @Nonnull MatchData initializeCallData(SortedMap<String, SampleAllele> alleleMap, String gene) {
 
     // grab SampleAlleles for all positions related to current gene
     MatchData data = new MatchData(alleleMap, m_definitionReader.getDefinitionFile(gene).getChromosome(),
         m_definitionReader.getPositions(gene));
     if (data.getNumSampleAlleles() == 0) {
-      throw new IllegalStateException("No alleles in sample for " + gene);
+      return data;
     }
     // handle missing positions (if any)
     data.marshallHaplotypes(m_definitionReader.getHaplotypes(gene));
