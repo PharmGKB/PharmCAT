@@ -12,6 +12,8 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -28,6 +30,8 @@ public class MatchData {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private SortedMap<Integer, SampleAllele> m_sampleMap = new TreeMap<>();
   private VariantLocus[] m_positions;
+  @Expose
+  @SerializedName("missingPositions")
   private Set<VariantLocus> m_missingPositions = new HashSet<>();
   private List<NamedAllele> m_haplotypes;
   private Set<String> m_permutations;

@@ -35,6 +35,8 @@ public class GeneCall {
   @Expose
   @SerializedName("variants")
   private SortedSet<Variant> m_variants = new TreeSet<>();
+  @Expose
+  @SerializedName("matchData")
   private MatchData m_matchData;
   private Set<String> m_uncallableHaplotypes;
 
