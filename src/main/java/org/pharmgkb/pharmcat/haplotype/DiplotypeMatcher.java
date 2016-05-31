@@ -11,7 +11,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
-import com.google.common.collect.Lists;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
@@ -37,19 +36,14 @@ public class DiplotypeMatcher {
     // compare sample permutations to haplotypes
     SortedSet<HaplotypeMatch> matches = comparePermutations();
 
-    if (m_dataset.getPermutations().size() == 1 && matches.size() == 1) {
-      // sample is homozygous for all positions and it matches a single allele,
-      // so we need to return that as a diplotype
-      HaplotypeMatch hm = matches.first();
-      DiplotypeMatch dm = new DiplotypeMatch(hm, hm, m_dataset);
-      String seq = m_dataset.getPermutations().iterator().next();
-      dm.addSequencePair(new String[] { seq, seq });
-      return Lists.newArrayList(dm);
+    if (m_dataset.getPermutations().size() == 1) {
+      return determineHomozygousPairs(matches);
     }
-
     // find matched pairs
-    return determinePairs(matches);
+    return determineHeterozygousPairs(matches);
   }
+
+
 
 
   /**
@@ -72,13 +66,42 @@ public class DiplotypeMatcher {
         .collect(Collectors.toCollection(TreeSet::new));
   }
 
-
   /**
-   * Determine possible diplotypes given a set of {@link HaplotypeMatch}'s.
+   * Determine possible diplotypes given a set of {@link HaplotypeMatch}'s when sample is homozygous at all positions.
    *
    * @param haplotypeMatches the matches that were found via {@link #comparePermutations()}
    */
-  protected @Nonnull List<DiplotypeMatch> determinePairs(@Nonnull SortedSet<HaplotypeMatch> haplotypeMatches) {
+  private @Nonnull List<DiplotypeMatch> determineHomozygousPairs(@Nonnull SortedSet<HaplotypeMatch> haplotypeMatches) {
+
+    String seq = m_dataset.getPermutations().iterator().next();
+    List<DiplotypeMatch> matches = new ArrayList<>();
+    if (haplotypeMatches.size() == 1) {
+      // matched a single haplotype: need to return that as a diplotype
+      HaplotypeMatch hm = haplotypeMatches.first();
+      DiplotypeMatch dm = new DiplotypeMatch(hm, hm, m_dataset);
+      dm.addSequencePair(new String[]{ seq, seq });
+      matches.add(dm);
+    } else {
+      // return all possible pairings of matched haplotypes
+      List<List<HaplotypeMatch>> pairs = CombinationUtil.generatePerfectPairs(haplotypeMatches);
+      for (List<HaplotypeMatch> pair : pairs) {
+        DiplotypeMatch dm = new DiplotypeMatch(pair.get(0), pair.get(1), m_dataset);
+        dm.addSequencePair(new String[]{ seq, seq });
+        matches.add(dm);
+      }
+    }
+    return matches;
+  }
+
+
+
+  /**
+   * Determine possible diplotypes given a set of {@link HaplotypeMatch}'s when sample is heterozygous at at least one
+   * position.
+   *
+   * @param haplotypeMatches the matches that were found via {@link #comparePermutations()}
+   */
+  private @Nonnull List<DiplotypeMatch> determineHeterozygousPairs(@Nonnull SortedSet<HaplotypeMatch> haplotypeMatches) {
 
     SortedMap<NamedAllele, HaplotypeMatch> hapMap = new TreeMap<>();
     for (HaplotypeMatch hm : haplotypeMatches) {
