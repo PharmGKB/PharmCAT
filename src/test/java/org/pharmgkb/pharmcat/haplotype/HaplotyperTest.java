@@ -71,7 +71,7 @@ public class HaplotyperTest {
     }
 
     if (expectedPairs.size() != pairs.size() || !expectedPairs.equals(pairs)) {
-      System.out.println("Expected: [" + Joiner.on(", ").join(expectedPairs));
+      System.out.println("Expected: [" + Joiner.on(", ").join(expectedPairs) + "]");
       System.out.println("Got:      " + pairs);
       fail("Did not get expected matches");
     }
