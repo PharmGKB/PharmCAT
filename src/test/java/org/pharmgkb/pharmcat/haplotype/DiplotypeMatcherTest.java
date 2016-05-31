@@ -49,16 +49,16 @@ public class DiplotypeMatcherTest {
 
     // initialize test haplotypes
     NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "A", "C", "C" });
-    hap1.finalize(s_positions);
+    hap1.initialize(s_positions);
 
     NamedAllele hap2 = new NamedAllele("*4a", "*4a", new String[] { "G", null, null });
-    hap2.finalize(s_positions);
+    hap2.initialize(s_positions);
 
     NamedAllele hap3 = new NamedAllele("*4b", "*4b", new String[] { "G", "T", "T" });
-    hap3.finalize(s_positions);
+    hap3.initialize(s_positions);
 
     NamedAllele hap4 = new NamedAllele("*17", "*17", new String[] { null, "T", "T" });
-    hap4.finalize(s_positions);
+    hap4.initialize(s_positions);
 
     s_haplotypes = Lists.newArrayList(hap1, hap2, hap3, hap4);
 
@@ -189,13 +189,13 @@ public class DiplotypeMatcherTest {
     VariantLocus[] variants = new VariantLocus[] { var1, var2, var3, var4 };
 
     NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "T", "A", "C", "C" });
-    hap1.finalize(variants);
+    hap1.initialize(variants);
 
     NamedAllele hap2 = new NamedAllele("*2", "*2", new String[] { null, "T", "C", null });
-    hap2.finalize(variants);
+    hap2.initialize(variants);
 
     NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { null, null, "GG", null });
-    hap3.finalize(variants);
+    hap3.initialize(variants);
 
     Set<String> permutations = Sets.newHashSet(
         "1:T;2:A;3:C;4:C;",

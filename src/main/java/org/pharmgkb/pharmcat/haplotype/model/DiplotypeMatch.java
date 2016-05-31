@@ -33,7 +33,7 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
     m_haplotype1 = hm1;
     m_haplotype2 = hm2;
     m_name = m_haplotype1.getName() + "/" + m_haplotype2.getName();
-    m_score = m_haplotype1.getHaplotype().getNumValidAlleles() + m_haplotype2.getHaplotype().getNumValidAlleles();
+    m_score = m_haplotype1.getHaplotype().getScore() + m_haplotype2.getHaplotype().getScore();
     m_dataset = dataset;
   }
 

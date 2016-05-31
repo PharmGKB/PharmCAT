@@ -128,9 +128,9 @@ public class CuratedDefinitionParser {
       }
     }
 
-    // finalize NamedAlleles
+    // initialize NamedAlleles
     for (NamedAllele namedAllele : m_definitionFile.getNamedAlleles()) {
-      namedAllele.finalize(m_definitionFile.getVariants());
+      namedAllele.initialize(m_definitionFile.getVariants());
     }
 
     return m_definitionFile;

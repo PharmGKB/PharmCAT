@@ -48,7 +48,7 @@ public class GeneratedDefinitionSerializer {
     try (BufferedReader reader = Files.newBufferedReader(jsonFile, StandardCharsets.UTF_8)) {
       DefinitionFile definitionFile = sf_gson.fromJson(reader, DefinitionFile.class);
       for (NamedAllele namedAllele : definitionFile.getNamedAlleles()) {
-        namedAllele.finalize(definitionFile.getVariants());
+        namedAllele.initialize(definitionFile.getVariants());
       }
       return definitionFile;
     }

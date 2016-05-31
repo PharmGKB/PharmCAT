@@ -90,8 +90,8 @@ public class MatchData {
         NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles, missingPositions);
         newHap.setFunction(hap.getFunction());
         newHap.setPopFreqMap(hap.getPopFreqMap());
-        newHap.finalize(m_positions);
-        if (newHap.getNumValidAlleles() > 0) {
+        newHap.initialize(m_positions);
+        if (newHap.getScore() > 0) {
           m_haplotypes.add(newHap);
         }
       }
@@ -129,7 +129,7 @@ public class MatchData {
       NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles, hap.getMissingPositions());
       fixedHap.setFunction(hap.getFunction());
       fixedHap.setPopFreqMap(hap.getPopFreqMap());
-      fixedHap.finalize(m_positions);
+      fixedHap.initialize(m_positions);
       updatedHaplotypes.add(fixedHap);
     }
 

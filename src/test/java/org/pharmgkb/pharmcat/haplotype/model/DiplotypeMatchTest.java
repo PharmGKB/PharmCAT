@@ -30,11 +30,11 @@ public class DiplotypeMatchTest {
 
 
     NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "T", "T", "T" });
-    hap1.finalize(variants);
+    hap1.initialize(variants);
     NamedAllele hap2 = new NamedAllele("*4", "*4", new String[] { "A", "A", "A" });
-    hap2.finalize(variants);
+    hap2.initialize(variants);
     NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { "T", "A", null });
-    hap3.finalize(variants);
+    hap3.initialize(variants);
 
     HaplotypeMatch hm1 = new HaplotypeMatch(hap1);
     HaplotypeMatch hm2 = new HaplotypeMatch(hap2);

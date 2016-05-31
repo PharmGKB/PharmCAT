@@ -27,18 +27,18 @@ public class NamedAlleleTest {
 
 
     NamedAllele ref = new NamedAllele("*1", "*1", new String[] { "T", "A", "G", "C" });
-    ref.finalize(variants);
+    ref.initialize(variants);
 
     NamedAllele hap2 = new NamedAllele("*2", "*2", new String[] { "C", "T", null, null });
-    hap2.finalize(variants);
+    hap2.initialize(variants);
 
     NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { "C", null, null, "Y" });
-    hap3.finalize(variants);
+    hap3.initialize(variants);
 
     // permutations should be consistent even if positions are out-of-order
     NamedAllele hap4 = new NamedAllele("*4", "*4", new String[] { "Y", null, null, "C" });
     Arrays.sort(variants, Collections.reverseOrder());
-    hap4.finalize(variants);
+    hap4.initialize(variants);
 
     assertEquals("1:T;2:A;3:G;4:C;", ref.getPermutations().pattern());
     assertEquals("1:C;2:T;3:.?;4:.?;", hap2.getPermutations().pattern());
