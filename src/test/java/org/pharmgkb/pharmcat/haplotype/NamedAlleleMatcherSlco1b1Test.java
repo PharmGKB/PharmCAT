@@ -6,18 +6,18 @@ import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
+import org.pharmgkb.pharmcat.haplotype.model.Result;
 
-import static org.pharmgkb.pharmcat.haplotype.HaplotyperTest.assertDiplotypePairs;
-import static org.pharmgkb.pharmcat.haplotype.HaplotyperTest.testCallHaplotype;
+import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.assertDiplotypePairs;
+import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNamedAlleles;
 
 
 /**
- * JUnit test for {@link Haplotyper#callDiplotypes(MatchData)}.
+ * JUnit test for {@link NamedAlleleMatcher#callDiplotypes(MatchData)}.
  *
  * @author Lester Carter
  */
-public class HaplotyperSlco1b1Test {
+public class NamedAlleleMatcherSlco1b1Test {
   private Path m_definitionFile;
 
   @Before
@@ -32,7 +32,7 @@ public class HaplotyperSlco1b1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as1a.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1A/*1A");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -43,7 +43,7 @@ public class HaplotyperSlco1b1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s5s15.vcf");
     List<String> expectedMatches = Lists.newArrayList("*5/*15");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -54,7 +54,7 @@ public class HaplotyperSlco1b1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -74,7 +74,7 @@ public class HaplotyperSlco1b1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5missing.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5", "*5/*29");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -96,7 +96,7 @@ public class HaplotyperSlco1b1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5twomissing.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5", "*5/*29");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -109,7 +109,7 @@ public class HaplotyperSlco1b1Test {
     // same as above, but using ./. to signify missing snp.
     List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5", "*5/*29");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -121,7 +121,7 @@ public class HaplotyperSlco1b1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s17s21.vcf");
     List<String> expectedMatches = Lists.newArrayList("*17/*21");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 }

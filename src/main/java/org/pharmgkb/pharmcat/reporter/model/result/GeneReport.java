@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
@@ -23,7 +24,7 @@ public class GeneReport {
 
   /**
    * public constructor
-   * @param call a {@link GeneCall} that has been made by the Haplotyper
+   * @param call a {@link GeneCall} that has been made by the {@link NamedAlleleMatcher}
    */
   public GeneReport(GeneCall call) {
     m_gene = call.getGene();

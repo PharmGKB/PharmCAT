@@ -16,20 +16,20 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
 import org.pharmgkb.pharmcat.haplotype.model.Metadata;
+import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 
 
 /**
- * This class collects results for the {@link Haplotyper}.
+ * This class collects results for the {@link NamedAlleleMatcher}.
  *
  * @author Mark Woon
  */
 public class ResultBuilder {
   private static final Joiner sf_vcfAlleleJoiner = Joiner.on(",");
   private DefinitionReader m_definitionReader;
-  private HaplotyperResult m_result = new HaplotyperResult();
+  private Result m_result = new Result();
   private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
 
@@ -38,7 +38,7 @@ public class ResultBuilder {
     m_definitionReader = definitionReader;
   }
 
-  public HaplotyperResult build() {
+  public Result build() {
     return m_result;
   }
 
@@ -48,7 +48,7 @@ public class ResultBuilder {
     Preconditions.checkArgument(vcfFile.toString().endsWith(".vcf"));
     Preconditions.checkArgument(Files.isRegularFile(vcfFile));
 
-    m_result.setMetadata(new Metadata(Haplotyper.VERSION, m_definitionReader.getGenomeBuild(),
+    m_result.setMetadata(new Metadata(NamedAlleleMatcher.VERSION, m_definitionReader.getGenomeBuild(),
         PathUtils.getFilename(vcfFile), new Date()));
     return this;
   }

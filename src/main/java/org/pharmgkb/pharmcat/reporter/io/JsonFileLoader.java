@@ -12,7 +12,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
-import org.pharmgkb.pharmcat.haplotype.Haplotyper;
+import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
@@ -28,7 +28,7 @@ public class JsonFileLoader {
   private final Gson gson = new Gson();
 
   /**
-   * Load all the gene calls coming from the {@link Haplotyper} utility
+   * Load all the gene calls coming from the {@link NamedAlleleMatcher} utility
    */
   public List<GeneCall> loadHaplotypeGeneCalls(@Nonnull Path haplotypeCalledFile) throws IOException{
     Preconditions.checkNotNull(haplotypeCalledFile);

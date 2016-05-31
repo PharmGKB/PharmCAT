@@ -9,10 +9,11 @@ import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
+import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 
 
 /**
- * The Haplotyper results for a single gene.
+ * The {@link NamedAlleleMatcher} results for a single gene.
  *
  * @author Mark Woon
  */

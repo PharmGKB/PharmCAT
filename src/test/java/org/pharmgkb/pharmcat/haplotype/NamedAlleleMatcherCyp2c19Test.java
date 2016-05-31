@@ -6,18 +6,18 @@ import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
+import org.pharmgkb.pharmcat.haplotype.model.Result;
 
-import static org.pharmgkb.pharmcat.haplotype.HaplotyperTest.assertDiplotypePairs;
-import static org.pharmgkb.pharmcat.haplotype.HaplotyperTest.testCallHaplotype;
+import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.assertDiplotypePairs;
+import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNamedAlleles;
 
 
 /**
- * JUnit test for {@link Haplotyper#callDiplotypes(MatchData)}.
+ * JUnit test for {@link NamedAlleleMatcher#callDiplotypes(MatchData)}.
  *
  * @author Mark Woon
  */
-public class HaplotyperCyp2c19Test {
+public class NamedAlleleMatcherCyp2c19Test {
   private Path m_definitionFile;
 
   @Before
@@ -32,7 +32,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s1.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -43,7 +43,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s2.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*2");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -54,7 +54,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s4b.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*4B", "*4A/*17");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -65,7 +65,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s4bMissing.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*4B", "*4A/*17");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -76,7 +76,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s17s1s4bmissing.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*17", "*1/*4B");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -94,7 +94,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s17s1s4bmissingmore.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*17", "*1/*4B");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -105,7 +105,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s28.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*28");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -116,7 +116,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s2s2.vcf");
     List<String> expectedMatches = Lists.newArrayList("*2/*2");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -127,7 +127,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s2s3.vcf");
     List<String> expectedMatches = Lists.newArrayList("*2/*3");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -138,7 +138,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4as4b.vcf");
     List<String> expectedMatches = Lists.newArrayList("*4A/*4B");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -149,7 +149,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4bs17.vcf");
     List<String> expectedMatches = Lists.newArrayList("*4B/*17");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -160,7 +160,7 @@ public class HaplotyperCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s15s28.vcf");
     List<String> expectedMatches = Lists.newArrayList("*15/*28");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -172,7 +172,7 @@ public class HaplotyperCyp2c19Test {
     // no matches
     List<String> expectedMatches = Lists.newArrayList();
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 }

@@ -11,18 +11,19 @@ import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import org.pharmgkb.common.io.util.CliHelper;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
+import org.pharmgkb.pharmcat.haplotype.model.Result;
 
 
 /**
- * This is the main entry point for calling haplotypes.
+ * This is the main entry point for matching {@link NamedAllele}s.
  *
  * @author Mark Woon
  */
 @ThreadSafe
-public class Haplotyper {
+public class NamedAlleleMatcher {
   public static final String VERSION = "1.0.0";
   private DefinitionReader m_definitionReader;
   private ImmutableSet<String> m_locationsOfInterest;
@@ -34,7 +35,7 @@ public class Haplotyper {
    * Default constructor.
    * This will only call the top candidate(s) and assume reference.
    */
-  public Haplotyper(@Nonnull DefinitionReader definitionReader) {
+  public NamedAlleleMatcher(@Nonnull DefinitionReader definitionReader) {
     this(definitionReader, true, true);
   }
 
@@ -44,7 +45,7 @@ public class Haplotyper {
    * @param topCandidateOnly true if only top candidate(s) should be called, false to call all possible candidates
    * @param assumeReference true if missing alleles in definitions should be treated as reference, false otherwise
    */
-  public Haplotyper(@Nonnull DefinitionReader definitionReader, boolean assumeReference, boolean topCandidateOnly) {
+  public NamedAlleleMatcher(@Nonnull DefinitionReader definitionReader, boolean assumeReference, boolean topCandidateOnly) {
 
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
@@ -77,8 +78,8 @@ public class Haplotyper {
         System.exit(1);
       }
 
-      Haplotyper haplotyper = new Haplotyper(definitionReader);
-      HaplotyperResult result = haplotyper.call(vcfFile);
+      NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
+      Result result = namedAlleleMatcher.call(vcfFile);
 
       ResultSerializer resultSerializer = new ResultSerializer();
       if (cliHelper.hasOption("json")) {
@@ -125,7 +126,7 @@ public class Haplotyper {
   /**
    * Calls diplotypes for the given VCF file for all genes for which a definition exists.
    */
-  public HaplotyperResult call(@Nonnull Path vcfFile) throws IOException {
+  public Result call(@Nonnull Path vcfFile) throws IOException {
 
     VcfReader vcfReader = buildVcfReader(vcfFile);
     SortedMap<String, SampleAllele> alleles = vcfReader.getAlleleMap();

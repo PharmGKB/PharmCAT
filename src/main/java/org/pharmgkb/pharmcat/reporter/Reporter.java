@@ -47,7 +47,7 @@ public class Reporter {
     Options options = new Options();
 
     options.addOption(new Option("annotationsDir", true, "required - directory holding all the annotations files"));
-    options.addOption(new Option("callFile", true, "required - file from the Haplotyper"));
+    options.addOption(new Option("callFile", true, "required - file from the NamedAlleleMatcher"));
     options.addOption(new Option("reportFile", true, "required - file to write report output to"));
 
     CommandLine cmdline = new DefaultParser().parse(options, args);

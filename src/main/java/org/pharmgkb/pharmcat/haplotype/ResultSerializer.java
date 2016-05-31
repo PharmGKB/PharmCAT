@@ -28,12 +28,12 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
+import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 
 
 /**
- * Serializer/Deserializer for {@link HaplotyperResult}.
+ * Serializer/Deserializer for {@link Result}.
  *
  * @author Mark Woon
  */
@@ -55,7 +55,7 @@ public class ResultSerializer {
 
 
 
-  public ResultSerializer toJson(@Nonnull HaplotyperResult result, @Nonnull Path jsonFile) throws IOException {
+  public ResultSerializer toJson(@Nonnull Result result, @Nonnull Path jsonFile) throws IOException {
     Preconditions.checkNotNull(result);
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"));
@@ -67,19 +67,19 @@ public class ResultSerializer {
   }
 
 
-  public HaplotyperResult fromJson(@Nonnull Path jsonFile) throws IOException {
+  public Result fromJson(@Nonnull Path jsonFile) throws IOException {
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"));
     Preconditions.checkArgument(Files.isRegularFile(jsonFile));
 
     try (BufferedReader reader = Files.newBufferedReader(jsonFile, StandardCharsets.UTF_8)) {
-      return sf_gson.fromJson(reader, HaplotyperResult.class);
+      return sf_gson.fromJson(reader, Result.class);
     }
   }
 
 
 
-  public ResultSerializer toHtml(@Nonnull HaplotyperResult result, @Nonnull Path htmlFile) throws IOException {
+  public ResultSerializer toHtml(@Nonnull Result result, @Nonnull Path htmlFile) throws IOException {
     Preconditions.checkNotNull(result);
     Preconditions.checkNotNull(htmlFile);
     Preconditions.checkArgument(htmlFile.toString().endsWith(".html"));

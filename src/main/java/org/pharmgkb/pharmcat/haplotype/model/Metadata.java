@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Metadata {
   @Expose
-  @SerializedName("haplotyperVersion")
-  private String m_haplotyperVersion;
+  @SerializedName("namedAlleleMatcherVersion")
+  private String m_namedAlleleMatcherVersion;
   @Expose
   @SerializedName("genomeBuild")
   private String m_genomeBuild;
@@ -21,16 +21,16 @@ public class Metadata {
   private Date m_timetamp;
 
 
-  public Metadata(String haplotyperVersion, String genomeBuild, String vcfFilename, Date date) {
-    m_haplotyperVersion = haplotyperVersion;
+  public Metadata(String namedAlleleMatcherVersion, String genomeBuild, String vcfFilename, Date date) {
+    m_namedAlleleMatcherVersion = namedAlleleMatcherVersion;
     m_genomeBuild = genomeBuild;
     m_inputFilename = vcfFilename;
     m_timetamp = date;
   }
 
 
-  public String getHaplotyperVersion() {
-    return m_haplotyperVersion;
+  public String getNamedAlleleMatcherVersion() {
+    return m_namedAlleleMatcherVersion;
   }
 
   public String getGenomeBuild() {

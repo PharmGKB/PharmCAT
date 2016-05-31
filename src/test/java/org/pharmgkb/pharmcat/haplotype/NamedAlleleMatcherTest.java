@@ -12,36 +12,36 @@ import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
+import org.pharmgkb.pharmcat.haplotype.model.Result;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
 
 
 /**
- * JUnit test for {@link Haplotyper}.
+ * JUnit test for {@link NamedAlleleMatcher}.
  *
  * @author Mark Woon
  */
-public class HaplotyperTest {
+public class NamedAlleleMatcherTest {
 
 
-  static HaplotyperResult testCallHaplotype(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
-    return testCallHaplotype(tsvFile, vcfFile, true, true, false);
+  static Result testMatchNamedAlleles(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
+    return testMatchNamedAlleles(tsvFile, vcfFile, true, true, false);
   }
 
   /**
-   * Helper method for running Haplotyper.
+   * Helper method for running {@link NamedAlleleMatcher}.
    * This is used by the more specific gene tests.
    */
-  static HaplotyperResult testCallHaplotype(@Nonnull Path definitionFile, @Nonnull Path vcfFile,
+  static Result testMatchNamedAlleles(@Nonnull Path definitionFile, @Nonnull Path vcfFile,
       boolean assumeReference, boolean topCandidateOnly, boolean showUnmatched) throws Exception {
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionFile);
 
-    Haplotyper haplotyper = new Haplotyper(definitionReader, assumeReference, topCandidateOnly);
-    HaplotyperResult result = haplotyper.call(vcfFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, assumeReference, topCandidateOnly);
+    Result result = namedAlleleMatcher.call(vcfFile);
 
     // print
     new ResultSerializer()
@@ -57,10 +57,10 @@ public class HaplotyperTest {
    * Checks that the list of diplotype matches are what we expect.
    *
    * @param expectedPairs the set of expected diplotypes in "*1/*2" format
-   * @param result the {@link Haplotyper} results
+   * @param result the {@link NamedAlleleMatcher} results
    */
   static void assertDiplotypePairs(@Nonnull List<String> expectedPairs,
-      @Nonnull HaplotyperResult result) {
+      @Nonnull Result result) {
 
     Preconditions.checkNotNull(expectedPairs);
     Preconditions.checkNotNull(result);
@@ -87,8 +87,8 @@ public class HaplotyperTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(jsonFile);
 
-    Haplotyper haplotyper = new Haplotyper(definitionReader);
-    HaplotyperResult result = haplotyper.call(vcfFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
+    Result result = namedAlleleMatcher.call(vcfFile);
     Set<DiplotypeMatch> pairs = result.getGeneCalls().get(0).getDiplotypes();
     assertNotNull(pairs);
     assertEquals(1, pairs.size());
@@ -113,8 +113,8 @@ public class HaplotyperTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(jsonFile);
 
-    Haplotyper haplotyper = new Haplotyper(definitionReader);
-    VcfReader vcfReader = haplotyper.buildVcfReader(vcfFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
+    VcfReader vcfReader = namedAlleleMatcher.buildVcfReader(vcfFile);
 
     // grab SampleAlleles for all positions related to current gene
     MatchData data = new MatchData(vcfReader.getAlleleMap(), "chr1", definitionReader.getPositions(gene));

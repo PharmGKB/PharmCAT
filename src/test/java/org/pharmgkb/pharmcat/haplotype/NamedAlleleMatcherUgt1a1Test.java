@@ -6,18 +6,18 @@ import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotyperResult;
+import org.pharmgkb.pharmcat.haplotype.model.Result;
 
-import static org.pharmgkb.pharmcat.haplotype.HaplotyperTest.assertDiplotypePairs;
-import static org.pharmgkb.pharmcat.haplotype.HaplotyperTest.testCallHaplotype;
+import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.assertDiplotypePairs;
+import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNamedAlleles;
 
 
 /**
- * JUnit test for {@link Haplotyper#callDiplotypes(MatchData)}.
+ * JUnit test for {@link NamedAlleleMatcher#callDiplotypes(MatchData)}.
  *
  * @author Lester Carter
  */
-public class HaplotyperUgt1a1Test {
+public class NamedAlleleMatcherUgt1a1Test {
   private Path m_definitionFile;
 
   // TODO: lester - work in progress.  This needs checking against real world examples.
@@ -33,7 +33,7 @@ public class HaplotyperUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s1.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -43,7 +43,7 @@ public class HaplotyperUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s37.vcf");
     List<String> expectedMatches = Lists.newArrayList("*28/*37");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -53,7 +53,7 @@ public class HaplotyperUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80.vcf");
     List<String> expectedMatches = Lists.newArrayList("*28/*80");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -63,7 +63,7 @@ public class HaplotyperUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s6s6.vcf");
     List<String> expectedMatches = Lists.newArrayList("*6/*6");
 
-    HaplotyperResult result = testCallHaplotype(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 }

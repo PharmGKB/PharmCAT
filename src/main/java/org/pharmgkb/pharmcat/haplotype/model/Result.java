@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Root JSON result object.
  */
-public class HaplotyperResult {
+public class Result {
   @SerializedName("metadata")
   @Expose
   private Metadata m_metadata;
