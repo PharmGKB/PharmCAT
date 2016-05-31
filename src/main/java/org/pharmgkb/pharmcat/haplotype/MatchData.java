@@ -129,7 +129,7 @@ public class MatchData {
       NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles, hap.getMissingPositions());
       fixedHap.setFunction(hap.getFunction());
       fixedHap.setPopFreqMap(hap.getPopFreqMap());
-      fixedHap.initialize(m_positions);
+      fixedHap.initialize(m_positions, hap.getScore());
       updatedHaplotypes.add(fixedHap);
     }
 
