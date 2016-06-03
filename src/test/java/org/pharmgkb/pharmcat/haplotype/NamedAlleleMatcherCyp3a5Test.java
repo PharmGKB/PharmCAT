@@ -50,13 +50,8 @@ public class NamedAlleleMatcherCyp3a5Test {
 
   @Test
   public void cyp3a5s3s9Homozygous() throws Exception {
-    /*
-    Call is *3/*3 from dmet data, but we get *3/*9.  *3/*3 should be an option based on lab discussion
-    I have checked in  a very small version of this vcf file, that only contains the positions found in the
-    supplied data.
-    */
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9-homozygous.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*3/*3");
+    List<String> expectedMatches = Lists.newArrayList("*3/*3", "*3/*9", "*9/*9");
 
     Result result = NamedAlleleMatcherTest.testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, true);
     assertDiplotypePairs(expectedMatches, result);
