@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.DataUnifier;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
@@ -25,6 +26,7 @@ import org.slf4j.LoggerFactory;
  */
 public class MarkdownWriter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final String sf_variantRowTemplate = "| %d | %s | %s |\n";
 
   private Path m_outputFile;
 
@@ -51,9 +53,16 @@ public class MarkdownWriter {
         writer.write("### Gene: " + gene + "\n");
         GeneReport geneReport = dataUnifier.getSymbolToGeneReportMap().get(gene);
 
-        writer.write("#### Call\n\n");
+        writer.write("#### Matching Allele Call\n\n");
+
+        if (geneReport.getUncalledHaplotypes() != null) {
+          writer.write("_The following haplotypes were not considered due to missing variant data_: "
+              + escapeMd(geneReport.getUncalledHaplotypes().stream().collect(Collectors.joining(", ")))
+              + "\n\n");
+        }
+
         if (geneReport.getDips().size() == 1) {
-          writer.write(escapeMd(geneReport.getDips().iterator().next()) + "\n");
+          writer.write("call: " + escapeMd(geneReport.getDips().iterator().next()) + "\n");
         } else {
           writer.write(geneReport.getDips().size()+" possible calls\n\n");
           for (String dip : geneReport.getDips()) {
@@ -64,8 +73,9 @@ public class MarkdownWriter {
 
         writer.write("#### Warnings ");
         if (geneReport.getExceptionList() == null || geneReport.getExceptionList().size() == 0) {
-          writer.write("none applicable\n");
+          writer.write("(none)\n");
         } else {
+          writer.write("("+geneReport.getExceptionList().size()+")");
           writer.write("\n\n");
           int i=0;
           for (CPICException exception : geneReport.getExceptionList()) {
@@ -79,7 +89,12 @@ public class MarkdownWriter {
         writer.write("| -------- | ---- | ---- |\n");
         for (Variant v : geneReport.getVariants()) {
           String rsidDisplay = v.getRsid() == null ? "None" : v.getRsid();
-          writer.write(String.format("|%d|%s|%s|\n", v.getPosition(), rsidDisplay, v.getVcfCall()));
+          writer.write(String.format(sf_variantRowTemplate, v.getPosition(), rsidDisplay, v.getVcfCall()));
+        }
+        if (geneReport.getMatchData() != null && geneReport.getMatchData().getMissingPositions().size()>0) {
+          for (VariantLocus variant : geneReport.getMatchData().getMissingPositions()) {
+            writer.write(String.format(sf_variantRowTemplate, variant.getPosition(), variant.getRsid(), "*missing*"));
+          }
         }
       }
 

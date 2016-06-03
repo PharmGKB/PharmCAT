@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +37,8 @@ public class JsonFileLoader {
     Preconditions.checkArgument(Files.isRegularFile(haplotypeCalledFile));
 
     sf_logger.debug("Loading haplotyper file {}", haplotypeCalledFile);
-    return new ResultSerializer().fromJson(haplotypeCalledFile).getGeneCalls();
+    Result namResult = new ResultSerializer().fromJson(haplotypeCalledFile);
+    return namResult.getGeneCalls();
   }
 
   /**

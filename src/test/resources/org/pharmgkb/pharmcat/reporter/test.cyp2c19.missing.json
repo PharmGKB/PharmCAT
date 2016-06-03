@@ -1,0 +1,244 @@
+{
+  "metadata": {
+    "namedAlleleMatcherVersion": "1.0.0",
+    "genomeBuild": "b38",
+    "inputFilename": "s1s4bMissing.vcf",
+    "timestamp": "Jun 1, 2016 11:35:25 AM"
+  },
+  "results": [
+    {
+      "alleleDefinitionVersion": "null (05/06/16)",
+      "chromosome": "chr10",
+      "gene": "CYP2C19",
+      "diplotypes": [
+        {
+          "name": "*1/*4B",
+          "score": 40
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "*1",
+          "sequences": [
+            "94760676:C;94760686:C;94761267:T;94761665:G;94761900:C;94762693:G;94762706:A;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849811:T;94849964:A;94849995:C;94852738:C;94852765:C;94852785:C;"
+          ]
+        },
+        {
+          "name": "*4B",
+          "sequences": [
+            "94760676:C;94760686:C;94761267:T;94761665:G;94761900:T;94762693:G;94762706:G;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849811:T;94849964:A;94849995:C;94852738:C;94852765:C;94852785:C;"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "position": 94760676,
+          "rsid": "rs113164681",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94760686,
+          "rsid": "rs111490789",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94761267,
+          "rsid": "rs17878739",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94761665,
+          "rsid": "rs7902257",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94761900,
+          "rsid": "rs12248560",
+          "vcfCall": "C/T"
+        },
+        {
+          "position": 94762693,
+          "rsid": "rs367543001",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94762706,
+          "rsid": "rs28399504",
+          "vcfCall": "A/G"
+        },
+        {
+          "position": 94762712,
+          "rsid": "rs367543002",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94762715,
+          "rsid": "rs367543003",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94762755,
+          "rsid": "rs55752064",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94762760,
+          "rsid": "rs17882687",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94762788,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94762856,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94775106,
+          "rsid": "rs145328984",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94775121,
+          "rsid": null,
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94775160,
+          "rsid": "rs118203756",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94775185,
+          "rsid": null,
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94775367,
+          "rsid": "rs12769205",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94775416,
+          "rsid": "rs41291556",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94775453,
+          "rsid": "rs72552267",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94775489,
+          "rsid": "rs17884712",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94775507,
+          "rsid": "rs58973490",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94780574,
+          "rsid": "rs140278421",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94780579,
+          "rsid": "rs370803989",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94780653,
+          "rsid": "rs4986893",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94781858,
+          "rsid": "rs6413438",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94781859,
+          "rsid": "rs4244285",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94781944,
+          "rsid": null,
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94781999,
+          "rsid": "rs72558186",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94842861,
+          "rsid": "rs138142612",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94842879,
+          "rsid": "rs118203757",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94842995,
+          "rsid": "rs113934938",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 94849811,
+          "rsid": "rs4917623",
+          "vcfCall": "T|T"
+        },
+        {
+          "position": 94849964,
+          "rsid": "rs377184510",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 94849995,
+          "rsid": "rs17879685",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94852738,
+          "rsid": "rs56337013",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94852765,
+          "rsid": "rs192154563",
+          "vcfCall": "C|C"
+        },
+        {
+          "position": 94852785,
+          "rsid": "rs118203759",
+          "vcfCall": "C|C"
+        }
+      ],
+      "matchData": {
+        "missingPositions": [
+          {
+            "position": 94852914,
+            "rsid": "rs55640102",
+            "chromosomeHgvsName": "g.94852914A\u003eC",
+            "geneHgvsName": "g.95209A\u003eC",
+            "proteinNote": "X491C (26 extra AA)",
+            "resourceNote": "90209A\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          }
+        ]
+      },
+      "uncallableHaplotypes": [
+        "*12"
+      ]
+    }
+  ]
+}

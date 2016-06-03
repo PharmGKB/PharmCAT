@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
@@ -19,8 +20,10 @@ public class GeneReport {
 
   private String m_gene;
   private Set<String> m_diplotypes;
+  private Set<String> m_uncalledHaplotypes;
   private SortedSet<Variant> m_variants = new TreeSet<>();
   private List<CPICException> m_exceptList = new ArrayList<>();
+  private MatchData m_matchData;
 
   /**
    * public constructor
@@ -32,6 +35,8 @@ public class GeneReport {
         .map(m -> call.getGene() + ":" + m.getName())
         .collect(Collectors.toSet());
     m_variants.addAll(call.getVariants());
+    m_matchData = call.getMatchData();
+    m_uncalledHaplotypes = call.getUncallableHaplotypes();
   }
 
   /**
@@ -64,6 +69,14 @@ public class GeneReport {
    */
   public SortedSet<Variant> getVariants() {
     return m_variants;
+  }
+
+  public MatchData getMatchData() {
+    return m_matchData;
+  }
+
+  public Set<String> getUncalledHaplotypes() {
+    return m_uncalledHaplotypes;
   }
 }
 

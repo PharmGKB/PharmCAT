@@ -70,4 +70,12 @@ public class ReporterTest {
             .anyMatch(r -> r.isReportable() && r.getName().contains("ivacaftor") && r.getMatchingGroups() == null)
     );
   }
+
+  @Test
+  public void testCyp2c19Missing() throws Exception {
+    Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.cyp2c19.missing.json");
+    Path outputFile     = callerFile.getParent().resolve("test.cyp2c19.missing.md");
+
+    s_reporter.analyze(callerFile.toFile()).printMarkdown(outputFile);
+  }
 }

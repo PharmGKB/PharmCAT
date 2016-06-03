@@ -39,6 +39,8 @@ public class GeneCall {
   @Expose
   @SerializedName("matchData")
   private MatchData m_matchData;
+  @Expose
+  @SerializedName("uncallableHaplotypes")
   private Set<String> m_uncallableHaplotypes;
 
 
