@@ -36,7 +36,7 @@ public class NamedAlleleMatcher {
    * This will only call the top candidate(s) and assume reference.
    */
   public NamedAlleleMatcher(@Nonnull DefinitionReader definitionReader) {
-    this(definitionReader, true, true);
+    this(definitionReader, true, false);
   }
 
   /**
