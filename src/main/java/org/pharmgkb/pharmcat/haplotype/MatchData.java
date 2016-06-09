@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -192,6 +193,9 @@ public class MatchData {
    */
   public @Nonnull List<NamedAllele> getHaplotypes() {
     if (m_haplotypes == null) {
+      if (m_sampleMap.size() == 0) {
+        return Collections.emptyList();
+      }
       throw new IllegalStateException("Not initialized - call marshallHaplotypes()");
     }
     return m_haplotypes;
