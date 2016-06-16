@@ -79,5 +79,8 @@ public class CuratedDefinitionParserTest {
     assertEquals("B", CuratedDefinitionParser.columnNumberToName(1));
     assertEquals("Z", CuratedDefinitionParser.columnNumberToName(25));
     assertEquals("AA", CuratedDefinitionParser.columnNumberToName(26));
+    assertEquals("AB", CuratedDefinitionParser.columnNumberToName(27));
+    assertEquals("AZ", CuratedDefinitionParser.columnNumberToName(51));
+    assertEquals("BA", CuratedDefinitionParser.columnNumberToName(52));
   }
 }

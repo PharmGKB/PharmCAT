@@ -402,6 +402,9 @@ public class CuratedDefinitionParser {
     while (number > 0) {
       sb.append((char)('A' + (number % 26)));
       number = (number / 26) - 1;
+      if (number == 0) {
+        sb.append("A");
+      }
     }
     return sb.reverse().toString();
   }
