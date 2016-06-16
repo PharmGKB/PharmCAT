@@ -394,7 +394,7 @@ public class CuratedDefinitionParser {
    *
    * @param number column number (where 0 = A)
    */
-  private static String columnNumberToName(int number) {
+  protected static String columnNumberToName(int number) {
     if (number == 0) {
       return "A";
     }

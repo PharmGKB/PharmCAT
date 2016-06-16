@@ -72,4 +72,12 @@ public class CuratedDefinitionParserTest {
       assertTrue(ex.getMessage().contains("Invalid bases (BBQ)"));
     }
   }
+
+  @Test
+  public void testColumnNumberToName() {
+    assertEquals("A", CuratedDefinitionParser.columnNumberToName(0));
+    assertEquals("B", CuratedDefinitionParser.columnNumberToName(1));
+    assertEquals("Z", CuratedDefinitionParser.columnNumberToName(25));
+    assertEquals("AA", CuratedDefinitionParser.columnNumberToName(26));
+  }
 }
