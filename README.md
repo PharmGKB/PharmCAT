@@ -9,4 +9,4 @@ Take genome data, make haplotype calls, get [CPIC](https://cpicpgx.org) annotati
 
 ## Status
 
-Please consider this alpha code.
+Please consider this alpha code.  More documentation is available in the [wiki](../../wiki).
