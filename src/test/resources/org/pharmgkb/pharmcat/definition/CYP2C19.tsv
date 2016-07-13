@@ -1,53 +1,53 @@
-GENE: CYP2C19	04/13/16
-	Nucleotide change to gene from http://www.cypalleles.ki.se/cyp2c19.htm	-2030C>T	-2020C>A	-1439T>C	-1041G>A	-806C>T	-13G>A	1A>G	7C>T	10T>C	50T>C	55A>C	83A>T	151A>G	12401C>T	12416C>T	12455G>C	12480A>G	12662A>G	12711T>C	12748G>A	12784G>A	12802G>A	17869G>C	17874G>A	17948G>A	19153C>T	19154G>A	19239G>A	19294T>A	80156G>A	80174G>A	80290G>A	87106T>C	87259A>G	87290C>T	90033C>T	90060C>T	90080C>G	90209A>C
-	Effect on protein (NP_000760.1)	5' region	5' region	5' region	5' region	5' region	5' region	M1V	P3S	F4L	L17P	I19L	K28I	S51G	R73C	H78Y	G91R	H99R	splicing defect	W120R	R132Q	R144H	R150H	R186P	D188N	W212X	P227L	splicing defect	D256N	splicing defect	R329H	R335Q	V374I	intronic	K399=	R410C	R433W	R442C	F448L	X491C (26 extra AA)
-	Position at NC_000010.11 (Homo sapiens chromosome 10, GRCh38.p2)	g.94760676C>T	g.94760686C>A	g.94761267T>C	g.94761665G>A	g.94761900C>T	g.94762693G>A	g.94762706A>G	g.94762712C>T	g.94762715T>C	g.94762755T>C	g.94762760A>C	g.94762788A>T	g.94762856A>G	g.94775106C>T	g.94775121C>T	g.94775160G>C	g.94775185A>G	g.94775367A>G	g.94775416T>C	g.94775453G>A	g.94775489G>A	g.94775507G>A	g.94780574G>C	g.94780579G>A	g.94780653G>A	g.94781858C>T	g.94781859G>A	g.94781944G>A	g.94781999T>A	g.94842861G>A	g.94842879G>A	g.94842995G>A	g.94849811T>C	g.94849964A>G	g.94849995C>T	g.94852738C>T	g.94852765C>T	g.94852785C>G	g.94852914A>C
-	Position at NG_008384.2 (CYP2C19 RefSeqGene; relative to chromosome)	g.2971C>T	g.2981C>A	g.3562T>C	g.3960G>A	g.4195C>T	g.4988G>A	g.5001A>G	g.5007C>T	g.5010T>C	g.5050T>C	g.5055A>C	g.5083A>T	g.5151A>G	g.17401C>T	g.17416C>T	g.17455G>C	g.17480A>G	g.17662A>G	g.17711T>C	g.17748G>A	g.17784G>A	g.17802G>A	g.22869G>C	g.22874G>A	g.22948G>A	g.24153C>T	g.24154G>A	g.24239G>A	g.24294T>A	g.85156G>A	g.85174G>A	g.85290G>A	g.92106T>C	g.92259A>G	g.92290C>T	g.95033C>T	g.95060C>T	g.95080C>G	g.95209A>C
-	rsID	rs113164681	rs111490789	rs17878739	rs7902257	rs12248560	rs367543001	rs28399504	rs367543002	rs367543003	rs55752064	rs17882687			rs145328984		rs118203756		rs12769205	rs41291556	rs72552267 	rs17884712	rs58973490	rs140278421	rs370803989	rs4986893	rs6413438	rs4244285		rs72558186	rs138142612	rs118203757	rs113934938	rs4917623	rs377184510	rs17879685	rs56337013	rs192154563	rs118203759	rs55640102
-Allele	Allele Functional Status																																								African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
-*1	Normal function	C	C	T	G	C	G	A	C	T	T	A	A	A	C	C	G	A	A	T	G	G	G	G	G	G	C	G	G	T	G	G	G	T	A	C	C	C	C	A	0.34	0.58099999999999996	0.621	0.84199999999999997	0.57999999999999996	0.47399999999999998	0.69	0.28599999999999998
-*2	No function																											A													0.14199999999999999	0.183	0.14599999999999999	0.13200000000000001	0.28999999999999998	0.34399999999999997	0.13100000000000001	0.54900000000000004
-*3	No function																									A															8.0000000000000002E-3	3.0000000000000001E-3	6.0000000000000001E-3	2.5999999999999999E-2	8.5000000000000006E-2	1.7000000000000001E-2	3.0000000000000001E-3	0.13900000000000001
-*4A	No function							G																																	0	0	4.0000000000000001E-3	ND	1E-3	0	2.9999999999999997E-4	ND
-*4B	No function					T		G
-*5	No function																																				T				0	0	0	ND	0	0	0	ND
-*6	No function																				A																				0	0	1E-3	ND	2.9999999999999997E-4	0	0	ND
-*7	No function																													A
-*8	No function																			C																					0	2E-3	3.0000000000000001E-3	ND	0	0	1E-3	ND
-*9	Decreased function																					A
-*10	Decreased function																										T
-*11	Normal function																						A
-*12	Unknown function																																							C
-*13	Normal function																																			T
-*14	Unknown function										C
-*15	Normal function											C
-*16	Decreased function																																					T
-*17	Increased function					T																																			0.151	0.19400000000000001	0.215	ND	1.6E-2	0.16500000000000001	0.16300000000000001	2.5000000000000001E-2
-*18	Normal function																														A			C
-*19	Decreased function													G																				C
-*22	No function																							C
-*23	Unknown function																C
-*24	No function																															A			G
-*25	Decreased function																																						G
-*26	Decreased function																												A
-*27	Unknown function				A
-*28	Normal function	T	A	C								C																					A
-*29	Unknown function												T
-*30	Unknown function														T
-*31	Unknown function															T
-*32	Unknown function																	G
-*33	Unknown function																								A
-*34	Unknown function						A		T	C
-
-NOTES:
-rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)
-All variants are annotated to the positive DNA strand.
-See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP2C19 variant alleles and updated allele information.  Some of the alleles may carry multiple nucleotide variations.
-The detrimental CYP2C19*4-defining SNP (rs28399504) has been identified to be linked (i.e. on the same chromosome) with *17 (-806C>T; rs12248560) in certain ethnic subpopulations. To distinguish the *4 (no function) and *17  (increased function) alleles, both rs28399504 and rs12248560 should be genotyped [PMID: 21358751, PMID: 24012947]). This haplotype is designated CYP2C19*4B [PMID: 21716271, PMID: 21358751].
-A novel SNP (c.463G>T; rs374036992) has been identified to occur in linkage with the *17-defining SNP (- 806C>T; rs12248560). This allele has not been assigned a separate star (*) designation by the Nomenclature Committee. To distinguish *17 from this novel haplotype, c.463G>T needs to be genotyped [PMID: 25141895]
-ND=not determined
-Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see http://www.pharmgkb.org/download.action?filename=CYP2C19_Frequency_Table_and_Legend_V1.pdf.
-Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].
-An important caveat for all genotyping tests is that the decision to assign an allele a wild-type status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. It is always possible that a novel, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as wild-type.
-Because CYP2C19*1 is not genotyped directly, all alleles that are negative for a sequence variation are defaulted to a CYP2C19*1 assignment. The inferred frequency for CYP2C19*1 is calculated as: 100 - (sum of averaged variant allele frequencies)
-CYP2C19*4A and *4B allele frequencies were combined
+GENE: CYP2C19	6/15/2016																																														
+	Nucleotide change to gene from http://www.cypalleles.ki.se/cyp2c19.htm	-2030C>T	-2020C>A	-1439T>C	-1041G>A	-806C>T	-13G>A	1A>G	7C>T	10T>C	50T>C	55A>C	83A>T	151A>G	12401C>T	12416C>T	12455G>C	12480A>G	12662A>G	12711T>C	12748G>A	12784G>A	12802G>A	17869G>C	17874G>A	17948G>A	19153C>T	19154G>A	19239G>A	19294T>A	80156G>A	80174G>A	80290G>A	87259A>G	87290C>T	90033C>T	90060C>T	90080C>G	90209A>C								
+	Effect on protein (NP_000760.1)	5' region	5' region	5' region	5' region	5' region	5' region	M1V	P3S	F4L	L17P	I19L	K28I	S51G	R73C	H78Y	G91R	H99R	splicing defect	W120R	R132Q	R144H	R150H	R186P	D188N	W212X	P227L	splicing defect	D256N	splicing defect	R329H	R335Q	V374I	K399=	R410C	R433W	R442C	F448L	X491C (26 extra AA)								
+	Position at NC_000010.11 (Homo sapiens chromosome 10, GRCh38.p2)	g.94760676C>T	g.94760686C>A	g.94761267T>C	g.94761665G>A	g.94761900C>T	g.94762693G>A	g.94762706A>G	g.94762712C>T	g.94762715T>C	g.94762755T>C	g.94762760A>C	g.94762788A>T	g.94762856A>G	g.94775106C>T	g.94775121C>T	g.94775160G>C	g.94775185A>G	g.94775367A>G	g.94775416T>C	g.94775453G>A	g.94775489G>A	g.94775507G>A	g.94780574G>C	g.94780579G>A	g.94780653G>A	g.94781858C>T	g.94781859G>A	g.94781944G>A	g.94781999T>A	g.94842861G>A	g.94842879G>A	g.94842995G>A	g.94849964A>G	g.94849995C>T	g.94852738C>T	g.94852765C>T	g.94852785C>G	g.94852914A>C								
+	Position at NG_008384.2 (CYP2C19 RefSeqGene; forward relative to chromosome)	g.2971C>T	g.2981C>A	g.3562T>C	g.3960G>A	g.4195C>T	g.4988G>A	g.5001A>G	g.5007C>T	g.5010T>C	g.5050T>C	g.5055A>C	g.5083A>T	g.5151A>G	g.17401C>T	g.17416C>T	g.17455G>C	g.17480A>G	g.17662A>G	g.17711T>C	g.17748G>A	g.17784G>A	g.17802G>A	g.22869G>C	g.22874G>A	g.22948G>A	g.24153C>T	g.24154G>A	g.24239G>A	g.24294T>A	g.85156G>A	g.85174G>A	g.85290G>A	g.92259A>G	g.92290C>T	g.95033C>T	g.95060C>T	g.95080C>G	g.95209A>C								
+	rsID	rs113164681	rs111490789	rs17878739	rs7902257	rs12248560	rs367543001	rs28399504	rs367543002	rs367543003	rs55752064	rs17882687			rs145328984		rs118203756		rs12769205	rs41291556	rs72552267 	rs17884712	rs58973490	rs140278421	rs370803989	rs4986893	rs6413438	rs4244285		rs72558186	rs138142612	rs118203757	rs113934938	rs377184510	rs17879685	rs56337013	rs192154563	rs118203759	rs55640102								
+Allele	Allele Functional Status																																							African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
+*1	Normal function	C	C	T	G	C	G	A	C	T	T	A	A	A	C	C	G	A	A	T	G	G	G	G	G	G	C	G	G	T	G	G	G	A	C	C	C	C	A	0.331	0.570	0.621	0.648	0.576	0.485	0.670	0.286
+*2	No function																		R									A												0.142	0.183	0.146	0.131	0.293	0.331	0.131	0.549
+*3	No function																									A														0.008	0.003	0.006	0.026	0.086	0.016	0.003	0.139
+*4A	No function							G																																0.000	0.000	0.003		0.001	0.000	0.000	
+*4B	No function					T		G																																	0.000						
+*5	No function																																			T				0.000	0.000	0.000		0.000	0.000	0.000	
+*6	No function																				A																			0.000	0.000	0.001		0.000	0.000	0.000	
+*7	No function																													A										0.000	0.000	0.000		0.000	0.000	0.000	
+*8	No function																			C																				0.000	0.002	0.003		0.000	0.000	0.001	
+*9	Decreased function																					A																		0.042	0.011	0.000		0.000		0.001	
+*10	Decreased function																										T													0.000	0.004	0.000		0.000		0.001	
+*11	Normal function																						A																				0.000	0.000			
+*12	Unknown function																																						C	0.000	0.002	0.000		0.000		0.000	
+*13	Normal function																																		T					0.000	0.012	0.001		0.000		0.004	
+*14	Unknown function										C																													0.000	0.000	0.000		0.000		0.000	
+*15	Normal function											C																												0.057	0.014	0.002		0.002		0.004	
+*16	Decreased function																																				T				0.000	0.000		0.000		0.000	
+*17	Increased function					T																																		0.151	0.201	0.213	0.195	0.016	0.169	0.163	0.025
+*18	Normal function																														A													0.001			
+*19	Decreased function													G																														0.001			
+*22	No function																							C																	0.000	0.000		0.000		0.000	
+*23	Unknown function																C																											0.002			
+*24	No function																															A		G										0.001			
+*25	Decreased function																																					G						0.001			
+*26	Decreased function																												A															0.000			
+*27	Unknown function				A																																			0.218				0.000			
+*28	Normal function	T	A	C								C																					A							0.007				0.000			
+*29	Unknown function												T																															0.000			
+*30	Unknown function														T																													0.000			
+*31	Unknown function															T																												0.000			
+*32	Unknown function																	G																										0.000			
+*33	Unknown function																								A																			0.000			
+*34	Unknown function						A		T	C																																		0.000			
+*35	No function																		G																					0.031	0.008	0.000		0.000		0.021	
+																																															
+NOTES:																																															
+rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)																																															
+All variants are annotated to the positive DNA strand.																																															
+See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP2C19 variant alleles and updated allele information.  Some of the alleles may carry multiple nucleotide variations.																																															
+The detrimental CYP2C19*4-defining SNP (rs28399504) has been identified to be linked (i.e. on the same chromosome) with *17 (-806C>T; rs12248560) in certain ethnic subpopulations. To distinguish the *4 (no function) and *17  (increased function) alleles, both rs28399504 and rs12248560 should be genotyped [PMID: 21358751, PMID: 24012947]). This haplotype is designated CYP2C19*4B [PMID: 21716271, PMID: 21358751].																																															
+A novel SNP (c.463G>T; rs374036992) has been identified to occur in linkage with the *17-defining SNP (- 806C>T; rs12248560). This allele has not been assigned a separate star (*) designation by the Nomenclature Committee. To distinguish *17 from this novel haplotype, c.463G>T needs to be genotyped [PMID: 25141895]																																															
+An important caveat for all genotyping tests is that the decision to assign an allele a wild-type status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. It is always possible that a novel, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as wild-type.																																															
+Because CYP2C19*1 is not genotyped directly, all alleles that are negative for a sequence variation are defaulted to a CYP2C19*1 assignment. The inferred frequency for CYP2C19*1 is calculated as: 100 - (sum of averaged variant allele frequencies)																																															
+Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703_CYP2C19%20frequency%20table.xlsx																																															
+Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].																																															
+CYP2C19*4A frequencies include studies where only "CYP2C19*4" frequencies were reported (not split into CYP2C19*14A and CYP2C19*4B)																																															

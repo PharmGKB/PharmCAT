@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -196,8 +197,11 @@ public class CuratedDefinitionParser {
       m_definitionFile.setChromosome(chromosomeName);
     }
 
-    VariantLocus[] variants = new VariantLocus[fields.size() - 2];
-    for (int i = 2; i < fields.size(); i++) {
+    // substract one to accommodate the row header
+    Long fieldCount = fields.stream().filter(StringUtils::isNotBlank).count() - 1;
+    VariantLocus[] variants = new VariantLocus[fieldCount.intValue()];
+    // add two to the index and length for since variant locations should always start three columns in
+    for (int i = 2; i < fieldCount + 2; i++) {
       String val = StringUtils.stripToNull(fields.get(i));
       if (val != null) {
         variants[i - 2] = parseVariantLocus(i, val);
@@ -337,6 +341,7 @@ public class CuratedDefinitionParser {
   private void parseVariantLines(List<String> lines) {
     boolean isVariantLine = false;
     boolean isNoteLine = false;
+    Long variantAlleleLength = -1L;
 
     for (int lineNum = 0; lineNum < lines.size(); lineNum += 1) {
       String line = lines.get(lineNum);
@@ -350,10 +355,13 @@ public class CuratedDefinitionParser {
 
       } else if (isVariantLine) {
         List<String> fields = sf_tsvSplitter.splitToList(line);
-        if (fields.size() > 2) {
+        if (fields.stream().filter(StringUtils::isNotBlank).count() > 2) {
 
-          String[] variantAlleles = new String[m_definitionFile.getVariants().length];
-          for (int i = 2; i < fields.size() && i < variantAlleles.length + 2; i++) {
+          if (variantAlleleLength < 0) {
+            variantAlleleLength = Arrays.stream(m_definitionFile.getVariants()).filter(v -> v != null).count();
+          }
+          String[] variantAlleles = new String[variantAlleleLength.intValue()];
+          for (int i = 2; i < fields.size() && i < variantAlleleLength + 2; i++) {
             String val = StringUtils.stripToNull(fields.get(i));
             if (val != null) {
               if (!sf_basePattern.matcher(val).matches()) {

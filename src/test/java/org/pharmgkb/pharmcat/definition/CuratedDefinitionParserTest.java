@@ -33,6 +33,16 @@ public class CuratedDefinitionParserTest {
 
 
   @Test
+  public void testReader2C19() throws Exception {
+
+    Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP2C19.tsv");
+    CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
+    DefinitionFile definitionFile = parser.parse();
+    assertEquals("CYP2C19", definitionFile.getGeneSymbol());
+    assertEquals(38, definitionFile.getVariants().length);
+  }
+
+  @Test
   public void testReaderRepeats() throws Exception {
 
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/repeats.tsv");
