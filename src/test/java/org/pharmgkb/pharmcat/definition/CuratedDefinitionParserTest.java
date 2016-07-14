@@ -43,6 +43,17 @@ public class CuratedDefinitionParserTest {
   }
 
   @Test
+  public void testReaderCFTR() throws Exception {
+    
+    Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CFTR.tsv");
+    CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
+    DefinitionFile definitionFile = parser.parse();
+    assertEquals("CFTR", definitionFile.getGeneSymbol());
+    assertEquals(34, definitionFile.getVariants().length);
+    assertEquals(10, definitionFile.getNotes().size());
+  }
+
+  @Test
   public void testReaderRepeats() throws Exception {
 
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/repeats.tsv");

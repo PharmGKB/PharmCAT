@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -102,7 +101,7 @@ public class CuratedDefinitionParser {
     }
 
     // find indels and repeats
-    for (int x = 0; x < m_definitionFile.getVariants().length; x += 1) {
+    for (int x = 0; x < m_definitionFile.getVariants().length; x ++) {
       VariantLocus locus = m_definitionFile.getVariants()[x];
       NamedAllele refHap = null;
       for (NamedAllele hap : m_definitionFile.getNamedAlleles()) {
@@ -341,7 +340,8 @@ public class CuratedDefinitionParser {
   private void parseVariantLines(List<String> lines) {
     boolean isVariantLine = false;
     boolean isNoteLine = false;
-    Long variantAlleleLength = -1L;
+    int variantAlleleStartIdx = 2;
+    int variantAlleleStopIdx = variantAlleleStartIdx+m_definitionFile.getVariants().length;
 
     for (int lineNum = 0; lineNum < lines.size(); lineNum += 1) {
       String line = lines.get(lineNum);
@@ -355,13 +355,10 @@ public class CuratedDefinitionParser {
 
       } else if (isVariantLine) {
         List<String> fields = sf_tsvSplitter.splitToList(line);
-        if (fields.stream().filter(StringUtils::isNotBlank).count() > 2) {
+        if (fields.size() > 2 && StringUtils.isNotBlank(fields.get(0))) {
 
-          if (variantAlleleLength < 0) {
-            variantAlleleLength = Arrays.stream(m_definitionFile.getVariants()).filter(v -> v != null).count();
-          }
-          String[] variantAlleles = new String[variantAlleleLength.intValue()];
-          for (int i = 2; i < fields.size() && i < variantAlleleLength + 2; i++) {
+          String[] variantAlleles = new String[m_definitionFile.getVariants().length];
+          for (int i = variantAlleleStartIdx; i < variantAlleleStopIdx; i++) {
             String val = StringUtils.stripToNull(fields.get(i));
             if (val != null) {
               if (!sf_basePattern.matcher(val).matches()) {

@@ -1,0 +1,54 @@
+GENE:CFTR	5/7/2016																																										
+	Legacy Name/Class (see notes)	F508del/Class: II, VI	F508del/Class: II, VI	G551D/Class: III	G1244E	G1349D	G178R	G551S	S1251N	S1255P	S549N	S549R	S549R	G542X/Class: I	N1303K/Class: II	W1282X/ Class: I	R117H/ Class: IV	R553X/ Class: I	1717-1G->A/ Class: I	621+1G->T/ Class: I	2789+5G->A/ Class: V	3849+10kbC- >T/ Class: V	R1162X/ Class: I	G85E/ Class: II	3120+1G->A/ Class: I	∆I507/ Class: II	1898+1G->A/ Class: I	3659delC/ Class: I	R347P/ Class:  IV	R560T/ Class: III	R334W/ Class: IV	A455E/ Class: V	2184delA/ Class: I	711+1G->T/ Class: I	5T/ Class:V								
+	Effect on protein (NP_000483.3)	F508del	F508del	G551D	G1244E	G1349D	G178R	G551S	S1251N	S1255P	S549N	S549R	S549R	G542X	N1303K	W1282X	R117H	R553X	intron	splice-5	intron	intron	R1162X	G85E	splice-5	I507del	splice-5	L1177Frameshift	R347P	R560T	R334W	A455E	K684Frameshift	splice-5	intron								
+	Position at NC_000007.14 (Homo sapiens chromosome 7, GRCh38.p2)	g.117559592_117559594delCTT	g.117559591_117559593delTCT	g.117587806G>A	g.117642451G>A	g.117664770G>A	g.117534318G>A	g.117587805G>A	g.117642472G>A	g.117642483T>C	g.117587800G>A	g.117587799A>C	g.117587801T>G	g.117587778G>T	g.117652877C>G	g.117642566G>A	g.117530975G>A	g.117587811C>T	g.117587738G>A	g.117531115G>T	g.117602868G>A	g.117639961C>T	g.117627537C>T	g.117509123G>A	g.117606754G>A	g.117559590_117559592delATC	g.117590440G>A	g.117627581delC	g.117540270G>C	g.117587833G>C	g.117540230C>T	g.117548795C>A	g.117592219delA	g.117534366G>T	g.117548628								
+	Position at NG_016465.3 (CFTR RefSeqGene; forward relative to chromosome)	g.98809_98811delCTT	g.98808_98810delTCT	g.127023G>A	g.181668G>A	g.203987G>A	g.73535G>A	g.127022G>A	g.181689G>A	g.181700T>C	g.127017G>A	g.127016A>C	g.127018T>G	g.126995G>T	g.192094C>G	g.181783G>A	g.70192G>A	g.127028C>T	g.126955G>A	g.70332G>T	g.142085G>A	g.179178C>T	g.166754C>T	g.48340G>A	g.145971G>A	g.98807_98809delATC	g.129657G>A	g.166798delC	g.79487G>C	g.127050G>C	g.79447C>T	g.88012C>A	g.131436delA	g.73583G>T	g.87845								
+	rsID	rs113993960	rs199826652	rs75527207	rs267606723	rs193922525	rs80282562	rs121909013	rs74503330	rs121909041	rs121908755 	rs121908757	rs121909005	rs113993959	rs80034486	rs77010898	rs78655421	rs74597325	rs76713772	rs78756941	rs80224560	rs75039782	rs74767530	rs75961395	rs75096551	rs121908745	rs121908748	rs121908747	rs77932196	rs80055610	rs121909011	rs74551128	rs121908746	rs77188391									
+Allele	Allele Functional Status																																			African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
+Reference		CTT	TCT	G	G	G	G	G	G	T	G	A	T	G	C	G	G	C	G	G	G	C	C	G	G	ATC	G	C	G	G	C	C	A	G	G(T)7A								
+F508del(CTT)		delCTT																																									
+F508del(TCT)			delTCT																																								
+G551D				A																																							
+G1244E					A																																						
+G1349D						A																																					
+G178R							A																																				
+G551S								A																																			
+S1251N									A																																		
+S1255P										C																																	
+S549N											A																																
+S549R(A>C)												C																															
+S549R(T>G)													G																														
+G542X														T																													
+N1303K															G																												
+W1282X																A																											
+R117H																	A																										
+R553X																		T																									
+1717-1G->A																			A																								
+621+1G->T																				T																							
+2789+5G->A																					A																						
+3849+10kbC- >T																						T																					
+R1162X																							T																				
+G85E																								A																			
+3120+1G->A																									A																		
+I507																										delATC																	
+1898+1G->A																											A																
+3659delC																												delC															
+R347P																													C														
+R560T																														C													
+R334W																															T												
+A455E																																A											
+2184delA																																	delA										
+711+1G->T																																		T									
+5T																																			G(T)5A								
+																																											
+NOTES:																																											
+rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)																																											
+All variants are annotated to the positive DNA strand.																																											
+After the submission and review of this CPIC guideline, the FDA-approved drug label for ivacaftor has been updated to include additional variants. Consequently, this table includes the following CFTR variants: G1244E (rs267606723), G1349D (rs193922525), G178R (rs80282562), G551S (rs121909013), S1251N (rs74503330), S1255P (rs121909041), S549N (rs121908755) and S549R (rs121908757 and rs121909005).																																											
+Legacy name; Information sourced from dbSNP http://www.ncbi.nlm.nih.gov/projects/SNP/ and/ or http://www.genet.sickkids.on.ca/Home.html or http://www.cftr2.org/acmg_mutations.php (accessed 3rd April 2013).																																											
+Class is defined in PMID: 20932301.																																											
+The F508del CFTR variant can result from a CTT deletion at cDNA position NM_000492.3.c.1521_1523 (rs113993960) or a TCT deletion at cDNA position NM_000492.3.c.1520_1522 (rs199826652). Both result in the same sequence change: ATC ATC TTT GGT GTT > ATC ATT GGT GTT, corresponding to a deletion of Phe at amino acid position 508. Here we include both rsIDs from dbSNP which result in the same deletion of Phe at position 508; rs113993960 is deletion CTT, the cDNA reference position name that is referred to on the CFTR1 website (c.1521_1523delCTT) and is flagged on dbSNP as “with pathogenic allele” due to its association with cystic fibrosis. Rs199826652 is deletion TCT and is more likely to be called in sequencing data due to the left justification of indels; hence this has a minor allele frequency from 1000 genomes.																																											
+This list of CFTR genotypes includes the 23 CFTR variants recommended by the American College of Medical Genetics (ACMG) Cystic Fibrosis Carrier Screening Working Group that should be tested to determine carrier status as a part of population screening programs (Watson, M.S. et al. Cystic fibrosis population carrier screening: 2004 revision of American College of Medical Genetics mutation panel. Genetics in medicine : official journal of the American College of Medical Genetics 6, 387-91 (2004), PMID: 15371902.																																											
+The 5T variant is not included in this list; however, it has been added here to provide further information regarding this polymorphism. RsID rs200454589 describes the 7T and 9T repeats but not 5T. cDNA reference sequence NM_000492.3: c.1210-12T(5_9) V (AJ574948.1:g152T(5_9) (poly-T tract variations; 5T, 7T or 9T). See reference (PMID: 17251329) for more details regarding exon numbering and correct nomenclature for nucleotide repeat sequences.																																											
+Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see supplement at https://github.com/PharmGKB/cpic-guidelines/raw/master/ivacaftor/2014/24598717-supplement.pdf																																											
+Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].																																											
