@@ -44,7 +44,7 @@ public class GeneratedDefinitionSerializerTest {
     assertEquals(8, definitionFiles[1].getPopulations().size());
     assertNotNull(definitionFiles[1].getNamedAlleles().get(0).getPopFreqMap());
     assertFalse(definitionFiles[1].getNamedAlleles().get(0).getPopFreqMap().isEmpty());
-    assertEquals("0.34", definitionFiles[1].getNamedAlleles().get(0).getPopFreqMap().get("African Allele Frequency"));
+    assertEquals("0.331", definitionFiles[1].getNamedAlleles().get(0).getPopFreqMap().get("African Allele Frequency"));
   }
 
 

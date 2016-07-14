@@ -1,26 +1,26 @@
-GENE:UGT1A1	4/14/2016
-	Nucleotide changes from the UGT nomenclature page: https://www.pharmacogenomics.pha.ulaval.ca/wp-content/uploads/2015/04/UGT1A1-allele-nomenclature.html	-3275T>G	-364C>T	A(TA)5TAA, A(TA)6TAA, A(TA)7TAA, A(TA)8TAA	211G>A	686C>A
-	Effect on protein (NP_000454.1)	5' of UGT1A1; intronic for other UGT1As e.g. UGT1A4	nearGene-5	Promoter region	G71R	P229Q
-	Position at NC_000002.12 (Homo sapiens chromosome 2, GRCh38.p2)	g.233757013T>G	g.233759924C>T	g.233760234	g.233760498G>A	g.233760973C>A
-	Position at NG_002601.2 (UGT1A1 RefSeqGene; forward relative to chromosome)	g.172270T>G	g.175181C>T	g.175491	g.175755G>A	g.176230C>A
-	rsID	rs4124874	rs887829		rs4148323	rs35350960
-Allele	Allele Functional Status						African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
-*1	Normal function	T	C	A(TA)6TAA	G	C
-*6	Decreased function				A
-*27	Decreased function					A
-*28	Decreased function			A(TA)7TAA
-*36	Increased function			A(TA)5TAA
-*37	Decreased function			A(TA)8TAA
-*60	Unknown/Uncertain function	G
-*80	Decreased function		T
-
-NOTES:
-rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)
-All variants are annotated to the positive DNA strand.
-To see a full list of known UGT1A1 alleles see https://www.pharmacogenomics.pha.ulaval.ca/wp-content/uploads/2015/04/UGT1A1-allele-nomenclature.html
-Alleles are derived from the UDP-Glucoronosyltransferase (UGT) Alleles Nomenclature page (http://www.pharmacogenomics.pha.ulaval.ca/cms/site/pharmacogenomics/ugt_alleles). See https://www.pharmgkb.org/gene/PA420 for updates on UGT1A1 gene alleles and nomenclature.
-To see a full list of known UGT1A1 alleles and function see http://www.pharmacogenomics.pha.ulaval.ca/files/content/sites/pharmacogenomics/files/Nomen clature/UGT1A/UGT1A1.htm.
-An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”.
-UGT1A1*60 is in incomplete linkage disequilibrium with *28 and to date, there are no data to suggest that *60 by itself results in decreased UGT1A1 function.
-Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see https://github.com/PharmGKB/cpic-guidelines/raw/master/atazanavir/2015/26417955-UGT1A1_allele_frequency.xlsx
-Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].
+GENE:UGT1A1	4/14/2016																								
+	Nucleotide changes from the UGT nomenclature page: https://www.pharmacogenomics.pha.ulaval.ca/wp-content/uploads/2015/04/UGT1A1-allele-nomenclature.html	-3275T>G	-364C>T	A(TA)5TAA, A(TA)6TAA, A(TA)7TAA, A(TA)8TAA	211G>A	686C>A																			
+	Effect on protein (NP_000454.1)	5' of UGT1A1; intronic for other UGT1As e.g. UGT1A4	nearGene-5	Promoter region	G71R	P229Q																			
+	Position at NC_000002.12 (Homo sapiens chromosome 2, GRCh38.p2)	g.233757013T>G	g.233759924C>T	g.233760234	g.233760498G>A	g.233760973C>A																			
+	Position at NG_002601.2 (UGT1A1 RefSeqGene; forward relative to chromosome)	g.172270T>G	g.175181C>T	g.175491	g.175755G>A	g.176230C>A																			
+	rsID	rs4124874	rs887829		rs4148323	rs35350960																			
+Allele	Allele Functional Status						African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency											
+*1	Normal function	T	C	A(TA)6TAA	G	C																			
+*6	Decreased function				A																				
+*27	Decreased function					A																			
+*28	Decreased function			A(TA)7TAA																					
+*36	Increased function			A(TA)5TAA																					
+*37	Decreased function			A(TA)8TAA																					
+*60	Unknown/Uncertain function	G																							
+*80	Decreased function		T																						
+																									
+NOTES:																									
+rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)																									
+All variants are annotated to the positive DNA strand.																									
+To see a full list of known UGT1A1 alleles see https://www.pharmacogenomics.pha.ulaval.ca/wp-content/uploads/2015/04/UGT1A1-allele-nomenclature.html																									
+Alleles are derived from the UDP-Glucoronosyltransferase (UGT) Alleles Nomenclature page (http://www.pharmacogenomics.pha.ulaval.ca/cms/site/pharmacogenomics/ugt_alleles). See https://www.pharmgkb.org/gene/PA420 for updates on UGT1A1 gene alleles and nomenclature.																									
+To see a full list of known UGT1A1 alleles and function see http://www.pharmacogenomics.pha.ulaval.ca/files/content/sites/pharmacogenomics/files/Nomen clature/UGT1A/UGT1A1.htm.																									
+An important caveat for all genotyping tests is that the decision to assign an allele a "wild-type" status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as "wild-type".																									
+UGT1A1*60 is in incomplete linkage disequilibrium with *28 and to date, there are no data to suggest that *60 by itself results in decreased UGT1A1 function.																									
+Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see https://github.com/PharmGKB/cpic-guidelines/raw/master/atazanavir/2015/26417955-UGT1A1_allele_frequency.xlsx																									
+Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].																									
