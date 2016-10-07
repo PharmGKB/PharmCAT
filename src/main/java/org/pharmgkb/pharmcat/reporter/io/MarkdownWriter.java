@@ -27,6 +27,7 @@ import org.slf4j.LoggerFactory;
 public class MarkdownWriter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final String sf_variantRowTemplate = "| %d | %s | %s |\n";
+  private static final String sf_margin = "\n\n";
 
   private Path m_outputFile;
 
@@ -46,45 +47,57 @@ public class MarkdownWriter {
     sf_logger.info("Writing report to {}", m_outputFile);
 
     try (BufferedWriter writer = Files.newBufferedWriter(m_outputFile)) {
-      writer.write("# PharmCAT Report\n\n\n");
+      writer.write("# PharmCAT Report");
+      writer.write(sf_margin);
+      writer.write(sf_margin);
 
-      writer.write("## Haplotype Calls\n\n");
+      writer.write("## Haplotype Calls");
+      writer.write(sf_margin);
+
       for (String gene : dataUnifier.getSymbolToGeneReportMap().keySet()) {
-        writer.write("### Gene: " + gene + "\n");
+        writer.write("### Gene: " + gene);
+        writer.write(sf_margin);
         GeneReport geneReport = dataUnifier.getSymbolToGeneReportMap().get(gene);
 
-        writer.write("#### Matching Allele Call\n\n");
+        writer.write("#### Matching Allele Call");
+        writer.write(sf_margin);
 
-        if (geneReport.getUncalledHaplotypes() != null) {
+        if (geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0) {
           writer.write("_The following haplotypes were not considered due to missing variant data_: "
-              + escapeMd(geneReport.getUncalledHaplotypes().stream().collect(Collectors.joining(", ")))
-              + "\n\n");
+              + escapeMd(geneReport.getUncalledHaplotypes().stream().collect(Collectors.joining(", "))));
+        } else {
+          writer.write("_All variant data present so all haplotypes considered in analysis._");
         }
+        writer.write(sf_margin);
 
         if (geneReport.getDips().size() == 1) {
-          writer.write("call: " + escapeMd(geneReport.getDips().iterator().next()) + "\n");
+          writer.write("Diplotype call: " + escapeMd(geneReport.getDips().iterator().next()));
         } else {
-          writer.write(geneReport.getDips().size()+" possible calls\n\n");
+          writer.write(geneReport.getDips().size()+" possible diplotype calls");
+          writer.write("\n");
           for (String dip : geneReport.getDips()) {
             writer.write(" * " + escapeMd(dip) + "\n");
           }
-          writer.write("\n");
         }
+        writer.write(sf_margin);
 
         writer.write("#### Warnings ");
         if (geneReport.getExceptionList() == null || geneReport.getExceptionList().size() == 0) {
-          writer.write("(none)\n");
+          writer.write("(none)");
+          writer.write(sf_margin);
+          writer.write("_no warnings applicable to this set of variant data or allele calls_\n");
         } else {
           writer.write("("+geneReport.getExceptionList().size()+")");
-          writer.write("\n\n");
+          writer.write(sf_margin);
           int i=0;
           for (CPICException exception : geneReport.getExceptionList()) {
             writer.write(++i + ". " + escapeMd(exception.getMessage())+"\n");
           }
         }
-        writer.write("\n\n");
+        writer.write(sf_margin);
 
-        writer.write("#### Calls at Positions\n\n");
+        writer.write("#### Calls at Positions");
+        writer.write(sf_margin);
         writer.write("| Position | RSID | Call |\n");
         writer.write("| -------- | ---- | ---- |\n");
         for (Variant v : geneReport.getVariants()) {
@@ -96,22 +109,27 @@ public class MarkdownWriter {
             writer.write(String.format(sf_variantRowTemplate, variant.getPosition(), variant.getRsid(), "*missing*"));
           }
         }
+
+        writer.write(sf_margin);
       }
 
-      writer.write("\n\n");
+      writer.write(sf_margin);
 
-      writer.write("## Guidelines\n\n");
+      writer.write("## Guidelines");
+      writer.write(sf_margin);
 
       Set<GuidelineReport> guidelines = new TreeSet<>(dataUnifier.getGuidelineResults());
       for (GuidelineReport guideline : guidelines) {
-        writer.write("---------------------\n\n");
-        writer.write("### " + guideline.getName() + "\n\n");
+        writer.write("---------------------");
+        writer.write(sf_margin);
+        writer.write("### " + guideline.getName());
+        writer.write(sf_margin);
 
         writer.write(guideline.getSummaryHtml());
-        writer.write("\n\n");
+        writer.write(sf_margin);
 
         writer.write("For more information see the [full guideline on PharmGKB]("+guideline.getUrl()+").");
-        writer.write("\n\n");
+        writer.write(sf_margin);
 
         if (!guideline.isReportable()) {
           writer.write("_gene calls insufficient to filter annotations, missing ");
@@ -119,17 +137,20 @@ public class MarkdownWriter {
               .filter(s -> !dataUnifier.getSymbolToGeneReportMap().keySet().contains(s))
               .collect(Collectors.joining(", "));
           writer.write(missingGenes);
-          writer.write("_\n\n");
+          writer.write("_");
+          writer.write(sf_margin);
           continue;
         }
 
         if (guideline.getMatchingGroups() == null) {
-          writer.write("_related genes present but no matching annotations found, check genotype calls_\n\n");
+          writer.write("_related genes present but no matching annotations found, check genotype calls_");
+          writer.write(sf_margin);
           continue;
         }
 
         if (guideline.getMatchingGroups().size()>1) {
-          writer.write("_Note: More than one call was made for the applicable gene so multiple annotation groups could be shown_\n\n");
+          writer.write("_Note: More than one call was made for the applicable gene so multiple annotation groups could be shown_");
+          writer.write(sf_margin);
         }
 
         for (Group group : guideline.getMatchingGroups()) {
@@ -137,7 +158,7 @@ public class MarkdownWriter {
           writer.write(guideline.getMatchedDiplotypes().get(group.getId()).stream()
               .map(MarkdownWriter::escapeMd)
               .collect(Collectors.joining(", ")));
-          writer.write("\n\n");
+          writer.write(sf_margin);
 
           writer.write("|Type|Annotation|\n");
           writer.write("|---|---|\n");
