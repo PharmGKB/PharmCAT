@@ -10,3 +10,8 @@ Take genome data, make haplotype calls, get [CPIC](https://cpicpgx.org) annotati
 ## Status
 
 Please consider this alpha code.  More documentation is available in the [wiki](../../wiki).
+
+
+## Contact
+
+For questions about the PharmCAT project, contact [pharmcat@pharmgkb.org](mailto:pharmcat@pharmgkb.org)
