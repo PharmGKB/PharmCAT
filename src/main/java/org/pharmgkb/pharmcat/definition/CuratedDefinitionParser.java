@@ -196,7 +196,7 @@ public class CuratedDefinitionParser {
       m_definitionFile.setChromosome(chromosomeName);
     }
 
-    // substract one to accommodate the row header
+    // subtract one to accommodate the row header
     Long fieldCount = fields.stream().filter(StringUtils::isNotBlank).count() - 1;
     VariantLocus[] variants = new VariantLocus[fieldCount.intValue()];
     // add two to the index and length for since variant locations should always start three columns in
