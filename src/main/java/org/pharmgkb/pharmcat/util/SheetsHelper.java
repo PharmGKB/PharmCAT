@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.definition;
+package org.pharmgkb.pharmcat.util;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -60,6 +60,35 @@ public class SheetsHelper implements AutoCloseable {
     String folderId = findAlleleDefinitionsFolder().getId();
     List<File> files = getSheetsInDirectory(folderId);
     downloadAsTsv(files, outputDir);
+  }
+
+  public void downloadNamedAlleleAnnotations(@Nonnull Path file) throws IOException, ServiceException {
+
+    Preconditions.checkNotNull(file);
+    downloadAnnotations(file, 0);
+  }
+
+  public void downloadRsidAnnotations(@Nonnull Path file) throws IOException, ServiceException {
+
+    Preconditions.checkNotNull(file);
+    downloadAnnotations(file, 1);
+  }
+
+  /**
+   * Saves an annotations sheet as a .tsv file.
+   */
+  private void downloadAnnotations(@Nonnull Path outputFile, int sheetNumber) throws IOException, ServiceException {
+
+    Drive.Files.List request = m_drive.files().list();
+    List<File> files = request.setQ("name='PharmCAT Exception Logic'" +
+        "and sharedWithMe and trashed=false")
+        .execute()
+        .getFiles();
+    if (files.size() != 1) {
+      throw new IOException("Cannot find file (found " + files.size() + ")");
+    }
+    File file = files.get(0);
+    m_spreadsheetHelper.exportToTsv(file.getId(), outputFile, sheetNumber);
   }
 
 
