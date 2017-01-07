@@ -1,20 +1,16 @@
 package org.pharmgkb.pharmcat.reporter;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.Option;
-import org.apache.commons.cli.Options;
+import org.pharmgkb.common.io.util.CliHelper;
+import org.pharmgkb.pharmcat.annotation.AnnotationReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.MarkdownWriter;
@@ -35,65 +31,78 @@ import org.slf4j.LoggerFactory;
  */
 public class Reporter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-
-  private List<File> m_annotationFiles = null;
+  private AnnotationReader m_annotationReader;
+  private List<Path> m_annotationFiles = null;
   private DataUnifier m_dataUnifier = null;
 
   /**
    * main
    * @param args command line args
    */
-  public static void main(String[] args) throws Exception {
-    Options options = new Options();
+  public static void main(String[] args) {
 
-    options.addOption(new Option("annotationsDir", true, "required - directory holding all the annotations files"));
-    options.addOption(new Option("callFile", true, "required - file from the NamedAlleleMatcher"));
-    options.addOption(new Option("reportFile", true, "required - file to write report output to"));
+    CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
+        .addOption("d", "annotations-dir", "directory of allele definition files", true, "d")
+        .addOption("c", "call-file", "named allele call file", true, "c")
+        .addOption("o", "output-file", "file to write report output to")
+        ;
 
-    CommandLine cmdline = new DefaultParser().parse(options, args);
-    File annotationsDir = new File(cmdline.getOptionValue("annotationsDir"));
-    File callFile       = new File(cmdline.getOptionValue("callFile"));
-    Path outputFile     = Paths.get(cmdline.getOptionValue("reportFile"));
+    try {
+      if (!cliHelper.parse(args)) {
+        System.exit(1);
+      }
 
-    new Reporter(annotationsDir)
-        .analyze(callFile)
-        .printMarkdown(outputFile);
+      Path annotationsDir = cliHelper.getValidDirectory("d", false);
+      Path callFile = cliHelper.getValidFile("c", true);
+      Path outputFile = cliHelper.getValidFile("o", false);
+
+      new Reporter(annotationsDir)
+          .analyze(callFile)
+          .printMarkdown(outputFile);
+
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
   }
 
   /**
    * public constructor. start a new reporter based on annotation data found in the given <code>annotationsDir</code>.
-   * @param annotationsDir directory of annotations files
+   *
+   * @param annotationsDir directory of annotation files
    */
-  public Reporter(@Nonnull File annotationsDir)  throws IOException {
-    Preconditions.checkNotNull(annotationsDir);
-    Preconditions.checkArgument(annotationsDir.exists());
-    Preconditions.checkArgument(annotationsDir.isDirectory());
+  public Reporter(@Nonnull Path annotationsDir) throws IOException {
 
-    File[] annotationFiles = annotationsDir.listFiles();
-    if (annotationFiles == null || annotationFiles.length == 0) {
+    Preconditions.checkNotNull(annotationsDir);
+    Preconditions.checkArgument(Files.exists(annotationsDir));
+    Preconditions.checkArgument(Files.isDirectory(annotationsDir));
+
+    m_annotationReader = new AnnotationReader();
+    m_annotationReader.read(annotationsDir);
+
+    m_annotationFiles = Files.list(annotationsDir)
+        .filter(f -> f.getFileName().toString().endsWith(".json"))
+        .collect(Collectors.toList());
+    if (m_annotationFiles.size() == 0) {
       throw new IOException("No annotation definitions to read from");
     }
-
-    m_annotationFiles = Arrays.stream(annotationFiles)
-        .filter(f -> f.getName().endsWith(".json"))
-        .collect(Collectors.toList());
   }
 
   /**
    * Run the actual report process. Parse the input file, do the matching, and write the report files.
+   *
    * @param callFile file of haplotype calls
    */
-  public Reporter analyze(@Nonnull File callFile) throws Exception {
+  public Reporter analyze(@Nonnull Path callFile) throws Exception {
     Preconditions.checkNotNull(callFile);
-    Preconditions.checkArgument(callFile.exists());
-    Preconditions.checkArgument(callFile.isFile());
+    Preconditions.checkArgument(Files.exists(callFile));
+    Preconditions.checkArgument(Files.isRegularFile(callFile));
 
     //Generate class used for loading JSON into
     JsonFileLoader loader = new JsonFileLoader();
 
     //Load the haplotype json, this is pointed at a test json and will likely break when meeting real
     // requiring some if not all rewriting
-    List<GeneCall> calls = loader.loadHaplotypeGeneCalls(callFile.toPath());
+    List<GeneCall> calls = loader.loadHaplotypeGeneCalls(callFile);
 
     //Load the gene drug interaction list. This currently only handles single gene drug m_guidelineFiles and will require updating to handle multi gene drug interaction
     List<DosingGuideline> guidelines = loader.loadGuidelines(m_annotationFiles);

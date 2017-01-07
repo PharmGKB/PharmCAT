@@ -23,7 +23,7 @@ public class ReporterTest {
   @BeforeClass
   public static void before() throws URISyntaxException, IOException {
     Path annotationsDir = PathUtils.getPathToResource("org/pharmgkb/pharmcat/annotations");
-    s_reporter = new Reporter(annotationsDir.toFile());
+    s_reporter = new Reporter(annotationsDir);
   }
 
   @Test
@@ -31,7 +31,7 @@ public class ReporterTest {
     Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.haplotyper.output.json");
     Path outputFile     = callerFile.getParent().resolve("test.haplotyper.output.md");
 
-    s_reporter.analyze(callerFile.toFile()).printMarkdown(outputFile);
+    s_reporter.analyze(callerFile).printMarkdown(outputFile);
   }
 
   @Test
@@ -39,7 +39,7 @@ public class ReporterTest {
     Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/big.sample.json");
     Path outputFile     = callerFile.getParent().resolve("big.sample.md");
 
-    s_reporter.analyze(callerFile.toFile()).printMarkdown(outputFile);
+    s_reporter.analyze(callerFile).printMarkdown(outputFile);
   }
 
   @Test
@@ -47,7 +47,7 @@ public class ReporterTest {
     Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/big.sample.missing.2c19.loc.json");
     Path outputFile     = callerFile.getParent().resolve("big.sample.missing.2c19.loc.md");
 
-    Reporter reporter = s_reporter.analyze(callerFile.toFile());
+    Reporter reporter = s_reporter.analyze(callerFile);
     assertNotNull(reporter.getGuidelineReports());
 
     reporter.printMarkdown(outputFile);
@@ -76,6 +76,6 @@ public class ReporterTest {
     Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.cyp2c19.missing.json");
     Path outputFile     = callerFile.getParent().resolve("test.cyp2c19.missing.md");
 
-    s_reporter.analyze(callerFile.toFile()).printMarkdown(outputFile);
+    s_reporter.analyze(callerFile).printMarkdown(outputFile);
   }
 }

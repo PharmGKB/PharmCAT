@@ -2,7 +2,6 @@ package org.pharmgkb.pharmcat.reporter.io;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
@@ -45,11 +44,11 @@ public class JsonFileLoader {
    * Load all the guideline annotations into {@link DosingGuideline} objects from the list of guideline {@link File}
    * list
    */
-  public List<DosingGuideline> loadGuidelines(List<File> guidelineFileList) throws IOException {
+  public List<DosingGuideline> loadGuidelines(List<Path> guidelineFileList) throws IOException {
     List<DosingGuideline> drugGenes = new ArrayList<>();
 
-    for (File guidelineFile : guidelineFileList) {
-      try (BufferedReader br = new BufferedReader(new FileReader(guidelineFile))) {
+    for (Path guidelineFile : guidelineFileList) {
+      try (BufferedReader br = Files.newBufferedReader(guidelineFile)) {
         DosingGuideline dosingGuideline = gson.fromJson(br, DosingGuideline.class);
         drugGenes.add(dosingGuideline);
       }
