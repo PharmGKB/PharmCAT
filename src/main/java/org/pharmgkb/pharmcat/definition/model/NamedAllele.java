@@ -146,7 +146,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
 
 
   /**
-   * Gets the score for this allele if it is matched.
+   * Gets the score (the number of alleles that matched) for this allele if it is matched.
    * It is usually the same as the number of non-null alleles, but can be set to anything via
    * {@link #initialize(VariantLocus[], int)}.
    */
