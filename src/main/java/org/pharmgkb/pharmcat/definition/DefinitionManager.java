@@ -6,17 +6,18 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Properties;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.util.CliUtils;
+import org.pharmgkb.pharmcat.util.SheetsHelper;
 
 
 /**
- * This class manages allele definitions.
+ * This class manages allele definition files.
  *
  * @author Mark Woon
  */
@@ -25,7 +26,7 @@ public class DefinitionManager {
   private String m_googleKey;
 
 
-  public DefinitionManager(Path propertyFile) throws IOException {
+  private DefinitionManager(Path propertyFile) throws IOException {
 
     Properties properties = new Properties();
     try (BufferedReader reader = Files.newBufferedReader(propertyFile)) {
@@ -51,30 +52,7 @@ public class DefinitionManager {
         System.exit(1);
       }
 
-      Path propsFile;
-      if (cliHelper.hasOption("p")) {
-        propsFile = cliHelper.getValidFile("p", true);
-      } else {
-        String home = StringUtils.stripToNull(System.getenv("HOME"));
-        if (home == null) {
-          home = System.getProperty("user.home");
-        }
-        if (home == null) {
-          System.out.println("Cannot determine home directory.  Please specify property file.");
-          System.exit(1);
-        }
-        propsFile = Paths.get(home).resolve("pharmcat.properties");
-        System.out.println("Looking for properties file in: " + propsFile);
-        if (!Files.exists(propsFile)) {
-          System.out.println("Cannot find " + propsFile);
-          System.exit(1);
-        }
-        if (!Files.isRegularFile(propsFile)) {
-          System.out.println("Not a file: " + propsFile);
-          System.exit(1);
-        }
-      }
-
+      Path propsFile = CliUtils.getPropsFile(cliHelper, "p");
       Path downloadDir = cliHelper.getValidDirectory("in", true);
       Path generatedDir = cliHelper.getValidDirectory("out", true);
 
@@ -103,7 +81,7 @@ public class DefinitionManager {
   private void transform(Path downloadDir, Path outDir) throws IOException {
 
     GeneratedDefinitionSerializer serializer = new GeneratedDefinitionSerializer();
-    try (DirectoryStream<Path> files = Files.newDirectoryStream(downloadDir, f -> f.toString().endsWith(".tsv"))) {
+    try (DirectoryStream<Path> files = Files.newDirectoryStream(downloadDir, f -> f.toString().endsWith("_translation.tsv"))) {
       for (Path file : files) {
         System.out.println("Parsing " + file);
         CuratedDefinitionParser parser = new CuratedDefinitionParser(file);
@@ -111,7 +89,7 @@ public class DefinitionManager {
         DefinitionFile definitionFile = parser.parse();
         if (!parser.getWarnings().isEmpty()) {
           System.out.println("Warnings for " + file);
-          parser.getWarnings().stream()
+          parser.getWarnings()
               .forEach(System.out::println);
         }
 
