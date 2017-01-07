@@ -41,9 +41,9 @@ public class DiplotypeMatcherTest {
   public static void beforeClass() {
 
     // initialize test variants
-    VariantLocus var1 = new VariantLocus(1, "g.1T>A");
-    VariantLocus var2 = new VariantLocus(2, "g.2T>A");
-    VariantLocus var3 = new VariantLocus(3, "g.3T>A");
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
+    VariantLocus var3 = new VariantLocus("chr1", 3, "g.3T>A");
 
     s_positions = new VariantLocus[] { var1, var2, var3 };
 
@@ -152,7 +152,7 @@ public class DiplotypeMatcherTest {
         .collect(Collectors.toMap(s -> "chr1:" + s.getPosition(),
         Function.identity(), new NoDuplicateMergeFunction<>(), TreeMap::new));
 
-    MatchData dataset = new MatchData(sampleAlleleMap, "chr1", s_positions);
+    MatchData dataset = new MatchData(sampleAlleleMap, s_positions);
     dataset.marshallHaplotypes(s_haplotypes);
     dataset.generateSamplePermutations();
 
@@ -182,10 +182,10 @@ public class DiplotypeMatcherTest {
   @Test
   public void testComparePermutations() throws Exception {
 
-    VariantLocus var1 = new VariantLocus(1, "g.1T>A");
-    VariantLocus var2 = new VariantLocus(2, "g.2T>A");
-    VariantLocus var3 = new VariantLocus(3, "g.3T>A");
-    VariantLocus var4 = new VariantLocus(4, "g.3T>A");
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
+    VariantLocus var3 = new VariantLocus("chr1", 3, "g.3T>A");
+    VariantLocus var4 = new VariantLocus("chr1", 4, "g.3T>A");
     VariantLocus[] variants = new VariantLocus[] { var1, var2, var3, var4 };
 
     NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "T", "A", "C", "C" });
@@ -209,7 +209,7 @@ public class DiplotypeMatcherTest {
     sampleAlleleMap.put("chr1:3", new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C")));
     sampleAlleleMap.put("chr1:4", new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C")));
 
-    MatchData dataset = new MatchData(sampleAlleleMap, "chr1", variants);
+    MatchData dataset = new MatchData(sampleAlleleMap, variants);
     dataset.marshallHaplotypes(Lists.newArrayList(hap1, hap2, hap3));
     dataset.generateSamplePermutations();
     assertThat(dataset.getPermutations(), equalTo(permutations));

@@ -5,8 +5,13 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -62,6 +67,7 @@ public class DefinitionFile {
   @Expose
   @SerializedName("namedAlleles")
   private List<NamedAllele> m_namedAlleles;
+  private SortedMap<String, VariantLocus> m_rsidMap = new TreeMap<>();
 
 
   /**
@@ -224,6 +230,17 @@ public class DefinitionFile {
 
   public void setVariants(VariantLocus[] variants) {
     m_variants = variants;
+    for (VariantLocus varLoc : variants) {
+      if (varLoc.getRsid() != null) {
+        m_rsidMap.put(varLoc.getRsid(), varLoc);
+      }
+    }
+  }
+
+  public @Nullable VariantLocus getVariantByRsid(@Nonnull String rsid) {
+    Preconditions.checkNotNull(rsid);
+    Preconditions.checkArgument(rsid.startsWith("rs"));
+    return m_rsidMap.get(rsid);
   }
 
 

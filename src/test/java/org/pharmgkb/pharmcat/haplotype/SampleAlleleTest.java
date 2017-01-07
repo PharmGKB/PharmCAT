@@ -40,7 +40,7 @@ public class SampleAlleleTest {
   @Test
   public void testForVariant() {
 
-    VariantLocus insVariant = new VariantLocus(1, "g.1A>AT");
+    VariantLocus insVariant = new VariantLocus("chr1", 1, "g.1A>AT");
 
     // inserts
     insVariant.setType(VariantType.INS);

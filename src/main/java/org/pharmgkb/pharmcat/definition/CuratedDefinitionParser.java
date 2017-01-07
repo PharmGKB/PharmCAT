@@ -225,10 +225,9 @@ public class CuratedDefinitionParser {
       } else {
         m_errors.add("Invalid HGVS format in " + prettyLineCol(LINE_CHROMOSOME, col) + ": '" + hgvs + "'");
       }
-
     }
 
-    return new VariantLocus(position, chrHgvsName);
+    return new VariantLocus(m_definitionFile.getChromosome(), position, chrHgvsName);
   }
 
   private void parseNamingLine(List<String> fields) {

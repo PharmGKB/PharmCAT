@@ -45,12 +45,11 @@ public class MatchData {
    * @param alleleMap map of chr:positions to {@link SampleAllele}s from VCF
    * @param allPositions all {@link VariantLocus} positions of interest for the gene
    */
-  public MatchData(@Nonnull SortedMap<String, SampleAllele> alleleMap, @Nonnull String chromosome,
-      @Nonnull VariantLocus[] allPositions) {
+  public MatchData(@Nonnull SortedMap<String, SampleAllele> alleleMap, @Nonnull VariantLocus[] allPositions) {
 
     List<VariantLocus> positions = new ArrayList<>();
     for (VariantLocus variant : allPositions) {
-      String chrPos = chromosome + ":" + variant.getVcfPosition();
+      String chrPos = variant.getVcfChrPosition();
       SampleAllele allele = alleleMap.get(chrPos);
       if (allele == null) {
         m_missingPositions.add(variant);

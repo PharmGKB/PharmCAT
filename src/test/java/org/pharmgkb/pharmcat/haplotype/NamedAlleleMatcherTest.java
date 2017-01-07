@@ -10,6 +10,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.annotation.AnnotationReader;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
@@ -40,7 +41,8 @@ public class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionFile);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, assumeReference, topCandidateOnly);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, new AnnotationReader(),
+        assumeReference, topCandidateOnly);
     Result result = namedAlleleMatcher.call(vcfFile);
 
     // print
@@ -87,7 +89,7 @@ public class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(jsonFile);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, new AnnotationReader());
     Result result = namedAlleleMatcher.call(vcfFile);
     Set<DiplotypeMatch> pairs = result.getGeneCalls().get(0).getDiplotypes();
     assertNotNull(pairs);
@@ -113,11 +115,11 @@ public class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(jsonFile);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, new AnnotationReader());
     VcfReader vcfReader = namedAlleleMatcher.buildVcfReader(vcfFile);
 
     // grab SampleAlleles for all positions related to current gene
-    MatchData data = new MatchData(vcfReader.getAlleleMap(), "chr1", definitionReader.getPositions(gene));
+    MatchData data = new MatchData(vcfReader.getAlleleMap(), definitionReader.getPositions(gene));
     assertEquals(3, data.getNumSampleAlleles());
     assertEquals(0, data.getMissingPositions().size());
     // handle missing positions of interest in sample

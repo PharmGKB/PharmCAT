@@ -23,9 +23,9 @@ public class DiplotypeMatchTest {
   @Test
   public void testCompareTo() {
 
-    VariantLocus var1 = new VariantLocus(1, "g.1T>A");
-    VariantLocus var2 = new VariantLocus(2, "g.2T>A");
-    VariantLocus var3 = new VariantLocus(3, "g.3T>A");
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
+    VariantLocus var3 = new VariantLocus("chr1", 3, "g.3T>A");
     VariantLocus[] variants = new VariantLocus[] { var1, var2, var3 };
 
 
@@ -40,7 +40,7 @@ public class DiplotypeMatchTest {
     HaplotypeMatch hm2 = new HaplotypeMatch(hap2);
     HaplotypeMatch hm3 = new HaplotypeMatch(hap3);
 
-    MatchData dataset = new MatchData(new TreeMap<>(), "chr1", variants);
+    MatchData dataset = new MatchData(new TreeMap<>(), variants);
 
     DiplotypeMatch dm1 = new DiplotypeMatch(hm1, hm1, dataset);
     DiplotypeMatch dm2 = new DiplotypeMatch(hm1, hm2, dataset);

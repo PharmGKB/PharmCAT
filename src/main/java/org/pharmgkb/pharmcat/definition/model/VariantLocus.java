@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.common.comparator.ChromosomeNameComparator;
 
 
 /**
@@ -15,6 +16,9 @@ import com.google.gson.annotations.SerializedName;
  */
 public class VariantLocus implements Comparable<VariantLocus> {
   public static final Pattern REPEAT_PATTERN = Pattern.compile("([ACGT]+)\\(([ACGT]+)\\)(\\d+)([ACGT]+)");
+  @Expose
+  @SerializedName("chromosome")
+  private String m_chromosome;
   @Expose
   @SerializedName("position")
   private int m_position;
@@ -41,12 +45,25 @@ public class VariantLocus implements Comparable<VariantLocus> {
   private String m_referenceRepeat;
 
 
-  public VariantLocus(int position, @Nonnull String chromosomeHgvsName) {
+  public VariantLocus(@Nonnull String chromosome, int position, @Nonnull String chromosomeHgvsName) {
+    Preconditions.checkNotNull(chromosome);
     Preconditions.checkNotNull(chromosomeHgvsName);
+    m_chromosome = chromosome;
     m_position = position;
     m_chromosomeHgvsName = chromosomeHgvsName;
   }
 
+  public String getChromosome() {
+    return m_chromosome;
+  }
+
+
+  /**
+   * Gets the chromosome and VCF position for this variant.
+   */
+  public String getVcfChrPosition() {
+    return m_chromosome + ":" + getVcfPosition();
+  }
 
   /**
    * Gets the VCF position for this variant.
@@ -75,7 +92,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
 
 
   /**
-   * The name use for this location on the gene sequence, relative to the strand the gene is on
+   * The name used for this location on the gene sequence, relative to the strand the gene is on
    */
   public String getGeneHgvsName() {
     return m_geneHgvsName;
@@ -172,7 +189,11 @@ public class VariantLocus implements Comparable<VariantLocus> {
   @Override
   public int compareTo(@Nonnull VariantLocus o) {
 
-    int rez = Integer.compare(m_position, o.getPosition());
+    int rez = ChromosomeNameComparator.getComparator().compare(m_chromosome, o.getChromosome());
+    if (rez != 0) {
+      return rez;
+    }
+    rez = Integer.compare(m_position, o.getPosition());
     if (rez != 0) {
       return rez;
     }

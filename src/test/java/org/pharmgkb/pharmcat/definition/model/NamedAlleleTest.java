@@ -19,10 +19,10 @@ public class NamedAlleleTest {
   @Test
   public void testCalculatePermutations() {
 
-    VariantLocus var1 = new VariantLocus(1, "g.1T>A");
-    VariantLocus var2 = new VariantLocus(2, "g.2T>A");
-    VariantLocus var3 = new VariantLocus(3, "g.3T>A");
-    VariantLocus var4 = new VariantLocus(4, "g.3T>A");
+    VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
+    VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
+    VariantLocus var3 = new VariantLocus("chr1", 3, "g.3T>A");
+    VariantLocus var4 = new VariantLocus("chr1", 4, "g.3T>A");
     VariantLocus[] variants = new VariantLocus[] { var1, var2, var3, var4 };
 
 
