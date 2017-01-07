@@ -66,7 +66,7 @@ dependencies {
       [group: 'com.google.gdata', name: 'core', version: '1.47.1'],
       [group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'],
       [group: 'org.pharmgkb', name: 'pgkb-common', version: '0.2.0'],
-      [group: 'org.pharmgkb', name: 'pgkb-common-io', version: '0.1.2'],
+      [group: 'org.pharmgkb', name: 'pgkb-common-io', version: '0.1.5'],
       [group: 'org.pharmgkb', name: 'vcf-parser', version: '0.2.0'],
       [group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'],
   )
