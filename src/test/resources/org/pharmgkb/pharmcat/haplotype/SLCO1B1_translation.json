@@ -10,12 +10,12 @@
   "refSeqGeneId": "NG_011745.1",
   "refSeqProteinId": "NP_006437.3",
   "notes": [
-    "rsID\u003dRefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
+    "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
     "Transport function was tested for methotrexate, and may not be generalizable to statins. *23 was observed only once in 700 patients, but in vitro transport assays showed little/no function. *31 was observed only in patients of African ancestry, and in vitro transport assays showed little/no function for this haplotype also. *14 and *35 were associated with higher methotrexate clearance in patients, but were not tested for in vitro transport function.",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”",
+    "An important caveat for all genotyping tests is that the decision to assign an allele a \"wild-type\" status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as \"wild-type\".",
     "Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see Supplemental Table S4 in the CPIC  guideline supplement for simvastatin at https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167-supplement.pdf",
-    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d\u0027Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
+    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
   ],
   "populations": [
     "African Allele Frequency",
@@ -29,290 +29,319 @@
   ],
   "variants": [
     {
+      "chromosome": "chr12",
       "position": 21130388,
       "rsid": "rs4149015",
-      "chromosomeHgvsName": "g.21130388G\u003eA",
-      "geneHgvsName": "g.4195G\u003eA",
+      "chromosomeHgvsName": "g.21130388G>A",
+      "geneHgvsName": "g.4195G>A",
       "proteinNote": null,
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21172734,
       "rsid": "rs139257324",
-      "chromosomeHgvsName": "g.21172734C\u003eT",
-      "geneHgvsName": "g.46541C\u003eT",
+      "chromosomeHgvsName": "g.21172734C>T",
+      "geneHgvsName": "g.46541C>T",
       "proteinNote": "R57W",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21172776,
       "rsid": "rs373327528",
-      "chromosomeHgvsName": "g.21172776G\u003eA",
-      "geneHgvsName": "g.46583G\u003eA",
+      "chromosomeHgvsName": "g.21172776G>A",
+      "geneHgvsName": "g.46583G>A",
       "proteinNote": "G71R",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21172782,
       "rsid": "rs56101265",
-      "chromosomeHgvsName": "g.21172782T\u003eC",
-      "geneHgvsName": "g.46589T\u003eC",
+      "chromosomeHgvsName": "g.21172782T>C",
+      "geneHgvsName": "g.46589T>C",
       "proteinNote": "F73L",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21174595,
       "rsid": "rs56061388",
-      "chromosomeHgvsName": "g.21174595T\u003eC",
-      "geneHgvsName": "g.48402T\u003eC",
+      "chromosomeHgvsName": "g.21174595T>C",
+      "geneHgvsName": "g.48402T>C",
       "proteinNote": "V82A",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21176804,
       "rsid": "rs2306283",
-      "chromosomeHgvsName": "g.21176804A\u003eG",
-      "geneHgvsName": "g.50611A\u003eG",
+      "chromosomeHgvsName": "g.21176804A>G",
+      "geneHgvsName": "g.50611A>G",
       "proteinNote": "N130D",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21176827,
       "rsid": "rs11045818",
-      "chromosomeHgvsName": "g.21176827G\u003eA",
-      "geneHgvsName": "g.50634G\u003eA",
-      "proteinNote": "S137\u003d",
+      "chromosomeHgvsName": "g.21176827G>A",
+      "geneHgvsName": "g.50634G>A",
+      "proteinNote": "S137=",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21176868,
       "rsid": "rs2306282",
-      "chromosomeHgvsName": "g.21176868A\u003eG",
-      "geneHgvsName": "g.50675A\u003eG",
+      "chromosomeHgvsName": "g.21176868A>G",
+      "geneHgvsName": "g.50675A>G",
       "proteinNote": "N151S",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21176879,
       "rsid": "rs11045819",
-      "chromosomeHgvsName": "g.21176879C\u003eA",
-      "geneHgvsName": "g.50686C\u003eA",
+      "chromosomeHgvsName": "g.21176879C>A",
+      "geneHgvsName": "g.50686C>A",
       "proteinNote": "P155T",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21176883,
       "rsid": "rs72559745",
-      "chromosomeHgvsName": "g.21176883A\u003eG",
-      "geneHgvsName": "g.50690A\u003eG",
+      "chromosomeHgvsName": "g.21176883A>G",
+      "geneHgvsName": "g.50690A>G",
       "proteinNote": "E156G",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21178615,
       "rsid": "rs4149056",
-      "chromosomeHgvsName": "g.21178615T\u003eC",
-      "geneHgvsName": "g.52422T\u003eC",
+      "chromosomeHgvsName": "g.21178615T>C",
+      "geneHgvsName": "g.52422T>C",
       "proteinNote": "V174A",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21178665,
       "rsid": "rs4149057",
-      "chromosomeHgvsName": "g.21178665T\u003eC",
-      "geneHgvsName": "g.52472T\u003eC",
-      "proteinNote": "L191\u003d",
+      "chromosomeHgvsName": "g.21178665T>C",
+      "geneHgvsName": "g.52472T>C",
+      "proteinNote": "L191=",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21178672,
       "rsid": "rs72559746",
-      "chromosomeHgvsName": "g.21178672T\u003eG",
-      "geneHgvsName": "g.52479T\u003eG",
+      "chromosomeHgvsName": "g.21178672T>G",
+      "geneHgvsName": "g.52479T>G",
       "proteinNote": "L193R",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21178691,
       "rsid": "rs2291075",
-      "chromosomeHgvsName": "g.21178691C\u003eT",
-      "geneHgvsName": "g.52498C\u003eT",
-      "proteinNote": "F199\u003d",
+      "chromosomeHgvsName": "g.21178691C>T",
+      "geneHgvsName": "g.52498C>T",
+      "proteinNote": "F199=",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21178957,
       "rsid": "rs79135870",
-      "chromosomeHgvsName": "g.21178957A\u003eG",
-      "geneHgvsName": "g.52764A\u003eG",
+      "chromosomeHgvsName": "g.21178957A>G",
+      "geneHgvsName": "g.52764A>G",
       "proteinNote": "I222V",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21196951,
       "rsid": "rs11045852",
-      "chromosomeHgvsName": "g.21196951A\u003eG",
-      "geneHgvsName": "g.70758A\u003eG",
+      "chromosomeHgvsName": "g.21196951A>G",
+      "geneHgvsName": "g.70758A>G",
       "proteinNote": "I245V",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21196976,
       "rsid": "rs11045853",
-      "chromosomeHgvsName": "g.21196976G\u003eA",
-      "geneHgvsName": "g.70783G\u003eA",
+      "chromosomeHgvsName": "g.21196976G>A",
+      "geneHgvsName": "g.70783G>A",
       "proteinNote": "R253Q",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21200595,
       "rsid": "rs55901008",
-      "chromosomeHgvsName": "g.21200595T\u003eC",
-      "geneHgvsName": "g.74402T\u003eC",
+      "chromosomeHgvsName": "g.21200595T>C",
+      "geneHgvsName": "g.74402T>C",
       "proteinNote": "I353T",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21202553,
       "rsid": null,
-      "chromosomeHgvsName": "g.21202553T\u003eG",
-      "geneHgvsName": "g.76360T\u003eG",
+      "chromosomeHgvsName": "g.21202553T>G",
+      "geneHgvsName": "g.76360T>G",
       "proteinNote": "F400V",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21202555,
       "rsid": "rs59113707",
-      "chromosomeHgvsName": "g.21202555C\u003eG",
-      "geneHgvsName": "g.76362C\u003eG",
+      "chromosomeHgvsName": "g.21202555C>G",
+      "geneHgvsName": "g.76362C>G",
       "proteinNote": "F400L",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21202649,
       "rsid": "rs56387224",
-      "chromosomeHgvsName": "g.21202649A\u003eG",
-      "geneHgvsName": "g.76456A\u003eG",
+      "chromosomeHgvsName": "g.21202649A>G",
+      "geneHgvsName": "g.76456A>G",
       "proteinNote": "N432D",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21202664,
       "rsid": "rs142965323",
-      "chromosomeHgvsName": "g.21202664G\u003eA",
-      "geneHgvsName": "g.76471G\u003eA",
+      "chromosomeHgvsName": "g.21202664G>A",
+      "geneHgvsName": "g.76471G>A",
       "proteinNote": "G437R",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21205921,
       "rsid": "rs72559748",
-      "chromosomeHgvsName": "g.21205921A\u003eG",
-      "geneHgvsName": "g.79728A\u003eG",
+      "chromosomeHgvsName": "g.21205921A>G",
+      "geneHgvsName": "g.79728A>G",
       "proteinNote": "D462G",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21205999,
       "rsid": "rs59502379",
-      "chromosomeHgvsName": "g.21205999G\u003eC",
-      "geneHgvsName": "g.79806G\u003eC",
+      "chromosomeHgvsName": "g.21205999G>C",
+      "geneHgvsName": "g.79806G>C",
       "proteinNote": "G488A",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21239042,
       "rsid": "rs34671512",
-      "chromosomeHgvsName": "g.21239042A\u003eC",
-      "geneHgvsName": "g.112849A\u003eC",
+      "chromosomeHgvsName": "g.21239042A>C",
+      "geneHgvsName": "g.112849A>C",
       "proteinNote": "L643F",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21239077,
       "rsid": "rs56199088",
-      "chromosomeHgvsName": "g.21239077A\u003eG",
-      "geneHgvsName": "g.112884A\u003eG",
+      "chromosomeHgvsName": "g.21239077A>G",
+      "geneHgvsName": "g.112884A>G",
       "proteinNote": "D655G",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21239113,
       "rsid": "rs55737008",
-      "chromosomeHgvsName": "g.21239113A\u003eG",
-      "geneHgvsName": "g.112920A\u003eG",
+      "chromosomeHgvsName": "g.21239113A>G",
+      "geneHgvsName": "g.112920A>G",
       "proteinNote": "E667G",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21239145,
       "rsid": "rs200995543",
-      "chromosomeHgvsName": "g.21239145C\u003eT",
-      "geneHgvsName": "g.112952C\u003eT",
+      "chromosomeHgvsName": "g.21239145C>T",
+      "geneHgvsName": "g.112952C>T",
       "proteinNote": "H678Y",
       "resourceNote": null,
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr12",
       "position": 21239158,
       "rsid": "rs140790673",
-      "chromosomeHgvsName": "g.21239158C\u003eT",
-      "geneHgvsName": "g.112965C\u003eT",
+      "chromosomeHgvsName": "g.21239158C>T",
+      "geneHgvsName": "g.112965C>T",
       "proteinNote": "S682F",
       "resourceNote": null,
       "type": "SNP",
@@ -447,7 +476,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*3",
@@ -484,7 +522,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*4",
@@ -521,7 +568,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*5",
@@ -604,7 +660,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*7",
@@ -641,7 +706,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*8",
@@ -678,7 +752,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*9",
@@ -715,7 +798,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*10",
@@ -752,7 +844,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*11",
@@ -789,7 +890,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*12",
@@ -826,7 +936,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*13",
@@ -863,7 +982,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*14",
@@ -900,7 +1028,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*15",
@@ -983,7 +1120,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*17",
@@ -1020,7 +1166,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*18",
@@ -1057,7 +1212,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*19",
@@ -1094,7 +1258,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*20",
@@ -1131,7 +1304,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*21",
@@ -1168,7 +1350,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*22",
@@ -1205,7 +1396,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*23",
@@ -1242,7 +1442,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*24",
@@ -1279,7 +1488,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*25",
@@ -1316,7 +1534,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*26",
@@ -1353,7 +1580,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*27",
@@ -1390,7 +1626,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*28",
@@ -1427,7 +1672,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*29",
@@ -1464,7 +1718,16 @@
         null,
         "T"
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*30",
@@ -1501,7 +1764,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*31",
@@ -1538,7 +1810,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*32",
@@ -1575,7 +1856,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*33",
@@ -1612,7 +1902,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*34",
@@ -1649,7 +1948,16 @@
         "T",
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*35",
@@ -1686,7 +1994,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*36",
@@ -1723,7 +2040,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     }
   ]
 }

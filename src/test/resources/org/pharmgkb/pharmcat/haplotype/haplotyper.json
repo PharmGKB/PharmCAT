@@ -13,6 +13,7 @@
   "populations": null,
   "variants": [
     {
+      "chromosome": "chr1",
       "position": 1,
       "rsid": null,
       "chromosomeHgvsName": "g.1C\u003eT",
@@ -23,6 +24,7 @@
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr1",
       "position": 2,
       "rsid": null,
       "chromosomeHgvsName": "g.2TC\u003eTCA",
@@ -33,6 +35,7 @@
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr1",
       "position": 4,
       "rsid": null,
       "chromosomeHgvsName": "g.3TCA\u003eT",

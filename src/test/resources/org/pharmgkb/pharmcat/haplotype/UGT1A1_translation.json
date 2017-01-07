@@ -1,7 +1,7 @@
 {
   "formatVersion": "1",
   "contentVersion": null,
-  "modificationDate": "Apr 14, 2016 12:00:00 AM",
+  "modificationDate": "Oct 21, 2016 12:00:00 AM",
   "gene": "UGT1A1",
   "orientation": "forward",
   "chromosome": "chr2",
@@ -10,15 +10,15 @@
   "refSeqGeneId": "NG_002601.2",
   "refSeqProteinId": "NP_000454.1",
   "notes": [
-    "rsID\u003dRefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
+    "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
     "To see a full list of known UGT1A1 alleles see https://www.pharmacogenomics.pha.ulaval.ca/wp-content/uploads/2015/04/UGT1A1-allele-nomenclature.html",
     "Alleles are derived from the UDP-Glucoronosyltransferase (UGT) Alleles Nomenclature page (http://www.pharmacogenomics.pha.ulaval.ca/cms/site/pharmacogenomics/ugt_alleles). See https://www.pharmgkb.org/gene/PA420 for updates on UGT1A1 gene alleles and nomenclature.",
     "To see a full list of known UGT1A1 alleles and function see http://www.pharmacogenomics.pha.ulaval.ca/files/content/sites/pharmacogenomics/files/Nomen clature/UGT1A/UGT1A1.htm.",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”.",
+    "An important caveat for all genotyping tests is that the decision to assign an allele a \"wild-type\" status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as \"wild-type\".",
     "UGT1A1*60 is in incomplete linkage disequilibrium with *28 and to date, there are no data to suggest that *60 by itself results in decreased UGT1A1 function.",
     "Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see https://github.com/PharmGKB/cpic-guidelines/raw/master/atazanavir/2015/26417955-UGT1A1_allele_frequency.xlsx",
-    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d\u0027Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
+    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
   ],
   "populations": [
     "African Allele Frequency",
@@ -32,52 +32,57 @@
   ],
   "variants": [
     {
+      "chromosome": "chr2",
       "position": 233757013,
       "rsid": "rs4124874",
-      "chromosomeHgvsName": "g.233757013T\u003eG",
-      "geneHgvsName": "g.172270T\u003eG",
-      "proteinNote": "5\u0027 of UGT1A1; intronic for other UGT1As e.g. UGT1A4",
-      "resourceNote": "-3275T\u003eG",
+      "chromosomeHgvsName": "g.233757013T>G",
+      "geneHgvsName": "g.172270T>G",
+      "proteinNote": "5' of UGT1A1; intronic for other UGT1As e.g. UGT1A4",
+      "resourceNote": "-3275T>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr2",
       "position": 233759924,
       "rsid": "rs887829",
-      "chromosomeHgvsName": "g.233759924C\u003eT",
-      "geneHgvsName": "g.175181C\u003eT",
+      "chromosomeHgvsName": "g.233759924C>T",
+      "geneHgvsName": "g.175181C>T",
       "proteinNote": "nearGene-5",
-      "resourceNote": "-364C\u003eT",
+      "resourceNote": "-364C>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
-      "position": 233760234,
+      "chromosome": "chr2",
+      "position": 233760233,
       "rsid": null,
-      "chromosomeHgvsName": "g.233760234",
-      "geneHgvsName": "g.175491",
+      "chromosomeHgvsName": "g.233760233",
+      "geneHgvsName": "g.175490",
       "proteinNote": "Promoter region",
-      "resourceNote": "A(TA)5TAA, A(TA)6TAA, A(TA)7TAA, A(TA)8TAA",
-      "type": "REPEAT",
-      "referenceRepeat": "A(TA)6TAA"
+      "resourceNote": "CA(TA)5TAA, CA(TA)6TAA, CA(TA)7TAA, CA(TA)8TAA",
+      "type": "SNP",
+      "referenceRepeat": null
     },
     {
+      "chromosome": "chr2",
       "position": 233760498,
       "rsid": "rs4148323",
-      "chromosomeHgvsName": "g.233760498G\u003eA",
-      "geneHgvsName": "g.175755G\u003eA",
+      "chromosomeHgvsName": "g.233760498G>A",
+      "geneHgvsName": "g.175755G>A",
       "proteinNote": "G71R",
-      "resourceNote": "211G\u003eA",
+      "resourceNote": "211G>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr2",
       "position": 233760973,
       "rsid": "rs35350960",
-      "chromosomeHgvsName": "g.233760973C\u003eA",
-      "geneHgvsName": "g.176230C\u003eA",
+      "chromosomeHgvsName": "g.233760973C>A",
+      "geneHgvsName": "g.176230C>A",
       "proteinNote": "P229Q",
-      "resourceNote": "686C\u003eA",
+      "resourceNote": "686C>A",
       "type": "SNP",
       "referenceRepeat": null
     }
@@ -90,11 +95,20 @@
       "alleles": [
         "T",
         "C",
-        "A(TA)6TAA",
+        "CAT",
         "G",
         "C"
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*6",
@@ -107,7 +121,16 @@
         "A",
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*27",
@@ -120,7 +143,16 @@
         null,
         "A"
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*28",
@@ -129,11 +161,20 @@
       "alleles": [
         null,
         null,
-        "A(TA)7TAA",
+        "CATAT",
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*36",
@@ -142,11 +183,20 @@
       "alleles": [
         null,
         null,
-        "A(TA)5TAA",
+        "C",
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*37",
@@ -155,11 +205,20 @@
       "alleles": [
         null,
         null,
-        "A(TA)8TAA",
+        "CATATAT",
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*60",
@@ -172,7 +231,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*80",
@@ -185,7 +253,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     }
   ]
 }

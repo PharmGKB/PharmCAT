@@ -1,7 +1,7 @@
 {
   "formatVersion": "1",
   "contentVersion": null,
-  "modificationDate": "Mar 30, 2016 12:00:00 AM",
+  "modificationDate": "Oct 21, 2016 12:00:00 AM",
   "gene": "CYP2C9",
   "orientation": "forward",
   "chromosome": "chr10",
@@ -10,135 +10,138 @@
   "refSeqGeneId": "NG_008385.1",
   "refSeqProteinId": "NP_000762.2",
   "notes": [
-    "rsID\u003dRefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
+    "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
     "See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP2C9 variant alleles and updated allele information.",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”",
-    "Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see Supplemental Table S5 in the CPIC  guideline supplement for phenytoin at https://github.com/PharmGKB/cpic-guidelines/raw/master/phenytoin/2014/25099164-supplement.pdf (1000 Genomes populations)",
-    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d\u0027Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
+    "An important caveat for all genotyping tests is that the decision to assign an allele a \"wild-type\" status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as \"wild-type\".",
+    "The *2 and *24 definitions differ from the Cytochrome P450 Nomenclature DB because that DB notes that the presenence of the *2 variant 430C>T cannot be excluded from the same allele as the *24 variant 1060G>A. However, we believe that the presence of both variants together constitutes a *2 allele. So the 1060G>A variant has been added as possibly present in the *2 allele instead of 430C>T as possibly present in the *24 allele.",
+    "The *18 definition differs from the Cytochrome P450 Nomenclature DB because rs1057911 (G475=) has been removed. This synonomous variant appears to be in tight linkage (though not 100%) with rs1057910, the defining snp for *3. The presence of this variant does not impact activity of *18 or *3 but does complicate haplotype assignement from genotyping results, so it has been removed from this table."
   ],
-  "populations": [
-    "African Allele Frequency",
-    "African American Allele Frequency",
-    "Americas Allele Frequency",
-    "Caucasian (European + North American) Allele Frequency",
-    "East Asian Allele Frequency",
-    "Middle Eastern Allele Frequency",
-    "Oceanian Allele Frequency",
-    "South/Central Asian Allele Frequency"
-  ],
+  "populations": null,
   "variants": [
     {
+      "chromosome": "chr10",
       "position": 94938683,
       "rsid": "rs114071557",
-      "chromosomeHgvsName": "g.94938683A\u003eG",
-      "geneHgvsName": "g.5026A\u003eG",
+      "chromosomeHgvsName": "g.94938683A>G",
+      "geneHgvsName": "g.5026A>G",
       "proteinNote": "M1V(Start)",
-      "resourceNote": "1A\u003eG",
+      "resourceNote": "1A>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94938737,
       "rsid": "rs67807361",
-      "chromosomeHgvsName": "g.94938737C\u003eA",
-      "geneHgvsName": "g.5080C\u003eA",
+      "chromosomeHgvsName": "g.94938737C>A",
+      "geneHgvsName": "g.5080C>A",
       "proteinNote": "L19I",
-      "resourceNote": "55C\u003eA",
+      "resourceNote": "55C>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94938771,
       "rsid": "rs142240658",
-      "chromosomeHgvsName": "g.94938771C\u003eT",
-      "geneHgvsName": "g.5114C\u003eT",
+      "chromosomeHgvsName": "g.94938771C>T",
+      "geneHgvsName": "g.5114C>T",
       "proteinNote": "P30L",
-      "resourceNote": "89C\u003eT",
+      "resourceNote": "89C>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94938803,
       "rsid": null,
-      "chromosomeHgvsName": "g.94938803A\u003eG",
-      "geneHgvsName": "g.5146A\u003eG",
+      "chromosomeHgvsName": "g.94938803A>G",
+      "geneHgvsName": "g.5146A>G",
       "proteinNote": "N41D",
-      "resourceNote": "121A\u003eG",
+      "resourceNote": "121A>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94938828,
       "rsid": "rs564813580",
-      "chromosomeHgvsName": "g.94938828A\u003eG",
-      "geneHgvsName": "g.5171A\u003eG",
+      "chromosomeHgvsName": "g.94938828A>G",
+      "geneHgvsName": "g.5171A>G",
       "proteinNote": "D49G",
-      "resourceNote": "146A\u003eG",
+      "resourceNote": "146A>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94941897,
       "rsid": "rs371055887",
-      "chromosomeHgvsName": "g.94941897G\u003eC",
-      "geneHgvsName": "g.8240G\u003eC",
+      "chromosomeHgvsName": "g.94941897G>C",
+      "geneHgvsName": "g.8240G>C",
       "proteinNote": "G70R",
-      "resourceNote": "3215G\u003eC",
+      "resourceNote": "3215G>C",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94941915,
       "rsid": null,
-      "chromosomeHgvsName": "g.94941915G\u003eA",
-      "geneHgvsName": "g.8258G\u003eA",
+      "chromosomeHgvsName": "g.94941915G>A",
+      "geneHgvsName": "g.8258G>A",
       "proteinNote": "V76M",
-      "resourceNote": "3233G\u003eA",
+      "resourceNote": "3233G>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94941958,
       "rsid": "rs72558187",
-      "chromosomeHgvsName": "g.94941958T\u003eC",
-      "geneHgvsName": "g.8301T\u003eC",
+      "chromosomeHgvsName": "g.94941958T>C",
+      "geneHgvsName": "g.8301T>C",
       "proteinNote": "L90P",
-      "resourceNote": "3276T\u003eC",
+      "resourceNote": "3276T>C",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94941976,
       "rsid": null,
-      "chromosomeHgvsName": "g.94941976G\u003eC",
-      "geneHgvsName": "g.8319G\u003eC",
+      "chromosomeHgvsName": "g.94941976G>C",
+      "geneHgvsName": "g.8319G>C",
       "proteinNote": "G96A",
-      "resourceNote": "3294G\u003eC",
+      "resourceNote": "3294G>C",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94941982,
       "rsid": "rs762239445",
-      "chromosomeHgvsName": "g.94941982G\u003eT",
-      "geneHgvsName": "g.8325G\u003eT",
+      "chromosomeHgvsName": "g.94941982G>T",
+      "geneHgvsName": "g.8325G>T",
       "proteinNote": "G98V",
-      "resourceNote": "3300G\u003eT",
+      "resourceNote": "3300G>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942018,
       "rsid": null,
-      "chromosomeHgvsName": "g.94942018T\u003eC",
-      "geneHgvsName": "g.8361T\u003eC",
+      "chromosomeHgvsName": "g.94942018T>C",
+      "geneHgvsName": "g.8361T>C",
       "proteinNote": "F110S",
-      "resourceNote": "3336T\u003eC",
+      "resourceNote": "3336T>C",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942213,
       "rsid": null,
       "chromosomeHgvsName": "g.94942213_94942222delAGAAATGGAA",
@@ -149,196 +152,216 @@
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942216,
       "rsid": null,
-      "chromosomeHgvsName": "g.94942216A\u003eG",
-      "geneHgvsName": "g.8559A\u003eG",
+      "chromosomeHgvsName": "g.94942216A>G",
+      "geneHgvsName": "g.8559A>G",
       "proteinNote": "K119R",
-      "resourceNote": "3534A\u003eG",
+      "resourceNote": "3534A>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942230,
       "rsid": "rs767576260",
-      "chromosomeHgvsName": "g.94942230C\u003eT",
-      "geneHgvsName": "g.8573C\u003eT",
+      "chromosomeHgvsName": "g.94942230C>T",
+      "geneHgvsName": "g.8573C>T",
       "proteinNote": "R124W",
-      "resourceNote": "3548C\u003eT",
+      "resourceNote": "3548C>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942231,
       "rsid": "rs12414460",
-      "chromosomeHgvsName": "g.94942231G\u003eA",
-      "geneHgvsName": "g.8574G\u003eA",
+      "chromosomeHgvsName": "g.94942231G>A",
+      "geneHgvsName": "g.8574G>A",
       "proteinNote": "R124Q",
-      "resourceNote": "3549G\u003eA",
+      "resourceNote": "3549G>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942234,
       "rsid": "rs72558189",
-      "chromosomeHgvsName": "g.94942234G\u003eA",
-      "geneHgvsName": "g.8577G\u003eA",
+      "chromosomeHgvsName": "g.94942234G>A",
+      "geneHgvsName": "g.8577G>A",
       "proteinNote": "R125H",
-      "resourceNote": "3552G\u003eA",
+      "resourceNote": "3552G>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942249,
       "rsid": "rs200965026",
-      "chromosomeHgvsName": "g.94942249C\u003eT;g.94942249C\u003eG",
-      "geneHgvsName": "g.8592C\u003eT;g.8592C\u003eG",
+      "chromosomeHgvsName": "g.94942249C>T;g.94942249C>G",
+      "geneHgvsName": "g.8592C>T;g.8592C>G",
       "proteinNote": "T130M; T130R",
-      "resourceNote": "3567C\u003eT; 3567C\u003eG",
+      "resourceNote": "3567C>T; 3567C>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942254,
       "rsid": "rs199523631",
-      "chromosomeHgvsName": "g.94942254C\u003eT",
-      "geneHgvsName": "g.8597C\u003eT",
+      "chromosomeHgvsName": "g.94942254C>T",
+      "geneHgvsName": "g.8597C>T",
       "proteinNote": "R132W",
-      "resourceNote": "3572C\u003eT",
+      "resourceNote": "3572C>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942255,
       "rsid": "rs200183364",
-      "chromosomeHgvsName": "g.94942255G\u003eA",
-      "geneHgvsName": "g.8598G\u003eA",
+      "chromosomeHgvsName": "g.94942255G>A",
+      "geneHgvsName": "g.8598G>A",
       "proteinNote": "R132Q",
-      "resourceNote": "3573G\u003eA",
+      "resourceNote": "3573G>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942290,
       "rsid": "rs1799853",
-      "chromosomeHgvsName": "g.94942290C\u003eT",
-      "geneHgvsName": "g.8633C\u003eT",
+      "chromosomeHgvsName": "g.94942290C>T",
+      "geneHgvsName": "g.8633C>T",
       "proteinNote": "R144C",
-      "resourceNote": "3608C\u003eT",
+      "resourceNote": "3608C>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942305,
       "rsid": "rs754487195",
-      "chromosomeHgvsName": "g.94942305G\u003eA",
-      "geneHgvsName": "g.8648G\u003eA",
+      "chromosomeHgvsName": "g.94942305G>A",
+      "geneHgvsName": "g.8648G>A",
       "proteinNote": "A149T",
-      "resourceNote": "3623G\u003eA",
+      "resourceNote": "3623G>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94942309,
       "rsid": "rs7900194",
-      "chromosomeHgvsName": "g.94942309G\u003eA;g.94942309G\u003eT",
-      "geneHgvsName": "g.8652G\u003eA;g.8652G\u003eT",
+      "chromosomeHgvsName": "g.94942309G>A;g.94942309G>T",
+      "geneHgvsName": "g.8652G>A;g.8652G>T",
       "proteinNote": "R150H; R150L",
-      "resourceNote": "3627G\u003eA; 3627G\u003eT",
+      "resourceNote": "3627G>A; 3627G>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94947782,
       "rsid": "rs72558190",
-      "chromosomeHgvsName": "g.94947782C\u003eA",
-      "geneHgvsName": "g.14125C\u003eA",
+      "chromosomeHgvsName": "g.94947782C>A",
+      "geneHgvsName": "g.14125C>A",
       "proteinNote": "S162X",
-      "resourceNote": "9100C\u003eA",
+      "resourceNote": "9100C>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94947785,
       "rsid": "rs774550549",
-      "chromosomeHgvsName": "g.94947785C\u003eT",
-      "geneHgvsName": "g.14128C\u003eT",
+      "chromosomeHgvsName": "g.94947785C>T",
+      "geneHgvsName": "g.14128C>T",
       "proteinNote": "P163L",
-      "resourceNote": "9103C\u003eT",
+      "resourceNote": "9103C>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94947907,
       "rsid": null,
-      "chromosomeHgvsName": "g.94947907A\u003eC",
-      "geneHgvsName": "g.14250A\u003eC",
+      "chromosomeHgvsName": "g.94947907A>C",
+      "geneHgvsName": "g.14250A>C",
       "proteinNote": "N204H",
-      "resourceNote": "9225A\u003eC",
+      "resourceNote": "9225A>C",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94947917,
       "rsid": null,
-      "chromosomeHgvsName": "g.94947917T\u003eC",
-      "geneHgvsName": "g.14260T\u003eC",
+      "chromosomeHgvsName": "g.94947917T>C",
+      "geneHgvsName": "g.14260T>C",
       "proteinNote": "I207T",
-      "resourceNote": "9235T\u003eC",
+      "resourceNote": "9235T>C",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94947938,
       "rsid": null,
-      "chromosomeHgvsName": "g.94947938A\u003eT",
-      "geneHgvsName": "g.14281A\u003eT",
+      "chromosomeHgvsName": "g.94947938A>T",
+      "geneHgvsName": "g.14281A>T",
       "proteinNote": "Q214L",
-      "resourceNote": "9256A\u003eT",
+      "resourceNote": "9256A>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94949129,
       "rsid": null,
-      "chromosomeHgvsName": "g.94949129A\u003eG",
-      "geneHgvsName": "g.15472A\u003eG",
+      "chromosomeHgvsName": "g.94949129A>G",
+      "geneHgvsName": "g.15472A>G",
       "proteinNote": "I222V",
-      "resourceNote": "10447A\u003eG",
+      "resourceNote": "10447A>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94949144,
       "rsid": null,
-      "chromosomeHgvsName": "g.94949144C\u003eT",
-      "geneHgvsName": "g.15487C\u003eT",
+      "chromosomeHgvsName": "g.94949144C>T",
+      "geneHgvsName": "g.15487C>T",
       "proteinNote": "P227S",
-      "resourceNote": "10462C\u003eT",
+      "resourceNote": "10462C>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94949217,
       "rsid": "rs2256871",
-      "chromosomeHgvsName": "g.94949217A\u003eG",
-      "geneHgvsName": "g.15560A\u003eG",
+      "chromosomeHgvsName": "g.94949217A>G",
+      "geneHgvsName": "g.15560A>G",
       "proteinNote": "H251R",
-      "resourceNote": "10535A\u003eG",
+      "resourceNote": "10535A>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94949280,
       "rsid": "rs9332130",
-      "chromosomeHgvsName": "g.94949280A\u003eG",
-      "geneHgvsName": "g.15623A\u003eG",
+      "chromosomeHgvsName": "g.94949280A>G",
+      "geneHgvsName": "g.15623A>G",
       "proteinNote": "E272G",
-      "resourceNote": "10598A\u003eG",
+      "resourceNote": "10598A>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94949282,
       "rsid": "rs9332131",
       "chromosomeHgvsName": "g.94949282delA",
@@ -349,222 +372,233 @@
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94972119,
       "rsid": "rs182132442",
-      "chromosomeHgvsName": "g.94972119C\u003eA",
-      "geneHgvsName": "g.38462C\u003eA",
+      "chromosomeHgvsName": "g.94972119C>A",
+      "geneHgvsName": "g.38462C>A",
       "proteinNote": "P279T",
-      "resourceNote": "33437C\u003eA",
+      "resourceNote": "33437C>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94972134,
       "rsid": null,
-      "chromosomeHgvsName": "g.94972134A\u003eG",
-      "geneHgvsName": "g.38477A\u003eG",
+      "chromosomeHgvsName": "g.94972134A>G",
+      "geneHgvsName": "g.38477A>G",
       "proteinNote": "I284V",
-      "resourceNote": "33452A\u003eG",
+      "resourceNote": "33452A>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94972179,
       "rsid": "rs72558192",
-      "chromosomeHgvsName": "g.94972179A\u003eG",
-      "geneHgvsName": "g.38522A\u003eG",
+      "chromosomeHgvsName": "g.94972179A>G",
+      "geneHgvsName": "g.38522A>G",
       "proteinNote": "T299A",
-      "resourceNote": "33497A\u003eG",
+      "resourceNote": "33497A>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94972180,
       "rsid": null,
-      "chromosomeHgvsName": "g.94972180C\u003eG",
-      "geneHgvsName": "g.38523C\u003eG",
+      "chromosomeHgvsName": "g.94972180C>G",
+      "geneHgvsName": "g.38523C>G",
       "proteinNote": "T299R",
-      "resourceNote": "33498C\u003eG",
+      "resourceNote": "33498C>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94972233,
       "rsid": null,
-      "chromosomeHgvsName": "g.94972233C\u003eT",
-      "geneHgvsName": "g.38576C\u003eT",
+      "chromosomeHgvsName": "g.94972233C>T",
+      "geneHgvsName": "g.38576C>T",
       "proteinNote": "P317S",
-      "resourceNote": "33551C\u003eT",
+      "resourceNote": "33551C>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94981201,
       "rsid": "rs57505750",
-      "chromosomeHgvsName": "g.94981201T\u003eC",
-      "geneHgvsName": "g.47544T\u003eC",
+      "chromosomeHgvsName": "g.94981201T>C",
+      "geneHgvsName": "g.47544T>C",
       "proteinNote": "I327T",
-      "resourceNote": "42519T\u003eC",
+      "resourceNote": "42519T>C",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94981224,
       "rsid": "rs28371685",
-      "chromosomeHgvsName": "g.94981224C\u003eT",
-      "geneHgvsName": "g.47567C\u003eT",
+      "chromosomeHgvsName": "g.94981224C>T",
+      "geneHgvsName": "g.47567C>T",
       "proteinNote": "R335W",
-      "resourceNote": "42542C\u003eT",
+      "resourceNote": "42542C>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94981225,
       "rsid": "rs367826293",
-      "chromosomeHgvsName": "g.94981225G\u003eA",
-      "geneHgvsName": "g.47568G\u003eA",
+      "chromosomeHgvsName": "g.94981225G>A",
+      "geneHgvsName": "g.47568G>A",
       "proteinNote": "R335Q",
-      "resourceNote": "42543G\u003eA",
+      "resourceNote": "42543G>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94981250,
       "rsid": "rs750820937",
-      "chromosomeHgvsName": "g.94981250C\u003eA",
-      "geneHgvsName": "g.47593C\u003eA",
+      "chromosomeHgvsName": "g.94981250C>A",
+      "geneHgvsName": "g.47593C>A",
       "proteinNote": "S343R",
-      "resourceNote": "42568C\u003eA",
+      "resourceNote": "42568C>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94981281,
       "rsid": "rs749060448",
-      "chromosomeHgvsName": "g.94981281G\u003eA",
-      "geneHgvsName": "g.47624G\u003eA",
+      "chromosomeHgvsName": "g.94981281G>A",
+      "geneHgvsName": "g.47624G>A",
       "proteinNote": "E354K",
-      "resourceNote": "42599G\u003eA",
+      "resourceNote": "42599G>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94981296,
       "rsid": "rs1057910",
-      "chromosomeHgvsName": "g.94981296A\u003eC",
-      "geneHgvsName": "g.47639A\u003eC",
+      "chromosomeHgvsName": "g.94981296A>C",
+      "geneHgvsName": "g.47639A>C",
       "proteinNote": "I359L",
-      "resourceNote": "42614A\u003eC",
+      "resourceNote": "42614A>C",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94981297,
       "rsid": "rs56165452",
-      "chromosomeHgvsName": "g.94981297T\u003eC",
-      "geneHgvsName": "g.47640T\u003eC",
+      "chromosomeHgvsName": "g.94981297T>C",
+      "geneHgvsName": "g.47640T>C",
       "proteinNote": "I359T",
-      "resourceNote": "42615T\u003eC",
+      "resourceNote": "42615T>C",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94981301,
       "rsid": "rs28371686",
-      "chromosomeHgvsName": "g.94981301C\u003eG",
-      "geneHgvsName": "g.47644C\u003eG",
+      "chromosomeHgvsName": "g.94981301C>G",
+      "geneHgvsName": "g.47644C>G",
       "proteinNote": "D360E",
-      "resourceNote": "42619C\u003eG",
+      "resourceNote": "42619C>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94981302,
       "rsid": null,
-      "chromosomeHgvsName": "g.94981302C\u003eA",
-      "geneHgvsName": "g.47645C\u003eA",
+      "chromosomeHgvsName": "g.94981302C>A",
+      "geneHgvsName": "g.47645C>A",
       "proteinNote": "L361I",
-      "resourceNote": "42620C\u003eA",
+      "resourceNote": "42620C>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94981365,
       "rsid": null,
-      "chromosomeHgvsName": "g.94981365C\u003eT",
-      "geneHgvsName": "g.47708C\u003eT",
+      "chromosomeHgvsName": "g.94981365C>T",
+      "geneHgvsName": "g.47708C>T",
       "proteinNote": "P382S",
-      "resourceNote": "42683C\u003eT",
+      "resourceNote": "42683C>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94986042,
       "rsid": "rs764211126",
-      "chromosomeHgvsName": "g.94986042A\u003eG",
-      "geneHgvsName": "g.52385A\u003eG",
+      "chromosomeHgvsName": "g.94986042A>G",
+      "geneHgvsName": "g.52385A>G",
       "proteinNote": "I387V",
-      "resourceNote": "47360A\u003eG",
+      "resourceNote": "47360A>G",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94986073,
       "rsid": "rs72558193",
-      "chromosomeHgvsName": "g.94986073A\u003eC",
-      "geneHgvsName": "g.52416A\u003eC",
+      "chromosomeHgvsName": "g.94986073A>C",
+      "geneHgvsName": "g.52416A>C",
       "proteinNote": "D397A",
-      "resourceNote": "47391A\u003eC",
+      "resourceNote": "47391A>C",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94988917,
       "rsid": "rs769942899",
-      "chromosomeHgvsName": "g.94988917G\u003eC",
-      "geneHgvsName": "g.55260G\u003eC",
+      "chromosomeHgvsName": "g.94988917G>C",
+      "geneHgvsName": "g.55260G>C",
       "proteinNote": "Q454H",
-      "resourceNote": "50235G\u003eC",
+      "resourceNote": "50235G>C",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
-      "position": 94988980,
-      "rsid": "rs1057911",
-      "chromosomeHgvsName": "g.94988980A\u003eT",
-      "geneHgvsName": "g.55323A\u003eT",
-      "proteinNote": "G475\u003d",
-      "resourceNote": "50298A\u003eT",
-      "type": "SNP",
-      "referenceRepeat": null
-    },
-    {
+      "chromosome": "chr10",
       "position": 94988984,
       "rsid": "rs781583846",
-      "chromosomeHgvsName": "g.94988984G\u003eA",
-      "geneHgvsName": "g.55327G\u003eA",
+      "chromosomeHgvsName": "g.94988984G>A",
+      "geneHgvsName": "g.55327G>A",
       "proteinNote": "A477T",
-      "resourceNote": "50302G\u003eA",
+      "resourceNote": "50302G>A",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94989020,
       "rsid": "rs9332239",
-      "chromosomeHgvsName": "g.94989020C\u003eT",
-      "geneHgvsName": "g.55363C\u003eT",
+      "chromosomeHgvsName": "g.94989020C>T",
+      "geneHgvsName": "g.55363C>T",
       "proteinNote": "P489S",
-      "resourceNote": "50338C\u003eT",
+      "resourceNote": "50338C>T",
       "type": "SNP",
       "referenceRepeat": null
     },
     {
+      "chromosome": "chr10",
       "position": 94989023,
       "rsid": null,
-      "chromosomeHgvsName": "g.94989023G\u003eT",
-      "geneHgvsName": "g.55366G\u003eT",
+      "chromosomeHgvsName": "g.94989023G>T",
+      "geneHgvsName": "g.55366G>T",
       "proteinNote": "V490F",
-      "resourceNote": "50341G\u003eT",
+      "resourceNote": "50341G>T",
       "type": "SNP",
       "referenceRepeat": null
     }
@@ -625,7 +659,6 @@
         "A",
         "A",
         "G",
-        "A",
         "G",
         "C",
         "G"
@@ -678,8 +711,7 @@
         null,
         null,
         null,
-        null,
-        null,
+        "R",
         null,
         null,
         null,
@@ -692,15 +724,7 @@
         null,
         null
       ],
-      "populationFrequency": {
-        "African American Allele Frequency": "7.40E-02",
-        "Caucasian (European + North American) Allele Frequency": "0.111",
-        "Middle Eastern Allele Frequency": "",
-        "East Asian Allele Frequency": "0.333",
-        "South/Central Asian Allele Frequency": "",
-        "Americas Allele Frequency": "0.126",
-        "African Allele Frequency": "8.20E-02"
-      }
+      "populationFrequency": {}
     },
     {
       "name": "*3",
@@ -759,18 +783,9 @@
         null,
         null,
         null,
-        null,
         null
       ],
-      "populationFrequency": {
-        "African American Allele Frequency": "2.50E-02",
-        "Caucasian (European + North American) Allele Frequency": "6.60E-02",
-        "Middle Eastern Allele Frequency": "",
-        "East Asian Allele Frequency": "3.90E-02",
-        "South/Central Asian Allele Frequency": "",
-        "Americas Allele Frequency": "5.70E-02",
-        "African Allele Frequency": "3.30E-02"
-      }
+      "populationFrequency": {}
     },
     {
       "name": "*4",
@@ -821,7 +836,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -891,7 +905,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -953,7 +966,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -965,7 +977,6 @@
       "alleles": [
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -1077,7 +1088,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -1117,7 +1127,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -1201,7 +1210,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -1263,7 +1271,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -1273,7 +1280,6 @@
       "id": "CA100046.1",
       "function": "Possible decreased function",
       "alleles": [
-        null,
         null,
         null,
         null,
@@ -1387,7 +1393,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -1413,7 +1418,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -1511,7 +1515,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -1556,7 +1559,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -1635,7 +1637,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -1695,7 +1696,6 @@
         null,
         "C",
         null,
-        "T",
         null,
         null,
         null
@@ -1759,7 +1759,6 @@
         "C",
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -1821,7 +1820,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -1834,7 +1832,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -1945,7 +1942,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -1962,7 +1958,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -2036,7 +2031,7 @@
         null,
         null,
         null,
-        "Y",
+        null,
         null,
         null,
         null,
@@ -2069,7 +2064,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -2091,7 +2085,6 @@
         null,
         null,
         "delAGAAATGGAA",
-        null,
         null,
         null,
         null,
@@ -2193,7 +2186,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -2225,7 +2217,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -2317,7 +2308,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -2379,7 +2369,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -2389,7 +2378,6 @@
       "id": "CA100064.1",
       "function": "Unknown function/Uncertain function",
       "alleles": [
-        null,
         null,
         null,
         null,
@@ -2503,7 +2491,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -2513,7 +2500,6 @@
       "id": "CA100066.1",
       "function": "Unknown function/Uncertain function",
       "alleles": [
-        null,
         null,
         null,
         null,
@@ -2627,7 +2613,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -2677,7 +2662,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -2751,7 +2735,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -2762,7 +2745,6 @@
       "function": "Unknown function/Uncertain function",
       "alleles": [
         "G",
-        null,
         null,
         null,
         null,
@@ -2875,7 +2857,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -2894,7 +2875,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -2999,7 +2979,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -3020,7 +2999,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -3123,7 +3101,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -3185,7 +3162,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -3209,7 +3185,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -3309,7 +3284,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -3337,7 +3311,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -3433,7 +3406,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -3467,7 +3439,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -3557,7 +3528,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -3595,7 +3565,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -3681,7 +3650,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -3725,7 +3693,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -3805,7 +3772,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -3852,7 +3818,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -3929,7 +3894,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -3985,7 +3949,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -4053,7 +4016,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {}
@@ -4088,7 +4050,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,

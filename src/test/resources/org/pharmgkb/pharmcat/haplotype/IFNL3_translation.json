@@ -10,10 +10,10 @@
   "refSeqGeneId": "NG_042193.1",
   "refSeqProteinId": "NP_742151.2",
   "notes": [
-    "rsID\u003dRefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
+    "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
     "Allele frequencies from the CPIC supplement at https://github.com/PharmGKB/cpic-guidelines/raw/master/pegintron/2013/24096968-supplement.pdf",
-    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d\u0027Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
+    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
   ],
   "populations": [
     "African Allele Frequency",
@@ -27,10 +27,11 @@
   ],
   "variants": [
     {
+      "chromosome": "chr19",
       "position": 39248147,
       "rsid": "rs12979860",
-      "chromosomeHgvsName": "g.39248147C\u003eT",
-      "geneHgvsName": "g.1825G\u003eA",
+      "chromosomeHgvsName": "g.39248147C>T",
+      "geneHgvsName": "g.1825G>A",
       "proteinNote": "nearGene-5",
       "resourceNote": "rs12979860C/T",
       "type": "SNP",
@@ -46,6 +47,7 @@
         "C"
       ],
       "populationFrequency": {
+        "Oceanian Allele Frequency": "",
         "African American Allele Frequency": "0.39",
         "Caucasian (European + North American) Allele Frequency": "0.63",
         "Middle Eastern Allele Frequency": "",
@@ -62,7 +64,16 @@
       "alleles": [
         "T"
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     }
   ]
 }
