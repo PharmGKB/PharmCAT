@@ -44,7 +44,7 @@ public class Reporter {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("d", "annotations-dir", "directory of allele definition files", true, "d")
         .addOption("c", "call-file", "named allele call file", true, "c")
-        .addOption("o", "output-file", "file to write report output to")
+        .addOption("o", "output-file", "file to write report output to", true, "o")
         ;
 
     try {
@@ -54,7 +54,7 @@ public class Reporter {
 
       Path annotationsDir = cliHelper.getValidDirectory("d", false);
       Path callFile = cliHelper.getValidFile("c", true);
-      Path outputFile = cliHelper.getValidFile("o", false);
+      Path outputFile = cliHelper.getPath("o");
 
       new Reporter(annotationsDir)
           .analyze(callFile)
