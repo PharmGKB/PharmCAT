@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.reporter.model.result.Markdown;
 
 
 public class DosingGuideline {
@@ -29,12 +30,12 @@ public class DosingGuideline {
   @SerializedName("source")
   @Expose
   private String source;
-  @SerializedName("summaryHtml")
+  @SerializedName("summaryMarkdown")
   @Expose
-  private String summaryHtml;
-  @SerializedName("textHtml")
+  private Markdown m_summaryMarkdown;
+  @SerializedName("textMarkdown")
   @Expose
-  private String textHtml;
+  private Markdown m_textMarkdown;
 
   /**
    *
@@ -168,16 +169,7 @@ public class DosingGuideline {
    *     The summaryHtml
    */
   public String getSummaryHtml() {
-    return summaryHtml;
-  }
-
-  /**
-   *
-   * @param summaryHtml
-   *     The summaryHtml
-   */
-  public void setSummaryHtml(String summaryHtml) {
-    this.summaryHtml = summaryHtml;
+    return m_summaryMarkdown.getHtml();
   }
 
   /**
@@ -186,15 +178,22 @@ public class DosingGuideline {
    *     The textHtml
    */
   public String getTextHtml() {
-    return textHtml;
+    return m_textMarkdown.getHtml();
   }
 
-  /**
-   *
-   * @param textHtml
-   *     The textHtml
-   */
-  public void setTextHtml(String textHtml) {
-    this.textHtml = textHtml;
+  public Markdown getSummaryMarkdown() {
+    return m_summaryMarkdown;
+  }
+
+  public void setSummaryMarkdown(Markdown summaryMarkdown) {
+    m_summaryMarkdown = summaryMarkdown;
+  }
+
+  public Markdown getTextMarkdown() {
+    return m_textMarkdown;
+  }
+
+  public void setTextMarkdown(Markdown textMarkdown) {
+    m_textMarkdown = textMarkdown;
   }
 }

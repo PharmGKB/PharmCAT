@@ -50,7 +50,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
    * Gets the summary text of the guideline, a pass-through to the stored guideline.
    */
   public String getSummaryHtml() {
-    return m_dosingGuideline.getSummaryHtml();
+    return m_dosingGuideline.getSummaryMarkdown().getHtml();
   }
 
   /**
@@ -78,7 +78,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
    * Gets the URL for the whole annotation
    */
   public String getUrl() {
-    return "https://www.pharmgkb.org/guideline/"+m_dosingGuideline.getId();
+    return "https://www.pharmgkb.org/guideline/" + m_dosingGuideline.getId();
   }
 
   /**
