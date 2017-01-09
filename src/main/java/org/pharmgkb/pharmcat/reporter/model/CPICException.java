@@ -9,14 +9,21 @@ import com.google.gson.annotations.SerializedName;
  */
 public class CPICException {
 
-  @SerializedName("rule_name")
   @Expose
+  @SerializedName("rule_name")
   private String m_name;
-  String version;
-  String gene;
-  String matches;
-  String exception_type;
-  String message;
+  @Expose
+  @SerializedName("version")
+  private String m_version;
+  @Expose
+  @SerializedName("matches")
+  private CPICExceptionMatch m_matches;
+  @Expose
+  @SerializedName("exception_type")
+  private String m_exceptionType;
+  @Expose
+  @SerializedName("message")
+  private String m_message;
 
   public String getName() {
     return m_name;
@@ -27,46 +34,34 @@ public class CPICException {
   }
 
   public String getVersion() {
-    return version;
+    return m_version;
   }
 
   public void setVersion(String version) {
-    this.version = version;
+    m_version = version;
   }
 
-  public String getGene() {
-    return gene;
+  public CPICExceptionMatch getMatches() {
+    return m_matches;
   }
 
-  public void setGene(String gene) {
-    this.gene = gene;
+  public void setMatches(CPICExceptionMatch matches) {
+    m_matches = matches;
   }
 
-  public String getMatches() {
-    return matches;
+  public String getExceptionType() {
+    return m_exceptionType;
   }
 
-  public void setMatches(String matches) {
-    this.matches = matches;
-  }
-
-  public String getException_type() {
-    return exception_type;
-  }
-
-  public void setException_type(String exception_type) {
-    this.exception_type = exception_type;
+  public void setExceptionType(String exceptionType) {
+    m_exceptionType = exceptionType;
   }
 
   public String getMessage() {
-    return message;
+    return m_message;
   }
 
   public void setMessage(String message) {
-    this.message = message;
+    m_message = message;
   }
-
-
-
-
 }

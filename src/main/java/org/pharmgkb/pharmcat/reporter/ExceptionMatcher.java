@@ -1,18 +1,23 @@
 package org.pharmgkb.pharmcat.reporter;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Set;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.gson.Gson;
-import org.pharmgkb.common.comparator.HaplotypeNameComparator;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICExceptionList;
+import org.pharmgkb.pharmcat.reporter.model.CPICExceptionMatch;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 
@@ -28,99 +33,74 @@ public class ExceptionMatcher {
 
   public ExceptionMatcher() throws Exception {
     try {
-      File exceptionFile = new File(getClass().getResource("exceptions.json").toURI());
-      m_exceptionMap = loadExceptions(exceptionFile);
+      m_exceptionMap = loadExceptions(getClass().getResource("exceptions.json").toURI());
     } catch (IOException|URISyntaxException e) {
-      throw new Exception("Not able to parse excepiton list", e);
+      throw new Exception("Not able to parse exception list", e);
     }
   }
 
   /**
    * Adds any matching exceptions to the given {@link GeneReport}
+   * RMW: this needs to be fixed
    */
   public void addExceptions(@Nonnull GeneReport geneReport) {
     String geneSymbol = geneReport.getGene();
 
-    if (m_exceptionMap.containsKey(geneSymbol) ){
+    if (m_exceptionMap.containsKey(geneSymbol)) {
       // add any known gene exceptions
       m_exceptionMap.get(geneSymbol).stream()
-          .filter(exception -> test(geneReport, exception.getMatches()))
+          .filter(exception -> test(geneReport, exception))
           .forEach(geneReport::addException);
     }
   }
 
   /**
-   * FIXME: here I make the assumption of three different rule types
-   * this should be drivin in config or some other place that makes handleing
-   * matching easy without having to edit code
+   * testing the observed allele data against the exception logic
    */
-  public boolean test(GeneReport gene, String matchLogic) {
-    boolean finalTest = false;
-    boolean geneTest = false;
-    boolean hapTest = false;
-    boolean dipTest = false;
+  public boolean test(GeneReport geneReport, CPICException exception) {
 
-    String[] parts = matchLogic.replaceAll("\\s", "").split(",");
-    for (String part : parts) {
-      String[] type = part.split("=");
-      if (type[0].equals("gene")) {
-        geneTest = true; // just assume this is true for now, should double check that gene strings match
-      } else if (type[0].equals("hap")) {
-        if( type[1].replaceAll("'", "").isEmpty()){
-          hapTest = true;
-        } else {
-          String cleanHap = type[1].replaceAll("'", "");
-          hapTest = testForHapCall(cleanHap, gene.getDips() );
-        }
+    CPICExceptionMatch matchCriteria = exception.getMatches();
 
-      } else if( type[0].equals("dip") ) {
-        if( type[1].replaceAll("'", "").isEmpty()){
-          dipTest = true;
-        } else {
-          String cleanDip = type[1].replaceAll("'", "");
-          dipTest = testForDipCall( cleanDip, gene.getDips() );
-        }
-      }
-    }
-    if( geneTest && hapTest && dipTest ){
-      finalTest = true;
+    // if gene doesn't match, nothing else matters
+    if (!matchCriteria.getGenes().contains(geneReport.getGene())) {
+      return false;
     }
 
-    return finalTest;
+    // if we're only matching on Gene then we're done
+    if (matchCriteria.getHapsCalled().isEmpty() && matchCriteria.getDips().isEmpty()) {
+      return true;
+    }
+
+    if (geneReport.getMatchData() != null && !geneReport.getMatchData().getHaplotypes().isEmpty()) {
+      List<String> observedHaps = geneReport.getMatchData().getHaplotypes().stream()
+          .map(NamedAllele::getName)
+          .collect(Collectors.toList());
+      return testForHapCall(matchCriteria.getHapsCalled(), observedHaps);
+    }
+
+    return geneReport.getMatchData() != null 
+        && !geneReport.getDips().isEmpty() 
+        && testForDipCall(matchCriteria.getDips(), geneReport.getDips());
+
   }
 
-  private boolean testForDipCall(String cleanDip, Set<String> dips) {
-    boolean test = false;
-    for( String dip : dips) {
-      if( HaplotypeNameComparator.getComparator().compare(cleanDip, dip) == 0 ){
-        test = true;
-        break;
-      }
-    }
-    return test;
+  private boolean testForDipCall(Collection<String> cleanDip, Collection<String> dips) {
+    return !Collections.disjoint(cleanDip, dips);
   }
 
-  private boolean testForHapCall(String cleanHap, Set<String> dips) {
-    boolean test = false;
-    for( String dip : dips) {
-      String[] parts = dip.split("/");
-      if( parts[0].equals(cleanHap) || parts[1].equals(cleanHap)){
-        test = true;
-        break;
-      }
-    }
-    return test;
+  private boolean testForHapCall(Collection<String> testHaplotypes, Collection<String> observedHaplotypes) {
+    return !Collections.disjoint(testHaplotypes, observedHaplotypes);
   }
 
-  private Multimap<String, CPICException> loadExceptions(File exceptions)throws IOException {
+  private Multimap<String, CPICException> loadExceptions(URI exceptionsUri)throws IOException {
     Gson gson = new Gson();
     Multimap<String, CPICException> matcher = HashMultimap.create();
 
-    try (BufferedReader br = new BufferedReader(new FileReader(exceptions))) {
+    try (BufferedReader br = Files.newBufferedReader(Paths.get(exceptionsUri))) {
       CPICExceptionList exceptionList = gson.fromJson(br, CPICExceptionList.class);
 
       for (CPICException rule : exceptionList.getRules()) {
-        matcher.put(rule.getGene(), rule);
+        rule.getMatches().getGenes().forEach(g -> matcher.put(g, rule));
       }
     }
     return matcher;

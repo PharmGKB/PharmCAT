@@ -63,7 +63,7 @@ public class DataUnifier {
       // starts a new GeneReport based on data in the GeneCall
       GeneReport geneReport = new GeneReport(call);
       // adds exceptions to the GeneReport
-      exceptionMatcher.addExceptions(geneReport);
+      // exceptionMatcher.addExceptions(geneReport); 
 
       m_sampleGeneToDiplotypeMap.putAll(geneReport.getGene(), geneReport.getDips());
 
