@@ -28,7 +28,7 @@ public class NamedAlleleMatcherTest {
 
 
   static Result testMatchNamedAlleles(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
-    return testMatchNamedAlleles(tsvFile, vcfFile, true, false, false);
+    return testMatchNamedAlleles(tsvFile, vcfFile, true, false, true);
   }
 
   /**

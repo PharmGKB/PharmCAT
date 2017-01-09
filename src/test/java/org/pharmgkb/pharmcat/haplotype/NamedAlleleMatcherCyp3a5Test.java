@@ -27,7 +27,7 @@ public class NamedAlleleMatcherCyp3a5Test {
 
   @Test
   public void cyp3a5s3s9() throws Exception {
-    // Test *3/*9.  Note Y in 99672916 position
+    // Test *3/*9.
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9.vcf");
     List<String> expectedMatches = Lists.newArrayList("*3/*9");
@@ -51,7 +51,7 @@ public class NamedAlleleMatcherCyp3a5Test {
   @Test
   public void cyp3a5s3s9Homozygous() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9-homozygous.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*3/*3", "*3/*9", "*9/*9");
+    List<String> expectedMatches = Lists.newArrayList("*3/*9");
 
     Result result = NamedAlleleMatcherTest.testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, true);
     assertDiplotypePairs(expectedMatches, result);
