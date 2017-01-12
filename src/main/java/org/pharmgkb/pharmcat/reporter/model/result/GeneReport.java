@@ -6,8 +6,10 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
+import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
@@ -29,10 +31,10 @@ public class GeneReport {
    * public constructor
    * @param call a {@link GeneCall} that has been made by the {@link NamedAlleleMatcher}
    */
-  public GeneReport(GeneCall call) {
+  public GeneReport(@Nonnull GeneCall call) {
     m_gene = call.getGene();
     m_diplotypes = call.getDiplotypes().stream()
-        .map(m -> call.getGene() + ":" + m.getName())
+        .map(DiplotypeMatch::getName)
         .collect(Collectors.toSet());
     m_variants.addAll(call.getVariants());
     m_matchData = call.getMatchData();
@@ -77,6 +79,10 @@ public class GeneReport {
 
   public Set<String> getUncalledHaplotypes() {
     return m_uncalledHaplotypes;
+  }
+
+  public String toString() {
+    return m_gene + " Report";
   }
 }
 

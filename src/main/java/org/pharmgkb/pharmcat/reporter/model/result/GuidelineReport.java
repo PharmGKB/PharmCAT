@@ -106,6 +106,10 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     m_reportable = getRelatedGeneSymbols().stream().allMatch(calledGenes::contains);
   }
 
+  public void setReportable(boolean reportable) {
+    m_reportable = reportable;
+  }
+
   @Override
   public int compareTo(@Nonnull GuidelineReport o) {
     int rez = Boolean.compare(isReportable(), o.isReportable());

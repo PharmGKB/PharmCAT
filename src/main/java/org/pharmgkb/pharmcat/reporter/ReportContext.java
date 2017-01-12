@@ -14,6 +14,7 @@ import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
+import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 import org.slf4j.Logger;
@@ -40,7 +41,6 @@ public class ReportContext {
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
   private Map<String, GeneReport> m_symbolToGeneReportMap = new TreeMap<>();
   private List<GuidelineReport> m_interactionList;
-  private Set<String> m_calledGenes;
 
   /**
    * public constructor
@@ -50,6 +50,13 @@ public class ReportContext {
   public ReportContext(List<GeneCall> calls, List<DosingGuideline> guidelines) throws Exception {
     m_calls = calls;
     m_interactionList = guidelines.stream().map(GuidelineReport::new).collect(Collectors.toList());
+
+    // prime the pump to list all genes needed to call all guidelines
+    guidelines.stream()
+        .flatMap(g -> g.getRelatedGenes().stream())
+        .map(RelatedGene::getSymbol)
+        .forEach(s -> m_sampleGeneToDiplotypeMap.put(s, "*uncalled*"));
+
     compileGeneData();
     findMatches();
   }
@@ -57,10 +64,9 @@ public class ReportContext {
   /**
    * Takes {@link GeneCall} data and preps internal data structures for usage. Also prepares exception logic and applies
    * it to the calling data
-   * @throws Exception
    */
   private void compileGeneData() throws Exception {
-    ExceptionMatcher exceptionMatcher = new ExceptionMatcher();
+    // ExceptionMatcher exceptionMatcher = new ExceptionMatcher();
 
     for (GeneCall call : m_calls) {
 
@@ -69,12 +75,18 @@ public class ReportContext {
       // adds exceptions to the GeneReport
       // exceptionMatcher.addExceptions(geneReport); 
 
-      m_sampleGeneToDiplotypeMap.putAll(geneReport.getGene(), geneReport.getDips());
+      m_sampleGeneToDiplotypeMap.removeAll(call.getGene());
+      m_sampleGeneToDiplotypeMap.putAll(call.getGene(), geneReport.getDips());
 
       m_symbolToGeneReportMap.put(call.getGene(), geneReport);
     }
     fixCyp2c19();
-    m_calledGenes = m_calls.stream().map(GeneCall::getGene).collect(Collectors.toSet());
+  }
+
+  private boolean isCalled(String gene) {
+    return m_calls != null && m_calls.stream()
+        .filter(c -> c.getHaplotypes().size() > 0)
+        .anyMatch(c -> c.getGene().equals(gene));
   }
 
   /**
@@ -103,11 +115,17 @@ public class ReportContext {
   private void findMatches() throws Exception {
 
     for(GuidelineReport guideline : m_interactionList) {
-      guideline.setReportable(m_calledGenes);
-      if (!guideline.isReportable()) {
-        sf_logger.warn("Can't annotate guideline {}, it's missing {}",
-            guideline.getName(),
-            guideline.getRelatedGeneSymbols().stream().filter(s -> !m_calledGenes.contains(s)).collect(Collectors.joining(",")));
+      boolean reportable = guideline.getRelatedGeneSymbols().stream()
+          .allMatch(this::isCalled);
+
+      guideline.setReportable(reportable);
+
+      if (!reportable) {
+        String unCalledGenes = guideline.getRelatedGeneSymbols().stream()
+            .filter(g -> !isCalled(g))
+            .collect(Collectors.joining(","));
+
+        sf_logger.warn("Can't annotate guideline {}, it's missing {}", guideline.getName(), unCalledGenes );
         continue;
       }
 
@@ -156,6 +174,13 @@ public class ReportContext {
       }
       return newResults;
     }
+  }
+
+  /**
+   * Maps a gene symbol String ("CYP2C19") to a Collection of the call Strings for that gene ("*1/*2")
+   */
+  public Multimap<String,String> getGeneCallMap() {
+    return m_sampleGeneToDiplotypeMap;
   }
 
   public List<GuidelineReport> getGuidelineResults() {

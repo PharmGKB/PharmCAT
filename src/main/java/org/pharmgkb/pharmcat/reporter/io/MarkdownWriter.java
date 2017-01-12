@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -51,7 +52,29 @@ public class MarkdownWriter {
       writer.write(sf_margin);
       writer.write(sf_margin);
 
-      writer.write("## Haplotype Calls");
+      writer.write("## Genotypes");
+      writer.write(sf_margin);
+
+      writer.write("| Gene | Call |\n");
+      writer.write("| ---- | ---- |\n");
+      for (String gene : reportContext.getGeneCallMap().keySet()) {
+        Collection<String> calls = reportContext.getGeneCallMap().get(gene);
+
+        writer.write("| ");
+        writer.write(gene);
+        writer.write(" | ");
+        if (calls != null) {
+          writer.write(calls.stream().collect(Collectors.joining(", ")));
+        }
+        else {
+          writer.write("uncalled");
+        }
+        writer.write(" |\n");
+      }
+      writer.write(sf_margin);
+      writer.write(sf_margin);
+
+      writer.write("## Detailed Haplotype Calls");
       writer.write(sf_margin);
 
       for (String gene : reportContext.getSymbolToGeneReportMap().keySet()) {
