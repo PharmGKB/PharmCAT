@@ -175,4 +175,24 @@ public class NamedAlleleMatcherCyp2c19Test {
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
+
+
+  @Test
+  public void rs12769205missingrs4244285het() throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/rs12769205missingrs4244285het.vcf");
+    List<String> expectedMatches = Lists.newArrayList("*1/*2");
+
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
+  }
+
+
+  @Test
+  public void rs12769205hetrs4244285missing() throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/rs12769205hetrs4244285missing.vcf");
+    List<String> expectedMatches = Lists.newArrayList("*1/*2", "*1/*35");
+
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
+  }
 }
