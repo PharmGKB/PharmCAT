@@ -21,15 +21,19 @@ import org.slf4j.LoggerFactory;
 
 
 /**
+ * This class acts as a central context for all data needed to generate the final report.
  *
- * This is the primary class and method for matching data the the three different sources.
- * I hate just about everything about how this was done, but for the sake of a quick hack to get
- * reports up and running it will have to do.
+ * It currently gathers
+ * <ul>
+ *   <li>{@link GeneCall} objects from the named allele matcher</li>
+ *   <li>{@link GuidelineReport} objects from dosing guideline annotations</li>
+ *   <li>Allele definitions on a per-gene basis</li>
+ * </ul>
  *
  * @author greytwist
  * @author Ryan Whaley
  */
-public class DataUnifier {
+public class ReportContext {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   private List<GeneCall> m_calls;
@@ -43,7 +47,7 @@ public class DataUnifier {
    * @param calls GeneCall objects from the sample data
    * @param guidelines a List of all the guidelines to try to apply
    */
-  public DataUnifier(List<GeneCall> calls, List<DosingGuideline> guidelines) throws Exception {
+  public ReportContext(List<GeneCall> calls, List<DosingGuideline> guidelines) throws Exception {
     m_calls = calls;
     m_interactionList = guidelines.stream().map(GuidelineReport::new).collect(Collectors.toList());
     compileGeneData();

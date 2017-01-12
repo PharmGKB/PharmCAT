@@ -33,7 +33,7 @@ public class Reporter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private AnnotationReader m_annotationReader;
   private List<Path> m_annotationFiles = null;
-  private DataUnifier m_dataUnifier = null;
+  private ReportContext m_reportContext = null;
 
   /**
    * main
@@ -108,7 +108,7 @@ public class Reporter {
     List<DosingGuideline> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
-    m_dataUnifier = new DataUnifier(calls, guidelines);
+    m_reportContext = new ReportContext(calls, guidelines);
 
     return this;
   }
@@ -122,14 +122,17 @@ public class Reporter {
     sf_logger.debug("Writing output to {}", reportFile);
 
     new MarkdownWriter(reportFile)
-        .print(m_dataUnifier);
+        .print(m_reportContext);
   }
 
+  /**
+   * Expose the guideline reports for testing purposes
+   */
   @Nullable
-  public List<GuidelineReport> getGuidelineReports() {
-    if (m_dataUnifier == null) {
+  protected List<GuidelineReport> getGuidelineReports() {
+    if (m_reportContext == null) {
       return null;
     }
-    return m_dataUnifier.getGuidelineResults();
+    return m_reportContext.getGuidelineResults();
   }
 }

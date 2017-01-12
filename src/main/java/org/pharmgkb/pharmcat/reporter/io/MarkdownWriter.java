@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
-import org.pharmgkb.pharmcat.reporter.DataUnifier;
+import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.Group;
@@ -40,10 +40,10 @@ public class MarkdownWriter {
   }
 
   /**
-   * Print out a report file based on data found in the {@link DataUnifier}
-   * @param dataUnifier a {@link DataUnifier} with all data needed to report
+   * Print out a report file based on data found in the {@link ReportContext}
+   * @param reportContext a {@link ReportContext} with all data needed to report
    */
-  public void print(DataUnifier dataUnifier) throws IOException {
+  public void print(ReportContext reportContext) throws IOException {
     sf_logger.info("Writing report to {}", m_outputFile);
 
     try (BufferedWriter writer = Files.newBufferedWriter(m_outputFile)) {
@@ -54,10 +54,10 @@ public class MarkdownWriter {
       writer.write("## Haplotype Calls");
       writer.write(sf_margin);
 
-      for (String gene : dataUnifier.getSymbolToGeneReportMap().keySet()) {
+      for (String gene : reportContext.getSymbolToGeneReportMap().keySet()) {
         writer.write("### Gene: " + gene);
         writer.write(sf_margin);
-        GeneReport geneReport = dataUnifier.getSymbolToGeneReportMap().get(gene);
+        GeneReport geneReport = reportContext.getSymbolToGeneReportMap().get(gene);
 
         writer.write("#### Matching Allele Call");
         writer.write(sf_margin);
@@ -118,7 +118,7 @@ public class MarkdownWriter {
       writer.write("## Guidelines");
       writer.write(sf_margin);
 
-      Set<GuidelineReport> guidelines = new TreeSet<>(dataUnifier.getGuidelineResults());
+      Set<GuidelineReport> guidelines = new TreeSet<>(reportContext.getGuidelineResults());
       for (GuidelineReport guideline : guidelines) {
         writer.write("---------------------");
         writer.write(sf_margin);
@@ -134,7 +134,7 @@ public class MarkdownWriter {
         if (!guideline.isReportable()) {
           writer.write("_gene calls insufficient to filter annotations, missing ");
           String missingGenes = guideline.getRelatedGeneSymbols().stream()
-              .filter(s -> !dataUnifier.getSymbolToGeneReportMap().keySet().contains(s))
+              .filter(s -> !reportContext.getSymbolToGeneReportMap().keySet().contains(s))
               .collect(Collectors.joining(", "));
           writer.write(missingGenes);
           writer.write("_");
