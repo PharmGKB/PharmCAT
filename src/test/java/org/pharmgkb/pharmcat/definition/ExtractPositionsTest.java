@@ -28,7 +28,7 @@ public class ExtractPositionsTest {
     Path path = Paths.get(file.getAbsolutePath());
     definitionReader.read(path);
     Path outputVcf = Paths.get("org/pharmgkb/pharmcat/haplotype/positions.vcf");
-    ExtractPositions extractPositions = new ExtractPositions(path, outputVcf);
+    ExtractPositions extractPositions = new ExtractPositions(path, outputVcf, "hg38");
     StringBuilder vcfText = extractPositions.getPositions(definitionReader);
     int definitionPositions = definitionReader.getPositions("VKORC1").length;
     int vcfVariants = StringUtils.countMatches(vcfText.toString(), "chr");
