@@ -2,6 +2,9 @@
 /.idea/libraries/Gradle__*.xml
 /.idea/dictionaries/
 /.idea/gradle.xml
+/.idea/markdown-navigator.xml
+/.idea/markdown-navigator/profiles_settings.xml
+/.idea/misc.xml
 /.idea/modules/
 /.idea/modules.xml
 /.idea/scssLintPlugin.xml
