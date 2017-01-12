@@ -102,7 +102,7 @@ public class MarkdownWriter {
         writer.write("| -------- | ---- | ---- |\n");
         for (Variant v : geneReport.getVariants()) {
           String rsidDisplay = v.getRsid() == null ? "None" : v.getRsid();
-          writer.write(String.format(sf_variantRowTemplate, v.getPosition(), rsidDisplay, v.getVcfCall()));
+          writer.write(String.format(sf_variantRowTemplate, v.getPosition(), rsidDisplay, v.getVcfCall().replace("|", "\\|")));
         }
         if (geneReport.getMatchData() != null && geneReport.getMatchData().getMissingPositions().size()>0) {
           for (VariantLocus variant : geneReport.getMatchData().getMissingPositions()) {
