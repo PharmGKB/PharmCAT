@@ -34,8 +34,10 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public void setCallData(@Nonnull GeneCall call) {
     m_gene = call.getGene();
-    m_diplotypes.clear();
-    call.getDiplotypes().forEach(d -> addDip(call.getGene() + ":" + d.getName()));
+    if (!call.getDiplotypes().isEmpty()) {
+      m_diplotypes.clear();
+      call.getDiplotypes().forEach(d -> addDip(call.getGene() + ":" + d.getName()));
+    }
     m_variants.addAll(call.getVariants());
     m_matchData = call.getMatchData();
     m_uncalledHaplotypes = call.getUncallableHaplotypes();
