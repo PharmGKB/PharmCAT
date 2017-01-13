@@ -78,6 +78,68 @@ public class MarkdownWriter {
       writer.write(sf_margin);
       writer.write(sf_margin);
 
+      writer.write("## Guidelines");
+      writer.write(sf_margin);
+
+      Set<GuidelineReport> guidelines = new TreeSet<>(reportContext.getGuidelineResults());
+      for (GuidelineReport guideline : guidelines) {
+        String drugs = guideline.getRelatedDrugs().stream().collect(Collectors.joining(", "));
+
+        writer.write("### " + drugs);
+        writer.write(sf_margin);
+
+        writer.write(guideline.getSummaryHtml());
+        writer.write(sf_margin);
+
+        writer.write("For more information see the [full guideline on PharmGKB]("+guideline.getUrl()+").");
+        writer.write(sf_margin);
+
+        if (!guideline.isReportable()) {
+          writer.write("_gene calls insufficient to filter annotations, missing ");
+          String missingGenes = guideline.getRelatedGeneSymbols().stream()
+              .filter(s -> !reportContext.getSymbolToGeneReportMap().keySet().contains(s))
+              .collect(Collectors.joining(", "));
+          writer.write(missingGenes);
+          writer.write("_");
+          writer.write(sf_margin);
+          continue;
+        }
+
+        if (guideline.getMatchingGroups() == null) {
+          writer.write("_related genes present but no matching annotations found, check genotype calls_");
+          writer.write(sf_margin);
+          continue;
+        }
+
+        if (guideline.getMatchingGroups().size()>1) {
+          writer.write("_Note: More than one call was made for the applicable gene so multiple annotation groups could be shown_");
+          writer.write(sf_margin);
+        }
+
+        for (Group group : guideline.getMatchingGroups()) {
+          writer.write("#### Annotations for ");
+          writer.write(guideline.getMatchedDiplotypes().get(group.getId()).stream()
+              .map(MarkdownWriter::escapeMd)
+              .collect(Collectors.joining(", ")));
+          writer.write(sf_margin);
+
+          writer.write("|Type|Annotation|\n");
+          writer.write("|---|---|\n");
+          for (Annotation ann : group.getAnnotations()) {
+            writer.write("|");
+            writer.write(ann.getType().getTerm());
+            writer.write("|");
+            writer.write(escapeMd(ann.getMarkdown().getHtml().replaceAll("[\\n\\r]", " ")));
+            writer.write("|\n");
+          }
+          if (group.getStrength() != null) {
+            writer.write("|Classification of Recommendation|"+group.getStrength().getTerm()+"|\n");
+          }
+          writer.write("\n");
+        }
+        writer.write("\n");
+      }
+
       writer.write("## Detailed Haplotype Calls");
       writer.write(sf_margin);
 
@@ -142,67 +204,6 @@ public class MarkdownWriter {
 
       writer.write(sf_margin);
 
-      writer.write("## Guidelines");
-      writer.write(sf_margin);
-
-      Set<GuidelineReport> guidelines = new TreeSet<>(reportContext.getGuidelineResults());
-      for (GuidelineReport guideline : guidelines) {
-        writer.write("---------------------");
-        writer.write(sf_margin);
-        writer.write("### " + guideline.getName());
-        writer.write(sf_margin);
-
-        writer.write(guideline.getSummaryHtml());
-        writer.write(sf_margin);
-
-        writer.write("For more information see the [full guideline on PharmGKB]("+guideline.getUrl()+").");
-        writer.write(sf_margin);
-
-        if (!guideline.isReportable()) {
-          writer.write("_gene calls insufficient to filter annotations, missing ");
-          String missingGenes = guideline.getRelatedGeneSymbols().stream()
-              .filter(s -> !reportContext.getSymbolToGeneReportMap().keySet().contains(s))
-              .collect(Collectors.joining(", "));
-          writer.write(missingGenes);
-          writer.write("_");
-          writer.write(sf_margin);
-          continue;
-        }
-
-        if (guideline.getMatchingGroups() == null) {
-          writer.write("_related genes present but no matching annotations found, check genotype calls_");
-          writer.write(sf_margin);
-          continue;
-        }
-
-        if (guideline.getMatchingGroups().size()>1) {
-          writer.write("_Note: More than one call was made for the applicable gene so multiple annotation groups could be shown_");
-          writer.write(sf_margin);
-        }
-
-        for (Group group : guideline.getMatchingGroups()) {
-          writer.write("#### Annotations for ");
-          writer.write(guideline.getMatchedDiplotypes().get(group.getId()).stream()
-              .map(MarkdownWriter::escapeMd)
-              .collect(Collectors.joining(", ")));
-          writer.write(sf_margin);
-
-          writer.write("|Type|Annotation|\n");
-          writer.write("|---|---|\n");
-          for (Annotation ann : group.getAnnotations()) {
-            writer.write("|");
-            writer.write(ann.getType().getTerm());
-            writer.write("|");
-            writer.write(escapeMd(ann.getMarkdown().getHtml().replaceAll("[\\n\\r]", " ")));
-            writer.write("|\n");
-          }
-          if (group.getStrength() != null) {
-            writer.write("|Classification of Recommendation|"+group.getStrength().getTerm()+"|\n");
-          }
-          writer.write("\n");
-        }
-        writer.write("\n");
-      }
     }
   }
 
