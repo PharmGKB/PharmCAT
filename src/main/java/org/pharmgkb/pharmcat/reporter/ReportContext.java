@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import javax.annotation.Nonnull;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
@@ -41,6 +42,7 @@ public class ReportContext {
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
   private Map<String, GeneReport> m_symbolToGeneReportMap = new TreeMap<>();
   private List<GuidelineReport> m_interactionList;
+  private Multimap<String, String> m_geneToDrugMap = TreeMultimap.create();
 
   /**
    * public constructor
@@ -56,6 +58,12 @@ public class ReportContext {
         .flatMap(g -> g.getRelatedGenes().stream())
         .map(RelatedGene::getSymbol)
         .forEach(s -> m_sampleGeneToDiplotypeMap.put(s, "*uncalled*"));
+
+    m_interactionList.forEach(r -> {
+      for (String gene : r.getRelatedGeneSymbols()) {
+        m_geneToDrugMap.putAll(gene, r.getRelatedDrugs());
+      }
+    });
 
     compileGeneData();
     findMatches();
@@ -189,5 +197,9 @@ public class ReportContext {
 
   public Map<String, GeneReport> getSymbolToGeneReportMap() {
     return m_symbolToGeneReportMap;
+  }
+
+  public Collection<String> getRelatedDrugs(@Nonnull String geneSymbol) {
+    return m_geneToDrugMap.get(geneSymbol);
   }
 }

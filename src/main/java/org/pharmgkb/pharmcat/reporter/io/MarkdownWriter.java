@@ -55,13 +55,17 @@ public class MarkdownWriter {
       writer.write("## Genotypes");
       writer.write(sf_margin);
 
-      writer.write("| Gene | Call |\n");
-      writer.write("| ---- | ---- |\n");
+      writer.write("| Gene | Drugs | Call |\n");
+      writer.write("| ---- | ----- | ---- |\n");
       for (String gene : reportContext.getGeneCallMap().keySet()) {
         Collection<String> calls = reportContext.getGeneCallMap().get(gene);
 
+        String drugs = reportContext.getRelatedDrugs(gene).stream().collect(Collectors.joining(", "));
+
         writer.write("| ");
         writer.write(gene);
+        writer.write(" | ");
+        writer.write(drugs);
         writer.write(" | ");
         if (calls != null) {
           writer.write(calls.stream().collect(Collectors.joining(", ")));

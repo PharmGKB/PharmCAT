@@ -11,6 +11,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
+import org.pharmgkb.pharmcat.reporter.model.RelatedChemical;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 
 
@@ -44,6 +45,11 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   public Set<String> getRelatedGeneSymbols() {
     return m_dosingGuideline.getRelatedGenes().stream()
         .map(RelatedGene::getSymbol).collect(Collectors.toSet());
+  }
+
+  public Set<String> getRelatedDrugs() {
+    return m_dosingGuideline.getRelatedChemicals().stream()
+        .map(RelatedChemical::getName).collect(Collectors.toSet());
   }
 
   /**
