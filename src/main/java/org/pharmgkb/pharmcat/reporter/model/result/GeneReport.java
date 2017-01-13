@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
-import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
@@ -34,7 +33,7 @@ public class GeneReport {
   public GeneReport(@Nonnull GeneCall call) {
     m_gene = call.getGene();
     m_diplotypes = call.getDiplotypes().stream()
-        .map(DiplotypeMatch::getName)
+        .map(m -> call.getGene() + ":" + m.getName())
         .collect(Collectors.toSet());
     m_variants.addAll(call.getVariants());
     m_matchData = call.getMatchData();
