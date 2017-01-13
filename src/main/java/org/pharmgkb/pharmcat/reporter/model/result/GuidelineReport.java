@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -103,13 +102,6 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
    */
   public boolean isReportable() {
     return m_reportable;
-  }
-
-  /**
-   * Sets whether this annotation has enough information in the called genes to report a specific annotation group
-   */
-  public void setReportable(Collection<String> calledGenes) {
-    m_reportable = getRelatedGeneSymbols().stream().allMatch(calledGenes::contains);
   }
 
   public void setReportable(boolean reportable) {
