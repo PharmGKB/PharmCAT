@@ -189,7 +189,7 @@ public class MarkdownWriter {
             writer.write("|");
             writer.write(ann.getType().getTerm());
             writer.write("|");
-            writer.write(escapeMd(ann.getText().replaceAll("[\\n\\r]", " ")));
+            writer.write(escapeMd(ann.getMarkdown().getHtml().replaceAll("[\\n\\r]", " ")));
             writer.write("|\n");
           }
           if (group.getStrength() != null) {

@@ -3,93 +3,62 @@ package org.pharmgkb.pharmcat.reporter.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.reporter.model.result.Markdown;
 
 
 public class Annotation {
 
-    @SerializedName("id")
-    @Expose
-    private Integer id;
-    @SerializedName("text")
-    @Expose
-    private String text;
-    @SerializedName("textHtml")
-    @Expose
-    private String textHtml;
-    @SerializedName("type")
-    @Expose
-    private Type type;
+  @SerializedName("id")
+  @Expose
+  private Integer id;
+  @SerializedName("type")
+  @Expose
+  private Type type;
+  @SerializedName("markdown")
+  @Expose
+  private Markdown m_markdown;
 
-    /**
-     * 
-     * @return
-     *     The id
-     */
-    public Integer getId() {
-        return id;
-    }
+  /**
+   *
+   * @return
+   *     The id
+   */
+  public Integer getId() {
+    return id;
+  }
 
-    /**
-     * 
-     * @param id
-     *     The id
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  /**
+   *
+   * @param id
+   *     The id
+   */
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    /**
-     * 
-     * @return
-     *     The text
-     */
-    public String getText() {
-        return text;
-    }
+  /**
+   *
+   * @return
+   *     The type
+   */
+  public Type getType() {
+    return type;
+  }
 
-    /**
-     * 
-     * @param text
-     *     The text
-     */
-    public void setText(String text) {
-        this.text = text;
-    }
+  /**
+   *
+   * @param type
+   *     The type
+   */
+  public void setType(Type type) {
+    this.type = type;
+  }
 
-    /**
-     * 
-     * @return
-     *     The textHtml
-     */
-    public String getTextHtml() {
-        return textHtml;
-    }
+  public Markdown getMarkdown() {
+    return m_markdown;
+  }
 
-    /**
-     * 
-     * @param textHtml
-     *     The textHtml
-     */
-    public void setTextHtml(String textHtml) {
-        this.textHtml = textHtml;
-    }
-
-    /**
-     * 
-     * @return
-     *     The type
-     */
-    public Type getType() {
-        return type;
-    }
-
-    /**
-     * 
-     * @param type
-     *     The type
-     */
-    public void setType(Type type) {
-        this.type = type;
-    }
-
+  public void setMarkdown(Markdown markdown) {
+    m_markdown = markdown;
+  }
 }
