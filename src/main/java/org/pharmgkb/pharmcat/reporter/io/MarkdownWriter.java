@@ -97,7 +97,7 @@ public class MarkdownWriter {
         if (!guideline.isReportable()) {
           writer.write("_gene calls insufficient to filter annotations, missing ");
           String missingGenes = guideline.getRelatedGeneSymbols().stream()
-              .filter(s -> !reportContext.getSymbolToGeneReportMap().keySet().contains(s))
+              .filter(s -> !reportContext.isGeneCalled(s))
               .collect(Collectors.joining(", "));
           writer.write(missingGenes);
           writer.write("_");
@@ -143,10 +143,9 @@ public class MarkdownWriter {
       writer.write("## Detailed Haplotype Calls");
       writer.write(sf_margin);
 
-      for (String gene : reportContext.getSymbolToGeneReportMap().keySet()) {
-        writer.write("### Gene: " + gene);
+      for (GeneReport geneReport : reportContext.getGeneReports()) {
+        writer.write("### Gene: " + geneReport.getGene());
         writer.write(sf_margin);
-        GeneReport geneReport = reportContext.getSymbolToGeneReportMap().get(gene);
 
         writer.write("#### Matching Allele Call");
         writer.write(sf_margin);

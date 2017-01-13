@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -17,7 +18,7 @@ import org.pharmgkb.pharmcat.reporter.model.CPICException;
 /**
  * This class is used to help collect Gene-related data for later reporting
  */
-public class GeneReport {
+public class GeneReport implements Comparable<GeneReport> {
 
   private String m_gene;
   private Set<String> m_diplotypes;
@@ -82,6 +83,15 @@ public class GeneReport {
 
   public String toString() {
     return m_gene + " Report";
+  }
+
+  @Override
+  public int compareTo(@Nonnull GeneReport o) {
+    int rez = Objects.compare(getGene(), o.getGene(), String.CASE_INSENSITIVE_ORDER);
+    if (rez != 0) {
+      return rez;
+    }
+    return 0;
   }
 }
 

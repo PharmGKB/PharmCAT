@@ -3,9 +3,7 @@ package org.pharmgkb.pharmcat.reporter;
 import java.lang.invoke.MethodHandles;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
@@ -42,7 +40,7 @@ public class ReportContext {
 
   private List<GeneCall> m_calls;
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
-  private Map<String, GeneReport> m_symbolToGeneReportMap = new TreeMap<>();
+  private Set<GeneReport> m_geneReports = new TreeSet<>();
   private List<GuidelineReport> m_interactionList;
   private Multimap<String, String> m_geneToDrugMap = TreeMultimap.create();
 
@@ -88,7 +86,7 @@ public class ReportContext {
       m_sampleGeneToDiplotypeMap.removeAll(call.getGene());
       m_sampleGeneToDiplotypeMap.putAll(call.getGene(), geneReport.getDips());
 
-      m_symbolToGeneReportMap.put(call.getGene(), geneReport);
+      m_geneReports.add(geneReport);
     }
     fixCyp2c19();
   }
@@ -197,8 +195,13 @@ public class ReportContext {
     return m_interactionList;
   }
 
-  public Map<String, GeneReport> getSymbolToGeneReportMap() {
-    return m_symbolToGeneReportMap;
+  public Set<GeneReport> getGeneReports() {
+    return m_geneReports;
+  }
+
+  public boolean isGeneCalled(String geneSymbol) {
+    return m_calls.stream()
+        .anyMatch(c -> c.getGene().equals(geneSymbol) && c.getDiplotypes().size()>0);
   }
 
   public Collection<String> getRelatedDrugs(@Nonnull String geneSymbol) {
