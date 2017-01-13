@@ -19,6 +19,7 @@ import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.definition.model.VariantType;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.w3c.dom.Document;
 
@@ -237,11 +238,18 @@ public class ExtractPositions {
     }
     String chr = definitionReader.getDefinitionFile(gene).getChromosome();
     ArrayList<String> alts = new ArrayList<>(); //get alts from the namedAlleles
+    String dasRef = getDAS(chr, String.valueOf(position), genomeBuild);
+    if (!dasRef.equals(allele) && variantLocus.getType()== VariantType.SNP && allele.length()==1) {
+      System.out.println("Star one/ref mismatch at position: " + position + " - using " + dasRef + " as ref as opposed to " + allele);
+      alts.add(allele);
+      allele = dasRef;
+    }
     ArrayList<String> starAlleles = new ArrayList<>();
+    String finalAlleleRef = allele;
     definitionFile.getNamedAlleles().stream().filter(namedAllele -> namedAllele.getAllele(variantLocus) != null
     ).forEachOrdered(namedAllele -> {
       if (!alts.contains(expandAllele(namedAllele.getAllele(variantLocus)))
-          && !allele.equals(expandAllele(namedAllele.getAllele(variantLocus)))) {
+          && !finalAlleleRef.equals(expandAllele(namedAllele.getAllele(variantLocus)))) {
         alts.add(expandAllele(namedAllele.getAllele(variantLocus)));
       }
 
