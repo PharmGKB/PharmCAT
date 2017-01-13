@@ -6,9 +6,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
-import com.google.common.collect.ImmutableSet;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -20,10 +18,10 @@ import org.pharmgkb.pharmcat.reporter.model.CPICException;
  * This class is used to help collect Gene-related data for later reporting
  */
 public class GeneReport implements Comparable<GeneReport> {
-  private static final String UNCALLED = "*uncalled*";
+  private static final String UNCALLED = "_uncalled_";
 
   private String m_gene;
-  private Set<String> m_diplotypes;
+  private Set<String> m_diplotypes = new TreeSet<>();
   private Set<String> m_uncalledHaplotypes;
   private SortedSet<Variant> m_variants = new TreeSet<>();
   private List<CPICException> m_exceptList = new ArrayList<>();
@@ -36,9 +34,8 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public void setCallData(@Nonnull GeneCall call) {
     m_gene = call.getGene();
-    m_diplotypes = call.getDiplotypes().stream()
-        .map(m -> call.getGene() + ":" + m.getName())
-        .collect(Collectors.toSet());
+    m_diplotypes.clear();
+    call.getDiplotypes().forEach(d -> addDip(call.getGene() + ":" + d.getName()));
     m_variants.addAll(call.getVariants());
     m_matchData = call.getMatchData();
     m_uncalledHaplotypes = call.getUncallableHaplotypes();
@@ -46,7 +43,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
   public GeneReport(@Nonnull String geneSymbol) {
     m_gene = geneSymbol;
-    m_diplotypes = ImmutableSet.of(UNCALLED);
+    addDip(UNCALLED);
   }
 
   /**
@@ -54,6 +51,12 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public Set<String> getDips(){
     return m_diplotypes;
+  }
+
+  private void addDip(String dip) {
+    String cleanDip = m_gene.equals("CYP2C19") ? dip.replaceAll("\\*4[AB]", "*4") : dip;
+
+    m_diplotypes.add(cleanDip);
   }
 
   /**

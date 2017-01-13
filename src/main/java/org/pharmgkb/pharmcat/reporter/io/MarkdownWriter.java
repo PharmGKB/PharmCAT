@@ -62,7 +62,9 @@ public class MarkdownWriter {
         writer.write(" | ");
         writer.write(geneReport.getRelatedDrugs().stream().collect(Collectors.joining(", ")));
         writer.write(" | ");
-        writer.write(geneReport.getDips().stream().collect(Collectors.joining(", ")));
+        writer.write(geneReport.getDips().stream()
+            .map(MarkdownWriter::escapeMd)
+            .collect(Collectors.joining(", ")));
         writer.write(" |\n");
       }
       writer.write(sf_margin);
