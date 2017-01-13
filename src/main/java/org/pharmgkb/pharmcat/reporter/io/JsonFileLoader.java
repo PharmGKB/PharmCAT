@@ -24,6 +24,7 @@ import org.slf4j.LoggerFactory;
  */
 public class JsonFileLoader {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final String CPIC_SOURCE = "CPIC";
 
   private final Gson gson = new Gson();
 
@@ -41,19 +42,21 @@ public class JsonFileLoader {
   }
 
   /**
-   * Load all the guideline annotations into {@link DosingGuideline} objects from the list of guideline {@link File}
+   * Load the <strong>CPIC</strong> guideline annotations into {@link DosingGuideline} objects from the list of guideline {@link File}
    * list
    */
   public List<DosingGuideline> loadGuidelines(List<Path> guidelineFileList) throws IOException {
-    List<DosingGuideline> drugGenes = new ArrayList<>();
+    List<DosingGuideline> guidelines = new ArrayList<>();
 
     for (Path guidelineFile : guidelineFileList) {
       try (BufferedReader br = Files.newBufferedReader(guidelineFile)) {
-        DosingGuideline dosingGuideline = gson.fromJson(br, DosingGuideline.class);
-        drugGenes.add(dosingGuideline);
+        DosingGuideline guideline = gson.fromJson(br, DosingGuideline.class);
+        if (guideline.getSource().equals(CPIC_SOURCE)) {
+          guidelines.add(guideline);
+        }
       }
     }
 
-    return drugGenes;
+    return guidelines;
   }
 }

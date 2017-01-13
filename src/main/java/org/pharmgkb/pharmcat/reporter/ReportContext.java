@@ -38,6 +38,8 @@ import org.slf4j.LoggerFactory;
 public class ReportContext {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
+  private static final String UNCALLED = "*uncalled*";
+
   private List<GeneCall> m_calls;
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
   private Map<String, GeneReport> m_symbolToGeneReportMap = new TreeMap<>();
@@ -57,7 +59,7 @@ public class ReportContext {
     guidelines.stream()
         .flatMap(g -> g.getRelatedGenes().stream())
         .map(RelatedGene::getSymbol)
-        .forEach(s -> m_sampleGeneToDiplotypeMap.put(s, "*uncalled*"));
+        .forEach(s -> m_sampleGeneToDiplotypeMap.put(s, UNCALLED));
 
     m_interactionList.forEach(r -> {
       for (String gene : r.getRelatedGeneSymbols()) {
