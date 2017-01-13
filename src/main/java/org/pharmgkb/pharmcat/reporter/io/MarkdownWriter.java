@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -57,22 +56,13 @@ public class MarkdownWriter {
 
       writer.write("| Gene | Drugs | Call |\n");
       writer.write("| ---- | ----- | ---- |\n");
-      for (String gene : reportContext.getGeneCallMap().keySet()) {
-        Collection<String> calls = reportContext.getGeneCallMap().get(gene);
-
-        String drugs = reportContext.getRelatedDrugs(gene).stream().collect(Collectors.joining(", "));
-
+      for (GeneReport geneReport : reportContext.getGeneReports()) {
         writer.write("| ");
-        writer.write(gene);
+        writer.write(geneReport.getGene());
         writer.write(" | ");
-        writer.write(drugs);
+        writer.write(geneReport.getRelatedDrugs().stream().collect(Collectors.joining(", ")));
         writer.write(" | ");
-        if (calls != null) {
-          writer.write(calls.stream().collect(Collectors.joining(", ")));
-        }
-        else {
-          writer.write("uncalled");
-        }
+        writer.write(geneReport.getDips().stream().collect(Collectors.joining(", ")));
         writer.write(" |\n");
       }
       writer.write(sf_margin);
@@ -96,8 +86,7 @@ public class MarkdownWriter {
 
         if (!guideline.isReportable()) {
           writer.write("_gene calls insufficient to filter annotations, missing ");
-          String missingGenes = guideline.getRelatedGeneSymbols().stream()
-              .filter(s -> !reportContext.isGeneCalled(s))
+          String missingGenes = guideline.getUncalledGenes().stream()
               .collect(Collectors.joining(", "));
           writer.write(missingGenes);
           writer.write("_");
@@ -140,11 +129,11 @@ public class MarkdownWriter {
         writer.write("\n");
       }
 
-      writer.write("## Detailed Haplotype Calls");
+      writer.write("## Gene Call Details");
       writer.write(sf_margin);
 
       for (GeneReport geneReport : reportContext.getGeneReports()) {
-        writer.write("### Gene: " + geneReport.getGene());
+        writer.write("### " + geneReport.getGene());
         writer.write(sf_margin);
 
         writer.write("#### Matching Allele Call");
@@ -153,10 +142,8 @@ public class MarkdownWriter {
         if (geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0) {
           writer.write("_The following haplotypes were not considered due to missing variant data_: "
               + escapeMd(geneReport.getUncalledHaplotypes().stream().collect(Collectors.joining(", "))));
-        } else {
-          writer.write("_All variant data present so all haplotypes considered in analysis._");
+          writer.write(sf_margin);
         }
-        writer.write(sf_margin);
 
         if (geneReport.getDips().size() == 1) {
           writer.write("Diplotype call: " + escapeMd(geneReport.getDips().iterator().next()));
@@ -186,11 +173,16 @@ public class MarkdownWriter {
 
         writer.write("#### Calls at Positions");
         writer.write(sf_margin);
-        writer.write("| Position | RSID | Call |\n");
-        writer.write("| -------- | ---- | ---- |\n");
-        for (Variant v : geneReport.getVariants()) {
-          String rsidDisplay = v.getRsid() == null ? "None" : v.getRsid();
-          writer.write(String.format(sf_variantRowTemplate, v.getPosition(), rsidDisplay, v.getVcfCall().replace("|", "\\|")));
+
+        if (geneReport.getVariants().size() > 0) {
+          writer.write("| Position | RSID | Call |\n");
+          writer.write("| -------- | ---- | ---- |\n");
+          for (Variant v : geneReport.getVariants()) {
+            String rsidDisplay = v.getRsid() == null ? "None" : v.getRsid();
+            writer.write(String.format(sf_variantRowTemplate, v.getPosition(), rsidDisplay, v.getVcfCall().replace("|", "\\|")));
+          }
+        } else {
+          writer.write("*no variant data specified*");
         }
         if (geneReport.getMatchData() != null && geneReport.getMatchData().getMissingPositions().size()>0) {
           for (VariantLocus variant : geneReport.getMatchData().getMissingPositions()) {

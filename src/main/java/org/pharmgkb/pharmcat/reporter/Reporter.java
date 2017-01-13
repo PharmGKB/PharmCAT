@@ -119,7 +119,6 @@ public class Reporter {
    */
   public void printMarkdown(@Nonnull Path reportFile) throws IOException {
     Preconditions.checkNotNull(reportFile);
-    sf_logger.debug("Writing output to {}", reportFile);
 
     new MarkdownWriter(reportFile)
         .print(m_reportContext);

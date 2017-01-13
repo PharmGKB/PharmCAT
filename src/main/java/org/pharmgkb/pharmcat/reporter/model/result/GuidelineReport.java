@@ -26,6 +26,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private Set<Group> m_matchingGroups;
   private Multimap<String,String> m_matchedDiplotypes = TreeMultimap.create();
   private boolean m_reportable = false;
+  private Set<String> m_uncalledGenes = new TreeSet<>();
 
   public GuidelineReport( DosingGuideline guideline){
     m_dosingGuideline = guideline;
@@ -119,5 +120,13 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
       return rez;
     }
     return 0;
+  }
+
+  public Set<String> getUncalledGenes() {
+    return m_uncalledGenes;
+  }
+
+  public void addUncalledGene(String geneSymbol) {
+    m_uncalledGenes.add(geneSymbol);
   }
 }

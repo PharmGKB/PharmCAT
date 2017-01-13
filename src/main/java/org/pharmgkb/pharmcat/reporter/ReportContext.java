@@ -1,12 +1,12 @@
 package org.pharmgkb.pharmcat.reporter;
 
-import java.lang.invoke.MethodHandles;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
@@ -16,8 +16,6 @@ import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /**
@@ -34,15 +32,11 @@ import org.slf4j.LoggerFactory;
  * @author Ryan Whaley
  */
 public class ReportContext {
-  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-
-  private static final String UNCALLED = "*uncalled*";
 
   private List<GeneCall> m_calls;
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
   private Set<GeneReport> m_geneReports = new TreeSet<>();
   private List<GuidelineReport> m_interactionList;
-  private Multimap<String, String> m_geneToDrugMap = TreeMultimap.create();
 
   /**
    * public constructor
@@ -53,15 +47,18 @@ public class ReportContext {
     m_calls = calls;
     m_interactionList = guidelines.stream().map(GuidelineReport::new).collect(Collectors.toList());
 
-    // prime the pump to list all genes needed to call all guidelines
+    // make the full list of gene reports based on all the genes used in guidelines
     guidelines.stream()
         .flatMap(g -> g.getRelatedGenes().stream())
         .map(RelatedGene::getSymbol)
-        .forEach(s -> m_sampleGeneToDiplotypeMap.put(s, UNCALLED));
+        .forEach(s -> m_geneReports.add(new GeneReport(s)));
 
     m_interactionList.forEach(r -> {
       for (String gene : r.getRelatedGeneSymbols()) {
-        m_geneToDrugMap.putAll(gene, r.getRelatedDrugs());
+        GeneReport geneReport = getGeneReport(gene);
+        if (geneReport != null) {
+          geneReport.addRelatedDrugs(r.getRelatedDrugs());
+        }
       }
     });
 
@@ -77,16 +74,17 @@ public class ReportContext {
     // ExceptionMatcher exceptionMatcher = new ExceptionMatcher();
 
     for (GeneCall call : m_calls) {
+      GeneReport geneReport = m_geneReports.stream()
+          .filter(r -> r.getGene().equals(call.getGene()))
+          .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
+          .orElseThrow(IllegalStateException::new);
+      geneReport.setCallData(call);
 
-      // starts a new GeneReport based on data in the GeneCall
-      GeneReport geneReport = new GeneReport(call);
       // adds exceptions to the GeneReport
       // exceptionMatcher.addExceptions(geneReport); 
 
       m_sampleGeneToDiplotypeMap.removeAll(call.getGene());
       m_sampleGeneToDiplotypeMap.putAll(call.getGene(), geneReport.getDips());
-
-      m_geneReports.add(geneReport);
     }
     fixCyp2c19();
   }
@@ -129,15 +127,11 @@ public class ReportContext {
       guideline.setReportable(reportable);
 
       if (!reportable) {
-        String unCalledGenes = guideline.getRelatedGeneSymbols().stream()
+        guideline.getRelatedGeneSymbols().stream()
             .filter(g -> !isCalled(g))
-            .collect(Collectors.joining(","));
-
-        sf_logger.warn("Can't annotate guideline {}, it's missing {}", guideline.getName(), unCalledGenes );
+            .forEach(guideline::addUncalledGene);
         continue;
       }
-
-      sf_logger.info("Able to use {}", guideline.getName());
 
       Set<String> calledGenotypesForGuideline = makeAllCalledGenotypes(guideline.getRelatedGeneSymbols());
 
@@ -184,13 +178,6 @@ public class ReportContext {
     }
   }
 
-  /**
-   * Maps a gene symbol String ("CYP2C19") to a Collection of the call Strings for that gene ("*1/*2")
-   */
-  public Multimap<String,String> getGeneCallMap() {
-    return m_sampleGeneToDiplotypeMap;
-  }
-
   public List<GuidelineReport> getGuidelineResults() {
     return m_interactionList;
   }
@@ -199,12 +186,10 @@ public class ReportContext {
     return m_geneReports;
   }
 
-  public boolean isGeneCalled(String geneSymbol) {
-    return m_calls.stream()
-        .anyMatch(c -> c.getGene().equals(geneSymbol) && c.getDiplotypes().size()>0);
-  }
-
-  public Collection<String> getRelatedDrugs(@Nonnull String geneSymbol) {
-    return m_geneToDrugMap.get(geneSymbol);
+  @Nullable
+  private GeneReport getGeneReport(@Nonnull String geneSymbol) {
+    return m_geneReports.stream().filter(r -> r.getGene().equals(geneSymbol))
+        .reduce((r1,r2) -> { throw new RuntimeException("Duplicate gene reports found"); })
+        .orElse(null);
   }
 }
