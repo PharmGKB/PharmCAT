@@ -99,7 +99,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   }
 
   /**
-   * Does this annotation have enough information in the called genes to report a specific annotation group?
+   * True if each of the genes in this guideline has at least one called diplotype
    */
   public boolean isReportable() {
     return m_reportable;

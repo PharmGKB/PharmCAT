@@ -97,7 +97,12 @@ public class MarkdownWriter {
         }
 
         if (guideline.getMatchingGroups() == null) {
-          writer.write("_related genes present but no matching annotations found, check genotype calls_");
+          if (guideline.isReportable()) {
+            writer.write("_alleles called for all necessary genes but no matching annotations found. check the guideline_");
+          }
+          else {
+            writer.write("_related genes present but no matching annotations found, check genotype calls_");
+          }
           writer.write(sf_margin);
           continue;
         }
