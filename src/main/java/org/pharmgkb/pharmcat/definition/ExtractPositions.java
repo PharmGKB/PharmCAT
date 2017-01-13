@@ -69,8 +69,8 @@ public class ExtractPositions {
       Path definitionDir = cliHelper.getValidDirectory("d", false);
       Path outputVcf= cliHelper.getValidFile("o", false);
 
-      if (!cliHelper.getValue("g").equalsIgnoreCase("hg38") && !cliHelper.getValue("g").equalsIgnoreCase("hg37")) {
-        System.out.println("-g parameter must be hg37 or hg38");
+      if (!cliHelper.getValue("g").equalsIgnoreCase("hg38") && !cliHelper.getValue("g").equalsIgnoreCase("hg19")) {
+        System.out.println("-g parameter must be hg19 or hg38");
         System.exit(1);
       }
       String genomeBuild = cliHelper.getValue("g");
