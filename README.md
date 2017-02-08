@@ -6,6 +6,7 @@
 
 Take genome data, make haplotype calls, get [CPIC](https://cpicpgx.org) annotations.
 
+For more detail, read the [PharmGKB blog post about PharmCAT](http://pharmgkb.blogspot.com/2016/04/pharmacogenomics-clinical-annotation.html) or the [article on GenomeWeb](https://www.genomeweb.com/molecular-diagnostics/researchers-hope-pharmcat-tool-will-help-improve-clinical-implementation)
 
 ## Status
 
