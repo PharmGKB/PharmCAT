@@ -16,6 +16,7 @@ import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
+import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,14 +46,14 @@ public class JsonFileLoader {
    * Load the <strong>CPIC</strong> guideline annotations into {@link DosingGuideline} objects from the list of guideline {@link File}
    * list
    */
-  public List<DosingGuideline> loadGuidelines(List<Path> guidelineFileList) throws IOException {
-    List<DosingGuideline> guidelines = new ArrayList<>();
+  public List<GuidelinePackage> loadGuidelines(List<Path> guidelineFileList) throws IOException {
+    List<GuidelinePackage> guidelines = new ArrayList<>();
 
     for (Path guidelineFile : guidelineFileList) {
       try (BufferedReader br = Files.newBufferedReader(guidelineFile)) {
-        DosingGuideline guideline = gson.fromJson(br, DosingGuideline.class);
-        if (guideline.getSource().equals(CPIC_SOURCE)) {
-          guidelines.add(guideline);
+        GuidelinePackage guidelinePackage = gson.fromJson(br, GuidelinePackage.class);
+        if (guidelinePackage.getGuideline().getSource().equals(CPIC_SOURCE)) {
+          guidelines.add(guidelinePackage);
         }
       }
     }

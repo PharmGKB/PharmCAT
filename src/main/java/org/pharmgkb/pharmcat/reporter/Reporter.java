@@ -14,7 +14,7 @@ import org.pharmgkb.pharmcat.annotation.AnnotationReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.MarkdownWriter;
-import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
+import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -105,7 +105,7 @@ public class Reporter {
     List<GeneCall> calls = loader.loadHaplotypeGeneCalls(callFile);
 
     //Load the gene drug interaction list. This currently only handles single gene drug m_guidelineFiles and will require updating to handle multi gene drug interaction
-    List<DosingGuideline> guidelines = loader.loadGuidelines(m_annotationFiles);
+    List<GuidelinePackage> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
     m_reportContext = new ReportContext(calls, guidelines);

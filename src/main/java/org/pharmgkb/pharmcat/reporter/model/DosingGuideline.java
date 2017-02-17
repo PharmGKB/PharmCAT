@@ -18,9 +18,6 @@ public class DosingGuideline {
   @SerializedName("name")
   @Expose
   private String name;
-  @SerializedName("groups")
-  @Expose
-  private List<Group> groups = new ArrayList<>();
   @SerializedName("relatedChemicals")
   @Expose
   private List<RelatedChemical> relatedChemicals = new ArrayList<>();
@@ -89,24 +86,6 @@ public class DosingGuideline {
    */
   public void setName(String name) {
     this.name = name;
-  }
-
-  /**
-   *
-   * @return
-   *     The groups
-   */
-  public List<Group> getGroups() {
-    return groups;
-  }
-
-  /**
-   *
-   * @param groups
-   *     The groups
-   */
-  public void setGroups(List<Group> groups) {
-    this.groups = groups;
   }
 
   /**

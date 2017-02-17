@@ -10,6 +10,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
+import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.RelatedChemical;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 
@@ -23,13 +24,15 @@ import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 public class GuidelineReport implements Comparable<GuidelineReport> {
 
   private DosingGuideline m_dosingGuideline;
+  private List<Group> m_groups;
   private Set<Group> m_matchingGroups;
   private Multimap<String,String> m_matchedDiplotypes = TreeMultimap.create();
   private boolean m_reportable = false;
   private Set<String> m_uncalledGenes = new TreeSet<>();
 
-  public GuidelineReport( DosingGuideline guideline){
-    m_dosingGuideline = guideline;
+  public GuidelineReport(GuidelinePackage guidelinePackage){
+    m_dosingGuideline = guidelinePackage.getGuideline();
+    m_groups = guidelinePackage.getGroups();
   }
 
   /**
@@ -63,7 +66,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
    * Gets all annotation groups of the guideline, a pass-through to the stored guideline.
    */
   public List<Group> getGroups() {
-    return m_dosingGuideline.getGroups();
+    return m_groups;
   }
 
   /**

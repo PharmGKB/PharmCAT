@@ -11,8 +11,8 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
+import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
@@ -43,13 +43,13 @@ public class ReportContext {
    * @param calls GeneCall objects from the sample data
    * @param guidelines a List of all the guidelines to try to apply
    */
-  public ReportContext(List<GeneCall> calls, List<DosingGuideline> guidelines) throws Exception {
+  public ReportContext(List<GeneCall> calls, List<GuidelinePackage> guidelines) throws Exception {
     m_calls = calls;
     m_interactionList = guidelines.stream().map(GuidelineReport::new).collect(Collectors.toList());
 
     // make the full list of gene reports based on all the genes used in guidelines
     guidelines.stream()
-        .flatMap(g -> g.getRelatedGenes().stream())
+        .flatMap(g -> g.getGuideline().getRelatedGenes().stream())
         .map(RelatedGene::getSymbol)
         .forEach(s -> m_geneReports.add(new GeneReport(s)));
 
