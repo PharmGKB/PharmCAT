@@ -23,7 +23,10 @@ public class Group implements Comparable<Group> {
   private List<String> genotypes = new ArrayList<>();
   @Expose
   @SerializedName("strength")
-  private Strength strength;
+  private OntologyTerm strength;
+  @Expose
+  @SerializedName("rxChangeStatus")
+  private OntologyTerm rxChange;
 
 
   public String getId() {
@@ -62,12 +65,20 @@ public class Group implements Comparable<Group> {
   }
 
 
-  public Strength getStrength() {
+  public OntologyTerm getStrength() {
     return strength;
   }
 
-  public void setStrength(Strength strength) {
+  public void setStrength(OntologyTerm strength) {
     this.strength = strength;
+  }
+
+  public OntologyTerm getRxChange() {
+    return rxChange;
+  }
+
+  public void setRxChange(OntologyTerm rxChange) {
+    this.rxChange = rxChange;
   }
 
 
