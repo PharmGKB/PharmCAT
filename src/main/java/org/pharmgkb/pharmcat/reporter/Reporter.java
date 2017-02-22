@@ -121,7 +121,7 @@ public class Reporter {
    * Print a HTML file of compiled report data
    * @param reportFile file to write output to
    */
-  private void printHtml(@Nonnull Path reportFile) throws IOException {
+  protected void printHtml(@Nonnull Path reportFile) throws IOException {
 
     Map<String,Object> reportData = ReportData.compile(m_reportContext);
 

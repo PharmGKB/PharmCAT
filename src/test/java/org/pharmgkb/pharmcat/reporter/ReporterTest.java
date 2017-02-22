@@ -29,28 +29,28 @@ public class ReporterTest {
   @Test
   public void reporterTest() throws Exception {
     Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.haplotyper.output.json");
-    Path outputFile     = callerFile.getParent().resolve("test.haplotyper.output.md");
+    Path outputFile     = callerFile.getParent().resolve("test.haplotyper.output.html");
 
-    s_reporter.analyze(callerFile).printMarkdown(outputFile);
+    s_reporter.analyze(callerFile).printHtml(outputFile);
   }
 
   @Test
   public void bigSampleTest() throws Exception {
     Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/big.sample.json");
-    Path outputFile     = callerFile.getParent().resolve("big.sample.md");
+    Path outputFile     = callerFile.getParent().resolve("big.sample.html");
 
-    s_reporter.analyze(callerFile).printMarkdown(outputFile);
+    s_reporter.analyze(callerFile).printHtml(outputFile);
   }
 
   @Test
   public void bigMissingTest() throws Exception {
     Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/big.sample.missing.2c19.loc.json");
-    Path outputFile     = callerFile.getParent().resolve("big.sample.missing.2c19.loc.md");
+    Path outputFile     = callerFile.getParent().resolve("big.sample.missing.2c19.loc.html");
 
     Reporter reporter = s_reporter.analyze(callerFile);
     assertNotNull(reporter.getGuidelineReports());
 
-    reporter.printMarkdown(outputFile);
+    reporter.printHtml(outputFile);
 
     assertTrue(
         "atazanavir and UGT1A1 guideline not called",
@@ -74,8 +74,8 @@ public class ReporterTest {
   @Test
   public void testCyp2c19Missing() throws Exception {
     Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.cyp2c19.missing.json");
-    Path outputFile     = callerFile.getParent().resolve("test.cyp2c19.missing.md");
+    Path outputFile     = callerFile.getParent().resolve("test.cyp2c19.missing.html");
 
-    s_reporter.analyze(callerFile).printMarkdown(outputFile);
+    s_reporter.analyze(callerFile).printHtml(outputFile);
   }
 }
