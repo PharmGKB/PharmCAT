@@ -111,120 +111,138 @@
 
 <h1>PharmCAT Report</h1>
 
-<h2>Genotypes</h2>
+<section>
+  <h2>Sections</h2>
+  <ol>
+    <li><a href="#genotypes">Diplotype / Genotype Summary</a></li>
+    <li><a href="#guidelines">CPIC Recommendations</a></li>
+    <li><a href="#genes">Allele Call Details</a></li>
+  </ol>
+</section>
 
-<p>Genotypes called: {{calledGenes}} / {{totalGenes}} </p>
+<section id="genotypes">
+  <h2>Diplotype / Genotype Summary</h2>
 
-<table>
-  <thead>
-  <tr><th>Gene</th><th>Drugs</th><th>Call</th></tr>
-  </thead>
-  <tbody>
-  {{#each genotypes}}
-    <tr>
-      <td>{{gene}}</td>
-      <td>{{drugs}}</td>
-      <td>
-        {{#if called}}{{call}}{{/if}}
-        {{#unless called}}<em>uncalled</em>{{/unless}}
-      </td>
-    </tr>
-  {{/each}}
-  </tbody>
-</table>
+  <p>Genotypes called: {{calledGenes}} / {{totalGenes}} </p>
 
-<h2>Guidelines</h2>
-
-{{#each guidelines}}
-  <h3 id="{{id}}">{{drugs}}</h3>
-
-  <section>
-    {{{summary}}}
-  </section>
-  <section>
-    <p>For more information see the <a href="{{url}}">full guideline on PharmGKB</a>.</p>
-  </section>
-
-  {{#if notReportable}}
-    <div class="alert alert-info">Gene calls insufficient to filter annotations, missing {{uncalledGenes}}</div>
-  {{/if}}
-  {{#unless notReportable}}
-    {{#unless matched}}
-      <div class="alert alert-warning">Alleles called for all necessary genes but no matching annotations found. check the guideline</div>
-    {{/unless}}
-  {{/unless}}
-
-  {{#if multiMatch}}
-    <div class="alert alert-info"><strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups could be shown</div>
-  {{/if}}
-
-  {{#each groups}}
-    <h4>Annotations for {{matchedDiplotypes}}</h4>
-
-    <table>
-      <thead>
-      <tr><th>Type</th><th>Annotation</th></tr>
-      </thead>
-      <tbody>
-      {{#each annotations}}
-        <tr><td>{{term}}</td><td>{{{annotation}}}</td></tr>
-      {{/each}}
-      </tbody>
-    </table>
-  {{/each}}
-
-{{/each}}
-
-<h2>Gene Call Details</h2>
-
-{{#each geneCalls}}
-  <h3 id="{{gene}}">{{gene}}</h3>
-
-  <h4>Matching Allele Call</h4>
-  {{#if diplotype}}
-  <p>{{diplotype}}</p>
-  {{/if}}
-  {{#unless diplotype}}
-    <ul>
-      {{#each diplotypes}}
-        <li>{{this}}</li>
-      {{/each}}
-    </ul>
-  {{/unless}}
-
-  {{#if variantsUnspecified}}
-    <div class="alert alert-info">No variant data specified</div>
-  {{/if}}
-  {{#unless variantsUnspecified}}
-  <h4>Calls at Positions</h4>
   <table>
     <thead>
     <tr>
-      <th>Position</th>
-      <th>RSID</th>
+      <th>Drugs</th>
+      <th>Gene</th>
       <th>Call</th>
     </tr>
     </thead>
     <tbody>
-    {{#each variants}}
+    {{#each genotypes}}
       <tr>
-        <td>{{position}}</td>
-        <td>{{rsid}}</td>
-        <td>{{vcfCall}}</td>
-      </tr>
-    {{/each}}
-    {{#each missingVariants}}
-      <tr>
-        <td>{{position}}</td>
-        <td>{{rsid}}</td>
-        <td><em>missing</em></td>
+        <td>{{drugs}}</td>
+        <td><a href="#{{gene}}">{{gene}}</a></td>
+        <td>
+          {{#if called}}{{call}}{{/if}}
+          {{#unless called}}<em>uncalled</em>{{/unless}}
+        </td>
       </tr>
     {{/each}}
     </tbody>
   </table>
-  {{/unless}}
+</section>
 
-{{/each}}
+<section id="guidelines">
+  <h2>CPIC Recommendations</h2>
+
+  {{#each guidelines}}
+    <h3 id="{{id}}">{{drugs}}</h3>
+
+    <section>
+      {{{summary}}}
+    </section>
+    <section>
+      <p>For more information see the <a href="{{url}}">full guideline on PharmGKB</a>.</p>
+    </section>
+
+    {{#if notReportable}}
+      <div class="alert alert-info">Gene calls insufficient to filter annotations, missing {{uncalledGenes}}</div>
+    {{/if}}
+    {{#unless notReportable}}
+      {{#unless matched}}
+        <div class="alert alert-warning">Alleles called for all necessary genes but no matching annotations found. check the guideline</div>
+      {{/unless}}
+    {{/unless}}
+
+    {{#if multiMatch}}
+      <div class="alert alert-info"><strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups could be shown</div>
+    {{/if}}
+
+    {{#each groups}}
+      <h4>Annotations for {{matchedDiplotypes}}</h4>
+
+      <table>
+        <thead>
+        <tr><th>Type</th><th>Annotation</th></tr>
+        </thead>
+        <tbody>
+        {{#each annotations}}
+          <tr><td>{{term}}</td><td>{{{annotation}}}</td></tr>
+        {{/each}}
+        </tbody>
+      </table>
+    {{/each}}
+
+  {{/each}}
+</section>
+
+<section id="genes">
+  <h2>Allele Call Details</h2>
+
+  {{#each geneCalls}}
+    <h3 id="{{gene}}">{{gene}}</h3>
+
+    <h4>Matching Allele Call</h4>
+    {{#if diplotype}}
+      <p>{{diplotype}}</p>
+    {{/if}}
+    {{#unless diplotype}}
+      <ul>
+        {{#each diplotypes}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    {{/unless}}
+
+    {{#if variantsUnspecified}}
+      <div class="alert alert-info">No variant data specified</div>
+    {{/if}}
+    {{#unless variantsUnspecified}}
+      <h4>Calls at Positions</h4>
+      <table>
+        <thead>
+        <tr>
+          <th>Position</th>
+          <th>RSID</th>
+          <th>Call</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each variants}}
+          <tr>
+            <td>{{position}}</td>
+            <td>{{rsid}}</td>
+            <td>{{vcfCall}}</td>
+          </tr>
+        {{/each}}
+        {{#each missingVariants}}
+          <tr>
+            <td>{{position}}</td>
+            <td>{{rsid}}</td>
+            <td><em>missing</em></td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    {{/unless}}
+  {{/each}}
+</section>
 
 </body>
 </html>
