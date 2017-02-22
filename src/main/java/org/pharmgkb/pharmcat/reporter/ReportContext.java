@@ -192,4 +192,11 @@ public class ReportContext {
         .reduce((r1,r2) -> { throw new RuntimeException("Duplicate gene reports found"); })
         .orElse(null);
   }
+
+  public Set<String> makeGenePhenotypes(@Nonnull String geneSymbol) {
+    return m_interactionList.stream()
+        .filter(g -> g.getRelatedGeneSymbols().contains(geneSymbol) && g.getMatchingGroups() != null)
+        .flatMap(g -> g.getMatchingGroups().stream())
+        .map(Group::getName).collect(Collectors.toSet());
+  }
 }

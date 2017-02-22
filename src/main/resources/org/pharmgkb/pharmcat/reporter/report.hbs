@@ -154,7 +154,11 @@
           {{/if}}
           {{#unless called}}<em>uncalled</em>{{/unless}}
         </td>
-        <td></td>
+        <td>
+          {{#each phenotype}}
+            <div style="white-space: nowrap">{{this}}</div>
+          {{/each}}
+        </td>
         <td>
           {{#if called}}{{yesno uncallableAlleles}}{{/if}}
           {{#unless called}}N/A{{/unless}}

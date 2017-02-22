@@ -34,8 +34,10 @@ public class ReportData {
     // Genotypes section
     List<Map<String,Object>> genotypes = new ArrayList<>();
     for (GeneReport geneReport : reportContext.getGeneReports()) {
+      String symbol = geneReport.getGene();
+
       Map<String,Object> genotype = new HashMap<>();
-      genotype.put("gene", geneReport.getGene());
+      genotype.put("gene", symbol);
       genotype.put("called", geneReport.isCalled());
       genotype.put("drugs", geneReport.getRelatedDrugs().stream().collect(Collectors.joining(", ")));
       genotype.put("call", geneReport.getDips().stream().collect(Collectors.joining(", ")));
@@ -43,6 +45,8 @@ public class ReportData {
       genotype.put("uncallableAlleles",
             geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0
       );
+      genotype.put("phenotype", reportContext.makeGenePhenotypes(symbol));
+
       genotypes.add(genotype);
     }
     result.put("genotypes", genotypes);
