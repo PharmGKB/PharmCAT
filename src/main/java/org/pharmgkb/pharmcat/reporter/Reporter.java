@@ -13,6 +13,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
+import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.common.base.Preconditions;
 import org.pharmgkb.common.io.util.CliHelper;
@@ -126,6 +127,7 @@ public class Reporter {
     Map<String,Object> reportData = ReportData.compile(m_reportContext);
 
     Handlebars handlebars = new Handlebars(new ClassPathTemplateLoader(sf_templatePrefix));
+    StringHelpers.register(handlebars);
     Template template = handlebars.compile(sf_templateName);
     String html = template.apply(reportData);
 

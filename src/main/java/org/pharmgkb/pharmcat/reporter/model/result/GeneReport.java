@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.annotation.Nonnull;
+import com.google.common.collect.ImmutableSortedSet;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -27,6 +28,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private List<CPICException> m_exceptList = new ArrayList<>();
   private MatchData m_matchData;
   private Set<String> m_relatedDrugs = new TreeSet<>();
+  private SortedSet<String> m_functions = new TreeSet<>();
 
   /**
    * public constructor
@@ -41,6 +43,9 @@ public class GeneReport implements Comparable<GeneReport> {
     m_variants.addAll(call.getVariants());
     m_matchData = call.getMatchData();
     m_uncalledHaplotypes = call.getUncallableHaplotypes();
+    if (call.getDiplotypes() != null && call.getDiplotypes().size() > 0) {
+      call.getDiplotypes().forEach(d -> m_functions.add(d.getFunction()));
+    }
   }
 
   public GeneReport(@Nonnull String geneSymbol) {
@@ -92,6 +97,13 @@ public class GeneReport implements Comparable<GeneReport> {
 
   public Set<String> getUncalledHaplotypes() {
     return m_uncalledHaplotypes;
+  }
+
+  public SortedSet<String> getFunctions() {
+    if (!isCalled()) {
+      return ImmutableSortedSet.of(UNCALLED);
+    }
+    return m_functions;
   }
 
   public String toString() {

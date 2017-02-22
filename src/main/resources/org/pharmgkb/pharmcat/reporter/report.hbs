@@ -113,10 +113,11 @@
 
 <section>
   <h2>Sections</h2>
-  <ol>
+  <ol type="I">
     <li><a href="#genotypes">Diplotype / Genotype Summary</a></li>
     <li><a href="#guidelines">CPIC Recommendations</a></li>
     <li><a href="#genes">Allele Call Details</a></li>
+    <li>Disclaimers (coming soon)</li>
   </ol>
 </section>
 
@@ -130,7 +131,10 @@
     <tr>
       <th>Drugs</th>
       <th>Gene</th>
-      <th>Call</th>
+      <th>Diplotype or Genotype</th>
+      <th>Allele Functionality</th>
+      <th>Phenotype</th>
+      <th>Uncallable Alleles</th>
     </tr>
     </thead>
     <tbody>
@@ -141,6 +145,19 @@
         <td>
           {{#if called}}{{call}}{{/if}}
           {{#unless called}}<em>uncalled</em>{{/unless}}
+        </td>
+        <td>
+          {{#if called}}
+          {{#each functions}}
+            <div>{{this}}</div>
+          {{/each}}
+          {{/if}}
+          {{#unless called}}<em>uncalled</em>{{/unless}}
+        </td>
+        <td></td>
+        <td>
+          {{#if called}}{{yesno uncallableAlleles}}{{/if}}
+          {{#unless called}}N/A{{/unless}}
         </td>
       </tr>
     {{/each}}

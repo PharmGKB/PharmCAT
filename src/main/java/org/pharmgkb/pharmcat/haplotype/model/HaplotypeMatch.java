@@ -22,11 +22,15 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
   @Expose
   @SerializedName("sequences")
   private SortedSet<String> m_sequences = new TreeSet<>();
+  @Expose
+  @SerializedName("function")
+  private String m_function;
 
 
   public HaplotypeMatch(@Nonnull NamedAllele haplotype) {
     m_haplotype = haplotype;
     m_name = m_haplotype.getName();
+    m_function = m_haplotype.getFunction();
   }
 
 
@@ -34,8 +38,12 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
     return m_name;
   }
 
-  public @Nonnull NamedAllele getHaplotype() {
+  public NamedAllele getHaplotype() {
     return m_haplotype;
+  }
+
+  public String getFunction() {
+    return m_function;
   }
 
 

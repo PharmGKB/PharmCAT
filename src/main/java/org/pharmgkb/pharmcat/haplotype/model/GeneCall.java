@@ -106,4 +106,9 @@ public class GeneCall {
   public void add(Variant pos) {
     m_variants.add(pos);
   }
+
+  @Override
+  public String toString() {
+    return m_gene;
+  }
 }
