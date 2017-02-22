@@ -69,6 +69,7 @@ dependencies {
       [group: 'org.pharmgkb', name: 'pgkb-common-io', version: '0.1.5'],
       [group: 'org.pharmgkb', name: 'vcf-parser', version: '0.2.0'],
       [group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'],
+      [group: 'com.github.jknack', name: 'handlebars', version: '4.0.6'],
   )
 
   testCompile(

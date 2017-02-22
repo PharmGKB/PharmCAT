@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>PharmGKB InfoButton</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <style>
+    html {
+      font-size: 16px;
+    }
+    body {
+      font-weight: 300;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      font-size: 1rem;
+      font-family: "Museo Sans W01 Rounded",Arial,Helvetica,sans-serif;
+      color: rgb(25, 31, 42);
+      background-color: #FEFEFE;
+      margin: 0 auto;
+      max-width: 70em;
+      padding: 1em 1em;
+    }
+    header {
+      overflow: auto;
+      margin-bottom: 1em;
+    }
+    h1, h2, h3, h4 {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    a, h1, h2, h3, h4, h5, h6 {
+      color: #3e4c6c;
+    }
+    h1 {
+      font-size: 2em;
+      font-weight: 100;
+    }
+    h2, h3, h4 {
+      font-weight: 300;
+    }
+    h2 {
+      font-size: 1.8em;
+    }
+    h3 {
+      font-size: 1.5em;
+    }
+    h4 {
+      font-size: 1.2em;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 1em;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    table, ul {
+      margin-bottom: 1.5rem;
+    }
+    table {
+      min-width: 100%;
+      border-collapse: collapse;
+      border-color: grey;
+      font-size: 0.9rem;
+    }
+    td, th {
+      border: 1px solid rgba(62, 76, 108, 0.1);
+      max-width: 600px;
+      word-wrap: break-word;
+      padding: 1em 1.3em;
+    }
+    hr {
+      margin-bottom: 2em;
+    }
+    .alert {
+      margin: 1em 0;
+      padding: 0.6em;
+      border-radius: 4px;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    .alert-info {
+      background-color: #d9edf7;
+      border-color: #bce8f1;
+      color: #3a87ad;
+    }
+
+    .alert-warning {
+      background-color: #fcf8e3;
+      border-color: #faebcc;
+      color: #8a6d3b;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!--[if lt IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<h1>PharmCAT Report</h1>
+
+<h2>Genotypes</h2>
+
+<p>Genotypes called: {{calledGenes}} / {{totalGenes}} </p>
+
+<table>
+  <thead>
+  <tr><th>Gene</th><th>Drugs</th><th>Call</th></tr>
+  </thead>
+  <tbody>
+  {{#each genotypes}}
+    <tr>
+      <td>{{gene}}</td>
+      <td>{{drugs}}</td>
+      <td>
+        {{#if called}}{{call}}{{/if}}
+        {{#unless called}}<em>uncalled</em>{{/unless}}
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+
+<h2>Guidelines</h2>
+
+{{#each guidelines}}
+  <h3 id="{{id}}">{{drugs}}</h3>
+
+  <section>
+    {{{summary}}}
+  </section>
+  <section>
+    <p>For more information see the <a href="{{url}}">full guideline on PharmGKB</a>.</p>
+  </section>
+
+  {{#if notReportable}}
+    <div class="alert alert-info">Gene calls insufficient to filter annotations, missing {{uncalledGenes}}</div>
+  {{/if}}
+  {{#unless notReportable}}
+    {{#unless matched}}
+      <div class="alert alert-warning">Alleles called for all necessary genes but no matching annotations found. check the guideline</div>
+    {{/unless}}
+  {{/unless}}
+
+  {{#if multiMatch}}
+    <div class="alert alert-info"><strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups could be shown</div>
+  {{/if}}
+
+  {{#each groups}}
+    <h4>Annotations for {{matchedDiplotypes}}</h4>
+
+    <table>
+      <thead>
+      <tr><th>Type</th><th>Annotation</th></tr>
+      </thead>
+      <tbody>
+      {{#each annotations}}
+        <tr><td>{{term}}</td><td>{{{annotation}}}</td></tr>
+      {{/each}}
+      </tbody>
+    </table>
+  {{/each}}
+
+{{/each}}
+
+<h2>Gene Call Details</h2>
+
+{{#each geneCalls}}
+  <h3 id="{{gene}}">{{gene}}</h3>
+
+  <h4>Matching Allele Call</h4>
+  {{#if diplotype}}
+  <p>{{diplotype}}</p>
+  {{/if}}
+  {{#unless diplotype}}
+    <ul>
+      {{#each diplotypes}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{/unless}}
+
+  {{#if variantsUnspecified}}
+    <div class="alert alert-info">No variant data specified</div>
+  {{/if}}
+  {{#unless variantsUnspecified}}
+  <h4>Calls at Positions</h4>
+  <table>
+    <thead>
+    <tr>
+      <th>Position</th>
+      <th>RSID</th>
+      <th>Call</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each variants}}
+      <tr>
+        <td>{{position}}</td>
+        <td>{{rsid}}</td>
+        <td>{{vcfCall}}</td>
+      </tr>
+    {{/each}}
+    {{#each missingVariants}}
+      <tr>
+        <td>{{position}}</td>
+        <td>{{rsid}}</td>
+        <td><em>missing</em></td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+  {{/unless}}
+
+{{/each}}
+
+</body>
+</html>

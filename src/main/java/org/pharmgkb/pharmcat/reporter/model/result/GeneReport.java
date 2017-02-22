@@ -18,7 +18,7 @@ import org.pharmgkb.pharmcat.reporter.model.CPICException;
  * This class is used to help collect Gene-related data for later reporting
  */
 public class GeneReport implements Comparable<GeneReport> {
-  private static final String UNCALLED = "_uncalled_";
+  private static final String UNCALLED = "uncalled";
 
   private String m_gene;
   private Set<String> m_diplotypes = new TreeSet<>();
@@ -96,6 +96,10 @@ public class GeneReport implements Comparable<GeneReport> {
 
   public String toString() {
     return m_gene + " Report";
+  }
+
+  public boolean isCalled() {
+    return m_diplotypes != null && m_diplotypes.size() > 0 && !m_diplotypes.contains(UNCALLED);
   }
 
   @Override

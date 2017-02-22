@@ -1,23 +1,27 @@
 package org.pharmgkb.pharmcat.reporter;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import com.github.jknack.handlebars.Handlebars;
+import com.github.jknack.handlebars.Template;
+import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.common.base.Preconditions;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.annotation.AnnotationReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
-import org.pharmgkb.pharmcat.reporter.io.MarkdownWriter;
+import org.pharmgkb.pharmcat.reporter.io.ReportData;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /**
@@ -30,8 +34,8 @@ import org.slf4j.LoggerFactory;
  * @author Ryan Whaley
  */
 public class Reporter {
-  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private AnnotationReader m_annotationReader;
+  private static final String sf_templateName = "report";
+  private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
   private List<Path> m_annotationFiles = null;
   private ReportContext m_reportContext = null;
 
@@ -43,8 +47,8 @@ public class Reporter {
 
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("d", "annotations-dir", "directory of allele definition files", true, "d")
-        .addOption("c", "call-file", "named allele call file", true, "c")
-        .addOption("o", "output-file", "file to write report output to", true, "o")
+        .addOption("c", "call-file", "named allele call JSON file", true, "c")
+        .addOption("o", "output-file", "file path to write HTML report to", true, "o")
         ;
 
     try {
@@ -58,7 +62,7 @@ public class Reporter {
 
       new Reporter(annotationsDir)
           .analyze(callFile)
-          .printMarkdown(outputFile);
+          .printHtml(outputFile);
 
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -76,8 +80,8 @@ public class Reporter {
     Preconditions.checkArgument(Files.exists(annotationsDir));
     Preconditions.checkArgument(Files.isDirectory(annotationsDir));
 
-    m_annotationReader = new AnnotationReader();
-    m_annotationReader.read(annotationsDir);
+    AnnotationReader annotationReader = new AnnotationReader();
+    annotationReader.read(annotationsDir);
 
     m_annotationFiles = Files.list(annotationsDir)
         .filter(f -> f.getFileName().toString().endsWith(".json"))
@@ -114,14 +118,20 @@ public class Reporter {
   }
 
   /**
-   * Print a Markdown file of compiled report data
-   * @param reportFile directory to write output to
+   * Print a HTML file of compiled report data
+   * @param reportFile file to write output to
    */
-  public void printMarkdown(@Nonnull Path reportFile) throws IOException {
-    Preconditions.checkNotNull(reportFile);
+  private void printHtml(@Nonnull Path reportFile) throws IOException {
 
-    new MarkdownWriter(reportFile)
-        .print(m_reportContext);
+    Map<String,Object> reportData = ReportData.compile(m_reportContext);
+
+    Handlebars handlebars = new Handlebars(new ClassPathTemplateLoader(sf_templatePrefix));
+    Template template = handlebars.compile(sf_templateName);
+    String html = template.apply(reportData);
+
+    try (BufferedWriter writer = Files.newBufferedWriter(reportFile, StandardCharsets.UTF_8)) {
+      writer.write(html);
+    }
   }
 
   /**

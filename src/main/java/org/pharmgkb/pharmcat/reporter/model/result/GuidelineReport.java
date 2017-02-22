@@ -43,6 +43,13 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   }
 
   /**
+   * Gets the ID of the guideline
+   */
+  public String getId() {
+    return m_dosingGuideline.getId();
+  }
+
+  /**
    * Gets just the symbols of the related genes of the guideline. Calculated from data in the original guideline.
    */
   public Set<String> getRelatedGeneSymbols() {
