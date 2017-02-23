@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import com.google.common.collect.ImmutableList;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.CPICException;
@@ -22,6 +23,8 @@ import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
  */
 public class ReportData {
 
+  private static final List<String> sf_geneBlacklist = ImmutableList.of("G6PD", "HLA-B");
+
   /**
    * Make a Map that can be used in the final handlebars report
    * @param reportContext a populated report context
@@ -35,6 +38,10 @@ public class ReportData {
     List<Map<String,Object>> genotypes = new ArrayList<>();
     for (GeneReport geneReport : reportContext.getGeneReports()) {
       String symbol = geneReport.getGene();
+
+      if (sf_geneBlacklist.contains(symbol)) {
+        continue;
+      }
 
       Map<String,Object> genotype = new HashMap<>();
       genotype.put("gene", symbol);
