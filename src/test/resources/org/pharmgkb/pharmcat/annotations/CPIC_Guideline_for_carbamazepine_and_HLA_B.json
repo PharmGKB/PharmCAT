@@ -18,7 +18,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
       "id" : "PA448785",
       "name" : "carbamazepine",
-      "version" : 10
+      "version" : 31
     } ],
     "relatedGenes" : [ {
       "objCls" : "Gene",
@@ -27,7 +27,7 @@
       "id" : "PA35056",
       "symbol" : "HLA-B",
       "name" : "major histocompatibility complex, class I, B",
-      "version" : 39
+      "version" : 2919
     } ],
     "source" : "CPIC",
     "summaryMarkdown" : {
@@ -38,7 +38,7 @@
       "markdown" : "Carbamazepine is not recommended for carbamazepine-naive individuals who have at least one copy of the HLA-B*15:02 allele.",
       "pmids" : [ ],
       "relatedObjects" : [ ],
-      "version" : 0
+      "version" : 1
     },
     "summaryVideoId" : "op1Rr60nKQg",
     "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
@@ -50,9 +50,9 @@
       "markdown" : "## September 2013\r\n\r\n_Accepted article preview online May 2013; Advance online publication June 2013._\r\n\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing for carbamazepine have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).\r\n- Excerpt from the 2013 carbamazepine dosing guidelines:\r\n  - \"Human leukocyte antigen B (_HLA-B_) is a gene that encodes a cell surface protein involved in presenting antigens to the immune system.  The variant allele _HLA-B*15:02_ is associated with an increased risk of Stevens-Johnson Syndrome (SJS) and toxic epidermal necrolysis (TEN) in response to carbamazepine treatment.   We summarize evidence from the published literature supporting this association and provide recommendations for the use of carbamazepine based on _HLA-B_ genotype.\" \r\n- Download and read:\r\n  - [Clinical Pharmacogenetics Implementation Consortium Guidelines for _HLA-B_ Genotype and Carbamazepine Dosing](https://github.com/PharmGKB/cpic-guidelines/raw/master/carbamazepine/2013/23695185.pdf) \r\n  - [2013 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/carbamazepine/2013/23695185-supplement.pdf). \r\n\r\n\r\n## Table 1: Carbamazepine therapy recommendations based on _HLA-B_ genotype\r\n\r\n_Adapted from Tables 1 and 2 of the 2013 guideline manuscript._\r\n\r\n| Likely phenotype | Genotypes | Examples of Diplotypes | Phenotypic Implications  | Therapeutic Recommendations | Classification of Recommendation ^a^ |\r\n| --- | --- | --- | --- | --- | --- |\r\n| Homozygous for an allele other than _*15:02_; at \"normal\" or reduced risk of carbamazepine-associated cutaneous adverse reactions | Non-carrier of _HLA-B*15:02_.  No _*15:02_ alleles reported, often reported as \"negative\" on a genotyping test.| *X/*X ^b^|  Normal or reduced risk of carbamazepine-associated cutaneous adverse reactions  |  Use carbamazepine per standard dosing guidelines  |  Strong |\r\n|Heterozygote or homozygous variant; at significantly increased risk of carbamazepine-associated cutaneous adverse reactions | Carrier of _HLA-B*15:02_.  One or two _*15:02_ alleles, often reported as \"positive\" on a genotyping test. | _*15:02_/*X ^b^ _*15:02/*15:02_ | Increased risk of carbamazepine-associated cutaneous adverse reactions | A. If patient is carbamazepine-naive, do not use carbamazepine ^c^ // B. If patient has previously used carbamazepine for longer than 3 months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine | A. Strong // B. Optional |\r\n\r\n^a^ Rating scheme described in the 2013 supplement (see above)\r\n\r\n^b^ *X = any _HLA-B_ genotype other than _*15:02_\r\n\r\n_HLA-B_ = human leukocyte antigen B\r\n\r\n^c^ Alternative medications such as phenytoin, fosphenytoin, oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking serious cADRs with the HLA-B*15:02 allele and thus caution should be used in choosing alternatives to carbamazepine (see [supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/carbamazepine/2013/23695185-supplement.pdf) for details).",
       "pmids" : [ ],
       "relatedObjects" : [ ],
-      "version" : 8
+      "version" : 11
     },
-    "version" : 26,
+    "version" : 58,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-carbamazepine-and-hla-b/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983473,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-carbamazepine-and-hla-b%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-carbamazepine-and-hla-b/"} ]
   },
   "annotationGroups" : [ {
@@ -83,7 +83,7 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 9
     }, {
       "id" : 1445583416,
       "history" : [ ],
@@ -106,7 +106,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 11
     }, {
       "id" : 1445583418,
       "history" : [ ],
@@ -129,18 +129,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 9
     } ],
-    "genotypes" : [ "HLA-B:*15:02:01/*15:02:01", "HLA-B:*15:02:01/Other" ],
+    "genePhenotypes" : [ "HLA-B:Absence/Presence", "HLA-B:Presence/Presence" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105008",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105008",
       "name" : "CPIC Guideline for carbamazepine and HLA-B",
-      "version" : 26
+      "version" : 58
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -150,7 +158,7 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 8
+    "version" : 31
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128789",
@@ -179,7 +187,7 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445583425,
       "history" : [ ],
@@ -202,7 +210,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 9
     }, {
       "id" : 1445583427,
       "history" : [ ],
@@ -225,18 +233,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "HLA-B:Other/Other" ],
+    "genePhenotypes" : [ "HLA-B:Absence/Absence" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105008",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105008",
       "name" : "CPIC Guideline for carbamazepine and HLA-B",
-      "version" : 26
+      "version" : 58
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -246,6 +262,12 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 8
-  } ]
+    "version" : 29
+  } ],
+  "genePhenotypes" : {
+    "HLA-B" : {
+      "*15:02:01" : "Presence",
+      "Other" : "Absence"
+    }
+  }
 }

@@ -1,15 +1,16 @@
 package org.pharmgkb.pharmcat.reporter;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
+import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
@@ -37,6 +38,11 @@ public class ReportContext {
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
   private Set<GeneReport> m_geneReports = new TreeSet<>();
   private List<GuidelineReport> m_interactionList;
+
+  public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_calls.stream()
+      .filter(c -> c.getGene().equals(s))
+      .flatMap(c -> c.getDiplotypes().stream())
+      .map(d -> s + ":" + d.getName());
 
   /**
    * public constructor
@@ -133,11 +139,11 @@ public class ReportContext {
         continue;
       }
 
-      Set<String> calledGenotypesForGuideline = makeAllCalledGenotypes(guideline.getRelatedGeneSymbols());
+      Set<String> calledGenotypesForGuideline = makeAllCalledGenotypes(guideline);
 
       for (Group annotationGroup : guideline.getGroups()) {
         calledGenotypesForGuideline.stream()
-            .filter(calledGenotype -> annotationGroup.getGenotypes().contains(calledGenotype))
+            .filter(calledGenotype -> annotationGroup.getGenePhenotypes().contains(calledGenotype))
             .forEach(calledGenotype -> {
               guideline.addMatchingGroup(annotationGroup);
               guideline.putMatchedDiplotype(annotationGroup.getId(), calledGenotype);
@@ -149,30 +155,32 @@ public class ReportContext {
   /**
    * Makes a set of called genotype Strings for the given collection of genes. This can be used later for matching to
    * annotation group genotypes
-   * @param geneSymbols the gene symbols to include in the genotype strings
    * @return a Set of string genotype calls in the form "GENEA:*1/*2;GENEB:*2/*3"
    */
-  private Set<String> makeAllCalledGenotypes(Collection<String> geneSymbols) {
+  private Set<String> makeAllCalledGenotypes(GuidelineReport guidelineReport) {
     Set<String> results = new TreeSet<>();
-    for (String symbol : geneSymbols) {
-      results = makeCalledGenotypes(symbol, results);
+    for (String symbol : guidelineReport.getRelatedGeneSymbols()) {
+      results = makeCalledGenotypes(guidelineReport, symbol, results);
     }
     return results;
   }
 
-  private Set<String> makeCalledGenotypes(String symbol, Set<String> results) {
+  private Set<String> makeCalledGenotypes(GuidelineReport guidelineReport, String symbol, Set<String> results) {
     if (results.size() == 0) {
-      return Sets.newHashSet(m_sampleGeneToDiplotypeMap.get(symbol));
+      return m_sampleGeneToDiplotypeMap.get(symbol).stream()
+          .map(guidelineReport::translateToPhenotype)
+          .collect(Collectors.toSet());
     }
     else {
       Set<String> newResults = new TreeSet<>();
       for (String geno1 : results) {
-        for (String geno2 : m_sampleGeneToDiplotypeMap.get(symbol)) {
-          Set<String> genos = new TreeSet<>();
-          genos.add(geno1);
-          genos.add(geno2);
-          newResults.add(genos.stream().collect(Collectors.joining(";")));
-        }
+        m_sampleGeneToDiplotypeMap.get(symbol).stream().map(guidelineReport::translateToPhenotype).forEach(
+            geno2 -> {
+              Set<String> genos = new TreeSet<>();
+              genos.add(geno1);
+              genos.add(geno2);
+              newResults.add(genos.stream().collect(Collectors.joining(";")));
+            });
       }
       return newResults;
     }

@@ -29,7 +29,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
       "id" : "PA448320",
       "name" : "allopurinol",
-      "version" : 4
+      "version" : 19
     } ],
     "relatedGenes" : [ {
       "objCls" : "Gene",
@@ -38,7 +38,7 @@
       "id" : "PA35056",
       "symbol" : "HLA-B",
       "name" : "major histocompatibility complex, class I, B",
-      "version" : 39
+      "version" : 2919
     } ],
     "source" : "CPIC",
     "summaryMarkdown" : {
@@ -49,7 +49,7 @@
       "markdown" : "Allopurinol is contraindicated in individuals with the HLA-B*58:01 variant allele (\"HLA-B*58:01-positive\") due to significantly increased risk of allopurinol-induced SCAR.",
       "pmids" : [ ],
       "relatedObjects" : [ ],
-      "version" : 0
+      "version" : 1
     },
     "summaryVideoId" : "V8DGK_BaHHg",
     "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
@@ -61,9 +61,9 @@
       "markdown" : "## January 2016\r\n\r\n_Accepted article preview online June 2015_\r\n\r\nThe 2015 update of CPIC guidelines regarding allopurinol has been published in _Clinical Pharmacology and Therapeutics_.  Recent literature was reviewed and there is __no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current__. \r\n- Download and read:\r\n  - [Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Human Leukocyte Antigen-B (HLA-B) Genotype and Allopurinol Dosing: 2015 update ](https://github.com/PharmGKB/cpic-guidelines/raw/master/allopurinol/2015/26094938.pdf) \r\n  - [2015 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/allopurinol/2015/26094938-supplement.pdf). \r\n\r\n## February 2013\r\n\r\n_Advanced online publication December 2012_\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing for allopurinol have been published in Clinical Pharmacology and Therapeutics by the [Clinical Pharmacogenetics Implementation Consortium (CPIC)](https://cpicpgx.org).\r\n- These guidelines are applicable to:\r\n  - adults\r\n- Excerpt from the 2013 allopurinol dosing guidelines:\r\n  - \"Allopurinol is the most commonly used drug for the treatment of hyperuricemia and gout; however, allopurinol is also one of the most common causes of severe cutaneous adverse reactions (SCAR), which includes drug hypersensitivity syndrome, Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). A variant allele of the human leukocyte antigen-B, HLA-B*5801, associates strongly with allopurinol-induced SCAR. We have summarized evidence from the published literatures and develop peer-reviewed guidelines for allopurinol use based on HLA-B genotype.\"\r\n- Download and read:\r\n  - [Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Human Leukocyte Antigen-B Genotype and Allopurinol Dosing ](https://github.com/PharmGKB/cpic-guidelines/raw/master/allopurinol/2013/23232549.pdf) \r\n  - [2013 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/allopurinol/2013/23232549-supplement.pdf). \r\n\r\n## Table 1: Recommended dosing of allopurinol based on _HLA-B_ genotype\r\n\r\n| Likely Phenotype | Genotypes | Examples of diplotypes | Implications for phenotypic measures   | Recommendations for allopurinol therapy | Classification of recommendation for allopurinol therapy |\r\n| --- | --- | --- | --- | --- | --- |\r\n| Low or reduced risk of allopurinol SCAR | Absence of _*58:01_ alleles (reported as \"negative\" on a genotyping test)| *X/*X ^a^|  Low or reduced risk of allopurinol SCAR  |  Use allopurinol per standard dosing guidelines |  Strong |\r\n|Significantly increased risk of allopurinol SCAR | Presence of at least one _*58:01_ allele (reported as \"positive\" on a genotyping test) | _*58:01_/*X ^a^ _*58:01/*58:01_ | Significantly increased risk of allopurinol SCAR| Allopurinol is contraindicated |  Strong |\r\n\r\n_Adapted from Table 2 of the 2013 Guideline Manuscript_\r\n\r\n^a^ *X = any _HLA-B_ genotype other than _*58:01_.\r\n\r\n_HLA-B_ = human leukocyte antigen B",
       "pmids" : [ ],
       "relatedObjects" : [ ],
-      "version" : 7
+      "version" : 11
     },
-    "version" : 27,
+    "version" : 66,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-allopurinol-and-hla-b/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983440,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-allopurinol-and-hla-b%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-allopurinol-and-hla-b/"} ]
   },
   "annotationGroups" : [ {
@@ -94,7 +94,7 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445583357,
       "history" : [ ],
@@ -117,7 +117,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 9
     }, {
       "id" : 1445583359,
       "history" : [ ],
@@ -140,18 +140,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "HLA-B:Other/Other" ],
+    "genePhenotypes" : [ "HLA-B:Absence/Absence" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105003",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105003",
       "name" : "CPIC Guideline for allopurinol and HLA-B",
-      "version" : 27
+      "version" : 66
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -161,7 +169,7 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 6
+    "version" : 15
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128787",
@@ -190,7 +198,7 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445583360,
       "history" : [ ],
@@ -213,7 +221,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 9
     }, {
       "id" : 1445583362,
       "history" : [ ],
@@ -236,18 +244,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "HLA-B:*58:01/*58:01", "HLA-B:*58:01/Other" ],
+    "genePhenotypes" : [ "HLA-B:Absence/Presence", "HLA-B:Presence/Presence" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105003",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105003",
       "name" : "CPIC Guideline for allopurinol and HLA-B",
-      "version" : 27
+      "version" : 66
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -257,6 +273,12 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 6
-  } ]
+    "version" : 15
+  } ],
+  "genePhenotypes" : {
+    "HLA-B" : {
+      "*58:01" : "Presence",
+      "Other" : "Absence"
+    }
+  }
 }

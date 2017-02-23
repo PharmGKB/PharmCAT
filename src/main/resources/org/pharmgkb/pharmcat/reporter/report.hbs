@@ -195,14 +195,15 @@
       <div class="alert alert-info"><strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups could be shown</div>
     {{/if}}
 
+    <h4>Annotations for {{#each diplotypes}}{{this}} {{/each}}</h4>
     {{#each groups}}
-      <h4>Annotations for {{matchedDiplotypes}}</h4>
-
       <table>
         <thead>
         <tr><th>Type</th><th>Annotation</th></tr>
         </thead>
         <tbody>
+        <tr><td>Allele Functionality</td><td>{{matchedPhenotypes}}</td></tr>
+        <tr><td>Phenotype</td><td>{{name}}</td></tr>
         {{#each annotations}}
           <tr><td>{{term}}</td><td>{{{annotation}}}</td></tr>
         {{/each}}

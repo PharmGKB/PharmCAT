@@ -28,7 +28,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
       "id" : "PA450379",
       "name" : "mercaptopurine",
-      "version" : 27
+      "version" : 65
     } ],
     "relatedGenes" : [ {
       "objCls" : "Gene",
@@ -37,7 +37,7 @@
       "id" : "PA356",
       "symbol" : "TPMT",
       "name" : "thiopurine S-methyltransferase",
-      "version" : 7542
+      "version" : 7624
     } ],
     "source" : "CPIC",
     "summaryMarkdown" : {
@@ -48,7 +48,7 @@
       "markdown" : "Start with reduced doses of mercaptopurine for patients with one nonfunctional TPMT allele, or drastically reduced doses for patients with malignancy and two nonfunctional alleles; adjust dose based on degree of myelosuppression and disease-specific guidelines. Consider alternative nonthiopurine immunosuppressant therapy for patients with nonmalignant conditions and two nonfunctional alleles.",
       "pmids" : [ ],
       "relatedObjects" : [ ],
-      "version" : 0
+      "version" : 1
     },
     "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
     "textMarkdown" : {
@@ -59,26 +59,31 @@
       "markdown" : "## May 2016 Update on PharmGKB\r\n\r\nSeveral studies have reported that individuals who carry low-function alleles for NUDT15 are unable to tolerate usual doses of thiopurines. [PMID:25108385, 25624441, 26033531, 26076924, 26405151, 26503813, 26590936, 26735160, 26878724] These alleles are more common among those of Asian ancestry and Hispanic ethnicity than others. [PMID:25624441, 26878724] The dose tolerated by those with two low-function alleles is only ~ 10% that tolerated by those with no low-function NUDT15 or TPMT alleles. [PMID:25624441, 26878724] CPIC is planning a guideline to address NUDT15 variants and possible dosing recommendations for thiopurines.\r\n\r\n## April 2013 Update\r\n\r\n_Advance online publication January 2013_\r\n- The [2013 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine](http://www.nature.com/clpt/journal/vaop/naam/index.html#17012013), have been published in Clinical Pharmacology and Therapeutics.  Literature published between June 2010-November 2012 was reviewed and there is __no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current.__ \r\n- These guidelines are applicable to:\r\n  - pediatric patients \r\n  - adult patients\r\n- Download and read: \r\n  - [Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update]( ^CPIC_TPMT_update.pdf)\r\n  - [2013 supplement]( ^CPIC_TPMT_update_supp.pdf)\r\n\r\n## March 2011\r\n\r\n_Advance online publication January 2011._\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing for azathioprine, thioguanine and mercaptopurine were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).  \r\n- Excerpt from the 2011 thiopurine dosing guidelines:\r\n  - \"Thiopurines are most commonly used to treat nonmalignant conditions but are also critical anticancer agents. The approach to dosing adjustments based on TPMT status may differ depending on the clinical indication and the propensity to initiate therapy at higher vs. lower starting doses. We and others advocate testing for TPMT status prior to initiating thiopurine therapy, so that starting dosages can be adjusted accordingly.\"\r\n- Download and read:  \r\n  - [Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing](^cpic-tpmt-article.pdf) \r\n  - [2011 supplement](^cpic-tpmt-supplement.pdf)\r\n\r\n## Table 1: Recommended dosing of mercaptopurine by TPMT phenotype\r\n\r\n_Adapted from Tables 1 and 2 of the 2011 guideline manuscript._\r\n\r\n| Phenotype (Genotype) | Examples of diplotypes | Implications for mercaptopurine  and azathioprine pharmacologic measures | Dosing recommendations for mercaptopurine  | Classification of recommendations |\r\n| --- | --- | --- | --- | --- |\r\n| Homozygous wild-type or normal, high activity (two functional *1 alleles) | *1/*1 | Lower concentrations of TGN metabolites, higher methylTIMP, this is the \"normal\" pattern | Start with normal starting dose (e.g., 75 mg/m2/d or 1.5 mg/kg/d) and adjust doses of mercaptopurine (and of any  other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow 2 weeks to reach steady state after each dose adjustment. | Strong |\r\n| Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4) | *1/*2, *1/*3A, *1/*3B, *1/*3C, *1/*4 | Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP | Start with reduced doses (start at 30-70% of full dose: e.g., at 50 mg/m2/d or 0.75 mg/kg/d) and adjust doses of MP based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady state after each dose adjustment. In those who require a dosage reduction based on myelosuppression, the median dose may be ~40% lower (44 mg/m2) than that tolerated in wild-type patients (75 mg/m2). In setting of myelosuppression, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents. | Strong |\r\n| Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4) | *3A/*3A, *2/*3A, *3C/*3A, *3C/*4, *3C/*2, *3A/*4 | Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites | For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/d given just 3 days/week) and adjust doses of MP based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing mercaptopurine over other agents. For nonmalignant conditions, consider alternative nonthiopurine immunosuppressant therapy. | Strong |",
       "pmids" : [ "25108385", "25624441", "26033531", "26076924", "26405151", "26503813", "26590936", "26735160", "26878724" ],
       "relatedObjects" : [ ],
-      "version" : 6
+      "version" : 10
     },
-    "version" : 26,
+    "version" : 52,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983453,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-thiopurines-and-tpmt%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/"} ]
   },
   "annotationGroups" : [ {
     "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128794",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162693",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "id" : "PA166128794",
-    "name" : "Heterozygous or intermediate activity",
+    "id" : "PA166162693",
+    "name" : "Indeterminate",
     "annotations" : [ {
-      "id" : 1445583562,
-      "history" : [ ],
+      "id" : 1448589958,
+      "history" : [ {
+        "id" : 1448589956,
+        "date" : "2017-02-06T11:56:49.888-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
       "markdown" : {
-        "id" : 1447986536,
+        "id" : 1448589957,
         "externalLinks" : [ ],
-        "html" : "<p>Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP</p>\n",
+        "html" : "<p>N/A</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP",
+        "markdown" : "N/A",
         "pmids" : [ ],
         "relatedObjects" : [ ],
         "version" : 0
@@ -92,16 +97,50 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 0
     }, {
-      "id" : 1445583561,
-      "history" : [ ],
+      "id" : 1448589961,
+      "history" : [ {
+        "id" : 1448589959,
+        "date" : "2017-02-06T11:57:04.567-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
       "markdown" : {
-        "id" : 1447986535,
+        "id" : 1448589960,
         "externalLinks" : [ ],
-        "html" : "<p>Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)</p>\n",
+        "html" : "<p>Indeterminate</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)",
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448589955,
+      "history" : [ {
+        "id" : 1448589953,
+        "date" : "2017-02-06T11:56:40.159-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589954,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two unknown/uncertain function alleles or probably decreased function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown/uncertain function alleles or probably decreased function alleles.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
         "version" : 0
@@ -115,16 +154,21 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 0
     }, {
-      "id" : 1445583563,
-      "history" : [ ],
+      "id" : 1448589964,
+      "history" : [ {
+        "id" : 1448589962,
+        "date" : "2017-02-06T11:57:18.392-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
       "markdown" : {
-        "id" : 1447986537,
+        "id" : 1448589963,
         "externalLinks" : [ ],
-        "html" : "<p>Start with reduced doses (start at 30-70% of full dose: e.g., at 50 mg/m2/d or 0.75 mg/kg/d) and adjust doses of MP based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady state after each dose adjustment. In those who require a dosage reduction based on myelosuppression, the median dose may be ~40% lower (44 mg/m2) than that tolerated in wild-type patients (75 mg/m2). In setting of myelosuppression, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents.</p>\n",
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Start with reduced doses (start at 30-70% of full dose: e.g., at 50 mg/m2/d or 0.75 mg/kg/d) and adjust doses of MP based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady state after each dose adjustment. In those who require a dosage reduction based on myelosuppression, the median dose may be ~40% lower (44 mg/m2) than that tolerated in wild-type patients (75 mg/m2). In setting of myelosuppression, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents.",
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
         "version" : 0
@@ -138,130 +182,43 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 0
     } ],
-    "genotypes" : [ "TPMT:*1/*2", "TPMT:*1/*3A", "TPMT:*1/*3B", "TPMT:*1/*3C", "TPMT:*1/*4" ],
+    "genePhenotypes" : [ "TPMT:No Function/Probable Decreased Function", "TPMT:No Function/Unknown or Uncertain Function", "TPMT:Normal Function/Probable Decreased Function", "TPMT:Normal Function/Unknown or Uncertain Function", "TPMT:Probable Decreased Function/Probable Decreased Function", "TPMT:Probable Decreased Function/Unknown or Uncertain Function", "TPMT:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166104945",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104945",
       "name" : "CPIC Guideline for mercaptopurine and TPMT",
-      "version" : 26
+      "version" : 52
     },
-    "rxChange" : false,
-    "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501930,
-      "resource" : "Guideline Strength",
-      "term" : "Strong",
-      "termId" : "guidelineStrength:981501930",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
       "version" : 0
     },
-    "version" : 8
-  }, {
-    "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128795",
-    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "id" : "PA166128795",
-    "name" : "Homozygous variant, mutant, low, or deficient activity",
-    "annotations" : [ {
-      "id" : 1445583565,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986539,
-        "externalLinks" : [ ],
-        "html" : "<p>Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501925,
-        "resource" : "Guideline Tags",
-        "term" : "Implications",
-        "termId" : "guidelineTags:981501925",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445583564,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986538,
-        "externalLinks" : [ ],
-        "html" : "<p>Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501927,
-        "resource" : "Guideline Tags",
-        "term" : "Phenotype (Genotype)",
-        "termId" : "guidelineTags:981501927",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445583566,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986540,
-        "externalLinks" : [ ],
-        "html" : "<p>For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/d given just 3 days/week) and adjust doses of MP based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing mercaptopurine over other agents. For nonmalignant conditions, consider alternative nonthiopurine immunosuppressant therapy.</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/d given just 3 days/week) and adjust doses of MP based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing mercaptopurine over other agents. For nonmalignant conditions, consider alternative nonthiopurine immunosuppressant therapy.",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501928,
-        "resource" : "Guideline Tags",
-        "term" : "Recommendations",
-        "termId" : "guidelineTags:981501928",
-        "version" : 0
-      },
-      "version" : 6
-    } ],
-    "genotypes" : [ "TPMT:*2/*2", "TPMT:*2/*3A", "TPMT:*2/*3B", "TPMT:*2/*3C", "TPMT:*2/*4", "TPMT:*3A/*3A", "TPMT:*3A/*3B", "TPMT:*3A/*3C", "TPMT:*3A/*4", "TPMT:*3B/*3B", "TPMT:*3B/*3C", "TPMT:*3B/*4", "TPMT:*3C/*3C", "TPMT:*3C/*4", "TPMT:*4/*4" ],
-    "guideline" : {
-      "objCls" : "Guideline",
-      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104945",
-      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
-      "id" : "PA166104945",
-      "name" : "CPIC Guideline for mercaptopurine and TPMT",
-      "version" : 26
-    },
-    "rxChange" : false,
     "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501930,
+      "id" : 981501929,
+      "description" : "Not Applicable",
       "resource" : "Guideline Strength",
-      "term" : "Strong",
-      "termId" : "guidelineStrength:981501930",
-      "version" : 0
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
     },
-    "version" : 8
+    "version" : 7
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128793",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128793",
-    "name" : "Homozygous wild-type or normal, high activity",
+    "name" : "Normal Metabolizer",
     "annotations" : [ {
       "id" : 1445583559,
       "history" : [ ],
@@ -284,19 +241,48 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
+    }, {
+      "id" : 1448589948,
+      "history" : [ {
+        "id" : 1448589946,
+        "date" : "2017-02-06T11:53:36.918-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589947,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
     }, {
       "id" : 1445583558,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986532,
         "externalLinks" : [ ],
-        "html" : "<p>Homozygous wild-type or normal, high activity (two functional *1 alleles)</p>\n",
+        "html" : "<p>Homozygous wild-type or normal, high activity (two functional (normal function) *1 alleles)</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Homozygous wild-type or normal, high activity (two functional *1 alleles)",
+        "markdown" : "Homozygous wild-type or normal, high activity (two functional (normal function) *1 alleles)",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -307,7 +293,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 10
     }, {
       "id" : 1445583560,
       "history" : [ ],
@@ -330,18 +316,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "TPMT:*1/*1" ],
+    "genePhenotypes" : [ "TPMT:Normal Function/Normal Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166104945",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104945",
       "name" : "CPIC Guideline for mercaptopurine and TPMT",
-      "version" : 26
+      "version" : 52
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -351,6 +345,310 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 8
-  } ]
+    "version" : 22
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128794",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128794",
+    "name" : "Intermediate Metabolizer",
+    "annotations" : [ {
+      "id" : 1445583562,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986536,
+        "externalLinks" : [ ],
+        "html" : "<p>Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 8
+    }, {
+      "id" : 1448589944,
+      "history" : [ {
+        "id" : 1448589942,
+        "date" : "2017-02-06T11:52:29.950-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589943,
+        "externalLinks" : [ ],
+        "html" : "<p>Intermediate Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1445583561,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986535,
+        "externalLinks" : [ ],
+        "html" : "<p>Heterozygote or intermediate activity (one functional (normal function) allele - *1, plus one nonfunctional (no function) allele - *2, *3A, *3B, *3C, or *4)</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Heterozygote or intermediate activity (one functional (normal function) allele - *1, plus one nonfunctional (no function) allele - *2, *3A, *3B, *3C, or *4)",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 10
+    }, {
+      "id" : 1445583563,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986537,
+        "externalLinks" : [ ],
+        "html" : "<p>Start with reduced doses (start at 30-70% of full dose: e.g., at 50 mg/m2/d or 0.75 mg/kg/d) and adjust doses of MP based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady state after each dose adjustment. In those who require a dosage reduction based on myelosuppression, the median dose may be ~40% lower (44 mg/m2) than that tolerated in wild-type patients (75 mg/m2). In setting of myelosuppression, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Start with reduced doses (start at 30-70% of full dose: e.g., at 50 mg/m2/d or 0.75 mg/kg/d) and adjust doses of MP based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady state after each dose adjustment. In those who require a dosage reduction based on myelosuppression, the median dose may be ~40% lower (44 mg/m2) than that tolerated in wild-type patients (75 mg/m2). In setting of myelosuppression, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 8
+    } ],
+    "genePhenotypes" : [ "TPMT:No Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104945",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104945",
+      "name" : "CPIC Guideline for mercaptopurine and TPMT",
+      "version" : 52
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 22
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128795",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128795",
+    "name" : "Poor Metabolizer",
+    "annotations" : [ {
+      "id" : 1445583565,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986539,
+        "externalLinks" : [ ],
+        "html" : "<p>Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 8
+    }, {
+      "id" : 1448589952,
+      "history" : [ {
+        "id" : 1448589950,
+        "date" : "2017-02-06T11:54:42.571-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589951,
+        "externalLinks" : [ ],
+        "html" : "<p>Poor Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1445583564,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986538,
+        "externalLinks" : [ ],
+        "html" : "<p>Homozygous variant, mutant, low, or deficient activity (two nonfunctional (no function) alleles - *2, *3A, *3B, *3C, or *4)</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Homozygous variant, mutant, low, or deficient activity (two nonfunctional (no function) alleles - *2, *3A, *3B, *3C, or *4)",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 10
+    }, {
+      "id" : 1445583566,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986540,
+        "externalLinks" : [ ],
+        "html" : "<p>For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/d given just 3 days/week) and adjust doses of MP based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing mercaptopurine over other agents. For nonmalignant conditions, consider alternative nonthiopurine immunosuppressant therapy.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/d given just 3 days/week) and adjust doses of MP based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing mercaptopurine over other agents. For nonmalignant conditions, consider alternative nonthiopurine immunosuppressant therapy.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 8
+    } ],
+    "genePhenotypes" : [ "TPMT:No Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104945",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104945",
+      "name" : "CPIC Guideline for mercaptopurine and TPMT",
+      "version" : 52
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 22
+  } ],
+  "genePhenotypes" : {
+    "TPMT" : {
+      "*1" : "Normal Function",
+      "*1S" : "Normal Function",
+      "*2" : "No Function",
+      "*3A" : "No Function",
+      "*3B" : "No Function",
+      "*3C" : "No Function",
+      "*4" : "No Function",
+      "*5" : "Probable Decreased Function",
+      "*6" : "Probable Decreased Function",
+      "*7" : "Unknown or Uncertain Function",
+      "*8" : "Probable Decreased Function",
+      "*9" : "Probable Decreased Function",
+      "*10" : "Probable Decreased Function",
+      "*11" : "Probable Decreased Function",
+      "*12" : "Probable Decreased Function",
+      "*13" : "Probable Decreased Function",
+      "*14" : "Unknown or Uncertain Function",
+      "*15" : "Unknown or Uncertain Function",
+      "*16" : "Probable Decreased Function",
+      "*17" : "Probable Decreased Function",
+      "*18" : "Probable Decreased Function",
+      "*19" : "Unknown or Uncertain Function",
+      "*20" : "Unknown or Uncertain Function",
+      "*21" : "Unknown or Uncertain Function",
+      "*22" : "Unknown or Uncertain Function",
+      "*23" : "Unknown or Uncertain Function",
+      "*24" : "Unknown or Uncertain Function",
+      "*25" : "Unknown or Uncertain Function",
+      "*26" : "Unknown or Uncertain Function",
+      "*27" : "Unknown or Uncertain Function",
+      "*28" : "Unknown or Uncertain Function",
+      "*29" : "Unknown or Uncertain Function",
+      "*30" : "Unknown or Uncertain Function",
+      "*31" : "Unknown or Uncertain Function"
+    }
+  }
 }

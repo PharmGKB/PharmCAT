@@ -23,7 +23,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
       "id" : "PA449053",
       "name" : "clopidogrel",
-      "version" : 13
+      "version" : 45
     } ],
     "relatedGenes" : [ {
       "objCls" : "Gene",
@@ -32,7 +32,7 @@
       "id" : "PA124",
       "symbol" : "CYP2C19",
       "name" : "cytochrome P450, family 2, subfamily C, polypeptide 19",
-      "version" : 7207
+      "version" : 7262
     } ],
     "source" : "CPIC",
     "summaryMarkdown" : {
@@ -43,7 +43,7 @@
       "markdown" : "The CPIC Dosing Guideline for clopidogrel recommends an alternative antiplatelet therapy (e.g., prasugrel, ticagrelor) for CYP2C19 poor or intermediate metabolizers if there is no contraindication.",
       "pmids" : [ ],
       "relatedObjects" : [ ],
-      "version" : 0
+      "version" : 2
     },
     "summaryVideoId" : "G39iq8qZxo8",
     "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
@@ -55,377 +55,17 @@
       "markdown" : "## September 2013 Update\r\n\r\n_Advance online publication May 2013._\r\n\r\n- The 2013 update of CPIC guidelines regarding clopidogrel have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/). Literature published between 1966 to January 2013 was reviewed. The updated therapeutic recommendations are more focused to patients with acute coronary syndromes undergoing percutaneous coronary intervention (ACS/PCI) than the original guideline, with additional updates involve refined recommendations for variant and novel _CYP2C19_ alleles beyond *2.\r\n- At the time of the development of this recommendation, there are no data available on the possible role of CYP2C19 in clopidogrel response in pediatric patient populations; however, there is no reason to suspect that CYP2C19 variant alleles would affect clopidogrel metabolism differently in children as compared with adults.\r\n- Download and read:\r\n  - [Clinical Pharmacogenetics Implementation Consortium guidelines for CYP2C19 genotype and clopidogrel therapy: 2013 update](https://github.com/PharmGKB/cpic-guidelines/raw/master/clopidogrel/2013/23698643.pdf) \r\n  - [2013 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/clopidogrel/2013/23698643-supplement.pdf)\r\n\r\n## Table 1: Antiplatelet therapy recommendations based on CYP2C19 status when considering clopidogrel for ACS patients undergoing PCI\r\n\r\n_Adapted from Tables 1 and 2 of the 2013 guideline manuscript._\r\n\r\n| Likely phenotype| Genotypes| Examples of diplotypes | Implications for clopidogrel | Therapeutic recommendations | Classification of recommendations |\r\n| --- | --- | --- | --- | --- | --- |\r\n| Ultrarapid metabolizer (UM) (~5-30% of patients)  | An individual carrying two increased activity alleles (*17) or one functional allele (*1) plus one increased activity allele (*17) | *1/*17, *17/*17 | Increased platelet inhibition; decreased residual platelet aggregation ^1^ | Clopidogrel - label recommended dosage and administration | Strong | \r\n|Extensive metabolizer (EM) (~35-50% of patients)| An individual carrying two functional (*1) alleles  |*1/*1  |Normal platelet inhibition; normal residual platelet aggregation |Clopidogrel - label recommended dosage and administration| Strong | \r\n| Intermediate metabolizer (IM) (~18-45% of patients) | An individual carrying one functional allele (*1) plus one loss-of-function allele (*2-*8) or one loss-of-function allele (*2-*8) plus one increased activity allele (*17) ^2^ | *1/*2, *1/*3, *2/*17 | Reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events | Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor | Moderate |\r\n| Poor metabolizer (PM) (~2-15% of patients)| An individual carrying two loss-of-function alleles (*2-*8) | *2/*2, *2/*3, *3/*3 | Significantly reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events |  Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor | Strong |\r\n\r\n^1^ The CYP2C19*17 allele ([variant:rs12248560]) may be associated with increased risk of bleeding.\r\n\r\n^2^ The predicted metabolizer phenotype for *2-*8/*17 genotypes are provisional classifications. The currently available evidence indicates that the *17 gain-of-function allele is unable to completely compensate for the *2 loss-of-function allele [PMID: 20492469]; however, this data has not been consistently replicated and is therefore a provisional classification (Table S5).\r\n\r\nAn important caveat for all genotyping tests is that the \"wild-type\" (*1) status is reported if all other alleles that are measured are absent.  Some genotype tests do not interrogate the rare loss of function alleles and therefore, if present, they may be erroneously reported as \"wild type\". Furthermore, in human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer altered enzyme function in an individual, and thus lead to the rare possibility of a loss-of-function allele being erroneously called as \"wild-type\" (*1). The guidelines do not focus on demographic and other clinical variables, such as adherence to therapy, age, diabetes mellitus, obesity, smoking, and concomitant use of other drugs that may influence clopidogrel efficacy and clinical decision making.\r\n\r\n__The American Society of Health-System Pharmacists (ASHP) has endorsed the Clinical Pharmacogenetics Implementation Consortium guidelines for cytochrome P450-2C19 (CYP2C19) genotype and clopidogrel therapy.__\r\n\r\n## August 2011\r\n\r\n_Advance online publication June 2011._\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing for clopidogrel were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).\r\n- Download and read:  \r\n  - [Clinical Pharmacogenetics Implementation Consortium guidelines for cytochrome P450-2C19 (CYP2C19) genotype and clopidogrel therapy](https://github.com/PharmGKB/cpic-guidelines/raw/master/clopidogrel/2011/21716271.pdf) \r\n  - [2011 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/clopidogrel/2011/21716271-supplement.pdf)",
       "pmids" : [ "20492469" ],
       "relatedObjects" : [ "PA166154147" ],
-      "version" : 7
+      "version" : 12
     },
-    "version" : 26,
+    "version" : 65,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-clopidogrel-and-cyp2c19/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983490,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-clopidogrel-and-cyp2c19%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-clopidogrel-and-cyp2c19/"} ]
   },
   "annotationGroups" : [ {
     "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128755",
-    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "id" : "PA166128755",
-    "name" : "Extensive",
-    "annotations" : [ {
-      "id" : 1445561035,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986659,
-        "externalLinks" : [ ],
-        "html" : "<p>Normal platelet inhibition; normal residual platelet aggregation</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Normal platelet inhibition; normal residual platelet aggregation",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501925,
-        "resource" : "Guideline Tags",
-        "term" : "Implications",
-        "termId" : "guidelineTags:981501925",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445561036,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986660,
-        "externalLinks" : [ ],
-        "html" : "<p>Extensive metabolizer (EM)</p>\n<p>(~35-50% of patients)</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Extensive metabolizer (EM)\n\n(~35-50% of patients)",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501926,
-        "description" : "Likely phenotype of metabolizer status",
-        "resource" : "Guideline Tags",
-        "term" : "Metabolizer Status",
-        "termId" : "guidelineTags:981501926",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445561034,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986658,
-        "externalLinks" : [ ],
-        "html" : "<p>An individual carrying two functional (*1) alleles</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "An individual carrying two functional (*1) alleles",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501927,
-        "resource" : "Guideline Tags",
-        "term" : "Phenotype (Genotype)",
-        "termId" : "guidelineTags:981501927",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445561037,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986661,
-        "externalLinks" : [ ],
-        "html" : "<p>Clopidogrel - label recommended dosage and administration</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Clopidogrel - label recommended dosage and administration",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501928,
-        "resource" : "Guideline Tags",
-        "term" : "Recommendations",
-        "termId" : "guidelineTags:981501928",
-        "version" : 0
-      },
-      "version" : 6
-    } ],
-    "genotypes" : [ "CYP2C19:*1/*1" ],
-    "guideline" : {
-      "objCls" : "Guideline",
-      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104948",
-      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
-      "id" : "PA166104948",
-      "name" : "CPIC Guideline for clopidogrel and CYP2C19",
-      "version" : 26
-    },
-    "rxChange" : false,
-    "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501930,
-      "resource" : "Guideline Strength",
-      "term" : "Strong",
-      "termId" : "guidelineStrength:981501930",
-      "version" : 0
-    },
-    "version" : 6
-  }, {
-    "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128756",
-    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "id" : "PA166128756",
-    "name" : "Intermediate",
-    "annotations" : [ {
-      "id" : 1445561039,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986663,
-        "externalLinks" : [ ],
-        "html" : "<p>Reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501925,
-        "resource" : "Guideline Tags",
-        "term" : "Implications",
-        "termId" : "guidelineTags:981501925",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445561040,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986664,
-        "externalLinks" : [ ],
-        "html" : "<p>Intermediate metabolizer (IM)</p>\n<p>(~18-45% of patients)</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Intermediate metabolizer (IM)\n\n(~18-45% of patients)",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501926,
-        "description" : "Likely phenotype of metabolizer status",
-        "resource" : "Guideline Tags",
-        "term" : "Metabolizer Status",
-        "termId" : "guidelineTags:981501926",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445561038,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986662,
-        "externalLinks" : [ ],
-        "html" : "<p>An individual carrying one functional allele (*1) plus one loss-of-function allele (*2-*8) or one loss-of-function allele (*2-*8) plus one increased activity allele (*17).</p>\n<p><em>The predicted metabolizer phenotype for *2-*8/*17 genotypes are provisional classifications. The currently available evidence indicates that the *17 gain-of-function allele is unable to completely compensate for the *2 loss-of-function allele [Article:20492469]; however, this data has not been consistently replicated and is therefore a provisional classification.</em></p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "An individual carrying one functional allele (*1) plus one loss-of-function allele (*2-*8) or one loss-of-function allele (*2-*8) plus one increased activity allele (*17). \n\n_The predicted metabolizer phenotype for *2-*8/*17 genotypes are provisional classifications. The currently available evidence indicates that the *17 gain-of-function allele is unable to completely compensate for the *2 loss-of-function allele \\[Article:20492469]; however, this data has not been consistently replicated and is therefore a provisional classification._",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501927,
-        "resource" : "Guideline Tags",
-        "term" : "Phenotype (Genotype)",
-        "termId" : "guidelineTags:981501927",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445561041,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986665,
-        "externalLinks" : [ ],
-        "html" : "<p>Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501928,
-        "resource" : "Guideline Tags",
-        "term" : "Recommendations",
-        "termId" : "guidelineTags:981501928",
-        "version" : 0
-      },
-      "version" : 6
-    } ],
-    "genotypes" : [ "CYP2C19:*1/*2", "CYP2C19:*1/*3", "CYP2C19:*1/*4", "CYP2C19:*1/*5", "CYP2C19:*1/*6", "CYP2C19:*1/*7", "CYP2C19:*1/*8", "CYP2C19:*2/*17", "CYP2C19:*3/*17", "CYP2C19:*4/*17", "CYP2C19:*5/*17", "CYP2C19:*6/*17", "CYP2C19:*7/*17", "CYP2C19:*8/*17" ],
-    "guideline" : {
-      "objCls" : "Guideline",
-      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104948",
-      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
-      "id" : "PA166104948",
-      "name" : "CPIC Guideline for clopidogrel and CYP2C19",
-      "version" : 26
-    },
-    "rxChange" : false,
-    "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
-      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501931,
-      "resource" : "Guideline Strength",
-      "term" : "Moderate",
-      "termId" : "guidelineStrength:981501931",
-      "version" : 0
-    },
-    "version" : 7
-  }, {
-    "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128757",
-    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "id" : "PA166128757",
-    "name" : "Poor",
-    "annotations" : [ {
-      "id" : 1445561043,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986667,
-        "externalLinks" : [ ],
-        "html" : "<p>Significantly reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Significantly reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501925,
-        "resource" : "Guideline Tags",
-        "term" : "Implications",
-        "termId" : "guidelineTags:981501925",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445561044,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986668,
-        "externalLinks" : [ ],
-        "html" : "<p>Poor metabolizer (PM)</p>\n<p>(~2-15% of patients)</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Poor metabolizer (PM)\n\n(~2-15% of patients)",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501926,
-        "description" : "Likely phenotype of metabolizer status",
-        "resource" : "Guideline Tags",
-        "term" : "Metabolizer Status",
-        "termId" : "guidelineTags:981501926",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445561042,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986666,
-        "externalLinks" : [ ],
-        "html" : "<p>An individual carrying two loss-of-function alleles (*2-*8)</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "An individual carrying two loss-of-function alleles (*2-*8)",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501927,
-        "resource" : "Guideline Tags",
-        "term" : "Phenotype (Genotype)",
-        "termId" : "guidelineTags:981501927",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445561045,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986669,
-        "externalLinks" : [ ],
-        "html" : "<p>Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501928,
-        "resource" : "Guideline Tags",
-        "term" : "Recommendations",
-        "termId" : "guidelineTags:981501928",
-        "version" : 0
-      },
-      "version" : 6
-    } ],
-    "genotypes" : [ "CYP2C19:*2/*2", "CYP2C19:*2/*3", "CYP2C19:*2/*4", "CYP2C19:*2/*5", "CYP2C19:*2/*6", "CYP2C19:*2/*7", "CYP2C19:*2/*8", "CYP2C19:*3/*3", "CYP2C19:*3/*4", "CYP2C19:*3/*5", "CYP2C19:*3/*6", "CYP2C19:*3/*7", "CYP2C19:*3/*8", "CYP2C19:*4/*4", "CYP2C19:*4/*5", "CYP2C19:*4/*6", "CYP2C19:*4/*7", "CYP2C19:*4/*8", "CYP2C19:*5/*5", "CYP2C19:*5/*6", "CYP2C19:*5/*7", "CYP2C19:*5/*8", "CYP2C19:*6/*6", "CYP2C19:*6/*7", "CYP2C19:*6/*8", "CYP2C19:*7/*7", "CYP2C19:*7/*8", "CYP2C19:*8/*8" ],
-    "guideline" : {
-      "objCls" : "Guideline",
-      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104948",
-      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
-      "id" : "PA166104948",
-      "name" : "CPIC Guideline for clopidogrel and CYP2C19",
-      "version" : 26
-    },
-    "rxChange" : false,
-    "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501930,
-      "resource" : "Guideline Strength",
-      "term" : "Strong",
-      "termId" : "guidelineStrength:981501930",
-      "version" : 0
-    },
-    "version" : 6
-  }, {
-    "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128754",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128754",
-    "name" : "Ultrarapid",
+    "name" : "Ultrarapid Metabolizer",
     "annotations" : [ {
       "id" : 1445561031,
       "history" : [ ],
@@ -448,19 +88,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 14
     }, {
       "id" : 1445561032,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986656,
         "externalLinks" : [ ],
-        "html" : "<p>Ultrarapid metabolizer (UM)</p>\n<p>(~5-30% of patients)</p>\n",
+        "html" : "<p>Ultrarapid Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Ultrarapid metabolizer (UM)\n\n(~5-30% of patients)",
+        "markdown" : "Ultrarapid Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -472,19 +112,19 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 6
+      "version" : 10
     }, {
       "id" : 1445561030,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986654,
         "externalLinks" : [ ],
-        "html" : "<p>An individual carrying two increased activity alleles (*17) or one functional allele (*1) plus one increased activity allele (*17)</p>\n",
+        "html" : "<p>An individual carrying two increased function alleles</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "An individual carrying two increased activity alleles (*17) or one functional allele (*1) plus one increased activity allele (*17)",
+        "markdown" : "An individual carrying two increased function alleles",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -495,7 +135,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 10
     }, {
       "id" : 1445561033,
       "history" : [ ],
@@ -518,18 +158,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "CYP2C19:*1/*17", "CYP2C19:*17/*17" ],
+    "genePhenotypes" : [ "CYP2C19:Increased Function/Increased Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166104948",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104948",
       "name" : "CPIC Guideline for clopidogrel and CYP2C19",
-      "version" : 26
+      "version" : 65
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -539,6 +187,1023 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 7
-  } ]
+    "version" : 27
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128755",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128755",
+    "name" : "Normal Metabolizer",
+    "annotations" : [ {
+      "id" : 1445561035,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986659,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal platelet inhibition; normal residual platelet aggregation</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal platelet inhibition; normal residual platelet aggregation",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 8
+    }, {
+      "id" : 1445561036,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986660,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal Metabolizer</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [Article:<a href=\"/pmid/27441996\">27441996</a>] for drug metabolizing enzymes.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal Metabolizer\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [PMID:27441996] for drug metabolizing enzymes._",
+        "pmids" : [ "27441996" ],
+        "relatedObjects" : [ ],
+        "version" : 2
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 12
+    }, {
+      "id" : 1445561034,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986658,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying two normal function alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying two normal function alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 2
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 12
+    }, {
+      "id" : 1445561037,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986661,
+        "externalLinks" : [ ],
+        "html" : "<p>Clopidogrel - label recommended dosage and administration</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Clopidogrel - label recommended dosage and administration",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 8
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Normal Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104948",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104948",
+      "name" : "CPIC Guideline for clopidogrel and CYP2C19",
+      "version" : 65
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 31
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128756",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128756",
+    "name" : "Intermediate Metabolizer",
+    "annotations" : [ {
+      "id" : 1445561039,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986663,
+        "externalLinks" : [ ],
+        "html" : "<p>Reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 8
+    }, {
+      "id" : 1445561040,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986664,
+        "externalLinks" : [ ],
+        "html" : "<p>Intermediate Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 10
+    }, {
+      "id" : 1445561038,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986662,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one normal function allele and one no function allele or one increased function allele and no function allele.</p>\n<p><em>The predicted metabolizer phenotype for *2-*8/*17 genotypes are provisional classifications. The currently available evidence indicates that the *17 increased function allele is unable to completely compensate for the *2 no function allele [Article:20492469]; however, this data has not been consistently replicated and is therefore a provisional classification.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one normal function allele and one no function allele or one increased function allele and no function allele. \r\n\r\n_The predicted metabolizer phenotype for *2-*8/*17 genotypes are provisional classifications. The currently available evidence indicates that the *17 increased function allele is unable to completely compensate for the *2 no function allele \\[Article:20492469]; however, this data has not been consistently replicated and is therefore a provisional classification._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 10
+    }, {
+      "id" : 1445561041,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986665,
+        "externalLinks" : [ ],
+        "html" : "<p>Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 8
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Increased Function/No Function", "CYP2C19:No Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104948",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104948",
+      "name" : "CPIC Guideline for clopidogrel and CYP2C19",
+      "version" : 65
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931",
+      "version" : 0
+    },
+    "version" : 27
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128757",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128757",
+    "name" : "Poor Metabolizer",
+    "annotations" : [ {
+      "id" : 1445561043,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986667,
+        "externalLinks" : [ ],
+        "html" : "<p>Significantly reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Significantly reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 8
+    }, {
+      "id" : 1445561044,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986668,
+        "externalLinks" : [ ],
+        "html" : "<p>Poor Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 10
+    }, {
+      "id" : 1445561042,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986666,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying two no function alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying two no function alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 10
+    }, {
+      "id" : 1445561045,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986669,
+        "externalLinks" : [ ],
+        "html" : "<p>Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 8
+    } ],
+    "genePhenotypes" : [ "CYP2C19:No Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104948",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104948",
+      "name" : "CPIC Guideline for clopidogrel and CYP2C19",
+      "version" : 65
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 27
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162651",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162651",
+    "name" : "Rapid Metabolizer",
+    "annotations" : [ {
+      "id" : 1448576566,
+      "history" : [ {
+        "id" : 1448576564,
+        "date" : "2017-02-02T14:46:40.304-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576565,
+        "externalLinks" : [ ],
+        "html" : "<p>Increased platelet inhibition; decreased residual platelet aggregation</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Increased platelet inhibition; decreased residual platelet aggregation",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448576573,
+      "history" : [ {
+        "id" : 1448576571,
+        "date" : "2017-02-02T14:48:57.703-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576572,
+        "externalLinks" : [ ],
+        "html" : "<p>Rapid Metabolizer</p>\n<p><em>*1/*17 is defined as CYP2C19 rapid metabolizer based on the CPIC Term Standardization project (07/2016, [Article:<a href=\"/pmid/27441996\">27441996</a>]). Please note, in the clopidogrel guideline, *1/*17 is grouped with *17/*17 under CYP2C19 ultrarapid metabolizer.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Rapid Metabolizer\r\n\r\n_*1/*17 is defined as CYP2C19 rapid metabolizer based on the CPIC Term Standardization project (07/2016, [PMID:27441996]). Please note, in the clopidogrel guideline, *1/*17 is grouped with *17/*17 under CYP2C19 ultrarapid metabolizer._",
+        "pmids" : [ "27441996" ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448576561,
+      "history" : [ {
+        "id" : 1448576559,
+        "date" : "2017-02-02T14:45:04.555-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576560,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one increased and one normal function allele</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one increased and one normal function allele",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448576576,
+      "history" : [ {
+        "id" : 1448576574,
+        "date" : "2017-02-02T14:50:18.224-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576575,
+        "externalLinks" : [ ],
+        "html" : "<p>Clopidogrel - label recommended dosage and administration</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Clopidogrel - label recommended dosage and administration",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Increased Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104948",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104948",
+      "name" : "CPIC Guideline for clopidogrel and CYP2C19",
+      "version" : 65
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 15
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162652",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162652",
+    "name" : "Likely Intermediate Metabolizer",
+    "annotations" : [ {
+      "id" : 1448576588,
+      "history" : [ {
+        "id" : 1448576586,
+        "date" : "2017-02-02T14:57:50.770-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576587,
+        "externalLinks" : [ ],
+        "html" : "<p>Likely to have reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Likely to have reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448576591,
+      "history" : [ {
+        "id" : 1448576589,
+        "date" : "2017-02-02T14:59:09.052-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576590,
+        "externalLinks" : [ ],
+        "html" : "<p>Likely Intermediate Metabolizer</p>\n<p><em>Limited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with two decreased function alleles OR patients with one normal or increased function allele AND one decreased function allele are categorized as 'likely intermediate metabolizers' (e.g., CYP2C19*1/*9, *9/*9, *9/*17). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed 'likely intermediate' metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Likely Intermediate Metabolizer\r\n\r\n_Limited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with two decreased function alleles OR patients with one normal or increased function allele AND one decreased function allele are categorized as 'likely intermediate metabolizers' (e.g., CYP2C19*1/*9, *9/*9, *9/*17). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed 'likely intermediate' metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448576585,
+      "history" : [ {
+        "id" : 1448576583,
+        "date" : "2017-02-02T14:56:38.568-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576584,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying two decreased function alleles or one normal or increased function allele and one decreased function allele</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying two decreased function alleles or one normal or increased function allele and one decreased function allele",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448576594,
+      "history" : [ {
+        "id" : 1448576592,
+        "date" : "2017-02-02T15:00:49.095-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576593,
+        "externalLinks" : [ ],
+        "html" : "<p>Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor is recommended in the clopidogrel CPIC guideline for CYP2C19 intermediate metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor is recommended in the clopidogrel CPIC guideline for CYP2C19 intermediate metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Decreased Function/Decreased Function", "CYP2C19:Decreased Function/Increased Function", "CYP2C19:Decreased Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104948",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104948",
+      "name" : "CPIC Guideline for clopidogrel and CYP2C19",
+      "version" : 65
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 10
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162653",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162653",
+    "name" : "Likely Poor Metabolizer",
+    "annotations" : [ {
+      "id" : 1448576600,
+      "history" : [ {
+        "id" : 1448576598,
+        "date" : "2017-02-02T15:03:07.514-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576599,
+        "externalLinks" : [ ],
+        "html" : "<p>Likely to have significantly reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Likely to have significantly reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448576603,
+      "history" : [ {
+        "id" : 1448576601,
+        "date" : "2017-02-02T15:03:45.322-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576602,
+        "externalLinks" : [ ],
+        "html" : "<p>Likely Poor Metabolizer</p>\n<p>Limited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with one decreased function allele and one no function allele are categorized as 'likely poor metabolizers' (e.g. CYP2C19*2/*9). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed 'likely poor' metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Likely Poor Metabolizer\r\n\r\nLimited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with one decreased function allele and one no function allele are categorized as 'likely poor metabolizers' (e.g. CYP2C19*2/*9). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed 'likely poor' metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448576597,
+      "history" : [ {
+        "id" : 1448576595,
+        "date" : "2017-02-02T15:02:32.440-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576596,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one decreased function allele and one no function allele</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one decreased function allele and one no function allele",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448576606,
+      "history" : [ {
+        "id" : 1448576604,
+        "date" : "2017-02-02T15:06:38.619-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576605,
+        "externalLinks" : [ ],
+        "html" : "<p>Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor is recommended in the clopidogrel CPIC guideline for CYP2C19 poor metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Alternative antiplatelet therapy (if no contraindication); e.g., prasugrel, ticagrelor is recommended in the clopidogrel CPIC guideline for CYP2C19 poor metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Decreased Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104948",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104948",
+      "name" : "CPIC Guideline for clopidogrel and CYP2C19",
+      "version" : 65
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 10
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162654",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162654",
+    "name" : "Indeterminate",
+    "annotations" : [ {
+      "id" : 1448576612,
+      "history" : [ {
+        "id" : 1448576610,
+        "date" : "2017-02-02T15:08:07.844-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576611,
+        "externalLinks" : [ ],
+        "html" : "<p>N/A</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "N/A",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448576615,
+      "history" : [ {
+        "id" : 1448576613,
+        "date" : "2017-02-02T15:08:29.745-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576614,
+        "externalLinks" : [ ],
+        "html" : "<p>Indeterminate</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448576609,
+      "history" : [ {
+        "id" : 1448576607,
+        "date" : "2017-02-02T15:07:54.563-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576608,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two unknown/uncertain function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown/uncertain function alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448576618,
+      "history" : [ {
+        "id" : 1448576616,
+        "date" : "2017-02-02T15:08:51.345-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448576617,
+        "externalLinks" : [ ],
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Decreased Function/Unknown or Uncertain Function", "CYP2C19:Increased Function/Unknown or Uncertain Function", "CYP2C19:No Function/Unknown or Uncertain Function", "CYP2C19:Normal Function/Unknown or Uncertain Function", "CYP2C19:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104948",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104948",
+      "name" : "CPIC Guideline for clopidogrel and CYP2C19",
+      "version" : 65
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 10
+  } ],
+  "genePhenotypes" : {
+    "CYP2C19" : {
+      "*1" : "Normal Function",
+      "*2" : "No Function",
+      "*3" : "No Function",
+      "*4A" : "No Function",
+      "*4B" : "No Function",
+      "*5" : "No Function",
+      "*6" : "No Function",
+      "*7" : "No Function",
+      "*8" : "No Function",
+      "*9" : "Decreased Function",
+      "*10" : "Decreased Function",
+      "*11" : "Normal Function",
+      "*12" : "Unknown or Uncertain Function",
+      "*13" : "Normal Function",
+      "*14" : "Unknown or Uncertain Function",
+      "*15" : "Normal Function",
+      "*16" : "Decreased Function",
+      "*17" : "Increased Function",
+      "*18" : "Normal Function",
+      "*19" : "Decreased Function",
+      "*22" : "No Function",
+      "*23" : "Unknown or Uncertain Function",
+      "*24" : "No Function",
+      "*25" : "Decreased Function",
+      "*26" : "Decreased Function",
+      "*27" : "Unknown or Uncertain Function",
+      "*28" : "Normal Function",
+      "*29" : "Unknown or Uncertain Function",
+      "*30" : "Unknown or Uncertain Function",
+      "*31" : "Unknown or Uncertain Function",
+      "*32" : "Unknown or Uncertain Function",
+      "*33" : "Unknown or Uncertain Function",
+      "*34" : "Unknown or Uncertain Function",
+      "*35" : "No Function"
+    }
+  }
 }

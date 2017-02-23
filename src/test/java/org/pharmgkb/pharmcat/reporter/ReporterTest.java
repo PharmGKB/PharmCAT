@@ -27,46 +27,29 @@ public class ReporterTest {
   }
 
   @Test
-  public void reporterTest() throws Exception {
-    Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.haplotyper.output.json");
-    Path outputFile     = callerFile.getParent().resolve("test.haplotyper.output.html");
+  public void combinedTest() throws Exception {
+    Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/combined.json");
+    Path outputFile     = callerFile.getParent().resolve("combined.html");
 
     s_reporter.analyze(callerFile).printHtml(outputFile);
-  }
 
-  @Test
-  public void bigSampleTest() throws Exception {
-    Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/big.sample.json");
-    Path outputFile     = callerFile.getParent().resolve("big.sample.html");
-
-    s_reporter.analyze(callerFile).printHtml(outputFile);
-  }
-
-  @Test
-  public void bigMissingTest() throws Exception {
-    Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/big.sample.missing.2c19.loc.json");
-    Path outputFile     = callerFile.getParent().resolve("big.sample.missing.2c19.loc.html");
-
-    Reporter reporter = s_reporter.analyze(callerFile);
-    assertNotNull(reporter.getGuidelineReports());
-
-    reporter.printHtml(outputFile);
+    assertNotNull("Guideline reports don't exist", s_reporter.getGuidelineReports());
 
     assertTrue(
         "atazanavir and UGT1A1 guideline not called",
-        reporter.getGuidelineReports().stream()
+        s_reporter.getGuidelineReports().stream()
             .anyMatch(r -> r.isReportable() && r.getName().contains("atazanavir") && !r.getMatchingGroups().isEmpty())
     );
 
     assertTrue(
         "citalopram and CYP2C19 guideline not called",
-        reporter.getGuidelineReports().stream()
+        s_reporter.getGuidelineReports().stream()
             .anyMatch(r -> r.isReportable() && r.getName().contains("citalopram") && !r.getMatchingGroups().isEmpty())
     );
 
     assertTrue(
         "ivacaftor and CFTR guideline called but should not be, we don't have reference annotated yet",
-        reporter.getGuidelineReports().stream()
+        s_reporter.getGuidelineReports().stream()
             .anyMatch(r -> r.isReportable() && r.getName().contains("ivacaftor") && r.getMatchingGroups() == null)
     );
   }

@@ -35,7 +35,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
       "id" : "PA451363",
       "name" : "simvastatin",
-      "version" : 18
+      "version" : 67
     } ],
     "relatedGenes" : [ {
       "objCls" : "Gene",
@@ -44,7 +44,7 @@
       "id" : "PA134865839",
       "symbol" : "SLCO1B1",
       "name" : "solute carrier organic anion transporter family, member 1B1",
-      "version" : 45
+      "version" : 102
     } ],
     "source" : "CPIC",
     "summaryMarkdown" : {
@@ -55,7 +55,7 @@
       "markdown" : "The FDA recommends against 80mg daily simvastatin dosage. In patients with the C allele at SLCO1B1 [variant:rs4149056], there are modest increases in myopathy risk even at lower simvastatin doses (40mg daily); if optimal efficacy is not achieved with a lower dose, alternate agents should be considered.",
       "pmids" : [ ],
       "relatedObjects" : [ "PA166154579" ],
-      "version" : 8
+      "version" : 12
     },
     "summaryVideoId" : "V4iRKeTOxjc",
     "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
@@ -67,49 +67,31 @@
       "markdown" : "## October 2014 Update\r\n\r\n_Advance online publication 9 July 2014._\r\n- The [2014 update of CPIC guideline regarding SLCO1B1 and simvastatin-induced myopathy](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167.pdf), has been published in Clinical Pharmacology and Therapeutics.  CPIC extensively reviewed the literature from February 2011 to December 2013 and concluded the dosing recommendations provided in the 2012 CPIC guideline for SLCO1B1 and simvastatin-induced myopathy have not changed. However, this updated guideline also provides a brief review regarding SLCO1B1 genotype and risk of myopathy for other statins.  Furthermore, comprehensive translation tables mapping SLCO1B1 genotypes to coded genotype/phenotype summaries, EHR priority result notation and interpretation (consultation) text were created to facilitate incorporation of SLCO1B1 pharmacogenetics into an electronic health record with clinical decision support.\r\n\r\n- This guideline is applicable to:\r\n  - adult patients\r\n  - pediatric patients \r\n\r\n- Excerpt from the 2014 simvastatin dosing guideline:\r\n  - \"For simvastatin, the evidence linking myopathy to [variant:rs4149056] in SLCO1B1 is of high quality, and this association has been reproduced in randomized trials and clinical practice-based cohorts. Conversely, the association of [variant:rs4149056] with myopathy has been less compelling for other statins. We therefore focus this guideline on simvastatin.\"\r\n\r\n\"In 2011 and updated in 2013, the FDA added warnings to the simvastatin product label to direct providers away from initiating at the 80 mg simvastatin dose. \" \r\n\r\n\"At lower simvastatin doses (e.g., 40 mg daily), it is our position that SLCO1B1 genotype (if available) could be used to warn providers about modest increases in myopathy risk for patients with a C allele at [variant:rs4149056]. In these circumstances, we recommend a lower dose of simvastatin or use an alternative statin (e.g. pravastatin or rosuvastatin) and we also highlight the potential utility of routine CK surveillance (Table 2). If patients with a C allele at [variant:rs4149056] do not achieve optimal LDL cholesterol-lowering efficacy with a lower dose (e.g. 20 mg) of simvastatin, we recommend the prescribing physician consider an alternate statin based on (i) potency differences (i.e., use a lower dose of a higher potency statin such as atorvastatin, rosuvastatin, or pitavastatin), (ii) drug-drug interactions (e.g., boceprevir, clarithromycin, cyclosporine, strong CYP3A4 inhibitors, etc.), and (iii) relevant co-morbidities (e.g., trauma, significant renal impairment, post-solid organ transplant, thyroid disease etc.).\"\r\n\r\n\"At the time of this writing, there are no data available regarding SLCO1B1 genotype effects on simvastatin response or myopathy in pediatric patient populations, although there is no reason to suspect that the polymorphisms in SLCO1B1 will affect simvastatin's metabolism differently in children compared to adults.\"\r\n\r\n- Download and read: \r\n  - [The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167.pdf)\r\n  - [2014 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167-supplement.pdf)\r\n  - [2014 SLCO1B1 translation table](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167.xlsx)\r\n\r\n## Table 1: Recommended dosing of simvastatin based on SLCO1B1 phenotype\r\n\r\n_Adapted from Table 1 and 2 of the 2014 guideline update manuscript._\r\n\r\n| Phenotype | Examples of diplotypes ^a^|Genotype at [variant:rs4149056] | Implications for simvastatin | Dosing recommendations for simvastatin ^b,c^ | Classification of recommendations ^d^|\r\n| --- | --- | --- | --- | --- | --- |\r\n| Normal function, Homozygous wild-type (two normal function alleles) | *1a/*1a, *1a/*1b, *1b/*1b | TT | Normal myopathy risk |  Prescribe desired starting dose and adjust doses of simvastatin based on disease-specific guidelines.| Strong |\r\n| Intermediate function, Heterozygous (one normal function allele plus one decreased function allele) | *1a/*5, *1a/*15, *1a/*17, *1b/*5, *1b/*15, *1b/*17 | TC | Intermediate myopathy risk | Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance. | Strong |\r\n| Low function, Homozygous variant or mutant (two decreased function alleles) | *5/*5, *5/*15, *5/*17, *15/*15, *15/*17, *17/*17 | CC | High myopathy risk | Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance. | Strong |\r\n\r\nCK, creatine kinase.\r\n\r\n^a^ SLCO1B1 alleles are often named using [star allele nomenclature, representing various SNPs alone or in combination](http://www.pharmgkb.org/gene/PA134865839#tabview=tab4&subtab=33) (2014 Update Supplemental Table S1) that are associated with low SLCO1B1 protein expression or function (2014 Update Supplemental Table S2). The minor C allele at [variant:rs4149056] is contained within SLCO1B1*5 ([variant:rs4149056] alone) as well as the *15 and *17 haplotypes and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 haplotypes.\r\n\r\n^b^ In all cases, the potential for drug-drug interaction should be evaluated prior to initiating a prescription. \r\n\r\n^c^ FDA recommends against 80mg (unless already tolerated 12 months).  \r\n\r\n^d^ See Supplementary Materials (text section entitled \"Levels of Evidence\") online for additional details regarding the three-tiered system used to grade the quality of evidence.  \r\n\r\n## July 2012\r\n\r\n_Advance online publication May 2012._\r\n- Guideline regarding the use of pharmacogenomic tests in dosing for simvastatin was published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).  \r\n- Download and read:  \r\n  - [The clinical pharmacogenomics implementation consortium: CPIC guideline for SLCO1B1 and simvastatin-induced myopathy.](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2012/22617227.pdf) \r\n  - [2012 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2012/22617227-supplement.pdf)",
       "pmids" : [ ],
       "relatedObjects" : [ "PA166154579" ],
-      "version" : 8
+      "version" : 12
     },
-    "version" : 27,
+    "version" : 93,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-simvastatin-and-slco1b1/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983510,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-simvastatin-and-slco1b1%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-simvastatin-and-slco1b1/"} ]
   },
   "annotationGroups" : [ {
     "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128849",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162730",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "id" : "PA166128849",
-    "name" : "Intermediate function",
+    "id" : "PA166162730",
+    "name" : "Indeterminate",
     "annotations" : [ {
-      "id" : 1445949215,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986690,
-        "externalLinks" : [ ],
-        "html" : "<p>Intermediate myopathy risk</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Intermediate myopathy risk",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
+      "id" : 1448592687,
+      "history" : [ {
+        "id" : 1448592685,
+        "date" : "2017-02-06T19:25:11.990-08:00",
+        "type" : "create",
         "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501925,
-        "resource" : "Guideline Tags",
-        "term" : "Implications",
-        "termId" : "guidelineTags:981501925",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445949151,
-      "history" : [ ],
+      } ],
       "markdown" : {
-        "id" : 1447986689,
+        "id" : 1448592686,
         "externalLinks" : [ ],
-        "html" : "<p>Intermediate function</p>\n",
+        "html" : "<p>Indeterminate</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Intermediate function",
+        "markdown" : "Indeterminate",
         "pmids" : [ ],
         "relatedObjects" : [ ],
         "version" : 0
@@ -123,16 +105,21 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 0
     }, {
-      "id" : 1445949283,
-      "history" : [ ],
+      "id" : 1448592684,
+      "history" : [ {
+        "id" : 1448592682,
+        "date" : "2017-02-06T19:24:20.507-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
       "markdown" : {
-        "id" : 1447986691,
+        "id" : 1448592683,
         "externalLinks" : [ ],
-        "html" : "<p>Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance</p>\n",
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance",
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
         "version" : 0
@@ -146,130 +133,43 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 0
     } ],
-    "genotypes" : [ "SLCO1B1:*1A/*15", "SLCO1B1:*1A/*17", "SLCO1B1:*1A/*5", "SLCO1B1:*1B/*15", "SLCO1B1:*1B/*17", "SLCO1B1:*1B/*5" ],
+    "genePhenotypes" : [ "SLCO1B1:Decreased Function/Unknown or Uncertain Function", "SLCO1B1:Normal Function/Unknown or Uncertain Function", "SLCO1B1:Possible Decreased Function/Unknown or Uncertain Function", "SLCO1B1:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
       "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 27
+      "version" : 93
     },
-    "rxChange" : false,
-    "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501930,
-      "resource" : "Guideline Strength",
-      "term" : "Strong",
-      "termId" : "guidelineStrength:981501930",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
       "version" : 0
     },
-    "version" : 6
-  }, {
-    "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128850",
-    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "id" : "PA166128850",
-    "name" : "Low function",
-    "annotations" : [ {
-      "id" : 1445949473,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986693,
-        "externalLinks" : [ ],
-        "html" : "<p>High myopathy risk</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "High myopathy risk",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501925,
-        "resource" : "Guideline Tags",
-        "term" : "Implications",
-        "termId" : "guidelineTags:981501925",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445949418,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986692,
-        "externalLinks" : [ ],
-        "html" : "<p>Low function</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Low function",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501927,
-        "resource" : "Guideline Tags",
-        "term" : "Phenotype (Genotype)",
-        "termId" : "guidelineTags:981501927",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445949558,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986694,
-        "externalLinks" : [ ],
-        "html" : "<p>Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501928,
-        "resource" : "Guideline Tags",
-        "term" : "Recommendations",
-        "termId" : "guidelineTags:981501928",
-        "version" : 0
-      },
-      "version" : 6
-    } ],
-    "genotypes" : [ "SLCO1B1:*15/*15", "SLCO1B1:*15/*17", "SLCO1B1:*17/*17", "SLCO1B1:*5/*15", "SLCO1B1:*5/*17", "SLCO1B1:*5/*5" ],
-    "guideline" : {
-      "objCls" : "Guideline",
-      "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
-      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
-      "id" : "PA166105005",
-      "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 27
-    },
-    "rxChange" : false,
     "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501930,
+      "id" : 981501929,
+      "description" : "Not Applicable",
       "resource" : "Guideline Strength",
-      "term" : "Strong",
-      "termId" : "guidelineStrength:981501930",
-      "version" : 0
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
     },
-    "version" : 6
+    "version" : 5
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128848",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128848",
-    "name" : "Normal function",
+    "name" : "Normal Function",
     "annotations" : [ {
       "id" : 1445948918,
       "history" : [ ],
@@ -292,19 +192,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445948818,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986686,
         "externalLinks" : [ ],
-        "html" : "<p>Normal function</p>\n",
+        "html" : "<p>Normal Function</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Normal function",
+        "markdown" : "Normal Function",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -315,7 +215,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 10
     }, {
       "id" : 1445949054,
       "history" : [ ],
@@ -338,18 +238,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "SLCO1B1:*1A/*1A", "SLCO1B1:*1A/*1B", "SLCO1B1:*1B/*1B" ],
+    "genePhenotypes" : [ "SLCO1B1:Normal Function/Normal Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
       "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 27
+      "version" : 93
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -359,7 +267,215 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 6
+    "version" : 24
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128849",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128849",
+    "name" : "Decreased Function",
+    "annotations" : [ {
+      "id" : 1445949215,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986690,
+        "externalLinks" : [ ],
+        "html" : "<p>Intermediate myopathy risk</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate myopathy risk",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 8
+    }, {
+      "id" : 1445949151,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986689,
+        "externalLinks" : [ ],
+        "html" : "<p>Decreased Function</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘intermediate’ function with ‘decreased’ function [Article:<a href=\"/pmid/27441996\">27441996</a>] for transporters.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Decreased Function\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘intermediate’ function with ‘decreased’ function [PMID:27441996] for transporters._",
+        "pmids" : [ "27441996" ],
+        "relatedObjects" : [ ],
+        "version" : 2
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 12
+    }, {
+      "id" : 1445949283,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986691,
+        "externalLinks" : [ ],
+        "html" : "<p>Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 9
+    } ],
+    "genePhenotypes" : [ "SLCO1B1:Decreased Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166105005",
+      "name" : "CPIC Guideline for simvastatin and SLCO1B1",
+      "version" : 93
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 27
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128850",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128850",
+    "name" : "Poor Function",
+    "annotations" : [ {
+      "id" : 1445949473,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986693,
+        "externalLinks" : [ ],
+        "html" : "<p>High myopathy risk</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "High myopathy risk",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 8
+    }, {
+      "id" : 1445949418,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986692,
+        "externalLinks" : [ ],
+        "html" : "<p>Poor Function</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘low’ function with ‘poor’ function [Article:<a href=\"/pmid/27441996\">27441996</a>] for transporters.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor Function\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘low’ function with ‘poor’ function [PMID:27441996] for transporters._",
+        "pmids" : [ "27441996" ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 10
+    }, {
+      "id" : 1445949558,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986694,
+        "externalLinks" : [ ],
+        "html" : "<p>Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase (CK) surveillance",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 9
+    } ],
+    "genePhenotypes" : [ "SLCO1B1:Decreased Function/Decreased Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166105005",
+      "name" : "CPIC Guideline for simvastatin and SLCO1B1",
+      "version" : 93
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 24
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128851",
@@ -388,7 +504,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445951861,
       "history" : [ ],
@@ -411,18 +527,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "SLCO1B1:*14/*14", "SLCO1B1:*14/*35", "SLCO1B1:*1A/*14", "SLCO1B1:*1A/*35", "SLCO1B1:*1B/*14", "SLCO1B1:*1B/*35", "SLCO1B1:*35/*35" ],
+    "genePhenotypes" : [ ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
       "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 27
+      "version" : 93
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -433,13 +557,13 @@
       "termId" : "guidelineStrength:981501929",
       "version" : 1
     },
-    "version" : 6
+    "version" : 19
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128852",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128852",
-    "name" : "Possible Intermediate Function",
+    "name" : "Possible Decreased Function",
     "annotations" : [ {
       "id" : 1445952001,
       "history" : [ ],
@@ -462,19 +586,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445950760,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986695,
         "externalLinks" : [ ],
-        "html" : "<p>Possible Intermediate Function</p>\n",
+        "html" : "<p>Possible Decreased Function</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘intermediate’ function with ‘decreased’ function [Article:<a href=\"/pmid/27441996\">27441996</a>] for transporters.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Possible Intermediate Function",
-        "pmids" : [ ],
+        "markdown" : "Possible Decreased Function\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘intermediate’ function with ‘decreased’ function [PMID:27441996] for transporters._",
+        "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -485,7 +609,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 10
     }, {
       "id" : 1445952118,
       "history" : [ ],
@@ -508,18 +632,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "SLCO1B1:*1A/*10", "SLCO1B1:*1A/*2", "SLCO1B1:*1A/*23", "SLCO1B1:*1A/*3", "SLCO1B1:*1A/*31", "SLCO1B1:*1A/*6", "SLCO1B1:*1A/*9", "SLCO1B1:*1B/*10", "SLCO1B1:*1B/*2", "SLCO1B1:*1B/*23", "SLCO1B1:*1B/*3", "SLCO1B1:*1B/*31", "SLCO1B1:*1B/*6", "SLCO1B1:*1B/*9" ],
+    "genePhenotypes" : [ "SLCO1B1:Normal Function/Possible Decreased Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
       "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 27
+      "version" : 93
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -530,13 +662,13 @@
       "termId" : "guidelineStrength:981501929",
       "version" : 1
     },
-    "version" : 6
+    "version" : 22
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128853",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128853",
-    "name" : "Possible Low Function",
+    "name" : "Possible Poor Function",
     "annotations" : [ {
       "id" : 1445952333,
       "history" : [ ],
@@ -559,19 +691,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445950977,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986697,
         "externalLinks" : [ ],
-        "html" : "<p>Possible Low Function</p>\n",
+        "html" : "<p>Possible Poor Function</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘low’ function with ‘poor’ function [Article:<a href=\"/pmid/27441996\">27441996</a>] for transporters.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Possible Low Function",
-        "pmids" : [ ],
+        "markdown" : "Possible Poor Function\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘low’ function with ‘poor’ function [PMID:27441996] for transporters._",
+        "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -582,7 +714,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 10
     }, {
       "id" : 1445952403,
       "history" : [ ],
@@ -605,18 +737,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "SLCO1B1:*10/*10", "SLCO1B1:*10/*15", "SLCO1B1:*10/*17", "SLCO1B1:*10/*23", "SLCO1B1:*10/*31", "SLCO1B1:*15/*23", "SLCO1B1:*15/*31", "SLCO1B1:*17/*23", "SLCO1B1:*17/*31", "SLCO1B1:*2/*10", "SLCO1B1:*2/*15", "SLCO1B1:*2/*17", "SLCO1B1:*2/*2", "SLCO1B1:*2/*23", "SLCO1B1:*2/*3", "SLCO1B1:*2/*31", "SLCO1B1:*2/*5", "SLCO1B1:*2/*6", "SLCO1B1:*2/*9", "SLCO1B1:*23/*23", "SLCO1B1:*23/*31", "SLCO1B1:*3/*10", "SLCO1B1:*3/*15", "SLCO1B1:*3/*17", "SLCO1B1:*3/*23", "SLCO1B1:*3/*3", "SLCO1B1:*3/*31", "SLCO1B1:*3/*5", "SLCO1B1:*3/*6", "SLCO1B1:*3/*9", "SLCO1B1:*31/*31", "SLCO1B1:*5/*10", "SLCO1B1:*5/*23", "SLCO1B1:*5/*31", "SLCO1B1:*5/*6", "SLCO1B1:*5/*9", "SLCO1B1:*6/*10", "SLCO1B1:*6/*15", "SLCO1B1:*6/*17", "SLCO1B1:*6/*23", "SLCO1B1:*6/*31", "SLCO1B1:*6/*6", "SLCO1B1:*6/*9", "SLCO1B1:*9/*10", "SLCO1B1:*9/*15", "SLCO1B1:*9/*17", "SLCO1B1:*9/*23", "SLCO1B1:*9/*31", "SLCO1B1:*9/*9" ],
+    "genePhenotypes" : [ "SLCO1B1:Decreased Function/Possible Decreased Function", "SLCO1B1:Possible Decreased Function/Possible Decreased Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
       "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 27
+      "version" : 93
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -627,6 +767,47 @@
       "termId" : "guidelineStrength:981501929",
       "version" : 1
     },
-    "version" : 6
-  } ]
+    "version" : 23
+  } ],
+  "genePhenotypes" : {
+    "SLCO1B1" : {
+      "*1A" : "Normal Function",
+      "*1B" : "Normal Function",
+      "*2" : "Possible Decreased Function",
+      "*3" : "Possible Decreased Function",
+      "*4" : "Unknown or Uncertain Function",
+      "*5" : "Decreased Function",
+      "*6" : "Possible Decreased Function",
+      "*7" : "Unknown or Uncertain Function",
+      "*8" : "Unknown or Uncertain Function",
+      "*9" : "Possible Decreased Function",
+      "*10" : "Possible Decreased Function",
+      "*11" : "Unknown or Uncertain Function",
+      "*12" : "Unknown or Uncertain Function",
+      "*13" : "Unknown or Uncertain Function",
+      "*14" : "Possible Decreased Function",
+      "*15" : "Decreased Function",
+      "*16" : "Unknown or Uncertain Function",
+      "*17" : "Decreased Function",
+      "*18" : "Unknown or Uncertain Function",
+      "*19" : "Unknown or Uncertain Function",
+      "*20" : "Unknown or Uncertain Function",
+      "*21" : "Unknown or Uncertain Function",
+      "*22" : "Unknown or Uncertain Function",
+      "*23" : "Possible Decreased Function",
+      "*24" : "Unknown or Uncertain Function",
+      "*25" : "Unknown or Uncertain Function",
+      "*26" : "Unknown or Uncertain Function",
+      "*27" : "Unknown or Uncertain Function",
+      "*28" : "Unknown or Uncertain Function",
+      "*29" : "Unknown or Uncertain Function",
+      "*30" : "Unknown or Uncertain Function",
+      "*31" : "Possible Decreased Function",
+      "*32" : "Unknown or Uncertain Function",
+      "*33" : "Unknown or Uncertain Function",
+      "*34" : "Unknown or Uncertain Function",
+      "*35" : "Possible Decreased Function",
+      "*36" : "Unknown or Uncertain Function"
+    }
+  }
 }

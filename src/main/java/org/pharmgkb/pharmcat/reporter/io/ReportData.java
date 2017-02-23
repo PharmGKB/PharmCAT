@@ -71,6 +71,11 @@ public class ReportData {
       guidelineMap.put("url", guideline.getUrl());
       guidelineMap.put("id", guideline.getId());
 
+      guidelineMap.put("diplotypes",
+          guideline.getRelatedGeneSymbols().stream()
+              .flatMap(reportContext.mapGeneToDiplotypes)
+              .collect(Collectors.toList()));
+
       guidelineMap.put("notReportable", !guideline.isReportable());
       guidelineMap.put("uncalledGenes",
           guideline.getUncalledGenes().stream().collect(Collectors.joining(", ")));
@@ -82,7 +87,7 @@ public class ReportData {
         List<Map<String, Object>> groupList = new ArrayList<>();
         for (Group group : guideline.getMatchingGroups()) {
           Map<String, Object> groupData = new HashMap<>();
-          groupData.put("matchedDiplotypes", guideline.getMatchedDiplotypes().get(group.getId()).stream()
+          groupData.put("matchedPhenotypes", guideline.getMatchedDiplotypes().get(group.getId()).stream()
               .collect(Collectors.joining(", ")));
 
           List<Map<String, String>> annotationList = new ArrayList<>();
@@ -97,6 +102,7 @@ public class ReportData {
           strengthMap.put("annotation", group.getStrength() != null ? group.getStrength().getTerm() : "N/A");
           annotationList.add(strengthMap);
           groupData.put("annotations", annotationList);
+          groupData.put("name", group.getName());
           groupList.add(groupData);
         }
         guidelineMap.put("groups", groupList);

@@ -146,4 +146,8 @@ public class Reporter {
     }
     return m_reportContext.getGuidelineResults();
   }
+
+  protected ReportContext getContext() {
+    return m_reportContext;
+  }
 }

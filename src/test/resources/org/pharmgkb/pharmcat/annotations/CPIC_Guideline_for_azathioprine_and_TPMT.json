@@ -28,7 +28,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
       "id" : "PA448515",
       "name" : "azathioprine",
-      "version" : 23
+      "version" : 52
     } ],
     "relatedGenes" : [ {
       "objCls" : "Gene",
@@ -37,7 +37,7 @@
       "id" : "PA356",
       "symbol" : "TPMT",
       "name" : "thiopurine S-methyltransferase",
-      "version" : 7542
+      "version" : 7624
     } ],
     "source" : "CPIC",
     "summaryMarkdown" : {
@@ -48,7 +48,7 @@
       "markdown" : "Consider an alternate agent or extreme dose reduction of azathioprine for patients with low or deficient TPMT activity.  Start at 30-70% of target dose for patients with intermediate enzyme activity.",
       "pmids" : [ ],
       "relatedObjects" : [ ],
-      "version" : 0
+      "version" : 1
     },
     "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
     "textMarkdown" : {
@@ -59,49 +59,31 @@
       "markdown" : "## May 2016 Update on PharmGKB\r\n\r\nSeveral studies have reported that individuals who carry low-function alleles for NUDT15 are unable to tolerate usual doses of thiopurines. [PMID:25108385, 25624441, 26033531, 26076924, 26405151, 26503813, 26590936, 26735160, 26878724] These alleles are more common among those of Asian ancestry and Hispanic ethnicity than others. [PMID:25624441, 26878724] The dose tolerated by those with two low-function alleles is only ~ 10% that tolerated by those with no low-function NUDT15 or TPMT alleles. [PMID:25624441, 26878724] CPIC is planning a guideline to address NUDT15 variants and possible dosing recommendations for thiopurines.\r\n\r\n## April 2013 Update\r\n\r\n_Advance online publication January 2013._\r\n- The [2013 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine](http://www.nature.com/clpt/journal/vaop/naam/index.html#17012013), have been published in Clinical Pharmacology and Therapeutics.  Literature published between June 2010-November 2012 was reviewed and there is __no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current.__ \r\n- These guidelines are applicable to:\r\n  - pediatric patients \r\n  - adult patients\r\n- Download and read: \r\n  - [Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update](https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2013/23422873.pdf)\r\n  - [2013 supplement]( https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2013/23422873-supplement.pdf)\r\n\r\n## March 2011\r\n\r\n_Advance online publication January 2011._\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing for azathioprine, thioguanine and mercaptopurine were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).  \r\n- Excerpt from the 2011 thiopurine dosing guidelines:\r\n  - \"Thiopurines are most commonly used to treat nonmalignant conditions but are also critical anticancer agents. The approach to dosing adjustments based on TPMT status may differ depending on the clinical indication and the propensity to initiate therapy at higher vs. lower starting doses. We and others advocate testing for TPMT status prior to initiating thiopurine therapy, so that starting dosages can be adjusted accordingly.\"\r\n- Download and read:  \r\n  - [Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing](https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2011/21270794.pdf) \r\n  - [2011 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/thiopurines/2011/21270794-supplement.pdf)\r\n\r\n## Table 1: Recommended dosing of azathioprine by TPMT phenotype\r\n\r\n_Adapted from Tables 1 and 2 of the 2011 guideline manuscript._\r\n\r\n| Phenotype (Genotype) | Examples of diplotypes | Implications for azathioprine pharmacologic measures | Dosing recommendations for azathioprine | Classification of recommendations |\r\n| --- | --- | --- | --- | --- |\r\n| Homozygous wild-type or normal, high activity (two functional *1 alleles) | *1/*1 | Lower concentrations of TGN metabolites, higher methylTIMP, this is the \"normal\" pattern | Start with normal starting dose (e.g., 2-3 mg/kg/d) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady state after each dose adjustment. | Strong |\r\n| Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4) | *1/*2, *1/*3A, *1/*3B, *1/*3C, *1/*4 | Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP | If disease treatment normally starts at the \"full dose\", consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment. | Strong |\r\n| Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4) | *3A/*3A, *2/*3A, *3C/*3A, *3C/*4, *3C/*2, *3A/*4 | Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no methylTIMP metabolites | Consider alternative agents. If using azathioprine start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. Azathioprine is the likely cause of myelosuppression. | Strong |",
       "pmids" : [ "25108385", "25624441", "26033531", "26076924", "26405151", "26503813", "26590936", "26735160", "26878724" ],
       "relatedObjects" : [ ],
-      "version" : 7
+      "version" : 11
     },
-    "version" : 30,
+    "version" : 67,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983453,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-thiopurines-and-tpmt%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/"} ]
   },
   "annotationGroups" : [ {
     "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128791",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162692",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "id" : "PA166128791",
-    "name" : "Heterozygote or intermediate activity",
+    "id" : "PA166162692",
+    "name" : "Indeterminate",
     "annotations" : [ {
-      "id" : 1445583485,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986445,
-        "externalLinks" : [ ],
-        "html" : "<p>If disease treatment normally starts at the &quot;full dose&quot;, consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment.</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "If disease treatment normally starts at the \"full dose\", consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment.",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
+      "id" : 1448589900,
+      "history" : [ {
+        "id" : 1448589898,
+        "date" : "2017-02-06T11:41:06.559-08:00",
+        "type" : "create",
         "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501924,
-        "resource" : "Guideline Tags",
-        "term" : "Activity Score",
-        "termId" : "guidelineTags:981501924",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
-      "id" : 1445583484,
-      "history" : [ ],
+      } ],
       "markdown" : {
-        "id" : 1447986444,
+        "id" : 1448589899,
         "externalLinks" : [ ],
-        "html" : "<p>Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP</p>\n",
+        "html" : "<p>N/A</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP",
+        "markdown" : "N/A",
         "pmids" : [ ],
         "relatedObjects" : [ ],
         "version" : 0
@@ -115,16 +97,50 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 0
     }, {
-      "id" : 1445583483,
-      "history" : [ ],
+      "id" : 1448589903,
+      "history" : [ {
+        "id" : 1448589901,
+        "date" : "2017-02-06T11:41:21.791-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
       "markdown" : {
-        "id" : 1447986443,
+        "id" : 1448589902,
         "externalLinks" : [ ],
-        "html" : "<p>Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)</p>\n",
+        "html" : "<p>Indeterminate</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)",
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448589897,
+      "history" : [ {
+        "id" : 1448589895,
+        "date" : "2017-02-06T11:40:58.339-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589896,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two unknown/uncertain function alleles or probably decreased function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown/uncertain function alleles or probably decreased function alleles.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
         "version" : 0
@@ -138,34 +154,71 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 0
+    }, {
+      "id" : 1448589906,
+      "history" : [ {
+        "id" : 1448589904,
+        "date" : "2017-02-06T11:41:37.590-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589905,
+        "externalLinks" : [ ],
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
     } ],
-    "genotypes" : [ "TPMT:*1/*2", "TPMT:*1/*3A", "TPMT:*1/*3B", "TPMT:*1/*3C", "TPMT:*1/*4" ],
+    "genePhenotypes" : [ "TPMT:No Function/Probable Decreased Function", "TPMT:No Function/Unknown or Uncertain Function", "TPMT:Normal Function/Probable Decreased Function", "TPMT:Normal Function/Unknown or Uncertain Function", "TPMT:Probable Decreased Function/Probable Decreased Function", "TPMT:Probable Decreased Function/Unknown or Uncertain Function", "TPMT:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166104933",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104933",
       "name" : "CPIC Guideline for azathioprine and TPMT",
-      "version" : 30
+      "version" : 67
     },
-    "rxChange" : false,
-    "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501930,
-      "resource" : "Guideline Strength",
-      "term" : "Strong",
-      "termId" : "guidelineStrength:981501930",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
       "version" : 0
     },
-    "version" : 8
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 7
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128790",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128790",
-    "name" : "Homozygous normal or High Activity",
+    "name" : "Normal Metabolizer",
     "annotations" : [ {
       "id" : 1445583481,
       "history" : [ ],
@@ -188,19 +241,48 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
+    }, {
+      "id" : 1448589894,
+      "history" : [ {
+        "id" : 1448589892,
+        "date" : "2017-02-06T11:39:10.471-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589893,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
     }, {
       "id" : 1445583480,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986440,
         "externalLinks" : [ ],
-        "html" : "<p>Homozygous wild-type or normal, high activity (two functional *1 alleles)</p>\n",
+        "html" : "<p>Homozygous wild-type or normal, high activity (two functional (normal function) *1 alleles)</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Homozygous wild-type or normal, high activity (two functional *1 alleles)",
+        "markdown" : "Homozygous wild-type or normal, high activity (two functional (normal function) *1 alleles)",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -211,7 +293,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 10
     }, {
       "id" : 1445583482,
       "history" : [ ],
@@ -234,18 +316,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "TPMT:*1/*1" ],
+    "genePhenotypes" : [ "TPMT:Normal Function/Normal Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166104933",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104933",
       "name" : "CPIC Guideline for azathioprine and TPMT",
-      "version" : 30
+      "version" : 67
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -255,13 +345,146 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 8
+    "version" : 22
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128791",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128791",
+    "name" : "Intermediate Metabolizer",
+    "annotations" : [ {
+      "id" : 1445583484,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986444,
+        "externalLinks" : [ ],
+        "html" : "<p>Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Moderate to high concentrations of TGN metabolites; low concentrations of methylTIMP",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 8
+    }, {
+      "id" : 1448589884,
+      "history" : [ {
+        "id" : 1448589882,
+        "date" : "2017-02-06T11:35:02.732-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589883,
+        "externalLinks" : [ ],
+        "html" : "<p>Intermediate Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1445583483,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986443,
+        "externalLinks" : [ ],
+        "html" : "<p>Heterozygote or intermediate activity (one functional (normal function) allele - *1, plus one nonfunctional (no function) allele - *2, *3A, *3B, *3C, or *4)</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Heterozygote or intermediate activity (one functional (normal function) allele - *1, plus one nonfunctional (no function) allele - *2, *3A, *3B, *3C, or *4)",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 10
+    }, {
+      "id" : 1445583485,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986445,
+        "externalLinks" : [ ],
+        "html" : "<p>If disease treatment normally starts at the &quot;full dose&quot;, consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "If disease treatment normally starts at the \"full dose\", consider starting at 30-70% of target dose (e.g., 1-1.5 mg/kg/d), and titrate based on tolerance. Allow 2-4 weeks to reach steady state after each dose adjustment.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 9
+    } ],
+    "genePhenotypes" : [ "TPMT:No Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104933",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104933",
+      "name" : "CPIC Guideline for azathioprine and TPMT",
+      "version" : 67
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 24
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128792",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128792",
-    "name" : "Homozygous variant, mutant, low, or deficient activity",
+    "name" : "Poor Metabolizer",
     "annotations" : [ {
       "id" : 1445583487,
       "history" : [ ],
@@ -284,19 +507,48 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
+    }, {
+      "id" : 1448589889,
+      "history" : [ {
+        "id" : 1448589887,
+        "date" : "2017-02-06T11:36:49.106-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589888,
+        "externalLinks" : [ ],
+        "html" : "<p>Poor Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
     }, {
       "id" : 1445583486,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986446,
         "externalLinks" : [ ],
-        "html" : "<p>Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)</p>\n",
+        "html" : "<p>Homozygous variant, mutant, low, or deficient activity (two nonfunctional (no function) alleles - *2, *3A, *3B, *3C, or *4)</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)",
+        "markdown" : "Homozygous variant, mutant, low, or deficient activity (two nonfunctional (no function) alleles - *2, *3A, *3B, *3C, or *4)",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -307,7 +559,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 10
     }, {
       "id" : 1445583488,
       "history" : [ ],
@@ -330,18 +582,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "TPMT:*2/*2", "TPMT:*2/*3A", "TPMT:*2/*3B", "TPMT:*2/*3C", "TPMT:*2/*4", "TPMT:*3A/*3A", "TPMT:*3A/*3B", "TPMT:*3A/*3C", "TPMT:*3A/*4", "TPMT:*3B/*3B", "TPMT:*3B/*3C", "TPMT:*3B/*4", "TPMT:*3C/*3C", "TPMT:*3C/*4", "TPMT:*4/*4" ],
+    "genePhenotypes" : [ "TPMT:No Function/No Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166104933",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104933",
       "name" : "CPIC Guideline for azathioprine and TPMT",
-      "version" : 30
+      "version" : 67
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -351,6 +611,44 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 8
-  } ]
+    "version" : 22
+  } ],
+  "genePhenotypes" : {
+    "TPMT" : {
+      "*1" : "Normal Function",
+      "*1S" : "Normal Function",
+      "*2" : "No Function",
+      "*3A" : "No Function",
+      "*3B" : "No Function",
+      "*3C" : "No Function",
+      "*4" : "No Function",
+      "*5" : "Probable Decreased Function",
+      "*6" : "Probable Decreased Function",
+      "*7" : "Unknown or Uncertain Function",
+      "*8" : "Probable Decreased Function",
+      "*9" : "Probable Decreased Function",
+      "*10" : "Probable Decreased Function",
+      "*11" : "Probable Decreased Function",
+      "*12" : "Probable Decreased Function",
+      "*13" : "Probable Decreased Function",
+      "*14" : "Unknown or Uncertain Function",
+      "*15" : "Unknown or Uncertain Function",
+      "*16" : "Probable Decreased Function",
+      "*17" : "Probable Decreased Function",
+      "*18" : "Probable Decreased Function",
+      "*19" : "Unknown or Uncertain Function",
+      "*20" : "Unknown or Uncertain Function",
+      "*21" : "Unknown or Uncertain Function",
+      "*22" : "Unknown or Uncertain Function",
+      "*23" : "Unknown or Uncertain Function",
+      "*24" : "Unknown or Uncertain Function",
+      "*25" : "Unknown or Uncertain Function",
+      "*26" : "Unknown or Uncertain Function",
+      "*27" : "Unknown or Uncertain Function",
+      "*28" : "Unknown or Uncertain Function",
+      "*29" : "Unknown or Uncertain Function",
+      "*30" : "Unknown or Uncertain Function",
+      "*31" : "Unknown or Uncertain Function"
+    }
+  }
 }

@@ -18,7 +18,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
       "id" : "PA451333",
       "name" : "sertraline",
-      "version" : 9
+      "version" : 34
     } ],
     "relatedGenes" : [ {
       "objCls" : "Gene",
@@ -27,7 +27,7 @@
       "id" : "PA124",
       "symbol" : "CYP2C19",
       "name" : "cytochrome P450, family 2, subfamily C, polypeptide 19",
-      "version" : 7207
+      "version" : 7262
     } ],
     "source" : "CPIC",
     "summaryMarkdown" : {
@@ -38,7 +38,7 @@
       "markdown" : "The CPIC Dosing Guideline for the selective serotonin reuptake inhibitor sertraline recommends to consider a 50% reduction of recommended starting dose and titrate to response or select alternative drug not predominantly metabolized by CYP2C19 for CYP2C19 poor metabolizers.",
       "pmids" : [ ],
       "relatedObjects" : [ ],
-      "version" : 0
+      "version" : 1
     },
     "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847845","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847845,"resource":"CPIC Status","term":"B","termId":"cpicStatus:1183847845"} ],
     "textMarkdown" : {
@@ -49,9 +49,9 @@
       "markdown" : "## August 2015\r\n\r\n_Advanced online publication May 2015_\r\n\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing of selective serotonin reuptake inhibitors have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).\r\n- Excerpts from the 2015 selective serotonin reuptake inhibitors dosing guidelines (for sertraline and CYP2C19):\r\n  - \"No dose adjustment is recommended for CYP2C19 ultrarapid metabolizers; however, if a patient is not responding to adequate maintenance doses of sertraline, consider an alternative SSRI not predominantly metabolized by CYP2C19.\"\r\n  - \"Pharmacokinetic data show reduced oral clearance of sertraline in CYP2C19 poor metabolizers...Side effects in CYP2C19 poor metabolizers have also been reported to be more frequent than in normal metabolizers. Therefore, in CYP2C19 poor metabolizers a dose reduction of 50% is recommended or an alternative SSRI not extensively metabolized by CYP2C19 should be considered.\"\r\n  - \"The recommendations in the guideline and below apply primarily to actions based on genetic tests only; drug interactions and other clinical factors can have a major influence for prescribing decisions for SSRIs and should be taken into consideration before initiating drug therapy.\"\r\n  - \"Data describing the relationship between CYP2D6 or CYP2C19 genotype and SSRI systemic exposure or steady state plasma concentrations in pediatric patients are scarce...CYP2C19 activity may be increased in children relative to adults; therefore, these recommendations should be used with caution in children and accompanied by close monitoring.\" \r\n- Download and read:\r\n  - [Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors](https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703.pdf)\r\n  - [2015 Supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703-supplement.pdf)\r\n  - [2015 CYP2C19 SSRI translation table](https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703_2015%20CYP2C19%20SSRI%20translation%20table.xlsx)\r\n  - [CYP2C19 frequency table legend](https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703_CYP2C19%20frequency%20table%20legend.pdf)\r\n  - [CYP2C19 frequency table](https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703_CYP2C19%20frequency%20table.xlsx)\r\n\r\n## Table 1: Dosing recommendations for sertraline based on CYP2C19 phenotype:\r\n\r\n_Adapted from Tables 1 and 3b of the 2015 guideline manuscript._\r\n\r\n| Likely phenotype | Genotypes | Examples of CYP2C19 diplotypes | Implications for sertraline metabolism | Therapeutic Recommendations | Classification of recommendations ^a^|\r\n| --- | --- | --- | --- | --- | --- |\r\n| Ultrarapid metabolizer (~5-30% of patients) ^b^ |  An individual carrying two increased function alleles or one normal function allele and one increased function allele | *17/*17, *1/*17 | Increased metabolism when compared to extensive metabolizers. | Initiate therapy with recommended starting dose. If patient does not respond to recommended maintenance dosing, consider alternative drug not predominantly metabolized by CYP2C19.^c^ | Optional |\r\n| Extensive metabolizer (~35-50% of patients)   | An individual carrying two normal function alleles | *1/*1 | Normal metabolism | Initiate therapy with recommended starting dose. | Strong |\r\n| Intermediate metabolizer (~18-45% of patients) | An individual carrying one normal function allele or one increased function allele and one no function allele | *1/*2, *1/*3, *2/*17 ^d^ | Reduced metabolism when compared to extensive metabolizers. | Initiate therapy with recommended starting dose. | Strong |\r\n| Poor metabolizer (~2-15% of patients) | An individual carrying two no function alleles  | *2/*2, *2/*3, *3/*3 | Greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects. | Consider a 50% reduction ^e^ of recommended starting dose and titrate to response or select alternative drug not predominantly metabolized by CYP2C19.^c^  | Optional |\r\n\r\n^a^ Rating scheme described in Supplement.\r\n\r\n^b^ CYP2C19 metabolizer status frequencies are based on average multi-ethnic frequency. \r\n\r\n^c^ Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.\r\n\r\n^d^ The predicted metabolizer phenotype for the*2/*17 genotypes is a provisional classification. The currently available evidence indicates that the CYP2C19*17 increased function allele is unable to completely compensate for the no function CYP2C19*2. See Supplemental Materials for a more comprehensive list of predicted metabolizer phenotypes.\r\n\r\n^e^ Percent dose adjustments corresponding to percent difference in oral clearances have been calculated/estimated by Stingl et al. [PMID: 22565785].",
       "pmids" : [ "22565785" ],
       "relatedObjects" : [ ],
-      "version" : 5
+      "version" : 9
     },
-    "version" : 22,
+    "version" : 82,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983477,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/"} ]
   },
   "annotationGroups" : [ {
@@ -59,7 +59,7 @@
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128765",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128765",
-    "name" : "Extensive",
+    "name" : "Normal Metabolizer",
     "annotations" : [ {
       "id" : 1445562018,
       "history" : [ ],
@@ -82,19 +82,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445562019,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986717,
         "externalLinks" : [ ],
-        "html" : "<p>Extensive metabolizer (~35-50% of patients)</p>\n",
+        "html" : "<p>Normal Metabolizer</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [Article:<a href=\"/pmid/27441996\">27441996</a>] for drug metabolizing enzymes.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Extensive metabolizer (~35-50% of patients)",
-        "pmids" : [ ],
+        "markdown" : "Normal Metabolizer\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [PMID:27441996] for drug metabolizing enzymes._",
+        "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 3
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -106,7 +106,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 12
     }, {
       "id" : 1445562020,
       "history" : [ ],
@@ -129,7 +129,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445562021,
       "history" : [ ],
@@ -152,18 +152,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "CYP2C19:*1/*1", "CYP2C19:*1/*11", "CYP2C19:*1/*13", "CYP2C19:*1/*15", "CYP2C19:*1/*18", "CYP2C19:*1/*28", "CYP2C19:*11/*11", "CYP2C19:*11/*13", "CYP2C19:*11/*15", "CYP2C19:*11/*18", "CYP2C19:*11/*28", "CYP2C19:*13/*13", "CYP2C19:*13/*15", "CYP2C19:*13/*18", "CYP2C19:*13/*28", "CYP2C19:*15/*15", "CYP2C19:*15/*18", "CYP2C19:*15/*28", "CYP2C19:*18/*18", "CYP2C19:*18/*28", "CYP2C19:*28/*28" ],
+    "genePhenotypes" : [ "CYP2C19:Normal Function/Normal Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166127639",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166127639",
       "name" : "CPIC Guideline for sertraline and CYP2C19",
-      "version" : 22
+      "version" : 82
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -173,25 +181,25 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 5
+    "version" : 33
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128767",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128767",
-    "name" : "Intermediate",
+    "name" : "Intermediate Metabolizer",
     "annotations" : [ {
       "id" : 1445562026,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986720,
         "externalLinks" : [ ],
-        "html" : "<p>Reduced metabolism when compared to extensive metabolizers.</p>\n",
+        "html" : "<p>Reduced metabolism when compared to normal metabolizers.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Reduced metabolism when compared to extensive metabolizers.",
+        "markdown" : "Reduced metabolism when compared to normal metabolizers.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
@@ -202,19 +210,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 5
+      "version" : 9
     }, {
       "id" : 1445562027,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986721,
         "externalLinks" : [ ],
-        "html" : "<p>Intermediate metabolizer (~18-45% of patients)</p>\n",
+        "html" : "<p>Intermediate Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Intermediate metabolizer (~18-45% of patients)",
+        "markdown" : "Intermediate Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -226,7 +234,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 9
     }, {
       "id" : 1445562028,
       "history" : [ ],
@@ -249,7 +257,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 11
     }, {
       "id" : 1445562029,
       "history" : [ ],
@@ -272,18 +280,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "CYP2C19:*1/*2", "CYP2C19:*1/*22", "CYP2C19:*1/*24", "CYP2C19:*1/*3", "CYP2C19:*1/*4", "CYP2C19:*1/*5", "CYP2C19:*1/*6", "CYP2C19:*1/*7", "CYP2C19:*1/*8", "CYP2C19:*11/*22", "CYP2C19:*11/*24", "CYP2C19:*13/*22", "CYP2C19:*13/*24", "CYP2C19:*15/*22", "CYP2C19:*15/*24", "CYP2C19:*17/*22", "CYP2C19:*17/*24", "CYP2C19:*18/*22", "CYP2C19:*18/*24", "CYP2C19:*2/*11", "CYP2C19:*2/*13", "CYP2C19:*2/*15", "CYP2C19:*2/*17", "CYP2C19:*2/*18", "CYP2C19:*2/*28", "CYP2C19:*22/*28", "CYP2C19:*24/*28", "CYP2C19:*3/*11", "CYP2C19:*3/*13", "CYP2C19:*3/*15", "CYP2C19:*3/*17", "CYP2C19:*3/*18", "CYP2C19:*3/*28", "CYP2C19:*4/*11", "CYP2C19:*4/*13", "CYP2C19:*4/*15", "CYP2C19:*4/*17", "CYP2C19:*4/*18", "CYP2C19:*4/*28", "CYP2C19:*5/*11", "CYP2C19:*5/*13", "CYP2C19:*5/*15", "CYP2C19:*5/*17", "CYP2C19:*5/*18", "CYP2C19:*5/*28", "CYP2C19:*6/*11", "CYP2C19:*6/*13", "CYP2C19:*6/*15", "CYP2C19:*6/*17", "CYP2C19:*6/*18", "CYP2C19:*6/*28", "CYP2C19:*7/*11", "CYP2C19:*7/*13", "CYP2C19:*7/*15", "CYP2C19:*7/*17", "CYP2C19:*7/*18", "CYP2C19:*7/*28", "CYP2C19:*8/*11", "CYP2C19:*8/*13", "CYP2C19:*8/*15", "CYP2C19:*8/*17", "CYP2C19:*8/*18", "CYP2C19:*8/*28" ],
+    "genePhenotypes" : [ "CYP2C19:Increased Function/No Function", "CYP2C19:No Function/Normal Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166127639",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166127639",
       "name" : "CPIC Guideline for sertraline and CYP2C19",
-      "version" : 22
+      "version" : 82
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -293,7 +309,7 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 5
+    "version" : 32
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128768",
@@ -306,12 +322,12 @@
       "markdown" : {
         "id" : 1447986724,
         "externalLinks" : [ ],
-        "html" : "<p>Likely to have reduced metabolism when compared to extensive metabolizers.</p>\n",
+        "html" : "<p>Likely to have reduced metabolism when compared to normal metabolizers.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Likely to have reduced metabolism when compared to extensive metabolizers.",
+        "markdown" : "Likely to have reduced metabolism when compared to normal metabolizers.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
@@ -322,19 +338,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 5
+      "version" : 9
     }, {
       "id" : 1445562031,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986726,
         "externalLinks" : [ ],
-        "html" : "<p>Likely Intermediate metabolizer</p>\n<p><em>Limited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with two decreased function alleles OR patients with one normal or increased function allele AND one decreased function allele are categorized as “likely intermediate metabolizers” (e.g., CYP2C19*1/*9, *9/*9, *9/*17). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed “likely intermediate” metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data.</em></p>\n",
+        "html" : "<p>Likely Intermediate Metabolizer</p>\n<p><em>Limited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with two decreased function alleles OR patients with one normal or increased function allele AND one decreased function allele are categorized as “likely intermediate metabolizers” (e.g., CYP2C19*1/*9, *9/*9, *9/*17). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed “likely intermediate” metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Likely Intermediate metabolizer \n\n_Limited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with two decreased function alleles OR patients with one normal or increased function allele AND one decreased function allele are categorized as “likely intermediate metabolizers” (e.g., CYP2C19*1/*9, *9/*9, *9/*17). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed “likely intermediate” metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data._",
+        "markdown" : "Likely Intermediate Metabolizer \r\n\r\n_Limited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with two decreased function alleles OR patients with one normal or increased function allele AND one decreased function allele are categorized as “likely intermediate metabolizers” (e.g., CYP2C19*1/*9, *9/*9, *9/*17). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed “likely intermediate” metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data._",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -346,7 +362,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 13
     }, {
       "id" : 1445562032,
       "history" : [ ],
@@ -369,7 +385,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 9
     }, {
       "id" : 1445562033,
       "history" : [ ],
@@ -392,18 +408,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genotypes" : [ "CYP2C19:*1/*10", "CYP2C19:*1/*16", "CYP2C19:*1/*19", "CYP2C19:*1/*25", "CYP2C19:*1/*26", "CYP2C19:*1/*9", "CYP2C19:*10/*10", "CYP2C19:*10/*11", "CYP2C19:*10/*13", "CYP2C19:*10/*15", "CYP2C19:*10/*16", "CYP2C19:*10/*17", "CYP2C19:*10/*18", "CYP2C19:*10/*19", "CYP2C19:*10/*25", "CYP2C19:*10/*26", "CYP2C19:*10/*28", "CYP2C19:*11/*16", "CYP2C19:*11/*19", "CYP2C19:*11/*25", "CYP2C19:*11/*26", "CYP2C19:*13/*16", "CYP2C19:*13/*19", "CYP2C19:*13/*25", "CYP2C19:*13/*26", "CYP2C19:*15/*16", "CYP2C19:*15/*19", "CYP2C19:*15/*25", "CYP2C19:*15/*26", "CYP2C19:*16/*16", "CYP2C19:*16/*17", "CYP2C19:*16/*18", "CYP2C19:*16/*19", "CYP2C19:*16/*25", "CYP2C19:*16/*26", "CYP2C19:*16/*28", "CYP2C19:*17/*19", "CYP2C19:*17/*25", "CYP2C19:*17/*26", "CYP2C19:*18/*19", "CYP2C19:*18/*25", "CYP2C19:*18/*26", "CYP2C19:*19/*19", "CYP2C19:*19/*25", "CYP2C19:*19/*26", "CYP2C19:*19/*28", "CYP2C19:*25/*25", "CYP2C19:*25/*26", "CYP2C19:*25/*28", "CYP2C19:*26/*26", "CYP2C19:*26/*28", "CYP2C19:*9/*10", "CYP2C19:*9/*11", "CYP2C19:*9/*13", "CYP2C19:*9/*15", "CYP2C19:*9/*16", "CYP2C19:*9/*17", "CYP2C19:*9/*18", "CYP2C19:*9/*19", "CYP2C19:*9/*25", "CYP2C19:*9/*26", "CYP2C19:*9/*28", "CYP2C19:*9/*9" ],
+    "genePhenotypes" : [ "CYP2C19:Decreased Function/Decreased Function", "CYP2C19:Decreased Function/Increased Function", "CYP2C19:Decreased Function/Normal Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166127639",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166127639",
       "name" : "CPIC Guideline for sertraline and CYP2C19",
-      "version" : 22
+      "version" : 82
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -414,25 +438,25 @@
       "termId" : "guidelineStrength:981501929",
       "version" : 1
     },
-    "version" : 6
+    "version" : 31
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128769",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128769",
-    "name" : "Likely Poor",
+    "name" : "Likely Poor Metabolizer",
     "annotations" : [ {
       "id" : 1445562035,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986730,
         "externalLinks" : [ ],
-        "html" : "<p>Likely to have greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.</p>\n",
+        "html" : "<p>Likely to have greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Likely to have greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "markdown" : "Likely to have greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
@@ -443,7 +467,7 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 5
+      "version" : 9
     }, {
       "id" : 1445562036,
       "history" : [ ],
@@ -467,7 +491,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 6
+      "version" : 11
     }, {
       "id" : 1445562034,
       "history" : [ ],
@@ -490,7 +514,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445562037,
       "history" : [ ],
@@ -513,18 +537,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 10
     } ],
-    "genotypes" : [ "CYP2C19:*10/*22", "CYP2C19:*10/*24", "CYP2C19:*16/*22", "CYP2C19:*16/*24", "CYP2C19:*19/*22", "CYP2C19:*19/*24", "CYP2C19:*2/*10", "CYP2C19:*2/*16", "CYP2C19:*2/*19", "CYP2C19:*2/*25", "CYP2C19:*2/*26", "CYP2C19:*2/*9", "CYP2C19:*22/*25", "CYP2C19:*22/*26", "CYP2C19:*24/*25", "CYP2C19:*24/*26", "CYP2C19:*3/*10", "CYP2C19:*3/*16", "CYP2C19:*3/*19", "CYP2C19:*3/*25", "CYP2C19:*3/*26", "CYP2C19:*3/*9", "CYP2C19:*4/*10", "CYP2C19:*4/*16", "CYP2C19:*4/*19", "CYP2C19:*4/*25", "CYP2C19:*4/*26", "CYP2C19:*4/*9", "CYP2C19:*5/*10", "CYP2C19:*5/*16", "CYP2C19:*5/*19", "CYP2C19:*5/*25", "CYP2C19:*5/*26", "CYP2C19:*5/*9", "CYP2C19:*6/*10", "CYP2C19:*6/*16", "CYP2C19:*6/*19", "CYP2C19:*6/*25", "CYP2C19:*6/*26", "CYP2C19:*6/*9", "CYP2C19:*7/*10", "CYP2C19:*7/*16", "CYP2C19:*7/*19", "CYP2C19:*7/*25", "CYP2C19:*7/*26", "CYP2C19:*7/*9", "CYP2C19:*8/*10", "CYP2C19:*8/*16", "CYP2C19:*8/*19", "CYP2C19:*8/*25", "CYP2C19:*8/*26", "CYP2C19:*8/*9", "CYP2C19:*9/*22", "CYP2C19:*9/*24" ],
+    "genePhenotypes" : [ "CYP2C19:Decreased Function/No Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166127639",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166127639",
       "name" : "CPIC Guideline for sertraline and CYP2C19",
-      "version" : 22
+      "version" : 82
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -535,25 +567,25 @@
       "termId" : "guidelineStrength:981501929",
       "version" : 1
     },
-    "version" : 6
+    "version" : 29
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128770",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128770",
-    "name" : "Poor",
+    "name" : "Poor Metabolizer",
     "annotations" : [ {
       "id" : 1445562038,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986733,
         "externalLinks" : [ ],
-        "html" : "<p>Greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.</p>\n",
+        "html" : "<p>Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "markdown" : "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
@@ -564,19 +596,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 5
+      "version" : 9
     }, {
       "id" : 1445562039,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986734,
         "externalLinks" : [ ],
-        "html" : "<p>Poor metabolizer (~2-15% of patients)</p>\n",
+        "html" : "<p>Poor Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Poor metabolizer (~2-15% of patients)",
+        "markdown" : "Poor Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -588,7 +620,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 9
     }, {
       "id" : 1445562040,
       "history" : [ ],
@@ -611,7 +643,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445562041,
       "history" : [ ],
@@ -634,18 +666,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 10
     } ],
-    "genotypes" : [ "CYP2C19:*2/*2", "CYP2C19:*2/*22", "CYP2C19:*2/*24", "CYP2C19:*2/*3", "CYP2C19:*2/*4", "CYP2C19:*2/*5", "CYP2C19:*2/*6", "CYP2C19:*2/*7", "CYP2C19:*2/*8", "CYP2C19:*22/*22", "CYP2C19:*22/*24", "CYP2C19:*24/*24", "CYP2C19:*3/*22", "CYP2C19:*3/*24", "CYP2C19:*3/*3", "CYP2C19:*3/*4", "CYP2C19:*3/*5", "CYP2C19:*3/*6", "CYP2C19:*3/*7", "CYP2C19:*3/*8", "CYP2C19:*4/*22", "CYP2C19:*4/*24", "CYP2C19:*4/*4", "CYP2C19:*4/*5", "CYP2C19:*4/*6", "CYP2C19:*4/*7", "CYP2C19:*4/*8", "CYP2C19:*5/*22", "CYP2C19:*5/*24", "CYP2C19:*5/*5", "CYP2C19:*5/*6", "CYP2C19:*5/*7", "CYP2C19:*5/*8", "CYP2C19:*6/*22", "CYP2C19:*6/*24", "CYP2C19:*6/*6", "CYP2C19:*6/*7", "CYP2C19:*6/*8", "CYP2C19:*7/*22", "CYP2C19:*7/*24", "CYP2C19:*7/*7", "CYP2C19:*7/*8", "CYP2C19:*8/*22", "CYP2C19:*8/*24", "CYP2C19:*8/*8" ],
+    "genePhenotypes" : [ "CYP2C19:No Function/No Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166127639",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166127639",
       "name" : "CPIC Guideline for sertraline and CYP2C19",
-      "version" : 22
+      "version" : 82
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -655,25 +695,25 @@
       "termId" : "guidelineStrength:981565059",
       "version" : 0
     },
-    "version" : 6
+    "version" : 34
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128771",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128771",
-    "name" : "Ultrarapid",
+    "name" : "Ultrarapid Metabolizer",
     "annotations" : [ {
       "id" : 1445562042,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986737,
         "externalLinks" : [ ],
-        "html" : "<p>Increased metabolism when compared to extensive metabolizers. Lower plasma concentrations will increase probability of pharmacotherapy failure.</p>\n",
+        "html" : "<p>Increased metabolism when compared to normal metabolizers. Lower plasma concentrations will increase probability of pharmacotherapy failure.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Increased metabolism when compared to extensive metabolizers. Lower plasma concentrations will increase probability of pharmacotherapy failure.",
+        "markdown" : "Increased metabolism when compared to normal metabolizers. Lower plasma concentrations will increase probability of pharmacotherapy failure.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
@@ -684,19 +724,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 5
+      "version" : 9
     }, {
       "id" : 1445562043,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986738,
         "externalLinks" : [ ],
-        "html" : "<p>Ultrarapid metabolizer (~5-30% of patients)</p>\n",
+        "html" : "<p>Ultrarapid Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Ultrarapid metabolizer (~5-30% of patients)",
+        "markdown" : "Ultrarapid Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -708,19 +748,19 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 9
     }, {
       "id" : 1445562044,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986739,
         "externalLinks" : [ ],
-        "html" : "<p>An individual carrying two increased function alleles or one normal function allele and one increased function allele</p>\n",
+        "html" : "<p>An individual carrying two increased function alleles</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "An individual carrying two increased function alleles or one normal function allele and one increased function allele",
+        "markdown" : "An individual carrying two increased function alleles",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -731,7 +771,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 5
+      "version" : 9
     }, {
       "id" : 1445562045,
       "history" : [ ],
@@ -754,18 +794,26 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 10
     } ],
-    "genotypes" : [ "CYP2C19:*1/*17", "CYP2C19:*11/*17", "CYP2C19:*13/*17", "CYP2C19:*15/*17", "CYP2C19:*17/*17", "CYP2C19:*17/*18", "CYP2C19:*17/*28" ],
+    "genePhenotypes" : [ "CYP2C19:Increased Function/Increased Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166127639",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166127639",
       "name" : "CPIC Guideline for sertraline and CYP2C19",
-      "version" : 22
+      "version" : 82
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -775,6 +823,301 @@
       "termId" : "guidelineStrength:981565059",
       "version" : 0
     },
-    "version" : 5
-  } ]
+    "version" : 35
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162348",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162348",
+    "name" : "Rapid Metabolizer",
+    "annotations" : [ {
+      "id" : 1448531307,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531306,
+        "externalLinks" : [ ],
+        "html" : "<p>Increased metabolism when compared to normal metabolizers. Lower plasma concentrations will increase probability of pharmacotherapy failure.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Increased metabolism when compared to normal metabolizers. Lower plasma concentrations will increase probability of pharmacotherapy failure.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448531309,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531308,
+        "externalLinks" : [ ],
+        "html" : "<p>Rapid Metabolizer</p>\n<p><em>*1/*17 is defined as CYP2C19 Rapid Metabolizer based on the CPIC Term Standardization project (07/2016, PMID: 27441996). Please note, in the sertraline guideline, *1/*17 is grouped with *17/*17 under CYP2C19 'ultrarapid' metabolizer.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Rapid Metabolizer\r\n\r\n_*1/*17 is defined as CYP2C19 Rapid Metabolizer based on the CPIC Term Standardization project (07/2016, PMID: 27441996). Please note, in the sertraline guideline, *1/*17 is grouped with *17/*17 under CYP2C19 'ultrarapid' metabolizer._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 4
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 7
+    }, {
+      "id" : 1448531305,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531304,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one increased and one normal function allele</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one increased and one normal function allele",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448531311,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531310,
+        "externalLinks" : [ ],
+        "html" : "<p>Initiate therapy with recommended starting dose. If patient does not respond to recommended maintenance dosing, consider alternative drug not predominantly metabolized by CYP2C19.</p>\n<p><em>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Initiate therapy with recommended starting dose. If patient does not respond to recommended maintenance dosing, consider alternative drug not predominantly metabolized by CYP2C19.\r\n\r\n_Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 2
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Increased Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166127639",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166127639",
+      "name" : "CPIC Guideline for sertraline and CYP2C19",
+      "version" : 82
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981565059,
+      "resource" : "Guideline Strength",
+      "term" : "Optional",
+      "termId" : "guidelineStrength:981565059",
+      "version" : 0
+    },
+    "version" : 22
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162349",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162349",
+    "name" : "Indeterminate",
+    "annotations" : [ {
+      "id" : 1448531315,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531314,
+        "externalLinks" : [ ],
+        "html" : "<p>N/A</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "N/A",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448531317,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531316,
+        "externalLinks" : [ ],
+        "html" : "<p>Indeterminate</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448531313,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531312,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two unknown/uncertain function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown/uncertain function alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 4
+    }, {
+      "id" : 1448531319,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531318,
+        "externalLinks" : [ ],
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 2
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Decreased Function/Unknown or Uncertain Function", "CYP2C19:Increased Function/Unknown or Uncertain Function", "CYP2C19:No Function/Unknown or Uncertain Function", "CYP2C19:Normal Function/Unknown or Uncertain Function", "CYP2C19:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166127639",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166127639",
+      "name" : "CPIC Guideline for sertraline and CYP2C19",
+      "version" : 82
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 17
+  } ],
+  "genePhenotypes" : {
+    "CYP2C19" : {
+      "*1" : "Normal Function",
+      "*2" : "No Function",
+      "*3" : "No Function",
+      "*4A" : "No Function",
+      "*4B" : "No Function",
+      "*5" : "No Function",
+      "*6" : "No Function",
+      "*7" : "No Function",
+      "*8" : "No Function",
+      "*9" : "Decreased Function",
+      "*10" : "Decreased Function",
+      "*11" : "Normal Function",
+      "*12" : "Unknown or Uncertain Function",
+      "*13" : "Normal Function",
+      "*14" : "Unknown or Uncertain Function",
+      "*15" : "Normal Function",
+      "*16" : "Decreased Function",
+      "*17" : "Increased Function",
+      "*18" : "Normal Function",
+      "*19" : "Decreased Function",
+      "*22" : "No Function",
+      "*23" : "Unknown or Uncertain Function",
+      "*24" : "No Function",
+      "*25" : "Decreased Function",
+      "*26" : "Decreased Function",
+      "*27" : "Unknown or Uncertain Function",
+      "*28" : "Normal Function",
+      "*29" : "Unknown or Uncertain Function",
+      "*30" : "Unknown or Uncertain Function",
+      "*31" : "Unknown or Uncertain Function",
+      "*32" : "Unknown or Uncertain Function",
+      "*33" : "Unknown or Uncertain Function",
+      "*34" : "Unknown or Uncertain Function",
+      "*35" : "No Function"
+    }
+  }
 }

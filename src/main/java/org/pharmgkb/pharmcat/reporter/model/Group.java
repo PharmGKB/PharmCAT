@@ -19,14 +19,14 @@ public class Group implements Comparable<Group> {
   @SerializedName("annotations")
   private List<Annotation> annotations = new ArrayList<>();
   @Expose
-  @SerializedName("genotypes")
-  private List<String> genotypes = new ArrayList<>();
-  @Expose
   @SerializedName("strength")
   private OntologyTerm strength;
   @Expose
   @SerializedName("rxChangeStatus")
   private OntologyTerm rxChange;
+  @Expose
+  @SerializedName("genePhenotypes")
+  private List<String> genePhenotypes = new ArrayList<>();
 
 
   public String getId() {
@@ -56,12 +56,12 @@ public class Group implements Comparable<Group> {
   }
 
 
-  public List<String> getGenotypes() {
-    return genotypes;
+  public List<String> getGenePhenotypes() {
+    return genePhenotypes;
   }
 
-  public void setGenotypes(List<String> genotypes) {
-    this.genotypes = genotypes;
+  public void setGenePhenotypes(List<String> genePhenotypes) {
+    this.genePhenotypes = genePhenotypes;
   }
 
 
@@ -72,6 +72,7 @@ public class Group implements Comparable<Group> {
   public void setStrength(OntologyTerm strength) {
     this.strength = strength;
   }
+
 
   public OntologyTerm getRxChange() {
     return rxChange;

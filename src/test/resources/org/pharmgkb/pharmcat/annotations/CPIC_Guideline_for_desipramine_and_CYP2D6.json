@@ -23,7 +23,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
       "id" : "PA449233",
       "name" : "desipramine",
-      "version" : 13
+      "version" : 37
     } ],
     "relatedGenes" : [ {
       "objCls" : "Gene",
@@ -32,7 +32,7 @@
       "id" : "PA128",
       "symbol" : "CYP2D6",
       "name" : "cytochrome P450, family 2, subfamily D, polypeptide 6",
-      "version" : 7887
+      "version" : 7992
     } ],
     "source" : "CPIC",
     "summaryMarkdown" : {
@@ -43,7 +43,7 @@
       "markdown" : "Tricyclic antidepressants have comparable pharmacokinetic properties, it may be reasonable to apply the CPIC Dosing Guideline for amitriptyline/nortriptyline and CYP2C19, CYP2D6 to other tricyclics including desipramine. The CPIC Dosing Guideline update for nortriptyline recommends a 25% dose reduction for CYP2D6 intermediate metabolizers. For CYP2D6 ultrarapid or poor metabolizers, an alternative drug should be considered. If nortriptyline is warranted, consider a 50% dose reduction in CYP2D6 poor metabolizers.",
       "pmids" : [ ],
       "relatedObjects" : [ ],
-      "version" : 1
+      "version" : 2
     },
     "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847845","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847845,"resource":"CPIC Status","term":"B","termId":"cpicStatus:1183847845"} ],
     "textMarkdown" : {
@@ -54,9 +54,9 @@
       "markdown" : "## December 2016 Update\r\n\r\n_Advance online publication December 2016._\r\n- The 2016 update of CPIC guidelines regarding the use of pharmacogenomic tests in dosing of tricyclic antidepressants (TCAs) have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).  Literature up to July 2016 was reviewed, recommendations and supplemental information were updated.\r\n- Excerpt from the 2016 dosing guideline update:\r\n  - \"Both amitriptyline and nortriptyline are used as representative TCAs for this guideline because the majority of pharmacogenomic studies have focused on these two drugs. However, the results of these studies may apply to other TCAs because these drugs have comparable pharmacokinetic properties.\"  \r\n  - \"There is substantial evidence linking _CYP2D6_ genotypes to phenotypic variability in tricyclic side-effect and pharmacokinetic profiles. Modifying pharmacotherapy for patients who have _CYP2D6_ genomic variants that affect drug efficacy and safety could potentially improve clinical outcomes and reduce the failure rate of initial treatment.\"\r\n  - \" There are scarce studies focusing solely on _CYP2D6_ genotype and association with pharmacokinetic parameters or treatment outcomes of TCAs in pediatric patients. CYP2D6 activity is fully mature by early childhood, but CYP2C19 activity may be increased in children relative to adults. Although further genomic ontogeny studies are needed, there is a lack of evidence suggesting that this guideline cannot be extrapolated to pediatric patients.\" \r\n- The guideline includes dosing recommendation for TCAs based on:\r\n  - CYP2D6 phenotype ([Table 1 below](#table-1-dosing-recommendations-for-tcas-based-on-cyp2d6-phenotype)) \r\n- Download and read:  \r\n  - [Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants: 2016 Update](https://github.com/PharmGKB/cpic-guidelines/raw/master/TCA/2016/TCA_2016.pdf) \r\n  - [2016 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/TCA/2016/TCA_Supplement_2016.pdf)\r\n  - [CYP2D6 Gene-specific Information Tables](https://www.pharmgkb.org/page/cyp2d6RefMaterials)\r\n   - [Desipramine Drug Resource Mappings](https://github.com/PharmGKB/cpic-guidelines/raw/master/TCA/2016/Desipramine_Drug_Resource_Mappings.xlsx)\r\n  \r\n## Table 1: Dosing recommendations for TCAs based on CYP2D6 phenotype:\r\n\r\n_Adapted from Tables 1 and 2 of the 2016 guideline update._\r\n\r\n| Likely phenotype | Activity score | Genotypes | Examples of diplotypes | Implications | Therapeutic Recommendations^a, b^ | Classification of recommendation for other TCAs ^c^ |\r\n| --- | --- | --- | --- | --- | --- | --- |\r\n| CYP2D6 Ultrarapid metabolizer (~1-20% of patients)^d^ | >2.0 | An individual carrying more than two copies of functional alleles | *1/*1xN, *1/*2xN | Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure. | Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. // If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments.^e^ | Optional |\r\n| CYP2D6 Normal metabolizer (~72-88% of patients)^d^ | 1.0-2.0^f^ | An individual carrying two normal function alleles or two decreased function alleles or one normal and no function allele or one normal and decreased function allele or combinations of duplicated alleles that result in an activity score of 1.0-2.0 | *1/*1, *1/*2, *2/*2, *1/*9, *1/*41, *41/*41, *1/*4, *1/*5  | Normal metabolism of TCAs. | Initiate therapy with recommended starting dose.^g^ | Strong |\r\n| CYP2D6 Intermediate metabolizer (~1-13% of patients)^d^ | 0.5 | An individual carrying one decreased and one no function allele | *4/*41, *5/*9, *4/*10 | Reduced metabolism of TCAs to less active compounds when compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects. | Consider 25% reduction of recommended starting dose.^g^ Utilize therapeutic drug monitoring to guide dose adjustments.^e^ | Optional |\r\n| CYP2D6 Poor metabolizer (~1-10% of patients)^d^ | 0 | An individual carrying only no function alleles | *4/*4, *4/*4xN, *3/*4, *5/*5, *5/*6  | Greatly reduced metabolism of  TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects. | Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6. // If a TCA is warranted, consider 50% reduction of recommended starting dose.^g^ Utilize therapeutic drug monitoring to guide dose adjustments.^e^ | Optional |\r\n\r\n^a^ For tertiary amines (e.g., amitriptyline), if CYP2C19 genotype results are also available, see Table 2 for CYP2C19-based dosing recommendations and Table 3 below for CYP2D6/CYP2C19-based dosing recommendations. \r\n\r\n^b^ Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations in the guideline for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain. \r\n\r\n^c^ The rating scheme for the recommendation of classification is described in the Supplement. It may be reasonable to apply amitriptyline recommendation to other TCAs also metabolized by CYP2D6 including clomipramine, desipramine, doxepin, imipramine, and trimipramine. There are fewer clinical and pharmacokinetic data supporting genotype-guided dose adjustments for these drugs when compared to amitriptyline or nortriptyline (Supplemental Tables S8-S16).\r\n\r\n^d^ CYP2D6 metabolizer status frequencies are based on average multi-ethnic frequencies. See the CYP2D6 Frequency Tables for population-specific allele and phenotype frequencies.\r\n\r\n^e^ Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. \r\n\r\n^f^ Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories.\r\n\r\n^g^ Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.\r\n\r\n## May 2013\r\n\r\nGuidelines regarding the use of pharmacogenomic tests in dosing for tricyclic antidepressants have been published in Clinical Pharmacology and Therapeutics by the [Clinical Pharmacogenetics Implementation Consortium (CPIC)](https://cpicpgx.org/).\r\n\r\n__Download:__ [article]( https://github.com/PharmGKB/cpic-guidelines/raw/master/TCA/2013/23486447.pdf) and [supplement]( https://github.com/PharmGKB/cpic-guidelines/raw/master/TCA/2013/23486447-supplement.pdf)\r\n\r\n#### Excerpt from the dosing guidelines:\r\n\r\nAmitriptyline and [nortriptyline](http://www.pharmgkb.org/drug/PA450657) are used as model drugs for this guideline because the majority of pharmacogenomic studies have focused on these two drugs. Because the tricyclics have comparable pharmacokinetic properties, it may be reasonable to apply this [guideline](https://github.com/PharmGKB/cpic-guidelines/raw/master/TCA/2013/23486447.pdf) to other tricyclics including clomipramine ([Supplementary Table S15](https://github.com/PharmGKB/cpic-guidelines/raw/master/TCA/2013/23486447-supplement.pdf)), with the acknowledgement that there are fewer data supporting dose adjustments for these drugs than for amitriptyline or nortriptyline.\r\n\r\n\r\nSee [nortriptyline](http://www.pharmgkb.org/drug/PA450657)for excerpts and tables that summarize _CYP2D6_-based and _CYP2C19_-based dosing recommendations for amitriptyline when higher initial starting doses are warranted ([article](https://github.com/PharmGKB/cpic-guidelines/raw/master/TCA/2013/23486447.pdf)).",
       "pmids" : [ ],
       "relatedObjects" : [ ],
-      "version" : 8
+      "version" : 13
     },
-    "version" : 20,
+    "version" : 64,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/http://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983873,"resource":"Web Resource","sameAs":"http%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19%2F","xrefId":"http://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/"} ]
   },
   "annotationGroups" : [ {
@@ -64,7 +64,7 @@
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161986",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161986",
-    "name" : "Extensive",
+    "name" : "Normal Metabolizer",
     "annotations" : [ {
       "id" : 1448526636,
       "history" : [ {
@@ -135,12 +135,12 @@
       "markdown" : {
         "id" : 1448526643,
         "externalLinks" : [ ],
-        "html" : "<p>Normal metabolizer</p>\n",
+        "html" : "<p>Normal Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Normal metabolizer",
+        "markdown" : "Normal Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -152,7 +152,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526645,
       "history" : [ {
@@ -212,16 +212,24 @@
       },
       "version" : 1
     } ],
-    "genotypes" : [ "CYP2D6:*1/*1", "CYP2D6:*1/*10", "CYP2D6:*1/*100", "CYP2D6:*1/*101", "CYP2D6:*1/*10x2", "CYP2D6:*1/*11", "CYP2D6:*1/*12", "CYP2D6:*1/*13", "CYP2D6:*1/*14A", "CYP2D6:*1/*14B", "CYP2D6:*1/*15", "CYP2D6:*1/*17", "CYP2D6:*1/*17x2", "CYP2D6:*1/*18", "CYP2D6:*1/*19", "CYP2D6:*1/*2", "CYP2D6:*1/*20", "CYP2D6:*1/*21", "CYP2D6:*1/*27", "CYP2D6:*1/*29", "CYP2D6:*1/*29x2", "CYP2D6:*1/*3", "CYP2D6:*1/*31", "CYP2D6:*1/*33", "CYP2D6:*1/*34", "CYP2D6:*1/*35", "CYP2D6:*1/*36", "CYP2D6:*1/*36xN", "CYP2D6:*1/*38", "CYP2D6:*1/*39", "CYP2D6:*1/*3xN", "CYP2D6:*1/*4", "CYP2D6:*1/*40", "CYP2D6:*1/*41", "CYP2D6:*1/*41x2", "CYP2D6:*1/*42", "CYP2D6:*1/*44", "CYP2D6:*1/*45", "CYP2D6:*1/*46", "CYP2D6:*1/*47", "CYP2D6:*1/*48", "CYP2D6:*1/*49", "CYP2D6:*1/*4xN", "CYP2D6:*1/*5", "CYP2D6:*1/*50", "CYP2D6:*1/*51", "CYP2D6:*1/*53", "CYP2D6:*1/*54", "CYP2D6:*1/*55", "CYP2D6:*1/*56A", "CYP2D6:*1/*56B", "CYP2D6:*1/*57", "CYP2D6:*1/*59", "CYP2D6:*1/*6", "CYP2D6:*1/*62", "CYP2D6:*1/*68", "CYP2D6:*1/*69", "CYP2D6:*1/*6xN", "CYP2D6:*1/*7", "CYP2D6:*1/*72", "CYP2D6:*1/*8", "CYP2D6:*1/*9", "CYP2D6:*1/*92", "CYP2D6:*1/*9x2", "CYP2D6:*10/*10", "CYP2D6:*10/*10x2", "CYP2D6:*10/*14B", "CYP2D6:*10/*17", "CYP2D6:*10/*17x2", "CYP2D6:*10/*27", "CYP2D6:*10/*29", "CYP2D6:*10/*29x2", "CYP2D6:*10/*33", "CYP2D6:*10/*34", "CYP2D6:*10/*35", "CYP2D6:*10/*39", "CYP2D6:*10/*41", "CYP2D6:*10/*41x2", "CYP2D6:*10/*45", "CYP2D6:*10/*46", "CYP2D6:*10/*48", "CYP2D6:*10/*49", "CYP2D6:*10/*50", "CYP2D6:*10/*53", "CYP2D6:*10/*54", "CYP2D6:*10/*55", "CYP2D6:*10/*59", "CYP2D6:*10/*72", "CYP2D6:*10/*9x2", "CYP2D6:*100/*10x2", "CYP2D6:*100/*17x2", "CYP2D6:*100/*27", "CYP2D6:*100/*29x2", "CYP2D6:*100/*33", "CYP2D6:*100/*34", "CYP2D6:*100/*35", "CYP2D6:*100/*39", "CYP2D6:*100/*41x2", "CYP2D6:*100/*45", "CYP2D6:*100/*46", "CYP2D6:*100/*48", "CYP2D6:*100/*53", "CYP2D6:*100/*9x2", "CYP2D6:*101/*10x2", "CYP2D6:*101/*17x2", "CYP2D6:*101/*27", "CYP2D6:*101/*29x2", "CYP2D6:*101/*33", "CYP2D6:*101/*34", "CYP2D6:*101/*35", "CYP2D6:*101/*39", "CYP2D6:*101/*41x2", "CYP2D6:*101/*45", "CYP2D6:*101/*46", "CYP2D6:*101/*48", "CYP2D6:*101/*53", "CYP2D6:*101/*9x2", "CYP2D6:*10x2/*10x2", "CYP2D6:*10x2/*17x2", "CYP2D6:*10x2/*20", "CYP2D6:*10x2/*21", "CYP2D6:*10x2/*27", "CYP2D6:*10x2/*29", "CYP2D6:*10x2/*29x2", "CYP2D6:*10x2/*31", "CYP2D6:*10x2/*33", "CYP2D6:*10x2/*34", "CYP2D6:*10x2/*35", "CYP2D6:*10x2/*36", "CYP2D6:*10x2/*36xN", "CYP2D6:*10x2/*38", "CYP2D6:*10x2/*39", "CYP2D6:*10x2/*40", "CYP2D6:*10x2/*41", "CYP2D6:*10x2/*41x2", "CYP2D6:*10x2/*42", "CYP2D6:*10x2/*44", "CYP2D6:*10x2/*45", "CYP2D6:*10x2/*46", "CYP2D6:*10x2/*47", "CYP2D6:*10x2/*48", "CYP2D6:*10x2/*49", "CYP2D6:*10x2/*50", "CYP2D6:*10x2/*51", "CYP2D6:*10x2/*53", "CYP2D6:*10x2/*54", "CYP2D6:*10x2/*55", "CYP2D6:*10x2/*56A", "CYP2D6:*10x2/*56B", "CYP2D6:*10x2/*57", "CYP2D6:*10x2/*59", "CYP2D6:*10x2/*62", "CYP2D6:*10x2/*68", "CYP2D6:*10x2/*69", "CYP2D6:*10x2/*72", "CYP2D6:*10x2/*92", "CYP2D6:*10x2/*9x2", "CYP2D6:*11/*10x2", "CYP2D6:*11/*17x2", "CYP2D6:*11/*27", "CYP2D6:*11/*29x2", "CYP2D6:*11/*33", "CYP2D6:*11/*34", "CYP2D6:*11/*35", "CYP2D6:*11/*39", "CYP2D6:*11/*41x2", "CYP2D6:*11/*45", "CYP2D6:*11/*46", "CYP2D6:*11/*48", "CYP2D6:*11/*53", "CYP2D6:*11/*9x2", "CYP2D6:*12/*10x2", "CYP2D6:*12/*17x2", "CYP2D6:*12/*27", "CYP2D6:*12/*29x2", "CYP2D6:*12/*33", "CYP2D6:*12/*34", "CYP2D6:*12/*35", "CYP2D6:*12/*39", "CYP2D6:*12/*41x2", "CYP2D6:*12/*45", "CYP2D6:*12/*46", "CYP2D6:*12/*48", "CYP2D6:*12/*53", "CYP2D6:*12/*9x2", "CYP2D6:*13/*10x2", "CYP2D6:*13/*17x2", "CYP2D6:*13/*27", "CYP2D6:*13/*29x2", "CYP2D6:*13/*33", "CYP2D6:*13/*34", "CYP2D6:*13/*35", "CYP2D6:*13/*39", "CYP2D6:*13/*41x2", "CYP2D6:*13/*45", "CYP2D6:*13/*46", "CYP2D6:*13/*48", "CYP2D6:*13/*53", "CYP2D6:*13/*9x2", "CYP2D6:*14A/*10x2", "CYP2D6:*14A/*17x2", "CYP2D6:*14A/*27", "CYP2D6:*14A/*29x2", "CYP2D6:*14A/*33", "CYP2D6:*14A/*34", "CYP2D6:*14A/*35", "CYP2D6:*14A/*39", "CYP2D6:*14A/*41x2", "CYP2D6:*14A/*45", "CYP2D6:*14A/*46", "CYP2D6:*14A/*48", "CYP2D6:*14A/*53", "CYP2D6:*14A/*9x2", "CYP2D6:*14B/*10x2", "CYP2D6:*14B/*14B", "CYP2D6:*14B/*17", "CYP2D6:*14B/*17x2", "CYP2D6:*14B/*27", "CYP2D6:*14B/*29", "CYP2D6:*14B/*29x2", "CYP2D6:*14B/*33", "CYP2D6:*14B/*34", "CYP2D6:*14B/*35", "CYP2D6:*14B/*39", "CYP2D6:*14B/*41", "CYP2D6:*14B/*41x2", "CYP2D6:*14B/*45", "CYP2D6:*14B/*46", "CYP2D6:*14B/*48", "CYP2D6:*14B/*49", "CYP2D6:*14B/*50", "CYP2D6:*14B/*53", "CYP2D6:*14B/*54", "CYP2D6:*14B/*55", "CYP2D6:*14B/*59", "CYP2D6:*14B/*72", "CYP2D6:*14B/*9x2", "CYP2D6:*15/*10x2", "CYP2D6:*15/*17x2", "CYP2D6:*15/*27", "CYP2D6:*15/*29x2", "CYP2D6:*15/*33", "CYP2D6:*15/*34", "CYP2D6:*15/*35", "CYP2D6:*15/*39", "CYP2D6:*15/*41x2", "CYP2D6:*15/*45", "CYP2D6:*15/*46", "CYP2D6:*15/*48", "CYP2D6:*15/*53", "CYP2D6:*15/*9x2", "CYP2D6:*17/*10x2", "CYP2D6:*17/*17", "CYP2D6:*17/*17x2", "CYP2D6:*17/*27", "CYP2D6:*17/*29", "CYP2D6:*17/*29x2", "CYP2D6:*17/*33", "CYP2D6:*17/*34", "CYP2D6:*17/*35", "CYP2D6:*17/*39", "CYP2D6:*17/*41", "CYP2D6:*17/*41x2", "CYP2D6:*17/*45", "CYP2D6:*17/*46", "CYP2D6:*17/*48", "CYP2D6:*17/*49", "CYP2D6:*17/*50", "CYP2D6:*17/*53", "CYP2D6:*17/*54", "CYP2D6:*17/*55", "CYP2D6:*17/*59", "CYP2D6:*17/*72", "CYP2D6:*17/*9x2", "CYP2D6:*17x2/*17x2", "CYP2D6:*17x2/*20", "CYP2D6:*17x2/*21", "CYP2D6:*17x2/*27", "CYP2D6:*17x2/*29", "CYP2D6:*17x2/*29x2", "CYP2D6:*17x2/*31", "CYP2D6:*17x2/*33", "CYP2D6:*17x2/*34", "CYP2D6:*17x2/*35", "CYP2D6:*17x2/*36", "CYP2D6:*17x2/*36xN", "CYP2D6:*17x2/*38", "CYP2D6:*17x2/*39", "CYP2D6:*17x2/*40", "CYP2D6:*17x2/*41", "CYP2D6:*17x2/*41x2", "CYP2D6:*17x2/*42", "CYP2D6:*17x2/*44", "CYP2D6:*17x2/*45", "CYP2D6:*17x2/*46", "CYP2D6:*17x2/*47", "CYP2D6:*17x2/*48", "CYP2D6:*17x2/*49", "CYP2D6:*17x2/*50", "CYP2D6:*17x2/*51", "CYP2D6:*17x2/*53", "CYP2D6:*17x2/*54", "CYP2D6:*17x2/*55", "CYP2D6:*17x2/*56A", "CYP2D6:*17x2/*56B", "CYP2D6:*17x2/*57", "CYP2D6:*17x2/*59", "CYP2D6:*17x2/*62", "CYP2D6:*17x2/*68", "CYP2D6:*17x2/*69", "CYP2D6:*17x2/*72", "CYP2D6:*17x2/*92", "CYP2D6:*17x2/*9x2", "CYP2D6:*18/*10x2", "CYP2D6:*18/*17x2", "CYP2D6:*18/*27", "CYP2D6:*18/*29x2", "CYP2D6:*18/*33", "CYP2D6:*18/*34", "CYP2D6:*18/*35", "CYP2D6:*18/*39", "CYP2D6:*18/*41x2", "CYP2D6:*18/*45", "CYP2D6:*18/*46", "CYP2D6:*18/*48", "CYP2D6:*18/*53", "CYP2D6:*18/*9x2", "CYP2D6:*19/*10x2", "CYP2D6:*19/*17x2", "CYP2D6:*19/*27", "CYP2D6:*19/*29x2", "CYP2D6:*19/*33", "CYP2D6:*19/*34", "CYP2D6:*19/*35", "CYP2D6:*19/*39", "CYP2D6:*19/*41x2", "CYP2D6:*19/*45", "CYP2D6:*19/*46", "CYP2D6:*19/*48", "CYP2D6:*19/*53", "CYP2D6:*19/*9x2", "CYP2D6:*2/*10", "CYP2D6:*2/*100", "CYP2D6:*2/*101", "CYP2D6:*2/*10x2", "CYP2D6:*2/*11", "CYP2D6:*2/*12", "CYP2D6:*2/*13", "CYP2D6:*2/*14A", "CYP2D6:*2/*14B", "CYP2D6:*2/*15", "CYP2D6:*2/*17", "CYP2D6:*2/*17x2", "CYP2D6:*2/*18", "CYP2D6:*2/*19", "CYP2D6:*2/*2", "CYP2D6:*2/*20", "CYP2D6:*2/*21", "CYP2D6:*2/*27", "CYP2D6:*2/*29", "CYP2D6:*2/*29x2", "CYP2D6:*2/*3", "CYP2D6:*2/*31", "CYP2D6:*2/*33", "CYP2D6:*2/*34", "CYP2D6:*2/*35", "CYP2D6:*2/*36", "CYP2D6:*2/*36xN", "CYP2D6:*2/*38", "CYP2D6:*2/*39", "CYP2D6:*2/*3xN", "CYP2D6:*2/*4", "CYP2D6:*2/*40", "CYP2D6:*2/*41", "CYP2D6:*2/*41x2", "CYP2D6:*2/*42", "CYP2D6:*2/*44", "CYP2D6:*2/*45", "CYP2D6:*2/*46", "CYP2D6:*2/*47", "CYP2D6:*2/*48", "CYP2D6:*2/*49", "CYP2D6:*2/*4xN", "CYP2D6:*2/*5", "CYP2D6:*2/*50", "CYP2D6:*2/*51", "CYP2D6:*2/*53", "CYP2D6:*2/*54", "CYP2D6:*2/*55", "CYP2D6:*2/*56A", "CYP2D6:*2/*56B", "CYP2D6:*2/*57", "CYP2D6:*2/*59", "CYP2D6:*2/*6", "CYP2D6:*2/*62", "CYP2D6:*2/*68", "CYP2D6:*2/*69", "CYP2D6:*2/*6xN", "CYP2D6:*2/*7", "CYP2D6:*2/*72", "CYP2D6:*2/*8", "CYP2D6:*2/*9", "CYP2D6:*2/*92", "CYP2D6:*2/*9x2", "CYP2D6:*20/*27", "CYP2D6:*20/*29x2", "CYP2D6:*20/*33", "CYP2D6:*20/*34", "CYP2D6:*20/*35", "CYP2D6:*20/*39", "CYP2D6:*20/*41x2", "CYP2D6:*20/*45", "CYP2D6:*20/*46", "CYP2D6:*20/*48", "CYP2D6:*20/*53", "CYP2D6:*20/*9x2", "CYP2D6:*21/*27", "CYP2D6:*21/*29x2", "CYP2D6:*21/*33", "CYP2D6:*21/*34", "CYP2D6:*21/*35", "CYP2D6:*21/*39", "CYP2D6:*21/*41x2", "CYP2D6:*21/*45", "CYP2D6:*21/*46", "CYP2D6:*21/*48", "CYP2D6:*21/*53", "CYP2D6:*21/*9x2", "CYP2D6:*27/*27", "CYP2D6:*27/*29", "CYP2D6:*27/*29x2", "CYP2D6:*27/*31", "CYP2D6:*27/*33", "CYP2D6:*27/*34", "CYP2D6:*27/*35", "CYP2D6:*27/*36", "CYP2D6:*27/*36xN", "CYP2D6:*27/*38", "CYP2D6:*27/*39", "CYP2D6:*27/*40", "CYP2D6:*27/*41", "CYP2D6:*27/*41x2", "CYP2D6:*27/*42", "CYP2D6:*27/*44", "CYP2D6:*27/*45", "CYP2D6:*27/*46", "CYP2D6:*27/*47", "CYP2D6:*27/*48", "CYP2D6:*27/*49", "CYP2D6:*27/*50", "CYP2D6:*27/*51", "CYP2D6:*27/*53", "CYP2D6:*27/*54", "CYP2D6:*27/*55", "CYP2D6:*27/*56A", "CYP2D6:*27/*56B", "CYP2D6:*27/*57", "CYP2D6:*27/*59", "CYP2D6:*27/*62", "CYP2D6:*27/*68", "CYP2D6:*27/*69", "CYP2D6:*27/*72", "CYP2D6:*27/*92", "CYP2D6:*27/*9x2", "CYP2D6:*29/*29", "CYP2D6:*29/*29x2", "CYP2D6:*29/*33", "CYP2D6:*29/*34", "CYP2D6:*29/*35", "CYP2D6:*29/*39", "CYP2D6:*29/*41", "CYP2D6:*29/*41x2", "CYP2D6:*29/*45", "CYP2D6:*29/*46", "CYP2D6:*29/*48", "CYP2D6:*29/*49", "CYP2D6:*29/*50", "CYP2D6:*29/*53", "CYP2D6:*29/*54", "CYP2D6:*29/*55", "CYP2D6:*29/*59", "CYP2D6:*29/*72", "CYP2D6:*29/*9x2", "CYP2D6:*29x2/*29x2", "CYP2D6:*29x2/*31", "CYP2D6:*29x2/*33", "CYP2D6:*29x2/*34", "CYP2D6:*29x2/*35", "CYP2D6:*29x2/*36", "CYP2D6:*29x2/*36xN", "CYP2D6:*29x2/*38", "CYP2D6:*29x2/*39", "CYP2D6:*29x2/*40", "CYP2D6:*29x2/*41", "CYP2D6:*29x2/*41x2", "CYP2D6:*29x2/*42", "CYP2D6:*29x2/*44", "CYP2D6:*29x2/*45", "CYP2D6:*29x2/*46", "CYP2D6:*29x2/*47", "CYP2D6:*29x2/*48", "CYP2D6:*29x2/*49", "CYP2D6:*29x2/*50", "CYP2D6:*29x2/*51", "CYP2D6:*29x2/*53", "CYP2D6:*29x2/*54", "CYP2D6:*29x2/*55", "CYP2D6:*29x2/*56A", "CYP2D6:*29x2/*56B", "CYP2D6:*29x2/*57", "CYP2D6:*29x2/*59", "CYP2D6:*29x2/*62", "CYP2D6:*29x2/*68", "CYP2D6:*29x2/*69", "CYP2D6:*29x2/*72", "CYP2D6:*29x2/*92", "CYP2D6:*29x2/*9x2", "CYP2D6:*3/*10x2", "CYP2D6:*3/*17x2", "CYP2D6:*3/*27", "CYP2D6:*3/*29x2", "CYP2D6:*3/*33", "CYP2D6:*3/*34", "CYP2D6:*3/*35", "CYP2D6:*3/*39", "CYP2D6:*3/*41x2", "CYP2D6:*3/*45", "CYP2D6:*3/*46", "CYP2D6:*3/*48", "CYP2D6:*3/*53", "CYP2D6:*3/*9x2", "CYP2D6:*31/*33", "CYP2D6:*31/*34", "CYP2D6:*31/*35", "CYP2D6:*31/*39", "CYP2D6:*31/*41x2", "CYP2D6:*31/*45", "CYP2D6:*31/*46", "CYP2D6:*31/*48", "CYP2D6:*31/*53", "CYP2D6:*31/*9x2", "CYP2D6:*33/*33", "CYP2D6:*33/*34", "CYP2D6:*33/*35", "CYP2D6:*33/*36", "CYP2D6:*33/*36xN", "CYP2D6:*33/*38", "CYP2D6:*33/*39", "CYP2D6:*33/*40", "CYP2D6:*33/*41", "CYP2D6:*33/*41x2", "CYP2D6:*33/*42", "CYP2D6:*33/*44", "CYP2D6:*33/*45", "CYP2D6:*33/*46", "CYP2D6:*33/*47", "CYP2D6:*33/*48", "CYP2D6:*33/*49", "CYP2D6:*33/*50", "CYP2D6:*33/*51", "CYP2D6:*33/*53", "CYP2D6:*33/*54", "CYP2D6:*33/*55", "CYP2D6:*33/*56A", "CYP2D6:*33/*56B", "CYP2D6:*33/*57", "CYP2D6:*33/*59", "CYP2D6:*33/*62", "CYP2D6:*33/*68", "CYP2D6:*33/*69", "CYP2D6:*33/*72", "CYP2D6:*33/*92", "CYP2D6:*33/*9x2", "CYP2D6:*34/*34", "CYP2D6:*34/*35", "CYP2D6:*34/*36", "CYP2D6:*34/*36xN", "CYP2D6:*34/*38", "CYP2D6:*34/*39", "CYP2D6:*34/*40", "CYP2D6:*34/*41", "CYP2D6:*34/*41x2", "CYP2D6:*34/*42", "CYP2D6:*34/*44", "CYP2D6:*34/*45", "CYP2D6:*34/*46", "CYP2D6:*34/*47", "CYP2D6:*34/*48", "CYP2D6:*34/*49", "CYP2D6:*34/*50", "CYP2D6:*34/*51", "CYP2D6:*34/*53", "CYP2D6:*34/*54", "CYP2D6:*34/*55", "CYP2D6:*34/*56A", "CYP2D6:*34/*56B", "CYP2D6:*34/*57", "CYP2D6:*34/*59", "CYP2D6:*34/*62", "CYP2D6:*34/*68", "CYP2D6:*34/*69", "CYP2D6:*34/*72", "CYP2D6:*34/*92", "CYP2D6:*34/*9x2", "CYP2D6:*35/*35", "CYP2D6:*35/*36", "CYP2D6:*35/*36xN", "CYP2D6:*35/*38", "CYP2D6:*35/*39", "CYP2D6:*35/*40", "CYP2D6:*35/*41", "CYP2D6:*35/*41x2", "CYP2D6:*35/*42", "CYP2D6:*35/*44", "CYP2D6:*35/*45", "CYP2D6:*35/*46", "CYP2D6:*35/*47", "CYP2D6:*35/*48", "CYP2D6:*35/*49", "CYP2D6:*35/*50", "CYP2D6:*35/*51", "CYP2D6:*35/*53", "CYP2D6:*35/*54", "CYP2D6:*35/*55", "CYP2D6:*35/*56A", "CYP2D6:*35/*56B", "CYP2D6:*35/*57", "CYP2D6:*35/*59", "CYP2D6:*35/*62", "CYP2D6:*35/*68", "CYP2D6:*35/*69", "CYP2D6:*35/*72", "CYP2D6:*35/*92", "CYP2D6:*35/*9x2", "CYP2D6:*36/*39", "CYP2D6:*36/*41x2", "CYP2D6:*36/*45", "CYP2D6:*36/*46", "CYP2D6:*36/*48", "CYP2D6:*36/*53", "CYP2D6:*36/*9x2", "CYP2D6:*36xN/*39", "CYP2D6:*36xN/*41x2", "CYP2D6:*36xN/*45", "CYP2D6:*36xN/*46", "CYP2D6:*36xN/*48", "CYP2D6:*36xN/*53", "CYP2D6:*36xN/*9x2", "CYP2D6:*38/*39", "CYP2D6:*38/*41x2", "CYP2D6:*38/*45", "CYP2D6:*38/*46", "CYP2D6:*38/*48", "CYP2D6:*38/*53", "CYP2D6:*38/*9x2", "CYP2D6:*39/*39", "CYP2D6:*39/*40", "CYP2D6:*39/*41", "CYP2D6:*39/*41x2", "CYP2D6:*39/*42", "CYP2D6:*39/*44", "CYP2D6:*39/*45", "CYP2D6:*39/*46", "CYP2D6:*39/*47", "CYP2D6:*39/*48", "CYP2D6:*39/*49", "CYP2D6:*39/*50", "CYP2D6:*39/*51", "CYP2D6:*39/*53", "CYP2D6:*39/*54", "CYP2D6:*39/*55", "CYP2D6:*39/*56A", "CYP2D6:*39/*56B", "CYP2D6:*39/*57", "CYP2D6:*39/*59", "CYP2D6:*39/*62", "CYP2D6:*39/*68", "CYP2D6:*39/*69", "CYP2D6:*39/*72", "CYP2D6:*39/*92", "CYP2D6:*39/*9x2", "CYP2D6:*3xN/*10x2", "CYP2D6:*3xN/*17x2", "CYP2D6:*3xN/*27", "CYP2D6:*3xN/*29x2", "CYP2D6:*3xN/*33", "CYP2D6:*3xN/*34", "CYP2D6:*3xN/*35", "CYP2D6:*3xN/*39", "CYP2D6:*3xN/*41x2", "CYP2D6:*3xN/*45", "CYP2D6:*3xN/*46", "CYP2D6:*3xN/*48", "CYP2D6:*3xN/*53", "CYP2D6:*3xN/*9x2", "CYP2D6:*4/*10x2", "CYP2D6:*4/*17x2", "CYP2D6:*4/*27", "CYP2D6:*4/*29x2", "CYP2D6:*4/*33", "CYP2D6:*4/*34", "CYP2D6:*4/*35", "CYP2D6:*4/*39", "CYP2D6:*4/*41x2", "CYP2D6:*4/*45", "CYP2D6:*4/*46", "CYP2D6:*4/*48", "CYP2D6:*4/*53", "CYP2D6:*4/*9x2", "CYP2D6:*40/*41x2", "CYP2D6:*40/*45", "CYP2D6:*40/*46", "CYP2D6:*40/*48", "CYP2D6:*40/*53", "CYP2D6:*40/*9x2", "CYP2D6:*41/*41", "CYP2D6:*41/*41x2", "CYP2D6:*41/*45", "CYP2D6:*41/*46", "CYP2D6:*41/*48", "CYP2D6:*41/*49", "CYP2D6:*41/*50", "CYP2D6:*41/*53", "CYP2D6:*41/*54", "CYP2D6:*41/*55", "CYP2D6:*41/*59", "CYP2D6:*41/*72", "CYP2D6:*41/*9x2", "CYP2D6:*41x2/*41x2", "CYP2D6:*41x2/*50", "CYP2D6:*41x2/*51", "CYP2D6:*41x2/*53", "CYP2D6:*41x2/*54", "CYP2D6:*41x2/*55", "CYP2D6:*41x2/*56A", "CYP2D6:*41x2/*56B", "CYP2D6:*41x2/*57", "CYP2D6:*41x2/*59", "CYP2D6:*41x2/*62", "CYP2D6:*41x2/*68", "CYP2D6:*41x2/*69", "CYP2D6:*41x2/*72", "CYP2D6:*41x2/*92", "CYP2D6:*41x2/*9x2", "CYP2D6:*42/*41x2", "CYP2D6:*42/*45", "CYP2D6:*42/*46", "CYP2D6:*42/*48", "CYP2D6:*42/*53", "CYP2D6:*42/*9x2", "CYP2D6:*44/*41x2", "CYP2D6:*44/*45", "CYP2D6:*44/*46", "CYP2D6:*44/*48", "CYP2D6:*44/*53", "CYP2D6:*44/*9x2", "CYP2D6:*45/*41x2", "CYP2D6:*45/*45", "CYP2D6:*45/*46", "CYP2D6:*45/*47", "CYP2D6:*45/*48", "CYP2D6:*45/*49", "CYP2D6:*45/*50", "CYP2D6:*45/*51", "CYP2D6:*45/*53", "CYP2D6:*45/*54", "CYP2D6:*45/*55", "CYP2D6:*45/*56A", "CYP2D6:*45/*56B", "CYP2D6:*45/*57", "CYP2D6:*45/*59", "CYP2D6:*45/*62", "CYP2D6:*45/*68", "CYP2D6:*45/*69", "CYP2D6:*45/*72", "CYP2D6:*45/*92", "CYP2D6:*45/*9x2", "CYP2D6:*46/*41x2", "CYP2D6:*46/*46", "CYP2D6:*46/*47", "CYP2D6:*46/*48", "CYP2D6:*46/*49", "CYP2D6:*46/*50", "CYP2D6:*46/*51", "CYP2D6:*46/*53", "CYP2D6:*46/*54", "CYP2D6:*46/*55", "CYP2D6:*46/*56A", "CYP2D6:*46/*56B", "CYP2D6:*46/*57", "CYP2D6:*46/*59", "CYP2D6:*46/*62", "CYP2D6:*46/*68", "CYP2D6:*46/*69", "CYP2D6:*46/*72", "CYP2D6:*46/*92", "CYP2D6:*46/*9x2", "CYP2D6:*47/*41x2", "CYP2D6:*47/*48", "CYP2D6:*47/*53", "CYP2D6:*47/*9x2", "CYP2D6:*48/*41x2", "CYP2D6:*48/*48", "CYP2D6:*48/*49", "CYP2D6:*48/*50", "CYP2D6:*48/*51", "CYP2D6:*48/*53", "CYP2D6:*48/*54", "CYP2D6:*48/*55", "CYP2D6:*48/*56A", "CYP2D6:*48/*56B", "CYP2D6:*48/*57", "CYP2D6:*48/*59", "CYP2D6:*48/*62", "CYP2D6:*48/*68", "CYP2D6:*48/*69", "CYP2D6:*48/*72", "CYP2D6:*48/*92", "CYP2D6:*48/*9x2", "CYP2D6:*49/*41x2", "CYP2D6:*49/*49", "CYP2D6:*49/*50", "CYP2D6:*49/*53", "CYP2D6:*49/*54", "CYP2D6:*49/*55", "CYP2D6:*49/*59", "CYP2D6:*49/*72", "CYP2D6:*49/*9x2", "CYP2D6:*4xN/*10x2", "CYP2D6:*4xN/*17x2", "CYP2D6:*4xN/*27", "CYP2D6:*4xN/*29x2", "CYP2D6:*4xN/*33", "CYP2D6:*4xN/*34", "CYP2D6:*4xN/*35", "CYP2D6:*4xN/*39", "CYP2D6:*4xN/*41x2", "CYP2D6:*4xN/*45", "CYP2D6:*4xN/*46", "CYP2D6:*4xN/*48", "CYP2D6:*4xN/*53", "CYP2D6:*4xN/*9x2", "CYP2D6:*5/*10x2", "CYP2D6:*5/*17x2", "CYP2D6:*5/*27", "CYP2D6:*5/*29x2", "CYP2D6:*5/*33", "CYP2D6:*5/*34", "CYP2D6:*5/*35", "CYP2D6:*5/*39", "CYP2D6:*5/*41x2", "CYP2D6:*5/*45", "CYP2D6:*5/*46", "CYP2D6:*5/*48", "CYP2D6:*5/*53", "CYP2D6:*5/*9x2", "CYP2D6:*50/*50", "CYP2D6:*50/*53", "CYP2D6:*50/*54", "CYP2D6:*50/*55", "CYP2D6:*50/*59", "CYP2D6:*50/*72", "CYP2D6:*50/*9x2", "CYP2D6:*51/*53", "CYP2D6:*51/*9x2", "CYP2D6:*53/*53", "CYP2D6:*53/*54", "CYP2D6:*53/*55", "CYP2D6:*53/*56A", "CYP2D6:*53/*56B", "CYP2D6:*53/*57", "CYP2D6:*53/*59", "CYP2D6:*53/*62", "CYP2D6:*53/*68", "CYP2D6:*53/*69", "CYP2D6:*53/*72", "CYP2D6:*53/*92", "CYP2D6:*53/*9x2", "CYP2D6:*54/*54", "CYP2D6:*54/*55", "CYP2D6:*54/*59", "CYP2D6:*54/*72", "CYP2D6:*54/*9x2", "CYP2D6:*55/*55", "CYP2D6:*55/*59", "CYP2D6:*55/*72", "CYP2D6:*55/*9x2", "CYP2D6:*56A/*9x2", "CYP2D6:*56B/*9x2", "CYP2D6:*57/*9x2", "CYP2D6:*59/*59", "CYP2D6:*59/*72", "CYP2D6:*59/*9x2", "CYP2D6:*6/*10x2", "CYP2D6:*6/*17x2", "CYP2D6:*6/*27", "CYP2D6:*6/*29x2", "CYP2D6:*6/*33", "CYP2D6:*6/*34", "CYP2D6:*6/*35", "CYP2D6:*6/*39", "CYP2D6:*6/*41x2", "CYP2D6:*6/*45", "CYP2D6:*6/*46", "CYP2D6:*6/*48", "CYP2D6:*6/*53", "CYP2D6:*6/*9x2", "CYP2D6:*62/*9x2", "CYP2D6:*68/*9x2", "CYP2D6:*69/*9x2", "CYP2D6:*6xN/*10x2", "CYP2D6:*6xN/*17x2", "CYP2D6:*6xN/*27", "CYP2D6:*6xN/*29x2", "CYP2D6:*6xN/*33", "CYP2D6:*6xN/*34", "CYP2D6:*6xN/*35", "CYP2D6:*6xN/*39", "CYP2D6:*6xN/*41x2", "CYP2D6:*6xN/*45", "CYP2D6:*6xN/*46", "CYP2D6:*6xN/*48", "CYP2D6:*6xN/*53", "CYP2D6:*6xN/*9x2", "CYP2D6:*7/*10x2", "CYP2D6:*7/*17x2", "CYP2D6:*7/*27", "CYP2D6:*7/*29x2", "CYP2D6:*7/*33", "CYP2D6:*7/*34", "CYP2D6:*7/*35", "CYP2D6:*7/*39", "CYP2D6:*7/*41x2", "CYP2D6:*7/*45", "CYP2D6:*7/*46", "CYP2D6:*7/*48", "CYP2D6:*7/*53", "CYP2D6:*7/*9x2", "CYP2D6:*72/*72", "CYP2D6:*72/*9x2", "CYP2D6:*8/*10x2", "CYP2D6:*8/*17x2", "CYP2D6:*8/*27", "CYP2D6:*8/*29x2", "CYP2D6:*8/*33", "CYP2D6:*8/*34", "CYP2D6:*8/*35", "CYP2D6:*8/*39", "CYP2D6:*8/*41x2", "CYP2D6:*8/*45", "CYP2D6:*8/*46", "CYP2D6:*8/*48", "CYP2D6:*8/*53", "CYP2D6:*8/*9x2", "CYP2D6:*9/*10", "CYP2D6:*9/*10x2", "CYP2D6:*9/*14B", "CYP2D6:*9/*17", "CYP2D6:*9/*17x2", "CYP2D6:*9/*27", "CYP2D6:*9/*29", "CYP2D6:*9/*29x2", "CYP2D6:*9/*33", "CYP2D6:*9/*34", "CYP2D6:*9/*35", "CYP2D6:*9/*39", "CYP2D6:*9/*41", "CYP2D6:*9/*41x2", "CYP2D6:*9/*45", "CYP2D6:*9/*46", "CYP2D6:*9/*48", "CYP2D6:*9/*49", "CYP2D6:*9/*50", "CYP2D6:*9/*53", "CYP2D6:*9/*54", "CYP2D6:*9/*55", "CYP2D6:*9/*59", "CYP2D6:*9/*72", "CYP2D6:*9/*9", "CYP2D6:*9/*9x2", "CYP2D6:*92/*9x2", "CYP2D6:*9x2/*9x2" ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Decreased Function", "CYP2D6:Decreased Function/Normal Function", "CYP2D6:No Function/Normal Function", "CYP2D6:Normal Function/Normal Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105002",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105002",
       "name" : "CPIC Guideline for desipramine and CYP2D6",
-      "version" : 20
+      "version" : 64
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -231,532 +239,13 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 1
-  }, {
-    "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161988",
-    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "id" : "PA166161988",
-    "name" : "Intermediate",
-    "annotations" : [ {
-      "id" : 1448526666,
-      "history" : [ {
-        "id" : 1448526668,
-        "date" : "2016-12-24T20:34:32.807-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526667,
-        "externalLinks" : [ ],
-        "html" : "<p>0.5</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "0.5",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501924,
-        "resource" : "Guideline Tags",
-        "term" : "Activity Score",
-        "termId" : "guidelineTags:981501924",
-        "version" : 0
-      },
-      "version" : 1
-    }, {
-      "id" : 1448526669,
-      "history" : [ {
-        "id" : 1448526671,
-        "date" : "2016-12-24T20:34:33.111-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526670,
-        "externalLinks" : [ ],
-        "html" : "<p>Reduced metabolism of TCAs to less active compounds when compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Reduced metabolism of TCAs to less active compounds when compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501925,
-        "resource" : "Guideline Tags",
-        "term" : "Implications",
-        "termId" : "guidelineTags:981501925",
-        "version" : 0
-      },
-      "version" : 1
-    }, {
-      "id" : 1448526672,
-      "history" : [ {
-        "id" : 1448526674,
-        "date" : "2016-12-24T20:34:33.410-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526673,
-        "externalLinks" : [ ],
-        "html" : "<p>Intermediate metabolizer</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Intermediate metabolizer",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501926,
-        "description" : "Likely phenotype of metabolizer status",
-        "resource" : "Guideline Tags",
-        "term" : "Metabolizer Status",
-        "termId" : "guidelineTags:981501926",
-        "version" : 0
-      },
-      "version" : 0
-    }, {
-      "id" : 1448526675,
-      "history" : [ {
-        "id" : 1448526677,
-        "date" : "2016-12-24T20:34:33.715-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526676,
-        "externalLinks" : [ ],
-        "html" : "<p>An individual carrying one decreased and one no function allele</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "An individual carrying one decreased and one no function allele",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501927,
-        "resource" : "Guideline Tags",
-        "term" : "Phenotype (Genotype)",
-        "termId" : "guidelineTags:981501927",
-        "version" : 0
-      },
-      "version" : 1
-    }, {
-      "id" : 1448526678,
-      "history" : [ {
-        "id" : 1448526680,
-        "date" : "2016-12-24T20:34:34.027-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526679,
-        "externalLinks" : [ ],
-        "html" : "<p>Consider 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.</p>\n<p><em>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Consider 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.\r\n\r\n_Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501928,
-        "resource" : "Guideline Tags",
-        "term" : "Recommendations",
-        "termId" : "guidelineTags:981501928",
-        "version" : 0
-      },
-      "version" : 1
-    } ],
-    "genotypes" : [ "CYP2D6:*10/*100", "CYP2D6:*10/*101", "CYP2D6:*10/*11", "CYP2D6:*10/*12", "CYP2D6:*10/*13", "CYP2D6:*10/*14A", "CYP2D6:*10/*15", "CYP2D6:*10/*18", "CYP2D6:*10/*19", "CYP2D6:*10/*20", "CYP2D6:*10/*21", "CYP2D6:*10/*31", "CYP2D6:*10/*36", "CYP2D6:*10/*36xN", "CYP2D6:*10/*38", "CYP2D6:*10/*40", "CYP2D6:*10/*42", "CYP2D6:*10/*44", "CYP2D6:*10/*47", "CYP2D6:*10/*51", "CYP2D6:*10/*56A", "CYP2D6:*10/*56B", "CYP2D6:*10/*57", "CYP2D6:*10/*62", "CYP2D6:*10/*68", "CYP2D6:*10/*69", "CYP2D6:*10/*92", "CYP2D6:*100/*29", "CYP2D6:*100/*41", "CYP2D6:*100/*49", "CYP2D6:*100/*50", "CYP2D6:*100/*54", "CYP2D6:*100/*55", "CYP2D6:*100/*59", "CYP2D6:*100/*72", "CYP2D6:*101/*29", "CYP2D6:*101/*41", "CYP2D6:*101/*49", "CYP2D6:*101/*50", "CYP2D6:*101/*54", "CYP2D6:*101/*55", "CYP2D6:*101/*59", "CYP2D6:*101/*72", "CYP2D6:*11/*14B", "CYP2D6:*11/*17", "CYP2D6:*11/*29", "CYP2D6:*11/*41", "CYP2D6:*11/*49", "CYP2D6:*11/*50", "CYP2D6:*11/*54", "CYP2D6:*11/*55", "CYP2D6:*11/*59", "CYP2D6:*11/*72", "CYP2D6:*12/*14B", "CYP2D6:*12/*17", "CYP2D6:*12/*29", "CYP2D6:*12/*41", "CYP2D6:*12/*49", "CYP2D6:*12/*50", "CYP2D6:*12/*54", "CYP2D6:*12/*55", "CYP2D6:*12/*59", "CYP2D6:*12/*72", "CYP2D6:*13/*14B", "CYP2D6:*13/*17", "CYP2D6:*13/*29", "CYP2D6:*13/*41", "CYP2D6:*13/*49", "CYP2D6:*13/*50", "CYP2D6:*13/*54", "CYP2D6:*13/*55", "CYP2D6:*13/*59", "CYP2D6:*13/*72", "CYP2D6:*14A/*14B", "CYP2D6:*14A/*17", "CYP2D6:*14A/*29", "CYP2D6:*14A/*41", "CYP2D6:*14A/*49", "CYP2D6:*14A/*50", "CYP2D6:*14A/*54", "CYP2D6:*14A/*55", "CYP2D6:*14A/*59", "CYP2D6:*14A/*72", "CYP2D6:*14B/*100", "CYP2D6:*14B/*101", "CYP2D6:*14B/*15", "CYP2D6:*14B/*18", "CYP2D6:*14B/*19", "CYP2D6:*14B/*20", "CYP2D6:*14B/*21", "CYP2D6:*14B/*31", "CYP2D6:*14B/*36", "CYP2D6:*14B/*36xN", "CYP2D6:*14B/*38", "CYP2D6:*14B/*40", "CYP2D6:*14B/*42", "CYP2D6:*14B/*44", "CYP2D6:*14B/*47", "CYP2D6:*14B/*51", "CYP2D6:*14B/*56A", "CYP2D6:*14B/*56B", "CYP2D6:*14B/*57", "CYP2D6:*14B/*62", "CYP2D6:*14B/*68", "CYP2D6:*14B/*69", "CYP2D6:*14B/*92", "CYP2D6:*15/*17", "CYP2D6:*15/*29", "CYP2D6:*15/*41", "CYP2D6:*15/*49", "CYP2D6:*15/*50", "CYP2D6:*15/*54", "CYP2D6:*15/*55", "CYP2D6:*15/*59", "CYP2D6:*15/*72", "CYP2D6:*17/*100", "CYP2D6:*17/*101", "CYP2D6:*17/*18", "CYP2D6:*17/*19", "CYP2D6:*17/*20", "CYP2D6:*17/*21", "CYP2D6:*17/*31", "CYP2D6:*17/*36", "CYP2D6:*17/*36xN", "CYP2D6:*17/*38", "CYP2D6:*17/*40", "CYP2D6:*17/*42", "CYP2D6:*17/*44", "CYP2D6:*17/*47", "CYP2D6:*17/*51", "CYP2D6:*17/*56A", "CYP2D6:*17/*56B", "CYP2D6:*17/*57", "CYP2D6:*17/*62", "CYP2D6:*17/*68", "CYP2D6:*17/*69", "CYP2D6:*17/*92", "CYP2D6:*18/*29", "CYP2D6:*18/*41", "CYP2D6:*18/*49", "CYP2D6:*18/*50", "CYP2D6:*18/*54", "CYP2D6:*18/*55", "CYP2D6:*18/*59", "CYP2D6:*18/*72", "CYP2D6:*19/*29", "CYP2D6:*19/*41", "CYP2D6:*19/*49", "CYP2D6:*19/*50", "CYP2D6:*19/*54", "CYP2D6:*19/*55", "CYP2D6:*19/*59", "CYP2D6:*19/*72", "CYP2D6:*20/*29", "CYP2D6:*20/*41", "CYP2D6:*20/*49", "CYP2D6:*20/*50", "CYP2D6:*20/*54", "CYP2D6:*20/*55", "CYP2D6:*20/*59", "CYP2D6:*20/*72", "CYP2D6:*21/*29", "CYP2D6:*21/*41", "CYP2D6:*21/*49", "CYP2D6:*21/*50", "CYP2D6:*21/*54", "CYP2D6:*21/*55", "CYP2D6:*21/*59", "CYP2D6:*21/*72", "CYP2D6:*29/*31", "CYP2D6:*29/*36", "CYP2D6:*29/*36xN", "CYP2D6:*29/*38", "CYP2D6:*29/*40", "CYP2D6:*29/*42", "CYP2D6:*29/*44", "CYP2D6:*29/*47", "CYP2D6:*29/*51", "CYP2D6:*29/*56A", "CYP2D6:*29/*56B", "CYP2D6:*29/*57", "CYP2D6:*29/*62", "CYP2D6:*29/*68", "CYP2D6:*29/*69", "CYP2D6:*29/*92", "CYP2D6:*3/*10", "CYP2D6:*3/*14B", "CYP2D6:*3/*17", "CYP2D6:*3/*29", "CYP2D6:*3/*41", "CYP2D6:*3/*49", "CYP2D6:*3/*50", "CYP2D6:*3/*54", "CYP2D6:*3/*55", "CYP2D6:*3/*59", "CYP2D6:*3/*72", "CYP2D6:*3/*9", "CYP2D6:*31/*41", "CYP2D6:*31/*49", "CYP2D6:*31/*50", "CYP2D6:*31/*54", "CYP2D6:*31/*55", "CYP2D6:*31/*59", "CYP2D6:*31/*72", "CYP2D6:*36/*41", "CYP2D6:*36/*49", "CYP2D6:*36/*50", "CYP2D6:*36/*54", "CYP2D6:*36/*55", "CYP2D6:*36/*59", "CYP2D6:*36/*72", "CYP2D6:*36xN/*41", "CYP2D6:*36xN/*49", "CYP2D6:*36xN/*50", "CYP2D6:*36xN/*54", "CYP2D6:*36xN/*55", "CYP2D6:*36xN/*59", "CYP2D6:*36xN/*72", "CYP2D6:*38/*41", "CYP2D6:*38/*49", "CYP2D6:*38/*50", "CYP2D6:*38/*54", "CYP2D6:*38/*55", "CYP2D6:*38/*59", "CYP2D6:*38/*72", "CYP2D6:*3xN/*10", "CYP2D6:*3xN/*14B", "CYP2D6:*3xN/*17", "CYP2D6:*3xN/*29", "CYP2D6:*3xN/*41", "CYP2D6:*3xN/*49", "CYP2D6:*3xN/*50", "CYP2D6:*3xN/*54", "CYP2D6:*3xN/*55", "CYP2D6:*3xN/*59", "CYP2D6:*3xN/*72", "CYP2D6:*3xN/*9", "CYP2D6:*4/*10", "CYP2D6:*4/*14B", "CYP2D6:*4/*17", "CYP2D6:*4/*29", "CYP2D6:*4/*41", "CYP2D6:*4/*49", "CYP2D6:*4/*50", "CYP2D6:*4/*54", "CYP2D6:*4/*55", "CYP2D6:*4/*59", "CYP2D6:*4/*72", "CYP2D6:*4/*9", "CYP2D6:*40/*41", "CYP2D6:*40/*49", "CYP2D6:*40/*50", "CYP2D6:*40/*54", "CYP2D6:*40/*55", "CYP2D6:*40/*59", "CYP2D6:*40/*72", "CYP2D6:*41/*42", "CYP2D6:*41/*44", "CYP2D6:*41/*47", "CYP2D6:*41/*51", "CYP2D6:*41/*56A", "CYP2D6:*41/*56B", "CYP2D6:*41/*57", "CYP2D6:*41/*62", "CYP2D6:*41/*68", "CYP2D6:*41/*69", "CYP2D6:*41/*92", "CYP2D6:*42/*49", "CYP2D6:*42/*50", "CYP2D6:*42/*54", "CYP2D6:*42/*55", "CYP2D6:*42/*59", "CYP2D6:*42/*72", "CYP2D6:*44/*49", "CYP2D6:*44/*50", "CYP2D6:*44/*54", "CYP2D6:*44/*55", "CYP2D6:*44/*59", "CYP2D6:*44/*72", "CYP2D6:*47/*49", "CYP2D6:*47/*50", "CYP2D6:*47/*54", "CYP2D6:*47/*55", "CYP2D6:*47/*59", "CYP2D6:*47/*72", "CYP2D6:*49/*51", "CYP2D6:*49/*56A", "CYP2D6:*49/*56B", "CYP2D6:*49/*57", "CYP2D6:*49/*62", "CYP2D6:*49/*68", "CYP2D6:*49/*69", "CYP2D6:*49/*92", "CYP2D6:*4xN/*10", "CYP2D6:*4xN/*14B", "CYP2D6:*4xN/*17", "CYP2D6:*4xN/*29", "CYP2D6:*4xN/*41", "CYP2D6:*4xN/*49", "CYP2D6:*4xN/*50", "CYP2D6:*4xN/*54", "CYP2D6:*4xN/*55", "CYP2D6:*4xN/*59", "CYP2D6:*4xN/*72", "CYP2D6:*4xN/*9", "CYP2D6:*5/*10", "CYP2D6:*5/*14B", "CYP2D6:*5/*17", "CYP2D6:*5/*29", "CYP2D6:*5/*41", "CYP2D6:*5/*49", "CYP2D6:*5/*50", "CYP2D6:*5/*54", "CYP2D6:*5/*55", "CYP2D6:*5/*59", "CYP2D6:*5/*72", "CYP2D6:*5/*9", "CYP2D6:*50/*51", "CYP2D6:*50/*56A", "CYP2D6:*50/*56B", "CYP2D6:*50/*57", "CYP2D6:*50/*62", "CYP2D6:*50/*68", "CYP2D6:*50/*69", "CYP2D6:*50/*92", "CYP2D6:*51/*54", "CYP2D6:*51/*55", "CYP2D6:*51/*59", "CYP2D6:*51/*72", "CYP2D6:*54/*56A", "CYP2D6:*54/*56B", "CYP2D6:*54/*57", "CYP2D6:*54/*62", "CYP2D6:*54/*68", "CYP2D6:*54/*69", "CYP2D6:*54/*92", "CYP2D6:*55/*56A", "CYP2D6:*55/*56B", "CYP2D6:*55/*57", "CYP2D6:*55/*62", "CYP2D6:*55/*68", "CYP2D6:*55/*69", "CYP2D6:*55/*92", "CYP2D6:*56A/*59", "CYP2D6:*56A/*72", "CYP2D6:*56B/*59", "CYP2D6:*56B/*72", "CYP2D6:*57/*59", "CYP2D6:*57/*72", "CYP2D6:*59/*62", "CYP2D6:*59/*68", "CYP2D6:*59/*69", "CYP2D6:*59/*92", "CYP2D6:*6/*10", "CYP2D6:*6/*14B", "CYP2D6:*6/*17", "CYP2D6:*6/*29", "CYP2D6:*6/*41", "CYP2D6:*6/*49", "CYP2D6:*6/*50", "CYP2D6:*6/*54", "CYP2D6:*6/*55", "CYP2D6:*6/*59", "CYP2D6:*6/*72", "CYP2D6:*6/*9", "CYP2D6:*62/*72", "CYP2D6:*68/*72", "CYP2D6:*69/*72", "CYP2D6:*6xN/*10", "CYP2D6:*6xN/*14B", "CYP2D6:*6xN/*17", "CYP2D6:*6xN/*29", "CYP2D6:*6xN/*41", "CYP2D6:*6xN/*49", "CYP2D6:*6xN/*50", "CYP2D6:*6xN/*54", "CYP2D6:*6xN/*55", "CYP2D6:*6xN/*59", "CYP2D6:*6xN/*72", "CYP2D6:*6xN/*9", "CYP2D6:*7/*10", "CYP2D6:*7/*14B", "CYP2D6:*7/*17", "CYP2D6:*7/*29", "CYP2D6:*7/*41", "CYP2D6:*7/*49", "CYP2D6:*7/*50", "CYP2D6:*7/*54", "CYP2D6:*7/*55", "CYP2D6:*7/*59", "CYP2D6:*7/*72", "CYP2D6:*7/*9", "CYP2D6:*72/*92", "CYP2D6:*8/*10", "CYP2D6:*8/*14B", "CYP2D6:*8/*17", "CYP2D6:*8/*29", "CYP2D6:*8/*41", "CYP2D6:*8/*49", "CYP2D6:*8/*50", "CYP2D6:*8/*54", "CYP2D6:*8/*55", "CYP2D6:*8/*59", "CYP2D6:*8/*72", "CYP2D6:*8/*9", "CYP2D6:*9/*100", "CYP2D6:*9/*101", "CYP2D6:*9/*11", "CYP2D6:*9/*12", "CYP2D6:*9/*13", "CYP2D6:*9/*14A", "CYP2D6:*9/*15", "CYP2D6:*9/*18", "CYP2D6:*9/*19", "CYP2D6:*9/*20", "CYP2D6:*9/*21", "CYP2D6:*9/*31", "CYP2D6:*9/*36", "CYP2D6:*9/*36xN", "CYP2D6:*9/*38", "CYP2D6:*9/*40", "CYP2D6:*9/*42", "CYP2D6:*9/*44", "CYP2D6:*9/*47", "CYP2D6:*9/*51", "CYP2D6:*9/*56A", "CYP2D6:*9/*56B", "CYP2D6:*9/*57", "CYP2D6:*9/*62", "CYP2D6:*9/*68", "CYP2D6:*9/*69", "CYP2D6:*9/*92" ],
-    "guideline" : {
-      "objCls" : "Guideline",
-      "@id" : "https://api.pharmgkb.org/data/guideline/PA166105002",
-      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
-      "id" : "PA166105002",
-      "name" : "CPIC Guideline for desipramine and CYP2D6",
-      "version" : 20
-    },
-    "rxChange" : false,
-    "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
-      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981565059,
-      "resource" : "Guideline Strength",
-      "term" : "Optional",
-      "termId" : "guidelineStrength:981565059",
-      "version" : 0
-    },
-    "version" : 1
-  }, {
-    "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161989",
-    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "id" : "PA166161989",
-    "name" : "Poor",
-    "annotations" : [ {
-      "id" : 1448526681,
-      "history" : [ {
-        "id" : 1448526683,
-        "date" : "2016-12-24T20:34:38.215-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526682,
-        "externalLinks" : [ ],
-        "html" : "<p>0</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "0",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501924,
-        "resource" : "Guideline Tags",
-        "term" : "Activity Score",
-        "termId" : "guidelineTags:981501924",
-        "version" : 0
-      },
-      "version" : 1
-    }, {
-      "id" : 1448526684,
-      "history" : [ {
-        "id" : 1448526686,
-        "date" : "2016-12-24T20:34:38.531-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526685,
-        "externalLinks" : [ ],
-        "html" : "<p>Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501925,
-        "resource" : "Guideline Tags",
-        "term" : "Implications",
-        "termId" : "guidelineTags:981501925",
-        "version" : 0
-      },
-      "version" : 1
-    }, {
-      "id" : 1448526687,
-      "history" : [ {
-        "id" : 1448526689,
-        "date" : "2016-12-24T20:34:38.832-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526688,
-        "externalLinks" : [ ],
-        "html" : "<p>Poor metabolizer</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Poor metabolizer",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501926,
-        "description" : "Likely phenotype of metabolizer status",
-        "resource" : "Guideline Tags",
-        "term" : "Metabolizer Status",
-        "termId" : "guidelineTags:981501926",
-        "version" : 0
-      },
-      "version" : 0
-    }, {
-      "id" : 1448526690,
-      "history" : [ {
-        "id" : 1448526692,
-        "date" : "2016-12-24T20:34:39.138-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526691,
-        "externalLinks" : [ ],
-        "html" : "<p>An individual carrying only no function alleles</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "An individual carrying only no function alleles",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501927,
-        "resource" : "Guideline Tags",
-        "term" : "Phenotype (Genotype)",
-        "termId" : "guidelineTags:981501927",
-        "version" : 0
-      },
-      "version" : 1
-    }, {
-      "id" : 1448526693,
-      "history" : [ {
-        "id" : 1448526695,
-        "date" : "2016-12-24T20:34:39.439-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526694,
-        "externalLinks" : [ ],
-        "html" : "<p>Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6.\nIf a TCA is warranted, consider 50% reduction of recommended starting dose.g Utilize therapeutic drug monitoring to guide dose adjustments.</p>\n<p><em>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6.\r\nIf a TCA is warranted, consider 50% reduction of recommended starting dose.g Utilize therapeutic drug monitoring to guide dose adjustments.\r\n\r\n_Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501928,
-        "resource" : "Guideline Tags",
-        "term" : "Recommendations",
-        "termId" : "guidelineTags:981501928",
-        "version" : 0
-      },
-      "version" : 1
-    } ],
-    "genotypes" : [ "CYP2D6:*100/*100", "CYP2D6:*100/*101", "CYP2D6:*100/*20", "CYP2D6:*100/*21", "CYP2D6:*100/*31", "CYP2D6:*100/*36", "CYP2D6:*100/*36xN", "CYP2D6:*100/*38", "CYP2D6:*100/*40", "CYP2D6:*100/*42", "CYP2D6:*100/*44", "CYP2D6:*100/*47", "CYP2D6:*100/*51", "CYP2D6:*100/*56A", "CYP2D6:*100/*56B", "CYP2D6:*100/*57", "CYP2D6:*100/*62", "CYP2D6:*100/*68", "CYP2D6:*100/*69", "CYP2D6:*100/*92", "CYP2D6:*101/*101", "CYP2D6:*101/*20", "CYP2D6:*101/*21", "CYP2D6:*101/*31", "CYP2D6:*101/*36", "CYP2D6:*101/*36xN", "CYP2D6:*101/*38", "CYP2D6:*101/*40", "CYP2D6:*101/*42", "CYP2D6:*101/*44", "CYP2D6:*101/*47", "CYP2D6:*101/*51", "CYP2D6:*101/*56A", "CYP2D6:*101/*56B", "CYP2D6:*101/*57", "CYP2D6:*101/*62", "CYP2D6:*101/*68", "CYP2D6:*101/*69", "CYP2D6:*101/*92", "CYP2D6:*11/*100", "CYP2D6:*11/*101", "CYP2D6:*11/*11", "CYP2D6:*11/*12", "CYP2D6:*11/*13", "CYP2D6:*11/*14A", "CYP2D6:*11/*15", "CYP2D6:*11/*18", "CYP2D6:*11/*19", "CYP2D6:*11/*20", "CYP2D6:*11/*21", "CYP2D6:*11/*31", "CYP2D6:*11/*36", "CYP2D6:*11/*36xN", "CYP2D6:*11/*38", "CYP2D6:*11/*40", "CYP2D6:*11/*42", "CYP2D6:*11/*44", "CYP2D6:*11/*47", "CYP2D6:*11/*51", "CYP2D6:*11/*56A", "CYP2D6:*11/*56B", "CYP2D6:*11/*57", "CYP2D6:*11/*62", "CYP2D6:*11/*68", "CYP2D6:*11/*69", "CYP2D6:*11/*92", "CYP2D6:*12/*100", "CYP2D6:*12/*101", "CYP2D6:*12/*12", "CYP2D6:*12/*13", "CYP2D6:*12/*14A", "CYP2D6:*12/*15", "CYP2D6:*12/*18", "CYP2D6:*12/*19", "CYP2D6:*12/*20", "CYP2D6:*12/*21", "CYP2D6:*12/*31", "CYP2D6:*12/*36", "CYP2D6:*12/*36xN", "CYP2D6:*12/*38", "CYP2D6:*12/*40", "CYP2D6:*12/*42", "CYP2D6:*12/*44", "CYP2D6:*12/*47", "CYP2D6:*12/*51", "CYP2D6:*12/*56A", "CYP2D6:*12/*56B", "CYP2D6:*12/*57", "CYP2D6:*12/*62", "CYP2D6:*12/*68", "CYP2D6:*12/*69", "CYP2D6:*12/*92", "CYP2D6:*13/*100", "CYP2D6:*13/*101", "CYP2D6:*13/*13", "CYP2D6:*13/*14A", "CYP2D6:*13/*15", "CYP2D6:*13/*18", "CYP2D6:*13/*19", "CYP2D6:*13/*20", "CYP2D6:*13/*21", "CYP2D6:*13/*31", "CYP2D6:*13/*36", "CYP2D6:*13/*36xN", "CYP2D6:*13/*38", "CYP2D6:*13/*40", "CYP2D6:*13/*42", "CYP2D6:*13/*44", "CYP2D6:*13/*47", "CYP2D6:*13/*51", "CYP2D6:*13/*56A", "CYP2D6:*13/*56B", "CYP2D6:*13/*57", "CYP2D6:*13/*62", "CYP2D6:*13/*68", "CYP2D6:*13/*69", "CYP2D6:*13/*92", "CYP2D6:*14A/*100", "CYP2D6:*14A/*101", "CYP2D6:*14A/*14A", "CYP2D6:*14A/*15", "CYP2D6:*14A/*18", "CYP2D6:*14A/*19", "CYP2D6:*14A/*20", "CYP2D6:*14A/*21", "CYP2D6:*14A/*31", "CYP2D6:*14A/*36", "CYP2D6:*14A/*36xN", "CYP2D6:*14A/*38", "CYP2D6:*14A/*40", "CYP2D6:*14A/*42", "CYP2D6:*14A/*44", "CYP2D6:*14A/*47", "CYP2D6:*14A/*51", "CYP2D6:*14A/*56A", "CYP2D6:*14A/*56B", "CYP2D6:*14A/*57", "CYP2D6:*14A/*62", "CYP2D6:*14A/*68", "CYP2D6:*14A/*69", "CYP2D6:*14A/*92", "CYP2D6:*15/*100", "CYP2D6:*15/*101", "CYP2D6:*15/*15", "CYP2D6:*15/*18", "CYP2D6:*15/*19", "CYP2D6:*15/*20", "CYP2D6:*15/*21", "CYP2D6:*15/*31", "CYP2D6:*15/*36", "CYP2D6:*15/*36xN", "CYP2D6:*15/*38", "CYP2D6:*15/*40", "CYP2D6:*15/*42", "CYP2D6:*15/*44", "CYP2D6:*15/*47", "CYP2D6:*15/*51", "CYP2D6:*15/*56A", "CYP2D6:*15/*56B", "CYP2D6:*15/*57", "CYP2D6:*15/*62", "CYP2D6:*15/*68", "CYP2D6:*15/*69", "CYP2D6:*15/*92", "CYP2D6:*18/*100", "CYP2D6:*18/*101", "CYP2D6:*18/*18", "CYP2D6:*18/*19", "CYP2D6:*18/*20", "CYP2D6:*18/*21", "CYP2D6:*18/*31", "CYP2D6:*18/*36", "CYP2D6:*18/*36xN", "CYP2D6:*18/*38", "CYP2D6:*18/*40", "CYP2D6:*18/*42", "CYP2D6:*18/*44", "CYP2D6:*18/*47", "CYP2D6:*18/*51", "CYP2D6:*18/*56A", "CYP2D6:*18/*56B", "CYP2D6:*18/*57", "CYP2D6:*18/*62", "CYP2D6:*18/*68", "CYP2D6:*18/*69", "CYP2D6:*18/*92", "CYP2D6:*19/*100", "CYP2D6:*19/*101", "CYP2D6:*19/*19", "CYP2D6:*19/*20", "CYP2D6:*19/*21", "CYP2D6:*19/*31", "CYP2D6:*19/*36", "CYP2D6:*19/*36xN", "CYP2D6:*19/*38", "CYP2D6:*19/*40", "CYP2D6:*19/*42", "CYP2D6:*19/*44", "CYP2D6:*19/*47", "CYP2D6:*19/*51", "CYP2D6:*19/*56A", "CYP2D6:*19/*56B", "CYP2D6:*19/*57", "CYP2D6:*19/*62", "CYP2D6:*19/*68", "CYP2D6:*19/*69", "CYP2D6:*19/*92", "CYP2D6:*20/*20", "CYP2D6:*20/*21", "CYP2D6:*20/*31", "CYP2D6:*20/*36", "CYP2D6:*20/*36xN", "CYP2D6:*20/*38", "CYP2D6:*20/*40", "CYP2D6:*20/*42", "CYP2D6:*20/*44", "CYP2D6:*20/*47", "CYP2D6:*20/*51", "CYP2D6:*20/*56A", "CYP2D6:*20/*56B", "CYP2D6:*20/*57", "CYP2D6:*20/*62", "CYP2D6:*20/*68", "CYP2D6:*20/*69", "CYP2D6:*20/*92", "CYP2D6:*21/*21", "CYP2D6:*21/*31", "CYP2D6:*21/*36", "CYP2D6:*21/*36xN", "CYP2D6:*21/*38", "CYP2D6:*21/*40", "CYP2D6:*21/*42", "CYP2D6:*21/*44", "CYP2D6:*21/*47", "CYP2D6:*21/*51", "CYP2D6:*21/*56A", "CYP2D6:*21/*56B", "CYP2D6:*21/*57", "CYP2D6:*21/*62", "CYP2D6:*21/*68", "CYP2D6:*21/*69", "CYP2D6:*21/*92", "CYP2D6:*3/*100", "CYP2D6:*3/*101", "CYP2D6:*3/*11", "CYP2D6:*3/*12", "CYP2D6:*3/*13", "CYP2D6:*3/*14A", "CYP2D6:*3/*15", "CYP2D6:*3/*18", "CYP2D6:*3/*19", "CYP2D6:*3/*20", "CYP2D6:*3/*21", "CYP2D6:*3/*3", "CYP2D6:*3/*31", "CYP2D6:*3/*36", "CYP2D6:*3/*36xN", "CYP2D6:*3/*38", "CYP2D6:*3/*3xN", "CYP2D6:*3/*4", "CYP2D6:*3/*40", "CYP2D6:*3/*42", "CYP2D6:*3/*44", "CYP2D6:*3/*47", "CYP2D6:*3/*4xN", "CYP2D6:*3/*5", "CYP2D6:*3/*51", "CYP2D6:*3/*56A", "CYP2D6:*3/*56B", "CYP2D6:*3/*57", "CYP2D6:*3/*6", "CYP2D6:*3/*62", "CYP2D6:*3/*68", "CYP2D6:*3/*69", "CYP2D6:*3/*6xN", "CYP2D6:*3/*7", "CYP2D6:*3/*8", "CYP2D6:*3/*92", "CYP2D6:*31/*31", "CYP2D6:*31/*36", "CYP2D6:*31/*36xN", "CYP2D6:*31/*38", "CYP2D6:*31/*40", "CYP2D6:*31/*42", "CYP2D6:*31/*44", "CYP2D6:*31/*47", "CYP2D6:*31/*51", "CYP2D6:*31/*56A", "CYP2D6:*31/*56B", "CYP2D6:*31/*57", "CYP2D6:*31/*62", "CYP2D6:*31/*68", "CYP2D6:*31/*69", "CYP2D6:*31/*92", "CYP2D6:*36/*36", "CYP2D6:*36/*36xN", "CYP2D6:*36/*38", "CYP2D6:*36/*40", "CYP2D6:*36/*42", "CYP2D6:*36/*44", "CYP2D6:*36/*47", "CYP2D6:*36/*51", "CYP2D6:*36/*56A", "CYP2D6:*36/*56B", "CYP2D6:*36/*57", "CYP2D6:*36/*62", "CYP2D6:*36/*68", "CYP2D6:*36/*69", "CYP2D6:*36/*92", "CYP2D6:*36xN/*36xN", "CYP2D6:*36xN/*38", "CYP2D6:*36xN/*40", "CYP2D6:*36xN/*42", "CYP2D6:*36xN/*44", "CYP2D6:*36xN/*47", "CYP2D6:*36xN/*51", "CYP2D6:*36xN/*56A", "CYP2D6:*36xN/*56B", "CYP2D6:*36xN/*57", "CYP2D6:*36xN/*62", "CYP2D6:*36xN/*68", "CYP2D6:*36xN/*69", "CYP2D6:*36xN/*92", "CYP2D6:*38/*38", "CYP2D6:*38/*40", "CYP2D6:*38/*42", "CYP2D6:*38/*44", "CYP2D6:*38/*47", "CYP2D6:*38/*51", "CYP2D6:*38/*56A", "CYP2D6:*38/*56B", "CYP2D6:*38/*57", "CYP2D6:*38/*62", "CYP2D6:*38/*68", "CYP2D6:*38/*69", "CYP2D6:*38/*92", "CYP2D6:*3xN/*100", "CYP2D6:*3xN/*101", "CYP2D6:*3xN/*11", "CYP2D6:*3xN/*12", "CYP2D6:*3xN/*13", "CYP2D6:*3xN/*14A", "CYP2D6:*3xN/*15", "CYP2D6:*3xN/*18", "CYP2D6:*3xN/*19", "CYP2D6:*3xN/*20", "CYP2D6:*3xN/*21", "CYP2D6:*3xN/*31", "CYP2D6:*3xN/*36", "CYP2D6:*3xN/*36xN", "CYP2D6:*3xN/*38", "CYP2D6:*3xN/*3xN", "CYP2D6:*3xN/*4", "CYP2D6:*3xN/*40", "CYP2D6:*3xN/*42", "CYP2D6:*3xN/*44", "CYP2D6:*3xN/*47", "CYP2D6:*3xN/*4xN", "CYP2D6:*3xN/*5", "CYP2D6:*3xN/*51", "CYP2D6:*3xN/*56A", "CYP2D6:*3xN/*56B", "CYP2D6:*3xN/*57", "CYP2D6:*3xN/*6", "CYP2D6:*3xN/*62", "CYP2D6:*3xN/*68", "CYP2D6:*3xN/*69", "CYP2D6:*3xN/*6xN", "CYP2D6:*3xN/*7", "CYP2D6:*3xN/*8", "CYP2D6:*3xN/*92", "CYP2D6:*4/*100", "CYP2D6:*4/*101", "CYP2D6:*4/*11", "CYP2D6:*4/*12", "CYP2D6:*4/*13", "CYP2D6:*4/*14A", "CYP2D6:*4/*15", "CYP2D6:*4/*18", "CYP2D6:*4/*19", "CYP2D6:*4/*20", "CYP2D6:*4/*21", "CYP2D6:*4/*31", "CYP2D6:*4/*36", "CYP2D6:*4/*36xN", "CYP2D6:*4/*38", "CYP2D6:*4/*4", "CYP2D6:*4/*40", "CYP2D6:*4/*42", "CYP2D6:*4/*44", "CYP2D6:*4/*47", "CYP2D6:*4/*4xN", "CYP2D6:*4/*5", "CYP2D6:*4/*51", "CYP2D6:*4/*56A", "CYP2D6:*4/*56B", "CYP2D6:*4/*57", "CYP2D6:*4/*6", "CYP2D6:*4/*62", "CYP2D6:*4/*68", "CYP2D6:*4/*69", "CYP2D6:*4/*6xN", "CYP2D6:*4/*7", "CYP2D6:*4/*8", "CYP2D6:*4/*92", "CYP2D6:*40/*40", "CYP2D6:*40/*42", "CYP2D6:*40/*44", "CYP2D6:*40/*47", "CYP2D6:*40/*51", "CYP2D6:*40/*56A", "CYP2D6:*40/*56B", "CYP2D6:*40/*57", "CYP2D6:*40/*62", "CYP2D6:*40/*68", "CYP2D6:*40/*69", "CYP2D6:*40/*92", "CYP2D6:*42/*42", "CYP2D6:*42/*44", "CYP2D6:*42/*47", "CYP2D6:*42/*51", "CYP2D6:*42/*56A", "CYP2D6:*42/*56B", "CYP2D6:*42/*57", "CYP2D6:*42/*62", "CYP2D6:*42/*68", "CYP2D6:*42/*69", "CYP2D6:*42/*92", "CYP2D6:*44/*44", "CYP2D6:*44/*47", "CYP2D6:*44/*51", "CYP2D6:*44/*56A", "CYP2D6:*44/*56B", "CYP2D6:*44/*57", "CYP2D6:*44/*62", "CYP2D6:*44/*68", "CYP2D6:*44/*69", "CYP2D6:*44/*92", "CYP2D6:*47/*47", "CYP2D6:*47/*51", "CYP2D6:*47/*56A", "CYP2D6:*47/*56B", "CYP2D6:*47/*57", "CYP2D6:*47/*62", "CYP2D6:*47/*68", "CYP2D6:*47/*69", "CYP2D6:*47/*92", "CYP2D6:*4xN/*100", "CYP2D6:*4xN/*101", "CYP2D6:*4xN/*11", "CYP2D6:*4xN/*12", "CYP2D6:*4xN/*13", "CYP2D6:*4xN/*14A", "CYP2D6:*4xN/*15", "CYP2D6:*4xN/*18", "CYP2D6:*4xN/*19", "CYP2D6:*4xN/*20", "CYP2D6:*4xN/*21", "CYP2D6:*4xN/*31", "CYP2D6:*4xN/*36", "CYP2D6:*4xN/*36xN", "CYP2D6:*4xN/*38", "CYP2D6:*4xN/*40", "CYP2D6:*4xN/*42", "CYP2D6:*4xN/*44", "CYP2D6:*4xN/*47", "CYP2D6:*4xN/*4xN", "CYP2D6:*4xN/*5", "CYP2D6:*4xN/*51", "CYP2D6:*4xN/*56A", "CYP2D6:*4xN/*56B", "CYP2D6:*4xN/*57", "CYP2D6:*4xN/*6", "CYP2D6:*4xN/*62", "CYP2D6:*4xN/*68", "CYP2D6:*4xN/*69", "CYP2D6:*4xN/*6xN", "CYP2D6:*4xN/*7", "CYP2D6:*4xN/*8", "CYP2D6:*4xN/*92", "CYP2D6:*5/*100", "CYP2D6:*5/*101", "CYP2D6:*5/*11", "CYP2D6:*5/*12", "CYP2D6:*5/*13", "CYP2D6:*5/*14A", "CYP2D6:*5/*15", "CYP2D6:*5/*18", "CYP2D6:*5/*19", "CYP2D6:*5/*20", "CYP2D6:*5/*21", "CYP2D6:*5/*31", "CYP2D6:*5/*36", "CYP2D6:*5/*36xN", "CYP2D6:*5/*38", "CYP2D6:*5/*40", "CYP2D6:*5/*42", "CYP2D6:*5/*44", "CYP2D6:*5/*47", "CYP2D6:*5/*5", "CYP2D6:*5/*51", "CYP2D6:*5/*56A", "CYP2D6:*5/*56B", "CYP2D6:*5/*57", "CYP2D6:*5/*6", "CYP2D6:*5/*62", "CYP2D6:*5/*68", "CYP2D6:*5/*69", "CYP2D6:*5/*6xN", "CYP2D6:*5/*7", "CYP2D6:*5/*8", "CYP2D6:*5/*92", "CYP2D6:*51/*51", "CYP2D6:*51/*56A", "CYP2D6:*51/*56B", "CYP2D6:*51/*57", "CYP2D6:*51/*62", "CYP2D6:*51/*68", "CYP2D6:*51/*69", "CYP2D6:*51/*92", "CYP2D6:*56A/*56A", "CYP2D6:*56A/*56B", "CYP2D6:*56A/*57", "CYP2D6:*56A/*62", "CYP2D6:*56A/*68", "CYP2D6:*56A/*69", "CYP2D6:*56A/*92", "CYP2D6:*56B/*56B", "CYP2D6:*56B/*57", "CYP2D6:*56B/*62", "CYP2D6:*56B/*68", "CYP2D6:*56B/*69", "CYP2D6:*56B/*92", "CYP2D6:*57/*57", "CYP2D6:*57/*62", "CYP2D6:*57/*68", "CYP2D6:*57/*69", "CYP2D6:*57/*92", "CYP2D6:*6/*100", "CYP2D6:*6/*101", "CYP2D6:*6/*11", "CYP2D6:*6/*12", "CYP2D6:*6/*13", "CYP2D6:*6/*14A", "CYP2D6:*6/*15", "CYP2D6:*6/*18", "CYP2D6:*6/*19", "CYP2D6:*6/*20", "CYP2D6:*6/*21", "CYP2D6:*6/*31", "CYP2D6:*6/*36", "CYP2D6:*6/*36xN", "CYP2D6:*6/*38", "CYP2D6:*6/*40", "CYP2D6:*6/*42", "CYP2D6:*6/*44", "CYP2D6:*6/*47", "CYP2D6:*6/*51", "CYP2D6:*6/*56A", "CYP2D6:*6/*56B", "CYP2D6:*6/*57", "CYP2D6:*6/*6", "CYP2D6:*6/*62", "CYP2D6:*6/*68", "CYP2D6:*6/*69", "CYP2D6:*6/*6xN", "CYP2D6:*6/*7", "CYP2D6:*6/*8", "CYP2D6:*6/*92", "CYP2D6:*62/*62", "CYP2D6:*62/*68", "CYP2D6:*62/*69", "CYP2D6:*62/*92", "CYP2D6:*68/*68", "CYP2D6:*68/*69", "CYP2D6:*68/*92", "CYP2D6:*69/*69", "CYP2D6:*69/*92", "CYP2D6:*6xN/*100", "CYP2D6:*6xN/*101", "CYP2D6:*6xN/*11", "CYP2D6:*6xN/*12", "CYP2D6:*6xN/*13", "CYP2D6:*6xN/*14A", "CYP2D6:*6xN/*15", "CYP2D6:*6xN/*18", "CYP2D6:*6xN/*19", "CYP2D6:*6xN/*20", "CYP2D6:*6xN/*21", "CYP2D6:*6xN/*31", "CYP2D6:*6xN/*36", "CYP2D6:*6xN/*36xN", "CYP2D6:*6xN/*38", "CYP2D6:*6xN/*40", "CYP2D6:*6xN/*42", "CYP2D6:*6xN/*44", "CYP2D6:*6xN/*47", "CYP2D6:*6xN/*51", "CYP2D6:*6xN/*56A", "CYP2D6:*6xN/*56B", "CYP2D6:*6xN/*57", "CYP2D6:*6xN/*62", "CYP2D6:*6xN/*68", "CYP2D6:*6xN/*69", "CYP2D6:*6xN/*6xN", "CYP2D6:*6xN/*7", "CYP2D6:*6xN/*8", "CYP2D6:*6xN/*92", "CYP2D6:*7/*100", "CYP2D6:*7/*101", "CYP2D6:*7/*11", "CYP2D6:*7/*12", "CYP2D6:*7/*13", "CYP2D6:*7/*14A", "CYP2D6:*7/*15", "CYP2D6:*7/*18", "CYP2D6:*7/*19", "CYP2D6:*7/*20", "CYP2D6:*7/*21", "CYP2D6:*7/*31", "CYP2D6:*7/*36", "CYP2D6:*7/*36xN", "CYP2D6:*7/*38", "CYP2D6:*7/*40", "CYP2D6:*7/*42", "CYP2D6:*7/*44", "CYP2D6:*7/*47", "CYP2D6:*7/*51", "CYP2D6:*7/*56A", "CYP2D6:*7/*56B", "CYP2D6:*7/*57", "CYP2D6:*7/*62", "CYP2D6:*7/*68", "CYP2D6:*7/*69", "CYP2D6:*7/*7", "CYP2D6:*7/*8", "CYP2D6:*7/*92", "CYP2D6:*8/*100", "CYP2D6:*8/*101", "CYP2D6:*8/*11", "CYP2D6:*8/*12", "CYP2D6:*8/*13", "CYP2D6:*8/*14A", "CYP2D6:*8/*15", "CYP2D6:*8/*18", "CYP2D6:*8/*19", "CYP2D6:*8/*20", "CYP2D6:*8/*21", "CYP2D6:*8/*31", "CYP2D6:*8/*36", "CYP2D6:*8/*36xN", "CYP2D6:*8/*38", "CYP2D6:*8/*40", "CYP2D6:*8/*42", "CYP2D6:*8/*44", "CYP2D6:*8/*47", "CYP2D6:*8/*51", "CYP2D6:*8/*56A", "CYP2D6:*8/*56B", "CYP2D6:*8/*57", "CYP2D6:*8/*62", "CYP2D6:*8/*68", "CYP2D6:*8/*69", "CYP2D6:*8/*8", "CYP2D6:*8/*92", "CYP2D6:*92/*92" ],
-    "guideline" : {
-      "objCls" : "Guideline",
-      "@id" : "https://api.pharmgkb.org/data/guideline/PA166105002",
-      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
-      "id" : "PA166105002",
-      "name" : "CPIC Guideline for desipramine and CYP2D6",
-      "version" : 20
-    },
-    "rxChange" : false,
-    "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
-      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981565059,
-      "resource" : "Guideline Strength",
-      "term" : "Optional",
-      "termId" : "guidelineStrength:981565059",
-      "version" : 0
-    },
-    "version" : 1
-  }, {
-    "objCls" : "DosingGuidelineAnnotationGroup",
-    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161990",
-    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "id" : "PA166161990",
-    "name" : "Ultra or extensive",
-    "annotations" : [ {
-      "id" : 1448526696,
-      "history" : [ {
-        "id" : 1448526698,
-        "date" : "2016-12-24T20:34:41.261-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526697,
-        "externalLinks" : [ ],
-        "html" : "<p>2 - For the combination of a no function allele with a duplicated normal function allele.</p>\n<p>&gt;2 - For the combination of a no function allele and more than two copies of a normal function allele.</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "2 - For the combination of a no function allele with a duplicated normal function allele.\r\n\r\n\\>2 - For the combination of a no function allele and more than two copies of a normal function allele.",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501924,
-        "resource" : "Guideline Tags",
-        "term" : "Activity Score",
-        "termId" : "guidelineTags:981501924",
-        "version" : 0
-      },
-      "version" : 1
-    }, {
-      "id" : 1448526699,
-      "history" : [ {
-        "id" : 1448526701,
-        "date" : "2016-12-24T20:34:41.563-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526700,
-        "externalLinks" : [ ],
-        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal metabolism of TCAs.</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure.</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal metabolism of TCAs.\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nIncreased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure.",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501925,
-        "resource" : "Guideline Tags",
-        "term" : "Implications",
-        "termId" : "guidelineTags:981501925",
-        "version" : 0
-      },
-      "version" : 1
-    }, {
-      "id" : 1448526702,
-      "history" : [ {
-        "id" : 1448526704,
-        "date" : "2016-12-24T20:34:41.873-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526703,
-        "externalLinks" : [ ],
-        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal metabolizer</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid metabolizer</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal metabolizer\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nUltrarapid metabolizer",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501926,
-        "description" : "Likely phenotype of metabolizer status",
-        "resource" : "Guideline Tags",
-        "term" : "Metabolizer Status",
-        "termId" : "guidelineTags:981501926",
-        "version" : 0
-      },
-      "version" : 0
-    }, {
-      "id" : 1448526705,
-      "history" : [ {
-        "id" : 1448526707,
-        "date" : "2016-12-24T20:34:42.198-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526706,
-        "externalLinks" : [ ],
-        "html" : "<p>An individual carrying a no function allele and a duplicated normal function allele or a no function allele and more than two copies of a normal function allele.</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "An individual carrying a no function allele and a duplicated normal function allele or a no function allele and more than two copies of a normal function allele.",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501927,
-        "resource" : "Guideline Tags",
-        "term" : "Phenotype (Genotype)",
-        "termId" : "guidelineTags:981501927",
-        "version" : 0
-      },
-      "version" : 1
-    }, {
-      "id" : 1448526708,
-      "history" : [ {
-        "id" : 1448526710,
-        "date" : "2016-12-24T20:34:42.512-08:00",
-        "description" : "created",
-        "type" : "create",
-        "version" : 0
-      } ],
-      "markdown" : {
-        "id" : 1448526709,
-        "externalLinks" : [ ],
-        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Initiate therapy with recommended starting dose. Classification of recommendation: Strong</p>\n<p><em>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6.\nIf a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Classification of recommendation: Optional</p>\n<p><em>Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nInitiate therapy with recommended starting dose. Classification of recommendation: Strong\r\n\r\n_Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nAvoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6.\r\nIf a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Classification of recommendation: Optional\r\n\r\n_Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501928,
-        "resource" : "Guideline Tags",
-        "term" : "Recommendations",
-        "termId" : "guidelineTags:981501928",
-        "version" : 0
-      },
-      "version" : 1
-    } ],
-    "genotypes" : [ "CYP2D6:*100/*35xN", "CYP2D6:*100/*45xN", "CYP2D6:*101/*35xN", "CYP2D6:*101/*45xN", "CYP2D6:*11/*35xN", "CYP2D6:*11/*45xN", "CYP2D6:*12/*35xN", "CYP2D6:*12/*45xN", "CYP2D6:*13/*35xN", "CYP2D6:*13/*45xN", "CYP2D6:*14A/*35xN", "CYP2D6:*14A/*45xN", "CYP2D6:*15/*35xN", "CYP2D6:*15/*45xN", "CYP2D6:*18/*35xN", "CYP2D6:*18/*45xN", "CYP2D6:*19/*35xN", "CYP2D6:*19/*45xN", "CYP2D6:*1xN/*100", "CYP2D6:*1xN/*101", "CYP2D6:*1xN/*11", "CYP2D6:*1xN/*12", "CYP2D6:*1xN/*13", "CYP2D6:*1xN/*14A", "CYP2D6:*1xN/*15", "CYP2D6:*1xN/*18", "CYP2D6:*1xN/*19", "CYP2D6:*1xN/*20", "CYP2D6:*1xN/*21", "CYP2D6:*1xN/*3", "CYP2D6:*1xN/*31", "CYP2D6:*1xN/*36", "CYP2D6:*1xN/*36xN", "CYP2D6:*1xN/*38", "CYP2D6:*1xN/*3xN", "CYP2D6:*1xN/*4", "CYP2D6:*1xN/*40", "CYP2D6:*1xN/*42", "CYP2D6:*1xN/*44", "CYP2D6:*1xN/*47", "CYP2D6:*1xN/*4xN", "CYP2D6:*1xN/*5", "CYP2D6:*1xN/*51", "CYP2D6:*1xN/*56A", "CYP2D6:*1xN/*56B", "CYP2D6:*1xN/*57", "CYP2D6:*1xN/*6", "CYP2D6:*1xN/*62", "CYP2D6:*1xN/*68", "CYP2D6:*1xN/*69", "CYP2D6:*1xN/*6xN", "CYP2D6:*1xN/*7", "CYP2D6:*1xN/*8", "CYP2D6:*1xN/*92", "CYP2D6:*20/*35xN", "CYP2D6:*20/*45xN", "CYP2D6:*21/*35xN", "CYP2D6:*21/*45xN", "CYP2D6:*2xN/*100", "CYP2D6:*2xN/*101", "CYP2D6:*2xN/*11", "CYP2D6:*2xN/*12", "CYP2D6:*2xN/*13", "CYP2D6:*2xN/*14A", "CYP2D6:*2xN/*15", "CYP2D6:*2xN/*18", "CYP2D6:*2xN/*19", "CYP2D6:*2xN/*20", "CYP2D6:*2xN/*21", "CYP2D6:*2xN/*3", "CYP2D6:*2xN/*31", "CYP2D6:*2xN/*36", "CYP2D6:*2xN/*36xN", "CYP2D6:*2xN/*38", "CYP2D6:*2xN/*3xN", "CYP2D6:*2xN/*4", "CYP2D6:*2xN/*40", "CYP2D6:*2xN/*42", "CYP2D6:*2xN/*44", "CYP2D6:*2xN/*47", "CYP2D6:*2xN/*4xN", "CYP2D6:*2xN/*5", "CYP2D6:*2xN/*51", "CYP2D6:*2xN/*56A", "CYP2D6:*2xN/*56B", "CYP2D6:*2xN/*57", "CYP2D6:*2xN/*6", "CYP2D6:*2xN/*62", "CYP2D6:*2xN/*68", "CYP2D6:*2xN/*69", "CYP2D6:*2xN/*6xN", "CYP2D6:*2xN/*7", "CYP2D6:*2xN/*8", "CYP2D6:*2xN/*92", "CYP2D6:*3/*35xN", "CYP2D6:*3/*45xN", "CYP2D6:*31/*35xN", "CYP2D6:*31/*45xN", "CYP2D6:*35xN/*36", "CYP2D6:*35xN/*36xN", "CYP2D6:*35xN/*38", "CYP2D6:*35xN/*40", "CYP2D6:*35xN/*42", "CYP2D6:*35xN/*44", "CYP2D6:*35xN/*47", "CYP2D6:*35xN/*51", "CYP2D6:*35xN/*56A", "CYP2D6:*35xN/*56B", "CYP2D6:*35xN/*57", "CYP2D6:*35xN/*62", "CYP2D6:*35xN/*68", "CYP2D6:*35xN/*69", "CYP2D6:*35xN/*92", "CYP2D6:*36/*45xN", "CYP2D6:*36xN/*45xN", "CYP2D6:*38/*45xN", "CYP2D6:*3xN/*35xN", "CYP2D6:*3xN/*45xN", "CYP2D6:*4/*35xN", "CYP2D6:*4/*45xN", "CYP2D6:*40/*45xN", "CYP2D6:*42/*45xN", "CYP2D6:*44/*45xN", "CYP2D6:*45xN/*47", "CYP2D6:*45xN/*51", "CYP2D6:*45xN/*56A", "CYP2D6:*45xN/*56B", "CYP2D6:*45xN/*57", "CYP2D6:*45xN/*62", "CYP2D6:*45xN/*68", "CYP2D6:*45xN/*69", "CYP2D6:*45xN/*92", "CYP2D6:*4xN/*35xN", "CYP2D6:*4xN/*45xN", "CYP2D6:*5/*35xN", "CYP2D6:*5/*45xN", "CYP2D6:*6/*35xN", "CYP2D6:*6/*45xN", "CYP2D6:*6xN/*35xN", "CYP2D6:*6xN/*45xN", "CYP2D6:*7/*35xN", "CYP2D6:*7/*45xN", "CYP2D6:*8/*35xN", "CYP2D6:*8/*45xN" ],
-    "guideline" : {
-      "objCls" : "Guideline",
-      "@id" : "https://api.pharmgkb.org/data/guideline/PA166105002",
-      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
-      "id" : "PA166105002",
-      "name" : "CPIC Guideline for desipramine and CYP2D6",
-      "version" : 20
-    },
-    "rxChange" : false,
-    "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
-      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981565059,
-      "resource" : "Guideline Strength",
-      "term" : "Optional",
-      "termId" : "guidelineStrength:981565059",
-      "version" : 0
-    },
-    "version" : 1
+    "version" : 12
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161987",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161987",
-    "name" : "Ultrarapid",
+    "name" : "Ultrarapid Metabolizer",
     "annotations" : [ {
       "id" : 1448526651,
       "history" : [ {
@@ -827,12 +316,12 @@
       "markdown" : {
         "id" : 1448526658,
         "externalLinks" : [ ],
-        "html" : "<p>Ultrarapid metabolizer</p>\n",
+        "html" : "<p>Ultrarapid Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Ultrarapid metabolizer",
+        "markdown" : "Ultrarapid Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -844,7 +333,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526660,
       "history" : [ {
@@ -904,16 +393,24 @@
       },
       "version" : 1
     } ],
-    "genotypes" : [ "CYP2D6:*1/*1xN", "CYP2D6:*1/*2xN", "CYP2D6:*1/*35xN", "CYP2D6:*1/*45xN", "CYP2D6:*10/*35xN", "CYP2D6:*10/*45xN", "CYP2D6:*10x2/*35xN", "CYP2D6:*10x2/*45xN", "CYP2D6:*14B/*35xN", "CYP2D6:*14B/*45xN", "CYP2D6:*17/*35xN", "CYP2D6:*17/*45xN", "CYP2D6:*17x2/*35xN", "CYP2D6:*17x2/*45xN", "CYP2D6:*1xN/*10", "CYP2D6:*1xN/*10x2", "CYP2D6:*1xN/*14B", "CYP2D6:*1xN/*17", "CYP2D6:*1xN/*17x2", "CYP2D6:*1xN/*1xN", "CYP2D6:*1xN/*2", "CYP2D6:*1xN/*27", "CYP2D6:*1xN/*29", "CYP2D6:*1xN/*29x2", "CYP2D6:*1xN/*2xN", "CYP2D6:*1xN/*33", "CYP2D6:*1xN/*34", "CYP2D6:*1xN/*35", "CYP2D6:*1xN/*35xN", "CYP2D6:*1xN/*39", "CYP2D6:*1xN/*41", "CYP2D6:*1xN/*41x2", "CYP2D6:*1xN/*45", "CYP2D6:*1xN/*45xN", "CYP2D6:*1xN/*46", "CYP2D6:*1xN/*48", "CYP2D6:*1xN/*49", "CYP2D6:*1xN/*50", "CYP2D6:*1xN/*53", "CYP2D6:*1xN/*54", "CYP2D6:*1xN/*55", "CYP2D6:*1xN/*59", "CYP2D6:*1xN/*72", "CYP2D6:*1xN/*9", "CYP2D6:*1xN/*9x2", "CYP2D6:*2/*2xN", "CYP2D6:*2/*35xN", "CYP2D6:*2/*45xN", "CYP2D6:*27/*35xN", "CYP2D6:*27/*45xN", "CYP2D6:*29/*35xN", "CYP2D6:*29/*45xN", "CYP2D6:*29x2/*35xN", "CYP2D6:*29x2/*45xN", "CYP2D6:*2xN/*10", "CYP2D6:*2xN/*10x2", "CYP2D6:*2xN/*14B", "CYP2D6:*2xN/*17", "CYP2D6:*2xN/*17x2", "CYP2D6:*2xN/*27", "CYP2D6:*2xN/*29", "CYP2D6:*2xN/*29x2", "CYP2D6:*2xN/*2xN", "CYP2D6:*2xN/*33", "CYP2D6:*2xN/*34", "CYP2D6:*2xN/*35", "CYP2D6:*2xN/*35xN", "CYP2D6:*2xN/*39", "CYP2D6:*2xN/*41", "CYP2D6:*2xN/*41x2", "CYP2D6:*2xN/*45", "CYP2D6:*2xN/*45xN", "CYP2D6:*2xN/*46", "CYP2D6:*2xN/*48", "CYP2D6:*2xN/*49", "CYP2D6:*2xN/*50", "CYP2D6:*2xN/*53", "CYP2D6:*2xN/*54", "CYP2D6:*2xN/*55", "CYP2D6:*2xN/*59", "CYP2D6:*2xN/*72", "CYP2D6:*2xN/*9", "CYP2D6:*2xN/*9x2", "CYP2D6:*33/*35xN", "CYP2D6:*33/*45xN", "CYP2D6:*34/*35xN", "CYP2D6:*34/*45xN", "CYP2D6:*35/*35xN", "CYP2D6:*35/*45xN", "CYP2D6:*35xN/*35xN", "CYP2D6:*35xN/*39", "CYP2D6:*35xN/*41", "CYP2D6:*35xN/*41x2", "CYP2D6:*35xN/*45", "CYP2D6:*35xN/*45xN", "CYP2D6:*35xN/*46", "CYP2D6:*35xN/*48", "CYP2D6:*35xN/*49", "CYP2D6:*35xN/*50", "CYP2D6:*35xN/*53", "CYP2D6:*35xN/*54", "CYP2D6:*35xN/*55", "CYP2D6:*35xN/*59", "CYP2D6:*35xN/*72", "CYP2D6:*35xN/*9x2", "CYP2D6:*39/*45xN", "CYP2D6:*41/*45xN", "CYP2D6:*45/*45xN", "CYP2D6:*45xN/*41x2", "CYP2D6:*45xN/*45xN", "CYP2D6:*45xN/*46", "CYP2D6:*45xN/*48", "CYP2D6:*45xN/*49", "CYP2D6:*45xN/*50", "CYP2D6:*45xN/*53", "CYP2D6:*45xN/*54", "CYP2D6:*45xN/*55", "CYP2D6:*45xN/*59", "CYP2D6:*45xN/*72", "CYP2D6:*45xN/*9x2", "CYP2D6:*9/*35xN", "CYP2D6:*9/*45xN" ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Increased Function", "CYP2D6:Increased Function/Increased Function", "CYP2D6:Increased Function/Normal Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105002",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105002",
       "name" : "CPIC Guideline for desipramine and CYP2D6",
-      "version" : 20
+      "version" : 64
     },
-    "rxChange" : false,
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
     "strength" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -923,6 +420,795 @@
       "termId" : "guidelineStrength:981565059",
       "version" : 0
     },
-    "version" : 1
-  } ]
+    "version" : 14
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161988",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161988",
+    "name" : "Intermediate Metabolizer",
+    "annotations" : [ {
+      "id" : 1448526666,
+      "history" : [ {
+        "id" : 1448526668,
+        "date" : "2016-12-24T20:34:32.807-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526667,
+        "externalLinks" : [ ],
+        "html" : "<p>0.5</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "0.5",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526669,
+      "history" : [ {
+        "id" : 1448526671,
+        "date" : "2016-12-24T20:34:33.111-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526670,
+        "externalLinks" : [ ],
+        "html" : "<p>Reduced metabolism of TCAs to less active compounds when compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Reduced metabolism of TCAs to less active compounds when compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526672,
+      "history" : [ {
+        "id" : 1448526674,
+        "date" : "2016-12-24T20:34:33.410-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526673,
+        "externalLinks" : [ ],
+        "html" : "<p>Intermediate Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448526675,
+      "history" : [ {
+        "id" : 1448526677,
+        "date" : "2016-12-24T20:34:33.715-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526676,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one decreased and one no function allele</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one decreased and one no function allele",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526678,
+      "history" : [ {
+        "id" : 1448526680,
+        "date" : "2016-12-24T20:34:34.027-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526679,
+        "externalLinks" : [ ],
+        "html" : "<p>Consider 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.</p>\n<p><em>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Consider 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.\r\n\r\n_Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 1
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166105002",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166105002",
+      "name" : "CPIC Guideline for desipramine and CYP2D6",
+      "version" : 64
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981565059,
+      "resource" : "Guideline Strength",
+      "term" : "Optional",
+      "termId" : "guidelineStrength:981565059",
+      "version" : 0
+    },
+    "version" : 14
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161989",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161989",
+    "name" : "Poor Metabolizer",
+    "annotations" : [ {
+      "id" : 1448526681,
+      "history" : [ {
+        "id" : 1448526683,
+        "date" : "2016-12-24T20:34:38.215-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526682,
+        "externalLinks" : [ ],
+        "html" : "<p>0</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "0",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526684,
+      "history" : [ {
+        "id" : 1448526686,
+        "date" : "2016-12-24T20:34:38.531-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526685,
+        "externalLinks" : [ ],
+        "html" : "<p>Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526687,
+      "history" : [ {
+        "id" : 1448526689,
+        "date" : "2016-12-24T20:34:38.832-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526688,
+        "externalLinks" : [ ],
+        "html" : "<p>Poor Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448526690,
+      "history" : [ {
+        "id" : 1448526692,
+        "date" : "2016-12-24T20:34:39.138-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526691,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying only no function alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying only no function alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526693,
+      "history" : [ {
+        "id" : 1448526695,
+        "date" : "2016-12-24T20:34:39.439-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526694,
+        "externalLinks" : [ ],
+        "html" : "<p>Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6.\nIf a TCA is warranted, consider 50% reduction of recommended starting dose.g Utilize therapeutic drug monitoring to guide dose adjustments.</p>\n<p><em>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6.\r\nIf a TCA is warranted, consider 50% reduction of recommended starting dose.g Utilize therapeutic drug monitoring to guide dose adjustments.\r\n\r\n_Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 1
+    } ],
+    "genePhenotypes" : [ "CYP2D6:No Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166105002",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166105002",
+      "name" : "CPIC Guideline for desipramine and CYP2D6",
+      "version" : 64
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981565059,
+      "resource" : "Guideline Strength",
+      "term" : "Optional",
+      "termId" : "guidelineStrength:981565059",
+      "version" : 0
+    },
+    "version" : 14
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161990",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161990",
+    "name" : "Ultrarapid Metabolizer or Normal Metabolizer",
+    "annotations" : [ {
+      "id" : 1448526696,
+      "history" : [ {
+        "id" : 1448526698,
+        "date" : "2016-12-24T20:34:41.261-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526697,
+        "externalLinks" : [ ],
+        "html" : "<p>2 - For the combination of a no function allele with a duplicated normal function allele.</p>\n<p>&gt;2 - For the combination of a no function allele and more than two copies of a normal function allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "2 - For the combination of a no function allele with a duplicated normal function allele.\r\n\r\n\\>2 - For the combination of a no function allele and more than two copies of a normal function allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526699,
+      "history" : [ {
+        "id" : 1448526701,
+        "date" : "2016-12-24T20:34:41.563-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526700,
+        "externalLinks" : [ ],
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal metabolism of TCAs.</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal metabolism of TCAs.\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nIncreased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526702,
+      "history" : [ {
+        "id" : 1448526704,
+        "date" : "2016-12-24T20:34:41.873-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526703,
+        "externalLinks" : [ ],
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal Metabolizer</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal Metabolizer\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nUltrarapid Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448526705,
+      "history" : [ {
+        "id" : 1448526707,
+        "date" : "2016-12-24T20:34:42.198-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526706,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying a no function allele and a duplicated normal function allele or a no function allele and more than two copies of a normal function allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying a no function allele and a duplicated normal function allele or a no function allele and more than two copies of a normal function allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526708,
+      "history" : [ {
+        "id" : 1448526710,
+        "date" : "2016-12-24T20:34:42.512-08:00",
+        "description" : "created",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448526709,
+        "externalLinks" : [ ],
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Initiate therapy with recommended starting dose. Classification of recommendation: Strong</p>\n<p><em>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6.\nIf a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Classification of recommendation: Optional</p>\n<p><em>Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nInitiate therapy with recommended starting dose. Classification of recommendation: Strong\r\n\r\n_Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nAvoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6.\r\nIf a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Classification of recommendation: Optional\r\n\r\n_Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 2
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Increased Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166105002",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166105002",
+      "name" : "CPIC Guideline for desipramine and CYP2D6",
+      "version" : 64
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981565059,
+      "resource" : "Guideline Strength",
+      "term" : "Optional",
+      "termId" : "guidelineStrength:981565059",
+      "version" : 0
+    },
+    "version" : 14
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162396",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162396",
+    "name" : "Indeterminate",
+    "annotations" : [ {
+      "id" : 1448532137,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448532136,
+        "externalLinks" : [ ],
+        "html" : "<p>N/A</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "N/A",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448532139,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448532138,
+        "externalLinks" : [ ],
+        "html" : "<p>Indeterminate</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448532135,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448532134,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two unknown/uncertain function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown/uncertain function alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 4
+    }, {
+      "id" : 1448532141,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448532140,
+        "externalLinks" : [ ],
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 2
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Unknown or Uncertain Function", "CYP2D6:Increased Function/Unknown or Uncertain Function", "CYP2D6:No Function/Unknown or Uncertain Function", "CYP2D6:Normal Function/Unknown or Uncertain Function", "CYP2D6:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166105002",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166105002",
+      "name" : "CPIC Guideline for desipramine and CYP2D6",
+      "version" : 64
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 21
+  } ],
+  "genePhenotypes" : {
+    "CYP2D6" : {
+      "*1" : "Normal Function",
+      "*1xN" : "Increased Function",
+      "*2" : "Normal Function",
+      "*2xN" : "Increased Function",
+      "*3" : "No Function",
+      "*3xN" : "No Function",
+      "*4" : "No Function",
+      "*4xN" : "No Function",
+      "*5" : "No Function",
+      "*6" : "No Function",
+      "*6xN" : "No Function",
+      "*7" : "No Function",
+      "*8" : "No Function",
+      "*9" : "Decreased Function",
+      "*9x2" : "Normal Function",
+      "*10" : "Decreased Function",
+      "*10x2" : "Normal Function",
+      "*11" : "No Function",
+      "*12" : "No Function",
+      "*13" : "No Function",
+      "*14A" : "No Function",
+      "*14B" : "Decreased Function",
+      "*15" : "No Function",
+      "*17" : "Decreased Function",
+      "*17x2" : "Normal Function",
+      "*18" : "No Function",
+      "*19" : "No Function",
+      "*20" : "No Function",
+      "*21" : "No Function",
+      "*22" : "Unknown or Uncertain Function",
+      "*23" : "Unknown or Uncertain Function",
+      "*24" : "Unknown or Uncertain Function",
+      "*25" : "Unknown or Uncertain Function",
+      "*26" : "Unknown or Uncertain Function",
+      "*27" : "Normal Function",
+      "*28" : "Unknown or Uncertain Function",
+      "*29" : "Decreased Function",
+      "*29x2" : "Normal Function",
+      "*30" : "Unknown or Uncertain Function",
+      "*31" : "No Function",
+      "*32" : "Unknown or Uncertain Function",
+      "*33" : "Normal Function",
+      "*34" : "Normal Function",
+      "*35" : "Normal Function",
+      "*35xN" : "Increased Function",
+      "*36" : "No Function",
+      "*36xN" : "No Function",
+      "*37" : "Unknown or Uncertain Function",
+      "*38" : "No Function",
+      "*39" : "Normal Function",
+      "*40" : "No Function",
+      "*41" : "Decreased Function",
+      "*41x2" : "Normal Function",
+      "*42" : "No Function",
+      "*43" : "Unknown or Uncertain Function",
+      "*44" : "No Function",
+      "*45" : "Normal Function",
+      "*45xN" : "Increased Function",
+      "*46" : "Normal Function",
+      "*47" : "No Function",
+      "*48" : "Normal Function",
+      "*49" : "Decreased Function",
+      "*50" : "Decreased Function",
+      "*51" : "No Function",
+      "*52" : "Unknown or Uncertain Function",
+      "*53" : "Normal Function",
+      "*54" : "Decreased Function",
+      "*55" : "Decreased Function",
+      "*56" : "No Function",
+      "*57" : "No Function",
+      "*58" : "Unknown or Uncertain Function",
+      "*59" : "Decreased Function",
+      "*60" : "Unknown or Uncertain Function",
+      "*61" : "Unknown or Uncertain Function",
+      "*62" : "No Function",
+      "*63" : "Unknown or Uncertain Function",
+      "*64" : "Unknown or Uncertain Function",
+      "*65" : "Unknown or Uncertain Function",
+      "*68" : "No Function",
+      "*69" : "No Function",
+      "*70" : "Unknown or Uncertain Function",
+      "*71" : "Unknown or Uncertain Function",
+      "*72" : "Decreased Function",
+      "*73" : "Unknown or Uncertain Function",
+      "*74" : "Unknown or Uncertain Function",
+      "*75" : "Unknown or Uncertain Function",
+      "*81" : "Unknown or Uncertain Function",
+      "*82" : "Unknown or Uncertain Function",
+      "*83" : "Unknown or Uncertain Function",
+      "*84" : "Unknown or Uncertain Function",
+      "*85" : "Unknown or Uncertain Function",
+      "*86" : "Unknown or Uncertain Function",
+      "*87" : "Unknown or Uncertain Function",
+      "*88" : "Unknown or Uncertain Function",
+      "*89" : "Unknown or Uncertain Function",
+      "*90" : "Unknown or Uncertain Function",
+      "*91" : "Unknown or Uncertain Function",
+      "*92" : "No Function",
+      "*93" : "Unknown or Uncertain Function",
+      "*94" : "Unknown or Uncertain Function",
+      "*95" : "Unknown or Uncertain Function",
+      "*96" : "Unknown or Uncertain Function",
+      "*97" : "Unknown or Uncertain Function",
+      "*98" : "Unknown or Uncertain Function",
+      "*100" : "No Function",
+      "*101" : "No Function",
+      "*102" : "Unknown or Uncertain Function",
+      "*103" : "Unknown or Uncertain Function",
+      "*104" : "Unknown or Uncertain Function",
+      "*105" : "Unknown or Uncertain Function",
+      "*107" : "Unknown or Uncertain Function",
+      "*108" : "Unknown or Uncertain Function",
+      "*109" : "Unknown or Uncertain Function"
+    }
+  }
 }
