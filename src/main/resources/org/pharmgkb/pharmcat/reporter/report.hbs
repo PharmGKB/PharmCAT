@@ -117,7 +117,7 @@
     <li><a href="#genotypes">Diplotype / Genotype Summary</a></li>
     <li><a href="#guidelines">CPIC Recommendations</a></li>
     <li><a href="#genes">Allele Call Details</a></li>
-    <li>Disclaimers (coming soon)</li>
+    <li><a href="#disclaimer">Disclaimers</a></li>
   </ol>
 </section>
 
@@ -264,6 +264,38 @@
       </table>
     {{/unless}}
   {{/each}}
+</section>
+
+<section id="disclaimer">
+  <h2>Disclaimers</h2>
+
+  <h3>Caveats: appropriate use and/or potential misuse of genetic tests</h3>
+  <p>The application of genotype-based dosing is most appropriate when initiating therapy. Obtaining a pharmacogenetic test after months of drug therapy may be less helpful in some instances, as the drug dose may have already been adjusted based on plasma concentrations, response, or side effects. Like all diagnostic tests, genetic tests are one of several pieces of clinical information that should be considered before initiating drug therapy.</p>
+
+  <h3>Disclaimer</h3>
+  <p>CPIC guidelines reflect expert consensus based on clinical evidence and peer-reviewed literature available at the time they are written and are intended only to assist clinicians in decision making and to identify questions for further research. New evidence may have emerged since the time a guideline was submitted for publication. Guidelines are limited in scope and are not applicable to interventions or diseases not specifically identified. Guidelines do not account for all individual variations among patients and cannot be considered inclusive of all proper methods of care or exclusive of other treatments. It remains the responsibility of the health-care provider to determine the best course of treatment for a patient. Adherence to any guidelines is voluntary, with the ultimate determination regarding its application to be made solely by the clinician and the patient. CPIC assumes no responsibility for any injury to persons or damage to persons or property arising out of or related to any use of CPIC’s guidelines, or for any errors or omissions.</p>
+  <p>CPIC is a registered service mark of the U.S. Department of Health & Human Services (HHS).</p>
+
+  <h3>Drug-drug interaction & Other clinical factors</h3>
+
+  <p>For the full description of potential benefits and risks, additional considerations (general and specific to gene-drug pairs), limitations and information about respective gene nomenclature systems please see individual CPIC guidelines.</p>
+  <p>PharmCAT allele calls are based on CPIC allele definitions and terms.</p>
+  <p>HLA and G6PD are currently not included in PharmCAT.</p>
+  <p>Additional alleles are defined by representative gene nomenclatures for several genes. The genotype/diplotype determination is based on CPIC allele definitions (for the included alleles see definition table [GIThub link], with the following modifications: CYP3A5 representation of *9; SLOC1B1 (rsnumber used to provide recommendation in case haplotype call is indeterminate); TPMT *1S</p>
+  <p>The *1 alleles in the representative genes are characterized by the absence of any sequence variations. Consequently, these alleles cannot be identified by variants; rather *1 is assigned by default when no variation is detected during testing.</p>
+  <p>In addition, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation is defaulted to a normal function allele assignment. There is a rare possibility that such variation confers reduced or no activity in an individual and that the person’s allele function and resulting metabolizer phenotype is not accurately predicted, which might result in altered CPIC recommendation.</p>
+  <p>Rating scheme that describe the classification of recommendations are in the CPIC guideline supplemental material available at PharmGKB and CPIC.</p>
+
+  <h3>CYP2D6</h3>
+  <p>CYP2D6 diplotypes are based on Astrolabe calls. For specific disclaimers and limitations see Astrolabe specification.</p>
+  <p>Patients with a gene activity score of 1.0 are classified as Normal metabolizer by CPIC but may be classified as Intermediate metabolizers by some reference laboratories or other guidelines.</p>
+  <p>Based on the outcome of the CPIC Term Standardization Project the term Extensive metabolizer is replaced by Normal metabolizer. Guidelines published before this include the term Extensive metabolizer.</p>
+
+  <p>Depending on the VCF information provided, PharmCAT does not consider alleles with missing variant information in the allele calling process. Missing positions might altered the assigned diplotype/genotype and possible the allele function, metabolizer phenotype and CPIC recommendations. Please see Allele call section for not considered alleles.</p>
+  <p>PharmCAT matches variants to dipoltypes using unphased data. The assumption is that variants exist on different alleles (trans). Exception to this are noted in the in the Allele calls section Gene-specific warnings.</p>
+  <p>Alleles displayed on positive chromosomal strand for further information see Gene-specific warnings in the Allele calls section.</p>
+
+  <p><em>Liability: use at your own risk</em></p>
 </section>
 
 </body>
