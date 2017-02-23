@@ -24,6 +24,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 public class ReportData {
 
   private static final List<String> sf_geneBlacklist = ImmutableList.of("G6PD", "HLA-B");
+  private static final List<String> sf_annotationTermBlacklist = ImmutableList.of("Phenotype (Genotype)");
 
   /**
    * Make a Map that can be used in the final handlebars report
@@ -92,6 +93,10 @@ public class ReportData {
 
           List<Map<String, String>> annotationList = new ArrayList<>();
           for (Annotation ann : group.getAnnotations()) {
+            if (sf_annotationTermBlacklist.contains(ann.getType().getTerm())) {
+              continue;
+            }
+
             Map<String, String> annotationMap = new HashMap<>();
             annotationMap.put("term", ann.getType().getTerm());
             annotationMap.put("annotation", ann.getMarkdown().getHtml().replaceAll("[\\n\\r]", " "));

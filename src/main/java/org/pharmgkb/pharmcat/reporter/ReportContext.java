@@ -10,7 +10,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
