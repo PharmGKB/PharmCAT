@@ -108,6 +108,11 @@
     .drugName {
       white-space: nowrap;
     }
+
+    .rxChange {
+      color: darkorange;
+      font-weight: bold;
+    }
   </style>
 
 </head>
@@ -150,7 +155,7 @@
     {{#each genotypes}}
       <tr>
         <td>{{#each drugs}}
-          {{{drug this}}}
+          {{{drug name rxChange}}}
         {{/each}}</td>
         <td><a href="#{{gene}}">{{gene}}</a></td>
         <td>

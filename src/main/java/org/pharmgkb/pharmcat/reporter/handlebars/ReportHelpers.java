@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.handlebars;
 
 import java.util.List;
+import com.github.jknack.handlebars.Options;
 import com.google.common.collect.ImmutableList;
 
 
@@ -16,11 +17,16 @@ public class ReportHelpers {
       "warfarin"
   );
 
-  public static String drug(String name) {
+  public static String drug(String name, Options options) {
     String cn = "drugName";
 
     if (sf_highlightDrugs.contains(name)) {
       cn += " highlightDrug";
+    }
+
+    boolean rxChange = options.param(0);
+    if (rxChange) {
+      cn += " rxChange";
     }
 
     return String.format(sf_drugNameTemplate, cn, name);

@@ -47,7 +47,7 @@ public class ReportData {
       Map<String,Object> genotype = new HashMap<>();
       genotype.put("gene", symbol);
       genotype.put("called", geneReport.isCalled());
-      genotype.put("drugs", geneReport.getRelatedDrugs().stream().collect(Collectors.toSet()));
+      genotype.put("drugs", reportContext.makeDrugMaps(geneReport));
       genotype.put("call", geneReport.getDips().stream().collect(Collectors.joining(", ")));
       genotype.put("functions", geneReport.getFunctions());
       genotype.put("uncallableAlleles",

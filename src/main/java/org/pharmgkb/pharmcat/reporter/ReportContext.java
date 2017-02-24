@@ -1,6 +1,8 @@
 package org.pharmgkb.pharmcat.reporter;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Function;
@@ -98,6 +100,24 @@ public class ReportContext {
     return m_calls != null && m_calls.stream()
         .filter(c -> c.getHaplotypes().size() > 0)
         .anyMatch(c -> c.getGene().equals(gene));
+  }
+
+  private boolean isRxChange(String drug) {
+    return m_interactionList.stream()
+        .filter(i -> i.getRelatedDrugs().contains(drug) && i.getMatchingGroups() != null)
+        .flatMap(i -> i.getMatchingGroups().stream())
+        .anyMatch(g -> g.getRxChange() != null && g.getRxChange().getTerm().equals("Yes"));
+  }
+
+  public List<Map<String,Object>> makeDrugMaps(GeneReport geneReport) {
+    return geneReport.getRelatedDrugs().stream()
+        .map(d -> {
+          Map<String,Object> drugMap = new LinkedHashMap<>();
+          drugMap.put("name", d);
+          drugMap.put("rxChange", isRxChange(d));
+          return drugMap;
+        })
+        .collect(Collectors.toList());
   }
 
   /**
