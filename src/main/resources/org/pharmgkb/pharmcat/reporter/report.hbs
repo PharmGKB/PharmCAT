@@ -81,19 +81,22 @@
     hr {
       margin-bottom: 2em;
     }
+    section.gene, section.guideline {
+      margin-bottom: 4em;
+      border-top: 1px solid #DDD;
+    }
+
     .alert {
       margin: 1em 0;
       padding: 0.6em;
       border-radius: 4px;
       text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     }
-
     .alert-info {
       background-color: #d9edf7;
       border-color: #bce8f1;
       color: #3a87ad;
     }
-
     .alert-warning {
       background-color: #fcf8e3;
       border-color: #faebcc;
@@ -197,44 +200,47 @@
   <h2>CPIC Recommendations</h2>
 
   {{#each guidelines}}
-    <h3 id="{{id}}">{{drugs}}</h3>
+    <section class="guideline">
+      <h3 id="{{id}}">{{drugs}}</h3>
 
-    <section>
-      {{{summary}}}
-    </section>
-    <section>
-      <p>For more information see the <a href="{{url}}">full guideline on PharmGKB</a>.</p>
-    </section>
+      <section>
+        {{{summary}}}
+      </section>
+      <section>
+        <p>For more information see the <a href="{{url}}">full guideline on PharmGKB</a>.</p>
+      </section>
 
-    {{#if notReportable}}
-      <div class="alert alert-info">Gene calls insufficient to filter annotations, missing {{uncalledGenes}}</div>
-    {{/if}}
-    {{#unless notReportable}}
-      {{#unless matched}}
-        <div class="alert alert-warning">Alleles called for all necessary genes but no matching annotations found. check the guideline</div>
+      {{#unless reportable}}
+        <div class="alert alert-info">No genotypes matched for {{uncalledGenes}} so annotations can be shown.</div>
       {{/unless}}
-    {{/unless}}
+      {{#if reportable}}
+        {{#unless matched}}
+          <div class="alert alert-warning">Alleles called for all necessary genes but no matching annotations found. check the guideline</div>
+        {{/unless}}
+      {{/if}}
 
-    {{#if multiMatch}}
-      <div class="alert alert-info"><strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups could be shown</div>
-    {{/if}}
+      {{#if multiMatch}}
+        <div class="alert alert-info"><strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups could be shown</div>
+      {{/if}}
 
-    <h4>Annotations for {{#each diplotypes}}{{this}} {{/each}}</h4>
-    {{#each groups}}
-      <table>
-        <thead>
-        <tr><th>Type</th><th>Annotation</th></tr>
-        </thead>
-        <tbody>
-        <tr><td>Allele Functionality</td><td>{{matchedPhenotypes}}</td></tr>
-        <tr><td>Phenotype</td><td>{{name}}</td></tr>
-        {{#each annotations}}
-          <tr><td>{{term}}</td><td>{{{annotation}}}</td></tr>
+      {{#if matched}}
+        <h4>Annotations for {{#each diplotypes}}{{this}} {{/each}}</h4>
+        {{#each groups}}
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>Allele Functionality</td><td>{{matchedPhenotypes}}</td></tr>
+            <tr><td>Phenotype</td><td>{{name}}</td></tr>
+            {{#each annotations}}
+              <tr><td>{{term}}</td><td>{{{annotation}}}</td></tr>
+            {{/each}}
+            </tbody>
+          </table>
         {{/each}}
-        </tbody>
-      </table>
-    {{/each}}
-
+      {{/if}}
+    </section>
   {{/each}}
 </section>
 
@@ -242,6 +248,7 @@
   <h2>Allele Call Details</h2>
 
   {{#each geneCalls}}
+    <section class="gene">
     <h3 id="{{gene}}">{{gene}}</h3>
 
     <h4>Genotype</h4>
@@ -288,6 +295,7 @@
         </tbody>
       </table>
     {{/unless}}
+    </section>
   {{/each}}
 </section>
 

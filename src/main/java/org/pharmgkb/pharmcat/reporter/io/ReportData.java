@@ -77,7 +77,7 @@ public class ReportData {
               .flatMap(reportContext.mapGeneToDiplotypes)
               .collect(Collectors.toList()));
 
-      guidelineMap.put("notReportable", !guideline.isReportable());
+      guidelineMap.put("reportable", guideline.isReportable());
       guidelineMap.put("uncalledGenes",
           guideline.getUncalledGenes().stream().collect(Collectors.joining(", ")));
 

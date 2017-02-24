@@ -89,7 +89,7 @@ public class ReportContext {
       // exceptionMatcher.addExceptions(geneReport); 
 
       m_sampleGeneToDiplotypeMap.removeAll(call.getGene());
-      m_sampleGeneToDiplotypeMap.putAll(call.getGene(), geneReport.getDips());
+      m_sampleGeneToDiplotypeMap.putAll(call.getGene(), geneReport.getDips().stream().map(d -> geneReport.getGene()+":"+d).collect(Collectors.toList()));
     }
     fixCyp2c19();
   }
