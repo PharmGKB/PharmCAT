@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 import com.google.common.collect.ImmutableList;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
-import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.Group;
+import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
@@ -137,7 +137,7 @@ public class ReportData {
       }
 
       if (geneReport.getExceptionList() != null && geneReport.getExceptionList().size() > 0) {
-        geneCallMap.put("warnings", geneReport.getExceptionList().stream().map(CPICException::getMessage).collect(Collectors.toList()));
+        geneCallMap.put("warnings", geneReport.getExceptionList().stream().map(PharmcatException::getMessage).collect(Collectors.toList()));
       }
 
       if (geneReport.getVariants().size() > 0) {

@@ -12,13 +12,13 @@ public class CPICExceptionList {
 
   @SerializedName("rules")
   @Expose
-  private ArrayList<CPICException> m_rules;
+  private ArrayList<PharmcatException> m_rules;
 
-  public ArrayList<CPICException> getRules() {
+  public ArrayList<PharmcatException> getRules() {
     return m_rules;
   }
 
-  public void setRules(ArrayList<CPICException> rules) {
+  public void setRules(ArrayList<PharmcatException> rules) {
     m_rules = rules;
   }
 }

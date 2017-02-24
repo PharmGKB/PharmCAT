@@ -12,7 +12,7 @@ import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
-import org.pharmgkb.pharmcat.reporter.model.CPICException;
+import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 
 
 /**
@@ -25,7 +25,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private Set<String> m_diplotypes = new TreeSet<>();
   private Set<String> m_uncalledHaplotypes;
   private SortedSet<Variant> m_variants = new TreeSet<>();
-  private List<CPICException> m_exceptList = new ArrayList<>();
+  private List<PharmcatException> m_exceptList = new ArrayList<>();
   private MatchData m_matchData;
   private Set<String> m_relatedDrugs = new TreeSet<>();
   private SortedSet<String> m_functions = new TreeSet<>();
@@ -76,11 +76,11 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * The list of exceptions that apply to this gene
    */
-  public List<CPICException> getExceptionList(){
+  public List<PharmcatException> getExceptionList(){
     return m_exceptList;
   }
 
-  public void addException( CPICException except ){
+  public void addException( PharmcatException except ){
     m_exceptList.add(except);
   }
 

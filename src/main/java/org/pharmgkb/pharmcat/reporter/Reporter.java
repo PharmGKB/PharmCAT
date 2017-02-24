@@ -23,6 +23,7 @@ import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.ReportData;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
+import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
 
@@ -39,6 +40,7 @@ public class Reporter {
   private static final String sf_templateName = "report";
   private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
   private List<Path> m_annotationFiles = null;
+  private List<PharmcatException> m_exceptions = null;
   private ReportContext m_reportContext = null;
 
   /**
@@ -50,6 +52,7 @@ public class Reporter {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("d", "annotations-dir", "directory of allele definition files", true, "d")
         .addOption("c", "call-file", "named allele call JSON file", true, "c")
+        .addOption("e", "exceptoins-file", "exceptions logic file", true, "e")
         .addOption("o", "output-file", "file path to write HTML report to", true, "o")
         ;
 
@@ -60,9 +63,10 @@ public class Reporter {
 
       Path annotationsDir = cliHelper.getValidDirectory("d", false);
       Path callFile = cliHelper.getValidFile("c", true);
+      Path exceptionsFile = cliHelper.getValidFile("e", true);
       Path outputFile = cliHelper.getPath("o");
 
-      new Reporter(annotationsDir)
+      new Reporter(annotationsDir, exceptionsFile)
           .analyze(callFile)
           .printHtml(outputFile);
 
@@ -76,11 +80,15 @@ public class Reporter {
    *
    * @param annotationsDir directory of annotation files
    */
-  public Reporter(@Nonnull Path annotationsDir) throws IOException {
+  public Reporter(@Nonnull Path annotationsDir, @Nonnull Path exceptionsFile) throws IOException {
 
     Preconditions.checkNotNull(annotationsDir);
     Preconditions.checkArgument(Files.exists(annotationsDir));
     Preconditions.checkArgument(Files.isDirectory(annotationsDir));
+
+    Preconditions.checkNotNull(exceptionsFile);
+    Preconditions.checkArgument(Files.exists(exceptionsFile));
+    Preconditions.checkArgument(Files.isRegularFile(exceptionsFile));
 
     AnnotationReader annotationReader = new AnnotationReader();
     annotationReader.read(annotationsDir);
@@ -91,6 +99,12 @@ public class Reporter {
     if (m_annotationFiles.size() == 0) {
       throw new IOException("No annotation definitions to read from");
     }
+
+    m_exceptions = Files.lines(exceptionsFile)
+        .skip(1) // skip the header
+        .map(PharmcatException::new)
+        .collect(Collectors.toList());
+
   }
 
   /**
@@ -114,7 +128,7 @@ public class Reporter {
     List<GuidelinePackage> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
-    m_reportContext = new ReportContext(calls, guidelines);
+    m_reportContext = new ReportContext(calls, guidelines, m_exceptions);
 
     return this;
   }

@@ -15,9 +15,9 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.gson.Gson;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
-import org.pharmgkb.pharmcat.reporter.model.CPICException;
 import org.pharmgkb.pharmcat.reporter.model.CPICExceptionList;
-import org.pharmgkb.pharmcat.reporter.model.CPICExceptionMatch;
+import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
+import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 
@@ -29,7 +29,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
  */
 
 public class ExceptionMatcher {
-  private Multimap<String, CPICException> m_exceptionMap;
+  private Multimap<String, PharmcatException> m_exceptionMap;
 
   public ExceptionMatcher() throws Exception {
     try {
@@ -57,12 +57,12 @@ public class ExceptionMatcher {
   /**
    * testing the observed allele data against the exception logic
    */
-  public boolean test(GeneReport geneReport, CPICException exception) {
+  public boolean test(GeneReport geneReport, PharmcatException exception) {
 
-    CPICExceptionMatch matchCriteria = exception.getMatches();
+    MatchLogic matchCriteria = exception.getMatches();
 
     // if gene doesn't match, nothing else matters
-    if (!matchCriteria.getGenes().contains(geneReport.getGene())) {
+    if (!matchCriteria.getGene().equals(geneReport.getGene())) {
       return false;
     }
 
@@ -92,15 +92,15 @@ public class ExceptionMatcher {
     return !Collections.disjoint(testHaplotypes, observedHaplotypes);
   }
 
-  private Multimap<String, CPICException> loadExceptions(URI exceptionsUri)throws IOException {
+  private Multimap<String, PharmcatException> loadExceptions(URI exceptionsUri)throws IOException {
     Gson gson = new Gson();
-    Multimap<String, CPICException> matcher = HashMultimap.create();
+    Multimap<String, PharmcatException> matcher = HashMultimap.create();
 
     try (BufferedReader br = Files.newBufferedReader(Paths.get(exceptionsUri))) {
       CPICExceptionList exceptionList = gson.fromJson(br, CPICExceptionList.class);
 
-      for (CPICException rule : exceptionList.getRules()) {
-        rule.getMatches().getGenes().forEach(g -> matcher.put(g, rule));
+      for (PharmcatException rule : exceptionList.getRules()) {
+        matcher.put(rule.getMatches().getGene(), rule);
       }
     }
     return matcher;

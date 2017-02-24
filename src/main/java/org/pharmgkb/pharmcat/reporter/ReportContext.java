@@ -15,6 +15,7 @@ import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
+import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
@@ -39,6 +40,7 @@ public class ReportContext {
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
   private Set<GeneReport> m_geneReports = new TreeSet<>();
   private List<GuidelineReport> m_interactionList;
+  private List<PharmcatException> m_exceptions;
 
   public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_calls.stream()
       .filter(c -> c.getGene().equals(s))
@@ -50,7 +52,7 @@ public class ReportContext {
    * @param calls GeneCall objects from the sample data
    * @param guidelines a List of all the guidelines to try to apply
    */
-  public ReportContext(List<GeneCall> calls, List<GuidelinePackage> guidelines) throws Exception {
+  public ReportContext(List<GeneCall> calls, List<GuidelinePackage> guidelines, List<PharmcatException> exceptions) throws Exception {
     m_calls = calls;
     m_interactionList = guidelines.stream().map(GuidelineReport::new).collect(Collectors.toList());
 
@@ -68,6 +70,8 @@ public class ReportContext {
         }
       }
     });
+
+    m_exceptions = exceptions;
 
     compileGeneData();
     findMatches();

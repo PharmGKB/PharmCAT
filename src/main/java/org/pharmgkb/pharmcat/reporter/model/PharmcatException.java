@@ -1,13 +1,37 @@
 package org.pharmgkb.pharmcat.reporter.model;
 
+import javax.annotation.Nonnull;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
  * @author Lester Carter
+ * @author Ryan Whaley
  */
-public class CPICException {
+public class PharmcatException {
+  private static final int sf_rowLength = 9;
+
+  public PharmcatException(@Nonnull String row) throws RuntimeException {
+    String[] fields = row.split("\\t");
+
+    if (fields.length < sf_rowLength) {
+      throw new RuntimeException("Row not of expected length "+sf_rowLength);
+    }
+
+    m_name = fields[0];
+    m_exceptionType = fields[6];
+    m_message = fields[7];
+    m_version = fields[8];
+
+    m_matches = new MatchLogic();
+    m_matches.setGene(fields[1]);
+    m_matches.setHapsCalled(ImmutableList.of(fields[2]));
+    m_matches.setDips(ImmutableList.of(fields[3]));
+    m_matches.setDrugs(ImmutableList.copyOf(Splitter.on(",").trimResults().split(fields[4])));
+  }
 
   @Expose
   @SerializedName("rule_name")
@@ -17,7 +41,7 @@ public class CPICException {
   private String m_version;
   @Expose
   @SerializedName("matches")
-  private CPICExceptionMatch m_matches;
+  private MatchLogic m_matches;
   @Expose
   @SerializedName("exception_type")
   private String m_exceptionType;
@@ -41,11 +65,11 @@ public class CPICException {
     m_version = version;
   }
 
-  public CPICExceptionMatch getMatches() {
+  public MatchLogic getMatches() {
     return m_matches;
   }
 
-  public void setMatches(CPICExceptionMatch matches) {
+  public void setMatches(MatchLogic matches) {
     m_matches = matches;
   }
 
@@ -63,5 +87,10 @@ public class CPICException {
 
   public void setMessage(String message) {
     m_message = message;
+  }
+
+  @Override
+  public String toString() {
+    return getName();
   }
 }

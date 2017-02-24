@@ -10,11 +10,11 @@ import com.google.gson.annotations.SerializedName;
 /**
  * @author Ryan Whaley
  */
-public class CPICExceptionMatch {
+public class MatchLogic {
   
   @Expose
-  @SerializedName("genes")
-  private List<String> m_genes = new ArrayList<>();
+  @SerializedName("gene")
+  private String m_gene;
   @Expose
   @SerializedName("hapsCalled")
   private List<String> m_hapsCalled = new ArrayList<>();
@@ -24,15 +24,16 @@ public class CPICExceptionMatch {
   @Expose
   @SerializedName("hapsAvailable")
   private List<String> m_hapsAvailable = new ArrayList<>();
+  private List<String> m_drugs = new ArrayList<>();
 
 
   @Nonnull
-  public List<String> getGenes() {
-    return m_genes;
+  public String getGene() {
+    return m_gene;
   }
 
-  public void setGenes(List<String> genes) {
-    m_genes.addAll(genes);
+  public void setGene(String gene) {
+    m_gene = gene;
   }
 
   @Nonnull
@@ -60,5 +61,14 @@ public class CPICExceptionMatch {
 
   public void setDips(List<String> dips) {
     m_dips.addAll(dips);
+  }
+
+  @Nonnull
+  public List<String> getDrugs() {
+    return m_drugs;
+  }
+
+  public void setDrugs(List<String> drugs) {
+    m_drugs = drugs;
   }
 }
