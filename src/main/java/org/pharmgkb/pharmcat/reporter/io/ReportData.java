@@ -126,7 +126,9 @@ public class ReportData {
 
       geneCallMap.put("gene", geneReport.getGene());
 
-      if (geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0) {
+      boolean hasUncalledHaplotypes = geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0;
+      geneCallMap.put("hasUncalledHaps", hasUncalledHaplotypes);
+      if (hasUncalledHaplotypes) {
         geneCallMap.put("uncalledHaps", geneReport.getUncalledHaplotypes().stream().collect(Collectors.joining(", ")));
       }
 

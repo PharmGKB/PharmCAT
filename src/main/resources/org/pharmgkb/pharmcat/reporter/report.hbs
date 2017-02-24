@@ -251,6 +251,12 @@
       {{/each}}
     </ul>
 
+    {{#if hasUncalledHaps}}
+      <h4>Uncalled Haplotypes</h4>
+      <p>These haplotypes could not be called because of missing variant information.</p>
+      <p>{{uncalledHaps}}</p>
+    {{/if}}
+
     {{#if variantsUnspecified}}
       <div class="alert alert-info">No variant data specified</div>
     {{/if}}
