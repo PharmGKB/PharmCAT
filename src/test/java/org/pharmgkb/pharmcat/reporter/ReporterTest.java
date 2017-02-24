@@ -23,7 +23,8 @@ public class ReporterTest {
   @BeforeClass
   public static void before() throws URISyntaxException, IOException {
     Path annotationsDir = PathUtils.getPathToResource("org/pharmgkb/pharmcat/annotations");
-    s_reporter = new Reporter(annotationsDir);
+    Path exceptionsPath = PathUtils.getPathToResource("org/pharmgkb/pharmcat/exceptions.tsv");
+    s_reporter = new Reporter(annotationsDir, exceptionsPath);
   }
 
   @Test
