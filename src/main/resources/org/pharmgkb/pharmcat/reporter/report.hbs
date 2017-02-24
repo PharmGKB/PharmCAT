@@ -252,9 +252,9 @@
     </ul>
 
     {{#if hasUncalledHaps}}
-      <h4>Uncalled Haplotypes</h4>
-      <p>These haplotypes could not be called because of missing variant information.</p>
-      <p>{{uncalledHaps}}</p>
+      <h4>Alleles Not Considered</h4>
+      <p>The following alleles are not considered due to {{totalMissingVariants}} missing positions of the total {{totalVariants}} positions: {{uncalledHaps}}</p>
+      <p>Carriage of these alleles might result in a different metabolizer phenotype and different guideline recommendations.</p>
     {{/if}}
 
     {{#if variantsUnspecified}}

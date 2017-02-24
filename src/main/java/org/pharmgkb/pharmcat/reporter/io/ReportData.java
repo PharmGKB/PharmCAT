@@ -144,9 +144,15 @@ public class ReportData {
         geneCallMap.put("variantsUnspecified", true);
       }
 
+      int totalVariants = 0;
       if (geneReport.getMatchData() != null && geneReport.getMatchData().getMissingPositions().size()>0) {
         geneCallMap.put("missingVariants", geneReport.getMatchData().getMissingPositions());
+        geneCallMap.put("totalMissingVariants", geneReport.getMatchData().getMissingPositions().size());
+        totalVariants += geneReport.getMatchData().getMissingPositions().size();
       }
+      totalVariants += geneReport.getVariants().size();
+      geneCallMap.put("totalVariants", totalVariants);
+
       geneCallList.add(geneCallMap);
     }
     result.put("geneCalls", geneCallList);
