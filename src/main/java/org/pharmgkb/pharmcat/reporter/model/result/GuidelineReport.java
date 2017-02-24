@@ -152,6 +152,11 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     m_uncalledGenes.add(geneSymbol);
   }
 
+  public boolean isRxChange() {
+    return getMatchingGroups() != null && getMatchingGroups().stream()
+        .anyMatch(g -> g.getRxChange() != null && !g.getRxChange().getTerm().equals("No"));
+  }
+
   /**
    * Translates a raw genotype (e.g. GENE:*1/*2) to a phenotype (e.g. GENE:Normal Function/Loss of Function). The
    * individual phenotypes are guaranteed to be sorted alphabetically.

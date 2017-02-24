@@ -24,7 +24,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 public class ReportData {
 
   private static final List<String> sf_geneBlacklist = ImmutableList.of("G6PD", "HLA-B");
-  private static final List<String> sf_annotationTermBlacklist = ImmutableList.of("Phenotype (Genotype)");
+  private static final List<String> sf_annotationTermBlacklist = ImmutableList.of("Phenotype (Genotype)", "Metabolizer Status");
 
   /**
    * Make a Map that can be used in the final handlebars report
@@ -47,7 +47,7 @@ public class ReportData {
       Map<String,Object> genotype = new HashMap<>();
       genotype.put("gene", symbol);
       genotype.put("called", geneReport.isCalled());
-      genotype.put("drugs", reportContext.makeDrugMaps(geneReport));
+      genotype.put("drugs", geneReport.getRelatedDrugs());
       genotype.put("call", geneReport.getDips().stream().collect(Collectors.joining(", ")));
       genotype.put("functions", geneReport.getFunctions());
       genotype.put("uncallableAlleles",

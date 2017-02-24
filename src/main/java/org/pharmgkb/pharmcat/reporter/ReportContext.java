@@ -1,15 +1,12 @@
 package org.pharmgkb.pharmcat.reporter;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -50,31 +47,28 @@ public class ReportContext {
   /**
    * public constructor
    * @param calls GeneCall objects from the sample data
-   * @param guidelines a List of all the guidelines to try to apply
+   * @param guidelinePackages a List of all the guidelines to try to apply
    */
-  public ReportContext(List<GeneCall> calls, List<GuidelinePackage> guidelines, List<PharmcatException> exceptions) throws Exception {
+  public ReportContext(List<GeneCall> calls, List<GuidelinePackage> guidelinePackages, List<PharmcatException> exceptions) throws Exception {
     m_calls = calls;
-    m_interactionList = guidelines.stream().map(GuidelineReport::new).collect(Collectors.toList());
+    m_interactionList = guidelinePackages.stream().map(GuidelineReport::new).collect(Collectors.toList());
 
     // make the full list of gene reports based on all the genes used in guidelines
-    guidelines.stream()
+    guidelinePackages.stream()
         .flatMap(g -> g.getGuideline().getRelatedGenes().stream())
-        .map(RelatedGene::getSymbol)
+        .map(RelatedGene::getSymbol).distinct()
         .forEach(s -> m_geneReports.add(new GeneReport(s)));
-
-    m_interactionList.forEach(r -> {
-      for (String gene : r.getRelatedGeneSymbols()) {
-        GeneReport geneReport = getGeneReport(gene);
-        if (geneReport != null) {
-          geneReport.addRelatedDrugs(r.getRelatedDrugs());
-        }
-      }
-    });
 
     m_exceptions = exceptions;
 
     compileGeneData();
     findMatches();
+
+    m_interactionList.forEach(r -> {
+      for (String gene : r.getRelatedGeneSymbols()) {
+        getGeneReport(gene).addRelatedDrugs(r);
+      }
+    });
   }
 
   /**
@@ -104,24 +98,6 @@ public class ReportContext {
     return m_calls != null && m_calls.stream()
         .filter(c -> c.getHaplotypes().size() > 0)
         .anyMatch(c -> c.getGene().equals(gene));
-  }
-
-  private boolean isRxChange(String drug) {
-    return m_interactionList.stream()
-        .filter(i -> i.getRelatedDrugs().contains(drug) && i.getMatchingGroups() != null)
-        .flatMap(i -> i.getMatchingGroups().stream())
-        .anyMatch(g -> g.getRxChange() != null && g.getRxChange().getTerm().equals("Yes"));
-  }
-
-  public List<Map<String,Object>> makeDrugMaps(GeneReport geneReport) {
-    return geneReport.getRelatedDrugs().stream()
-        .map(d -> {
-          Map<String,Object> drugMap = new LinkedHashMap<>();
-          drugMap.put("name", d);
-          drugMap.put("rxChange", isRxChange(d));
-          return drugMap;
-        })
-        .collect(Collectors.toList());
   }
 
   /**
@@ -217,11 +193,11 @@ public class ReportContext {
     return m_geneReports;
   }
 
-  @Nullable
+  @Nonnull
   private GeneReport getGeneReport(@Nonnull String geneSymbol) {
     return m_geneReports.stream().filter(r -> r.getGene().equals(geneSymbol))
         .reduce((r1,r2) -> { throw new RuntimeException("Duplicate gene reports found"); })
-        .orElse(null);
+        .orElseThrow(RuntimeException::new);
   }
 
   public Set<String> makeGenePhenotypes(@Nonnull String geneSymbol) {

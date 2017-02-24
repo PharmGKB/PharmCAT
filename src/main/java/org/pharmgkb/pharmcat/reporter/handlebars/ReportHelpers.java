@@ -1,8 +1,6 @@
 package org.pharmgkb.pharmcat.reporter.handlebars;
 
-import java.util.List;
-import com.github.jknack.handlebars.Options;
-import com.google.common.collect.ImmutableList;
+import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 
 
 /**
@@ -12,23 +10,19 @@ import com.google.common.collect.ImmutableList;
  */
 public class ReportHelpers {
 
-  private static final String sf_drugNameTemplate = "<div class=\"%s\">%s</div>";
-  private static final List<String> sf_highlightDrugs = ImmutableList.of(
-      "warfarin"
-  );
+  private static final String sf_drugNameTemplate = "<div class=\"%s\"><a href=\"#%s\">%s</a></div>";
 
-  public static String drug(String name, Options options) {
+  public static String drug(DrugLink drug) {
     String cn = "drugName";
 
-    if (sf_highlightDrugs.contains(name)) {
+    if (drug.isHighlighted()) {
       cn += " highlightDrug";
     }
 
-    boolean rxChange = options.param(0);
-    if (rxChange) {
+    if (drug.isRxChange()) {
       cn += " rxChange";
     }
 
-    return String.format(sf_drugNameTemplate, cn, name);
+    return String.format(sf_drugNameTemplate, cn, drug.getGuidelineId(), drug.getName());
   }
 }

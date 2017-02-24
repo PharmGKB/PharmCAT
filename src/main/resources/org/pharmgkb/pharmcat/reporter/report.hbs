@@ -100,17 +100,21 @@
       color: #8a6d3b;
     }
 
-    .highlightDrug {
-      color: #3a87ad;
-      font-weight: bold;
-    }
-
-    .drugName {
+    .drugName a {
       white-space: nowrap;
     }
 
-    .rxChange {
-      color: darkorange;
+    .drugName a:link, .drugName a:visited {
+      color: darkgreen;
+    }
+
+    .rxChange a:link, .rxChange a:visited {
+      color: darkred;
+      font-weight: bold;
+    }
+
+    .highlightDrug a:link, .highlightDrug a:visited {
+      color: #3a87ad;
       font-weight: bold;
     }
   </style>
@@ -155,7 +159,7 @@
     {{#each genotypes}}
       <tr>
         <td>{{#each drugs}}
-          {{{drug name rxChange}}}
+          {{{drug this}}}
         {{/each}}</td>
         <td><a href="#{{gene}}">{{gene}}</a></td>
         <td>

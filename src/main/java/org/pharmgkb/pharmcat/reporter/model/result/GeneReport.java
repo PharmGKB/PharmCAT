@@ -12,6 +12,7 @@ import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
+import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 
 
@@ -27,7 +28,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private SortedSet<Variant> m_variants = new TreeSet<>();
   private List<PharmcatException> m_exceptList = new ArrayList<>();
   private MatchData m_matchData;
-  private Set<String> m_relatedDrugs = new TreeSet<>();
+  private List<DrugLink> m_relatedDrugs = new ArrayList<>();
   private SortedSet<String> m_functions = new TreeSet<>();
 
   /**
@@ -123,12 +124,15 @@ public class GeneReport implements Comparable<GeneReport> {
     return 0;
   }
 
-  public Set<String> getRelatedDrugs() {
+  public List<DrugLink> getRelatedDrugs() {
     return m_relatedDrugs;
   }
 
-  public void addRelatedDrugs(Set<String> relatedDrugs) {
-    m_relatedDrugs.addAll(relatedDrugs);
+  public void addRelatedDrugs(GuidelineReport guideline) {
+
+    guideline.getRelatedDrugs().stream()
+        .map(d -> new DrugLink(d, guideline.getId(), guideline.isRxChange()))
+        .forEach(m -> m_relatedDrugs.add(m));
   }
 }
 
