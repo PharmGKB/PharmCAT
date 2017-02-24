@@ -7,6 +7,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Properties;
+import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
@@ -46,6 +47,7 @@ public class DefinitionManager {
           .addOption("p", "properties-file", "PharmCAT properties file", false, "p")
           .addOption("in", "download-dir", "directory of save curated allele definition files", true, "in")
           .addOption("out", "generated-dir", "directory of save generated allele definition files", true, "out")
+          .addOption("e", "exceptions-dir", "directory to write exceptions to", false, "e")
           .addOption("d", "download", "download curated allele definition files");
 
       if (!cliHelper.parse(args)) {
@@ -55,10 +57,14 @@ public class DefinitionManager {
       Path propsFile = CliUtils.getPropsFile(cliHelper, "p");
       Path downloadDir = cliHelper.getValidDirectory("in", true);
       Path generatedDir = cliHelper.getValidDirectory("out", true);
+      Path exceptionsDir = null;
+      if (cliHelper.hasOption("e")) {
+        exceptionsDir = cliHelper.getValidDirectory("e", true);
+      }
 
       DefinitionManager manager = new DefinitionManager(propsFile);
       if (cliHelper.hasOption("d")) {
-        manager.download(downloadDir);
+        manager.download(downloadDir, exceptionsDir);
       }
       manager.transform(downloadDir, generatedDir);
 
@@ -68,10 +74,13 @@ public class DefinitionManager {
   }
 
 
-  private void download(Path downloadDir) throws Exception {
+  private void download(Path downloadDir, @Nullable Path exceptionsDir) throws Exception {
 
     SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
     sh.downloadAlleleDefinitions(downloadDir);
+    if (exceptionsDir != null) {
+      sh.downloadExceptionsFile(exceptionsDir);
+    }
   }
 
 
