@@ -19,6 +19,7 @@ import com.google.common.base.Preconditions;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.annotation.AnnotationReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.ReportData;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
@@ -128,6 +129,7 @@ public class Reporter {
 
     Handlebars handlebars = new Handlebars(new ClassPathTemplateLoader(sf_templatePrefix));
     StringHelpers.register(handlebars);
+    handlebars.registerHelpers(ReportHelpers.class);
     Template template = handlebars.compile(sf_templateName);
     String html = template.apply(reportData);
 

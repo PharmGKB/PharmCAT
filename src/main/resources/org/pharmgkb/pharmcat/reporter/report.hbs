@@ -99,6 +99,15 @@
       border-color: #faebcc;
       color: #8a6d3b;
     }
+
+    .highlightDrug {
+      color: #3a87ad;
+      font-weight: bold;
+    }
+
+    .drugName {
+      white-space: nowrap;
+    }
   </style>
 
 </head>
@@ -140,7 +149,9 @@
     <tbody>
     {{#each genotypes}}
       <tr>
-        <td>{{drugs}}</td>
+        <td>{{#each drugs}}
+          {{{drug this}}}
+        {{/each}}</td>
         <td><a href="#{{gene}}">{{gene}}</a></td>
         <td>
           {{#if called}}{{call}}{{/if}}
