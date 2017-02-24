@@ -117,6 +117,10 @@
       color: #3a87ad;
       font-weight: bold;
     }
+
+    td.missingVariant {
+      background-color: lightsalmon;
+    }
   </style>
 
 </head>
@@ -240,17 +244,12 @@
   {{#each geneCalls}}
     <h3 id="{{gene}}">{{gene}}</h3>
 
-    <h4>Matching Allele Call</h4>
-    {{#if diplotype}}
-      <p>{{diplotype}}</p>
-    {{/if}}
-    {{#unless diplotype}}
-      <ul>
-        {{#each diplotypes}}
-          <li>{{this}}</li>
-        {{/each}}
-      </ul>
-    {{/unless}}
+    <h4>Genotype</h4>
+    <ul>
+      {{#each diplotypes}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
 
     {{#if variantsUnspecified}}
       <div class="alert alert-info">No variant data specified</div>
@@ -277,7 +276,7 @@
           <tr>
             <td>{{position}}</td>
             <td>{{rsid}}</td>
-            <td><em>missing</em></td>
+            <td class="missingVariant"><em>missing</em></td>
           </tr>
         {{/each}}
         </tbody>

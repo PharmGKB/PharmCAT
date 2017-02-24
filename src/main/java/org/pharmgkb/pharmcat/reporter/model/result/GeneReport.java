@@ -39,7 +39,7 @@ public class GeneReport implements Comparable<GeneReport> {
     m_gene = call.getGene();
     if (!call.getDiplotypes().isEmpty()) {
       m_diplotypes.clear();
-      call.getDiplotypes().forEach(d -> addDip(call.getGene() + ":" + d.getName()));
+      call.getDiplotypes().forEach(d -> addDip(d.getName()));
     }
     m_variants.addAll(call.getVariants());
     m_matchData = call.getMatchData();
