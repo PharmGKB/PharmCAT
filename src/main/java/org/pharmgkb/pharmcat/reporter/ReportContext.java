@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
@@ -49,7 +50,7 @@ public class ReportContext {
    * @param calls GeneCall objects from the sample data
    * @param guidelinePackages a List of all the guidelines to try to apply
    */
-  public ReportContext(List<GeneCall> calls, List<GuidelinePackage> guidelinePackages, List<PharmcatException> exceptions) throws Exception {
+  public ReportContext(List<GeneCall> calls, List<AstrolabeCall> astrolabeCalls, List<GuidelinePackage> guidelinePackages, List<PharmcatException> exceptions) throws Exception {
     m_calls = calls;
     m_interactionList = guidelinePackages.stream().map(GuidelineReport::new).collect(Collectors.toList());
 
@@ -62,6 +63,8 @@ public class ReportContext {
     m_exceptions = exceptions;
 
     compileGeneData();
+    compileAstrolabeData(astrolabeCalls);
+
     findMatches();
 
     m_interactionList.forEach(r -> {
@@ -92,6 +95,20 @@ public class ReportContext {
       m_sampleGeneToDiplotypeMap.putAll(call.getGene(), geneReport.getDips().stream().map(d -> geneReport.getGene()+":"+d).collect(Collectors.toList()));
     }
     fixCyp2c19();
+  }
+
+  /**
+   * Takes astrolabe calls, find the GeneReport for each one and then adds astrolabe information to it
+   * @param calls astrolabe calls
+   */
+  private void compileAstrolabeData(List<AstrolabeCall> calls) throws Exception {
+    for (AstrolabeCall astrolabeCall : calls) {
+      GeneReport geneReport = m_geneReports.stream()
+          .filter(r -> r.getGene().equals(astrolabeCall.getGene()))
+          .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
+          .orElseThrow(IllegalStateException::new);
+      geneReport.setAstrolabeData(astrolabeCall);
+    }
   }
 
   private boolean isCalled(String gene) {

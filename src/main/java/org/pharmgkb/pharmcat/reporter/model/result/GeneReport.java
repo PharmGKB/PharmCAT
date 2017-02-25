@@ -12,6 +12,7 @@ import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
+import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 
@@ -33,6 +34,14 @@ public class GeneReport implements Comparable<GeneReport> {
 
   /**
    * public constructor
+   */
+  public GeneReport(@Nonnull String geneSymbol) {
+    m_gene = geneSymbol;
+    addDip(UNCALLED);
+  }
+
+  /**
+   * public constructor
    * @param call a {@link GeneCall} that has been made by the {@link NamedAlleleMatcher}
    */
   public void setCallData(@Nonnull GeneCall call) {
@@ -49,9 +58,12 @@ public class GeneReport implements Comparable<GeneReport> {
     }
   }
 
-  public GeneReport(@Nonnull String geneSymbol) {
-    m_gene = geneSymbol;
-    addDip(UNCALLED);
+  public void setAstrolabeData(@Nonnull AstrolabeCall call) {
+    m_gene = call.getGene();
+    if (call.getDiplotypes() != null) {
+      m_diplotypes.clear();
+      call.getDiplotypes().forEach(this::addDip);
+    }
   }
 
   /**

@@ -19,7 +19,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 /**
  * This class collects data from a ReportContext and puts it into a format that the final report can use.
  *
- * @author whaleyr
+ * @author Ryan Whaley
  */
 public class ReportData {
 

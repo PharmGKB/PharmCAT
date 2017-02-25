@@ -6,6 +6,7 @@ import java.lang.invoke.MethodHandles;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -20,8 +21,10 @@ import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.annotation.AnnotationReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
+import org.pharmgkb.pharmcat.reporter.io.AstrolabeOutputParser;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.ReportData;
+import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
@@ -52,7 +55,8 @@ public class Reporter {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("d", "annotations-dir", "directory of allele definition files", true, "d")
         .addOption("c", "call-file", "named allele call JSON file", true, "c")
-        .addOption("e", "exceptoins-file", "exceptions logic file", true, "e")
+        .addOption("e", "exceptions-file", "exceptions logic file", true, "e")
+        .addOption("a", "astrolabe-file", "optional, astrolabe call file", false, "a")
         .addOption("o", "output-file", "file path to write HTML report to", true, "o")
         ;
 
@@ -64,10 +68,11 @@ public class Reporter {
       Path annotationsDir = cliHelper.getValidDirectory("d", false);
       Path callFile = cliHelper.getValidFile("c", true);
       Path exceptionsFile = cliHelper.getValidFile("e", true);
+      Path astrolabeFile = cliHelper.hasOption("a") ? cliHelper.getValidFile("a", true) : null;
       Path outputFile = cliHelper.getPath("o");
 
       new Reporter(annotationsDir, exceptionsFile)
-          .analyze(callFile)
+          .analyze(callFile, astrolabeFile)
           .printHtml(outputFile);
 
     } catch (Exception ex) {
@@ -112,7 +117,7 @@ public class Reporter {
    *
    * @param callFile file of haplotype calls
    */
-  public Reporter analyze(@Nonnull Path callFile) throws Exception {
+  public Reporter analyze(@Nonnull Path callFile, @Nullable Path astrolabeFile) throws Exception {
     Preconditions.checkNotNull(callFile);
     Preconditions.checkArgument(Files.exists(callFile));
     Preconditions.checkArgument(Files.isRegularFile(callFile));
@@ -124,11 +129,17 @@ public class Reporter {
     // requiring some if not all rewriting
     List<GeneCall> calls = loader.loadHaplotypeGeneCalls(callFile);
 
+    //Load the astrolabe calls if it's available
+    List<AstrolabeCall> astrolabeCalls = new ArrayList<>();
+    if (astrolabeFile != null) {
+      astrolabeCalls = AstrolabeOutputParser.parse(astrolabeFile);
+    }
+
     //Load the gene drug interaction list. This currently only handles single gene drug m_guidelineFiles and will require updating to handle multi gene drug interaction
     List<GuidelinePackage> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
-    m_reportContext = new ReportContext(calls, guidelines, m_exceptions);
+    m_reportContext = new ReportContext(calls, astrolabeCalls, guidelines, m_exceptions);
 
     return this;
   }
