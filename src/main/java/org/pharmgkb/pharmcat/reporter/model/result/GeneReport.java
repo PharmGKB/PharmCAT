@@ -10,6 +10,7 @@ import java.util.TreeSet;
 import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
+import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
@@ -60,17 +61,24 @@ public class GeneReport implements Comparable<GeneReport> {
     }
     m_variants.addAll(call.getVariants());
     m_matchData = call.getMatchData();
-    m_uncalledHaplotypes = call.getUncallableHaplotypes();
-    if (call.getDiplotypes() != null && call.getDiplotypes().size() > 0) {
-      call.getDiplotypes().forEach(d -> {
-        addFunction(d.getFunction());
-        GenePhenotype genePhenotype = phenotypeMap.lookup(m_gene);
-        if (genePhenotype != null) {
-          addPhenotype(genePhenotype.makePhenotype(d.getName()));
-        } else {
-          addPhenotype("N/A");
-        }
-      });
+
+    if (m_gene.equals("SLCO1B1")) {
+      callSlco1b1(phenotypeMap.lookup(m_gene));
+    }
+    else {
+      m_uncalledHaplotypes = call.getUncallableHaplotypes();
+
+      if (call.getDiplotypes() != null && call.getDiplotypes().size() > 0) {
+        call.getDiplotypes().forEach(d -> {
+          addFunction(d.getFunction());
+          GenePhenotype genePhenotype = phenotypeMap.lookup(m_gene);
+          if (genePhenotype != null) {
+            addPhenotype(genePhenotype.makePhenotype(d.getName()));
+          } else {
+            addPhenotype("N/A");
+          }
+        });
+      }
     }
   }
 
@@ -86,6 +94,37 @@ public class GeneReport implements Comparable<GeneReport> {
       });
     }
   }
+
+  /**
+   * Calls the allele and phenotype data specifically for SLCO1B1 which is a special case using only one variant.
+   * @param genePhenotype {@link GenePhenotype} information for SLCO1B1
+   */
+  private void callSlco1b1(GenePhenotype genePhenotype) {
+    Variant variant = m_variants.stream().filter(v -> v.getRsid() != null && v.getRsid().equals("rs4149056")).reduce((a,b) -> {
+      throw new UnexpectedStateException("more than one variant found");
+    }).orElse(null);
+
+    m_diplotypes.clear();
+    if (variant != null) {
+      String dip = null;
+      switch (variant.getVcfCall()) {
+        case "T|T":
+          dip = "*1A/*1A";
+          break;
+        case "T|C":
+        case "C|T":
+          dip = "*1A/*5";
+          break;
+        case "C|C":
+          dip = "*5/*5";
+          break;
+      }
+      addDip(dip);
+      addFunction(genePhenotype.makeFunction(dip));
+      addPhenotype(genePhenotype.makePhenotype(dip));
+    } else {
+      addDip(UNCALLED);
+    }  }
 
   /**
    * Diplotypes that have been called for this gene
@@ -134,7 +173,7 @@ public class GeneReport implements Comparable<GeneReport> {
     }
   }
 
-  public void addException(PharmcatException except) {
+  private void addException(PharmcatException except) {
     MatchLogic match = except.getMatches();
 
     if (match.getGene().equals(m_gene)) {
