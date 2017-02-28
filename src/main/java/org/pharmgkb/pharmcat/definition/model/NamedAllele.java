@@ -65,6 +65,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
     Preconditions.checkNotNull(id);
     Preconditions.checkNotNull(name);
     Preconditions.checkNotNull(alleles);
+    Preconditions.checkNotNull(missingPositions);
     m_id = id;
     m_name = name;
     m_alleles = alleles;
@@ -158,7 +159,11 @@ public class NamedAllele implements Comparable<NamedAllele> {
   /**
    * Gets the positions that are missing from this NamedAllele.
    */
-  public SortedSet<VariantLocus> getMissingPositions() {
+  public @Nonnull SortedSet<VariantLocus> getMissingPositions() {
+    if (m_missingPositions == null) {
+      // this is possible if marshalled via GSON
+      m_missingPositions = Collections.emptySortedSet();
+    }
     return m_missingPositions;
   }
 
