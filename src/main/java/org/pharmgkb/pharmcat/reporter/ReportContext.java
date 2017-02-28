@@ -39,7 +39,6 @@ public class ReportContext {
   private Multimap<String, String> m_sampleGeneToDiplotypeMap = TreeMultimap.create();
   private Set<GeneReport> m_geneReports = new TreeSet<>();
   private List<GuidelineReport> m_interactionList;
-  private List<PharmcatException> m_exceptions;
   private PhenotypeMap m_phenotypeMap = new PhenotypeMap();
 
   public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_calls.stream()
@@ -52,7 +51,7 @@ public class ReportContext {
    * @param calls GeneCall objects from the sample data
    * @param guidelinePackages a List of all the guidelines to try to apply
    */
-  public ReportContext(List<GeneCall> calls, List<AstrolabeCall> astrolabeCalls, List<GuidelinePackage> guidelinePackages, List<PharmcatException> exceptions) throws Exception {
+  public ReportContext(List<GeneCall> calls, List<AstrolabeCall> astrolabeCalls, List<GuidelinePackage> guidelinePackages) throws Exception {
     m_calls = calls;
     m_interactionList = guidelinePackages.stream().map(GuidelineReport::new).collect(Collectors.toList());
 
@@ -61,8 +60,6 @@ public class ReportContext {
         .flatMap(g -> g.getGuideline().getRelatedGenes().stream())
         .map(RelatedGene::getSymbol).distinct()
         .forEach(s -> m_geneReports.add(new GeneReport(s)));
-
-    m_exceptions = exceptions;
 
     compileGeneData();
     compileAstrolabeData(astrolabeCalls);
@@ -76,22 +73,21 @@ public class ReportContext {
     });
   }
 
+  public void applyException(List<PharmcatException> exceptions) {
+    m_geneReports.forEach(r -> r.applyExceptions(exceptions));
+  }
+
   /**
    * Takes {@link GeneCall} data and preps internal data structures for usage. Also prepares exception logic and applies
    * it to the calling data
    */
   private void compileGeneData() throws Exception {
-    // ExceptionMatcher exceptionMatcher = new ExceptionMatcher();
-
     for (GeneCall call : m_calls) {
       GeneReport geneReport = m_geneReports.stream()
           .filter(r -> r.getGene().equals(call.getGene()))
           .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
           .orElseThrow(IllegalStateException::new);
       geneReport.setCallData(call, m_phenotypeMap);
-
-      // adds exceptions to the GeneReport
-      // exceptionMatcher.addExceptions(geneReport); 
 
       m_sampleGeneToDiplotypeMap.removeAll(call.getGene());
       m_sampleGeneToDiplotypeMap.putAll(call.getGene(), geneReport.getDips().stream().map(d -> geneReport.getGene()+":"+d).collect(Collectors.toList()));

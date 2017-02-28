@@ -56,6 +56,7 @@ public class ReportData {
       );
       Set<String> phenotypes = geneReport.getPhenotypes();
       genotype.put("phenotype", phenotypes);
+      genotype.put("hasMessages", geneReport.getExceptionList().size()>0);
 
       genotypes.add(genotype);
     }
@@ -156,6 +157,8 @@ public class ReportData {
       }
       totalVariants += geneReport.getVariants().size();
       geneCallMap.put("totalVariants", totalVariants);
+
+      geneCallMap.put("messages", geneReport.getExceptionList().stream().map(PharmcatException::getMessage).collect(Collectors.toList()));
 
       geneCallList.add(geneCallMap);
     }

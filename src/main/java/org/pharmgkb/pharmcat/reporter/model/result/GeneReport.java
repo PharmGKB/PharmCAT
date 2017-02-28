@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -17,6 +18,7 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
+import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 
 
@@ -28,6 +30,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
   private String m_gene;
   private Set<String> m_diplotypes = new TreeSet<>();
+  private Set<String> m_haplotypes = new TreeSet<>();
   private Set<String> m_uncalledHaplotypes;
   private SortedSet<Variant> m_variants = new TreeSet<>();
   private List<PharmcatException> m_exceptList = new ArrayList<>();
@@ -95,6 +98,12 @@ public class GeneReport implements Comparable<GeneReport> {
     String cleanDip = m_gene.equals("CYP2C19") ? dip.replaceAll("\\*4[AB]", "*4") : dip;
 
     m_diplotypes.add(cleanDip);
+
+    if (cleanDip.contains("/")) {
+      String[] haps = cleanDip.split("/");
+      m_haplotypes.add(haps[0]);
+      m_haplotypes.add(haps[1]);
+    }
   }
 
   private void addFunction(String function) {
@@ -119,8 +128,26 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_exceptList;
   }
 
-  public void addException( PharmcatException except ){
-    m_exceptList.add(except);
+  public void applyExceptions(Collection<PharmcatException> exceptions) {
+    if (exceptions != null) {
+      exceptions.forEach(this::addException);
+    }
+  }
+
+  public void addException(PharmcatException except) {
+    MatchLogic match = except.getMatches();
+
+    if (match.getGene().equals(m_gene)) {
+      boolean critHap = match.getHapsCalled().isEmpty() || match.getHapsCalled().stream().allMatch(h -> m_haplotypes.contains(h));
+      boolean critUnmatchedHap = match.getHapsMissing().isEmpty() || match.getHapsMissing().stream().allMatch(h -> m_uncalledHaplotypes.contains(h));
+      boolean critDip = match.getDips().isEmpty() || match.getDips().stream().allMatch(d -> m_diplotypes.contains(d));
+      boolean critMissVariant = match.getVariantsMissing().isEmpty() ||
+          match.getVariantsMissing().stream().allMatch(v -> m_variants.isEmpty() || m_variants.stream().noneMatch(a -> a.getRsid().equals(v)));
+
+      if (critHap && critUnmatchedHap && critDip && critMissVariant) {
+        m_exceptList.add(except);
+      }
+    }
   }
 
   /**

@@ -168,7 +168,9 @@
         <td>{{#each drugs}}
           {{{drug this}}}
         {{/each}}</td>
-        <td><a href="#{{gene}}">{{gene}}</a></td>
+        <td>
+          <a href="#{{gene}}">{{gene}}</a>{{#if hasMessages}}<sup>&dagger;</sup>{{/if}}
+        </td>
         <td>
           {{#if called}}{{call}}{{/if}}
           {{#unless called}}<em>uncalled</em>{{/unless}}
@@ -271,6 +273,11 @@
     {{#if variantsUnspecified}}
       <div class="alert alert-info">No variant data available.</div>
     {{/if}}
+
+    {{#each messages}}
+      <div class="alert alert-warning">{{this}}</div>
+    {{/each}}
+
     {{#unless variantsUnspecified}}
       <h4>Calls at Positions</h4>
       <table>

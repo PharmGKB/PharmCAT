@@ -109,7 +109,6 @@ public class Reporter {
         .skip(1) // skip the header
         .map(PharmcatException::new)
         .collect(Collectors.toList());
-
   }
 
   /**
@@ -139,7 +138,9 @@ public class Reporter {
     List<GuidelinePackage> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
-    m_reportContext = new ReportContext(calls, astrolabeCalls, guidelines, m_exceptions);
+    m_reportContext = new ReportContext(calls, astrolabeCalls, guidelines);
+
+    m_reportContext.applyException(m_exceptions);
 
     return this;
   }
