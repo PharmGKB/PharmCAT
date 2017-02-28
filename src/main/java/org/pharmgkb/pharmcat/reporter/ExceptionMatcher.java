@@ -6,6 +6,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -15,7 +16,6 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.gson.Gson;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
-import org.pharmgkb.pharmcat.reporter.model.CPICExceptionList;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -97,11 +97,11 @@ public class ExceptionMatcher {
     Multimap<String, PharmcatException> matcher = HashMultimap.create();
 
     try (BufferedReader br = Files.newBufferedReader(Paths.get(exceptionsUri))) {
-      CPICExceptionList exceptionList = gson.fromJson(br, CPICExceptionList.class);
+      PharmcatException[] exceptions = gson.fromJson(br, PharmcatException[].class);
 
-      for (PharmcatException rule : exceptionList.getRules()) {
+      Arrays.stream(exceptions).forEach(rule -> {
         matcher.put(rule.getMatches().getGene(), rule);
-      }
+      });
     }
     return matcher;
   }

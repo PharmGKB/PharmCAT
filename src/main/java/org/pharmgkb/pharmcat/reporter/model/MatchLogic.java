@@ -24,6 +24,8 @@ public class MatchLogic {
   @Expose
   @SerializedName("hapsAvailable")
   private List<String> m_hapsAvailable = new ArrayList<>();
+  @Expose
+  @SerializedName("drugs")
   private List<String> m_drugs = new ArrayList<>();
 
 
