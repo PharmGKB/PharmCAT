@@ -1,10 +1,13 @@
 package org.pharmgkb.pharmcat.reporter.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Nonnull;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang3.StringUtils;
 
 
 /**
@@ -22,15 +25,17 @@ public class PharmcatException {
     }
 
     m_name = fields[0];
-    m_exceptionType = fields[6];
-    m_message = fields[7];
-    m_version = fields[8];
+    m_exceptionType = fields[8];
+    m_message = fields[9];
+    m_version = fields[10];
 
     m_matches = new MatchLogic();
     m_matches.setGene(fields[1]);
-    m_matches.setHapsCalled(ImmutableList.of(fields[2]));
-    m_matches.setDips(ImmutableList.of(fields[3]));
-    m_matches.setDrugs(ImmutableList.copyOf(Splitter.on(",").trimResults().split(fields[4])));
+    m_matches.setHapsCalled(parseList(fields[2]));
+    m_matches.setHapsMissing(parseList(fields[3]));
+    m_matches.setVariantsMissing(parseList(fields[4]));
+    m_matches.setDips(parseList(fields[5]));
+    m_matches.setDrugs(parseList(fields[6]));
   }
 
   @Expose
@@ -92,5 +97,13 @@ public class PharmcatException {
   @Override
   public String toString() {
     return getName();
+  }
+
+  private static List<String> parseList(String value) {
+    if (StringUtils.isBlank(value)) {
+      return new ArrayList<>();
+    }
+
+    return ImmutableList.copyOf(Splitter.on(",").trimResults().split(value));
   }
 }

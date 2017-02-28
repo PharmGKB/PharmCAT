@@ -19,6 +19,12 @@ public class MatchLogic {
   @SerializedName("hapsCalled")
   private List<String> m_hapsCalled = new ArrayList<>();
   @Expose
+  @SerializedName("hapsMissing")
+  private List<String> m_hapsMissing = new ArrayList<>();
+  @Expose
+  @SerializedName("variantsMissing")
+  private List<String> m_variantsMissing = new ArrayList<>();
+  @Expose
   @SerializedName("dips")
   private List<String> m_dips = new ArrayList<>();
   @Expose
@@ -72,5 +78,21 @@ public class MatchLogic {
 
   public void setDrugs(List<String> drugs) {
     m_drugs = drugs;
+  }
+
+  public List<String> getHapsMissing() {
+    return m_hapsMissing;
+  }
+
+  public void setHapsMissing(List<String> hapsMissing) {
+    m_hapsMissing = hapsMissing;
+  }
+
+  public List<String> getVariantsMissing() {
+    return m_variantsMissing;
+  }
+
+  public void setVariantsMissing(List<String> variantsMissing) {
+    m_variantsMissing = variantsMissing;
   }
 }
