@@ -15,7 +15,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author Ryan Whaley
  */
 public class PharmcatException {
-  private static final int sf_rowLength = 9;
+  private static final int sf_rowLength = 11;
 
   public PharmcatException(@Nonnull String row) throws RuntimeException {
     String[] fields = row.split("\\t");
@@ -25,9 +25,6 @@ public class PharmcatException {
     }
 
     m_name = fields[0];
-    m_exceptionType = fields[8];
-    m_message = fields[9];
-    m_version = fields[10];
 
     m_matches = new MatchLogic();
     m_matches.setGene(fields[1]);
@@ -36,6 +33,10 @@ public class PharmcatException {
     m_matches.setVariantsMissing(parseList(fields[4]));
     m_matches.setDips(parseList(fields[5]));
     m_matches.setDrugs(parseList(fields[6]));
+
+    m_exceptionType = fields[8];
+    m_message = fields[9];
+    m_version = fields[10];
   }
 
   @Expose
