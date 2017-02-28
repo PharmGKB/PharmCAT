@@ -62,22 +62,31 @@ public class GeneReport implements Comparable<GeneReport> {
     m_variants.addAll(call.getVariants());
     m_matchData = call.getMatchData();
 
-    if (m_gene.equals("SLCO1B1")) {
-      callSlco1b1(phenotypeMap.lookup(m_gene));
-    }
-    else {
-      m_uncalledHaplotypes = call.getUncallableHaplotypes();
+    GenePhenotype genePhenotype = phenotypeMap.lookup(m_gene);
 
-      if (call.getDiplotypes() != null && call.getDiplotypes().size() > 0) {
-        call.getDiplotypes().forEach(d -> {
-          addFunction(d.getFunction());
-          GenePhenotype genePhenotype = phenotypeMap.lookup(m_gene);
-          if (genePhenotype != null) {
-            addPhenotype(genePhenotype.makePhenotype(d.getName()));
-          } else {
-            addPhenotype("N/A");
-          }
-        });
+    // for SLCO1B1 just do a simple call and don't do a regular match
+    if (m_gene.equals("SLCO1B1")) {
+      callSlco1b1(genePhenotype);
+      return;
+    }
+
+    // do a regular copy of diplotype, function, and phenotype
+    m_uncalledHaplotypes = call.getUncallableHaplotypes();
+    if (call.getDiplotypes() != null && call.getDiplotypes().size() > 0) {
+      call.getDiplotypes().forEach(d -> {
+        addFunction(d.getFunction());
+        if (genePhenotype != null) {
+          addPhenotype(genePhenotype.makePhenotype(d.getName()));
+        } else {
+          addPhenotype("N/A");
+        }
+      });
+    }
+
+    // UGT1A1 get a second chance at calling based on one position
+    else {
+      if (m_gene.equals("UGT1A1")) {
+        callUgt1a1(genePhenotype);
       }
     }
   }
@@ -124,7 +133,40 @@ public class GeneReport implements Comparable<GeneReport> {
       addPhenotype(genePhenotype.makePhenotype(dip));
     } else {
       addDip(UNCALLED);
-    }  }
+    }
+  }
+
+  /**
+   * Calls the UGT1A1 gene in the case where the matcher calls no alleles but rs887829 is available.
+   * @param genePhenotype {@link GenePhenotype} information for UGT1A1
+   */
+  private void callUgt1a1(GenePhenotype genePhenotype) {
+    Variant variant = m_variants.stream().filter(v -> v.getRsid() != null && v.getRsid().equals("rs887829")).reduce((a,b) -> {
+      throw new UnexpectedStateException("more than one variant found");
+    }).orElse(null);
+
+    m_diplotypes.clear();
+    if (variant != null) {
+      String dip = null;
+      switch (variant.getVcfCall()) {
+        case "T|T":
+          dip = "*80/*80";
+          break;
+        case "T|C":
+        case "C|T":
+          dip = "*1/*80";
+          break;
+        case "C|C":
+          dip = "*1/*1";
+          break;
+      }
+      addDip(dip);
+      addFunction(genePhenotype.makeFunction(dip));
+      addPhenotype(genePhenotype.makePhenotype(dip));
+    } else {
+      addDip(UNCALLED);
+    }
+  }
 
   /**
    * Diplotypes that have been called for this gene
