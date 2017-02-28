@@ -30,9 +30,10 @@ public class ReporterTest {
   @Test
   public void combinedTest() throws Exception {
     Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/combined.json");
+    Path astrolabeFile  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.astrolabe.tsv");
     Path outputFile     = callerFile.getParent().resolve("combined.html");
 
-    s_reporter.analyze(callerFile).printHtml(outputFile);
+    s_reporter.analyze(callerFile, astrolabeFile).printHtml(outputFile);
 
     assertNotNull("Guideline reports don't exist", s_reporter.getGuidelineReports());
 
@@ -60,6 +61,6 @@ public class ReporterTest {
     Path callerFile     = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.cyp2c19.missing.json");
     Path outputFile     = callerFile.getParent().resolve("test.cyp2c19.missing.html");
 
-    s_reporter.analyze(callerFile).printHtml(outputFile);
+    s_reporter.analyze(callerFile, null).printHtml(outputFile);
   }
 }

@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
+import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.Group;
@@ -39,6 +40,7 @@ public class ReportContext {
   private Set<GeneReport> m_geneReports = new TreeSet<>();
   private List<GuidelineReport> m_interactionList;
   private List<PharmcatException> m_exceptions;
+  private PhenotypeMap m_phenotypeMap = new PhenotypeMap();
 
   public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_calls.stream()
       .filter(c -> c.getGene().equals(s))
@@ -86,7 +88,7 @@ public class ReportContext {
           .filter(r -> r.getGene().equals(call.getGene()))
           .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
           .orElseThrow(IllegalStateException::new);
-      geneReport.setCallData(call);
+      geneReport.setCallData(call, m_phenotypeMap);
 
       // adds exceptions to the GeneReport
       // exceptionMatcher.addExceptions(geneReport); 
@@ -107,14 +109,15 @@ public class ReportContext {
           .filter(r -> r.getGene().equals(astrolabeCall.getGene()))
           .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
           .orElseThrow(IllegalStateException::new);
-      geneReport.setAstrolabeData(astrolabeCall);
+      geneReport.setAstrolabeData(astrolabeCall, m_phenotypeMap);
+
+      m_sampleGeneToDiplotypeMap.removeAll(astrolabeCall.getGene());
+      m_sampleGeneToDiplotypeMap.putAll(astrolabeCall.getGene(), geneReport.getDips().stream().map(d -> geneReport.getGene()+":"+d).collect(Collectors.toList()));
     }
   }
 
   private boolean isCalled(String gene) {
-    return m_calls != null && m_calls.stream()
-        .filter(c -> c.getHaplotypes().size() > 0)
-        .anyMatch(c -> c.getGene().equals(gene));
+    return m_geneReports.stream().filter(r -> r.getGene().equals(gene)).allMatch(GeneReport::isCalled);
   }
 
   /**

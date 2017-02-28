@@ -7,7 +7,10 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.annotation.Nonnull;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
+import org.pharmgkb.pharmcat.definition.PhenotypeMap;
+import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -31,6 +34,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private MatchData m_matchData;
   private List<DrugLink> m_relatedDrugs = new ArrayList<>();
   private SortedSet<String> m_functions = new TreeSet<>();
+  private Set<String> m_phenotypes = new TreeSet<>();
 
   /**
    * public constructor
@@ -44,7 +48,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * public constructor
    * @param call a {@link GeneCall} that has been made by the {@link NamedAlleleMatcher}
    */
-  public void setCallData(@Nonnull GeneCall call) {
+  public void setCallData(@Nonnull GeneCall call, PhenotypeMap phenotypeMap) {
     m_gene = call.getGene();
     if (!call.getDiplotypes().isEmpty()) {
       m_diplotypes.clear();
@@ -54,15 +58,27 @@ public class GeneReport implements Comparable<GeneReport> {
     m_matchData = call.getMatchData();
     m_uncalledHaplotypes = call.getUncallableHaplotypes();
     if (call.getDiplotypes() != null && call.getDiplotypes().size() > 0) {
-      call.getDiplotypes().forEach(d -> m_functions.add(d.getFunction()));
+      call.getDiplotypes().forEach(d -> {
+        addFunction(d.getFunction());
+        GenePhenotype genePhenotype = phenotypeMap.lookup(m_gene);
+        if (genePhenotype != null) {
+          addPhenotype(genePhenotype.makePhenotype(d.getName()));
+        } else {
+          addPhenotype("N/A");
+        }
+      });
     }
   }
 
-  public void setAstrolabeData(@Nonnull AstrolabeCall call) {
+  public void setAstrolabeData(@Nonnull AstrolabeCall call, @Nonnull PhenotypeMap phenotypeMap) {
     m_gene = call.getGene();
     if (call.getDiplotypes() != null) {
       m_diplotypes.clear();
-      call.getDiplotypes().forEach(this::addDip);
+      call.getDiplotypes().forEach(d -> {
+        addDip(d);
+        addFunction(phenotypeMap.lookup(m_gene).makeFunction(d));
+        addPhenotype(phenotypeMap.lookup(m_gene).makePhenotype(d));
+      });
     }
   }
 
@@ -77,6 +93,14 @@ public class GeneReport implements Comparable<GeneReport> {
     String cleanDip = m_gene.equals("CYP2C19") ? dip.replaceAll("\\*4[AB]", "*4") : dip;
 
     m_diplotypes.add(cleanDip);
+  }
+
+  private void addFunction(String function) {
+    m_functions.add(function);
+  }
+
+  private void addPhenotype(String phenotype) {
+    m_phenotypes.add(phenotype);
   }
 
   /**
@@ -112,11 +136,21 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_uncalledHaplotypes;
   }
 
+  /**
+   * Gets the functions in the form of "Two no function alleles"
+   */
   public SortedSet<String> getFunctions() {
     if (!isCalled()) {
       return ImmutableSortedSet.of(UNCALLED);
     }
     return m_functions;
+  }
+
+  public Set<String> getPhenotypes() {
+    if (!isCalled()) {
+      return ImmutableSet.of(UNCALLED);
+    }
+    return m_phenotypes;
   }
 
   public String toString() {

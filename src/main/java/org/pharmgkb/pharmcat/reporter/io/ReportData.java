@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.collect.ImmutableList;
@@ -53,7 +54,8 @@ public class ReportData {
       genotype.put("uncallableAlleles",
             geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0
       );
-      genotype.put("phenotype", reportContext.makeGenePhenotypes(symbol));
+      Set<String> phenotypes = geneReport.getPhenotypes();
+      genotype.put("phenotype", phenotypes);
 
       genotypes.add(genotype);
     }
