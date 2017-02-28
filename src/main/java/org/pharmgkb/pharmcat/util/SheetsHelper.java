@@ -23,7 +23,8 @@ import org.pharmgkb.common.io.google.GoogleSheetsHelper;
  */
 public class SheetsHelper implements AutoCloseable {
   private static final String sf_serviceName = "PharmCAT";
-  private static final String sf_messagesFileId = "1MkWV6TlJTnw-KRNWeylyUJAUocCgupcJLlmV2fRdtcM";
+  private static final String sf_exceptionFileId = "1MkWV6TlJTnw-KRNWeylyUJAUocCgupcJLlmV2fRdtcM";
+  private static final String sf_alleleExemptionsFileId = "1xHvvXQIMv3xbqNhuN7zG6WP4DB7lpQDmLvz18w-u_lk";
 
   private GoogleApiHelper m_googleApiHelper;
   private GoogleSheetsHelper m_spreadsheetHelper;
@@ -51,6 +52,22 @@ public class SheetsHelper implements AutoCloseable {
   }
 
 
+  public @Nonnull File findSheetByName(@Nonnull String name) throws IOException {
+
+    Preconditions.checkNotNull(name);
+    Drive.Files.List request = m_drive.files().list();
+    // get directory
+    FileList files = request.setQ("name='" + name + "' and mimeType='application/vnd.google-apps.spreadsheet' " +
+        "and trashed=false")
+        .execute();
+    if (files.getFiles().size() == 0) {
+      throw new IOException("Cannot find '" + name + "' on Drive");
+    } else {
+      return files.getFiles().get(0);
+    }
+  }
+
+
   /**
    * Downloads all allele definitions as TSV files.
    * <p>
@@ -67,9 +84,12 @@ public class SheetsHelper implements AutoCloseable {
 
   public void downloadMessagesFile(@Nonnull Path outputDir) throws IOException, ServiceException {
     Preconditions.checkNotNull(outputDir);
+    downloadAsTsv(ImmutableList.of(findExceptionsSheet()), outputDir);
+  }
 
-    File messagesFile = findMessagesSheet();
-    downloadAsTsv(ImmutableList.of(messagesFile), outputDir);
+  public void downloadAlleleExemptionsFile(@Nonnull Path outputDir) throws IOException, ServiceException {
+    Preconditions.checkNotNull(outputDir);
+    downloadAsTsv(ImmutableList.of(findAlleleExemptionsSheet()), outputDir);
   }
 
   public void downloadNamedAlleleAnnotations(@Nonnull Path file) throws IOException, ServiceException {
@@ -137,8 +157,18 @@ public class SheetsHelper implements AutoCloseable {
     return files.getFiles().get(0);
   }
 
+
+  private @Nonnull File findAlleleExemptionsSheet() throws IOException {
+    Drive.Files.Get request = m_drive.files().get(sf_alleleExemptionsFileId);
+    File file = request.execute();
+    if (file == null) {
+      throw new IOException("Cannot find allele exemptions sheet");
+    }
+    return file;
+  }
+
   private @Nonnull File findMessagesSheet() throws IOException {
-    Drive.Files.Get request = m_drive.files().get(sf_messagesFileId);
+    Drive.Files.Get request = m_drive.files().get(sf_exceptionFileId);
     File file = request.execute();
     if (file == null) {
       throw new IOException("Cannot find messages sheet");

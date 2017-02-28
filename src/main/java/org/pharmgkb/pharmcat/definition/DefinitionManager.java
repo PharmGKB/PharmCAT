@@ -7,6 +7,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Properties;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
@@ -64,7 +65,7 @@ public class DefinitionManager {
 
       DefinitionManager manager = new DefinitionManager(propsFile);
       if (cliHelper.hasOption("d")) {
-        manager.download(downloadDir, messagesDir);
+        manager.download(downloadDir, generatedDir, messagesDir);
       }
       manager.transform(downloadDir, generatedDir);
 
@@ -74,10 +75,12 @@ public class DefinitionManager {
   }
 
 
-  private void download(Path downloadDir, @Nullable Path messagesDir) throws Exception {
+  private void download(@Nonnull Path downloadDir, @Nonnull Path generatedDir, @Nullable Path messagesDir)
+      throws Exception {
 
     SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
     sh.downloadAlleleDefinitions(downloadDir);
+    sh.downloadAlleleExemptionsFile(generatedDir);
     if (messagesDir != null) {
       sh.downloadMessagesFile(messagesDir);
     }
