@@ -264,8 +264,12 @@
       <p>Carriage of these alleles might result in a different metabolizer phenotype and different guideline recommendations.</p>
     {{/if}}
 
+    {{#if astrolabe}}
+      <div class="alert alert-info">The call for {{gene}} comes from Astrolabe data which does not supply position-level detail.</div>
+    {{/if}}
+
     {{#if variantsUnspecified}}
-      <div class="alert alert-info">No variant data specified</div>
+      <div class="alert alert-info">No variant data available.</div>
     {{/if}}
     {{#unless variantsUnspecified}}
       <h4>Calls at Positions</h4>

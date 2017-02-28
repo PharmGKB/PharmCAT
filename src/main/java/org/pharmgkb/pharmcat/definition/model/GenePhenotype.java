@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
-import sun.plugin.dom.exception.InvalidStateException;
+import org.pharmgkb.pharmcat.UnexpectedStateException;
 
 
 /**
@@ -60,10 +60,10 @@ public class GenePhenotype {
     m_diplotypes = diplotypes;
   }
 
-  public String[] makePhenoPair(String diplotype) {
+  private String[] makePhenoPair(String diplotype) {
     String[] haps = diplotype.split("/");
     if (haps.length != 2) {
-      throw new InvalidStateException("Diplotype doesn't have two alleles");
+      throw new UnexpectedStateException("Diplotype doesn't have two alleles");
     }
 
     String hap1 = haps[0];

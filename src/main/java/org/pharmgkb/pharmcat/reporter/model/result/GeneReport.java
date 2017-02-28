@@ -35,6 +35,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private List<DrugLink> m_relatedDrugs = new ArrayList<>();
   private SortedSet<String> m_functions = new TreeSet<>();
   private Set<String> m_phenotypes = new TreeSet<>();
+  private boolean m_astrolabeCall = false;
 
   /**
    * public constructor
@@ -71,6 +72,7 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   public void setAstrolabeData(@Nonnull AstrolabeCall call, @Nonnull PhenotypeMap phenotypeMap) {
+    m_astrolabeCall = true;
     m_gene = call.getGene();
     if (call.getDiplotypes() != null) {
       m_diplotypes.clear();
@@ -179,6 +181,10 @@ public class GeneReport implements Comparable<GeneReport> {
     guideline.getRelatedDrugs().stream()
         .map(d -> new DrugLink(d, guideline.getId(), guideline.isRxChange()))
         .forEach(m -> m_relatedDrugs.add(m));
+  }
+
+  public boolean isAstrolabeCall() {
+    return m_astrolabeCall;
   }
 }
 

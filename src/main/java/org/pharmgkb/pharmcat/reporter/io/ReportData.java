@@ -146,6 +146,8 @@ public class ReportData {
         geneCallMap.put("variantsUnspecified", true);
       }
 
+      geneCallMap.put("astrolabe", geneReport.isAstrolabeCall());
+
       int totalVariants = 0;
       if (geneReport.getMatchData() != null && geneReport.getMatchData().getMissingPositions().size()>0) {
         geneCallMap.put("missingVariants", geneReport.getMatchData().getMissingPositions());
