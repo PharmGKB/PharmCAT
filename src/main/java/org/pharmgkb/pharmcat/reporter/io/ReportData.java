@@ -67,6 +67,12 @@ public class ReportData {
     // Guidelines section
     List<Map<String,Object>> guidelines = new ArrayList<>();
     for (GuidelineReport guideline : new TreeSet<>(reportContext.getGuidelineResults())) {
+
+      // don't include guidelines that are only on blacklisted genes
+      if (guideline.getRelatedGeneSymbols().size() == 1 && guideline.getRelatedGeneSymbols().stream().allMatch(sf_geneBlacklist::contains)) {
+        continue;
+      }
+
       Map<String,Object> guidelineMap = new HashMap<>();
 
       String drugs = guideline.getRelatedDrugs().stream().collect(Collectors.joining(", "));
