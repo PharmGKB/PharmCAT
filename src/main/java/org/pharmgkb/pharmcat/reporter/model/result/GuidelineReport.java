@@ -179,6 +179,10 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     String allele1 = m.group(2);
     String allele2 = m.group(3);
 
+    if (m_phenotypeMap.get(gene) == null) {
+      return sf_unmatchedPhenotype;
+    }
+
     String pheno1 = m_phenotypeMap.get(gene).get(allele1);
     String pheno2 = m_phenotypeMap.get(gene).get(allele2);
 
