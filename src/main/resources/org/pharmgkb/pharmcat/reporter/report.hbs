@@ -172,16 +172,12 @@
           <a href="#{{gene}}">{{gene}}</a>{{#if hasMessages}}<sup>&dagger;</sup>{{/if}}
         </td>
         <td>
-          {{#if called}}{{call}}{{/if}}
-          {{#unless called}}<em>uncalled</em>{{/unless}}
+          {{call}}
         </td>
         <td>
-          {{#if called}}
           {{#each functions}}
             <div>{{this}}</div>
           {{/each}}
-          {{/if}}
-          {{#unless called}}<em>uncalled</em>{{/unless}}
         </td>
         <td>
           {{#each phenotype}}

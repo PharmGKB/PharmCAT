@@ -8,8 +8,6 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.annotation.Nonnull;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSortedSet;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
@@ -27,7 +25,8 @@ import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
  * This class is used to help collect Gene-related data for later reporting
  */
 public class GeneReport implements Comparable<GeneReport> {
-  private static final String UNCALLED = "uncalled";
+  private static final String UNCALLED = "not called";
+  private static final String NA = "N/A";
 
   private String m_gene;
   private Set<String> m_diplotypes = new TreeSet<>();
@@ -47,6 +46,8 @@ public class GeneReport implements Comparable<GeneReport> {
   public GeneReport(@Nonnull String geneSymbol) {
     m_gene = geneSymbol;
     addDip(UNCALLED);
+    addPhenotype(NA);
+    addFunction(NA);
   }
 
   /**
@@ -56,7 +57,6 @@ public class GeneReport implements Comparable<GeneReport> {
   public void setCallData(@Nonnull GeneCall call, PhenotypeMap phenotypeMap) {
     m_gene = call.getGene();
     if (!call.getDiplotypes().isEmpty()) {
-      m_diplotypes.clear();
       call.getDiplotypes().forEach(d -> addDip(d.getName()));
     }
     m_variants.addAll(call.getVariants());
@@ -95,7 +95,6 @@ public class GeneReport implements Comparable<GeneReport> {
     m_astrolabeCall = true;
     m_gene = call.getGene();
     if (call.getDiplotypes() != null) {
-      m_diplotypes.clear();
       call.getDiplotypes().forEach(d -> {
         addDip(d);
         addFunction(phenotypeMap.lookup(m_gene).makeFunction(d));
@@ -113,7 +112,6 @@ public class GeneReport implements Comparable<GeneReport> {
       throw new UnexpectedStateException("more than one variant found");
     }).orElse(null);
 
-    m_diplotypes.clear();
     if (variant != null) {
       String dip = null;
       switch (variant.getVcfCall()) {
@@ -145,7 +143,6 @@ public class GeneReport implements Comparable<GeneReport> {
       throw new UnexpectedStateException("more than one variant found");
     }).orElse(null);
 
-    m_diplotypes.clear();
     if (variant != null) {
       String dip = null;
       switch (variant.getVcfCall()) {
@@ -176,6 +173,10 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   private void addDip(String dip) {
+    if (m_diplotypes.size() == 1 && m_diplotypes.contains(UNCALLED)) {
+      m_diplotypes.clear();
+    }
+
     String cleanDip = m_gene.equals("CYP2C19") ? dip.replaceAll("\\*4[AB]", "*4") : dip;
 
     m_diplotypes.add(cleanDip);
@@ -188,10 +189,16 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   private void addFunction(String function) {
+    if (m_functions.size() == 1 && m_functions.contains(NA)) {
+      m_functions.clear();
+    }
     m_functions.add(function);
   }
 
   private void addPhenotype(String phenotype) {
+    if (m_phenotypes.size() == 1 && m_phenotypes.contains(NA)) {
+      m_phenotypes.clear();
+    }
     m_phenotypes.add(phenotype);
   }
 
@@ -250,16 +257,13 @@ public class GeneReport implements Comparable<GeneReport> {
    * Gets the functions in the form of "Two no function alleles"
    */
   public SortedSet<String> getFunctions() {
-    if (!isCalled()) {
-      return ImmutableSortedSet.of(UNCALLED);
-    }
     return m_functions;
   }
 
+  /**
+   * Gets the gene phenotype in the form of "Intermediate Metabolizer"
+   */
   public Set<String> getPhenotypes() {
-    if (!isCalled()) {
-      return ImmutableSet.of(UNCALLED);
-    }
     return m_phenotypes;
   }
 
