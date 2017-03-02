@@ -42,9 +42,9 @@ public class GuidelinePackage {
   }
 
   /**
-   * This is a map of: "Gene Symbol" -> "Allele Name" -> "Phenotype". This can be used in conjuction with the
+   * This is a map of: "Gene Symbol" -&gt; "Allele Name" -&gt; "Phenotype". This can be used in conjuction with the
    * "genePhenotypes" property in the {@link Group} object.
-   * @return a Mapping of gene+allele -> phenotype
+   * @return a Mapping of gene+allele -&gt; phenotype
    */
   public Map<String, Map<String,String>> getPhenotypeMap() {
     return phenotypeMap;
