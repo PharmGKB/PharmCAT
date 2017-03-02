@@ -124,6 +124,10 @@
     td.missingVariant {
       background-color: lightsalmon;
     }
+
+    .geneCall {
+      font-size: 1.2em;
+    }
   </style>
 
 </head>
@@ -203,8 +207,7 @@
 
       <section>
         {{{summary}}}
-      </section>
-      <section>
+
         <p>For more information see the <a href="{{url}}">full guideline on PharmGKB</a>.</p>
       </section>
 
@@ -222,7 +225,12 @@
       {{/if}}
 
       {{#if matched}}
-        <h4>Annotations for {{#each diplotypes}}{{this}} {{/each}}</h4>
+        <section>
+        {{#each diplotypes}}
+          <div class="geneCall">{{this}}</div>
+        {{/each}}
+        </section>
+
         {{#each groups}}
           <table>
             <thead>

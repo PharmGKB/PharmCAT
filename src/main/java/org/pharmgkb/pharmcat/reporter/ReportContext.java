@@ -41,10 +41,10 @@ public class ReportContext {
   private List<GuidelineReport> m_interactionList;
   private PhenotypeMap m_phenotypeMap = new PhenotypeMap();
 
-  public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_calls.stream()
+  public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_geneReports.stream()
       .filter(c -> c.getGene().equals(s))
-      .flatMap(c -> c.getDiplotypes().stream())
-      .map(d -> s + ":" + d.getName());
+      .flatMap(c -> c.getDips().stream().map(e -> e + (c.isAstrolabeCall() ? " (Astrolabe)" : "")))
+      .map(d -> s + ":" + d);
 
   /**
    * public constructor
