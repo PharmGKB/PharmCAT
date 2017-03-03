@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
@@ -23,8 +24,8 @@ import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 
 
 /**
- * This class is a wrapper around the {@link DosingGuideline} class that also stores the results of the matching code
- * found elsewhere.
+ * This class is a wrapper around the {@link GuidelinePackage} class that also handles the matching of genotype
+ * functions to annotation {@link Group} objects.
  *
  * @author Ryan Whaley
  */
@@ -95,7 +96,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     return m_matchingGroups;
   }
 
-  public void addMatchingGroup(Group group) {
+  private void addMatchingGroup(Group group) {
     if (m_matchingGroups == null) {
       m_matchingGroups = new TreeSet<>();
     }
@@ -116,7 +117,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     return m_matchedDiplotypes;
   }
 
-  public void putMatchedDiplotype(String id, String diplotype) {
+  private void putMatchedDiplotype(String id, String diplotype) {
     m_matchedDiplotypes.put(id, diplotype);
   }
 
@@ -193,5 +194,21 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     List<String> phenotypes = Lists.newArrayList(pheno1, pheno2);
     Collections.sort(phenotypes);
     return gene+":"+phenotypes.stream().collect(Collectors.joining("/"));
+  }
+
+  /**
+   * Finds the matching {@link Group} objects for the given <code>reportGenotype</code>, adds it to the group, and then
+   * marks it as a match.
+   * @param reportGenotype a multi-gene genotype function String in the form of "GENEA:No Function/No Function;GENEB:Normal Function/Normal Function"
+   */
+  public void addReportGenotype(String reportGenotype) {
+    Preconditions.checkArgument(StringUtils.isNotBlank(reportGenotype));
+
+    getGroups().stream()
+        .filter(group -> group.getGenePhenotypes().contains(reportGenotype))
+        .forEach(group -> {
+          addMatchingGroup(group);
+          putMatchedDiplotype(group.getId(), reportGenotype);
+        });
   }
 }

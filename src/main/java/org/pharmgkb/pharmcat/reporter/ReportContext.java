@@ -10,7 +10,6 @@ import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
-import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
@@ -158,30 +157,23 @@ public class ReportContext {
         continue;
       }
 
-      Set<String> calledGenotypesForGuideline = makeAllCalledGenotypes(guideline);
-
-      for (Group annotationGroup : guideline.getGroups()) {
-        calledGenotypesForGuideline.stream()
-            .filter(calledGenotype -> annotationGroup.getGenePhenotypes().contains(calledGenotype))
-            .forEach(calledGenotype -> {
-              guideline.addMatchingGroup(annotationGroup);
-              guideline.putMatchedDiplotype(annotationGroup.getId(), calledGenotype);
-            });
-      }
+      makeAllReportGenotypes(guideline);
     }
   }
 
   /**
-   * Makes a set of called genotype Strings for the given {@link GuidelineReport}. This can be used later for matching
-   * to annotation group genotypes
-   * @return a Set of string genotype calls in the form "GENEA:*1/*2;GENEB:*2/*3"
+   * Makes a set of called genotype function Strings (in the form "GENEA:No Function/No Function;GENEB:Normal Function/Normal Function") for the given
+   * {@link GuidelineReport} and then adds them to the given {@link GuidelineReport}.
+   *
+   * <em>note:</em> this needs to stay in the {@link ReportContext} since it relies on referencing possibly multiple
+   * {@link GeneReport} objects.
    */
-  private Set<String> makeAllCalledGenotypes(GuidelineReport guidelineReport) {
+  private void makeAllReportGenotypes(GuidelineReport guidelineReport) {
     Set<String> results = new TreeSet<>();
     for (String symbol : guidelineReport.getRelatedGeneSymbols()) {
       results = makeCalledGenotypes(guidelineReport, symbol, results);
     }
-    return results;
+    results.forEach(guidelineReport::addReportGenotype);
   }
 
   /**
