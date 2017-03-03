@@ -192,7 +192,7 @@ public class GeneReport implements Comparable<GeneReport> {
       m_diplotypes.clear();
     }
 
-    String cleanDip = m_gene.equals("CYP2C19") ? dip.replaceAll("\\*4[AB]", "*4") : dip;
+    String cleanDip = applyPerGeneDiplotypeRules(getGene(), dip);
 
     m_diplotypes.add(cleanDip);
 
@@ -201,6 +201,37 @@ public class GeneReport implements Comparable<GeneReport> {
       m_haplotypes.add(haps[0]);
       m_haplotypes.add(haps[1]);
     }
+  }
+
+  /**
+   * Apply all the hard-coded logic needed for particular known diplotype calls
+   * @param gene the gene for this call
+   * @param diplotype the called diplotype from the matcher
+   * @return a diplotype with all known custom rules applied
+   */
+  private String applyPerGeneDiplotypeRules(String gene, String diplotype) {
+    String cleanDiplotype;
+    switch (gene) {
+
+      case "CYP2C19":
+        // always translate *4A & *4B to just *4
+        cleanDiplotype = diplotype.replaceAll("\\*4[AB]", "*4");
+        break;
+
+      case "CFTR":
+        // CFTR has no mappings for Reference/Reference so display a special value
+        if (diplotype.equals("Reference/Reference")) {
+          cleanDiplotype = "No CPIC variants found";
+        }
+        else {
+          cleanDiplotype = diplotype;
+        }
+        break;
+
+      default:
+        cleanDiplotype = diplotype;
+    }
+    return cleanDiplotype;
   }
 
   /**
@@ -281,7 +312,6 @@ public class GeneReport implements Comparable<GeneReport> {
 
   /**
    * Gets the Set of Haplotypes the the matcher could not evaluate
-   * @return
    */
   public Set<String> getUncalledHaplotypes() {
     return m_uncalledHaplotypes;
