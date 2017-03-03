@@ -172,7 +172,7 @@ public class Reporter {
     if (m_reportContext == null) {
       return null;
     }
-    return m_reportContext.getGuidelineResults();
+    return m_reportContext.getGuidelineReports();
   }
 
   protected ReportContext getContext() {

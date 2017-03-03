@@ -35,7 +35,7 @@ public class ReportContext {
 
   private List<GeneCall> m_calls;
   private Set<GeneReport> m_geneReports = new TreeSet<>();
-  private List<GuidelineReport> m_interactionList;
+  private List<GuidelineReport> m_guidelineReports;
   private PhenotypeMap m_phenotypeMap = new PhenotypeMap();
 
   public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_geneReports.stream()
@@ -50,7 +50,7 @@ public class ReportContext {
    */
   public ReportContext(List<GeneCall> calls, List<AstrolabeCall> astrolabeCalls, List<GuidelinePackage> guidelinePackages) throws Exception {
     m_calls = calls;
-    m_interactionList = guidelinePackages.stream().map(GuidelineReport::new).collect(Collectors.toList());
+    m_guidelineReports = guidelinePackages.stream().map(GuidelineReport::new).collect(Collectors.toList());
 
     // make the full list of gene reports based on all the genes used in guidelines
     guidelinePackages.stream()
@@ -63,7 +63,7 @@ public class ReportContext {
 
     findMatches();
 
-    m_interactionList.forEach(r -> {
+    m_guidelineReports.forEach(r -> {
       for (String gene : r.getRelatedGeneSymbols()) {
         getGeneReport(gene).addRelatedDrugs(r);
       }
@@ -115,7 +115,7 @@ public class ReportContext {
    */
   private void findMatches() throws Exception {
 
-    for(GuidelineReport guideline : m_interactionList) {
+    for(GuidelineReport guideline : m_guidelineReports) {
       boolean reportable = guideline.getRelatedGeneSymbols().stream()
           .anyMatch(this::isCalled);
 
@@ -176,8 +176,8 @@ public class ReportContext {
     }
   }
 
-  public List<GuidelineReport> getGuidelineResults() {
-    return m_interactionList;
+  public List<GuidelineReport> getGuidelineReports() {
+    return m_guidelineReports;
   }
 
   public Set<GeneReport> getGeneReports() {
