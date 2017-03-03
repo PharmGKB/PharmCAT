@@ -47,7 +47,7 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public GeneReport(@Nonnull String geneSymbol) {
     m_gene = geneSymbol;
-    addDip(UNCALLED);
+    addDiplotype(UNCALLED);
     addPhenotype(NA);
     addFunction(NA);
   }
@@ -60,7 +60,7 @@ public class GeneReport implements Comparable<GeneReport> {
   public void setCallData(@Nonnull GeneCall call, PhenotypeMap phenotypeMap) {
     m_gene = call.getGene();
     if (!call.getDiplotypes().isEmpty()) {
-      call.getDiplotypes().forEach(d -> addDip(d.getName()));
+      call.getDiplotypes().forEach(d -> addDiplotype(d.getName()));
     }
     m_variants.addAll(call.getVariants());
     m_matchData = call.getMatchData();
@@ -104,7 +104,7 @@ public class GeneReport implements Comparable<GeneReport> {
     m_gene = call.getGene();
     if (call.getDiplotypes() != null) {
       call.getDiplotypes().forEach(d -> {
-        addDip(d);
+        addDiplotype(d);
         addFunction(phenotypeMap.lookup(m_gene).makeFunction(d));
         addPhenotype(phenotypeMap.lookup(m_gene).makePhenotype(d));
       });
@@ -134,11 +134,11 @@ public class GeneReport implements Comparable<GeneReport> {
           dip = "*5/*5";
           break;
       }
-      addDip(dip);
+      addDiplotype(dip);
       addFunction(genePhenotype.makeFunction(dip));
       addPhenotype(genePhenotype.makePhenotype(dip));
     } else {
-      addDip(UNCALLED);
+      addDiplotype(UNCALLED);
     }
   }
 
@@ -165,18 +165,18 @@ public class GeneReport implements Comparable<GeneReport> {
           dip = "*1/*1";
           break;
       }
-      addDip(dip);
+      addDiplotype(dip);
       addFunction(genePhenotype.makeFunction(dip));
       addPhenotype(genePhenotype.makePhenotype(dip));
     } else {
-      addDip(UNCALLED);
+      addDiplotype(UNCALLED);
     }
   }
 
   /**
    * Gets the Set of diplotypes that have been called for this gene, in the form "*1/*10", no gene prefix
    */
-  public Set<String> getDips(){
+  public Set<String> getDiplotypes(){
     return m_diplotypes;
   }
 
@@ -187,7 +187,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * out
    * @param dip a diplotype in the form "*1/*10"
    */
-  private void addDip(String dip) {
+  private void addDiplotype(String dip) {
     if (m_diplotypes.size() == 1 && m_diplotypes.contains(UNCALLED)) {
       m_diplotypes.clear();
     }
@@ -355,7 +355,7 @@ public class GeneReport implements Comparable<GeneReport> {
   public Set<String> getDiplotypeLookupKeys() {
     String prefix = getGene() + ":";
 
-    if (getDips().size() == 1 && getDips().contains(UNCALLED)) {
+    if (getDiplotypes().size() == 1 && getDiplotypes().contains(UNCALLED)) {
 
       // only HLA-B uses Other/Other, all else is Unknown/Unknown
       String defaultUncalled = getGene().equals("HLA-B") ? "Other/Other" : "Unknown/Unknown";
@@ -363,7 +363,7 @@ public class GeneReport implements Comparable<GeneReport> {
       return ImmutableSet.of(prefix + defaultUncalled);
     }
     else {
-      return getDips().stream().map(d -> prefix + d).collect(Collectors.toSet());
+      return getDiplotypes().stream().map(d -> prefix + d).collect(Collectors.toSet());
     }
   }
 }

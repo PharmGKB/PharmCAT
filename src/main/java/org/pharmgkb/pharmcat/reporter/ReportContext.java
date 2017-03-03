@@ -40,7 +40,7 @@ public class ReportContext {
 
   public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_geneReports.stream()
       .filter(c -> c.getGene().equals(s))
-      .flatMap(c -> c.getDips().stream().map(e -> e + (c.isAstrolabeCall() ? " (Astrolabe)" : "")))
+      .flatMap(c -> c.getDiplotypes().stream().map(e -> e + (c.isAstrolabeCall() ? " (Astrolabe)" : "")))
       .map(d -> s + ":" + d);
 
   /**

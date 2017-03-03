@@ -51,7 +51,7 @@ public class ReportData {
       genotype.put("gene", symbol);
       genotype.put("called", geneReport.isCalled());
       genotype.put("drugs", geneReport.getRelatedDrugs());
-      genotype.put("call", geneReport.getDips().stream().collect(Collectors.joining(", ")));
+      genotype.put("call", geneReport.getDiplotypes().stream().collect(Collectors.joining(", ")));
       genotype.put("functions", geneReport.getFunctions());
       genotype.put("uncallableAlleles",
             geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0
@@ -143,7 +143,7 @@ public class ReportData {
         geneCallMap.put("uncalledHaps", geneReport.getUncalledHaplotypes().stream().collect(Collectors.joining(", ")));
       }
 
-      geneCallMap.put("diplotypes", geneReport.getDips());
+      geneCallMap.put("diplotypes", geneReport.getDiplotypes());
 
       if (geneReport.getExceptionList() != null && geneReport.getExceptionList().size() > 0) {
         geneCallMap.put("warnings", geneReport.getExceptionList().stream().map(PharmcatException::getMessage).collect(Collectors.toList()));
