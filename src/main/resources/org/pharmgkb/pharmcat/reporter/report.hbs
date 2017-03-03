@@ -224,13 +224,13 @@
         <div class="alert alert-info"><strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups could be shown</div>
       {{/if}}
 
-      {{#if matched}}
-        <section>
+      <section>
         {{#each diplotypes}}
           <div class="geneCall">{{this}}</div>
         {{/each}}
-        </section>
+      </section>
 
+      {{#if matched}}
         {{#each groups}}
           <table>
             <thead>

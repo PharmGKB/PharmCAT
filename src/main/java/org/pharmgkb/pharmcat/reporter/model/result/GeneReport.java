@@ -7,7 +7,9 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
+import com.google.common.collect.ImmutableSet;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
@@ -51,8 +53,9 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * public constructor
+   * Sets data in this report based on data found in a {@link GeneCall}
    * @param call a {@link GeneCall} that has been made by the {@link NamedAlleleMatcher}
+   * @param phenotypeMap a PhenotypeMap to use for function and phenotype assignment
    */
   public void setCallData(@Nonnull GeneCall call, PhenotypeMap phenotypeMap) {
     m_gene = call.getGene();
@@ -91,6 +94,11 @@ public class GeneReport implements Comparable<GeneReport> {
     }
   }
 
+  /**
+   * Sets data in this report based on data found in a {@link AstrolabeCall}
+   * @param call a {@link AstrolabeCall} to pull data from
+   * @param phenotypeMap a PhenotypeMap to use for function and phenotype assignment
+   */
   public void setAstrolabeData(@Nonnull AstrolabeCall call, @Nonnull PhenotypeMap phenotypeMap) {
     m_astrolabeCall = true;
     m_gene = call.getGene();
@@ -166,12 +174,19 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Diplotypes that have been called for this gene
+   * Gets the Set of diplotypes that have been called for this gene, in the form "*1/*10", no gene prefix
    */
   public Set<String> getDips(){
     return m_diplotypes;
   }
 
+  /**
+   * Add a diplotype to this report. Also adds the individual haplotypes to the <code>haplotypes</code> property.
+   *
+   * <em>note:</em> this will apply some desired adjustments to values so what you put in may not be when you get back
+   * out
+   * @param dip a diplotype in the form "*1/*10"
+   */
   private void addDip(String dip) {
     if (m_diplotypes.size() == 1 && m_diplotypes.contains(UNCALLED)) {
       m_diplotypes.clear();
@@ -188,6 +203,10 @@ public class GeneReport implements Comparable<GeneReport> {
     }
   }
 
+  /**
+   * Add a function statement, in the form of "Two normal function alleles"
+   * @param function a function String, in the form of "Two normal function alleles"
+   */
   private void addFunction(String function) {
     if (m_functions.size() == 1 && m_functions.contains(NA)) {
       m_functions.clear();
@@ -195,6 +214,10 @@ public class GeneReport implements Comparable<GeneReport> {
     m_functions.add(function);
   }
 
+  /**
+   * Add an overall, gene-level phenotype value in the form of "Intermediate metabolizer"
+   * @param phenotype an overall, gene-level phenotype String in the form of "Intermediate metabolizer"
+   */
   private void addPhenotype(String phenotype) {
     if (m_phenotypes.size() == 1 && m_phenotypes.contains(NA)) {
       m_phenotypes.clear();
@@ -222,6 +245,10 @@ public class GeneReport implements Comparable<GeneReport> {
     }
   }
 
+  /**
+   * Evaluates an exception and adds it to the report if it's relevent.
+   * @param except an exception to be evaluated and possibly added
+   */
   private void addException(PharmcatException except) {
     MatchLogic match = except.getMatches();
 
@@ -245,10 +272,17 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_variants;
   }
 
+  /**
+   * Gets the match data from the gene call itself
+   */
   public MatchData getMatchData() {
     return m_matchData;
   }
 
+  /**
+   * Gets the Set of Haplotypes the the matcher could not evaluate
+   * @return
+   */
   public Set<String> getUncalledHaplotypes() {
     return m_uncalledHaplotypes;
   }
@@ -271,6 +305,9 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_gene + " Report";
   }
 
+  /**
+   * True if this gene has entries in the <code>diplotypes</code> property called "uncalled", false if it has a call
+   */
   public boolean isCalled() {
     return m_diplotypes != null && m_diplotypes.size() > 0 && !m_diplotypes.contains(UNCALLED);
   }
@@ -284,10 +321,18 @@ public class GeneReport implements Comparable<GeneReport> {
     return 0;
   }
 
+  /**
+   * Gets a list of {@link DrugLink} objects that are in the same guidelines as this gene
+   * @return a list of {@link DrugLink} objects
+   */
   public List<DrugLink> getRelatedDrugs() {
     return m_relatedDrugs;
   }
 
+  /**
+   * Adds the drugs in the given <code>guideline</code> to this report as {@link DrugLink} objects
+   * @param guideline a GuidelineReport with relatedDrugs
+   */
   public void addRelatedDrugs(GuidelineReport guideline) {
 
     guideline.getRelatedDrugs().stream()
@@ -295,8 +340,31 @@ public class GeneReport implements Comparable<GeneReport> {
         .forEach(m -> m_relatedDrugs.add(m));
   }
 
+  /**
+   * True if the genotyping data in the report comes from astrolabe, false if from somewhere else
+   */
   public boolean isAstrolabeCall() {
     return m_astrolabeCall;
+  }
+
+  /**
+   * Gets a Set of the diplotype keys (Strings) that should be used when looking up matching annotation groups.
+   * This method ensures all per-gene adjustments and fixes have been applied before it's time to match.
+   * @return a Set of diplotype Strings in the form "GENE:
+   */
+  public Set<String> getDiplotypeLookupKeys() {
+    String prefix = getGene() + ":";
+
+    if (getDips().size() == 1 && getDips().contains(UNCALLED)) {
+
+      // only HLA-B uses Other/Other, all else is Unknown/Unknown
+      String defaultUncalled = getGene().equals("HLA-B") ? "Other/Other" : "Unknown/Unknown";
+
+      return ImmutableSet.of(prefix + defaultUncalled);
+    }
+    else {
+      return getDips().stream().map(d -> prefix + d).collect(Collectors.toSet());
+    }
   }
 }
 

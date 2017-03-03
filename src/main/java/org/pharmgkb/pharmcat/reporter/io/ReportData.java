@@ -24,7 +24,9 @@ import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
  */
 public class ReportData {
 
+  // never display these genes in the gene call list
   private static final List<String> sf_geneBlacklist = ImmutableList.of("G6PD", "HLA-B");
+  // never display these types of annotations in the guidelines section
   private static final List<String> sf_annotationTermBlacklist = ImmutableList.of("Phenotype (Genotype)", "Metabolizer Status");
 
   /**

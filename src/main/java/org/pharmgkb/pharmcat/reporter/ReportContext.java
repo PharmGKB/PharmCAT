@@ -157,14 +157,14 @@ public class ReportContext {
 
   private Set<String> makeCalledGenotypes(GuidelineReport guidelineReport, String symbol, Set<String> results) {
     if (results.size() == 0) {
-      return getGeneReport(symbol).getDips().stream()
-          .map(d -> guidelineReport.translateToPhenotype(symbol + ":" + d))
+      return getGeneReport(symbol).getDiplotypeLookupKeys().stream()
+          .map(guidelineReport::translateToPhenotype)
           .collect(Collectors.toSet());
     }
     else {
       Set<String> newResults = new TreeSet<>();
       for (String geno1 : results) {
-        getGeneReport(symbol).getDips().stream().map(d -> guidelineReport.translateToPhenotype(symbol + ":" + d)).forEach(
+        getGeneReport(symbol).getDiplotypeLookupKeys().stream().map(guidelineReport::translateToPhenotype).forEach(
             geno2 -> {
               Set<String> genos = new TreeSet<>();
               genos.add(geno1);
