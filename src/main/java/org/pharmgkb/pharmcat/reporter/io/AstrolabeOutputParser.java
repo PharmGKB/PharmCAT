@@ -20,6 +20,7 @@ public class AstrolabeOutputParser {
 
   private static final List<String> sf_geneWhitelist = ImmutableList.of("CYP2D6");
 
+  @Nonnull
   public static List<AstrolabeCall> parse(@Nonnull Path astrolabePath) throws IOException {
     Preconditions.checkNotNull(astrolabePath);
 

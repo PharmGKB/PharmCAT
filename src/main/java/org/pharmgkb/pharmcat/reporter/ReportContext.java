@@ -33,7 +33,6 @@ import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
  */
 public class ReportContext {
 
-  private List<GeneCall> m_calls;
   private Set<GeneReport> m_geneReports = new TreeSet<>();
   private List<GuidelineReport> m_guidelineReports;
   private PhenotypeMap m_phenotypeMap = new PhenotypeMap();
@@ -44,42 +43,60 @@ public class ReportContext {
       .map(d -> s + ":" + d);
 
   /**
-   * public constructor
-   * @param calls GeneCall objects from the sample data
+   * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
+   * @param calls {@link GeneCall} objects from the sample data
+   * @param astrolabeCalls {@link AstrolabeCall} objects from the astrolabe data, non-null but can be empty
    * @param guidelinePackages a List of all the guidelines to try to apply
    */
-  public ReportContext(List<GeneCall> calls, List<AstrolabeCall> astrolabeCalls, List<GuidelinePackage> guidelinePackages) throws Exception {
-    m_calls = calls;
-    m_guidelineReports = guidelinePackages.stream().map(GuidelineReport::new).collect(Collectors.toList());
+  public ReportContext(List<GeneCall> calls, @Nonnull List<AstrolabeCall> astrolabeCalls, List<GuidelinePackage> guidelinePackages) throws Exception {
 
-    // make the full list of gene reports based on all the genes used in guidelines
-    guidelinePackages.stream()
-        .flatMap(g -> g.getGuideline().getRelatedGenes().stream())
-        .map(RelatedGene::getSymbol).distinct()
-        .forEach(s -> m_geneReports.add(new GeneReport(s)));
+    makeGuidelineReports(guidelinePackages);
 
-    compileGeneData();
+    makeGeneReports(guidelinePackages);
+    compileMatcherData(calls);
     compileAstrolabeData(astrolabeCalls);
 
     findMatches();
 
-    m_guidelineReports.forEach(r -> {
-      for (String gene : r.getRelatedGeneSymbols()) {
-        getGeneReport(gene).addRelatedDrugs(r);
-      }
-    });
+    compileDrugsForGenes();
   }
 
+  /**
+   * Applies the given {@link PharmcatException} objects to the data in this report.
+   * @param exceptions a List of {@link PharmcatException} objects
+   */
   public void applyException(List<PharmcatException> exceptions) {
     m_geneReports.forEach(r -> r.applyExceptions(exceptions));
+  }
+
+  /**
+   * Takes the raw GuidelinePackage objects from PharmGKG and maps them to {@link GuidelineReport} objects that can be
+   * used in the reporter
+   * @param guidelinePackages a List of PharmGKB {@link GuidelinePackage} objects
+   */
+  private void makeGuidelineReports(List<GuidelinePackage> guidelinePackages) {
+    m_guidelineReports = guidelinePackages.stream().map(GuidelineReport::new).collect(Collectors.toList());
+  }
+
+  /**
+   * Makes {@link GeneReport} objects for each of the genes found in PharmGKB {@link GuidelinePackage} objects
+   * @param guidelinePackages a List of PharmGKB {@link GuidelinePackage} objects
+   */
+  private void makeGeneReports(List<GuidelinePackage> guidelinePackages) {
+    for (GuidelinePackage guidelinePackage : guidelinePackages) {
+      guidelinePackage.getGuideline().getRelatedGenes().stream()
+          .map(RelatedGene::getSymbol)
+          .distinct()
+          .forEach(s -> m_geneReports.add(new GeneReport(s)));
+    }
   }
 
   /**
    * Takes {@link GeneCall} data and preps internal data structures for usage. Also prepares exception logic and applies
    * it to the calling data
    */
-  private void compileGeneData() throws Exception {
-    for (GeneCall call : m_calls) {
+  private void compileMatcherData(List<GeneCall> calls) throws Exception {
+    for (GeneCall call : calls) {
       GeneReport geneReport = m_geneReports.stream()
           .filter(r -> r.getGene().equals(call.getGene()))
           .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
@@ -100,6 +117,18 @@ public class ReportContext {
           .orElseThrow(IllegalStateException::new);
       geneReport.setAstrolabeData(astrolabeCall, m_phenotypeMap);
     }
+  }
+
+  /**
+   * Adds compiled drug data to each {@link GeneReport} object that's related through a guideline. This gives a useful
+   * collection of all drugs that are related to each gene.
+   */
+  private void compileDrugsForGenes() {
+    m_guidelineReports.forEach(r -> {
+      for (String gene : r.getRelatedGeneSymbols()) {
+        getGeneReport(gene).addRelatedDrugs(r);
+      }
+    });
   }
 
   private boolean isCalled(String gene) {
@@ -143,8 +172,8 @@ public class ReportContext {
   }
 
   /**
-   * Makes a set of called genotype Strings for the given collection of genes. This can be used later for matching to
-   * annotation group genotypes
+   * Makes a set of called genotype Strings for the given {@link GuidelineReport}. This can be used later for matching
+   * to annotation group genotypes
    * @return a Set of string genotype calls in the form "GENEA:*1/*2;GENEB:*2/*3"
    */
   private Set<String> makeAllCalledGenotypes(GuidelineReport guidelineReport) {
@@ -155,7 +184,16 @@ public class ReportContext {
     return results;
   }
 
-  private Set<String> makeCalledGenotypes(GuidelineReport guidelineReport, String symbol, Set<String> results) {
+  /**
+   * Makes the genotype Strings for the given gene <code>symbol</code> and either creates a new Set if the passed
+   * <code>results</code> is empty or adds to the existing <code>results</code> if there are already entries
+   *
+   * @param guidelineReport a GuidelineReport with gene calls
+   * @param symbol the gene to generate calls for
+   * @param results the existing call list to add to
+   * @return a new Set of gene calls with the calls for the specified gene
+   */
+  private Set<String> makeCalledGenotypes(GuidelineReport guidelineReport, String symbol, @Nonnull Set<String> results) {
     if (results.size() == 0) {
       return getGeneReport(symbol).getDiplotypeLookupKeys().stream()
           .map(guidelineReport::translateToPhenotype)
