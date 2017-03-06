@@ -40,7 +40,7 @@ public class ReportContext {
 
   public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_geneReports.stream()
       .filter(c -> c.getGene().equals(s))
-      .flatMap(c -> c.getDiplotypeList().stream().map(e -> e + (c.isAstrolabeCall() ? " (Astrolabe)" : "")));
+      .flatMap(c -> c.getDiplotypes().stream().map(e -> e + (c.isAstrolabeCall() ? " (Astrolabe)" : "")));
 
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
@@ -101,7 +101,7 @@ public class ReportContext {
           .filter(r -> r.getGene().equals(call.getGene()))
           .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
           .orElseThrow(IllegalStateException::new);
-      geneReport.setCallData(call, m_phenotypeMap);
+      geneReport.setCallData(call);
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(call.getGene(), call.getVariants(), m_phenotypeMap, m_incidentalFinder);
       diplotypeFactory.makeDiplotypes(call).forEach(geneReport::addDiplotype);
@@ -118,7 +118,7 @@ public class ReportContext {
           .filter(r -> r.getGene().equals(astrolabeCall.getGene()))
           .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
           .orElseThrow(IllegalStateException::new);
-      geneReport.setAstrolabeData(astrolabeCall, m_phenotypeMap);
+      geneReport.setAstrolabeData(astrolabeCall);
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(astrolabeCall.getGene(), null, m_phenotypeMap, m_incidentalFinder);
       diplotypeFactory.makeDiplotypes(astrolabeCall).forEach(geneReport::addDiplotype);

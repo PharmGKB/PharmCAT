@@ -142,7 +142,7 @@ public class ReportData {
         geneCallMap.put("uncalledHaps", geneReport.getUncalledHaplotypes().stream().collect(Collectors.joining(", ")));
       }
 
-      geneCallMap.put("diplotypes", geneReport.getDiplotypeList().stream().map(Diplotype::toString).collect(Collectors.toSet()));
+      geneCallMap.put("diplotypes", geneReport.getDiplotypes().stream().map(Diplotype::toString).collect(Collectors.toSet()));
 
       if (geneReport.getExceptionList() != null && geneReport.getExceptionList().size() > 0) {
         geneCallMap.put("warnings", geneReport.getExceptionList().stream().map(PharmcatException::getMessage).collect(Collectors.toList()));

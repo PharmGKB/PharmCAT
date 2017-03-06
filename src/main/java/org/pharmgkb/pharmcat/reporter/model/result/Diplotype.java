@@ -58,6 +58,16 @@ public class Diplotype {
   }
 
   /**
+   * Does this diplotype have an allele with the given name
+   * @param alleleName an allele name, e.g. "*10"
+   * @return true if this diplotype contains an allele with the given name
+   */
+  public boolean hasAllele(String alleleName) {
+    return (m_allele1 != null && m_allele1.getName().equals(alleleName))
+        || (m_allele2 != null && m_allele2.getName().equals(alleleName));
+  }
+
+  /**
    * Flag for whether this diplotype includes an incidental finding
    * @return true if this diplotype includes an incidental finding allele
    */

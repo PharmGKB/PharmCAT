@@ -11,9 +11,6 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import org.pharmgkb.pharmcat.UnexpectedStateException;
-import org.pharmgkb.pharmcat.definition.PhenotypeMap;
-import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -32,243 +29,47 @@ public class GeneReport implements Comparable<GeneReport> {
   public static final String NA = "N/A";
 
   private String m_gene;
-  private Set<String> m_diplotypes = new TreeSet<>();
-  private Set<String> m_haplotypes = new TreeSet<>();
   private Set<String> m_uncalledHaplotypes;
   private SortedSet<Variant> m_variants = new TreeSet<>();
   private List<PharmcatException> m_exceptList = new ArrayList<>();
   private MatchData m_matchData;
   private List<DrugLink> m_relatedDrugs = new ArrayList<>();
-  private SortedSet<String> m_functions = new TreeSet<>();
-  private Set<String> m_phenotypes = new TreeSet<>();
   private boolean m_astrolabeCall = false;
-  private List<Diplotype> m_diplotypeList = new ArrayList<>();
+  private List<Diplotype> m_diplotypes = new ArrayList<>();
 
   /**
    * public constructor
    */
   public GeneReport(@Nonnull String geneSymbol) {
     m_gene = geneSymbol;
-    addDiplotype(UNCALLED);
-    addPhenotype(NA);
-    addFunction(NA);
   }
 
   /**
    * Sets data in this report based on data found in a {@link GeneCall}
    * @param call a {@link GeneCall} that has been made by the {@link NamedAlleleMatcher}
-   * @param phenotypeMap a PhenotypeMap to use for function and phenotype assignment
    */
-  public void setCallData(@Nonnull GeneCall call, PhenotypeMap phenotypeMap) {
+  public void setCallData(@Nonnull GeneCall call) {
     m_gene = call.getGene();
-    if (!call.getDiplotypes().isEmpty()) {
-      call.getDiplotypes().forEach(d -> addDiplotype(d.getName()));
-    }
     m_variants.addAll(call.getVariants());
     m_matchData = call.getMatchData();
-
-    GenePhenotype genePhenotype = phenotypeMap.lookup(m_gene);
-
-    // for SLCO1B1 just do a simple call and don't do a regular match
-    if (m_gene.equals("SLCO1B1")) {
-      callSlco1b1(genePhenotype);
-      return;
-    }
-
-    // do a regular copy of diplotype, function, and phenotype
     m_uncalledHaplotypes = call.getUncallableHaplotypes();
-    if (call.getDiplotypes() != null && call.getDiplotypes().size() > 0) {
-      call.getDiplotypes().forEach(d -> {
-        addFunction(d.getFunction());
-        if (genePhenotype != null) {
-          addPhenotype(genePhenotype.makePhenotype(d.getName()));
-        } else {
-          addPhenotype("N/A");
-        }
-      });
-    }
-
-    // UGT1A1 get a second chance at calling based on one position
-    else {
-      if (m_gene.equals("UGT1A1")) {
-        callUgt1a1(genePhenotype);
-      }
-    }
   }
 
   /**
    * Sets data in this report based on data found in a {@link AstrolabeCall}
    * @param call a {@link AstrolabeCall} to pull data from
-   * @param phenotypeMap a PhenotypeMap to use for function and phenotype assignment
    */
-  public void setAstrolabeData(@Nonnull AstrolabeCall call, @Nonnull PhenotypeMap phenotypeMap) {
+  public void setAstrolabeData(@Nonnull AstrolabeCall call) {
     m_astrolabeCall = true;
     m_gene = call.getGene();
-    if (call.getDiplotypes() != null) {
-      call.getDiplotypes().forEach(d -> {
-        addDiplotype(d);
-        addFunction(phenotypeMap.lookup(m_gene).makeFunction(d));
-        addPhenotype(phenotypeMap.lookup(m_gene).makePhenotype(d));
-      });
-    }
   }
 
-  /**
-   * Calls the allele and phenotype data specifically for SLCO1B1 which is a special case using only one variant.
-   * @param genePhenotype {@link GenePhenotype} information for SLCO1B1
-   */
-  private void callSlco1b1(GenePhenotype genePhenotype) {
-    Variant variant = m_variants.stream().filter(v -> v.getRsid() != null && v.getRsid().equals("rs4149056")).reduce((a,b) -> {
-      throw new UnexpectedStateException("more than one variant found");
-    }).orElse(null);
-
-    if (variant != null) {
-      String dip = null;
-      switch (variant.getVcfCall()) {
-        case "T|T":
-          dip = "*1A/*1A";
-          break;
-        case "T|C":
-        case "C|T":
-          dip = "*1A/*5";
-          break;
-        case "C|C":
-          dip = "*5/*5";
-          break;
-      }
-      addDiplotype(dip);
-      addFunction(genePhenotype.makeFunction(dip));
-      addPhenotype(genePhenotype.makePhenotype(dip));
-    } else {
-      addDiplotype(UNCALLED);
-    }
-  }
-
-  /**
-   * Calls the UGT1A1 gene in the case where the matcher calls no alleles but rs887829 is available.
-   * @param genePhenotype {@link GenePhenotype} information for UGT1A1
-   */
-  private void callUgt1a1(GenePhenotype genePhenotype) {
-    Variant variant = m_variants.stream().filter(v -> v.getRsid() != null && v.getRsid().equals("rs887829")).reduce((a,b) -> {
-      throw new UnexpectedStateException("more than one variant found");
-    }).orElse(null);
-
-    if (variant != null) {
-      String dip = null;
-      switch (variant.getVcfCall()) {
-        case "T|T":
-          dip = "*80/*80";
-          break;
-        case "T|C":
-        case "C|T":
-          dip = "*1/*80";
-          break;
-        case "C|C":
-          dip = "*1/*1";
-          break;
-      }
-      addDiplotype(dip);
-      addFunction(genePhenotype.makeFunction(dip));
-      addPhenotype(genePhenotype.makePhenotype(dip));
-    } else {
-      addDiplotype(UNCALLED);
-    }
-  }
-
-  /**
-   * Gets the Set of diplotypes that have been called for this gene, in the form "*1/*10", no gene prefix
-   */
-  @Deprecated
-  public Set<String> getDiplotypes(){
+  public List<Diplotype> getDiplotypes() {
     return m_diplotypes;
   }
 
-  /**
-   * Add a diplotype to this report. Also adds the individual haplotypes to the <code>haplotypes</code> property.
-   *
-   * <em>note:</em> this will apply some desired adjustments to values so what you put in may not be when you get back
-   * out
-   * @param dip a diplotype in the form "*1/*10"
-   */
-  private void addDiplotype(String dip) {
-    if (m_diplotypes.size() == 1 && m_diplotypes.contains(UNCALLED)) {
-      m_diplotypes.clear();
-    }
-
-    String cleanDip = applyPerGeneDiplotypeRules(getGene(), dip);
-
-    m_diplotypes.add(cleanDip);
-
-    if (cleanDip.contains("/")) {
-      String[] haps = cleanDip.split("/");
-      m_haplotypes.add(haps[0]);
-      m_haplotypes.add(haps[1]);
-    }
-  }
-
-  public List<Diplotype> getDiplotypeList() {
-    return m_diplotypeList;
-  }
-
   public void addDiplotype(Diplotype diplotype) {
-    m_diplotypeList.add(diplotype);
-  }
-
-  /**
-   * Apply all the hard-coded logic needed for particular known diplotype calls
-   * @param gene the gene for this call
-   * @param diplotype the called diplotype from the matcher
-   * @return a diplotype with all known custom rules applied
-   */
-  private String applyPerGeneDiplotypeRules(String gene, String diplotype) {
-    String cleanDiplotype;
-    switch (gene) {
-
-      case "CYP2C19":
-        // always translate *4A & *4B to just *4
-        cleanDiplotype = diplotype.replaceAll("\\*4[AB]", "*4");
-        break;
-
-      case "CFTR":
-        // CFTR has no mappings for Reference/Reference so display a special value
-        if (diplotype.equals("Reference/Reference")) {
-          cleanDiplotype = "No CPIC variants found";
-        }
-        else if (diplotype.contains("Reference")) {
-          String haplotype = diplotype.replaceAll("Reference", "").replaceAll("/", "");
-          cleanDiplotype = haplotype + " (heterozygous)";
-        }
-        else {
-          cleanDiplotype = diplotype;
-        }
-        break;
-
-      default:
-        cleanDiplotype = diplotype;
-    }
-    return cleanDiplotype;
-  }
-
-  /**
-   * Add a function statement, in the form of "Two normal function alleles"
-   * @param function a function String, in the form of "Two normal function alleles"
-   */
-  private void addFunction(String function) {
-    if (m_functions.size() == 1 && m_functions.contains(NA)) {
-      m_functions.clear();
-    }
-    m_functions.add(function);
-  }
-
-  /**
-   * Add an overall, gene-level phenotype value in the form of "Intermediate metabolizer"
-   * @param phenotype an overall, gene-level phenotype String in the form of "Intermediate metabolizer"
-   */
-  private void addPhenotype(String phenotype) {
-    if (m_phenotypes.size() == 1 && m_phenotypes.contains(NA)) {
-      m_phenotypes.clear();
-    }
-    m_phenotypes.add(phenotype);
+    m_diplotypes.add(diplotype);
   }
 
   /**
@@ -299,9 +100,12 @@ public class GeneReport implements Comparable<GeneReport> {
     MatchLogic match = except.getMatches();
 
     if (match.getGene().equals(m_gene)) {
-      boolean critHap = match.getHapsCalled().isEmpty() || match.getHapsCalled().stream().allMatch(h -> m_haplotypes.contains(h));
-      boolean critUnmatchedHap = match.getHapsMissing().isEmpty() || match.getHapsMissing().stream().allMatch(h -> m_uncalledHaplotypes.contains(h));
-      boolean critDip = match.getDips().isEmpty() || match.getDips().stream().allMatch(d -> m_diplotypes.contains(d));
+      boolean critHap = match.getHapsCalled().isEmpty()
+          || match.getHapsCalled().stream().anyMatch(h -> m_diplotypes.stream().anyMatch(d -> d.hasAllele(h)));
+      boolean critUnmatchedHap = match.getHapsMissing().isEmpty()
+          || match.getHapsMissing().stream().allMatch(h -> m_uncalledHaplotypes.contains(h));
+      boolean critDip = match.getDips().isEmpty()
+          || match.getDips().stream().allMatch(d -> m_diplotypes.stream().anyMatch(e -> e.printBare().equals(d)));
       boolean critMissVariant = match.getVariantsMissing().isEmpty() ||
           match.getVariantsMissing().stream().allMatch(v -> m_variants.isEmpty() || m_variants.stream().noneMatch(a -> a.getRsid().equals(v)));
 
@@ -332,13 +136,6 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_uncalledHaplotypes;
   }
 
-  /**
-   * Gets the gene phenotype in the form of "Intermediate Metabolizer"
-   */
-  public Set<String> getPhenotypes() {
-    return m_phenotypes;
-  }
-
   public String toString() {
     return m_gene + " Report";
   }
@@ -347,7 +144,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if this gene has entries in the <code>diplotypes</code> property called "uncalled", false if it has a call
    */
   public boolean isCalled() {
-    return m_diplotypeList != null && m_diplotypeList.size() > 0;
+    return m_diplotypes != null && m_diplotypes.size() > 0;
   }
 
   @Override
@@ -399,7 +196,7 @@ public class GeneReport implements Comparable<GeneReport> {
       return ImmutableSet.of(m_gene + ":" + defaultUncalled);
     }
     else {
-      return getDiplotypeList().stream().map(Diplotype::toString).collect(Collectors.toSet());
+      return getDiplotypes().stream().map(Diplotype::toString).collect(Collectors.toSet());
     }
   }
 
@@ -408,21 +205,21 @@ public class GeneReport implements Comparable<GeneReport> {
       return ImmutableList.of(UNCALLED);
     }
 
-    return getDiplotypeList().stream().map(Diplotype::printBare).collect(Collectors.toList());
+    return getDiplotypes().stream().map(Diplotype::printBare).collect(Collectors.toList());
   }
 
   public Collection<String> printDisplayFunctions() {
     if (!isCalled()) {
       return ImmutableList.of(NA);
     }
-    return getDiplotypeList().stream().map(Diplotype::printFunctionPhrase).distinct().collect(Collectors.toSet());
+    return getDiplotypes().stream().map(Diplotype::printFunctionPhrase).distinct().collect(Collectors.toSet());
   }
 
   public Collection<String> printDisplayPhenotypes() {
     if (!isCalled()) {
       return ImmutableList.of(NA);
     }
-    return getDiplotypeList().stream().map(Diplotype::getPhenotype).distinct().collect(Collectors.toSet());
+    return getDiplotypes().stream().map(Diplotype::getPhenotype).distinct().collect(Collectors.toSet());
   }
 }
 
