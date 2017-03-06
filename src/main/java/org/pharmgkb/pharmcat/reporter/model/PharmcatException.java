@@ -17,6 +17,8 @@ import org.apache.commons.lang3.StringUtils;
 public class PharmcatException {
   private static final int sf_rowLength = 11;
 
+  public PharmcatException() { }
+
   public PharmcatException(@Nonnull String row) throws RuntimeException {
     String[] fields = row.split("\\t");
 
