@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.collect.ImmutableList;
@@ -13,6 +12,7 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
+import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
@@ -51,13 +51,12 @@ public class ReportData {
       genotype.put("gene", symbol);
       genotype.put("called", geneReport.isCalled());
       genotype.put("drugs", geneReport.getRelatedDrugs());
-      genotype.put("call", geneReport.getDiplotypes().stream().collect(Collectors.joining(", ")));
-      genotype.put("functions", geneReport.getFunctions());
+      genotype.put("calls", geneReport.printDisplayCalls());
+      genotype.put("functions", geneReport.printDisplayFunctions());
       genotype.put("uncallableAlleles",
             geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0
       );
-      Set<String> phenotypes = geneReport.getPhenotypes();
-      genotype.put("phenotype", phenotypes);
+      genotype.put("phenotype", geneReport.printDisplayPhenotypes());
       genotype.put("hasMessages", geneReport.getExceptionList().size()>0);
 
       genotypes.add(genotype);
@@ -143,7 +142,7 @@ public class ReportData {
         geneCallMap.put("uncalledHaps", geneReport.getUncalledHaplotypes().stream().collect(Collectors.joining(", ")));
       }
 
-      geneCallMap.put("diplotypes", geneReport.getDiplotypes());
+      geneCallMap.put("diplotypes", geneReport.getDiplotypeList().stream().map(Diplotype::toString).collect(Collectors.toSet()));
 
       if (geneReport.getExceptionList() != null && geneReport.getExceptionList().size() > 0) {
         geneCallMap.put("warnings", geneReport.getExceptionList().stream().map(PharmcatException::getMessage).collect(Collectors.toList()));

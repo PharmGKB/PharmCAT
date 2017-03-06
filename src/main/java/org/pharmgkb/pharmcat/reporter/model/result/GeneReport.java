@@ -9,6 +9,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
@@ -28,7 +29,7 @@ import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
  */
 public class GeneReport implements Comparable<GeneReport> {
   private static final String UNCALLED = "not called";
-  private static final String NA = "N/A";
+  public static final String NA = "N/A";
 
   private String m_gene;
   private Set<String> m_diplotypes = new TreeSet<>();
@@ -41,6 +42,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private SortedSet<String> m_functions = new TreeSet<>();
   private Set<String> m_phenotypes = new TreeSet<>();
   private boolean m_astrolabeCall = false;
+  private List<Diplotype> m_diplotypeList = new ArrayList<>();
 
   /**
    * public constructor
@@ -176,6 +178,7 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Gets the Set of diplotypes that have been called for this gene, in the form "*1/*10", no gene prefix
    */
+  @Deprecated
   public Set<String> getDiplotypes(){
     return m_diplotypes;
   }
@@ -203,6 +206,14 @@ public class GeneReport implements Comparable<GeneReport> {
     }
   }
 
+  public List<Diplotype> getDiplotypeList() {
+    return m_diplotypeList;
+  }
+
+  public void addDiplotype(Diplotype diplotype) {
+    m_diplotypeList.add(diplotype);
+  }
+
   /**
    * Apply all the hard-coded logic needed for particular known diplotype calls
    * @param gene the gene for this call
@@ -222,6 +233,10 @@ public class GeneReport implements Comparable<GeneReport> {
         // CFTR has no mappings for Reference/Reference so display a special value
         if (diplotype.equals("Reference/Reference")) {
           cleanDiplotype = "No CPIC variants found";
+        }
+        else if (diplotype.contains("Reference")) {
+          String haplotype = diplotype.replaceAll("Reference", "").replaceAll("/", "");
+          cleanDiplotype = haplotype + " (heterozygous)";
         }
         else {
           cleanDiplotype = diplotype;
@@ -318,13 +333,6 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Gets the functions in the form of "Two no function alleles"
-   */
-  public SortedSet<String> getFunctions() {
-    return m_functions;
-  }
-
-  /**
    * Gets the gene phenotype in the form of "Intermediate Metabolizer"
    */
   public Set<String> getPhenotypes() {
@@ -339,7 +347,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if this gene has entries in the <code>diplotypes</code> property called "uncalled", false if it has a call
    */
   public boolean isCalled() {
-    return m_diplotypes != null && m_diplotypes.size() > 0 && !m_diplotypes.contains(UNCALLED);
+    return m_diplotypeList != null && m_diplotypeList.size() > 0;
   }
 
   @Override
@@ -383,18 +391,38 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return a Set of diplotype Strings in the form "GENE:
    */
   public Set<String> getDiplotypeLookupKeys() {
-    String prefix = getGene() + ":";
-
-    if (getDiplotypes().size() == 1 && getDiplotypes().contains(UNCALLED)) {
+    if (!isCalled()) {
 
       // only HLA-B uses Other/Other, all else is Unknown/Unknown
       String defaultUncalled = getGene().equals("HLA-B") ? "Other/Other" : "Unknown/Unknown";
 
-      return ImmutableSet.of(prefix + defaultUncalled);
+      return ImmutableSet.of(m_gene + ":" + defaultUncalled);
     }
     else {
-      return getDiplotypes().stream().map(d -> prefix + d).collect(Collectors.toSet());
+      return getDiplotypeList().stream().map(Diplotype::toString).collect(Collectors.toSet());
     }
+  }
+
+  public Collection<String> printDisplayCalls() {
+    if (!isCalled()) {
+      return ImmutableList.of(UNCALLED);
+    }
+
+    return getDiplotypeList().stream().map(Diplotype::printBare).collect(Collectors.toList());
+  }
+
+  public Collection<String> printDisplayFunctions() {
+    if (!isCalled()) {
+      return ImmutableList.of(NA);
+    }
+    return getDiplotypeList().stream().map(Diplotype::printFunctionPhrase).distinct().collect(Collectors.toSet());
+  }
+
+  public Collection<String> printDisplayPhenotypes() {
+    if (!isCalled()) {
+      return ImmutableList.of(NA);
+    }
+    return getDiplotypeList().stream().map(Diplotype::getPhenotype).distinct().collect(Collectors.toSet());
   }
 }
 

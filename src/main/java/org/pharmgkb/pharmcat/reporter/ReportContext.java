@@ -7,6 +7,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
+import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
@@ -35,11 +36,11 @@ public class ReportContext {
   private Set<GeneReport> m_geneReports = new TreeSet<>();
   private List<GuidelineReport> m_guidelineReports;
   private PhenotypeMap m_phenotypeMap = new PhenotypeMap();
+  private IncidentalFinder m_incidentalFinder = new IncidentalFinder();
 
   public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_geneReports.stream()
       .filter(c -> c.getGene().equals(s))
-      .flatMap(c -> c.getDiplotypes().stream().map(e -> e + (c.isAstrolabeCall() ? " (Astrolabe)" : "")))
-      .map(d -> s + ":" + d);
+      .flatMap(c -> c.getDiplotypeList().stream().map(e -> e + (c.isAstrolabeCall() ? " (Astrolabe)" : "")));
 
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
@@ -101,6 +102,9 @@ public class ReportContext {
           .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
           .orElseThrow(IllegalStateException::new);
       geneReport.setCallData(call, m_phenotypeMap);
+
+      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(call.getGene(), call.getVariants(), m_phenotypeMap, m_incidentalFinder);
+      diplotypeFactory.makeDiplotypes(call).forEach(geneReport::addDiplotype);
     }
   }
 
@@ -115,6 +119,9 @@ public class ReportContext {
           .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
           .orElseThrow(IllegalStateException::new);
       geneReport.setAstrolabeData(astrolabeCall, m_phenotypeMap);
+
+      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(astrolabeCall.getGene(), null, m_phenotypeMap, m_incidentalFinder);
+      diplotypeFactory.makeDiplotypes(astrolabeCall).forEach(geneReport::addDiplotype);
     }
   }
 

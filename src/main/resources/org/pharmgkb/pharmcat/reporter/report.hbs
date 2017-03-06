@@ -176,7 +176,9 @@
           <a href="#{{gene}}">{{gene}}</a>{{#if hasMessages}}<sup>&dagger;</sup>{{/if}}
         </td>
         <td>
-          {{call}}
+          {{#each calls}}
+            <div>{{this}}</div>
+          {{/each}}
         </td>
         <td>
           {{#each functions}}
