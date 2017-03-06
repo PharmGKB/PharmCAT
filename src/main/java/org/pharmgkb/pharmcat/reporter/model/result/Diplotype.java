@@ -136,20 +136,6 @@ public class Diplotype {
   }
 
   /**
-   * Gets a bare representation of the individual allele functions put together, e.g. "Increased Function/No Function"
-   *
-   * Will print a default N/A String if function does not exist
-   */
-  public String getBareFunctions() {
-    if (m_allele1 == null || m_allele2 == null || m_allele1.getFunction() == null || m_allele2.getFunction() == null) {
-      return NA;
-    }
-    String[] functions = new String[]{m_allele1.getFunction(), m_allele2.getFunction()};
-    Arrays.sort(functions);
-    return Arrays.stream(functions).collect(Collectors.joining(sf_delimiter));
-  }
-
-  /**
    * Print the overriding diplotype string if it exists
    * @return Optional diplotype string to override whatever the actual string would be
    */
