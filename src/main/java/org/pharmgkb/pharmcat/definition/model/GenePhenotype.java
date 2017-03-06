@@ -108,4 +108,7 @@ public class GenePhenotype {
     }
   }
 
+  public String toString() {
+    return m_gene;
+  }
 }

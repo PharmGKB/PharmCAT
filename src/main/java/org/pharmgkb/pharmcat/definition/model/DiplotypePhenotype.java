@@ -35,4 +35,8 @@ public class DiplotypePhenotype {
   public void setDiplotype(List<String> diplotype) {
     m_diplotype = diplotype;
   }
+
+  public String toString() {
+    return m_phenotype;
+  }
 }
