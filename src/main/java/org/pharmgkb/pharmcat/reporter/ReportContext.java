@@ -67,6 +67,7 @@ public class ReportContext {
    */
   public void applyException(List<PharmcatException> exceptions) {
     m_geneReports.forEach(r -> r.applyExceptions(exceptions));
+    m_guidelineReports.forEach(r -> r.applyExceptions(exceptions));
   }
 
   /**

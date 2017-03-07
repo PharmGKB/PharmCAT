@@ -94,6 +94,10 @@ public class ReportData {
       guidelineMap.put("matched", guideline.getMatchingGroups() != null);
       guidelineMap.put("mutliMatch", guideline.getMatchingGroups() != null && guideline.getMatchingGroups().size()>1);
 
+      guidelineMap.put("messages", guideline.getExceptionList().stream()
+          .map(PharmcatException::getMessage)
+          .collect(Collectors.toList()));
+
       if (guideline.getMatchingGroups() != null) {
         List<Map<String, Object>> groupList = new ArrayList<>();
         for (Group group : guideline.getMatchingGroups()) {

@@ -227,6 +227,12 @@
       {{/if}}
 
       <section>
+        {{#each messages}}
+          <div class="alert alert-info">{{this}}</div>
+        {{/each}}
+      </section>
+
+      <section>
         {{#each diplotypes}}
           <div class="geneCall">{{this}}</div>
         {{/each}}

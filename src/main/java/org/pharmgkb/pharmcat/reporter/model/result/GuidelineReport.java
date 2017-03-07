@@ -1,5 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +21,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
+import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
+import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
 import org.pharmgkb.pharmcat.reporter.model.RelatedChemical;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 
@@ -41,6 +45,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private boolean m_reportable = false;
   private Set<String> m_uncalledGenes = new TreeSet<>();
   private Map<String,Map<String,String>> m_phenotypeMap;
+  private List<PharmcatException> m_exceptList = new ArrayList<>();
 
   public GuidelineReport(GuidelinePackage guidelinePackage){
     m_dosingGuideline = guidelinePackage.getGuideline();
@@ -210,5 +215,23 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
           addMatchingGroup(group);
           putMatchedDiplotype(group.getId(), reportGenotype);
         });
+  }
+
+  public List<PharmcatException> getExceptionList() {
+    return m_exceptList;
+  }
+
+  public void applyExceptions(Collection<PharmcatException> exceptionCollection) {
+    if (exceptionCollection != null) {
+      exceptionCollection.forEach(this::addException);
+    }
+  }
+
+  private void addException(PharmcatException except) {
+    MatchLogic matchLogic = except.getMatches();
+
+    if (matchLogic.getDrugs().stream().anyMatch(d -> getRelatedDrugs().contains(d))) {
+      m_exceptList.add(except);
+    }
   }
 }
