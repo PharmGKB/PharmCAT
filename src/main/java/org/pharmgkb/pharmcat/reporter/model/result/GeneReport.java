@@ -206,7 +206,7 @@ public class GeneReport implements Comparable<GeneReport> {
       return ImmutableSet.of(m_gene + ":" + defaultUncalled);
     }
     else {
-      return getDiplotypes().stream().map(Diplotype::toString).collect(Collectors.toSet());
+      return getDiplotypes().stream().map(Diplotype::printLookupKey).collect(Collectors.toSet());
     }
   }
 

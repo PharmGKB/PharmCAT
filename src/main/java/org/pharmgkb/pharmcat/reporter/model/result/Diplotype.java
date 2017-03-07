@@ -91,6 +91,25 @@ public class Diplotype {
   }
 
   /**
+   * Gets a string key used to look up matching guideline groups. This could be different than what's displayed in the
+   * report to the user so we use a separate method.
+   * @return a String key used to match guideline groups
+   */
+  public String printLookupKey() {
+
+    switch (m_gene) {
+      case "CFTR":
+        if (printBare().equals("Reference/Reference")) {
+          return m_gene + ":" + NA;
+        }
+    }
+
+    String[] alleles = new String[]{m_allele1.printLookup(), m_allele2.printLookup()};
+    Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
+    return m_gene + ":" + Arrays.stream(alleles).collect(Collectors.joining(sf_delimiter));
+  }
+
+  /**
    * Gets a String phrase describing the individual haplotype functions, e.g. "Two low function alleles"
    *
    * Will print a default N/A String if no functions exist
@@ -143,11 +162,14 @@ public class Diplotype {
     switch (m_gene) {
 
       case "CFTR":
-        if (getAllele1().getName().equals("Reference") && getAllele1().getName().equals("Reference")) {
+        boolean override1 = getAllele1().getName().equals("Reference");
+        boolean override2 = getAllele2().getName().equals("Reference");
+
+        if (override1 && override2) {
           return Optional.of("No CPIC variants found");
         }
-        else if (getAllele1().getName().equals("Reference") || getAllele1().getName().equals("Reference")) {
-          String allele = getAllele1().getName().equals("Reference") ? getAllele2().getName() : getAllele1().getName();
+        else if (override1 || override2) {
+          String allele = override1 ? getAllele2().getName() : getAllele1().getName();
           return Optional.of(allele + " (heterozygous)");
         }
         break;

@@ -65,6 +65,22 @@ public class Haplotype implements Comparable<Haplotype> {
   }
 
   /**
+   * Gets a key for this haplotype used to lookup matching annotation groups. This integrates known per-gene
+   * modifications that need to be done to allele calls before lookup.
+   */
+  public String printLookup() {
+    switch (m_gene) {
+      case "CFTR":
+        if (m_name.equals("Reference")) {
+          return "Other";
+        }
+        return m_name;
+      default:
+        return m_name;
+    }
+  }
+
+  /**
    * Gets the function for this haplotype that the caller specified
    */
   private Optional<String> getCalledFunction() {
