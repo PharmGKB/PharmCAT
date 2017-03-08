@@ -3,10 +3,12 @@ package org.pharmgkb.pharmcat.reporter.io;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import com.google.common.collect.ImmutableList;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
@@ -82,10 +84,16 @@ public class ReportData {
       guidelineMap.put("url", guideline.getUrl());
       guidelineMap.put("id", guideline.getId());
 
-      guidelineMap.put("diplotypes",
-          guideline.getRelatedGeneSymbols().stream()
-              .flatMap(reportContext.mapGeneToDiplotypes)
-              .collect(Collectors.toList()));
+      List<Map<String,Object>> geneCallList = new ArrayList<>();
+      for (String gene : guideline.getRelatedGeneSymbols()) {
+        Map<String,Object> geneCall = new LinkedHashMap<>();
+        geneCall.put("gene", gene);
+        geneCall.put("diplotypes", Stream.of(gene).flatMap(reportContext.mapGeneToDiplotypes).collect(Collectors.toList()));
+        geneCallList.add(geneCall);
+      }
+      if (geneCallList.size() > 0) {
+        guidelineMap.put("geneCalls", geneCallList);
+      }
 
       guidelineMap.put("reportable", guideline.isReportable());
       guidelineMap.put("uncalledGenes",

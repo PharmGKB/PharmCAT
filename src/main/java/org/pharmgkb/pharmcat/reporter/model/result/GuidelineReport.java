@@ -116,7 +116,9 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   }
 
   /**
-   * Gets the matched diplotypes for this annotation (should be a subset of all called genotypes)
+   * Gets the matched diplotypes for this annotation (should be a subset of all called genotypes).
+   *
+   * Will be in functional form, e.g. "GENEX:No Function/Increased Function"
    */
   public Multimap<String,String> getMatchedDiplotypes() {
     return m_matchedDiplotypes;
