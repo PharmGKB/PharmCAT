@@ -11,15 +11,26 @@ import org.apache.commons.lang3.StringUtils;
 
 
 /**
+ * This class is meant to house a message that needs to show on the final PharmCAT report based on some sort of logic
+ * to match it to a particular section.
+ *
  * @author Lester Carter
  * @author Ryan Whaley
  */
-public class PharmcatException {
+public class MessageAnnotation {
   private static final int sf_rowLength = 11;
 
-  public PharmcatException() { }
+  /**
+   * public constructor
+   */
+  public MessageAnnotation() { }
 
-  public PharmcatException(@Nonnull String row) throws RuntimeException {
+  /**
+   * constructor based off of a row of text from a TSV
+   * @param row a row of text from the messages TSV file
+   * @throws RuntimeException can occur if the line is not in the expected form
+   */
+  public MessageAnnotation(@Nonnull String row) throws RuntimeException {
     String[] fields = row.split("\\t");
 
     if (fields.length < sf_rowLength) {

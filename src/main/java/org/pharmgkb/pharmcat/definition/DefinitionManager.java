@@ -47,7 +47,7 @@ public class DefinitionManager {
           .addOption("p", "properties-file", "PharmCAT properties file", false, "p")
           .addOption("in", "download-dir", "directory of save curated allele definition files", true, "in")
           .addOption("out", "generated-dir", "directory of save generated allele definition files", true, "out")
-          .addOption("e", "exceptions-dir", "directory to write exceptions to", false, "e")
+          .addOption("e", "messages-dir", "directory to write messages to", false, "e")
           .addOption("d", "download", "download curated allele definition files");
 
       if (!cliHelper.parse(args)) {
@@ -57,14 +57,14 @@ public class DefinitionManager {
       Path propsFile = CliUtils.getPropsFile(cliHelper, "p");
       Path downloadDir = cliHelper.getValidDirectory("in", true);
       Path generatedDir = cliHelper.getValidDirectory("out", true);
-      Path exceptionsDir = null;
+      Path messagesDir = null;
       if (cliHelper.hasOption("e")) {
-        exceptionsDir = cliHelper.getValidDirectory("e", true);
+        messagesDir = cliHelper.getValidDirectory("e", true);
       }
 
       DefinitionManager manager = new DefinitionManager(propsFile);
       if (cliHelper.hasOption("d")) {
-        manager.download(downloadDir, exceptionsDir);
+        manager.download(downloadDir, messagesDir);
       }
       manager.transform(downloadDir, generatedDir);
 
@@ -74,12 +74,12 @@ public class DefinitionManager {
   }
 
 
-  private void download(Path downloadDir, @Nullable Path exceptionsDir) throws Exception {
+  private void download(Path downloadDir, @Nullable Path messagesDir) throws Exception {
 
     SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
     sh.downloadAlleleDefinitions(downloadDir);
-    if (exceptionsDir != null) {
-      sh.downloadExceptionsFile(exceptionsDir);
+    if (messagesDir != null) {
+      sh.downloadMessagesFile(messagesDir);
     }
   }
 

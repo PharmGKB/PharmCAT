@@ -12,7 +12,7 @@ import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
-import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
@@ -62,12 +62,12 @@ public class ReportContext {
   }
 
   /**
-   * Applies the given {@link PharmcatException} objects to the data in this report.
-   * @param exceptions a List of {@link PharmcatException} objects
+   * Applies the given {@link MessageAnnotation} objects to the data in this report.
+   * @param messages a List of {@link MessageAnnotation} objects
    */
-  public void applyException(List<PharmcatException> exceptions) {
-    m_geneReports.forEach(r -> r.applyExceptions(exceptions));
-    m_guidelineReports.forEach(r -> r.applyExceptions(exceptions));
+  public void applyMessage(List<MessageAnnotation> messages) {
+    m_geneReports.forEach(r -> r.applyMessages(messages));
+    m_guidelineReports.forEach(r -> r.applyMessages(messages));
   }
 
   /**

@@ -23,7 +23,7 @@ import org.pharmgkb.common.io.google.GoogleSheetsHelper;
  */
 public class SheetsHelper implements AutoCloseable {
   private static final String sf_serviceName = "PharmCAT";
-  private static final String sf_exceptionFileId = "1MkWV6TlJTnw-KRNWeylyUJAUocCgupcJLlmV2fRdtcM";
+  private static final String sf_messagesFileId = "1MkWV6TlJTnw-KRNWeylyUJAUocCgupcJLlmV2fRdtcM";
 
   private GoogleApiHelper m_googleApiHelper;
   private GoogleSheetsHelper m_spreadsheetHelper;
@@ -65,11 +65,11 @@ public class SheetsHelper implements AutoCloseable {
     downloadAsTsv(files, outputDir);
   }
 
-  public void downloadExceptionsFile(@Nonnull Path outputDir) throws IOException, ServiceException {
+  public void downloadMessagesFile(@Nonnull Path outputDir) throws IOException, ServiceException {
     Preconditions.checkNotNull(outputDir);
 
-    File exceptionsFile = findExceptionsSheet();
-    downloadAsTsv(ImmutableList.of(exceptionsFile), outputDir);
+    File messagesFile = findMessagesSheet();
+    downloadAsTsv(ImmutableList.of(messagesFile), outputDir);
   }
 
   public void downloadNamedAlleleAnnotations(@Nonnull Path file) throws IOException, ServiceException {
@@ -137,11 +137,11 @@ public class SheetsHelper implements AutoCloseable {
     return files.getFiles().get(0);
   }
 
-  private @Nonnull File findExceptionsSheet() throws IOException {
-    Drive.Files.Get request = m_drive.files().get(sf_exceptionFileId);
+  private @Nonnull File findMessagesSheet() throws IOException {
+    Drive.Files.Get request = m_drive.files().get(sf_messagesFileId);
     File file = request.execute();
     if (file == null) {
-      throw new IOException("Cannot find exceptions sheet");
+      throw new IOException("Cannot find messages sheet");
     }
     return file;
   }

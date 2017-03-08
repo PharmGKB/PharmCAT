@@ -18,7 +18,7 @@ import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
-import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 
 
 /**
@@ -31,7 +31,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private String m_gene;
   private Set<String> m_uncalledHaplotypes;
   private SortedSet<Variant> m_variants = new TreeSet<>();
-  private List<PharmcatException> m_exceptList = new ArrayList<>();
+  private List<MessageAnnotation> m_messages = new ArrayList<>();
   private MatchData m_matchData;
   private List<DrugLink> m_relatedDrugs = new ArrayList<>();
   private boolean m_astrolabeCall = false;
@@ -80,34 +80,34 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * The list of exceptions that apply to this gene
+   * The list of messages that apply to this gene
    */
-  public List<PharmcatException> getExceptionList(){
-    return m_exceptList;
+  public List<MessageAnnotation> getMessages(){
+    return m_messages;
   }
 
-  public void applyExceptions(Collection<PharmcatException> exceptions) {
-    if (exceptions != null) {
-      exceptions.forEach(this::addException);
+  public void applyMessages(Collection<MessageAnnotation> messages) {
+    if (messages != null) {
+      messages.forEach(this::addMessage);
     }
 
     // add incidental allele message if present
     if (getDiplotypes().stream().anyMatch(Diplotype::isIncidental)) {
-      PharmcatException pe = new PharmcatException();
+      MessageAnnotation pe = new MessageAnnotation();
       pe.setName("Incidental Finding");
       pe.setMessage("CPIC does not provide recommendations for this genotype. Variant is included in CPIC " +
           "supplemental table of variants recommended by the American College of Medical Genetics (ACMG) that should " +
           "be tested to determine carrier status as a part of population screening programs.");
-      m_exceptList.add(pe);
+      m_messages.add(pe);
     }
   }
 
   /**
-   * Evaluates an exception and adds it to the report if it's relevent.
-   * @param except an exception to be evaluated and possibly added
+   * Evaluates a message and adds it to the report if it's relevent.
+   * @param message a message to be evaluated and possibly added
    */
-  private void addException(PharmcatException except) {
-    MatchLogic match = except.getMatches();
+  private void addMessage(MessageAnnotation message) {
+    MatchLogic match = message.getMatches();
 
     if (match.getGene().equals(m_gene)) {
       boolean critHap = match.getHapsCalled().isEmpty()
@@ -120,7 +120,7 @@ public class GeneReport implements Comparable<GeneReport> {
           match.getVariantsMissing().stream().allMatch(v -> m_variants.isEmpty() || m_variants.stream().noneMatch(a -> a.getRsid().equals(v)));
 
       if (critHap && critUnmatchedHap && critDip && critMissVariant) {
-        m_exceptList.add(except);
+        m_messages.add(message);
       }
     }
   }

@@ -27,7 +27,7 @@ import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.ReportData;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
-import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
 
@@ -44,7 +44,7 @@ public class Reporter {
   private static final String sf_templateName = "report";
   private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
   private List<Path> m_annotationFiles = null;
-  private List<PharmcatException> m_exceptions = null;
+  private List<MessageAnnotation> m_messages = null;
   private ReportContext m_reportContext = null;
 
   /**
@@ -108,9 +108,9 @@ public class Reporter {
       throw new IOException("No annotation definitions to read from");
     }
 
-    m_exceptions = Files.lines(exceptionsFile)
+    m_messages = Files.lines(exceptionsFile)
         .skip(1) // skip the header
-        .map(PharmcatException::new)
+        .map(MessageAnnotation::new)
         .collect(Collectors.toList());
   }
 
@@ -143,7 +143,7 @@ public class Reporter {
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
     m_reportContext = new ReportContext(calls, astrolabeCalls, guidelines);
 
-    m_reportContext.applyException(m_exceptions);
+    m_reportContext.applyMessage(m_messages);
 
     return this;
   }

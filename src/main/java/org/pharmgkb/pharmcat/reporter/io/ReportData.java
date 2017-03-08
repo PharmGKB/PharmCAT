@@ -13,7 +13,7 @@ import com.google.common.collect.ImmutableList;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.Group;
-import org.pharmgkb.pharmcat.reporter.model.PharmcatException;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
@@ -59,7 +59,7 @@ public class ReportData {
             geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0
       );
       genotype.put("phenotype", geneReport.printDisplayPhenotypes());
-      genotype.put("hasMessages", geneReport.getExceptionList().size()>0);
+      genotype.put("hasMessages", geneReport.getMessages().size()>0);
 
       genotypes.add(genotype);
     }
@@ -102,8 +102,8 @@ public class ReportData {
       guidelineMap.put("matched", guideline.getMatchingGroups() != null);
       guidelineMap.put("mutliMatch", guideline.getMatchingGroups() != null && guideline.getMatchingGroups().size()>1);
 
-      guidelineMap.put("messages", guideline.getExceptionList().stream()
-          .map(PharmcatException::getMessage)
+      guidelineMap.put("messages", guideline.getMessages().stream()
+          .map(MessageAnnotation::getMessage)
           .collect(Collectors.toList()));
 
       if (guideline.getMatchingGroups() != null) {
@@ -156,8 +156,8 @@ public class ReportData {
 
       geneCallMap.put("diplotypes", geneReport.getDiplotypes().stream().map(Diplotype::toString).collect(Collectors.toSet()));
 
-      if (geneReport.getExceptionList() != null && geneReport.getExceptionList().size() > 0) {
-        geneCallMap.put("warnings", geneReport.getExceptionList().stream().map(PharmcatException::getMessage).collect(Collectors.toList()));
+      if (geneReport.getMessages() != null && geneReport.getMessages().size() > 0) {
+        geneCallMap.put("warnings", geneReport.getMessages().stream().map(MessageAnnotation::getMessage).collect(Collectors.toList()));
       }
 
       if (geneReport.getVariants().size() > 0) {
@@ -177,7 +177,7 @@ public class ReportData {
       totalVariants += geneReport.getVariants().size();
       geneCallMap.put("totalVariants", totalVariants);
 
-      geneCallMap.put("messages", geneReport.getExceptionList().stream().map(PharmcatException::getMessage).collect(Collectors.toList()));
+      geneCallMap.put("messages", geneReport.getMessages().stream().map(MessageAnnotation::getMessage).collect(Collectors.toList()));
 
       geneCallList.add(geneCallMap);
     }
