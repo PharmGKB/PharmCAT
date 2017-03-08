@@ -103,6 +103,12 @@ public class ReportData {
       guidelineMap.put("mutliMatch", guideline.getMatchingGroups() != null && guideline.getMatchingGroups().size()>1);
 
       guidelineMap.put("messages", guideline.getMessages().stream()
+          .filter(MessageAnnotation.isMessage)
+          .map(MessageAnnotation::getMessage)
+          .collect(Collectors.toList()));
+
+      guidelineMap.put("footnotes", guideline.getMessages().stream()
+          .filter(MessageAnnotation.isFootnote)
           .map(MessageAnnotation::getMessage)
           .collect(Collectors.toList()));
 

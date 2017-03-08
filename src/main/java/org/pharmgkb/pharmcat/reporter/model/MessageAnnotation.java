@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import javax.annotation.Nonnull;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
@@ -19,6 +20,9 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class MessageAnnotation {
   private static final int sf_rowLength = 11;
+
+  public static Predicate<MessageAnnotation> isFootnote = m -> m.getExceptionType().equals("footnote");
+  public static Predicate<MessageAnnotation> isMessage = m -> !m.getExceptionType().equals("footnote");
 
   /**
    * public constructor

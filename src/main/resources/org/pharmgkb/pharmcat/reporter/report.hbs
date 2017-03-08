@@ -208,16 +208,19 @@
   </table>
 
   <div class="footnote" id="genotypes-a">
-    <sup>a</sup> The drugs highlighted in red indicate a CPIC recommendation prescribing change based on the person’s listed diplotype (highlighting is not based on CPIC strength of recommendation). See CPIC recommendation section for the classification of the recommendation and further details. Please note, warfarin is highlighted differently, see CPIC recommendation section for prescribing information.
+    <sup>a</sup> The drugs highlighted in red indicate a CPIC recommendation prescribing change based on the person’s listed diplotype/genotype (highlighting is not based on CPIC strength of recommendation). See CPIC recommendation section for the classification of the recommendation and further details. Please note, warfarin and peginterferon alpha/ribavirin are highlighted in blue, see CPIC recommendation section for specific prescribing information. The drug is highlighted when multiple diplotypes are presented if any is assocated with a prescribing change. Please see recommendation section for detailed information.
   </div>
   <div class="footnote" id="genotypes-b">
-    <sup>b</sup> Allele functionality and phenotype terms are based on the <a href="https://cpicpgx.org/wp-content/uploads/2016/01/CPIC_term_standardization_project_final_terms.pdf">CPIC term standardization</a> project, <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=27441996">PMID:27441996</a>. Guidelines published prior use the term extensive instead of normal metabolizer.
+    <sup>b</sup> Allele functionality and phenotype terms are based on the <a href="https://cpicpgx.org/wp-content/uploads/2016/01/CPIC_term_standardization_project_final_terms.pdf">CPIC term standardization</a> project, <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=27441996">PMID:27441996</a>. Guidelines published prior use the term 'extensive' instead of 'normal' metabolizer. CYP2C19*1/*17 is now classified as rapid metabolizer. Guidelines published prior grouped CYP2C19*1/*17 together with *17/*17 as ultrarapid metabolizer.
   </div>
   <div class="footnote" id="genotypes-c">
     <sup>c</sup> Indicates alleles not considered for the diplotype calls due to missing variant information, please see Allele calls section. Alleles that could not be considered due to missing input might change the metabolizer phenotype and possible CPIC recommendation.
   </div>
   <div class="footnote">
     <sup>&dagger;</sup> Check the allele call details for this gene for more details about this call.
+  </div>
+  <div class="footnote">
+    For a full list of disclaimers and limitations see the <a href="#disclaimer">Disclaimer section</a>.
   </div>
 </section>
 
@@ -277,6 +280,13 @@
           </table>
         {{/each}}
       {{/if}}
+
+      <section>
+        {{#each footnotes}}
+          <div class="footnote">{{this}}</div>
+        {{/each}}
+      </section>
+
     </section>
   {{/each}}
 </section>
