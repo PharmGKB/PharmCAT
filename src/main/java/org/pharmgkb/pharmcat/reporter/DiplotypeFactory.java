@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.reporter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -206,19 +207,18 @@ public class DiplotypeFactory {
       throw new UnexpectedStateException("more than one variant found");
     }).orElse(null);
 
-    if (variant != null) {
+    if (variant != null && variant.getVcfCall() != null) {
+      String[] alleles = variant.getVcfAlleles().split("[|/]");
+
       Diplotype dip = null;
-      switch (variant.getVcfCall()) {
-        case "T|T":
-          dip = makeDiplotype("*80/*80");
-          break;
-        case "T|C":
-        case "C|T":
-          dip = makeDiplotype("*1/*80");
-          break;
-        case "C|C":
-          dip = makeDiplotype("*1/*1");
-          break;
+      if (Arrays.equals(alleles, new String[]{"T","T"})) {
+        dip = makeDiplotype("*80/*80");
+      }
+      else if (Arrays.equals(alleles, new String[]{"C","C"})) {
+        dip = makeDiplotype("*1/*1");
+      }
+      else if ((Arrays.equals(alleles, new String[]{"T","C"})) || (Arrays.equals(alleles, new String[]{"C","T"}))) {
+        dip = makeDiplotype("*1/*80");
       }
       return dip;
     } else {
@@ -236,19 +236,18 @@ public class DiplotypeFactory {
       throw new UnexpectedStateException("more than one variant found");
     }).orElse(null);
 
-    if (variant != null) {
+    if (variant != null && variant.getVcfCall() != null) {
+      String[] alleles = variant.getVcfCall().split("[|/]");
+
       Diplotype dip = null;
-      switch (variant.getVcfCall()) {
-        case "T|T":
-          dip = makeDiplotype("*1A/*1A");
-          break;
-        case "T|C":
-        case "C|T":
-          dip = makeDiplotype("*1A/*5");
-          break;
-        case "C|C":
-          dip = makeDiplotype("*5/*5");
-          break;
+      if (Arrays.equals(alleles, new String[]{"T","T"})) {
+        dip = makeDiplotype("*1A/*1A");
+      }
+      else if (Arrays.equals(alleles, new String[]{"C","C"})) {
+        dip = makeDiplotype("*5/*5");
+      }
+      else if ((Arrays.equals(alleles, new String[]{"T","C"})) || (Arrays.equals(alleles, new String[]{"C","T"}))) {
+        dip = makeDiplotype("*1A/*5");
       }
       return dip;
     } else {
