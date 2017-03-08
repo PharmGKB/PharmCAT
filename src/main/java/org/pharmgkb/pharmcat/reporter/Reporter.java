@@ -17,6 +17,7 @@ import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.common.base.Preconditions;
+import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.annotation.AnnotationReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -58,6 +59,7 @@ public class Reporter {
         .addOption("e", "exceptions-file", "exceptions logic file", true, "e")
         .addOption("a", "astrolabe-file", "optional, astrolabe call file", false, "a")
         .addOption("o", "output-file", "file path to write HTML report to", true, "o")
+        .addOption("t", "title", "optional, text to add to the report title", false, "t")
         ;
 
     try {
@@ -70,10 +72,11 @@ public class Reporter {
       Path exceptionsFile = cliHelper.getValidFile("e", true);
       Path astrolabeFile = cliHelper.hasOption("a") ? cliHelper.getValidFile("a", true) : null;
       Path outputFile = cliHelper.getPath("o");
+      String title = cliHelper.getValue("t");
 
       new Reporter(annotationsDir, exceptionsFile)
           .analyze(callFile, astrolabeFile)
-          .printHtml(outputFile);
+          .printHtml(outputFile, title);
 
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -149,9 +152,13 @@ public class Reporter {
    * Print a HTML file of compiled report data
    * @param reportFile file to write output to
    */
-  protected void printHtml(@Nonnull Path reportFile) throws IOException {
+  protected void printHtml(@Nonnull Path reportFile, @Nullable String title) throws IOException {
 
     Map<String,Object> reportData = ReportData.compile(m_reportContext);
+
+    if (StringUtils.isNotBlank(title)) {
+      reportData.put("title", title);
+    }
 
     Handlebars handlebars = new Handlebars(new ClassPathTemplateLoader(sf_templatePrefix));
     StringHelpers.register(handlebars);
