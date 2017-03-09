@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.SortedMap;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
@@ -15,8 +12,6 @@ import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import org.pharmgkb.common.io.util.CliHelper;
-import org.pharmgkb.pharmcat.annotation.AnnotationReader;
-import org.pharmgkb.pharmcat.annotation.model.RsidAnnotation;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -33,7 +28,6 @@ import org.pharmgkb.pharmcat.haplotype.model.Result;
 public class NamedAlleleMatcher {
   public static final String VERSION = "1.0.0";
   private DefinitionReader m_definitionReader;
-  private AnnotationReader m_annotationReader;
   private ImmutableSet<String> m_locationsOfInterest;
   private boolean m_assumeReferenceInDefinitions;
   private boolean m_topCandidateOnly;
@@ -43,8 +37,8 @@ public class NamedAlleleMatcher {
    * Default constructor.
    * This will only call the top candidate(s) and assume reference.
    */
-  public NamedAlleleMatcher(@Nonnull DefinitionReader definitionReader, @Nonnull AnnotationReader annotationReader) {
-    this(definitionReader, annotationReader, true, false);
+  public NamedAlleleMatcher(@Nonnull DefinitionReader definitionReader) {
+    this(definitionReader, true, false);
   }
 
   /**
@@ -53,12 +47,11 @@ public class NamedAlleleMatcher {
    * @param topCandidateOnly true if only top candidate(s) should be called, false to call all possible candidates
    * @param assumeReference true if missing alleles in definitions should be treated as reference, false otherwise
    */
-  public NamedAlleleMatcher(@Nonnull DefinitionReader definitionReader, @Nonnull AnnotationReader annotationReader,
-      boolean assumeReference, boolean topCandidateOnly) {
+  public NamedAlleleMatcher(@Nonnull DefinitionReader definitionReader, boolean assumeReference,
+      boolean topCandidateOnly) {
 
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
-    m_annotationReader = annotationReader;
     m_locationsOfInterest = calculateLocationsOfInterest(m_definitionReader);
     m_assumeReferenceInDefinitions = assumeReference;
     m_topCandidateOnly = topCandidateOnly;
@@ -80,10 +73,6 @@ public class NamedAlleleMatcher {
       }
 
       Path definitionDir = cliHelper.getValidDirectory("d", false);
-      Path annotationDir = definitionDir;
-      if (cliHelper.hasOption("a")) {
-        annotationDir = cliHelper.getValidDirectory("a", false);
-      }
       Path vcfFile = cliHelper.getValidFile("vcf", false);
 
       DefinitionReader definitionReader = new DefinitionReader();
@@ -93,10 +82,7 @@ public class NamedAlleleMatcher {
         System.exit(1);
       }
 
-      AnnotationReader annotationReader = new AnnotationReader();
-      annotationReader.read(annotationDir);
-
-      NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, annotationReader);
+      NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
       Result result = namedAlleleMatcher.call(vcfFile);
 
       ResultSerializer resultSerializer = new ResultSerializer();
@@ -157,21 +143,7 @@ public class NamedAlleleMatcher {
         matches = callDiplotypes(data, topCandidateOnly);
       }
 
-      Set<SampleAllele> annotatedAlleles = new HashSet<>();
-      Collection<RsidAnnotation> rsidAnnotations = m_annotationReader.getRsidAnnotations(gene);
-      if (rsidAnnotations.size() > 0) {
-        for (RsidAnnotation ann : rsidAnnotations) {
-          VariantLocus varLoc = m_definitionReader.getDefinitionFile(ann.getGene()).getVariantByRsid(ann.getRsid());
-          if (varLoc != null) {
-            SampleAllele sa = alleles.get(varLoc.getVcfChrPosition());
-            if (sa != null) {
-              annotatedAlleles.add(sa);
-            }
-          }
-        }
-      }
-
-      resultBuilder.gene(gene, data, matches, annotatedAlleles);
+      resultBuilder.gene(gene, data, matches);
     }
     return resultBuilder.build();
   }

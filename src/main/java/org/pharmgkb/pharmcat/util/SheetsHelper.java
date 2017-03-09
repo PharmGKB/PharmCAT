@@ -23,7 +23,6 @@ import org.pharmgkb.common.io.google.GoogleSheetsHelper;
  */
 public class SheetsHelper implements AutoCloseable {
   private static final String sf_serviceName = "PharmCAT";
-  private static final String sf_exceptionFileId = "1MkWV6TlJTnw-KRNWeylyUJAUocCgupcJLlmV2fRdtcM";
   private static final String sf_alleleExemptionsFileId = "1xHvvXQIMv3xbqNhuN7zG6WP4DB7lpQDmLvz18w-u_lk";
 
   private GoogleApiHelper m_googleApiHelper;
@@ -52,6 +51,9 @@ public class SheetsHelper implements AutoCloseable {
   }
 
 
+  /**
+   * Finds a Google Sheet by it's file name.
+   */
   public @Nonnull File findSheetByName(@Nonnull String name) throws IOException {
 
     Preconditions.checkNotNull(name);
@@ -74,7 +76,6 @@ public class SheetsHelper implements AutoCloseable {
    * This is the main entry point.
    */
   public void downloadAlleleDefinitions(@Nonnull Path outputDir) throws IOException, ServiceException {
-
     Preconditions.checkNotNull(outputDir);
 
     String folderId = findAlleleDefinitionsFolder().getId();
@@ -82,24 +83,17 @@ public class SheetsHelper implements AutoCloseable {
     downloadAsTsv(files, outputDir);
   }
 
-  public void downloadMessagesFile(@Nonnull Path outputDir) throws IOException, ServiceException {
-    Preconditions.checkNotNull(outputDir);
-    downloadAsTsv(ImmutableList.of(findMessagesSheet()), outputDir);
-  }
-
   public void downloadAlleleExemptionsFile(@Nonnull Path outputDir) throws IOException, ServiceException {
     Preconditions.checkNotNull(outputDir);
     downloadAsTsv(ImmutableList.of(findAlleleExemptionsSheet()), outputDir);
   }
 
-  public void downloadNamedAlleleAnnotations(@Nonnull Path file) throws IOException, ServiceException {
-
+  public void downloadMessagesFile(@Nonnull Path file) throws IOException, ServiceException {
     Preconditions.checkNotNull(file);
     downloadAnnotations(file, 0);
   }
 
   public void downloadRsidAnnotations(@Nonnull Path file) throws IOException, ServiceException {
-
     Preconditions.checkNotNull(file);
     downloadAnnotations(file, 1);
   }
@@ -163,15 +157,6 @@ public class SheetsHelper implements AutoCloseable {
     File file = request.execute();
     if (file == null) {
       throw new IOException("Cannot find allele exemptions sheet");
-    }
-    return file;
-  }
-
-  private @Nonnull File findMessagesSheet() throws IOException {
-    Drive.Files.Get request = m_drive.files().get(sf_exceptionFileId);
-    File file = request.execute();
-    if (file == null) {
-      throw new IOException("Cannot find messages sheet");
     }
     return file;
   }

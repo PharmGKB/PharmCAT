@@ -48,7 +48,7 @@ public class DefinitionManager {
           .addOption("p", "properties-file", "PharmCAT properties file", false, "p")
           .addOption("in", "download-dir", "directory of save curated allele definition files", true, "in")
           .addOption("out", "generated-dir", "directory of save generated allele definition files", true, "out")
-          .addOption("e", "messages-dir", "directory to write messages to", false, "e")
+          .addOption("m", "messages-dir", "directory to write messages to", false, "m")
           .addOption("d", "download", "download curated allele definition files");
 
       if (!cliHelper.parse(args)) {
@@ -59,8 +59,8 @@ public class DefinitionManager {
       Path downloadDir = cliHelper.getValidDirectory("in", true);
       Path generatedDir = cliHelper.getValidDirectory("out", true);
       Path messagesDir = null;
-      if (cliHelper.hasOption("e")) {
-        messagesDir = cliHelper.getValidDirectory("e", true);
+      if (cliHelper.hasOption("m")) {
+        messagesDir = cliHelper.getValidDirectory("m", true);
       }
 
       DefinitionManager manager = new DefinitionManager(propsFile);
@@ -82,7 +82,7 @@ public class DefinitionManager {
     sh.downloadAlleleDefinitions(downloadDir);
     sh.downloadAlleleExemptionsFile(generatedDir);
     if (messagesDir != null) {
-      sh.downloadMessagesFile(messagesDir);
+      sh.downloadMessagesFile(messagesDir.resolve("messages.tsv"));
     }
   }
 

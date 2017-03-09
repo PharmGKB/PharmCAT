@@ -54,8 +54,7 @@ public class ResultBuilder {
   }
 
 
-  protected ResultBuilder gene(@Nonnull String gene, @Nonnull MatchData matchData, List<DiplotypeMatch> matches,
-      Set<SampleAllele> annotatedAlleles) {
+  protected ResultBuilder gene(@Nonnull String gene, @Nonnull MatchData matchData, List<DiplotypeMatch> matches) {
     Preconditions.checkNotNull(gene);
 
     DefinitionFile tsvFile = m_definitionReader.getDefinitionFile(gene);
@@ -93,7 +92,6 @@ public class ResultBuilder {
     }
 
     m_result.addDiplotypeCall(geneCall);
-    m_result.setAnnotatedAlleles(annotatedAlleles);
 
     return this;
   }

@@ -25,11 +25,7 @@ public class HaplotypeIdMap {
       while ((line = reader.readLine()) != null) {
         String[] fields = line.split("\t");
 
-        Map<String, String> hapMap = m_geneHaplotypeMap.get(fields[0]);
-        if (hapMap == null) {
-          hapMap = new HashMap<>();
-          m_geneHaplotypeMap.put(fields[0], hapMap);
-        }
+        Map<String, String> hapMap = m_geneHaplotypeMap.computeIfAbsent(fields[0], k -> new HashMap<>());
         hapMap.put(fields[1], fields[2]);
       }
     } catch (IOException ex) {
@@ -46,11 +42,7 @@ public class HaplotypeIdMap {
     }
 
     String id = (m_idSequence + 1) + ".1";
-    Map<String, String> hapMap = m_geneHaplotypeMap.get(geneName);
-    if (hapMap == null) {
-      hapMap = new HashMap<>();
-      m_geneHaplotypeMap.put(geneName, hapMap);
-    }
+    Map<String, String> hapMap = m_geneHaplotypeMap.computeIfAbsent(geneName, k -> new HashMap<>());
     hapMap.put(haplotypeName, id);
     m_idSequence += 1;
     return id;

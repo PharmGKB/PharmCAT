@@ -19,7 +19,6 @@ import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
-import org.pharmgkb.pharmcat.annotation.AnnotationReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.io.AstrolabeOutputParser;
@@ -97,9 +96,6 @@ public class Reporter {
     Preconditions.checkNotNull(exceptionsFile);
     Preconditions.checkArgument(Files.exists(exceptionsFile));
     Preconditions.checkArgument(Files.isRegularFile(exceptionsFile));
-
-    AnnotationReader annotationReader = new AnnotationReader();
-    annotationReader.read(annotationsDir);
 
     m_annotationFiles = Files.list(annotationsDir)
         .filter(f -> f.getFileName().toString().endsWith(".json"))

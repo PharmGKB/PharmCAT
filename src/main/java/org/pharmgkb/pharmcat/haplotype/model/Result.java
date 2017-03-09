@@ -2,10 +2,8 @@ package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.pharmgkb.pharmcat.haplotype.SampleAllele;
 
 
 /**
@@ -19,10 +17,6 @@ public class Result {
   @SerializedName("results")
   @Expose
   private List<GeneCall> m_geneCalls = new ArrayList<>();
-
-  @Expose
-  @SerializedName("annotatedAlleles")
-  private Set<SampleAllele> m_annotatedAlleles;
 
 
   public Metadata getMetadata() {
@@ -40,14 +34,5 @@ public class Result {
 
   public void addDiplotypeCall(GeneCall call) {
     m_geneCalls.add(call);
-  }
-
-
-  public Set<SampleAllele> getAnnotatedAlleles() {
-    return m_annotatedAlleles;
-  }
-
-  public void setAnnotatedAlleles(Set<SampleAllele> alleles) {
-    m_annotatedAlleles = alleles;
   }
 }

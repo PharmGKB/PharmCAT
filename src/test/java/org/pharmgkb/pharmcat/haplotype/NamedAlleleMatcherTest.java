@@ -10,7 +10,6 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.annotation.AnnotationReader;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
@@ -41,8 +40,7 @@ public class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionFile);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, new AnnotationReader(),
-        assumeReference, topCandidateOnly);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, assumeReference, topCandidateOnly);
     Result result = namedAlleleMatcher.call(vcfFile);
 
     // print
@@ -89,7 +87,7 @@ public class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(jsonFile);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, new AnnotationReader());
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
     Result result = namedAlleleMatcher.call(vcfFile);
     Set<DiplotypeMatch> pairs = result.getGeneCalls().get(0).getDiplotypes();
     assertNotNull(pairs);
@@ -115,7 +113,7 @@ public class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(jsonFile);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, new AnnotationReader());
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
     VcfReader vcfReader = namedAlleleMatcher.buildVcfReader(vcfFile);
 
     // grab SampleAlleles for all positions related to current gene
