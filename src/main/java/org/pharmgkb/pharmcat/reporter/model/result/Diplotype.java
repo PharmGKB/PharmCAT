@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
+import org.pharmgkb.pharmcat.haplotype.model.Variant;
 
 
 /**
@@ -24,6 +25,7 @@ public class Diplotype {
   private Haplotype m_allele2;
   private String m_gene;
   private String m_phenotype;
+  private Variant m_variant;
 
   /**
    * public constructor
@@ -88,6 +90,20 @@ public class Diplotype {
     String[] alleles = new String[]{m_allele1.getName(), m_allele2.getName()};
     Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
     return Arrays.stream(alleles).collect(Collectors.joining(sf_delimiter));
+  }
+
+  /**
+   * Gets a String representation of this Diplotype that can be used to display in output. This should <em>NOT</em> be
+   * used for matching to annotation groups
+   * @return a String display for this diplotype, without Gene symbol
+   */
+  public String printDisplay() {
+    if (getVariant() != null) {
+      return getVariant().toString();
+    }
+    else {
+      return printBare();
+    }
   }
 
   /**
@@ -176,5 +192,17 @@ public class Diplotype {
 
     }
     return Optional.empty();
+  }
+
+  /**
+   * Gets a variant used to make this diplotype call
+   * @return a Variant used in this call
+   */
+  public Variant getVariant() {
+    return m_variant;
+  }
+
+  public void setVariant(Variant variant) {
+    m_variant = variant;
   }
 }

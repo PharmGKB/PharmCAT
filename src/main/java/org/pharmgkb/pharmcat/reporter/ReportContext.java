@@ -40,7 +40,7 @@ public class ReportContext {
 
   public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_geneReports.stream()
       .filter(c -> c.getGene().equals(s))
-      .flatMap(c -> c.getDiplotypes().stream().map(e -> e + (c.isAstrolabeCall() ? " (Astrolabe)" : "")));
+      .flatMap(c -> c.getDiplotypes().stream().map(e -> e.printDisplay() + (c.isAstrolabeCall() ? " (Astrolabe)" : "")));
 
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting

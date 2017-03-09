@@ -13,6 +13,7 @@ import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
+import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
@@ -210,7 +211,7 @@ public class DiplotypeFactory {
     if (variant != null && variant.getVcfCall() != null) {
       String[] alleles = variant.getVcfAlleles().split("[|/]");
 
-      Diplotype dip = null;
+      Diplotype dip;
       if (Arrays.equals(alleles, new String[]{"T","T"})) {
         dip = makeDiplotype("*80/*80");
       }
@@ -219,6 +220,9 @@ public class DiplotypeFactory {
       }
       else if ((Arrays.equals(alleles, new String[]{"T","C"})) || (Arrays.equals(alleles, new String[]{"C","T"}))) {
         dip = makeDiplotype("*1/*80");
+      }
+      else {
+        throw new ParseException("Unexpected genotype for " + variant);
       }
       return dip;
     } else {
@@ -239,7 +243,7 @@ public class DiplotypeFactory {
     if (variant != null && variant.getVcfCall() != null) {
       String[] alleles = variant.getVcfCall().split("[|/]");
 
-      Diplotype dip = null;
+      Diplotype dip;
       if (Arrays.equals(alleles, new String[]{"T","T"})) {
         dip = makeDiplotype("*1A/*1A");
       }
@@ -249,6 +253,11 @@ public class DiplotypeFactory {
       else if ((Arrays.equals(alleles, new String[]{"T","C"})) || (Arrays.equals(alleles, new String[]{"C","T"}))) {
         dip = makeDiplotype("*1A/*5");
       }
+      else {
+        throw new ParseException("Unexpected genotype for " + variant);
+      }
+
+      dip.setVariant(variant);
       return dip;
     } else {
       return null;

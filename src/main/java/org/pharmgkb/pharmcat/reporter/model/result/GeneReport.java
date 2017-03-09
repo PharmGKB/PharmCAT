@@ -215,7 +215,7 @@ public class GeneReport implements Comparable<GeneReport> {
       return ImmutableList.of(UNCALLED);
     }
 
-    return getDiplotypes().stream().map(Diplotype::printBare).collect(Collectors.toList());
+    return getDiplotypes().stream().map(Diplotype::printDisplay).collect(Collectors.toList());
   }
 
   public Collection<String> printDisplayFunctions() {
