@@ -17,6 +17,7 @@ import com.google.common.collect.ImmutableSet;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.annotation.AnnotationReader;
 import org.pharmgkb.pharmcat.annotation.model.RsidAnnotation;
+import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -148,11 +149,12 @@ public class NamedAlleleMatcher {
         .forFile(vcfFile);
     // call haplotypes
     for (String gene : m_definitionReader.getGenes()) {
+      DefinitionExemption exemption = m_definitionReader.getExemption(gene);
       MatchData data = initializeCallData(alleles, gene);
-
       List<DiplotypeMatch> matches = null;
       if (data.getNumSampleAlleles() > 0) {
-        matches = callDiplotypes(data);
+        boolean topCandidateOnly = exemption == null ? m_topCandidateOnly : !exemption.isAllHits();
+        matches = callDiplotypes(data, topCandidateOnly);
       }
 
       Set<SampleAllele> annotatedAlleles = new HashSet<>();
@@ -187,8 +189,15 @@ public class NamedAlleleMatcher {
     if (data.getNumSampleAlleles() == 0) {
       return data;
     }
+    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+    List<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene);
+    if (exemption != null) {
+      alleles = alleles.stream()
+          .filter(a -> exemption.getIgnoredAlleles().contains(a.getName()))
+          .collect(Collectors.toList());
+    }
     // handle missing positions (if any)
-    data.marshallHaplotypes(m_definitionReader.getHaplotypes(gene));
+    data.marshallHaplotypes(alleles);
 
     if (m_assumeReferenceInDefinitions) {
       data.defaultMissingAllelesToReference();
@@ -203,18 +212,16 @@ public class NamedAlleleMatcher {
    * Calls the possible diplotypes for a single gene.
    *
    */
-  protected List<DiplotypeMatch> callDiplotypes(MatchData data) {
+  protected List<DiplotypeMatch> callDiplotypes(MatchData data, boolean topCandidateOnly) {
 
     // find matched pairs
     List<DiplotypeMatch> pairs = new DiplotypeMatcher(data)
         .compute();
-    if (m_topCandidateOnly) {
-      if (pairs.size() > 1) {
-        int topScore = pairs.get(0).getScore();
-        pairs = pairs.stream()
-            .filter(dm -> dm.getScore() == topScore)
-            .collect(Collectors.toList());
-      }
+    if (topCandidateOnly && pairs.size() > 1) {
+      int topScore = pairs.get(0).getScore();
+      pairs = pairs.stream()
+          .filter(dm -> dm.getScore() == topScore)
+          .collect(Collectors.toList());
     }
     return pairs;
   }
