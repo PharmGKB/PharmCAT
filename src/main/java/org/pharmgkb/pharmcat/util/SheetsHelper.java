@@ -84,7 +84,7 @@ public class SheetsHelper implements AutoCloseable {
 
   public void downloadMessagesFile(@Nonnull Path outputDir) throws IOException, ServiceException {
     Preconditions.checkNotNull(outputDir);
-    downloadAsTsv(ImmutableList.of(findExceptionsSheet()), outputDir);
+    downloadAsTsv(ImmutableList.of(findMessagesSheet()), outputDir);
   }
 
   public void downloadAlleleExemptionsFile(@Nonnull Path outputDir) throws IOException, ServiceException {
