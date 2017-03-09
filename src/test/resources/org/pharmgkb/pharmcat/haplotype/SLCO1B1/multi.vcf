@@ -1,0 +1,36 @@
+##fileformat=VCFv4.1
+##fileDate=2015-08-04
+##source=IlluminaPlatinumGenomes, version: hg38_2.0.1
+##reference=hg38
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FILTER=<ID=PASS,Description="All filters passed">
+#CHROM  POS  ID REF  ALT  QUAL FILTER INFO FORMAT NA12878
+chr12	21130388	rs4149015	G	A	.	PASS	star-17-star-21	GT	1/1
+chr12	21172734	rs139257324	C	T	.	PASS	assume-default	GT	0/0
+chr12	21172776	rs373327528	G	A	.	PASS	assume-default	GT	0/0
+chr12	21172782	rs56101265	T	C	.	PASS	assume-default	GT	0/0
+chr12	21174595	rs56061388	T	C	.	PASS	assume-default	GT	0/0
+chr12	21176804	rs2306283	A	G	.	PASS	star-17-star-21	GT	1/1
+chr12	21176827	rs11045818	G	A	.	PASS	assume-default	GT	0/0
+chr12	21176868	rs2306282	A	G	.	PASS	assume-default	GT	0/0
+chr12	21176879	rs11045819	C	A	.	PASS	assume-default	GT	0/0
+chr12	21176883	rs72559745	A	G	.	PASS	assume-default	GT	0/0
+chr12	21178615	rs4149056	T	C	.	PASS	Star-17	GT	0/1
+chr12	21178665	rs4149057	T	C	.	PASS	assume-default	GT	0/0
+chr12	21178672	rs72559746	T	G	.	PASS	assume-default	GT	0/0
+chr12	21178691	rs2291075	C	T	.	PASS	star-21	GT	0/1
+chr12	21178957	rs79135870	A	G	.	PASS	assume-default	GT	0/0
+chr12	21196951	rs11045852	A	G	.	PASS	assume-default	GT	0/0
+chr12	21196976	rs11045853	G	A	.	PASS	assume-default	GT	1/1
+chr12	21200595	rs55901008	T	C	.	PASS	assume-default	GT	0/0
+chr12	21202553	.	T	G	.	PASS	assume-default	GT	0/0
+chr12	21202555	rs59113707	C	G	.	PASS	assume-default	GT	0/0
+chr12	21202649	rs56387224	A	G	.	PASS	assume-default	GT	0/0
+chr12	21202664	rs142965323	G	A	.	PASS	assume-default	GT	0/0
+chr12	21205921	rs72559748	A	G	.	PASS	assume-default	GT	1/1
+chr12	21205999	rs59502379	G	C	.	PASS	assume-default	GT	0/0
+chr12	21239042	rs34671512	A	C	.	PASS	assume-default	GT	0/0
+chr12	21239077	rs56199088	A	G	.	PASS	assume-default	GT	0/0
+chr12	21239113	rs55737008	A	G	.	PASS	assume-default	GT	0/0
+chr12	21239145	rs200995543	C	T	.	PASS	assume-default	GT	0/0
+chr12	21239158	rs140790673	C	T	.	PASS	assume-default	GT	0/0
