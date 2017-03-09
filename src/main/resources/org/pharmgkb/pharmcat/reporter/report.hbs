@@ -252,7 +252,7 @@
 
       <section>
         {{#each messages}}
-          <div class="alert alert-info">{{this}}</div>
+          <div class="alert alert-info">{{{this}}}</div>
         {{/each}}
       </section>
 
@@ -320,7 +320,7 @@
     {{/if}}
 
     {{#each messages}}
-      <div class="alert alert-warning">{{this}}</div>
+      <div class="alert alert-warning">{{{this}}}</div>
     {{/each}}
 
     {{#unless variantsUnspecified}}
