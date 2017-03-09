@@ -9,6 +9,9 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class Variant implements Comparable<Variant>  {
+  private static final String sf_rsidFormat = "%s%s";
+  private static final String sf_positionFormat = "%d%s";
+
   @Expose
   @SerializedName("position")
   private int m_position;
@@ -64,5 +67,14 @@ public class Variant implements Comparable<Variant>  {
       return rez;
     }
     return m_vcfCall.compareTo(o.getVcfCall());
+  }
+
+  public String toString() {
+    if (m_rsid != null) {
+      return String.format(sf_rsidFormat, getRsid(), getVcfCall().replaceAll("[|\\/]", ""));
+    }
+    else {
+      return String.format(sf_positionFormat, getPosition(), getVcfCall().replaceAll("[|\\/]", ""));
+    }
   }
 }
