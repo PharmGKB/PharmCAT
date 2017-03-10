@@ -10,7 +10,7 @@
   </appender>
 
   <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-    <file>log.txt</file>
+    <file>pharmcat.log</file>
     <encoder>
       <pattern>%date %level %logger{10} [%file:%line] %msg%n</pattern>
     </encoder>
