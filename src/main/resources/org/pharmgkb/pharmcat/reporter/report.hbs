@@ -136,6 +136,14 @@
       font-style: italic;
       font-size: .8em;
     }
+
+    .image {
+      text-align: center;
+    }
+    .image img {
+      width: 80%;
+      height: auto;
+    }
   </style>
 
 </head>
@@ -244,15 +252,6 @@
         </div>
       {{/if}}
 
-      {{#unless reportable}}
-        <div class="alert alert-info">No genotypes matched for {{uncalledGenes}} so annotations cannot be shown.</div>
-      {{/unless}}
-      {{#if reportable}}
-        {{#unless matched}}
-          <div class="alert alert-warning">No CPIC recommendation for this allele combination.</div>
-        {{/unless}}
-      {{/if}}
-
       {{#if multiMatch}}
         <div class="alert alert-info"><strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups could be shown</div>
       {{/if}}
@@ -263,6 +262,10 @@
         {{/each}}
       </section>
 
+      {{#if image}}
+        <div class="image"><img src="{{image/url}}" alt="{{image/altText}}"/></div>
+      {{/if}}
+
       <section>
         {{#each geneCalls}}
           {{#each diplotypes}}
@@ -270,6 +273,15 @@
           {{/each}}
         {{/each}}
       </section>
+
+      {{#unless reportable}}
+        <div class="alert alert-info">No genotypes matched for {{uncalledGenes}} so annotations cannot be shown.</div>
+      {{/unless}}
+      {{#if reportable}}
+        {{#unless matched}}
+          <div class="alert alert-warning">No CPIC recommendation for this allele combination.</div>
+        {{/unless}}
+      {{/if}}
 
       {{#if matched}}
         {{#each groups}}

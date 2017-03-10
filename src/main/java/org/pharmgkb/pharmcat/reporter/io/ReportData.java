@@ -113,6 +113,13 @@ public class ReportData {
           .map(MessageAnnotation::getMessage)
           .collect(Collectors.toList()));
 
+      if (guideline.getId().equals("PA166104949")) {
+        Map<String,String> imageData = new LinkedHashMap<>();
+        imageData.put("url", "http://s3.pgkb.org/attachment/CPIC_warfarin_2017_Fig_2.png");
+        imageData.put("altText", "Figure 2 from the CPIC guideline for warfarin");
+        guidelineMap.put("image", imageData);
+      }
+
       if (guideline.getMatchingGroups() != null) {
         List<Map<String, Object>> groupList = new ArrayList<>();
         for (Group group : guideline.getMatchingGroups()) {
