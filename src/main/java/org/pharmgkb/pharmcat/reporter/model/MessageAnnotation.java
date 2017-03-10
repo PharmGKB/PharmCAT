@@ -25,11 +25,6 @@ public class MessageAnnotation {
   public static Predicate<MessageAnnotation> isMessage = m -> !m.getExceptionType().equals("footnote");
 
   /**
-   * public constructor
-   */
-  public MessageAnnotation() { }
-
-  /**
    * constructor based off of a row of text from a TSV
    * @param row a row of text from the messages TSV file
    * @throws RuntimeException can occur if the line is not in the expected form

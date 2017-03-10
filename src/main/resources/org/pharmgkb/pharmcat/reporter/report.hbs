@@ -239,9 +239,8 @@
 
       {{#if incidental}}
         <div class="alert alert-warning">
-          CPIC does not provide recommendations for this genotype. Variant is included in CPIC supplemental table of
-          variants recommended by the American College of Medical Genetics (ACMG) that should be tested to determine
-          carrier status as a part of population screening programs.
+          Variant is included in CPIC supplemental table of variants recommended by the American College of Medical
+          Genetics (ACMG) that should be tested to determine carrier status as a part of population screening programs.
         </div>
       {{/if}}
 
@@ -304,61 +303,68 @@
 
   {{#each geneCalls}}
     <section class="gene">
-    <h3 id="{{gene}}">{{gene}}</h3>
+      <h3 id="{{gene}}">{{gene}}</h3>
 
-    <h4>Genotype</h4>
-    <ul>
-      {{#each diplotypes}}
-        <li>{{this}}</li>
+      <h4>Genotype</h4>
+      <ul>
+        {{#each diplotypes}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+
+      {{#if hasUncalledHaps}}
+        <h4>Alleles Not Considered</h4>
+        <p>The following alleles are not considered due to {{totalMissingVariants}} missing positions of the total {{totalVariants}} positions: {{uncalledHaps}}</p>
+        <p>Carriage of these alleles might result in a different metabolizer phenotype and different guideline recommendations.</p>
+      {{/if}}
+
+      {{#if astrolabe}}
+        <div class="alert alert-info">The call for {{gene}} comes from Astrolabe data which does not supply position-level detail.</div>
+      {{/if}}
+
+      {{#if variantsUnspecified}}
+        <div class="alert alert-info">No variant data available.</div>
+      {{/if}}
+
+      {{#if incidental}}
+        <div class="alert alert-warning">
+          Variant is included in CPIC supplemental table of variants recommended by the American College of Medical
+          Genetics (ACMG) that should be tested to determine carrier status as a part of population screening programs.
+        </div>
+      {{/if}}
+
+      {{#each messages}}
+        <div class="alert alert-warning">{{{this}}}</div>
       {{/each}}
-    </ul>
 
-    {{#if hasUncalledHaps}}
-      <h4>Alleles Not Considered</h4>
-      <p>The following alleles are not considered due to {{totalMissingVariants}} missing positions of the total {{totalVariants}} positions: {{uncalledHaps}}</p>
-      <p>Carriage of these alleles might result in a different metabolizer phenotype and different guideline recommendations.</p>
-    {{/if}}
-
-    {{#if astrolabe}}
-      <div class="alert alert-info">The call for {{gene}} comes from Astrolabe data which does not supply position-level detail.</div>
-    {{/if}}
-
-    {{#if variantsUnspecified}}
-      <div class="alert alert-info">No variant data available.</div>
-    {{/if}}
-
-    {{#each messages}}
-      <div class="alert alert-warning">{{{this}}}</div>
-    {{/each}}
-
-    {{#unless variantsUnspecified}}
-      <h4>Calls at Positions</h4>
-      <table>
-        <thead>
-        <tr>
-          <th>Position</th>
-          <th>RSID</th>
-          <th>Call</th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#each variants}}
+      {{#unless variantsUnspecified}}
+        <h4>Calls at Positions</h4>
+        <table>
+          <thead>
           <tr>
-            <td>{{position}}</td>
-            <td>{{rsid}}</td>
-            <td>{{vcfCall}}</td>
+            <th>Position</th>
+            <th>RSID</th>
+            <th>Call</th>
           </tr>
-        {{/each}}
-        {{#each missingVariants}}
-          <tr>
-            <td>{{position}}</td>
-            <td>{{rsid}}</td>
-            <td class="missingVariant"><em>missing</em></td>
-          </tr>
-        {{/each}}
-        </tbody>
-      </table>
-    {{/unless}}
+          </thead>
+          <tbody>
+          {{#each variants}}
+            <tr>
+              <td>{{position}}</td>
+              <td>{{rsid}}</td>
+              <td>{{vcfCall}}</td>
+            </tr>
+          {{/each}}
+          {{#each missingVariants}}
+            <tr>
+              <td>{{position}}</td>
+              <td>{{rsid}}</td>
+              <td class="missingVariant"><em>missing</em></td>
+            </tr>
+          {{/each}}
+          </tbody>
+        </table>
+      {{/unless}}
     </section>
   {{/each}}
 </section>

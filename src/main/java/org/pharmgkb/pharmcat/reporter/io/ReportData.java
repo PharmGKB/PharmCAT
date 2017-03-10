@@ -154,6 +154,7 @@ public class ReportData {
       Map<String,Object> geneCallMap = new HashMap<>();
 
       geneCallMap.put("gene", geneReport.getGene());
+      geneCallMap.put("incidental", geneReport.isIncidental());
 
       boolean hasUncalledHaplotypes = geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0;
       geneCallMap.put("hasUncalledHaps", hasUncalledHaplotypes);

@@ -90,16 +90,6 @@ public class GeneReport implements Comparable<GeneReport> {
     if (messages != null) {
       messages.forEach(this::addMessage);
     }
-
-    // add incidental allele message if present
-    if (getDiplotypes().stream().anyMatch(Diplotype::isIncidental)) {
-      MessageAnnotation pe = new MessageAnnotation();
-      pe.setName("Incidental Finding");
-      pe.setMessage("CPIC does not provide recommendations for this genotype. Variant is included in CPIC " +
-          "supplemental table of variants recommended by the American College of Medical Genetics (ACMG) that should " +
-          "be tested to determine carrier status as a part of population screening programs.");
-      m_messages.add(pe);
-    }
   }
 
   /**
