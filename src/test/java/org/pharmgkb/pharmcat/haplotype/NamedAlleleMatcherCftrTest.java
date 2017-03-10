@@ -13,7 +13,7 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
 
 
 /**
- * JUnit test for {@link NamedAlleleMatcher#callDiplotypes(MatchData)}.
+ * JUnit test for {@link NamedAlleleMatcher#callDiplotypes(MatchData, boolean)}.
  *
  * @author Lester Carter
  */
