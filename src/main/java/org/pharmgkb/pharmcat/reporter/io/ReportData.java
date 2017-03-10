@@ -101,6 +101,7 @@ public class ReportData {
 
       guidelineMap.put("matched", guideline.getMatchingGroups() != null);
       guidelineMap.put("mutliMatch", guideline.getMatchingGroups() != null && guideline.getMatchingGroups().size()>1);
+      guidelineMap.put("incidental", guideline.isIncidentalResult());
 
       guidelineMap.put("messages", guideline.getMessages().stream()
           .filter(MessageAnnotation.isMessage)

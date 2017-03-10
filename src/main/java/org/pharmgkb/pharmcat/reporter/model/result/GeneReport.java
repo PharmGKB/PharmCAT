@@ -231,5 +231,11 @@ public class GeneReport implements Comparable<GeneReport> {
     }
     return getDiplotypes().stream().map(Diplotype::getPhenotype).distinct().collect(Collectors.toSet());
   }
-}
 
+  /**
+   * Does this gene contain an "incidental" allele that should be reported on
+   */
+  public boolean isIncidental() {
+    return getDiplotypes().stream().anyMatch(Diplotype::isIncidental);
+  }
+}

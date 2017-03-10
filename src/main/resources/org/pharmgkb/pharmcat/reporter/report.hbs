@@ -237,6 +237,14 @@
         <p>For more information see the <a href="{{url}}">full guideline on PharmGKB</a>.</p>
       </section>
 
+      {{#if incidental}}
+        <div class="alert alert-warning">
+          CPIC does not provide recommendations for this genotype. Variant is included in CPIC supplemental table of
+          variants recommended by the American College of Medical Genetics (ACMG) that should be tested to determine
+          carrier status as a part of population screening programs.
+        </div>
+      {{/if}}
+
       {{#unless reportable}}
         <div class="alert alert-info">No genotypes matched for {{uncalledGenes}} so annotations cannot be shown.</div>
       {{/unless}}

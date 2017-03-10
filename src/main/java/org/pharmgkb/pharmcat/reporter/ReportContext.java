@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
@@ -37,6 +38,9 @@ public class ReportContext {
   private List<GuidelineReport> m_guidelineReports;
   private PhenotypeMap m_phenotypeMap = new PhenotypeMap();
   private IncidentalFinder m_incidentalFinder = new IncidentalFinder();
+
+  private final Predicate<String> isGeneIncidental = s -> m_geneReports.stream()
+      .anyMatch(r -> r.getGene().equals(s) && r.isIncidental());
 
   public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_geneReports.stream()
       .filter(c -> c.getGene().equals(s))
@@ -166,6 +170,9 @@ public class ReportContext {
       }
 
       makeAllReportGenotypes(guideline);
+      guideline.setIncidentalResult(
+          guideline.getRelatedGeneSymbols().stream()
+              .anyMatch(isGeneIncidental));
     }
   }
 

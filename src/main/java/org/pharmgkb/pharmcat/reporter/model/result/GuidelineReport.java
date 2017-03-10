@@ -46,6 +46,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private Set<String> m_uncalledGenes = new TreeSet<>();
   private Map<String,Map<String,String>> m_phenotypeMap;
   private List<MessageAnnotation> m_messages = new ArrayList<>();
+  private boolean m_isIncidentalResult = false;
 
   public GuidelineReport(GuidelinePackage guidelinePackage){
     m_dosingGuideline = guidelinePackage.getGuideline();
@@ -235,5 +236,16 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     if (matchLogic.getDrugs().stream().anyMatch(d -> getRelatedDrugs().contains(d))) {
       m_messages.add(message);
     }
+  }
+
+  /**
+   * Gets whether any related gene has any incidental allele called for it
+   */
+  public boolean isIncidentalResult() {
+    return m_isIncidentalResult;
+  }
+
+  public void setIncidentalResult(boolean incidentalResult) {
+    m_isIncidentalResult = incidentalResult;
   }
 }
