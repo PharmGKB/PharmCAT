@@ -6,6 +6,7 @@ import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 
 import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.assertDiplotypePairs;
@@ -23,7 +24,7 @@ public class NamedAlleleMatcherTpmtTest {
 
   @Before
   public void before() throws Exception {
-    m_definitionFile =  PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT_translation.json");
+    m_definitionFile = DefinitionManager.DEFAULT_DEFINITION_DIR.resolve("TPMT_translation.json");
   }
 
 
@@ -34,6 +35,22 @@ public class NamedAlleleMatcherTpmtTest {
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
+  }
+
+  @Test
+  public void tpmts1s1s() throws Exception {
+    // without exemptions
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s1s1s.vcf");
+    List<String> expectedMatches = Lists.newArrayList("*1S/*1S");
+
+    Result result = NamedAlleleMatcherTest.testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, true, false);
+    assertDiplotypePairs(expectedMatches, result);
+
+    // with exemptions
+    expectedMatches = Lists.newArrayList();
+
+    result = NamedAlleleMatcherTest.testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, true, true);
     assertDiplotypePairs(expectedMatches, result);
   }
 

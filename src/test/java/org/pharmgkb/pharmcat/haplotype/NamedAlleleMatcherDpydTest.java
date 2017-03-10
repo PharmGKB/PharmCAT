@@ -6,6 +6,7 @@ import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 
 import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.assertDiplotypePairs;
@@ -22,7 +23,7 @@ public class NamedAlleleMatcherDpydTest {
 
   @Before
   public void before() throws Exception {
-    m_definitionFile =  PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD_translation.json");
+    m_definitionFile = DefinitionManager.DEFAULT_DEFINITION_DIR.resolve("DPYD_translation.json");
   }
 
 

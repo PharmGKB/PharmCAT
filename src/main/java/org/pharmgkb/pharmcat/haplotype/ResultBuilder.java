@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -11,6 +12,7 @@ import javax.annotation.Nonnull;
 import com.google.api.client.repackaged.com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -68,9 +70,21 @@ public class ResultBuilder {
         .map(NamedAllele::getName)
         .filter(n -> !matchableHaps.contains(n))
         .collect(Collectors.toSet());
+    Set<String> ignoredHaplotypes;
+    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+    if (exemption != null) {
+      uncallableHaplotypes = uncallableHaplotypes.stream()
+          .filter(h -> !exemption.shouldIgnore(h))
+          .collect(Collectors.toSet());
+      ignoredHaplotypes = exemption.getIgnoredAlleles().stream()
+          .map(String::toUpperCase)
+          .collect(Collectors.toSet());
+    } else {
+       ignoredHaplotypes = new HashSet<>();
+    }
 
-    GeneCall geneCall = new GeneCall(definitionVersion, chromosome, gene, matchData, uncallableHaplotypes);
-
+    GeneCall geneCall = new GeneCall(definitionVersion, chromosome, gene, matchData, uncallableHaplotypes,
+        ignoredHaplotypes);
     if (matches != null) {
       // get haplotype/diplotype info
       for (DiplotypeMatch dm : matches) {

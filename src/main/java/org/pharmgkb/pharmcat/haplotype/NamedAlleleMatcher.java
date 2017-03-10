@@ -12,7 +12,7 @@ import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import org.pharmgkb.common.io.util.CliHelper;
-import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -78,7 +78,7 @@ public class NamedAlleleMatcher {
       if (cliHelper.hasOption("d")) {
         definitionDir = cliHelper.getValidDirectory("d", false);
       } else {
-        definitionDir = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
+        definitionDir = DefinitionManager.DEFAULT_DEFINITION_DIR;
       }
 
       DefinitionReader definitionReader = new DefinitionReader();
@@ -171,7 +171,7 @@ public class NamedAlleleMatcher {
     List<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene);
     if (exemption != null) {
       alleles = alleles.stream()
-          .filter(a -> exemption.getIgnoredAlleles().contains(a.getName()))
+          .filter(a -> !exemption.shouldIgnore(a.getName()))
           .collect(Collectors.toList());
     }
     // handle missing positions (if any)

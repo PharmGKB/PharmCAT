@@ -46,16 +46,20 @@ public class GeneCall {
   @Expose
   @SerializedName("uncallableHaplotypes")
   private Set<String> m_uncallableHaplotypes;
+  @Expose
+  @SerializedName("ignoredHaplotypes")
+  private Set<String> m_ignoredHaplotypes;
 
 
   public GeneCall(@Nonnull String alleleDefinitionVersion, @Nonnull String chromosome, @Nonnull String gene,
-      @Nonnull MatchData matchData, @Nonnull Set<String> uncallableHaplotypes) {
+      @Nonnull MatchData matchData, @Nonnull Set<String> uncallableHaplotypes, @Nonnull Set<String> ignoredHaplotypes) {
 
     m_alleleDefinitionVersion = alleleDefinitionVersion;
     m_chromosome = chromosome;
     m_gene = gene;
     m_matchData = matchData;
     m_uncallableHaplotypes = uncallableHaplotypes;
+    m_ignoredHaplotypes = ignoredHaplotypes;
   }
 
 
@@ -80,6 +84,10 @@ public class GeneCall {
 
   public @Nonnull Set<String> getUncallableHaplotypes() {
     return m_uncallableHaplotypes;
+  }
+
+  public @Nonnull Set<String> getIgnoredHaplotypes() {
+    return m_ignoredHaplotypes;
   }
 
 

@@ -4,7 +4,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.junit.Test;
-import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 
 import static org.junit.Assert.assertEquals;
@@ -32,9 +32,8 @@ public class DefinitionReaderTest {
   @Test
   public void testReadAllDefinitions() throws Exception {
 
-    Path file = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/CYP2C19_translation.json");
     DefinitionReader reader = new DefinitionReader();
-    reader.read(file.getParent());
+    reader.read(DefinitionManager.DEFAULT_DEFINITION_DIR);
 
     for (String gene : reader.getGenes()) {
       assertTrue(reader.getDefinitionFile(gene).getChromosome().startsWith("chr"));

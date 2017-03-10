@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
+import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.definition.GeneratedDefinitionSerializer;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
@@ -78,7 +79,7 @@ public class DefinitionReader {
   }
 
   public @Nullable DefinitionExemption getExemption(@Nonnull String gene) {
-    return m_exemptions.get(gene);
+    return m_exemptions.get(gene.toLowerCase());
   }
 
 
@@ -115,7 +116,7 @@ public class DefinitionReader {
     Preconditions.checkNotNull(path);
     Path file;
     if (Files.isDirectory(path)) {
-      file = path.resolve("exemptions.tsv");
+      file = path.resolve(DefinitionManager.EXEMPTIONS_FILE_NAME);
     } else {
       file = path;
     }
@@ -132,7 +133,7 @@ public class DefinitionReader {
         })
         .collect(Collectors.toSet());
     for (DefinitionExemption de : exemptions) {
-      m_exemptions.put(de.getGene(), de);
+      m_exemptions.put(de.getGene().toLowerCase(), de);
     }
   }
 }

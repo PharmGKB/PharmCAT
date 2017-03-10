@@ -24,6 +24,9 @@ import org.pharmgkb.pharmcat.util.SheetsHelper;
  * @author Mark Woon
  */
 public class DefinitionManager {
+  public static final Path DEFAULT_DEFINITION_DIR =
+      PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
+  public static final String EXEMPTIONS_FILE_NAME = "exemptions.tsv";
   private String m_googleUser;
   private String m_googleKey;
 
@@ -80,7 +83,7 @@ public class DefinitionManager {
 
     SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
     sh.downloadAlleleDefinitions(downloadDir);
-    sh.downloadAlleleExemptionsFile(generatedDir.resolve("exemptions.tsv"));
+    sh.downloadAlleleExemptionsFile(generatedDir.resolve(EXEMPTIONS_FILE_NAME));
     if (messagesDir != null) {
       sh.downloadMessagesFile(messagesDir.resolve("messages.tsv"));
     }

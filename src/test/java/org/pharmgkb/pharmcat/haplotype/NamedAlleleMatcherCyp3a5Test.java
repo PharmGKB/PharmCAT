@@ -6,6 +6,7 @@ import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 
 import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.assertDiplotypePairs;
@@ -22,7 +23,7 @@ public class NamedAlleleMatcherCyp3a5Test {
 
   @Before
   public void before() throws Exception {
-    m_definitionFile =  PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/CYP3A5_translation.json");
+    m_definitionFile = DefinitionManager.DEFAULT_DEFINITION_DIR.resolve("CYP3A5_translation.json");
   }
 
   @Test
@@ -53,7 +54,7 @@ public class NamedAlleleMatcherCyp3a5Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9-homozygous.vcf");
     List<String> expectedMatches = Lists.newArrayList("*3/*9");
 
-    Result result = NamedAlleleMatcherTest.testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, true);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 }

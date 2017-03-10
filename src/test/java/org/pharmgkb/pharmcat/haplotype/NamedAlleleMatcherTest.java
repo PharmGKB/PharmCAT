@@ -10,6 +10,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
@@ -27,7 +28,7 @@ public class NamedAlleleMatcherTest {
 
 
   static Result testMatchNamedAlleles(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
-    return testMatchNamedAlleles(tsvFile, vcfFile, true, false, true);
+    return testMatchNamedAlleles(tsvFile, vcfFile, true, false, true, true);
   }
 
   /**
@@ -35,10 +36,13 @@ public class NamedAlleleMatcherTest {
    * This is used by the more specific gene tests.
    */
   static Result testMatchNamedAlleles(@Nonnull Path definitionFile, @Nonnull Path vcfFile,
-      boolean assumeReference, boolean topCandidateOnly, boolean showUnmatched) throws Exception {
+      boolean assumeReference, boolean topCandidateOnly, boolean showUnmatched, boolean withExemptions) throws Exception {
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionFile);
+    if (withExemptions) {
+      definitionReader.readExemptions(DefinitionManager.DEFAULT_DEFINITION_DIR.resolve(DefinitionManager.EXEMPTIONS_FILE_NAME));
+    }
 
     NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, assumeReference, topCandidateOnly);
     Result result = namedAlleleMatcher.call(vcfFile);

@@ -1,0 +1,39 @@
+##fileformat=VCFv4.1
+##fileDate=2015-08-04
+##source=IlluminaPlatinumGenomes, version: hg38_2.0.1
+##reference=hg38
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FILTER=<ID=PASS,Description="All filters passed">
+#CHROM  POS  ID REF  ALT  QUAL FILTER INFO FORMAT NA12878
+chr6	18149127	rs9333569	T	.	.	PASS	assume-default	GT	0/0
+chr6	18149126	rs267607275	A	.	.	PASS	assume-default	GT	0/0
+chr6	18149045	rs72552742	T	.	.	PASS	assume-default	GT	0/0
+chr6	18149022	.	C	.	.	PASS	assume-default	GT	0/0
+chr6	18149004	.	G	.	.	PASS	assume-default	GT	0/0
+chr6	18147910	rs72552740	A	.	.	PASS	assume-default	GT	0/0
+chr6	18147851	rs200591577	G	.	.	PASS	assume-default	GT	0/0
+chr6	18147845	.	C	.	.	PASS	assume-default	GT	0/0
+chr6	18143724	rs1800462	C	.	.	PASS	assume-default	GT	0/0
+chr6	18143670	rs72552739	C	.	.	PASS	assume-default	GT	0/0
+chr6	18143643	.	A	.	.	PASS	assume-default	GT	0/0
+chr6	18143613	.	C	.	.	PASS	assume-default	GT	0/0
+chr6	18143606	rs151149760	T	.	.	PASS	assume-default	GT	0/0
+chr6	18143597	.	T	.	.	PASS	assume-default	GT	0/0
+chr6	18139710	rs200220210	G	.	.	PASS	assume-default	GT	0/0
+chr6	18139689	rs72552738	C	.	.	PASS	assume-default	GT	0/0
+chr6	18139027	rs72552737	C	.	.	PASS	assume-default	GT	0/0
+chr6	18138997	rs1800460	C	.	.	PASS	assume-default	GT	0/0
+chr6	18138983	rs2842934	A	.	.	PASS	assume-default	GT	0/0
+chr6	18138969	rs144041067	C	.	.	PASS	assume-default	GT	0/0
+chr6	18133890	rs9333570	C	.	.	PASS	assume-default	GT	0/0
+chr6	18133884	rs74423290	G	.	.	PASS	assume-default	GT	0/0
+chr6	18133847	rs6921269	C	.	.	PASS	assume-default	GT	0/0
+chr6	18133845	rs75543815	T	.	.	PASS	assume-default	GT	0/0
+chr6	18132147	rs79901429	A	.	.	PASS	assume-default	GT	0/0
+chr6	18132136	rs72556347	A	.	.	PASS	assume-default	GT	0/0
+chr6	18130781	rs1800584	C	.	.	PASS	assume-default	GT	0/0
+chr6	18130772	rs377085266	A	.	.	PASS	assume-default	GT	0/0
+chr6	18130762	rs56161402	C	.	.	PASS	assume-default	GT	0/0
+chr6	18130725	rs72552736	A	.	.	PASS	assume-default	GT	0/0
+chr6	18130694	rs150900439	T	.	.	PASS	assume-default	GT	0/0
+chr6	18130687	rs1142345	T	.	.	PASS	assume-default	GT	0/0
