@@ -163,6 +163,32 @@ public class PipelineTest {
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/VKORC1/-1639A-1639A.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
+
+    key = "test.cyp2c19.onlyRs12769205";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/TPMT/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP3A5/s1s7.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CFTR/refref.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C19/rs12769205only.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C9/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as1a.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/VKORC1/-1639A-1639A.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
+
+    key = "test.cyp2c19.refRs12769205";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/TPMT/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP3A5/s1s7.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CFTR/refref.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C19/rs12769205ref.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C9/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as1a.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/VKORC1/-1639A-1639A.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
   }
 
   private NamedAlleleMatcher m_namedAlleleMatcher;
