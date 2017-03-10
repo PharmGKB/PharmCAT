@@ -115,7 +115,10 @@ public class Diplotype {
 
     switch (m_gene) {
       case "CFTR":
-        if (printBare().equals("Reference/Reference")) {
+        if ((!getAllele1().getName().equals("Reference") && !getAllele1().isIncidental()) || (!getAllele2().getName().equals("Reference") && !getAllele2().isIncidental())) {
+          break;
+        }
+        else {
           return m_gene + ":" + NA;
         }
     }
@@ -178,6 +181,10 @@ public class Diplotype {
     switch (m_gene) {
 
       case "CFTR":
+        if (getAllele1().isIncidental() && getAllele2().isIncidental()) {
+          return Optional.of(getAllele1().getName() + " (homozygous)");
+        }
+
         boolean override1 = getAllele1().getName().equals("Reference");
         boolean override2 = getAllele2().getName().equals("Reference");
 

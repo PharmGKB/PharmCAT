@@ -71,7 +71,7 @@ public class Haplotype implements Comparable<Haplotype> {
   public String printLookup() {
     switch (m_gene) {
       case "CFTR":
-        if (m_name.equals("Reference")) {
+        if (m_name.equals("Reference") || m_incidental) {
           return "Other";
         }
         return m_name;

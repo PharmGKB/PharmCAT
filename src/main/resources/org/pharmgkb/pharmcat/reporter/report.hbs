@@ -242,7 +242,7 @@
       {{/unless}}
       {{#if reportable}}
         {{#unless matched}}
-          <div class="alert alert-warning">Alleles called for all necessary genes but no matching annotations found. check the guideline</div>
+          <div class="alert alert-warning">No CPIC recommendation for this allele combination.</div>
         {{/unless}}
       {{/if}}
 
@@ -259,7 +259,7 @@
       <section>
         {{#each geneCalls}}
           {{#each diplotypes}}
-            <div class="geneCall"><a href="#{{../gene}}">{{this}}</a></div>
+            <div class="geneCall"><a href="#{{../gene}}">{{../gene}}: {{this}}</a></div>
           {{/each}}
         {{/each}}
       </section>
