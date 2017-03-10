@@ -11,7 +11,6 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.annotation.AnnotationReader;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
@@ -198,10 +197,7 @@ public class PipelineTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(allelesDir);
 
-    AnnotationReader annotationReader = new AnnotationReader();
-    annotationReader.read(allelesDir);
-
-    m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, annotationReader);
+    m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
     m_reporter = new Reporter(annoDir, sf_exceptions);
     m_outputDir = outputDir;
 
