@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.annotation.Nonnull;
+import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
@@ -33,6 +34,9 @@ public class GeneCall {
   @Expose
   @SerializedName("haplotypes")
   private SortedSet<HaplotypeMatch> m_haplotypes = new TreeSet<>();
+  @Expose
+  @SerializedName("phased")
+  private boolean m_isPhased = true;
   @Expose
   @SerializedName("variants")
   private SortedSet<Variant> m_variants = new TreeSet<>();
@@ -103,9 +107,23 @@ public class GeneCall {
     m_variants = variants;
   }
 
-  public void add(Variant pos) {
+  public void add(@Nonnull Variant pos) {
+    Preconditions.checkNotNull(pos);
     m_variants.add(pos);
+    if (!pos.isPhased()) {
+      m_isPhased = false;
+    }
   }
+
+
+  /**
+   * Gets if call was entirely based on phased data.
+   * This will return false if any variants were unphased.
+   */
+  public boolean isPhased() {
+    return m_isPhased;
+  }
+
 
   @Override
   public String toString() {

@@ -21,6 +21,7 @@ public class Variant implements Comparable<Variant>  {
   @Expose
   @SerializedName("vcfCall")
   private String m_vcfCall;
+  private boolean m_isPhased;
   private int m_vcfPosition;
   private String m_vcfAlleles;
 
@@ -30,6 +31,7 @@ public class Variant implements Comparable<Variant>  {
     m_position = pos;
     m_rsid = rsids;
     m_vcfCall = call;
+    m_isPhased = call.contains("|");
     m_vcfPosition = vcfPosition;
     m_vcfAlleles = vcfAlleles;
   }
@@ -45,6 +47,10 @@ public class Variant implements Comparable<Variant>  {
 
   public String getVcfCall() {
     return m_vcfCall;
+  }
+
+  public boolean isPhased() {
+    return m_isPhased;
   }
 
   public int getVcfPosition() {
