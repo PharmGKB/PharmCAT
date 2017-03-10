@@ -209,7 +209,7 @@ public class DiplotypeFactory {
     }).orElse(null);
 
     if (variant != null && variant.getVcfCall() != null) {
-      String[] alleles = variant.getVcfAlleles().split("[|/]");
+      String[] alleles = variant.getVcfCall().split("[|/]");
 
       Diplotype dip;
       if (Arrays.equals(alleles, new String[]{"T","T"})) {
