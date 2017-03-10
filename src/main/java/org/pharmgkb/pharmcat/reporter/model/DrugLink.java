@@ -20,12 +20,18 @@ public class DrugLink {
 
   private String m_name;
   private String m_guidelineId;
-  private boolean m_rxChange;
+  private String m_rxClass;
 
-  public DrugLink(String name, String guidelineId, boolean rxChange) {
+  public DrugLink(String name, String guidelineId, boolean rxChange, boolean rxPossibly) {
     m_name = name;
     m_guidelineId = guidelineId;
-    m_rxChange = rxChange;
+    if (rxChange) {
+      m_rxClass = "rxChange";
+    } else if (rxPossibly) {
+      m_rxClass = "rxPossibly";
+    } else {
+      m_rxClass = "";
+    }
   }
 
   public String getName() {
@@ -36,8 +42,8 @@ public class DrugLink {
     return m_guidelineId;
   }
 
-  public boolean isRxChange() {
-    return m_rxChange;
+  public String getRxClass() {
+    return m_rxClass;
   }
 
   public boolean isHighlighted() {

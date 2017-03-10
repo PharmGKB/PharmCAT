@@ -19,9 +19,7 @@ public class ReportHelpers {
       cn += " highlightDrug";
     }
 
-    if (drug.isRxChange()) {
-      cn += " rxChange";
-    }
+    cn += " " + drug.getRxClass();
 
     return String.format(sf_drugNameTemplate, cn, drug.getGuidelineId(), drug.getName());
   }

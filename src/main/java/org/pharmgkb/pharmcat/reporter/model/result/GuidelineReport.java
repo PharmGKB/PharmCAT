@@ -163,7 +163,12 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
 
   public boolean isRxChange() {
     return getMatchingGroups() != null && getMatchingGroups().stream()
-        .anyMatch(g -> g.getRxChange() != null && !g.getRxChange().getTerm().equals("No"));
+        .anyMatch(g -> g.getRxChange() != null && g.getRxChange().getTerm().equals("Yes"));
+  }
+
+  public boolean isRxPossible() {
+    return getMatchingGroups() != null && getMatchingGroups().stream()
+        .anyMatch(g -> g.getRxChange() != null && g.getRxChange().getTerm().equals("Possibly"));
   }
 
   /**
@@ -247,5 +252,9 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
 
   public void setIncidentalResult(boolean incidentalResult) {
     m_isIncidentalResult = incidentalResult;
+  }
+
+  public String toString() {
+    return getRelatedDrugs().stream().collect(Collectors.joining(", "));
   }
 }
