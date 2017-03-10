@@ -115,7 +115,7 @@ public class DefinitionReader {
     Preconditions.checkNotNull(path);
     Path file;
     if (Files.isDirectory(path)) {
-      file = path.resolve("Allele_Exemptions.tsv");
+      file = path.resolve("exemptions.tsv");
     } else {
       file = path;
     }
@@ -127,7 +127,7 @@ public class DefinitionReader {
           String[] data = line.split("\t");
           String gene = data[0];
           SortedSet<String> ignoreAlleles = Sets.newTreeSet(sf_commaSplitter.splitToList(data[1]));
-          boolean allHits = Boolean.parseBoolean(data[2]);
+          boolean allHits = data.length > 2 && Boolean.parseBoolean(data[2]);
           return new DefinitionExemption(gene, ignoreAlleles, allHits);
         })
         .collect(Collectors.toSet());

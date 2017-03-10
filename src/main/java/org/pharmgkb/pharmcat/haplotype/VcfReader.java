@@ -81,9 +81,9 @@ public class VcfReader implements VcfLineParser {
   private void read(Path vcfFile) throws IOException {
 
     Preconditions.checkNotNull(vcfFile);
-    Preconditions.checkArgument(Files.isRegularFile(vcfFile), "Not a file");
-    Preconditions.checkArgument(Files.isReadable(vcfFile), "Not readable");
-    Preconditions.checkArgument(vcfFile.toString().endsWith(".vcf"));
+    Preconditions.checkArgument(Files.isRegularFile(vcfFile), "%s is not a file", vcfFile);
+    Preconditions.checkArgument(Files.isReadable(vcfFile), "%s is not readable", vcfFile);
+    Preconditions.checkArgument(vcfFile.toString().endsWith(".vcf"), "%s is not a VCF file", vcfFile);
 
     // <chr:position, allele>
     try (BufferedReader reader = Files.newBufferedReader(vcfFile)) {

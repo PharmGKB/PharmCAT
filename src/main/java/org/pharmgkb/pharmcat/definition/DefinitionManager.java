@@ -80,7 +80,7 @@ public class DefinitionManager {
 
     SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
     sh.downloadAlleleDefinitions(downloadDir);
-    sh.downloadAlleleExemptionsFile(generatedDir);
+    sh.downloadAlleleExemptionsFile(generatedDir.resolve("exemptions.tsv"));
     if (messagesDir != null) {
       sh.downloadMessagesFile(messagesDir.resolve("messages.tsv"));
     }

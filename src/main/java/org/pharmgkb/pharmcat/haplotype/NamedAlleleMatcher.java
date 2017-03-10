@@ -12,6 +12,7 @@ import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import org.pharmgkb.common.io.util.CliHelper;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -62,7 +63,7 @@ public class NamedAlleleMatcher {
 
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-          .addOption("d", "definition-dir", "directory of allele definition files", true, "d")
+          .addOption("d", "definition-dir", "directory of allele definition files", false, "d")
           .addOption("a", "annotations-dir", "directory of annotation files", false, "a")
           .addOption("vcf", "vcf-in", "VCF file", true, "vcf")
           .addOption("json", "json-out", "file to save results to (in JSON format)", false, "json")
@@ -72,8 +73,13 @@ public class NamedAlleleMatcher {
         System.exit(1);
       }
 
-      Path definitionDir = cliHelper.getValidDirectory("d", false);
       Path vcfFile = cliHelper.getValidFile("vcf", false);
+      Path definitionDir;
+      if (cliHelper.hasOption("d")) {
+        definitionDir = cliHelper.getValidDirectory("d", false);
+      } else {
+        definitionDir = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
+      }
 
       DefinitionReader definitionReader = new DefinitionReader();
       definitionReader.read(definitionDir);

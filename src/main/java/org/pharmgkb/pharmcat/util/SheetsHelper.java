@@ -9,7 +9,6 @@ import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableList;
 import com.google.gdata.util.ServiceException;
 import org.pharmgkb.common.io.google.GoogleApiHelper;
 import org.pharmgkb.common.io.google.GoogleSheetsHelper;
@@ -83,9 +82,9 @@ public class SheetsHelper implements AutoCloseable {
     downloadAsTsv(files, outputDir);
   }
 
-  public void downloadAlleleExemptionsFile(@Nonnull Path outputDir) throws IOException, ServiceException {
-    Preconditions.checkNotNull(outputDir);
-    downloadAsTsv(ImmutableList.of(findAlleleExemptionsSheet()), outputDir);
+  public void downloadAlleleExemptionsFile(@Nonnull Path file) throws IOException, ServiceException {
+    Preconditions.checkNotNull(file);
+    downloadAsTsv(findAlleleExemptionsSheet(), file);
   }
 
   public void downloadMessagesFile(@Nonnull Path file) throws IOException, ServiceException {
@@ -115,6 +114,10 @@ public class SheetsHelper implements AutoCloseable {
     m_spreadsheetHelper.exportToTsv(file.getId(), outputFile, sheetNumber);
   }
 
+
+  public void downloadAsTsv(@Nonnull File srcFile, @Nonnull Path targetFile) throws IOException, ServiceException {
+    m_spreadsheetHelper.exportToTsv(srcFile.getId(), targetFile);
+  }
 
   public void downloadAsTsv(List<File> files, Path outputDir) throws IOException, ServiceException {
 
