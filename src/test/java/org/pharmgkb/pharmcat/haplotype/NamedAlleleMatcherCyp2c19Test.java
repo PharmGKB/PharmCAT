@@ -196,4 +196,15 @@ public class NamedAlleleMatcherCyp2c19Test {
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
+
+  @Test
+  public void rs12769205call() throws Exception {
+    // Test no call, but reporter can give output based on rs12769205
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/rs12769205call.vcf");
+    List<String> expectedMatches = Lists.newArrayList();
+
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
+  }
+
 }
