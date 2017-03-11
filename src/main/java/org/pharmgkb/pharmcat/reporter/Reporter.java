@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.reporter;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
@@ -7,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -17,8 +19,10 @@ import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.common.base.Preconditions;
+import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.io.AstrolabeOutputParser;
@@ -42,6 +46,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 public class Reporter {
   private static final String sf_templateName = "report";
   private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
+  private static final String sf_messagesFile = "org/pharmgkb/pharmcat/reporter/messages.json";
   private List<Path> m_annotationFiles = null;
   private List<MessageAnnotation> m_messages = null;
   private ReportContext m_reportContext = null;
@@ -55,7 +60,6 @@ public class Reporter {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("d", "annotations-dir", "directory of allele definition files", true, "d")
         .addOption("c", "call-file", "named allele call JSON file", true, "c")
-        .addOption("e", "exceptions-file", "exceptions logic file", true, "e")
         .addOption("a", "astrolabe-file", "optional, astrolabe call file", false, "a")
         .addOption("o", "output-file", "file path to write HTML report to", true, "o")
         .addOption("t", "title", "optional, text to add to the report title", false, "t")
@@ -68,12 +72,11 @@ public class Reporter {
 
       Path annotationsDir = cliHelper.getValidDirectory("d", false);
       Path callFile = cliHelper.getValidFile("c", true);
-      Path exceptionsFile = cliHelper.getValidFile("e", true);
       Path astrolabeFile = cliHelper.hasOption("a") ? cliHelper.getValidFile("a", true) : null;
       Path outputFile = cliHelper.getPath("o");
       String title = cliHelper.getValue("t");
 
-      new Reporter(annotationsDir, exceptionsFile)
+      new Reporter(annotationsDir)
           .analyze(callFile, astrolabeFile)
           .printHtml(outputFile, title);
 
@@ -87,15 +90,11 @@ public class Reporter {
    *
    * @param annotationsDir directory of annotation files
    */
-  public Reporter(@Nonnull Path annotationsDir, @Nonnull Path exceptionsFile) throws IOException {
+  public Reporter(@Nonnull Path annotationsDir) throws IOException {
 
     Preconditions.checkNotNull(annotationsDir);
     Preconditions.checkArgument(Files.exists(annotationsDir));
     Preconditions.checkArgument(Files.isDirectory(annotationsDir));
-
-    Preconditions.checkNotNull(exceptionsFile);
-    Preconditions.checkArgument(Files.exists(exceptionsFile));
-    Preconditions.checkArgument(Files.isRegularFile(exceptionsFile));
 
     m_annotationFiles = Files.list(annotationsDir)
         .filter(f -> f.getFileName().toString().endsWith(".json"))
@@ -104,10 +103,10 @@ public class Reporter {
       throw new IOException("No annotation definitions to read from");
     }
 
-    m_messages = Files.lines(exceptionsFile)
-        .skip(1) // skip the header
-        .map(MessageAnnotation::new)
-        .collect(Collectors.toList());
+    try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(sf_messagesFile))) {
+      MessageAnnotation[] messages = new Gson().fromJson(reader, MessageAnnotation[].class);
+      m_messages = Arrays.asList(messages);
+    }
   }
 
   /**

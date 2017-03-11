@@ -28,7 +28,6 @@ import org.pharmgkb.pharmcat.haplotype.model.Result;
 public class PipelineTest {
   private static final String sf_headerFile = "org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf";
   private static final Path sf_astrolabe = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.astrolabe.tsv");
-  private static final Path sf_exceptions = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/exceptions.tsv");
   private static final Multimap<String,String> sf_testVcfs = LinkedHashMultimap.create();
   static {
     String key;
@@ -189,6 +188,19 @@ public class PipelineTest {
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/VKORC1/-1639A-1639A.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
+
+    key = "test.ugt1a1.phased.multi";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s60s80phased.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/TPMT/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP3A5/s1s7.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CFTR/F508delF508del.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C19/s2s2.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C9/s2s3.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/SLCO1B1/s5s15.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/VKORC1/-1639A-1639A.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
   }
 
   private NamedAlleleMatcher m_namedAlleleMatcher;
@@ -224,7 +236,7 @@ public class PipelineTest {
     definitionReader.read(allelesDir);
 
     m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
-    m_reporter = new Reporter(annoDir, sf_exceptions);
+    m_reporter = new Reporter(annoDir);
     m_outputDir = outputDir;
 
     System.out.println("Using alleles: " + allelesDir);

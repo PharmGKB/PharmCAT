@@ -1,19 +1,26 @@
 package org.pharmgkb.pharmcat.definition;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.SheetsHelper;
 
@@ -27,6 +34,10 @@ public class DefinitionManager {
   public static final Path DEFAULT_DEFINITION_DIR =
       PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
   public static final String EXEMPTIONS_FILE_NAME = "exemptions.tsv";
+  public static final String MESSAGES_TSV_FILE = "messages.tsv";
+  public static final String MESSAGES_JSON_FILE = "messages.json";
+  private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
+      .setPrettyPrinting().create();
   private String m_googleUser;
   private String m_googleKey;
 
@@ -85,7 +96,20 @@ public class DefinitionManager {
     sh.downloadAlleleDefinitions(downloadDir);
     sh.downloadAlleleExemptionsFile(generatedDir.resolve(EXEMPTIONS_FILE_NAME));
     if (messagesDir != null) {
-      sh.downloadMessagesFile(messagesDir.resolve("messages.tsv"));
+      Path tsvFile = messagesDir.resolve(MESSAGES_TSV_FILE);
+      Path jsonFile = messagesDir.resolve(MESSAGES_JSON_FILE);
+
+      sh.downloadMessagesFile(tsvFile);
+      List<MessageAnnotation> messages = Files.lines(tsvFile)
+          .skip(1) // skip the header
+          .map(MessageAnnotation::new)
+          .collect(Collectors.toList());
+
+      try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
+        writer.write(sf_gson.toJson(messages));
+      }
+
+      Files.delete(tsvFile);
     }
   }
 
