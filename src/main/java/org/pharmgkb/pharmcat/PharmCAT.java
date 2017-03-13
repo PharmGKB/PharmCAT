@@ -58,12 +58,9 @@ public class PharmCAT {
         astrolabeFile = cliHelper.getPath("a");
       }
 
-      Path allelesDir;
+      Path allelesDir = null;
       if (cliHelper.hasOption("l")) {
         allelesDir = cliHelper.getValidDirectory("l", false);
-      }
-      else {
-        allelesDir = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
       }
 
       String outputFile = null;
@@ -87,15 +84,19 @@ public class PharmCAT {
    * Sets up all the necessary supporting objects in order to run the matcher and the reporter.
    *
    * @param outputDir Path to the directory to write output to
-   * @param allelesDir Path to the directory where allele definitions are
+   * @param allelesDir Path to the directory where allele definitions are, null will use default definitions
    * @param annoDir Path to the directory where guideline annotations are
    * @throws IOException can be throwsn if filesystem objects not in proper state
    */
-  private PharmCAT(@Nonnull Path outputDir, @Nonnull Path allelesDir, @Nonnull Path annoDir) throws IOException {
+  public PharmCAT(@Nonnull Path outputDir, @Nullable Path allelesDir, @Nonnull Path annoDir) throws IOException {
 
     boolean madeDir = outputDir.toFile().mkdirs();
     if (madeDir) {
       sf_logger.info("Directory didn't exist so created "+outputDir);
+    }
+
+    if (allelesDir == null) {
+      allelesDir = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
     }
 
     Preconditions.checkArgument(outputDir.toFile().exists(), "output directory doesn't exist");
@@ -126,7 +127,7 @@ public class PharmCAT {
    * @param outputFile the optional name to write the output to
    * @throws Exception can occur from file I/O or unexpected state
    */
-  private void execute(@Nonnull Path inputFile, @Nullable Path astrolabeFile, @Nullable String outputFile) throws Exception {
+  public void execute(@Nonnull Path inputFile, @Nullable Path astrolabeFile, @Nullable String outputFile) throws Exception {
     Preconditions.checkArgument(inputFile.toFile().exists(), "input file does not exist");
     Preconditions.checkArgument(inputFile.toFile().isFile(), "input path is not a file");
 

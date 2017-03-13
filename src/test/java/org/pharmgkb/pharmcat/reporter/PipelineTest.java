@@ -11,10 +11,7 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
-import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
-import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
-import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.PharmCAT;
 
 
 /**
@@ -216,14 +213,12 @@ public class PipelineTest {
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
   }
 
-  private NamedAlleleMatcher m_namedAlleleMatcher;
-  private Reporter m_reporter;
+  private PharmCAT m_pharmcat;
   private Path m_outputDir;
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("o", "output-dir", "directory to output to", true, "o")
-        .addOption("l", "alleles-dir", "directory of named allele definitions (JSON files)", true, "l")
         .addOption("n", "annotation-dir", "directory of guideline annotations (JSON files)", true, "n");
 
     try {
@@ -232,10 +227,9 @@ public class PipelineTest {
       }
 
       Path outputDir = cliHelper.getValidDirectory("o", true);
-      Path allelesDir = cliHelper.getValidDirectory("l", false);
       Path annoDir = cliHelper.getValidDirectory("n", false);
 
-      PipelineTest piplelineTest = new PipelineTest(outputDir, allelesDir, annoDir);
+      PipelineTest piplelineTest = new PipelineTest(outputDir, annoDir);
       piplelineTest.execute();
     } catch (Exception e) {
       e.printStackTrace();
@@ -243,18 +237,9 @@ public class PipelineTest {
   }
 
 
-  private PipelineTest(Path outputDir, Path allelesDir, Path annoDir) throws IOException {
-
-    DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(allelesDir);
-
-    m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
-    m_reporter = new Reporter(annoDir);
+  private PipelineTest(Path outputDir, Path annoDir) throws IOException {
     m_outputDir = outputDir;
-
-    System.out.println("Using alleles: " + allelesDir);
-    System.out.println("Using annotations: " + annoDir);
-    System.out.println("Writing to: " + outputDir);
+    m_pharmcat = new PharmCAT(outputDir, null, annoDir).keepMatcherOutput();
   }
 
   private void execute() throws Exception {
@@ -268,16 +253,7 @@ public class PipelineTest {
 
   private void runPipeline(String fileRoot, Path astrolabePath) throws Exception {
     Path sampleVcf = writeVcf(m_outputDir.resolve(fileRoot+".vcf"), sf_testVcfs.get(fileRoot));
-
-    Path callPath = m_outputDir.resolve(fileRoot + ".call.json");
-    Path reportPath = m_outputDir.resolve(fileRoot + ".report.html");
-
-    Result result = m_namedAlleleMatcher.call(sampleVcf);
-    ResultSerializer resultSerializer = new ResultSerializer();
-    resultSerializer.toJson(result, callPath);
-
-    m_reporter.analyze(callPath, astrolabePath);
-    m_reporter.printHtml(reportPath, fileRoot);
+    m_pharmcat.execute(sampleVcf, astrolabePath, null);
   }
 
   private Path writeVcf(Path outputVcf, Collection<String> filesToInclude) {
