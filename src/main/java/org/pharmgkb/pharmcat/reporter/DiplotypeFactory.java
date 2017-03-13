@@ -73,13 +73,13 @@ public class DiplotypeFactory {
     Preconditions.checkNotNull(geneCall);
     Preconditions.checkArgument(geneCall.getGene().equals(f_gene));
 
-    // some genes calculate the call by the reporter, that logic goes here
+    // some genes disregard the actual call and calculate the call by the reporter, that logic goes here
     if (sf_overrideDiplotypes.contains(f_gene)) {
       return makeOverrideDiplotypes();
     }
 
     // do the regular processing when diplotypes are called
-    if (geneCall.getDiplotypes() != null && geneCall.getDiplotypes().size() > 0) {
+    if (geneCall.getDiplotypes().size() > 0) {
       return geneCall.getDiplotypes().stream().map(this::makeDiplotype).collect(Collectors.toList());
     }
 
