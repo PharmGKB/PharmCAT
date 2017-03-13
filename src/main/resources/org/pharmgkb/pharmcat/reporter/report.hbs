@@ -149,6 +149,20 @@
       width: 80%;
       height: auto;
     }
+
+    @media print {
+      html {
+        font-size: 8px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      img, pre, blockquote, table, figure, p {
+        page-break-inside: avoid;
+      }
+    }
   </style>
 
 </head>
