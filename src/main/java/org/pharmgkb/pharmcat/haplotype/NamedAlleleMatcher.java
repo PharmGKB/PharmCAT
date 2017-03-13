@@ -177,7 +177,8 @@ public class NamedAlleleMatcher {
     // handle missing positions (if any)
     data.marshallHaplotypes(alleles);
 
-    if (m_assumeReferenceInDefinitions) {
+    boolean assumeReference = exemption != null ? exemption.isAssumeReference() : m_assumeReferenceInDefinitions;
+    if (assumeReference) {
       data.defaultMissingAllelesToReference();
     }
 
