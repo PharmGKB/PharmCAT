@@ -32,6 +32,7 @@ public class PharmCAT {
   private NamedAlleleMatcher m_namedAlleleMatcher;
   private Reporter m_reporter;
   private Path m_outputDir;
+  private boolean m_keepMatcherOutput = false;
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
@@ -40,7 +41,8 @@ public class PharmCAT {
         .addOption("o", "output-dir", "directory to output to", true, "o")
         .addOption("f", "output-file", "the output name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "f")
         .addOption("l", "alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
-        .addOption("a", "astrolabe-file", "path to astrolabe result file (TSV)", false, "a");
+        .addOption("a", "astrolabe-file", "path to astrolabe result file (TSV)", false, "a")
+        .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files");
 
     try {
       if (!cliHelper.parse(args)) {
@@ -70,6 +72,9 @@ public class PharmCAT {
       }
 
       PharmCAT pharmcat = new PharmCAT(outputDir, allelesDir, annoDir);
+      if (cliHelper.hasOption("k")) {
+        pharmcat.keepMatcherOutput();
+      }
       pharmcat.execute(inputFile, astrolabeFile, outputFile);
     } catch (Exception e) {
       e.printStackTrace();
@@ -134,11 +139,16 @@ public class PharmCAT {
     Result result = m_namedAlleleMatcher.call(inputFile);
     ResultSerializer resultSerializer = new ResultSerializer();
     resultSerializer.toJson(result, callPath);
+    if (m_keepMatcherOutput) {
+      resultSerializer.toHtml(result, m_outputDir.resolve(fileRoot + ".matcher.html"));
+    }
 
     m_reporter.analyze(callPath, astrolabeFile);
     m_reporter.printHtml(reportPath, fileRoot);
 
-    callPath.toFile().deleteOnExit();
+    if (!m_keepMatcherOutput) {
+      callPath.toFile().deleteOnExit();
+    }
 
     sf_logger.info("Completed");
   }
@@ -163,5 +173,10 @@ public class PharmCAT {
       fileRoot = inputFile.getFileName().toString();
     }
     return fileRoot;
+  }
+
+  public PharmCAT keepMatcherOutput() {
+    m_keepMatcherOutput = true;
+    return this;
   }
 }
