@@ -33,7 +33,7 @@ import org.pharmgkb.pharmcat.util.SheetsHelper;
 public class DefinitionManager {
   public static final Path DEFAULT_DEFINITION_DIR =
       PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
-  public static final String EXEMPTIONS_FILE_NAME = "exemptions.tsv";
+  public static final String EXEMPTIONS_FILE_NAME = "exemptions.json";
   public static final String MESSAGES_TSV_FILE = "messages.tsv";
   public static final String MESSAGES_JSON_FILE = "messages.json";
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
@@ -94,7 +94,13 @@ public class DefinitionManager {
 
     SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
     sh.downloadAlleleDefinitions(downloadDir);
-    sh.downloadAlleleExemptionsFile(generatedDir.resolve(EXEMPTIONS_FILE_NAME));
+    Path tmpFile = Files.createTempFile("exemptions", ".tsv");
+    try {
+      sh.downloadAlleleExemptionsFile(tmpFile);
+      transformExemptions(tmpFile, generatedDir.resolve(EXEMPTIONS_FILE_NAME));
+    } finally {
+      Files.deleteIfExists(tmpFile);
+    }
     if (messagesDir != null) {
       Path tsvFile = messagesDir.resolve(MESSAGES_TSV_FILE);
       Path jsonFile = messagesDir.resolve(MESSAGES_JSON_FILE);
@@ -138,5 +144,10 @@ public class DefinitionManager {
         System.out.println();
       }
     }
+  }
+
+  private void transformExemptions(@Nonnull Path tsvFile, @Nonnull Path jsonFile) throws IOException {
+    GeneratedDefinitionSerializer serializer = new GeneratedDefinitionSerializer();
+    serializer.serializeExemptionsToJson(serializer.deserializeExemptionsFromTsv(tsvFile), jsonFile);
   }
 }

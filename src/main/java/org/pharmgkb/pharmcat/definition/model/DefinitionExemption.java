@@ -20,13 +20,19 @@ public class DefinitionExemption {
   @Expose
   @SerializedName("ignoredAlleles")
   private SortedSet<String> m_ignoredAlleles;
+  @Expose
+  @SerializedName("ignoredAllelesLc")
   private SortedSet<String> m_ignoredAllelesLc;
   @Expose
   @SerializedName("allHits")
   private boolean m_allHits;
+  @Expose
+  @SerializedName("assumeReference")
+  private boolean m_assumeReference;
 
 
-  public DefinitionExemption(@Nonnull String gene, @Nullable SortedSet<String> ignoredAlleles, boolean allHits) {
+  public DefinitionExemption(@Nonnull String gene, @Nullable SortedSet<String> ignoredAlleles, boolean allHits,
+      boolean assumeReference) {
     m_gene = gene;
     if (ignoredAlleles == null) {
       m_ignoredAlleles = Collections.emptySortedSet();
@@ -36,6 +42,7 @@ public class DefinitionExemption {
       m_ignoredAllelesLc = ignoredAlleles.stream().map(String::toLowerCase).collect(Collectors.toCollection(TreeSet::new));
     }
     m_allHits = allHits;
+    m_assumeReference = assumeReference;
   }
 
 
@@ -58,7 +65,20 @@ public class DefinitionExemption {
     return m_ignoredAllelesLc.contains(allele.toLowerCase());
   }
 
+  /**
+   * Gets if all possible diplotypes should be reported.
+   * Default is false.
+   */
   public boolean isAllHits() {
     return m_allHits;
+  }
+
+
+  /**
+   * Gets if missing positions should be assumed to be reference.
+   * Default is true.
+   */
+  public boolean isAssumeReference() {
+    return m_assumeReference;
   }
 }
