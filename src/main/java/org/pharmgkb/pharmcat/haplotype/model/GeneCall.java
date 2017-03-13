@@ -91,6 +91,7 @@ public class GeneCall {
   }
 
 
+  @Nonnull
   public LinkedHashSet<DiplotypeMatch> getDiplotypes() {
     return m_diplotypes;
   }
@@ -102,11 +103,13 @@ public class GeneCall {
   }
 
 
+  @Nonnull
   public Set<HaplotypeMatch> getHaplotypes() {
     return m_haplotypes;
   }
 
 
+  @Nonnull
   public SortedSet<Variant> getVariants() {
     return m_variants;
   }
