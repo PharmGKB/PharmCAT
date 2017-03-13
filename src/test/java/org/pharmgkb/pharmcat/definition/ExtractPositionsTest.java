@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 
 import static org.junit.Assert.assertEquals;
@@ -24,7 +25,7 @@ public class ExtractPositionsTest {
   @Test
   public void testExtract() throws IOException {
     DefinitionReader definitionReader = new DefinitionReader();
-    File file = new File(DefinitionReader.class.getResource("VKORC1_translation.json").getFile());
+    File file = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/VKORC1_translation.json").toFile();
     Path path = Paths.get(file.getAbsolutePath());
     definitionReader.read(path);
     Path outputVcf = Paths.get("org/pharmgkb/pharmcat/haplotype/positions.vcf");

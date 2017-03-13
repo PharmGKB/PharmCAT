@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.junit.Test;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 
@@ -20,7 +21,7 @@ public class DefinitionReaderTest {
     System.out.println("DefinitionReaderTest");
 
     DefinitionReader dr = new DefinitionReader();
-    File file = new File(DefinitionReader.class.getResource("VKORC1_translation.json").getFile());
+    File file = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/VKORC1_translation.json").toFile();
     Path path = Paths.get(file.getAbsolutePath());
     dr.read(path);
 
