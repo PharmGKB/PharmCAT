@@ -35,10 +35,10 @@ public class PharmCAT {
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        .addOption("c", "call-file", "input call file (VCF)", true, "c")
+        .addOption("s", "sample-file", "input call file (VCF)", true, "c")
+        .addOption("n", "annotation-dir", "directory of guideline annotations (JSON files)", true, "n")
         .addOption("o", "output-dir", "directory to output to", true, "o")
         .addOption("f", "output-file", "the output name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "f")
-        .addOption("n", "annotation-dir", "directory of guideline annotations (JSON files)", true, "n")
         .addOption("l", "alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
         .addOption("a", "astrolabe-file", "path to astrolabe result file (TSV)", false, "a");
 
@@ -47,7 +47,7 @@ public class PharmCAT {
         System.exit(1);
       }
 
-      Path inputFile = cliHelper.getValidFile("c", true);
+      Path inputFile = cliHelper.getValidFile("s", true);
       Path outputDir = cliHelper.getValidDirectory("o", true);
       Path annoDir = cliHelper.getValidDirectory("n", false);
 
