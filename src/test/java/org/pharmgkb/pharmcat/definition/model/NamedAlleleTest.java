@@ -41,9 +41,9 @@ public class NamedAlleleTest {
     hap4.initialize(variants);
 
     assertEquals("1:T;2:A;3:G;4:C;", ref.getPermutations().pattern());
-    assertEquals("1:C;2:T;3:.?;4:.?;", hap2.getPermutations().pattern());
-    assertEquals("1:C;2:.?;3:.?;4:[CT];", hap3.getPermutations().pattern());
-    assertEquals("1:C;2:.?;3:.?;4:[CT];", hap4.getPermutations().pattern());
+    assertEquals("1:C;2:T;3:.*?;4:.*?;", hap2.getPermutations().pattern());
+    assertEquals("1:C;2:.*?;3:.*?;4:[CT];", hap3.getPermutations().pattern());
+    assertEquals("1:C;2:.*?;3:.*?;4:[CT];", hap4.getPermutations().pattern());
   }
 
 

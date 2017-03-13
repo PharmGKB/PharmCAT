@@ -243,7 +243,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
         }
         builder.append(allele);
       } else {
-        builder.append(".?");
+        builder.append(".*?");
       }
       builder.append(";");
     }
