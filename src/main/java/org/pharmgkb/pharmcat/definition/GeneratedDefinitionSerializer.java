@@ -38,13 +38,13 @@ public class GeneratedDefinitionSerializer {
 
 
 
-  public void serializeToJson(@Nonnull DefinitionFile definitionFile, @Nonnull Path jsonFile) throws IOException {
+  public void serializeToJson(@Nonnull Object data, @Nonnull Path jsonFile) throws IOException {
 
     Preconditions.checkNotNull(jsonFile);
-    Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: file name does not end with .json");
+    Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: %s does not end with .json", jsonFile);
 
     try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
-      sf_gson.toJson(definitionFile, writer);
+      sf_gson.toJson(data, writer);
     }
   }
 
@@ -63,16 +63,6 @@ public class GeneratedDefinitionSerializer {
     }
   }
 
-
-  public void serializeExemptionsToJson(@Nonnull Set<DefinitionExemption> exemptions, @Nonnull Path jsonFile) throws IOException {
-
-    Preconditions.checkNotNull(jsonFile);
-    Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: file name does not end with .json");
-
-    try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
-      sf_gson.toJson(exemptions, writer);
-    }
-  }
 
   public Set<DefinitionExemption> deserializeExemptionsFromJson(@Nonnull Path jsonFile) throws IOException {
 

@@ -34,7 +34,6 @@ public class DefinitionManager {
   public static final Path DEFAULT_DEFINITION_DIR =
       PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
   public static final String EXEMPTIONS_FILE_NAME = "exemptions.json";
-  public static final String MESSAGES_TSV_FILE = "messages.tsv";
   public static final String MESSAGES_JSON_FILE = "messages.json";
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
@@ -102,20 +101,21 @@ public class DefinitionManager {
       Files.deleteIfExists(tmpFile);
     }
     if (messagesDir != null) {
-      Path tsvFile = messagesDir.resolve(MESSAGES_TSV_FILE);
-      Path jsonFile = messagesDir.resolve(MESSAGES_JSON_FILE);
+      tmpFile = Files.createTempFile("messages", ".tsv");
+      try {
+        Path jsonFile = messagesDir.resolve(MESSAGES_JSON_FILE);
+        sh.downloadMessagesFile(tmpFile);
+        List<MessageAnnotation> messages = Files.lines(tmpFile)
+            .skip(1) // skip the header
+            .map(MessageAnnotation::new)
+            .collect(Collectors.toList());
 
-      sh.downloadMessagesFile(tsvFile);
-      List<MessageAnnotation> messages = Files.lines(tsvFile)
-          .skip(1) // skip the header
-          .map(MessageAnnotation::new)
-          .collect(Collectors.toList());
-
-      try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
-        writer.write(sf_gson.toJson(messages));
+        try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
+          writer.write(sf_gson.toJson(messages));
+        }
+      } finally {
+        Files.deleteIfExists(tmpFile);
       }
-
-      Files.delete(tsvFile);
     }
   }
 
@@ -148,6 +148,6 @@ public class DefinitionManager {
 
   private void transformExemptions(@Nonnull Path tsvFile, @Nonnull Path jsonFile) throws IOException {
     GeneratedDefinitionSerializer serializer = new GeneratedDefinitionSerializer();
-    serializer.serializeExemptionsToJson(serializer.deserializeExemptionsFromTsv(tsvFile), jsonFile);
+    serializer.serializeToJson(serializer.deserializeExemptionsFromTsv(tsvFile), jsonFile);
   }
 }
