@@ -3,6 +3,8 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 import java.util.Optional;
 import javax.annotation.Nonnull;
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 
@@ -141,5 +143,29 @@ public class Haplotype implements Comparable<Haplotype> {
       return rez;
     }
     return 0;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (!(o instanceof Haplotype)) {
+      return false;
+    }
+    if (o == this) {
+      return true;
+    }
+
+    Haplotype h = (Haplotype)o;
+    return new EqualsBuilder()
+        .append(m_gene, h.getGene())
+        .append(m_name, h.getName())
+        .isEquals();
+  }
+
+  @Override
+  public int hashCode() {
+    return new HashCodeBuilder(31, 167)
+        .append(m_gene)
+        .append(m_name)
+        .toHashCode();
   }
 }
