@@ -90,6 +90,10 @@ jacocoTestReport {
 
 
 jar {
+  doFirst {
+    println 'Download guidelines...'
+    downloadGuidelines
+  }
   manifest {
     attributes 'Implementation-Title': project.name
     attributes 'Implementation-Version': project.version
@@ -118,14 +122,22 @@ task sourcesJar(type: Jar) {
   from sourceSets.main.allSource
 }
 
-/*
-task downloadResources(type: JavaExec, dependsOn: 'classes') {
-  main = 'org.pharmgkb.pharmcat.definition.DataManager'
+task downloadGuidelines(type: JavaExec, dependsOn: 'classes') {
+  main = 'org.pharmgkb.pharmcat.util.DataManager'
   classpath = sourceSets.main.runtimeClasspath
-  def argList = ['-in', 'd:\\Mark\\Dev\\PharmCAT\\build\\dr-in', '-out', 'd:\\Mark\\Dev\\PharmCAT\\build\\dr-out']
+  def argList = ['-g', file('src/main/resources/org/pharmgkb/pharmcat/reporter/guidelines'),
+                 '-sm', '-sa']
   args argList
 }
-*/
+
+task updateData(type: JavaExec, dependsOn: 'classes') {
+  main = 'org.pharmgkb.pharmcat.util.DataManager'
+  classpath = sourceSets.main.runtimeClasspath
+  def argList = ['-a', file('src/main/resources/org/pharmgkb/pharmcat/definition/alleles'),
+                 '-m', file('src/main/resources/org/pharmgkb/pharmcat/reporter'),
+                 '-sg']
+  args argList
+}
 
 artifacts {
   archives jar
