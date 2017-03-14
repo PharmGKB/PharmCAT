@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat;
 
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Date;
 import java.util.regex.Matcher;
@@ -9,13 +10,14 @@ import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
+import org.apache.commons.io.FileUtils;
 import org.pharmgkb.common.io.util.CliHelper;
-import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.reporter.Reporter;
+import org.pharmgkb.pharmcat.util.DataManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,12 +38,14 @@ public class PharmCAT {
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        .addOption("s", "sample-file", "input call file (VCF)", true, "c")
-        .addOption("n", "annotation-dir", "directory of guideline annotations (JSON files)", true, "n")
+        .addOption("vcf", "sample-file", "input call file (VCF)", true, "vcf")
         .addOption("o", "output-dir", "directory to output to", true, "o")
-        .addOption("f", "output-file", "the output name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "f")
-        .addOption("l", "alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
+        .addOption("f", "output-file", "the base name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "f")
         .addOption("a", "astrolabe-file", "path to astrolabe result file (TSV)", false, "a")
+        // optional data
+        .addOption("g", "guidelines-dir", "directory of guideline annotations (JSON files)", false, "n")
+        .addOption("na", "alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
+        // controls
         .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files");
 
     try {
@@ -49,18 +53,20 @@ public class PharmCAT {
         System.exit(1);
       }
 
-      Path inputFile = cliHelper.getValidFile("s", true);
+      Path vcfFile = cliHelper.getValidFile("vcf", true);
       Path outputDir = cliHelper.getValidDirectory("o", true);
-      Path annoDir = cliHelper.getValidDirectory("n", false);
-
       Path astrolabeFile = null;
       if (cliHelper.hasOption("a")) {
         astrolabeFile = cliHelper.getPath("a");
       }
 
-      Path allelesDir = null;
-      if (cliHelper.hasOption("l")) {
-        allelesDir = cliHelper.getValidDirectory("l", false);
+      Path guidelinesDir = null;
+      if (cliHelper.hasOption("g")) {
+        guidelinesDir = cliHelper.getValidDirectory("g", false);
+      }
+      Path definitionsDir = null;
+      if (cliHelper.hasOption("na")) {
+        definitionsDir = cliHelper.getValidDirectory("l", false);
       }
 
       String outputFile = null;
@@ -68,11 +74,11 @@ public class PharmCAT {
         outputFile = cliHelper.getValue("f");
       }
 
-      PharmCAT pharmcat = new PharmCAT(outputDir, allelesDir, annoDir);
+      PharmCAT pharmcat = new PharmCAT(outputDir, definitionsDir, guidelinesDir);
       if (cliHelper.hasOption("k")) {
         pharmcat.keepMatcherOutput();
       }
-      pharmcat.execute(inputFile, astrolabeFile, outputFile);
+      pharmcat.execute(vcfFile, astrolabeFile, outputFile);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -84,71 +90,73 @@ public class PharmCAT {
    * Sets up all the necessary supporting objects in order to run the matcher and the reporter.
    *
    * @param outputDir Path to the directory to write output to
-   * @param allelesDir Path to the directory where allele definitions are, null will use default definitions
-   * @param annoDir Path to the directory where guideline annotations are
+   * @param definitionsDir Path to the directory where allele definitions are, null will use default definitions
+   * @param guidelinesDir Path to the directory where guideline annotations are, null will use default annotations
    * @throws IOException can be throwsn if filesystem objects not in proper state
    */
-  public PharmCAT(@Nonnull Path outputDir, @Nullable Path allelesDir, @Nonnull Path annoDir) throws IOException {
+  public PharmCAT(@Nonnull Path outputDir, @Nullable Path definitionsDir, @Nullable Path guidelinesDir)
+      throws IOException {
 
     boolean madeDir = outputDir.toFile().mkdirs();
     if (madeDir) {
-      sf_logger.info("Directory didn't exist so created "+outputDir);
+      sf_logger.info("Directory didn't exist so created {}", outputDir);
     }
+    Preconditions.checkArgument(Files.isDirectory(outputDir), "Not a directory: %s", outputDir);
 
-    if (allelesDir == null) {
-      allelesDir = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
+    if (definitionsDir == null) {
+      definitionsDir = DataManager.DEFAULT_DEFINITION_DIR;
     }
+    Preconditions.checkArgument(Files.isDirectory(definitionsDir), "Not a directory: %s", definitionsDir);
 
-    Preconditions.checkArgument(outputDir.toFile().exists(), "output directory doesn't exist");
-    Preconditions.checkArgument(outputDir.toFile().isDirectory(), "output path is not a directory");
-
-    Preconditions.checkArgument(allelesDir.toFile().exists(), "path to allele definitions does not exist");
-    Preconditions.checkArgument(allelesDir.toFile().isDirectory(), "alleles directory path is not a directory");
-
-    Preconditions.checkArgument(annoDir.toFile().exists(), "path to annotations definitions does not exist");
-    Preconditions.checkArgument(annoDir.toFile().isDirectory(), "annotations directory path is not a directory");
+    if (guidelinesDir == null) {
+      guidelinesDir = DataManager.DEFAULT_GUIDELINE_DIR;
+    }
+    Preconditions.checkArgument(Files.isDirectory(guidelinesDir), "Not a directory: %s", guidelinesDir);
 
     DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(allelesDir);
+    definitionReader.read(definitionsDir);
 
     m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
-    m_reporter = new Reporter(annoDir);
+    m_reporter = new Reporter(guidelinesDir);
     m_outputDir = outputDir;
 
-    sf_logger.info("Using alleles: " + allelesDir);
-    sf_logger.info("Using annotations: " + annoDir);
-    sf_logger.info("Writing to: " + outputDir);
+    sf_logger.info("Using alleles: {}", definitionsDir);
+    sf_logger.info("Using annotations: {}", guidelinesDir);
+    sf_logger.info("Writing to: {}", outputDir);
   }
 
   /**
    * Executes the {@link NamedAlleleMatcher} then the {@link Reporter} on the given sample data
-   * @param inputFile the input sample VCF file
+   * @param vcfFile the input sample VCF file
    * @param astrolabeFile the optional input astrolabe TSV file
    * @param outputFile the optional name to write the output to
    * @throws Exception can occur from file I/O or unexpected state
    */
-  public void execute(@Nonnull Path inputFile, @Nullable Path astrolabeFile, @Nullable String outputFile) throws Exception {
-    Preconditions.checkArgument(inputFile.toFile().exists(), "input file does not exist");
-    Preconditions.checkArgument(inputFile.toFile().isFile(), "input path is not a file");
+  public void execute(@Nonnull Path vcfFile, @Nullable Path astrolabeFile, @Nullable String outputFile) throws Exception {
+    Preconditions.checkArgument(Files.isRegularFile(vcfFile), "Not a file: %s", vcfFile);
 
     sf_logger.info("Run time: " + new Date());
-    String fileRoot = makeFileRoot(inputFile, outputFile);
+    String fileRoot = makeFileRoot(vcfFile, outputFile);
 
-    Path callPath = m_outputDir.resolve(fileRoot + ".call.json");
-    Path reportPath = m_outputDir.resolve(fileRoot + ".report.html");
+    Path callFile = m_outputDir.resolve(fileRoot + ".call.json");
+    if (!m_keepMatcherOutput) {
+      callFile.toFile().deleteOnExit();
+    }
 
-    Result result = m_namedAlleleMatcher.call(inputFile);
+    Result result = m_namedAlleleMatcher.call(vcfFile);
     ResultSerializer resultSerializer = new ResultSerializer();
-    resultSerializer.toJson(result, callPath);
+    resultSerializer.toJson(result, callFile);
     if (m_keepMatcherOutput) {
       resultSerializer.toHtml(result, m_outputDir.resolve(fileRoot + ".matcher.html"));
     }
 
-    m_reporter.analyze(callPath, astrolabeFile);
+    m_reporter.analyze(callFile, astrolabeFile);
+
+    Path reportPath = m_outputDir.resolve(fileRoot + ".report.html");
     m_reporter.printHtml(reportPath, fileRoot);
 
     if (!m_keepMatcherOutput) {
-      callPath.toFile().deleteOnExit();
+      FileUtils.deleteQuietly(callFile.toFile());
     }
 
     sf_logger.info("Completed");
