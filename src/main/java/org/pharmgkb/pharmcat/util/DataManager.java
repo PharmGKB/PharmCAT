@@ -9,6 +9,8 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Properties;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.zip.ZipFile;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
@@ -38,6 +40,7 @@ public class DataManager {
   public static final String DOSING_GUIDELINE_URL = "https://api.pharmgkb.org/v1/download/file/data/dosingGuidelines.json.zip?ref=pharmcat";
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   public static final String MESSAGES_JSON_FILE_NAME = "messages.json";
+  public static final String GUIDELINE_TIMESTAMP_FILE_NAME = "timestamp.txt";
   private String m_googleUser;
   private String m_googleKey;
   private DataSerializer m_dataSerializer = new DataSerializer();
@@ -164,10 +167,13 @@ public class DataManager {
   /**
    * Does the work for stepping through the files and applying the format.
    */
-  private void transformAlleleDefinitions(@Nonnull Path downloadDir, @Nonnull Path outDir) throws IOException {
+  private void transformAlleleDefinitions(@Nonnull Path downloadDir, @Nonnull Path definitionsDir) throws IOException {
 
     System.out.println();
-    System.out.println("Saving allele definitions in " + outDir.toString());
+    System.out.println("Saving allele definitions in " + definitionsDir.toString());
+    Set<String> currentFiles = Files.list(definitionsDir)
+        .map(PathUtils::getFilename)
+        .collect(Collectors.toSet());
     try (DirectoryStream<Path> files = Files.newDirectoryStream(downloadDir, f -> f.toString().endsWith("_translation.tsv"))) {
       for (Path file : files) {
         if (m_verbose) {
@@ -182,13 +188,15 @@ public class DataManager {
               .forEach(System.out::println);
         }
 
-        Path jsonFile = outDir.resolve(PathUtils.getBaseFilename(file) + ".json");
+        Path jsonFile = definitionsDir.resolve(PathUtils.getBaseFilename(file) + ".json");
         m_dataSerializer.serializeToJson(definitionFile, jsonFile);
         if (m_verbose) {
           System.out.println("Wrote " + jsonFile);
         }
+        currentFiles.remove(PathUtils.getFilename(jsonFile));
       }
     }
+    deleteObsoleteFiles(definitionsDir, currentFiles);
   }
 
   private void transformExemptions(@Nonnull Path tsvFile, @Nonnull Path jsonFile) throws IOException {
@@ -225,23 +233,54 @@ public class DataManager {
 
     System.out.println();
     System.out.println("Saving guidelines to " + guidelinesDir.toString());
+
+    Set<String> currentFiles = Files.list(guidelinesDir)
+        .map(PathUtils::getFilename)
+        .collect(Collectors.toSet());
     try (ZipFile zip = new ZipFile(zipFile.toFile())) {
+      // extract timestamp
       zip.stream()
-          .filter(ze -> {
-            String name = ze.getName().toLowerCase();
-            return name.matches("cpic_.*\\.json") || name.matches("created_.*\\.txt");
-          })
+          .filter(ze -> ze.getName().toLowerCase().matches("created_.*\\.txt"))
           .forEachOrdered(ze -> {
             try (InputStream inputStream = zip.getInputStream(ze);
-                 OutputStream out = Files.newOutputStream(guidelinesDir.resolve(ze.getName()))) {
+                 OutputStream out = Files.newOutputStream(guidelinesDir.resolve(GUIDELINE_TIMESTAMP_FILE_NAME))) {
               if (m_verbose) {
                 System.out.println("Extracting " + ze.getName());
               }
               IOUtils.copy(inputStream, out);
+              currentFiles.remove(GUIDELINE_TIMESTAMP_FILE_NAME);
             } catch (IOException ex) {
               throw new RuntimeException("Error extracting " + ze.getName(), ex);
             }
           });
+      // exstract CPIC .json files
+      zip.stream()
+          .filter(ze -> ze.getName().toLowerCase().matches("cpic_.*\\.json"))
+          .forEachOrdered(ze -> {
+            Path file = guidelinesDir.resolve(ze.getName());
+            try (InputStream inputStream = zip.getInputStream(ze);
+                 OutputStream out = Files.newOutputStream(file)) {
+              if (m_verbose) {
+                System.out.println("Extracting " + ze.getName());
+              }
+              IOUtils.copy(inputStream, out);
+              currentFiles.remove(PathUtils.getFilename(file));
+            } catch (IOException ex) {
+              throw new RuntimeException("Error extracting to " + file, ex);
+            }
+          });
+      // remove obsolete files
+      deleteObsoleteFiles(guidelinesDir, currentFiles);
+    }
+  }
+
+
+  private void deleteObsoleteFiles(@Nonnull Path dir, @Nonnull Set<String> obsoleteFilenames) {
+
+    for (String filename : obsoleteFilenames) {
+      Path file = dir.resolve(filename);
+      System.out.println("Deleting obsolete file: " + file);
+      FileUtils.deleteQuietly(file.toFile());
     }
   }
 }
