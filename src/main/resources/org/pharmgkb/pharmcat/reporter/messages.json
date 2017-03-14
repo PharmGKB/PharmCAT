@@ -16,7 +16,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "Warning!: haplotype matches *17 (increased function), however due to the lack of coverage for *4B we can\u0027t also rule out this position (no function)."
+    "message": "Warning!: haplotype matches *17 (increased function), however due to the lack of coverage for *4B we can't also rule out this position (no function)."
   },
   {
     "rule_name": "CYP2C19 *17 missing",
@@ -50,7 +50,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "We have detected *1/*3A. Most likely the diplotype is *1/*3A but *3B/*3C can\u0027t be ruled out."
+    "message": "We have detected *1/*3A. Most likely the diplotype is *1/*3A but *3B/*3C can't be ruled out."
   },
   {
     "rule_name": "TPMT reverse complement footnote",
@@ -208,7 +208,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "Alternate name for rs9923231 is -1639. VKORC1 is on the reverse DNA strand relative to chromosomal numbering.  Bases in this report are on the positive chromosomal strand. Estimate the anticipated stable dose of warfarin using the algorithms available at \u003ca href\u003d\"http://www.warfarindosing.org\"\u003ehttp://www.warfarindosing.org\u003c/a\u003e, the IWPC Pharmacogenetic Dosing Algorithm, or the FDA-approved drug label."
+    "message": "Alternate name for rs9923231 is -1639. VKORC1 is on the reverse DNA strand relative to chromosomal numbering.  Bases in this report are on the positive chromosomal strand. Estimate the anticipated stable dose of warfarin using the algorithms available at <a href=\"http://www.warfarindosing.org\">http://www.warfarindosing.org</a>, the IWPC Pharmacogenetic Dosing Algorithm, or the FDA-approved drug label."
   },
   {
     "rule_name": "DYPD *1/*2B ambiguity",
@@ -225,7 +225,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "*2B contains the variants for *2A and *5, so without phasing, *1/*2B and *2A/*5 can\u0027t be distinguished.  However, CPIC provides NO recommendation for *2B, though it lists the allele in supplemental table S1.  PharmCAT will return BOTH possible diplotypes with the SAME recommendation."
+    "message": "*2B contains the variants for *2A and *5, so without phasing, *1/*2B and *2A/*5 can't be distinguished.  However, CPIC provides NO recommendation for *2B, though it lists the allele in supplemental table S1.  PharmCAT will return BOTH possible diplotypes with the SAME recommendation."
   },
   {
     "rule_name": "DPYD reverse complement footnote",
@@ -410,7 +410,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The displayed SLCO1B1 CPIC recommendations are based on the rs4149056 genotype alone as per CPIC guideline. Carriage of additional variants is possible.\u003cbr\u003e\u003cbr\u003eSLCO1B1 alleles might be named by a star allele nomenclature, representing various SNPs alone or in combination. The minor C allele at rs4149056 is contained within SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles. These alleles are not accounted for in the recommendation based on rs4149056 genotype.\u003cbr\u003e\u003cbr\u003eThe SLCO1B1 diplotype (star nomenclature) will be displayed in addition to the rs4149056 genotype if determinable with the provided data based on the SLCO1B1 star allele definition published by CPIC.\u003cbr\u003e\u003cbr\u003eA number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as \u0027possible decreased function\u0027 alleles."
+    "message": "The displayed SLCO1B1 CPIC recommendations are based on the rs4149056 genotype alone as per CPIC guideline. Carriage of additional variants is possible.<br><br>SLCO1B1 alleles might be named by a star allele nomenclature, representing various SNPs alone or in combination. The minor C allele at rs4149056 is contained within SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles. These alleles are not accounted for in the recommendation based on rs4149056 genotype.<br><br>The SLCO1B1 diplotype (star nomenclature) will be displayed in addition to the rs4149056 genotype if determinable with the provided data based on the SLCO1B1 star allele definition published by CPIC.<br><br>A number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as 'possible decreased function' alleles."
   },
   {
     "rule_name": "warfarin figure 2 note",
@@ -427,6 +427,6 @@
       ]
     },
     "exception_type": "note",
-    "message": "Please follow the flow chart in figure 2 of the \u003ca href\u003d\"https://www.pharmgkb.org/guideline/PA166104949\"\u003eCPIC warfarin guideline\u003c/a\u003e to determine the appropriate dosing recommendation."
+    "message": "Please follow the flow chart in figure 2 of the <a href=\"https://www.pharmgkb.org/guideline/PA166104949\">CPIC warfarin guideline</a> to determine the appropriate dosing recommendation."
   }
 ]

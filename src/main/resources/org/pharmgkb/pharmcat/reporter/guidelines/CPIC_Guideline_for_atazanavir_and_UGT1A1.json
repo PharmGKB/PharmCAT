@@ -1,0 +1,381 @@
+{
+  "guideline" : {
+    "objCls" : "Guideline",
+    "@id" : "https://api.pharmgkb.org/data/guideline/PA166128738",
+    "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+    "id" : "PA166128738",
+    "name" : "CPIC Guideline for atazanavir and UGT1A1",
+    "history" : [ {
+      "id" : 1446898242,
+      "date" : "2015-09-18T00:00:00-07:00",
+      "type" : "create",
+      "version" : 1
+    } ],
+    "relatedChemicals" : [ {
+      "objCls" : "Chemical",
+      "@id" : "https://api.pharmgkb.org/data/chemical/PA10251",
+      "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+      "id" : "PA10251",
+      "name" : "atazanavir",
+      "version" : 4
+    } ],
+    "relatedGenes" : [ {
+      "objCls" : "Gene",
+      "@id" : "https://api.pharmgkb.org/data/gene/PA420",
+      "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+      "id" : "PA420",
+      "symbol" : "UGT1A1",
+      "name" : "UDP glucuronosyltransferase 1 family, polypeptide A1",
+      "version" : 6108
+    } ],
+    "source" : "CPIC",
+    "summaryMarkdown" : {
+      "id" : 1447982423,
+      "externalLinks" : [ ],
+      "html" : "<p>The CPIC dosing guideline recommends considering advising individuals who carry two decreased function <em>UGT1A1</em> alleles about a substantial likelihood of developing jaundice, which may cause non-adherence. The dosing guideline recommends that alternative agents be considered if the risk of non-adherence due to jaundice is high. The risk of discontinuation is low and very low for individuals carrying one, or no decreased function <em>UGT1A1</em> alleles, respectively.</p>\n",
+      "internalLinks" : [ ],
+      "markdown" : "The CPIC dosing guideline recommends considering advising individuals who carry two decreased function _UGT1A1_ alleles about a substantial likelihood of developing jaundice, which may cause non-adherence. The dosing guideline recommends that alternative agents be considered if the risk of non-adherence due to jaundice is high. The risk of discontinuation is low and very low for individuals carrying one, or no decreased function _UGT1A1_ alleles, respectively.",
+      "pmids" : [ ],
+      "relatedObjects" : [ ],
+      "version" : 0
+    },
+    "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+    "textMarkdown" : {
+      "id" : 1447982422,
+      "externalLinks" : [ "https://cpicpgx.org/", "https://github.com/PharmGKB/cpic-guidelines/raw/master/atazanavir/2015/26417955-UGT1A1_allele_frequency.xlsx", "https://github.com/PharmGKB/cpic-guidelines/raw/master/atazanavir/2015/26417955-supplement.pdf", "https://github.com/PharmGKB/cpic-guidelines/raw/master/atazanavir/2015/26417955.pdf" ],
+      "html" : "<h3 id=\"april-2016\">April 2016</h3>\n<p><em>Advance online publication September 2015</em></p>\n<ul>\n<li>\n<p>Guidelines regarding the use of pharmacogenomic tests in determining whether atazanavir treatment should be undertaken have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2F\" target=\"_blank\">(CPIC)</a>.</p>\n</li>\n<li>\n<p>These guidelines are applicable to:</p>\n<ul>\n<li>Adults</li>\n<li>At the time of this writing there are no pediatric data regarding associations between <em>UGT1A1</em> genotypes and likelihood of bilirubin-related discontinuation of atazanavir. However, <em>UGT1A1</em> genotypes are expected to affect atazanavir-related hyperbilirubinemia similarly in adults and children. Therefore, recommendations for adults may be directly adapted to pediatric patients.</li>\n</ul>\n</li>\n<li>\n<p>Download and read:</p>\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fatazanavir%2F2015%2F26417955.pdf\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Atazanavir and <em>UGT1A1</em> Prescribing</a>.</li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fatazanavir%2F2015%2F26417955-supplement.pdf\" target=\"_blank\">2015 Supplement</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fatazanavir%2F2015%2F26417955-UGT1A1_allele_frequency.xlsx\" target=\"_blank\">UGT1A1 Allele Frequencies</a></li>\n</ul>\n</li>\n</ul>\n<h3 id=\"table-1-recommended-therapeutic-use-of-atazanavir-based-on-ugt1a1-genotype\">Table 1: Recommended therapeutic use of atazanavir based on <em>UGT1A1</em> genotype</h3>\n<p><em>Adapted from Tables 1 and 2 of the 2015 guideline manuscript.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>Likely phenotype</th><th>Genotypes</th><th>Examples of diplotypes</th><th>Implications for phenotypic measures</th><th>Recommendations for atazanavir therapy</th><th>Classification of recommendation for atazanavir therapy</th></tr>\n</thead>\n<tbody>\n<tr><td>Extensive Metabolizer</td><td>An individual carrying 2 reference <sup>b</sup> function and/or increased function alleles; or individuals of genotype CC at <a href=\"/variant/PA166155607\">rs887829</a></td><td>*1/*1; *1/*36; *36/*36; <a href=\"/variant/PA166155607\">rs887829</a> CC</td><td>Reference <sup>c</sup> UGT1A1 activity; very low likelihood of bilirubin-related discontinuation of atazanavir.</td><td>There is no need to avoid prescribing of atazanavir based on <em>UGT1A1</em> genetic test result.</td><td>Strong</td></tr>\n<tr><td>Intermediate Metabolizer</td><td>An individual carrying one reference <sup>b</sup> function (*1) <sup>c</sup> or increased function allele (*36) plus one decreased function allele (*6, *28, *37). Alternatively identified by heterozygosity for <a href=\"/variant/PA166155607\">rs887829</a> C/T.</td><td>*1/*28; *1/*37; *36/*28; *36/*37; <a href=\"/variant/PA166155607\">rs887829</a> C/T, *1/*6</td><td>Somewhat decreased UGT1A1 activity; low likelihood of bilirubin-related discontinuation of atazanavir.</td><td>There is no need to avoid prescribing of atazanavir based on <em>UGT1A1</em> genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient’s genotype makes this unlikely</td><td>Strong</td></tr>\n<tr><td>Poor Metabolizer</td><td>An individual carrying two decreased function alleles (*6, *28, *37). Alternatively identified by homozygosity for <a href=\"/variant/PA166155607\">rs887829</a> T/T (*80/*80)</td><td>*28/*28; *28/*37; *37/*37; <a href=\"/variant/PA166155607\">rs887829</a> T/T (*80/*80), *6/*6 <sup>a</sup></td><td>Markedly decreased UGT1A1 activity; high likelihood of bilirubin-related discontinuation of atazanavir.</td><td>Consider an alternative agent particularly where jaundice would be of concern to the patient.</td><td>Strong</td></tr>\n</tbody>\n</table>\n<p><sup>a</sup> Homozygosity for UGT1A1*6, which occurs almost exclusively in individuals of Asian descent, is associated with Gilbert syndrome. However, at this time, it is unclear if patients with this diplotype are at increased risk of severe atazanavir-associated hyperbilirubinemia.</p>\n<p><sup>b</sup> “reference” function refers to the UGT1A1 alleles to which other alleles are compared.</p>\n<p><sup>c</sup> The reference function *1 allele is a fully functional refers to the <a href=\"/variant/PA166159020\">rs8175347</a> TA6 allele.</p>\n",
+      "internalLinks" : [ ],
+      "markdown" : "## April 2016\r\n\r\n_Advance online publication September 2015_\r\n- Guidelines regarding the use of pharmacogenomic tests in determining whether atazanavir treatment should be undertaken have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/ ).\r\n\r\n- These guidelines are applicable to:\r\n  - Adults\r\n  - At the time of this writing there are no pediatric data regarding associations between _UGT1A1_ genotypes and likelihood of bilirubin-related discontinuation of atazanavir. However, _UGT1A1_ genotypes are expected to affect atazanavir-related hyperbilirubinemia similarly in adults and children. Therefore, recommendations for adults may be directly adapted to pediatric patients.\r\n- Download and read:\r\n  - [Clinical Pharmacogenetics Implementation Consortium Guidelines for Atazanavir and _UGT1A1_ Prescribing](https://github.com/PharmGKB/cpic-guidelines/raw/master/atazanavir/2015/26417955.pdf).\r\n  - [2015 Supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/atazanavir/2015/26417955-supplement.pdf)\r\n  - [UGT1A1 Allele Frequencies](https://github.com/PharmGKB/cpic-guidelines/raw/master/atazanavir/2015/26417955-UGT1A1_allele_frequency.xlsx)\r\n\r\n## Table 1: Recommended therapeutic use of atazanavir based on _UGT1A1_ genotype\r\n\r\n_Adapted from Tables 1 and 2 of the 2015 guideline manuscript._\r\n\r\n| Likely phenotype | Genotypes | Examples of diplotypes | Implications for phenotypic measures   | Recommendations for atazanavir therapy | Classification of recommendation for atazanavir therapy |\r\n| --- | --- | --- | --- | --- | --- |\r\n|Extensive Metabolizer | An individual carrying 2 reference ^b^ function and/or increased function alleles; or individuals of genotype CC at [variant:rs887829] | *1/*1; *1/*36; *36/*36; [variant:rs887829] CC| Reference ^c^ UGT1A1 activity; very low likelihood of bilirubin-related discontinuation of atazanavir.  |  There is no need to avoid prescribing of atazanavir based on _UGT1A1_ genetic test result.  |  Strong |\r\n|Intermediate Metabolizer  | An individual carrying one reference ^b^ function (*1) ^c^ or increased function allele (*36) plus one decreased function allele (*6, *28, *37). Alternatively identified by heterozygosity for [variant:rs887829] C/T. | *1/*28; *1/*37; *36/*28; *36/*37; [variant:rs887829] C/T, *1/*6 | Somewhat decreased UGT1A1 activity; low likelihood of bilirubin-related discontinuation of atazanavir. | There is no need to avoid prescribing of atazanavir based on _UGT1A1_ genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient’s genotype makes this unlikely |  Strong |\r\n|Poor Metabolizer  | An individual carrying two decreased function alleles (*6, *28, *37). Alternatively identified by homozygosity for [variant:rs887829] T/T (*80/*80) | *28/*28; *28/*37; *37/*37; [variant:rs887829] T/T (*80/*80), *6/*6 ^a^ | Markedly decreased UGT1A1 activity; high likelihood of bilirubin-related discontinuation of atazanavir. | Consider an alternative agent particularly where jaundice would be of concern to the patient. |  Strong |\r\n\r\n^a^ Homozygosity for UGT1A1*6, which occurs almost exclusively in individuals of Asian descent, is associated with Gilbert syndrome. However, at this time, it is unclear if patients with this diplotype are at increased risk of severe atazanavir-associated hyperbilirubinemia.\r\n\r\n^b^ “reference” function refers to the UGT1A1 alleles to which other alleles are compared.\r\n\r\n^c^ The reference function *1 allele is a fully functional refers to the [variant:rs8175347] TA6 allele.",
+      "pmids" : [ ],
+      "relatedObjects" : [ "PA166155607", "PA166159020" ],
+      "version" : 6
+    },
+    "version" : 26,
+    "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-atazanavir-and-ugt1a1/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983449,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-atazanavir-and-ugt1a1%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-atazanavir-and-ugt1a1/"} ]
+  },
+  "annotationGroups" : [ {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128739",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128739",
+    "name" : "Extensive Metabolizer",
+    "annotations" : [ {
+      "id" : 1445558348,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986766,
+        "externalLinks" : [ ],
+        "html" : "<p>Reference UGT1A1 activity; very low likelihood of bilirubin-related discontinuation of atazanavir.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Reference UGT1A1 activity; very low likelihood of bilirubin-related discontinuation of atazanavir.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 5
+    }, {
+      "id" : 1445558347,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986765,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying 2 reference function and/or increased function alleles; or individuals of genotype CC at <a href=\"/variant/PA166155607\">rs887829</a></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying 2 reference function and/or increased function alleles; or individuals of genotype CC at [variant:rs887829]",
+        "pmids" : [ ],
+        "relatedObjects" : [ "PA166155607" ],
+        "version" : 4
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 8
+    }, {
+      "id" : 1445558349,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986767,
+        "externalLinks" : [ ],
+        "html" : "<p>There is no need to avoid prescribing of atazanavir based on <em>UGT1A1</em> genetic test result.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "There is no need to avoid prescribing of atazanavir based on _UGT1A1_ genetic test result.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 5
+    } ],
+    "genePhenotypes" : [ "UGT1A1:Extensive Metabolizer/Extensive Metabolizer" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166128738",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166128738",
+      "name" : "CPIC Guideline for atazanavir and UGT1A1",
+      "version" : 26
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 9
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128740",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128740",
+    "name" : "Intermediate Metabolizer",
+    "annotations" : [ {
+      "id" : 1445558351,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986769,
+        "externalLinks" : [ ],
+        "html" : "<p>Somewhat decreased UGT1A1 activity; low likelihood of bilirubin- related discontinuation of atazanavir.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Somewhat decreased UGT1A1 activity; low likelihood of bilirubin- related discontinuation of atazanavir.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445558352,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986770,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one reference function (*1) or increased function allele (*36) plus one decreased function allele (*6, *28, *37). Alternatively identified by heterozygosity for <a href=\"/variant/PA166155607\">rs887829</a> C/T.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one reference function (*1) or increased function allele (*36) plus one decreased function allele (*6, *28, *37). Alternatively identified by heterozygosity for [variant:rs887829] C/T.",
+        "pmids" : [ ],
+        "relatedObjects" : [ "PA166155607" ],
+        "version" : 4
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 8
+    }, {
+      "id" : 1445558353,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986768,
+        "externalLinks" : [ ],
+        "html" : "<p>There is no need to avoid prescribing of atazanavir based on <em>UGT1A1</em> genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient’s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "There is no need to avoid prescribing of atazanavir based on _UGT1A1_ genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient’s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 5
+    } ],
+    "genePhenotypes" : [ "UGT1A1:Extensive Metabolizer/Poor Metabolizer" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166128738",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166128738",
+      "name" : "CPIC Guideline for atazanavir and UGT1A1",
+      "version" : 26
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 9
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128741",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128741",
+    "name" : "Poor Metabolizer",
+    "annotations" : [ {
+      "id" : 1445558354,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986771,
+        "externalLinks" : [ ],
+        "html" : "<p>Markedly decreased UGT1A1 activity; high likelihood of bilirubin- related discontinuation of atazanavir.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Markedly decreased UGT1A1 activity; high likelihood of bilirubin- related discontinuation of atazanavir.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445558355,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986772,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying two decreased function alleles (*6, *28, *37). Alternatively identified by homozygosity for <a href=\"/variant/PA166155607\">rs887829</a> T/T (*80/*80).</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying two decreased function alleles (*6, *28, *37). Alternatively identified by homozygosity for [variant:rs887829] T/T (*80/*80).",
+        "pmids" : [ ],
+        "relatedObjects" : [ "PA166155607" ],
+        "version" : 4
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 8
+    }, {
+      "id" : 1445558356,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986773,
+        "externalLinks" : [ ],
+        "html" : "<p>Consider an alternative agent particularly where jaundice would be of concern to the patient. If atazanavir is to be prescribed, there is a high likelihood of developing jaundice that will result in atazanavir discontinuation (at least 20% and as high as 60%). Homozygosity for <em>UGT1A1</em> *6, which occurs almost exclusively in individuals of Asian descent, is associated with Gilbert syndrome. However, at this time, it is unclear if patients with this diplotype are at increased risk of severe atazanavir-associated hyperbilirubinemia.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Consider an alternative agent particularly where jaundice would be of concern to the patient. If atazanavir is to be prescribed, there is a high likelihood of developing jaundice that will result in atazanavir discontinuation (at least 20% and as high as 60%). Homozygosity for _UGT1A1_ *6, which occurs almost exclusively in individuals of Asian descent, is associated with Gilbert syndrome. However, at this time, it is unclear if patients with this diplotype are at increased risk of severe atazanavir-associated hyperbilirubinemia.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 5
+    } ],
+    "genePhenotypes" : [ "UGT1A1:Poor Metabolizer/Poor Metabolizer" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166128738",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166128738",
+      "name" : "CPIC Guideline for atazanavir and UGT1A1",
+      "version" : 26
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 9
+  } ],
+  "genePhenotypes" : {
+    "UGT1A1" : {
+      "*1" : "Normal Function",
+      "*6" : "Decreased Function",
+      "*27" : "Decreased Function",
+      "*28" : "Decreased Function",
+      "*36" : "Increased Function",
+      "*37" : "Decreased Function",
+      "*60" : "Unknown or Uncertain Function",
+      "*80" : "Decreased Function"
+    }
+  }
+}

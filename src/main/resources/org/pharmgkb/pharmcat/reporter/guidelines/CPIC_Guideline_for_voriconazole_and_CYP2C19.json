@@ -1,0 +1,1019 @@
+{
+  "guideline" : {
+    "objCls" : "Guideline",
+    "@id" : "https://api.pharmgkb.org/data/guideline/PA166161537",
+    "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+    "id" : "PA166161537",
+    "name" : "CPIC Guideline for voriconazole and CYP2C19",
+    "history" : [ {
+      "id" : 1448530671,
+      "date" : "2016-12-02T00:00:00-08:00",
+      "type" : "create",
+      "version" : 0
+    } ],
+    "relatedChemicals" : [ {
+      "objCls" : "Chemical",
+      "@id" : "https://api.pharmgkb.org/data/chemical/PA10233",
+      "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+      "id" : "PA10233",
+      "name" : "voriconazole",
+      "version" : 4
+    } ],
+    "relatedGenes" : [ {
+      "objCls" : "Gene",
+      "@id" : "https://api.pharmgkb.org/data/gene/PA124",
+      "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+      "id" : "PA124",
+      "symbol" : "CYP2C19",
+      "name" : "cytochrome P450, family 2, subfamily C, polypeptide 19",
+      "version" : 7207
+    } ],
+    "source" : "CPIC",
+    "summaryMarkdown" : {
+      "id" : 1448432518,
+      "externalLinks" : [ ],
+      "html" : "<p>The CPIC dosing guideline for voriconazole recommends selecting an alternative agent that is not dependent on CYP2C19 metabolism in adults who are CYP2C19 ultrarapid metabolizers, rapid metabolizers or poor metabolizers. In pediatric patients, an alternative agent should be used in patients who are ultrarapid metabolizers or poor metabolizers. In pediatric rapid metabolizers, therapy should be initiated at recommended standard case dosing, then therapeutic dosing monitoring should be used to titrate dose to therapeutic trough concentrations.</p>\n",
+      "internalLinks" : [ ],
+      "markdown" : "The CPIC dosing guideline for voriconazole recommends selecting an alternative agent that is not dependent on CYP2C19 metabolism in adults who are CYP2C19 ultrarapid metabolizers, rapid metabolizers or poor metabolizers. In pediatric patients, an alternative agent should be used in patients who are ultrarapid metabolizers or poor metabolizers. In pediatric rapid metabolizers, therapy should be initiated at recommended standard case dosing, then therapeutic dosing monitoring should be used to titrate dose to therapeutic trough concentrations.",
+      "pmids" : [ ],
+      "relatedObjects" : [ ],
+      "version" : 0
+    },
+    "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+    "textMarkdown" : {
+      "id" : 1448432597,
+      "externalLinks" : [ "https://cpicpgx.org/", "https://github.com/PharmGKB/cpic-guidelines/raw/master/voriconazole/2016/Voriconazole_Drug_Resource_Mappings.xlsx", "https://github.com/PharmGKB/cpic-guidelines/raw/master/voriconazole/2016/Voriconazole_Pre_and_Post_Test_Alerts_and_Flow_Chart.xlsx", "https://www.ncbi.nlm.nih.gov/pubmed/20083681", "https://www.ncbi.nlm.nih.gov/pubmed/27441996" ],
+      "html" : "<h3 id=\"december-2016\">December 2016</h3>\n<ul>\n<li>\n<p>Guidelines regarding the use of pharmacogenomic tests in dosing for voriconazole have been published in Clinical Pharmacology and Therapeutics by the <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2F\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium (CPIC)</a>.</p>\n</li>\n<li>\n<p>These guidelines are applicable to:</p>\n<ul>\n<li>Adult patients (see Table 1 below)</li>\n<li>Pediatric patients (see Table 2 below)</li>\n</ul>\n</li>\n<li>\n<p>Download and read:</p>\n<ul>\n<li><a href=\"https://api.pharmgkb.org/v1/download/file/attachment/CPIC_CYP2C19_voriconazole_guideline.pdf\">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C19 and Voriconazole Therapy</a></li>\n<li><a href=\"https://api.pharmgkb.org/v1/download/file/attachment/CPIC_CYP2C19_voriconazole_guideline_supplement.pdf\">2016 Supplement</a></li>\n<li><a href=\"/page/cyp2c19RefMaterials\">Gene-specific Information Tables for CYP2C19</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fvoriconazole%2F2016%2FVoriconazole_Drug_Resource_Mappings.xlsx\" target=\"_blank\">Voriconazole Drug Resource Mappings</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fvoriconazole%2F2016%2FVoriconazole_Pre_and_Post_Test_Alerts_and_Flow_Chart.xlsx\" target=\"_blank\">Voriconazole Pre- and Post-Test Alerts and Flow Chart</a></li>\n</ul>\n</li>\n</ul>\n<h3 id=\"table-1-dosing-recommendations-for-voriconazole-treatment-based-on-cyp2c19-phenotype-for-adult-patients\">Table 1: Dosing recommendations for voriconazole treatment based on CYP2C19 phenotype for adult patients</h3>\n<p><em>Adapted from Tables 1 and 2 of the 2016 guideline manuscript.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>Likely Phenotype</th><th>Genotypes<sup>b</sup></th><th>Examples of diplotypes</th><th>Implications for pharmacologic measures</th><th>Therapeutic recommendations</th><th>Classification of Recommendations<sup>e</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>Ultrarapid metabolizer (~2-5% of patients)<sup>a</sup></td><td>An individual carrying two increased function alleles</td><td><em>*17/*17</em></td><td>In patients for whom an ultrarapid metabolizer genotype is identified, the probability of attainment of therapeutic voriconazole concentrations is small with standard dosing.</td><td>Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.<sup>f</sup></td><td>Moderate<sup>g</sup></td></tr>\n<tr><td>Rapid metabolizer (~2-30% of patients)<sup>a</sup></td><td>An individual carrying one normal function allele and one increased function allele</td><td><em>*1/*17</em></td><td>In patients for whom a rapid metabolizer genotype is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing.</td><td>Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.<sup>f</sup></td><td>Moderate</td></tr>\n<tr><td>Normal metabolizer<sup>c</sup> (~35-50% of patients)<sup>a</sup></td><td>An individual carrying two normal function alleles</td><td><em>*1/*1</em></td><td>Normal voriconazole metabolism</td><td>Initiate therapy with recommended standard of care dosing.<sup>f</sup></td><td>Strong</td></tr>\n<tr><td>Intermediate metabolizer (~18-45% of patients)<sup>a</sup></td><td>An individual carrying one normal function allele and one no function allele or one no function allele and one increased function allele</td><td><em>*1/*2, *1/*3, *2/*17<sup>d</sup></em></td><td>Higher dose-adjusted trough concentrations of voriconazole compared to normal metabolizers.</td><td>Initiate therapy with recommended standard of care dosing.<sup>f</sup></td><td>Moderate</td></tr>\n<tr><td>Poor metabolizer (~2-15% of patients)<sup>a</sup></td><td>An individual carrying two no function alleles</td><td><em>*2/*2, *2/*3, *3/*3</em></td><td>Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events.</td><td>Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.<sup>f</sup> In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.</td><td>Moderate</td></tr>\n</tbody>\n</table>\n<p><sup>a</sup> See the <a href=\"/page/cyp2c19RefMaterials\">CYP2C19 Frequency Table</a> for race specific allele and phenotype frequencies.</p>\n<p><sup>b</sup> Assignment of allele function can be found on PharmGKB (<a href=\"/page/cyp2c19RefMaterials\">CYP2C19 Allele Definition Table</a>) and citations for allele function can be on PharmGKB (<a href=\"/page/cyp2c19RefMaterials\">CYP2C19 Allele Functionality Table</a>).</p>\n<p><sup>c</sup> Based on the <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fwww.ncbi.nlm.nih.gov%2Fpubmed%2F27441996\" target=\"_blank\">CPIC term standardization project</a>, the term &quot;Normal Metabolizer&quot; will be used instead of the term &quot;Extensive Metabolizer&quot; in all new and updated CPIC guidelines.</p>\n<p><sup>d</sup> The predicted metabolizer phenotype for the <em>*2/*17</em> genotype is a provisional classification. The currently available evidence indicates that the <em>CYP2C19*17</em> increased function allele is unable to completely compensate for the no function <em>CYP2C19*2</em> (<a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fwww.ncbi.nlm.nih.gov%2Fpubmed%2F20083681\" target=\"_blank\">Sibbing <em>et al.</em>, 2010</a>). See the 2016 Supplement for a more comprehensive list of predicted metabolizer phenotypes.</p>\n<p><sup>e</sup> Rating scheme is described in the 2016 Supplement</p>\n<p><sup>f</sup> Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, TDM, and comorbidities.</p>\n<p><sup>g</sup> Recommendations based upon data extrapolated from patients with CYP2C19*1/*17 genotype</p>\n<hr />\n<h3 id=\"table-2-dosing-recommendations-for-voriconazole-treatment-based-on-cyp2c19-phenotype-for-pediatric-patients\">Table 2: Dosing recommendations for voriconazole treatment based on CYP2C19 phenotype for pediatric patients</h3>\n<p><em>Adapted from Tables 1 and 3 of the 2016 guideline manuscript.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>Likely Phenotype</th><th>Genotypes<sup>b</sup></th><th>Examples of diplotypes</th><th>Implications for pharmacologic measures</th><th>Therapeutic recommendations</th><th>Classification of Recommendations<sup>e</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>Ultrarapid metabolizer (~2-5% of patients)<sup>a</sup></td><td>An individual carrying two increased function alleles</td><td><em>*17/*17</em></td><td>In patients for whom an ultrarapid metabolizer genotype is identified, the probability of attainment of therapeutic voriconazole concentrations is small.</td><td>Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.<sup>f,g</sup></td><td>Moderate</td></tr>\n<tr><td>Rapid metabolizer (~2-30% of patients)<sup>a</sup></td><td>An individual carrying one normal function allele and one increased function allele</td><td><em>*1/*17</em></td><td>In patients for whom a rapid metabolizer genotype is identified, the probability of attainment of therapeutic concentrations is variable.</td><td>Initiate therapy with recommended standard case dosing.<sup>f</sup> Use therapeutic dose monitoring to titrate dose to therapeutic trough concentrations.<sup>g,h</sup></td><td>Moderate</td></tr>\n<tr><td>Normal metabolizer<sup>c</sup> (~35-50% of patients)<sup>a</sup></td><td>An individual carrying two normal function alleles</td><td><em>*1/*1</em></td><td>Normal voriconazole metabolism</td><td>Initiate therapy with recommended standard of care dosing.<sup>f</sup></td><td>Strong</td></tr>\n<tr><td>Intermediate metabolizer (~18-45% of patients)<sup>a</sup></td><td>An individual carrying one normal function allele and one no function allele or one no function allele and one increased function allele</td><td><em>*1/*2, *1/*3, *2/*17<sup>d</sup></em></td><td>Higher dose-adjusted trough concentrations of voriconazole compared to normal metabolizers.</td><td>Initiate therapy with recommended standard of care dosing.<sup>f</sup></td><td>Moderate</td></tr>\n<tr><td>Poor metabolizer (~2-15% of patients)<sup>a</sup></td><td>An individual carrying two no function alleles</td><td><em>*2/*2, *2/*3, *3/*3</em></td><td>Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events.</td><td>Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole<sup>f,i</sup>. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.</td><td>Moderate<sup>i</sup></td></tr>\n</tbody>\n</table>\n<p><sup>a</sup> See the <a href=\"/page/cyp2c19RefMaterials\">CYP2C19 frequency table</a> for race specific allele and phenotype frequencies.</p>\n<p><sup>b</sup> Assignment of allele function can be found on PharmGKB (<a href=\"/page/cyp2c19RefMaterials\">CYP2C19 Allele Definition Table</a>) and citations for allele function can be on PharmGKB (<a href=\"/page/cyp2c19RefMaterials\">CYP2C19 Allele Functionality Table</a>).</p>\n<p><sup>c</sup> Based on the <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fwww.ncbi.nlm.nih.gov%2Fpubmed%2F27441996\" target=\"_blank\">CPIC term standardization project</a>, the term &quot;Normal Metabolizer&quot; will be used instead of the term &quot;Extensive Metabolizer&quot; in all new and updated CPIC guidelines.</p>\n<p><sup>d</sup> The predicted metabolizer phenotype for the <em>*2/*17</em> genotype is a provisional classification. The currently available evidence indicates that the <em>CYP2C19*17</em> increased function allele is unable to completely compensate for the no function <em>CYP2C19*2</em> (<a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fwww.ncbi.nlm.nih.gov%2Fpubmed%2F20083681\" target=\"_blank\">Sibbing <em>et al.</em>, 2010</a>). See the 2016 Supplement for a more comprehensive list of predicted metabolizer phenotypes.</p>\n<p><sup>e</sup> Rating scheme is described in the 2016 Supplement</p>\n<p><sup>f</sup> Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, TDM, and comorbidities.</p>\n<p><sup>g</sup> Achieving voriconazole therapeutic concentrations in the pediatric population with ultrarapid and rapid metabolizer phenotypes in a timely manner is difficult. As critical time may be lost in achieving therapeutic concentrations, an alternative antifungal agent is recommended in order that the child receives effective antifungal therapy as soon as possible.</p>\n<p><sup>h</sup> Meticulous therapeutic drug monitoring is critical for rapid metabolizers. There is insufficient evidence to distinguish a CYP2C19*1/*17 and *1/*1 pediatric patient due to large variability in trough concentrations.</p>\n<p><sup>i</sup> Recommendation based upon data extrapolated from adults.</p>\n",
+      "internalLinks" : [ "/page/cyp2c19RefMaterials", "^attachment/CPIC_CYP2C19_voriconazole_guideline.pdf", "^attachment/CPIC_CYP2C19_voriconazole_guideline_supplement.pdf" ],
+      "markdown" : "## December 2016\r\n\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing for voriconazole have been published in Clinical Pharmacology and Therapeutics by the [Clinical Pharmacogenetics Implementation Consortium (CPIC)](https://cpicpgx.org/).\r\n\r\n- These guidelines are applicable to:\r\n   -  Adult patients (see Table 1 below) \r\n    - Pediatric patients (see Table 2 below)\r\n\r\n- Download and read:\r\n    - [Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C19 and Voriconazole Therapy](^CPIC_CYP2C19_voriconazole_guideline.pdf)\r\n    - [2016 Supplement](^CPIC_CYP2C19_voriconazole_guideline_supplement.pdf)\r\n    - [Gene-specific Information Tables for CYP2C19](/page/cyp2c19RefMaterials)\r\n    - [Voriconazole Drug Resource Mappings](https://github.com/PharmGKB/cpic-guidelines/raw/master/voriconazole/2016/Voriconazole_Drug_Resource_Mappings.xlsx)\r\n    - [Voriconazole Pre- and Post-Test Alerts and Flow Chart](https://github.com/PharmGKB/cpic-guidelines/raw/master/voriconazole/2016/Voriconazole_Pre_and_Post_Test_Alerts_and_Flow_Chart.xlsx)\r\n\r\n## Table 1: Dosing recommendations for voriconazole treatment based on CYP2C19 phenotype for adult patients\r\n\r\n_Adapted from Tables 1 and 2 of the 2016 guideline manuscript._\r\n\r\n| Likely Phenotype | Genotypes^b^ | Examples of diplotypes | Implications for pharmacologic measures | Therapeutic recommendations | Classification of Recommendations^e^|\r\n| --- | --- | --- | --- | --- | --- |\r\n| Ultrarapid metabolizer (~2-5% of patients)^a^| An individual carrying two increased function alleles | _*17/*17_ | In patients for whom an ultrarapid metabolizer genotype is identified, the probability of attainment of therapeutic voriconazole concentrations is small with standard dosing. | Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.^f^ | Moderate^g^ | \r\n| Rapid metabolizer (~2-30% of patients)^a^ | An individual carrying one normal function allele and one increased function allele | _*1/*17_ | In patients for whom a rapid metabolizer genotype is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing. | Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.^f^ | Moderate |\r\n| Normal metabolizer^c^ (~35-50% of patients)^a^| An individual carrying two normal function alleles | _*1/*1_ | Normal voriconazole metabolism | Initiate therapy with recommended standard of care dosing.^f^ | Strong |\r\n| Intermediate metabolizer (~18-45% of patients)^a^ | An individual carrying one normal function allele and one no function allele or one no function allele and one increased function allele | _*1/*2, *1/*3, *2/*17^d^_ | Higher dose-adjusted trough concentrations of voriconazole compared to normal metabolizers. | Initiate therapy with recommended standard of care dosing.^f^ | Moderate | \r\n| Poor metabolizer (~2-15% of patients)^a^| An individual carrying two no function alleles | _*2/*2, *2/*3, *3/*3_ | Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events. | Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.^f^ In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring. | Moderate |\r\n\r\n^a^ See the [CYP2C19 Frequency Table](/page/cyp2c19RefMaterials) for race specific allele and phenotype frequencies.\r\n\r\n^b^ Assignment of allele function can be found on PharmGKB ([CYP2C19 Allele Definition Table](/page/cyp2c19RefMaterials)) and citations for allele function can be on PharmGKB ([CYP2C19 Allele Functionality Table](/page/cyp2c19RefMaterials)).\r\n\r\n^c^ Based on the [CPIC term standardization project](https://www.ncbi.nlm.nih.gov/pubmed/27441996), the term \"Normal Metabolizer\" will be used instead of the term \"Extensive Metabolizer\" in all new and updated CPIC guidelines.\r\n\r\n^d^ The predicted metabolizer phenotype for the _*2/*17_ genotype is a provisional classification. The currently available evidence indicates that the _CYP2C19*17_ increased function allele is unable to completely compensate for the no function _CYP2C19*2_ ([Sibbing _et al._, 2010](https://www.ncbi.nlm.nih.gov/pubmed/20083681)). See the 2016 Supplement for a more comprehensive list of predicted metabolizer phenotypes.\r\n\r\n^e^ Rating scheme is described in the 2016 Supplement\r\n\r\n^f^ Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, TDM, and comorbidities.\r\n\r\n^g^ Recommendations based upon data extrapolated from patients with CYP2C19*1/*17 genotype\r\n\r\n----\r\n\r\n## Table 2: Dosing recommendations for voriconazole treatment based on CYP2C19 phenotype for pediatric patients\r\n\r\n_Adapted from Tables 1 and 3 of the 2016 guideline manuscript._\r\n\r\n| Likely Phenotype | Genotypes^b^ | Examples of diplotypes | Implications for pharmacologic measures | Therapeutic recommendations | Classification of Recommendations^e^ |\r\n| --- | --- | --- | --- | --- | --- |\r\n| Ultrarapid metabolizer (~2-5% of patients)^a^| An individual carrying two increased function alleles | _*17/*17_ | In patients for whom an ultrarapid metabolizer genotype is identified, the probability of attainment of therapeutic voriconazole concentrations is small. | Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.^f,g^ | Moderate | \r\n| Rapid metabolizer (~2-30% of patients)^a^| An individual carrying one normal function allele and one increased function allele | _*1/*17_ | In patients for whom a rapid metabolizer genotype is identified, the probability of attainment of therapeutic concentrations is variable. | Initiate therapy with recommended standard case dosing.^f^ Use therapeutic dose monitoring to titrate dose to therapeutic trough concentrations.^g,h^ | Moderate |\r\n| Normal metabolizer^c^ (~35-50% of patients)^a^| An individual carrying two normal function alleles | _*1/*1_ | Normal voriconazole metabolism | Initiate therapy with recommended standard of care dosing.^f^ | Strong |\r\n| Intermediate metabolizer (~18-45% of patients)^a^| An individual carrying one normal function allele and one no function allele or one no function allele and one increased function allele | _*1/*2, *1/*3, *2/*17^d^_ | Higher dose-adjusted trough concentrations of voriconazole compared to normal metabolizers. | Initiate therapy with recommended standard of care dosing.^f^ | Moderate | \r\n| Poor metabolizer (~2-15% of patients)^a^| An individual carrying two no function alleles | _*2/*2, *2/*3, *3/*3_ | Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events. | Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole^f,i^. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring. | Moderate^i^ | \r\n\r\n^a^ See the [CYP2C19 frequency table](/page/cyp2c19RefMaterials) for race specific allele and phenotype frequencies.\r\n\r\n^b^ Assignment of allele function can be found on PharmGKB ([CYP2C19 Allele Definition Table](/page/cyp2c19RefMaterials)) and citations for allele function can be on PharmGKB ([CYP2C19 Allele Functionality Table](/page/cyp2c19RefMaterials)).\r\n\r\n^c^ Based on the [CPIC term standardization project](https://www.ncbi.nlm.nih.gov/pubmed/27441996), the term \"Normal Metabolizer\" will be used instead of the term \"Extensive Metabolizer\" in all new and updated CPIC guidelines.\r\n\r\n^d^ The predicted metabolizer phenotype for the _*2/*17_ genotype is a provisional classification. The currently available evidence indicates that the _CYP2C19*17_ increased function allele is unable to completely compensate for the no function _CYP2C19*2_ ([Sibbing _et al._, 2010](https://www.ncbi.nlm.nih.gov/pubmed/20083681)). See the 2016 Supplement for a more comprehensive list of predicted metabolizer phenotypes.\r\n\r\n^e^ Rating scheme is described in the 2016 Supplement\r\n\r\n^f^ Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, TDM, and comorbidities.\r\n\r\n^g^ Achieving voriconazole therapeutic concentrations in the pediatric population with ultrarapid and rapid metabolizer phenotypes in a timely manner is difficult. As critical time may be lost in achieving therapeutic concentrations, an alternative antifungal agent is recommended in order that the child receives effective antifungal therapy as soon as possible.\r\n\r\n^h^ Meticulous therapeutic drug monitoring is critical for rapid metabolizers. There is insufficient evidence to distinguish a CYP2C19*1/*17 and *1/*1 pediatric patient due to large variability in trough concentrations.\r\n\r\n^i^ Recommendation based upon data extrapolated from adults.",
+      "pmids" : [ ],
+      "relatedObjects" : [ ],
+      "version" : 5
+    },
+    "version" : 13,
+    "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-voriconazole-and-cyp2c19/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1448432520,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-voriconazole-and-cyp2c19%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-voriconazole-and-cyp2c19/"} ]
+  },
+  "annotationGroups" : [ {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161550",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161550",
+    "name" : " Ultrarapid metabolizer",
+    "annotations" : [ {
+      "id" : 1448432728,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432727,
+        "externalLinks" : [ ],
+        "html" : "<p>In patients for whom an ultrarapid metabolizer genotype is identified, the probability of attainment of therapeutic voriconazole concentrations is small.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "In patients for whom an ultrarapid metabolizer genotype is identified, the probability of attainment of therapeutic voriconazole concentrations is small.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432730,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432729,
+        "externalLinks" : [ ],
+        "html" : "<p>Ultrarapid Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Ultrarapid Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432726,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432725,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying two increased function alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying two increased function alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432732,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432731,
+        "externalLinks" : [ ],
+        "html" : "<p>For pediatric or adult patients: choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "For pediatric or adult patients: choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 3
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Increased Function/Increased Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161537",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161537",
+      "name" : "CPIC Guideline for voriconazole and CYP2C19",
+      "version" : 13
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931",
+      "version" : 0
+    },
+    "version" : 3
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161557",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161557",
+    "name" : "Indeterminate",
+    "annotations" : [ ],
+    "genePhenotypes" : [ ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161537",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161537",
+      "name" : "CPIC Guideline for voriconazole and CYP2C19",
+      "version" : 13
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 0
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161553",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161553",
+    "name" : "Intermediate metabolizer",
+    "annotations" : [ {
+      "id" : 1448432696,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432695,
+        "externalLinks" : [ ],
+        "html" : "<p>Higher dose-adjusted trough concentrations of voriconazole compared to normal metabolizers.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Higher dose-adjusted trough concentrations of voriconazole compared to normal metabolizers.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432700,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432699,
+        "externalLinks" : [ ],
+        "html" : "<p>Intermediate Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432694,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432693,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one normal function allele and one no function allele or one no function allele and one increased function allele</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one normal function allele and one no function allele or one no function allele and one increased function allele",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432698,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432697,
+        "externalLinks" : [ ],
+        "html" : "<p>For pediatric or adult patients: initiate therapy with recommended standard of care dosing.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "For pediatric or adult patients: initiate therapy with recommended standard of care dosing.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 3
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Increased Function/No Function", "CYP2C19:No Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161537",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161537",
+      "name" : "CPIC Guideline for voriconazole and CYP2C19",
+      "version" : 13
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931",
+      "version" : 0
+    },
+    "version" : 3
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161555",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161555",
+    "name" : "Likely Intermediate Metabolizer",
+    "annotations" : [ {
+      "id" : 1448435233,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448435232,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying two decreased function alleles or one normal or increased function allele and one decreased function allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying two decreased function alleles or one normal or increased function allele and one decreased function allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448435229,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448435228,
+        "externalLinks" : [ ],
+        "html" : "<p>Likely to have higher dose-adjusted trough concentrations of voriconazole compared to normal metabolizers.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Likely to have higher dose-adjusted trough concentrations of voriconazole compared to normal metabolizers.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448435231,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448435230,
+        "externalLinks" : [ ],
+        "html" : "<p>Likely Intermediate Metabolizer</p>\n<p><em>Limited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with two decreased function alleles OR patients with one normal or increased function allele AND one decreased function allele are categorized as “likely intermediate metabolizers” (e.g., CYP2C19*1/*9, *9/*9, *9/*17). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed “likely intermediate” metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Likely Intermediate Metabolizer\r\n\r\n_Limited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with two decreased function alleles OR patients with one normal or increased function allele AND one decreased function allele are categorized as “likely intermediate metabolizers” (e.g., CYP2C19*1/*9, *9/*9, *9/*17). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed “likely intermediate” metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448435235,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448435234,
+        "externalLinks" : [ ],
+        "html" : "<p>The CPIC voriconazole guideline recommends for adult or pediatric intermediate metabolizers to initiate therapy with recommended standard of care dosing.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "The CPIC voriconazole guideline recommends for adult or pediatric intermediate metabolizers to initiate therapy with recommended standard of care dosing.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 3
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Decreased Function/Decreased Function", "CYP2C19:Decreased Function/Increased Function", "CYP2C19:Decreased Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161537",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161537",
+      "name" : "CPIC Guideline for voriconazole and CYP2C19",
+      "version" : 13
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 3
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161558",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161558",
+    "name" : "Likely poor metabolizer",
+    "annotations" : [ {
+      "id" : 1448435221,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448435220,
+        "externalLinks" : [ ],
+        "html" : "<p>Likely to have higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Likely to have higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448435223,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448435222,
+        "externalLinks" : [ ],
+        "html" : "<p>Likely Poor Metabolizer</p>\n<p><em>Limited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with one decreased function allele and one no function allele are categorized as “likely poor metabolizers” (e.g. CYP2C19*2/*9). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed “likely poor” metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Likely Poor Metabolizer\r\n\r\n_Limited data are available to assess the predicted phenotypes for rare CYP2C19 diplotype combinations that include CYP2C19 alleles with decreased function and that have low frequencies in the general population (e.g., *9, *10). Therefore, for the purpose of this guideline the following assignments have been proposed: patients with one decreased function allele and one no function allele are categorized as “likely poor metabolizers” (e.g. CYP2C19*2/*9). For many rare alleles, no information regarding enzyme activity is currently available, and those with functional data have only been determined by in vitro studies. Consequently, the proposed “likely poor” metabolizer assignments were developed for diplotypes that contain one allele with an established effect on enzyme activity and a second allele with limited or no available activity data._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448435225,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448435224,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one decreased function allele and one no function allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one decreased function allele and one no function allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448435227,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448435226,
+        "externalLinks" : [ ],
+        "html" : "<p>The CPIC voriconazole guideline recommends for adult or pediatric poor metabolizers to choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "The CPIC voriconazole guideline recommends for adult or pediatric poor metabolizers to choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 3
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Decreased Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161537",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161537",
+      "name" : "CPIC Guideline for voriconazole and CYP2C19",
+      "version" : 13
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 3
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161552",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161552",
+    "name" : "Normal metabolizer",
+    "annotations" : [ {
+      "id" : 1448432704,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432703,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal voriconazole metabolism</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal voriconazole metabolism",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432708,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432707,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432702,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432701,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying two normal function alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying two normal function alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432706,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432705,
+        "externalLinks" : [ ],
+        "html" : "<p>For pediatric or adult patients: initiate therapy with recommended standard of care dosing.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "For pediatric or adult patients: initiate therapy with recommended standard of care dosing.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 3
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Normal Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161537",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161537",
+      "name" : "CPIC Guideline for voriconazole and CYP2C19",
+      "version" : 13
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 3
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161554",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161554",
+    "name" : "Poor metabolizer",
+    "annotations" : [ {
+      "id" : 1448432712,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432711,
+        "externalLinks" : [ ],
+        "html" : "<p>Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432716,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432715,
+        "externalLinks" : [ ],
+        "html" : "<p>Poor Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432710,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432709,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying two no function alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying two no function alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432714,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432713,
+        "externalLinks" : [ ],
+        "html" : "<p>For pediatric or adult patients: choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "For pediatric or adult patients: choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 3
+    } ],
+    "genePhenotypes" : [ "CYP2C19:No Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161537",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161537",
+      "name" : "CPIC Guideline for voriconazole and CYP2C19",
+      "version" : 13
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931",
+      "version" : 0
+    },
+    "version" : 3
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161551",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161551",
+    "name" : "Rapid metabolizer",
+    "annotations" : [ {
+      "id" : 1448432720,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432719,
+        "externalLinks" : [ ],
+        "html" : "<p>In <strong>adult</strong> patients for whom a rapid metabolizer genotype is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing.</p>\n<p>In <strong>pediatric</strong> patients for whom a rapid metabolizer genotype is identified, the probability of attainment of therapeutic concentrations is variable.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "In __adult__ patients for whom a rapid metabolizer genotype is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing.\r\n\r\nIn __pediatric__ patients for whom a rapid metabolizer genotype is identified, the probability of attainment of therapeutic concentrations is variable.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432724,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432723,
+        "externalLinks" : [ ],
+        "html" : "<p>Rapid Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Rapid Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432718,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432717,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one normal function allele and one increased function allele</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one normal function allele and one increased function allele",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448432722,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448432721,
+        "externalLinks" : [ ],
+        "html" : "<p>For <strong>adult</strong> patients: choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.</p>\n<p>For <strong>pediatric</strong> patients: initiate therapy with recommended standard case dosing. Use therapeutic dose monitoring to titrate dose to therapeutic trough concentrations.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "For __adult__ patients: choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.\r\n\r\nFor __pediatric__ patients: initiate therapy with recommended standard case dosing. Use therapeutic dose monitoring to titrate dose to therapeutic trough concentrations.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 3
+    } ],
+    "genePhenotypes" : [ "CYP2C19:Increased Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161537",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161537",
+      "name" : "CPIC Guideline for voriconazole and CYP2C19",
+      "version" : 13
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931",
+      "version" : 0
+    },
+    "version" : 3
+  } ],
+  "genePhenotypes" : {
+    "CYP2C19" : {
+      "*1" : "Normal Function",
+      "*2" : "No Function",
+      "*3" : "No Function",
+      "*4A" : "No Function",
+      "*4B" : "No Function",
+      "*5" : "No Function",
+      "*6" : "No Function",
+      "*7" : "No Function",
+      "*8" : "No Function",
+      "*9" : "Decreased Function",
+      "*10" : "Decreased Function",
+      "*11" : "Normal Function",
+      "*13" : "Normal Function",
+      "*15" : "Normal Function",
+      "*16" : "Decreased Function",
+      "*17" : "Increased Function",
+      "*18" : "Normal Function",
+      "*19" : "Decreased Function",
+      "*22" : "No Function",
+      "*24" : "No Function",
+      "*25" : "Decreased Function",
+      "*26" : "Decreased Function",
+      "*28" : "Normal Function",
+      "*35" : "No Function"
+    }
+  }
+}

@@ -1,0 +1,930 @@
+{
+  "guideline" : {
+    "objCls" : "Guideline",
+    "@id" : "https://api.pharmgkb.org/data/guideline/PA166161955",
+    "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+    "id" : "PA166161955",
+    "name" : "CPIC Guideline for tropisetron and CYP2D6",
+    "history" : [ {
+      "id" : 1448526494,
+      "date" : "2016-12-23T16:11:47.746-08:00",
+      "type" : "update",
+      "version" : 0
+    } ],
+    "relatedChemicals" : [ {
+      "objCls" : "Chemical",
+      "@id" : "https://api.pharmgkb.org/data/chemical/PA161925594",
+      "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+      "id" : "PA161925594",
+      "name" : "tropisetron",
+      "version" : 4
+    } ],
+    "relatedGenes" : [ {
+      "objCls" : "Gene",
+      "@id" : "https://api.pharmgkb.org/data/gene/PA128",
+      "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+      "id" : "PA128",
+      "symbol" : "CYP2D6",
+      "name" : "cytochrome P450, family 2, subfamily D, polypeptide 6",
+      "version" : 7887
+    } ],
+    "source" : "CPIC",
+    "summaryMarkdown" : {
+      "id" : 1448526104,
+      "externalLinks" : [ ],
+      "html" : "<p>The CPIC dosing guideline for tropisetron recommends selecting an alternate drug for CYP2D6 ultrarapid metabolizers.  It is recommended that the alternate drug not be predominantly metabolized by CYP2D6 (eg. granisetron).</p>\n",
+      "internalLinks" : [ ],
+      "markdown" : "The CPIC dosing guideline for tropisetron recommends selecting an alternate drug for CYP2D6 ultrarapid metabolizers.  It is recommended that the alternate drug not be predominantly metabolized by CYP2D6 (eg. granisetron).",
+      "pmids" : [ ],
+      "relatedObjects" : [ ],
+      "version" : 0
+    },
+    "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+    "textMarkdown" : {
+      "id" : 1448526146,
+      "externalLinks" : [ "https://cpicpgx.org", "https://raw.githubusercontent.com/PharmGKB/cpic-guidelines/master/ondansetron/2016/CYP2D6_ondansetron_2016_final.pdf", "https://raw.githubusercontent.com/PharmGKB/cpic-guidelines/master/ondansetron/2016/CYP2D6_ondansetron_supplement_2016.pdf", "https://raw.githubusercontent.com/PharmGKB/cpic-guidelines/master/ondansetron/2016/Ondansetron_Drug_Resource_Mappings.xlsx", "https://raw.githubusercontent.com/PharmGKB/cpic-guidelines/master/ondansetron/2016/Ondansetron_Pre_and_Post_Test_Alerts_and_Flow_Chart.xlsx" ],
+      "html" : "<h3 id=\"december-2016\">December 2016</h3>\n<ul>\n<li>Guidelines regarding the use of pharmacogenomic tests in dosing for tropisetron were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org\" target=\"_blank\">(CPIC)</a>.</li>\n<li>Excerpt from the 2016 tropisetron dosing guidelines:\n<ul>\n<li>&quot;Gene duplication has been shown to be associated with higher metabolism and clearance of ondansetron resulting in lower area under the plasma concentration-time curve. This translates clinically into a decreased response to ondansetron and tropisetron, specifically increased risk of vomiting in CYP2D6 ultrarapid metabolizers. If CYP2D6 genotype is known, alternative 5-HT3 receptor antagonist antiemetics not metabolized by CYP2D6 (e.g., granisetron) should be considered in CYP2D6 ultrarapid metabolizers. &quot;</li>\n</ul>\n</li>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fraw.githubusercontent.com%2FPharmGKB%2Fcpic-guidelines%2Fmaster%2Fondansetron%2F2016%2FCYP2D6_ondansetron_2016_final.pdf\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 Genotype and Use of Ondansetron and Tropisetron</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fraw.githubusercontent.com%2FPharmGKB%2Fcpic-guidelines%2Fmaster%2Fondansetron%2F2016%2FCYP2D6_ondansetron_supplement_2016.pdf\" target=\"_blank\">2016 supplement</a></li>\n<li><a href=\"/page/cyp2d6RefMaterials\">Gene-specific Information Tables for CYP2D6</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fraw.githubusercontent.com%2FPharmGKB%2Fcpic-guidelines%2Fmaster%2Fondansetron%2F2016%2FOndansetron_Drug_Resource_Mappings.xlsx\" target=\"_blank\">Tropisetron Drug Resource Mappings</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fraw.githubusercontent.com%2FPharmGKB%2Fcpic-guidelines%2Fmaster%2Fondansetron%2F2016%2FOndansetron_Pre_and_Post_Test_Alerts_and_Flow_Chart.xlsx\" target=\"_blank\">Ondansetron Pre- and Post-Test Alerts and Flow Chart</a> (note that while the title of the file does not state tropisetron, alerts for tropisetron are found in the file)</li>\n</ul>\n</li>\n</ul>\n<h3 id=\"table-1-dosing-recommendations-for-tropisetron-based-on-cyp2d6-phenotype-genotype\">Table 1: Dosing recommendations for tropisetron based on CYP2D6 phenotype/genotype</h3>\n<p><em>Adapted from Tables 1 and 2 of the 2016 guideline manuscript.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>CYP2D6 Phenotype</th><th>Activity score</th><th>CYP2D6 Genotypes<sup>a</sup></th><th>Examples of diplotypes</th><th>Implications</th><th>Therapeutic recommendations</th><th>Classification of Recommendations<sup>b</sup></th><th>Consideration for alternative 5-HT<sub>3</sub> receptor antagonists antiemetics<sup>c</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>Ultrarapid metabolizer</td><td>&gt;2.0</td><td>An individual carrying duplications of function alleles</td><td><em>*1/*1xN, *1/*2xN, *2/*2xN</em><sup>d</sup></td><td>Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting).</td><td>Select and alternative drug not predominantly metabolized by CYP2D6 (i.e. granisetron).<sup>e</sup></td><td>Moderate</td><td>Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6.  Limited evidence is available regarding the utilization of <em>CYP2D6</em> genetic variation to guide use of these drugs.</td></tr>\n<tr><td>Normal metabolizer</td><td>2.0-1.0<sup>f</sup></td><td>An individual carrying two normal function alleles, or two decreased function alleles, or one normal function and one no function allele, or one normal function and one decreased function allele, or combinations of duplicated alleles that result in an activity score of 1.0-2.0</td><td><em>*1/*1, *1/*2, *1/*4, *1/*5, *1/*9, *1/*41, *2/*2,*41/*41</em></td><td>Normal metabolism</td><td>Initiate therapy with recommended starting dose.</td><td>Strong</td><td></td></tr>\n<tr><td>Intermediate metabolizer</td><td>0.5</td><td>An individual carrying one decreased function and one no function allele</td><td><em>*4/*10,*4/*41, *5/*9</em></td><td>Very limited data available for CYP2D6 intermediate metabolizers</td><td>Insufficient evidence demonstrating clinical impact based on <em>CYP2D6</em> genotype.  Initiate therapy with recommended starting dose.</td><td>No recommendation</td><td></td></tr>\n<tr><td>Poor metabolizer</td><td>0</td><td>An individual carrying no functional alleles</td><td><em>*3/*4,*4/*4, *5/*5, *5/*6</em></td><td>Very limited data available for CYP2D6 poor metabolizers</td><td>Insufficient evidence demonstrating clinical impact based on <em>CYP2D6</em> genotype.  Initiate therapy with recommended starting dose.</td><td>No recommendation</td><td></td></tr>\n</tbody>\n</table>\n<p><sup>a</sup> Assignment of allele function and citations for allele function can be found on PharmGKB: <a href=\"/page/cyp2d6RefMaterials\">CYP2D6 Allele Definition Table and CYP2D6 Allele Functionality Table</a>.</p>\n<p><sup>b</sup> Rating scheme is described in the 2016 Supplement</p>\n<p><sup>c</sup> CPIC strength of recommendation: No Recommendation. See rating scheme described in the Supplement.</p>\n<p><sup>d</sup> Where <em>xN</em> represents the number of <em>CYP2D6</em> gene copies.  For individuals with <em>CYP2D6</em> duplications or multiplications, see supplemental data for additional information on how to translate diplotypes into phenotypes.</p>\n<p><sup>e</sup> Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n<p><sup>f</sup> Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories.</p>\n",
+      "internalLinks" : [ "/page/cyp2d6RefMaterials" ],
+      "markdown" : "## December 2016\r\n\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing for tropisetron were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org).\r\n- Excerpt from the 2016 tropisetron dosing guidelines:\r\n  - \"Gene duplication has been shown to be associated with higher metabolism and clearance of ondansetron resulting in lower area under the plasma concentration-time curve. This translates clinically into a decreased response to ondansetron and tropisetron, specifically increased risk of vomiting in CYP2D6 ultrarapid metabolizers. If CYP2D6 genotype is known, alternative 5-HT3 receptor antagonist antiemetics not metabolized by CYP2D6 (e.g., granisetron) should be considered in CYP2D6 ultrarapid metabolizers. \"\r\n- Download and read: \r\n  - [Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 Genotype and Use of Ondansetron and Tropisetron](https://raw.githubusercontent.com/PharmGKB/cpic-guidelines/master/ondansetron/2016/CYP2D6_ondansetron_2016_final.pdf)\r\n  - [2016 supplement](https://raw.githubusercontent.com/PharmGKB/cpic-guidelines/master/ondansetron/2016/CYP2D6_ondansetron_supplement_2016.pdf)\r\n  - [Gene-specific Information Tables for CYP2D6](/page/cyp2d6RefMaterials)\r\n  - [Tropisetron Drug Resource Mappings](https://raw.githubusercontent.com/PharmGKB/cpic-guidelines/master/ondansetron/2016/Ondansetron_Drug_Resource_Mappings.xlsx)\r\n   - [Ondansetron Pre- and Post-Test Alerts and Flow Chart](https://raw.githubusercontent.com/PharmGKB/cpic-guidelines/master/ondansetron/2016/Ondansetron_Pre_and_Post_Test_Alerts_and_Flow_Chart.xlsx) (note that while the title of the file does not state tropisetron, alerts for tropisetron are found in the file)\r\n\r\n## Table 1: Dosing recommendations for tropisetron based on CYP2D6 phenotype/genotype\r\n\r\n_Adapted from Tables 1 and 2 of the 2016 guideline manuscript._\r\n\r\n| CYP2D6 Phenotype | Activity score |CYP2D6 Genotypes^a^ | Examples of diplotypes | Implications | Therapeutic recommendations | Classification of Recommendations^b^| Consideration for alternative 5-HT~3~ receptor antagonists antiemetics^c^|\r\n| --- | --- | --- | --- | --- | --- | --- | --- |\r\n| Ultrarapid metabolizer | >2.0 | An individual carrying duplications of function alleles | _*1/*1xN, *1/*2xN, *2/*2xN_^d^ | Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting). | Select and alternative drug not predominantly metabolized by CYP2D6 (i.e. granisetron).^e^ | Moderate |  Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6.  Limited evidence is available regarding the utilization of _CYP2D6_ genetic variation to guide use of these drugs. |\r\n| Normal metabolizer | 2.0-1.0^f^ | An individual carrying two normal function alleles, or two decreased function alleles, or one normal function and one no function allele, or one normal function and one decreased function allele, or combinations of duplicated alleles that result in an activity score of 1.0-2.0 | _*1/*1, *1/*2, *1/*4, *1/*5, *1/*9, *1/*41, *2/*2,*41/*41_ | Normal metabolism | Initiate therapy with recommended starting dose. | Strong | |\r\n| Intermediate metabolizer | 0.5 | An individual carrying one decreased function and one no function allele | _*4/*10,*4/*41, *5/*9_ | Very limited data available for CYP2D6 intermediate metabolizers | Insufficient evidence demonstrating clinical impact based on _CYP2D6_ genotype.  Initiate therapy with recommended starting dose. | No recommendation | |\r\n| Poor metabolizer | 0 | An individual carrying no functional alleles | _*3/*4,*4/*4, *5/*5, *5/*6_ | Very limited data available for CYP2D6 poor metabolizers | Insufficient evidence demonstrating clinical impact based on _CYP2D6_ genotype.  Initiate therapy with recommended starting dose. |  No recommendation | | \r\n\r\n^a^ Assignment of allele function and citations for allele function can be found on PharmGKB: [CYP2D6 Allele Definition Table and CYP2D6 Allele Functionality Table](/page/cyp2d6RefMaterials).\r\n\r\n^b^ Rating scheme is described in the 2016 Supplement\r\n\r\n^c^ CPIC strength of recommendation: No Recommendation. See rating scheme described in the Supplement.\r\n\r\n^d^ Where _xN_ represents the number of _CYP2D6_ gene copies.  For individuals with _CYP2D6_ duplications or multiplications, see supplemental data for additional information on how to translate diplotypes into phenotypes.\r\n\r\n^e^ Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.\r\n\r\n^f^ Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories.",
+      "pmids" : [ ],
+      "relatedObjects" : [ ],
+      "version" : 3
+    },
+    "version" : 5,
+    "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1448526498,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/"} ]
+  },
+  "annotationGroups" : [ {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161964",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161964",
+    "name" : "Extensive",
+    "annotations" : [ {
+      "id" : 1448526342,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526341,
+        "externalLinks" : [ ],
+        "html" : "<p>2.0-1.0</p>\n<p>Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "2.0-1.0\r\n\r\nPatients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526346,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526345,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal metabolism</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal metabolism",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526348,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526347,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526344,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526343,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying two normal function alleles, or two decreased function alleles, or one normal function and one no function allele, or one normal function and one decreased function allele, or combinations of duplicated alleles that result in an activity score of 1.0-2.0</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying two normal function alleles, or two decreased function alleles, or one normal function and one no function allele, or one normal function and one decreased function allele, or combinations of duplicated alleles that result in an activity score of 1.0-2.0",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526350,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526349,
+        "externalLinks" : [ ],
+        "html" : "<p>Initiate therapy with recommended starting dose.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Initiate therapy with recommended starting dose.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Decreased Function", "CYP2D6:Decreased Function/Normal Function", "CYP2D6:No Function/Normal Function", "CYP2D6:Normal Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161955",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161955",
+      "name" : "CPIC Guideline for tropisetron and CYP2D6",
+      "version" : 5
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 1
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161965",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161965",
+    "name" : "Intermediate",
+    "annotations" : [ {
+      "id" : 1448526352,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526351,
+        "externalLinks" : [ ],
+        "html" : "<p>0.5</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "0.5",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526356,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526355,
+        "externalLinks" : [ ],
+        "html" : "<p>Very limited data available for CYP2D6 intermediate metabolizers</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Very limited data available for CYP2D6 intermediate metabolizers",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526358,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526357,
+        "externalLinks" : [ ],
+        "html" : "<p>Intermediate metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526354,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526353,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one decreased function and one no function allele</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one decreased function and one no function allele",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526360,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526359,
+        "externalLinks" : [ ],
+        "html" : "<p>Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161955",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161955",
+      "name" : "CPIC Guideline for tropisetron and CYP2D6",
+      "version" : 5
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:1448526251",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448526251,
+      "resource" : "Guideline Strength",
+      "term" : "No recommendation",
+      "termId" : "guidelineStrength:1448526251",
+      "version" : 0
+    },
+    "version" : 1
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161966",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161966",
+    "name" : "Poor",
+    "annotations" : [ {
+      "id" : 1448526362,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526361,
+        "externalLinks" : [ ],
+        "html" : "<p>0</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "0",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526366,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526365,
+        "externalLinks" : [ ],
+        "html" : "<p>Very limited data available for CYP2D6 poor metabolizers</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Very limited data available for CYP2D6 poor metabolizers",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526368,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526367,
+        "externalLinks" : [ ],
+        "html" : "<p>Poor metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526364,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526363,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying no functional alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying no functional alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526370,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526369,
+        "externalLinks" : [ ],
+        "html" : "<p>Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2D6:No Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161955",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161955",
+      "name" : "CPIC Guideline for tropisetron and CYP2D6",
+      "version" : 5
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:1448526251",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448526251,
+      "resource" : "Guideline Strength",
+      "term" : "No recommendation",
+      "termId" : "guidelineStrength:1448526251",
+      "version" : 0
+    },
+    "version" : 1
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161967",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161967",
+    "name" : "Ultra or extensive",
+    "annotations" : [ {
+      "id" : 1448526372,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526371,
+        "externalLinks" : [ ],
+        "html" : "<p>2 - For the combination of a no function allele with a duplicated normal function allele.</p>\n<p>&gt;2 - For the combination of a no function allele and more than two copies of a normal function allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "2 - For the combination of a no function allele with a duplicated normal function allele.\r\n\r\n\\>2 - For the combination of a no function allele and more than two copies of a normal function allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526376,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526375,
+        "externalLinks" : [ ],
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal metabolism.</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting).</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal metabolism.\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nIncreased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting).",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526378,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526377,
+        "externalLinks" : [ ],
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal metabolizer</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal metabolizer\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nUltrarapid metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526374,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526373,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying a no function allele and a duplicated normal function allele or a no function allele and more than two copies of a normal function allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying a no function allele and a duplicated normal function allele or a no function allele and more than two copies of a normal function allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526380,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526379,
+        "externalLinks" : [ ],
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Initiate therapy with recommended starting dose. Classification of recommendation: Strong</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Select and alternative drug not predominantly metabolized by CYP2D6 (i.e. granisetron). Classification of recommendation: Moderate</p>\n<p>Consideration for alternative 5-HT3 receptor antagonists antiemetics: Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n<p><em>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nInitiate therapy with recommended starting dose. Classification of recommendation: Strong\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nSelect and alternative drug not predominantly metabolized by CYP2D6 (i.e. granisetron). Classification of recommendation: Moderate\r\n\r\nConsideration for alternative 5-HT3 receptor antagonists antiemetics: Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.\r\n\r\n_Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Increased Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161955",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161955",
+      "name" : "CPIC Guideline for tropisetron and CYP2D6",
+      "version" : 5
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931",
+      "version" : 0
+    },
+    "version" : 1
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161968",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166161968",
+    "name" : "Ultrarapid",
+    "annotations" : [ {
+      "id" : 1448526382,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526381,
+        "externalLinks" : [ ],
+        "html" : "<p>&gt; 2.0</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "\\> 2.0",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526386,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526385,
+        "externalLinks" : [ ],
+        "html" : "<p>Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting).</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting).",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526388,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526387,
+        "externalLinks" : [ ],
+        "html" : "<p>Ultrarapid metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Ultrarapid metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526384,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526383,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying duplications of function alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying duplications of function alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448526390,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526389,
+        "externalLinks" : [ ],
+        "html" : "<p>Select and alternative drug not predominantly metabolized by CYP2D6 (i.e. granisetron).</p>\n<p>Consideration for alternative 5-HT3 receptor antagonists antiemetics: Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n<p><em>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Select and alternative drug not predominantly metabolized by CYP2D6 (i.e. granisetron).\r\n\r\nConsideration for alternative 5-HT3 receptor antagonists antiemetics: Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.\r\n\r\n_Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Increased Function", "CYP2D6:Increased Function/Increased Function", "CYP2D6:Increased Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161955",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161955",
+      "name" : "CPIC Guideline for tropisetron and CYP2D6",
+      "version" : 5
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931",
+      "version" : 0
+    },
+    "version" : 1
+  } ],
+  "genePhenotypes" : {
+    "CYP2D6" : {
+      "*1" : "Normal Function",
+      "*1xN" : "Increased Function",
+      "*2" : "Normal Function",
+      "*2xN" : "Increased Function",
+      "*3" : "No Function",
+      "*3xN" : "No Function",
+      "*4" : "No Function",
+      "*4xN" : "No Function",
+      "*5" : "No Function",
+      "*6" : "No Function",
+      "*6xN" : "No Function",
+      "*7" : "No Function",
+      "*8" : "No Function",
+      "*9" : "Decreased Function",
+      "*9x2" : "Normal Function",
+      "*10" : "Decreased Function",
+      "*10x2" : "Normal Function",
+      "*11" : "No Function",
+      "*12" : "No Function",
+      "*13" : "No Function",
+      "*14A" : "No Function",
+      "*14B" : "Decreased Function",
+      "*15" : "No Function",
+      "*17" : "Decreased Function",
+      "*17x2" : "Normal Function",
+      "*18" : "No Function",
+      "*19" : "No Function",
+      "*20" : "No Function",
+      "*21" : "No Function",
+      "*22" : "Unknown",
+      "*23" : "Unknown",
+      "*24" : "Unknown",
+      "*25" : "Unknown",
+      "*26" : "Unknown",
+      "*27" : "Normal Function",
+      "*28" : "Unknown",
+      "*29" : "Decreased Function",
+      "*29x2" : "Normal Function",
+      "*30" : "Unknown",
+      "*31" : "No Function",
+      "*32" : "Unknown",
+      "*33" : "Normal Function",
+      "*34" : "Normal Function",
+      "*35" : "Normal Function",
+      "*35xN" : "Increased Function",
+      "*36" : "No Function",
+      "*36xN" : "No Function",
+      "*37" : "Unknown",
+      "*38" : "No Function",
+      "*39" : "Normal Function",
+      "*40" : "No Function",
+      "*41" : "Decreased Function",
+      "*41x2" : "Normal Function",
+      "*42" : "No Function",
+      "*43" : "Unknown",
+      "*44" : "No Function",
+      "*45" : "Normal Function",
+      "*45xN" : "Increased Function",
+      "*46" : "Normal Function",
+      "*47" : "No Function",
+      "*48" : "Normal Function",
+      "*49" : "Decreased Function",
+      "*50" : "Decreased Function",
+      "*51" : "No Function",
+      "*52" : "Unknown",
+      "*53" : "Normal Function",
+      "*54" : "Decreased Function",
+      "*55" : "Decreased Function",
+      "*56A" : "No Function",
+      "*56B" : "No Function",
+      "*57" : "No Function",
+      "*58" : "Unknown",
+      "*59" : "Decreased Function",
+      "*60" : "Unknown",
+      "*61" : "Unknown",
+      "*62" : "No Function",
+      "*63" : "Unknown",
+      "*64" : "Unknown",
+      "*65" : "Unknown",
+      "*68" : "No Function",
+      "*69" : "No Function",
+      "*70" : "Unknown",
+      "*71" : "Unknown",
+      "*72" : "Decreased Function",
+      "*73" : "Unknown",
+      "*74" : "Unknown",
+      "*75" : "Unknown",
+      "*81" : "Unknown",
+      "*82" : "Unknown",
+      "*83" : "Unknown",
+      "*84" : "Unknown",
+      "*85" : "Unknown",
+      "*86" : "Unknown",
+      "*87" : "Unknown",
+      "*88" : "Unknown",
+      "*89" : "Unknown",
+      "*90" : "Unknown",
+      "*91" : "Unknown",
+      "*92" : "No Function",
+      "*93" : "Unknown",
+      "*94" : "Unknown",
+      "*95" : "Unknown",
+      "*96" : "Unknown",
+      "*97" : "Unknown",
+      "*98" : "Unknown",
+      "*100" : "No Function",
+      "*101" : "No Function",
+      "*102" : "Unknown",
+      "*103" : "Unknown",
+      "*104" : "Unknown",
+      "*105" : "Unknown",
+      "*107" : "Unknown",
+      "*108" : "Unknown",
+      "*109" : "Unknown"
+    }
+  }
+}

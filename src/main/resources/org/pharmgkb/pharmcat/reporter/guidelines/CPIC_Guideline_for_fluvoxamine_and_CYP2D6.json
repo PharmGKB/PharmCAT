@@ -1,0 +1,931 @@
+{
+  "guideline" : {
+    "objCls" : "Guideline",
+    "@id" : "https://api.pharmgkb.org/data/guideline/PA166127637",
+    "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+    "id" : "PA166127637",
+    "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
+    "history" : [ {
+      "id" : 1444708096,
+      "date" : "2015-05-08T00:00:00-07:00",
+      "description" : "initial save",
+      "type" : "create",
+      "version" : 1
+    } ],
+    "relatedChemicals" : [ {
+      "objCls" : "Chemical",
+      "@id" : "https://api.pharmgkb.org/data/chemical/PA449690",
+      "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
+      "id" : "PA449690",
+      "name" : "fluvoxamine",
+      "version" : 5
+    } ],
+    "relatedGenes" : [ {
+      "objCls" : "Gene",
+      "@id" : "https://api.pharmgkb.org/data/gene/PA128",
+      "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
+      "id" : "PA128",
+      "symbol" : "CYP2D6",
+      "name" : "cytochrome P450, family 2, subfamily D, polypeptide 6",
+      "version" : 7887
+    } ],
+    "source" : "CPIC",
+    "summaryMarkdown" : {
+      "id" : 1447982315,
+      "externalLinks" : [ ],
+      "html" : "<p>The CPIC Dosing Guideline for the selective serotonin reuptake inhibitor fluvoxamine recommends to consider a 25-50% reduction of recommended starting dose and titrate to response or use an alternative drug not metabolized by CYP2D6 for CYP2D6 poor metabolizers.</p>\n",
+      "internalLinks" : [ ],
+      "markdown" : "The CPIC Dosing Guideline for the selective serotonin reuptake inhibitor fluvoxamine recommends to consider a 25-50% reduction of recommended starting dose and titrate to response or use an alternative drug not metabolized by CYP2D6 for CYP2D6 poor metabolizers.",
+      "pmids" : [ ],
+      "relatedObjects" : [ ],
+      "version" : 0
+    },
+    "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+    "textMarkdown" : {
+      "id" : 1447982314,
+      "externalLinks" : [ "https://cpicpgx.org/", "https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703-supplement.pdf", "https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703.pdf", "https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703_2015%20CYP2D6%20SSRI%20translation%20table.xlsx", "https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703_CYP2D6%20frequency%20table%20(R3).xlsx", "https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703_CYP2D6%20frequency%20table%20legend%20(R3).pdf" ],
+      "html" : "<h3 id=\"august-2015\">August 2015</h3>\n<p><em>Advanced online publication May 2015</em></p>\n<ul>\n<li>Guidelines regarding the use of pharmacogenomic tests in dosing of selective serotonin reuptake inhibitors have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2F\" target=\"_blank\">(CPIC)</a>.</li>\n<li>Excerpts from the 2015 selective serotonin reuptake inhibitors dosing guidelines (for fluvoxamine and CYP2D6):\n<ul>\n<li>&quot;Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided...It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.&quot;</li>\n<li>&quot;When administered similar doses, CYP2D6 poor metabolizers have significantly greater drug exposure to fluvoxamine when compared to extensive metabolizers...The US Food and Drug Administration (FDA) states that fluvoxamine should be used cautiously in patients known to have reduced levels of CYP2D6 activity. To potentially prevent an adverse effect, an alternative SSRI not extensively metabolized by CYP2D6 should be considered for poor metabolizers.&quot;</li>\n<li>&quot;The recommendations in the guideline and below apply primarily to actions based on genetic tests only; drug interactions and other clinical factors can have a major influence for prescribing decisions for SSRIs and should be taken into consideration before initiating drug therapy.&quot;</li>\n<li>&quot; Data describing the relationship between CYP2D6 or CYP2C19 genotype and SSRI systemic exposure or steady state plasma concentrations in pediatric patients are scarce. Because CYP2D6 activity is fully mature by early childhood, it may be appropriate to extrapolate these recommendations to adolescents or possibly younger children with close monitoring.&quot;</li>\n</ul>\n</li>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2FSSRI%2F2015%2F25974703.pdf\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2FSSRI%2F2015%2F25974703-supplement.pdf\" target=\"_blank\">2015 Supplement</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2FSSRI%2F2015%2F25974703_2015%2520CYP2D6%2520SSRI%2520translation%2520table.xlsx\" target=\"_blank\">2015 CYP2D6 SSRI translation table</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2FSSRI%2F2015%2F25974703_CYP2D6%2520frequency%2520table%2520legend%2520%28R3%29.pdf\" target=\"_blank\">CYP2D6 frequency table legend (R3)</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2FSSRI%2F2015%2F25974703_CYP2D6%2520frequency%2520table%2520%28R3%29.xlsx\" target=\"_blank\">CYP2D6 frequency table (R3)</a></li>\n</ul>\n</li>\n</ul>\n<h3 id=\"table-1-dosing-recommendations-for-fluvoxamine-based-on-cyp2d6-phenotype\">Table 1: Dosing recommendations for fluvoxamine based on CYP2D6 phenotype:</h3>\n<p><em>Adapted from Tables 1 and 2b of the 2015 guideline manuscript.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>Likely phenotype</th><th>Activity Score</th><th>Genotypes</th><th>Examples of CYP2D6 diplotypes</th><th>Implications for fluvoxamine metabolism</th><th>Therapeutic Recommendations</th><th>Classification of recommendations <sup>a</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>Ultrarapid metabolizer (~1-2% of patients)<sup>b</sup></td><td>&gt; 2.0</td><td>An individual carrying duplications of functional alleles</td><td>*1/*1xN, *1/*2xN, *2/*2xN <sup>c</sup></td><td>No data available for CYP2D6 Ultrarapid Metabolizers.</td><td>No recommendation due to lack of evidence. <sup>d</sup></td><td>Optional</td></tr>\n<tr><td>Extensive metabolizer (~77-92% of patients)</td><td>2.0-1.0 <sup>e</sup></td><td>An individual carrying two normal function alleles or two decreased function alleles or one normal function and one no function allele or one  normal function and one decreased function allele</td><td>*1/*1, *1/*2, *1/*4, *1/*5, *1/*9, *1/*41, *2/*2,*41/*41</td><td>Normal metabolism</td><td>Initiate therapy with recommended starting dose.</td><td>Strong</td></tr>\n<tr><td>Intermediate metabolizer (~2-11% of patients)</td><td>0.5</td><td>An individual carrying one decreased function and one no function allele</td><td>*4/*10,*4/*41, *5/*9</td><td>Reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.</td><td>Initiate therapy with recommended starting dose.</td><td>Moderate</td></tr>\n<tr><td>Poor metabolizers (~5-10% of patients)</td><td>0</td><td>An individual carrying only no functional alleles</td><td>*3/*4,*4/*4, *5/*5, *5/*6</td><td>Greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.</td><td>Consider a 25-50% reduction <sup>f</sup> of recommended starting dose and titrate to response or use an alternative drug not metabolized by CYP2D6. <sup>g</sup></td><td>Optional</td></tr>\n</tbody>\n</table>\n<p><sup>a</sup> Rating scheme described in Supplement.</p>\n<p><sup>b</sup> CYP2D6 metabolizer status frequencies are based on data from Caucasians and may differ from other ethnicities. See Supplemental note for information on the chances of observing specific diplotypes in different major race/ethnic groups.</p>\n<p><sup>c</sup> Where xN represents the number of CYP2D6 gene copies. For individuals with CYP2D6 duplications or multiplications, see supplemental data for additional information on how to translate diplotypes into phenotypes.</p>\n<p><sup>d</sup> Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.</p>\n<p><sup>e</sup> Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories.</p>\n<p><sup>f</sup> Dose extrapolations based on differences in pharmacokinetic parameters between phenotype groups suggest a 30% dose reduction of fluvoxamine (1). However, a 30% decrease in dose may not be feasible given the dosage forms, therefore, decreasing the starting dose of fluvoxamine by 25-50% should be considered.</p>\n<p><sup>g</sup> Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n",
+      "internalLinks" : [ ],
+      "markdown" : "## August 2015\r\n\r\n_Advanced online publication May 2015_\r\n\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing of selective serotonin reuptake inhibitors have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).\r\n- Excerpts from the 2015 selective serotonin reuptake inhibitors dosing guidelines (for fluvoxamine and CYP2D6):\r\n  - \"Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided...It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.\"\r\n  - \"When administered similar doses, CYP2D6 poor metabolizers have significantly greater drug exposure to fluvoxamine when compared to extensive metabolizers...The US Food and Drug Administration (FDA) states that fluvoxamine should be used cautiously in patients known to have reduced levels of CYP2D6 activity. To potentially prevent an adverse effect, an alternative SSRI not extensively metabolized by CYP2D6 should be considered for poor metabolizers.\"\r\n  - \"The recommendations in the guideline and below apply primarily to actions based on genetic tests only; drug interactions and other clinical factors can have a major influence for prescribing decisions for SSRIs and should be taken into consideration before initiating drug therapy.\"\r\n  - \" Data describing the relationship between CYP2D6 or CYP2C19 genotype and SSRI systemic exposure or steady state plasma concentrations in pediatric patients are scarce. Because CYP2D6 activity is fully mature by early childhood, it may be appropriate to extrapolate these recommendations to adolescents or possibly younger children with close monitoring.\"\r\n- Download and read: \r\n  - [Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors](https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703.pdf)\r\n  - [2015 Supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703-supplement.pdf)\r\n  - [2015 CYP2D6 SSRI translation table](https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703_2015%20CYP2D6%20SSRI%20translation%20table.xlsx)\r\n  - [CYP2D6 frequency table legend (R3)](https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703_CYP2D6%20frequency%20table%20legend%20(R3).pdf) \r\n  - [CYP2D6 frequency table (R3)](https://github.com/PharmGKB/cpic-guidelines/raw/master/SSRI/2015/25974703_CYP2D6%20frequency%20table%20(R3).xlsx) \r\n\r\n## Table 1: Dosing recommendations for fluvoxamine based on CYP2D6 phenotype:\r\n\r\n_Adapted from Tables 1 and 2b of the 2015 guideline manuscript._\r\n\r\n| Likely phenotype | Activity Score| Genotypes | Examples of CYP2D6 diplotypes | Implications for fluvoxamine metabolism | Therapeutic Recommendations | Classification of recommendations ^a^|\r\n| --- | --- | --- | --- | --- | --- | --- |\r\n| Ultrarapid metabolizer (~1-2% of patients)^b^ | > 2.0 | An individual carrying duplications of functional alleles | *1/*1xN, *1/*2xN, *2/*2xN ^c^ | No data available for CYP2D6 Ultrarapid Metabolizers. | No recommendation due to lack of evidence. ^d^ | Optional |\r\n| Extensive metabolizer (~77-92% of patients)  | 2.0-1.0 ^e^ | An individual carrying two normal function alleles or two decreased function alleles or one normal function and one no function allele or one  normal function and one decreased function allele | *1/*1, *1/*2, *1/*4, *1/*5, *1/*9, *1/*41, *2/*2,*41/*41  | Normal metabolism | Initiate therapy with recommended starting dose. | Strong |\r\n| Intermediate metabolizer (~2-11% of patients) | 0.5 | An individual carrying one decreased function and one no function allele | *4/*10,*4/*41, *5/*9 | Reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects. | Initiate therapy with recommended starting dose. | Moderate |\r\n| Poor metabolizers (~5-10% of patients) | 0 | An individual carrying only no functional alleles | *3/*4,*4/*4, *5/*5, *5/*6 | Greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects. | Consider a 25-50% reduction ^f^ of recommended starting dose and titrate to response or use an alternative drug not metabolized by CYP2D6. ^g^ | Optional |\r\n\r\n^a^ Rating scheme described in Supplement.\r\n\r\n^b^ CYP2D6 metabolizer status frequencies are based on data from Caucasians and may differ from other ethnicities. See Supplemental note for information on the chances of observing specific diplotypes in different major race/ethnic groups.\r\n\r\n^c^ Where xN represents the number of CYP2D6 gene copies. For individuals with CYP2D6 duplications or multiplications, see supplemental data for additional information on how to translate diplotypes into phenotypes. \r\n\r\n^d^ Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.  \r\n\r\n^e^ Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories.\r\n\r\n^f^ Dose extrapolations based on differences in pharmacokinetic parameters between phenotype groups suggest a 30% dose reduction of fluvoxamine (1). However, a 30% decrease in dose may not be feasible given the dosage forms, therefore, decreasing the starting dose of fluvoxamine by 25-50% should be considered. \r\n\r\n^g^ Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "pmids" : [ ],
+      "relatedObjects" : [ ],
+      "version" : 6
+    },
+    "version" : 23,
+    "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983477,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/"} ]
+  },
+  "annotationGroups" : [ {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128783",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128783",
+    "name" : "Extensive",
+    "annotations" : [ {
+      "id" : 1445571328,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986552,
+        "externalLinks" : [ ],
+        "html" : "<p>2.0-1.0</p>\n<p>Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "2.0-1.0\n\nPatients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445571330,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986554,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal metabolism</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal metabolism",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445571331,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986555,
+        "externalLinks" : [ ],
+        "html" : "<p>Extensive metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Extensive metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 5
+    }, {
+      "id" : 1445571329,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986553,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying two normal function alleles or two decreased function alleles or one normal function and one no function allele or one normal function and one decreased function allele</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying two normal function alleles or two decreased function alleles or one normal function and one no function allele or one normal function and one decreased function allele",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445571332,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986556,
+        "externalLinks" : [ ],
+        "html" : "<p>Initiate therapy with recommended starting dose.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Initiate therapy with recommended starting dose.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 6
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Decreased Function", "CYP2D6:Decreased Function/Normal Function", "CYP2D6:No Function/Normal Function", "CYP2D6:Normal Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166127637",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166127637",
+      "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
+      "version" : 23
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 7
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128784",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128784",
+    "name" : "Intermediate",
+    "annotations" : [ {
+      "id" : 1445571333,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986522,
+        "externalLinks" : [ ],
+        "html" : "<p>0.5</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "0.5",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445571335,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986524,
+        "externalLinks" : [ ],
+        "html" : "<p>Reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 5
+    }, {
+      "id" : 1445571336,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986525,
+        "externalLinks" : [ ],
+        "html" : "<p>Intermediate metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 5
+    }, {
+      "id" : 1445571334,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986523,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one decreased function and one no function allele</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one decreased function and one no function allele",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445571337,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986526,
+        "externalLinks" : [ ],
+        "html" : "<p>Initiate therapy with recommended starting dose.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Initiate therapy with recommended starting dose.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 6
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166127637",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166127637",
+      "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
+      "version" : 23
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931",
+      "version" : 0
+    },
+    "version" : 7
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128785",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128785",
+    "name" : "Poor",
+    "annotations" : [ {
+      "id" : 1445571338,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986527,
+        "externalLinks" : [ ],
+        "html" : "<p>0</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "0",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445571340,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986529,
+        "externalLinks" : [ ],
+        "html" : "<p>Greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 5
+    }, {
+      "id" : 1445571341,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986530,
+        "externalLinks" : [ ],
+        "html" : "<p>Poor metabolizers</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor metabolizers",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 5
+    }, {
+      "id" : 1445571339,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986528,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying only no functional alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying only no functional alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445571342,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986531,
+        "externalLinks" : [ ],
+        "html" : "<p>Consider a 25-50% reduction of recommended starting dose and titrate to response or use an alternative drug not metabolized by CYP2D6.</p>\n<p><em>Dose extrapolations based on differences in pharmacokinetic parameters between phenotype groups suggest a 30% dose reduction of fluvoxamine. However, a 30% decrease in dose may not be feasible given the dosage forms, therefore, decreasing the starting dose of fluvoxamine by 25-50% should be considered. Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Consider a 25-50% reduction of recommended starting dose and titrate to response or use an alternative drug not metabolized by CYP2D6.\n\n_Dose extrapolations based on differences in pharmacokinetic parameters between phenotype groups suggest a 30% dose reduction of fluvoxamine. However, a 30% decrease in dose may not be feasible given the dosage forms, therefore, decreasing the starting dose of fluvoxamine by 25-50% should be considered. Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 6
+    } ],
+    "genePhenotypes" : [ "CYP2D6:No Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166127637",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166127637",
+      "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
+      "version" : 23
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981565059,
+      "resource" : "Guideline Strength",
+      "term" : "Optional",
+      "termId" : "guidelineStrength:981565059",
+      "version" : 0
+    },
+    "version" : 7
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128814",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128814",
+    "name" : "Ultra or extensive",
+    "annotations" : [ {
+      "id" : 1445614144,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986629,
+        "externalLinks" : [ ],
+        "html" : "<p>2 - For the combination of a no function allele with a duplicated normal function allele.</p>\n<p>&gt;2 - For the combination of a no function allele and more than two copies of a normal function allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "2 - For the combination of a no function allele with a duplicated normal function allele.\r\n\r\n\\>2 - For the combination of a no function allele and more than two copies of a normal function allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445614661,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986434,
+        "externalLinks" : [ ],
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal metabolism.</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>No data available for CYP2D6 Ultrarapid Metabolizers.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\n\nNormal metabolism.\n\n__For the combination of a no function allele and more than two copies of a normal function allele:__\n\nNo data available for CYP2D6 Ultrarapid Metabolizers.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445614809,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986435,
+        "externalLinks" : [ ],
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Extensive metabolizer</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\n\n Extensive metabolizer\n\n__For the combination of a no function allele and more than two copies of a normal function allele:__\n\n Ultrarapid metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 5
+    }, {
+      "id" : 1445614295,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986630,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying a no function allele and a duplicated normal function allele or a no function allele and more than two copies of a normal function allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying a no function allele and a duplicated normal function allele or a no function allele and more than two copies of a normal function allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445615500,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986436,
+        "externalLinks" : [ ],
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Initiate therapy with recommended starting dose.</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>No recommendation due to lack of evidence.</p>\n<p><em>Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\n\nInitiate therapy with recommended starting dose.\n\n__For the combination of a no function allele and more than two copies of a normal function allele:__\n\nNo recommendation due to lack of evidence. \n\n_Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 6
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Increased Function/No Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166127637",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166127637",
+      "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
+      "version" : 23
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981565059,
+      "resource" : "Guideline Strength",
+      "term" : "Optional",
+      "termId" : "guidelineStrength:981565059",
+      "version" : 0
+    },
+    "version" : 7
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128782",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166128782",
+    "name" : "Ultrarapid",
+    "annotations" : [ {
+      "id" : 1445571323,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986567,
+        "externalLinks" : [ ],
+        "html" : "<p>&gt; 2.0</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "\\> 2.0",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445571325,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986549,
+        "externalLinks" : [ ],
+        "html" : "<p>No data available for CYP2D6 Ultrarapid Metabolizers.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "No data available for CYP2D6 Ultrarapid Metabolizers.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445571326,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986550,
+        "externalLinks" : [ ],
+        "html" : "<p>Ultrarapid metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Ultrarapid metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 5
+    }, {
+      "id" : 1445571324,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986568,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying duplications of functional alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying duplications of functional alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445571327,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986551,
+        "externalLinks" : [ ],
+        "html" : "<p>No recommendation due to lack of evidence.</p>\n<p><em>Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "No recommendation due to lack of evidence.\n\n_Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 6
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Increased Function", "CYP2D6:Increased Function/Increased Function", "CYP2D6:Increased Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166127637",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166127637",
+      "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
+      "version" : 23
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981565059,
+      "resource" : "Guideline Strength",
+      "term" : "Optional",
+      "termId" : "guidelineStrength:981565059",
+      "version" : 0
+    },
+    "version" : 7
+  } ],
+  "genePhenotypes" : {
+    "CYP2D6" : {
+      "*1" : "Normal Function",
+      "*1xN" : "Increased Function",
+      "*2" : "Normal Function",
+      "*2xN" : "Increased Function",
+      "*3" : "No Function",
+      "*3xN" : "No Function",
+      "*4" : "No Function",
+      "*4xN" : "No Function",
+      "*5" : "No Function",
+      "*6" : "No Function",
+      "*6xN" : "No Function",
+      "*7" : "No Function",
+      "*8" : "No Function",
+      "*9" : "Decreased Function",
+      "*9x2" : "Normal Function",
+      "*10" : "Decreased Function",
+      "*10x2" : "Normal Function",
+      "*11" : "No Function",
+      "*12" : "No Function",
+      "*13" : "No Function",
+      "*14A" : "No Function",
+      "*14B" : "Decreased Function",
+      "*15" : "No Function",
+      "*17" : "Decreased Function",
+      "*17x2" : "Normal Function",
+      "*18" : "No Function",
+      "*19" : "No Function",
+      "*20" : "No Function",
+      "*21" : "No Function",
+      "*22" : "Unknown",
+      "*23" : "Unknown",
+      "*24" : "Unknown",
+      "*25" : "Unknown",
+      "*26" : "Unknown",
+      "*27" : "Normal Function",
+      "*28" : "Unknown",
+      "*29" : "Decreased Function",
+      "*29x2" : "Normal Function",
+      "*30" : "Unknown",
+      "*31" : "No Function",
+      "*32" : "Unknown",
+      "*33" : "Normal Function",
+      "*34" : "Normal Function",
+      "*35" : "Normal Function",
+      "*35xN" : "Increased Function",
+      "*36" : "No Function",
+      "*36xN" : "No Function",
+      "*37" : "Unknown",
+      "*38" : "No Function",
+      "*39" : "Normal Function",
+      "*40" : "No Function",
+      "*41" : "Decreased Function",
+      "*41x2" : "Normal Function",
+      "*42" : "No Function",
+      "*43" : "Unknown",
+      "*44" : "No Function",
+      "*45" : "Normal Function",
+      "*45xN" : "Increased Function",
+      "*46" : "Normal Function",
+      "*47" : "No Function",
+      "*48" : "Normal Function",
+      "*49" : "Decreased Function",
+      "*50" : "Decreased Function",
+      "*51" : "No Function",
+      "*52" : "Unknown",
+      "*53" : "Normal Function",
+      "*54" : "Decreased Function",
+      "*55" : "Decreased Function",
+      "*56A" : "No Function",
+      "*56B" : "No Function",
+      "*57" : "No Function",
+      "*58" : "Unknown",
+      "*59" : "Decreased Function",
+      "*60" : "Unknown",
+      "*61" : "Unknown",
+      "*62" : "No Function",
+      "*63" : "Unknown",
+      "*64" : "Unknown",
+      "*65" : "Unknown",
+      "*68" : "No Function",
+      "*69" : "No Function",
+      "*70" : "Unknown",
+      "*71" : "Unknown",
+      "*72" : "Decreased Function",
+      "*73" : "Unknown",
+      "*74" : "Unknown",
+      "*75" : "Unknown",
+      "*81" : "Unknown",
+      "*82" : "Unknown",
+      "*83" : "Unknown",
+      "*84" : "Unknown",
+      "*85" : "Unknown",
+      "*86" : "Unknown",
+      "*87" : "Unknown",
+      "*88" : "Unknown",
+      "*89" : "Unknown",
+      "*90" : "Unknown",
+      "*91" : "Unknown",
+      "*92" : "No Function",
+      "*93" : "Unknown",
+      "*94" : "Unknown",
+      "*95" : "Unknown",
+      "*96" : "Unknown",
+      "*97" : "Unknown",
+      "*98" : "Unknown",
+      "*100" : "No Function",
+      "*101" : "No Function",
+      "*102" : "Unknown",
+      "*103" : "Unknown",
+      "*104" : "Unknown",
+      "*105" : "Unknown",
+      "*107" : "Unknown",
+      "*108" : "Unknown",
+      "*109" : "Unknown"
+    }
+  }
+}
