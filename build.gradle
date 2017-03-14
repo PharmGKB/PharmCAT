@@ -90,10 +90,6 @@ jacocoTestReport {
 
 
 jar {
-  doFirst {
-    println 'Download guidelines...'
-    downloadGuidelines
-  }
   manifest {
     attributes 'Implementation-Title': project.name
     attributes 'Implementation-Version': project.version
@@ -111,6 +107,10 @@ shadowJar {
   }
 }
 
+tasks.withType(Javadoc) {
+  // disable the crazy super-strict doclint tool in Java 8
+  options.addStringOption('Xdoclint:none', '-quiet')
+}
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
   classifier = 'javadoc'
@@ -122,20 +122,12 @@ task sourcesJar(type: Jar) {
   from sourceSets.main.allSource
 }
 
-task downloadGuidelines(type: JavaExec, dependsOn: 'classes') {
-  main = 'org.pharmgkb.pharmcat.util.DataManager'
-  classpath = sourceSets.main.runtimeClasspath
-  def argList = ['-g', file('src/main/resources/org/pharmgkb/pharmcat/reporter/guidelines'),
-                 '-sm', '-sa']
-  args argList
-}
-
 task updateData(type: JavaExec, dependsOn: 'classes') {
   main = 'org.pharmgkb.pharmcat.util.DataManager'
   classpath = sourceSets.main.runtimeClasspath
   def argList = ['-a', file('src/main/resources/org/pharmgkb/pharmcat/definition/alleles'),
                  '-m', file('src/main/resources/org/pharmgkb/pharmcat/reporter'),
-                 '-sg']
+                 '-g', file('src/main/resources/org/pharmgkb/pharmcat/reporter/guidelines')]
   args argList
 }
 
