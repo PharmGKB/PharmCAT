@@ -14,7 +14,6 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
-import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
@@ -169,7 +168,7 @@ public class ReportData {
         geneCallMap.put("uncalledHaps", geneReport.getUncalledHaplotypes().stream().collect(Collectors.joining(", ")));
       }
 
-      geneCallMap.put("diplotypes", geneReport.getDiplotypes().stream().map(Diplotype::printDisplay).collect(Collectors.toSet()));
+      geneCallMap.put("diplotypes", geneReport.printDisplayCalls());
 
       if (geneReport.getMessages() != null && geneReport.getMessages().size() > 0) {
         geneCallMap.put("warnings", geneReport.getMessages().stream().map(MessageAnnotation::getMessage).collect(Collectors.toList()));
