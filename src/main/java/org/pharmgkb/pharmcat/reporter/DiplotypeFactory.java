@@ -24,6 +24,7 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
+import org.pharmgkb.pharmcat.reporter.model.result.GeneReportUgt1a1;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 
@@ -99,6 +100,10 @@ public class DiplotypeFactory {
     return astrolabeCall.getDiplotypes().stream().map(this::makeDiplotype).collect(Collectors.toList());
   }
 
+  public List<Diplotype> makeDiplotypes(GeneReportUgt1a1 geneReport) {
+    return geneReport.makeDiplotypeCalls().stream().map(this::makeDiplotype).collect(Collectors.toList());
+  }
+
   /**
    * Make a Diplotype object based on a DiplotypeMatch, this will also populate function information from the match
    */
@@ -134,7 +139,12 @@ public class DiplotypeFactory {
     }
   }
 
-  private Haplotype makeHaplotype(String name) {
+  /**
+   * Make or retrieve a cached Haplotype object that corresponds to the given allele name
+   * @param name an allele name (e.g. *20)
+   * @return a Haplotype object for that allele (new or cached)
+   */
+  public Haplotype makeHaplotype(String name) {
 
     // return cache value if possible
     if (m_haplotypeCache.containsKey(name)) {

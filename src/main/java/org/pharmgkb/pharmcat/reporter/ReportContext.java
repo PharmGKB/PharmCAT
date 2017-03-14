@@ -1,7 +1,10 @@
 package org.pharmgkb.pharmcat.reporter;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -16,7 +19,9 @@ import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.GeneReportUgt1a1;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 
 /**
@@ -34,15 +39,15 @@ import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
  */
 public class ReportContext {
 
-  private Set<GeneReport> m_geneReports = new TreeSet<>();
+  private Map<String,GeneReport> m_geneReports = new TreeMap<>();
   private List<GuidelineReport> m_guidelineReports;
   private PhenotypeMap m_phenotypeMap = new PhenotypeMap();
   private IncidentalFinder m_incidentalFinder = new IncidentalFinder();
 
-  private final Predicate<String> isGeneIncidental = s -> m_geneReports.stream()
+  private final Predicate<String> isGeneIncidental = s -> m_geneReports.values().stream()
       .anyMatch(r -> r.getGene().equals(s) && r.isIncidental());
 
-  public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_geneReports.stream()
+  public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_geneReports.values().stream()
       .filter(c -> c.getGene().equals(s))
       .flatMap(c -> c.getDiplotypes().stream().map(e -> e.printDisplay() + (c.isAstrolabeCall() ? " (Astrolabe)" : "")));
 
@@ -70,7 +75,7 @@ public class ReportContext {
    * @param messages a List of {@link MessageAnnotation} objects
    */
   public void applyMessage(List<MessageAnnotation> messages) {
-    m_geneReports.forEach(r -> r.applyMessages(messages));
+    m_geneReports.values().forEach(r -> r.applyMessages(messages));
     m_guidelineReports.forEach(r -> r.applyMessages(messages));
   }
 
@@ -87,12 +92,12 @@ public class ReportContext {
    * Makes {@link GeneReport} objects for each of the genes found in PharmGKB {@link GuidelinePackage} objects
    * @param guidelinePackages a List of PharmGKB {@link GuidelinePackage} objects
    */
-  private void makeGeneReports(List<GuidelinePackage> guidelinePackages) {
+  private void  makeGeneReports(List<GuidelinePackage> guidelinePackages) {
     for (GuidelinePackage guidelinePackage : guidelinePackages) {
       guidelinePackage.getGuideline().getRelatedGenes().stream()
           .map(RelatedGene::getSymbol)
           .distinct()
-          .forEach(s -> m_geneReports.add(new GeneReport(s)));
+          .forEach(s -> m_geneReports.put(s, GeneReportFactory.newReport(s)));
     }
   }
 
@@ -102,14 +107,23 @@ public class ReportContext {
    */
   private void compileMatcherData(List<GeneCall> calls) throws Exception {
     for (GeneCall call : calls) {
-      GeneReport geneReport = m_geneReports.stream()
-          .filter(r -> r.getGene().equals(call.getGene()))
-          .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
-          .orElseThrow(IllegalStateException::new);
+      GeneReport geneReport = GeneReportFactory.newReport(call);
       geneReport.setCallData(call);
+      m_geneReports.put(call.getGene(), geneReport);
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(call.getGene(), call.getVariants(), m_phenotypeMap, m_incidentalFinder);
-      diplotypeFactory.makeDiplotypes(call).forEach(geneReport::addDiplotype);
+      if (geneReport instanceof GeneReportUgt1a1) {
+        GeneReportUgt1a1 ugt1a1Report = (GeneReportUgt1a1)geneReport;
+        diplotypeFactory.makeDiplotypes(ugt1a1Report).forEach(geneReport::addDiplotype);
+        ugt1a1Report.getDistinctAlleles().stream()
+            .map(diplotypeFactory::makeHaplotype)
+            .map(Haplotype::getFunction)
+            .distinct()
+            .forEach(ugt1a1Report::addDisplayFunction);
+      }
+      else {
+        diplotypeFactory.makeDiplotypes(call).forEach(geneReport::addDiplotype);
+      }
     }
   }
 
@@ -119,10 +133,7 @@ public class ReportContext {
    */
   private void compileAstrolabeData(List<AstrolabeCall> calls) throws Exception {
     for (AstrolabeCall astrolabeCall : calls) {
-      GeneReport geneReport = m_geneReports.stream()
-          .filter(r -> r.getGene().equals(astrolabeCall.getGene()))
-          .reduce((r1,r2) -> { throw new RuntimeException("Didn't expect more than one report"); })
-          .orElseThrow(IllegalStateException::new);
+      GeneReport geneReport = m_geneReports.get(astrolabeCall.getGene());
       geneReport.setAstrolabeData(astrolabeCall);
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(astrolabeCall.getGene(), null, m_phenotypeMap, m_incidentalFinder);
@@ -143,7 +154,7 @@ public class ReportContext {
   }
 
   private boolean isCalled(String gene) {
-    return m_geneReports.stream().filter(r -> r.getGene().equals(gene)).allMatch(GeneReport::isCalled);
+    return m_geneReports.get(gene).isCalled();
   }
 
   /**
@@ -225,14 +236,12 @@ public class ReportContext {
     return m_guidelineReports;
   }
 
-  public Set<GeneReport> getGeneReports() {
-    return m_geneReports;
+  public Collection<GeneReport> getGeneReports() {
+    return m_geneReports.values();
   }
 
   @Nonnull
   private GeneReport getGeneReport(@Nonnull String geneSymbol) {
-    return m_geneReports.stream().filter(r -> r.getGene().equals(geneSymbol))
-        .reduce((r1,r2) -> { throw new RuntimeException("Duplicate gene reports found"); })
-        .orElseThrow(RuntimeException::new);
+    return m_geneReports.get(geneSymbol);
   }
 }
