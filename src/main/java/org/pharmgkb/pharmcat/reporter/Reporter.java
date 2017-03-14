@@ -36,8 +36,8 @@ import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
- * This is contains the main class for running the reporting tool. It's responsible for taking input of all the
- * necessary data files, parsing them, and running the reporter codes.
+ * This is the main class for running the reporting tool. It's responsible for taking input of all the
+ * necessary data files, parsing them, and running the reporter components.
  *
  * This can be run both on the command line and procedurally.
  *
@@ -53,7 +53,7 @@ public class Reporter {
   private ReportContext m_reportContext = null;
 
   /**
-   * main
+   * Main CLI
    * @param args command line args
    */
   public static void main(String[] args) {
@@ -170,20 +170,5 @@ public class Reporter {
     try (BufferedWriter writer = Files.newBufferedWriter(reportFile, StandardCharsets.UTF_8)) {
       writer.write(html);
     }
-  }
-
-  /**
-   * Expose the guideline reports for testing purposes
-   */
-  @Nullable
-  protected List<GuidelineReport> getGuidelineReports() {
-    if (m_reportContext == null) {
-      return null;
-    }
-    return m_reportContext.getGuidelineReports();
-  }
-
-  protected ReportContext getContext() {
-    return m_reportContext;
   }
 }
