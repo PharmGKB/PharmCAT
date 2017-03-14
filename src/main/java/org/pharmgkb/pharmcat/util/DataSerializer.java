@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.definition;
+package org.pharmgkb.pharmcat.util;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.stream.Collectors;
@@ -20,15 +21,16 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 
 
 /**
- * Serializer/Deserializer for final allele definition file.
+ * Serializer/Deserializer for data files.
  *
  * @author Mark Woon
  */
 @ThreadSafe
-public class GeneratedDefinitionSerializer {
+public class DataSerializer {
   private static final Gson sf_gson = new GsonBuilder()
       .serializeNulls()
       .disableHtmlEscaping()
@@ -39,7 +41,6 @@ public class GeneratedDefinitionSerializer {
 
 
   public void serializeToJson(@Nonnull Object data, @Nonnull Path jsonFile) throws IOException {
-
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: %s does not end with .json", jsonFile);
 
@@ -49,10 +50,10 @@ public class GeneratedDefinitionSerializer {
   }
 
 
-  public DefinitionFile deserializeFromJson(@Nonnull Path jsonFile) throws IOException {
-
+  public DefinitionFile deserializeDefinitionsFromJson(@Nonnull Path jsonFile) throws IOException {
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: file name does not end with .json");
+    Preconditions.checkArgument(Files.isRegularFile(jsonFile), "%s is not a file", jsonFile);
 
     try (BufferedReader reader = Files.newBufferedReader(jsonFile, StandardCharsets.UTF_8)) {
       DefinitionFile definitionFile = sf_gson.fromJson(reader, DefinitionFile.class);
@@ -65,9 +66,9 @@ public class GeneratedDefinitionSerializer {
 
 
   public Set<DefinitionExemption> deserializeExemptionsFromJson(@Nonnull Path jsonFile) throws IOException {
-
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: %s does not end with .json", jsonFile);
+    Preconditions.checkArgument(Files.isRegularFile(jsonFile), "%s is not a file", jsonFile);
 
     try (BufferedReader reader = Files.newBufferedReader(jsonFile, StandardCharsets.UTF_8)) {
       DefinitionExemption[] exemptions = sf_gson.fromJson(reader, DefinitionExemption[].class);
@@ -76,9 +77,9 @@ public class GeneratedDefinitionSerializer {
   }
 
   public Set<DefinitionExemption> deserializeExemptionsFromTsv(@Nonnull Path tsvFile) throws IOException {
-
     Preconditions.checkNotNull(tsvFile);
     Preconditions.checkArgument(tsvFile.toString().endsWith(".tsv"), "Invalid format: %s does not end with .tsv", tsvFile);
+    Preconditions.checkArgument(Files.isRegularFile(tsvFile), "%s is not a file", tsvFile);
 
     return Files.lines(tsvFile)
         .skip(1) // skip the header
@@ -94,5 +95,17 @@ public class GeneratedDefinitionSerializer {
           return new DefinitionExemption(gene, ignoreAlleles, allHits, assumeReference);
         })
         .collect(Collectors.toSet());
+  }
+
+
+  public List<MessageAnnotation> deserializeMessagesFromTsv(@Nonnull Path tsvFile) throws IOException {
+    Preconditions.checkNotNull(tsvFile);
+    Preconditions.checkArgument(tsvFile.toString().endsWith(".tsv"), "Invalid format: %s does not end with .tsv", tsvFile);
+    Preconditions.checkArgument(Files.isRegularFile(tsvFile), "%s is not a file", tsvFile);
+
+    return Files.lines(tsvFile)
+        .skip(1) // skip the header
+        .map(MessageAnnotation::new)
+        .collect(Collectors.toList());
   }
 }

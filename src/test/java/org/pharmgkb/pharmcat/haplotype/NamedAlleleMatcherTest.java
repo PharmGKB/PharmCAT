@@ -10,10 +10,10 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.util.DataManager;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
@@ -41,7 +41,7 @@ public class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionFile);
     if (withExemptions) {
-      definitionReader.readExemptions(DefinitionManager.DEFAULT_DEFINITION_DIR.resolve(DefinitionManager.EXEMPTIONS_FILE_NAME));
+      definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
     }
 
     NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, assumeReference, topCandidateOnly);

@@ -5,16 +5,17 @@ import java.nio.file.Path;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.util.DataSerializer;
 
 import static org.junit.Assert.*;
 
 
 /**
- * JUnit test for {@link GeneratedDefinitionSerializer}.
+ * JUnit test for {@link DataSerializer}.
  *
  * @author Mark Woon
  */
-public class GeneratedDefinitionSerializerTest {
+public class DataSerializerTest {
 
   @Test
   public void testJson1() throws Exception {
@@ -52,11 +53,11 @@ public class GeneratedDefinitionSerializerTest {
     DefinitionFile definitionFile = new CuratedDefinitionParser(inFile).parse();
 
     Path jsonFile = inFile.getParent().resolve(PathUtils.getBaseFilename(inFile) + ".json");
-    GeneratedDefinitionSerializer cdSerializer = new GeneratedDefinitionSerializer();
+    DataSerializer cdSerializer = new DataSerializer();
     // write it out
     cdSerializer.serializeToJson(definitionFile, jsonFile);
     // read it back in
-    DefinitionFile jsonDefinitionFile = cdSerializer.deserializeFromJson(jsonFile);
+    DefinitionFile jsonDefinitionFile = cdSerializer.deserializeDefinitionsFromJson(jsonFile);
 
     assertEquals(definitionFile, jsonDefinitionFile);
     return new DefinitionFile[] { definitionFile, jsonDefinitionFile };

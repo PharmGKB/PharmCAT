@@ -12,12 +12,12 @@ import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import org.pharmgkb.common.io.util.CliHelper;
-import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
@@ -78,7 +78,7 @@ public class NamedAlleleMatcher {
       if (cliHelper.hasOption("d")) {
         definitionDir = cliHelper.getValidDirectory("d", false);
       } else {
-        definitionDir = DefinitionManager.DEFAULT_DEFINITION_DIR;
+        definitionDir = DataManager.DEFAULT_DEFINITION_DIR;
       }
 
       DefinitionReader definitionReader = new DefinitionReader();

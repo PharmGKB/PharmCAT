@@ -6,8 +6,8 @@ import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.util.DataManager;
 
 import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.assertDiplotypePairs;
 import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNamedAlleles;
@@ -23,7 +23,7 @@ public class NamedAlleleMatcherVkorc1Test {
 
   @Before
   public void before() throws Exception {
-    m_definitionFile = DefinitionManager.DEFAULT_DEFINITION_DIR.resolve("VKORC1_translation.json");
+    m_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("VKORC1_translation.json");
   }
 
   @Test

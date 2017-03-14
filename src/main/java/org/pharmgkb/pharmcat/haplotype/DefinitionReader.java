@@ -12,12 +12,12 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
-import org.pharmgkb.pharmcat.definition.DefinitionManager;
-import org.pharmgkb.pharmcat.definition.GeneratedDefinitionSerializer;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.util.DataManager;
+import org.pharmgkb.pharmcat.util.DataSerializer;
 
 
 /**
@@ -26,7 +26,7 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
  * @author Mark Woon
  */
 public class DefinitionReader {
-  private GeneratedDefinitionSerializer m_definitionSerializer = new GeneratedDefinitionSerializer();
+  private DataSerializer m_definitionSerializer = new DataSerializer();
   private SortedMap<String, DefinitionFile> m_definitionFiles = new TreeMap<>();
   private Map<String, DefinitionExemption> m_exemptions = new TreeMap<>();
   private String m_genomeBuild;
@@ -100,7 +100,7 @@ public class DefinitionReader {
 
     Preconditions.checkNotNull(file);
     Preconditions.checkArgument(Files.isRegularFile(file), "%s is not a file", file);
-    DefinitionFile definitionFile = m_definitionSerializer.deserializeFromJson(file);
+    DefinitionFile definitionFile = m_definitionSerializer.deserializeDefinitionsFromJson(file);
 
     String gene = definitionFile.getGeneSymbol();
     m_definitionFiles.put(gene, definitionFile);
@@ -112,7 +112,7 @@ public class DefinitionReader {
     Preconditions.checkNotNull(path);
     Path file;
     if (Files.isDirectory(path)) {
-      file = path.resolve(DefinitionManager.EXEMPTIONS_FILE_NAME);
+      file = path.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME);
     } else {
       file = path;
     }

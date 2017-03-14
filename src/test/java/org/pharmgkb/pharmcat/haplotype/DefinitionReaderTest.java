@@ -5,8 +5,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.definition.DefinitionManager;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.util.DataManager;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -34,7 +34,7 @@ public class DefinitionReaderTest {
   public void testReadAllDefinitions() throws Exception {
 
     DefinitionReader reader = new DefinitionReader();
-    reader.read(DefinitionManager.DEFAULT_DEFINITION_DIR);
+    reader.read(DataManager.DEFAULT_DEFINITION_DIR);
 
     for (String gene : reader.getGenes()) {
       assertTrue(reader.getDefinitionFile(gene).getChromosome().startsWith("chr"));
