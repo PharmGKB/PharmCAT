@@ -48,13 +48,4 @@ public class NamedAlleleMatcherCftrTest {
     assertDiplotypePairs(expectedMatches, result);
   }
 
-  @Test
-  public void cftrWt5T() throws Exception {
-    // Test Reference/5T - TODO - assumption is that repeat is represented correctly
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/ref5t.vcf");
-    List<String> expectedMatches = Lists.newArrayList("5T/Reference");
-
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
-  }
 }

@@ -44,7 +44,7 @@ public class NamedAlleleMatcherDpydTest {
     // Test *2a/Rs67376798A
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD/s2aRs67376798A.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*2A/rs67376798T/A");
+    List<String> expectedMatches = Lists.newArrayList("*2A/rs67376798A");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
