@@ -21,6 +21,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
+import org.pharmgkb.pharmcat.reporter.model.Literature;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.RelatedChemical;
@@ -47,11 +48,13 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private Map<String,Map<String,String>> m_phenotypeMap;
   private List<MessageAnnotation> m_messages = new ArrayList<>();
   private boolean m_isIncidentalResult = false;
+  private List<Literature> m_citations = new ArrayList<>();
 
   public GuidelineReport(GuidelinePackage guidelinePackage){
     m_dosingGuideline = guidelinePackage.getGuideline();
     m_groups = guidelinePackage.getGroups();
     m_phenotypeMap = guidelinePackage.getPhenotypeMap();
+    m_citations.addAll(guidelinePackage.getCitations());
   }
 
   /**
@@ -256,5 +259,12 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
 
   public String toString() {
     return getRelatedDrugs().stream().collect(Collectors.joining(", "));
+  }
+
+  /**
+   * Gets the literature objects that are used for citation of this Guideline
+   */
+  public List<Literature> getCitations() {
+    return m_citations;
   }
 }

@@ -24,6 +24,9 @@ public class GuidelinePackage {
   @SerializedName("genePhenotypes")
   @Expose
   private Map<String,Map<String,String>> phenotypeMap = new HashMap<>();
+  @SerializedName("citations")
+  @Expose
+  private List<Literature> citations = new ArrayList<>();
 
   public DosingGuideline getGuideline() {
     return guideline;
@@ -39,6 +42,10 @@ public class GuidelinePackage {
 
   public void setGroups(List<Group> groups) {
     this.groups = groups;
+  }
+
+  public List<Literature> getCitations() {
+    return citations;
   }
 
   /**

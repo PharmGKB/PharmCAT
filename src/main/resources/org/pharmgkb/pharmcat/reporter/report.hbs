@@ -261,7 +261,7 @@
       <section>
         {{{summary}}}
 
-        <p>For more information see the <a href="{{url}}">full guideline on PharmGKB</a>.</p>
+        <p>The official guideline can be found on the <a href="https://cpicpgx.org">CPIC website</a>.</p>
       </section>
 
       {{#if incidental}}
@@ -325,6 +325,17 @@
         {{/each}}
       </section>
 
+      <section>
+        <p>For more information see the <a href="{{url}}">annotation on PharmGKB</a>.</p>
+        {{#if citations}}
+          <p>Citations:</p>
+          <ul>
+            {{#each citations}}
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/{{pmid}}">{{title}}</a> [PMID:{{pmid}}] <em>{{journal}}</em>. {{year}}.</li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      </section>
     </section>
   {{/each}}
 </section>
