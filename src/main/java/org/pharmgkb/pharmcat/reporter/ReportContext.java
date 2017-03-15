@@ -241,7 +241,7 @@ public class ReportContext {
   }
 
   @Nonnull
-  private GeneReport getGeneReport(@Nonnull String geneSymbol) {
+  public GeneReport getGeneReport(@Nonnull String geneSymbol) {
     return m_geneReports.get(geneSymbol);
   }
 }

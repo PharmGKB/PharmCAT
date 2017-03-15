@@ -211,6 +211,17 @@ public class PipelineTest {
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/VKORC1/-1639A-1639A.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
+
+    key = "test.missing.genes";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/TPMT/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP3A5/s1s7.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CFTR/F508delF508del.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C19/s2s2.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/SLCO1B1/s5s15.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/VKORC1/-1639A-1639A.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
   }
 
   private PharmCAT m_pharmcat;

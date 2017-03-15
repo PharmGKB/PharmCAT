@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import com.google.common.collect.ImmutableList;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
@@ -60,6 +59,7 @@ public class ReportData {
       );
       genotype.put("phenotype", geneReport.printDisplayPhenotypes());
       genotype.put("hasMessages", geneReport.getMessages().size()>0);
+      genotype.put("astrolabe", geneReport.isAstrolabeCall());
 
       genotypes.add(genotype);
     }
@@ -86,9 +86,12 @@ public class ReportData {
 
       List<Map<String,Object>> geneCallList = new ArrayList<>();
       for (String gene : guideline.getRelatedGeneSymbols()) {
+        GeneReport geneReport = reportContext.getGeneReport(gene);
         Map<String,Object> geneCall = new LinkedHashMap<>();
         geneCall.put("gene", gene);
-        geneCall.put("diplotypes", Stream.of(gene).flatMap(reportContext.mapGeneToDiplotypes).collect(Collectors.toList()));
+        geneCall.put("diplotypes", geneReport.printDisplayCalls().stream()
+            .collect(Collectors.joining(", ")));
+        geneCall.put("astrolabe", geneReport.isAstrolabeCall());
         geneCallList.add(geneCall);
       }
       if (geneCallList.size() > 0) {
@@ -99,8 +102,8 @@ public class ReportData {
       guidelineMap.put("uncalledGenes",
           guideline.getUncalledGenes().stream().collect(Collectors.joining(", ")));
 
-      guidelineMap.put("matched", guideline.getMatchingGroups() != null);
-      guidelineMap.put("mutliMatch", guideline.getMatchingGroups() != null && guideline.getMatchingGroups().size()>1);
+      guidelineMap.put("matched", guideline.isMatched());
+      guidelineMap.put("mutliMatch", guideline.hasMultipleMatches());
       guidelineMap.put("incidental", guideline.isIncidentalResult());
 
       guidelineMap.put("messages", guideline.getMessages().stream()

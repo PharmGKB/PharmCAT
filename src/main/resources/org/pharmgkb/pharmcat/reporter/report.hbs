@@ -283,9 +283,7 @@
 
       <section>
         {{#each geneCalls}}
-          {{#each diplotypes}}
-            <div class="geneCall"><a href="#{{../gene}}">{{../gene}}: {{this}}</a></div>
-          {{/each}}
+          <div class="geneCall"><a href="#{{gene}}">{{gene}}: {{diplotypes}}</a>{{#if astrolabe}} (from Astrolabe){{/if}}</div>
         {{/each}}
       </section>
 

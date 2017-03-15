@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
@@ -38,6 +39,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
 
   private static final Pattern sf_genotypePattern = Pattern.compile("(.*):(.*)\\/(.*)");
   private static final String sf_unmatchedPhenotype = "N/A";
+  private static final List<String> sf_notApplicableMatches = ImmutableList.of("PA166104949");
 
   private DosingGuideline m_dosingGuideline;
   private List<Group> m_groups;
@@ -112,6 +114,14 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     m_matchingGroups.add(group);
   }
 
+  public boolean isMatched() {
+    return sf_notApplicableMatches.contains(getId()) || (m_matchingGroups != null && m_matchingGroups.size()>0);
+  }
+
+  public boolean hasMultipleMatches() {
+    return m_matchingGroups != null && m_matchingGroups.size()>1;
+  }
+
   /**
    * Gets the URL for the whole annotation
    */
@@ -136,7 +146,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
    * True if each of the genes in this guideline has at least one called diplotype
    */
   public boolean isReportable() {
-    return m_reportable;
+    return sf_notApplicableMatches.contains(getId()) || m_reportable;
   }
 
   public void setReportable(boolean reportable) {
