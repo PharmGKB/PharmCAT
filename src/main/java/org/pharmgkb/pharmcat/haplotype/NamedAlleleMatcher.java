@@ -63,11 +63,11 @@ public class NamedAlleleMatcher {
 
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-          .addOption("d", "definition-dir", "directory of allele definition files", false, "d")
-          .addOption("a", "annotations-dir", "directory of annotation files", false, "a")
           .addOption("vcf", "vcf-in", "VCF file", true, "vcf")
           .addOption("json", "json-out", "file to save results to (in JSON format)", false, "json")
-          .addOption("html", "html-out", "file to save results to (in HTML format)", false, "html");
+          .addOption("html", "html-out", "file to save results to (in HTML format)", false, "html")
+          .addOption("d", "definition-dir", "directory of allele definition files", false, "d")
+          ;
 
       if (!cliHelper.parse(args)) {
         System.exit(1);

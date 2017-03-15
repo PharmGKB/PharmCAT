@@ -32,6 +32,7 @@ import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
+import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
@@ -58,11 +59,11 @@ public class Reporter {
   public static void main(String[] args) {
 
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        .addOption("d", "annotations-dir", "directory of allele definition files", true, "d")
         .addOption("c", "call-file", "named allele call JSON file", true, "c")
         .addOption("a", "astrolabe-file", "optional, astrolabe call file", false, "a")
         .addOption("o", "output-file", "file path to write HTML report to", true, "o")
         .addOption("t", "title", "optional, text to add to the report title", false, "t")
+        .addOption("g", "guidelines-dir", "directory of guideline annotations (JSON files)", false, "n")
         ;
 
     try {
@@ -70,13 +71,16 @@ public class Reporter {
         System.exit(1);
       }
 
-      Path annotationsDir = cliHelper.getValidDirectory("d", false);
+      Path guidelinesDir = null;
+      if (cliHelper.hasOption("g")) {
+        guidelinesDir = cliHelper.getValidDirectory("g", false);
+      }
       Path callFile = cliHelper.getValidFile("c", true);
       Path astrolabeFile = cliHelper.hasOption("a") ? cliHelper.getValidFile("a", true) : null;
       Path outputFile = cliHelper.getPath("o");
       String title = cliHelper.getValue("t");
 
-      new Reporter(annotationsDir)
+      new Reporter(guidelinesDir)
           .analyze(callFile, astrolabeFile)
           .printHtml(outputFile, title);
 
@@ -90,9 +94,11 @@ public class Reporter {
    *
    * @param annotationsDir directory of annotation files
    */
-  public Reporter(@Nonnull Path annotationsDir) throws IOException {
+  public Reporter(@Nullable Path annotationsDir) throws IOException {
 
-    Preconditions.checkNotNull(annotationsDir);
+    if (annotationsDir == null) {
+      annotationsDir = DataManager.DEFAULT_GUIDELINE_DIR;
+    }
     Preconditions.checkArgument(Files.exists(annotationsDir));
     Preconditions.checkArgument(Files.isDirectory(annotationsDir));
 
