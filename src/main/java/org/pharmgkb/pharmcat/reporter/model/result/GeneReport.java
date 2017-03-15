@@ -1,24 +1,23 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.haplotype.model.Variant;
+import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
 
 /**
@@ -30,12 +29,11 @@ public class GeneReport implements Comparable<GeneReport> {
 
   private String m_gene;
   private Set<String> m_uncalledHaplotypes;
-  private SortedSet<Variant> m_variants = new TreeSet<>();
   private List<MessageAnnotation> m_messages = new ArrayList<>();
-  private MatchData m_matchData;
   private List<DrugLink> m_relatedDrugs = new ArrayList<>();
   private boolean m_astrolabeCall = false;
   private List<Diplotype> m_diplotypes = new ArrayList<>();
+  private List<VariantReport> m_variantReports = new ArrayList<>();
 
   /**
    * public constructor
@@ -48,11 +46,15 @@ public class GeneReport implements Comparable<GeneReport> {
    * Sets data in this report based on data found in a {@link GeneCall}
    * @param call a {@link GeneCall} that has been made by the {@link NamedAlleleMatcher}
    */
-  public void setCallData(@Nonnull GeneCall call) {
+  public void setCallData(@Nonnull GeneCall call) throws IOException {
     m_gene = call.getGene();
-    m_variants.addAll(call.getVariants());
-    m_matchData = call.getMatchData();
     m_uncalledHaplotypes = call.getUncallableHaplotypes();
+
+    VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene);
+    call.getVariants().stream()
+        .map(variantReportFactory::make).forEach(a -> m_variantReports.add(a));
+    call.getMatchData().getMissingPositions().stream()
+        .map(variantReportFactory::make).forEach(a -> m_variantReports.add(a));
   }
 
   /**
@@ -107,7 +109,8 @@ public class GeneReport implements Comparable<GeneReport> {
       boolean critDip = match.getDips().isEmpty()
           || match.getDips().stream().allMatch(d -> m_diplotypes.stream().anyMatch(e -> e.printBare().equals(d)));
       boolean critMissVariant = match.getVariantsMissing().isEmpty() ||
-          match.getVariantsMissing().stream().allMatch(v -> m_variants.isEmpty() || m_variants.stream().noneMatch(a -> a.getRsid().equals(v)));
+          match.getVariantsMissing().stream().allMatch(v -> m_variantReports.isEmpty() || m_variantReports.stream()
+              .noneMatch(a ->a.getDbSnpId() != null && a.getDbSnpId().equals(v) && a.isMissing()));
 
       if (critHap && critUnmatchedHap && critDip && critMissVariant) {
         m_messages.add(message);
@@ -115,18 +118,8 @@ public class GeneReport implements Comparable<GeneReport> {
     }
   }
 
-  /**
-   * The variants that constitute this gene
-   */
-  public SortedSet<Variant> getVariants() {
-    return m_variants;
-  }
-
-  /**
-   * Gets the match data from the gene call itself
-   */
-  public MatchData getMatchData() {
-    return m_matchData;
+  public List<VariantReport> getVariantReports() {
+    return m_variantReports;
   }
 
   /**

@@ -376,21 +376,23 @@
             <th>Position</th>
             <th>RSID</th>
             <th>Call</th>
+            <th>Related Alleles</th>
           </tr>
           </thead>
           <tbody>
           {{#each variants}}
             <tr>
               <td>{{position}}</td>
-              <td>{{rsid}}</td>
-              <td>{{vcfCall}}</td>
-            </tr>
-          {{/each}}
-          {{#each missingVariants}}
-            <tr>
-              <td>{{position}}</td>
-              <td>{{rsid}}</td>
-              <td class="missingVariant"><em>missing</em></td>
+              <td>{{dbSnpId}}</td>
+              {{#if missing}}
+                <td class="missingVariant"><em>missing</em></td>
+              {{/if}}
+              {{#unless missing}}
+                <td>{{call}}</td>
+              {{/unless}}
+              <td>
+                {{#each alleles}}{{this}} {{/each}}
+              </td>
             </tr>
           {{/each}}
           </tbody>

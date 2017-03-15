@@ -14,6 +14,7 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
@@ -174,22 +175,17 @@ public class ReportData {
         geneCallMap.put("warnings", geneReport.getMessages().stream().map(MessageAnnotation::getMessage).collect(Collectors.toList()));
       }
 
-      if (geneReport.getVariants().size() > 0) {
-        geneCallMap.put("variants", geneReport.getVariants());
+      if (geneReport.getVariantReports().size() > 0) {
+        geneCallMap.put("variants", geneReport.getVariantReports());
       } else {
         geneCallMap.put("variantsUnspecified", true);
       }
 
       geneCallMap.put("astrolabe", geneReport.isAstrolabeCall());
 
-      int totalVariants = 0;
-      if (geneReport.getMatchData() != null && geneReport.getMatchData().getMissingPositions().size()>0) {
-        geneCallMap.put("missingVariants", geneReport.getMatchData().getMissingPositions());
-        geneCallMap.put("totalMissingVariants", geneReport.getMatchData().getMissingPositions().size());
-        totalVariants += geneReport.getMatchData().getMissingPositions().size();
-      }
-      totalVariants += geneReport.getVariants().size();
-      geneCallMap.put("totalVariants", totalVariants);
+      geneCallMap.put("totalMissingVariants",
+          geneReport.getVariantReports().stream().filter(VariantReport::isMissing).count());
+      geneCallMap.put("totalVariants", geneReport.getVariantReports().size());
 
       geneCallMap.put("messages", geneReport.getMessages().stream().map(MessageAnnotation::getMessage).collect(Collectors.toList()));
 

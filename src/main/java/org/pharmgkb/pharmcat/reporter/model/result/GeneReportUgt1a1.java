@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -45,7 +46,7 @@ public class GeneReportUgt1a1 extends GeneReport {
    * @param call a {@link GeneCall} that has been made by the NamedAlleleMatcher
    */
   @Override
-  public void setCallData(@Nonnull GeneCall call) {
+  public void setCallData(@Nonnull GeneCall call) throws IOException {
     super.setCallData(call);
 
     for (Variant variant : call.getVariants()) {
