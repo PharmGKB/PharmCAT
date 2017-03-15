@@ -24,7 +24,7 @@ import org.pharmgkb.pharmcat.reporter.model.VariantReport;
  * This class is used to help collect Gene-related data for later reporting
  */
 public class GeneReport implements Comparable<GeneReport> {
-  private static final String UNCALLED = "not called";
+  protected static final String UNCALLED = "not called";
   public static final String NA = "N/A";
 
   private String m_gene;

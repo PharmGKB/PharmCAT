@@ -13,6 +13,7 @@ import com.google.common.collect.ImmutableList;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
+import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
 
 /**
@@ -91,6 +92,11 @@ public class GeneReportUgt1a1 extends GeneReport {
   }
 
   public List<String> makeDiplotypeCalls() {
+    boolean geneMissing = getVariantReports().stream().allMatch(VariantReport::isMissing);
+    if (geneMissing) {
+      return ImmutableList.of();
+    }
+
     long countHomoAB = sf_groupAB.stream()
         .filter(a -> m_haplotypes.stream().filter(h -> h.equals(a)).count() >= 2)
         .count();
@@ -126,6 +132,10 @@ public class GeneReportUgt1a1 extends GeneReport {
       }
     }
 
+    if (displayCalls.size() == 0) {
+      displayCalls.add(UNCALLED);
+    }
+
     return displayCalls;
   }
 
@@ -137,6 +147,9 @@ public class GeneReportUgt1a1 extends GeneReport {
 
   @Override
   public Collection<String> printDisplayFunctions() {
+    if (m_displayFunctions.size() == 0) {
+      m_displayFunctions.add(NA);
+    }
     return m_displayFunctions;
   }
 
