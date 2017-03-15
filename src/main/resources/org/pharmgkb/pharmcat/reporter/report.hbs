@@ -281,10 +281,6 @@
         {{/each}}
       </section>
 
-      {{#if image}}
-        <div class="image"><img src="{{image/url}}" alt="{{image/altText}}"/></div>
-      {{/if}}
-
       <section>
         {{#each geneCalls}}
           {{#each diplotypes}}
@@ -300,6 +296,10 @@
         {{#unless matched}}
           <div class="alert alert-warning">No CPIC recommendation for this allele combination.</div>
         {{/unless}}
+      {{/if}}
+
+      {{#if image}}
+        <div class="image"><img src="{{image/url}}" alt="{{image/altText}}"/></div>
       {{/if}}
 
       {{#if matched}}
