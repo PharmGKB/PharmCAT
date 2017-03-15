@@ -219,7 +219,7 @@ public class PipelineTest {
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("o", "output-dir", "directory to output to", true, "o")
-        .addOption("n", "annotation-dir", "directory of guideline annotations (JSON files)", true, "n");
+        .addOption("g", "guideline-dir", "directory of guideline annotations (JSON files)", false, "n");
 
     try {
       if (!cliHelper.parse(args)) {
@@ -227,9 +227,12 @@ public class PipelineTest {
       }
 
       Path outputDir = cliHelper.getValidDirectory("o", true);
-      Path annoDir = cliHelper.getValidDirectory("n", false);
+      Path guidelineDir = null;
+      if (cliHelper.hasOption("g")) {
+        guidelineDir = cliHelper.getValidDirectory("g", false);
+      }
 
-      PipelineTest piplelineTest = new PipelineTest(outputDir, annoDir);
+      PipelineTest piplelineTest = new PipelineTest(outputDir, guidelineDir);
       piplelineTest.execute();
     } catch (Exception e) {
       e.printStackTrace();
@@ -237,9 +240,9 @@ public class PipelineTest {
   }
 
 
-  private PipelineTest(Path outputDir, Path annoDir) throws IOException {
+  private PipelineTest(Path outputDir, Path guidelineDir) throws IOException {
     m_outputDir = outputDir;
-    m_pharmcat = new PharmCAT(outputDir, null, annoDir).keepMatcherOutput();
+    m_pharmcat = new PharmCAT(outputDir, null, guidelineDir).keepMatcherOutput();
   }
 
   private void execute() throws Exception {
