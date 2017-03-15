@@ -10,7 +10,7 @@ For more detail, read the [PharmGKB blog post about PharmCAT](http://pharmgkb.bl
 
 ## Status
 
-This application is __under development__ has __not been officially released__. Watch this repo or check the [releases](../../releases) page for the official release
+This application is __under development__ and has __not been officially released__. Watch this repo or check the [releases](../../releases) page for the official release
 
 All technical documentation is available in the [wiki](../../wiki).
 
