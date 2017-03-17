@@ -59,7 +59,7 @@ public class NamedAlleleMatcherTpmtTest {
     // Test *3b/*3c.  However due to lack of phasing *1/*3a is also an option
     // However we are only taking top option at the moment, so *1/*3A (which scores higher) is valid single return
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s3bs3c.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*3A");
+    List<String> expectedMatches = Lists.newArrayList("*1/*3A","*3B/*3C");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -80,6 +80,18 @@ public class NamedAlleleMatcherTpmtTest {
     // Test *16/*22. rs144041067 is bi-allelic
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s16s22.vcf");
     List<String> expectedMatches = Lists.newArrayList("*16/*22");
+
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
+  }
+
+  /**
+   * Test to make sure homo *1S alleles are ignored and that other present alleles will be called properly
+   */
+  @Test
+  public void tpmtStar1SHomo3AHet() throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s1ss1ss3.vcf");
+    List<String> expectedMatches = Lists.newArrayList("*1/*3A");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
