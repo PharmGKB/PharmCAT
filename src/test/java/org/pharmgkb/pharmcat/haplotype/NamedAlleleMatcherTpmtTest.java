@@ -59,7 +59,7 @@ public class NamedAlleleMatcherTpmtTest {
     // Test *3b/*3c.  However due to lack of phasing *1/*3a is also an option
     // However we are only taking top option at the moment, so *1/*3A (which scores higher) is valid single return
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s3bs3c.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*3A","*3B/*3C");
+    List<String> expectedMatches = Lists.newArrayList("*1/*3A");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
