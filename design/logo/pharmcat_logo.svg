@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="717px" height="400px" viewBox="0 0 717 400" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>pharmcat_logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PharmCAT-Logo" transform="translate(-31.000000, -657.000000)">
+            <g id="V4" transform="translate(31.000000, 657.000000)">
+                <path d="M160.671521,262.500441 C160.671521,224.096772 94.6767938,207.83144 94.6767938,207.83144 C94.6767938,207.83144 63.488019,194.002869 53.8972456,168.071484 C44.3064723,142.1401 72.9812336,143.30311 80.6733641,123.126752 C88.3654945,102.950394 119.606801,89.5945306 119.606801,89.5945306 L119.606801,41.5584416 L262.472941,176.287901 L496.277288,176.287901 C496.277288,176.287901 580.104674,170.313713 619.354596,196.461483 C669.720987,230.014894 669.720987,262.500441 669.720987,262.500441 C669.720987,262.500441 684.960027,335.013356 595.266034,340.1274 C457.418888,335.013356 432.454437,241.781534 511.142636,241.781534" id="Path-4" stroke="#4D4F53" stroke-width="10" stroke-linecap="round"></path>
+                <text id="at" font-family="Comfortaa" font-size="92" font-weight="normal" fill="#8C1515">
+                    <tspan x="516.997283" y="294">at</tspan>
+                </text>
+                <text id="Pharm" font-family="Comfortaa" font-size="92" font-weight="normal" fill="#8C1515">
+                    <tspan x="175.868886" y="294">Pharm</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
