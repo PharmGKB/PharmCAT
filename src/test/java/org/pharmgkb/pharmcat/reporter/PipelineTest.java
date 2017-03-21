@@ -260,6 +260,21 @@ public class PipelineTest {
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
 
+    //TODO: Lester/Ryan - broken. Also null pointer exception.
+    key = "test.cyp2c19.rs28399504missing";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/TPMT/s1ss1ss3.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP3A5/s1s7.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CFTR/G542XF508del.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C19/s4bs17rs28399504missing.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C9/s2s3.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/SLCO1B1/s5s15.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/VKORC1/-1639A-1639A.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
+
+
     //TODO: Lester/Ryan - broken. Needs to make recommendation based on lower scored *2A/*5 phenotype - see exceptions
     key = "test.dpyd.stars12b";
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/DPYD/s1s2b.vcf");
@@ -273,6 +288,7 @@ public class PipelineTest {
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/VKORC1/-1639A-1639A.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
+
 
   }
 
