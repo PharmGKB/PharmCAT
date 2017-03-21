@@ -73,7 +73,7 @@ public class NamedAlleleMatcherUgt1a1Test {
     // report out all matching alleles and combinations of them
     // e.g. for a het *60 and *80  would be *60 + *80/*1 and *60/*80
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s60s80.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*60+*80", "*60/*80");
+    List<String> expectedMatches = Lists.newArrayList("*1/*60", "*1/*80");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -102,6 +102,17 @@ public class NamedAlleleMatcherUgt1a1Test {
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
+
+  @Test
+  public void ugt1a1s28s80s6s60phased() throws Exception {
+    // Example of phased data with four alelles. Work in progress
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80s6s60phased.vcf");
+    List<String> expectedMatches = Lists.newArrayList("*28+80/*6+*60");
+
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
+  }
+
 
 
 }
