@@ -6,10 +6,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
@@ -46,10 +44,6 @@ public class ReportContext {
 
   private final Predicate<String> isGeneIncidental = s -> m_geneReports.values().stream()
       .anyMatch(r -> r.getGene().equals(s) && r.isIncidental());
-
-  public final Function<String,Stream<String>> mapGeneToDiplotypes = s -> m_geneReports.values().stream()
-      .filter(c -> c.getGene().equals(s))
-      .flatMap(c -> c.getDiplotypes().stream().map(e -> e.printDisplay() + (c.isAstrolabeCall() ? " (Astrolabe)" : "")));
 
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
