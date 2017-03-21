@@ -103,7 +103,7 @@ public class SheetsHelper implements AutoCloseable {
   private void downloadAnnotations(@Nonnull Path outputFile, int sheetNumber) throws IOException, ServiceException {
 
     Drive.Files.List request = m_drive.files().list();
-    List<File> files = request.setQ("name='PharmCAT Exception Logic'" +
+    List<File> files = request.setQ("name='PharmCAT Message Annotations'" +
         "and sharedWithMe and trashed=false")
         .execute()
         .getFiles();
