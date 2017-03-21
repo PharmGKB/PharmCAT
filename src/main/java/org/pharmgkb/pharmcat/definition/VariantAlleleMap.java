@@ -39,7 +39,7 @@ public class VariantAlleleMap {
 
     Path definitionPath = DataManager.DEFAULT_DEFINITION_DIR.resolve(gene+"_translation.json");
 
-    if (!definitionPath.toFile().isFile()) {
+    if (!Files.isRegularFile(definitionPath)) {
       return;
     }
 
