@@ -11,6 +11,12 @@
       "description" : "initial save",
       "type" : "create",
       "version" : 1
+    }, {
+      "id" : 1448604646,
+      "date" : "2017-03-15T00:00:00-07:00",
+      "description" : "Updated extended dosing guideline",
+      "type" : "update",
+      "version" : 0
     } ],
     "relatedChemicals" : [ {
       "objCls" : "Chemical",
@@ -51,7 +57,7 @@
       "relatedObjects" : [ ],
       "version" : 6
     },
-    "version" : 23,
+    "version" : 24,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983477,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/"} ]
   },
   "annotationGroups" : [ {
@@ -59,7 +65,7 @@
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128783",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128783",
-    "name" : "Extensive",
+    "name" : "Normal Metabolizer",
     "annotations" : [ {
       "id" : 1445571328,
       "history" : [ ],
@@ -112,12 +118,12 @@
       "markdown" : {
         "id" : 1447986555,
         "externalLinks" : [ ],
-        "html" : "<p>Extensive metabolizer</p>\n",
+        "html" : "<p>Normal Metabolizer</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [Article:<a href=\"/pmid/27441996\">27441996</a>] for drug metabolizing enzymes.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Extensive metabolizer",
-        "pmids" : [ ],
+        "markdown" : "Normal Metabolizer\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [PMID:27441996] for drug metabolizing enzymes._",
+        "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -129,7 +135,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445571329,
       "history" : [ ],
@@ -184,7 +190,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166127637",
       "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
-      "version" : 23
+      "version" : 24
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -204,13 +210,13 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 7
+    "version" : 10
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128784",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128784",
-    "name" : "Intermediate",
+    "name" : "Intermediate Metabolizer",
     "annotations" : [ {
       "id" : 1445571333,
       "history" : [ ],
@@ -240,12 +246,12 @@
       "markdown" : {
         "id" : 1447986524,
         "externalLinks" : [ ],
-        "html" : "<p>Reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.</p>\n",
+        "html" : "<p>Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "markdown" : "Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
@@ -256,19 +262,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445571336,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986525,
         "externalLinks" : [ ],
-        "html" : "<p>Intermediate metabolizer</p>\n",
+        "html" : "<p>Intermediate Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Intermediate metabolizer",
+        "markdown" : "Intermediate Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -280,7 +286,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445571334,
       "history" : [ ],
@@ -335,7 +341,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166127637",
       "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
-      "version" : 23
+      "version" : 24
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -355,13 +361,13 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 7
+    "version" : 10
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128785",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128785",
-    "name" : "Poor",
+    "name" : "Poor Metabolizer",
     "annotations" : [ {
       "id" : 1445571338,
       "history" : [ ],
@@ -391,12 +397,12 @@
       "markdown" : {
         "id" : 1447986529,
         "externalLinks" : [ ],
-        "html" : "<p>Greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.</p>\n",
+        "html" : "<p>Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "markdown" : "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
@@ -407,19 +413,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445571341,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986530,
         "externalLinks" : [ ],
-        "html" : "<p>Poor metabolizers</p>\n",
+        "html" : "<p>Poor Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Poor metabolizers",
+        "markdown" : "Poor Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -431,7 +437,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445571339,
       "history" : [ ],
@@ -486,15 +492,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166127637",
       "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
-      "version" : 23
+      "version" : 24
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -506,13 +512,13 @@
       "termId" : "guidelineStrength:981565059",
       "version" : 0
     },
-    "version" : 7
+    "version" : 10
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128814",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128814",
-    "name" : "Ultra or extensive",
+    "name" : "Ultrarapid Metabolizer or Normal Metabolizer",
     "annotations" : [ {
       "id" : 1445614144,
       "history" : [ ],
@@ -565,12 +571,12 @@
       "markdown" : {
         "id" : 1447986435,
         "externalLinks" : [ ],
-        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Extensive metabolizer</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid metabolizer</p>\n",
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal Metabolizer</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [Article:<a href=\"/pmid/27441996\">27441996</a>] for drug metabolizing enzymes.</em></p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\n\n Extensive metabolizer\n\n__For the combination of a no function allele and more than two copies of a normal function allele:__\n\n Ultrarapid metabolizer",
-        "pmids" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal Metabolizer\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [PMID:27441996] for drug metabolizing enzymes._\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nUltrarapid Metabolizer",
+        "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -582,7 +588,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445614295,
       "history" : [ ],
@@ -637,7 +643,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166127637",
       "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
-      "version" : 23
+      "version" : 24
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -657,13 +663,13 @@
       "termId" : "guidelineStrength:981565059",
       "version" : 0
     },
-    "version" : 7
+    "version" : 10
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128782",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128782",
-    "name" : "Ultrarapid",
+    "name" : "Ultrarapid Metabolizer",
     "annotations" : [ {
       "id" : 1445571323,
       "history" : [ ],
@@ -716,12 +722,12 @@
       "markdown" : {
         "id" : 1447986550,
         "externalLinks" : [ ],
-        "html" : "<p>Ultrarapid metabolizer</p>\n",
+        "html" : "<p>Ultrarapid Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Ultrarapid metabolizer",
+        "markdown" : "Ultrarapid Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -733,7 +739,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445571324,
       "history" : [ ],
@@ -788,7 +794,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166127637",
       "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
-      "version" : 23
+      "version" : 24
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -808,7 +814,136 @@
       "termId" : "guidelineStrength:981565059",
       "version" : 0
     },
-    "version" : 7
+    "version" : 10
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162351",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162351",
+    "name" : "Indeterminate",
+    "annotations" : [ {
+      "id" : 1448531568,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531567,
+        "externalLinks" : [ ],
+        "html" : "<p>N/A</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "N/A",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448531570,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531569,
+        "externalLinks" : [ ],
+        "html" : "<p>Indeterminate</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448531564,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531563,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two unknown/uncertain function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown/uncertain function alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448531572,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531571,
+        "externalLinks" : [ ],
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Unknown or Uncertain Function", "CYP2D6:Increased Function/Unknown or Uncertain Function", "CYP2D6:No Function/Unknown or Uncertain Function", "CYP2D6:Normal Function/Unknown or Uncertain Function", "CYP2D6:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166127637",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166127637",
+      "name" : "CPIC Guideline for fluvoxamine and CYP2D6",
+      "version" : 24
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 1
   } ],
   "genePhenotypes" : {
     "CYP2D6" : {
@@ -841,32 +976,32 @@
       "*19" : "No Function",
       "*20" : "No Function",
       "*21" : "No Function",
-      "*22" : "Unknown",
-      "*23" : "Unknown",
-      "*24" : "Unknown",
-      "*25" : "Unknown",
-      "*26" : "Unknown",
+      "*22" : "Unknown or Uncertain Function",
+      "*23" : "Unknown or Uncertain Function",
+      "*24" : "Unknown or Uncertain Function",
+      "*25" : "Unknown or Uncertain Function",
+      "*26" : "Unknown or Uncertain Function",
       "*27" : "Normal Function",
-      "*28" : "Unknown",
+      "*28" : "Unknown or Uncertain Function",
       "*29" : "Decreased Function",
       "*29x2" : "Normal Function",
-      "*30" : "Unknown",
+      "*30" : "Unknown or Uncertain Function",
       "*31" : "No Function",
-      "*32" : "Unknown",
+      "*32" : "Unknown or Uncertain Function",
       "*33" : "Normal Function",
       "*34" : "Normal Function",
       "*35" : "Normal Function",
       "*35xN" : "Increased Function",
       "*36" : "No Function",
       "*36xN" : "No Function",
-      "*37" : "Unknown",
+      "*37" : "Unknown or Uncertain Function",
       "*38" : "No Function",
       "*39" : "Normal Function",
       "*40" : "No Function",
       "*41" : "Decreased Function",
       "*41x2" : "Normal Function",
       "*42" : "No Function",
-      "*43" : "Unknown",
+      "*43" : "Unknown or Uncertain Function",
       "*44" : "No Function",
       "*45" : "Normal Function",
       "*45xN" : "Increased Function",
@@ -876,56 +1011,106 @@
       "*49" : "Decreased Function",
       "*50" : "Decreased Function",
       "*51" : "No Function",
-      "*52" : "Unknown",
+      "*52" : "Unknown or Uncertain Function",
       "*53" : "Normal Function",
       "*54" : "Decreased Function",
       "*55" : "Decreased Function",
-      "*56A" : "No Function",
-      "*56B" : "No Function",
+      "*56" : "No Function",
       "*57" : "No Function",
-      "*58" : "Unknown",
+      "*58" : "Unknown or Uncertain Function",
       "*59" : "Decreased Function",
-      "*60" : "Unknown",
-      "*61" : "Unknown",
+      "*60" : "Unknown or Uncertain Function",
+      "*61" : "Unknown or Uncertain Function",
       "*62" : "No Function",
-      "*63" : "Unknown",
-      "*64" : "Unknown",
-      "*65" : "Unknown",
+      "*63" : "Unknown or Uncertain Function",
+      "*64" : "Unknown or Uncertain Function",
+      "*65" : "Unknown or Uncertain Function",
       "*68" : "No Function",
       "*69" : "No Function",
-      "*70" : "Unknown",
-      "*71" : "Unknown",
+      "*70" : "Unknown or Uncertain Function",
+      "*71" : "Unknown or Uncertain Function",
       "*72" : "Decreased Function",
-      "*73" : "Unknown",
-      "*74" : "Unknown",
-      "*75" : "Unknown",
-      "*81" : "Unknown",
-      "*82" : "Unknown",
-      "*83" : "Unknown",
-      "*84" : "Unknown",
-      "*85" : "Unknown",
-      "*86" : "Unknown",
-      "*87" : "Unknown",
-      "*88" : "Unknown",
-      "*89" : "Unknown",
-      "*90" : "Unknown",
-      "*91" : "Unknown",
+      "*73" : "Unknown or Uncertain Function",
+      "*74" : "Unknown or Uncertain Function",
+      "*75" : "Unknown or Uncertain Function",
+      "*81" : "Unknown or Uncertain Function",
+      "*82" : "Unknown or Uncertain Function",
+      "*83" : "Unknown or Uncertain Function",
+      "*84" : "Unknown or Uncertain Function",
+      "*85" : "Unknown or Uncertain Function",
+      "*86" : "Unknown or Uncertain Function",
+      "*87" : "Unknown or Uncertain Function",
+      "*88" : "Unknown or Uncertain Function",
+      "*89" : "Unknown or Uncertain Function",
+      "*90" : "Unknown or Uncertain Function",
+      "*91" : "Unknown or Uncertain Function",
       "*92" : "No Function",
-      "*93" : "Unknown",
-      "*94" : "Unknown",
-      "*95" : "Unknown",
-      "*96" : "Unknown",
-      "*97" : "Unknown",
-      "*98" : "Unknown",
+      "*93" : "Unknown or Uncertain Function",
+      "*94" : "Unknown or Uncertain Function",
+      "*95" : "Unknown or Uncertain Function",
+      "*96" : "Unknown or Uncertain Function",
+      "*97" : "Unknown or Uncertain Function",
+      "*98" : "Unknown or Uncertain Function",
       "*100" : "No Function",
       "*101" : "No Function",
-      "*102" : "Unknown",
-      "*103" : "Unknown",
-      "*104" : "Unknown",
-      "*105" : "Unknown",
-      "*107" : "Unknown",
-      "*108" : "Unknown",
-      "*109" : "Unknown"
+      "*102" : "Unknown or Uncertain Function",
+      "*103" : "Unknown or Uncertain Function",
+      "*104" : "Unknown or Uncertain Function",
+      "*105" : "Unknown or Uncertain Function",
+      "*107" : "Unknown or Uncertain Function",
+      "*108" : "Unknown or Uncertain Function",
+      "*109" : "Unknown or Uncertain Function"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/25974703",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15089021,
+    "resourceId" : "25974703",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors",
+    "authors" : [ "Hicks J Kevin", "Bishop Jeffrey R", "Sangkuhl Katrin", "Müller Daniel J", "Ji Yuan", "Leckband Susan G", "Leeder J Steven", "Graham Rebecca L", "Chiulli Dana L", "LLerena Adrián", "Skaar Todd C", "Scott Stuart A", "Stingl Julia C", "Klein Teri E", "Caudle Kelly E", "Gaedigk Andrea" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 5,
+    "nonHuman" : false,
+    "pubDate" : "2015-05-01T00:00:00-07:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/25974703",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15089022,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 15089023,
+      "text" : "Selective Serotonin Reuptake Inhibitors (SSRIs) are primary treatment options for major depressive and anxiety disorders.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 15089024,
+      "text" : "CYP2D6 and CYP2C19 polymorphisms can influence the metabolism of SSRIs thereby affecting drug efficacy and safety.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 15089025,
+      "text" : "We summarize evidence from the published literature supporting these associations and provide dosing recommendations for fluvoxamine, paroxetine, citalopram, escitalopram and sertraline based on CYP2D6 and/or CYP2C19 genotype (updates at www.pharmgkb.org).",
+      "sentenceIndex" : 3
+    }, {
+      "location" : "abstract",
+      "id" : 15089026,
+      "text" : "This article is protected by copyright.",
+      "sentenceIndex" : 4
+    }, {
+      "location" : "abstract",
+      "id" : 15089027,
+      "text" : "All rights reserved.",
+      "sentenceIndex" : 5
+    } ],
+    "summary" : "Selective Serotonin Reuptake Inhibitors (SSRIs) are primary treatment options for major depressive and anxiety disorders. CYP2D6 and CYP2C19 polymorphisms can influence the metabolism of SSRIs thereby affecting drug efficacy and safety. We summarize evidence from the published literature supporting these associations and provide dosing recommendations for fluvoxamine, paroxetine, citalopram, escitalopram and sertraline based on CYP2D6 and/or CYP2C19 genotype (updates at www.pharmgkb.org). This article is protected by copyright. All rights reserved.",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2015
+  } ]
 }

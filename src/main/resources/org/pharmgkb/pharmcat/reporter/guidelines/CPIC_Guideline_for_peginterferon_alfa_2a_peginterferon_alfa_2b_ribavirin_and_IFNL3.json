@@ -90,12 +90,12 @@
       "markdown" : {
         "id" : 1447986466,
         "externalLinks" : [ ],
-        "html" : "<p>For patients treated with PEG-IFN alpha and RBV alone, approximately 70% chance for SVR after 48 weeks of treatment. Consider implications before initiating PEG-IFN alpha and RBV containing regimens.</p>\n<p>For patients treated with protease inhibitor combinations with PEG-IFN alpha and RBV therapy, approximately 90% chance for SVR after 24-48 weeks of treatment. Approximately 80-90% of patients are eligible for shortened therapy (24-28 weeks vs. 48 weeks). Weighs in favor of using PEG-IFN alpha and RBV containing regimens.</p>\n",
+        "html" : "<p>For patients treated with PEG-IFN alpha and RBV alone, approximately 70% chance for sustained virologic response (SVR, defined by undetectable serum viral RNA 12-24 weeks after the end of treatment) after 48 weeks of treatment. Consider implications before initiating PEG-IFN alpha and RBV containing regimens.</p>\n<p>For patients treated with protease inhibitor combinations with PEG-IFN alpha and RBV therapy, approximately 90% chance for SVR after 24-48 weeks of treatment. Approximately 80-90% of patients are eligible for shortened therapy (24-28 weeks vs. 48 weeks, with patients receiving boceprevir are eligible for 24-28 weeks instead of the standard 48 weeks if HCV RNA is undetectable by week eight. Patients receiving telaprevir are eligible for 24 weeks of therapy instead of the standard 48 weeks if HCV RNA is undetectable by week four.). Weighs in favor of using PEG-IFN alpha and RBV containing regimens.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "For patients treated with PEG-IFN alpha and RBV alone, approximately 70% chance for SVR after 48 weeks of treatment. Consider implications before initiating PEG-IFN alpha and RBV containing regimens.\n\nFor patients treated with protease inhibitor combinations with PEG-IFN alpha and RBV therapy, approximately 90% chance for SVR after 24-48 weeks of treatment. Approximately 80-90% of patients are eligible for shortened therapy (24-28 weeks vs. 48 weeks). Weighs in favor of using PEG-IFN alpha and RBV containing regimens.",
+        "markdown" : "For patients treated with PEG-IFN alpha and RBV alone, approximately 70% chance for sustained virologic response (SVR, defined by undetectable serum viral RNA 12-24 weeks after the end of treatment) after 48 weeks of treatment. Consider implications before initiating PEG-IFN alpha and RBV containing regimens.\r\n\r\nFor patients treated with protease inhibitor combinations with PEG-IFN alpha and RBV therapy, approximately 90% chance for SVR after 24-48 weeks of treatment. Approximately 80-90% of patients are eligible for shortened therapy (24-28 weeks vs. 48 weeks, with patients receiving boceprevir are eligible for 24-28 weeks instead of the standard 48 weeks if HCV RNA is undetectable by week eight. Patients receiving telaprevir are eligible for 24 weeks of therapy instead of the standard 48 weeks if HCV RNA is undetectable by week four.). Weighs in favor of using PEG-IFN alpha and RBV containing regimens.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
@@ -106,7 +106,7 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1446767139,
       "history" : [ ],
@@ -158,7 +158,7 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 6
+    "version" : 9
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166129431",
@@ -171,12 +171,12 @@
       "markdown" : {
         "id" : 1447986468,
         "externalLinks" : [ ],
-        "html" : "<p>For patients treated with PEG-IFN alpha and RBV alone, approximately 30% chance of SVR after 48 weeks of treatment. Consider implications before initiating PEG-IFN alpha and RBV containing regimens.</p>\n<p>For patients treated with protease inhibitor combinations with PEG-IFN alpha and RBV therapy, approximately 60% chance for SVR after 24-48 weeks of treatment. Approximately 50% of patients are eligible for shortened therapy (24-28 weeks). Consider implications before initiating PEG-IFN alpha and RBV containing regimens.</p>\n",
+        "html" : "<p>For patients treated with PEG-IFN alpha and RBV alone, approximately 30% chance of sustained virologic response (SVR, defined by undetectable serum viral RNA 12-24 weeks after the end of treatment) after 48 weeks of treatment. Consider implications before initiating PEG-IFN alpha and RBV containing regimens.</p>\n<p>For patients treated with protease inhibitor combinations with PEG-IFN alpha and RBV therapy, approximately 60% chance for SVR after 24-48 weeks of treatment. Approximately 50% of patients are eligible for shortened therapy (24-28 weeks, with patients receiving boceprevir are eligible for 24-28 weeks instead of the standard 48 weeks if HCV RNA is undetectable by week eight. Patients receiving telaprevir are eligible for 24 weeks of therapy instead of the standard 48 weeks if HCV RNA is undetectable by week four.). Consider implications before initiating PEG-IFN alpha and RBV containing regimens.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "For patients treated with PEG-IFN alpha and RBV alone, approximately 30% chance of SVR after 48 weeks of treatment. Consider implications before initiating PEG-IFN alpha and RBV containing regimens.\n\nFor patients treated with protease inhibitor combinations with PEG-IFN alpha and RBV therapy, approximately 60% chance for SVR after 24-48 weeks of treatment. Approximately 50% of patients are eligible for shortened therapy (24-28 weeks). Consider implications before initiating PEG-IFN alpha and RBV containing regimens.",
+        "markdown" : "For patients treated with PEG-IFN alpha and RBV alone, approximately 30% chance of sustained virologic response (SVR, defined by undetectable serum viral RNA 12-24 weeks after the end of treatment) after 48 weeks of treatment. Consider implications before initiating PEG-IFN alpha and RBV containing regimens.\r\n\r\nFor patients treated with protease inhibitor combinations with PEG-IFN alpha and RBV therapy, approximately 60% chance for SVR after 24-48 weeks of treatment. Approximately 50% of patients are eligible for shortened therapy (24-28 weeks, with patients receiving boceprevir are eligible for 24-28 weeks instead of the standard 48 weeks if HCV RNA is undetectable by week eight. Patients receiving telaprevir are eligible for 24 weeks of therapy instead of the standard 48 weeks if HCV RNA is undetectable by week four.). Consider implications before initiating PEG-IFN alpha and RBV containing regimens.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
@@ -187,7 +187,7 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1446767141,
       "history" : [ ],
@@ -239,12 +239,53 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 6
+    "version" : 9
   } ],
   "genePhenotypes" : {
     "IFNL3" : {
       "rs12979860C" : "Favorable response allele",
       "rs12979860T" : "Unfavorable response allele"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/24096968",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15064565,
+    "resourceId" : "24096968",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for IFNL3 (IL28B) genotype and peginterferon alpha based regimens",
+    "authors" : [ "Muir Andrew J", "Gong Li", "Johnson Samuel G", "Michael Lee Ming Ta", "Williams Marc S", "Klein Teri E", "Caudle Kelly E", "Nelson David R" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 10,
+    "nonHuman" : false,
+    "pubDate" : "2013-10-01T00:00:00-07:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/24096968",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15064566,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for IFNL3 (IL28B) genotype and peginterferon alpha based regimens",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 15064567,
+      "text" : "PEG-interferon-alpha and ribavirin based regimens are the mainstay for treatment of Hepatitis C Virus (HCV) genotype 1.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 15064568,
+      "text" : "IFNL3 (IL28B) genotype is the strongest baseline predictor of response to PEG-interferon-alpha and ribavirin therapy in previously untreated patients and can be used by patients and clinicians as part of shared decision making process for initiating treatment for HCV infection.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 15064569,
+      "text" : "We provide information regarding the clinical use of PEG-interferon-alpha and ribavirin containing regimens based on IFNL3 genotype.Clinical Pharmacology & Therapeutics (2013); accepted article preview online 4 October 2013 doi:10.1038/clpt.2013.203.",
+      "sentenceIndex" : 3
+    } ],
+    "summary" : "PEG-interferon-alpha and ribavirin based regimens are the mainstay for treatment of Hepatitis C Virus (HCV) genotype 1. IFNL3 (IL28B) genotype is the strongest baseline predictor of response to PEG-interferon-alpha and ribavirin therapy in previously untreated patients and can be used by patients and clinicians as part of shared decision making process for initiating treatment for HCV infection. We provide information regarding the clinical use of PEG-interferon-alpha and ribavirin containing regimens based on IFNL3 genotype.Clinical Pharmacology & Therapeutics (2013); accepted article preview online 4 October 2013 doi:10.1038/clpt.2013.203.",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2013
+  } ]
 }

@@ -22,6 +22,12 @@
       "description" : "corrected error in guideline link",
       "type" : "update",
       "version" : 0
+    }, {
+      "id" : 1448604644,
+      "date" : "2017-03-15T00:00:00-07:00",
+      "description" : "Updated extended dosing guidelines",
+      "type" : "update",
+      "version" : 0
     } ],
     "relatedChemicals" : [ {
       "objCls" : "Chemical",
@@ -63,7 +69,7 @@
       "relatedObjects" : [ ],
       "version" : 8
     },
-    "version" : 29,
+    "version" : 32,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-codeine-and-cyp2d6/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983494,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-codeine-and-cyp2d6%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-codeine-and-cyp2d6/"} ]
   },
   "annotationGroups" : [ {
@@ -71,19 +77,19 @@
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128773",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128773",
-    "name" : "Extensive",
+    "name" : "Normal Metabolizer",
     "annotations" : [ {
       "id" : 1445562861,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986482,
         "externalLinks" : [ ],
-        "html" : "<p>1.0-2.0</p>\n<p><em>Note that some investigators define patients with an activity score of 0.5 and 1.0 as intermediate metabolizers and define patients with an activity score of 1.5 and 2.0 as extensive metabolizers. Classifying patients with an activity score of 1.0 as extensive metabolizers in this guideline is based on data specific for formation of morphine from codeine in these patients [Article:19395173].</em></p>\n",
+        "html" : "<p>1.0-2.0</p>\n<p><em>Note that some investigators define patients with an activity score of 0.5 and 1.0 as intermediate metabolizers and define patients with an activity score of 1.5 and 2.0 as normal metabolizers. Classifying patients with an activity score of 1.0 as normal metabolizers in this guideline is based on data specific for formation of morphine from codeine in these patients [Article:19395173].</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "1.0-2.0 \n\n_Note that some investigators define patients with an activity score of 0.5 and 1.0 as intermediate metabolizers and define patients with an activity score of 1.5 and 2.0 as extensive metabolizers. Classifying patients with an activity score of 1.0 as extensive metabolizers in this guideline is based on data specific for formation of morphine from codeine in these patients \\[Article:19395173]._",
+        "markdown" : "1.0-2.0 \r\n\r\n_Note that some investigators define patients with an activity score of 0.5 and 1.0 as intermediate metabolizers and define patients with an activity score of 1.5 and 2.0 as normal metabolizers. Classifying patients with an activity score of 1.0 as normal metabolizers in this guideline is based on data specific for formation of morphine from codeine in these patients \\[Article:19395173]._",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
@@ -94,7 +100,7 @@
         "termId" : "guidelineTags:981501924",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445562863,
       "history" : [ ],
@@ -124,12 +130,12 @@
       "markdown" : {
         "id" : 1447986485,
         "externalLinks" : [ ],
-        "html" : "<p>Extensive metabolizer</p>\n",
+        "html" : "<p>Normal Metabolizer</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [Article:<a href=\"/pmid/27441996\">27441996</a>] for drug metabolizing enzymes.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Extensive metabolizer",
-        "pmids" : [ ],
+        "markdown" : "Normal Metabolizer\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [PMID: 27441996] for drug metabolizing enzymes._",
+        "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -141,7 +147,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445562862,
       "history" : [ ],
@@ -196,7 +202,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104996",
       "name" : "CPIC Guideline for codeine and CYP2D6",
-      "version" : 29
+      "version" : 32
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -216,25 +222,25 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 7
+    "version" : 10
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128774",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128774",
-    "name" : "Intermediate",
+    "name" : "Intermediate Metabolizer",
     "annotations" : [ {
       "id" : 1445562866,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986487,
         "externalLinks" : [ ],
-        "html" : "<p>0.5</p>\n<p><em>Note that some investigators define patients with an activity score of 0.5 and 1.0 as intermediate metabolizers and define patients with an activity score of 1.5 and 2.0 as extensive metabolizers. Classifying patients with an activity score of 1.0 as extensive metabolizers in this guideline is based on data specific for formation of morphine from codeine in these patients [Article:19395173].</em></p>\n",
+        "html" : "<p>0.5</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "0.5\n\n_Note that some investigators define patients with an activity score of 0.5 and 1.0 as intermediate metabolizers and define patients with an activity score of 1.5 and 2.0 as extensive metabolizers. Classifying patients with an activity score of 1.0 as extensive metabolizers in this guideline is based on data specific for formation of morphine from codeine in these patients \\[Article:19395173]._",
+        "markdown" : "0.5",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
@@ -245,7 +251,7 @@
         "termId" : "guidelineTags:981501924",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445562868,
       "history" : [ ],
@@ -275,12 +281,12 @@
       "markdown" : {
         "id" : 1447986490,
         "externalLinks" : [ ],
-        "html" : "<p>Intermediate metabolizer</p>\n",
+        "html" : "<p>Intermediate Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Intermediate metabolizer",
+        "markdown" : "Intermediate Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -292,7 +298,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445562867,
       "history" : [ ],
@@ -347,15 +353,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104996",
       "name" : "CPIC Guideline for codeine and CYP2D6",
-      "version" : 29
+      "version" : 32
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602496,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Possibly",
+      "termId" : "rxChange:1448602496",
       "version" : 0
     },
     "strength" : {
@@ -367,13 +373,13 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 7
+    "version" : 10
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128775",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128775",
-    "name" : "Poor",
+    "name" : "Poor Metabolizer",
     "annotations" : [ {
       "id" : 1445562871,
       "history" : [ ],
@@ -426,12 +432,12 @@
       "markdown" : {
         "id" : 1447986495,
         "externalLinks" : [ ],
-        "html" : "<p>Poor metabolizer</p>\n",
+        "html" : "<p>Poor Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Poor metabolizer",
+        "markdown" : "Poor Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -443,7 +449,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445562872,
       "history" : [ ],
@@ -473,12 +479,12 @@
       "markdown" : {
         "id" : 1447986496,
         "externalLinks" : [ ],
-        "html" : "<p>Avoid codeine use due to lack of efficacy.</p>\n<p>Considerations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity; these agents should be avoided. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers.</p>\n",
+        "html" : "<p>Avoid codeine use due to lack of efficacy.</p>\n<p><em>Considerations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity; these agents should be avoided. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Avoid codeine use due to lack of efficacy. \n\nConsiderations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity; these agents should be avoided. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers.",
+        "markdown" : "Avoid codeine use due to lack of efficacy. \r\n\r\n_Considerations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity; these agents should be avoided. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers._",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
@@ -489,7 +495,7 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     } ],
     "genePhenotypes" : [ "CYP2D6:No Function/No Function" ],
     "guideline" : {
@@ -498,15 +504,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104996",
       "name" : "CPIC Guideline for codeine and CYP2D6",
-      "version" : 29
+      "version" : 32
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -518,13 +524,13 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 7
+    "version" : 10
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128776",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128776",
-    "name" : "Ultra or extensive",
+    "name" : "Ultrarapid Metabolizer or Normal Metabolizer",
     "annotations" : [ {
       "id" : 1445562881,
       "history" : [ ],
@@ -577,12 +583,12 @@
       "markdown" : {
         "id" : 1447986744,
         "externalLinks" : [ ],
-        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Extensive metabolizer</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid metabolizer</p>\n",
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal Metabolizer</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [Article:<a href=\"/pmid/27441996\">27441996</a>] for drug metabolizing enzymes.</em></p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\n\nExtensive metabolizer \n\n__For the combination of a no function allele and more than two copies of a normal function allele:__\n\nUltrarapid metabolizer",
-        "pmids" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal Metabolizer\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [PMID: 27441996] for drug metabolizing enzymes._ \r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nUltrarapid Metabolizer",
+        "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -594,7 +600,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445562882,
       "history" : [ ],
@@ -624,12 +630,12 @@
       "markdown" : {
         "id" : 1447986745,
         "externalLinks" : [ ],
-        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Use label recommended age- or weight-specific dosing.</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Avoid codeine use due to potential for toxicity.</p>\n<p>Considerations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers.</p>\n",
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Use label recommended age- or weight-specific dosing.</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Avoid codeine use due to potential for toxicity.</p>\n<p><em>Considerations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\n\nUse label recommended age- or weight-specific dosing.\n\n__For the combination of a no function allele and more than two copies of a normal function allele:__\n\nAvoid codeine use due to potential for toxicity. \n\nConsiderations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers.",
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nUse label recommended age- or weight-specific dosing.\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nAvoid codeine use due to potential for toxicity. \r\n\r\n_Considerations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers._",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
@@ -640,7 +646,7 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     } ],
     "genePhenotypes" : [ "CYP2D6:Increased Function/No Function" ],
     "guideline" : {
@@ -649,15 +655,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104996",
       "name" : "CPIC Guideline for codeine and CYP2D6",
-      "version" : 29
+      "version" : 32
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602496,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Possibly",
+      "termId" : "rxChange:1448602496",
       "version" : 0
     },
     "strength" : {
@@ -669,13 +675,13 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 7
+    "version" : 10
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128772",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128772",
-    "name" : "Ultrarapid",
+    "name" : "Ultrarapid Metabolizer",
     "annotations" : [ {
       "id" : 1445562857,
       "history" : [ ],
@@ -728,12 +734,12 @@
       "markdown" : {
         "id" : 1447986480,
         "externalLinks" : [ ],
-        "html" : "<p>Ultrarapid metabolizer</p>\n",
+        "html" : "<p>Ultrarapid Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Ultrarapid metabolizer",
+        "markdown" : "Ultrarapid Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -745,7 +751,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445562856,
       "history" : [ ],
@@ -775,9 +781,137 @@
       "markdown" : {
         "id" : 1447986481,
         "externalLinks" : [ ],
-        "html" : "<p>Avoid codeine use due to potential for toxicity.</p>\n<p>Considerations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers.</p>\n",
+        "html" : "<p>Avoid codeine use due to potential for toxicity.</p>\n<p><em>Considerations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Avoid codeine use due to potential for toxicity. \n\nConsiderations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers.",
+        "markdown" : "Avoid codeine use due to potential for toxicity. \r\n\r\n_Considerations for alternative opioids: Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity. There is substantial evidence for decreased efficacy of tramadol in poor metabolizers and a single case report of toxicity in an ultrarapid metabolizer with renal impairment following tramadol post-surgery. Use of other analgesics in CYP2D6 poor and ultrarapid metabolizers may therefore be preferable. Some other opioid analgesics are metabolized by CYP2D6, such as hydrocodone and oxycodone. To avoid treatment complications, opioids that are not metabolized by CYP2D6, including morphine, oxymorphone, buprenorphine, fentanyl, methadone and hydromorphone, along with non-opioid analgesics, may be considered as alternatives for use in CYP2D6 poor and ultrarapid metabolizers._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 7
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Increased Function", "CYP2D6:Increased Function/Increased Function", "CYP2D6:Increased Function/Normal Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104996",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104996",
+      "name" : "CPIC Guideline for codeine and CYP2D6",
+      "version" : 32
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 10
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162350",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162350",
+    "name" : "Indeterminate",
+    "annotations" : [ {
+      "id" : 1448531444,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531443,
+        "externalLinks" : [ ],
+        "html" : "<p>N/A</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "N/A",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448531446,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531445,
+        "externalLinks" : [ ],
+        "html" : "<p>Indeterminate</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448531442,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531441,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two unknown/uncertain function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown/uncertain function alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448531448,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448531447,
+        "externalLinks" : [ ],
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
         "version" : 0
@@ -791,16 +925,16 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 5
+      "version" : 0
     } ],
-    "genePhenotypes" : [ "CYP2D6:Decreased Function/Increased Function", "CYP2D6:Increased Function/Increased Function", "CYP2D6:Increased Function/Normal Function" ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Unknown or Uncertain Function", "CYP2D6:Increased Function/Unknown or Uncertain Function", "CYP2D6:No Function/Unknown or Uncertain Function", "CYP2D6:Normal Function/Unknown or Uncertain Function", "CYP2D6:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166104996",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104996",
       "name" : "CPIC Guideline for codeine and CYP2D6",
-      "version" : 29
+      "version" : 32
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -812,15 +946,16 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501930,
+      "id" : 981501929,
+      "description" : "Not Applicable",
       "resource" : "Guideline Strength",
-      "term" : "Strong",
-      "termId" : "guidelineStrength:981501930",
-      "version" : 0
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
     },
-    "version" : 7
+    "version" : 1
   } ],
   "genePhenotypes" : {
     "CYP2D6" : {
@@ -853,32 +988,32 @@
       "*19" : "No Function",
       "*20" : "No Function",
       "*21" : "No Function",
-      "*22" : "Unknown",
-      "*23" : "Unknown",
-      "*24" : "Unknown",
-      "*25" : "Unknown",
-      "*26" : "Unknown",
+      "*22" : "Unknown or Uncertain Function",
+      "*23" : "Unknown or Uncertain Function",
+      "*24" : "Unknown or Uncertain Function",
+      "*25" : "Unknown or Uncertain Function",
+      "*26" : "Unknown or Uncertain Function",
       "*27" : "Normal Function",
-      "*28" : "Unknown",
+      "*28" : "Unknown or Uncertain Function",
       "*29" : "Decreased Function",
       "*29x2" : "Normal Function",
-      "*30" : "Unknown",
+      "*30" : "Unknown or Uncertain Function",
       "*31" : "No Function",
-      "*32" : "Unknown",
+      "*32" : "Unknown or Uncertain Function",
       "*33" : "Normal Function",
       "*34" : "Normal Function",
       "*35" : "Normal Function",
       "*35xN" : "Increased Function",
       "*36" : "No Function",
       "*36xN" : "No Function",
-      "*37" : "Unknown",
+      "*37" : "Unknown or Uncertain Function",
       "*38" : "No Function",
       "*39" : "Normal Function",
       "*40" : "No Function",
       "*41" : "Decreased Function",
       "*41x2" : "Normal Function",
       "*42" : "No Function",
-      "*43" : "Unknown",
+      "*43" : "Unknown or Uncertain Function",
       "*44" : "No Function",
       "*45" : "Normal Function",
       "*45xN" : "Increased Function",
@@ -888,56 +1023,130 @@
       "*49" : "Decreased Function",
       "*50" : "Decreased Function",
       "*51" : "No Function",
-      "*52" : "Unknown",
+      "*52" : "Unknown or Uncertain Function",
       "*53" : "Normal Function",
       "*54" : "Decreased Function",
       "*55" : "Decreased Function",
-      "*56A" : "No Function",
-      "*56B" : "No Function",
+      "*56" : "No Function",
       "*57" : "No Function",
-      "*58" : "Unknown",
+      "*58" : "Unknown or Uncertain Function",
       "*59" : "Decreased Function",
-      "*60" : "Unknown",
-      "*61" : "Unknown",
+      "*60" : "Unknown or Uncertain Function",
+      "*61" : "Unknown or Uncertain Function",
       "*62" : "No Function",
-      "*63" : "Unknown",
-      "*64" : "Unknown",
-      "*65" : "Unknown",
+      "*63" : "Unknown or Uncertain Function",
+      "*64" : "Unknown or Uncertain Function",
+      "*65" : "Unknown or Uncertain Function",
       "*68" : "No Function",
       "*69" : "No Function",
-      "*70" : "Unknown",
-      "*71" : "Unknown",
+      "*70" : "Unknown or Uncertain Function",
+      "*71" : "Unknown or Uncertain Function",
       "*72" : "Decreased Function",
-      "*73" : "Unknown",
-      "*74" : "Unknown",
-      "*75" : "Unknown",
-      "*81" : "Unknown",
-      "*82" : "Unknown",
-      "*83" : "Unknown",
-      "*84" : "Unknown",
-      "*85" : "Unknown",
-      "*86" : "Unknown",
-      "*87" : "Unknown",
-      "*88" : "Unknown",
-      "*89" : "Unknown",
-      "*90" : "Unknown",
-      "*91" : "Unknown",
+      "*73" : "Unknown or Uncertain Function",
+      "*74" : "Unknown or Uncertain Function",
+      "*75" : "Unknown or Uncertain Function",
+      "*81" : "Unknown or Uncertain Function",
+      "*82" : "Unknown or Uncertain Function",
+      "*83" : "Unknown or Uncertain Function",
+      "*84" : "Unknown or Uncertain Function",
+      "*85" : "Unknown or Uncertain Function",
+      "*86" : "Unknown or Uncertain Function",
+      "*87" : "Unknown or Uncertain Function",
+      "*88" : "Unknown or Uncertain Function",
+      "*89" : "Unknown or Uncertain Function",
+      "*90" : "Unknown or Uncertain Function",
+      "*91" : "Unknown or Uncertain Function",
       "*92" : "No Function",
-      "*93" : "Unknown",
-      "*94" : "Unknown",
-      "*95" : "Unknown",
-      "*96" : "Unknown",
-      "*97" : "Unknown",
-      "*98" : "Unknown",
+      "*93" : "Unknown or Uncertain Function",
+      "*94" : "Unknown or Uncertain Function",
+      "*95" : "Unknown or Uncertain Function",
+      "*96" : "Unknown or Uncertain Function",
+      "*97" : "Unknown or Uncertain Function",
+      "*98" : "Unknown or Uncertain Function",
       "*100" : "No Function",
       "*101" : "No Function",
-      "*102" : "Unknown",
-      "*103" : "Unknown",
-      "*104" : "Unknown",
-      "*105" : "Unknown",
-      "*107" : "Unknown",
-      "*108" : "Unknown",
-      "*109" : "Unknown"
+      "*102" : "Unknown or Uncertain Function",
+      "*103" : "Unknown or Uncertain Function",
+      "*104" : "Unknown or Uncertain Function",
+      "*105" : "Unknown or Uncertain Function",
+      "*107" : "Unknown or Uncertain Function",
+      "*108" : "Unknown or Uncertain Function",
+      "*109" : "Unknown or Uncertain Function"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/24458010",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15069654,
+    "resourceId" : "24458010",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for cytochrome P450 2D6 (CYP2D6) genotype and codeine therapy: 2014 Update",
+    "authors" : [ "Crews Kristine R", "Gaedigk Andrea", "Dunnenberger Henry M", "Leeder J Steve", "Klein Teri E", "Caudle Kelly E", "Haidar Cyrine E", "Shen Danny D", "Callaghan John T", "Sadhasivam Senthilkumar", "Prows Cynthia A", "Kharasch Evan D", "Skaar Todd C" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 1,
+    "nonHuman" : false,
+    "pubDate" : "2014-01-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/24458010",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15069655,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for cytochrome P450 2D6 (CYP2D6) genotype and codeine therapy: 2014 Update",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 15069656,
+      "text" : "Codeine is bioactivated to morphine, a strong opioid agonist, by the hepatic cytochrome P450 2D6 (CYP2D6); hence, the efficacy and safety of codeine are governed by CYP2D6 activity.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 15069657,
+      "text" : "Polymorphisms are a major cause of CYP2D6 variability.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 15069658,
+      "text" : "We summarize evidence from the literature supporting this association and provide therapeutic recommendations for codeine based on CYP2D6 genotype.",
+      "sentenceIndex" : 3
+    }, {
+      "location" : "abstract",
+      "id" : 15069659,
+      "text" : "This document is an update to the 2012 Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for CYP2D6 genotype and codeine therapy.",
+      "sentenceIndex" : 4
+    }, {
+      "location" : "abstract",
+      "id" : 15069660,
+      "text" : "(1)Clinical Pharmacology & Therapeutics (2014); accepted article preview online 23 January 2014 doi:10.1038/clpt.2013.254.",
+      "sentenceIndex" : 5
+    } ],
+    "summary" : "Codeine is bioactivated to morphine, a strong opioid agonist, by the hepatic cytochrome P450 2D6 (CYP2D6); hence, the efficacy and safety of codeine are governed by CYP2D6 activity. Polymorphisms are a major cause of CYP2D6 variability. We summarize evidence from the literature supporting this association and provide therapeutic recommendations for codeine based on CYP2D6 genotype. This document is an update to the 2012 Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for CYP2D6 genotype and codeine therapy. (1)Clinical Pharmacology & Therapeutics (2014); accepted article preview online 23 January 2014 doi:10.1038/clpt.2013.254.",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2014
+  }, {
+    "@id" : "https://api.pharmgkb.org/data/literature/22205192",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 14821790,
+    "resourceId" : "22205192",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Codeine Therapy in the Context of Cytochrome P450 2D6 (CYP2D6) Genotype",
+    "authors" : [ "Crews K R", "Gaedigk A", "Dunnenberger H M", "Klein T E", "Shen D D", "Callaghan J T", "Kharasch E D", "Skaar T C" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 12,
+    "nonHuman" : false,
+    "pubDate" : "2011-12-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/22205192",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 14821791,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Codeine Therapy in the Context of Cytochrome P450 2D6 (CYP2D6) Genotype",
+      "sentenceIndex" : 0
+    } ],
+    "type" : "article",
+    "version" : 1,
+    "year" : 2011
+  } ]
 }

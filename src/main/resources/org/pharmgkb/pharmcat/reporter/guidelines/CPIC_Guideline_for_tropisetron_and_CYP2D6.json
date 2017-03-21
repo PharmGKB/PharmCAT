@@ -10,6 +10,12 @@
       "date" : "2016-12-23T16:11:47.746-08:00",
       "type" : "update",
       "version" : 0
+    }, {
+      "id" : 1448604681,
+      "date" : "2017-03-15T00:00:00-07:00",
+      "description" : "Updated extended dosing guideline",
+      "type" : "update",
+      "version" : 0
     } ],
     "relatedChemicals" : [ {
       "objCls" : "Chemical",
@@ -50,7 +56,7 @@
       "relatedObjects" : [ ],
       "version" : 3
     },
-    "version" : 5,
+    "version" : 7,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1448526498,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/"} ]
   },
   "annotationGroups" : [ {
@@ -58,7 +64,7 @@
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161964",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161964",
-    "name" : "Extensive",
+    "name" : "Normal Metabolizer",
     "annotations" : [ {
       "id" : 1448526342,
       "history" : [ ],
@@ -81,7 +87,7 @@
         "termId" : "guidelineTags:981501924",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526346,
       "history" : [ ],
@@ -104,19 +110,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526348,
       "history" : [ ],
       "markdown" : {
         "id" : 1448526347,
         "externalLinks" : [ ],
-        "html" : "<p>Normal metabolizer</p>\n",
+        "html" : "<p>Normal Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Normal metabolizer",
+        "markdown" : "Normal Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -128,7 +134,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526344,
       "history" : [ ],
@@ -151,7 +157,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526350,
       "history" : [ ],
@@ -174,7 +180,7 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     } ],
     "genePhenotypes" : [ "CYP2D6:Decreased Function/Decreased Function", "CYP2D6:Decreased Function/Normal Function", "CYP2D6:No Function/Normal Function", "CYP2D6:Normal Function/Normal Function" ],
     "guideline" : {
@@ -183,7 +189,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166161955",
       "name" : "CPIC Guideline for tropisetron and CYP2D6",
-      "version" : 5
+      "version" : 7
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -203,13 +209,13 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 1
+    "version" : 4
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161965",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161965",
-    "name" : "Intermediate",
+    "name" : "Intermediate Metabolizer",
     "annotations" : [ {
       "id" : 1448526352,
       "history" : [ ],
@@ -232,7 +238,7 @@
         "termId" : "guidelineTags:981501924",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526356,
       "history" : [ ],
@@ -255,19 +261,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526358,
       "history" : [ ],
       "markdown" : {
         "id" : 1448526357,
         "externalLinks" : [ ],
-        "html" : "<p>Intermediate metabolizer</p>\n",
+        "html" : "<p>Intermediate Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Intermediate metabolizer",
+        "markdown" : "Intermediate Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -279,7 +285,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526354,
       "history" : [ ],
@@ -302,7 +308,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526360,
       "history" : [ ],
@@ -325,7 +331,7 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     } ],
     "genePhenotypes" : [ "CYP2D6:Decreased Function/No Function" ],
     "guideline" : {
@@ -334,7 +340,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166161955",
       "name" : "CPIC Guideline for tropisetron and CYP2D6",
-      "version" : 5
+      "version" : 7
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -354,13 +360,13 @@
       "termId" : "guidelineStrength:1448526251",
       "version" : 0
     },
-    "version" : 1
+    "version" : 4
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161966",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161966",
-    "name" : "Poor",
+    "name" : "Poor Metabolizer",
     "annotations" : [ {
       "id" : 1448526362,
       "history" : [ ],
@@ -383,7 +389,7 @@
         "termId" : "guidelineTags:981501924",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526366,
       "history" : [ ],
@@ -406,19 +412,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526368,
       "history" : [ ],
       "markdown" : {
         "id" : 1448526367,
         "externalLinks" : [ ],
-        "html" : "<p>Poor metabolizer</p>\n",
+        "html" : "<p>Poor Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Poor metabolizer",
+        "markdown" : "Poor Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -430,7 +436,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526364,
       "history" : [ ],
@@ -453,7 +459,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526370,
       "history" : [ ],
@@ -476,7 +482,7 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     } ],
     "genePhenotypes" : [ "CYP2D6:No Function/No Function" ],
     "guideline" : {
@@ -485,7 +491,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166161955",
       "name" : "CPIC Guideline for tropisetron and CYP2D6",
-      "version" : 5
+      "version" : 7
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -505,13 +511,13 @@
       "termId" : "guidelineStrength:1448526251",
       "version" : 0
     },
-    "version" : 1
+    "version" : 4
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161967",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161967",
-    "name" : "Ultra or extensive",
+    "name" : "Ultrarapid Metabolizer or Normal Metabolizer",
     "annotations" : [ {
       "id" : 1448526372,
       "history" : [ ],
@@ -534,7 +540,7 @@
         "termId" : "guidelineTags:981501924",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526376,
       "history" : [ ],
@@ -557,19 +563,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526378,
       "history" : [ ],
       "markdown" : {
         "id" : 1448526377,
         "externalLinks" : [ ],
-        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal metabolizer</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid metabolizer</p>\n",
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal Metabolizer</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal metabolizer\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nUltrarapid metabolizer",
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal Metabolizer\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nUltrarapid Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -581,7 +587,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526374,
       "history" : [ ],
@@ -604,7 +610,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526380,
       "history" : [ ],
@@ -627,7 +633,7 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     } ],
     "genePhenotypes" : [ "CYP2D6:Increased Function/No Function" ],
     "guideline" : {
@@ -636,15 +642,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166161955",
       "name" : "CPIC Guideline for tropisetron and CYP2D6",
-      "version" : 5
+      "version" : 7
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602496,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Possibly",
+      "termId" : "rxChange:1448602496",
       "version" : 0
     },
     "strength" : {
@@ -656,13 +662,13 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 1
+    "version" : 4
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161968",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161968",
-    "name" : "Ultrarapid",
+    "name" : "Ultrarapid Metabolizer",
     "annotations" : [ {
       "id" : 1448526382,
       "history" : [ ],
@@ -685,7 +691,7 @@
         "termId" : "guidelineTags:981501924",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526386,
       "history" : [ ],
@@ -708,19 +714,19 @@
         "termId" : "guidelineTags:981501925",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526388,
       "history" : [ ],
       "markdown" : {
         "id" : 1448526387,
         "externalLinks" : [ ],
-        "html" : "<p>Ultrarapid metabolizer</p>\n",
+        "html" : "<p>Ultrarapid Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Ultrarapid metabolizer",
+        "markdown" : "Ultrarapid Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -732,7 +738,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526384,
       "history" : [ ],
@@ -755,7 +761,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     }, {
       "id" : 1448526390,
       "history" : [ ],
@@ -778,7 +784,7 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 0
+      "version" : 1
     } ],
     "genePhenotypes" : [ "CYP2D6:Decreased Function/Increased Function", "CYP2D6:Increased Function/Increased Function", "CYP2D6:Increased Function/Normal Function" ],
     "guideline" : {
@@ -787,7 +793,155 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166161955",
       "name" : "CPIC Guideline for tropisetron and CYP2D6",
-      "version" : 5
+      "version" : 7
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931",
+      "version" : 0
+    },
+    "version" : 4
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162569",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162569",
+    "name" : "Indeterminate",
+    "annotations" : [ {
+      "id" : 1448569052,
+      "history" : [ {
+        "id" : 1448569050,
+        "date" : "2017-01-30T17:43:00.375-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448569051,
+        "externalLinks" : [ ],
+        "html" : "<p>N/A</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "N/A",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448569055,
+      "history" : [ {
+        "id" : 1448569053,
+        "date" : "2017-01-30T17:43:20.712-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448569054,
+        "externalLinks" : [ ],
+        "html" : "<p>Indeterminate</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448569049,
+      "history" : [ {
+        "id" : 1448569047,
+        "date" : "2017-01-30T17:42:46.946-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448569048,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two unknown/uncertain function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown/uncertain function alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448569058,
+      "history" : [ {
+        "id" : 1448569056,
+        "date" : "2017-01-30T17:43:45.093-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448569057,
+        "externalLinks" : [ ],
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Unknown or Uncertain Function", "CYP2D6:Increased Function/Unknown or Uncertain Function", "CYP2D6:No Function/Unknown or Uncertain Function", "CYP2D6:Normal Function/Unknown or Uncertain Function", "CYP2D6:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166161955",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166161955",
+      "name" : "CPIC Guideline for tropisetron and CYP2D6",
+      "version" : 7
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -799,13 +953,14 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501931,
+      "id" : 981501929,
+      "description" : "Not Applicable",
       "resource" : "Guideline Strength",
-      "term" : "Moderate",
-      "termId" : "guidelineStrength:981501931",
-      "version" : 0
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
     },
     "version" : 1
   } ],
@@ -840,32 +995,32 @@
       "*19" : "No Function",
       "*20" : "No Function",
       "*21" : "No Function",
-      "*22" : "Unknown",
-      "*23" : "Unknown",
-      "*24" : "Unknown",
-      "*25" : "Unknown",
-      "*26" : "Unknown",
+      "*22" : "Unknown or Uncertain Function",
+      "*23" : "Unknown or Uncertain Function",
+      "*24" : "Unknown or Uncertain Function",
+      "*25" : "Unknown or Uncertain Function",
+      "*26" : "Unknown or Uncertain Function",
       "*27" : "Normal Function",
-      "*28" : "Unknown",
+      "*28" : "Unknown or Uncertain Function",
       "*29" : "Decreased Function",
       "*29x2" : "Normal Function",
-      "*30" : "Unknown",
+      "*30" : "Unknown or Uncertain Function",
       "*31" : "No Function",
-      "*32" : "Unknown",
+      "*32" : "Unknown or Uncertain Function",
       "*33" : "Normal Function",
       "*34" : "Normal Function",
       "*35" : "Normal Function",
       "*35xN" : "Increased Function",
       "*36" : "No Function",
       "*36xN" : "No Function",
-      "*37" : "Unknown",
+      "*37" : "Unknown or Uncertain Function",
       "*38" : "No Function",
       "*39" : "Normal Function",
       "*40" : "No Function",
       "*41" : "Decreased Function",
       "*41x2" : "Normal Function",
       "*42" : "No Function",
-      "*43" : "Unknown",
+      "*43" : "Unknown or Uncertain Function",
       "*44" : "No Function",
       "*45" : "Normal Function",
       "*45xN" : "Increased Function",
@@ -875,56 +1030,76 @@
       "*49" : "Decreased Function",
       "*50" : "Decreased Function",
       "*51" : "No Function",
-      "*52" : "Unknown",
+      "*52" : "Unknown or Uncertain Function",
       "*53" : "Normal Function",
       "*54" : "Decreased Function",
       "*55" : "Decreased Function",
-      "*56A" : "No Function",
-      "*56B" : "No Function",
+      "*56" : "No Function",
       "*57" : "No Function",
-      "*58" : "Unknown",
+      "*58" : "Unknown or Uncertain Function",
       "*59" : "Decreased Function",
-      "*60" : "Unknown",
-      "*61" : "Unknown",
+      "*60" : "Unknown or Uncertain Function",
+      "*61" : "Unknown or Uncertain Function",
       "*62" : "No Function",
-      "*63" : "Unknown",
-      "*64" : "Unknown",
-      "*65" : "Unknown",
+      "*63" : "Unknown or Uncertain Function",
+      "*64" : "Unknown or Uncertain Function",
+      "*65" : "Unknown or Uncertain Function",
       "*68" : "No Function",
       "*69" : "No Function",
-      "*70" : "Unknown",
-      "*71" : "Unknown",
+      "*70" : "Unknown or Uncertain Function",
+      "*71" : "Unknown or Uncertain Function",
       "*72" : "Decreased Function",
-      "*73" : "Unknown",
-      "*74" : "Unknown",
-      "*75" : "Unknown",
-      "*81" : "Unknown",
-      "*82" : "Unknown",
-      "*83" : "Unknown",
-      "*84" : "Unknown",
-      "*85" : "Unknown",
-      "*86" : "Unknown",
-      "*87" : "Unknown",
-      "*88" : "Unknown",
-      "*89" : "Unknown",
-      "*90" : "Unknown",
-      "*91" : "Unknown",
+      "*73" : "Unknown or Uncertain Function",
+      "*74" : "Unknown or Uncertain Function",
+      "*75" : "Unknown or Uncertain Function",
+      "*81" : "Unknown or Uncertain Function",
+      "*82" : "Unknown or Uncertain Function",
+      "*83" : "Unknown or Uncertain Function",
+      "*84" : "Unknown or Uncertain Function",
+      "*85" : "Unknown or Uncertain Function",
+      "*86" : "Unknown or Uncertain Function",
+      "*87" : "Unknown or Uncertain Function",
+      "*88" : "Unknown or Uncertain Function",
+      "*89" : "Unknown or Uncertain Function",
+      "*90" : "Unknown or Uncertain Function",
+      "*91" : "Unknown or Uncertain Function",
       "*92" : "No Function",
-      "*93" : "Unknown",
-      "*94" : "Unknown",
-      "*95" : "Unknown",
-      "*96" : "Unknown",
-      "*97" : "Unknown",
-      "*98" : "Unknown",
+      "*93" : "Unknown or Uncertain Function",
+      "*94" : "Unknown or Uncertain Function",
+      "*95" : "Unknown or Uncertain Function",
+      "*96" : "Unknown or Uncertain Function",
+      "*97" : "Unknown or Uncertain Function",
+      "*98" : "Unknown or Uncertain Function",
       "*100" : "No Function",
       "*101" : "No Function",
-      "*102" : "Unknown",
-      "*103" : "Unknown",
-      "*104" : "Unknown",
-      "*105" : "Unknown",
-      "*107" : "Unknown",
-      "*108" : "Unknown",
-      "*109" : "Unknown"
+      "*102" : "Unknown or Uncertain Function",
+      "*103" : "Unknown or Uncertain Function",
+      "*104" : "Unknown or Uncertain Function",
+      "*105" : "Unknown or Uncertain Function",
+      "*107" : "Unknown or Uncertain Function",
+      "*108" : "Unknown or Uncertain Function",
+      "*109" : "Unknown or Uncertain Function"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/28002639",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15098241,
+    "resourceId" : "28002639",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 Genotype and Use of Ondansetron and Tropisetron",
+    "authors" : [ "Bell Gillian C", "Caudle Kelly E", "Whirl-Carrillo Michelle", "Gordon Ronald J", "Hikino Keiko", "Prows Cynthia A", "Gaedigk Andrea", "Agundez Jose A G", "Sadhasivam Senthilkumar", "Klein Teri E", "Schwab Matthias" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 12,
+    "nonHuman" : false,
+    "pubDate" : "2016-12-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/28002639",
+    "sentences" : [ ],
+    "summary" : "5-hydroxytryptamine type 3 (5-HT3 ) receptor antagonists are used in the prevention of chemotherapy- induced, radiation-induced and postoperative nausea and vomiting. CYP2D6 polymorphisms can influence the metabolism of some of these drugs (i.e. ondansetron and tropisetron) thereby affecting drug efficacy. We summarize evidence from the published literature supporting these associations and provide therapeutic recommendations for ondansetron and tropisetron based on CYP2D6 genotype (updates at www.pharmgkb.org). This article is protected by copyright. All rights reserved.",
+    "type" : "article",
+    "version" : 0,
+    "year" : 2016
+  } ]
 }

@@ -16,6 +16,12 @@
       "description" : "2016 TCA CPIC guideline update",
       "type" : "update",
       "version" : 0
+    }, {
+      "id" : 1448604659,
+      "date" : "2017-03-15T00:00:00-07:00",
+      "description" : "Updated extended dosing guidelines",
+      "type" : "update",
+      "version" : 0
     } ],
     "relatedChemicals" : [ {
       "objCls" : "Chemical",
@@ -56,7 +62,7 @@
       "relatedObjects" : [ ],
       "version" : 8
     },
-    "version" : 20,
+    "version" : 22,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/http://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983873,"resource":"Web Resource","sameAs":"http%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19%2F","xrefId":"http://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/"} ]
   },
   "annotationGroups" : [ {
@@ -64,7 +70,7 @@
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161986",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161986",
-    "name" : "Extensive",
+    "name" : "Normal Metabolizer",
     "annotations" : [ {
       "id" : 1448526636,
       "history" : [ {
@@ -135,12 +141,12 @@
       "markdown" : {
         "id" : 1448526643,
         "externalLinks" : [ ],
-        "html" : "<p>Normal metabolizer</p>\n",
+        "html" : "<p>Normal Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Normal metabolizer",
+        "markdown" : "Normal Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -152,7 +158,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526645,
       "history" : [ {
@@ -219,7 +225,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105002",
       "name" : "CPIC Guideline for desipramine and CYP2D6",
-      "version" : 20
+      "version" : 22
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -239,13 +245,13 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 1
+    "version" : 4
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161988",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161988",
-    "name" : "Intermediate",
+    "name" : "Intermediate Metabolizer",
     "annotations" : [ {
       "id" : 1448526666,
       "history" : [ {
@@ -316,12 +322,12 @@
       "markdown" : {
         "id" : 1448526673,
         "externalLinks" : [ ],
-        "html" : "<p>Intermediate metabolizer</p>\n",
+        "html" : "<p>Intermediate Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Intermediate metabolizer",
+        "markdown" : "Intermediate Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -333,7 +339,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526675,
       "history" : [ {
@@ -400,15 +406,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105002",
       "name" : "CPIC Guideline for desipramine and CYP2D6",
-      "version" : 20
+      "version" : 22
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -420,13 +426,13 @@
       "termId" : "guidelineStrength:981565059",
       "version" : 0
     },
-    "version" : 1
+    "version" : 4
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161989",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161989",
-    "name" : "Poor",
+    "name" : "Poor Metabolizer",
     "annotations" : [ {
       "id" : 1448526681,
       "history" : [ {
@@ -497,12 +503,12 @@
       "markdown" : {
         "id" : 1448526688,
         "externalLinks" : [ ],
-        "html" : "<p>Poor metabolizer</p>\n",
+        "html" : "<p>Poor Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Poor metabolizer",
+        "markdown" : "Poor Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -514,7 +520,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526690,
       "history" : [ {
@@ -581,15 +587,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105002",
       "name" : "CPIC Guideline for desipramine and CYP2D6",
-      "version" : 20
+      "version" : 22
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -601,13 +607,13 @@
       "termId" : "guidelineStrength:981565059",
       "version" : 0
     },
-    "version" : 1
+    "version" : 4
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161990",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161990",
-    "name" : "Ultra or extensive",
+    "name" : "Ultrarapid Metabolizer or Normal Metabolizer",
     "annotations" : [ {
       "id" : 1448526696,
       "history" : [ {
@@ -678,12 +684,12 @@
       "markdown" : {
         "id" : 1448526703,
         "externalLinks" : [ ],
-        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal metabolizer</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid metabolizer</p>\n",
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal Metabolizer</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal metabolizer\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nUltrarapid metabolizer",
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\r\n\r\nNormal Metabolizer\r\n\r\n__For the combination of a no function allele and more than two copies of a normal function allele:__\r\n\r\nUltrarapid Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -695,7 +701,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526705,
       "history" : [ {
@@ -762,15 +768,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105002",
       "name" : "CPIC Guideline for desipramine and CYP2D6",
-      "version" : 20
+      "version" : 22
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602496,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Possibly",
+      "termId" : "rxChange:1448602496",
       "version" : 0
     },
     "strength" : {
@@ -782,13 +788,13 @@
       "termId" : "guidelineStrength:981565059",
       "version" : 0
     },
-    "version" : 1
+    "version" : 4
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166161987",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166161987",
-    "name" : "Ultrarapid",
+    "name" : "Ultrarapid Metabolizer",
     "annotations" : [ {
       "id" : 1448526651,
       "history" : [ {
@@ -859,12 +865,12 @@
       "markdown" : {
         "id" : 1448526658,
         "externalLinks" : [ ],
-        "html" : "<p>Ultrarapid metabolizer</p>\n",
+        "html" : "<p>Ultrarapid Metabolizer</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Ultrarapid metabolizer",
+        "markdown" : "Ultrarapid Metabolizer",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -876,7 +882,7 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 0
+      "version" : 2
     }, {
       "id" : 1448526660,
       "history" : [ {
@@ -943,7 +949,135 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105002",
       "name" : "CPIC Guideline for desipramine and CYP2D6",
-      "version" : 20
+      "version" : 22
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981565059,
+      "resource" : "Guideline Strength",
+      "term" : "Optional",
+      "termId" : "guidelineStrength:981565059",
+      "version" : 0
+    },
+    "version" : 4
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162396",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162396",
+    "name" : "Indeterminate",
+    "annotations" : [ {
+      "id" : 1448532137,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448532136,
+        "externalLinks" : [ ],
+        "html" : "<p>N/A</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "N/A",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448532139,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448532138,
+        "externalLinks" : [ ],
+        "html" : "<p>Indeterminate</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448532135,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448532134,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two unknown/uncertain function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown/uncertain function alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448532141,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448532140,
+        "externalLinks" : [ ],
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Unknown or Uncertain Function", "CYP2D6:Increased Function/Unknown or Uncertain Function", "CYP2D6:No Function/Unknown or Uncertain Function", "CYP2D6:Normal Function/Unknown or Uncertain Function", "CYP2D6:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166105002",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166105002",
+      "name" : "CPIC Guideline for desipramine and CYP2D6",
+      "version" : 22
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -955,13 +1089,14 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981565059",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981565059,
+      "id" : 981501929,
+      "description" : "Not Applicable",
       "resource" : "Guideline Strength",
-      "term" : "Optional",
-      "termId" : "guidelineStrength:981565059",
-      "version" : 0
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
     },
     "version" : 1
   } ],
@@ -996,32 +1131,32 @@
       "*19" : "No Function",
       "*20" : "No Function",
       "*21" : "No Function",
-      "*22" : "Unknown",
-      "*23" : "Unknown",
-      "*24" : "Unknown",
-      "*25" : "Unknown",
-      "*26" : "Unknown",
+      "*22" : "Unknown or Uncertain Function",
+      "*23" : "Unknown or Uncertain Function",
+      "*24" : "Unknown or Uncertain Function",
+      "*25" : "Unknown or Uncertain Function",
+      "*26" : "Unknown or Uncertain Function",
       "*27" : "Normal Function",
-      "*28" : "Unknown",
+      "*28" : "Unknown or Uncertain Function",
       "*29" : "Decreased Function",
       "*29x2" : "Normal Function",
-      "*30" : "Unknown",
+      "*30" : "Unknown or Uncertain Function",
       "*31" : "No Function",
-      "*32" : "Unknown",
+      "*32" : "Unknown or Uncertain Function",
       "*33" : "Normal Function",
       "*34" : "Normal Function",
       "*35" : "Normal Function",
       "*35xN" : "Increased Function",
       "*36" : "No Function",
       "*36xN" : "No Function",
-      "*37" : "Unknown",
+      "*37" : "Unknown or Uncertain Function",
       "*38" : "No Function",
       "*39" : "Normal Function",
       "*40" : "No Function",
       "*41" : "Decreased Function",
       "*41x2" : "Normal Function",
       "*42" : "No Function",
-      "*43" : "Unknown",
+      "*43" : "Unknown or Uncertain Function",
       "*44" : "No Function",
       "*45" : "Normal Function",
       "*45xN" : "Increased Function",
@@ -1031,56 +1166,126 @@
       "*49" : "Decreased Function",
       "*50" : "Decreased Function",
       "*51" : "No Function",
-      "*52" : "Unknown",
+      "*52" : "Unknown or Uncertain Function",
       "*53" : "Normal Function",
       "*54" : "Decreased Function",
       "*55" : "Decreased Function",
-      "*56A" : "No Function",
-      "*56B" : "No Function",
+      "*56" : "No Function",
       "*57" : "No Function",
-      "*58" : "Unknown",
+      "*58" : "Unknown or Uncertain Function",
       "*59" : "Decreased Function",
-      "*60" : "Unknown",
-      "*61" : "Unknown",
+      "*60" : "Unknown or Uncertain Function",
+      "*61" : "Unknown or Uncertain Function",
       "*62" : "No Function",
-      "*63" : "Unknown",
-      "*64" : "Unknown",
-      "*65" : "Unknown",
+      "*63" : "Unknown or Uncertain Function",
+      "*64" : "Unknown or Uncertain Function",
+      "*65" : "Unknown or Uncertain Function",
       "*68" : "No Function",
       "*69" : "No Function",
-      "*70" : "Unknown",
-      "*71" : "Unknown",
+      "*70" : "Unknown or Uncertain Function",
+      "*71" : "Unknown or Uncertain Function",
       "*72" : "Decreased Function",
-      "*73" : "Unknown",
-      "*74" : "Unknown",
-      "*75" : "Unknown",
-      "*81" : "Unknown",
-      "*82" : "Unknown",
-      "*83" : "Unknown",
-      "*84" : "Unknown",
-      "*85" : "Unknown",
-      "*86" : "Unknown",
-      "*87" : "Unknown",
-      "*88" : "Unknown",
-      "*89" : "Unknown",
-      "*90" : "Unknown",
-      "*91" : "Unknown",
+      "*73" : "Unknown or Uncertain Function",
+      "*74" : "Unknown or Uncertain Function",
+      "*75" : "Unknown or Uncertain Function",
+      "*81" : "Unknown or Uncertain Function",
+      "*82" : "Unknown or Uncertain Function",
+      "*83" : "Unknown or Uncertain Function",
+      "*84" : "Unknown or Uncertain Function",
+      "*85" : "Unknown or Uncertain Function",
+      "*86" : "Unknown or Uncertain Function",
+      "*87" : "Unknown or Uncertain Function",
+      "*88" : "Unknown or Uncertain Function",
+      "*89" : "Unknown or Uncertain Function",
+      "*90" : "Unknown or Uncertain Function",
+      "*91" : "Unknown or Uncertain Function",
       "*92" : "No Function",
-      "*93" : "Unknown",
-      "*94" : "Unknown",
-      "*95" : "Unknown",
-      "*96" : "Unknown",
-      "*97" : "Unknown",
-      "*98" : "Unknown",
+      "*93" : "Unknown or Uncertain Function",
+      "*94" : "Unknown or Uncertain Function",
+      "*95" : "Unknown or Uncertain Function",
+      "*96" : "Unknown or Uncertain Function",
+      "*97" : "Unknown or Uncertain Function",
+      "*98" : "Unknown or Uncertain Function",
       "*100" : "No Function",
       "*101" : "No Function",
-      "*102" : "Unknown",
-      "*103" : "Unknown",
-      "*104" : "Unknown",
-      "*105" : "Unknown",
-      "*107" : "Unknown",
-      "*108" : "Unknown",
-      "*109" : "Unknown"
+      "*102" : "Unknown or Uncertain Function",
+      "*103" : "Unknown or Uncertain Function",
+      "*104" : "Unknown or Uncertain Function",
+      "*105" : "Unknown or Uncertain Function",
+      "*107" : "Unknown or Uncertain Function",
+      "*108" : "Unknown or Uncertain Function",
+      "*109" : "Unknown or Uncertain Function"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/27997040",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15098242,
+    "resourceId" : "27997040",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+    "authors" : [ "Kevin Hicks J", "Sangkuhl Katrin", "Swen Jesse J", "Ellingrod Vicki L", "Müller Daniel J", "Shimoda Kazutaka", "Bishop Jeffrey R", "Kharasch Evan D", "Skaar Todd C", "Gaedigk Andrea", "Dunnenberger Henry M", "Klein Teri E", "Caudle Kelly E", "Stingl Julia C" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 12,
+    "nonHuman" : false,
+    "pubDate" : "2016-12-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/27997040",
+    "sentences" : [ ],
+    "summary" : "CYP2D6 and CYP2C19 polymorphisms affect the exposure, efficacy and safety of tricyclic antidepressants (TCAs), with some drugs being affected by CYP2D6 only (e.g., nortriptyline and desipramine) and others by both polymorphic enzymes (e.g., amitriptyline, clomipramine, doxepin, imipramine, and trimipramine). Evidence is presented for CYP2D6 and CYP2C19 genotype-directed dosing of TCAs. This document is an update to the 2012 Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants. This article is protected by copyright. All rights reserved.",
+    "type" : "article",
+    "version" : 0,
+    "year" : 2016
+  }, {
+    "@id" : "https://api.pharmgkb.org/data/literature/23486447",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15051926,
+    "resourceId" : "23486447",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants",
+    "authors" : [ "Hicks J K", "Swen J J", "Thorn C F", "Sangkuhl K", "Kharasch E D", "Ellingrod V L", "Skaar T C", "Müller D J", "Gaedigk A", "Stingl J C" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 1,
+    "nonHuman" : false,
+    "pubDate" : "2013-01-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/23486447",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15051927,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 15051928,
+      "text" : "Polymorphisms in CYP2D6 and CYP2C19 affect the efficacy and safety of tricyclics, with some drugs being affected by CYP2D6 only, and others by both polymorphic enzymes.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 15051929,
+      "text" : "Amitriptyline, clomipramine, doxepin, imipramine, and trimipramine are demethylated by CYP2C19 to pharmacologically active metabolites.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 15051930,
+      "text" : "These drugs and their metabolites, along with desipramine and nortriptyline, undergo hydroxylation by CYP2D6 to less active metabolites.",
+      "sentenceIndex" : 3
+    }, {
+      "location" : "abstract",
+      "id" : 15051931,
+      "text" : "Evidence from published literature is presented for CYP2D6 and CYP2C19 genotype-directed dosing of tricyclic antidepressants.Clinical Pharmacology & Therapeutics (2013); advance online publication 13 March 2013.",
+      "sentenceIndex" : 4
+    }, {
+      "location" : "abstract",
+      "id" : 15051932,
+      "text" : "doi:10.1038/clpt.2013.2.",
+      "sentenceIndex" : 5
+    } ],
+    "summary" : "Polymorphisms in CYP2D6 and CYP2C19 affect the efficacy and safety of tricyclics, with some drugs being affected by CYP2D6 only, and others by both polymorphic enzymes. Amitriptyline, clomipramine, doxepin, imipramine, and trimipramine are demethylated by CYP2C19 to pharmacologically active metabolites. These drugs and their metabolites, along with desipramine and nortriptyline, undergo hydroxylation by CYP2D6 to less active metabolites. Evidence from published literature is presented for CYP2D6 and CYP2C19 genotype-directed dosing of tricyclic antidepressants.Clinical Pharmacology & Therapeutics (2013); advance online publication 13 March 2013. doi:10.1038/clpt.2013.2.",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2013
+  } ]
 }

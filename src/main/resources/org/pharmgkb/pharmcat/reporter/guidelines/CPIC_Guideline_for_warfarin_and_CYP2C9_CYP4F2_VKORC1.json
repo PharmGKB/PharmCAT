@@ -91,5 +91,71 @@
     },
     "version" : 23,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-warfarin-and-cyp2c9-and-vkorc1/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983518,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-warfarin-and-cyp2c9-and-vkorc1%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-warfarin-and-cyp2c9-and-vkorc1/"} ]
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/28198005",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15098503,
+    "resourceId" : "28198005",
+    "title" : "Clinical pharmacogenetics implementation consortium (cpic) guideline for pharmacogenetics-guided warfarin dosing: 2017 update",
+    "authors" : [ "Johnson Julie A", "Caudle Kelly E", "Gong Li", "Whirl-Carrillo Michelle", "Stein C Michael", "Scott Stuart A", "Lee Ming Ta Michael", "Gage Brian F", "Kimmel Stephen E", "Perera Minoli A", "Anderson Jeffrey L", "Pirmohamed Munir", "Klein Teri E", "Limdi Nita A", "Cavallari Larisa H", "Wadelius Mia" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 2,
+    "nonHuman" : false,
+    "pubDate" : "2017-02-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/28198005",
+    "sentences" : [ ],
+    "summary" : "This document is an update to the 2011 Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for CYP2C9 and VKORC1 genotypes and warfarin dosing. Evidence from the published literature is presented for CYP2C9, VKORC1, CYP4F2, and rs12777823 genotype-guided warfarin dosing to achieve a target international normalized ratio of 2-3 when clinical genotype results are available. In addition, this updated guideline incorporates recommendations for adult and pediatric patients that are specific to continental ancestry. This article is protected by copyright. All rights reserved.",
+    "type" : "article",
+    "version" : 0,
+    "year" : 2017
+  }, {
+    "@id" : "https://api.pharmgkb.org/data/literature/21900891",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 8560040,
+    "resourceId" : "21900891",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for CYP2C9 and VKORC1 Genotypes and Warfarin Dosing",
+    "authors" : [ "Johnson J A", "Gong L", "Whirl-Carrillo M", "Gage B F", "Scott S A", "Stein C M", "Anderson J L", "Kimmel S E", "Lee M T M", "Pirmohamed M", "Wadelius M", "Klein T E", "Altman R B" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 9,
+    "nonHuman" : false,
+    "pubDate" : "2011-09-01T00:00:00-07:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21900891",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 8560041,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for CYP2C9 and VKORC1 Genotypes and Warfarin Dosing",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 8560045,
+      "text" : "Warfarin is a widely used anticoagulant with a narrow therapeutic index and large interpatient variability in the dose required to achieve target anticoagulation.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 8560047,
+      "text" : "Common genetic variants in the cytochrome P450-2C9 (CYP2C9) and vitamin K-epoxide reductase complex (VKORC1) enzymes, in addition to known nongenetic factors, account for ~50% of warfarin dose variability.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 8560059,
+      "text" : "The purpose of this article is to assist in the interpretation and use of CYP2C9 and VKORC1 genotype data for estimating therapeutic warfarin dose to achieve an INR of 2-3, should genotype results be available to the clinician.",
+      "sentenceIndex" : 3
+    }, {
+      "location" : "abstract",
+      "id" : 8560063,
+      "text" : "The Clinical Pharmacogenetics Implementation Consortium (CPIC) of the National Institutes of Health Pharmacogenomics Research Network develops peer-reviewed gene-drug guidelines that are published and updated periodically on http://www.pharmgkb.org based on new developments in the field.(1).",
+      "sentenceIndex" : 4
+    } ],
+    "summary" : "Warfarin is a widely used anticoagulant with a narrow therapeutic index and large interpatient variability in the dose required to achieve target anticoagulation. Common genetic variants in the cytochrome P450-2C9 (CYP2C9) and vitamin K-epoxide reductase complex (VKORC1) enzymes, in addition to known nongenetic factors, account for ~50% of warfarin dose variability. The purpose of this article is to assist in the interpretation and use of CYP2C9 and VKORC1 genotype data for estimating therapeutic warfarin dose to achieve an INR of 2-3, should genotype results be available to the clinician. The Clinical Pharmacogenetics Implementation Consortium (CPIC) of the National Institutes of Health Pharmacogenomics Research Network develops peer-reviewed gene-drug guidelines that are published and updated periodically on http://www.pharmgkb.org based on new developments in the field.(1).",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2011
+  } ]
 }

@@ -269,5 +269,30 @@
       "*15:02:01" : "Presence",
       "Other" : "Absence"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/23695185",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15058356,
+    "resourceId" : "23695185",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Carbamazepine Dosing",
+    "authors" : [ "Leckband Susan G", "Kelsoe John R", "Dunnenberger H Mark", "George Alfred L", "Tran Eric", "Berger Reisel", "Müller Daniel J", "Whirl-Carrillo Michelle", "Caudle Kelly E", "Pirmohamed Munir" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 5,
+    "nonHuman" : false,
+    "pubDate" : "2013-05-01T00:00:00-07:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/23695185",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15058357,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Carbamazepine Dosing",
+      "sentenceIndex" : 0
+    } ],
+    "type" : "article",
+    "version" : 2,
+    "year" : 2013
+  } ]
 }

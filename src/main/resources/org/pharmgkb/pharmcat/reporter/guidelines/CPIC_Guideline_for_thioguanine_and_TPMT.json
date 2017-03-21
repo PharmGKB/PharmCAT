@@ -21,6 +21,12 @@
       "description" : "Update guideline with information regarding the NUDT15 gene.",
       "type" : "update",
       "version" : 0
+    }, {
+      "id" : 1448604771,
+      "date" : "2017-03-15T00:00:00-07:00",
+      "description" : "updated extended dosing guideline",
+      "type" : "update",
+      "version" : 0
     } ],
     "relatedChemicals" : [ {
       "objCls" : "Chemical",
@@ -61,7 +67,7 @@
       "relatedObjects" : [ ],
       "version" : 6
     },
-    "version" : 25,
+    "version" : 27,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983453,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-thiopurines-and-tpmt%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/"} ]
   },
   "annotationGroups" : [ {
@@ -69,7 +75,7 @@
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128796",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128796",
-    "name" : "Heterozygous or intermediate activity",
+    "name" : "Intermediate Metabolizer",
     "annotations" : [ {
       "id" : 1445583637,
       "history" : [ ],
@@ -94,17 +100,46 @@
       },
       "version" : 6
     }, {
+      "id" : 1448590001,
+      "history" : [ {
+        "id" : 1448589999,
+        "date" : "2017-02-06T12:02:24.092-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448590000,
+        "externalLinks" : [ ],
+        "html" : "<p>Intermediate Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
       "id" : 1445583636,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986541,
         "externalLinks" : [ ],
-        "html" : "<p>Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)</p>\n",
+        "html" : "<p>Heterozygote or intermediate activity (one functional (normal function) allele - *1, plus one nonfunctional (no function) allele - *2, *3A, *3B, *3C, or *4)</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Heterozygote or intermediate activity (one functional allele - *1, plus one nonfunctional allele - *2, *3A, *3B, *3C, or *4)",
+        "markdown" : "Heterozygote or intermediate activity (one functional (normal function) allele - *1, plus one nonfunctional (no function) allele - *2, *3A, *3B, *3C, or *4)",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -115,7 +150,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445583638,
       "history" : [ ],
@@ -140,22 +175,22 @@
       },
       "version" : 6
     } ],
-    "genePhenotypes" : [ "TPMT:Decreased Function/Normal Function" ],
+    "genePhenotypes" : [ "TPMT:No Function/Normal Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166104965",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104965",
       "name" : "CPIC Guideline for thioguanine and TPMT",
-      "version" : 25
+      "version" : 27
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -167,13 +202,13 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 8
+    "version" : 11
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128798",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128798",
-    "name" : "Homozygous variant, mutant, low, or deficient activity",
+    "name" : "Poor Metabolizer",
     "annotations" : [ {
       "id" : 1445583643,
       "history" : [ ],
@@ -198,17 +233,46 @@
       },
       "version" : 6
     }, {
+      "id" : 1448590010,
+      "history" : [ {
+        "id" : 1448590008,
+        "date" : "2017-02-06T12:05:23.004-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448590009,
+        "externalLinks" : [ ],
+        "html" : "<p>Poor Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
       "id" : 1445583642,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986683,
         "externalLinks" : [ ],
-        "html" : "<p>Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)</p>\n",
+        "html" : "<p>Homozygous variant, mutant, low, or deficient activity (two nonfunctional (no function) alleles - *2, *3A, *3B, *3C, or *4)</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Homozygous variant, mutant, low, or deficient activity (two nonfunctional alleles - *2, *3A, *3B, *3C, or *4)",
+        "markdown" : "Homozygous variant, mutant, low, or deficient activity (two nonfunctional (no function) alleles - *2, *3A, *3B, *3C, or *4)",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -219,7 +283,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1445583644,
       "history" : [ ],
@@ -244,22 +308,22 @@
       },
       "version" : 6
     } ],
-    "genePhenotypes" : [ "TPMT:Decreased Function/Decreased Function" ],
+    "genePhenotypes" : [ "TPMT:No Function/No Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166104965",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104965",
       "name" : "CPIC Guideline for thioguanine and TPMT",
-      "version" : 25
+      "version" : 27
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -271,37 +335,14 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 8
+    "version" : 11
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128797",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128797",
-    "name" : "Homozygous wild-type or normal, high activity",
+    "name" : "Normal Metabolizer",
     "annotations" : [ {
-      "id" : 1445583639,
-      "history" : [ ],
-      "markdown" : {
-        "id" : 1447986544,
-        "externalLinks" : [ ],
-        "html" : "<p>Homozygous wild-type or normal, high activity (two functional *1 alleles)</p>\n",
-        "internalLinks" : [ ],
-        "markdown" : "Homozygous wild-type or normal, high activity (two functional *1 alleles)",
-        "pmids" : [ ],
-        "relatedObjects" : [ ],
-        "version" : 0
-      },
-      "type" : {
-        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
-        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-        "id" : 981501924,
-        "resource" : "Guideline Tags",
-        "term" : "Activity Score",
-        "termId" : "guidelineTags:981501924",
-        "version" : 0
-      },
-      "version" : 6
-    }, {
       "id" : 1445583640,
       "history" : [ ],
       "markdown" : {
@@ -324,6 +365,58 @@
         "version" : 0
       },
       "version" : 6
+    }, {
+      "id" : 1448590005,
+      "history" : [ {
+        "id" : 1448590003,
+        "date" : "2017-02-06T12:03:35.608-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448590004,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1445583639,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986544,
+        "externalLinks" : [ ],
+        "html" : "<p>Homozygous wild-type or normal, high activity (two functional (normal function) *1 alleles)</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Homozygous wild-type or normal, high activity (two functional (normal function) *1 alleles)",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 8
     }, {
       "id" : 1445583641,
       "history" : [ ],
@@ -355,7 +448,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104965",
       "name" : "CPIC Guideline for thioguanine and TPMT",
-      "version" : 25
+      "version" : 27
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -375,16 +468,260 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 8
+    "version" : 11
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162694",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162694",
+    "name" : "Indeterminate",
+    "annotations" : [ {
+      "id" : 1448590016,
+      "history" : [ {
+        "id" : 1448590014,
+        "date" : "2017-02-06T12:06:26.051-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448590015,
+        "externalLinks" : [ ],
+        "html" : "<p>N/A</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "N/A",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448590019,
+      "history" : [ {
+        "id" : 1448590017,
+        "date" : "2017-02-06T12:06:41.134-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448590018,
+        "externalLinks" : [ ],
+        "html" : "<p>Indeterminate</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448590013,
+      "history" : [ {
+        "id" : 1448590011,
+        "date" : "2017-02-06T12:06:16.114-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448590012,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two unknown/uncertain function alleles or probably decreased function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown/uncertain function alleles or probably decreased function alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448590022,
+      "history" : [ {
+        "id" : 1448590020,
+        "date" : "2017-02-06T12:06:56.629-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448590021,
+        "externalLinks" : [ ],
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "TPMT:No Function/Probable Decreased Function", "TPMT:No Function/Unknown or Uncertain Function", "TPMT:Normal Function/Probable Decreased Function", "TPMT:Normal Function/Unknown or Uncertain Function", "TPMT:Probable Decreased Function/Probable Decreased Function", "TPMT:Probable Decreased Function/Unknown or Uncertain Function", "TPMT:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104965",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166104965",
+      "name" : "CPIC Guideline for thioguanine and TPMT",
+      "version" : 27
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 1
   } ],
   "genePhenotypes" : {
     "TPMT" : {
       "*1" : "Normal Function",
-      "*2" : "Decreased Function",
-      "*3A" : "Decreased Function",
-      "*3B" : "Decreased Function",
-      "*3C" : "Decreased Function",
-      "*4" : "Decreased Function"
+      "*1S" : "Normal Function",
+      "*2" : "No Function",
+      "*3A" : "No Function",
+      "*3B" : "No Function",
+      "*3C" : "No Function",
+      "*4" : "No Function",
+      "*5" : "Probable Decreased Function",
+      "*6" : "Probable Decreased Function",
+      "*7" : "Unknown or Uncertain Function",
+      "*8" : "Probable Decreased Function",
+      "*9" : "Probable Decreased Function",
+      "*10" : "Probable Decreased Function",
+      "*11" : "Probable Decreased Function",
+      "*12" : "Probable Decreased Function",
+      "*13" : "Probable Decreased Function",
+      "*14" : "Unknown or Uncertain Function",
+      "*15" : "Unknown or Uncertain Function",
+      "*16" : "Probable Decreased Function",
+      "*17" : "Probable Decreased Function",
+      "*18" : "Probable Decreased Function",
+      "*19" : "Unknown or Uncertain Function",
+      "*20" : "Unknown or Uncertain Function",
+      "*21" : "Unknown or Uncertain Function",
+      "*22" : "Unknown or Uncertain Function",
+      "*23" : "Unknown or Uncertain Function",
+      "*24" : "Unknown or Uncertain Function",
+      "*25" : "Unknown or Uncertain Function",
+      "*26" : "Unknown or Uncertain Function",
+      "*27" : "Unknown or Uncertain Function",
+      "*28" : "Unknown or Uncertain Function",
+      "*29" : "Unknown or Uncertain Function",
+      "*30" : "Unknown or Uncertain Function",
+      "*31" : "Unknown or Uncertain Function"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/23422873",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15051187,
+    "resourceId" : "23422873",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update",
+    "authors" : [ "Relling M V", "Gardner E E", "Sandborn W J", "Schmiegelow K", "Pui C-H", "Yee S W", "Stein C M", "Carrillo M", "Evans W E", "Hicks J K", "Schwab M", "Klein T E" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 1,
+    "nonHuman" : false,
+    "pubDate" : "2013-01-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/23422873",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15051188,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update",
+      "sentenceIndex" : 0
+    } ],
+    "type" : "article",
+    "version" : 1,
+    "year" : 2013
+  }, {
+    "@id" : "https://api.pharmgkb.org/data/literature/21270794",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 6690400,
+    "resourceId" : "21270794",
+    "title" : "Clinical pharmacogenetics implementation consortium guidelines for thiopurine methyltransferase genotype and thiopurine dosing",
+    "authors" : [ "Relling M V", "Gardner E E", "Sandborn W J", "Schmiegelow K", "Pui C-H", "Yee S W", "Stein C M", "Carrillo M", "Evans W E", "Klein T E" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 3,
+    "nonHuman" : false,
+    "page" : "387-91",
+    "pubDate" : "2011-03-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21270794",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 6690401,
+      "text" : "Clinical pharmacogenetics implementation consortium guidelines for thiopurine methyltransferase genotype and thiopurine dosing",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 6690403,
+      "text" : "Thiopurine methyltransferase (TPMT) activity exhibits monogenic co-dominant inheritance, with ethnic differences in the frequency of occurrence of variant alleles.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 6690406,
+      "text" : "With conventional thiopurine doses, homozygous TPMT-deficient patients (~1 in 178 to 1 in 3,736 individuals with two nonfunctional TPMT alleles) experience severe myelosuppression, 30-60% of individuals who are heterozygotes (~3-14% of the population) show moderate toxicity, and homozygous wild-type individuals (~86-97% of the population) show lower active thioguanine nucleolides and less myelosuppression.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 6690411,
+      "text" : "We provide dosing recommendations (updates at http://www.pharmgkb.org) for azathioprine, mercaptopurine (MP), and thioguanine based on TPMT genotype.",
+      "sentenceIndex" : 3
+    } ],
+    "summary" : "Thiopurine methyltransferase (TPMT) activity exhibits monogenic co-dominant inheritance, with ethnic differences in the frequency of occurrence of variant alleles. With conventional thiopurine doses, homozygous TPMT-deficient patients (~1 in 178 to 1 in 3,736 individuals with two nonfunctional TPMT alleles) experience severe myelosuppression, 30-60% of individuals who are heterozygotes (~3-14% of the population) show moderate toxicity, and homozygous wild-type individuals (~86-97% of the population) show lower active thioguanine nucleolides and less myelosuppression. We provide dosing recommendations (updates at http://www.pharmgkb.org) for azathioprine, mercaptopurine (MP), and thioguanine based on TPMT genotype.",
+    "type" : "article",
+    "version" : 2,
+    "volume" : "89",
+    "year" : 2011
+  } ]
 }

@@ -280,5 +280,75 @@
       "*58:01" : "Presence",
       "Other" : "Absence"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/26094938",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15090607,
+    "resourceId" : "26094938",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for human leukocyte antigen B (HLA-B) genotype and allopurinol dosing: 2015 update",
+    "authors" : [ "Saito Y", "Stamp L K", "Caudle K E", "Hershfield M S", "McDonagh E M", "Callaghan J T", "Tassaneeyakul W", "Mushiroda T", "Kamatani N", "Goldspiel B R", "Phillips E J", "Klein T E", "Lee Mtm" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 6,
+    "nonHuman" : false,
+    "pubDate" : "2015-06-01T00:00:00-07:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/26094938",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15090608,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for human leukocyte antigen B (HLA-B) genotype and allopurinol dosing: 2015 update",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 15090609,
+      "text" : "The Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B*58:01 Genotype and Allopurinol Dosing was originally published in February 2013.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 15090610,
+      "text" : "We reviewed the recent literature and concluded that none of the evidence would change the therapeutic recommendations in the original guideline; therefore, the original publication remains clinically current.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 15090611,
+      "text" : "However, we have updated the Supplemental Material and included additional resources for applying CPIC guidelines into the electronic health record.",
+      "sentenceIndex" : 3
+    }, {
+      "location" : "abstract",
+      "id" : 15090612,
+      "text" : "Up-to-date information can be found at PharmGKB (http://www.pharmgkb.org).",
+      "sentenceIndex" : 4
+    } ],
+    "summary" : "The Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B*58:01 Genotype and Allopurinol Dosing was originally published in February 2013. We reviewed the recent literature and concluded that none of the evidence would change the therapeutic recommendations in the original guideline; therefore, the original publication remains clinically current. However, we have updated the Supplemental Material and included additional resources for applying CPIC guidelines into the electronic health record. Up-to-date information can be found at PharmGKB (http://www.pharmgkb.org).",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2015
+  }, {
+    "@id" : "https://api.pharmgkb.org/data/literature/23232549",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15033427,
+    "resourceId" : "23232549",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for Human Leukocyte Antigen-B Genotype and Allopurinol Dosing",
+    "authors" : [ "Hershfield M S", "Callaghan J T", "Tassaneeyakul W", "Mushiroda T", "Thorn C F", "Klein T E", "Lee M T M" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 10,
+    "nonHuman" : false,
+    "pubDate" : "2012-10-01T00:00:00-07:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/23232549",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15033428,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for Human Leukocyte Antigen-B Genotype and Allopurinol Dosing",
+      "sentenceIndex" : 0
+    } ],
+    "type" : "article",
+    "version" : 1,
+    "year" : 2012
+  } ]
 }

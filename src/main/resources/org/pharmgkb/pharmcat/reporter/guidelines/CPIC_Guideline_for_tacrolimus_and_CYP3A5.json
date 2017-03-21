@@ -10,6 +10,12 @@
       "date" : "2015-08-11T00:00:00-07:00",
       "type" : "approve",
       "version" : 1
+    }, {
+      "id" : 1448604654,
+      "date" : "2017-03-15T16:17:45.604-07:00",
+      "description" : "Updated extended dosing guidelines",
+      "type" : "update",
+      "version" : 0
     } ],
     "relatedChemicals" : [ {
       "objCls" : "Chemical",
@@ -48,9 +54,9 @@
       "markdown" : "## July 2015\r\n\r\n_Advanced online publication March 2015_\r\n\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing of tacrolimus have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org). \r\n- These guidelines are applicable to:\r\n  - Patients undergoing kidney, heart, lung, or hematopoietic stem cell transplant.\r\n  - Patients undergoing liver transplant where the donor and recipient _CYP3A5_ genotypes are identical.\r\n- Excerpts from the 2015 tacrolimus dosing guidelines:\r\n  - \"Blood concentrations of tacrolimus are strongly influenced by _CYP3A5_ genotype, with substantial evidence linking _CYP3A5_ genotype with phenotypic variability...In kidney, heart and lung transplant patients, over 50 studies have found that individuals with the _CYP3A5*1/*1_ or _CYP3A5*1/*3_ genotype have significantly lower dose-adjusted trough concentrations of tacrolimus as compared to those with the _CYP3A5*3/*3_ genotype...\"\r\n  - \"Those recipients with an extensive or intermediate metabolizer phenotype will generally require an increased dose of tacrolimus to achieve therapeutic drug concentrations. We recommend a dose 1.5 - 2 times higher than standard dosing, but not to exceed 0.3 mg/kg/day, followed by \\[therapeutic drug monitoring] given the risk of arterial vasoconstriction, hypertension and nephrotoxicity that can occur with supratherapeutic tacrolimus concentrations.\" \r\n\r\n- Download and read:  \r\n  - [Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for _CYP3A5_ genotypes and Tacrolimus Dosing](https://github.com/PharmGKB/cpic-guidelines/raw/master/tacrolimus/2015/25801146.pdf) \r\n  - [2015 Supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/tacrolimus/2015/25801146-supplement.pdf)\r\n  - [2015 Tacrolimus translation table](https://github.com/PharmGKB/cpic-guidelines/raw/master/tacrolimus/2015/25801146-CYP3A5%20translation%20table.xlsx)\r\n  - [CYP3A5 allele frequency table](https://github.com/PharmGKB/cpic-guidelines/raw/master/tacrolimus/2015/25801146-CYP3A5%20allele%20frequency%20table.xlsx)\r\n\r\n## Table 1: Dosing recommendations for tacrolimus based on CYP3A5 phenotype:\r\n\r\n_Adapted from Tables 1 and 2 of the 2015 guideline manuscript._\r\n\r\n| Likely phenotype ^a^ | Genotypes | Examples of diplotypes ^b^ | Implications for tacrolimus pharmacologic measures | Therapeutic Recommendations ^c^ | Classification of recommendations ^e^ |\r\n| --- | --- | --- | --- | --- | --- |\r\n| Extensive metabolizer (CYP3A5 expresser) | An individual carrying two functional alleles | *1/*1 | Lower dose-adjusted trough concentrations of tacrolimus and decreased chance of achieving target tacrolimus concentrations | Increase starting dose 1.5 to 2 times recommended starting dose ^d^. Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments | Strong |\r\n| Intermediate metabolizer (CYP3A5 expresser) | An individual carrying one functional allele and one non-functional allele | *1/*3, *1/*6, *1/*7| Lower dose-adjusted trough concentrations of tacrolimus and decreased chance of achieving target tacrolimus concentrations | Increase starting dose 1.5 to 2 times recommended starting dose ^d^. Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments | Strong |\r\n| Poor metabolizer (CYP3A5 non-expresser) | An individual carrying two non-functional alleles | *3/*3, *6/*6, *7/*7, *3/*6, *3/*7, *6/*7| Higher (“normal”) dose-adjusted trough concentrations of tacrolimus and increased chance of achieving target tacrolimus concentrations | Initiate therapy with standard recommended dose. Use therapeutic drug monitoring to guide dose adjustments | Strong |\r\n\r\n^a^ Typically with other CYP enzymes, an extensive metabolizer would be classified as a “normal” metabolizer, and therefore, the drug dose would not change based on the patient’s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e. CYP3A5 extensive metabolizer or intermediate metabolizer) would require a higher recommended starting dose and the CYP3A5 non-expresser (i.e. poor metabolizer) would require the standard recommended starting dose.\r\n\r\n^b^ Additional rare variants such as _CYP3A5*2, *8_, and _*9_ may be found which are of unknown functional significance. However, if a copy of _*1_ is present, expected phenotype would be intermediate metabolizer.\r\n\r\n^c^ This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical.\r\n\r\n^d^ Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function)\r\n\r\n^e^ Rating scheme is described in 2015 Supplement.",
       "pmids" : [ ],
       "relatedObjects" : [ ],
-      "version" : 5
+      "version" : 6
     },
-    "version" : 20,
+    "version" : 21,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-tacrolimus-and-cyp3a5/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983514,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-tacrolimus-and-cyp3a5%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-tacrolimus-and-cyp3a5/"} ]
   },
   "annotationGroups" : [ {
@@ -58,7 +64,7 @@
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128747",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128747",
-    "name" : "Extensive Metabolizer",
+    "name" : "Normal Metabolizer",
     "annotations" : [ {
       "id" : 1445559090,
       "history" : [ ],
@@ -83,14 +89,43 @@
       },
       "version" : 6
     }, {
-      "id" : 1445559810,
+      "id" : 1448569694,
+      "history" : [ {
+        "id" : 1448569692,
+        "date" : "2017-01-31T13:49:18.878-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448569693,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal Metabolizer</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [Article:<a href=\"/pmid/27441996\">27441996</a>] for drug metabolizing enzymes.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal Metabolizer\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [PMID:27441996] for drug metabolizing enzymes._",
+        "pmids" : [ "27441996" ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448531108,
       "history" : [ ],
       "markdown" : {
-        "id" : 1447986358,
+        "id" : 1448531107,
         "externalLinks" : [ ],
-        "html" : "<p>Extensive Metabolizer; CYP3A5 expresser; an individual carrying two functional alleles</p>\n",
+        "html" : "<p>An individual carrying two normal function alleles (CYP3A5 expresser).</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Extensive Metabolizer; CYP3A5 expresser; an individual carrying two functional alleles",
+        "markdown" : "An individual carrying two normal function alleles (CYP3A5 expresser).",
         "pmids" : [ ],
         "relatedObjects" : [ ],
         "version" : 0
@@ -104,16 +139,16 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 5
+      "version" : 0
     }, {
-      "id" : 1445559091,
+      "id" : 1448531110,
       "history" : [ ],
       "markdown" : {
-        "id" : 1447986713,
+        "id" : 1448531109,
         "externalLinks" : [ ],
-        "html" : "<p>Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.</p>\n",
+        "html" : "<p>Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.</p>\n<p><em>Further dose adjustments or selection of alternative therapy may be necessary because of other clinical factors (e.g., medication interactions, or hepatic function).</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.",
+        "markdown" : "Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.\r\n\r\n_Further dose adjustments or selection of alternative therapy may be necessary because of other clinical factors (e.g., medication interactions, or hepatic function)._",
         "pmids" : [ ],
         "relatedObjects" : [ ],
         "version" : 0
@@ -127,24 +162,24 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 5
+      "version" : 0
     } ],
-    "genePhenotypes" : [ "CYP3A5:Extensive Metabolizer/Extensive Metabolizer" ],
+    "genePhenotypes" : [ "CYP3A5:Normal Function/Normal Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166124619",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166124619",
       "name" : "CPIC Guideline for tacrolimus and CYP3A5",
-      "version" : 20
+      "version" : 21
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -156,7 +191,7 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 5
+    "version" : 6
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128819",
@@ -164,6 +199,91 @@
     "id" : "PA166128819",
     "name" : "Indeterminate",
     "annotations" : [ {
+      "id" : 1448569688,
+      "history" : [ {
+        "id" : 1448569686,
+        "date" : "2017-01-31T13:47:36.480-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448569687,
+        "externalLinks" : [ ],
+        "html" : "<p>N/A</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "N/A",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448569691,
+      "history" : [ {
+        "id" : 1448569689,
+        "date" : "2017-01-31T13:48:15.511-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448569690,
+        "externalLinks" : [ ],
+        "html" : "<p>Indeterminate</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448569685,
+      "history" : [ {
+        "id" : 1448569683,
+        "date" : "2017-01-31T13:47:13.298-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448569684,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two unknown function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown function alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
       "id" : 1445722917,
       "history" : [ ],
       "markdown" : {
@@ -187,14 +307,14 @@
       },
       "version" : 6
     } ],
-    "genePhenotypes" : [ "CYP3A5:Poor Metabolizer/Unknown", "CYP3A5:Unknown/Unknown" ],
+    "genePhenotypes" : [ "CYP3A5:No Function/Unknown", "CYP3A5:Unknown/Unknown" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166124619",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166124619",
       "name" : "CPIC Guideline for tacrolimus and CYP3A5",
-      "version" : 20
+      "version" : 21
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -215,7 +335,7 @@
       "termId" : "guidelineStrength:981501929",
       "version" : 1
     },
-    "version" : 5
+    "version" : 6
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128748",
@@ -246,17 +366,46 @@
       },
       "version" : 6
     }, {
+      "id" : 1448569713,
+      "history" : [ {
+        "id" : 1448569711,
+        "date" : "2017-01-31T14:00:32.895-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448569712,
+        "externalLinks" : [ ],
+        "html" : "<p>Intermediate Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
       "id" : 1445559811,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986359,
         "externalLinks" : [ ],
-        "html" : "<p>Intermediate Metabolizer; CYP3A5 expresser; an individual carrying one functional allele and one non-functional allele</p>\n",
+        "html" : "<p>An individual carrying one normal function allele and one no function allele (CYP3A5 expresser).</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Intermediate Metabolizer; CYP3A5 expresser; an individual carrying one functional allele and one non-functional allele",
+        "markdown" : "An individual carrying one normal function allele and one no function allele (CYP3A5 expresser).",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -267,19 +416,19 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445559093,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986715,
         "externalLinks" : [ ],
-        "html" : "<p>Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.</p>\n",
+        "html" : "<p>Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.</p>\n<p><em>Further dose adjustments or selection of alternative therapy may be necessary because of other clinical factors (e.g., medication interactions, or hepatic function).</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.",
+        "markdown" : "Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.\r\n\r\n_Further dose adjustments or selection of alternative therapy may be necessary because of other clinical factors (e.g., medication interactions, or hepatic function)._",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
@@ -290,24 +439,24 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     } ],
-    "genePhenotypes" : [ "CYP3A5:Extensive Metabolizer/Poor Metabolizer" ],
+    "genePhenotypes" : [ "CYP3A5:No Function/Normal Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166124619",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166124619",
       "name" : "CPIC Guideline for tacrolimus and CYP3A5",
-      "version" : 20
+      "version" : 21
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -319,7 +468,7 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 5
+    "version" : 8
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128749",
@@ -350,17 +499,46 @@
       },
       "version" : 6
     }, {
+      "id" : 1448569716,
+      "history" : [ {
+        "id" : 1448569714,
+        "date" : "2017-01-31T14:01:04.279-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448569715,
+        "externalLinks" : [ ],
+        "html" : "<p>Poor Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
       "id" : 1445559812,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986357,
         "externalLinks" : [ ],
-        "html" : "<p>Poor Metabolizer; CYP3A5 non-expresser; an individual carrying two non-functional alleles</p>\n",
+        "html" : "<p>An individual carrying two no function alleles (CYP3A5 non-expresser).</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Poor Metabolizer; CYP3A5 non-expresser; an individual carrying two non-functional alleles",
+        "markdown" : "An individual carrying two no function alleles (CYP3A5 non-expresser).",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -371,7 +549,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445559095,
       "history" : [ ],
@@ -396,14 +574,14 @@
       },
       "version" : 6
     } ],
-    "genePhenotypes" : [ "CYP3A5:Poor Metabolizer/Poor Metabolizer" ],
+    "genePhenotypes" : [ "CYP3A5:No Function/No Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166124619",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166124619",
       "name" : "CPIC Guideline for tacrolimus and CYP3A5",
-      "version" : 20
+      "version" : 21
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -423,25 +601,25 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 5
+    "version" : 8
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128750",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128750",
-    "name" : "Possible Intermediate or Extensive Metabolizer",
+    "name" : "Possible Intermediate Metabolizer",
     "annotations" : [ {
       "id" : 1445559419,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986356,
         "externalLinks" : [ ],
-        "html" : "<p>Possible Intermediate or Extensive Metabolizer</p>\n",
+        "html" : "<p>Possible Intermediate Metabolizer or Normal Metabolizer</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [Article:<a href=\"/pmid/27441996\">27441996</a>] for drug metabolizing enzymes.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Possible Intermediate or Extensive Metabolizer",
-        "pmids" : [ ],
+        "markdown" : "Possible Intermediate Metabolizer or Normal Metabolizer\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [PMID:27441996] for drug metabolizing enzymes._",
+        "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
@@ -453,19 +631,19 @@
         "termId" : "guidelineTags:981501926",
         "version" : 0
       },
-      "version" : 5
+      "version" : 7
     }, {
       "id" : 1445989088,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986624,
         "externalLinks" : [ ],
-        "html" : "<p>Due to the presence of the *1 allele, but unknown/limited data on the other * allele, this diplotype has been assigned as a <em>possible</em> intermediate or extensive metabolizer. The CPIC dosing guideline for tacrolimus in intermediate and extensive metabolizers notes that these individuals may have lower dose-adjusted trough concentrations of tacrolimus and decreased chance of achieving target tacrolimus concentrations. The dosing guideline recommends an increase in starting dose 1.5 to 2 times recommended starting dose, with total starting dose should not exceeding 0.3mg/kg/day, and use therapeutic drug monitoring to guide dose adjustments.</p>\n",
+        "html" : "<p>Due to the presence of the *1 allele, but unknown/limited data on the other * allele, this diplotype has been assigned as a <em>possible</em> intermediate metabolizer. The CPIC dosing guideline for tacrolimus in intermediate and extensive metabolizers notes that these individuals may have lower dose-adjusted trough concentrations of tacrolimus and decreased chance of achieving target tacrolimus concentrations. The dosing guideline recommends an increase in starting dose 1.5 to 2 times recommended starting dose, with total starting dose should not exceeding 0.3mg/kg/day, and use therapeutic drug monitoring to guide dose adjustments.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Due to the presence of the *1 allele, but unknown/limited data on the other * allele, this diplotype has been assigned as a _possible_ intermediate or extensive metabolizer. The CPIC dosing guideline for tacrolimus in intermediate and extensive metabolizers notes that these individuals may have lower dose-adjusted trough concentrations of tacrolimus and decreased chance of achieving target tacrolimus concentrations. The dosing guideline recommends an increase in starting dose 1.5 to 2 times recommended starting dose, with total starting dose should not exceeding 0.3mg/kg/day, and use therapeutic drug monitoring to guide dose adjustments.",
+        "markdown" : "Due to the presence of the *1 allele, but unknown/limited data on the other * allele, this diplotype has been assigned as a _possible_ intermediate metabolizer. The CPIC dosing guideline for tacrolimus in intermediate and extensive metabolizers notes that these individuals may have lower dose-adjusted trough concentrations of tacrolimus and decreased chance of achieving target tacrolimus concentrations. The dosing guideline recommends an increase in starting dose 1.5 to 2 times recommended starting dose, with total starting dose should not exceeding 0.3mg/kg/day, and use therapeutic drug monitoring to guide dose adjustments.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
@@ -476,24 +654,24 @@
         "termId" : "guidelineTags:981501928",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     } ],
-    "genePhenotypes" : [ "CYP3A5:Extensive Metabolizer/Unknown" ],
+    "genePhenotypes" : [ "CYP3A5:Normal Function/Unknown" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166124619",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166124619",
       "name" : "CPIC Guideline for tacrolimus and CYP3A5",
-      "version" : 20
+      "version" : 21
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -506,7 +684,7 @@
       "termId" : "guidelineStrength:981501929",
       "version" : 1
     },
-    "version" : 6
+    "version" : 9
   } ],
   "genePhenotypes" : {
     "CYP3A5" : {
@@ -520,5 +698,56 @@
       "*8" : "Unknown",
       "*9" : "Unknown"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/25801146",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15087045,
+    "resourceId" : "25801146",
+    "title" : "Clinical pharmacogenetics implementation consortium (CPIC) guidelines for CYP3A5 genotype and tacrolimus dosing",
+    "authors" : [ "Birdwell Kelly A", "Decker Brian", "Barbarino Julia M", "Peterson Josh F", "Stein C Michael", "Sadee Wolfgang", "Wang Danxin", "Vinks Alexander A", "He Yijing", "Swen Jesse J", "Leeder J Steven", "van Schaik R H N", "Thummel Kenneth E", "Klein Teri E", "Caudle Kelly E", "MacPhee Iain A M" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 3,
+    "nonHuman" : false,
+    "pubDate" : "2015-03-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/25801146",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15087046,
+      "text" : "Clinical pharmacogenetics implementation consortium (CPIC) guidelines for CYP3A5 genotype and tacrolimus dosing",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 15087047,
+      "text" : "Tacrolimus is the mainstay immunosuppressant drug used after solid organ and hematopoietic stem cell transplantation.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 15087048,
+      "text" : "Individuals who express CYP3A5 (extensive and intermediate metabolizers) generally have decreased dose-adjusted trough concentrations of tacrolimus as compared to those who are CYP3A5 non-expressers (poor metabolizers), possibly delaying achievement of target blood concentrations.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 15087049,
+      "text" : "We summarize evidence from the published literature supporting this association and provide dosing recommendations for tacrolimus based on CYP3A5 genotype when known (updates at www.pharmgkb.org).",
+      "sentenceIndex" : 3
+    }, {
+      "location" : "abstract",
+      "id" : 15087050,
+      "text" : "This article is protected by copyright.",
+      "sentenceIndex" : 4
+    }, {
+      "location" : "abstract",
+      "id" : 15087051,
+      "text" : "All rights reserved.",
+      "sentenceIndex" : 5
+    } ],
+    "summary" : "Tacrolimus is the mainstay immunosuppressant drug used after solid organ and hematopoietic stem cell transplantation. Individuals who express CYP3A5 (extensive and intermediate metabolizers) generally have decreased dose-adjusted trough concentrations of tacrolimus as compared to those who are CYP3A5 non-expressers (poor metabolizers), possibly delaying achievement of target blood concentrations. We summarize evidence from the published literature supporting this association and provide dosing recommendations for tacrolimus based on CYP3A5 genotype when known (updates at www.pharmgkb.org). This article is protected by copyright. All rights reserved.",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2015
+  } ]
 }

@@ -10,6 +10,12 @@
       "date" : "2014-07-30T00:00:00-07:00",
       "type" : "update",
       "version" : 0
+    }, {
+      "id" : 1448604804,
+      "date" : "2017-03-16T17:47:59.311-07:00",
+      "description" : "Updated extended dosing guidelines",
+      "type" : "update",
+      "version" : 0
     } ],
     "relatedChemicals" : [ {
       "objCls" : "Chemical",
@@ -37,7 +43,7 @@
       "markdown" : "The CPIC Dosing Guidelines for fluoropyrimidines (i.e. 5-fluorouracil, capecitabine or tegafur) recommends an alternative drug for patients who are homozygous for DPYD non-functional variants - *2A ([variant:rs3918290]), *13 ([variant:rs55886062]), and [variant:rs67376798] A (on the positive chromosomal strand) - as these patients are typically DPD deficient.  Consider a 50% reduction in starting dose for heterozygous patients (intermediate activity).",
       "pmids" : [ ],
       "relatedObjects" : [ "PA166153760", "PA166153888", "PA166153895" ],
-      "version" : 5
+      "version" : 6
     },
     "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
     "textMarkdown" : {
@@ -48,9 +54,9 @@
       "markdown" : "##  May 2014 Update on PharmGKB\r\n- The CPIC authors recommend that the _DPYD*4_, _*5_, _*6_ and _*9A_ alleles be categorized as \"normal\" activity, in part based upon the recent publication [Comparative Functional Analysis of DPYD Variants of Potential Clinical Relevance to Dihydropyrimidine Dehydrogenase Activity](http://www.ncbi.nlm.nih.gov/pubmed/?term=24648345). \r\n\r\n## December 2013 Publication\r\n\r\n_Accepted article preview online August 2013; Advance online publication October 2013._\r\n- Guidelines regarding the use of pharmacogenomic tests in dosing for fluoropyrimidines have been published in _Clinical Pharmacology and Therapeutics_ by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).\r\n- These guidelines are applicable to:\r\n  - at the time of this writing, there are no data available on the possible role of DPYD*2A, *13, or [variant:rs67376798] in 5-fluorouracil toxicities in pediatric patient populations; however, there is no reason to suspect that DPYD variant alleles would affect 5-fluorouracil metabolism differently in children compared to adults.\r\n- Excerpt from the fluoropyrimidine dosing guideline based on DPYD genotype:\r\n  - \"The strength of the dosing recommendations is based on the fact that some variants (DPYD*2A, *13, and [variant:rs67376798]) clearly affect DPD activity, and DPD activity is clearly related to 5-fluorouracil clearance, and 5-fluorouracil exposure is associated with its toxic effects. Therefore, reduction of fluoropyrimidine dosage in patients with these variants may prevent severe and possibly life-threatening toxicities. However, available evidence does not clearly indicate a degree of dose reduction needed to prevent fluoropyrimidine related toxicities...\\[Based on literature review (see full manuscript),] our recommendation is to start with at least a 50% reduction of the starting dose followed by an increase in dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy, a decrease in dose in patients who do not tolerate the starting dose to minimize toxicities or pharmacokinetic guided dose adjustments (if available). Patients who are homozygous for DPYD*2A, *13, or [variant:rs67376798] may demonstrate complete DPD deficiency and the use of 5-fluorouracil or capecitabine is not recommended in these patients.\" \r\n- Download and read:\r\n  - [Clinical Pharmacogenetics Implementation Consortium Guidelines for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing](https://github.com/PharmGKB/cpic-guidelines/raw/master/fluoropyrimidines/2013/23988873.pdf)\r\n  - [2013 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/fluoropyrimidines/2013/23988873-supplement.pdf)\r\n\r\n##  Table 1: Recommended dosing of fluoropyrimidines by genotype/phenotype.\r\n\r\n_Adapted from Tables 1 and 2 of the 2013 guideline manuscript._\r\n\r\n| Phenotype (genotype) | Examples of diplotypes | Implications for phenotypic measures | Dosing recommendations | Classification of recommendations^a^ |\r\n| --- | --- | --- | --- | --- |\r\n| Homozygous wild-type or normal, high DPD activity (two or more functional *1 alleles) | *1/*1 | Normal DPD activity and \"normal\" risk for fluoropyrimidine toxicity | Use label-recommended dosage and administration | Moderate |\r\n| Heterozygous or intermediate activity (~3-5% of patients), may have partial DPD deficiency, at risk for toxicity with drug exposure (one functional allele *1, plus one nonfunctional allele - *2A, *13 or rs67376798A^c^) | *1/*2A; *1/*13; *1/ rs67376798A^c^) | Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs | Start with at least a 50% reduction in starting dose followed by titration of dose based on toxicity ^b^ or pharmacokinetic test (if available) | Moderate |\r\n| Homozygous variant, DPD deficiency (~0.2% of patients), at risk for toxicity with drug exposure (2 nonfunctional alleles - *2A, *13 or rs67376798A ^c^) | *2A/*2A; *13/*13; rs67376798A^c^ / rs67376798A^c^ | Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs | Select alternate drug | Strong |\r\n\r\n^a^ Rating scheme described in 2013 supplement.\r\n\r\n^b^ Increase the dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.\r\n\r\n^c^ Note that the rs67376798A allele refers to the allele on the positive chromosomal strand.  This is important because DPYD is on the minus chromosomal strand and [variant:rs67376798] is a T/A snp.  Therefore, the T allele on the gene confers the deficiency, while the complement on the positive chromosomal strand (A allele) is indicative of deficiency.",
       "pmids" : [ ],
       "relatedObjects" : [ "PA166153895" ],
-      "version" : 5
+      "version" : 6
     },
-    "version" : 19,
+    "version" : 20,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-fluoropyrimidines-and-dpyd/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983463,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-fluoropyrimidines-and-dpyd%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-fluoropyrimidines-and-dpyd/"} ]
   },
   "annotationGroups" : [ {
@@ -58,7 +64,7 @@
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128875",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128875",
-    "name" : "Deficient activity",
+    "name" : "Poor Metabolizer",
     "annotations" : [ {
       "id" : 1446441845,
       "history" : [ ],
@@ -83,17 +89,46 @@
       },
       "version" : 6
     }, {
+      "id" : 1448589771,
+      "history" : [ {
+        "id" : 1448589769,
+        "date" : "2017-02-06T10:36:34.086-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589770,
+        "externalLinks" : [ ],
+        "html" : "<p>Poor Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
       "id" : 1446441861,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986748,
         "externalLinks" : [ ],
-        "html" : "<p>Homozygous for deficient activity alleles; DPD deficiency.</p>\n",
+        "html" : "<p>Homozygous for deficient activity alleles (no function alleles); DPD deficiency.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Homozygous for deficient activity alleles; DPD deficiency.",
+        "markdown" : "Homozygous for deficient activity alleles (no function alleles); DPD deficiency.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -104,7 +139,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1446441877,
       "history" : [ ],
@@ -136,15 +171,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166122686",
       "name" : "CPIC Guideline for fluorouracil and DPYD",
-      "version" : 19
+      "version" : 20
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -156,13 +191,13 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 6
+    "version" : 9
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128876",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128876",
-    "name" : "Intermediate activity",
+    "name" : "Intermediate Metabolizer",
     "annotations" : [ {
       "id" : 1446441893,
       "history" : [ ],
@@ -187,17 +222,46 @@
       },
       "version" : 6
     }, {
+      "id" : 1448589779,
+      "history" : [ {
+        "id" : 1448589777,
+        "date" : "2017-02-06T10:43:17.665-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589778,
+        "externalLinks" : [ ],
+        "html" : "<p>Intermediate Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
       "id" : 1446441911,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986754,
         "externalLinks" : [ ],
-        "html" : "<p>Heterozyogous; intermediate DPD activity, at risk for toxicity with drug exposure.</p>\n",
+        "html" : "<p>Heterozygous; intermediate DPD activity, at risk for toxicity with drug exposure.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Heterozyogous; intermediate DPD activity, at risk for toxicity with drug exposure.",
+        "markdown" : "Heterozygous; intermediate DPD activity, at risk for toxicity with drug exposure.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -208,7 +272,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1446441928,
       "history" : [ ],
@@ -240,15 +304,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166122686",
       "name" : "CPIC Guideline for fluorouracil and DPYD",
-      "version" : 19
+      "version" : 20
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -260,13 +324,13 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 6
+    "version" : 10
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128877",
     "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128877",
-    "name" : "Normal activity",
+    "name" : "Normal Metabolizer",
     "annotations" : [ {
       "id" : 1446441952,
       "history" : [ ],
@@ -291,17 +355,46 @@
       },
       "version" : 6
     }, {
+      "id" : 1448589775,
+      "history" : [ {
+        "id" : 1448589773,
+        "date" : "2017-02-06T10:40:03.209-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589774,
+        "externalLinks" : [ ],
+        "html" : "<p>Normal Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
       "id" : 1446441966,
       "history" : [ ],
       "markdown" : {
         "id" : 1447986760,
         "externalLinks" : [ ],
-        "html" : "<p>Homozygous for normal activity alleles; high DPD activity.</p>\n",
+        "html" : "<p>Homozygous for normal activity alleles (normal function alleles); high DPD activity.</p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Homozygous for normal activity alleles; high DPD activity.",
+        "markdown" : "Homozygous for normal activity alleles (normal function alleles); high DPD activity.",
         "pmids" : [ ],
         "relatedObjects" : [ ],
-        "version" : 0
+        "version" : 1
       },
       "type" : {
         "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
@@ -312,7 +405,7 @@
         "termId" : "guidelineTags:981501927",
         "version" : 0
       },
-      "version" : 6
+      "version" : 8
     }, {
       "id" : 1446441989,
       "history" : [ ],
@@ -344,7 +437,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166122686",
       "name" : "CPIC Guideline for fluorouracil and DPYD",
-      "version" : 19
+      "version" : 20
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -364,18 +457,215 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 6
+    "version" : 9
+  }, {
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162688",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "id" : "PA166162688",
+    "name" : "Indeterminate",
+    "annotations" : [ {
+      "id" : 1448589788,
+      "history" : [ {
+        "id" : 1448589786,
+        "date" : "2017-02-06T10:46:13.125-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589787,
+        "externalLinks" : [ ],
+        "html" : "<p>N/A</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "N/A",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448589791,
+      "history" : [ {
+        "id" : 1448589789,
+        "date" : "2017-02-06T10:46:31.768-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589790,
+        "externalLinks" : [ ],
+        "html" : "<p>Indeterminate</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448589785,
+      "history" : [ {
+        "id" : 1448589783,
+        "date" : "2017-02-06T10:45:53.828-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589784,
+        "externalLinks" : [ ],
+        "html" : "<p>An individual carrying one or two probable decreased function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two probable decreased function alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448589794,
+      "history" : [ {
+        "id" : 1448589792,
+        "date" : "2017-02-06T10:46:46.339-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448589793,
+        "externalLinks" : [ ],
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "DPYD:No Function/Probable Decreased Function", "DPYD:Normal Function/Probable Decreased Function", "DPYD:Probable Decreased Function/Probable Decreased Function" ],
+    "guideline" : {
+      "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166122686",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
+      "id" : "PA166122686",
+      "name" : "CPIC Guideline for fluorouracil and DPYD",
+      "version" : 20
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 4
   } ],
   "genePhenotypes" : {
     "DPYD" : {
       "*1" : "Normal Function",
       "*2A" : "No Function",
+      "*3" : "Probable Decreased Function",
       "*4" : "Normal Function",
       "*5" : "Normal Function",
       "*6" : "Normal Function",
+      "*7" : "Probable Decreased Function",
+      "*8" : "Probable Decreased Function",
       "*9A" : "Normal Function",
+      "*9B" : "Probable Decreased Function",
+      "*10" : "Probable Decreased Function",
+      "*11" : "Probable Decreased Function",
+      "*12" : "Probable Decreased Function",
       "*13" : "No Function",
       "rs67376798A" : "No Function"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/23988873",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15062135,
+    "resourceId" : "23988873",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing",
+    "authors" : [ "Caudle Kelly E", "Thorn Caroline F", "Klein Teri E", "Swen Jesse J", "McLeod Howard L", "Diasio Robert B", "Schwab Matthias" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 8,
+    "nonHuman" : false,
+    "pubDate" : "2013-08-01T00:00:00-07:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/23988873",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15062136,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 15062137,
+      "text" : "The fluoropyrimidines are the mainstay chemotherapeutic agents for the treatment of many types of cancers.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 15062138,
+      "text" : "Detoxifying metabolism of fluoropyrimidines requires dihydropyrimidine dehydrogenase (DPD encoded by the DPYD gene) and reduced or absent activity of this enzyme can result in severe and sometimes fatal toxicity.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 15062139,
+      "text" : "We summarize evidence from the published literature supporting this association and provide dosing recommendations for fluoropyrimidines based on DPYD genotype (updates at www.pharmgkb.org).Clinical Pharmacology & Therapeutics (2013); accepted article preview online 29 August 2013; doi:10.1038/clpt.2013.172.",
+      "sentenceIndex" : 3
+    } ],
+    "summary" : "The fluoropyrimidines are the mainstay chemotherapeutic agents for the treatment of many types of cancers. Detoxifying metabolism of fluoropyrimidines requires dihydropyrimidine dehydrogenase (DPD encoded by the DPYD gene) and reduced or absent activity of this enzyme can result in severe and sometimes fatal toxicity. We summarize evidence from the published literature supporting this association and provide dosing recommendations for fluoropyrimidines based on DPYD genotype (updates at www.pharmgkb.org).Clinical Pharmacology & Therapeutics (2013); accepted article preview online 29 August 2013; doi:10.1038/clpt.2013.172.",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2013
+  } ]
 }

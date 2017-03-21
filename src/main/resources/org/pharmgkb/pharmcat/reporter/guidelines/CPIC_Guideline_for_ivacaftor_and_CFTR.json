@@ -68,7 +68,7 @@
       "relatedObjects" : [ "PA166157511", "PA166157516", "PA166157519", "PA166157521", "PA166157525", "PA166157529", "PA166157530", "PA166157531", "PA166157532", "PA166157533", "PA166157534", "PA166157536", "PA166157537" ],
       "version" : 8
     },
-    "version" : 38,
+    "version" : 39,
     "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-ivacaftor-and-cftr/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983498,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-ivacaftor-and-cftr%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-ivacaftor-and-cftr/"} ]
   },
   "annotationGroups" : [ {
@@ -154,15 +154,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166114461",
       "name" : "CPIC Guideline for ivacaftor and CFTR",
-      "version" : 38
+      "version" : 39
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602496,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Possibly",
+      "termId" : "rxChange:1448602496",
       "version" : 0
     },
     "strength" : {
@@ -174,7 +174,7 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 12
+    "version" : 13
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128744",
@@ -258,15 +258,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166114461",
       "name" : "CPIC Guideline for ivacaftor and CFTR",
-      "version" : 38
+      "version" : 39
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602496,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Possibly",
+      "termId" : "rxChange:1448602496",
       "version" : 0
     },
     "strength" : {
@@ -278,7 +278,7 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 13
+    "version" : 14
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128746",
@@ -362,15 +362,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166114461",
       "name" : "CPIC Guideline for ivacaftor and CFTR",
-      "version" : 38
+      "version" : 39
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602496,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Possibly",
+      "termId" : "rxChange:1448602496",
       "version" : 0
     },
     "strength" : {
@@ -382,7 +382,7 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 12
+    "version" : 13
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128745",
@@ -466,15 +466,15 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166114461",
       "name" : "CPIC Guideline for ivacaftor and CFTR",
-      "version" : 38
+      "version" : 39
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602496,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Possibly",
+      "termId" : "rxChange:1448602496",
       "version" : 0
     },
     "strength" : {
@@ -486,7 +486,7 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 12
+    "version" : 13
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128808",
@@ -524,7 +524,7 @@
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166114461",
       "name" : "CPIC Guideline for ivacaftor and CFTR",
-      "version" : 38
+      "version" : 39
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -545,7 +545,7 @@
       "termId" : "guidelineStrength:981501929",
       "version" : 1
     },
-    "version" : 8
+    "version" : 9
   } ],
   "genePhenotypes" : {
     "CFTR" : {
@@ -564,5 +564,56 @@
       "S1255P" : "Decreased Function",
       "Other" : "Unknown"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/24598717",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15071319,
+    "resourceId" : "24598717",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Ivacaftor Therapy in the Context of CFTR Genotype",
+    "authors" : [ "Clancy John P", "Johnson Samuel G", "Yee Sook Wah", "McDonagh Ellen M", "Caudle Kelly E", "Klein Teri E", "Cannavo Matthew", "Giacomini Kathleen M" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 3,
+    "nonHuman" : false,
+    "pubDate" : "2014-03-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/24598717",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15071320,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Ivacaftor Therapy in the Context of CFTR Genotype",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 15071321,
+      "text" : "Cystic fibrosis (CF) is a life-shortening disease as a consequence of mutations within the CFTR gene.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 15071322,
+      "text" : "Novel therapeutics for CF are emerging that target defects of the cystic fibrosis transmembrane conductance regulator protein (CFTR) resulting from specific CFTR variants.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 15071323,
+      "text" : "Ivacaftor is a drug that potentiates CFTR gating function and is specifically indicated for CF patients with a particular CFTR variant, G551D-CFTR (rs75527207).",
+      "sentenceIndex" : 3
+    }, {
+      "location" : "abstract",
+      "id" : 15071324,
+      "text" : "Here we provide therapeutic recommendations for ivacaftor based on pre-emptive CFTR genotype results.Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 05 March 2014.",
+      "sentenceIndex" : 4
+    }, {
+      "location" : "abstract",
+      "id" : 15071325,
+      "text" : "doi:10.1038/clpt.2014.54.",
+      "sentenceIndex" : 5
+    } ],
+    "summary" : "Cystic fibrosis (CF) is a life-shortening disease as a consequence of mutations within the CFTR gene. Novel therapeutics for CF are emerging that target defects of the cystic fibrosis transmembrane conductance regulator protein (CFTR) resulting from specific CFTR variants. Ivacaftor is a drug that potentiates CFTR gating function and is specifically indicated for CF patients with a particular CFTR variant, G551D-CFTR (rs75527207). Here we provide therapeutic recommendations for ivacaftor based on pre-emptive CFTR genotype results.Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 05 March 2014. doi:10.1038/clpt.2014.54.",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2014
+  } ]
 }

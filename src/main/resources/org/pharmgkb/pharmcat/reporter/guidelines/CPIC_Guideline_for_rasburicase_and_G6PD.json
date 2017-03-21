@@ -1024,5 +1024,51 @@
       "Wexham" : "Class I",
       "Wisconsin" : "Class I"
     }
-  }
+  },
+  "citations" : [ {
+    "@id" : "https://api.pharmgkb.org/data/literature/24787449",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
+    "id" : 15074661,
+    "resourceId" : "24787449",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Rasburicase Therapy in the context of G6PD Deficiency Genotype",
+    "authors" : [ "Relling Mary V", "McDonagh Ellen M", "Chang Tamara", "Caudle Kelly E", "McLeod Howard L", "Haidar Cyrine E", "Klein Teri", "Luzzatto Lucio" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 5,
+    "nonHuman" : false,
+    "pubDate" : "2014-05-01T00:00:00-07:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/24787449",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15074662,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Rasburicase Therapy in the context of G6PD Deficiency Genotype",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 15074663,
+      "text" : "Glucose-6-phosphate dehydrogenase (G6PD) deficiency is associated with development of acute hemolytic anemia (AHA) induced by a number of drugs.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 15074664,
+      "text" : "We provide guidance as to which G6PD genotypes are associated with G6PD deficiency in males and females.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 15074665,
+      "text" : "Rasburicase is contraindicated in G6PD deficient patients due to the risk of AHA and possibly methemoglobinemia.",
+      "sentenceIndex" : 3
+    }, {
+      "location" : "abstract",
+      "id" : 15074666,
+      "text" : "Unless preemptive genotyping has established a positive diagnosis of G6PD deficiency, quantitative enzyme assay remains the mainstay of screening prior to rasburicase.Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 02 May 2014 doi:10.1038/clpt.2014.97.",
+      "sentenceIndex" : 4
+    } ],
+    "summary" : "Glucose-6-phosphate dehydrogenase (G6PD) deficiency is associated with development of acute hemolytic anemia (AHA) induced by a number of drugs. We provide guidance as to which G6PD genotypes are associated with G6PD deficiency in males and females. Rasburicase is contraindicated in G6PD deficient patients due to the risk of AHA and possibly methemoglobinemia. Unless preemptive genotyping has established a positive diagnosis of G6PD deficiency, quantitative enzyme assay remains the mainstay of screening prior to rasburicase.Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 02 May 2014 doi:10.1038/clpt.2014.97.",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2014
+  } ]
 }
