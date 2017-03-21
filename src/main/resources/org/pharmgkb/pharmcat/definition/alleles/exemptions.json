@@ -1,20 +1,21 @@
 [
   {
-    "gene": "UGT1A1",
-    "ignoredAlleles": [],
-    "ignoredAllelesLc": [],
-    "allHits": false,
-    "assumeReference": false
-  },
-  {
     "gene": "TPMT",
     "ignoredAlleles": [
       "*1S"
     ],
     "ignoredAllelesLc": [
+    "ignoredAllelesLc": [
       "*1s"
     ],
     "allHits": false,
     "assumeReference": true
+  },
+  {
+    "gene": "UGT1A1",
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": false
   }
 ]

@@ -16,7 +16,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "Warning!: haplotype matches *17 (increased function), however due to the lack of coverage for *4B we can't also rule out this position (no function)."
+    "message": "Warning! Haplotype matches *17 (increased function allele); however, the existence of *4B (no function allele) cannot be ruled out due to lack of coverage in the provided VCF file for this allele (missing rs28399504)."
   },
   {
     "rule_name": "CYP2C19 *17 missing",
@@ -33,7 +33,7 @@
       "drugs": []
     },
     "exception_type": "gene-specific warnings",
-    "message": "CYP2C19*17, a common variant found in some populations, is defined by a variant (rs12248560) in the CYP2C19 promoter region. Due to missing information in the VCF file, this allele cannot be detected or ruled out, and further testing is warranted."
+    "message": "CYP2C19*17, a common variant found in some populations and an increased function allele, is defined by a variant (rs12248560) in the CYP2C19 promoter region. Due to missing information in the VCF file (specifically, rs12248560), this allele cannot be detected or ruled out, and further testing is warranted."
   },
   {
     "rule_name": "TPMT *1/*3A warning",
@@ -50,7 +50,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "We have detected *1/*3A. Most likely the diplotype is *1/*3A but *3B/*3C can't be ruled out."
+    "message": "The assigned diplotype is *1/*3A; however, *3B/*3C cannot be ruled out with unphased data."
   },
   {
     "rule_name": "TPMT reverse complement footnote",
@@ -65,7 +65,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "All calls for this gene in this report refers to the positive chromosomal strand, so are complemented from gene bases."
+    "message": "Though the TPMT gene is on the negative chromosomal strand, all genotype calls for TPMT in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
     "rule_name": "VKORC1",
@@ -80,7 +80,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "This haplotype only uses a single position, and may not be applicable to all populations."
+    "message": "CPIC recommendations for warfarin use only rs9923231; however, other variants in VKORC1 may have functional consequences and may be more common in some populations."
   },
   {
     "rule_name": "UGT1A1 repeat warning",
@@ -95,7 +95,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "This genes relies on a multiple repeat to differentiate between several star allelles. Some technologies may struggle to make this call accurately."
+    "message": "Some alleles in UGT1A1 are distinguished by a repeat sequence. Note that some technologies may struggle to make this call accurately."
   },
   {
     "rule_name": "UGT1A1 trans rule breaker *28 and *80",
@@ -112,7 +112,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "We have detected matches to *28 and *80. These are usually seen in trans suggesting subject is *1/*28+80, however we cannot rule out *28/*80."
+    "message": "The supplied VCF file contains matches to UGT1A1*28 and *80. These alleles are frequently seen in trans, suggesting the *1/*28+80 diplotype; however, the *28/*80 diplotype cannot be ruled out."
   },
   {
     "rule_name": "CYP3A5 Exome warning",
@@ -127,7 +127,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "There was one or more functional variants in an intron; intronic variants are important for CYP3A5 so you want to do further testing."
+    "message": "CYP3A5 is known to have one or more functional variants in intronic regions.  Since intronic variants are important for CYP3A5 diplotype assignment, further testing may be warranted for exome data."
   },
   {
     "rule_name": "CYP3A5 *3 missing",
@@ -144,7 +144,7 @@
       "drugs": []
     },
     "exception_type": "gene-specific warnings",
-    "message": "CYP3A5*3, a common variant found in some populations, is defined by a splicing defect caused by an intronic variant (rs776746). Due to missing information in the VCF file, this allele cannot be detected or ruled out, and further testing is warranted."
+    "message": "CYP3A5*3, a common variant found in some populations, is defined by a splicing defect caused by an intronic variant (rs776746). Due to missing information in the VCF file (specifically rs776746), the *3 allele cannot be detected or ruled out, and further testing is warranted."
   },
   {
     "rule_name": "CYP3A5 reverse complement footnote",
@@ -159,7 +159,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "The CYP3A5 gene is on the reverse DNA strand relative to chromosomal numbering. All bases are reported on the positive chromosomal strand. Therefore, bases reported for CYP3A5 will be complimentary to the bases in the gene."
+    "message": "Though the CYP3A5 gene is on the negative chromosomal strand, all genotype calls for CYP3A5 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
     "rule_name": "Warfarin warning",
@@ -176,7 +176,7 @@
       ]
     },
     "exception_type": "footnote",
-    "message": "Guideline only considers a single snp in VKORC1, which is found in the highest frequency in Caucasians and extremely low frequency in those of African descent. While other functional variants in VKORC1 have been observed in much higher frequency in those of African descent, there are currently no CPIC recommendations for how to use these other variants in warfarin dosing."
+    "message": "The CPIC warfarin guideline only considers a single snp in VKORC1 (rs9923231), which is found in the highest frequency in Caucasians and extremely low frequency in those of African descent. While other functional variants in VKORC1 have been observed in much higher frequency in those of African descent, there are currently no CPIC recommendations for how to use these other variants in warfarin dosing. An alternate name for rs9923231 is -1639G>A (note that VKORC1 is on the negative chromosomal strand, so displayed alleles are complemented). "
   },
   {
     "rule_name": "VKORC1 reverse complement footnote",
@@ -191,24 +191,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "This haplotype only uses a single position, and may not be applicable to all populations."
-  },
-  {
-    "rule_name": "warfarin recommendation text",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": [
-        "warfarin"
-      ]
-    },
-    "exception_type": "note",
-    "message": "Alternate name for rs9923231 is -1639. VKORC1 is on the reverse DNA strand relative to chromosomal numbering.  Bases in this report are on the positive chromosomal strand. Estimate the anticipated stable dose of warfarin using the algorithms available at <a href=\"http://www.warfarindosing.org\">http://www.warfarindosing.org</a>, the IWPC Pharmacogenetic Dosing Algorithm, or the FDA-approved drug label."
+    "message": "Though the VKORC1 gene is on the negative chromosomal strand, all genotype calls for VKORC1 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
     "rule_name": "DYPD *1/*2B ambiguity",
@@ -225,7 +208,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "*2B contains the variants for *2A and *5, so without phasing, *1/*2B and *2A/*5 can't be distinguished.  However, CPIC provides NO recommendation for *2B, though it lists the allele in supplemental table S1.  PharmCAT will return BOTH possible diplotypes with the SAME recommendation."
+    "message": "DPYD*2B contains the variants for the*2A and *5a alleles.  Therefore, without phasing, *1/*2B and *2A/*5 cannot be distinguished.  However, CPIC provides NO recommendation for *2B (though it lists the allele in supplemental table S1).  PharmCAT returns BOTH possible diplotypes with the SAME recommendation."
   },
   {
     "rule_name": "DPYD reverse complement footnote",
@@ -240,7 +223,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "The DPYD gene is on the reverse DNA strand relative to chromosomal numbering. All bases are reported on the positive chromosomal strand. Therefore, bases reported for DPYD will be complimentary to the bases in the gene."
+    "message": "Though the DPYD gene is on the negative chromosomal strand, all genotype calls for DPYD in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
     "rule_name": "IFNL3 reverse complement footnote",
@@ -255,7 +238,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "The IFNL3 gene is on the reverse DNA strand relative to chromosomal numbering. All bases are reported on the positive chromosomal strand. Therefore, bases reported for IFNL3 will be complimentary to the bases in the gene."
+    "message": "Though the IFNL3 gene is on the negative chromosomal strand, all genotype calls for IFNL3 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
     "rule_name": "CYP2D6 and CYP2C19 combined gene display ",
@@ -276,7 +259,7 @@
       ]
     },
     "exception_type": "footnote",
-    "message": "Classification is based on the combination of CYP2D6 and CYP2C19 phenotypes and might differ from classification based on only CYP2D6 or CYP2C19 alone; see full guideline."
+    "message": "Classification is based on the combination of CYP2D6 and CYP2C19 phenotypes and might differ from classification based on only CYP2D6 or CYP2C19 alone; see full guideline at cpicpgx.org."
   },
   {
     "rule_name": "Phenytoin_HLA-B warning",
@@ -293,24 +276,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Determining HLA-B alleles is warranted for phenytoin dosing. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers Carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin."
-  },
-  {
-    "rule_name": "SLCO1B1 diplotype-rs4149056",
-    "version": "1",
-    "matches": {
-      "gene": "SLCO1B1",
-      "hapsCalled": [
-        "*5"
-      ],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": []
-    },
-    "exception_type": "data display ",
-    "message": "SLCO1B1 variation can be assigned a star nomenclature representing various SNPs alone or in combination. The C allele at rs4149056 is contained within SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 haplotypes and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 haplotypes. "
+    "message": "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Determining HLA-B alleles is warranted for phenytoin dosing. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin."
   },
   {
     "rule_name": "simvastatin table footnote",
@@ -327,7 +293,7 @@
       ]
     },
     "exception_type": "footnote",
-    "message": "In all cases, the potential for drug-drug interaction should be evaluated prior to initiating a prescription. FDA recommends against 80mg of simvastatin (unless already tolerated 12 months)."
+    "message": "In all cases, the potential for drug-drug interaction should be evaluated prior to initiating a prescription. FDA recommends against 80mg of simvastatin (unless already tolerated for 12 months)."
   },
   {
     "rule_name": "tacrolismus table footnote",
@@ -361,7 +327,7 @@
       ]
     },
     "exception_type": "footnote",
-    "message": "The recommendations are for the use of atazanavir (boosted with either ritonavir or cobicistat) by UGT1A1phenotype. All studies correlating UGT1A1 genotypes with atazanavir adverse events have involved ritonavir boosting. However, concentration-time profiles are equivalent when boosted with either cobicistat or ritonavir, and bilirubin-related adverse events including discontinuation of atazanavir occur in a similar percentage of patients prescribed atazanavir with cobicistat or ritonavir. Associations between UGT1A1 genotype, bilirubin elevations, and atazanavir discontinuation therefore almost certainly translate to atazanavir/cobicistat."
+    "message": "These recommendations are for the use of atazanavir (boosted with either ritonavir or cobicistat) by UGT1A1phenotype. All studies correlating UGT1A1 genotypes with atazanavir adverse events have involved ritonavir boosting. However, concentration-time profiles are equivalent when boosted with either cobicistat or ritonavir, and bilirubin-related adverse events including discontinuation of atazanavir occur in a similar percentage of patients prescribed atazanavir with cobicistat or ritonavir. Associations between UGT1A1 genotype, bilirubin elevations, and atazanavir discontinuation therefore almost certainly translate to atazanavir/cobicistat."
   },
   {
     "rule_name": "clopidogrel table footnote",
@@ -378,7 +344,7 @@
       ]
     },
     "exception_type": "footnote",
-    "message": "Antiplatelet therapy recommendations are based on CYP2C19 status when considering clopidogrel for acute coronary syndrome (ACS patients undergoing percutaneous coronary intervention (PCI). CPIC guidelines reflect the alleles/genotypes known and considered by the guideline authors for inclusion by the time of publication. CPIC guidelines are periodically updated."
+    "message": "Antiplatelet therapy recommendations are based on CYP2C19 status when considering clopidogrel for acute coronary syndrome (ACS patients undergoing percutaneous coronary intervention (PCI). CPIC guidelines reflect the alleles/genotypes known and considered by the guideline authors for inclusion by the time of publication. CPIC guidelines are periodically updated - see cpicpgx.org."
   },
   {
     "rule_name": "CYP2D6 warning",
@@ -393,7 +359,7 @@
       "drugs": []
     },
     "exception_type": "note",
-    "message": "CYP2D6 diplotypes are based on Astrolabe calls. For specific disclaimers and limitations see Astrolabe specification. CYP2D6 duplications are not provided through Astroblabe, additional testing is required to identify copy number variations. CYP2D6 whole gene deletion (*5) might not be detected by Astrolabe. Any homozygous diplotypes e.g. *2/*2, *4/*4 might indicate the existence for a gene deletion e.g. *2/*5, *4/*5."
+    "message": "CYP2D6 diplotypes are based on Astrolabe calls. For specific disclaimers and limitations, see Astrolabe specification. "
   },
   {
     "rule_name": "SLCO1B1-simvastatin text",
@@ -410,7 +376,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The displayed SLCO1B1 CPIC recommendations are based on the rs4149056 genotype alone as per CPIC guideline. Carriage of additional variants is possible.<br><br>SLCO1B1 alleles might be named by a star allele nomenclature, representing various SNPs alone or in combination. The minor C allele at rs4149056 is contained within SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles. These alleles are not accounted for in the recommendation based on rs4149056 genotype.<br><br>The SLCO1B1 diplotype (star nomenclature) will be displayed in addition to the rs4149056 genotype if determinable with the provided data based on the SLCO1B1 star allele definition published by CPIC.<br><br>A number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as 'possible decreased function' alleles."
+    "message": "The displayed SLCO1B1 CPIC recommendations are based on the rs4149056 genotype alone as per CPIC guideline. Carriage of additional variants is possible.<br><br>SLCO1B1 alleles might be named by a star allele nomenclature, representing various SNPs alone or in combination. The minor C allele at rs4149056 is contained within SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles.<br><br>The SLCO1B1 diplotype (star nomenclature) will be displayed in addition to the rs4149056 genotype if determinable with the provided data based on the SLCO1B1 star allele definition published by CPIC.<br><br>A number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as 'possible decreased function' alleles. These alleles are not accounted for in the recommendation based on the rs4149056 genotype."
   },
   {
     "rule_name": "warfarin figure 2 note",
