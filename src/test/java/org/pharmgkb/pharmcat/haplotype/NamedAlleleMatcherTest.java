@@ -12,7 +12,9 @@ import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.util.DataManager;
 
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -79,6 +81,21 @@ public class NamedAlleleMatcherTest {
       System.out.println("Got:      " + pairs);
       fail("Did not get expected matches");
     }
+  }
+
+  static void assertPhasedOutput(@Nonnull String expected, @Nonnull Result result) {
+    List<String> pairs = new ArrayList<>();
+    GeneCall geneCall = result.getGeneCalls().get(0);
+
+    assertTrue("Provided sample is not phased so this test is improper", geneCall.isPhased());
+
+    for (DiplotypeMatch dm : result.getGeneCalls().get(0).getDiplotypes()) {
+      pairs.add(dm.getName());
+    }
+
+    String testResult = pairs.stream().reduce(Diplotype.phasedReducer).orElseThrow(RuntimeException::new);
+
+    assertEquals("Phased output wasn't expected", expected, testResult);
   }
 
 

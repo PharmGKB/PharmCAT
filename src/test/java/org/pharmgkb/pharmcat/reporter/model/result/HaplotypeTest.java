@@ -18,9 +18,10 @@ public class HaplotypeTest {
     Haplotype haplotype = new Haplotype("CYP2C19", "*4A");
 
     assertEquals("CYP2C19", haplotype.getGene());
-    assertEquals("*4", haplotype.getName());
-    assertEquals("*4", haplotype.printLookup());
-    assertEquals("CYP2C19*4", haplotype.toString());
+    assertEquals("*4A", haplotype.getName());
+    assertEquals("*4A", haplotype.printLookup());
+    assertEquals("*4", haplotype.printDisplay());
+    assertEquals("CYP2C19*4A", haplotype.toString());
   }
 
   @Test
