@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
 
 
@@ -72,23 +71,6 @@ public class GenePhenotype {
     String func2 = getHaplotypes().get(hap2);
 
     return new String[]{func1,func2};
-  }
-
-  public String makeFunction(String diplotype) {
-
-    String[] phenoPair = makePhenoPair(diplotype);
-
-    if (StringUtils.isNotBlank(phenoPair[0]) && StringUtils.isNotBlank(phenoPair[1])) {
-
-      if (phenoPair[0].equals(phenoPair[1])) {
-        return "Two " + phenoPair[0].toLowerCase() + " alleles";
-      }
-      else {
-        return "One " + phenoPair[0].toLowerCase() + " allele and one " + phenoPair[1].toLowerCase() + " allele";
-      }
-
-    }
-    return "N/A";
   }
 
   public String makePhenotype(String diplotype) {

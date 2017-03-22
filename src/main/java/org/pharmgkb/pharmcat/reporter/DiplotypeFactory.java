@@ -135,7 +135,7 @@ public class DiplotypeFactory {
 
   private void fillDiplotype(Diplotype diplotype) {
     if (f_genePhenotype != null) {
-      diplotype.setPhenotype(f_genePhenotype.makePhenotype(diplotype.printBare()));
+      diplotype.setPhenotype(f_genePhenotype.makePhenotype(diplotype.printBareLookupKey()));
     }
   }
 

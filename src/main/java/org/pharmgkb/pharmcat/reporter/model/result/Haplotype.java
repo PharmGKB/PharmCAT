@@ -30,14 +30,7 @@ public class Haplotype implements Comparable<Haplotype> {
    */
   public Haplotype(@Nonnull String gene, @Nonnull String name) {
     m_gene = gene;
-
-    switch (m_gene) {
-      case "CYP2C19":
-        m_name = name.replaceAll("\\*4[AB]", "*4");
-        break;
-      default:
-        m_name = name;
-    }
+    m_name = name;
   }
 
   /**
@@ -77,6 +70,15 @@ public class Haplotype implements Comparable<Haplotype> {
           return "Other";
         }
         return m_name;
+      default:
+        return m_name;
+    }
+  }
+
+  public String printDisplay() {
+    switch (m_gene) {
+      case "CYP2C19":
+        return m_name.replaceAll("\\*4[AB]", "*4");
       default:
         return m_name;
     }

@@ -127,7 +127,7 @@ public class Diplotype {
       return override.get();
     }
 
-    String[] alleles = new String[]{m_allele1.getName(), m_allele2.getName()};
+    String[] alleles = new String[]{m_allele1.printDisplay(), m_allele2.printDisplay()};
     Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
     return Arrays.stream(alleles).collect(Collectors.joining(sf_delimiter));
   }
@@ -147,11 +147,11 @@ public class Diplotype {
   }
 
   /**
-   * Gets a string key used to look up matching guideline groups. This could be different than what's displayed in the
+   * Gets a string diplotype pair used to look up matching guideline groups. This could be different than what's displayed in the
    * report to the user so we use a separate method.
-   * @return a String key used to match guideline groups
+   * @return a String key used to match guideline groups without gene symbol (e.g. *4/*10)
    */
-  public String printLookupKey() {
+  public String printBareLookupKey() {
 
     switch (m_gene) {
       case "CFTR":
@@ -159,13 +159,27 @@ public class Diplotype {
           break;
         }
         else {
-          return m_gene + ":" + NA;
+          return NA;
+        }
+      case "DPYD":
+        // this is here since *2B has no function assigned to it, remove once it's assigned
+        if (getAllele1().getName().equals("*1") && getAllele2().getName().equals("*2B")) {
+          return "*2A"+sf_delimiter+"*5";
         }
     }
 
     String[] alleles = new String[]{m_allele1.printLookup(), m_allele2.printLookup()};
     Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
-    return m_gene + ":" + Arrays.stream(alleles).collect(Collectors.joining(sf_delimiter));
+    return Arrays.stream(alleles).collect(Collectors.joining(sf_delimiter));
+  }
+
+  /**
+   * Gets a string key used to look up matching guideline groups. This could be different than what's displayed in the
+   * report to the user so we use a separate method.
+   * @return a String key used to match guideline groups without gene symbol (e.g. *4/*10)
+   */
+  public String printLookupKey() {
+    return m_gene + ":" + printBareLookupKey();
   }
 
   /**

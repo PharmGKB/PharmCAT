@@ -260,7 +260,6 @@ public class PipelineTest {
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
 
-    //TODO: Lester/Ryan - broken. Also null pointer exception.
     key = "test.cyp2c19.rs28399504missing";
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s1.vcf");
@@ -275,7 +274,6 @@ public class PipelineTest {
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
 
 
-    //TODO: Lester/Ryan - broken. Needs to make recommendation based on lower scored *2A/*5 phenotype - see exceptions
     key = "test.dpyd.stars12b";
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/DPYD/s1s2b.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s1.vcf");
