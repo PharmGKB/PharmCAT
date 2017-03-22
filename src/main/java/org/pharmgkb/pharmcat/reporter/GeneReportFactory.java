@@ -31,20 +31,16 @@ public class GeneReportFactory {
    */
   @Nonnull
   public static GeneReport newReport(@Nonnull GeneCall geneCall) {
-    GeneReport report;
-
     switch (geneCall.getGene()) {
       case "UGT1A1":
-        if (!geneCall.isPhased() || geneCall.getDiplotypes().size() != 1) {
-          report = new GeneReportUgt1a1(geneCall.getGene());
-        } else {
-          report = new GeneReport(geneCall.getGene());
+        // only use regular calling if phased and a single diplotype is called
+        if (geneCall.isPhased() && geneCall.getDiplotypes().size() == 1) {
+          return new GeneReport(geneCall.getGene());
         }
-        break;
+        // otherwise do special calling based on single positions
+        return new GeneReportUgt1a1(geneCall.getGene());
       default:
-        report = new GeneReport(geneCall.getGene());
+        return new GeneReport(geneCall.getGene());
     }
-
-    return report;
   }
 }

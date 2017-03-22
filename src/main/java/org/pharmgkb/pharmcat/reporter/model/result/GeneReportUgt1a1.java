@@ -123,6 +123,15 @@ public class GeneReportUgt1a1 extends GeneReport {
     Collection<String> alleles = getDistinctAlleles();
     List<String> displayCalls = new ArrayList<>();
 
+    if (isPhased()) {
+      return ImmutableList.of(
+          getDiplotypes().stream()
+              .map(Diplotype::printBare)
+              .reduce(Diplotype.phasedReducer)
+              .orElse(UNCALLED)
+      );
+    }
+
     for (String allele : alleles) {
       long count = m_haplotypes.stream().filter(h -> h.equals(allele)).count();
       if (count >= 2) {

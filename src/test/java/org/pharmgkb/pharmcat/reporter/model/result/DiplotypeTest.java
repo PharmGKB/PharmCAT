@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.util.stream.Stream;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 
@@ -58,5 +59,23 @@ public class DiplotypeTest {
     assertTrue(diplotype.hasAllele("*3"));
     assertFalse(diplotype.hasAllele("foo"));
     assertFalse(diplotype.isIncidental());
+  }
+
+  @Test
+  public void testJoinPhased() {
+    String result = Stream.of("*1/*60", "*1/*80")
+        .reduce(Diplotype.phasedReducer)
+        .orElseThrow(RuntimeException::new);
+    assertEquals("*1/*60+*80", result);
+
+    result = Stream.of("*1/*2", "*2/*3")
+        .reduce(Diplotype.phasedReducer)
+        .orElseThrow(RuntimeException::new);
+    assertEquals("*1+*3/*2", result);
+
+    result = Stream.of("*1/*2", "*1/*3", "*2/*3")
+        .reduce(Diplotype.phasedReducer)
+        .orElseThrow(RuntimeException::new);
+    assertEquals("*1+*3/*2+*3", result);
   }
 }

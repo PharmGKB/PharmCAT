@@ -34,6 +34,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private boolean m_astrolabeCall = false;
   private List<Diplotype> m_diplotypes = new ArrayList<>();
   private List<VariantReport> m_variantReports = new ArrayList<>();
+  private boolean m_phased = false;
 
   /**
    * public constructor
@@ -49,6 +50,7 @@ public class GeneReport implements Comparable<GeneReport> {
   public void setCallData(@Nonnull GeneCall call) throws IOException {
     m_gene = call.getGene();
     m_uncalledHaplotypes = call.getUncallableHaplotypes();
+    m_phased = call.isPhased();
 
     VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene);
     call.getVariants().stream()
@@ -220,5 +222,9 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public boolean isIncidental() {
     return getDiplotypes().stream().anyMatch(Diplotype::isIncidental);
+  }
+
+  public boolean isPhased() {
+    return m_phased;
   }
 }

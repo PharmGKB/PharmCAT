@@ -2,6 +2,9 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
@@ -26,6 +29,43 @@ public class Diplotype {
   private String m_gene;
   private String m_phenotype;
   private Variant m_variant;
+
+  /**
+   * This Function can be used in reduce() calls
+   */
+  public static final BinaryOperator<String> phasedReducer = (a,b)-> {
+    if (a == null) {
+      return b;
+    }
+    if (b == null) {
+      return a;
+    }
+
+    int left = 0;
+    int right = 1;
+
+    String[] aHaps = a.split(sf_delimiter);
+    String[] bHaps = b.split(sf_delimiter);
+
+    Set<String> finalLeft = new TreeSet<>(HaplotypeNameComparator.getComparator());
+    finalLeft.addAll(Arrays.asList(aHaps[left].split("\\+")));
+    Set<String> finalRight = new TreeSet<>(HaplotypeNameComparator.getComparator());
+    finalRight.addAll(Arrays.asList(aHaps[right].split("\\+")));
+
+    if (finalLeft.contains(bHaps[right]) || finalRight.contains(bHaps[left])) {
+      finalLeft.add(bHaps[right]);
+      finalRight.add(bHaps[left]);
+    }
+    else {
+      finalLeft.add(bHaps[left]);
+      finalRight.add(bHaps[right]);
+    }
+
+    String joined0 = finalLeft.stream().collect(Collectors.joining("+"));
+    String joined1 = finalRight.stream().collect(Collectors.joining("+"));
+
+    return joined0+sf_delimiter+joined1;
+  };
 
   /**
    * public constructor
