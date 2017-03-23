@@ -4,6 +4,8 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 import javax.annotation.Nonnull;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.VariantAlleleMap;
@@ -21,11 +23,23 @@ import org.pharmgkb.pharmcat.haplotype.model.Variant;
  */
 public class VariantReport {
 
+  @Expose
+  @SerializedName("gene")
   private String m_gene;
+  @Expose
+  @SerializedName("position")
   private int m_position;
+  @Expose
+  @SerializedName("dbSnpId")
   private String m_dbSnpId;
+  @Expose
+  @SerializedName("call")
   private String m_call;
+  @Expose
+  @SerializedName("alleles")
   private Set<String> m_alleles = new TreeSet<>(HaplotypeNameComparator.getComparator());
+  @Expose
+  @SerializedName("phased")
   private boolean m_phased = false;
 
   public VariantReport(String gene, Variant variant) {

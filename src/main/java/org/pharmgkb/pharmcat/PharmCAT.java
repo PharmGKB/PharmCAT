@@ -35,6 +35,7 @@ public class PharmCAT {
   private Reporter m_reporter;
   private Path m_outputDir;
   private boolean m_keepMatcherOutput = false;
+  private boolean m_writeJsonReport = false;
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
@@ -46,7 +47,8 @@ public class PharmCAT {
         .addOption("g", "guidelines-dir", "directory of guideline annotations (JSON files)", false, "n")
         .addOption("na", "alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
         // controls
-        .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files");
+        .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files")
+        .addOption("j", "write-report-json", "flag to write a JSON file of the data used to populate the final report");
 
     try {
       if (!cliHelper.parse(args)) {
@@ -78,6 +80,10 @@ public class PharmCAT {
       if (cliHelper.hasOption("k")) {
         pharmcat.keepMatcherOutput();
       }
+      if (cliHelper.hasOption("j")) {
+        pharmcat.writeJson();
+      }
+
       pharmcat.execute(vcfFile, astrolabeFile, outputFile);
     } catch (Exception e) {
       e.printStackTrace();
@@ -153,7 +159,8 @@ public class PharmCAT {
     m_reporter.analyze(callFile, astrolabeFile);
 
     Path reportPath = m_outputDir.resolve(fileRoot + ".report.html");
-    m_reporter.printHtml(reportPath, fileRoot);
+    Path jsonPath = m_writeJsonReport ? m_outputDir.resolve(fileRoot + ".report.json") : null;
+    m_reporter.printHtml(reportPath, fileRoot, jsonPath);
 
     if (!m_keepMatcherOutput) {
       FileUtils.deleteQuietly(callFile.toFile());
@@ -186,6 +193,11 @@ public class PharmCAT {
 
   public PharmCAT keepMatcherOutput() {
     m_keepMatcherOutput = true;
+    return this;
+  }
+
+  private PharmCAT writeJson() {
+    m_writeJsonReport = true;
     return this;
   }
 }

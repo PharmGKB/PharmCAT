@@ -20,6 +20,7 @@ import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
@@ -47,6 +48,8 @@ public class Reporter {
   private static final String sf_templateName = "report";
   private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
   private static final String sf_messagesFile = "org/pharmgkb/pharmcat/reporter/messages.json";
+  private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
+      .setPrettyPrinting().create();
   private List<Path> m_annotationFiles = null;
   private List<MessageAnnotation> m_messages = null;
   private ReportContext m_reportContext = null;
@@ -81,7 +84,7 @@ public class Reporter {
 
       new Reporter(guidelinesDir)
           .analyze(callFile, astrolabeFile)
-          .printHtml(outputFile, title);
+          .printHtml(outputFile, title, null);
 
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -152,7 +155,7 @@ public class Reporter {
    * Print a HTML file of compiled report data
    * @param reportFile file to write output to
    */
-  public void printHtml(@Nonnull Path reportFile, @Nullable String title) throws IOException {
+  public void printHtml(@Nonnull Path reportFile, @Nullable String title, @Nullable Path jsonFile) throws IOException {
 
     Map<String,Object> reportData = ReportData.compile(m_reportContext);
 
@@ -168,6 +171,12 @@ public class Reporter {
 
     try (BufferedWriter writer = Files.newBufferedWriter(reportFile, StandardCharsets.UTF_8)) {
       writer.write(html);
+    }
+
+    if (jsonFile != null) {
+      try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
+        writer.write(sf_gson.toJson(reportData));
+      }
     }
   }
 }
