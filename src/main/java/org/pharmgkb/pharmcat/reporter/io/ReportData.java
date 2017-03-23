@@ -27,6 +27,7 @@ public class ReportData {
 
   // never display these genes in the gene call list
   private static final List<String> sf_geneBlacklist = ImmutableList.of("G6PD", "HLA-B");
+  private static final List<String> sf_drugHidePhenotype = ImmutableList.of("ivacaftor");
   // never display these types of annotations in the guidelines section
   private static final List<String> sf_annotationTermBlacklist = ImmutableList.of("Phenotype (Genotype)", "Metabolizer Status");
 
@@ -131,19 +132,20 @@ public class ReportData {
         List<Map<String, Object>> groupList = new ArrayList<>();
         for (Group group : guideline.getMatchingGroups()) {
           Map<String, Object> groupData = new HashMap<>();
-          groupData.put("matchedPhenotypes", guideline.getMatchedDiplotypes().get(group.getId()).stream()
-              .collect(Collectors.joining(", ")));
 
           List<Map<String, String>> annotationList = new ArrayList<>();
+          annotationList.add(makeAnnotation("Allele Functionality",
+              guideline.getMatchedDiplotypes().get(group.getId()).stream()
+                  .collect(Collectors.joining(", "))
+          ));
+          if (guideline.getRelatedDrugs().stream().noneMatch(sf_drugHidePhenotype::contains)) {
+            annotationList.add(makeAnnotation("Phenotype", group.getName()));
+          }
           for (Annotation ann : group.getAnnotations()) {
             if (sf_annotationTermBlacklist.contains(ann.getType().getTerm())) {
               continue;
             }
-
-            Map<String, String> annotationMap = new HashMap<>();
-            annotationMap.put("term", ann.getType().getTerm());
-            annotationMap.put("annotation", ann.getMarkdown().getHtml().replaceAll("[\\n\\r]", " "));
-            annotationList.add(annotationMap);
+            annotationList.add(makeAnnotation(ann.getType().getTerm(), ann.getMarkdown().getHtml()));
           }
           Map<String, String> strengthMap = new HashMap<>();
           strengthMap.put("term", "Classification of Recommendation");
@@ -201,5 +203,12 @@ public class ReportData {
     result.put("geneCalls", geneCallList);
 
     return result;
+  }
+
+  private static Map<String, String> makeAnnotation(String type, String text) {
+    Map<String, String> annotationMap = new HashMap<>();
+    annotationMap.put("term", type);
+    annotationMap.put("annotation", text.replaceAll("[\\n\\r]", " "));
+    return annotationMap;
   }
 }
