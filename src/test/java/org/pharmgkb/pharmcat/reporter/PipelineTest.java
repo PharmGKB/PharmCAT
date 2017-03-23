@@ -287,7 +287,8 @@ public class PipelineTest {
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp4f2/s1s1.vcf");
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
 
-
+    key = "test.cyp2c19.rxPossible";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C19/s1s17.vcf");
   }
 
   private PharmCAT m_pharmcat;
