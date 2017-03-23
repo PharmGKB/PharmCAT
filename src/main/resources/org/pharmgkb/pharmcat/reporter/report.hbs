@@ -273,6 +273,12 @@
         </div>
       {{/if}}
 
+      <section>
+        {{#each geneCalls}}
+          <div class="geneCall"><a href="#{{gene}}">{{gene}}: {{diplotypes}}</a>{{#if astrolabe}} (from Astrolabe){{/if}}</div>
+        {{/each}}
+      </section>
+
       {{#if multiMatch}}
         <div class="alert alert-info"><strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups could be shown</div>
       {{/if}}
@@ -280,12 +286,6 @@
       <section>
         {{#each messages}}
           <div class="alert alert-info">{{{this}}}</div>
-        {{/each}}
-      </section>
-
-      <section>
-        {{#each geneCalls}}
-          <div class="geneCall"><a href="#{{gene}}">{{gene}}: {{diplotypes}}</a>{{#if astrolabe}} (from Astrolabe){{/if}}</div>
         {{/each}}
       </section>
 
