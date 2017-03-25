@@ -5,9 +5,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.invoke.MethodHandles;
+import java.net.URI;
 import java.nio.file.DirectoryStream;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -41,6 +47,7 @@ public class DataManager {
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   public static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   public static final String GUIDELINE_TIMESTAMP_FILE_NAME = "timestamp.txt";
+  public static final String ALLELE_DEFINITION_ARCHIVE =  "allele.definitions.zip";
   private String m_googleUser;
   private String m_googleKey;
   private DataSerializer m_dataSerializer = new DataSerializer();
@@ -167,33 +174,39 @@ public class DataManager {
   /**
    * Does the work for stepping through the files and applying the format.
    */
-  private void transformAlleleDefinitions(@Nonnull Path downloadDir, @Nonnull Path definitionsDir) throws IOException {
+  private void transformAlleleDefinitions(@Nonnull Path downloadDir, @Nonnull Path definitionsDir) throws Exception {
 
     System.out.println();
     System.out.println("Saving allele definitions in " + definitionsDir.toString());
     Set<String> currentFiles = Files.list(definitionsDir)
         .map(PathUtils::getFilename)
         .collect(Collectors.toSet());
-    try (DirectoryStream<Path> files = Files.newDirectoryStream(downloadDir, f -> f.toString().endsWith("_translation.tsv"))) {
-      for (Path file : files) {
-        if (m_verbose) {
-          System.out.println("Parsing " + file);
-        }
-        CuratedDefinitionParser parser = new CuratedDefinitionParser(file);
 
-        DefinitionFile definitionFile = parser.parse();
-        if (!parser.getWarnings().isEmpty()) {
-          System.out.println("Warnings for " + file);
-          parser.getWarnings()
-              .forEach(System.out::println);
-        }
+    try (FileSystem zipFs = makeZipFilesystem(definitionsDir, ALLELE_DEFINITION_ARCHIVE)) {
+      try (DirectoryStream<Path> files = Files.newDirectoryStream(downloadDir, f -> f.toString().endsWith("_translation.tsv"))) {
+        for (Path file : files) {
+          if (m_verbose) {
+            System.out.println("Parsing " + file);
+          }
+          CuratedDefinitionParser parser = new CuratedDefinitionParser(file);
 
-        Path jsonFile = definitionsDir.resolve(PathUtils.getBaseFilename(file) + ".json");
-        m_dataSerializer.serializeToJson(definitionFile, jsonFile);
-        if (m_verbose) {
-          System.out.println("Wrote " + jsonFile);
+          DefinitionFile definitionFile = parser.parse();
+          if (!parser.getWarnings().isEmpty()) {
+            System.out.println("Warnings for " + file);
+            parser.getWarnings()
+                .forEach(System.out::println);
+          }
+
+          Path internalPath = zipFs.getPath(PathUtils.getFilename(file));
+          Files.copy(file, internalPath, StandardCopyOption.REPLACE_EXISTING);
+
+          Path jsonFile = definitionsDir.resolve(PathUtils.getBaseFilename(file) + ".json");
+          m_dataSerializer.serializeToJson(definitionFile, jsonFile);
+          if (m_verbose) {
+            System.out.println("Wrote " + jsonFile);
+          }
+          currentFiles.remove(PathUtils.getFilename(jsonFile));
         }
-        currentFiles.remove(PathUtils.getFilename(jsonFile));
       }
     }
     deleteObsoleteFiles(definitionsDir, currentFiles);
@@ -282,5 +295,18 @@ public class DataManager {
       System.out.println("Deleting obsolete file: " + file);
       FileUtils.deleteQuietly(file.toFile());
     }
+  }
+
+  private FileSystem makeZipFilesystem(Path directory, String filename) throws Exception {
+
+    Path zipFile = directory.resolve(filename);
+    System.out.println();
+    System.out.println("Saving allele definition tables to "+zipFile.toString());
+
+    Map<String,String> env = new HashMap<>();
+    env.put("create", String.valueOf(Files.notExists(zipFile)));
+    URI fileUri = zipFile.toUri();
+    URI zipUri = new URI("jar:" + fileUri.getScheme(), fileUri.getPath(), null);
+    return FileSystems.newFileSystem(zipUri, env);
   }
 }
