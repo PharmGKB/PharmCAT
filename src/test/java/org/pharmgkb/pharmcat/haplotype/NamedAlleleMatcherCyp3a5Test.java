@@ -52,9 +52,38 @@ public class NamedAlleleMatcherCyp3a5Test {
   @Test
   public void cyp3a5s3s9Homozygous() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9-homozygous.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*3/*9");
+    List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
+
+  //org/pharmgkb/pharmcat/haplotype/cyp3a5/s1s7missing.vcf
+
+  @Test
+  /* Test example analogous to second scoring example in
+  https://github.com/PharmGKB/PharmCAT/wiki/NamedAlleleMatcher-101
+  but with *5 (in this case *7 for cyp3a5 missing
+  */
+
+  public void s1s7missing() throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s1s7missing.vcf");
+
+    // just top match
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    List<String> expectedMatches = Lists.newArrayList("*1/*1");
+    assertDiplotypePairs(expectedMatches, result);
+
+    // All matches
+    Result result2 = testMatchNamedAlleles(m_definitionFile, vcfFile,false, false, false, false);
+    List<String> expectedMatches2 = Lists.newArrayList("*1/*1");
+    assertDiplotypePairs(expectedMatches2, result2);
+
+    // Don't presume reference and take all hits
+    Result result3 = testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, false, false);
+    List<String> expectedMatches3 = Lists.newArrayList("*1/*1");
+    assertDiplotypePairs(expectedMatches3, result3);
+
+  }
+
 }
