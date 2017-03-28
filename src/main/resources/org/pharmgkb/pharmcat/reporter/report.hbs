@@ -104,6 +104,15 @@
       border-color: #faebcc;
       color: #8a6d3b;
     }
+    .alert-danger {
+      background-color: #EAD6D5;
+      border-color: #EFDFDE;
+      color: #7C3A37;
+    }
+    .alert-danger h4 {
+      color: #7C3A37;
+      font-weight: bold;
+    }
 
     .drugName a {
       white-space: nowrap;
@@ -176,6 +185,13 @@
 <h1>PharmCAT Report</h1>
 
 {{#if title}} <p>{{title}}</p>{{/if}}
+
+<div class="alert alert-danger">
+  <h4>Pre-release software - For code testing only</h4>
+  This software has not been officially released. You should only be using this software to evaluate whether the PharmCAT
+  executable will compile and run properly on your system. The content of the reporting is not yet complete so <strong>results
+  will change</strong>. The user recognizes they are using PharmCAT at their own risk.
+</div>
 
 <section>
   <h2>Sections</h2>

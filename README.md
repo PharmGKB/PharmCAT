@@ -10,6 +10,8 @@ For more detail, read the [PharmGKB blog post about PharmCAT](http://pharmgkb.bl
 
 ## Status
 
+:exclamation: :exclamation: :exclamation: __FOR TESTING ONLY__ :exclamation: :exclamation: :exclamation:
+
 This application is __under development__ and has __not been officially released__. Watch this repo or check the [releases](../../releases) page for the official release
 
 All technical documentation is available in the [wiki](../../wiki).
