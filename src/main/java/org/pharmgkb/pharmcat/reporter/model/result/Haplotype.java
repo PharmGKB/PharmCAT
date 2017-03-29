@@ -76,12 +76,7 @@ public class Haplotype implements Comparable<Haplotype> {
   }
 
   public String printDisplay() {
-    switch (m_gene) {
-      case "CYP2C19":
-        return m_name.replaceAll("\\*4[AB]", "*4");
-      default:
-        return m_name;
-    }
+    return m_name;
   }
 
   /**
