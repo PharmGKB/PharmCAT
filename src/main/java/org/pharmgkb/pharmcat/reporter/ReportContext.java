@@ -152,11 +152,8 @@ public class ReportContext {
   }
 
   /**
-   *  Call to do the actual matching, this should all be broken out into
-   *  independent methods so errors are clearly and atomically identified
-   *  and handled.
-   *
-   *  This is going to need to be rethought through and reconstructed
+   * Assigns matched guideline groups for all guidelines in this report based on called diplotype functions for each
+   * gene and guideline combination.
    */
   private void findMatches() throws Exception {
 
