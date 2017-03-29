@@ -289,6 +289,14 @@ public class PipelineTest {
 
     key = "test.cyp2c19.rxPossible";
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C19/s1s17.vcf");
+
+
+    key = "test.ugt1a1.phased";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80s6s60phased.vcf");
+
+    key = "test.ugt1a1.unphased";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80s6s60unphased.vcf");
+
   }
 
   private PharmCAT m_pharmcat;

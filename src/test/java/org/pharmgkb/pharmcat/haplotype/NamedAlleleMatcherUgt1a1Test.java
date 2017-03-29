@@ -102,6 +102,14 @@ public class NamedAlleleMatcherUgt1a1Test {
     assertPhasedOutput("*28+*80/*6+*60", result);
   }
 
+  @Test
+  public void ugt1a1s28s80s6s60unphased() throws Exception {
+    // As above but unphased
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80s6s60unphased.vcf");
+    List<String> expectedMatches = Lists.newArrayList("*1/*28", "*1/*6", "*1/*60", "*1/*80");
 
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    assertDiplotypePairs(expectedMatches, result);
+  }
 
 }
