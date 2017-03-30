@@ -22,7 +22,7 @@
     "rule_name": "CYP2C19 *17 missing",
     "version": "1",
     "matches": {
-      "gene": "CYP219",
+      "gene": "CYP2C19",
       "hapsCalled": [],
       "hapsMissing": [
         "*17"
@@ -33,7 +33,7 @@
       "drugs": []
     },
     "exception_type": "gene-specific warnings",
-    "message": "CYP2C19*17, a common variant found in some populations and an increased function allele, is defined by a variant (rs12248560) in the CYP2C19 promoter region. Due to missing information in the VCF file (specifically, rs12248560), this allele cannot be detected or ruled out, and further testing is warranted."
+    "message": "CYP2C19*17, a common variant found in some populations and an increased function allele, is defined by a variant (rs12248560) in the CYP2C19 promoter region. Due to missing information in the VCF file (specifically, rs12248560), this allele cannot be detected or ruled out, and further testing may be warranted."
   },
   {
     "rule_name": "TPMT *1/*3A warning",
@@ -47,7 +47,11 @@
         "*1/*3A"
       ],
       "hapsAvailable": [],
-      "drugs": []
+      "drugs": [
+        "azathioprine",
+        "mercaptopurine",
+        "thioguanine"
+      ]
     },
     "exception_type": "ambiguity",
     "message": "The assigned diplotype is *1/*3A; however, *3B/*3C cannot be ruled out with unphased data."
@@ -95,7 +99,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "Some alleles in UGT1A1 are distinguished by a repeat sequence. Note that some technologies may struggle to make this call accurately."
+    "message": "Some alleles in UGT1A1 are distinguished by a repeat sequence. Note that some technologies may not accurately call the repeat."
   },
   {
     "rule_name": "UGT1A1 trans rule breaker *28 and *80",
@@ -112,7 +116,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "The supplied VCF file contains matches to UGT1A1*28 and *80. These alleles are frequently seen in trans, suggesting the *1/*28+80 diplotype; however, the *28/*80 diplotype cannot be ruled out."
+    "message": "The supplied VCF file contains matches to UGT1A1*28 and *80. These alleles are frequently seen in cis, suggesting the *1/*28+80 diplotype; however, the *28/*80 diplotype cannot be ruled out."
   },
   {
     "rule_name": "CYP3A5 Exome warning",
@@ -144,7 +148,7 @@
       "drugs": []
     },
     "exception_type": "gene-specific warnings",
-    "message": "CYP3A5*3, a common variant found in some populations, is defined by a splicing defect caused by an intronic variant (rs776746). Due to missing information in the VCF file (specifically rs776746), the *3 allele cannot be detected or ruled out, and further testing is warranted."
+    "message": "CYP3A5*3, a common variant found in some populations, is defined by a splicing defect caused by an intronic variant (rs776746). Due to missing information in the VCF file (specifically rs776746), the *3 allele cannot be detected or ruled out, and further testing may be warranted."
   },
   {
     "rule_name": "CYP3A5 reverse complement footnote",
@@ -176,7 +180,7 @@
       ]
     },
     "exception_type": "footnote",
-    "message": "The CPIC warfarin guideline only considers a single snp in VKORC1 (rs9923231), which is found in the highest frequency in Caucasians and extremely low frequency in those of African descent. While other functional variants in VKORC1 have been observed in much higher frequency in those of African descent, there are currently no CPIC recommendations for how to use these other variants in warfarin dosing. An alternate name for rs9923231 is -1639G>A (note that VKORC1 is on the negative chromosomal strand, so displayed alleles are complemented). "
+    "message": "The CPIC warfarin guideline only considers a single snp in VKORC1 (rs9923231), which is found in the highest frequency in Caucasians and extremely low frequency in those of African descent. While other functional variants in VKORC1 have been observed in much higher frequencies in some populations, there are currently no CPIC recommendations for how to use these other variants in warfarin dosing. An alternate name for rs9923231 is -1639G>A (note that VKORC1 is on the negative chromosomal strand, so displayed alleles are complemented). "
   },
   {
     "rule_name": "VKORC1 reverse complement footnote",
@@ -192,23 +196,6 @@
     },
     "exception_type": "footnote",
     "message": "Though the VKORC1 gene is on the negative chromosomal strand, all genotype calls for VKORC1 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
-  },
-  {
-    "rule_name": "DYPD *1/*2B ambiguity",
-    "version": "1",
-    "matches": {
-      "gene": "DYPD",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "dips": [
-        "*1/*2B"
-      ],
-      "hapsAvailable": [],
-      "drugs": []
-    },
-    "exception_type": "ambiguity",
-    "message": "DPYD*2B contains the variants for the*2A and *5a alleles.  Therefore, without phasing, *1/*2B and *2A/*5 cannot be distinguished.  However, CPIC provides NO recommendation for *2B (though it lists the allele in supplemental table S1).  PharmCAT returns BOTH possible diplotypes with the SAME recommendation."
   },
   {
     "rule_name": "DPYD reverse complement footnote",
@@ -276,7 +263,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Determining HLA-B alleles is warranted for phenytoin dosing. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin."
+    "message": "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin."
   },
   {
     "rule_name": "simvastatin table footnote",
@@ -376,7 +363,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The displayed SLCO1B1 CPIC recommendations are based on the rs4149056 genotype alone as per CPIC guideline. Carriage of additional variants is possible.<br><br>SLCO1B1 alleles might be named by a star allele nomenclature, representing various SNPs alone or in combination. The minor C allele at rs4149056 is contained within SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles.<br><br>The SLCO1B1 diplotype (star nomenclature) will be displayed in addition to the rs4149056 genotype if determinable with the provided data based on the SLCO1B1 star allele definition published by CPIC.<br><br>A number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as 'possible decreased function' alleles. These alleles are not accounted for in the recommendation based on the rs4149056 genotype."
+    "message": "The displayed SLCO1B1 CPIC recommendations are based on the rs4149056 genotype alone as per CPIC guideline. Carriage of additional variants is possible.<br><br>SLCO1B1 alleles might be named by a star allele nomenclature, representing various SNPs alone or in combination. The minor C allele at rs4149056 is contained within SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles, and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles.<br><br>The SLCO1B1 diplotype (star nomenclature) will be displayed in addition to the rs4149056 genotype if determinable with the provided data based on the SLCO1B1 star allele definition published by CPIC.<br><br>A number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as 'possible decreased function' alleles. These alleles are not accounted for in the recommendation based on the rs4149056 genotype."
   },
   {
     "rule_name": "warfarin figure 2 note",
