@@ -157,12 +157,12 @@
       "version" : 39
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602496,
+      "id" : 1448602495,
       "resource" : "Prescribing Change",
-      "term" : "Possibly",
-      "termId" : "rxChange:1448602496",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
       "version" : 0
     },
     "strength" : {
@@ -174,7 +174,7 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 13
+    "version" : 14
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128744",
@@ -261,12 +261,12 @@
       "version" : 39
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602496,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "Possibly",
-      "termId" : "rxChange:1448602496",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -278,7 +278,7 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 14
+    "version" : 15
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128746",
@@ -365,12 +365,12 @@
       "version" : 39
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602496,
+      "id" : 1448602495,
       "resource" : "Prescribing Change",
-      "term" : "Possibly",
-      "termId" : "rxChange:1448602496",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
       "version" : 0
     },
     "strength" : {
@@ -382,7 +382,7 @@
       "termId" : "guidelineStrength:981501931",
       "version" : 0
     },
-    "version" : 13
+    "version" : 14
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128745",
@@ -469,12 +469,12 @@
       "version" : 39
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602496,
+      "id" : 1448602495,
       "resource" : "Prescribing Change",
-      "term" : "Possibly",
-      "termId" : "rxChange:1448602496",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
       "version" : 0
     },
     "strength" : {
@@ -486,7 +486,7 @@
       "termId" : "guidelineStrength:981501930",
       "version" : 0
     },
-    "version" : 13
+    "version" : 14
   }, {
     "objCls" : "DosingGuidelineAnnotationGroup",
     "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128808",
@@ -527,12 +527,12 @@
       "version" : 39
     },
     "rxChangeStatus" : {
-      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
       "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
+      "id" : 1448602497,
       "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
       "version" : 0
     },
     "strength" : {
@@ -545,7 +545,7 @@
       "termId" : "guidelineStrength:981501929",
       "version" : 1
     },
-    "version" : 9
+    "version" : 10
   } ],
   "genePhenotypes" : {
     "CFTR" : {
