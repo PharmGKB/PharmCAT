@@ -304,10 +304,10 @@ public class PipelineTest {
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/CYP2C19/s1s17.vcf");
 
 
-    key = "test.ugt1a1.phased";
+    key = "test.ugt1a1.phased.s28s80s6s60";
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80s6s60phased.vcf");
 
-    key = "test.ugt1a1.unphased";
+    key = "test.ugt1a1.unphased.s28s80s6s60";
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80s6s60unphased.vcf");
 
   }
