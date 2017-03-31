@@ -96,4 +96,9 @@ public class Group implements Comparable<Group> {
       return id.compareTo(o.getId());
     }
   }
+
+  @Override
+  public String toString() {
+    return getName();
+  }
 }
