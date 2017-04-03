@@ -313,6 +313,9 @@ public class PipelineTest {
     key = "test.cyp2c19.rs12248560missing";
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s1rs12248560missing.vcf");
 
+    key = "test.cyp3a5.s1s1rs776746missing";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp3a5/s1s1rs776746missing.vcf");
+
   }
 
   private PharmCAT m_pharmcat;

@@ -86,4 +86,16 @@ public class NamedAlleleMatcherCyp3a5Test {
 
   }
 
+  @Test
+  public void s1s1rs776746missing() throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s1s1rs776746missing.vcf");
+
+    Result result2 = testMatchNamedAlleles(m_definitionFile, vcfFile,false, true, false, false);
+    List<String> expectedMatches2 = Lists.newArrayList("*1/*1");
+    assertDiplotypePairs(expectedMatches2, result2);
+  }
+
+
+
+
 }
