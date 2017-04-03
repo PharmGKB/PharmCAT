@@ -123,7 +123,7 @@
       color: darkgreen;
     }
 
-    i.normal {
+    .normal {
       color: darkgreen;
     }
 
@@ -132,7 +132,7 @@
       font-weight: bold;
     }
 
-    i.rxChange {
+    .rxChange {
       color: darkred;
     }
 
@@ -141,7 +141,7 @@
       font-weight: bold;
     }
 
-    i.rxPossibly {
+    .rxPossibly {
       color: darkorange;
     }
 
@@ -150,7 +150,7 @@
       font-weight: bold;
     }
 
-    i.highlight {
+    .highlight {
       color: #3a87ad;
     }
 
@@ -166,6 +166,11 @@
       padding: .5em 3em;
       font-style: italic;
       font-size: .8em;
+    }
+
+    #liability {
+      font-size: 1.2em;
+      color: darkred;
     }
 
     .image {
@@ -445,35 +450,84 @@
 </section>
 
 <section id="disclaimer">
-  <h2>Disclaimers</h2>
+  <h2>Disclaimers and Other Information</h2>
 
-  <h3>Caveats: appropriate use and/or potential misuse of genetic tests</h3>
-  <p>The application of genotype-based dosing is most appropriate when initiating therapy. Obtaining a pharmacogenetic test after months of drug therapy may be less helpful in some instances, as the drug dose may have already been adjusted based on plasma concentrations, response, or side effects. Like all diagnostic tests, genetic tests are one of several pieces of clinical information that should be considered before initiating drug therapy.</p>
+  <p id="liability">Liability:  PhamCAT assumes no responsibility for any injury to person or damage to persons or property arising out of, or related to any use of PharmCAT, or for any errors or omissions. The user recognizes that PharmCAT is a research tool and that they are using PharmCAT at their own risk.</p>
 
-  <h3>Disclaimer</h3>
-  <p>CPIC guidelines reflect expert consensus based on clinical evidence and peer-reviewed literature available at the time they are written and are intended only to assist clinicians in decision making and to identify questions for further research. New evidence may have emerged since the time a guideline was submitted for publication. Guidelines are limited in scope and are not applicable to interventions or diseases not specifically identified. Guidelines do not account for all individual variations among patients and cannot be considered inclusive of all proper methods of care or exclusive of other treatments. It remains the responsibility of the health-care provider to determine the best course of treatment for a patient. Adherence to any guidelines is voluntary, with the ultimate determination regarding its application to be made solely by the clinician and the patient. CPIC assumes no responsibility for any injury to persons or damage to persons or property arising out of or related to any use of CPIC’s guidelines, or for any errors or omissions.</p>
-  <p>CPIC is a registered service mark of the U.S. Department of Health & Human Services (HHS).</p>
+  <h3>A. Allele and Genotype/Diplotype Determination</h3>
+  <ol type="i">
+    <li>PharmCAT uses <a href="https://www.pharmgkb.org/page/pgxGeneRef">gene allele definitions from CPIC</a>, with exceptions as noted in <a href="https://docs.google.com/document/d/1X9Kl5gKLGvQfMY3nYbto0D3R4ZoBrR6mIYQiqMhFSbY/edit?usp=sharing">Gene Definition Exceptions document</a>.  For allele definitions and the positions used in PharmCAT, see the <a href="https://github.com/PharmGKB/PharmCAT/releases">gene definition tables</a>.</li>
+    <li>PharmCAT results are dependent on the supplied vcf calls for the queried positions (for technical information about PharmCAT input formatting and requirements, please go to <a href="http://pharmcat.org/">pharmcat.org</a>). PharmCAT does not assume any reference calls for positions missing from the submitted vcf; all missing queried positions are not considered in the allele determination process. See the <a href="https://github.com/PharmGKB/PharmCAT/releases">gene definition tables</a> for more information about what positions are queried in the vcf.  Missing positions might alter the assigned diplotype/genotype, subsequent phenotype prediction and CPIC recommendation. If the supplied vcf is missing positions, those positions will be noted in Section 3: Allele Calls for each gene of this report.  For the most reliable allele determination, reference calls as well as variant calls in the vcf for every queried position must be provided by the user.</li>
+    <li>For cytochrome P450 genes, TPMT, DPYD, and SLCO1B1, the *1 allele is defined by the absence of variation specified in the gene definition tables. This allele cannot be identified by variants; rather, *1 is assigned by default when no variation for the queried positions is reported in the submitted vcf. It is always possible un-interrogated variation can occur which could potentially affect allele function, but because it is undetected, the assignment would be defaulted to a *1 allele and normal function.</li>
+    <li>For all genes, variation reported in the vcf but NOT included in the gene definition table will not be considered during allele assignment.  There is a possibility that any such variation results in a reduced or no activity allele which could lead to inaccurate phenotype and CPIC recommendation, similar to the situation in point iii, above.</li>
+    <li>PharmCAT matches variants to diplotypes using unphased data (unless phased data is provided in the vcf and noted as such, see <a href="http://pharmcat.org/">pharmcat.org</a> for details). The assumption is that defined alleles exist in trans configuration, i.e. on opposite chromosomes, with exceptions noted in Section 3: Allele Calls under “Gene-specific warnings.”  However, in cases where an an allele is defined by a combination of two or more variants, where each variant alone also defines an allele, the match is based on the longer allele. For example, CYP2C19*4A is defined one SNP, *17 is defined by another SNP, and *4B is defined by the combination of those two SNPs.  In the case of unphased data that is heterozygous for both SNPs, the *1/*4B diplotype is returned though the possibility of *4A/*17 cannot be ruled out.</li>
+    <li>Nucleotide base calls are displayed on the positive chromosomal strand regardless of the gene strand; further information is provided under Gene-specific warnings in Section 3: Allele Calls.</li>
+  </ol>
 
-  <h3>Drug-drug interaction & Other clinical factors</h3>
+  <h3>B. CPIC Allele Function, Phenotype and Recommendation</h3>
+  <ol type="i">
+    <li>
+      Allele functionality and phenotype terms are based on the <a href="https://cpicpgx.org/wp-content/uploads/2016/01/CPIC_term_standardization_project_final_terms.pdf">CPIC Term Standardization Project</a> [PMID: 27441996].  Please see this reference for details but note the following changes from original CPIC guidelines based on this project:
+      <ol type="a">
+        <li>This terminology replaces the term ‘extensive’ metabolizer with ‘normal’ metabolizer for drug metabolizing enzymes such as CYPs, DPYD, TPMT, UGT1A1. Guidelines published prior to this recommendation used the term ‘extensive’ metabolizer whereas the PharmCAT report uses ‘normal’.</li>
+        <li>The terminology introduces the use of the term ‘rapid’ metabolizer for CYP2C19*1/*17 to distinguish between *1/*17  and *17/*17 (‘ultrarapid’ metabolizer). CYP2C19 *1/*17 was grouped as ‘ultrarapid’ metabolizer in prior guidelines. PharmCAT uses the ‘rapid’ metabolizer group.</li>
+        <li>PharmCAT uses allele functions from <a href="https://www.pharmgkb.org/page/pgxGeneRef">gene information tables</a>, including alleles with ‘possible’ or ‘likely’ added to the function term.</li>
+      </ol>
+    </li>
+    <li>PharmCAT uses metabolizer phenotypes from <a href="https://www.pharmgkb.org/page/pgxGeneRef">gene information tables</a>. ‘Likely’ or ‘possible’ metabolizer phenotypes are originally based on supplemental materials for respective guidelines and are listed in the gene “Diplotype-Phenotype Table.”</li>
+    <li>PharmCAT uses recommendation wording as provided in the CPIC guideline. CPIC typically provides the same recommendations for ‘likely’ or ‘possible’ metabolizer phenotypes in supplemental and <a href="https://www.pharmgkb.org/page/pgxGeneRef">gene information tables</a> as those without the ‘likely’ or ‘possible’ labels, but do not provide a strength of therapeutic recommendation.</li>
+  </ol>
 
-  <p>For the full description of potential benefits and risks, additional considerations (general and specific to gene-drug pairs), limitations and information about respective gene nomenclature systems please see individual CPIC guidelines.</p>
-  <p>PharmCAT allele calls are based on CPIC allele definitions and terms.</p>
-  <p>HLA and G6PD are currently not included in PharmCAT.</p>
-  <p>Additional alleles are defined by representative gene nomenclatures for several genes. The genotype/diplotype determination is based on CPIC allele definitions (for the included alleles see definition table [GIThub link], with the following modifications: CYP3A5 representation of *9; SLOC1B1 (rsnumber used to provide recommendation in case haplotype call is indeterminate); TPMT *1S</p>
-  <p>The *1 alleles in the representative genes are characterized by the absence of any sequence variations. Consequently, these alleles cannot be identified by variants; rather *1 is assigned by default when no variation is detected during testing.</p>
-  <p>In addition, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation is defaulted to a normal function allele assignment. There is a rare possibility that such variation confers reduced or no activity in an individual and that the person’s allele function and resulting metabolizer phenotype is not accurately predicted, which might result in altered CPIC recommendation.</p>
-  <p>Rating scheme that describe the classification of recommendations are in the CPIC guideline supplemental material available at PharmGKB and CPIC.</p>
+  <h3>C. CYP2D6 Allele Determination and Metabolizer Status</h3>
+  <ol type="i">
+    <li>CYP2D6 diplotypes are based on <a href="http://www.childrensmercy.org/Health_Care_Professionals/Research/Pediatric_Genomic_Medicine/Software_Tools/">Astrolabe</a> calls. For specific disclaimers and limitations, see the <a href="http://www.childrensmercy.org/Health_Care_Professionals/Research/Pediatric_Genomic_Medicine/Software_Tools/">Astrolabe</a> documentation and specifications made available with the product.</li>
+    <li>Metabolizer Status: CPIC classifies diplotypes with a gene activity score of 1.0 as normal metabolizers; however, other guidelines or reference laboratories may classify the same diplotypes as intermediate metabolizers.</li>
+  </ol>
 
-  <h3>CYP2D6</h3>
-  <p>CYP2D6 diplotypes are based on Astrolabe calls. For specific disclaimers and limitations see Astrolabe specification.</p>
-  <p>Patients with a gene activity score of 1.0 are classified as Normal metabolizer by CPIC but may be classified as Intermediate metabolizers by some reference laboratories or other guidelines.</p>
-  <p>Based on the outcome of the CPIC Term Standardization Project the term Extensive metabolizer is replaced by Normal metabolizer. Guidelines published before this include the term Extensive metabolizer.</p>
+  <h3>D. Prescribing Change Designations</h3>
+  <ol type="i">
+    <li>
+      The drugs in Section 1: Diplotype/Genotype summary table are colored to indicate whether CPIC recommends a prescribing change based on the given diplotype; highlighting is not based on CPIC classification of recommendation.
+      <ol type="a">
+        <li><span class="rxChange"><i class="fa fa-times"></i> Red</span> indicates a prescribing change is recommended for the given diplotype. That is, the recommendation is different than ‘use label recommendation’ or ‘use recommended starting dose’, except for ivacaftor.</li>
+        <li><span class="rxPossibly"><i class="fa fa-warning"></i> Orange</span> indicates possible prescribing changes depending on additional information, e.g. pediatrics vs. adult, or the specific number of CYP2D6 normal alleles present (copy number).</li>
+        <li><span class="normal"><i class="fa fa-circle"></i> Green</span> indicates that there is no CPIC recommended prescribing change for the given diplotype, except for ivacaftor.</li>
+        <li><span class="highlight"><i class="fa fa-square"></i> Blue</span> indicates the specific guideline must be consulted because a CPIC recommended action cannot be provided based solely on diplotype (eg. warfarin and ribavirin/peginterferon).</li>
+      </ol>
+    </li>
+    <li>When multiple diplotypes are possible for a gene, the drug is highlighted according to the highest level of prescribing change.</li>
+  </ol>
 
-  <p>Depending on the VCF information provided, PharmCAT does not consider alleles with missing variant information in the allele calling process. Missing positions might altered the assigned diplotype/genotype and possible the allele function, metabolizer phenotype and CPIC recommendations. Please see Allele call section for not considered alleles.</p>
-  <p>PharmCAT matches variants to dipoltypes using unphased data. The assumption is that variants exist on different alleles (trans). Exception to this are noted in the in the Allele calls section Gene-specific warnings.</p>
-  <p>Alleles displayed on positive chromosomal strand for further information see Gene-specific warnings in the Allele calls section.</p>
+  <h3>E. PharmCAT Exceptions to the CPIC Guideline Gene List</h3>
+  <ol type="i">
+    <li>HLA-B and G6PD are currently not included in PharmCAT (as of March 2017). Therefore, no CPIC guideline recommendations are included for these genes.</li>
+    <li>Further genes will be incorporated into PharmCAT as the tool is developed.</li>
+  </ol>
 
-  <p><em>Liability: use at your own risk</em></p>
+  <h3>F. PharmCAT Updates</h3>
+  <ol type="i">
+    <li>PharmCAT monitors publication of new CPIC guidelines and guideline updates. New publication content will be included into PharmCAT within one month of CPIC publication.</li>
+    <li>Updates to the gene definition tables may occur, the latest version can be found alongside <a href="https://github.com/PharmGKB/PharmCAT/releases">the software releases</a>.</li>
+    <li>Updates to PharmCAT may occur, for the latest version go to the <a href="https://github.com/PharmGKB/PharmCAT/releases">PharmCAT release page</a>.</li>
+  </ol>
+
+  <h3>G. CPIC Guideline Disclaimers and Caveats</h3>
+  <ol type="i">
+    <li>
+      A version of the following quoted disclaimer is part of each CPIC guideline and applies to the CPIC recommendations as used in PharmCAT. For the full description of potential benefits and risks, additional considerations (general and specific to gene-drug pairs), limitations, information about respective gene nomenclature systems, potential drug-drug interactions and clinical factors to consider, please see individual CPIC guidelines (<a href="https://cpicpgx.org">cpicpgx.org</a>).
+      <ol type="a">
+        <li>“CPIC guidelines reflect expert consensus based on clinical evidence and peer-reviewed literature available at the time they are written and are intended only to assist clinicians in decision making and to identify questions for further research. New evidence may have emerged since the time a guideline was submitted for publication. Guidelines are limited in scope and are not applicable to interventions or diseases not specifically identified. Guidelines do not account for all individual variations among patients and cannot be considered inclusive of all proper methods of care or exclusive of other treatments. It remains the responsibility of the health-care provider to determine the best course of treatment for a patient. Adherence to any guidelines is voluntary, with the ultimate determination regarding its application to be made solely by the clinician and the patient. CPIC assumes no responsibility for any injury to persons or damage to persons or property arising out of or related to any use of CPIC’s guidelines, or for any errors or omissions.”  (PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">27997040</a>)</li>
+        <li>“Caveats: appropriate use and/or potential misuse of genetic tests. The application of genotype-based dosing is most appropriate when initiating therapy with a tricyclic. Obtaining a pharmacogenetic test after months of drug therapy may be less helpful in some instances, as the drug dose may have already been adjusted based on plasma concentrations, response, or side effects. Similar to all diagnostic tests, genetic tests are one of several pieces of clinical information that should be considered before initiating drug therapy.” (PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">27997040</a>)</li>
+      </ol>
+    </li>
+    <li>CPIC guidelines reflect the alleles/genotypes known and considered by the guideline authors for inclusion by the time of publication, however they may be updated online at <a href="https://cpicpgx.org">cpicpgx.org</a> in between publications. Additional alleles and/or more extensive allele definitions might exist by the representative gene nomenclatures for various genes.</li>
+    <li>CPIC is a registered service mark of the U.S. Department of Health & Human Services (HHS).</li>
+  </ol>
+
+  <h3>H. PharmGKB Disclaimers and Caveats</h3>
+  <ol type="i">
+    <li>PharmGKB is a registered service mark of the U.S. Department of Health & Human Services (HHS).</li>
+  </ol>
 </section>
 
 </body>
