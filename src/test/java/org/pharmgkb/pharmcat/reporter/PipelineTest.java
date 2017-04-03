@@ -310,6 +310,9 @@ public class PipelineTest {
     key = "test.ugt1a1.unphased.s28s80s6s60";
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80s6s60unphased.vcf");
 
+    key = "test.cyp2c19.rs12248560missing";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s1rs12248560missing.vcf");
+
   }
 
   private PharmCAT m_pharmcat;
