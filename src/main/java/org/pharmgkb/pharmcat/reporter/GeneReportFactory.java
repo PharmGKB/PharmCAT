@@ -3,7 +3,6 @@ package org.pharmgkb.pharmcat.reporter;
 import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.reporter.model.result.GeneReportUgt1a1;
 
 
 /**
@@ -31,16 +30,6 @@ public class GeneReportFactory {
    */
   @Nonnull
   public static GeneReport newReport(@Nonnull GeneCall geneCall) {
-    switch (geneCall.getGene()) {
-      case "UGT1A1":
-        // only use regular calling if phased and a single diplotype is called
-        if (geneCall.isPhased() && geneCall.getDiplotypes().size() == 1) {
-          return new GeneReport(geneCall.getGene());
-        }
-        // otherwise do special calling based on single positions
-        return new GeneReportUgt1a1(geneCall.getGene());
-      default:
-        return new GeneReport(geneCall.getGene());
-    }
+    return new GeneReport(geneCall.getGene());
   }
 }

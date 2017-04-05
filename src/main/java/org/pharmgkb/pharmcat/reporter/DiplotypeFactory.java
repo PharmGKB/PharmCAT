@@ -9,8 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import org.pharmgkb.pharmcat.ParseException;
@@ -24,7 +26,6 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
-import org.pharmgkb.pharmcat.reporter.model.result.GeneReportUgt1a1;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 
@@ -86,22 +87,30 @@ public class DiplotypeFactory {
 
     // some genes get a second shot at the call in cases where certain variant data is known
     else {
-      return makeFallbackDiplotypes();
+      return ImmutableList.of();
     }
   }
 
   /**
-   * Make diplotype objects base on AstrolabeCall objects that are parsed from astrolabe output
+   * Make diplotype objects based on AstrolabeCall objects that are parsed from astrolabe output
    */
-  public List<Diplotype> makeDiplotypes(AstrolabeCall astrolabeCall) {
+  public List<Diplotype> makeDiplotypes(@Nonnull AstrolabeCall astrolabeCall) {
     Preconditions.checkNotNull(astrolabeCall);
     Preconditions.checkArgument(astrolabeCall.getGene().equals(f_gene));
 
-    return astrolabeCall.getDiplotypes().stream().map(this::makeDiplotype).collect(Collectors.toList());
+    return makeDiplotypes(astrolabeCall.getDiplotypes());
   }
 
-  public List<Diplotype> makeDiplotypes(GeneReportUgt1a1 geneReport) {
-    return geneReport.makeDiplotypeCalls().stream().map(this::makeDiplotype).collect(Collectors.toList());
+  /**
+   * Make Diplotype objects based on string diplotype names like "*1/*80"
+   * @param dipNames a collection of diplotype names like "*1/*80"
+   * @return a List of full Diplotype objects
+   */
+  public List<Diplotype> makeDiplotypes(@Nullable Collection<String> dipNames) {
+    if (dipNames == null) {
+      return new ArrayList<>();
+    }
+    return dipNames.stream().map(this::makeDiplotype).collect(Collectors.toList());
   }
 
   /**
@@ -144,7 +153,7 @@ public class DiplotypeFactory {
    * @param name an allele name (e.g. *20)
    * @return a Haplotype object for that allele (new or cached)
    */
-  public Haplotype makeHaplotype(String name) {
+  private Haplotype makeHaplotype(String name) {
 
     // return cache value if possible
     if (m_haplotypeCache.containsKey(name)) {
@@ -187,57 +196,6 @@ public class DiplotypeFactory {
     }
 
     return diplotypes;
-  }
-
-  /**
-   * Calls diplotypes based on variant data as a fallback when typical diplotype calls are absent
-   * @return a List of called Diplotypes, empty if no call
-   */
-  private List<Diplotype> makeFallbackDiplotypes() {
-    List<Diplotype> diplotypes = new ArrayList<>();
-
-    switch (f_gene) {
-      case "UGT1A1":
-        Diplotype knownRs887829 = callUgt1a1();
-        if (knownRs887829 != null) {
-          diplotypes.add(knownRs887829);
-        }
-        break;
-    }
-
-    return diplotypes;
-  }
-
-  /**
-   * Calls the UGT1A1 gene in the case where the matcher calls no alleles but rs887829 is available.
-   * @return the called Diplotype, can be null
-   */
-  @Nullable
-  private Diplotype callUgt1a1() {
-    Variant variant = f_variants.stream().filter(v -> v.getRsid() != null && v.getRsid().equals("rs887829")).reduce((a,b) -> {
-      throw new UnexpectedStateException("more than one variant found");
-    }).orElse(null);
-
-    if (variant != null && variant.getVcfCall() != null) {
-      String[] alleles = variant.getVcfCall().split("[|/]");
-
-      Diplotype dip;
-      if (Arrays.equals(alleles, new String[]{"T","T"})) {
-        dip = makeDiplotype("*80/*80");
-      }
-      else if (Arrays.equals(alleles, new String[]{"C","C"})) {
-        dip = makeDiplotype("*1/*1");
-      }
-      else if ((Arrays.equals(alleles, new String[]{"T","C"})) || (Arrays.equals(alleles, new String[]{"C","T"}))) {
-        dip = makeDiplotype("*1/*80");
-      }
-      else {
-        throw new ParseException("Unexpected genotype for " + variant);
-      }
-      return dip;
-    } else {
-      return null;
-    }
   }
 
   /**

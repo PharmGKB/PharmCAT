@@ -17,9 +17,7 @@ import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.reporter.model.result.GeneReportUgt1a1;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
-import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 
 /**
@@ -106,18 +104,7 @@ public class ReportContext {
       m_geneReports.put(call.getGene(), geneReport);
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(call.getGene(), call.getVariants(), m_phenotypeMap, m_incidentalFinder);
-      if (geneReport instanceof GeneReportUgt1a1) {
-        GeneReportUgt1a1 ugt1a1Report = (GeneReportUgt1a1)geneReport;
-        diplotypeFactory.makeDiplotypes(ugt1a1Report).forEach(geneReport::addDiplotype);
-        ugt1a1Report.getDistinctAlleles().stream()
-            .map(diplotypeFactory::makeHaplotype)
-            .map(Haplotype::getFunction)
-            .distinct()
-            .forEach(ugt1a1Report::addDisplayFunction);
-      }
-      else {
-        diplotypeFactory.makeDiplotypes(call).forEach(geneReport::addDiplotype);
-      }
+      geneReport.setDiplotypes(diplotypeFactory, call);
     }
   }
 
@@ -131,7 +118,7 @@ public class ReportContext {
       geneReport.setAstrolabeData(astrolabeCall);
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(astrolabeCall.getGene(), null, m_phenotypeMap, m_incidentalFinder);
-      diplotypeFactory.makeDiplotypes(astrolabeCall).forEach(geneReport::addDiplotype);
+      geneReport.setDiplotypes(diplotypeFactory, astrolabeCall);
     }
   }
 
