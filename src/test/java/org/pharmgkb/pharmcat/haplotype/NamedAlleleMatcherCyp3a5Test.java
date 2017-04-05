@@ -52,7 +52,7 @@ public class NamedAlleleMatcherCyp3a5Test {
   @Test
   public void cyp3a5s3s9Homozygous() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9-homozygous.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*1");
+    List<String> expectedMatches = Lists.newArrayList("*3/*9");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
