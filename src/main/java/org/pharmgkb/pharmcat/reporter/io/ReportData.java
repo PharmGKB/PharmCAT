@@ -167,6 +167,10 @@ public class ReportData {
 
     List<Map<String,Object>> geneCallList = new ArrayList<>();
     for (GeneReport geneReport : reportContext.getGeneReports()) {
+      if (sf_geneBlacklist.contains(geneReport.getGene())) {
+        continue;
+      }
+
       Map<String,Object> geneCallMap = new HashMap<>();
 
       geneCallMap.put("gene", geneReport.getGene());
