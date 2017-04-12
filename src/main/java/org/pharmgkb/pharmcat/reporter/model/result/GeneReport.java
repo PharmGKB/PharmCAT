@@ -26,8 +26,9 @@ import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
  * This class is used to help collect Gene-related data for later reporting
  */
 public class GeneReport implements Comparable<GeneReport> {
-  protected static final String UNCALLED = "not called";
-  public static final String NA = "N/A";
+  private static final List<String> sf_reducibleGeneCalls = ImmutableList.of("UGT1A1");
+  private static final String UNCALLED = "not called";
+  public static  final String NA = "N/A";
 
   private String m_gene;
   private Set<String> m_uncalledHaplotypes;
@@ -219,7 +220,7 @@ public class GeneReport implements Comparable<GeneReport> {
     if (!isCalled()) {
       return ImmutableList.of(UNCALLED);
     }
-    else if (isPhased()) {
+    else if (isCallReducible()) {
       return ImmutableSet.of(
           m_matcherDiplotypes.stream()
               .map(Diplotype::printBare)
@@ -251,7 +252,17 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_matcherDiplotypes.stream().anyMatch(Diplotype::isIncidental);
   }
 
+  /**
+   * Wether this gene has been marked as phased by the matcher
+   */
   public boolean isPhased() {
     return m_phased;
+  }
+
+  /**
+   * Can multiple phased diplotype calls be reduced down into the "+" notation. (e.g. *1/*2+*3)
+   */
+  public boolean isCallReducible() {
+    return sf_reducibleGeneCalls.contains(getGene()) && isPhased();
   }
 }
