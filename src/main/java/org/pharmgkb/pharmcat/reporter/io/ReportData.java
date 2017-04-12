@@ -134,11 +134,11 @@ public class ReportData {
           Map<String, Object> groupData = new HashMap<>();
 
           List<Map<String, String>> annotationList = new ArrayList<>();
-          annotationList.add(makeAnnotation("Allele Functionality",
-              guideline.getMatchedDiplotypes().get(group.getId()).stream()
-                  .collect(Collectors.joining(", "))
-          ));
           if (guideline.getRelatedDrugs().stream().noneMatch(sf_drugHidePhenotype::contains)) {
+            annotationList.add(makeAnnotation("Allele Functionality",
+                guideline.getMatchedDiplotypes().get(group.getId()).stream()
+                    .collect(Collectors.joining(", "))
+            ));
             annotationList.add(makeAnnotation("Phenotype", group.getName()));
           }
           for (Annotation ann : group.getAnnotations()) {
