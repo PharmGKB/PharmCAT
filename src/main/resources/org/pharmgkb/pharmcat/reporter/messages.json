@@ -102,23 +102,6 @@
     "message": "Some alleles in UGT1A1 are distinguished by a repeat sequence. Note that some technologies may not accurately call the repeat."
   },
   {
-    "rule_name": "UGT1A1 trans rule breaker *28 and *80",
-    "version": "1",
-    "matches": {
-      "gene": "UGT1A1",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "dips": [
-        "*28/*80"
-      ],
-      "hapsAvailable": [],
-      "drugs": []
-    },
-    "exception_type": "ambiguity",
-    "message": "The supplied VCF file contains matches to UGT1A1*28 and *80. These alleles are frequently seen in cis, suggesting the *1/*28+80 diplotype; however, the *28/*80 diplotype cannot be ruled out."
-  },
-  {
     "rule_name": "CYP3A5 Exome warning",
     "version": "1",
     "matches": {
@@ -300,6 +283,23 @@
     "message": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical."
   },
   {
+    "rule_name": "UGT1A1-atazanavir",
+    "version": "1",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "dips": [],
+      "hapsAvailable": [],
+      "drugs": [
+        "atazanavir"
+      ]
+    },
+    "exception_type": "note",
+    "message": "For unphased data, all variant alleles found are listed, based on the vcf input and the UGT1A1 definition table. For phased data, the subject’s phased UGT1A1 diplotype is listed. The CPIC recommendations are provided based on an exception logic. UGT1A1*28 and *80 are assumed in cis for unphased data, see http://pharmcat.org/ for details."
+  },
+  {
     "rule_name": "atazanavir table footnote",
     "version": "1",
     "matches": {
@@ -310,7 +310,7 @@
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
-        "atazanvir"
+        "atazanavir"
       ]
     },
     "exception_type": "footnote",
