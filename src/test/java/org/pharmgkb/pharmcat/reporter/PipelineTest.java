@@ -342,6 +342,14 @@ public class PipelineTest {
     key = "test.cyp3a5.s1s1rs776746missing";
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp3a5/s1s1rs776746missing.vcf");
 
+    key = "test.cftr.G1244Eref";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cftr/G1244Eref.vcf");
+
+    key = "test.cftr.G1244EF508del";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cftr/G1244EF508del.vcf");
+
+    key = "test.cftr.G551DG542X";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cftr/G551DG542X.vcf");
   }
 
   private PharmCAT m_pharmcat;
