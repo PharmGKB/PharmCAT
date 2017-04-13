@@ -243,7 +243,10 @@ public class GeneReport implements Comparable<GeneReport> {
     if (!isCalled()) {
       return ImmutableList.of(NA);
     }
-    return m_reporterDiplotypes.stream().map(Diplotype::printFunctionPhrase).distinct().collect(Collectors.toSet());
+    return m_matcherDiplotypes.stream()
+        .flatMap(m -> m_reporterDiplotypes.stream())
+        .map(Diplotype::printFunctionPhrase)
+        .collect(Collectors.toList());
   }
 
   public Collection<String> printDisplayPhenotypes() {
