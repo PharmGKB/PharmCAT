@@ -236,7 +236,7 @@ public class GeneReport implements Comparable<GeneReport> {
               .orElse(UNCALLED));
     }
 
-    return m_reporterDiplotypes.stream().map(Diplotype::printDisplay).collect(Collectors.toList());
+    return m_matcherDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
   }
 
   public Collection<String> printDisplayFunctions() {

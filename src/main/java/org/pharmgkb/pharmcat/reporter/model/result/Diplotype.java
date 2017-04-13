@@ -6,6 +6,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
+import javax.annotation.Nonnull;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
@@ -16,7 +18,7 @@ import org.pharmgkb.pharmcat.haplotype.model.Variant;
  *
  * @author Ryan Whaley
  */
-public class Diplotype {
+public class Diplotype implements Comparable<Diplotype> {
 
   private static final String NA = "N/A";
   private static final String sf_toStringPattern = "%s:%s";
@@ -265,5 +267,20 @@ public class Diplotype {
 
   public void setVariant(Variant variant) {
     m_variant = variant;
+  }
+
+  @Override
+  public int compareTo(@Nonnull Diplotype o) {
+    int rez = ObjectUtils.compare(getGene(), o.getGene());
+    if (rez != 0) {
+      return rez;
+    }
+
+    rez = ObjectUtils.compare(getAllele1(), o.getAllele1());
+    if (rez != 0) {
+      return rez;
+    }
+
+    return ObjectUtils.compare(getAllele2(), o.getAllele2());
   }
 }
