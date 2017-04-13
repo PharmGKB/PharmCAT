@@ -117,4 +117,12 @@ public class VariantReport {
   public boolean isMissing() {
     return StringUtils.isBlank(m_call);
   }
+
+  @Override
+  public String toString() {
+    if (m_dbSnpId != null) {
+      return m_dbSnpId;
+    }
+    return m_gene + ":" + m_position;
+  }
 }
