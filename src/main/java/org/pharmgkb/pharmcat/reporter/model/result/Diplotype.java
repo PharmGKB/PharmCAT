@@ -141,7 +141,7 @@ public class Diplotype implements Comparable<Diplotype> {
    */
   public String printDisplay() {
     if (getVariant() != null) {
-      return getVariant().toString();
+      return getVariant().printDisplay();
     }
     else {
       return printBare();

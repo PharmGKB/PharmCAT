@@ -1,6 +1,8 @@
 
 package org.pharmgkb.pharmcat.haplotype.model;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
@@ -73,6 +75,16 @@ public class Variant implements Comparable<Variant>  {
       return rez;
     }
     return m_vcfCall.compareTo(o.getVcfCall());
+  }
+
+  public String printDisplay() {
+    String[] alleles = getVcfCall().split("[|\\/]");
+    if (m_rsid != null) {
+      return Arrays.stream(alleles).map(a -> getRsid()+a).collect(Collectors.joining("/"));
+    }
+    else {
+      return Arrays.stream(alleles).map(a -> getPosition()+a).collect(Collectors.joining("/"));
+    }
   }
 
   public String toString() {
