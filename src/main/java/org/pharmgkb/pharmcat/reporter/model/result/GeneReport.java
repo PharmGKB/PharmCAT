@@ -118,20 +118,28 @@ public class GeneReport implements Comparable<GeneReport> {
   private void addMessage(MessageAnnotation message) {
     MatchLogic match = message.getMatches();
 
-    if (match.getGene().equals(m_gene)) {
-      boolean critHap = match.getHapsCalled().isEmpty()
-          || match.getHapsCalled().stream().anyMatch(h -> m_matcherDiplotypes.stream().anyMatch(d -> d.hasAllele(h)));
-      boolean critUnmatchedHap = match.getHapsMissing().isEmpty()
-          || match.getHapsMissing().stream().allMatch(h -> m_uncalledHaplotypes.contains(h));
-      boolean critDip = match.getDips().isEmpty()
-          || match.getDips().stream().allMatch(d -> m_matcherDiplotypes.stream().anyMatch(e -> e.printBare().equals(d)));
-      boolean critMissVariant = match.getVariantsMissing().isEmpty() ||
-          match.getVariantsMissing().stream().allMatch(v -> m_variantReports.isEmpty() || m_variantReports.stream()
-              .noneMatch(a ->a.getDbSnpId() != null && a.getDbSnpId().equals(v) && a.isMissing()));
+    boolean criteriaPass = !match.getGene().isEmpty() && match.getGene().equals(m_gene);
 
-      if (critHap && critUnmatchedHap && critDip && critMissVariant) {
-        m_messages.add(message);
-      }
+    if (criteriaPass && !match.getHapsCalled().isEmpty()) {
+      criteriaPass = match.getHapsCalled().stream().anyMatch(h -> m_matcherDiplotypes.stream().anyMatch(d -> d.hasAllele(h)));
+    }
+
+    if (criteriaPass && !match.getHapsMissing().isEmpty()) {
+      criteriaPass = match.getHapsMissing().isEmpty()
+          || match.getHapsMissing().stream().allMatch(h -> m_uncalledHaplotypes.contains(h));
+    }
+
+    if (criteriaPass && !match.getDips().isEmpty()) {
+      criteriaPass = match.getDips().stream().allMatch(d -> m_matcherDiplotypes.stream().anyMatch(e -> e.printBare().equals(d)));
+    }
+
+    if (criteriaPass && !match.getVariantsMissing().isEmpty()) {
+      criteriaPass = match.getVariantsMissing().stream().allMatch(v -> m_variantReports.isEmpty() || m_variantReports.stream()
+          .anyMatch(a -> a.getDbSnpId() != null && a.getDbSnpId().equals(v) && a.isMissing()));
+    }
+
+    if (criteriaPass) {
+      m_messages.add(message);
     }
   }
 
@@ -262,7 +270,7 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Can multiple phased diplotype calls be reduced down into the "+" notation. (e.g. *1/*2+*3)
    */
-  public boolean isCallReducible() {
+  private boolean isCallReducible() {
     return sf_reducibleGeneCalls.contains(getGene()) && isPhased();
   }
 }
