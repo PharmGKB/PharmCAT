@@ -156,13 +156,6 @@ public class Diplotype implements Comparable<Diplotype> {
   public String printBareLookupKey() {
 
     switch (m_gene) {
-      case "CFTR":
-        if ((!getAllele1().getName().equals("Reference") && !getAllele1().isIncidental()) || (!getAllele2().getName().equals("Reference") && !getAllele2().isIncidental())) {
-          break;
-        }
-        else {
-          return NA;
-        }
       case "DPYD":
         // this is here since *2B has no function assigned to it, remove once it's assigned
         if (getAllele1().getName().equals("*1") && getAllele2().getName().equals("*2B")) {
