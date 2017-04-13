@@ -30,7 +30,7 @@ public class DiplotypeTest {
     assertEquals("CFTR:G542X (heterozygous)", diplotype.toString());
     assertEquals("G542X (heterozygous)", diplotype.printBare());
     assertEquals("G542X (heterozygous)", diplotype.printDisplay());
-    assertEquals("CFTR:N/A", diplotype.printLookupKey());
+    assertEquals("CFTR:Other/Other", diplotype.printLookupKey());
 
     assertTrue(diplotype.hasAllele("G542X"));
     assertTrue(diplotype.hasAllele("Reference"));
