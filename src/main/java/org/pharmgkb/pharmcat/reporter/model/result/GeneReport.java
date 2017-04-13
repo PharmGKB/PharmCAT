@@ -215,7 +215,8 @@ public class GeneReport implements Comparable<GeneReport> {
     }
     else {
       if (getGene().equals("UGT1A1") && (!isPhased() || m_reporterDiplotypes.size() > 1)) {
-        results = Ugt1a1AlleleMatcher.makeLookupCalls(this);
+        results = Ugt1a1AlleleMatcher.makeLookupCalls(this).stream()
+            .map(c -> "UGT1A1:"+c).collect(Collectors.toSet());
       }
       else {
         results = m_reporterDiplotypes.stream().map(Diplotype::printLookupKey).collect(Collectors.toSet());
