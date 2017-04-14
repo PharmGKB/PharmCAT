@@ -28,6 +28,11 @@ public class MessageMatcher {
 
   @Nonnull
   public List<MessageAnnotation> match(GeneReport gene) {
+    if (!gene.isCalled()) {
+      // puposely don't apply any messages if the gene is not called
+      return ImmutableList.of();
+    }
+
     return m_messages.stream()
         .filter(m -> match(m.getMatches(), gene))
         .collect(Collectors.toList());
