@@ -16,7 +16,6 @@ import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
-import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
@@ -105,41 +104,9 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_messages;
   }
 
-  public void applyMessages(Collection<MessageAnnotation> messages) {
+  public void addMessages(Collection<MessageAnnotation> messages) {
     if (messages != null) {
-      messages.forEach(this::addMessage);
-    }
-  }
-
-  /**
-   * Evaluates a message and adds it to the report if it's relevent.
-   * @param message a message to be evaluated and possibly added
-   */
-  private void addMessage(MessageAnnotation message) {
-    MatchLogic match = message.getMatches();
-
-    boolean criteriaPass = !match.getGene().isEmpty() && match.getGene().equals(m_gene);
-
-    if (criteriaPass && !match.getHapsCalled().isEmpty()) {
-      criteriaPass = match.getHapsCalled().stream().anyMatch(h -> m_matcherDiplotypes.stream().anyMatch(d -> d.hasAllele(h)));
-    }
-
-    if (criteriaPass && !match.getHapsMissing().isEmpty()) {
-      criteriaPass = match.getHapsMissing().isEmpty()
-          || match.getHapsMissing().stream().allMatch(h -> m_uncalledHaplotypes.contains(h));
-    }
-
-    if (criteriaPass && !match.getDips().isEmpty()) {
-      criteriaPass = match.getDips().stream().allMatch(d -> m_matcherDiplotypes.stream().anyMatch(e -> e.printBare().equals(d)));
-    }
-
-    if (criteriaPass && !match.getVariantsMissing().isEmpty()) {
-      criteriaPass = match.getVariantsMissing().stream().allMatch(v -> m_variantReports.isEmpty() || m_variantReports.stream()
-          .anyMatch(a -> a.getDbSnpId() != null && a.getDbSnpId().equals(v) && a.isMissing()));
-    }
-
-    if (criteriaPass) {
-      m_messages.add(message);
+      m_messages.addAll(messages);
     }
   }
 
@@ -276,5 +243,9 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   private boolean isCallReducible() {
     return sf_reducibleGeneCalls.contains(getGene()) && isPhased();
+  }
+
+  public List<Diplotype> getMatcherDiplotypes() {
+    return m_matcherDiplotypes;
   }
 }

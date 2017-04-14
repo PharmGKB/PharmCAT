@@ -23,7 +23,6 @@ import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.Literature;
-import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.RelatedChemical;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
@@ -242,17 +241,9 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     return m_messages;
   }
 
-  public void applyMessages(Collection<MessageAnnotation> messages) {
+  public void addMessages(@Nullable Collection<MessageAnnotation> messages) {
     if (messages != null) {
-      messages.forEach(this::addMessage);
-    }
-  }
-
-  private void addMessage(MessageAnnotation message) {
-    MatchLogic matchLogic = message.getMatches();
-
-    if (matchLogic.getDrugs().stream().anyMatch(d -> getRelatedDrugs().contains(d))) {
-      m_messages.add(message);
+      m_messages.addAll(messages);
     }
   }
 

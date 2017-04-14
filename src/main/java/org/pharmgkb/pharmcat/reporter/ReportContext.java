@@ -18,6 +18,7 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
+import org.pharmgkb.pharmcat.util.MessageMatcher;
 
 
 /**
@@ -67,8 +68,10 @@ public class ReportContext {
    * @param messages a List of {@link MessageAnnotation} objects
    */
   public void applyMessage(List<MessageAnnotation> messages) {
-    m_geneReports.values().forEach(r -> r.applyMessages(messages));
-    m_guidelineReports.forEach(r -> r.applyMessages(messages));
+    MessageMatcher messageMatcher = new MessageMatcher(messages);
+
+    m_geneReports.values().forEach(r -> r.addMessages(messageMatcher.match(r)));
+    m_guidelineReports.forEach(r -> r.addMessages(messageMatcher.match(r)));
   }
 
   /**
