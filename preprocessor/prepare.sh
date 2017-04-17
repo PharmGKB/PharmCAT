@@ -15,7 +15,7 @@ for sample in `bcftools view -h $file | grep "^#CHROM" | cut -f10-`; do
     echo "Remove non variants"
     awk '$0 ~ "^#" || ($5 != "." && $5 != "<*>")' $sample.vcf > $sample.filtered.vcf
 
-    # add chr to vcf file (required by PharmCAT) 
+    # add chr to vcf file (required by PharmCAT)
     echo "fixing chr"
     perl -pe '/^((?!^chr).)*$/ && s/^([^#])/chr$1/gsi' $sample.filtered.vcf > $sample.chr.vcf
 
@@ -26,12 +26,12 @@ for sample in `bcftools view -h $file | grep "^#CHROM" | cut -f10-`; do
     tabix -p vcf $sample.chr.vcf.gz
 
     # combine with PharmCAT vcf
-    echo "Combine with PharmCAT vcf"
+    echo "Annotate PharmCAT positions in sample data"
     vcf-merge $sample.chr.vcf.gz pgx.vcf.gz > $sample.chr.combined.vcf
 
     # remove variants not in PharmCAT
     echo "Remove no PGX variants"
-    grep -i "PX\|#" $sample.chr.combined.vcf > $sample.chr.combined_removed.vcf  
+    grep -i "PX\|#" $sample.chr.combined.vcf > $sample.chr.combined_removed.vcf
 
     # replace empty positions
     echo "Replace unknown positions with 0/0 (not ideal - better to extract from .bam or a .bed file)"
