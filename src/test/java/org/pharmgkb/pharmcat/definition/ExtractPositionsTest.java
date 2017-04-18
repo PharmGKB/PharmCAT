@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.definition;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.apache.commons.lang3.StringUtils;
@@ -28,13 +29,15 @@ public class ExtractPositionsTest {
     File file = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/VKORC1_translation.json").toFile();
     Path path = Paths.get(file.getAbsolutePath());
     definitionReader.read(path);
-    Path outputVcf = Paths.get("org/pharmgkb/pharmcat/haplotype/positions.vcf");
-    ExtractPositions extractPositions = new ExtractPositions(path, outputVcf, "hg38");
-    StringBuilder vcfText = extractPositions.getPositions(definitionReader);
-    int definitionPositions = definitionReader.getPositions("VKORC1").length;
-    int vcfVariants = StringUtils.countMatches(vcfText.toString(), "chr");
-    assertEquals(definitionPositions, vcfVariants);
+    Path outputVcf = Files.createTempFile("positions", ".vcf");
+    try {
+      ExtractPositions extractPositions = new ExtractPositions(path, outputVcf);
+      StringBuilder vcfText = extractPositions.getPositions(definitionReader);
+      int definitionPositions = definitionReader.getPositions("VKORC1").length;
+      int vcfVariants = StringUtils.countMatches(vcfText.toString(), "chr");
+      assertEquals(definitionPositions, vcfVariants);
+    } finally {
+      Files.deleteIfExists(outputVcf);
+    }
   }
-
-
 }

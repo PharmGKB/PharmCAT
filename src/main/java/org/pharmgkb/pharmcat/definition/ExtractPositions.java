@@ -111,8 +111,10 @@ public class ExtractPositions {
         builder.append(vcfLine).append("\n");
       }
       DefinitionExemption exemption = definitionReader.getExemption(gene);
-      for (String rsid : exemption.getExtraPositions()) {
+      if (exemption != null) {
+        for (String rsid : exemption.getExtraPositions()) {
 
+        }
       }
     }
     return  builder;
