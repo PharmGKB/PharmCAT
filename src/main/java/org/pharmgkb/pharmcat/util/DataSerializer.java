@@ -86,13 +86,23 @@ public class DataSerializer {
         .map(line -> {
           String[] data = line.split("\t");
           String gene = data[0];
-          SortedSet<String> ignoreAlleles = Sets.newTreeSet(sf_commaSplitter.splitToList(data[1]));
-          boolean allHits = data.length > 2 && Boolean.parseBoolean(data[2]);
+          SortedSet<String> extraPositions = null;
+          if (data.length > 1) {
+            extraPositions = Sets.newTreeSet(sf_commaSplitter.splitToList(data[1]));
+          }
+          SortedSet<String> ignoreAlleles = null;
+          if (data.length > 2) {
+            ignoreAlleles = Sets.newTreeSet(sf_commaSplitter.splitToList(data[2]));
+          }
+          boolean allHits = false;
+          if (data.length > 3) {
+            allHits = Boolean.parseBoolean(data[3]);
+          }
           boolean assumeReference = true;
-          if (data.length > 3 && StringUtils.stripToEmpty(data[3]).equalsIgnoreCase("false")) {
+          if (data.length > 4 && StringUtils.stripToEmpty(data[4]).equalsIgnoreCase("false")) {
             assumeReference = false;
           }
-          return new DefinitionExemption(gene, ignoreAlleles, allHits, assumeReference);
+          return new DefinitionExemption(gene, extraPositions, ignoreAlleles, allHits, assumeReference);
         })
         .collect(Collectors.toSet());
   }

@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.lang.invoke.MethodHandles;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,11 +17,13 @@ import javax.annotation.Nonnull;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.pharmgkb.common.io.util.CliHelper;
+import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.definition.model.VariantType;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
+import org.pharmgkb.pharmcat.util.DataManager;
 import org.w3c.dom.Document;
 
 
@@ -38,7 +41,6 @@ import org.w3c.dom.Document;
 public class ExtractPositions {
   private static Path ps_definitionDir;
   private static Path ps_outputVcf;
-  private static String ps_genomeBuild;
   private static final String sf_fileHeader = "##fileformat=VCFv4.1\n" +
       "##fileDate=2015-08-04\n" +
       "##source=Electronic, version: hg38_2.0.1\n" +
@@ -50,10 +52,9 @@ public class ExtractPositions {
 
 
   // Default constructor
-  public ExtractPositions(Path definitionDir, Path outputVcf, String genomeBuild) {
+  public ExtractPositions(Path definitionDir, Path outputVcf) {
     ps_definitionDir = definitionDir;
     ps_outputVcf = outputVcf;
-    ps_genomeBuild = genomeBuild;
   }
 
 
@@ -61,21 +62,13 @@ public class ExtractPositions {
   public static void main(String[] args) {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-          .addOption("d", "definition-dir", "directory of allele definition files", true, "d")
-          .addOption("o", "output-file", "output vcf file", true, "o")
-          .addOption("g", "genome-build", "hg38 or hg37", true, "g");
+          .addOption("o", "output-file", "output vcf file", true, "o");
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
-      Path definitionDir = cliHelper.getValidDirectory("d", false);
       Path outputVcf= cliHelper.getValidFile("o", false);
 
-      if (!cliHelper.getValue("g").equalsIgnoreCase("hg38") && !cliHelper.getValue("g").equalsIgnoreCase("hg19")) {
-        System.out.println("-g parameter must be hg19 or hg38");
-        System.exit(1);
-      }
-      String genomeBuild = cliHelper.getValue("g");
-      ExtractPositions extractPositions = new ExtractPositions(definitionDir, outputVcf, genomeBuild);
+      ExtractPositions extractPositions = new ExtractPositions(DataManager.DEFAULT_DEFINITION_DIR, outputVcf);
       extractPositions.run();
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -93,7 +86,7 @@ public class ExtractPositions {
         System.exit(1);
       }
       StringBuilder vcfString = sortVcf(getPositions(definitionReader));
-      try (PrintWriter writer = new PrintWriter(String.valueOf(ps_outputVcf), "UTF-8")) {  // close PrintWriter with try
+      try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(ps_outputVcf))) {
         writer.print(vcfString);
         writer.flush();
       }
@@ -110,10 +103,16 @@ public class ExtractPositions {
     StringBuilder builder = new StringBuilder();
     builder.append(sf_fileHeader);
     for (String gene : definitionReader.getGenes()) {  // for each definition file
-      for (VariantLocus variantLocus :definitionReader.getPositions(gene)) {
-        String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, ps_genomeBuild);
+      // convert bXX format to hgXX
+      String build = "hg" + definitionReader.getDefinitionFile(gene).getGenomeBuild().substring(1);
+      for (VariantLocus variantLocus : definitionReader.getPositions(gene)) {
+        String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, build);
         String vcfLine = String.join("\t", (CharSequence[])vcfFields);
         builder.append(vcfLine).append("\n");
+      }
+      DefinitionExemption exemption = definitionReader.getExemption(gene);
+      for (String rsid : exemption.getExtraPositions()) {
+
       }
     }
     return  builder;

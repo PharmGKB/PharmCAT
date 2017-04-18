@@ -1,6 +1,7 @@
 [
   {
     "gene": "TPMT",
+    "extraPositions": [],
     "ignoredAlleles": [
       "*1S"
     ],
@@ -11,7 +12,18 @@
     "assumeReference": true
   },
   {
+    "gene": "CYP2C9",
+    "extraPositions": [
+      "rs12777823"
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
     "gene": "UGT1A1",
+    "extraPositions": [],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
     "allHits": false,

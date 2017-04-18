@@ -18,6 +18,9 @@ public class DefinitionExemption {
   @SerializedName("gene")
   private String m_gene;
   @Expose
+  @SerializedName("extraPositions")
+  private SortedSet<String> m_extraPositions;
+  @Expose
   @SerializedName("ignoredAlleles")
   private SortedSet<String> m_ignoredAlleles;
   @Expose
@@ -31,9 +34,14 @@ public class DefinitionExemption {
   private boolean m_assumeReference;
 
 
-  public DefinitionExemption(@Nonnull String gene, @Nullable SortedSet<String> ignoredAlleles, boolean allHits,
-      boolean assumeReference) {
+  public DefinitionExemption(@Nonnull String gene, @Nullable SortedSet<String> extraPositions,
+      @Nullable SortedSet<String> ignoredAlleles, boolean allHits, boolean assumeReference) {
     m_gene = gene;
+    if (extraPositions == null) {
+      m_extraPositions = Collections.emptySortedSet();
+    } else {
+      m_extraPositions = extraPositions;
+    }
     if (ignoredAlleles == null) {
       m_ignoredAlleles = Collections.emptySortedSet();
       m_ignoredAllelesLc = m_ignoredAlleles;
@@ -52,9 +60,16 @@ public class DefinitionExemption {
 
 
   /**
-   * Get named alleles to ignore.
+   * Gets the extra positions to pull allele information for.
    */
-  public SortedSet<String> getIgnoredAlleles() {
+  public @Nonnull SortedSet<String> getExtraPositions() {
+    return m_extraPositions;
+  }
+
+  /**
+   * Gets the named alleles to ignore.
+   */
+  public @Nonnull SortedSet<String> getIgnoredAlleles() {
     return m_ignoredAlleles;
   }
 
