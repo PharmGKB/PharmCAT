@@ -45,7 +45,13 @@ public class ReportData {
     for (GeneReport geneReport : reportContext.getGeneReports()) {
       String symbol = geneReport.getGene();
 
+      // skip any genes on the blacklist
       if (sf_geneBlacklist.contains(symbol)) {
+        continue;
+      }
+
+      // skip any uncalled genes
+      if (!geneReport.isCalled()) {
         continue;
       }
 

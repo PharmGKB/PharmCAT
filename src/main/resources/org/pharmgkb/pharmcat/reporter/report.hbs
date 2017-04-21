@@ -374,13 +374,21 @@
 </section>
 
 <section id="genes">
-  <h2>Allele Call Details</h2>
+  <h2>Allele Matching Details</h2>
+
+  <div>
+  <ol>
+  {{#each geneCalls}}
+    <li><a href="#{{gene}}">{{gene}} allele match data</a></li>
+  {{/each}}
+  </ol>
+  </div>
 
   {{#each geneCalls}}
     <section class="gene">
-      <h3 id="{{gene}}">{{gene}}</h3>
+      <h3 id="{{gene}}">{{gene}} allele match data</h3>
 
-      <h4>Genotype</h4>
+      <h4>Genotype matched</h4>
       <ul>
         {{#each diplotypes}}
           <li>{{this}}</li>
