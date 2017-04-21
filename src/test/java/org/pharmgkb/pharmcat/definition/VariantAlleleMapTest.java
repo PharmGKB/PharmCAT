@@ -23,4 +23,15 @@ public class VariantAlleleMapTest {
     assertEquals(1, alleles.size());
     assertTrue(alleles.contains("*13"));
   }
+
+  @Test
+  public void testFailures() {
+    try {
+      VariantAlleleMap variantAlleleMap = new VariantAlleleMap("bad-value");
+      fail("No definition expected for bad-value");
+    }
+    catch (IOException ex) {
+      // this is fine, everything's fine
+    }
+  }
 }

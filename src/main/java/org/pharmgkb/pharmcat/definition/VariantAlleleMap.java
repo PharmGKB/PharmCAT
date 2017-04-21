@@ -1,13 +1,13 @@
 package org.pharmgkb.pharmcat.definition;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Comparator;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.google.gson.Gson;
@@ -40,7 +40,7 @@ public class VariantAlleleMap {
     Path definitionPath = DataManager.DEFAULT_DEFINITION_DIR.resolve(gene+"_translation.json");
 
     if (!Files.isRegularFile(definitionPath)) {
-      return;
+      throw new FileNotFoundException("No allele definition files exists for " + gene + "; " + definitionPath);
     }
 
     DefinitionFile definitionFile;
@@ -76,7 +76,7 @@ public class VariantAlleleMap {
    * @param position a chromosomal position
    * @return a Collection of allele names
    */
-  @Nullable
+  @Nonnull
   public Collection<String> getAlleles(int position) {
     return m_variantAlleleMap.get(position);
   }
