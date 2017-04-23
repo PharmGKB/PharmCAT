@@ -350,6 +350,9 @@ public class PipelineTest {
 
     key = "test.cftr.G551DG542X";
     sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cftr/G551DG542X.vcf");
+
+    key = "test.cyp2c9.s2s24";
+    sf_testVcfs.put(key, "org/pharmgkb/pharmcat/haplotype/cyp2c9/s2s24.vcf");
   }
 
   private PharmCAT m_pharmcat;
