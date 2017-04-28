@@ -23,7 +23,6 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.definition.model.VariantType;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
-import org.pharmgkb.pharmcat.util.DataManager;
 import org.w3c.dom.Document;
 
 
@@ -32,7 +31,7 @@ import org.w3c.dom.Document;
  * As a command line it takes three arguments:
  * -d  CPIC definitions directory
  * -o output vcf
- * -g genome build to use for DAS
+ * -g genome build to use for DAS - useful for grc37 testing
  *
  * @author lester
  *
@@ -41,6 +40,7 @@ import org.w3c.dom.Document;
 public class ExtractPositions {
   private static Path ps_definitionDir;
   private static Path ps_outputVcf;
+  private static String m_genomebuild;
   private static final String sf_fileHeader = "##fileformat=VCFv4.1\n" +
       "##fileDate=2015-08-04\n" +
       "##source=Electronic, version: hg38_2.0.1\n" +
@@ -52,9 +52,10 @@ public class ExtractPositions {
 
 
   // Default constructor
-  public ExtractPositions(Path definitionDir, Path outputVcf) {
+  public ExtractPositions(Path definitionDir, Path outputVcf, String genomeBuild) {
     ps_definitionDir = definitionDir;
     ps_outputVcf = outputVcf;
+    m_genomebuild = genomeBuild;
   }
 
 
@@ -62,13 +63,25 @@ public class ExtractPositions {
   public static void main(String[] args) {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-          .addOption("o", "output-file", "output vcf file", true, "o");
+          .addOption("d", "definition-dir", "directory of allele definition files", true, "d")
+          .addOption("o", "output-file", "output vcf file", true, "o")
+          .addOption("g", "genome-build", "genome build", true, "g");
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
       Path outputVcf= cliHelper.getValidFile("o", false);
 
-      ExtractPositions extractPositions = new ExtractPositions(DataManager.DEFAULT_DEFINITION_DIR, outputVcf);
+      Path definitionDir = cliHelper.getValidDirectory("d", false);
+
+      if (!cliHelper.getValue("g").equalsIgnoreCase("hg38") && !cliHelper.getValue("g").equalsIgnoreCase("hg19")) {
+        System.out.println("-g parameter must be hg38 or hg19");
+        System.exit(1);
+      }
+      String genomeBuild = cliHelper.getValue("g");
+
+
+
+      ExtractPositions extractPositions = new ExtractPositions(definitionDir, outputVcf, genomeBuild);
       extractPositions.run();
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -104,20 +117,57 @@ public class ExtractPositions {
     builder.append(sf_fileHeader);
     for (String gene : definitionReader.getGenes()) {  // for each definition file
       // convert bXX format to hgXX
-      String build = "hg" + definitionReader.getDefinitionFile(gene).getGenomeBuild().substring(1);
+      //String build = "hg" + definitionReader.getDefinitionFile(gene).getGenomeBuild().substring(1);
       for (VariantLocus variantLocus : definitionReader.getPositions(gene)) {
-        String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, build);
+        String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, m_genomebuild);
         String vcfLine = String.join("\t", (CharSequence[])vcfFields);
         builder.append(vcfLine).append("\n");
       }
       DefinitionExemption exemption = definitionReader.getExemption(gene);
       if (exemption != null) {
         for (String rsid : exemption.getExtraPositions()) {
+          String position = getRsidPostion(rsid);
+          String chr = "chr"+ position.split(":")[0];
+          String position_number = position.split(":")[1].split("-")[0];
+          System.out.println(position + " " + chr + " " + position_number);
+          VariantLocus variantLocus = new VariantLocus(chr, Integer.parseInt(position_number), "HGSV_not_needed");
+          variantLocus.setType(VariantType.SNP);
+          String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, m_genomebuild);
+          String vcfLine = String.join("\t", (CharSequence[])vcfFields);
+          builder.append(vcfLine).append("\n");
+
 
         }
       }
     }
     return  builder;
+  }
+
+
+  // Get rsid position from PharmGKB API - very basic, no build check etc at this point
+  private String getRsidPostion(String rsid) {
+    String position = "";
+    try {
+      String uri =
+          "http://rest.ensembl.org/variation/human/"+ rsid +  "?content-type=text/xml";
+      System.out.println("Getting position from rsid: " + uri);
+      URL url = new URL(uri);
+      HttpURLConnection connection =
+          (HttpURLConnection) url.openConnection();
+      connection.setRequestMethod("GET");
+      connection.setRequestProperty("Accept", "application/xml");
+      InputStream xml = connection.getInputStream();
+      DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+      DocumentBuilder db = dbf.newDocumentBuilder();
+      Document doc = db.parse(xml);
+      doc.getDocumentElement().normalize();
+      doc.getDocumentElement().normalize();
+      position = doc.getElementsByTagName("mappings").item(0).getAttributes().getNamedItem("location").getTextContent();
+
+    }  catch (Exception e) {
+      e.printStackTrace();
+    }
+    return position;
   }
 
 
@@ -231,7 +281,11 @@ public class ExtractPositions {
       String genomeBuild) {
     DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
     NamedAllele namedAlleleFirst = definitionFile.getNamedAlleles().get(0); //Get star one for Ref column of vcf. Use DAS in future
-    String allele = namedAlleleFirst.getAllele(variantLocus);
+    String allele = "";
+
+    if (namedAlleleFirst.getAllele(variantLocus) != null) {  // for the exceptions/exemptions
+      allele = namedAlleleFirst.getAllele(variantLocus);
+    }
     int position = variantLocus.getVcfPosition();
     String rsid = variantLocus.getRsid();
     if (rsid == null) {
@@ -239,12 +293,14 @@ public class ExtractPositions {
     }
     String chr = definitionReader.getDefinitionFile(gene).getChromosome();
     ArrayList<String> alts = new ArrayList<>(); //get alts from the namedAlleles
+
     String dasRef = getDAS(chr, String.valueOf(position), genomeBuild);
     if (!dasRef.equals(allele) && variantLocus.getType()== VariantType.SNP && allele.length()==1) {
       System.out.println("Star one/ref mismatch at position: " + position + " - using " + dasRef + " as ref as opposed to " + allele);
       alts.add(allele);
       allele = dasRef;
     }
+
     ArrayList<String> starAlleles = new ArrayList<>();
     String finalAlleleRef = allele;
     definitionFile.getNamedAlleles().stream().filter(namedAllele -> namedAllele.getAllele(variantLocus) != null
