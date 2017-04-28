@@ -31,16 +31,15 @@ import org.w3c.dom.Document;
  * As a command line it takes three arguments:
  * -d  CPIC definitions directory
  * -o output vcf
- * -g genome build to use for DAS - useful for grc37 testing
  *
  * @author lester
  *
  */
 
+
 public class ExtractPositions {
   private static Path ps_definitionDir;
   private static Path ps_outputVcf;
-  private static String m_genomebuild;
   private static final String sf_fileHeader = "##fileformat=VCFv4.1\n" +
       "##fileDate=2015-08-04\n" +
       "##source=Electronic, version: hg38_2.0.1\n" +
@@ -52,10 +51,9 @@ public class ExtractPositions {
 
 
   // Default constructor
-  public ExtractPositions(Path definitionDir, Path outputVcf, String genomeBuild) {
+  public ExtractPositions(Path definitionDir, Path outputVcf) {
     ps_definitionDir = definitionDir;
     ps_outputVcf = outputVcf;
-    m_genomebuild = genomeBuild;
   }
 
 
@@ -64,24 +62,14 @@ public class ExtractPositions {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addOption("d", "definition-dir", "directory of allele definition files", true, "d")
-          .addOption("o", "output-file", "output vcf file", true, "o")
-          .addOption("g", "genome-build", "genome build", true, "g");
+          .addOption("o", "output-file", "output vcf file", true, "o");
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
       Path outputVcf= cliHelper.getValidFile("o", false);
 
       Path definitionDir = cliHelper.getValidDirectory("d", false);
-
-      if (!cliHelper.getValue("g").equalsIgnoreCase("hg38") && !cliHelper.getValue("g").equalsIgnoreCase("hg19")) {
-        System.out.println("-g parameter must be hg38 or hg19");
-        System.exit(1);
-      }
-      String genomeBuild = cliHelper.getValue("g");
-
-
-
-      ExtractPositions extractPositions = new ExtractPositions(definitionDir, outputVcf, genomeBuild);
+      ExtractPositions extractPositions = new ExtractPositions(definitionDir, outputVcf);
       extractPositions.run();
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -117,9 +105,9 @@ public class ExtractPositions {
     builder.append(sf_fileHeader);
     for (String gene : definitionReader.getGenes()) {  // for each definition file
       // convert bXX format to hgXX
-      //String build = "hg" + definitionReader.getDefinitionFile(gene).getGenomeBuild().substring(1);
+      String build = "hg" + definitionReader.getDefinitionFile(gene).getGenomeBuild().substring(1);
       for (VariantLocus variantLocus : definitionReader.getPositions(gene)) {
-        String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, m_genomebuild);
+        String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, build);
         String vcfLine = String.join("\t", (CharSequence[])vcfFields);
         builder.append(vcfLine).append("\n");
       }
@@ -132,7 +120,7 @@ public class ExtractPositions {
           System.out.println(position + " " + chr + " " + position_number);
           VariantLocus variantLocus = new VariantLocus(chr, Integer.parseInt(position_number), "HGSV_not_needed");
           variantLocus.setType(VariantType.SNP);
-          String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, m_genomebuild);
+          String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, build);
           String vcfLine = String.join("\t", (CharSequence[])vcfFields);
           builder.append(vcfLine).append("\n");
 
@@ -144,7 +132,7 @@ public class ExtractPositions {
   }
 
 
-  // Get rsid position from PharmGKB API - very basic, no build check etc at this point
+  // Get rsid position from Ensembl API - very basic, no build check etc at this point
   private String getRsidPostion(String rsid) {
     String position = "";
     try {
