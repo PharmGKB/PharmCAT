@@ -1,7 +1,9 @@
 package org.pharmgkb.pharmcat.reporter.io;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -39,6 +41,7 @@ public class ReportData {
   public static Map<String,Object> compile(ReportContext reportContext) throws IOException {
 
     Map<String,Object> result = new HashMap<>();
+    result.put("generatedOn", new SimpleDateFormat("MMMMM dd, yyyy").format(new Date()));
 
     // Genotypes section
     List<Map<String,Object>> genotypes = new ArrayList<>();
