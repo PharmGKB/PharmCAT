@@ -10,9 +10,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -23,23 +25,26 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.definition.model.VariantType;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
+import org.pharmgkb.pharmcat.util.DataManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
 
 /**
- * This extracts the positions from the definition files and reformats them as a vcf.
- * As a command line it takes three arguments:
- * -d  CPIC definitions directory
- * -o output vcf
+ * This extracts the positions from the definition files and reformats them as a vcf. On the command line it takes one
+ * argument:
  *
- * @author lester
+ * <ul>
+ *   <li>-o output_vcf_path = A path to write the VCF file to</li>
+ * </ul>
  *
+ * @author Lester Carter
  */
-
-
 public class ExtractPositions {
-  private static Path ps_definitionDir;
-  private static Path ps_outputVcf;
+
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final Path sf_definitionDir = DataManager.DEFAULT_DEFINITION_DIR;
   private static final String sf_fileHeader = "##fileformat=VCFv4.1\n" +
       "##fileDate=2015-08-04\n" +
       "##source=Electronic, version: hg38_2.0.1\n" +
@@ -49,11 +54,12 @@ public class ExtractPositions {
       "##FILTER=<ID=PASS,Description=\"All filters passed\">\n" +
       "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tPharmCAT\n";
 
+  private Path m_outputVcf;
+
 
   // Default constructor
-  public ExtractPositions(Path definitionDir, Path outputVcf) {
-    ps_definitionDir = definitionDir;
-    ps_outputVcf = outputVcf;
+  public ExtractPositions(Path outputVcf) {
+    m_outputVcf = outputVcf;
   }
 
 
@@ -61,15 +67,13 @@ public class ExtractPositions {
   public static void main(String[] args) {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-          .addOption("d", "definition-dir", "directory of allele definition files", true, "d")
           .addOption("o", "output-file", "output vcf file", true, "o");
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
       Path outputVcf= cliHelper.getValidFile("o", false);
 
-      Path definitionDir = cliHelper.getValidDirectory("d", false);
-      ExtractPositions extractPositions = new ExtractPositions(definitionDir, outputVcf);
+      ExtractPositions extractPositions = new ExtractPositions(outputVcf);
       extractPositions.run();
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -81,13 +85,13 @@ public class ExtractPositions {
   private void run() {
     try {
       DefinitionReader definitionReader = new DefinitionReader();
-      definitionReader.read(ps_definitionDir);
+      definitionReader.read(sf_definitionDir);
       if (definitionReader.getGenes().size() == 0) {
-        System.out.println("Did not find any allele definitions at " + ps_definitionDir);
+        sf_logger.error("Did not find any allele definitions at {}", sf_definitionDir);
         System.exit(1);
       }
       StringBuilder vcfString = sortVcf(getPositions(definitionReader));
-      try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(ps_outputVcf))) {
+      try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(m_outputVcf))) {
         writer.print(vcfString);
         writer.flush();
       }
@@ -117,14 +121,12 @@ public class ExtractPositions {
           String position = getRsidPostion(rsid);
           String chr = "chr"+ position.split(":")[0];
           String position_number = position.split(":")[1].split("-")[0];
-          System.out.println(position + " " + chr + " " + position_number);
+          sf_logger.info("{} {} {}", position , chr, position_number);
           VariantLocus variantLocus = new VariantLocus(chr, Integer.parseInt(position_number), "HGSV_not_needed");
           variantLocus.setType(VariantType.SNP);
           String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, build);
           String vcfLine = String.join("\t", (CharSequence[])vcfFields);
           builder.append(vcfLine).append("\n");
-
-
         }
       }
     }
@@ -138,7 +140,7 @@ public class ExtractPositions {
     try {
       String uri =
           "http://rest.ensembl.org/variation/human/"+ rsid +  "?content-type=text/xml";
-      System.out.println("Getting position from rsid: " + uri);
+      sf_logger.info("Getting position from rsid: {}", uri);
       URL url = new URL(uri);
       HttpURLConnection connection =
           (HttpURLConnection) url.openConnection();
@@ -162,12 +164,12 @@ public class ExtractPositions {
   /*
   * Helper method to convert repeats into standard format
   */
-  public static String expandAllele(@Nonnull String allele) {
+  private static String expandAllele(@Nonnull String allele) {
     String finalAllele = allele;
     if (allele.contains("(")) {
       int bracketStart=0;
       int bracketEnd=0;
-      String repeat = "";
+      StringBuilder repeat = new StringBuilder();
       for (int i = 0; i < allele.toCharArray().length; i++) {
         String character = String.valueOf(allele.toCharArray()[i]);
         if (character.equals("(")) {
@@ -177,14 +179,14 @@ public class ExtractPositions {
           bracketEnd = i;
         }
         if (character.matches("[0-9]+")) {
-          repeat = repeat + character; // just in case we have a repeat greater than nine
+          repeat.append(character); // just in case we have a repeat greater than nine
 
         }
       }
       String repeatSeq = allele.substring(bracketStart+1, bracketEnd);
-      String expandedAlelle= "";
-      for (int repeats =0; repeats< Integer.parseInt(repeat); repeats++) {
-        expandedAlelle = expandedAlelle + repeatSeq;
+      StringBuilder expandedAlelle = new StringBuilder();
+      for (int repeats = 0; repeats< Integer.parseInt(repeat.toString()); repeats++) {
+        expandedAlelle.append(repeatSeq);
       }
       finalAllele = allele.substring(0, bracketStart) + expandedAlelle + allele.substring(bracketEnd+1+repeat.length(), allele.length());
     }
@@ -197,7 +199,7 @@ public class ExtractPositions {
   * This is not stored in the definition file, so we need to use an external source.
   *
    */
-  public static String getDAS(String chr, String position, String genomeBuild) {
+  private static String getDAS(String chr, String position, String genomeBuild) {
     String nucleotide= "";
     try {
       String uri =
@@ -265,8 +267,9 @@ public class ExtractPositions {
   /*
   * Helper method to convert repeats into standard format
   */
-  public static String[] getVcfLineFromDefinition(@Nonnull DefinitionReader definitionReader, @Nonnull String gene, @Nonnull VariantLocus variantLocus,
-      String genomeBuild) {
+  private static String[] getVcfLineFromDefinition(@Nonnull DefinitionReader definitionReader, @Nonnull String gene,
+      @Nonnull VariantLocus variantLocus, String genomeBuild) {
+
     DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
     NamedAllele namedAlleleFirst = definitionFile.getNamedAlleles().get(0); //Get star one for Ref column of vcf. Use DAS in future
     String allele = "";
@@ -280,7 +283,7 @@ public class ExtractPositions {
       rsid = ".";
     }
     String chr = definitionReader.getDefinitionFile(gene).getChromosome();
-    ArrayList<String> alts = new ArrayList<>(); //get alts from the namedAlleles
+    List<String> alts = new ArrayList<>(); //get alts from the namedAlleles
 
     String dasRef = getDAS(chr, String.valueOf(position), genomeBuild);
     if (!dasRef.equals(allele) && variantLocus.getType()== VariantType.SNP && allele.length()==1) {
@@ -289,18 +292,20 @@ public class ExtractPositions {
       allele = dasRef;
     }
 
-    ArrayList<String> starAlleles = new ArrayList<>();
+    List<String> starAlleles = new ArrayList<>();
     String finalAlleleRef = allele;
-    definitionFile.getNamedAlleles().stream().filter(namedAllele -> namedAllele.getAllele(variantLocus) != null
-    ).forEachOrdered(namedAllele -> {
-      if (!alts.contains(expandAllele(namedAllele.getAllele(variantLocus)))
-          && !finalAlleleRef.equals(expandAllele(namedAllele.getAllele(variantLocus)))) {
-        alts.add(expandAllele(namedAllele.getAllele(variantLocus)));
-      }
+    definitionFile.getNamedAlleles().stream()
+        .filter(namedAllele -> namedAllele.getAllele(variantLocus) != null)
+        .forEachOrdered(namedAllele -> {
+          if (!alts.contains(expandAllele(namedAllele.getAllele(variantLocus)))
+              && !finalAlleleRef.equals(expandAllele(namedAllele.getAllele(variantLocus)))) {
+            alts.add(expandAllele(namedAllele.getAllele(variantLocus)));
+          }
 
       //calculate size of haplotype
-      ArrayList<String> l = new ArrayList<>(Arrays.asList(namedAllele.getAlleles()));
-      l.removeAll(Collections.singleton(null));
+      List<String> l = Arrays.stream(namedAllele.getAlleles())
+          .filter(Objects::nonNull)
+          .collect(Collectors.toList());
       starAlleles.add(gene + ":" + namedAllele.getName().replace(" ","")+"[" + l.size() +"]" +"is" + namedAllele.getAllele(variantLocus));
     });
     if (alts.size() == 0 ) {
