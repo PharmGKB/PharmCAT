@@ -80,11 +80,11 @@ public class PharmCAT {
       if (cliHelper.hasOption("k")) {
         pharmcat.keepMatcherOutput();
       }
-      if (cliHelper.hasOption("j")) {
-        pharmcat.writeJson();
-      }
 
-      pharmcat.execute(vcfFile, astrolabeFile, outputFile);
+      pharmcat
+          .writeJson(cliHelper.hasOption("j"))
+          .execute(vcfFile, astrolabeFile, outputFile);
+
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -200,8 +200,20 @@ public class PharmCAT {
     return this;
   }
 
-  private PharmCAT writeJson() {
-    m_writeJsonReport = true;
+  /**
+   * Determine whether to write reporter JSON output or not
+   * @param doWrite true to create a <code>.report.json</code> file as output
+   */
+  private PharmCAT writeJson(boolean doWrite) {
+    m_writeJsonReport = doWrite;
     return this;
+  }
+
+  /**
+   * Getter for the Reporter class to use for testing
+   * @return the current Reporter instance
+   */
+  protected Reporter getReporter() {
+    return m_reporter;
   }
 }
