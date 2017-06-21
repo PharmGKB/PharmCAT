@@ -179,4 +179,8 @@ public class Reporter {
       }
     }
   }
+
+  public ReportContext getContext() {
+    return m_reportContext;
+  }
 }
