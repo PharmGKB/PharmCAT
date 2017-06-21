@@ -27,7 +27,7 @@ public class NamedAlleleMatcherCyp2c9Test {
   }
 
   @Test
-  public void cyp32c9s1s1() throws Exception {
+  public void cyp2c9s1s1() throws Exception {
     // Test *1/*1
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s1s1.vcf");
@@ -38,7 +38,7 @@ public class NamedAlleleMatcherCyp2c9Test {
   }
 
   @Test
-  public void cyp32c9s2s3() throws Exception {
+  public void cyp2c9s2s3() throws Exception {
     // Test *2/*3
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s2s3.vcf");
@@ -49,7 +49,7 @@ public class NamedAlleleMatcherCyp2c9Test {
   }
 
   @Test
-  public void cyp32c9s2s24() throws Exception {
+  public void cyp2c9s2s24() throws Exception {
     // Test *2/*24, but also matches *1/*2
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s2s24.vcf");
@@ -60,7 +60,7 @@ public class NamedAlleleMatcherCyp2c9Test {
   }
 
   @Test
-  public void cyp32c9s2s24Only() throws Exception {
+  public void cyp2c9s2s24Only() throws Exception {
     // Test *2/*24, but also matches *1/*24
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s2s24only.vcf");
@@ -71,7 +71,7 @@ public class NamedAlleleMatcherCyp2c9Test {
   }
 
   @Test
-  public void cyp32c9s24s24() throws Exception {
+  public void cyp2c9s24s24() throws Exception {
     // Test *24/*24 with hom at rs749060448
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s24s24.vcf");
@@ -82,7 +82,7 @@ public class NamedAlleleMatcherCyp2c9Test {
   }
 
   @Test
-  public void cyp32c9s2s25() throws Exception {
+  public void cyp2c9s2s25() throws Exception {
     // Test *2/*25
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s2s25.vcf");
