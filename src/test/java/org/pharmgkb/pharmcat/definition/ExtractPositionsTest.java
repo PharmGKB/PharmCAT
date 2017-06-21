@@ -31,7 +31,7 @@ public class ExtractPositionsTest {
     definitionReader.read(path);
     Path outputVcf = Files.createTempFile("positions", ".vcf");
     try {
-      ExtractPositions extractPositions = new ExtractPositions(path, outputVcf);
+      ExtractPositions extractPositions = new ExtractPositions(outputVcf);
       StringBuilder vcfText = extractPositions.getPositions(definitionReader);
       int definitionPositions = definitionReader.getPositions("VKORC1").length;
       int vcfVariants = StringUtils.countMatches(vcfText.toString(), "chr");
