@@ -6,10 +6,13 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
@@ -30,7 +33,7 @@ public class GeneReport implements Comparable<GeneReport> {
   public static  final String NA = "N/A";
 
   private String m_gene;
-  private Set<String> m_uncalledHaplotypes;
+  private SortedSet<String> m_uncalledHaplotypes;
   private List<MessageAnnotation> m_messages = new ArrayList<>();
   private List<DrugLink> m_relatedDrugs = new ArrayList<>();
   private boolean m_astrolabeCall = false;
@@ -52,7 +55,8 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public void setCallData(@Nonnull GeneCall call) throws IOException {
     m_gene = call.getGene();
-    m_uncalledHaplotypes = call.getUncallableHaplotypes();
+    m_uncalledHaplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
+    m_uncalledHaplotypes.addAll(call.getUncallableHaplotypes());
     m_phased = call.isPhased();
 
     VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene);
