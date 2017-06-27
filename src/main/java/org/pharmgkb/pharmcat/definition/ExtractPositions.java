@@ -117,47 +117,14 @@ public class ExtractPositions {
       }
       DefinitionExemption exemption = definitionReader.getExemption(gene);
       if (exemption != null) {
-        for (String rsid : exemption.getExtraPositions()) {
-          String position = getRsidPostion(rsid);
-          String chr = "chr"+ position.split(":")[0];
-          String position_number = position.split(":")[1].split("-")[0];
-          sf_logger.info("{} {} {}", position , chr, position_number);
-          VariantLocus variantLocus = new VariantLocus(chr, Integer.parseInt(position_number), "HGSV_not_needed");
-          variantLocus.setType(VariantType.SNP);
-          String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, build);
+        for (VariantLocus variant : exemption.getExtraPositions()) {
+          String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variant, build);
           String vcfLine = String.join("\t", (CharSequence[])vcfFields);
           builder.append(vcfLine).append("\n");
         }
       }
     }
     return  builder;
-  }
-
-
-  // Get rsid position from Ensembl API - very basic, no build check etc at this point
-  private String getRsidPostion(String rsid) {
-    String position = "";
-    try {
-      String uri =
-          "http://rest.ensembl.org/variation/human/"+ rsid +  "?content-type=text/xml";
-      sf_logger.info("Getting position from rsid: {}", uri);
-      URL url = new URL(uri);
-      HttpURLConnection connection =
-          (HttpURLConnection) url.openConnection();
-      connection.setRequestMethod("GET");
-      connection.setRequestProperty("Accept", "application/xml");
-      InputStream xml = connection.getInputStream();
-      DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-      DocumentBuilder db = dbf.newDocumentBuilder();
-      Document doc = db.parse(xml);
-      doc.getDocumentElement().normalize();
-      doc.getDocumentElement().normalize();
-      position = doc.getElementsByTagName("mappings").item(0).getAttributes().getNamedItem("location").getTextContent();
-
-    }  catch (Exception e) {
-      e.printStackTrace();
-    }
-    return position;
   }
 
 

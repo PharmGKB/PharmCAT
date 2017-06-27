@@ -1,0 +1,37 @@
+{
+  "source": "Variants (including SNPs and indels) imported from dbSNP",
+  "mappings": [
+    {
+      "location": "10:94645745-94645745",
+      "assembly_name": "GRCh38",
+      "end": 94645745,
+      "seq_region_name": "10",
+      "strand": 1,
+      "coord_system": "chromosome",
+      "allele_string": "G/A",
+      "start": 94645745
+    }
+  ],
+  "name": "rs12777823",
+  "MAF": 0.245407,
+  "clinical_significance": [
+    "drug response"
+  ],
+  "ambiguity": "R",
+  "var_class": "SNP",
+  "synonyms": [
+    "rs59201782",
+    "rs56463295",
+    "RCV000211190"
+  ],
+  "evidence": [
+    "Frequency",
+    "HapMap",
+    "1000Genomes",
+    "Cited",
+    "Phenotype_or_Disease"
+  ],
+  "ancestral_allele": null,
+  "minor_allele": "A",
+  "most_severe_consequence": "downstream_gene_variant"
+}

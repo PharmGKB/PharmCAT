@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.ThreadSafe;
@@ -21,6 +22,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 
 
@@ -86,9 +88,10 @@ public class DataSerializer {
         .map(line -> {
           String[] data = line.split("\t");
           String gene = data[0];
-          SortedSet<String> extraPositions = null;
+          final SortedSet<VariantLocus> extraLoci = new TreeSet<>();
           if (data.length > 1) {
-            extraPositions = Sets.newTreeSet(sf_commaSplitter.splitToList(data[1]));
+            SortedSet<String> extraPositions = Sets.newTreeSet(sf_commaSplitter.splitToList(data[1]));
+            extraPositions.stream().map(EnsemblUtils::download).forEach(extraLoci::add);
           }
           SortedSet<String> ignoreAlleles = null;
           if (data.length > 2) {
@@ -102,7 +105,7 @@ public class DataSerializer {
           if (data.length > 4 && StringUtils.stripToEmpty(data[4]).equalsIgnoreCase("false")) {
             assumeReference = false;
           }
-          return new DefinitionExemption(gene, extraPositions, ignoreAlleles, allHits, assumeReference);
+          return new DefinitionExemption(gene, extraLoci, ignoreAlleles, allHits, assumeReference);
         })
         .collect(Collectors.toSet());
   }
