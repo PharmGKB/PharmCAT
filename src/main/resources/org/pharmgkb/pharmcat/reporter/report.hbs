@@ -224,7 +224,7 @@
 <section>
   <h2>Sections</h2>
   <ol type="I">
-    <li><a href="#genotypes">Diplotype / Genotype Summary</a></li>
+    <li><a href="#genotypes">Genotype Summary</a></li>
     <li><a href="#guidelines">CPIC Recommendations</a></li>
     <li><a href="#genes">Allele Call Details</a></li>
     <li><a href="#disclaimer">Disclaimers</a></li>
@@ -232,7 +232,7 @@
 </section>
 
 <section id="genotypes">
-  <h2>Diplotype / Genotype Summary</h2>
+  <h2>Genotype Summary</h2>
 
   <p>Genotypes called: {{calledGenes}} / {{totalGenes}} </p>
 
@@ -241,7 +241,7 @@
     <tr>
       <th>Drugs <sup><a href="#genotypes-a">a</a></sup></th>
       <th>Gene</th>
-      <th>Diplotype or Genotype</th>
+      <th>Genotype</th>
       <th>Allele Functionality <sup><a href="#genotypes-b">b</a></sup></th>
       <th>Phenotype <sup><a href="#genotypes-b">b</a></sup></th>
       <th>Uncallable Alleles <sup><a href="#genotypes-c">c</a></sup></th>
@@ -281,13 +281,13 @@
   </table>
 
   <div class="footnote" id="genotypes-a">
-    <sup>a</sup> The drugs are colored to indicate whether CPIC recommends a prescribing change based on the given diplotype; highlighting is not based on CPIC classification of recommendation. When multiple diplotypes are possible for a gene, the drug is highlighted according to the highest level of prescribing change. <span class="rxChange"><i class="fa fa-times"></i> Red</span> indicates a prescribing change is recommended for the given diplotype. That is, the recommendation is different than ‘use label recommendation’ or ‘use recommended starting dose’, except for ivacaftor. <span class="rxPossibly"><i class="fa fa-warning"></i> Orange</span> indicates possible prescribing changes depending on additional information, e.g. pediatrics vs. adult, or the specific number of CYP2D6 normal alleles present (copy number). <span class="normal"><i class="fa fa-circle"></i> Green</span> indicates that there is no CPIC recommended prescribing change for the given diplotype, except for ivacaftor. <span class="highlight"><i class="fa fa-square"></i> Blue</span> indicates the specific guideline must be consulted because a CPIC recommended action cannot be provided based solely on diplotype (eg. warfarin and ribavirin/peginterferon).
+    <sup>a</sup> The drugs are colored to indicate whether CPIC recommends a prescribing change based on the given genotype; highlighting is not based on CPIC classification of recommendation. When multiple diplotypes are possible for a gene, the drug is highlighted according to the highest level of prescribing change. <span class="rxChange"><i class="fa fa-times"></i> Red</span> indicates a prescribing change is recommended for the given diplotype. That is, the recommendation is different than ‘use label recommendation’ or ‘use recommended starting dose’, except for ivacaftor. <span class="rxPossibly"><i class="fa fa-warning"></i> Orange</span> indicates possible prescribing changes depending on additional information, e.g. pediatrics vs. adult, or the specific number of CYP2D6 normal alleles present (copy number). <span class="normal"><i class="fa fa-circle"></i> Green</span> indicates that there is no CPIC recommended prescribing change for the given diplotype, except for ivacaftor. <span class="highlight"><i class="fa fa-square"></i> Blue</span> indicates the specific guideline must be consulted because a CPIC recommended action cannot be provided based solely on diplotype (eg. warfarin and ribavirin/peginterferon).
   </div>
   <div class="footnote" id="genotypes-b">
     <sup>b</sup> Allele functionality and phenotype terms are based on the <a href="https://cpicpgx.org/wp-content/uploads/2016/01/CPIC_term_standardization_project_final_terms.pdf">CPIC term standardization</a> project, <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=27441996">PMID:27441996</a>. Guidelines published prior use the term 'extensive' instead of 'normal' metabolizer. CYP2C19*1/*17 is now classified as rapid metabolizer. Guidelines published prior group CYP2C19*1/*17 together with *17/*17 as ultrarapid metabolizer.
   </div>
   <div class="footnote" id="genotypes-c">
-    <sup>c</sup> Indicates alleles not considered for the diplotype calls due to missing variant information, please see Allele calls section. Alleles that could not be considered due to missing input might change the metabolizer phenotype and possible CPIC recommendation.
+    <sup>c</sup> Indicates alleles not considered for the genotype calls due to missing variant information, please see Allele calls section. Alleles that could not be considered due to missing input might change the metabolizer phenotype and possible CPIC recommendation.
   </div>
   <div class="footnote">
     <sup>&dagger;</sup> Check the allele call details for this gene for more details about this call.
