@@ -60,7 +60,7 @@ public class ResultBuilder {
     Preconditions.checkNotNull(gene);
 
     DefinitionFile tsvFile = m_definitionReader.getDefinitionFile(gene);
-    String definitionVersion = tsvFile.getContentVersion() + " (" + m_dateFormat.format(tsvFile.getModificationDate()) + ")";
+    String definitionVersion = m_dateFormat.format(tsvFile.getModificationDate());
     String chromosome = tsvFile.getChromosome();
 
     Set<String> matchableHaps = matchData.getHaplotypes().stream()

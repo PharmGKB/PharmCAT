@@ -28,9 +28,6 @@ public class DefinitionFile {
   @SerializedName("formatVersion")
   private String m_formatVersion = FORMAT_VERSION;
   @Expose
-  @SerializedName("contentVersion")
-  private String m_contentVersion;
-  @Expose
   @SerializedName("modificationDate")
   private Date m_modificationDate;
   @Expose
@@ -79,18 +76,6 @@ public class DefinitionFile {
 
   public void setFormatVersion(String formatVersion) {
     m_formatVersion = formatVersion;
-  }
-
-  /**
-   * The version of the actual data content, this will iterate when curators have changed information in any of the
-   * member named alleles.
-   */
-  public String getContentVersion() {
-    return m_contentVersion;
-  }
-
-  public void setContentVersion(String contentVersion) {
-    m_contentVersion = contentVersion;
   }
 
   /**
@@ -265,7 +250,7 @@ public class DefinitionFile {
 
   @Override
   public String toString() {
-    return "Allele definition for " + m_geneSymbol + " (v." + m_contentVersion + ")";
+    return "Allele definition for " + m_geneSymbol;
   }
 
 
@@ -275,7 +260,6 @@ public class DefinitionFile {
     if (!(o instanceof DefinitionFile)) return false;
     DefinitionFile that = (DefinitionFile)o;
     return Objects.equals(m_formatVersion, that.getFormatVersion()) &&
-        Objects.equals(m_contentVersion, that.getContentVersion()) &&
         Objects.equals(m_modificationDate, that.getModificationDate()) &&
         Objects.equals(m_geneSymbol, that.getGeneSymbol()) &&
         Objects.equals(m_orientation, that.getOrientation()) &&
@@ -292,7 +276,7 @@ public class DefinitionFile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(m_formatVersion, m_contentVersion, m_modificationDate, m_geneSymbol, m_orientation,
+    return Objects.hash(m_formatVersion, m_modificationDate, m_geneSymbol, m_orientation,
         m_chromosome, m_genomeBuild, m_refSeqChromosome, m_refSeqGene, m_refSeqProtein, m_notes, m_populations,
         m_variants, m_namedAlleles);
   }
