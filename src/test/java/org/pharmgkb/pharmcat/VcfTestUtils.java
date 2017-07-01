@@ -25,7 +25,9 @@ public class VcfTestUtils {
       writer.write("\n");
 
       for (String filepath : filesToInclude) {
-        Files.lines(PathUtils.getPathToResource(TEST_PATH + filepath)).filter(l -> !l.startsWith("#")).forEach(l -> writer.write(l + "\n"));
+        Files.lines(PathUtils.getPathToResource(TEST_PATH + filepath))
+            .filter(l -> !l.startsWith("#"))
+            .forEach(l -> writer.write(l + "\n"));
       }
     } catch (IOException e) {
       e.printStackTrace();
