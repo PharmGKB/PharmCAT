@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
-import com.google.api.client.repackaged.com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
@@ -29,7 +28,6 @@ import org.pharmgkb.pharmcat.haplotype.model.Variant;
  * @author Mark Woon
  */
 public class ResultBuilder {
-  private static final Joiner sf_vcfAlleleJoiner = Joiner.on(",");
   private DefinitionReader m_definitionReader;
   private Result m_result = new Result();
   private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
@@ -94,15 +92,7 @@ public class ResultBuilder {
 
     // get position info
     for (VariantLocus variant : matchData.getPositions()) {
-      SampleAllele allele = matchData.getSampleAllele(variant.getVcfPosition());
-      String call;
-      String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
-      if (allele.isPhased()) {
-        call = allele.getAllele1() + "|" + allele.getAllele2();
-      } else {
-        call = allele.getAllele1() + "/" + allele.getAllele2();
-      }
-      geneCall.add(new Variant(variant.getPosition(), variant.getRsid(), call, variant.getVcfPosition(), vcfAlleles));
+      geneCall.add(new Variant(variant, matchData.getSampleAllele(variant.getVcfPosition())));
     }
 
     m_result.addDiplotypeCall(geneCall);

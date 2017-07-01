@@ -41,6 +41,9 @@ public class GeneCall {
   @SerializedName("variants")
   private SortedSet<Variant> m_variants = new TreeSet<>();
   @Expose
+  @SerializedName("variantsOfInterest")
+  private SortedSet<Variant> m_variantsOfInterest;
+  @Expose
   @SerializedName("matchData")
   private MatchData m_matchData;
   @Expose
@@ -60,6 +63,7 @@ public class GeneCall {
     m_matchData = matchData;
     m_uncallableHaplotypes = uncallableHaplotypes;
     m_ignoredHaplotypes = ignoredHaplotypes;
+    m_variantsOfInterest = matchData.getExtraPositions();
   }
 
 
@@ -114,7 +118,7 @@ public class GeneCall {
     return m_variants;
   }
 
-  public void setVariants(SortedSet<Variant> variants) {
+  public void setVariants(@Nonnull SortedSet<Variant> variants) {
     m_variants = variants;
   }
 
@@ -124,6 +128,12 @@ public class GeneCall {
     if (!pos.isPhased()) {
       m_isPhased = false;
     }
+  }
+
+
+  @Nonnull
+  public SortedSet<Variant> getVariantsOfInterest() {
+    return m_variantsOfInterest;
   }
 
 

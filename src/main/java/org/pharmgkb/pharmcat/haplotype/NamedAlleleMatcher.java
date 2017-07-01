@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 import java.util.SortedMap;
+import java.util.SortedSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.ThreadSafe;
@@ -125,6 +126,12 @@ public class NamedAlleleMatcher {
       Arrays.stream(definitionReader.getPositions(gene))
           .map(VariantLocus::getVcfChrPosition)
           .forEach(setBuilder::add);
+      DefinitionExemption exemption = definitionReader.getExemption(gene);
+      if (exemption != null) {
+        exemption.getExtraPositions().stream()
+            .map(VariantLocus::getVcfChrPosition)
+            .forEach(setBuilder::add);
+      }
     }
     return setBuilder.build();
   }
@@ -162,12 +169,18 @@ public class NamedAlleleMatcher {
    */
   private @Nonnull MatchData initializeCallData(SortedMap<String, SampleAllele> alleleMap, String gene) {
 
+    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+    SortedSet<VariantLocus> extraPositions = null;
+    if (exemption != null) {
+      extraPositions = exemption.getExtraPositions();
+    }
+
     // grab SampleAlleles for all positions related to current gene
-    MatchData data = new MatchData(alleleMap, m_definitionReader.getPositions(gene));
+    MatchData data = new MatchData(alleleMap, m_definitionReader.getPositions(gene), extraPositions);
     if (data.getNumSampleAlleles() == 0) {
       return data;
     }
-    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+
     List<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene);
     if (exemption != null) {
       alleles = alleles.stream()

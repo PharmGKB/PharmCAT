@@ -12,12 +12,15 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,6 +37,7 @@ public class MatchData {
   @Expose
   @SerializedName("missingPositions")
   private Set<VariantLocus> m_missingPositions = new HashSet<>();
+  private SortedSet<Variant> m_extraPositions = new TreeSet<>();
   private List<NamedAllele> m_haplotypes;
   private Set<String> m_permutations;
 
@@ -45,7 +49,8 @@ public class MatchData {
    * @param alleleMap map of chr:positions to {@link SampleAllele}s from VCF
    * @param allPositions all {@link VariantLocus} positions of interest for the gene
    */
-  public MatchData(@Nonnull SortedMap<String, SampleAllele> alleleMap, @Nonnull VariantLocus[] allPositions) {
+  public MatchData(@Nonnull SortedMap<String, SampleAllele> alleleMap, @Nonnull VariantLocus[] allPositions,
+      @Nullable SortedSet<VariantLocus> extraPositions) {
 
     List<VariantLocus> positions = new ArrayList<>();
     for (VariantLocus variant : allPositions) {
@@ -61,6 +66,16 @@ public class MatchData {
       m_sampleMap.put(variant.getVcfPosition(), allele);
     }
     m_positions = positions.toArray(new VariantLocus[0]);
+    if (extraPositions != null) {
+      for (VariantLocus vl : extraPositions) {
+        SampleAllele allele = alleleMap.get(vl.getVcfChrPosition());
+        if (allele != null) {
+          m_extraPositions.add(new Variant(vl, allele));
+        } else {
+          m_extraPositions.add(new Variant(vl.getPosition(), vl.getRsid(), null, vl.getVcfPosition(), null));
+        }
+      }
+    }
   }
 
 
@@ -185,6 +200,13 @@ public class MatchData {
    */
   public @Nonnull Set<VariantLocus> getMissingPositions() {
     return m_missingPositions;
+  }
+
+  /**
+   * Gets the extra positions specified in {@link DefinitionExemption#getExtraPositions()}.
+   */
+  public @Nonnull SortedSet<Variant> getExtraPositions() {
+    return m_extraPositions;
   }
 
   /**

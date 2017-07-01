@@ -2,17 +2,21 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import com.google.common.base.Preconditions;
+import com.google.api.client.repackaged.com.google.common.base.Joiner;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.haplotype.SampleAllele;
 
 
 public class Variant implements Comparable<Variant>  {
   private static final String sf_rsidFormat = "%s%s";
   private static final String sf_positionFormat = "%d%s";
+  private static final Joiner sf_vcfAlleleJoiner = Joiner.on(",");
 
   @Expose
   @SerializedName("position")
@@ -28,12 +32,29 @@ public class Variant implements Comparable<Variant>  {
   private String m_vcfAlleles;
 
 
-  public Variant(int pos, @Nullable String rsids, @Nonnull String call, int vcfPosition, @Nonnull String vcfAlleles) {
-    Preconditions.checkNotNull(call);
+  public Variant(@Nonnull VariantLocus variant, @Nonnull SampleAllele allele) {
+    String call;
+    String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
+    if (allele.isPhased()) {
+      call = allele.getAllele1() + "|" + allele.getAllele2();
+    } else {
+      call = allele.getAllele1() + "/" + allele.getAllele2();
+    }
+    initialize(variant.getPosition(), variant.getRsid(), call, variant.getVcfPosition(), vcfAlleles);
+  }
+
+
+  public Variant(int pos, @Nullable String rsids, @Nullable String call, int vcfPosition, @Nullable String vcfAlleles) {
+    initialize(pos, rsids, call, vcfPosition, vcfAlleles);
+  }
+
+  private void initialize(int pos, @Nullable String rsids, @Nullable String call, int vcfPosition, @Nullable String vcfAlleles) {
     m_position = pos;
     m_rsid = rsids;
     m_vcfCall = call;
-    m_isPhased = call.contains("|");
+    if (call != null) {
+      m_isPhased = call.contains("|");
+    }
     m_vcfPosition = vcfPosition;
     m_vcfAlleles = vcfAlleles;
   }
@@ -74,7 +95,7 @@ public class Variant implements Comparable<Variant>  {
     if (rez != 0) {
       return rez;
     }
-    return m_vcfCall.compareTo(o.getVcfCall());
+    return Comparator.nullsLast(String::compareTo).compare(m_vcfCall, o.getVcfCall());
   }
 
   public String printDisplay() {

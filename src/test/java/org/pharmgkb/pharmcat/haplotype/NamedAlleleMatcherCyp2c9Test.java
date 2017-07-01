@@ -2,13 +2,16 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.SortedSet;
 import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.util.DataManager;
 
+import static org.junit.Assert.assertEquals;
 import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.assertDiplotypePairs;
 import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNamedAlleles;
 
@@ -90,5 +93,23 @@ public class NamedAlleleMatcherCyp2c9Test {
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
+  }
+
+
+  @Test
+  public void testExtraPosition() throws Exception {
+
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s1s1.vcf");
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(m_definitionFile);
+    definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
+
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    SortedSet<Variant> extraPositions = result.getGeneCalls().get(0).getVariantsOfInterest();
+    assertEquals(1, extraPositions.size());
+    assertEquals("rs12777823", extraPositions.first().getRsid());
+    assertEquals("G/A", extraPositions.first().getVcfCall());
   }
 }
