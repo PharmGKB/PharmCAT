@@ -52,11 +52,11 @@ public class NamedAlleleMatcherCyp2c9Test {
   }
 
   @Test
-  public void cyp2c9s2s24() throws Exception {
-    // Test *2/*24, but also matches *1/*2
+  public void cyp2c9s1s2() throws Exception {
+    // Test *1/*2 when the sample file also includes a match for *24
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s2s24.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*2", "*2/*24");
+    List<String> expectedMatches = Lists.newArrayList("*1/*2");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
