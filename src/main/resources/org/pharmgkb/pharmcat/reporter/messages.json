@@ -114,7 +114,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "CYP3A5 is known to have one or more functional variants in intronic regions.  Since intronic variants are important for CYP3A5 diplotype assignment, further testing may be warranted for exome data."
+    "message": "CYP3A5 is known to have one or more functional variants in intronic regions.  Since intronic variants are important for CYP3A5 genotype assignment, further testing may be warranted for exome data."
   },
   {
     "rule_name": "CYP3A5 *3 missing",
@@ -229,7 +229,7 @@
       ]
     },
     "exception_type": "footnote",
-    "message": "Classification is based on the combination of CYP2D6 and CYP2C19 phenotypes and might differ from classification based on only CYP2D6 or CYP2C19 alone; see full guideline at cpicpgx.org."
+    "message": "Classification of recommendation might differ based on the availabilty of CYP2D6 or CYP2C19 genotypes only or a combination of CYP2D6 and CYP2C19 genotypes; see full guideline at cpicpgx.org."
   },
   {
     "rule_name": "Phenytoin_HLA-B warning",
@@ -297,7 +297,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "For unphased data, all variant alleles found are listed, based on the vcf input and the UGT1A1 definition table. For phased data, the subject’s phased UGT1A1 diplotype is listed. The CPIC recommendations are provided based on an exception logic. UGT1A1*28 and *80 are assumed in cis for unphased data, see http://pharmcat.org/ for details."
+    "message": "For unphased data, all variant alleles found are listed, based on the vcf input and the UGT1A1 definition table. For phased data, the subject’s phased UGT1A1 genotype is listed. The CPIC recommendations are provided based on an exception logic. UGT1A1*28 and *80 are assumed in cis for unphased data, see http://pharmcat.org/ for details."
   },
   {
     "rule_name": "atazanavir table footnote",
@@ -346,7 +346,7 @@
       "drugs": []
     },
     "exception_type": "note",
-    "message": "CYP2D6 diplotypes are based on Astrolabe calls. For specific disclaimers and limitations, see Astrolabe specification. "
+    "message": "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to <a href=\"https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles\">the PharmCAT wiki</a> for more information."
   },
   {
     "rule_name": "SLCO1B1-simvastatin text",
@@ -363,7 +363,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The displayed SLCO1B1 CPIC recommendations are based on the rs4149056 genotype alone as per CPIC guideline. Carriage of additional variants is possible.<br><br>SLCO1B1 alleles might be named by a star allele nomenclature, representing various SNPs alone or in combination. The minor C allele at rs4149056 is contained within SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles, and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles.<br><br>The SLCO1B1 diplotype (star nomenclature) will be displayed in addition to the rs4149056 genotype if determinable with the provided data based on the SLCO1B1 star allele definition published by CPIC.<br><br>A number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as 'possible decreased function' alleles. These alleles are not accounted for in the recommendation based on the rs4149056 genotype."
+    "message": "The displayed SLCO1B1 CPIC recommendations are based on the rs4149056 genotype alone as per CPIC guideline. Carriage of additional variants is possible.<br><br>SLCO1B1 alleles might be named by a star allele nomenclature, representing various SNPs alone or in combination. The minor C allele at rs4149056 is contained within SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles, and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles.<br><br>The SLCO1B1 genotype (star nomenclature) will be displayed in addition to the rs4149056 genotype if determinable with the provided data based on the SLCO1B1 star allele definition published by CPIC.<br><br>A number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as 'possible decreased function' alleles. These alleles are not accounted for in the recommendation based on the rs4149056 genotype."
   },
   {
     "rule_name": "warfarin figure 2 note",
@@ -381,5 +381,24 @@
     },
     "exception_type": "note",
     "message": "Please follow the flow chart in figure 2 of the <a href=\"https://www.pharmgkb.org/guideline/PA166104949\">CPIC warfarin guideline</a> to determine the appropriate dosing recommendation."
+  },
+  {
+    "rule_name": "CYP3A5 multiple genotypes_rs776746 missing",
+    "version": "1",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [
+        "rs776746"
+      ],
+      "dips": [],
+      "hapsAvailable": [],
+      "drugs": [
+        "tacrolismus"
+      ]
+    },
+    "exception_type": "note",
+    "message": "CYP3A5*3 is defined by a splicing defect caused by an intronic variant (rs776746). Due to missing information for rs776746 in the vcf, the *3 allele cannot be ruled out, and further testing may be warranted. The PharmCAT definition for CYP3A5*3 is rs28383479 Y and rs776746 C. The multiple genotypes result from a partial match for the allele at position rs28383479."
   }
 ]
