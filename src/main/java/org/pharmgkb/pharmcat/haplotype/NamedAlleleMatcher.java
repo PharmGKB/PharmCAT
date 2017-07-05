@@ -4,9 +4,12 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.ThreadSafe;
@@ -171,17 +174,20 @@ public class NamedAlleleMatcher {
 
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     SortedSet<VariantLocus> extraPositions = null;
+    List<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene);
+    VariantLocus[] allPositions = m_definitionReader.getPositions(gene);
+    SortedSet<VariantLocus> unusedPositions = null;
     if (exemption != null) {
       extraPositions = exemption.getExtraPositions();
+      unusedPositions = findUnusedPositions(exemption, allPositions, alleles);
     }
 
     // grab SampleAlleles for all positions related to current gene
-    MatchData data = new MatchData(alleleMap, m_definitionReader.getPositions(gene), extraPositions);
+    MatchData data = new MatchData(alleleMap, allPositions, extraPositions, unusedPositions);
     if (data.getNumSampleAlleles() == 0) {
       return data;
     }
 
-    List<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene);
     if (exemption != null) {
       alleles = alleles.stream()
           .filter(a -> !exemption.shouldIgnore(a.getName()))
@@ -197,6 +203,58 @@ public class NamedAlleleMatcher {
 
     data.generateSamplePermutations();
     return data;
+  }
+
+
+  /**
+   * Find positions that are only used by ignored alleles (and therefore should be eliminated from consideration).
+   */
+  private SortedSet<VariantLocus> findUnusedPositions(DefinitionExemption exemption, VariantLocus[] allPositions,
+      List<NamedAllele> namedAlleles) {
+
+    SortedSet<VariantLocus> unusedPositions = new TreeSet<>();
+    if (exemption.getIgnoredAlleles().isEmpty()) {
+      return unusedPositions;
+    }
+
+    List<NamedAllele> variantNamedAlleles = namedAlleles.subList(1, namedAlleles.size() - 1);
+    Set<VariantLocus> ignorablePositions = new HashSet<>();
+    for (NamedAllele namedAllele : variantNamedAlleles) {
+      if (exemption.shouldIgnore(namedAllele.getName())) {
+        ignorablePositions.addAll(findIgnorablePositions(allPositions, namedAllele));
+      }
+    }
+
+    for (VariantLocus vl : ignorablePositions) {
+      boolean isUnused = true;
+      for (NamedAllele namedAllele : variantNamedAlleles) {
+        if (!exemption.shouldIgnore(namedAllele.getName())) {
+          if (namedAllele.getAllele(vl) != null) {
+            isUnused = false;
+            break;
+          }
+        }
+      }
+      if (isUnused) {
+        unusedPositions.add(vl);
+      }
+    }
+    return unusedPositions;
+  }
+
+  /**
+   * Find positions that are used by an ignored alleles (and are therefore potentially ignoreable).
+   */
+  private Set<VariantLocus> findIgnorablePositions(VariantLocus[] allPositions, NamedAllele namedAllele)  {
+    Set<VariantLocus> ignorablePositions = new HashSet<>();
+    int x = 0;
+    for (String allele : namedAllele.getAlleles()) {
+      if (allele != null) {
+        ignorablePositions.add(allPositions[x]);
+      }
+      x += 1;
+    }
+    return ignorablePositions;
   }
 
 

@@ -37,6 +37,7 @@ public class MatchData {
   @Expose
   @SerializedName("missingPositions")
   private Set<VariantLocus> m_missingPositions = new HashSet<>();
+  private Set<VariantLocus> m_ignoredPositions = new HashSet<>();
   private SortedSet<Variant> m_extraPositions = new TreeSet<>();
   private List<NamedAllele> m_haplotypes;
   private Set<String> m_permutations;
@@ -48,9 +49,15 @@ public class MatchData {
    *
    * @param alleleMap map of chr:positions to {@link SampleAllele}s from VCF
    * @param allPositions all {@link VariantLocus} positions of interest for the gene
+   * @param extraPositions extra positions to track sample alleles for
+   * @param ignoredPositions ignored positions due to ignored named alleles
    */
   public MatchData(@Nonnull SortedMap<String, SampleAllele> alleleMap, @Nonnull VariantLocus[] allPositions,
-      @Nullable SortedSet<VariantLocus> extraPositions) {
+      @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<VariantLocus> ignoredPositions) {
+
+    if (ignoredPositions != null) {
+      m_ignoredPositions.addAll(ignoredPositions);
+    }
 
     List<VariantLocus> positions = new ArrayList<>();
     for (VariantLocus variant : allPositions) {
@@ -59,6 +66,9 @@ public class MatchData {
       if (allele == null) {
         m_missingPositions.add(variant);
         sf_logger.info("Sample has no allele for {}", chrPos);
+        continue;
+      }
+      if (m_ignoredPositions.contains(variant)) {
         continue;
       }
       positions.add(variant);
@@ -85,7 +95,7 @@ public class MatchData {
    */
   void marshallHaplotypes(List<NamedAllele> allHaplotypes) {
 
-    if (m_missingPositions.isEmpty()) {
+    if (m_missingPositions.isEmpty() && m_ignoredPositions.isEmpty()) {
       m_haplotypes = allHaplotypes;
 
     } else {

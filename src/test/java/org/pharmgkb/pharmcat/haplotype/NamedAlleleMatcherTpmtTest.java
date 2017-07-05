@@ -48,7 +48,7 @@ public class NamedAlleleMatcherTpmtTest {
     assertDiplotypePairs(expectedMatches, result);
 
     // with exemptions
-    expectedMatches = Lists.newArrayList();
+    expectedMatches = Lists.newArrayList("*1/*1");
 
     result = NamedAlleleMatcherTest.testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, true, true);
     assertDiplotypePairs(expectedMatches, result);
