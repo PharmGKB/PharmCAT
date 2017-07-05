@@ -1,14 +1,13 @@
 package org.pharmgkb.pharmcat.reporter.model;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
-import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
-import org.pharmgkb.pharmcat.definition.VariantAlleleMap;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 
@@ -41,6 +40,9 @@ public class VariantReport {
   @Expose
   @SerializedName("phased")
   private boolean m_phased = false;
+  @Expose
+  @SerializedName("wildtypeAllele")
+  private String m_wildtypeAllele;
 
   public VariantReport(String gene, Variant variant) {
     m_gene = gene;
@@ -54,16 +56,6 @@ public class VariantReport {
     m_gene = gene;
     m_position = locus.getPosition();
     m_dbSnpId = locus.getRsid();
-  }
-
-  public VariantReport findAlleles(@Nonnull VariantAlleleMap variantAlleleMap) {
-    Collection<String> alleles = variantAlleleMap.getAlleles(m_position);
-
-    if (alleles != null) {
-      m_alleles.addAll(alleles);
-    }
-
-    return this;
   }
 
   public String getGene() {
@@ -94,8 +86,8 @@ public class VariantReport {
     return m_alleles;
   }
 
-  public void setAlleles(Set<String> alleles) {
-    m_alleles = alleles;
+  public void setAlleles(Collection<String> alleles) {
+    m_alleles.addAll(alleles);
   }
 
   public boolean isPhased() {
@@ -114,8 +106,21 @@ public class VariantReport {
     m_dbSnpId = dbSnpId;
   }
 
+  public String getWildtypeAllele() {
+    return m_wildtypeAllele;
+  }
+
+  public void setWildtypeAllele(String wildtypeAllele) {
+    m_wildtypeAllele = wildtypeAllele;
+  }
+
   public boolean isMissing() {
     return StringUtils.isBlank(m_call);
+  }
+
+  public boolean isNonwildtype() {
+    return !(isMissing() || m_wildtypeAllele == null)
+        && Arrays.stream(getCall().split("[|/]")).anyMatch(c -> !c.equals(getWildtypeAllele()));
   }
 
   @Override
