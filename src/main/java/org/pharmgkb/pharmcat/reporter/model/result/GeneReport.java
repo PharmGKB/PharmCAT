@@ -64,6 +64,8 @@ public class GeneReport implements Comparable<GeneReport> {
         .map(variantReportFactory::make).forEach(a -> m_variantReports.add(a));
     call.getMatchData().getMissingPositions().stream()
         .map(variantReportFactory::make).forEach(a -> m_variantReports.add(a));
+    call.getVariantsOfInterest().stream()
+        .map(variantReportFactory::make).forEach(a -> m_variantReports.add(a));
   }
 
   /**
