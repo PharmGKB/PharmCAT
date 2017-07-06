@@ -1,15 +1,11 @@
 [
   {
-    "gene": "TPMT",
+    "gene": "UGT1A1",
     "extraPositions": [],
-    "ignoredAlleles": [
-      "*1S"
-    ],
-    "ignoredAllelesLc": [
-      "*1s"
-    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
     "allHits": false,
-    "assumeReference": true
+    "assumeReference": false
   },
   {
     "gene": "CYP2C9",
@@ -32,11 +28,27 @@
     "assumeReference": true
   },
   {
-    "gene": "UGT1A1",
-    "extraPositions": [],
-    "ignoredAlleles": [],
-    "ignoredAllelesLc": [],
+    "gene": "TPMT",
+    "extraPositions": [
+      {
+        "chromosome": "chr6",
+        "position": 18138983,
+        "rsid": "rs2842934",
+        "chromosomeHgvsName": "g.18138983",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [
+      "*1S"
+    ],
+    "ignoredAllelesLc": [
+      "*1s"
+    ],
     "allHits": false,
-    "assumeReference": false
+    "assumeReference": true
   }
 ]
