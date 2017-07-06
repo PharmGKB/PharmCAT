@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName;
  * @author Ryan Whaley
  */
 public class MatchLogic {
-  
+
   @Expose
   @SerializedName("gene")
   private String m_gene;
@@ -24,6 +24,9 @@ public class MatchLogic {
   @Expose
   @SerializedName("variantsMissing")
   private List<String> m_variantsMissing = new ArrayList<>();
+  @Expose
+  @SerializedName("variant")
+  private String m_variant;
   @Expose
   @SerializedName("dips")
   private List<String> m_dips = new ArrayList<>();
@@ -94,5 +97,13 @@ public class MatchLogic {
 
   public void setVariantsMissing(List<String> variantsMissing) {
     m_variantsMissing = variantsMissing;
+  }
+
+  public String getVariant() {
+    return m_variant;
+  }
+
+  public void setVariant(String variant) {
+    m_variant = variant;
   }
 }

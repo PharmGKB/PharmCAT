@@ -50,6 +50,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private List<MessageAnnotation> m_messages = new ArrayList<>();
   private boolean m_isIncidentalResult = false;
   private List<Literature> m_citations = new ArrayList<>();
+  private List<String> m_reportVariants = new ArrayList<>();
 
   public GuidelineReport(GuidelinePackage guidelinePackage){
     m_dosingGuideline = guidelinePackage.getGuideline();
@@ -242,9 +243,19 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   }
 
   public void addMessages(@Nullable Collection<MessageAnnotation> messages) {
-    if (messages != null) {
-      m_messages.addAll(messages);
+    if (messages == null) {
+      return;
     }
+
+    // separate the general messages from specific genotype call messages
+    messages.forEach(ma -> {
+      if (ma.getExceptionType().equals(MessageAnnotation.TYPE_GENOTYPE)) {
+        m_reportVariants.add(ma.getMatches().getVariant());
+      }
+      else {
+        m_messages.add(ma);
+      }
+    });
   }
 
   /**
@@ -256,6 +267,10 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
 
   public void setIncidentalResult(boolean incidentalResult) {
     m_isIncidentalResult = incidentalResult;
+  }
+
+  public List<String> getReportVariants() {
+    return m_reportVariants;
   }
 
   public String toString() {

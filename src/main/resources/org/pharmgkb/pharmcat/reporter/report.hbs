@@ -446,8 +446,8 @@
           <tbody>
           {{#each variants}}
             <tr>
-              <td>{{position}}</td>
-              <td>{{dbSnpId}}</td>
+              <td id="{{position}}">{{position}}</td>
+              <td id="{{dbSnpId}}">{{dbSnpId}}</td>
               {{#if missing}}
                 <td class="missingVariant"><em>missing</em></td>
               {{/if}}

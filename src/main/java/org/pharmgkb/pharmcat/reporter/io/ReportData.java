@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.collect.ImmutableList;
+import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
 import org.pharmgkb.pharmcat.reporter.model.Group;
@@ -103,6 +104,18 @@ public class ReportData {
         geneCall.put("diplotypes", geneReport.printDisplayCalls().stream()
             .collect(Collectors.joining(", ")));
         geneCall.put("astrolabe", geneReport.isAstrolabeCall());
+        geneCallList.add(geneCall);
+      }
+      for (String variant : guideline.getReportVariants()) {
+        String call = reportContext.getGeneReports().stream()
+            .flatMap(g -> g.getVariantReports().stream())
+            .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(variant) && !v.isMissing())
+            .map(VariantReport::getCall)
+            .collect(Collectors.joining(", "));
+        Map<String,Object> geneCall = new LinkedHashMap<>();
+        geneCall.put("gene", variant);
+        geneCall.put("diplotypes", StringUtils.isBlank(call) ? "missing" : call);
+        geneCall.put("astrolabe", false);
         geneCallList.add(geneCall);
       }
       if (geneCallList.size() > 0) {

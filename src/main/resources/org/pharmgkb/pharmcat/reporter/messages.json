@@ -11,6 +11,7 @@
       "variantsMissing": [
         "rs28399504"
       ],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -28,6 +29,7 @@
         "*17"
       ],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -43,6 +45,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [
         "*1/*3A"
       ],
@@ -64,6 +67,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -79,6 +83,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -94,6 +99,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -109,6 +115,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -126,6 +133,7 @@
         "*3"
       ],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -141,6 +149,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -156,6 +165,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
@@ -173,6 +183,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -188,6 +199,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -203,6 +215,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -218,6 +231,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
@@ -239,6 +253,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
@@ -256,6 +271,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
@@ -273,6 +289,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
@@ -290,6 +307,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
@@ -307,6 +325,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
@@ -324,6 +343,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
@@ -341,6 +361,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
@@ -356,6 +377,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
@@ -373,6 +395,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
@@ -392,6 +415,7 @@
       "variantsMissing": [
         "rs776746"
       ],
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
@@ -400,5 +424,23 @@
     },
     "exception_type": "note",
     "message": "CYP3A5*3 is defined by a splicing defect caused by an intronic variant (rs776746). Due to missing information for rs776746 in the vcf, the *3 allele cannot be ruled out, and further testing may be warranted. The PharmCAT definition for CYP3A5*3 is rs28383479 Y and rs776746 C. The multiple genotypes result from a partial match for the allele at position rs28383479."
+  },
+  {
+    "rule_name": "Show rs12777823 for warfarin",
+    "version": "1",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "rs12777823",
+      "dips": [],
+      "hapsAvailable": [],
+      "drugs": [
+        "warfarin"
+      ]
+    },
+    "exception_type": "report-genotype",
+    "message": ""
   }
 ]
