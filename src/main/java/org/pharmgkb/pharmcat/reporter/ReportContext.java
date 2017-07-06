@@ -68,7 +68,7 @@ public class ReportContext {
    * @param messages a List of {@link MessageAnnotation} objects
    */
   public void applyMessage(List<MessageAnnotation> messages) {
-    MessageMatcher messageMatcher = new MessageMatcher(messages);
+    MessageMatcher messageMatcher = new MessageMatcher(messages, this);
 
     m_geneReports.values().forEach(r -> r.addMessages(messageMatcher.match(r)));
     m_guidelineReports.forEach(r -> r.addMessages(messageMatcher.match(r)));
