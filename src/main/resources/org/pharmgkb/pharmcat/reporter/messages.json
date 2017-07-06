@@ -442,5 +442,21 @@
     },
     "exception_type": "report-genotype",
     "message": ""
+  },
+  {
+    "rule_name": "Show rs2842934 for TPMT",
+    "version": "1",
+    "matches": {
+      "gene": "TPMT",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "rs2842934",
+      "dips": [],
+      "hapsAvailable": [],
+      "drugs": []
+    },
+    "exception_type": "report-genotype",
+    "message": ""
   }
 ]
