@@ -41,6 +41,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private List<Diplotype> m_reporterDiplotypes = new ArrayList<>();
   private List<VariantReport> m_variantReports = new ArrayList<>();
   private boolean m_phased = false;
+  private List<String> m_highlightedVariants = new ArrayList<>();
 
   /**
    * public constructor
@@ -111,9 +112,20 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   public void addMessages(Collection<MessageAnnotation> messages) {
-    if (messages != null) {
-      m_messages.addAll(messages);
+    if (messages == null) {
+      return;
     }
+
+    // separate the general messages from specific genotype call messages
+    messages.forEach(ma -> {
+      if (ma.getExceptionType().equals(MessageAnnotation.TYPE_GENOTYPE)) {
+        m_highlightedVariants.add(ma.getMatches().getVariant());
+      }
+      else {
+        m_messages.add(ma);
+      }
+    });
+
   }
 
   public List<VariantReport> getVariantReports() {
@@ -253,5 +265,12 @@ public class GeneReport implements Comparable<GeneReport> {
 
   public List<Diplotype> getMatcherDiplotypes() {
     return m_matcherDiplotypes;
+  }
+
+  /**
+   * Get variants that should be shown separately in the report
+   */
+  public List<String> getHighlightedVariants() {
+    return m_highlightedVariants;
   }
 }
