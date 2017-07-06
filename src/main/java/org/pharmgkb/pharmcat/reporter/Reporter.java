@@ -14,10 +14,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import com.github.jknack.handlebars.Handlebars;
-import com.github.jknack.handlebars.Template;
-import com.github.jknack.handlebars.helper.StringHelpers;
-import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -25,7 +21,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.io.AstrolabeOutputParser;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.ReportData;
@@ -45,8 +40,6 @@ import org.pharmgkb.pharmcat.util.DataManager;
  * @author Ryan Whaley
  */
 public class Reporter {
-  private static final String sf_templateName = "report";
-  private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
   private static final String sf_messagesFile = "org/pharmgkb/pharmcat/reporter/messages.json";
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
@@ -163,15 +156,7 @@ public class Reporter {
       reportData.put("title", title);
     }
 
-    Handlebars handlebars = new Handlebars(new ClassPathTemplateLoader(sf_templatePrefix));
-    StringHelpers.register(handlebars);
-    handlebars.registerHelpers(ReportHelpers.class);
-    Template template = handlebars.compile(sf_templateName);
-    String html = template.apply(reportData);
-
-    try (BufferedWriter writer = Files.newBufferedWriter(reportFile, StandardCharsets.UTF_8)) {
-      writer.write(html);
-    }
+    HtmlReportGenerator.writeFinalReport(reportData, reportFile);
 
     if (jsonFile != null) {
       try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
