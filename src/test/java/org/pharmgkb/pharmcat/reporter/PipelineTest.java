@@ -382,6 +382,14 @@ public class PipelineTest {
     sf_testVcfs.put("test.cyp2c9.s2s24", new String[]{
         "cyp2c9/s2s24.vcf"
     });
+
+    sf_testVcfs.put("test.cyp2c19.rs12769205call", new String[]{
+        "cyp2c19/rs12769205call.vcf"
+    });
+
+    sf_testVcfs.put("test.cyp2c19.s4s17het", new String[]{
+        "cyp2c19/s4s17het.vcf"
+    });
   }
 
   private PharmCAT m_pharmcat;
