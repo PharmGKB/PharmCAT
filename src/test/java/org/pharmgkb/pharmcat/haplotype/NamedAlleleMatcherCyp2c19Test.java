@@ -229,5 +229,12 @@ public class NamedAlleleMatcherCyp2c19Test {
   }
 
 
+  @Test
+  public void s4s17het() throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4s17het.vcf");
+    List<String> expectedMatches = Lists.newArrayList("*1/*4B");
 
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true, true, true, true);
+    assertDiplotypePairs(expectedMatches, result);
+  }
 }

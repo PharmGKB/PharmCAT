@@ -29,6 +29,16 @@ import static org.junit.Assert.*;
 public class NamedAlleleMatcherTest {
 
 
+  /**
+   * Helper method for running {@link NamedAlleleMatcher} using:
+   * <ul>
+   *   <li>{@code assumeReference} = true</li>
+   *   <li>{@code topCandidateOnly} = false</li>
+   *   <li>{@code showUnmatched} = true</li>
+   *   <li>{@code withExemptions} = true</li>
+   * </ul>
+   *
+   */
   static Result testMatchNamedAlleles(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
     return testMatchNamedAlleles(tsvFile, vcfFile, true, false, true, true);
   }
@@ -72,13 +82,22 @@ public class NamedAlleleMatcherTest {
     Preconditions.checkNotNull(result);
 
     List<String> pairs = new ArrayList<>();
+    StringBuilder builder = new StringBuilder();
     for (DiplotypeMatch dm : result.getGeneCalls().get(0).getDiplotypes()) {
       pairs.add(dm.getName());
+      if (builder.length() > 0) {
+        builder.append(", ");
+      }
+      builder.append(dm.getName())
+          .append(" (")
+          .append(dm.getScore())
+          .append(")");
     }
 
     if (expectedPairs.size() != pairs.size() || !expectedPairs.equals(pairs)) {
       System.out.println("Expected: [" + Joiner.on(", ").join(expectedPairs) + "]");
       System.out.println("Got:      " + pairs);
+      System.out.println("Scores:   " + builder.toString());
       fail("Did not get expected matches");
     }
   }
