@@ -122,7 +122,7 @@ public class PharmCAT {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionsDir);
 
-    m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
+    m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true);
     m_reporter = new Reporter(guidelinesDir);
     m_outputDir = outputDir;
 
@@ -213,7 +213,7 @@ public class PharmCAT {
    * Getter for the Reporter class to use for testing
    * @return the current Reporter instance
    */
-  protected Reporter getReporter() {
+  public Reporter getReporter() {
     return m_reporter;
   }
 }
