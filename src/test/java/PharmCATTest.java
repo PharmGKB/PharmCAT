@@ -208,8 +208,13 @@ public class PharmCATTest {
    */
   private void generalTest(String name, String[] geneCalls, boolean includeAstrolabe) throws Exception {
     Path tempVcfPath = Files.createTempFile(name, ".vcf");
+    System.err.println(tempVcfPath);
     try (FileWriter fw = new FileWriter(tempVcfPath.toFile())) {
+      System.err.println(Files.exists(tempVcfPath));
       fw.write(VcfTestUtils.writeVcf(geneCalls));
+    } catch (Exception ex) {
+      ex.printStackTrace();
+      throw ex;
     }
 
     Path astrolabePath = includeAstrolabe ? s_tempAstroPath : null;
