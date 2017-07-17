@@ -128,6 +128,20 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testSlco1b1Test3() throws Exception {
+    generalTest("test.slco1b1.1a.15", new String[]{
+            "SLCO1B1/s1as15.vcf"
+        },
+        false);
+
+    testCalledGenes("SLCO1B1");
+    testCalls(DipType.PRINT, "SLCO1B1", "rs4149056T/rs4149056C");
+    testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*5");
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
   public void testSlco1b1TestMissing() throws Exception {
     generalTest("test.slco1b1.missing", new String[]{
             "DPYD/s1s1.vcf",
@@ -198,6 +212,34 @@ public class PharmCATTest {
     testCalledGenes("TPMT");
     testCalls(DipType.PRINT, "TPMT", "*1/*3A");
     testCalls(DipType.LOOKUP, "TPMT", "TPMT:*1/*3A");
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testCombined() throws Exception {
+    generalTest("test.combined", new String[]{
+            "DPYD/s1s1.vcf",
+            "UGT1A1/s1s1.vcf",
+            "TPMT/s1s1.vcf",
+            "CYP3A5/s1s7.vcf",
+            "CFTR/refref.vcf",
+            "CYP2C19/s2s2.vcf",
+            "CYP2C9/s2s3.vcf",
+            "SLCO1B1/s1as1a.vcf",
+            "VKORC1/-1639A-1639A.vcf",
+            "cyp4f2/s1s1.vcf",
+            "IFNL3/rs12979860CC.vcf"
+        },
+        true);
+
+    testCalledGenes("DPYD", "UGT1A1", "TPMT", "CYP3A5", "CFTR", "CYP2C19",
+        "CYP2C9", "SLCO1B1", "VKORC1", "CYP4F2", "IFNL3", "CYP2D6");
+    testCalls(DipType.PRINT, "TPMT", "*1/*1");
+    testCalls(DipType.PRINT, "DPYD", "*1/*1");
+    testCalls(DipType.PRINT, "CYP2C19", "*2/*2");
+    testCalls(DipType.LOOKUP, "TPMT", "TPMT:*1/*1");
+    testCalls(DipType.PRINT, "CYP2D6", "*1/*4");
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
