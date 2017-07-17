@@ -6,12 +6,14 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.PharmCAT;
 import org.pharmgkb.pharmcat.VcfTestUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
@@ -212,6 +214,16 @@ public class PharmCATTest {
     testCalledGenes("TPMT");
     testCalls(DipType.PRINT, "TPMT", "*1/*3A");
     testCalls(DipType.LOOKUP, "TPMT", "TPMT:*1/*3A");
+
+    GeneReport tpmtReport = s_context.getGeneReport("TPMT");
+    assertEquals(31, tpmtReport.getVariantReports().size());
+
+    Predicate<VariantReport> singlePosition = r -> r.getDbSnpId() != null && r.getDbSnpId().equals("rs2842934");
+    assertTrue(tpmtReport.getVariantReports().stream().anyMatch(singlePosition));
+    assertTrue(tpmtReport.getVariantReports().stream().filter(singlePosition).allMatch(r -> r.getCall().equals("G|G")));
+
+    assertEquals(1, tpmtReport.getHighlightedVariants().size());
+    assertEquals("rs2842934", tpmtReport.getHighlightedVariants().get(0));
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
