@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.handlebars;
 
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
+import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
 
 /**
@@ -11,6 +12,7 @@ import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 public class ReportHelpers {
 
   private static final String sf_drugNameTemplate = "<div class=\"drugName\"><div class=\"%s\"><a href=\"#%s\">%s</a> %s</div></div>";
+  private static final String sf_variantAlleleTemplate = "<td class=\"%s\">%s</td>";
 
   private static final String sf_iconHighlight = "<i class=\"fa fa-square highlight\" aria-hidden=\"true\" title=\"Consult guideline\"></i>";
   private static final String sf_iconPossibly = "<i class=\"fa fa-exclamation-triangle rxPossibly\" aria-hidden=\"true\" title=\"Possible Rx change\"></i>";
@@ -40,6 +42,11 @@ public class ReportHelpers {
     }
 
     return String.format(sf_drugNameTemplate, cn, drug.getGuidelineId(), drug.getName(), icon);
+  }
+
+  public static String variantAlleles(VariantReport variantReport) {
+    String cellStyle = variantReport.isNonwildtype() ? "nonwild" : "";
+    return String.format(sf_variantAlleleTemplate, cellStyle, variantReport.getCall());
   }
 
   public static String iconNormal() {

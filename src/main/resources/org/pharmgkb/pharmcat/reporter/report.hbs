@@ -256,6 +256,7 @@
             <th>Position</th>
             <th>RSID</th>
             <th>Call</th>
+            <th>Wildtype</th>
             <th>Related Alleles</th>
           </tr>
           </thead>
@@ -268,10 +269,11 @@
                 <td class="missingVariant"><em>missing</em></td>
               {{/if}}
               {{#unless missing}}
-                <td>
-                  {{call}}
-                </td>
+                {{{variantAlleles this}}}
               {{/unless}}
+              <td>
+                {{wildtypeAllele}}
+              </td>
               <td>
                 {{#each alleles}}{{this}} {{/each}}
               </td>
