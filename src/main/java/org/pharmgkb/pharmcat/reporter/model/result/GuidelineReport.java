@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -51,6 +52,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private boolean m_isIncidentalResult = false;
   private List<Literature> m_citations = new ArrayList<>();
   private List<String> m_reportVariants = new ArrayList<>();
+  private Multimap<String,String> m_functionToGenotypeMap = TreeMultimap.create();
 
   public GuidelineReport(GuidelinePackage guidelinePackage){
     m_dosingGuideline = guidelinePackage.getGuideline();
@@ -219,7 +221,10 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
 
     List<String> phenotypes = Lists.newArrayList(pheno1, pheno2);
     Collections.sort(phenotypes);
-    return gene+":"+phenotypes.stream().collect(Collectors.joining("/"));
+
+    String finalFunction = gene+":"+phenotypes.stream().collect(Collectors.joining("/"));
+    m_functionToGenotypeMap.put(finalFunction, genotype);
+    return finalFunction;
   }
 
   /**
@@ -282,5 +287,15 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
    */
   public List<Literature> getCitations() {
     return m_citations;
+  }
+
+  public String lookupDiplotypes(String geneFunction) {
+    if (geneFunction == null) {
+      return null;
+    }
+
+    return Arrays.stream(geneFunction.split(";"))
+        .flatMap(f -> m_functionToGenotypeMap.get(f).stream())
+        .collect(Collectors.joining(";"));
   }
 }

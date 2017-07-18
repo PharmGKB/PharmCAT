@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.reporter.io;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -156,13 +157,15 @@ public class ReportData {
         List<Map<String, Object>> groupList = new ArrayList<>();
         for (Group group : guideline.getMatchingGroups()) {
           Map<String, Object> groupData = new HashMap<>();
+          Collection<String> geneFunctions = guideline.getMatchedDiplotypes().get(group.getId());
 
           List<Map<String, String>> annotationList = new ArrayList<>();
           if (guideline.getRelatedDrugs().stream().noneMatch(sf_drugHidePhenotype::contains)) {
-            annotationList.add(makeAnnotation("Allele Functionality",
-                guideline.getMatchedDiplotypes().get(group.getId()).stream()
-                    .collect(Collectors.joining(", "))
-            ));
+            annotationList.add(makeAnnotation(
+                "Allele Functionality",
+                geneFunctions.stream()
+                    .map(f -> f + " (" + guideline.lookupDiplotypes(f) + ")")
+                    .collect(Collectors.joining(", "))));
             annotationList.add(makeAnnotation("Phenotype", group.getName()));
           }
           for (Annotation ann : group.getAnnotations()) {
