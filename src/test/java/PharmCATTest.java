@@ -116,6 +116,34 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testSlco1b1HomWild() throws Exception {
+    generalTest("test.slco1b1.hom.wild", new String[]{
+            "SLCO1B1/s1as1a.vcf"
+        },
+        false);
+
+    testCalledGenes("SLCO1B1");
+    testCalls(DipType.PRINT, "SLCO1B1", "rs4149056T/rs4149056T");
+    testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*1A");
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testSlco1b1HomVar() throws Exception {
+    generalTest("test.slco1b1.hom.var", new String[]{
+            "SLCO1B1/s5s15.vcf"
+        },
+        false);
+
+    testCalledGenes("SLCO1B1");
+    testCalls(DipType.PRINT, "SLCO1B1", "rs4149056C/rs4149056C");
+    testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*5/*5");
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
   public void testSlco1b1Test2() throws Exception {
     generalTest("test.slco1b1.5.15", new String[]{
             "SLCO1B1/s5s15.vcf"
@@ -262,9 +290,7 @@ public class PharmCATTest {
    */
   private void generalTest(String name, String[] geneCalls, boolean includeAstrolabe) throws Exception {
     Path tempVcfPath = Files.createTempFile(name, ".vcf");
-    System.err.println(tempVcfPath);
     try (FileWriter fw = new FileWriter(tempVcfPath.toFile())) {
-      System.err.println(Files.exists(tempVcfPath));
       fw.write(VcfTestUtils.writeVcf(geneCalls));
     } catch (Exception ex) {
       ex.printStackTrace();
