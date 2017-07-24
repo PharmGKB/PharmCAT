@@ -57,7 +57,7 @@
       ]
     },
     "exception_type": "ambiguity",
-    "message": "The assigned diplotype is *1/*3A; however, *3B/*3C cannot be ruled out with unphased data."
+    "message": "The assigned genotype is *1/*3A; however, *3B/*3C cannot be ruled out with unphased data."
   },
   {
     "rule_name": "TPMT reverse complement footnote",
@@ -73,7 +73,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "Though the TPMT gene is on the negative chromosomal strand, all genotype calls for TPMT in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+    "message": "The TPMT gene is on the negative chromosomal strand, all genotype calls for TPMT in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
     "rule_name": "VKORC1",
@@ -136,10 +136,12 @@
       "variant": "",
       "dips": [],
       "hapsAvailable": [],
-      "drugs": []
+      "drugs": [
+        "tacrolismus"
+      ]
     },
     "exception_type": "gene-specific warnings",
-    "message": "CYP3A5*3, a common variant found in some populations, is defined by a splicing defect caused by an intronic variant (rs776746). Due to missing information in the VCF file (specifically rs776746), the *3 allele cannot be detected or ruled out, and further testing may be warranted."
+    "message": "CYP3A5*3 is a common variant found in some populations. Due to missing information in the VCF file (specifically rs776746), the *3 allele cannot be detected or ruled out, and further testing may be warranted."
   },
   {
     "rule_name": "CYP3A5 reverse complement footnote",
@@ -155,7 +157,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "Though the CYP3A5 gene is on the negative chromosomal strand, all genotype calls for CYP3A5 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+    "message": "The CYP3A5 gene is on the negative chromosomal strand, all genotype calls for CYP3A5 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
     "rule_name": "Warfarin warning",
@@ -173,7 +175,7 @@
       ]
     },
     "exception_type": "footnote",
-    "message": "The CPIC warfarin guideline only considers a single snp in VKORC1 (rs9923231), which is found in the highest frequency in Caucasians and extremely low frequency in those of African descent. While other functional variants in VKORC1 have been observed in much higher frequencies in some populations, there are currently no CPIC recommendations for how to use these other variants in warfarin dosing. An alternate name for rs9923231 is -1639G>A (note that VKORC1 is on the negative chromosomal strand, so displayed alleles are complemented). "
+    "message": "The CPIC warfarin guideline only considers a single SNV in VKORC1 (rs9923231), which is found in the highest frequency in Caucasians and extremely low frequency in those of African descent. While other functional variants in VKORC1 have been observed in much higher frequencies in some populations, there are currently no CPIC recommendations for how to use these other variants in warfarin dosing. An alternate name for rs9923231 is -1639G>A (note that VKORC1 is on the negative chromosomal strand, so displayed alleles are complemented). "
   },
   {
     "rule_name": "VKORC1 reverse complement footnote",
@@ -189,7 +191,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "Though the VKORC1 gene is on the negative chromosomal strand, all genotype calls for VKORC1 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+    "message": "The VKORC1 gene is on the negative chromosomal strand, all genotype calls for VKORC1 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
     "rule_name": "DPYD reverse complement footnote",
@@ -205,7 +207,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "Though the DPYD gene is on the negative chromosomal strand, all genotype calls for DPYD in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+    "message": "The DPYD gene is on the negative chromosomal strand, all genotype calls for DPYD in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
     "rule_name": "IFNL3 reverse complement footnote",
@@ -221,7 +223,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "Though the IFNL3 gene is on the negative chromosomal strand, all genotype calls for IFNL3 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+    "message": "The IFNL3 gene is on the negative chromosomal strand, all genotype calls for IFNL3 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
     "rule_name": "CYP2D6 and CYP2C19 combined gene display ",
@@ -409,7 +411,7 @@
     "rule_name": "CYP3A5 multiple genotypes_rs776746 missing",
     "version": "1",
     "matches": {
-      "gene": "",
+      "gene": "CYP3A5",
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [
@@ -458,5 +460,49 @@
     },
     "exception_type": "report-genotype",
     "message": ""
+  },
+  {
+    "rule_name": "TPMT*1S notice",
+    "version": "1",
+    "matches": {
+      "gene": "TPMT",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "rs2842934",
+      "dips": [],
+      "hapsAvailable": [],
+      "drugs": []
+    },
+    "exception_type": "note",
+    "message": "rs28422934 (TPMT*1S: GA *1S heterozygous and AA *1S homozygous) is excluded from the genotype determination displayed. Please refer to the Calls at Position table for *1S presence."
+  },
+  {
+    "rule_name": "CYP2C19 *1/*4B warning",
+    "version": "1",
+    "matches": {
+      "gene": "CYP2C19",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1/*4B"
+      ],
+      "hapsAvailable": [],
+      "drugs": [
+        "amitriptyline",
+        "clomipramine",
+        "imipramine",
+        "trimipramine",
+        "doxepin",
+        "sertraline",
+        "clopidogrel",
+        "escitalopram",
+        "citalopram"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*4B; however, *4A/*17 cannot be ruled out with unphased data."
   }
 ]
