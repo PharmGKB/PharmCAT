@@ -43,7 +43,7 @@ public class DataManager {
   public static final Path DEFAULT_DEFINITION_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
   public static final Path DEFAULT_REPORTER_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter");
   public static final Path DEFAULT_GUIDELINE_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines");
-  public static final String DOSING_GUIDELINE_URL = "https://api.pharmgkb.org/v1/download/file/data/dosingGuidelines.json.zip?ref=pharmcat";
+  public static final String DOSING_GUIDELINE_URL = "https://api.pharmgkb.org/v1/download/file/data/dosingGuidelines.extended.json.zip?ref=pharmcat";
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   public static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   public static final String GUIDELINE_TIMESTAMP_FILE_NAME = "timestamp.txt";
