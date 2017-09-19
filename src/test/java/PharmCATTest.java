@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.PharmCAT;
@@ -16,6 +17,7 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
 import static org.junit.Assert.*;
 
@@ -56,6 +58,9 @@ public class PharmCATTest {
 
     testCalledGenes("CYP2C19");
     testCalls(DipType.PRINT,  "CYP2C19", "*1/*4B");
+
+    testMatchedGroups("citalopram", 1);
+    testMatchedGroups("ivacaftor", 0);
   }
 
   @Test
@@ -330,6 +335,21 @@ public class PharmCATTest {
 
     Arrays.stream(genes)
         .forEach(g -> assertTrue(g + " is not called", s_context.getGeneReport(g).isCalled()));
+  }
+
+  private void testMatchedGroups(String drugName, int count) {
+    Stream<GuidelineReport> guidelineStream = s_context.getGuidelineReports().stream()
+        .filter(r -> r.getRelatedDrugs().contains(drugName));
+
+    if (count > 0) {
+      assertTrue(
+          drugName + " does not have matching group count of " + count,
+          guidelineStream.allMatch(r -> r.getMatchingGroups().size() == count));
+    }
+    else {
+      assertTrue(
+          guidelineStream.allMatch(g -> g.getMatchingGroups() == null || g.getMatchingGroups().size() == 0));
+    }
   }
 
   private enum DipType {
