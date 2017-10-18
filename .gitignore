@@ -2,38 +2,37 @@
 /.idea/libraries/Gradle__*.xml
 /.idea/dictionaries/
 /.idea/gradle.xml
-/.idea/markdown-navigator.xml
-/.idea/markdown-navigator/profiles_settings.xml
-/.idea/markdown-exported-files.xml
+/.idea/markdown*
 /.idea/misc.xml
 /.idea/modules/
 /.idea/modules.xml
+/.idea/sassLintPlugin.xml
 /.idea/scssLintPlugin.xml
 /.idea/shelf/
+/.idea/vcs.xml
 /.idea/workspace.xml
 /.idea/watcherTasks.xml
-/.idea/vcs.xml
-
-# Wiki
-/*.wiki/
 
 # External tools
 .gradle/
-/bower_components/
 /node_modules/
+
+# Wiki checkout
+/*.wiki/
 
 # Temporary files
 .DS_Store
 ._.DS_Store
 *~
 /build/
+
+# PharmCAT specific
 /out/
 log.txt
 pharmcat.log
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
 # temp files for testing the Jekyll site
 /docs/_site
 /docs/Gemfile.lock
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
