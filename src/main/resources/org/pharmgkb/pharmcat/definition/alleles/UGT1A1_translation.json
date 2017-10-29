@@ -1,7 +1,6 @@
 {
   "formatVersion": "1",
-  "contentVersion": null,
-  "modificationDate": "Oct 21, 2016 12:00:00 AM",
+  "modificationDate": "Jul 31, 2017 12:00:00 AM",
   "gene": "UGT1A1",
   "orientation": "forward",
   "chromosome": "chr2",
@@ -223,7 +222,7 @@
     {
       "name": "*60",
       "id": "CA100229.1",
-      "function": "Unknown or uncertain function",
+      "function": "Normal function",
       "alleles": [
         "G",
         null,

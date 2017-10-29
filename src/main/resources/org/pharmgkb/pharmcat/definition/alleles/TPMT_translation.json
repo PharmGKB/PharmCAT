@@ -1,7 +1,6 @@
 {
   "formatVersion": "1",
-  "contentVersion": null,
-  "modificationDate": "Mar 10, 2016 12:00:00 AM",
+  "modificationDate": "Jun 15, 2017 12:00:00 AM",
   "gene": "TPMT",
   "orientation": "reverse",
   "chromosome": "chr6",
@@ -222,7 +221,7 @@
       "chromosomeHgvsName": "g.18138983G>A",
       "geneHgvsName": "g.21161T>C",
       "proteinNote": "I158=",
-      "resourceNote": "474C>T",
+      "resourceNote": "474T>C",
       "type": "SNP",
       "referenceRepeat": null
     },
@@ -298,7 +297,7 @@
       "rsid": "rs72556347",
       "chromosomeHgvsName": "g.18132136A>G",
       "geneHgvsName": "g.28008T>C",
-      "proteinNote": "F308L",
+      "proteinNote": "F208L",
       "resourceNote": "622T>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -341,7 +340,7 @@
       "position": 18130725,
       "rsid": "rs72552736",
       "chromosomeHgvsName": "g.18130725A>C",
-      "geneHgvsName": "g.18130725A>C",
+      "geneHgvsName": "g.29419A>C",
       "proteinNote": "H227Q",
       "resourceNote": "681T>G",
       "type": "SNP",

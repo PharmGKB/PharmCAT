@@ -1,7 +1,6 @@
 {
   "formatVersion": "1",
-  "contentVersion": null,
-  "modificationDate": "Jan 6, 2017 12:00:00 AM",
+  "modificationDate": "Jul 31, 2017 12:00:00 AM",
   "gene": "CYP2C19",
   "orientation": "forward",
   "chromosome": "chr10",
@@ -1115,7 +1114,7 @@
     {
       "name": "*12",
       "id": "CA100104.1",
-      "function": "Unknown function",
+      "function": "Uncertain function",
       "alleles": [
         null,
         null,
@@ -1225,7 +1224,7 @@
     {
       "name": "*14",
       "id": "CA100106.1",
-      "function": "Unknown function",
+      "function": "Uncertain function",
       "alleles": [
         null,
         null,
@@ -1610,7 +1609,7 @@
     {
       "name": "*23",
       "id": "CA100113.1",
-      "function": "Unknown function",
+      "function": "Uncertain function",
       "alleles": [
         null,
         null,
@@ -1830,7 +1829,7 @@
     {
       "name": "*27",
       "id": "CA100117.1",
-      "function": "Unknown function",
+      "function": "Uncertain function",
       "alleles": [
         null,
         null,
@@ -1940,7 +1939,7 @@
     {
       "name": "*29",
       "id": "CA100119.1",
-      "function": "Unknown function",
+      "function": "Uncertain function",
       "alleles": [
         null,
         null,
@@ -1995,7 +1994,7 @@
     {
       "name": "*30",
       "id": "CA100120.1",
-      "function": "Unknown function",
+      "function": "Uncertain function",
       "alleles": [
         null,
         null,
@@ -2050,7 +2049,7 @@
     {
       "name": "*31",
       "id": "CA100121.1",
-      "function": "Unknown function",
+      "function": "Uncertain function",
       "alleles": [
         null,
         null,
@@ -2105,7 +2104,7 @@
     {
       "name": "*32",
       "id": "CA100122.1",
-      "function": "Unknown function",
+      "function": "Uncertain function",
       "alleles": [
         null,
         null,
@@ -2160,7 +2159,7 @@
     {
       "name": "*33",
       "id": "CA100123.1",
-      "function": "Unknown function",
+      "function": "Uncertain function",
       "alleles": [
         null,
         null,
@@ -2215,7 +2214,7 @@
     {
       "name": "*34",
       "id": "CA100124.1",
-      "function": "Unknown function",
+      "function": "Uncertain function",
       "alleles": [
         null,
         null,

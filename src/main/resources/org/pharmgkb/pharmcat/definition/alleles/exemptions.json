@@ -1,5 +1,49 @@
 [
   {
+    "gene": "TPMT",
+    "extraPositions": [
+      {
+        "chromosome": "chr6",
+        "position": 18138983,
+        "rsid": "rs2842934",
+        "chromosomeHgvsName": "g.18138983",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [
+      "*1S"
+    ],
+    "ignoredAllelesLc": [
+      "*1s"
+    ],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "SLCO1B1",
+    "extraPositions": [
+      {
+        "chromosome": "chr12",
+        "position": 21178615,
+        "rsid": "rs4149056",
+        "chromosomeHgvsName": "g.21178615",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
     "gene": "UGT1A1",
     "extraPositions": [],
     "ignoredAlleles": [],
@@ -24,30 +68,6 @@
     ],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "allHits": false,
-    "assumeReference": true
-  },
-  {
-    "gene": "TPMT",
-    "extraPositions": [
-      {
-        "chromosome": "chr6",
-        "position": 18138983,
-        "rsid": "rs2842934",
-        "chromosomeHgvsName": "g.18138983",
-        "geneHgvsName": null,
-        "proteinNote": null,
-        "resourceNote": null,
-        "type": "SNP",
-        "referenceRepeat": null
-      }
-    ],
-    "ignoredAlleles": [
-      "*1S"
-    ],
-    "ignoredAllelesLc": [
-      "*1s"
-    ],
     "allHits": false,
     "assumeReference": true
   }
