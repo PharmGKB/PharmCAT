@@ -280,9 +280,9 @@ public class DataManager {
           });
       // exstract CPIC .json files
       zip.stream()
-          .filter(ze -> ze.getName().toLowerCase().matches("cpic_.*\\.json"))
+          .filter(ze -> ze.getName().toLowerCase().matches("annotation_of_cpic_.*\\.json"))
           .forEachOrdered(ze -> {
-            Path file = guidelinesDir.resolve(ze.getName());
+            Path file = guidelinesDir.resolve(ze.getName().replace("Annotation_of_", ""));
             try (InputStream inputStream = zip.getInputStream(ze);
                  OutputStream out = Files.newOutputStream(file)) {
               if (m_verbose) {
