@@ -51,25 +51,6 @@ public class SheetsHelper implements AutoCloseable {
 
 
   /**
-   * Finds a Google Sheet by it's file name.
-   */
-  public @Nonnull File findSheetByName(@Nonnull String name) throws IOException {
-
-    Preconditions.checkNotNull(name);
-    Drive.Files.List request = m_drive.files().list();
-    // get directory
-    FileList files = request.setQ("name='" + name + "' and mimeType='application/vnd.google-apps.spreadsheet' " +
-        "and trashed=false")
-        .execute();
-    if (files.getFiles().size() == 0) {
-      throw new IOException("Cannot find '" + name + "' on Drive");
-    } else {
-      return files.getFiles().get(0);
-    }
-  }
-
-
-  /**
    * Downloads all allele definitions as TSV files.
    * <p>
    * This is the main entry point.
@@ -87,14 +68,11 @@ public class SheetsHelper implements AutoCloseable {
     downloadAsTsv(findAlleleExemptionsSheet(), file);
   }
 
-  public void downloadMessagesFile(@Nonnull Path file) throws IOException, ServiceException {
-    Preconditions.checkNotNull(file);
-    downloadAnnotations(file, 0);
-  }
-
-  public void downloadRsidAnnotations(@Nonnull Path file) throws IOException, ServiceException {
-    Preconditions.checkNotNull(file);
-    downloadAnnotations(file, 1);
+  public void downloadMessagesFile(@Nonnull Path messagesFile, @Nonnull Path variantsFile) throws IOException, ServiceException {
+    Preconditions.checkNotNull(messagesFile);
+    Preconditions.checkNotNull(variantsFile);
+    downloadAnnotations(messagesFile, 0);
+    downloadAnnotations(variantsFile, 1);
   }
 
   /**
@@ -115,11 +93,11 @@ public class SheetsHelper implements AutoCloseable {
   }
 
 
-  public void downloadAsTsv(@Nonnull File srcFile, @Nonnull Path targetFile) throws IOException, ServiceException {
+  private void downloadAsTsv(@Nonnull File srcFile, @Nonnull Path targetFile) throws IOException, ServiceException {
     m_spreadsheetHelper.exportToTsv(srcFile.getId(), targetFile);
   }
 
-  public void downloadAsTsv(List<File> files, Path outputDir) throws IOException, ServiceException {
+  private void downloadAsTsv(List<File> files, Path outputDir) throws IOException, ServiceException {
 
     for (File file : files) {
       m_spreadsheetHelper.exportToTsv(file.getId(), outputDir.resolve(file.getName().replaceAll("\\s+", "_") + ".tsv"));
@@ -128,7 +106,7 @@ public class SheetsHelper implements AutoCloseable {
 
 
 
-  public List<File> getSheetsInDirectory(String folderId) throws IOException {
+  private List<File> getSheetsInDirectory(String folderId) throws IOException {
 
     Drive.Files.List request = m_drive.files().list();
     // get directory
@@ -139,7 +117,7 @@ public class SheetsHelper implements AutoCloseable {
   }
 
 
-  public @Nonnull File findAlleleDefinitionsFolder() throws IOException {
+  private @Nonnull File findAlleleDefinitionsFolder() throws IOException {
 
     Drive.Files.List request = m_drive.files().list();
     // get directory

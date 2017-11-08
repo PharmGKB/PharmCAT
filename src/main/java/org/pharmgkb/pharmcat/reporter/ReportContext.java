@@ -15,6 +15,7 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.MessageVariant;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
@@ -72,6 +73,12 @@ public class ReportContext {
 
     m_geneReports.values().forEach(r -> r.addMessages(messageMatcher.match(r)));
     m_guidelineReports.forEach(r -> r.addMessages(messageMatcher.match(r)));
+  }
+
+  public void applyMessageVariants(@Nonnull List<MessageVariant> messages) {
+    m_geneReports.values().stream()
+        .flatMap(g -> g.getVariantReports().stream())
+        .forEach(v -> messages.stream().filter(m -> m.getRsid().equals(v.getDbSnpId())).forEach(v::addMessage));
   }
 
   /**

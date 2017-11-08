@@ -24,6 +24,7 @@ import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.MessageVariant;
 
 
 /**
@@ -120,5 +121,12 @@ public class DataSerializer {
         .skip(1) // skip the header
         .map(MessageAnnotation::new)
         .collect(Collectors.toList());
+  }
+
+  public List<MessageVariant> deserializeVariantsFromTsv(@Nonnull Path tsvFile) throws IOException {
+    Preconditions.checkNotNull(tsvFile);
+    Preconditions.checkArgument(Files.isRegularFile(tsvFile));
+
+    return Files.lines(tsvFile).skip(1).map(MessageVariant::new).collect(Collectors.toList());
   }
 }

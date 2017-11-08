@@ -27,6 +27,7 @@ import org.pharmgkb.pharmcat.reporter.io.ReportData;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.MessageVariant;
 import org.pharmgkb.pharmcat.util.DataManager;
 
 
@@ -41,10 +42,12 @@ import org.pharmgkb.pharmcat.util.DataManager;
  */
 public class Reporter {
   private static final String sf_messagesFile = "org/pharmgkb/pharmcat/reporter/messages.json";
+  private static final String sf_variantsFile = "org/pharmgkb/pharmcat/reporter/variants.json";
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
   private List<Path> m_annotationFiles = null;
   private List<MessageAnnotation> m_messages = null;
+  private List<MessageVariant> m_messageVariants = null;
   private ReportContext m_reportContext = null;
 
   /**
@@ -108,6 +111,12 @@ public class Reporter {
       MessageAnnotation[] messages = new Gson().fromJson(reader, MessageAnnotation[].class);
       m_messages = Arrays.asList(messages);
     }
+
+    try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(sf_variantsFile))) {
+      MessageVariant[] messages = new Gson().fromJson(reader, MessageVariant[].class);
+      m_messageVariants = Arrays.asList(messages);
+    }
+
   }
 
   /**
@@ -140,6 +149,7 @@ public class Reporter {
     m_reportContext = new ReportContext(calls, astrolabeCalls, guidelines);
 
     m_reportContext.applyMessage(m_messages);
+    m_reportContext.applyMessageVariants(m_messageVariants);
 
     return this;
   }

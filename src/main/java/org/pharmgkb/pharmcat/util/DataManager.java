@@ -46,6 +46,8 @@ public class DataManager {
   public static final String DOSING_GUIDELINE_URL = "https://api.pharmgkb.org/v1/download/file/data/dosingGuidelines.extended.json.zip?ref=pharmcat";
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   public static final String MESSAGES_JSON_FILE_NAME = "messages.json";
+  public static final String VARIANTS_TSV_FILE_NAME = "variants.tsv";
+  public static final String VARIANTS_JSON_FILE_NAME = "variants.json";
   public static final String GUIDELINE_TIMESTAMP_FILE_NAME = "timestamp.txt";
   public static final String ALLELE_DEFINITION_ARCHIVE =  "allele.definitions.zip";
   private String m_googleUser;
@@ -129,11 +131,13 @@ public class DataManager {
         Path exemptionsJson = allelesDir.resolve(EXEMPTIONS_JSON_FILE_NAME);
         Path messagesTsv = downloadDir.resolve("messages.tsv");
         Path messagesJson = messageDir.resolve(MESSAGES_JSON_FILE_NAME);
+        Path variantsTsv = downloadDir.resolve(VARIANTS_TSV_FILE_NAME);
+        Path variantsJson = messageDir.resolve(VARIANTS_JSON_FILE_NAME);
         Path guidelinesZip = downloadDir.resolve("guidelines.zip");
 
         DataManager manager = new DataManager(propsFile, cliHelper.isVerbose());
         if (!cliHelper.hasOption("sd")) {
-          manager.download(downloadDir, exemptionsTsv, messagesTsv);
+          manager.download(downloadDir, exemptionsTsv, messagesTsv, variantsTsv);
           if (!cliHelper.hasOption("sg")) {
             manager.downloadGuidelines(guidelinesZip);
           }
@@ -145,6 +149,7 @@ public class DataManager {
         }
         if (!cliHelper.hasOption("sm")) {
           manager.transformMessages(messagesTsv, messagesJson);
+          manager.transformVariants(variantsTsv, variantsJson);
         }
         if (!cliHelper.hasOption("sg")) {
           manager.transformGuidelines(guidelinesZip, guidelinesDir);
@@ -162,12 +167,12 @@ public class DataManager {
   }
 
 
-  private void download(@Nonnull Path downloadDir, @Nonnull Path exemptionsFile, @Nonnull Path messagesFile) throws Exception {
+  private void download(@Nonnull Path downloadDir, @Nonnull Path exemptionsFile, @Nonnull Path messagesFile, @Nonnull Path variantsFile) throws Exception {
 
     SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
     sh.downloadAlleleDefinitions(downloadDir);
     sh.downloadAlleleExemptionsFile(exemptionsFile);
-    sh.downloadMessagesFile(messagesFile);
+    sh.downloadMessagesFile(messagesFile, variantsFile);
   }
 
 
@@ -224,6 +229,13 @@ public class DataManager {
     System.out.println();
     System.out.println("Saving messages to " + jsonFile.toString());
     m_dataSerializer.serializeToJson(m_dataSerializer.deserializeMessagesFromTsv(tsvFile), jsonFile);
+  }
+
+  private void transformVariants(@Nonnull Path tsvFile, @Nonnull Path jsonFile) throws IOException {
+
+    System.out.println();
+    System.out.println("Saving variants to " + jsonFile.toString());
+    m_dataSerializer.serializeToJson(m_dataSerializer.deserializeVariantsFromTsv(tsvFile), jsonFile);
   }
 
 

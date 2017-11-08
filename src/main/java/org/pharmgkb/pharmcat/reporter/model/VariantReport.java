@@ -1,7 +1,9 @@
 package org.pharmgkb.pharmcat.reporter.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import com.google.gson.annotations.Expose;
@@ -43,19 +45,22 @@ public class VariantReport {
   @Expose
   @SerializedName("wildtypeAllele")
   private String m_wildtypeAllele;
+  @Expose
+  @SerializedName("messages")
+  private List<MessageVariant> m_messages = new ArrayList<>();
 
   public VariantReport(String gene, Variant variant) {
-    m_gene = gene;
-    m_position = variant.getPosition();
-    m_call = variant.getVcfCall();
-    m_dbSnpId = variant.getRsid();
-    m_phased = variant.isPhased();
+    setGene(gene);
+    setPosition(variant.getPosition());
+    setCall(variant.getVcfCall());
+    setDbSnpId(variant.getRsid());
+    setPhased(variant.isPhased());
   }
 
   public VariantReport(String gene, VariantLocus locus) {
-    m_gene = gene;
-    m_position = locus.getPosition();
-    m_dbSnpId = locus.getRsid();
+    setGene(gene);
+    setPosition(locus.getPosition());
+    setDbSnpId(locus.getRsid());
   }
 
   public String getGene() {
@@ -112,6 +117,14 @@ public class VariantReport {
 
   public void setWildtypeAllele(String wildtypeAllele) {
     m_wildtypeAllele = wildtypeAllele;
+  }
+
+  public List<MessageVariant> getMessages() {
+    return m_messages;
+  }
+
+  public void addMessage(MessageVariant message) {
+    m_messages.add(message);
   }
 
   public boolean isMissing() {
