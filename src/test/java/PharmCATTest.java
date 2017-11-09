@@ -5,9 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Collection;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,7 +14,6 @@ import org.pharmgkb.pharmcat.PharmCAT;
 import org.pharmgkb.pharmcat.VcfTestUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
-import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
@@ -114,7 +112,7 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("SLCO1B1");
-    testCalls(DipType.PRINT, "SLCO1B1", "rs4149056T/rs4149056C");
+    testCalls(DipType.PRINT, "SLCO1B1", "*17/*21");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*5");
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
@@ -128,7 +126,7 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("SLCO1B1");
-    testCalls(DipType.PRINT, "SLCO1B1", "rs4149056T/rs4149056T");
+    testCalls(DipType.PRINT, "SLCO1B1", "*1A/*1A");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*1A");
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
@@ -142,21 +140,7 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("SLCO1B1");
-    testCalls(DipType.PRINT, "SLCO1B1", "rs4149056C/rs4149056C");
-    testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*5/*5");
-
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
-  }
-
-  @Test
-  public void testSlco1b1Test2() throws Exception {
-    generalTest("test.slco1b1.5.15", new String[]{
-            "SLCO1B1/s5s15.vcf"
-        },
-        false);
-
-    testCalledGenes("SLCO1B1");
-    testCalls(DipType.PRINT, "SLCO1B1", "rs4149056C/rs4149056C");
+    testCalls(DipType.PRINT, "SLCO1B1", "*5/*15");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*5/*5");
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
@@ -170,7 +154,7 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("SLCO1B1");
-    testCalls(DipType.PRINT, "SLCO1B1", "rs4149056T/rs4149056C");
+    testCalls(DipType.PRINT, "SLCO1B1", "*1A/*15");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*5");
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
@@ -198,7 +182,10 @@ public class PharmCATTest {
         },
         false);
 
-    testCalledGenes("SLCO1B1");
+    GeneReport geneReport = s_context.getGeneReport("SLCO1B1");
+    assertNotNull(geneReport);
+    assertFalse(geneReport.isCalled());
+
     testCalls(DipType.PRINT, "SLCO1B1", "rs4149056T/rs4149056C");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*5");
 
@@ -213,7 +200,7 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("UGT1A1");
-    testCalls(DipType.PRINT, "UGT1A1", "*1/*60", "*1/*80");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*60+*80");
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
@@ -310,6 +297,7 @@ public class PharmCATTest {
     assertEquals(33, s_context.getGuidelineReports().size());
   }
 
+  private static final String sf_diplotypesTemplate = "\nmatcher: %s\nreporter: %s\nprint (displayCalls): %s\nlookup: %s";
   /**
    * Test the different types of diplotype calls that come out of the reporter
    * @param type what type of diplotype to test
@@ -317,14 +305,26 @@ public class PharmCATTest {
    * @param calls the calls to match against
    */
   private void testCalls(DipType type, String gene, String... calls) {
-    List<String> dips = type == DipType.PRINT ?
-        s_context.getGeneReport(gene).getMatcherDiplotypes().stream().map(Diplotype::printDisplay).collect(Collectors.toList())
-        : new ArrayList<>(s_context.getGeneReport(gene).getDiplotypeLookupKeys());
+    GeneReport geneReport = s_context.getGeneReport(gene);
+
+    Collection<String> dips = type == DipType.PRINT ?
+        geneReport.printDisplayCalls()
+        : new ArrayList<>(geneReport.getDiplotypeLookupKeys());
 
     assertEquals(gene + " call count doesn't match", calls.length, dips.size());
 
     Arrays.stream(calls)
-        .forEach(c -> assertTrue(c + " not in "+type+" for " + gene + ":" + dips, dips.contains(c)));
+        .forEach(c -> assertTrue(c + " not in "+type+" for " + gene + ":" + dips + printDiagnostic(geneReport), dips.contains(c)));
+  }
+
+  private static String printDiagnostic(GeneReport geneReport) {
+    return String.format(
+        sf_diplotypesTemplate,
+        geneReport.getMatcherDiplotypes().toString(),
+        geneReport.getReporterDiplotypes().toString(),
+        geneReport.printDisplayCalls(),
+        geneReport.getDiplotypeLookupKeys()
+    );
   }
 
   /**

@@ -167,6 +167,14 @@ public class PipelineTest {
         "IFNL3/rs12979860CC.vcf"
     });
 
+    sf_testVcfs.put("test.slco1b1.no_match", new String[]{
+        "SLCO1B1/multi.vcf"
+    });
+
+    sf_testVcfs.put("test.slco1b1.match_1", new String[]{
+        "SLCO1B1/s5s15.vcf"
+    });
+
     sf_testVcfs.put("test.cyp2c19.onlyRs12769205", new String[]{
         "DPYD/s1s1.vcf",
         "UGT1A1/s1s1.vcf",

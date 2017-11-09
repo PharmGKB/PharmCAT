@@ -29,6 +29,7 @@ import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
  */
 public class GeneReport implements Comparable<GeneReport> {
   private static final List<String> sf_reducibleGeneCalls = ImmutableList.of("UGT1A1");
+  private static final Set<String> sf_overrideDiplotypes = ImmutableSet.of("SLCO1B1");
   private static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
 
@@ -86,7 +87,13 @@ public class GeneReport implements Comparable<GeneReport> {
       Set<String> diplotypes = Ugt1a1AlleleMatcher.makeLookupCalls(this);
       m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(diplotypes));
     } else {
-      m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
+      // some genes disregard the actual call and calculate the call by the reporter, that logic goes here
+      if (sf_overrideDiplotypes.contains(getGene())) {
+        m_reporterDiplotypes.addAll(diplotypeFactory.makeOverrideDiplotypes());
+      }
+      else {
+        m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
+      }
     }
   }
 
@@ -193,10 +200,14 @@ public class GeneReport implements Comparable<GeneReport> {
   public Set<String> getDiplotypeLookupKeys() {
     Set<String> results;
     if (!isCalled()) {
-      // only HLA-B uses Other/Other, all else is Unknown/Unknown
-      String defaultUncalled = getGene().equals("HLA-B") ? "Other/Other" : "Unknown/Unknown";
-
-      results = ImmutableSet.of(m_gene + ":" + defaultUncalled);
+      if (sf_overrideDiplotypes.contains(getGene()) && !m_reporterDiplotypes.isEmpty()) {
+        results = m_reporterDiplotypes.stream().map(Diplotype::printLookupKey).collect(Collectors.toSet());
+      }
+      else {
+        // only HLA-B uses Other/Other, all else is Unknown/Unknown
+        String defaultUncalled = getGene().equals("HLA-B") ? "Other/Other" : "Unknown/Unknown";
+        results = ImmutableSet.of(m_gene + ":" + defaultUncalled);
+      }
     }
     else {
       if (getGene().equals("UGT1A1") && (!isPhased() || m_reporterDiplotypes.size() > 1)) {
@@ -212,6 +223,9 @@ public class GeneReport implements Comparable<GeneReport> {
 
   public Collection<String> printDisplayCalls() {
     if (!isCalled()) {
+      if (sf_overrideDiplotypes.contains(getGene()) && !m_reporterDiplotypes.isEmpty()) {
+        return m_reporterDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
+      }
       return ImmutableList.of(UNCALLED);
     }
     else if (isCallReducible()) {
@@ -265,6 +279,10 @@ public class GeneReport implements Comparable<GeneReport> {
 
   public List<Diplotype> getMatcherDiplotypes() {
     return m_matcherDiplotypes;
+  }
+
+  public List<Diplotype> getReporterDiplotypes() {
+    return m_reporterDiplotypes;
   }
 
   /**

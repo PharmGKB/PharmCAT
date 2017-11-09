@@ -58,7 +58,7 @@ public class ReportData {
       }
 
       // skip any uncalled genes
-      if (!geneReport.isCalled()) {
+      if (!geneReport.isCalled() && geneReport.getReporterDiplotypes().isEmpty()) {
         continue;
       }
 

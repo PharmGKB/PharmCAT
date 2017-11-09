@@ -13,7 +13,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
@@ -37,8 +36,6 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
  * @author Ryan Whaley
  */
 public class DiplotypeFactory {
-
-  private static final Set<String> sf_overrideDiplotypes = ImmutableSet.of("SLCO1B1");
 
   private final String f_gene;
   private final GenePhenotype f_genePhenotype;
@@ -74,11 +71,6 @@ public class DiplotypeFactory {
   public List<Diplotype> makeDiplotypes(GeneCall geneCall) {
     Preconditions.checkNotNull(geneCall);
     Preconditions.checkArgument(geneCall.getGene().equals(f_gene));
-
-    // some genes disregard the actual call and calculate the call by the reporter, that logic goes here
-    if (sf_overrideDiplotypes.contains(f_gene)) {
-      return makeOverrideDiplotypes();
-    }
 
     // do the regular processing when diplotypes are called
     if (geneCall.getDiplotypes().size() > 0) {
@@ -183,7 +175,7 @@ public class DiplotypeFactory {
    * Calls diplotypes based on variant data as a replacement for typical diplotype calling
    * @return a List of called Diplotypes, empty if no call
    */
-  private List<Diplotype> makeOverrideDiplotypes() {
+  public List<Diplotype> makeOverrideDiplotypes() {
     List<Diplotype> diplotypes = new ArrayList<>();
 
     switch (f_gene) {
