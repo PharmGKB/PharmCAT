@@ -30,6 +30,7 @@ public class PharmCATTest {
   private static final String sf_astrolabeOutput = "##Test Astrolabe output\n" +
       "#ROI_label\tdiplotype labels\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\tspecial case\tnomenclature version\n" +
       "CYP2D6\tCYP2D6*1/CYP2D6*4\t?/?\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
+  private static final String sf_diplotypesTemplate = "\nmatcher: %s\nreporter: %s\nprint (displayCalls): %s\nlookup: %s";
   private static PharmCAT s_pharmcat;
   private static Path s_tempAstroPath;
   private static ReportContext s_context;
@@ -297,7 +298,6 @@ public class PharmCATTest {
     assertEquals(33, s_context.getGuidelineReports().size());
   }
 
-  private static final String sf_diplotypesTemplate = "\nmatcher: %s\nreporter: %s\nprint (displayCalls): %s\nlookup: %s";
   /**
    * Test the different types of diplotype calls that come out of the reporter
    * @param type what type of diplotype to test
