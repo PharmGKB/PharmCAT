@@ -24,26 +24,6 @@
     "assumeReference": true
   },
   {
-    "gene": "SLCO1B1",
-    "extraPositions": [
-      {
-        "chromosome": "chr12",
-        "position": 21178615,
-        "rsid": "rs4149056",
-        "chromosomeHgvsName": "g.21178615",
-        "geneHgvsName": null,
-        "proteinNote": null,
-        "resourceNote": null,
-        "type": "SNP",
-        "referenceRepeat": null
-      }
-    ],
-    "ignoredAlleles": [],
-    "ignoredAllelesLc": [],
-    "allHits": false,
-    "assumeReference": true
-  },
-  {
     "gene": "UGT1A1",
     "extraPositions": [],
     "ignoredAlleles": [],
