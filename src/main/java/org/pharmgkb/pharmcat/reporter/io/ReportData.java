@@ -204,6 +204,14 @@ public class ReportData {
       geneCallMap.put("gene", geneReport.getGene());
       geneCallMap.put("incidental", geneReport.isIncidental());
 
+      String phaseStatus = "";
+      if (geneReport.isAstrolabeCall()) {
+        phaseStatus = "Unavailable for Astrolabe calls";
+      } else {
+        phaseStatus = geneReport.isPhased() ? "Phased" : "Unphased";
+      }
+      geneCallMap.put("phaseStatus", phaseStatus);
+
       boolean hasUncalledHaplotypes = geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0;
       geneCallMap.put("hasUncalledHaps", hasUncalledHaplotypes);
       if (hasUncalledHaplotypes) {

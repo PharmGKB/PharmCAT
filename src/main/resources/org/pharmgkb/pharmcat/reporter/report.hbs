@@ -223,6 +223,8 @@
         {{/each}}
       </ul>
 
+      <h4>Phasing status</h4><div>{{phaseStatus}}</div>
+
       {{#if hasUncalledHaps}}
         <h4>Alleles Not Considered</h4>
         <p>The following alleles are not considered due to {{totalMissingVariants}} missing positions of the total {{totalVariants}} positions: {{uncalledHaps}}</p>
