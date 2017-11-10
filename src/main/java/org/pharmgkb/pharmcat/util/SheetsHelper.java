@@ -68,17 +68,15 @@ public class SheetsHelper implements AutoCloseable {
     downloadAsTsv(findAlleleExemptionsSheet(), file);
   }
 
-  public void downloadMessagesFile(@Nonnull Path messagesFile, @Nonnull Path variantsFile) throws IOException, ServiceException {
+  public void downloadMessagesFile(@Nonnull Path messagesFile) throws IOException, ServiceException {
     Preconditions.checkNotNull(messagesFile);
-    Preconditions.checkNotNull(variantsFile);
-    downloadAnnotations(messagesFile, 0);
-    downloadAnnotations(variantsFile, 1);
+    downloadAnnotations(messagesFile);
   }
 
   /**
    * Saves an annotations sheet as a .tsv file.
    */
-  private void downloadAnnotations(@Nonnull Path outputFile, int sheetNumber) throws IOException, ServiceException {
+  private void downloadAnnotations(@Nonnull Path outputFile) throws IOException, ServiceException {
 
     Drive.Files.List request = m_drive.files().list();
     List<File> files = request.setQ("name='PharmCAT Message Annotations'" +
@@ -89,7 +87,7 @@ public class SheetsHelper implements AutoCloseable {
       throw new IOException("Cannot find file (found " + files.size() + ")");
     }
     File file = files.get(0);
-    m_spreadsheetHelper.exportToTsv(file.getId(), outputFile, sheetNumber);
+    m_spreadsheetHelper.exportToTsv(file.getId(), outputFile, 0);
   }
 
 

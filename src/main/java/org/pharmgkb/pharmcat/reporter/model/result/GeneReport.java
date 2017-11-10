@@ -22,7 +22,6 @@ import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
-import org.pharmgkb.pharmcat.reporter.model.MessageVariant;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
 
@@ -307,18 +306,5 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public List<String> getHighlightedVariants() {
     return m_highlightedVariants;
-  }
-
-  public void applyMessage(MessageVariant message) {
-    if (!message.getGene().equals(getGene())) {
-      return;
-    }
-    if (message.getRsid() != null) {
-      m_variantReports.stream()
-          .filter(r -> r.getDbSnpId() != null && r.getDbSnpId().equals(message.getRsid()))
-          .forEach(r -> {
-            r.addMessage(message);
-          });
-    }
   }
 }

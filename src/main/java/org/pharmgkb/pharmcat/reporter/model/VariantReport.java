@@ -47,7 +47,7 @@ public class VariantReport {
   private String m_wildtypeAllele;
   @Expose
   @SerializedName("messages")
-  private List<MessageVariant> m_messages = new ArrayList<>();
+  private List<String> m_messages = new ArrayList<>();
 
   public VariantReport(String gene, Variant variant) {
     setGene(gene);
@@ -119,11 +119,11 @@ public class VariantReport {
     m_wildtypeAllele = wildtypeAllele;
   }
 
-  public List<MessageVariant> getMessages() {
+  public List<String> getMessages() {
     return m_messages;
   }
 
-  public void addMessage(MessageVariant message) {
+  public void addMessage(String message) {
     m_messages.add(message);
   }
 

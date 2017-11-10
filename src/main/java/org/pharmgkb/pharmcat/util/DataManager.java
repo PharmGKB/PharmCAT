@@ -41,20 +41,17 @@ import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
  */
 public class DataManager {
   public static final Path DEFAULT_DEFINITION_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
-  public static final Path DEFAULT_REPORTER_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter");
+  private static final Path DEFAULT_REPORTER_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter");
   public static final Path DEFAULT_GUIDELINE_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines");
-  public static final String DOSING_GUIDELINE_URL = "https://api.pharmgkb.org/v1/download/file/data/dosingGuidelines.extended.json.zip?ref=pharmcat";
+  private static final String DOSING_GUIDELINE_URL = "https://api.pharmgkb.org/v1/download/file/data/dosingGuidelines.extended.json.zip?ref=pharmcat";
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
-  public static final String MESSAGES_JSON_FILE_NAME = "messages.json";
-  public static final String VARIANTS_TSV_FILE_NAME = "variants.tsv";
-  public static final String VARIANTS_JSON_FILE_NAME = "variants.json";
-  public static final String GUIDELINE_TIMESTAMP_FILE_NAME = "timestamp.txt";
-  public static final String ALLELE_DEFINITION_ARCHIVE =  "allele.definitions.zip";
+  private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
+  private static final String GUIDELINE_TIMESTAMP_FILE_NAME = "timestamp.txt";
+  private static final String ALLELE_DEFINITION_ARCHIVE =  "allele.definitions.zip";
   private String m_googleUser;
   private String m_googleKey;
   private DataSerializer m_dataSerializer = new DataSerializer();
   private boolean m_verbose;
-
 
 
   private DataManager(Path propertyFile, boolean verbose) throws IOException {
@@ -131,13 +128,11 @@ public class DataManager {
         Path exemptionsJson = allelesDir.resolve(EXEMPTIONS_JSON_FILE_NAME);
         Path messagesTsv = downloadDir.resolve("messages.tsv");
         Path messagesJson = messageDir.resolve(MESSAGES_JSON_FILE_NAME);
-        Path variantsTsv = downloadDir.resolve(VARIANTS_TSV_FILE_NAME);
-        Path variantsJson = messageDir.resolve(VARIANTS_JSON_FILE_NAME);
         Path guidelinesZip = downloadDir.resolve("guidelines.zip");
 
         DataManager manager = new DataManager(propsFile, cliHelper.isVerbose());
         if (!cliHelper.hasOption("sd")) {
-          manager.download(downloadDir, exemptionsTsv, messagesTsv, variantsTsv);
+          manager.download(downloadDir, exemptionsTsv, messagesTsv);
           if (!cliHelper.hasOption("sg")) {
             manager.downloadGuidelines(guidelinesZip);
           }
@@ -149,7 +144,6 @@ public class DataManager {
         }
         if (!cliHelper.hasOption("sm")) {
           manager.transformMessages(messagesTsv, messagesJson);
-          manager.transformVariants(variantsTsv, variantsJson);
         }
         if (!cliHelper.hasOption("sg")) {
           manager.transformGuidelines(guidelinesZip, guidelinesDir);
@@ -167,12 +161,12 @@ public class DataManager {
   }
 
 
-  private void download(@Nonnull Path downloadDir, @Nonnull Path exemptionsFile, @Nonnull Path messagesFile, @Nonnull Path variantsFile) throws Exception {
+  private void download(@Nonnull Path downloadDir, @Nonnull Path exemptionsFile, @Nonnull Path messagesFile) throws Exception {
 
     SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
     sh.downloadAlleleDefinitions(downloadDir);
     sh.downloadAlleleExemptionsFile(exemptionsFile);
-    sh.downloadMessagesFile(messagesFile, variantsFile);
+    sh.downloadMessagesFile(messagesFile);
   }
 
 
@@ -230,14 +224,6 @@ public class DataManager {
     System.out.println("Saving messages to " + jsonFile.toString());
     m_dataSerializer.serializeToJson(m_dataSerializer.deserializeMessagesFromTsv(tsvFile), jsonFile);
   }
-
-  private void transformVariants(@Nonnull Path tsvFile, @Nonnull Path jsonFile) throws IOException {
-
-    System.out.println();
-    System.out.println("Saving variants to " + jsonFile.toString());
-    m_dataSerializer.serializeToJson(m_dataSerializer.deserializeVariantsFromTsv(tsvFile), jsonFile);
-  }
-
 
   private void downloadGuidelines(@Nonnull Path guidelinesZip) throws Exception {
 
