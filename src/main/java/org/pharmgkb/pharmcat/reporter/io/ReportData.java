@@ -104,6 +104,7 @@ public class ReportData {
         geneCall.put("gene", gene);
         geneCall.put("diplotypes", geneReport.printDisplayCalls().stream()
             .collect(Collectors.joining(", ")));
+        geneCall.put("showHighlights", !geneReport.getHighlightedVariants().isEmpty());
         geneCall.put("highlightedVariants", geneReport.getHighlightedVariants());
         geneCall.put("astrolabe", geneReport.isAstrolabeCall());
         geneCallList.add(geneCall);

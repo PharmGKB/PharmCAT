@@ -136,7 +136,9 @@
       <section>
         {{#each geneCalls}}
           <div class="geneCall"><a href="#{{gene}}">{{gene}}: {{diplotypes}}</a>{{#if astrolabe}} (from Astrolabe){{/if}}</div>
-          <div class="geneCall">{{#each highlightedVariants}}<div><a href="#{{gene}}">{{this}}</a></div>{{/each}}</div>
+          {{#if showHighlights}}
+            <div class="geneCall">{{#each highlightedVariants}}<div><a href="#{{gene}}">{{this}}</a></div>{{/each}}</div>
+          {{/if}}
         {{/each}}
       </section>
 
