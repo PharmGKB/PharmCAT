@@ -244,7 +244,7 @@ public class PharmCATTest {
     assertTrue(tpmtReport.getVariantReports().stream().filter(singlePosition).allMatch(r -> r.getCall().equals("G|G")));
 
     assertEquals(1, tpmtReport.getHighlightedVariants().size());
-    assertEquals("rs2842934", tpmtReport.getHighlightedVariants().get(0));
+    assertEquals("rs2842934G/rs2842934G", tpmtReport.getHighlightedVariants().get(0));
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }

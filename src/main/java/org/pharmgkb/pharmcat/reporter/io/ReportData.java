@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.collect.ImmutableList;
@@ -105,6 +104,7 @@ public class ReportData {
         geneCall.put("gene", gene);
         geneCall.put("diplotypes", geneReport.printDisplayCalls().stream()
             .collect(Collectors.joining(", ")));
+        geneCall.put("highlightedVariants", geneReport.getHighlightedVariants());
         geneCall.put("astrolabe", geneReport.isAstrolabeCall());
         geneCallList.add(geneCall);
       }
@@ -211,19 +211,7 @@ public class ReportData {
 
       List<String> diplotypes = new ArrayList<>(geneReport.printDisplayCalls());
       for (String variant : geneReport.getHighlightedVariants()) {
-        Optional<String> call = reportContext.getGeneReports().stream()
-            .flatMap(g -> g.getVariantReports().stream())
-            .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(variant) && !v.isMissing())
-            .map(VariantReport::getCall)
-            .reduce((a,b) -> {throw new RuntimeException();});
-        String genotype;
-        if (!call.isPresent() || StringUtils.isBlank(call.get())) {
-          genotype = "missing";
-        }
-        else {
-          genotype = variant + call.get().replaceAll("[\\|/]", "/"+variant);
-        }
-        diplotypes.add(genotype);
+        diplotypes.add(variant);
       }
       geneCallMap.put("diplotypes", diplotypes);
 

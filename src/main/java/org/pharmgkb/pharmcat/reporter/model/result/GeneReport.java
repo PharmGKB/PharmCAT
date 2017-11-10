@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -20,6 +22,7 @@ import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.MessageVariant;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
 
@@ -126,7 +129,21 @@ public class GeneReport implements Comparable<GeneReport> {
     // separate the general messages from specific genotype call messages
     messages.forEach(ma -> {
       if (ma.getExceptionType().equals(MessageAnnotation.TYPE_GENOTYPE)) {
-        m_highlightedVariants.add(ma.getMatches().getVariant());
+        String rsid = ma.getMatches().getVariant();
+
+        Optional<String> call = getVariantReports().stream()
+            .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(rsid) && !v.isMissing())
+            .map(VariantReport::getCall)
+            .reduce((a,b) -> {throw new RuntimeException();});
+        String genotype;
+        if (!call.isPresent() || StringUtils.isBlank(call.get())) {
+          genotype = "missing";
+        }
+        else {
+          genotype = rsid + call.get().replaceAll("[\\|/]", "/"+rsid);
+        }
+        m_highlightedVariants.add(genotype);
+
       }
       else {
         m_messages.add(ma);
@@ -290,5 +307,18 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public List<String> getHighlightedVariants() {
     return m_highlightedVariants;
+  }
+
+  public void applyMessage(MessageVariant message) {
+    if (!message.getGene().equals(getGene())) {
+      return;
+    }
+    if (message.getRsid() != null) {
+      m_variantReports.stream()
+          .filter(r -> r.getDbSnpId() != null && r.getDbSnpId().equals(message.getRsid()))
+          .forEach(r -> {
+            r.addMessage(message);
+          });
+    }
   }
 }

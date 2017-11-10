@@ -76,9 +76,7 @@ public class ReportContext {
   }
 
   public void applyMessageVariants(@Nonnull List<MessageVariant> messages) {
-    m_geneReports.values().stream()
-        .flatMap(g -> g.getVariantReports().stream())
-        .forEach(v -> messages.stream().filter(m -> m.getRsid().equals(v.getDbSnpId())).forEach(v::addMessage));
+    m_geneReports.values().forEach(g -> messages.forEach(g::applyMessage));
   }
 
   /**

@@ -504,5 +504,21 @@
     },
     "exception_type": "ambiguity",
     "message": "The assigned genotype is *1/*4B; however, *4A/*17 cannot be ruled out with unphased data."
+  },
+  {
+    "rule_name": "Show rs4149056 for SLCO1B1",
+    "version": "1",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "rs4149056",
+      "dips": [],
+      "hapsAvailable": [],
+      "drugs": []
+    },
+    "exception_type": "report-genotype",
+    "message": ""
   }
 ]
