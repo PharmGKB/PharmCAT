@@ -15,8 +15,8 @@ import org.pharmgkb.common.util.PathUtils;
  */
 public class VcfTestUtils {
 
-  private static final String HEADER_FILE = "org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf";
-  private static final String TEST_PATH   = "org/pharmgkb/pharmcat/haplotype/";
+  private static final Path VCF_HEADER_PATH = PathUtils.getPathToResource("org/pharmgkb/pharmcat/util/VcfHeader.txt");
+  private static final String TEST_PATH  = "org/pharmgkb/pharmcat/haplotype/";
 
   public static String writeVcf(String[] filesToInclude) {
     StringWriter writer = new StringWriter();
@@ -37,9 +37,7 @@ public class VcfTestUtils {
   }
 
   private static String getVcfHeader() throws IOException {
-    Path headerFile = PathUtils.getPathToResource(HEADER_FILE);
-
-    return Files.lines(headerFile)
+    return Files.lines(VCF_HEADER_PATH)
         .filter(l -> l.startsWith("#"))
         .collect(Collectors.joining("\n"));
   }
