@@ -4,7 +4,7 @@
     "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
     "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
     "id" : "PA166105005",
-    "name" : "CPIC Guideline for simvastatin and SLCO1B1",
+    "name" : "Annotation of CPIC Guideline for simvastatin and SLCO1B1",
     "descriptiveVideoId" : "VHIRIeQ2b08",
     "history" : [ {
       "id" : 1183699778,
@@ -35,13 +35,14 @@
       "type" : "update",
       "version" : 0
     } ],
+    "recommendation" : true,
     "relatedChemicals" : [ {
       "objCls" : "Chemical",
       "@id" : "https://api.pharmgkb.org/data/chemical/PA451363",
       "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
       "id" : "PA451363",
       "name" : "simvastatin",
-      "version" : 18
+      "version" : 19
     } ],
     "relatedGenes" : [ {
       "objCls" : "Gene",
@@ -61,22 +62,22 @@
       "markdown" : "The FDA recommends against 80mg daily simvastatin dosage. In patients with the C allele at SLCO1B1 [variant:rs4149056], there are modest increases in myopathy risk even at lower simvastatin doses (40mg daily); if optimal efficacy is not achieved with a lower dose, alternate agents should be considered.",
       "pmids" : [ ],
       "relatedObjects" : [ "PA166154579" ],
-      "version" : 8
+      "version" : 10
     },
     "summaryVideoId" : "V4iRKeTOxjc",
     "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
     "textMarkdown" : {
       "id" : 1447981965,
-      "externalLinks" : [ "https://cpicpgx.org/", "https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2012/22617227-supplement.pdf", "https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2012/22617227.pdf", "https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167-supplement.pdf", "https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167.pdf", "https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167.xlsx" ],
-      "html" : "<h3 id=\"october-2014-update\">October 2014 Update</h3>\n<p><em>Advance online publication 9 July 2014.</em></p>\n<ul>\n<li>\n<p>The <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2014%2F24918167.pdf\" target=\"_blank\">2014 update of CPIC guideline regarding SLCO1B1 and simvastatin-induced myopathy</a>, has been published in Clinical Pharmacology and Therapeutics.  CPIC extensively reviewed the literature from February 2011 to December 2013 and concluded the dosing recommendations provided in the 2012 CPIC guideline for SLCO1B1 and simvastatin-induced myopathy have not changed. However, this updated guideline also provides a brief review regarding SLCO1B1 genotype and risk of myopathy for other statins.  Furthermore, comprehensive translation tables mapping SLCO1B1 genotypes to coded genotype/phenotype summaries, EHR priority result notation and interpretation (consultation) text were created to facilitate incorporation of SLCO1B1 pharmacogenetics into an electronic health record with clinical decision support.</p>\n</li>\n<li>\n<p>This guideline is applicable to:</p>\n<ul>\n<li>adult patients</li>\n<li>pediatric patients</li>\n</ul>\n</li>\n<li>\n<p>Excerpt from the 2014 simvastatin dosing guideline:</p>\n<ul>\n<li>&quot;For simvastatin, the evidence linking myopathy to <a href=\"/variant/PA166154579\">rs4149056</a> in SLCO1B1 is of high quality, and this association has been reproduced in randomized trials and clinical practice-based cohorts. Conversely, the association of <a href=\"/variant/PA166154579\">rs4149056</a> with myopathy has been less compelling for other statins. We therefore focus this guideline on simvastatin.&quot;</li>\n</ul>\n</li>\n</ul>\n<p>&quot;In 2011 and updated in 2013, the FDA added warnings to the simvastatin product label to direct providers away from initiating at the 80 mg simvastatin dose. &quot;</p>\n<p>&quot;At lower simvastatin doses (e.g., 40 mg daily), it is our position that SLCO1B1 genotype (if available) could be used to warn providers about modest increases in myopathy risk for patients with a C allele at <a href=\"/variant/PA166154579\">rs4149056</a>. In these circumstances, we recommend a lower dose of simvastatin or use an alternative statin (e.g. pravastatin or rosuvastatin) and we also highlight the potential utility of routine CK surveillance (Table 2). If patients with a C allele at <a href=\"/variant/PA166154579\">rs4149056</a> do not achieve optimal LDL cholesterol-lowering efficacy with a lower dose (e.g. 20 mg) of simvastatin, we recommend the prescribing physician consider an alternate statin based on (i) potency differences (i.e., use a lower dose of a higher potency statin such as atorvastatin, rosuvastatin, or pitavastatin), (ii) drug-drug interactions (e.g., boceprevir, clarithromycin, cyclosporine, strong CYP3A4 inhibitors, etc.), and (iii) relevant co-morbidities (e.g., trauma, significant renal impairment, post-solid organ transplant, thyroid disease etc.).&quot;</p>\n<p>&quot;At the time of this writing, there are no data available regarding SLCO1B1 genotype effects on simvastatin response or myopathy in pediatric patient populations, although there is no reason to suspect that the polymorphisms in SLCO1B1 will affect simvastatin's metabolism differently in children compared to adults.&quot;</p>\n<ul>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2014%2F24918167.pdf\" target=\"_blank\">The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2014%2F24918167-supplement.pdf\" target=\"_blank\">2014 supplement</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2014%2F24918167.xlsx\" target=\"_blank\">2014 SLCO1B1 translation table</a></li>\n</ul>\n</li>\n</ul>\n<h3 id=\"table-1-recommended-dosing-of-simvastatin-based-on-slco1b1-phenotype\">Table 1: Recommended dosing of simvastatin based on SLCO1B1 phenotype</h3>\n<p><em>Adapted from Table 1 and 2 of the 2014 guideline update manuscript.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>Phenotype</th><th>Examples of diplotypes <sup>a</sup></th><th>Genotype at <a href=\"/variant/PA166154579\">rs4149056</a></th><th>Implications for simvastatin</th><th>Dosing recommendations for simvastatin <sup>b,c</sup></th><th>Classification of recommendations <sup>d</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>Normal function, Homozygous wild-type (two normal function alleles)</td><td>*1a/*1a, *1a/*1b, *1b/*1b</td><td>TT</td><td>Normal myopathy risk</td><td>Prescribe desired starting dose and adjust doses of simvastatin based on disease-specific guidelines.</td><td>Strong</td></tr>\n<tr><td>Intermediate function, Heterozygous (one normal function allele plus one decreased function allele)</td><td>*1a/*5, *1a/*15, *1a/*17, *1b/*5, *1b/*15, *1b/*17</td><td>TC</td><td>Intermediate myopathy risk</td><td>Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance.</td><td>Strong</td></tr>\n<tr><td>Low function, Homozygous variant or mutant (two decreased function alleles)</td><td>*5/*5, *5/*15, *5/*17, *15/*15, *15/*17, *17/*17</td><td>CC</td><td>High myopathy risk</td><td>Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance.</td><td>Strong</td></tr>\n</tbody>\n</table>\n<p>CK, creatine kinase.</p>\n<p><sup>a</sup> SLCO1B1 alleles are often named using <a href=\"http://www.pharmgkb.org/gene/PA134865839#tabview=tab4&amp;subtab=33\">star allele nomenclature, representing various SNPs alone or in combination</a> (2014 Update Supplemental Table S1) that are associated with low SLCO1B1 protein expression or function (2014 Update Supplemental Table S2). The minor C allele at <a href=\"/variant/PA166154579\">rs4149056</a> is contained within SLCO1B1*5 (<a href=\"/variant/PA166154579\">rs4149056</a> alone) as well as the *15 and *17 haplotypes and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 haplotypes.</p>\n<p><sup>b</sup> In all cases, the potential for drug-drug interaction should be evaluated prior to initiating a prescription.</p>\n<p><sup>c</sup> FDA recommends against 80mg (unless already tolerated 12 months).</p>\n<p><sup>d</sup> See Supplementary Materials (text section entitled &quot;Levels of Evidence&quot;) online for additional details regarding the three-tiered system used to grade the quality of evidence.</p>\n<h3 id=\"july-2012\">July 2012</h3>\n<p><em>Advance online publication May 2012.</em></p>\n<ul>\n<li>Guideline regarding the use of pharmacogenomic tests in dosing for simvastatin was published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2F\" target=\"_blank\">(CPIC)</a>.</li>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2012%2F22617227.pdf\" target=\"_blank\">The clinical pharmacogenomics implementation consortium: CPIC guideline for SLCO1B1 and simvastatin-induced myopathy.</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fgithub.com%2FPharmGKB%2Fcpic-guidelines%2Fraw%2Fmaster%2Fsimvastatin%2F2012%2F22617227-supplement.pdf\" target=\"_blank\">2012 supplement</a></li>\n</ul>\n</li>\n</ul>\n",
+      "externalLinks" : [ "https://cpicpgx.org/", "https://cpicpgx.org/content/guideline/publication/simvastatin/2012/22617227-supplement.pdf", "https://cpicpgx.org/content/guideline/publication/simvastatin/2012/22617227.pdf", "https://cpicpgx.org/content/guideline/publication/simvastatin/2014/24918167-supplement.pdf", "https://cpicpgx.org/content/guideline/publication/simvastatin/2014/24918167.pdf", "https://cpicpgx.org/content/guideline/publication/simvastatin/2014/24918167.xlsx", "https://cpicpgx.org/guidelines/guideline-for-simvastatin-and-slco1b1/" ],
+      "html" : "<p>This annotation is based on the <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-simvastatin-and-slco1b1%2F\" target=\"_blank\">CPIC&reg; guideline for simvastatin and SLCO1B1</a>.</p>\n<h3 id=\"october-2014-update\">October 2014 Update</h3>\n<p><em>Advance online publication 9 July 2014.</em></p>\n<ul>\n<li>\n<p>The <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Fsimvastatin%2F2014%2F24918167.pdf\" target=\"_blank\">2014 update of CPIC guideline regarding SLCO1B1 and simvastatin-induced myopathy</a>, has been published in Clinical Pharmacology and Therapeutics.  CPIC extensively reviewed the literature from February 2011 to December 2013 and concluded the dosing recommendations provided in the 2012 CPIC guideline for SLCO1B1 and simvastatin-induced myopathy have not changed. However, this updated guideline also provides a brief review regarding SLCO1B1 genotype and risk of myopathy for other statins.  Furthermore, comprehensive translation tables mapping SLCO1B1 genotypes to coded genotype/phenotype summaries, EHR priority result notation and interpretation (consultation) text were created to facilitate incorporation of SLCO1B1 pharmacogenetics into an electronic health record with clinical decision support.</p>\n</li>\n<li>\n<p>This guideline is applicable to:</p>\n<ul>\n<li>adult patients</li>\n<li>pediatric patients</li>\n</ul>\n</li>\n<li>\n<p>Excerpt from the 2014 simvastatin dosing guideline:</p>\n<ul>\n<li>&quot;For simvastatin, the evidence linking myopathy to <a href=\"/variant/PA166154579\">rs4149056</a> in SLCO1B1 is of high quality, and this association has been reproduced in randomized trials and clinical practice-based cohorts. Conversely, the association of <a href=\"/variant/PA166154579\">rs4149056</a> with myopathy has been less compelling for other statins. We therefore focus this guideline on simvastatin.&quot;</li>\n</ul>\n</li>\n</ul>\n<p>&quot;In 2011 and updated in 2013, the FDA added warnings to the simvastatin product label to direct providers away from initiating at the 80 mg simvastatin dose. &quot;</p>\n<p>&quot;At lower simvastatin doses (e.g., 40 mg daily), it is our position that SLCO1B1 genotype (if available) could be used to warn providers about modest increases in myopathy risk for patients with a C allele at <a href=\"/variant/PA166154579\">rs4149056</a>. In these circumstances, we recommend a lower dose of simvastatin or use an alternative statin (e.g. pravastatin or rosuvastatin) and we also highlight the potential utility of routine CK surveillance (Table 2). If patients with a C allele at <a href=\"/variant/PA166154579\">rs4149056</a> do not achieve optimal LDL cholesterol-lowering efficacy with a lower dose (e.g. 20 mg) of simvastatin, we recommend the prescribing physician consider an alternate statin based on (i) potency differences (i.e., use a lower dose of a higher potency statin such as atorvastatin, rosuvastatin, or pitavastatin), (ii) drug-drug interactions (e.g., boceprevir, clarithromycin, cyclosporine, strong CYP3A4 inhibitors, etc.), and (iii) relevant co-morbidities (e.g., trauma, significant renal impairment, post-solid organ transplant, thyroid disease etc.).&quot;</p>\n<p>&quot;At the time of this writing, there are no data available regarding SLCO1B1 genotype effects on simvastatin response or myopathy in pediatric patient populations, although there is no reason to suspect that the polymorphisms in SLCO1B1 will affect simvastatin's metabolism differently in children compared to adults.&quot;</p>\n<ul>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Fsimvastatin%2F2014%2F24918167.pdf\" target=\"_blank\">The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Fsimvastatin%2F2014%2F24918167-supplement.pdf\" target=\"_blank\">2014 supplement</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Fsimvastatin%2F2014%2F24918167.xlsx\" target=\"_blank\">2014 SLCO1B1 translation table</a></li>\n</ul>\n</li>\n</ul>\n<h3 id=\"table-1-recommended-dosing-of-simvastatin-based-on-slco1b1-phenotype\">Table 1: Recommended dosing of simvastatin based on SLCO1B1 phenotype</h3>\n<p><em>Adapted from Table 1 and 2 of the 2014 guideline update manuscript.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>Phenotype</th><th>Examples of diplotypes <sup>a</sup></th><th>Genotype at <a href=\"/variant/PA166154579\">rs4149056</a></th><th>Implications for simvastatin</th><th>Dosing recommendations for simvastatin <sup>b,c</sup></th><th>Classification of recommendations <sup>d</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>Normal function, Homozygous wild-type (two normal function alleles)</td><td>*1a/*1a, *1a/*1b, *1b/*1b</td><td>TT</td><td>Normal myopathy risk</td><td>Prescribe desired starting dose and adjust doses of simvastatin based on disease-specific guidelines.</td><td>Strong</td></tr>\n<tr><td>Intermediate function, Heterozygous (one normal function allele plus one decreased function allele)</td><td>*1a/*5, *1a/*15, *1a/*17, *1b/*5, *1b/*15, *1b/*17</td><td>TC</td><td>Intermediate myopathy risk</td><td>Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance.</td><td>Strong</td></tr>\n<tr><td>Low function, Homozygous variant or mutant (two decreased function alleles)</td><td>*5/*5, *5/*15, *5/*17, *15/*15, *15/*17, *17/*17</td><td>CC</td><td>High myopathy risk</td><td>Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance.</td><td>Strong</td></tr>\n</tbody>\n</table>\n<p>CK, creatine kinase.</p>\n<p><sup>a</sup> SLCO1B1 alleles are often named using <a href=\"http://www.pharmgkb.org/gene/PA134865839#tabview=tab4&amp;subtab=33\">star allele nomenclature, representing various SNPs alone or in combination</a> (2014 Update Supplemental Table S1) that are associated with low SLCO1B1 protein expression or function (2014 Update Supplemental Table S2). The minor C allele at <a href=\"/variant/PA166154579\">rs4149056</a> is contained within SLCO1B1*5 (<a href=\"/variant/PA166154579\">rs4149056</a> alone) as well as the *15 and *17 haplotypes and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 haplotypes.</p>\n<p><sup>b</sup> In all cases, the potential for drug-drug interaction should be evaluated prior to initiating a prescription.</p>\n<p><sup>c</sup> FDA recommends against 80mg (unless already tolerated 12 months).</p>\n<p><sup>d</sup> See Supplementary Materials (text section entitled &quot;Levels of Evidence&quot;) online for additional details regarding the three-tiered system used to grade the quality of evidence.</p>\n<h3 id=\"july-2012\">July 2012</h3>\n<p><em>Advance online publication May 2012.</em></p>\n<ul>\n<li>Guideline regarding the use of pharmacogenomic tests in dosing for simvastatin was published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2F\" target=\"_blank\">(CPIC)</a>.</li>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Fsimvastatin%2F2012%2F22617227.pdf\" target=\"_blank\">The clinical pharmacogenomics implementation consortium: CPIC guideline for SLCO1B1 and simvastatin-induced myopathy.</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Fsimvastatin%2F2012%2F22617227-supplement.pdf\" target=\"_blank\">2012 supplement</a></li>\n</ul>\n</li>\n</ul>\n",
       "internalLinks" : [ "/gene/PA134865839#tabview=tab4&subtab=33" ],
-      "markdown" : "## October 2014 Update\r\n\r\n_Advance online publication 9 July 2014._\r\n- The [2014 update of CPIC guideline regarding SLCO1B1 and simvastatin-induced myopathy](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167.pdf), has been published in Clinical Pharmacology and Therapeutics.  CPIC extensively reviewed the literature from February 2011 to December 2013 and concluded the dosing recommendations provided in the 2012 CPIC guideline for SLCO1B1 and simvastatin-induced myopathy have not changed. However, this updated guideline also provides a brief review regarding SLCO1B1 genotype and risk of myopathy for other statins.  Furthermore, comprehensive translation tables mapping SLCO1B1 genotypes to coded genotype/phenotype summaries, EHR priority result notation and interpretation (consultation) text were created to facilitate incorporation of SLCO1B1 pharmacogenetics into an electronic health record with clinical decision support.\r\n\r\n- This guideline is applicable to:\r\n  - adult patients\r\n  - pediatric patients \r\n\r\n- Excerpt from the 2014 simvastatin dosing guideline:\r\n  - \"For simvastatin, the evidence linking myopathy to [variant:rs4149056] in SLCO1B1 is of high quality, and this association has been reproduced in randomized trials and clinical practice-based cohorts. Conversely, the association of [variant:rs4149056] with myopathy has been less compelling for other statins. We therefore focus this guideline on simvastatin.\"\r\n\r\n\"In 2011 and updated in 2013, the FDA added warnings to the simvastatin product label to direct providers away from initiating at the 80 mg simvastatin dose. \" \r\n\r\n\"At lower simvastatin doses (e.g., 40 mg daily), it is our position that SLCO1B1 genotype (if available) could be used to warn providers about modest increases in myopathy risk for patients with a C allele at [variant:rs4149056]. In these circumstances, we recommend a lower dose of simvastatin or use an alternative statin (e.g. pravastatin or rosuvastatin) and we also highlight the potential utility of routine CK surveillance (Table 2). If patients with a C allele at [variant:rs4149056] do not achieve optimal LDL cholesterol-lowering efficacy with a lower dose (e.g. 20 mg) of simvastatin, we recommend the prescribing physician consider an alternate statin based on (i) potency differences (i.e., use a lower dose of a higher potency statin such as atorvastatin, rosuvastatin, or pitavastatin), (ii) drug-drug interactions (e.g., boceprevir, clarithromycin, cyclosporine, strong CYP3A4 inhibitors, etc.), and (iii) relevant co-morbidities (e.g., trauma, significant renal impairment, post-solid organ transplant, thyroid disease etc.).\"\r\n\r\n\"At the time of this writing, there are no data available regarding SLCO1B1 genotype effects on simvastatin response or myopathy in pediatric patient populations, although there is no reason to suspect that the polymorphisms in SLCO1B1 will affect simvastatin's metabolism differently in children compared to adults.\"\r\n\r\n- Download and read: \r\n  - [The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167.pdf)\r\n  - [2014 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167-supplement.pdf)\r\n  - [2014 SLCO1B1 translation table](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167.xlsx)\r\n\r\n## Table 1: Recommended dosing of simvastatin based on SLCO1B1 phenotype\r\n\r\n_Adapted from Table 1 and 2 of the 2014 guideline update manuscript._\r\n\r\n| Phenotype | Examples of diplotypes ^a^|Genotype at [variant:rs4149056] | Implications for simvastatin | Dosing recommendations for simvastatin ^b,c^ | Classification of recommendations ^d^|\r\n| --- | --- | --- | --- | --- | --- |\r\n| Normal function, Homozygous wild-type (two normal function alleles) | *1a/*1a, *1a/*1b, *1b/*1b | TT | Normal myopathy risk |  Prescribe desired starting dose and adjust doses of simvastatin based on disease-specific guidelines.| Strong |\r\n| Intermediate function, Heterozygous (one normal function allele plus one decreased function allele) | *1a/*5, *1a/*15, *1a/*17, *1b/*5, *1b/*15, *1b/*17 | TC | Intermediate myopathy risk | Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance. | Strong |\r\n| Low function, Homozygous variant or mutant (two decreased function alleles) | *5/*5, *5/*15, *5/*17, *15/*15, *15/*17, *17/*17 | CC | High myopathy risk | Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance. | Strong |\r\n\r\nCK, creatine kinase.\r\n\r\n^a^ SLCO1B1 alleles are often named using [star allele nomenclature, representing various SNPs alone or in combination](http://www.pharmgkb.org/gene/PA134865839#tabview=tab4&subtab=33) (2014 Update Supplemental Table S1) that are associated with low SLCO1B1 protein expression or function (2014 Update Supplemental Table S2). The minor C allele at [variant:rs4149056] is contained within SLCO1B1*5 ([variant:rs4149056] alone) as well as the *15 and *17 haplotypes and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 haplotypes.\r\n\r\n^b^ In all cases, the potential for drug-drug interaction should be evaluated prior to initiating a prescription. \r\n\r\n^c^ FDA recommends against 80mg (unless already tolerated 12 months).  \r\n\r\n^d^ See Supplementary Materials (text section entitled \"Levels of Evidence\") online for additional details regarding the three-tiered system used to grade the quality of evidence.  \r\n\r\n## July 2012\r\n\r\n_Advance online publication May 2012._\r\n- Guideline regarding the use of pharmacogenomic tests in dosing for simvastatin was published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).  \r\n- Download and read:  \r\n  - [The clinical pharmacogenomics implementation consortium: CPIC guideline for SLCO1B1 and simvastatin-induced myopathy.](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2012/22617227.pdf) \r\n  - [2012 supplement](https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2012/22617227-supplement.pdf)",
+      "markdown" : "This annotation is based on the [CPIC&reg; guideline for simvastatin and SLCO1B1](https://cpicpgx.org/guidelines/guideline-for-simvastatin-and-slco1b1/).\n\n## October 2014 Update\n\n_Advance online publication 9 July 2014._\n- The [2014 update of CPIC guideline regarding SLCO1B1 and simvastatin-induced myopathy](https://cpicpgx.org/content/guideline/publication/simvastatin/2014/24918167.pdf), has been published in Clinical Pharmacology and Therapeutics.  CPIC extensively reviewed the literature from February 2011 to December 2013 and concluded the dosing recommendations provided in the 2012 CPIC guideline for SLCO1B1 and simvastatin-induced myopathy have not changed. However, this updated guideline also provides a brief review regarding SLCO1B1 genotype and risk of myopathy for other statins.  Furthermore, comprehensive translation tables mapping SLCO1B1 genotypes to coded genotype/phenotype summaries, EHR priority result notation and interpretation (consultation) text were created to facilitate incorporation of SLCO1B1 pharmacogenetics into an electronic health record with clinical decision support.\n\n- This guideline is applicable to:\n  - adult patients\n  - pediatric patients \n\n- Excerpt from the 2014 simvastatin dosing guideline:\n  - \"For simvastatin, the evidence linking myopathy to [variant:rs4149056] in SLCO1B1 is of high quality, and this association has been reproduced in randomized trials and clinical practice-based cohorts. Conversely, the association of [variant:rs4149056] with myopathy has been less compelling for other statins. We therefore focus this guideline on simvastatin.\"\n\n\"In 2011 and updated in 2013, the FDA added warnings to the simvastatin product label to direct providers away from initiating at the 80 mg simvastatin dose. \" \n\n\"At lower simvastatin doses (e.g., 40 mg daily), it is our position that SLCO1B1 genotype (if available) could be used to warn providers about modest increases in myopathy risk for patients with a C allele at [variant:rs4149056]. In these circumstances, we recommend a lower dose of simvastatin or use an alternative statin (e.g. pravastatin or rosuvastatin) and we also highlight the potential utility of routine CK surveillance (Table 2). If patients with a C allele at [variant:rs4149056] do not achieve optimal LDL cholesterol-lowering efficacy with a lower dose (e.g. 20 mg) of simvastatin, we recommend the prescribing physician consider an alternate statin based on (i) potency differences (i.e., use a lower dose of a higher potency statin such as atorvastatin, rosuvastatin, or pitavastatin), (ii) drug-drug interactions (e.g., boceprevir, clarithromycin, cyclosporine, strong CYP3A4 inhibitors, etc.), and (iii) relevant co-morbidities (e.g., trauma, significant renal impairment, post-solid organ transplant, thyroid disease etc.).\"\n\n\"At the time of this writing, there are no data available regarding SLCO1B1 genotype effects on simvastatin response or myopathy in pediatric patient populations, although there is no reason to suspect that the polymorphisms in SLCO1B1 will affect simvastatin's metabolism differently in children compared to adults.\"\n\n- Download and read: \n  - [The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update](https://cpicpgx.org/content/guideline/publication/simvastatin/2014/24918167.pdf)\n  - [2014 supplement](https://cpicpgx.org/content/guideline/publication/simvastatin/2014/24918167-supplement.pdf)\n  - [2014 SLCO1B1 translation table](https://cpicpgx.org/content/guideline/publication/simvastatin/2014/24918167.xlsx)\n\n## Table 1: Recommended dosing of simvastatin based on SLCO1B1 phenotype\n\n_Adapted from Table 1 and 2 of the 2014 guideline update manuscript._\n\n| Phenotype | Examples of diplotypes ^a^|Genotype at [variant:rs4149056] | Implications for simvastatin | Dosing recommendations for simvastatin ^b,c^ | Classification of recommendations ^d^|\n| --- | --- | --- | --- | --- | --- |\n| Normal function, Homozygous wild-type (two normal function alleles) | *1a/*1a, *1a/*1b, *1b/*1b | TT | Normal myopathy risk |  Prescribe desired starting dose and adjust doses of simvastatin based on disease-specific guidelines.| Strong |\n| Intermediate function, Heterozygous (one normal function allele plus one decreased function allele) | *1a/*5, *1a/*15, *1a/*17, *1b/*5, *1b/*15, *1b/*17 | TC | Intermediate myopathy risk | Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance. | Strong |\n| Low function, Homozygous variant or mutant (two decreased function alleles) | *5/*5, *5/*15, *5/*17, *15/*15, *15/*17, *17/*17 | CC | High myopathy risk | Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance. | Strong |\n\nCK, creatine kinase.\n\n^a^ SLCO1B1 alleles are often named using [star allele nomenclature, representing various SNPs alone or in combination](http://www.pharmgkb.org/gene/PA134865839#tabview=tab4&subtab=33) (2014 Update Supplemental Table S1) that are associated with low SLCO1B1 protein expression or function (2014 Update Supplemental Table S2). The minor C allele at [variant:rs4149056] is contained within SLCO1B1*5 ([variant:rs4149056] alone) as well as the *15 and *17 haplotypes and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 haplotypes.\n\n^b^ In all cases, the potential for drug-drug interaction should be evaluated prior to initiating a prescription. \n\n^c^ FDA recommends against 80mg (unless already tolerated 12 months).  \n\n^d^ See Supplementary Materials (text section entitled \"Levels of Evidence\") online for additional details regarding the three-tiered system used to grade the quality of evidence.  \n\n## July 2012\n\n_Advance online publication May 2012._\n- Guideline regarding the use of pharmacogenomic tests in dosing for simvastatin was published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).  \n- Download and read:  \n  - [The clinical pharmacogenomics implementation consortium: CPIC guideline for SLCO1B1 and simvastatin-induced myopathy.](https://cpicpgx.org/content/guideline/publication/simvastatin/2012/22617227.pdf) \n  - [2012 supplement](https://cpicpgx.org/content/guideline/publication/simvastatin/2012/22617227-supplement.pdf)",
       "pmids" : [ ],
       "relatedObjects" : [ "PA166154579" ],
-      "version" : 8
+      "version" : 11
     },
-    "version" : 29,
-    "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-simvastatin-and-slco1b1/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983510,"resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-simvastatin-and-slco1b1%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-simvastatin-and-slco1b1/"} ]
+    "version" : 32,
+    "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-simvastatin-and-slco1b1/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983510,"name":"Based on a CPIC dosing guideline","resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-simvastatin-and-slco1b1%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-simvastatin-and-slco1b1/"} ]
   },
   "annotationGroups" : [ {
     "objCls" : "DosingGuidelineAnnotationGroup",
@@ -115,7 +116,7 @@
         "externalLinks" : [ ],
         "html" : "<p>Decreased Function</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘intermediate’ function with ‘decreased’ function [Article:<a href=\"/pmid/27441996\">27441996</a>] for transporters.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Decreased Function\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘intermediate’ function with ‘decreased’ function [PMID:27441996] for transporters._",
+        "markdown" : "Decreased Function\n\n_CPIC Term Standardization Project recommended replacing the term ‘intermediate’ function with ‘decreased’ function [PMID:27441996] for transporters._",
         "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
         "version" : 1
@@ -160,8 +161,8 @@
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
-      "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 29
+      "name" : "Annotation of CPIC Guideline for simvastatin and SLCO1B1",
+      "version" : 32
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
@@ -219,7 +220,7 @@
         "externalLinks" : [ ],
         "html" : "<p>Poor Function</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘low’ function with ‘poor’ function [Article:<a href=\"/pmid/27441996\">27441996</a>] for transporters.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Poor Function\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘low’ function with ‘poor’ function [PMID:27441996] for transporters._",
+        "markdown" : "Poor Function\n\n_CPIC Term Standardization Project recommended replacing the term ‘low’ function with ‘poor’ function [PMID:27441996] for transporters._",
         "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
         "version" : 1
@@ -264,8 +265,8 @@
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
-      "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 29
+      "name" : "Annotation of CPIC Guideline for simvastatin and SLCO1B1",
+      "version" : 32
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
@@ -368,8 +369,8 @@
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
-      "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 29
+      "name" : "Annotation of CPIC Guideline for simvastatin and SLCO1B1",
+      "version" : 32
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -449,8 +450,8 @@
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
-      "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 29
+      "name" : "Annotation of CPIC Guideline for simvastatin and SLCO1B1",
+      "version" : 32
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -509,7 +510,7 @@
         "externalLinks" : [ ],
         "html" : "<p>Possible Decreased Function</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘intermediate’ function with ‘decreased’ function [Article:<a href=\"/pmid/27441996\">27441996</a>] for transporters.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Possible Decreased Function\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘intermediate’ function with ‘decreased’ function [PMID:27441996] for transporters._",
+        "markdown" : "Possible Decreased Function\n\n_CPIC Term Standardization Project recommended replacing the term ‘intermediate’ function with ‘decreased’ function [PMID:27441996] for transporters._",
         "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
         "version" : 1
@@ -554,8 +555,8 @@
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
-      "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 29
+      "name" : "Annotation of CPIC Guideline for simvastatin and SLCO1B1",
+      "version" : 32
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
@@ -614,7 +615,7 @@
         "externalLinks" : [ ],
         "html" : "<p>Possible Poor Function</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘low’ function with ‘poor’ function [Article:<a href=\"/pmid/27441996\">27441996</a>] for transporters.</em></p>\n",
         "internalLinks" : [ ],
-        "markdown" : "Possible Poor Function\r\n\r\n_CPIC Term Standardization Project recommended replacing the term ‘low’ function with ‘poor’ function [PMID:27441996] for transporters._",
+        "markdown" : "Possible Poor Function\n\n_CPIC Term Standardization Project recommended replacing the term ‘low’ function with ‘poor’ function [PMID:27441996] for transporters._",
         "pmids" : [ "27441996" ],
         "relatedObjects" : [ ],
         "version" : 1
@@ -659,8 +660,8 @@
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
-      "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 29
+      "name" : "Annotation of CPIC Guideline for simvastatin and SLCO1B1",
+      "version" : 32
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
@@ -751,8 +752,8 @@
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166105005",
       "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166105005",
-      "name" : "CPIC Guideline for simvastatin and SLCO1B1",
-      "version" : 29
+      "name" : "Annotation of CPIC Guideline for simvastatin and SLCO1B1",
+      "version" : 32
     },
     "rxChangeStatus" : {
       "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
@@ -832,14 +833,14 @@
     "pubDate" : "2014-06-01T00:00:00-07:00",
     "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/24918167",
     "sentences" : [ {
+      "text" : "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update",
       "location" : "title",
       "id" : 15077442,
-      "text" : "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update",
       "sentenceIndex" : 0
     }, {
+      "text" : "Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 11 June 2014; doi:10.1038/clpt.2014.125.",
       "location" : "abstract",
       "id" : 15077443,
-      "text" : "Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 11 June 2014; doi:10.1038/clpt.2014.125.",
       "sentenceIndex" : 1
     } ],
     "summary" : "Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 11 June 2014; doi:10.1038/clpt.2014.125.",
@@ -862,39 +863,39 @@
     "pubDate" : "2012-05-01T00:00:00-07:00",
     "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/22617227",
     "sentences" : [ {
+      "text" : "The Clinical Pharmacogenomics Implementation Consortium: CPIC Guideline for SLCO1B1 and Simvastatin-Induced Myopathy",
       "location" : "title",
       "id" : 15013654,
-      "text" : "The Clinical Pharmacogenomics Implementation Consortium: CPIC Guideline for SLCO1B1 and Simvastatin-Induced Myopathy",
       "sentenceIndex" : 0
     }, {
+      "text" : "Cholesterol reduction from statin therapy has been one of the greatest public health successes in modern medicine.",
       "location" : "abstract",
       "id" : 15013655,
-      "text" : "Cholesterol reduction from statin therapy has been one of the greatest public health successes in modern medicine.",
       "sentenceIndex" : 1
     }, {
+      "text" : "Simvastatin is among the most commonly used prescription medications.",
       "location" : "abstract",
       "id" : 15013656,
-      "text" : "Simvastatin is among the most commonly used prescription medications.",
       "sentenceIndex" : 2
     }, {
+      "text" : "A non-synonymous coding single-nucleotide polymorphism (SNP), rs4149056, in SLCO1B1 markedly increases systemic exposure to simvastatin and the risk of muscle toxicity.",
       "location" : "abstract",
       "id" : 15013657,
-      "text" : "A non-synonymous coding single-nucleotide polymorphism (SNP), rs4149056, in SLCO1B1 markedly increases systemic exposure to simvastatin and the risk of muscle toxicity.",
       "sentenceIndex" : 3
     }, {
+      "text" : "This guideline explores the relationship between rs4149056 (c.521T>C, p.V174A) and clinical outcome for all statins.",
       "location" : "abstract",
       "id" : 15013658,
-      "text" : "This guideline explores the relationship between rs4149056 (c.521T>C, p.V174A) and clinical outcome for all statins.",
       "sentenceIndex" : 4
     }, {
+      "text" : "The strength of the evidence is high for myopathy with simvastatin.",
       "location" : "abstract",
       "id" : 15013659,
-      "text" : "The strength of the evidence is high for myopathy with simvastatin.",
       "sentenceIndex" : 5
     }, {
+      "text" : "We limit our recommendations accordingly.",
       "location" : "abstract",
       "id" : 15013660,
-      "text" : "We limit our recommendations accordingly.",
       "sentenceIndex" : 6
     } ],
     "summary" : "Cholesterol reduction from statin therapy has been one of the greatest public health successes in modern medicine. Simvastatin is among the most commonly used prescription medications. A non-synonymous coding single-nucleotide polymorphism (SNP), rs4149056, in SLCO1B1 markedly increases systemic exposure to simvastatin and the risk of muscle toxicity. This guideline explores the relationship between rs4149056 (c.521T>C, p.V174A) and clinical outcome for all statins. The strength of the evidence is high for myopathy with simvastatin. We limit our recommendations accordingly.",
