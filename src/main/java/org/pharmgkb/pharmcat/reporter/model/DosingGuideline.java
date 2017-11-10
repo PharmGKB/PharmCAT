@@ -33,6 +33,9 @@ public class DosingGuideline {
   @SerializedName("textMarkdown")
   @Expose
   private Markdown m_textMarkdown;
+  @SerializedName("history")
+  @Expose
+  private List<History> m_history;
 
   /**
    *
@@ -174,5 +177,9 @@ public class DosingGuideline {
 
   public void setTextMarkdown(Markdown textMarkdown) {
     m_textMarkdown = textMarkdown;
+  }
+
+  public List<History> getHistory() {
+    return m_history;
   }
 }

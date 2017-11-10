@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -23,6 +24,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
+import org.pharmgkb.pharmcat.reporter.model.History;
 import org.pharmgkb.pharmcat.reporter.model.Literature;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.RelatedChemical;
@@ -53,12 +55,16 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private List<Literature> m_citations = new ArrayList<>();
   private List<String> m_reportVariants = new ArrayList<>();
   private Multimap<String,String> m_functionToGenotypeMap = TreeMultimap.create();
+  private Date m_lastModified;
 
   public GuidelineReport(GuidelinePackage guidelinePackage){
     m_dosingGuideline = guidelinePackage.getGuideline();
     m_groups = guidelinePackage.getGroups();
     m_phenotypeMap = guidelinePackage.getPhenotypeMap();
     m_citations.addAll(guidelinePackage.getCitations());
+
+    History event = m_dosingGuideline.getHistory().get(m_dosingGuideline.getHistory().size()-1);
+    m_lastModified = event.getDate();
   }
 
   /**
@@ -297,5 +303,13 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     return Arrays.stream(geneFunction.split(";"))
         .flatMap(f -> m_functionToGenotypeMap.get(f).stream())
         .collect(Collectors.joining(";"));
+  }
+
+  public Date getLastModified() {
+    return m_lastModified;
+  }
+
+  public void setLastModified(Date lastModified) {
+    m_lastModified = lastModified;
   }
 }

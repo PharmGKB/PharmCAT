@@ -30,6 +30,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 public class ReportData {
 
   // never display these genes in the gene call list
+  private static final SimpleDateFormat sf_lastModifiedFormat = new SimpleDateFormat("YYYY.MM.dd");
   private static final List<String> sf_geneBlacklist = ImmutableList.of("G6PD", "HLA-B");
   private static final List<String> sf_drugHidePhenotype = ImmutableList.of(
       "ivacaftor", "peginterferon alfa-2a", "peginterferon alfa-2b", "ribavirin");
@@ -96,6 +97,8 @@ public class ReportData {
       guidelineMap.put("summary", guideline.getSummaryHtml());
       guidelineMap.put("url", guideline.getUrl());
       guidelineMap.put("id", guideline.getId());
+      String lastModified = guideline.getLastModified() != null ? sf_lastModifiedFormat.format(guideline.getLastModified()) : "not available";
+      guidelineMap.put("lastModified", lastModified);
 
       List<Map<String,Object>> geneCallList = new ArrayList<>();
       for (String gene : guideline.getRelatedGeneSymbols()) {
