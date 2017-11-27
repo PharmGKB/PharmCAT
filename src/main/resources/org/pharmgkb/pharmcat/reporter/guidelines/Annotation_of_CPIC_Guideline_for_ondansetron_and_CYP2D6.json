@@ -1,0 +1,950 @@
+{
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guideline/PA166161954",
+    "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
+    "objCls" : "Guideline",
+    "id" : "PA166161954",
+    "name" : "Annotation of CPIC Guideline for ondansetron and CYP2D6",
+    "history" : [ {
+      "id" : 1448526496,
+      "date" : "2016-12-23T16:12:51.760-08:00",
+      "type" : "update",
+      "version" : 0
+    } ],
+    "recommendation" : true,
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA450705",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA450705",
+      "name" : "ondansetron",
+      "version" : 5
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA128",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA128",
+      "symbol" : "CYP2D6",
+      "name" : "cytochrome P450, family 2, subfamily D, polypeptide 6",
+      "version" : 7887
+    } ],
+    "source" : "CPIC",
+    "summaryMarkdown" : {
+      "id" : 1448526106,
+      "html" : "<p>The CPIC dosing guideline for ondansetron recommends selecting an alternate drug for CYP2D6 ultrarapid metabolizers.  It is recommended that the alternate drug not be predominantly metabolized by CYP2D6 (eg. granisetron).</p>\n",
+      "version" : 0
+    },
+    "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+    "textMarkdown" : {
+      "id" : 1448526123,
+      "html" : "<p>This annotation is based on the <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype%2F\" target=\"_blank\">CPIC&reg; guideline for ondansetron and tropisetron and CYP2D6</a>.</p>\n<h3 id=\"december-2016\">December 2016</h3>\n<ul>\n<li>Guidelines regarding the use of pharmacogenomic tests in dosing for ondansetron were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2F\" target=\"_blank\">(CPIC)</a>.</li>\n<li>Excerpt from the 2016 ondansetron dosing guidelines:\n<ul>\n<li>&quot;Gene duplication has been shown to be associated with higher metabolism and clearance of ondansetron resulting in lower area under the plasma concentration-time curve. This translates clinically into a decreased response to ondansetron and tropisetron, specifically increased risk of vomiting in CYP2D6 ultrarapid metabolizers. If CYP2D6 genotype is known, alternative 5-HT3 receptor antagonist antiemetics not metabolized by CYP2D6 (e.g., granisetron) should be considered in CYP2D6 ultrarapid metabolizers. &quot;</li>\n</ul>\n</li>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fraw.githubusercontent.com%2FPharmGKB%2Fcpic-guidelines%2Fmaster%2Fondansetron%2F2016%2FCYP2D6_ondansetron_2016_final.pdf\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 Genotype and Use of Ondansetron and Tropisetron</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fraw.githubusercontent.com%2FPharmGKB%2Fcpic-guidelines%2Fmaster%2Fondansetron%2F2016%2FCYP2D6_ondansetron_supplement_2016.pdf\" target=\"_blank\">2016 supplement</a></li>\n<li><a href=\"/page/cyp2d6RefMaterials\">Gene-specific Information Tables for CYP2D6</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fraw.githubusercontent.com%2FPharmGKB%2Fcpic-guidelines%2Fmaster%2Fondansetron%2F2016%2FOndansetron_Drug_Resource_Mappings.xlsx\" target=\"_blank\">Ondansetron Drug Resource Mappings</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fraw.githubusercontent.com%2FPharmGKB%2Fcpic-guidelines%2Fmaster%2Fondansetron%2F2016%2FOndansetron_Pre_and_Post_Test_Alerts_and_Flow_Chart.xlsx\" target=\"_blank\">Ondansetron Pre- and Post-Test Alerts and Flow Chart</a></li>\n</ul>\n</li>\n</ul>\n<h3 id=\"table-1-dosing-recommendations-for-ondansetron-based-on-cyp2d6-phenotype-genotype\">Table 1: Dosing recommendations for ondansetron based on CYP2D6 phenotype/genotype</h3>\n<p><em>Adapted from Tables 1 and 2 of the 2016 guideline manuscript.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>CYP2D6 Phenotype</th><th>Activity score</th><th>CYP2D6 Genotypes<sup>a</sup></th><th>Examples of diplotypes</th><th>Implications</th><th>Therapeutic recommendations</th><th>Classification of Recommendations<sup>b</sup></th><th>Consideration for alternative 5-HT<sub>3</sub> receptor antagonists antiemetics<sup>c</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>Ultrarapid metabolizer</td><td>&gt;2.0</td><td>An individual carrying duplications of function alleles</td><td><em>*1/*1xN, *1/*2xN, *2/*2xN</em><sup>d</sup></td><td>Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting).</td><td>Select and alternative drug not predominantly metabolized by CYP2D6 (i.e. granisetron).<sup>e</sup></td><td>Moderate</td><td>Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6.  Limited evidence is available regarding the utilization of <em>CYP2D6</em> genetic variation to guide use of these drugs.</td></tr>\n<tr><td>Normal metabolizer</td><td>2.0-1.0<sup>f</sup></td><td>An individual carrying two normal function alleles, or two decreased function alleles, or one normal function and one no function allele, or one normal function and one decreased function allele, or combinations of duplicated alleles that result in an activity score of 1.0-2.0</td><td><em>*1/*1, *1/*2, *1/*4, *1/*5, *1/*9, *1/*41, *2/*2,*41/*41</em></td><td>Normal metabolism</td><td>Initiate therapy with recommended starting dose.</td><td>Strong</td><td></td></tr>\n<tr><td>Intermediate metabolizer</td><td>0.5</td><td>An individual carrying one decreased function and one no function allele</td><td><em>*4/*10,*4/*41, *5/*9</em></td><td>Very limited data available for CYP2D6 intermediate metabolizers</td><td>Insufficient evidence demonstrating clinical impact based on <em>CYP2D6</em> genotype.  Initiate therapy with recommended starting dose.</td><td>No recommendation</td><td></td></tr>\n<tr><td>Poor metabolizer</td><td>0</td><td>An individual carrying no functional alleles</td><td><em>*3/*4,*4/*4, *5/*5, *5/*6</em></td><td>Very limited data available for CYP2D6 poor metabolizers</td><td>Insufficient evidence demonstrating clinical impact based on <em>CYP2D6</em> genotype.  Initiate therapy with recommended starting dose.</td><td>No recommendation</td><td></td></tr>\n</tbody>\n</table>\n<p><sup>a</sup> Assignment of allele function and citations for allele function can be found on PharmGKB: <a href=\"/page/cyp2d6RefMaterials\">CYP2D6 Allele Definition Table and CYP2D6 Allele Functionality Table</a>.</p>\n<p><sup>b</sup> Rating scheme is described in the 2016 Supplement</p>\n<p><sup>c</sup> CPIC strength of recommendation: No Recommendation. See rating scheme described in the Supplement.</p>\n<p><sup>d</sup> Where <em>xN</em> represents the number of <em>CYP2D6</em> gene copies.  For individuals with <em>CYP2D6</em> duplications or multiplications, see supplemental data for additional information on how to translate diplotypes into phenotypes.</p>\n<p><sup>e</sup> Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n<p><sup>f</sup> Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories.</p>\n",
+      "version" : 6
+    },
+    "version" : 11,
+    "xrefs" : [ {"@id":"https://pharmgkb.org/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1448526498,"name":"Based on a CPIC dosing guideline","resource":"Web Resource","sameAs":"https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/","xrefId":"https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/"} ]
+  },
+  "annotationGroups" : [ {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166162568",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "id" : "PA166162568",
+    "name" : "Indeterminate",
+    "annotations" : [ {
+      "id" : 1448568800,
+      "history" : [ {
+        "id" : 1448568798,
+        "date" : "2017-01-30T16:46:50.519-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448568799,
+        "html" : "<p>N/A</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448568803,
+      "history" : [ {
+        "id" : 1448568801,
+        "date" : "2017-01-30T16:47:01.429-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448568802,
+        "html" : "<p>Indeterminate</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448568797,
+      "history" : [ {
+        "id" : 1448568795,
+        "date" : "2017-01-30T16:46:22.116-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448568796,
+        "html" : "<p>An individual carrying one or two unknown/uncertain function alleles.</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 0
+    }, {
+      "id" : 1448568806,
+      "history" : [ {
+        "id" : 1448568804,
+        "date" : "2017-01-30T16:47:21.608-08:00",
+        "type" : "create",
+        "version" : 0
+      } ],
+      "markdown" : {
+        "id" : 1448568805,
+        "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 0
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Uncertain Function", "CYP2D6:Decreased Function/Unknown Function", "CYP2D6:Increased Function/Uncertain Function", "CYP2D6:Increased Function/Unknown Function", "CYP2D6:No Function/Uncertain Function", "CYP2D6:No Function/Unknown Function", "CYP2D6:Normal Function/Uncertain Function", "CYP2D6:Normal Function/Unknown Function", "CYP2D6:Uncertain Function/Uncertain Function", "CYP2D6:Uncertain Function/Unknown Function", "CYP2D6:Unknown Function/Unknown Function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guideline/PA166161954",
+      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
+      "objCls" : "Guideline",
+      "id" : "PA166161954",
+      "name" : "Annotation of CPIC Guideline for ondansetron and CYP2D6",
+      "version" : 11
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "version" : 2
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166161959",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "id" : "PA166161959",
+    "name" : "Normal Metabolizer",
+    "annotations" : [ {
+      "id" : 1448526222,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526221,
+        "html" : "<p>2.0-1.0</p>\n<p>Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories</p>\n",
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448526226,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526225,
+        "html" : "<p>Normal metabolism</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526228,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526227,
+        "html" : "<p>Normal Metabolizer</p>\n",
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448526224,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526223,
+        "html" : "<p>An individual carrying two normal function alleles, or two decreased function alleles, or one normal function and one no function allele, or one normal function and one decreased function allele, or combinations of duplicated alleles that result in an activity score of 1.0-2.0</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526230,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526229,
+        "html" : "<p>Initiate therapy with recommended starting dose.</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 1
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Decreased Function", "CYP2D6:Decreased Function/Normal Function", "CYP2D6:No Function/Normal Function", "CYP2D6:Normal Function/Normal Function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guideline/PA166161954",
+      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
+      "objCls" : "Guideline",
+      "id" : "PA166161954",
+      "name" : "Annotation of CPIC Guideline for ondansetron and CYP2D6",
+      "version" : 11
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 7
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166161962",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "id" : "PA166161962",
+    "name" : "Intermediate Metabolizer",
+    "annotations" : [ {
+      "id" : 1448526253,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526252,
+        "html" : "<p>0.5</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526259,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526258,
+        "html" : "<p>Very limited data available for CYP2D6 intermediate metabolizers</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526257,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526256,
+        "html" : "<p>Intermediate Metabolizer</p>\n",
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448526255,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526254,
+        "html" : "<p>An individual carrying one decreased function and one no function allele</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526261,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526260,
+        "html" : "<p>Insufficient evidence demonstrating clinical impact based on <em>CYP2D6</em> genotype. Initiate therapy with recommended starting dose.</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 1
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/No Function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guideline/PA166161954",
+      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
+      "objCls" : "Guideline",
+      "id" : "PA166161954",
+      "name" : "Annotation of CPIC Guideline for ondansetron and CYP2D6",
+      "version" : 11
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:1448526251",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448526251,
+      "resource" : "Guideline Strength",
+      "term" : "No recommendation",
+      "termId" : "guidelineStrength:1448526251",
+      "version" : 0
+    },
+    "version" : 5
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166161963",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "id" : "PA166161963",
+    "name" : "Poor Metabolizer",
+    "annotations" : [ {
+      "id" : 1448526263,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526262,
+        "html" : "<p>0</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526267,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526266,
+        "html" : "<p>Very limited data available for CYP2D6 poor metabolizers</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526269,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526268,
+        "html" : "<p>Poor Metabolizer</p>\n",
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448526265,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526264,
+        "html" : "<p>An individual carrying no functional alleles</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526271,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526270,
+        "html" : "<p>Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 1
+    } ],
+    "genePhenotypes" : [ "CYP2D6:No Function/No Function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guideline/PA166161954",
+      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
+      "objCls" : "Guideline",
+      "id" : "PA166161954",
+      "name" : "Annotation of CPIC Guideline for ondansetron and CYP2D6",
+      "version" : 11
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:1448526251",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448526251,
+      "resource" : "Guideline Strength",
+      "term" : "No recommendation",
+      "termId" : "guidelineStrength:1448526251",
+      "version" : 0
+    },
+    "version" : 5
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166161960",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "id" : "PA166161960",
+    "name" : "Ultrarapid Metabolizer or Normal Metabolizer",
+    "annotations" : [ {
+      "id" : 1448526232,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526231,
+        "html" : "<p>2 - For the combination of a no function allele with a duplicated normal function allele.</p>\n<p>&gt;2 - For the combination of a no function allele and more than two copies of a normal function allele.</p>\n",
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448526236,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526235,
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal metabolism.</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting).</p>\n",
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 3
+    }, {
+      "id" : 1448526238,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526237,
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal Metabolizer</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid Metabolizer</p>\n",
+        "version" : 2
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 4
+    }, {
+      "id" : 1448526234,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526233,
+        "html" : "<p>An individual carrying a no function allele and a duplicated normal function allele or a no function allele and more than two copies of a normal function allele.</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526240,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526239,
+        "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Initiate therapy with recommended starting dose. Classification of recommendation: Strong</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Select and alternative drug not predominantly metabolized by CYP2D6 (i.e. granisetron). Classification of recommendation: Moderate</p>\n<p>Consideration for alternative 5-HT3 receptor antagonists antiemetics: Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n<p><em>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</em></p>\n",
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 3
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Increased Function/No Function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guideline/PA166161954",
+      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
+      "objCls" : "Guideline",
+      "id" : "PA166161954",
+      "name" : "Annotation of CPIC Guideline for ondansetron and CYP2D6",
+      "version" : 11
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602496",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602496,
+      "resource" : "Prescribing Change",
+      "term" : "Possibly",
+      "termId" : "rxChange:1448602496",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931",
+      "version" : 0
+    },
+    "version" : 7
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166161961",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "id" : "PA166161961",
+    "name" : "Ultrarapid Metabolizer",
+    "annotations" : [ {
+      "id" : 1448526242,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526241,
+        "html" : "<p>&gt; 2.0</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501924,
+        "resource" : "Guideline Tags",
+        "term" : "Activity Score",
+        "termId" : "guidelineTags:981501924",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526246,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526245,
+        "html" : "<p>Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting).</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526248,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526247,
+        "html" : "<p>Ultrarapid Metabolizer</p>\n",
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501926,
+        "description" : "Likely phenotype of metabolizer status",
+        "resource" : "Guideline Tags",
+        "term" : "Metabolizer Status",
+        "termId" : "guidelineTags:981501926",
+        "version" : 0
+      },
+      "version" : 2
+    }, {
+      "id" : 1448526244,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526243,
+        "html" : "<p>An individual carrying duplications of function alleles</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 1
+    }, {
+      "id" : 1448526250,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1448526249,
+        "html" : "<p>Select and alternative drug not predominantly metabolized by CYP2D6 (i.e. granisetron).</p>\n<p>Consideration for alternative 5-HT3 receptor antagonists antiemetics: Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n<p><em>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</em></p>\n",
+        "version" : 1
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 3
+    } ],
+    "genePhenotypes" : [ "CYP2D6:Decreased Function/Increased Function", "CYP2D6:Increased Function/Increased Function", "CYP2D6:Increased Function/Normal Function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guideline/PA166161954",
+      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
+      "objCls" : "Guideline",
+      "id" : "PA166161954",
+      "name" : "Annotation of CPIC Guideline for ondansetron and CYP2D6",
+      "version" : 11
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501931,
+      "resource" : "Guideline Strength",
+      "term" : "Moderate",
+      "termId" : "guidelineStrength:981501931",
+      "version" : 0
+    },
+    "version" : 7
+  } ],
+  "genePhenotypes" : {
+    "CYP2D6" : {
+      "*1" : "Normal Function",
+      "*1xN" : "Increased Function",
+      "*2" : "Normal Function",
+      "*2xN" : "Increased Function",
+      "*3" : "No Function",
+      "*3xN" : "No Function",
+      "*4" : "No Function",
+      "*4xN" : "No Function",
+      "*5" : "No Function",
+      "*6" : "No Function",
+      "*6xN" : "No Function",
+      "*7" : "No Function",
+      "*8" : "No Function",
+      "*9" : "Decreased Function",
+      "*9x2" : "Normal Function",
+      "*10" : "Decreased Function",
+      "*10x2" : "Normal Function",
+      "*11" : "No Function",
+      "*12" : "No Function",
+      "*13" : "No Function",
+      "*14A" : "No Function",
+      "*14B" : "Decreased Function",
+      "*15" : "No Function",
+      "*17" : "Decreased Function",
+      "*17x2" : "Normal Function",
+      "*18" : "No Function",
+      "*19" : "No Function",
+      "*20" : "No Function",
+      "*21" : "No Function",
+      "*22" : "Uncertain Function",
+      "*23" : "Uncertain Function",
+      "*24" : "Uncertain Function",
+      "*25" : "Uncertain Function",
+      "*26" : "Uncertain Function",
+      "*27" : "Normal Function",
+      "*28" : "Uncertain Function",
+      "*29" : "Decreased Function",
+      "*29x2" : "Normal Function",
+      "*30" : "Uncertain Function",
+      "*31" : "No Function",
+      "*32" : "Uncertain Function",
+      "*33" : "Normal Function",
+      "*34" : "Normal Function",
+      "*35" : "Normal Function",
+      "*35xN" : "Increased Function",
+      "*36" : "No Function",
+      "*36xN" : "No Function",
+      "*37" : "Uncertain Function",
+      "*38" : "No Function",
+      "*39" : "Normal Function",
+      "*40" : "No Function",
+      "*41" : "Decreased Function",
+      "*41x2" : "Normal Function",
+      "*42" : "No Function",
+      "*43" : "Uncertain Function",
+      "*44" : "No Function",
+      "*45" : "Normal Function",
+      "*45xN" : "Increased Function",
+      "*46" : "Normal Function",
+      "*47" : "No Function",
+      "*48" : "Normal Function",
+      "*49" : "Decreased Function",
+      "*50" : "Decreased Function",
+      "*51" : "No Function",
+      "*52" : "Uncertain Function",
+      "*53" : "Normal Function",
+      "*54" : "Decreased Function",
+      "*55" : "Decreased Function",
+      "*56" : "No Function",
+      "*57" : "No Function",
+      "*58" : "Unknown Function",
+      "*59" : "Decreased Function",
+      "*60" : "Unknown Function",
+      "*61" : "Uncertain Function",
+      "*62" : "No Function",
+      "*63" : "Uncertain Function",
+      "*64" : "Uncertain Function",
+      "*65" : "Uncertain Function",
+      "*68" : "No Function",
+      "*69" : "No Function",
+      "*70" : "Uncertain Function",
+      "*71" : "Uncertain Function",
+      "*72" : "Decreased Function",
+      "*73" : "Unknown Function",
+      "*74" : "Unknown Function",
+      "*75" : "Uncertain Function",
+      "*81" : "Uncertain Function",
+      "*82" : "Unknown Function",
+      "*83" : "Unknown Function",
+      "*84" : "Decreased Function",
+      "*85" : "Unknown Function",
+      "*86" : "Unknown Function",
+      "*87" : "Uncertain Function",
+      "*88" : "Uncertain Function",
+      "*89" : "Uncertain Function",
+      "*90" : "Uncertain Function",
+      "*91" : "Uncertain Function",
+      "*92" : "No Function",
+      "*93" : "Uncertain Function",
+      "*94" : "Uncertain Function",
+      "*95" : "Uncertain Function",
+      "*96" : "No Function",
+      "*97" : "Uncertain Function",
+      "*98" : "Uncertain Function",
+      "*99" : "No Function",
+      "*100" : "No Function",
+      "*101" : "No Function",
+      "*102" : "Unknown Function",
+      "*103" : "Unknown Function",
+      "*104" : "Unknown Function",
+      "*105" : "Unknown Function",
+      "*107" : "Unknown Function",
+      "*108" : "Unknown Function",
+      "*109" : "Unknown Function",
+      "*110" : "Unknown Function",
+      "*111" : "Unknown Function",
+      "*112" : "Unknown Function",
+      "*113" : "Unknown Function"
+    }
+  },
+  "citations" : [ {
+    "@id" : "https://pharmgkb.org/literature/15098241",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 15098241,
+    "resourceId" : "28002639",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 Genotype and Use of Ondansetron and Tropisetron",
+    "authors" : [ "Bell Gillian C", "Caudle Kelly E", "Whirl-Carrillo Michelle", "Gordon Ronald J", "Hikino Keiko", "Prows Cynthia A", "Gaedigk Andrea", "Agundez Jose A G", "Sadhasivam Senthilkumar", "Klein Teri E", "Schwab Matthias" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 12,
+    "nonHuman" : false,
+    "pubDate" : "2016-12-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/28002639",
+    "sentences" : [ ],
+    "summary" : "5-hydroxytryptamine type 3 (5-HT3 ) receptor antagonists are used in the prevention of chemotherapy- induced, radiation-induced and postoperative nausea and vomiting. CYP2D6 polymorphisms can influence the metabolism of some of these drugs (i.e. ondansetron and tropisetron) thereby affecting drug efficacy. We summarize evidence from the published literature supporting these associations and provide therapeutic recommendations for ondansetron and tropisetron based on CYP2D6 genotype (updates at www.pharmgkb.org). This article is protected by copyright. All rights reserved.",
+    "type" : "article",
+    "version" : 0,
+    "year" : 2016
+  } ]
+}

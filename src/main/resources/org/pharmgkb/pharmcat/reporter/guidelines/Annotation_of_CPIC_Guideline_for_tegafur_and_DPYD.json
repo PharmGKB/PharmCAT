@@ -1,0 +1,100 @@
+{
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guideline/PA166122687",
+    "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
+    "objCls" : "Guideline",
+    "id" : "PA166122687",
+    "name" : "Annotation of CPIC Guideline for tegafur and DPYD",
+    "history" : [ {
+      "id" : 1184511813,
+      "date" : "2014-07-30T00:00:00-07:00",
+      "type" : "update",
+      "version" : 0
+    }, {
+      "id" : 1448604798,
+      "date" : "2017-03-16T17:31:25.756-07:00",
+      "description" : "Updated extended dosing guidelines",
+      "type" : "update",
+      "version" : 0
+    }, {
+      "id" : 1449140377,
+      "date" : "2017-11-13T00:00:00-08:00",
+      "description" : "October 2017 guideline update",
+      "type" : "update",
+      "version" : 1
+    } ],
+    "recommendation" : false,
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA452620",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA452620",
+      "name" : "tegafur",
+      "version" : 22
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA145",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA145",
+      "symbol" : "DPYD",
+      "name" : "dihydropyrimidine dehydrogenase",
+      "version" : 6905
+    } ],
+    "source" : "CPIC",
+    "summaryMarkdown" : {
+      "id" : 1447982075,
+      "html" : "<p><strong>As of the <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Ffluoropyrimidines%2F2017%2FDPYD_preprint.pdf\" target=\"_blank\">November 2017 update</a> of CPIC guidelines regarding fluoropyrimidine dosing, there are no longer dosing recommendations for tegafur based on <em>DPYD</em>  genotype. This is due to limited evidence regarding the impact of <em>DPYD</em> variants on tegafur toxicity risk. The guidelines currently only apply to 5-fluorouracil and capecitabine dosing.</strong></p>\n",
+      "version" : 13
+    },
+    "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+    "textMarkdown" : {
+      "id" : 1447982074,
+      "html" : "<p>This annotation is based on the <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-fluoropyrimidines-and-dpyd%2F\" target=\"_blank\">CPIC&reg; guideline for fluoropyrimidines and DPYD</a>.</p>\n<h3 id=\"november-2017-update-on-pharmgkb\">November 2017 Update on PharmGKB</h3>\n<p><em>Advance online publication November 2017</em></p>\n<ul>\n<li>The 2017 update of CPIC guidelines regarding 5-fluorouracil and capecitabine has been accepted for publication in Clinical Pharmacology and Therapeutics.  Literature up to March 2017 was reviewed, and recommendations and supplemental information were updated. <strong>In particular, the dosing recommendations were modified to only apply to 5-fluorouracil and capecitabine; they no longer apply to tegafur. This is due to limited evidence regarding the impact of <em>DPYD</em> variants on tegafur toxicity risk.</strong></li>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Ffluoropyrimidines%2F2017%2FDPYD_preprint.pdf\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium Guideline for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing: 2017 Update</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Ffluoropyrimidines%2F2017%2FDPYD_preprint-supplement.pdf\" target=\"_blank\">2017 supplement</a></li>\n</ul>\n</li>\n</ul>\n<h3 id=\"may-2014-update-on-pharmgkb\">May 2014 Update on PharmGKB</h3>\n<ul>\n<li>The CPIC authors recommend that the <em>DPYD*4</em>, <em>*5</em>, <em>*6</em> and <em>*9A</em> alleles be categorized as &quot;normal&quot; activity, in part based upon the recent publication <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=http%3A%2F%2Fwww.ncbi.nlm.nih.gov%2Fpubmed%2F%3Fterm%3D24648345\" target=\"_blank\">Comparative Functional Analysis of DPYD Variants of Potential Clinical Relevance to Dihydropyrimidine Dehydrogenase Activity</a>.</li>\n</ul>\n<h3 id=\"december-2013-publication\">December 2013 Publication</h3>\n<p><em>Accepted article preview online August 2013; Advance online publication October 2013.</em></p>\n<ul>\n<li>Guidelines regarding the use of pharmacogenomic tests in dosing for fluoropyrimidines have been published in <em>Clinical Pharmacology and Therapeutics</em> by the Clinical Pharmacogenetics Implementation Consortium <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org\" target=\"_blank\">(CPIC)</a>.</li>\n<li>These guidelines are applicable to:\n<ul>\n<li>at the time of this writing, there are no data available on the possible role of DPYD*2A, *13, or <a href=\"/variant/PA166153895\">rs67376798</a> in 5-fluorouracil toxicities in pediatric patient populations; however, there is no reason to suspect that DPYD variant alleles would affect 5-fluorouracil metabolism differently in children compared to adults.</li>\n</ul>\n</li>\n<li>Excerpt from the fluoropyrimidine dosing guideline based on DPYD genotype:\n<ul>\n<li>&quot;The strength of the dosing recommendations is based on the fact that some variants (DPYD*2A, *13, and <a href=\"/variant/PA166153895\">rs67376798</a>) clearly affect DPD activity, and DPD activity is clearly related to 5-fluorouracil clearance, and 5-fluorouracil exposure is associated with its toxic effects. Therefore, reduction of fluoropyrimidine dosage in patients with these variants may prevent severe and possibly life-threatening toxicities. However, available evidence does not clearly indicate a degree of dose reduction needed to prevent fluoropyrimidine related toxicities...[Based on literature review (see full manuscript),] our recommendation is to start with at least a 50% reduction of the starting dose followed by an increase in dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy, a decrease in dose in patients who do not tolerate the starting dose to minimize toxicities or pharmacokinetic guided dose adjustments (if available). Patients who are homozygous for DPYD*2A, *13, or <a href=\"/variant/PA166153895\">rs67376798</a> may demonstrate complete DPD deficiency and the use of 5-fluorouracil or capecitabine is not recommended in these patients.&quot;</li>\n</ul>\n</li>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Ffluoropyrimidines%2F2013%2F23988873.pdf\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium Guidelines for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Ffluoropyrimidines%2F2013%2F23988873-supplement.pdf\" target=\"_blank\">2013 supplement</a></li>\n</ul>\n</li>\n</ul>\n<h3 id=\"table-1-recommended-dosing-of-fluoropyrimidines-by-genotype-phenotype\">Table 1: Recommended dosing of fluoropyrimidines by genotype/phenotype.</h3>\n<p><em>Adapted from Tables 1 and 2 of the 2013 guideline manuscript.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>Phenotype (genotype)</th><th>Examples of diplotypes</th><th>Implications for phenotypic measures</th><th>Dosing recommendations</th><th>Classification of recommendations <sup>a</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>Homozygous wild-type or normal, high DPD activity (two or more functional *1 alleles)</td><td>*1/*1</td><td>Normal DPD activity and &quot;normal&quot; risk for fluoropyrimidine toxicity</td><td>Use label-recommended dosage and administration</td><td>Moderate</td></tr>\n<tr><td>Heterozygous or intermediate activity (~3-5% of patients), may have partial DPD deficiency, at risk for toxicity with drug exposure (one functional allele *1, plus one nonfunctional allele - *2A, *13 or rs67376798A <sup>c</sup>)</td><td>*1/*2A; *1/*13; *1/ rs67376798A <sup>c</sup>)</td><td>Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs</td><td>Start with at least a 50% reduction in starting dose followed by titration of dose based on toxicity <sup>b</sup> or pharmacokinetic test (if available)</td><td>Moderate</td></tr>\n<tr><td>Homozygous variant, DPD deficiency (~0.2% of patients), at risk for toxicity with drug exposure (2 nonfunctional alleles - *2A, *13 or rs67376798A <sup>c</sup>)</td><td>*2A/*2A; *13/*13; rs67376798A <sup>c</sup> / rs67376798A <sup>c</sup></td><td>Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs</td><td>Select alternate drug</td><td>Strong</td></tr>\n</tbody>\n</table>\n<p><sup>a</sup> Rating scheme described in 2013 supplement.</p>\n<p><sup>b</sup> Increase the dose in patients experiencing no or clinically tolerable toxicity to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.</p>\n<p><sup>c</sup> Note that the rs67376798A allele refers to the allele on the positive chromosomal strand.  This is important because DPYD is on the minus chromosomal strand and <a href=\"/variant/PA166153895\">rs67376798</a> is a T/A snp.  Therefore, the T allele on the gene confers the deficiency, while the complement on the positive chromosomal strand (A allele) is indicative of deficiency.</p>\n",
+      "version" : 14
+    },
+    "version" : 29,
+    "xrefs" : [ {"@id":"https://pharmgkb.org/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-fluoropyrimidines-and-dpyd/","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983463,"name":"Based on a CPIC dosing guideline","resource":"Web Resource","sameAs":"https://cpicpgx.org/guidelines/guideline-for-fluoropyrimidines-and-dpyd/","xrefId":"https://cpicpgx.org/guidelines/guideline-for-fluoropyrimidines-and-dpyd/"} ]
+  },
+  "citations" : [ {
+    "@id" : "https://pharmgkb.org/literature/15062135",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 15062135,
+    "resourceId" : "23988873",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing",
+    "authors" : [ "Caudle Kelly E", "Thorn Caroline F", "Klein Teri E", "Swen Jesse J", "McLeod Howard L", "Diasio Robert B", "Schwab Matthias" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 8,
+    "nonHuman" : false,
+    "pubDate" : "2013-08-01T00:00:00-07:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/23988873",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15062136,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 15062137,
+      "text" : "The fluoropyrimidines are the mainstay chemotherapeutic agents for the treatment of many types of cancers.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 15062138,
+      "text" : "Detoxifying metabolism of fluoropyrimidines requires dihydropyrimidine dehydrogenase (DPD encoded by the DPYD gene) and reduced or absent activity of this enzyme can result in severe and sometimes fatal toxicity.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 15062139,
+      "text" : "We summarize evidence from the published literature supporting this association and provide dosing recommendations for fluoropyrimidines based on DPYD genotype (updates at www.pharmgkb.org).Clinical Pharmacology & Therapeutics (2013); accepted article preview online 29 August 2013; doi:10.1038/clpt.2013.172.",
+      "sentenceIndex" : 3
+    } ],
+    "summary" : "The fluoropyrimidines are the mainstay chemotherapeutic agents for the treatment of many types of cancers. Detoxifying metabolism of fluoropyrimidines requires dihydropyrimidine dehydrogenase (DPD encoded by the DPYD gene) and reduced or absent activity of this enzyme can result in severe and sometimes fatal toxicity. We summarize evidence from the published literature supporting this association and provide dosing recommendations for fluoropyrimidines based on DPYD genotype (updates at www.pharmgkb.org).Clinical Pharmacology & Therapeutics (2013); accepted article preview online 29 August 2013; doi:10.1038/clpt.2013.172.",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2013
+  } ]
+}

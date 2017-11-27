@@ -1,0 +1,327 @@
+{
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guideline/PA166104997",
+    "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
+    "objCls" : "Guideline",
+    "id" : "PA166104997",
+    "name" : "Annotation of CPIC Guideline for abacavir and HLA-B",
+    "descriptiveVideoId" : "XsQiUeeYWMM",
+    "history" : [ {
+      "id" : 1183699748,
+      "date" : "2012-02-29T00:00:00-08:00",
+      "type" : "update",
+      "version" : 0
+    }, {
+      "id" : 1183847536,
+      "date" : "2014-02-28T00:00:00-08:00",
+      "description" : "CPIC update to guidelines published",
+      "type" : "update",
+      "version" : 0
+    }, {
+      "id" : 1184512476,
+      "date" : "2014-08-05T00:00:00-07:00",
+      "description" : "updated pubication date for update to May 2014",
+      "type" : "update",
+      "version" : 1
+    }, {
+      "id" : 1184782525,
+      "date" : "2014-09-30T00:00:00-07:00",
+      "description" : "Supplement was missing figures; complete supplement with figures added",
+      "type" : "correction",
+      "version" : 1
+    } ],
+    "recommendation" : true,
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA448004",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA448004",
+      "name" : "abacavir",
+      "version" : 8
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA35056",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA35056",
+      "symbol" : "HLA-B",
+      "name" : "major histocompatibility complex, class I, B",
+      "version" : 39
+    } ],
+    "source" : "CPIC",
+    "summaryMarkdown" : {
+      "id" : 1447982036,
+      "html" : "<p>In individuals with the HLA-B*57:01 variant allele (&quot;HLA-B*57:01-positive&quot;), abacavir is not recommended and should be considered only under exceptional circumstances. See full guideline for disclaimers, further details and supporting evidence.</p>\n",
+      "version" : 0
+    },
+    "summaryVideoId" : "M60aQ9PtwuE",
+    "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+    "textMarkdown" : {
+      "id" : 1447982035,
+      "html" : "<p>This annotation is based on the <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-abacavir-and-hla-b%2F\" target=\"_blank\">CPIC&reg; guideline for abacavir and HLA-B</a>.</p>\n<h3 id=\"may-2014\">May 2014</h3>\n<p><em>Accepted article preview online 21 February 2014; Advance online publication 12 March 2014</em></p>\n<p>The <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=http%3A%2F%2Fwww.nature.com%2Fclpt%2Fjournal%2Fv95%2Fn5%2Ffull%2Fclpt201438a.html\" target=\"_blank\">2014 update of CPIC guidelines</a> regarding abacavir has been published in <em>Clinical Pharmacology and Therapeutics</em>. Literature published between April 2011-November 2013 was reviewed and there is <strong>no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current</strong>.</p>\n<ul>\n<li>These guidelines are applicable to:\n<ul>\n<li>HIV Patients</li>\n</ul>\n</li>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Fabacavir%2F2014%2F24561393.pdf\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium Guidelines for <em>HLA-B</em> Genotype and Abacavir Dosing: 2014 Update </a>.</li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Fabacavir%2F2014%2F24561393-supplement.pdf\" target=\"_blank\">2014 supplement</a>.</li>\n</ul>\n</li>\n</ul>\n<h3 id=\"april-2012\">April 2012</h3>\n<p><em>Advance online publication February 2012</em></p>\n<ul>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Fabacavir%2F2012%2F22378157.pdf\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium Guidelines for <em>HLA-B</em> Genotype and Abacavir Dosing</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Fabacavir%2F2012%2F22378157-supplement.pdf\" target=\"_blank\">2012 supplement</a>.</li>\n</ul>\n</li>\n</ul>\n<p>Excerpt from the abacavir dosing guidelines:</p>\n<blockquote class=\"blockquote\">\n<p>We agree with others* that <em>HLA-B*57:01</em> screening should be performed in all abacavir-naive individuals before initiation of abacavir-containing therapy (see Table 1 below); this is consistent with the recommendations of the FDA, the US Department of Health and Human Services, and the European Medicines Agency. In abacavir-naive individuals who are <em>HLA-B*57:01</em>-positive, abacavir is not recommended and should be considered only under exceptional circumstances when the potential benefit, based on resistance patterns and treatment history, outweighs the risk.</p>\n</blockquote>\n<p>*[Articles:<a href=\"/pmid/18826546\">18826546</a>, <a href=\"/pmid/19640227\">19640227</a>, <a href=\"/pmid/21174626\">21174626</a>, <a href=\"/pmid/21412232\">21412232</a>] <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=http%3A%2F%2Fwww.aidsinfo.nih.gov%2FContentFiles%2FAdultandAdolescentGL.pdf\" target=\"_blank\">Guidelines for the Use of Antiretroviral Agents in HIV-1-Infected Adults and Adolescents (PDF) </a></p>\n<h3 id=\"table-1-recommended-therapeutic-use-of-abacavir-based-on-hla-b-genotype\">Table 1: Recommended therapeutic use of abacavir based on <em>HLA-B</em> genotype</h3>\n<p><em>Adapted from Tables 1 and 2 of the 2012 guideline manuscript.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>Likely phenotype</th><th>Genotypes</th><th>Examples of diplotypes</th><th>Implications for phenotypic measures</th><th>Recommendations for abacavir therapy</th><th>Classification of recommendation for abacavir therapy <sup>a</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>Very low risk of hypersensitivity (constitutes ~94% <sup>b</sup> of patients)</td><td>Absence of <em>*57:01</em> alleles (reported as &quot;negative&quot; on a genotyping test)</td><td>*X/*X <sup>c</sup></td><td>Low or reduced risk of abacavir hypersensitivity</td><td>Use abacavir per standard dosing guidelines</td><td>Strong</td></tr>\n<tr><td>High risk of hypersensitivity (~6% of patients)</td><td>Presence of at least one <em>*57:01</em> allele (reported as &quot;positive&quot; on a genotyping test)</td><td><em>*57:01</em>/*X <sup>c</sup> <em>*57:01/*57:01</em></td><td>Significantly increased risk of abacavir hypersensitivity</td><td>Abacavir is not recommended</td><td>Strong</td></tr>\n</tbody>\n</table>\n<p><sup>a</sup> Rating scheme described in the <a href=\"https://api.pharmgkb.org/v1/download/file/attachment/CPIC_HLAB-Abacavir_Supplemental_Material.pdf\">2012 Supplement</a></p>\n<p><sup>b</sup> See the <a href=\"https://api.pharmgkb.org/v1/download/file/attachment/CPIC_HLAB-Abacavir_Supplemental_Material.pdf\">2012 Supplement</a> for estimates of genotype frequencies among different ethnic/geographic groups</p>\n<p><sup>c</sup> *X = any <em>HLA-B</em> genotype other than <em>*57:01</em>.</p>\n<p><em>HLA-B</em> = human leukocyte antigen B</p>\n<p><strong>Listen to an interview with the lead author:</strong> <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=http%3A%2F%2Fwww.theaidsreader.com%2Fdisplay%2Farticle%2F1145619%2F2064707\" target=\"_blank\">podcast</a></p>\n",
+      "version" : 14
+    },
+    "version" : 33,
+    "xrefs" : [ {"@id":"https://pharmgkb.org/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-abacavir-and-hla-b/","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983436,"name":"Based on a CPIC dosing guideline","resource":"Web Resource","sameAs":"https://cpicpgx.org/guidelines/guideline-for-abacavir-and-hla-b/","xrefId":"https://cpicpgx.org/guidelines/guideline-for-abacavir-and-hla-b/"} ]
+  },
+  "annotationGroups" : [ {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166128752",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "id" : "PA166128752",
+    "name" : "Absent",
+    "annotations" : [ {
+      "id" : 1445560529,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986546,
+        "html" : "<p>Low or reduced risk of abacavir hypersensitivity</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445560765,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986547,
+        "html" : "<p>Very low risk of hypersensitivity (~94% of patients) in the absence of *57:01 alleles (reported as &quot;negative&quot; on a genotyping test)</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445560530,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986545,
+        "html" : "<p>Use abacavir per standard dosing guidelines</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 6
+    } ],
+    "genePhenotypes" : [ "HLA-B:Absence/Absence" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guideline/PA166104997",
+      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
+      "objCls" : "Guideline",
+      "id" : "PA166104997",
+      "name" : "Annotation of CPIC Guideline for abacavir and HLA-B",
+      "version" : 33
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 6
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166128753",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "DosingGuidelineAnnotationGroup",
+    "id" : "PA166128753",
+    "name" : "Present",
+    "annotations" : [ {
+      "id" : 1445561001,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986470,
+        "html" : "<p>Significantly increased risk of abacavir hypersensitivity</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501925,
+        "resource" : "Guideline Tags",
+        "term" : "Implications",
+        "termId" : "guidelineTags:981501925",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445561000,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986548,
+        "html" : "<p>High risk of hypersensitivity (~6% of patients) due to the presence of at least one *57:01 allele (reported as &quot;positive&quot; on a genotyping test)</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501927,
+        "resource" : "Guideline Tags",
+        "term" : "Phenotype (Genotype)",
+        "termId" : "guidelineTags:981501927",
+        "version" : 0
+      },
+      "version" : 6
+    }, {
+      "id" : 1445561002,
+      "history" : [ ],
+      "markdown" : {
+        "id" : 1447986471,
+        "html" : "<p>Abacavir is not recommended</p>\n",
+        "version" : 0
+      },
+      "type" : {
+        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "id" : 981501928,
+        "resource" : "Guideline Tags",
+        "term" : "Recommendations",
+        "termId" : "guidelineTags:981501928",
+        "version" : 0
+      },
+      "version" : 6
+    } ],
+    "genePhenotypes" : [ "HLA-B:Absence/Presence", "HLA-B:Presence/Presence" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guideline/PA166104997",
+      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
+      "objCls" : "Guideline",
+      "id" : "PA166104997",
+      "name" : "Annotation of CPIC Guideline for abacavir and HLA-B",
+      "version" : 33
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501930,
+      "resource" : "Guideline Strength",
+      "term" : "Strong",
+      "termId" : "guidelineStrength:981501930",
+      "version" : 0
+    },
+    "version" : 6
+  } ],
+  "genePhenotypes" : {
+    "HLA-B" : {
+      "*57:01:01" : "Presence",
+      "Other" : "Absence"
+    }
+  },
+  "citations" : [ {
+    "@id" : "https://pharmgkb.org/literature/15070904",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 15070904,
+    "resourceId" : "24561393",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Abacavir Dosing: 2014 update",
+    "authors" : [ "Martin Michael A", "Hoffman James M", "Freimuth Robert R", "Klein Teri E", "Dong Betty J", "Pirmohamed Munir", "Hicks J Kevin", "Wilkinson Mark R", "Haas David W", "Kroetz Deanna L" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 2,
+    "nonHuman" : false,
+    "pubDate" : "2014-02-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/24561393",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 15070905,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Abacavir Dosing: 2014 update",
+      "sentenceIndex" : 0
+    }, {
+      "location" : "abstract",
+      "id" : 15070906,
+      "text" : "The Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Abacavir Dosing was originally published in April 2012.",
+      "sentenceIndex" : 1
+    }, {
+      "location" : "abstract",
+      "id" : 15070907,
+      "text" : "We reviewed recent literature and concluded that none of the evidence would change the therapeutic recommendations in the original guideline; therefore, the original publication remains clinically current.",
+      "sentenceIndex" : 2
+    }, {
+      "location" : "abstract",
+      "id" : 15070908,
+      "text" : "However, we have updated the supplemental material and included additional resources for applying CPIC guidelines into the electronic health record.",
+      "sentenceIndex" : 3
+    }, {
+      "location" : "abstract",
+      "id" : 15070909,
+      "text" : "Up-to-date information can be found at PharmGKB (http://www.pharmgkb.org).Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 21 February 2014.",
+      "sentenceIndex" : 4
+    }, {
+      "location" : "abstract",
+      "id" : 15070910,
+      "text" : "doi:10.1038/clpt.2014.38.",
+      "sentenceIndex" : 5
+    } ],
+    "summary" : "The Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Abacavir Dosing was originally published in April 2012. We reviewed recent literature and concluded that none of the evidence would change the therapeutic recommendations in the original guideline; therefore, the original publication remains clinically current. However, we have updated the supplemental material and included additional resources for applying CPIC guidelines into the electronic health record. Up-to-date information can be found at PharmGKB (http://www.pharmgkb.org).Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 21 February 2014. doi:10.1038/clpt.2014.38.",
+    "type" : "article",
+    "version" : 1,
+    "year" : 2014
+  }, {
+    "@id" : "https://pharmgkb.org/literature/14962778",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 14962778,
+    "resourceId" : "22378157",
+    "title" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for HLA-B Genotype and Abacavir Dosing",
+    "authors" : [ "Martin M A", "Klein T E", "Dong B J", "Pirmohamed M", "Haas D W", "Kroetz D L" ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 2,
+    "nonHuman" : false,
+    "pubDate" : "2012-02-01T00:00:00-08:00",
+    "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/22378157",
+    "sentences" : [ {
+      "location" : "title",
+      "id" : 14962779,
+      "text" : "Clinical Pharmacogenetics Implementation Consortium Guidelines for HLA-B Genotype and Abacavir Dosing",
+      "sentenceIndex" : 0
+    } ],
+    "type" : "article",
+    "version" : 1,
+    "year" : 2012
+  } ]
+}

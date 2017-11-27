@@ -36,6 +36,9 @@ public class DosingGuideline {
   @SerializedName("history")
   @Expose
   private List<History> m_history;
+  @SerializedName("recommendation")
+  @Expose
+  private boolean m_recommendation;
 
   /**
    *
@@ -181,5 +184,13 @@ public class DosingGuideline {
 
   public List<History> getHistory() {
     return m_history;
+  }
+
+  public boolean isRecommendation() {
+    return m_recommendation;
+  }
+
+  public void setRecommendation(boolean recommendation) {
+    m_recommendation = recommendation;
   }
 }
