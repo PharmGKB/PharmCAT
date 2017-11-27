@@ -52,7 +52,9 @@ public class JsonFileLoader {
     for (Path guidelineFile : guidelineFileList) {
       try (BufferedReader br = Files.newBufferedReader(guidelineFile)) {
         GuidelinePackage guidelinePackage = gson.fromJson(br, GuidelinePackage.class);
-        if (guidelinePackage.getGuideline().getSource().equals(CPIC_SOURCE)) {
+        DosingGuideline guideline = guidelinePackage.getGuideline();
+
+        if (guideline.getSource().equals(CPIC_SOURCE) && guideline.isRecommendation()) {
           guidelines.add(guidelinePackage);
         }
       }
