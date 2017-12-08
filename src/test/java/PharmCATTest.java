@@ -269,7 +269,7 @@ public class PharmCATTest {
     testCalledGenes("DPYD", "UGT1A1", "TPMT", "CYP3A5", "CFTR", "CYP2C19",
         "CYP2C9", "SLCO1B1", "VKORC1", "CYP4F2", "IFNL3", "CYP2D6");
     testCalls(DipType.PRINT, "TPMT", "*1/*1");
-    testCalls(DipType.PRINT, "DPYD", "*1/*1");
+    testCalls(DipType.PRINT, "DPYD", "No CPIC decreased or no function variant with strong or moderate evidence found");
     testCalls(DipType.PRINT, "CYP2C19", "*2/*2");
     testCalls(DipType.LOOKUP, "TPMT", "TPMT:*1/*1");
     testCalls(DipType.PRINT, "CYP2D6", "*1/*4");
@@ -295,7 +295,7 @@ public class PharmCATTest {
     s_context = s_pharmcat.getReporter().getContext();
 
     assertEquals(14, s_context.getGeneReports().size());
-    assertEquals(33, s_context.getGuidelineReports().size());
+    assertEquals(32, s_context.getGuidelineReports().size());
   }
 
   /**
