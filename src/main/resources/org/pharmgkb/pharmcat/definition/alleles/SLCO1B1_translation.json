@@ -1,6 +1,5 @@
 {
   "formatVersion": "1",
-  "contentVersion": null,
   "modificationDate": "Mar 30, 2016 12:00:00 AM",
   "gene": "SLCO1B1",
   "orientation": "forward",
@@ -1318,7 +1317,7 @@
     {
       "name": "*21",
       "id": "CA100173.1",
-      "function": "Unknown function/Unclear function",
+      "function": "Unknown or uncertain function",
       "alleles": [
         "A",
         null,

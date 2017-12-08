@@ -1,7 +1,6 @@
 {
   "formatVersion": "1",
-  "contentVersion": null,
-  "modificationDate": "Oct 21, 2016 12:00:00 AM",
+  "modificationDate": "Nov 16, 2017 12:00:00 AM",
   "gene": "CYP2C9",
   "orientation": "forward",
   "chromosome": "chr10",
@@ -1400,7 +1399,7 @@
     {
       "name": "*14",
       "id": "CA100048.1",
-      "function": "Possible decreased function",
+      "function": "Unknown or uncertain function",
       "alleles": [
         null,
         null,
