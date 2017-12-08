@@ -25,6 +25,7 @@ public class Diplotype implements Comparable<Diplotype> {
   private static final String sf_delimiter = "/";
   private static final String sf_homTemplate = "Two %s alleles";
   private static final String sf_hetTemplate = "One %s allele and one %s allele";
+  private static final String sf_referenceAllele = "Reference";
 
   private Haplotype m_allele1;
   private Haplotype m_allele2;
@@ -227,6 +228,9 @@ public class Diplotype implements Comparable<Diplotype> {
    * @return Optional diplotype string to override whatever the actual string would be
    */
   private Optional<String> printOverride() {
+    boolean refAllele1 = isRef(getAllele1());
+    boolean refAllele2 = isRef(getAllele2());
+
     switch (m_gene) {
 
       case "CFTR":
@@ -234,18 +238,20 @@ public class Diplotype implements Comparable<Diplotype> {
           return Optional.of(getAllele1().getName() + " (homozygous)");
         }
 
-        boolean override1 = getAllele1().getName().equals("Reference");
-        boolean override2 = getAllele2().getName().equals("Reference");
-
-        if (override1 && override2) {
+        if (refAllele1 && refAllele2) {
           return Optional.of("No CPIC variants found");
         }
-        else if (override1 || override2) {
-          String allele = override1 ? getAllele2().getName() : getAllele1().getName();
+        else if (refAllele1 || refAllele2) {
+          String allele = refAllele1 ? getAllele2().getName() : getAllele1().getName();
           return Optional.of(allele + " (heterozygous)");
         }
         break;
 
+      case "DPYD":
+        if (refAllele1 && refAllele2) {
+          return Optional.of("No CPIC decreased or no function variant with strong or moderate evidence found");
+        }
+        break;
     }
     return Optional.empty();
   }
@@ -275,5 +281,12 @@ public class Diplotype implements Comparable<Diplotype> {
     }
 
     return ObjectUtils.compare(getAllele2(), o.getAllele2());
+  }
+
+  /**
+   * Returns true if the allele is "Reference"
+   */
+  private static boolean isRef(Haplotype allele) {
+    return allele.getName().equals(sf_referenceAllele);
   }
 }
