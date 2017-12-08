@@ -1,8 +1,8 @@
 {
   "guideline" : {
-    "@id" : "https://pharmgkb.org/guideline/PA166104998",
-    "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
     "objCls" : "Guideline",
+    "@id" : "https://api.pharmgkb.org/data/guideline/PA166104998",
+    "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
     "id" : "PA166104998",
     "name" : "Annotation of CPIC Guideline for nortriptyline and CYP2D6",
     "history" : [ {
@@ -19,17 +19,17 @@
     } ],
     "recommendation" : true,
     "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA450657",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
       "objCls" : "Chemical",
+      "@id" : "https://api.pharmgkb.org/data/chemical/PA450657",
+      "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
       "id" : "PA450657",
       "name" : "nortriptyline",
       "version" : 5
     } ],
     "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA128",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
       "objCls" : "Gene",
+      "@id" : "https://api.pharmgkb.org/data/gene/PA128",
+      "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
       "id" : "PA128",
       "symbol" : "CYP2D6",
       "name" : "cytochrome P450, family 2, subfamily D, polypeptide 6",
@@ -38,22 +38,32 @@
     "source" : "CPIC",
     "summaryMarkdown" : {
       "id" : 1447982024,
+      "externalLinks" : [ ],
       "html" : "<p>The CPIC Dosing Guideline update for nortriptyline recommends a 25% dose reduction for CYP2D6 intermediate metabolizers. For CYP2D6 ultrarapid or poor metabolizers, an alternative drug should be considered. If nortriptyline is warranted, consider a 50% dose reduction in CYP2D6 poor metabolizers.</p>\n",
+      "internalLinks" : [ ],
+      "markdown" : "The CPIC Dosing Guideline update for nortriptyline recommends a 25% dose reduction for CYP2D6 intermediate metabolizers. For CYP2D6 ultrarapid or poor metabolizers, an alternative drug should be considered. If nortriptyline is warranted, consider a 50% dose reduction in CYP2D6 poor metabolizers.",
+      "pmids" : [ ],
+      "relatedObjects" : [ ],
       "version" : 1
     },
-    "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+    "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
     "textMarkdown" : {
       "id" : 1447982023,
+      "externalLinks" : [ "https://cpicpgx.org/", "https://cpicpgx.org/content/guideline/publication/TCA/2013/23486447-CYP2D6%20frequency%20table%20(R2).xlsx", "https://cpicpgx.org/content/guideline/publication/TCA/2013/23486447-CYP2D6%20frequency%20table%20legend%20(R2).pdf", "https://cpicpgx.org/content/guideline/publication/TCA/2013/23486447-supplement.pdf", "https://cpicpgx.org/content/guideline/publication/TCA/2013/23486447.pdf", "https://cpicpgx.org/content/guideline/publication/TCA/2016/Nortriptyline_Drug_Resource_Mappings.xlsx", "https://cpicpgx.org/content/guideline/publication/TCA/2016/Nortriptyline_Pre_and_Post_Test_Alerts_and_Flow_Chart.xlsx", "https://cpicpgx.org/content/guideline/publication/TCA/2016/TCA_2016.pdf", "https://cpicpgx.org/content/guideline/publication/TCA/2016/TCA_Supplement_2016.pdf", "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/" ],
       "html" : "<p>This annotation is based on the <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19%2F\" target=\"_blank\">CPIC&reg; guideline for tricyclic antidepressants and CYP2D6 and CYP2C19</a>.</p>\n<h3 id=\"december-2016-update\">December 2016 Update</h3>\n<p><em>Advance online publication December 2016.</em></p>\n<ul>\n<li>The 2016 update of CPIC guidelines regarding the use of pharmacogenomic tests in dosing of tricyclic antidepressants (TCAs) have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2F\" target=\"_blank\">(CPIC)</a>.  Literature up to July 2016 was reviewed, recommendations and supplemental information were updated.</li>\n<li>Excerpt from the 2016 dosing guideline update:\n<ul>\n<li>&quot;There is substantial evidence linking <em>CYP2D6</em> genotypes to phenotypic variability in tricyclic side-effect and pharmacokinetic profiles. Modifying pharmacotherapy for patients who have <em>CYP2D6</em> genomic variants that affect drug efficacy and safety could potentially improve clinical outcomes and reduce the failure rate of initial treatment.&quot;</li>\n<li>&quot; There are scarce studies focusing solely on <em>CYP2D6</em> genotype and association with pharmacokinetic parameters or treatment outcomes of TCAs in pediatric patients. CYP2D6 activity is fully mature by early childhood. Although further genomic ontogeny studies are needed, there is a lack of evidence suggesting that this guideline cannot be extrapolated to pediatric patients.&quot;</li>\n</ul>\n</li>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2FTCA%2F2016%2FTCA_2016.pdf\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants: 2016 Update</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2FTCA%2F2016%2FTCA_Supplement_2016.pdf\" target=\"_blank\">2016 supplement</a></li>\n<li><a href=\"https://www.pharmgkb.org/page/cyp2d6RefMaterials\">CYP2D6 Gene-specific Information Tables</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2FTCA%2F2016%2FNortriptyline_Drug_Resource_Mappings.xlsx\" target=\"_blank\">Nortriptyline Drug Resource Mappings</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2FTCA%2F2016%2FNortriptyline_Pre_and_Post_Test_Alerts_and_Flow_Chart.xlsx\" target=\"_blank\">Nortriptyline Pre and Post Test Alerts and Flow Chart</a></li>\n</ul>\n</li>\n</ul>\n<h3 id=\"table-1-dosing-recommendations-for-nortriptyline-based-on-cyp2d6-phenotype\">Table 1: Dosing recommendations for nortriptyline based on CYP2D6 phenotype:</h3>\n<p><em>Adapted from Tables 1 and 2 of the 2016 guideline update.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>Likely phenotype</th><th>Activity score</th><th>Genotypes</th><th>Examples of diplotypes</th><th>Implications</th><th>Therapeutic Recommendations<sup>b</sup></th><th>Classification of recommendation for amitriptyline and nortriptyline<sup>c</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>CYP2D6 Ultrarapid metabolizer (~1-20% of patients)<sup>d</sup></td><td>&gt;2.0</td><td>An individual carrying more than two copies of functional alleles</td><td>*1/*1xN, *1/*2xN</td><td>Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure.</td><td>Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6.<br/>If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments.<sup>e</sup></td><td>Strong</td></tr>\n<tr><td>CYP2D6 Normal metabolizer (~72-88% of patients)<sup>d</sup></td><td>1.0-2.0<sup>f</sup></td><td>An individual carrying two normal function alleles or two decreased function alleles or one normal and no function allele or one normal and decreased function allele or combinations of duplicated alleles that result in an activity score of 1.0-2.0</td><td>*1/*1, *1/*2, *2/*2, *1/*9, *1/*41, *41/*41, *1/*4, *1/*5</td><td>Normal metabolism of TCAs.</td><td>Initiate therapy with recommended starting dose.<sup>g</sup></td><td>Strong</td></tr>\n<tr><td>CYP2D6 Intermediate metabolizer (~1-13% of patients)<sup>d</sup></td><td>0.5</td><td>An individual carrying one decreased and one no function allele</td><td>*4/*41, *5/*9, *4/*10</td><td>Reduced metabolism of TCAs to less active compounds when compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.</td><td>Consider 25% reduction of recommended starting dose.<sup>g</sup> Utilize therapeutic drug monitoring to guide dose adjustments.<sup>e</sup></td><td>Moderate</td></tr>\n<tr><td>CYP2D6 Poor metabolizer (~1-10% of patients)<sup>d</sup></td><td>0</td><td>An individual carrying only no function alleles</td><td>*4/*4, *4/*4xN, *3/*4, *5/*5, *5/*6</td><td>Greatly reduced metabolism of  TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.</td><td>Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6.<br/>If a TCA is warranted, consider 50% reduction of recommended starting dose.<sup>g</sup> Utilize therapeutic drug monitoring to guide dose adjustments.<sup>e</sup></td><td>Strong</td></tr>\n</tbody>\n</table>\n<p><sup>b</sup> Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations in the guideline for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain.</p>\n<p><sup>c</sup> The rating scheme for the recommendation of classification is described in the Supplement.</p>\n<p><sup>d</sup> CYP2D6 metabolizer status frequencies are based on average multi-ethnic frequencies. See the CYP2D6 Frequency Tables for population-specific allele and phenotype frequencies.</p>\n<p><sup>e</sup> Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects.</p>\n<p><sup>f</sup> Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories.</p>\n<p><sup>g</sup> Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.</p>\n<h3 id=\"may-2013\">May 2013</h3>\n<p><em>Advance online publication January 2013.</em></p>\n<ul>\n<li>Guidelines regarding the use of pharmacogenomic tests in dosing of amitriptyline and nortriptyline have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2F\" target=\"_blank\">(CPIC)</a>.</li>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2FTCA%2F2013%2F23486447.pdf\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2FTCA%2F2013%2F23486447-supplement.pdf\" target=\"_blank\">2013 supplement</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2FTCA%2F2013%2F23486447-CYP2D6%2520frequency%2520table%2520legend%2520%28R2%29.pdf\" target=\"_blank\">CYP2D6 frequency table legend (R2)</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2FTCA%2F2013%2F23486447-CYP2D6%2520frequency%2520table%2520%28R2%29.xlsx\" target=\"_blank\">CYP2D6 frequency table (R2)</a></li>\n</ul>\n</li>\n</ul>\n",
+      "internalLinks" : [ "/page/cyp2d6RefMaterials" ],
+      "markdown" : "This annotation is based on the [CPIC&reg; guideline for tricyclic antidepressants and CYP2D6 and CYP2C19](https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/).\n\n## December 2016 Update\n\n_Advance online publication December 2016._\n- The 2016 update of CPIC guidelines regarding the use of pharmacogenomic tests in dosing of tricyclic antidepressants (TCAs) have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).  Literature up to July 2016 was reviewed, recommendations and supplemental information were updated.\n- Excerpt from the 2016 dosing guideline update:\n  - \"There is substantial evidence linking _CYP2D6_ genotypes to phenotypic variability in tricyclic side-effect and pharmacokinetic profiles. Modifying pharmacotherapy for patients who have _CYP2D6_ genomic variants that affect drug efficacy and safety could potentially improve clinical outcomes and reduce the failure rate of initial treatment.\"\n  - \" There are scarce studies focusing solely on _CYP2D6_ genotype and association with pharmacokinetic parameters or treatment outcomes of TCAs in pediatric patients. CYP2D6 activity is fully mature by early childhood. Although further genomic ontogeny studies are needed, there is a lack of evidence suggesting that this guideline cannot be extrapolated to pediatric patients.\" \n- Download and read:  \n  - [Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants: 2016 Update](https://cpicpgx.org/content/guideline/publication/TCA/2016/TCA_2016.pdf) \n  - [2016 supplement](https://cpicpgx.org/content/guideline/publication/TCA/2016/TCA_Supplement_2016.pdf)\n  - [CYP2D6 Gene-specific Information Tables](https://www.pharmgkb.org/page/cyp2d6RefMaterials)\n  - [Nortriptyline Drug Resource Mappings](https://cpicpgx.org/content/guideline/publication/TCA/2016/Nortriptyline_Drug_Resource_Mappings.xlsx) \n  - [Nortriptyline Pre and Post Test Alerts and Flow Chart](https://cpicpgx.org/content/guideline/publication/TCA/2016/Nortriptyline_Pre_and_Post_Test_Alerts_and_Flow_Chart.xlsx)\n\n## Table 1: Dosing recommendations for nortriptyline based on CYP2D6 phenotype:\n\n_Adapted from Tables 1 and 2 of the 2016 guideline update._\n\n| Likely phenotype | Activity score | Genotypes | Examples of diplotypes | Implications | Therapeutic Recommendations^b^ | Classification of recommendation for amitriptyline and nortriptyline^c^ |\n| --- | --- | --- | --- | --- | --- | --- |\n| CYP2D6 Ultrarapid metabolizer (~1-20% of patients)^d^ | >2.0 | An individual carrying more than two copies of functional alleles | *1/*1xN, *1/*2xN | Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure. | Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. // If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments.^e^ | Strong |\n| CYP2D6 Normal metabolizer (~72-88% of patients)^d^ | 1.0-2.0^f^ | An individual carrying two normal function alleles or two decreased function alleles or one normal and no function allele or one normal and decreased function allele or combinations of duplicated alleles that result in an activity score of 1.0-2.0 | *1/*1, *1/*2, *2/*2, *1/*9, *1/*41, *41/*41, *1/*4, *1/*5  | Normal metabolism of TCAs. | Initiate therapy with recommended starting dose.^g^ | Strong |\n| CYP2D6 Intermediate metabolizer (~1-13% of patients)^d^ | 0.5 | An individual carrying one decreased and one no function allele | *4/*41, *5/*9, *4/*10 | Reduced metabolism of TCAs to less active compounds when compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects. | Consider 25% reduction of recommended starting dose.^g^ Utilize therapeutic drug monitoring to guide dose adjustments.^e^ | Moderate |\n| CYP2D6 Poor metabolizer (~1-10% of patients)^d^ | 0 | An individual carrying only no function alleles | *4/*4, *4/*4xN, *3/*4, *5/*5, *5/*6  | Greatly reduced metabolism of  TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects. | Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6. // If a TCA is warranted, consider 50% reduction of recommended starting dose.^g^ Utilize therapeutic drug monitoring to guide dose adjustments.^e^ | Strong |\n\n^b^ Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations in the guideline for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain. \n\n^c^ The rating scheme for the recommendation of classification is described in the Supplement.  \n\n^d^ CYP2D6 metabolizer status frequencies are based on average multi-ethnic frequencies. See the CYP2D6 Frequency Tables for population-specific allele and phenotype frequencies.\n\n^e^ Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. \n\n^f^ Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories.\n\n^g^ Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.\n\n## May 2013\n\n_Advance online publication January 2013._\n- Guidelines regarding the use of pharmacogenomic tests in dosing of amitriptyline and nortriptyline have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).  \n- Download and read:  \n  - [Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants](https://cpicpgx.org/content/guideline/publication/TCA/2013/23486447.pdf) \n  - [2013 supplement](https://cpicpgx.org/content/guideline/publication/TCA/2013/23486447-supplement.pdf)\n  - [CYP2D6 frequency table legend (R2)](https://cpicpgx.org/content/guideline/publication/TCA/2013/23486447-CYP2D6%20frequency%20table%20legend%20(R2).pdf)\n  - [CYP2D6 frequency table (R2)](https://cpicpgx.org/content/guideline/publication/TCA/2013/23486447-CYP2D6%20frequency%20table%20(R2).xlsx)",
+      "pmids" : [ ],
+      "relatedObjects" : [ ],
       "version" : 10
     },
     "version" : 36,
-    "xrefs" : [ {"@id":"https://pharmgkb.org/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983444,"name":"Based on a CPIC dosing guideline","resource":"Web Resource","sameAs":"https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/","xrefId":"https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/"} ]
+    "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983444,"name":"Based on a CPIC dosing guideline","resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/"} ]
   },
   "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166128777",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128777",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128777",
     "name" : "Normal Metabolizer",
     "annotations" : [ {
@@ -61,12 +71,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986497,
+        "externalLinks" : [ ],
         "html" : "<p>1.0-2.0</p>\n<p><em>Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "1.0-2.0 \n\n_Patients with an activity score of 1.0 may be classified as intermediate metabolizers by some reference laboratories._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501924",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501924,
         "resource" : "Guideline Tags",
         "term" : "Activity Score",
@@ -79,12 +94,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986501,
+        "externalLinks" : [ ],
         "html" : "<p>Normal metabolism of TCAs.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal metabolism of TCAs.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 1
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -97,12 +117,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986499,
+        "externalLinks" : [ ],
         "html" : "<p>Normal Metabolizer</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [Article:<a href=\"/pmid/27441996\">27441996</a>] for drug metabolizing enzymes.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal Metabolizer\n\n_CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [PMID:27441996] for drug metabolizing enzymes._",
+        "pmids" : [ "27441996" ],
+        "relatedObjects" : [ ],
         "version" : 3
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501926,
         "description" : "Likely phenotype of metabolizer status",
         "resource" : "Guideline Tags",
@@ -116,12 +141,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986498,
+        "externalLinks" : [ ],
         "html" : "<p>An individual carrying two normal function alleles or two decreased function alleles or one normal and no function allele or one normal and decreased function allele or combinations of duplicated alleles that result in an activity score of 1.0-2.0</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying two normal function alleles or two decreased function alleles or one normal and no function allele or one normal and decreased function allele or combinations of duplicated alleles that result in an activity score of 1.0-2.0",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 1
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -134,12 +164,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986500,
+        "externalLinks" : [ ],
         "html" : "<p>Initiate therapy with recommended starting dose.</p>\n<p><em>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Initiate therapy with recommended starting dose.\n\n_Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 2
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -150,16 +185,16 @@
     } ],
     "genePhenotypes" : [ "CYP2D6:Decreased Function/Decreased Function", "CYP2D6:Decreased Function/Normal Function", "CYP2D6:No Function/Normal Function", "CYP2D6:Normal Function/Normal Function" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166104998",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104998",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104998",
       "name" : "Annotation of CPIC Guideline for nortriptyline and CYP2D6",
       "version" : 36
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602495,
       "resource" : "Prescribing Change",
       "term" : "No",
@@ -167,8 +202,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
       "resource" : "Guideline Strength",
       "term" : "Strong",
@@ -177,9 +212,9 @@
     },
     "version" : 15
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166128779",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128779",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128779",
     "name" : "Intermediate Metabolizer",
     "annotations" : [ {
@@ -187,12 +222,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986507,
+        "externalLinks" : [ ],
         "html" : "<p>0.5</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "0.5",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501924",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501924,
         "resource" : "Guideline Tags",
         "term" : "Activity Score",
@@ -205,12 +245,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986509,
+        "externalLinks" : [ ],
         "html" : "<p>Reduced metabolism of TCAs to less active compounds when compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Reduced metabolism of TCAs to less active compounds when compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 1
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -223,12 +268,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986510,
+        "externalLinks" : [ ],
         "html" : "<p>Intermediate Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Intermediate Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 1
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501926,
         "description" : "Likely phenotype of metabolizer status",
         "resource" : "Guideline Tags",
@@ -242,12 +292,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986508,
+        "externalLinks" : [ ],
         "html" : "<p>An individual carrying one decreased and one no function allele</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one decreased and one no function allele",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 1
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -260,12 +315,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986511,
+        "externalLinks" : [ ],
         "html" : "<p>Consider 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.</p>\n<p><em>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Consider 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.\n\n_Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 2
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -276,16 +336,16 @@
     } ],
     "genePhenotypes" : [ "CYP2D6:Decreased Function/No Function" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166104998",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104998",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104998",
       "name" : "Annotation of CPIC Guideline for nortriptyline and CYP2D6",
       "version" : 36
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602497,
       "resource" : "Prescribing Change",
       "term" : "Yes",
@@ -293,8 +353,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501931,
       "resource" : "Guideline Strength",
       "term" : "Moderate",
@@ -303,9 +363,9 @@
     },
     "version" : 15
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166128780",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128780",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128780",
     "name" : "Poor Metabolizer",
     "annotations" : [ {
@@ -313,12 +373,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986512,
+        "externalLinks" : [ ],
         "html" : "<p>0</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "0",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501924",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501924,
         "resource" : "Guideline Tags",
         "term" : "Activity Score",
@@ -331,12 +396,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986514,
+        "externalLinks" : [ ],
         "html" : "<p>Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 1
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -349,12 +419,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986515,
+        "externalLinks" : [ ],
         "html" : "<p>Poor Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Poor Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 1
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501926,
         "description" : "Likely phenotype of metabolizer status",
         "resource" : "Guideline Tags",
@@ -368,12 +443,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986513,
+        "externalLinks" : [ ],
         "html" : "<p>An individual carrying only no function alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying only no function alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 1
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -386,12 +466,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986516,
+        "externalLinks" : [ ],
         "html" : "<p>Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6.\nIf a TCA is warranted, consider 50% reduction of recommended starting dose.g Utilize therapeutic drug monitoring to guide dose adjustments.</p>\n<p><em>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6.\nIf a TCA is warranted, consider 50% reduction of recommended starting dose.g Utilize therapeutic drug monitoring to guide dose adjustments.\n\n_Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 2
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -402,16 +487,16 @@
     } ],
     "genePhenotypes" : [ "CYP2D6:No Function/No Function" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166104998",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104998",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104998",
       "name" : "Annotation of CPIC Guideline for nortriptyline and CYP2D6",
       "version" : 36
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602497,
       "resource" : "Prescribing Change",
       "term" : "Yes",
@@ -419,8 +504,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
       "resource" : "Guideline Strength",
       "term" : "Strong",
@@ -429,9 +514,9 @@
     },
     "version" : 15
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166128781",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128781",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128781",
     "name" : "Ultrarapid Metabolizer or Normal Metabolizer",
     "annotations" : [ {
@@ -439,12 +524,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986517,
+        "externalLinks" : [ ],
         "html" : "<p>2 - For the combination of a no function allele with a duplicated normal function allele.</p>\n<p>&gt;2 - For the combination of a no function allele and more than two copies of a normal function allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "2 - For the combination of a no function allele with a duplicated normal function allele.\n\n\\>2 - For the combination of a no function allele and more than two copies of a normal function allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 1
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501924",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501924,
         "resource" : "Guideline Tags",
         "term" : "Activity Score",
@@ -457,12 +547,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986519,
+        "externalLinks" : [ ],
         "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal metabolism of TCAs.</p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\n\nNormal metabolism of TCAs.\n\n__For the combination of a no function allele and more than two copies of a normal function allele:__\n\nIncreased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 2
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -475,12 +570,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986520,
+        "externalLinks" : [ ],
         "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Normal Metabolizer</p>\n<p><em>CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [Article:<a href=\"/pmid/27441996\">27441996</a>] for drug metabolizing enzymes.</em></p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Ultrarapid Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\n\nNormal Metabolizer\n\n_CPIC Term Standardization Project recommended replacing the term ‘extensive’ metabolizer with ‘normal’ metabolizer [PMID:27441996] for drug metabolizing enzymes._\n\n__For the combination of a no function allele and more than two copies of a normal function allele:__\n\nUltrarapid Metabolizer",
+        "pmids" : [ "27441996" ],
+        "relatedObjects" : [ ],
         "version" : 3
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501926,
         "description" : "Likely phenotype of metabolizer status",
         "resource" : "Guideline Tags",
@@ -494,12 +594,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986518,
+        "externalLinks" : [ ],
         "html" : "<p>An individual carrying a no function allele and a duplicated normal function allele or a no function allele and more than two copies of a normal function allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying a no function allele and a duplicated normal function allele or a no function allele and more than two copies of a normal function allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -512,12 +617,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986521,
+        "externalLinks" : [ ],
         "html" : "<p><strong>For the combination of a no function allele with a duplicated normal function allele:</strong></p>\n<p>Initiate therapy with recommended starting dose.</p>\n<p><em>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n<p><strong>For the combination of a no function allele and more than two copies of a normal function allele:</strong></p>\n<p>Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6.\nIf a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments.</p>\n<p><em>Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "__For the combination of a no function allele with a duplicated normal function allele:__\n\nInitiate therapy with recommended starting dose.\n\n_Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._\n\n__For the combination of a no function allele and more than two copies of a normal function allele:__\n\nAvoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6.\nIf a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments.\n\n_Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 2
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -528,16 +638,16 @@
     } ],
     "genePhenotypes" : [ "CYP2D6:Increased Function/No Function" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166104998",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104998",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104998",
       "name" : "Annotation of CPIC Guideline for nortriptyline and CYP2D6",
       "version" : 36
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602496",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602496",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602496,
       "resource" : "Prescribing Change",
       "term" : "Possibly",
@@ -545,8 +655,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
       "resource" : "Guideline Strength",
       "term" : "Strong",
@@ -555,9 +665,9 @@
     },
     "version" : 15
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166128778",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166128778",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166128778",
     "name" : "Ultrarapid Metabolizer",
     "annotations" : [ {
@@ -565,12 +675,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986502,
+        "externalLinks" : [ ],
         "html" : "<p>&gt;2.0</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "\\>2.0",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501924",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501924",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501924,
         "resource" : "Guideline Tags",
         "term" : "Activity Score",
@@ -583,12 +698,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986504,
+        "externalLinks" : [ ],
         "html" : "<p>Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 1
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -601,12 +721,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986505,
+        "externalLinks" : [ ],
         "html" : "<p>Ultrarapid Metabolizer</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Ultrarapid Metabolizer",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 1
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501926,
         "description" : "Likely phenotype of metabolizer status",
         "resource" : "Guideline Tags",
@@ -620,12 +745,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986503,
+        "externalLinks" : [ ],
         "html" : "<p>An individual carrying more than two copies of functional alleles</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying more than two copies of functional alleles",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -638,12 +768,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986506,
+        "externalLinks" : [ ],
         "html" : "<p>Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments.</p>\n<p><em>Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments.\n\n_Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 2
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -654,16 +789,16 @@
     } ],
     "genePhenotypes" : [ "CYP2D6:Decreased Function/Increased Function", "CYP2D6:Increased Function/Increased Function", "CYP2D6:Increased Function/Normal Function" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166104998",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104998",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104998",
       "name" : "Annotation of CPIC Guideline for nortriptyline and CYP2D6",
       "version" : 36
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602497,
       "resource" : "Prescribing Change",
       "term" : "Yes",
@@ -671,8 +806,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
       "resource" : "Guideline Strength",
       "term" : "Strong",
@@ -681,9 +816,9 @@
     },
     "version" : 15
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166162394",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166162394",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166162394",
     "name" : "Indeterminate",
     "annotations" : [ {
@@ -691,12 +826,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1448532124,
+        "externalLinks" : [ ],
         "html" : "<p>N/A</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "N/A",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -709,12 +849,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1448532126,
+        "externalLinks" : [ ],
         "html" : "<p>Indeterminate</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Indeterminate",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501926",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501926",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501926,
         "description" : "Likely phenotype of metabolizer status",
         "resource" : "Guideline Tags",
@@ -728,12 +873,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1448532122,
+        "externalLinks" : [ ],
         "html" : "<p>An individual carrying one or two unknown/uncertain function alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "An individual carrying one or two unknown/uncertain function alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -746,12 +896,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1448532128,
+        "externalLinks" : [ ],
         "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -762,16 +917,16 @@
     } ],
     "genePhenotypes" : [ "CYP2D6:Decreased Function/Uncertain Function", "CYP2D6:Decreased Function/Unknown Function", "CYP2D6:Increased Function/Uncertain Function", "CYP2D6:Increased Function/Unknown Function", "CYP2D6:No Function/Uncertain Function", "CYP2D6:No Function/Unknown Function", "CYP2D6:Normal Function/Uncertain Function", "CYP2D6:Normal Function/Unknown Function", "CYP2D6:Uncertain Function/Uncertain Function", "CYP2D6:Uncertain Function/Unknown Function", "CYP2D6:Unknown Function/Unknown Function" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166104998",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166104998",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166104998",
       "name" : "Annotation of CPIC Guideline for nortriptyline and CYP2D6",
       "version" : 36
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602495,
       "resource" : "Prescribing Change",
       "term" : "No",
@@ -779,8 +934,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501929,
       "description" : "Not Applicable",
       "resource" : "Guideline Strength",
@@ -909,8 +1064,8 @@
     }
   },
   "citations" : [ {
-    "@id" : "https://pharmgkb.org/literature/15098242",
-    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "@id" : "https://api.pharmgkb.org/data/literature/27997040",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
     "id" : 15098242,
     "resourceId" : "27997040",
     "title" : "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
@@ -929,8 +1084,8 @@
     "version" : 0,
     "year" : 2016
   }, {
-    "@id" : "https://pharmgkb.org/literature/15051926",
-    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "@id" : "https://api.pharmgkb.org/data/literature/23486447",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
     "id" : 15051926,
     "resourceId" : "23486447",
     "title" : "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants",
@@ -944,34 +1099,34 @@
     "pubDate" : "2013-01-01T00:00:00-08:00",
     "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/23486447",
     "sentences" : [ {
+      "text" : "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants",
       "location" : "title",
       "id" : 15051927,
-      "text" : "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants",
       "sentenceIndex" : 0
     }, {
+      "text" : "Polymorphisms in CYP2D6 and CYP2C19 affect the efficacy and safety of tricyclics, with some drugs being affected by CYP2D6 only, and others by both polymorphic enzymes.",
       "location" : "abstract",
       "id" : 15051928,
-      "text" : "Polymorphisms in CYP2D6 and CYP2C19 affect the efficacy and safety of tricyclics, with some drugs being affected by CYP2D6 only, and others by both polymorphic enzymes.",
       "sentenceIndex" : 1
     }, {
+      "text" : "Amitriptyline, clomipramine, doxepin, imipramine, and trimipramine are demethylated by CYP2C19 to pharmacologically active metabolites.",
       "location" : "abstract",
       "id" : 15051929,
-      "text" : "Amitriptyline, clomipramine, doxepin, imipramine, and trimipramine are demethylated by CYP2C19 to pharmacologically active metabolites.",
       "sentenceIndex" : 2
     }, {
+      "text" : "These drugs and their metabolites, along with desipramine and nortriptyline, undergo hydroxylation by CYP2D6 to less active metabolites.",
       "location" : "abstract",
       "id" : 15051930,
-      "text" : "These drugs and their metabolites, along with desipramine and nortriptyline, undergo hydroxylation by CYP2D6 to less active metabolites.",
       "sentenceIndex" : 3
     }, {
+      "text" : "Evidence from published literature is presented for CYP2D6 and CYP2C19 genotype-directed dosing of tricyclic antidepressants.Clinical Pharmacology & Therapeutics (2013); advance online publication 13 March 2013.",
       "location" : "abstract",
       "id" : 15051931,
-      "text" : "Evidence from published literature is presented for CYP2D6 and CYP2C19 genotype-directed dosing of tricyclic antidepressants.Clinical Pharmacology & Therapeutics (2013); advance online publication 13 March 2013.",
       "sentenceIndex" : 4
     }, {
+      "text" : "doi:10.1038/clpt.2013.2.",
       "location" : "abstract",
       "id" : 15051932,
-      "text" : "doi:10.1038/clpt.2013.2.",
       "sentenceIndex" : 5
     } ],
     "summary" : "Polymorphisms in CYP2D6 and CYP2C19 affect the efficacy and safety of tricyclics, with some drugs being affected by CYP2D6 only, and others by both polymorphic enzymes. Amitriptyline, clomipramine, doxepin, imipramine, and trimipramine are demethylated by CYP2C19 to pharmacologically active metabolites. These drugs and their metabolites, along with desipramine and nortriptyline, undergo hydroxylation by CYP2D6 to less active metabolites. Evidence from published literature is presented for CYP2D6 and CYP2C19 genotype-directed dosing of tricyclic antidepressants.Clinical Pharmacology & Therapeutics (2013); advance online publication 13 March 2013. doi:10.1038/clpt.2013.2.",

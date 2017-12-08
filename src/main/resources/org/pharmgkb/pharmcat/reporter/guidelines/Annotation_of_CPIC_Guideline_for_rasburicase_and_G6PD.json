@@ -1,8 +1,8 @@
 {
   "guideline" : {
-    "@id" : "https://pharmgkb.org/guideline/PA166119846",
-    "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
     "objCls" : "Guideline",
+    "@id" : "https://api.pharmgkb.org/data/guideline/PA166119846",
+    "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
     "id" : "PA166119846",
     "name" : "Annotation of CPIC Guideline for rasburicase and G6PD",
     "history" : [ {
@@ -18,17 +18,17 @@
     } ],
     "recommendation" : true,
     "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA10176",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
       "objCls" : "Chemical",
+      "@id" : "https://api.pharmgkb.org/data/chemical/PA10176",
+      "@context" : "https://www.pharmgkb.org/jsonld/chemical.jsonld",
       "id" : "PA10176",
       "name" : "rasburicase",
       "version" : 5
     } ],
     "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA28469",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
       "objCls" : "Gene",
+      "@id" : "https://api.pharmgkb.org/data/gene/PA28469",
+      "@context" : "https://www.pharmgkb.org/jsonld/gene.jsonld",
       "id" : "PA28469",
       "symbol" : "G6PD",
       "name" : "glucose-6-phosphate dehydrogenase",
@@ -37,22 +37,32 @@
     "source" : "CPIC",
     "summaryMarkdown" : {
       "id" : 1447982051,
+      "externalLinks" : [ ],
       "html" : "<p>Rasburicase is contraindicated in G6PD deficient patients with or without chronic non-spherocytic hemolytic anemia (CNSHA). In patients with a negative or inconclusive genetic test result an enzyme activity test is recommended prior to rasburicase treatment to determine whether a patient is G6PD deficient. The <em>G6PD</em> gene is X-linked and therefore males only have one copy, whereas females have two copies. See full guideline for disclaimers, further details and supporting evidence.</p>\n",
+      "internalLinks" : [ ],
+      "markdown" : "Rasburicase is contraindicated in G6PD deficient patients with or without chronic non-spherocytic hemolytic anemia (CNSHA). In patients with a negative or inconclusive genetic test result an enzyme activity test is recommended prior to rasburicase treatment to determine whether a patient is G6PD deficient. The _G6PD_ gene is X-linked and therefore males only have one copy, whereas females have two copies. See full guideline for disclaimers, further details and supporting evidence.",
+      "pmids" : [ ],
+      "relatedObjects" : [ ],
       "version" : 0
     },
-    "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
+    "terms" : [ {"@id":"https://api.pharmgkb.org/data/ontologyTerm/cpicStatus/cpicStatus:1183847844","@context":"https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":1183847844,"resource":"CPIC Status","term":"A","termId":"cpicStatus:1183847844"} ],
     "textMarkdown" : {
       "id" : 1447982050,
+      "externalLinks" : [ "https://cpicpgx.org/", "https://cpicpgx.org/content/guideline/publication/rasburicase/2014/24787449-supplement.pdf", "https://cpicpgx.org/content/guideline/publication/rasburicase/2014/24787449.pdf", "https://cpicpgx.org/guidelines/guideline-for-rasburicase-and-g6pd/" ],
       "html" : "<p>This annotation is based on the <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-rasburicase-and-g6pd%2F\" target=\"_blank\">CPIC&reg; guideline for rasburicase and G6PD</a>.</p>\n<h3 id=\"august-2014\">August 2014</h3>\n<p><em>Accepted article preview online May 2014, advance online publication 11 June 2014</em></p>\n<ul>\n<li>Guidelines regarding the use of pharmacogenomic tests in determining whether rasburicase treatment should be undertaken have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium <a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2F\" target=\"_blank\">(CPIC)</a>.</li>\n<li>Excerpt from the 2014 rasburicase guideline:\n<ul>\n<li>&quot;As stated above, rasburicase is contraindicated by the FDA, the EMA, and PMDA in those with G6PD deficiency (32-34) (see Table 2). If, on the basis of genotyping, a deficient status can be unambiguously assigned to a patient, that would be a sufficient contraindication to the use of rasburicase. However, due to the limitations of genetic testing (discussed above), in most cases it is necessary to perform G6PD enzyme testing to assign G6PD status.&quot;</li>\n</ul>\n</li>\n<li>These guidelines are applicable to\n<ul>\n<li>neonates</li>\n<li>pediatrics</li>\n<li>adults</li>\n</ul>\n</li>\n<li>Download and read:\n<ul>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Frasburicase%2F2014%2F24787449.pdf\" target=\"_blank\">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Rasburicase Therapy in the context of G6PD Deficiency Genotype.</a></li>\n<li><a rel=\"noopener noreferrer\" href=\"https://api.pharmgkb.org/v1/site/redirect?p=https%3A%2F%2Fcpicpgx.org%2Fcontent%2Fguideline%2Fpublication%2Frasburicase%2F2014%2F24787449-supplement.pdf\" target=\"_blank\">2014 supplement</a></li>\n</ul>\n</li>\n</ul>\n<h3 id=\"table-1-recommended-dosing-of-rasburicase-by-g6pd-phenotype\">Table 1: Recommended dosing of rasburicase by G6PD phenotype</h3>\n<p><em>Adapted from Table 1 and Table 2 of the 2014 guideline manuscript.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>Phenotype (Genotype) <sup>a</sup></th><th>Examples of diplotypes <sup>b</sup></th><th>Implications for phenotypic measures</th><th>Dosing recommendations for rasburicase</th><th>Classification of recommendations <sup>c</sup></th></tr>\n</thead>\n<tbody>\n<tr><td>Normal <sup>d</sup>. A male carrying a non-deficient (class IV) allele or a female carrying two non-deficient (class IV) alleles.</td><td>Male: B, Sao Boria. Female: B/B, B/ Sao Boria.</td><td>Low or reduced risk of hemolytic anemia.</td><td>No reason to withhold rasburicase based on G6PD status <sup>d</sup>.</td><td>Strong</td></tr>\n<tr><td>Deficient or Deficient with CNSHA. A male carrying a class I, II or III allele, a female carrying two deficient class I-III alleles.</td><td>Male: A-, Orissa, Kalyan-Kerala, Mediterranean, Canton, Chatham, Bangkok, Villeurbanne. Female: A-/A-, A-/ Orissa, Orissa/ Kalyan-Kerala, Mediterranean/ Mediterranean, Chatham/Mediterranean, Canton/ Viangchan, Bangkok/ Bangkok, Bangkok/ Villeurbanne.</td><td>At risk of acute hemolytic anemia.</td><td>Rasburicase is contraindicated; alternatives include allopurinol <sup>e</sup>.</td><td>Strong</td></tr>\n<tr><td>Variable <sup>d,f</sup>. A female carrying one non-deficient (class IV) and one deficient (class I-III variants) allele.</td><td>B/A-, B/Mediterranean, B/Bangkok.</td><td>Unknown risk of hemolytic anemia.</td><td>To ascertain that G6PD status is normal, enzyme activity must be measured; alternatives include allopurinol <sup>e</sup>.</td><td>Moderate</td></tr>\n</tbody>\n</table>\n<p><sup>a</sup> &quot;Class&quot; refers to the WHO classifications from [Article:<a href=\"/pmid/22293322\">22293322</a>], other details from [Article:<a href=\"/pmid/4963040\">4963040</a>]. Class I variants are extremely rare; the distinction between class II and III variants is not clear; and the &quot;class V&quot; very high activity variant has only been reported in a single case [Article:<a href=\"/pmid/4963040\">4963040</a>]. Therefore, almost all patients will carry class II, III, or IV alleles. It should be noted that the class of a variant may have been assigned only by the clinical manifestations of a patient in which the variant was subsequently identified.</p>\n<p>(*) Luzzatto, L. &amp; Poggi, V. Glucose-6-Phosphate Dehydrogenase Deficiency In: Nathan and Oski's Hematology of Infancy and Childhood, 7th Edition  (ed. Meloni, D., Anderson, A. Authors of the book: Orkin, S.H., Fisher, D.E., Look, A.T., Lux IV, S.E., Ginsburg, D., Nathan, D.G. ) (Saunders, Elsevier., 2009).</p>\n<p><sup>b</sup> Due to the large number of G6PD variants, many other diplotypes may be possible besides those given as examples here; see Supplemental Table S1 for a more comprehensive list of variant alleles with their assigned WHO class.</p>\n<p><sup>c</sup> Rating scheme described in Supplement (See Strength of Recommendations material).</p>\n<p><sup>d</sup> A negative or inconclusive genetic test cannot be assumed to indicate normal G6PD phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.</p>\n<p><sup>e</sup> Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele [Article:<a href=\"/pmid/23232549\">23232549</a>].</p>\n<p><sup>f</sup> Due to X-linked mosaicism, females heterozygous for one non-deficient (class IV) and one deficient (class I-III variants) allele may display a normal or a deficient phenotype. It is therefore difficult to predict the phenotype of these individuals (Supplement, G6PD heterozygotes).</p>\n<h3 id=\"figure-1-workflow-for-interpreting-g6pd-genotype-and-for-assessing-need-for-an-enzyme-activity-test\">Figure 1: Workflow for interpreting G6PD genotype and for assessing need for an enzyme activity test.</h3>\n<p><em>Figure 1 from the guideline manuscript.</em></p>\n<p><img src=\"https://s3.pgkb.org/attachment/CPIC_G6PD_rasburicase_guideline_Figure_1.png\" alt=\"CPIC G6PD rasburicase guideline\" /></p>\n<p>*It should be noted that the class of a variant may have been assigned only by the clinical manifestations of a patient in which the variant was subsequently identified [Article:<a href=\"/pmid/22293322\">22293322</a>].</p>\n",
+      "internalLinks" : [ "!^attachment/CPIC_G6PD_rasburicase_guideline_Figure_1.png" ],
+      "markdown" : "This annotation is based on the [CPIC&reg; guideline for rasburicase and G6PD](https://cpicpgx.org/guidelines/guideline-for-rasburicase-and-g6pd/).\n\n## August 2014\n\n_Accepted article preview online May 2014, advance online publication 11 June 2014_\n\n- Guidelines regarding the use of pharmacogenomic tests in determining whether rasburicase treatment should be undertaken have been published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium [(CPIC)](https://cpicpgx.org/).\n- Excerpt from the 2014 rasburicase guideline:\n  - \"As stated above, rasburicase is contraindicated by the FDA, the EMA, and PMDA in those with G6PD deficiency (32-34) (see Table 2). If, on the basis of genotyping, a deficient status can be unambiguously assigned to a patient, that would be a sufficient contraindication to the use of rasburicase. However, due to the limitations of genetic testing (discussed above), in most cases it is necessary to perform G6PD enzyme testing to assign G6PD status.\"\n- These guidelines are applicable to \n  - neonates\n  - pediatrics\n  - adults\n- Download and read:\n  - [Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Rasburicase Therapy in the context of G6PD Deficiency Genotype.](https://cpicpgx.org/content/guideline/publication/rasburicase/2014/24787449.pdf)\n  - [2014 supplement](https://cpicpgx.org/content/guideline/publication/rasburicase/2014/24787449-supplement.pdf)\n\n## Table 1: Recommended dosing of rasburicase by G6PD phenotype\n\n_Adapted from Table 1 and Table 2 of the 2014 guideline manuscript._\n\n| Phenotype (Genotype) ^a^ | Examples of diplotypes ^b^ | Implications for phenotypic measures | Dosing recommendations for rasburicase | Classification of recommendations ^c^ |\n| --- | --- | --- | --- | --- |\n| Normal ^d^. A male carrying a non-deficient (class IV) allele or a female carrying two non-deficient (class IV) alleles.  |  Male: B, Sao Boria. Female: B/B, B/ Sao Boria. |  Low or reduced risk of hemolytic anemia. | No reason to withhold rasburicase based on G6PD status ^d^.  | Strong  |\n| Deficient or Deficient with CNSHA. A male carrying a class I, II or III allele, a female carrying two deficient class I-III alleles. | Male: A-, Orissa, Kalyan-Kerala, Mediterranean, Canton, Chatham, Bangkok, Villeurbanne. Female: A-/A-, A-/ Orissa, Orissa/ Kalyan-Kerala, Mediterranean/ Mediterranean, Chatham/Mediterranean, Canton/ Viangchan, Bangkok/ Bangkok, Bangkok/ Villeurbanne. | At risk of acute hemolytic anemia. | Rasburicase is contraindicated; alternatives include allopurinol ^e^. | Strong |  \n| Variable ^d,f^. A female carrying one non-deficient (class IV) and one deficient (class I-III variants) allele. | B/A-, B/Mediterranean, B/Bangkok. | Unknown risk of hemolytic anemia. | To ascertain that G6PD status is normal, enzyme activity must be measured; alternatives include allopurinol ^e^. | Moderate | \n\n\n^a^ \"Class\" refers to the WHO classifications from [PMID: 22293322], other details from [PMID: 4963040]. Class I variants are extremely rare; the distinction between class II and III variants is not clear; and the \"class V\" very high activity variant has only been reported in a single case [PMID: 4963040]. Therefore, almost all patients will carry class II, III, or IV alleles. It should be noted that the class of a variant may have been assigned only by the clinical manifestations of a patient in which the variant was subsequently identified. \n\n(*) Luzzatto, L. & Poggi, V. Glucose-6-Phosphate Dehydrogenase Deficiency In: Nathan and Oski's Hematology of Infancy and Childhood, 7th Edition  (ed. Meloni, D., Anderson, A. Authors of the book: Orkin, S.H., Fisher, D.E., Look, A.T., Lux IV, S.E., Ginsburg, D., Nathan, D.G. ) (Saunders, Elsevier., 2009).\n\n^b^ Due to the large number of G6PD variants, many other diplotypes may be possible besides those given as examples here; see Supplemental Table S1 for a more comprehensive list of variant alleles with their assigned WHO class. \n\n^c^ Rating scheme described in Supplement (See Strength of Recommendations material).\n\n^d^ A negative or inconclusive genetic test cannot be assumed to indicate normal G6PD phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.\n\n^e^ Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele [PMID:23232549].\n\n^f^ Due to X-linked mosaicism, females heterozygous for one non-deficient (class IV) and one deficient (class I-III variants) allele may display a normal or a deficient phenotype. It is therefore difficult to predict the phenotype of these individuals (Supplement, G6PD heterozygotes). \n\n\n\n## Figure 1: Workflow for interpreting G6PD genotype and for assessing need for an enzyme activity test.\n\n_Figure 1 from the guideline manuscript._\n\n![CPIC G6PD rasburicase guideline](^CPIC_G6PD_rasburicase_guideline_Figure_1.png)\n\n*It should be noted that the class of a variant may have been assigned only by the clinical manifestations of a patient in which the variant was subsequently identified [PMID:22293322].",
+      "pmids" : [ "22293322", "23232549", "4963040" ],
+      "relatedObjects" : [ ],
       "version" : 11
     },
     "version" : 32,
-    "xrefs" : [ {"@id":"https://pharmgkb.org/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-rasburicase-and-g6pd/","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983506,"name":"Based on a CPIC dosing guideline","resource":"Web Resource","sameAs":"https://cpicpgx.org/guidelines/guideline-for-rasburicase-and-g6pd/","xrefId":"https://cpicpgx.org/guidelines/guideline-for-rasburicase-and-g6pd/"} ]
+    "xrefs" : [ {"@id":"https://api.pharmgkb.org/data/crossReference/url/https://cpicpgx.org/guidelines/guideline-for-rasburicase-and-g6pd/","@context":"https://www.pharmgkb.org/jsonld/crossReference.jsonld","id":1447983506,"name":"Based on a CPIC dosing guideline","resource":"Web Resource","sameAs":"https%3A%2F%2Fcpicpgx.org%2Fguidelines%2Fguideline-for-rasburicase-and-g6pd%2F","xrefId":"https://cpicpgx.org/guidelines/guideline-for-rasburicase-and-g6pd/"} ]
   },
   "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166129408",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166129408",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166129408",
     "name" : "Deficient female",
     "annotations" : [ {
@@ -60,12 +70,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986364,
+        "externalLinks" : [ ],
         "html" : "<p>At risk of acute hemolytic anemia.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "At risk of acute hemolytic anemia.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -78,12 +93,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986363,
+        "externalLinks" : [ ],
         "html" : "<p>Deficient. A female carrying two deficient (class I, II or III) alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Deficient. A female carrying two deficient (class I, II or III) alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -96,12 +116,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986365,
+        "externalLinks" : [ ],
         "html" : "<p>Rasburicase is contraindicated; alternatives include allopurinol.</p>\n<p><em>Note: Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Rasburicase is contraindicated; alternatives include allopurinol.\n\n_Note: Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -112,16 +137,16 @@
     } ],
     "genePhenotypes" : [ "G6PD:Class I/Class I", "G6PD:Class I/Class II", "G6PD:Class I/Class III", "G6PD:Class II/Class II", "G6PD:Class II/Class III", "G6PD:Class III/Class III" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166119846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166119846",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166119846",
       "name" : "Annotation of CPIC Guideline for rasburicase and G6PD",
       "version" : 32
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602495,
       "resource" : "Prescribing Change",
       "term" : "No",
@@ -129,8 +154,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
       "resource" : "Guideline Strength",
       "term" : "Strong",
@@ -139,9 +164,9 @@
     },
     "version" : 5
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166129409",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166129409",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166129409",
     "name" : "Deficient male",
     "annotations" : [ {
@@ -149,12 +174,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986367,
+        "externalLinks" : [ ],
         "html" : "<p>At risk of acute hemolytic anemia.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "At risk of acute hemolytic anemia.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -167,12 +197,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986368,
+        "externalLinks" : [ ],
         "html" : "<p>Deficient. A male carrying a deficient (class I, II or III) allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Deficient. A male carrying a deficient (class I, II or III) allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -185,12 +220,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986366,
+        "externalLinks" : [ ],
         "html" : "<p>Rasburicase is contraindicated; alternatives include allopurinol.</p>\n<p><em>Note: Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Rasburicase is contraindicated; alternatives include allopurinol.\n\n_Note: Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -201,16 +241,16 @@
     } ],
     "genePhenotypes" : [ "G6PD:Absence/Class I", "G6PD:Absence/Class II", "G6PD:Absence/Class III" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166119846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166119846",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166119846",
       "name" : "Annotation of CPIC Guideline for rasburicase and G6PD",
       "version" : 32
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602495,
       "resource" : "Prescribing Change",
       "term" : "No",
@@ -218,8 +258,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
       "resource" : "Guideline Strength",
       "term" : "Strong",
@@ -228,9 +268,9 @@
     },
     "version" : 5
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166129410",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166129410",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166129410",
     "name" : "Deficient with CNSHA female",
     "annotations" : [ {
@@ -238,12 +278,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986371,
+        "externalLinks" : [ ],
         "html" : "<p>At risk of acute hemolytic anemia; severe enzyme deficiency.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "At risk of acute hemolytic anemia; severe enzyme deficiency.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -256,12 +301,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986373,
+        "externalLinks" : [ ],
         "html" : "<p>Severely deficient. A female carrying two deficient (class I) alleles.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Severely deficient. A female carrying two deficient (class I) alleles.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -274,12 +324,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986369,
+        "externalLinks" : [ ],
         "html" : "<p>Rasburicase is contraindicated; alternatives include allopurinol.</p>\n<p><em>Note: Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Rasburicase is contraindicated; alternatives include allopurinol.\n\n_Note: Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -290,16 +345,16 @@
     } ],
     "genePhenotypes" : [ ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166119846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166119846",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166119846",
       "name" : "Annotation of CPIC Guideline for rasburicase and G6PD",
       "version" : 32
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602495,
       "resource" : "Prescribing Change",
       "term" : "No",
@@ -307,8 +362,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
       "resource" : "Guideline Strength",
       "term" : "Strong",
@@ -317,9 +372,9 @@
     },
     "version" : 4
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166129411",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166129411",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166129411",
     "name" : "Deficient with CNSHA male",
     "annotations" : [ {
@@ -327,12 +382,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986372,
+        "externalLinks" : [ ],
         "html" : "<p>At risk of acute hemolytic anemia; severe enzyme deficiency.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "At risk of acute hemolytic anemia; severe enzyme deficiency.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -345,12 +405,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986374,
+        "externalLinks" : [ ],
         "html" : "<p>Severely deficient. A male carrying a class I allele.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Severely deficient. A male carrying a class I allele.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -363,12 +428,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986370,
+        "externalLinks" : [ ],
         "html" : "<p>Rasburicase is contraindicated; alternatives include allopurinol.</p>\n<p><em>Note: Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Rasburicase is contraindicated; alternatives include allopurinol.\n\n_Note: Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -379,16 +449,16 @@
     } ],
     "genePhenotypes" : [ ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166119846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166119846",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166119846",
       "name" : "Annotation of CPIC Guideline for rasburicase and G6PD",
       "version" : 32
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602495,
       "resource" : "Prescribing Change",
       "term" : "No",
@@ -396,8 +466,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
       "resource" : "Guideline Strength",
       "term" : "Strong",
@@ -406,9 +476,9 @@
     },
     "version" : 4
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166129406",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166129406",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166129406",
     "name" : "Normal female",
     "annotations" : [ {
@@ -416,12 +486,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986598,
+        "externalLinks" : [ ],
         "html" : "<p>Low or reduced risk of hemolytic anemia.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Low or reduced risk of hemolytic anemia.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -434,12 +509,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986597,
+        "externalLinks" : [ ],
         "html" : "<p>Normal.  A female carrying two non-deficient (class IV) alleles.</p>\n<p><em>Note: A negative or inconclusive genetic test cannot be assumed to indicate normal G6PD phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal.  A female carrying two non-deficient (class IV) alleles.\n\n_Note: A negative or inconclusive genetic test cannot be assumed to indicate normal G6PD phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -452,12 +532,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986355,
+        "externalLinks" : [ ],
         "html" : "<p>No reason to withhold rasburicase based on G6PD status.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "No reason to withhold rasburicase based on G6PD status.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -468,16 +553,16 @@
     } ],
     "genePhenotypes" : [ "G6PD:Class IV/Class IV" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166119846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166119846",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166119846",
       "name" : "Annotation of CPIC Guideline for rasburicase and G6PD",
       "version" : 32
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602495,
       "resource" : "Prescribing Change",
       "term" : "No",
@@ -485,8 +570,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
       "resource" : "Guideline Strength",
       "term" : "Strong",
@@ -495,9 +580,9 @@
     },
     "version" : 5
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166129407",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166129407",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166129407",
     "name" : "Normal male",
     "annotations" : [ {
@@ -505,12 +590,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986361,
+        "externalLinks" : [ ],
         "html" : "<p>Low or reduced risk of hemolytic anemia.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Low or reduced risk of hemolytic anemia.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -523,12 +613,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986360,
+        "externalLinks" : [ ],
         "html" : "<p>Normal.  A male carrying a non-deficient (class IV) allele.</p>\n<p><em>Note: A negative or inconclusive genetic test cannot be assumed to indicate normal G6PD phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Normal.  A male carrying a non-deficient (class IV) allele.\n\n_Note: A negative or inconclusive genetic test cannot be assumed to indicate normal G6PD phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -541,12 +636,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986362,
+        "externalLinks" : [ ],
         "html" : "<p>No reason to withhold rasburicase based on G6PD status.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "No reason to withhold rasburicase based on G6PD status.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -557,16 +657,16 @@
     } ],
     "genePhenotypes" : [ "G6PD:Absence/Class IV" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166119846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166119846",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166119846",
       "name" : "Annotation of CPIC Guideline for rasburicase and G6PD",
       "version" : 32
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602495,
       "resource" : "Prescribing Change",
       "term" : "No",
@@ -574,8 +674,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501930",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501930,
       "resource" : "Guideline Strength",
       "term" : "Strong",
@@ -584,9 +684,9 @@
     },
     "version" : 5
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166129413",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166129413",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166129413",
     "name" : "Unknown",
     "annotations" : [ {
@@ -594,12 +694,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986353,
+        "externalLinks" : [ ],
         "html" : "<p>This guideline does not contain recommendations for this allele combination.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "This guideline does not contain recommendations for this allele combination.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -610,16 +715,16 @@
     } ],
     "genePhenotypes" : [ "G6PD:Absence/Absence" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166119846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166119846",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166119846",
       "name" : "Annotation of CPIC Guideline for rasburicase and G6PD",
       "version" : 32
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602495,
       "resource" : "Prescribing Change",
       "term" : "No",
@@ -627,8 +732,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501929,
       "description" : "Not Applicable",
       "resource" : "Guideline Strength",
@@ -638,9 +743,9 @@
     },
     "version" : 5
   }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166129412",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "DosingGuidelineAnnotationGroup",
+    "@id" : "https://api.pharmgkb.org/data/dosingGuidelineAnnotationGroup/PA166129412",
+    "@context" : "https://www.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "id" : "PA166129412",
     "name" : "Variable female",
     "annotations" : [ {
@@ -648,12 +753,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986351,
+        "externalLinks" : [ ],
         "html" : "<p>Unknown risk of hemolytic anemia.</p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Unknown risk of hemolytic anemia.",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501925",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501925",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501925,
         "resource" : "Guideline Tags",
         "term" : "Implications",
@@ -666,12 +776,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986350,
+        "externalLinks" : [ ],
         "html" : "<p>Variable.  A female carrying one non-deficient (class IV) allele and one deficient (class I, II or III) allele.</p>\n<p><em>Due to X-linked mosaicism, females heterozygous for one non-deficient (class IV) and one deficient (class I-III variants) allele may display a normal or a deficient phenotype. It is therefore difficult to predict the phenotype of these individuals. A negative or inconclusive genetic test cannot be assumed to indicate normal G6PD phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "Variable.  A female carrying one non-deficient (class IV) allele and one deficient (class I, II or III) allele.\n\n_Due to X-linked mosaicism, females heterozygous for one non-deficient (class IV) and one deficient (class I-III variants) allele may display a normal or a deficient phenotype. It is therefore difficult to predict the phenotype of these individuals. A negative or inconclusive genetic test cannot be assumed to indicate normal G6PD phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501927",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501927",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501927,
         "resource" : "Guideline Tags",
         "term" : "Phenotype (Genotype)",
@@ -684,12 +799,17 @@
       "history" : [ ],
       "markdown" : {
         "id" : 1447986352,
+        "externalLinks" : [ ],
         "html" : "<p>To ascertain that G6PD status is normal, enzyme activity must be measured; alternatives include allopurinol.</p>\n<p><em>Note: Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele.</em></p>\n",
+        "internalLinks" : [ ],
+        "markdown" : "To ascertain that G6PD status is normal, enzyme activity must be measured; alternatives include allopurinol.\n\n_Note: Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele._",
+        "pmids" : [ ],
+        "relatedObjects" : [ ],
         "version" : 0
       },
       "type" : {
-        "@id" : "https://pharmgkb.org/ontologyTerm/guidelineTags/guidelineTags:981501928",
-        "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+        "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineTags/guidelineTags:981501928",
+        "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
         "id" : 981501928,
         "resource" : "Guideline Tags",
         "term" : "Recommendations",
@@ -700,16 +820,16 @@
     } ],
     "genePhenotypes" : [ "G6PD:Class I/Class IV", "G6PD:Class II/Class IV", "G6PD:Class III/Class IV" ],
     "guideline" : {
-      "@id" : "https://pharmgkb.org/guideline/PA166119846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guideline.jsonld",
       "objCls" : "Guideline",
+      "@id" : "https://api.pharmgkb.org/data/guideline/PA166119846",
+      "@context" : "https://www.pharmgkb.org/jsonld/guideline.jsonld",
       "id" : "PA166119846",
       "name" : "Annotation of CPIC Guideline for rasburicase and G6PD",
       "version" : 32
     },
     "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 1448602495,
       "resource" : "Prescribing Change",
       "term" : "No",
@@ -717,8 +837,8 @@
       "version" : 0
     },
     "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "@id" : "https://api.pharmgkb.org/data/ontologyTerm/guidelineStrength/guidelineStrength:981501931",
+      "@context" : "https://www.pharmgkb.org/jsonld/ontologyTerm.jsonld",
       "id" : 981501931,
       "resource" : "Guideline Strength",
       "term" : "Moderate",
@@ -907,8 +1027,8 @@
     }
   },
   "citations" : [ {
-    "@id" : "https://pharmgkb.org/literature/15074661",
-    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "@id" : "https://api.pharmgkb.org/data/literature/24787449",
+    "@context" : "https://api.pharmgkb.org/data/literature.jsonld",
     "id" : 15074661,
     "resourceId" : "24787449",
     "title" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Rasburicase Therapy in the context of G6PD Deficiency Genotype",
@@ -922,29 +1042,29 @@
     "pubDate" : "2014-05-01T00:00:00-07:00",
     "sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/24787449",
     "sentences" : [ {
+      "text" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Rasburicase Therapy in the context of G6PD Deficiency Genotype",
       "location" : "title",
       "id" : 15074662,
-      "text" : "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Rasburicase Therapy in the context of G6PD Deficiency Genotype",
       "sentenceIndex" : 0
     }, {
+      "text" : "Glucose-6-phosphate dehydrogenase (G6PD) deficiency is associated with development of acute hemolytic anemia (AHA) induced by a number of drugs.",
       "location" : "abstract",
       "id" : 15074663,
-      "text" : "Glucose-6-phosphate dehydrogenase (G6PD) deficiency is associated with development of acute hemolytic anemia (AHA) induced by a number of drugs.",
       "sentenceIndex" : 1
     }, {
+      "text" : "We provide guidance as to which G6PD genotypes are associated with G6PD deficiency in males and females.",
       "location" : "abstract",
       "id" : 15074664,
-      "text" : "We provide guidance as to which G6PD genotypes are associated with G6PD deficiency in males and females.",
       "sentenceIndex" : 2
     }, {
+      "text" : "Rasburicase is contraindicated in G6PD deficient patients due to the risk of AHA and possibly methemoglobinemia.",
       "location" : "abstract",
       "id" : 15074665,
-      "text" : "Rasburicase is contraindicated in G6PD deficient patients due to the risk of AHA and possibly methemoglobinemia.",
       "sentenceIndex" : 3
     }, {
+      "text" : "Unless preemptive genotyping has established a positive diagnosis of G6PD deficiency, quantitative enzyme assay remains the mainstay of screening prior to rasburicase.Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 02 May 2014 doi:10.1038/clpt.2014.97.",
       "location" : "abstract",
       "id" : 15074666,
-      "text" : "Unless preemptive genotyping has established a positive diagnosis of G6PD deficiency, quantitative enzyme assay remains the mainstay of screening prior to rasburicase.Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 02 May 2014 doi:10.1038/clpt.2014.97.",
       "sentenceIndex" : 4
     } ],
     "summary" : "Glucose-6-phosphate dehydrogenase (G6PD) deficiency is associated with development of acute hemolytic anemia (AHA) induced by a number of drugs. We provide guidance as to which G6PD genotypes are associated with G6PD deficiency in males and females. Rasburicase is contraindicated in G6PD deficient patients due to the risk of AHA and possibly methemoglobinemia. Unless preemptive genotyping has established a positive diagnosis of G6PD deficiency, quantitative enzyme assay remains the mainstay of screening prior to rasburicase.Clinical Pharmacology & Therapeutics (2014); Accepted article preview online 02 May 2014 doi:10.1038/clpt.2014.97.",
