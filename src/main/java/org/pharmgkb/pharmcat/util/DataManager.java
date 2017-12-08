@@ -268,7 +268,7 @@ public class DataManager {
       zip.stream()
           .filter(ze -> ze.getName().toLowerCase().matches("annotation_of_cpic_.*\\.json"))
           .forEachOrdered(ze -> {
-            Path file = guidelinesDir.resolve(ze.getName().replace("Annotation_of_", ""));
+            Path file = guidelinesDir.resolve(ze.getName());
             try (InputStream inputStream = zip.getInputStream(ze);
                  OutputStream out = Files.newOutputStream(file)) {
               if (m_verbose) {
