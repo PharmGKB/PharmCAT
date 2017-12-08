@@ -242,13 +242,35 @@
       }
     },
     {
-      "name": "*80",
-      "id": "CA100230.1",
+      "name": "*80+*28",
+      "id": "CA100269.1",
       "function": "Decreased function",
       "alleles": [
         null,
         "T",
+        "CATAT",
         null,
+        null
+      ],
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
+    },
+    {
+      "name": "*80+*37",
+      "id": "CA100270.1",
+      "function": "Decreased function",
+      "alleles": [
+        null,
+        "T",
+        "CATATAT",
         null,
         null
       ],
