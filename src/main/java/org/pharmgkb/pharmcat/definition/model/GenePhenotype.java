@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import javax.annotation.Nullable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
@@ -48,6 +49,20 @@ public class GenePhenotype {
     m_haplotypes = haplotypes;
   }
 
+  public void addHaplotypeFunction(String haplotype, String func) {
+    if (m_haplotypes != null) {
+      m_haplotypes.put(haplotype, func);
+    }
+  }
+
+  @Nullable
+  public String lookupHaplotype(@Nullable String hap) {
+    if (hap == null) {
+      return null;
+    }
+    return m_haplotypes.get(hap);
+  }
+
   /**
    * List of all diplotype to phenotype mappings for this gene
    */
@@ -69,6 +84,13 @@ public class GenePhenotype {
     String hap2 = haps[1];
     String func1 = getHaplotypes().get(hap1);
     String func2 = getHaplotypes().get(hap2);
+
+    if (func1 == null) {
+      throw new UnexpectedStateException("No function phenotype for " + getGene() + " " + hap1);
+    }
+    if (func2 == null) {
+      throw new UnexpectedStateException("No function phenotype for " + getGene() + " " + hap2);
+    }
 
     return new String[]{func1,func2};
   }

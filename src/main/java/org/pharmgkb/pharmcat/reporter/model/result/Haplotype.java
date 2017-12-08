@@ -12,7 +12,7 @@ import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 /**
  * Model to represent a haplotype and all derived information
  *
- * @author whaleyr
+ * @author Ryan Whaley
  */
 public class Haplotype implements Comparable<Haplotype> {
 

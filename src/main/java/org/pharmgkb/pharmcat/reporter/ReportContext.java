@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Predicate;
@@ -12,6 +13,7 @@ import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -38,7 +40,7 @@ public class ReportContext {
 
   private Map<String,GeneReport> m_geneReports = new TreeMap<>();
   private List<GuidelineReport> m_guidelineReports;
-  private PhenotypeMap m_phenotypeMap = new PhenotypeMap();
+  private PhenotypeMap m_phenotypeMap;
   private IncidentalFinder m_incidentalFinder = new IncidentalFinder();
 
   private final Predicate<String> isGeneIncidental = s -> m_geneReports.values().stream()
@@ -53,8 +55,10 @@ public class ReportContext {
   public ReportContext(List<GeneCall> calls, @Nonnull List<AstrolabeCall> astrolabeCalls, List<GuidelinePackage> guidelinePackages) throws Exception {
 
     makeGuidelineReports(guidelinePackages);
-
     makeGeneReports(guidelinePackages);
+
+    m_phenotypeMap = new PhenotypeMap(calls);
+
     compileMatcherData(calls);
     compileAstrolabeData(astrolabeCalls);
 
@@ -106,9 +110,17 @@ public class ReportContext {
       geneReport.setCallData(call);
       m_geneReports.put(call.getGene(), geneReport);
 
-      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(call.getGene(), call.getVariants(), m_phenotypeMap, m_incidentalFinder);
+      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
+          call.getGene(),
+          call.getVariants(),
+          m_phenotypeMap.lookup(call.getGene()).orElse(null),
+          m_incidentalFinder);
       geneReport.setDiplotypes(diplotypeFactory, call);
     }
+  }
+
+  private void compilePhenoMap(PhenotypeMap phenotypeMap, SortedSet<HaplotypeMatch> calledHaplotypes) {
+
   }
 
   /**
@@ -120,7 +132,11 @@ public class ReportContext {
       GeneReport geneReport = m_geneReports.get(astrolabeCall.getGene());
       geneReport.setAstrolabeData(astrolabeCall);
 
-      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(astrolabeCall.getGene(), null, m_phenotypeMap, m_incidentalFinder);
+      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
+          astrolabeCall.getGene(),
+          null,
+          m_phenotypeMap.lookup(astrolabeCall.getGene()).orElse(null),
+          m_incidentalFinder);
       geneReport.setDiplotypes(diplotypeFactory, astrolabeCall);
     }
   }

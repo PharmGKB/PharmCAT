@@ -17,7 +17,6 @@ import com.google.common.collect.ImmutableSortedSet;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
-import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -51,12 +50,12 @@ public class DiplotypeFactory {
    *
    * @param gene the gene symbol for the diplotypes this will call
    * @param variants variant calls, optional
-   * @param phenotypeMap a {@link GenePhenotype} object that maps haplotypes and functions to phenotypes
+   * @param genePhenotype a {@link GenePhenotype} object that maps haplotypes and functions to phenotypes
    */
-  public DiplotypeFactory(String gene, @Nullable Collection<Variant> variants, PhenotypeMap phenotypeMap, IncidentalFinder incidentalFinder) {
+  public DiplotypeFactory(String gene, @Nullable Collection<Variant> variants, GenePhenotype genePhenotype, IncidentalFinder incidentalFinder) {
     f_gene = gene;
     f_incidentalFinder = incidentalFinder;
-    f_genePhenotype = phenotypeMap.lookup(f_gene);
+    f_genePhenotype = genePhenotype;
     if (variants != null) {
       f_variants = ImmutableSortedSet.copyOf(variants);
     } else {
