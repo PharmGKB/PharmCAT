@@ -415,6 +415,22 @@ public class PipelineTest {
         "cftr/G551DG542X.vcf"
     });
 
+    sf_testVcfs.put("test.cftr.inc_vwithrecom", new String[]{
+        "cftr/inc_vwithrecom.vcf"
+    });
+
+    sf_testVcfs.put("test.cftr.ref_vwithrecom", new String[]{
+        "cftr/ref_vwithrecom.vcf"
+    });
+
+    sf_testVcfs.put("test.cftr.v_vwithrecom", new String[]{
+        "cftr/v_vwithrecom.vcf"
+    });
+
+    sf_testVcfs.put("test.cftr.v_vwithrecom1", new String[]{
+        "cftr/v_vwithrecom1.vcf"
+    });
+
     sf_testVcfs.put("test.cyp2c9.s2s24", new String[]{
         "cyp2c9/s2s24.vcf"
     });
