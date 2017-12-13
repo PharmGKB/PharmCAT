@@ -119,6 +119,20 @@ public class PharmCATTest {
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
 
+  @Test
+  public void testCftrF508Hom() throws Exception {
+    generalTest("test.cftr.F508delHom", new String[]{
+            "CFTR/F508delF508del.vcf"
+        },
+        false);
+
+    testCalledGenes("CFTR");
+    testCalls(DipType.PRINT, "CFTR", "F508del(TCT)/F508del(TCT)");
+    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(TCT)/F508del(TCT)");
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
   /**
    * This is the same test case as {@link PharmCATTest#testCftrF508()} but the position lines have been sorted
    * lexigraphically. This should not affect the calling and should lead to same diplotype output.

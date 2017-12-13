@@ -5,10 +5,7 @@
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ##FILTER=<ID=PASS,Description="All filters passed">
 #CHROM  POS  ID REF  ALT  QUAL FILTER INFO FORMAT NA12878
-chr7	117559591	rs113993960	TCTT	CTT	.	PASS	assume-default	GT	0/0
-chr7	117559592	.	T	.	.	PASS	assume-default	GT	0/0
-chr7	117559590	rs199826652	ATCT	TCT	.	PASS	assume-default	GT	0/0
-chr7	117559591	.	T	.	.	PASS	assume-default	GT	0/0
+chr7	117559590	rs199826652	ATCT	A	.	PASS	fdel508	GT	0/0
 chr7	117587806	rs75527207	G	A	.	PASS	assume-default	GT	0/1
 chr7	117642451	rs267606723	G	.	.	PASS	assume-default	GT	0/0
 chr7	117664770	rs193922525	G	.	.	PASS	assume-default	GT	0/0
@@ -32,7 +29,7 @@ chr7	117627537	rs74767530	C	.	.	PASS	assume-default	GT	0/0
 chr7	117509123	rs75961395	G	.	.	PASS	assume-default	GT	0/0
 chr7	117606754	rs75096551	G	.	.	PASS	assume-default	GT	0/0
 chr7	117559589	rs121908745	CATC	ATC	.	PASS	assume-default	GT	0/0
-chr7	117559590	.	A	.	.	PASS	assume-default	GT	0/0
+chr7	117559594	.	T	.	.	PASS	assume-default	GT	0/0
 chr7	117590440	rs121908748	G	.	.	PASS	assume-default	GT	0/0
 chr7	117627581	rs121908747	C	.	.	PASS	assume-default	GT	0/0
 chr7	117540270	rs77932196	G	.	.	PASS	assume-default	GT	0/0
