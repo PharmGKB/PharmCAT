@@ -261,8 +261,8 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("UGT1A1");
-    testCalls(DipType.PRINT, "UGT1A1", "*1/*60+*80");
-    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*60");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*60");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
 
@@ -277,7 +277,7 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("UGT1A1");
-    testCalls(DipType.PRINT, "UGT1A1", "*1/*60", "*1/*80");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*60");
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -303,8 +303,7 @@ public class PharmCATTest {
     assertTrue(tpmtReport.getVariantReports().stream().anyMatch(singlePosition));
     assertTrue(tpmtReport.getVariantReports().stream().filter(singlePosition).allMatch(r -> r.getCall().equals("G|G")));
 
-    assertEquals(1, tpmtReport.getHighlightedVariants().size());
-    assertEquals("rs2842934G/rs2842934G", tpmtReport.getHighlightedVariants().get(0));
+    assertEquals(0, tpmtReport.getHighlightedVariants().size());
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
