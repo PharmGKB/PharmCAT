@@ -134,7 +134,7 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testCftrF508Hom_CTT() throws Exception {
+  public void testCftrF508HomCTT() throws Exception {
     generalTest("test.cftr.F508delHom_CTT", new String[]{
             "CFTR/F508delF508del_CTT.vcf"
         },
