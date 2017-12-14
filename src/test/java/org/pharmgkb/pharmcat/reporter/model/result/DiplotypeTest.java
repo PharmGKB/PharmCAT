@@ -77,5 +77,10 @@ public class DiplotypeTest {
         .reduce(Diplotype.phasedReducer)
         .orElseThrow(RuntimeException::new);
     assertEquals("*1+*3/*2+*3", result);
+
+    result = Stream.of("*6/*80+*28", "*60/*80+*28")
+        .reduce(Diplotype.phasedReducer)
+        .orElseThrow(RuntimeException::new);
+    assertEquals("*6+*60/*28+*80", result);
   }
 }

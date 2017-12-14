@@ -51,17 +51,18 @@ public class Diplotype implements Comparable<Diplotype> {
     String[] bHaps = b.split(sf_delimiter);
 
     Set<String> finalLeft = new TreeSet<>(HaplotypeNameComparator.getComparator());
-    finalLeft.addAll(Arrays.asList(aHaps[left].split("\\+")));
     Set<String> finalRight = new TreeSet<>(HaplotypeNameComparator.getComparator());
-    finalRight.addAll(Arrays.asList(aHaps[right].split("\\+")));
+
+    addHaps(finalLeft, aHaps[left]);
+    addHaps(finalRight, aHaps[right]);
 
     if (finalLeft.contains(bHaps[right]) || finalRight.contains(bHaps[left])) {
-      finalLeft.add(bHaps[right]);
-      finalRight.add(bHaps[left]);
+      addHaps(finalLeft, bHaps[right]);
+      addHaps(finalRight, bHaps[left]);
     }
     else {
-      finalLeft.add(bHaps[left]);
-      finalRight.add(bHaps[right]);
+      addHaps(finalLeft, bHaps[left]);
+      addHaps(finalRight, bHaps[right]);
     }
 
     String joined0 = finalLeft.stream().collect(Collectors.joining("+"));
@@ -69,6 +70,10 @@ public class Diplotype implements Comparable<Diplotype> {
 
     return joined0+sf_delimiter+joined1;
   };
+
+  private static void addHaps(Set<String> hapSet, String hap) {
+    hapSet.addAll(Arrays.asList(hap.split("\\+")));
+  }
 
   /**
    * public constructor
