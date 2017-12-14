@@ -249,7 +249,14 @@ public class ReportData {
           geneReport.getVariantReports().stream().filter(VariantReport::isMissing).count());
       geneCallMap.put("totalVariants", geneReport.getVariantReports().size());
 
-      geneCallMap.put("messages", geneReport.getMessages().stream().map(MessageAnnotation::getMessage).collect(Collectors.toList()));
+      geneCallMap.put("messages", geneReport.getMessages().stream()
+          .filter(MessageAnnotation.isMessage)
+          .map(MessageAnnotation::getMessage)
+          .collect(Collectors.toList()));
+      geneCallMap.put("extra-position-notes", geneReport.getMessages().stream()
+          .filter(MessageAnnotation.isExtraPositionNote)
+          .map(MessageAnnotation::getMessage)
+          .collect(Collectors.toList()));
 
       geneCallList.add(geneCallMap);
     }

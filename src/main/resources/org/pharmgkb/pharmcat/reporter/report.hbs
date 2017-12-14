@@ -289,6 +289,10 @@
         </table>
       {{/unless}}
 
+      {{#each extra-position-notes}}
+        <div class="alert alert-warning">{{{this}}}</div>
+      {{/each}}
+
       {{#unless variantsOfInterestUnspecified}}
         <h4>Other Positions of Interest</h4>
         <table>

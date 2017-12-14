@@ -23,7 +23,8 @@ public class MessageAnnotation {
   private static final int sf_rowLength = 12;
 
   public static Predicate<MessageAnnotation> isFootnote = m -> m.getExceptionType().equals("footnote");
-  public static Predicate<MessageAnnotation> isMessage = m -> !m.getExceptionType().equals("footnote");
+  public static Predicate<MessageAnnotation> isExtraPositionNote = m -> m.getExceptionType().equals("extra-position-notes");
+  public static Predicate<MessageAnnotation> isMessage = m -> !m.getExceptionType().equals("footnote") && !m.getExceptionType().equals("extra-position-notes");
 
   /**
    * constructor based off of a row of text from a TSV
