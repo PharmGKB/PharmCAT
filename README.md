@@ -14,7 +14,7 @@ For more detail, read the [PharmGKB blog post about PharmCAT](http://pharmgkb.bl
 
 This application is __under development__ and has __not been officially released__. Watch this repo or check the [releases](../../releases) page for the official release
 
-All technical documentation is available in the [wiki](../../wiki).
+All technical requirements and documentation are available in the [wiki](../../wiki).
 
 
 ## Contact
