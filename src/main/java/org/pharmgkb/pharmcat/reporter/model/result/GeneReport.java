@@ -43,6 +43,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private List<Diplotype> m_matcherDiplotypes = new ArrayList<>();
   private List<Diplotype> m_reporterDiplotypes = new ArrayList<>();
   private List<VariantReport> m_variantReports = new ArrayList<>();
+  private List<VariantReport> m_variantOfInterestReports = new ArrayList<>();
   private boolean m_phased = false;
   private List<String> m_highlightedVariants = new ArrayList<>();
 
@@ -69,7 +70,7 @@ public class GeneReport implements Comparable<GeneReport> {
     call.getMatchData().getMissingPositions().stream()
         .map(variantReportFactory::make).forEach(a -> m_variantReports.add(a));
     call.getVariantsOfInterest().stream()
-        .map(variantReportFactory::make).forEach(a -> m_variantReports.add(a));
+        .map(variantReportFactory::make).forEach(a -> m_variantOfInterestReports.add(a));
   }
 
   /**
@@ -153,6 +154,10 @@ public class GeneReport implements Comparable<GeneReport> {
 
   public List<VariantReport> getVariantReports() {
     return m_variantReports;
+  }
+
+  public List<VariantReport> getVariantOfInterestReports() {
+    return m_variantOfInterestReports;
   }
 
   /**

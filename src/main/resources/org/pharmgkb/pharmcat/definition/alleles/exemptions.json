@@ -1,11 +1,1475 @@
 [
   {
+    "gene": "TPMT",
+    "extraPositions": [
+      {
+        "chromosome": "chr6",
+        "position": 18138983,
+        "rsid": "rs2842934",
+        "chromosomeHgvsName": "g.18138983",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [
+      "*1S"
+    ],
+    "ignoredAllelesLc": [
+      "*1s"
+    ],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97549609,
+        "rsid": "rs72549304",
+        "chromosomeHgvsName": "g.97549609",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97450189,
+        "rsid": "rs138616379",
+        "chromosomeHgvsName": "g.97450189",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97679170,
+        "rsid": "rs45589337",
+        "chromosomeHgvsName": "g.97679170",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97593322,
+        "rsid": "rs183385770",
+        "chromosomeHgvsName": "g.97593322",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97549735,
+        "rsid": "rs72975710",
+        "chromosomeHgvsName": "g.97549735",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97721542,
+        "rsid": "rs200562975",
+        "chromosomeHgvsName": "g.97721542",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97549681,
+        "rsid": "rs199549923",
+        "chromosomeHgvsName": "g.97549681",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97098632,
+        "rsid": "rs201035051",
+        "chromosomeHgvsName": "g.97098632",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97594925,
+        "rsid": "rs2811202",
+        "chromosomeHgvsName": "g.97594925",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97235033,
+        "rsid": "rs12137711",
+        "chromosomeHgvsName": "g.97235033",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97573805,
+        "rsid": "rs142512579",
+        "chromosomeHgvsName": "g.97573805",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97082365,
+        "rsid": "rs141044036",
+        "chromosomeHgvsName": "g.97082365",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97573998,
+        "rsid": "rs368600943",
+        "chromosomeHgvsName": "g.97573998",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97515839,
+        "rsid": "rs1801159",
+        "chromosomeHgvsName": "g.97515839",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97699430,
+        "rsid": "rs72549308",
+        "chromosomeHgvsName": "g.97699430",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97691806,
+        "rsid": "rs74774246",
+        "chromosomeHgvsName": "g.97691806",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97305279,
+        "rsid": "rs112766203",
+        "chromosomeHgvsName": "g.97305279",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97193109,
+        "rsid": "rs60139309",
+        "chromosomeHgvsName": "g.97193109",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97593289,
+        "rsid": "rs143154602",
+        "chromosomeHgvsName": "g.97593289",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97883368,
+        "rsid": "rs150036960",
+        "chromosomeHgvsName": "g.97883368",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97883353,
+        "rsid": "rs72549310",
+        "chromosomeHgvsName": "g.97883353",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97079076,
+        "rsid": "rs139459586",
+        "chromosomeHgvsName": "g.97079076",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97549726,
+        "rsid": "rs144395748",
+        "chromosomeHgvsName": "g.97549726",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97305372,
+        "rsid": "rs146529561",
+        "chromosomeHgvsName": "g.97305372",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97595149,
+        "rsid": "rs146356975",
+        "chromosomeHgvsName": "g.97595149",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97593379,
+        "rsid": "rs201018345",
+        "chromosomeHgvsName": "g.97593379",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97234991,
+        "rsid": "rs56005131",
+        "chromosomeHgvsName": "g.97234991",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
     "gene": "UGT1A1",
     "extraPositions": [],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
     "allHits": false,
     "assumeReference": false
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97883329,
+        "rsid": "rs1801265",
+        "chromosomeHgvsName": "g.97883329",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97515687,
+        "rsid": "rs2786783",
+        "chromosomeHgvsName": "g.97515687",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97699533,
+        "rsid": "rs139834141",
+        "chromosomeHgvsName": "g.97699533",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97679054,
+        "rsid": "rs112550271",
+        "chromosomeHgvsName": "g.97679054",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97699506,
+        "rsid": "rs6670886",
+        "chromosomeHgvsName": "g.97699506",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97373629,
+        "rsid": "rs138545885",
+        "chromosomeHgvsName": "g.97373629",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97305363,
+        "rsid": "rs60511679",
+        "chromosomeHgvsName": "g.97305363",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97234958,
+        "rsid": "rs199634007",
+        "chromosomeHgvsName": "g.97234958",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97573919,
+        "rsid": "rs140602333",
+        "chromosomeHgvsName": "g.97573919",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97098598,
+        "rsid": "rs1801267",
+        "chromosomeHgvsName": "g.97098598",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97193209,
+        "rsid": "rs200687447",
+        "chromosomeHgvsName": "g.97193209",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97098599,
+        "rsid": "rs147545709",
+        "chromosomeHgvsName": "g.97098599",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97515865,
+        "rsid": "rs1801158",
+        "chromosomeHgvsName": "g.97515865",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97450190,
+        "rsid": "rs59086055",
+        "chromosomeHgvsName": "g.97450190",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97078993,
+        "rsid": "rs148799944",
+        "chromosomeHgvsName": "g.97078993",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97573985,
+        "rsid": "rs56293913",
+        "chromosomeHgvsName": "g.97573985",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97549565,
+        "rsid": "rs138391898",
+        "chromosomeHgvsName": "g.97549565",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97450068,
+        "rsid": "rs17376848",
+        "chromosomeHgvsName": "g.97450068",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97740400,
+        "rsid": "rs150385342",
+        "chromosomeHgvsName": "g.97740400",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97079139,
+        "rsid": "rs145529148",
+        "chromosomeHgvsName": "g.97079139",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97382461,
+        "rsid": "rs55971861",
+        "chromosomeHgvsName": "g.97382461",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97373598,
+        "rsid": "rs137999090",
+        "chromosomeHgvsName": "g.97373598",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97450187,
+        "rsid": "rs145773863",
+        "chromosomeHgvsName": "g.97450187",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97515851,
+        "rsid": "rs142619737",
+        "chromosomeHgvsName": "g.97515851",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97593343,
+        "rsid": "rs72549306",
+        "chromosomeHgvsName": "g.97593343",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97305364,
+        "rsid": "rs1801160",
+        "chromosomeHgvsName": "g.97305364",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97098616,
+        "rsid": "rs55674432",
+        "chromosomeHgvsName": "g.97098616",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97573821,
+        "rsid": "rs764666241",
+        "chromosomeHgvsName": "g.97573821",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97679004,
+        "rsid": "rs138924556",
+        "chromosomeHgvsName": "g.97679004",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97450059,
+        "rsid": "rs3918289",
+        "chromosomeHgvsName": "g.97450059",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97078987,
+        "rsid": "rs114096998",
+        "chromosomeHgvsName": "g.97078987",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97883329,
+        "rsid": "rs1801265",
+        "chromosomeHgvsName": "g.97883329",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97721650,
+        "rsid": "rs141462178",
+        "chromosomeHgvsName": "g.97721650",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97573839,
+        "rsid": "rs200064537",
+        "chromosomeHgvsName": "g.97573839",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97079121,
+        "rsid": "rs72547601",
+        "chromosomeHgvsName": "g.97079121",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97679170,
+        "rsid": "rs45589337",
+        "chromosomeHgvsName": "g.97679170",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97549726,
+        "rsid": "rs144395748",
+        "chromosomeHgvsName": "g.97549726",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97549850,
+        "rsid": "rs61789183",
+        "chromosomeHgvsName": "g.97549850",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97699535,
+        "rsid": "rs2297595",
+        "chromosomeHgvsName": "g.97699535",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97740602,
+        "rsid": "rs41309171",
+        "chromosomeHgvsName": "g.97740602",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97699399,
+        "rsid": "rs72549307",
+        "chromosomeHgvsName": "g.97699399",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97573918,
+        "rsid": "rs143815742",
+        "chromosomeHgvsName": "g.97573918",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97515923,
+        "rsid": "rs148994843",
+        "chromosomeHgvsName": "g.97515923",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97828265,
+        "rsid": "rs115632870",
+        "chromosomeHgvsName": "g.97828265",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97549600,
+        "rsid": "rs111858276",
+        "chromosomeHgvsName": "g.97549600",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
   },
   {
     "gene": "CYP2C9",
@@ -28,13 +1492,13 @@
     "assumeReference": true
   },
   {
-    "gene": "TPMT",
+    "gene": "DPYD",
     "extraPositions": [
       {
-        "chromosome": "chr6",
-        "position": 18138983,
-        "rsid": "rs2842934",
-        "chromosomeHgvsName": "g.18138983",
+        "chromosome": "chr1",
+        "position": 97450168,
+        "rsid": "rs147601618",
+        "chromosomeHgvsName": "g.97450168",
         "geneHgvsName": null,
         "proteinNote": null,
         "resourceNote": null,
@@ -42,12 +1506,328 @@
         "referenceRepeat": null
       }
     ],
-    "ignoredAlleles": [
-      "*1S"
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97306195,
+        "rsid": "rs145548112",
+        "chromosomeHgvsName": "g.97306195",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
     ],
-    "ignoredAllelesLc": [
-      "*1s"
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97515686,
+        "rsid": "rs2811178",
+        "chromosomeHgvsName": "g.97515686",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
     ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97573785,
+        "rsid": "rs186169810",
+        "chromosomeHgvsName": "g.97573785",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97079133,
+        "rsid": "rs72547602",
+        "chromosomeHgvsName": "g.97079133",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97595083,
+        "rsid": "rs145112791",
+        "chromosomeHgvsName": "g.97595083",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97079077,
+        "rsid": "rs202144771",
+        "chromosomeHgvsName": "g.97079077",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97699212,
+        "rsid": "rs6668296",
+        "chromosomeHgvsName": "g.97699212",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97595088,
+        "rsid": "rs150437414",
+        "chromosomeHgvsName": "g.97595088",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97515784,
+        "rsid": "rs201615754",
+        "chromosomeHgvsName": "g.97515784",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97079005,
+        "rsid": "rs140114515",
+        "chromosomeHgvsName": "g.97079005",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97549713,
+        "rsid": "rs57918000",
+        "chromosomeHgvsName": "g.97549713",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97515889,
+        "rsid": "rs190951787",
+        "chromosomeHgvsName": "g.97515889",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97593238,
+        "rsid": "rs72549305",
+        "chromosomeHgvsName": "g.97593238",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97679300,
+        "rsid": "rs3790387",
+        "chromosomeHgvsName": "g.97679300",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97883352,
+        "rsid": "rs80081766",
+        "chromosomeHgvsName": "g.97883352",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": false,
+    "assumeReference": true
+  },
+  {
+    "gene": "DPYD",
+    "extraPositions": [
+      {
+        "chromosome": "chr1",
+        "position": 97573881,
+        "rsid": "rs61622928",
+        "chromosomeHgvsName": "g.97573881",
+        "geneHgvsName": null,
+        "proteinNote": null,
+        "resourceNote": null,
+        "type": "SNP",
+        "referenceRepeat": null
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
     "allHits": false,
     "assumeReference": true
   }

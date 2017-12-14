@@ -237,6 +237,12 @@ public class ReportData {
         geneCallMap.put("variantsUnspecified", true);
       }
 
+      if (geneReport.getVariantOfInterestReports().size() > 0) {
+        geneCallMap.put("variantsOfInterest", geneReport.getVariantOfInterestReports());
+      } else {
+        geneCallMap.put("variantsOfInterestUnspecified", true);
+      }
+
       geneCallMap.put("astrolabe", geneReport.isAstrolabeCall());
 
       geneCallMap.put("totalMissingVariants",

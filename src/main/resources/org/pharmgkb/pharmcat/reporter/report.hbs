@@ -288,6 +288,33 @@
           </tbody>
         </table>
       {{/unless}}
+
+      {{#unless variantsOfInterestUnspecified}}
+        <h4>Other Positions of Interest</h4>
+        <table>
+          <thead>
+          <tr>
+            <th>Position</th>
+            <th>RSID</th>
+            <th>Call</th>
+          </tr>
+          </thead>
+          <tbody>
+          {{#each variantsOfInterest}}
+            <tr>
+              <td id="{{position}}">{{position}}</td>
+              <td id="{{dbSnpId}}">{{dbSnpId}}</td>
+              {{#if missing}}
+                <td class="missingVariant"><em>missing</em></td>
+              {{/if}}
+              {{#unless missing}}
+                {{{variantAlleles this}}}
+              {{/unless}}
+            </tr>
+          {{/each}}
+          </tbody>
+        </table>
+      {{/unless}}
     </section>
   {{/each}}
 </section>
