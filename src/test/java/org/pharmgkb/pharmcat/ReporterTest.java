@@ -37,7 +37,7 @@ public class ReporterTest {
 
     assertTrue(
         "Exemption variant not included in gene report",
-        geneReport.getVariantReports().stream()
+        geneReport.getVariantOfInterestReports().stream()
             .anyMatch(r -> r.getDbSnpId() != null && r.getDbSnpId().equals("rs12777823"))
     );
   }

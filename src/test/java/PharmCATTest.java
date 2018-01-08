@@ -297,11 +297,12 @@ public class PharmCATTest {
     testCalls(DipType.LOOKUP, "TPMT", "TPMT:*1/*3A");
 
     GeneReport tpmtReport = s_context.getGeneReport("TPMT");
-    assertEquals(31, tpmtReport.getVariantReports().size());
+    assertEquals(30, tpmtReport.getVariantReports().size());
+    assertEquals(1, tpmtReport.getVariantOfInterestReports().size());
 
     Predicate<VariantReport> singlePosition = r -> r.getDbSnpId() != null && r.getDbSnpId().equals("rs2842934");
-    assertTrue(tpmtReport.getVariantReports().stream().anyMatch(singlePosition));
-    assertTrue(tpmtReport.getVariantReports().stream().filter(singlePosition).allMatch(r -> r.getCall().equals("G|G")));
+    assertTrue(tpmtReport.getVariantOfInterestReports().stream().anyMatch(singlePosition));
+    assertTrue(tpmtReport.getVariantOfInterestReports().stream().filter(singlePosition).allMatch(r -> r.getCall().equals("G|G")));
 
     assertEquals(0, tpmtReport.getHighlightedVariants().size());
 
