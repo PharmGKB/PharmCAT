@@ -446,36 +446,20 @@
     "message": ""
   },
   {
-    "rule_name": "Show rs2842934 for TPMT",
+    "rule_name": "TPMT extra-position header",
     "version": "1",
     "matches": {
       "gene": "TPMT",
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "rs2842934",
+      "variant": "",
       "dips": [],
       "hapsAvailable": [],
       "drugs": []
     },
-    "exception_type": "report-genotype",
-    "message": ""
-  },
-  {
-    "rule_name": "TPMT*1S notice",
-    "version": "1",
-    "matches": {
-      "gene": "TPMT",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "rs2842934",
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": []
-    },
-    "exception_type": "note",
-    "message": "rs28422934 (TPMT*1S: GA *1S heterozygous and AA *1S homozygous) is excluded from the genotype determination displayed. Please refer to the Calls at Position table for *1S presence."
+    "exception_type": "extra-position-notes",
+    "message": "The following position is included in the CPIC TPMT allele defintions but not in the recommendation."
   },
   {
     "rule_name": "CYP2C19 *1/*4B warning",
@@ -520,5 +504,40 @@
     },
     "exception_type": "report-genotype",
     "message": ""
+  },
+  {
+    "rule_name": "DPYD variant information",
+    "version": "1",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "hapsAvailable": [],
+      "drugs": [
+        "5-fluorouracil",
+        "capecitabine"
+      ]
+    },
+    "exception_type": "note",
+    "message": "The 2017 CPIC DPYD guideline update includes normal function variants with strong, moderate or in vitro data only evidence. These variants are not included in the PharmCAT DPYD gene definition table. The CPIC DPYD functionality table includes further no and decreased function variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence. According to the guideline, to date, there are no studies linking the variants listed in the “in vitro data only and/or limited clinical/ex vivo data” category as decreased or no function variants directly to toxicity related to fluoropyrimidines and therefore, these variants are not specifically included in the CPIC recommendations. Therefore, the variants are not included in the PharmCAT DPYD gene definition table. Refer to the DPYD gene section for further information."
+  },
+  {
+    "rule_name": "DPYD extra-position-header",
+    "version": "1",
+    "matches": {
+      "gene": "DPYD",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "hapsAvailable": [],
+      "drugs": []
+    },
+    "exception_type": "extra-position-notes",
+    "message": "Variants are included in the CPIC supplementary material for DPYD. Variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence level are not are not specifically included in the CPIC recommendations. For further details see the CPIC DPYD guideline."
   }
 ]
