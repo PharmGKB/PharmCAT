@@ -40,15 +40,11 @@ public class ConvertDefinition {
   private static Path m_definitionDir;
   private static DefinitionReader m_definitionReader;
   private static Path m_outputDefinitionDir;
-  private static String m_genomeBuildFrom;
-  private static String m_genomeBuildTo;
 
   // Default constructor
-  public ConvertDefinition (Path definitionDir, Path outputDefinitionDir, String from, String to) {
+  private ConvertDefinition (Path definitionDir, Path outputDefinitionDir) {
     m_definitionDir = definitionDir;
     m_outputDefinitionDir =outputDefinitionDir;
-    m_genomeBuildFrom = from;
-    m_genomeBuildTo = to;
   }
 
 
@@ -57,16 +53,13 @@ public class ConvertDefinition {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addOption("d", "definition-dir", "directory of allele definition grc38 json files", true, "d")
-          .addOption("o", "output-dif", "output directory of allele definition grc37 json files", true, "o")
-          .addOption("f", "from", "from", true, "f")
-          .addOption("t", "to", "to", true, "t");
+          .addOption("o", "output-dif", "output directory of allele definition grc37 json files", true, "o");
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
       Path definitionDir = cliHelper.getValidDirectory("d", false);
       Path outputDefinitionDir= cliHelper.getValidDirectory("o", false);
-      ConvertDefinition convertDefintion = new ConvertDefinition(definitionDir, outputDefinitionDir,
-          cliHelper.getValue("f"),  cliHelper.getValue("t"));
+      ConvertDefinition convertDefintion = new ConvertDefinition(definitionDir, outputDefinitionDir);
       convertDefintion.run();
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -153,7 +146,7 @@ public class ConvertDefinition {
 
 
   // Build up string
-  public  StringBuilder getPositions(@Nonnull DefinitionReader definitionReader) throws IOException {
+  private StringBuilder getPositions(@Nonnull DefinitionReader definitionReader) {
     StringBuilder builder = new StringBuilder();
     for (String gene : definitionReader.getGenes()) {  // for each definition file
       for (VariantLocus variantLocus :definitionReader.getPositions(gene)) {
