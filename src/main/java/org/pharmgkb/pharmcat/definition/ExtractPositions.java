@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.definition;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.lang.invoke.MethodHandles;
@@ -104,7 +103,7 @@ public class ExtractPositions {
 
 
   // Build up vcf string
-  public  StringBuilder getPositions(@Nonnull DefinitionReader definitionReader) throws IOException {
+  public  StringBuilder getPositions(@Nonnull DefinitionReader definitionReader) {
     StringBuilder builder = new StringBuilder();
     builder.append(sf_fileHeader);
     for (String gene : definitionReader.getGenes()) {  // for each definition file
