@@ -233,7 +233,7 @@ public class PipelineTest {
 
     sf_testVcfs.put("test.ugt1a1.unphased.multi", new String[]{
         "DPYD/s1s1.vcf",
-        "UGT1A1/s1s60s80.vcf",
+        "UGT1A1/s1s60s80unphased.vcf",
         "TPMT/s1s1.vcf",
         "CYP3A5/s1s7.vcf",
         "CFTR/F508delF508del.vcf",
@@ -363,12 +363,12 @@ public class PipelineTest {
       "UGT1A1/s1s1.vcf"
     });
 
-    sf_testVcfs.put("test.ugt1a1.s1s28s60s80", new String[]{
-      "UGT1A1/s1s28s60s80.vcf"
+    sf_testVcfs.put("test.ugt1a1.s1s28s60s80unphased", new String[]{
+      "UGT1A1/s1s28s60s80unphased.vcf"
     });
 
-    sf_testVcfs.put("test.ugt1a1.s1s60s80", new String[]{
-      "UGT1A1/s1s60s80.vcf"
+    sf_testVcfs.put("test.ugt1a1.s1s60s80unphased", new String[]{
+      "UGT1A1/s1s60s80unphased.vcf"
     });
 
     sf_testVcfs.put("test.ugt1a1.s1s60s80phased", new String[]{
@@ -383,8 +383,12 @@ public class PipelineTest {
       "UGT1A1/s28s37.vcf"
     });
 
-    sf_testVcfs.put("test.ugt1a1.s28s80", new String[]{
-      "UGT1A1/s28s80.vcf"
+    sf_testVcfs.put("test.ugt1a1.s28s80unphased", new String[]{
+      "UGT1A1/s28s80unphased.vcf"
+    });
+
+    sf_testVcfs.put("test.ugt1a1.s28s80phased", new String[]{
+      "UGT1A1/s28s80phased.vcf"
     });
 
     sf_testVcfs.put("test.ugt1a1.phased.s28s80s6s60", new String[]{
