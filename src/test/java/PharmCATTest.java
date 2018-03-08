@@ -272,7 +272,7 @@ public class PharmCATTest {
   @Test
   public void testUgt1a1UnphasedMulti() throws Exception {
     generalTest("test.ugt1a1.unphased.multi", new String[]{
-            "UGT1A1/s1s60s80.vcf"
+            "UGT1A1/s1s60s80unphased.vcf"
         },
         false);
 
