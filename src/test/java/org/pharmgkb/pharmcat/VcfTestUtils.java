@@ -3,8 +3,6 @@ package org.pharmgkb.pharmcat;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.stream.Collectors;
 import org.pharmgkb.common.util.PathUtils;
 
 
@@ -15,14 +13,19 @@ import org.pharmgkb.common.util.PathUtils;
  */
 public class VcfTestUtils {
 
-  private static final Path VCF_HEADER_PATH = PathUtils.getPathToResource("org/pharmgkb/pharmcat/util/VcfHeader.txt");
   private static final String TEST_PATH  = "org/pharmgkb/pharmcat/haplotype/";
+  private static final String VCF_HEADER = "##fileformat=VCFv4.1\n" +
+      "##fileDate=2015-08-04\n" +
+      "##source=IlluminaPlatinumGenomes, version: hg38_2.0.1\n" +
+      "##reference=hg38\n" +
+      "##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n" +
+      "##FILTER=<ID=PASS,Description=\"All filters passed\">\n" +
+      "#CHROM  POS  ID REF  ALT  QUAL FILTER INFO FORMAT NA12878\n";
 
   public static String writeVcf(String[] filesToInclude) {
     StringWriter writer = new StringWriter();
     try {
-      writer.write(getVcfHeader());
-      writer.write("\n");
+      writer.write(VCF_HEADER);
 
       for (String filepath : filesToInclude) {
         Files.lines(PathUtils.getPathToResource(TEST_PATH + filepath))
@@ -34,11 +37,5 @@ public class VcfTestUtils {
     }
 
     return writer.toString();
-  }
-
-  private static String getVcfHeader() throws IOException {
-    return Files.lines(VCF_HEADER_PATH)
-        .filter(l -> l.startsWith("#"))
-        .collect(Collectors.joining("\n"));
   }
 }
