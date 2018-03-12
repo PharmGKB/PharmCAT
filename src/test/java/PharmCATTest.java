@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -225,12 +226,11 @@ public class PharmCATTest {
   public void testSlco1b1TestMissing() throws Exception {
     generalTest("test.slco1b1.missing", new String[]{
             "DPYD/s1s1.vcf",
-            "UGT1A1/s1s1.vcf",
             "TPMT/s1s1.vcf"
         },
         false);
 
-    testCalledGenes("DPYD", "UGT1A1", "TPMT");
+    testCalledGenes("DPYD", "TPMT");
     assertFalse(s_context.getGeneReport("SLCO1B1").isCalled());
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
@@ -281,6 +281,118 @@ public class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1S1S28S60S80() throws Exception {
+    generalTest("test.ugt1a1.s1s28s60s80unphased", new String[]{
+            "UGT1A1/s1s28s60s80unphased.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*28", "*1/*60", "*1/*80+*28", "*28/*60", "*60/*80+*28");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1S28S37() throws Exception {
+    generalTest("test.ugt1a1.s28s37", new String[]{
+            "UGT1A1/s28s37.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*28/*37");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
+
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1s28s80phased() throws Exception {
+    generalTest("test.ugt1a1.s28s80phased", new String[]{
+            "UGT1A1/s28s80phased.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*28+*80");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1s28s80s6s60phased() throws Exception {
+    generalTest("test.ugt1a1.s28s80s6s60phased", new String[]{
+            "UGT1A1/s28s80s6s60phased.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*6+*60/*28+*80");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
+
+    assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1s28s80s6s60unphased() throws Exception {
+    generalTest("test.ugt1a1.s28s80s6s60unphased", new String[]{
+            "UGT1A1/s28s80s6s60unphased.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*6", "*1/*28", "*1/*60", "*1/*80+*28", "*6/*28", "*6/*60", "*6/*80+*28", "*28/*60", "*60/*80+*28");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
+
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1s28s80unphased() throws Exception {
+    generalTest("test.ugt1a1.s28s80unphased", new String[]{
+            "UGT1A1/s28s80unphased.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*80+*28", "*1/*28");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1s6s6() throws Exception {
+    generalTest("test.ugt1a1.s6s6", new String[]{
+            "UGT1A1/s6s6.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*6/*6");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*6/*6");
+
+    assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
@@ -371,7 +483,7 @@ public class PharmCATTest {
         geneReport.printDisplayCalls()
         : new ArrayList<>(geneReport.getDiplotypeLookupKeys());
 
-    assertEquals(gene + " call count doesn't match", calls.length, dips.size());
+    assertEquals(gene + " call count doesn't match " + dips.stream().collect(Collectors.joining(";")), calls.length, dips.size());
 
     Arrays.stream(calls)
         .forEach(c -> assertTrue(c + " not in "+type+" for " + gene + ":" + dips + printDiagnostic(geneReport), dips.contains(c)));

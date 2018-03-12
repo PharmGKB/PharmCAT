@@ -568,7 +568,7 @@
     "extraPositions": [],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "allHits": false,
+    "allHits": true,
     "assumeReference": false
   },
   {
