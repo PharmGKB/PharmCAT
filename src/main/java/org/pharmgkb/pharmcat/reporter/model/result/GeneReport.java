@@ -249,6 +249,12 @@ public class GeneReport implements Comparable<GeneReport> {
       }
       return ImmutableList.of(UNCALLED);
     }
+    else if (m_gene.equals("UGT1A1") && !isPhased()) {
+      return m_matcherDiplotypes.stream()
+          .flatMap(Diplotype::streamAllelesByZygosity)
+          .distinct()
+          .collect(Collectors.toList());
+    }
     else if (isCallReducible()) {
       return ImmutableSet.of(
           m_matcherDiplotypes.stream()
@@ -265,9 +271,9 @@ public class GeneReport implements Comparable<GeneReport> {
       return ImmutableList.of(NA);
     }
     if (isCallReducible()) {
-      return m_reporterDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).collect(Collectors.toList());
+      return m_reporterDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).distinct().collect(Collectors.toList());
     }
-    return m_matcherDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).collect(Collectors.toList());
+    return m_matcherDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).distinct().collect(Collectors.toList());
   }
 
   public Collection<String> printDisplayPhenotypes() {
@@ -292,7 +298,9 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Can multiple phased diplotype calls be reduced down into the "+" notation. (e.g. *1/*2+*3)
+   * Can multiple phased diplotype calls be reduced down into the "+" notation. 
+   * 
+   * For example, 2 gene calls of *1/*2 and *1/*3 will be reduced to 1 call of *1/*2+*3.
    */
   private boolean isCallReducible() {
     return sf_reducibleGeneCalls.contains(getGene()) && isPhased();

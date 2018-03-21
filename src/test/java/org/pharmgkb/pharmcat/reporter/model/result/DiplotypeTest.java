@@ -1,5 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
@@ -19,6 +21,7 @@ public class DiplotypeTest {
     String gene = "CFTR";
 
     Haplotype h1 = new Haplotype(gene, "Reference");
+    h1.setReference(true);
     Haplotype h2 = new Haplotype(gene, "G542X");
 
     IncidentalFinder incidentalFinder = new IncidentalFinder();
@@ -32,6 +35,10 @@ public class DiplotypeTest {
     assertEquals("G542X (heterozygous)", diplotype.printDisplay());
     assertEquals("CFTR:Other/Other", diplotype.printLookupKey());
 
+    Set<String> alleles = diplotype.streamAllelesByZygosity().collect(Collectors.toSet());
+    assertEquals(1, alleles.size());
+    assertEquals("G542X (heterozygous)", alleles.iterator().next());
+
     assertTrue(diplotype.hasAllele("G542X"));
     assertTrue(diplotype.hasAllele("Reference"));
     assertTrue(diplotype.isIncidental());
@@ -42,6 +49,7 @@ public class DiplotypeTest {
     String gene = "CYP2D6";
 
     Haplotype h1 = new Haplotype(gene, "*1");
+    h1.setReference(true);
     Haplotype h2 = new Haplotype(gene, "*3");
 
     IncidentalFinder incidentalFinder = new IncidentalFinder();
@@ -54,6 +62,10 @@ public class DiplotypeTest {
     assertEquals("*1/*3", diplotype.printBare());
     assertEquals("*1/*3", diplotype.printDisplay());
     assertEquals("CYP2D6:*1/*3", diplotype.printLookupKey());
+
+    Set<String> alleles = diplotype.streamAllelesByZygosity().collect(Collectors.toSet());
+    assertEquals(1, alleles.size());
+    assertEquals("*3 (heterozygous)", alleles.iterator().next());
 
     assertTrue(diplotype.hasAllele("*1"));
     assertTrue(diplotype.hasAllele("*3"));

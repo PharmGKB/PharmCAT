@@ -37,6 +37,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 public class DiplotypeFactory {
 
   private final String f_gene;
+  private final String f_referenceAlleleName;
   private final GenePhenotype f_genePhenotype;
   private final IncidentalFinder f_incidentalFinder;
   private final Set<Variant> f_variants;
@@ -52,10 +53,11 @@ public class DiplotypeFactory {
    * @param variants variant calls, optional
    * @param genePhenotype a {@link GenePhenotype} object that maps haplotypes and functions to phenotypes
    */
-  public DiplotypeFactory(String gene, @Nullable Collection<Variant> variants, GenePhenotype genePhenotype, IncidentalFinder incidentalFinder) {
+  public DiplotypeFactory(String gene, @Nullable Collection<Variant> variants, GenePhenotype genePhenotype, IncidentalFinder incidentalFinder, @Nonnull String referenceAlleleName) {
     f_gene = gene;
     f_incidentalFinder = incidentalFinder;
     f_genePhenotype = genePhenotype;
+    f_referenceAlleleName = referenceAlleleName;
     if (variants != null) {
       f_variants = ImmutableSortedSet.copyOf(variants);
     } else {
@@ -156,6 +158,7 @@ public class DiplotypeFactory {
       haplotype.setGuidelineFunction(f_genePhenotype.getHaplotypes().get(name));
     }
     haplotype.setIncidental(f_incidentalFinder);
+    haplotype.setReference(name.equals(f_referenceAlleleName));
 
     m_haplotypeCache.put(name, haplotype);
     return haplotype;

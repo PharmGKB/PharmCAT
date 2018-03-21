@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -25,7 +26,8 @@ public class Diplotype implements Comparable<Diplotype> {
   private static final String sf_delimiter = "/";
   private static final String sf_homTemplate = "Two %s alleles";
   private static final String sf_hetTemplate = "One %s allele and one %s allele";
-  private static final String sf_referenceAllele = "Reference";
+  private static final String sf_hetSuffix = " (heterozygous)";
+  private static final String sf_homSuffix = " (homozygous)";
 
   private Haplotype m_allele1;
   private Haplotype m_allele2;
@@ -96,14 +98,14 @@ public class Diplotype implements Comparable<Diplotype> {
   /**
    * Gets the first {@link Haplotype} listed in this diplotype
    */
-  public Haplotype getAllele1() {
+  private Haplotype getAllele1() {
     return m_allele1;
   }
 
   /**
    * Gets the second {@link Haplotype} listed in this diplotype
    */
-  public Haplotype getAllele2() {
+  private Haplotype getAllele2() {
     return m_allele2;
   }
 
@@ -233,14 +235,14 @@ public class Diplotype implements Comparable<Diplotype> {
    * @return Optional diplotype string to override whatever the actual string would be
    */
   private Optional<String> printOverride() {
-    boolean refAllele1 = isRef(getAllele1());
-    boolean refAllele2 = isRef(getAllele2());
+    boolean refAllele1 = getAllele1().isReference();
+    boolean refAllele2 = getAllele2().isReference();
 
     switch (m_gene) {
 
       case "CFTR":
         if (getAllele1().isIncidental() && getAllele2().isIncidental()) {
-          return Optional.of(getAllele1().getName() + " (homozygous)");
+          return Optional.of(getAllele1().getName() + sf_homSuffix);
         }
 
         if (refAllele1 && refAllele2) {
@@ -248,7 +250,7 @@ public class Diplotype implements Comparable<Diplotype> {
         }
         else if (refAllele1 || refAllele2) {
           String allele = refAllele1 ? getAllele2().getName() : getAllele1().getName();
-          return Optional.of(allele + " (heterozygous)");
+          return Optional.of(allele + sf_hetSuffix);
         }
         break;
 
@@ -259,6 +261,30 @@ public class Diplotype implements Comparable<Diplotype> {
         break;
     }
     return Optional.empty();
+  }
+
+  /**
+   * Makes a {@link Stream} of zygosity descriptors for this diplotype, e.g. *60 (heterozygous). This is a stream since
+   * a single Diplotype can be described in 0, 1, or 2 Strings, depending on the particular allele.
+   * @return a Stream of 0 or more zygosity Strings
+   */
+  public Stream<String> streamAllelesByZygosity() {
+    if (getAllele1().equals(getAllele2())) {
+      if (getAllele1().isReference()) {
+        return Stream.empty();
+      }
+      return Stream.of(getAllele1().printDisplay() + sf_homSuffix);
+    }
+    else {
+      Set<String> alleles = new TreeSet<>(HaplotypeNameComparator.getComparator());
+      if (!getAllele1().isReference()) {
+        alleles.add(getAllele1().printDisplay() + sf_hetSuffix);
+      }
+      if (!getAllele2().isReference()) {
+        alleles.add(getAllele2().printDisplay() + sf_hetSuffix);
+      }
+      return alleles.stream();
+    }
   }
 
   /**
@@ -286,12 +312,5 @@ public class Diplotype implements Comparable<Diplotype> {
     }
 
     return ObjectUtils.compare(getAllele2(), o.getAllele2());
-  }
-
-  /**
-   * Returns true if the allele is "Reference"
-   */
-  private static boolean isRef(Haplotype allele) {
-    return allele.getName().equals(sf_referenceAllele);
   }
 }

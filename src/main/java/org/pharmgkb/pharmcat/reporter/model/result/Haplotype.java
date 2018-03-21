@@ -21,6 +21,7 @@ public class Haplotype implements Comparable<Haplotype> {
   private String m_calledFunction;
   private String m_guidelineFunction;
   private boolean m_incidental = false;
+  private boolean m_reference = false;
 
   /**
    * public constructor
@@ -123,6 +124,18 @@ public class Haplotype implements Comparable<Haplotype> {
 
   public void setIncidental(IncidentalFinder incidental) {
     m_incidental = incidental.isFinding(this);
+  }
+
+  /**
+   * Whether this haplotype is the "reference" haplotype for its gene or not
+   * @return true if this haplotype is a reference haplotype
+   */
+  public boolean isReference() {
+    return m_reference;
+  }
+
+  public void setReference(boolean reference) {
+    m_reference = reference;
   }
 
   /**

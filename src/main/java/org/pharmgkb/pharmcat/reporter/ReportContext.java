@@ -1,10 +1,11 @@
 package org.pharmgkb.pharmcat.reporter;
 
+import java.io.IOException;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Predicate;
@@ -12,14 +13,15 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
+import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
+import org.pharmgkb.pharmcat.util.DataManager;
 import org.pharmgkb.pharmcat.util.MessageMatcher;
 
 
@@ -42,6 +44,7 @@ public class ReportContext {
   private List<GuidelineReport> m_guidelineReports;
   private PhenotypeMap m_phenotypeMap;
   private IncidentalFinder m_incidentalFinder = new IncidentalFinder();
+  private Map<String,String> m_refAlleleForGene = new HashMap<>();
 
   private final Predicate<String> isGeneIncidental = s -> m_geneReports.values().stream()
       .anyMatch(r -> r.getGene().equals(s) && r.isIncidental());
@@ -56,6 +59,7 @@ public class ReportContext {
 
     makeGuidelineReports(guidelinePackages);
     makeGeneReports(guidelinePackages);
+    loadReferenceAlleleNames();
 
     m_phenotypeMap = new PhenotypeMap(calls);
 
@@ -114,20 +118,17 @@ public class ReportContext {
           call.getGene(),
           call.getVariants(),
           m_phenotypeMap.lookup(call.getGene()).orElse(null),
-          m_incidentalFinder);
+          m_incidentalFinder,
+          m_refAlleleForGene.get(call.getGene()));
       geneReport.setDiplotypes(diplotypeFactory, call);
     }
-  }
-
-  private void compilePhenoMap(PhenotypeMap phenotypeMap, SortedSet<HaplotypeMatch> calledHaplotypes) {
-
   }
 
   /**
    * Takes astrolabe calls, find the GeneReport for each one and then adds astrolabe information to it
    * @param calls astrolabe calls
    */
-  private void compileAstrolabeData(List<AstrolabeCall> calls) throws Exception {
+  private void compileAstrolabeData(List<AstrolabeCall> calls) {
     for (AstrolabeCall astrolabeCall : calls) {
       GeneReport geneReport = m_geneReports.get(astrolabeCall.getGene());
       geneReport.setAstrolabeData(astrolabeCall);
@@ -136,7 +137,8 @@ public class ReportContext {
           astrolabeCall.getGene(),
           null,
           m_phenotypeMap.lookup(astrolabeCall.getGene()).orElse(null),
-          m_incidentalFinder);
+          m_incidentalFinder,
+          m_refAlleleForGene.get(astrolabeCall.getGene()));
       geneReport.setDiplotypes(diplotypeFactory, astrolabeCall);
     }
   }
@@ -161,7 +163,7 @@ public class ReportContext {
    * Assigns matched guideline groups for all guidelines in this report based on called diplotype functions for each
    * gene and guideline combination.
    */
-  private void findMatches() throws Exception {
+  private void findMatches() {
 
     for(GuidelineReport guideline : m_guidelineReports) {
       boolean reportable = guideline.getRelatedGeneSymbols().stream()
@@ -182,6 +184,18 @@ public class ReportContext {
           guideline.getRelatedGeneSymbols().stream()
               .anyMatch(isGeneIncidental));
     }
+  }
+
+  /**
+   *
+   */
+  private void loadReferenceAlleleNames() throws IOException {
+    m_refAlleleForGene.put("CYP2D6", "*1");
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
+    definitionReader.getGenes()
+        .forEach(g -> m_refAlleleForGene.put(g, definitionReader.getHaplotypes(g).get(0).getName()));
   }
 
   /**

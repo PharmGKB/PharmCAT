@@ -277,7 +277,7 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("UGT1A1");
-    testCalls(DipType.PRINT, "UGT1A1", "*1/*60");
+    testCalls(DipType.PRINT, "UGT1A1", "*60 (heterozygous)");
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -293,7 +293,7 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("UGT1A1");
-    testCalls(DipType.PRINT, "UGT1A1", "*1/*28", "*1/*60", "*1/*80+*28", "*28/*60", "*60/*80+*28");
+    testCalls(DipType.PRINT, "UGT1A1", "*80+*28 (heterozygous)", "*28 (heterozygous)", "*60 (heterozygous)");
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -309,7 +309,7 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("UGT1A1");
-    testCalls(DipType.PRINT, "UGT1A1", "*28/*37");
+    testCalls(DipType.PRINT, "UGT1A1", "*28 (heterozygous)", "*37 (heterozygous)");
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -357,7 +357,7 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("UGT1A1");
-    testCalls(DipType.PRINT, "UGT1A1", "*1/*6", "*1/*28", "*1/*60", "*1/*80+*28", "*6/*28", "*6/*60", "*6/*80+*28", "*28/*60", "*60/*80+*28");
+    testCalls(DipType.PRINT, "UGT1A1", "*80+*28 (heterozygous)","*28 (heterozygous)","*6 (heterozygous)","*60 (heterozygous)");
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -373,7 +373,7 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("UGT1A1");
-    testCalls(DipType.PRINT, "UGT1A1", "*1/*80+*28", "*1/*28");
+    testCalls(DipType.PRINT, "UGT1A1", "*80+*28 (heterozygous)", "*28 (heterozygous)");
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -445,6 +445,7 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "CYP2C19", "*2/*2");
     testCalls(DipType.LOOKUP, "TPMT", "TPMT:*1/*1");
     testCalls(DipType.PRINT, "CYP2D6", "*1/*4");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*1");
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
