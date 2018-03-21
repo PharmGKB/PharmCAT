@@ -61,7 +61,7 @@ public class NamedAlleleMatcherUgt1a1Test {
   public void ugt1a1s1s60s80() throws Exception {
     // report out all matching alleles and combinations of them
     // e.g. for a het *60 and *80  would be *60 + *80/*1 and *60/*80
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s60s80.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s60s80unphased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*60");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
@@ -71,8 +71,8 @@ public class NamedAlleleMatcherUgt1a1Test {
   @Test
   public void ugt1a1s1s28s60s80() throws Exception {
     // Example with three star alleles.  All options are output
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s28s60s80.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*80+*28");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s28s60s80unphased.vcf");
+    List<String> expectedMatches = Lists.newArrayList("*1/*80+*28", "*1/*28", "*1/*60", "*60/*80+*28", "*28/*60");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -94,7 +94,7 @@ public class NamedAlleleMatcherUgt1a1Test {
   public void ugt1a1s28s80s6s60phased() throws Exception {
     // Example of phased data with four alelles. Work in progress
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80s6s60phased.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*6/*80+*28", "*60/*80+*28");
+    List<String> expectedMatches = Lists.newArrayList("*6/*80+*28", "*60/*80+*28", "*28/*60", "*6/*28");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -106,7 +106,7 @@ public class NamedAlleleMatcherUgt1a1Test {
   public void ugt1a1s28s80s6s60unphased() throws Exception {
     // As above but unphased
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80s6s60unphased.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*80+*28");
+    List<String> expectedMatches = Lists.newArrayList("*1/*80+*28","*1/*28","*1/*6","*1/*60","*6/*80+*28","*60/*80+*28","*28/*60","*6/*28","*6/*60");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
