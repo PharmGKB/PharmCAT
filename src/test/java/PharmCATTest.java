@@ -237,6 +237,21 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testDpydS1S2B() throws Exception {
+    generalTest("test.slco1b1.missing", new String[]{
+            "DPYD/s1s2b.vcf"
+        },
+        false);
+
+    testCalledGenes("DPYD");
+    assertTrue(s_context.getGeneReport("DPYD").isCalled());
+    testCalls(DipType.PRINT, "DPYD", "Reference/c.1905+1G>A");
+    testCalls(DipType.LOOKUP, "DPYD", "DPYD:Reference/c.1905+1G>A");
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
   public void testSlco1b1TestMulti() throws Exception {
     generalTest("test.slco1b1.multi", new String[]{
             "SLCO1B1/multi.vcf"
