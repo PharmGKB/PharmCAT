@@ -538,6 +538,6 @@
       "drugs": []
     },
     "exception_type": "extra-position-notes",
-    "message": "Variants are included in the CPIC supplementary material for DPYD. Variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence level are not are not specifically included in the CPIC recommendations. For further details see the CPIC DPYD guideline."
+    "message": "Variants are included in the CPIC supplementary material for DPYD. Variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence level are not are not specifically included in the CPIC recommendations. The guideline includes normal function variants with different evidenc levels. For further details follow the link to the CPIC page in the 5-fluorouracil or capecitabine drug section."
   }
 ]
