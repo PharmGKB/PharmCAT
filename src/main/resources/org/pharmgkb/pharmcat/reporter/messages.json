@@ -538,6 +538,24 @@
       "drugs": []
     },
     "exception_type": "extra-position-notes",
-    "message": "Variants are included in the CPIC supplementary material for DPYD. Variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence level are not are not specifically included in the CPIC recommendations. The guideline includes normal function variants with different evidenc levels. For further details follow the link to the CPIC page in the 5-fluorouracil or capecitabine drug section."
+    "message": "These variants are included in the CPIC supplementary material for DPYD. Variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence level are not specifically included in the CPIC recommendations. The guideline includes normal function variants with different evidenc levels. For further details follow the link to the CPIC page in the 5-fluorouracil or capecitabine drug section."
+  },
+  {
+    "rule_name": "UGT1A1*80 without *28 or *37 warning",
+    "version": "1",
+    "matches": {
+      "gene": "UGT1A1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [
+        "g.233760233"
+      ],
+      "variant": "rs887829",
+      "dips": [],
+      "hapsAvailable": [],
+      "drugs": []
+    },
+    "exception_type": "note",
+    "message": "rs887829 (*80) is present. UGT1A1*80 (rs887829) is in very high linkage disequilibrium with *28 and *37 (TA repeat variation in the UGT1A1 promoter). In case *80 is detected without the *28  or *37 variant present, shown as reference in row 233760233 in the table Calls at Position, not enough clinical data exists to predict metabolizer status with certainty and provide recommendations. However, if data for position 233760233 are listed as missing, *80 can be used to infer metabilzer status."
   }
 ]
