@@ -71,6 +71,10 @@ public class Haplotype implements Comparable<Haplotype> {
           return "Other";
         }
         return m_name;
+      case "DPYD":
+        if (m_name.equals("Reference")) {
+          return "Any normal function variant or no variant detected";
+        }
       default:
         return m_name;
     }

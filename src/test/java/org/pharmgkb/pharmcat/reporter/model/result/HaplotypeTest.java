@@ -35,6 +35,16 @@ public class HaplotypeTest {
   }
 
   @Test
+  public void testDpyd() {
+    Haplotype haplotype = new Haplotype("DPYD", "Reference");
+
+    assertEquals("DPYD", haplotype.getGene());
+    assertEquals("Reference", haplotype.getName());
+    assertEquals("Any normal function variant or no variant detected", haplotype.printLookup());
+    assertEquals("DPYD Reference", haplotype.toString());
+  }
+
+  @Test
   public void testIncidental() throws Exception {
     IncidentalFinder incidentalFinder = new IncidentalFinder();
 

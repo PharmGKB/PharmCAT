@@ -246,7 +246,10 @@ public class PharmCATTest {
     testCalledGenes("DPYD");
     assertTrue(s_context.getGeneReport("DPYD").isCalled());
     testCalls(DipType.PRINT, "DPYD", "Reference/c.1905+1G>A");
-    testCalls(DipType.LOOKUP, "DPYD", "DPYD:Reference/c.1905+1G>A");
+    testCalls(DipType.LOOKUP, "DPYD", "DPYD:Any normal function variant or no variant detected/c.1905+1G>A");
+    
+    testMatchedGroups("fluorouracil", 1);
+    testMatchedGroups("capecitabine", 1);
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }

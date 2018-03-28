@@ -133,7 +133,7 @@ public class Reporter {
       astrolabeCalls = AstrolabeOutputParser.parse(astrolabeFile);
     }
 
-    //Load the gene drug interaction list. This currently only handles single gene drug m_guidelineFiles and will require updating to handle multi gene drug interaction
+    //Load the gene drug interaction list. This currently only handles single gene-drug guidelines and will require updating to handle multi gene-drug interaction
     List<GuidelinePackage> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
