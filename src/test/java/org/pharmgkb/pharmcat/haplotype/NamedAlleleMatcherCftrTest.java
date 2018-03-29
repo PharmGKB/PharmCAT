@@ -42,7 +42,7 @@ public class NamedAlleleMatcherCftrTest {
   public void cftrF508delF508del() throws Exception {
     // Test F508del(TCT)/F508del(TCT)
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/F508delF508del.vcf");
-    List<String> expectedMatches = Lists.newArrayList("F508del(TCT)/F508del(TCT)");
+    List<String> expectedMatches = Lists.newArrayList("F508del(CTT)/F508del(CTT)");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -62,7 +62,7 @@ public class NamedAlleleMatcherCftrTest {
   @Test
   public void G1244EF508del() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/G1244EF508del.vcf");
-    List<String> expectedMatches = Lists.newArrayList("F508del(TCT)/G1244E");
+    List<String> expectedMatches = Lists.newArrayList("F508del(CTT)/G1244E");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);

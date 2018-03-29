@@ -86,8 +86,8 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("CFTR");
-    testCalls(DipType.PRINT, "CFTR", "F508del(TCT)/G542X");
-    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(TCT)/Other");
+    testCalls(DipType.PRINT, "CFTR", "F508del(CTT)/G542X");
+    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/Other");
 
     assertTrue("Missing incidental allele", s_context.getGeneReports().stream().anyMatch(GeneReport::isIncidental));
   }
@@ -114,22 +114,8 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("CFTR");
-    testCalls(DipType.PRINT, "CFTR", "F508del(TCT) (heterozygous)");
-    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(TCT)/Other");
-
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
-  }
-
-  @Test
-  public void testCftrF508Hom() throws Exception {
-    generalTest("test.cftr.F508delHom", new String[]{
-            "CFTR/F508delF508del.vcf"
-        },
-        false);
-
-    testCalledGenes("CFTR");
-    testCalls(DipType.PRINT, "CFTR", "F508del(TCT)/F508del(TCT)");
-    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(TCT)/F508del(TCT)");
+    testCalls(DipType.PRINT, "CFTR", "F508del(CTT) (heterozygous)");
+    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/Other");
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
@@ -137,7 +123,7 @@ public class PharmCATTest {
   @Test
   public void testCftrF508HomCTT() throws Exception {
     generalTest("test.cftr.F508delHom_CTT", new String[]{
-            "CFTR/F508delF508del_CTT.vcf"
+            "CFTR/F508delF508del.vcf"
         },
         false);
 
@@ -160,8 +146,8 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("CFTR");
-    testCalls(DipType.PRINT, "CFTR", "F508del(TCT) (heterozygous)");
-    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(TCT)/Other");
+    testCalls(DipType.PRINT, "CFTR", "F508del(CTT) (heterozygous)");
+    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/Other");
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
