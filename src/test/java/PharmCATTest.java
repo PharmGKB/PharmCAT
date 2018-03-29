@@ -81,7 +81,7 @@ public class PharmCATTest {
   @Test
   public void testCftrRegInc() throws Exception {
     generalTest("test.cftr.reg_inc", new String[]{
-            "CFTR/G542XF508del.vcf"
+            "cftr/G542XF508del.vcf"
         },
         false);
 
@@ -95,7 +95,7 @@ public class PharmCATTest {
   @Test
   public void testCftrRefRef() throws Exception {
     generalTest("test.cftr.ref_ref", new String[]{
-            "CFTR/refref.vcf"
+            "cftr/refref.vcf"
         },
         false);
 
@@ -109,7 +109,7 @@ public class PharmCATTest {
   @Test
   public void testCftrF508() throws Exception {
     generalTest("test.cftr.refF508del", new String[]{
-            "CFTR/refF508del.vcf"
+            "cftr/refF508del.vcf"
         },
         false);
 
@@ -123,7 +123,7 @@ public class PharmCATTest {
   @Test
   public void testCftrF508HomCTT() throws Exception {
     generalTest("test.cftr.F508delHom_CTT", new String[]{
-            "CFTR/F508delF508del.vcf"
+            "cftr/F508delF508del.vcf"
         },
         false);
 
@@ -141,7 +141,7 @@ public class PharmCATTest {
   @Test
   public void testCftrF508Sorted() throws Exception {
     generalTest("test.cftr.refF508del_sorted", new String[]{
-            "CFTR/refF508del_sorted.vcf"
+            "cftr/refF508del_sorted.vcf"
         },
         false);
 
@@ -431,10 +431,10 @@ public class PharmCATTest {
             "DPYD/s1s1.vcf",
             "UGT1A1/s1s1.vcf",
             "TPMT/s1s1.vcf",
-            "CYP3A5/s1s7.vcf",
-            "CFTR/refref.vcf",
-            "CYP2C19/s2s2.vcf",
-            "CYP2C9/s2s3.vcf",
+            "cyp3a5/s1s7.vcf",
+            "cftr/refref.vcf",
+            "cyp2c19/s2s2.vcf",
+            "cyp2c9/s2s3.vcf",
             "SLCO1B1/s1as1a.vcf",
             "VKORC1/-1639A-1639A.vcf",
             "cyp4f2/s1s1.vcf",
