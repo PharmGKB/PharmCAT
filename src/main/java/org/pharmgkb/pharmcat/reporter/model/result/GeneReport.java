@@ -278,10 +278,7 @@ public class GeneReport implements Comparable<GeneReport> {
     if (!isCalled()) {
       return ImmutableList.of(NA);
     }
-    if (isCallReducible()) {
-      return m_reporterDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).collect(Collectors.toList());
-    }
-    return m_matcherDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).collect(Collectors.toList());
+    return m_reporterDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).collect(Collectors.toList());
   }
 
   /**
