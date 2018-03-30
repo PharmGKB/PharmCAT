@@ -165,11 +165,10 @@ public class ReportData {
 
           List<Map<String, String>> annotationList = new ArrayList<>();
           if (guideline.getRelatedDrugs().stream().noneMatch(sf_drugHidePhenotype::contains)) {
-            annotationList.add(makeAnnotation(
-                "Allele Functionality",
-                geneFunctions.stream()
-                    .map(f -> f + " (" + guideline.lookupDiplotypes(f) + ")")
-                    .collect(Collectors.joining(", "))));
+            String alleleFn = geneFunctions.stream()
+                .map(f -> f.replace(";", "<br/>"))
+                .collect(Collectors.joining("<br/><br/>"));
+            annotationList.add(makeAnnotation("Allele Functionality", alleleFn));
             annotationList.add(makeAnnotation("Phenotype", group.getName()));
           }
           for (Annotation ann : group.getAnnotations()) {
