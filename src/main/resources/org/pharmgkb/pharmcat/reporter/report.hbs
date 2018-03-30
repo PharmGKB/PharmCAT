@@ -88,8 +88,7 @@
           {{/each}}
         </td>
         <td>
-          {{#if called}}{{yesno uncallableAlleles}}{{/if}}
-          {{#unless called}}N/A{{/unless}}
+          {{missingVariants}}
         </td>
       </tr>
     {{/each}}

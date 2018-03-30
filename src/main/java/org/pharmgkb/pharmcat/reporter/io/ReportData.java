@@ -68,9 +68,7 @@ public class ReportData {
       genotype.put("drugs", geneReport.getRelatedDrugs());
       genotype.put("calls", geneReport.printDisplayCalls());
       genotype.put("functions", geneReport.printDisplayFunctions());
-      genotype.put("uncallableAlleles",
-            geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0
-      );
+      genotype.put("missingVariants", geneReport.isMissingVariants());
       genotype.put("phenotype", geneReport.printDisplayPhenotypes());
       genotype.put("hasMessages", geneReport.getMessages().size()>0);
       genotype.put("astrolabe", geneReport.isAstrolabeCall());

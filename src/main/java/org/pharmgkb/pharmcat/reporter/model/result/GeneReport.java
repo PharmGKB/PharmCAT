@@ -344,4 +344,14 @@ public class GeneReport implements Comparable<GeneReport> {
   public List<String> getHighlightedVariants() {
     return m_highlightedVariants;
   }
+
+  /**
+   * Is there any missing variant in this gene?
+   * @return true if there is any missing variant
+   */
+  public String isMissingVariants() {
+    if (getGene().equals("CYP2D6")) return NA;
+    
+    return m_variantReports.stream().anyMatch(VariantReport::isMissing) ? "Yes" : "No";
+  }
 }
