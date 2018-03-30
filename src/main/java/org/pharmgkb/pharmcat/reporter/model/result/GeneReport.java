@@ -90,8 +90,8 @@ public class GeneReport implements Comparable<GeneReport> {
       Set<String> diplotypes = Ugt1a1AlleleMatcher.makeLookupCalls(this);
       m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(diplotypes));
     } else {
-      // some genes disregard the actual call and calculate the call by the reporter, that logic goes here
-      if (sf_overrideDiplotypes.contains(getGene())) {
+      // some circumstances disregard the actual call and calculate the call by the reporter, that logic goes here
+      if (isOverridable()) {
         m_reporterDiplotypes.addAll(diplotypeFactory.makeOverrideDiplotypes());
       }
       else {
@@ -313,6 +313,21 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   private boolean isCallReducible() {
     return sf_reducibleGeneCalls.contains(getGene()) && isPhased();
+  }
+
+  /**
+   * Tests whether this gene should disregard the call from the {@link NamedAlleleMatcher} and substitute another call 
+   * instead.
+   * 
+   * @return true if you should ignore the {@link NamedAlleleMatcher} calls
+   */
+  private boolean isOverridable() {
+    
+    // check to see if this report is for a gene that can be overridden
+    if (!sf_overrideDiplotypes.contains(getGene())) return false;
+    
+    // only override genes that don't have a call coming from the matcher
+    return m_matcherDiplotypes.isEmpty();
   }
 
   public List<Diplotype> getMatcherDiplotypes() {
