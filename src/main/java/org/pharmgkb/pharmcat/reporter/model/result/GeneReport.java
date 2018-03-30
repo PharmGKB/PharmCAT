@@ -242,6 +242,10 @@ public class GeneReport implements Comparable<GeneReport> {
     return results;
   }
 
+  /**
+   * Used in the final report template in the Genotype Summary table in the "Genotype" column
+   * @return a Collection of diplotype Strings (e.g. *2/*3, *4 (heterozygote))
+   */
   public Collection<String> printDisplayCalls() {
     if (!isCalled()) {
       if (sf_overrideDiplotypes.contains(getGene()) && !m_reporterDiplotypes.isEmpty()) {
@@ -266,21 +270,29 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_matcherDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
   }
 
+  /**
+   * Used in the final report template in the Genotype Summary table in the "Allele Functionality" column
+   * @return a Collection of function Strings (e.g. Two no function alleles)
+   */
   public Collection<String> printDisplayFunctions() {
     if (!isCalled()) {
       return ImmutableList.of(NA);
     }
     if (isCallReducible()) {
-      return m_reporterDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).distinct().collect(Collectors.toList());
+      return m_reporterDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).collect(Collectors.toList());
     }
-    return m_matcherDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).distinct().collect(Collectors.toList());
+    return m_matcherDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).collect(Collectors.toList());
   }
 
+  /**
+   * Used in the final report template in the Genotype Summary table in the "Phenotype" column
+   * @return a Collection of phenotype Strings (e.g. Poor Metabolizer)
+   */
   public Collection<String> printDisplayPhenotypes() {
     if (!isCalled()) {
       return ImmutableList.of(NA);
     }
-    return m_reporterDiplotypes.stream().map(Diplotype::getPhenotype).distinct().collect(Collectors.toSet());
+    return m_reporterDiplotypes.stream().sorted().map(Diplotype::getPhenotype).collect(Collectors.toList());
   }
 
   /**
@@ -298,8 +310,8 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Can multiple phased diplotype calls be reduced down into the "+" notation. 
-   * 
+   * Can multiple phased diplotype calls be reduced down into the "+" notation.
+   *
    * For example, 2 gene calls of *1/*2 and *1/*3 will be reduced to 1 call of *1/*2+*3.
    */
   private boolean isCallReducible() {
