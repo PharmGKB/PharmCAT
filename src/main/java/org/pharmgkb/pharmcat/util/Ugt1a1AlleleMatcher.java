@@ -74,6 +74,10 @@ public class Ugt1a1AlleleMatcher {
     List<String> haplotypes = new ArrayList<>();
 
     for (VariantReport variant : report.getVariantReports()) {
+      if (variant.getCall() == null) {
+        continue;
+      }
+
       String[] alleles = variant.getCall().split("[|/]");
 
       if (variant.getPosition() == 233757013) {
