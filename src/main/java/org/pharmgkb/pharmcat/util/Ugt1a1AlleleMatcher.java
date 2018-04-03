@@ -29,6 +29,15 @@ public class Ugt1a1AlleleMatcher {
   }
 
   /**
+   * Returns true if this matcher is appropriate to use for the given {@link GeneReport}
+   * @param gene a GeneReport to check
+   * @return true if this matcher should be used, false otherwise
+   */
+  public static boolean shouldBeUsedOn(@Nonnull GeneReport gene) {
+    return gene.getGene().equals("UGT1A1") && (!gene.isPhased() || gene.getMatcherDiplotypes().size() > 1);
+  }
+
+  /**
    * Makes diplotype calls (i.e. *1/*80) based on variant report information in the given {@link GeneReport}
    * @param report a Gene Reprot
    * @return a Set of diplotype calls (i.e. "*1/*80")

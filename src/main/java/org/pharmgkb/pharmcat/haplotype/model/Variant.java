@@ -1,9 +1,7 @@
 
 package org.pharmgkb.pharmcat.haplotype.model;
 
-import java.util.Arrays;
 import java.util.Comparator;
-import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.api.client.repackaged.com.google.common.base.Joiner;
@@ -98,22 +96,12 @@ public class Variant implements Comparable<Variant>  {
     return Comparator.nullsLast(String::compareTo).compare(m_vcfCall, o.getVcfCall());
   }
 
-  public String printDisplay() {
-    String[] alleles = getVcfCall().split("[|\\/]");
-    if (m_rsid != null) {
-      return Arrays.stream(alleles).map(a -> getRsid()+a).collect(Collectors.joining("/"));
-    }
-    else {
-      return Arrays.stream(alleles).map(a -> getPosition()+a).collect(Collectors.joining("/"));
-    }
-  }
-
   public String toString() {
     if (m_rsid != null) {
-      return String.format(sf_rsidFormat, getRsid(), getVcfCall().replaceAll("[|\\/]", ""));
+      return String.format(sf_rsidFormat, getRsid(), getVcfCall().replaceAll("[|/]", ""));
     }
     else {
-      return String.format(sf_positionFormat, getPosition(), getVcfCall().replaceAll("[|\\/]", ""));
+      return String.format(sf_positionFormat, getPosition(), getVcfCall().replaceAll("[|/]", ""));
     }
   }
 }

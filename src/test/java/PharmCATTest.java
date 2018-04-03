@@ -161,7 +161,7 @@ public class PharmCATTest {
 
     testCalledGenes("SLCO1B1");
     testCalls(DipType.PRINT, "SLCO1B1", "*17/*21");
-    testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*5");
+    testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*17/*21");
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
@@ -189,7 +189,7 @@ public class PharmCATTest {
 
     testCalledGenes("SLCO1B1");
     testCalls(DipType.PRINT, "SLCO1B1", "*5/*15");
-    testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*5/*5");
+    testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*5/*15");
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
@@ -203,7 +203,7 @@ public class PharmCATTest {
 
     testCalledGenes("SLCO1B1");
     testCalls(DipType.PRINT, "SLCO1B1", "*1A/*15");
-    testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*5");
+    testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*15");
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }

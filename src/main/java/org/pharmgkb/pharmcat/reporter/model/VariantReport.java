@@ -1,11 +1,10 @@
 package org.pharmgkb.pharmcat.reporter.model;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
@@ -45,9 +44,6 @@ public class VariantReport {
   @Expose
   @SerializedName("wildtypeAllele")
   private String m_wildtypeAllele;
-  @Expose
-  @SerializedName("messages")
-  private List<String> m_messages = new ArrayList<>();
 
   public VariantReport(String gene, Variant variant) {
     setGene(gene);
@@ -119,14 +115,6 @@ public class VariantReport {
     m_wildtypeAllele = wildtypeAllele;
   }
 
-  public List<String> getMessages() {
-    return m_messages;
-  }
-
-  public void addMessage(String message) {
-    m_messages.add(message);
-  }
-
   public boolean isMissing() {
     return StringUtils.isBlank(m_call);
   }
@@ -134,6 +122,16 @@ public class VariantReport {
   public boolean isNonwildtype() {
     return !(isMissing() || m_wildtypeAllele == null)
         && Arrays.stream(getCall().split("[|/]")).anyMatch(c -> !c.equals(getWildtypeAllele()));
+  }
+
+  public String printDisplay() {
+    String[] alleles = getCall().split("[|/]");
+    if (getDbSnpId() != null) {
+      return Arrays.stream(alleles).map(a -> getDbSnpId()+a).collect(Collectors.joining("/"));
+    }
+    else {
+      return Arrays.stream(alleles).map(a -> getPosition()+a).collect(Collectors.joining("/"));
+    }
   }
 
   @Override

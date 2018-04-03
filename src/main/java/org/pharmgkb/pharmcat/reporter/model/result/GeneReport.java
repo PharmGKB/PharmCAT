@@ -23,6 +23,7 @@ import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.util.Slco1b1AlleleMatcher;
 import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
 
 
@@ -86,17 +87,17 @@ public class GeneReport implements Comparable<GeneReport> {
     m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
 
     // for UGT1A1 we need to calculate diplotypes slightly differently
-    if (getGene().equals("UGT1A1") && (!isPhased() || geneCall.getDiplotypes().size() > 1)) {
+    if (Ugt1a1AlleleMatcher.shouldBeUsedOn(this)) {
       Set<String> diplotypes = Ugt1a1AlleleMatcher.makeLookupCalls(this);
       m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(diplotypes));
-    } else {
-      // some circumstances disregard the actual call and calculate the call by the reporter, that logic goes here
-      if (isOverridable()) {
-        m_reporterDiplotypes.addAll(diplotypeFactory.makeOverrideDiplotypes());
-      }
-      else {
-        m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
-      }
+    } 
+    else if (Slco1b1AlleleMatcher.shouldBeUsedOn(this)) {
+      Slco1b1AlleleMatcher
+          .makeLookupCalls(this, diplotypeFactory)
+          .ifPresent(s -> m_reporterDiplotypes.add(s));
+    }
+    else {
+      m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
     }
   }
 
@@ -140,7 +141,7 @@ public class GeneReport implements Comparable<GeneReport> {
           genotype = "missing";
         }
         else {
-          genotype = rsid + call.get().replaceAll("[\\|/]", "/"+rsid);
+          genotype = rsid + call.get().replaceAll("[|/]", "/"+rsid);
         }
         m_highlightedVariants.add(genotype);
 
@@ -313,21 +314,6 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   private boolean isCallReducible() {
     return sf_reducibleGeneCalls.contains(getGene()) && isPhased();
-  }
-
-  /**
-   * Tests whether this gene should disregard the call from the {@link NamedAlleleMatcher} and substitute another call 
-   * instead.
-   * 
-   * @return true if you should ignore the {@link NamedAlleleMatcher} calls
-   */
-  private boolean isOverridable() {
-    
-    // check to see if this report is for a gene that can be overridden
-    if (!sf_overrideDiplotypes.contains(getGene())) return false;
-    
-    // only override genes that don't have a call coming from the matcher
-    return m_matcherDiplotypes.isEmpty();
   }
 
   public List<Diplotype> getMatcherDiplotypes() {

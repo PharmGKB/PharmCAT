@@ -116,7 +116,6 @@ public class ReportContext {
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
           call.getGene(),
-          call.getVariants(),
           m_phenotypeMap.lookup(call.getGene()).orElse(null),
           m_incidentalFinder,
           m_refAlleleForGene.get(call.getGene()));
@@ -135,7 +134,6 @@ public class ReportContext {
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
           astrolabeCall.getGene(),
-          null,
           m_phenotypeMap.lookup(astrolabeCall.getGene()).orElse(null),
           m_incidentalFinder,
           m_refAlleleForGene.get(astrolabeCall.getGene()));

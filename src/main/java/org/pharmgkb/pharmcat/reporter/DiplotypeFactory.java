@@ -1,27 +1,20 @@
 package org.pharmgkb.pharmcat.reporter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSortedSet;
-import org.pharmgkb.pharmcat.ParseException;
-import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
-import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
@@ -40,7 +33,6 @@ public class DiplotypeFactory {
   private final String f_referenceAlleleName;
   private final GenePhenotype f_genePhenotype;
   private final IncidentalFinder f_incidentalFinder;
-  private final Set<Variant> f_variants;
 
   private Map<String,Haplotype> m_haplotypeCache = new HashMap<>();
 
@@ -50,20 +42,15 @@ public class DiplotypeFactory {
    * Initialize the factory with all the necessary information to make haplotype and diplotype calls
    *
    * @param gene the gene symbol for the diplotypes this will call
-   * @param variants variant calls, optional
    * @param genePhenotype a {@link GenePhenotype} object that maps haplotypes and functions to phenotypes
+   * @param incidentalFinder the IncidentalFinder object for finding incidental alleles
+   * @param referenceAlleleName the name of the reference allele
    */
-  public DiplotypeFactory(String gene, @Nullable Collection<Variant> variants, GenePhenotype genePhenotype, IncidentalFinder incidentalFinder, @Nonnull String referenceAlleleName) {
+  public DiplotypeFactory(String gene, GenePhenotype genePhenotype, IncidentalFinder incidentalFinder, @Nonnull String referenceAlleleName) {
     f_gene = gene;
     f_incidentalFinder = incidentalFinder;
     f_genePhenotype = genePhenotype;
     f_referenceAlleleName = referenceAlleleName;
-    if (variants != null) {
-      f_variants = ImmutableSortedSet.copyOf(variants);
-    } else {
-      //noinspection unchecked
-      f_variants = Collections.EMPTY_SET;
-    }
   }
 
   /**
@@ -171,58 +158,5 @@ public class DiplotypeFactory {
     haplotype.setCalledFunction(haplotypeMatch.getFunction());
 
     return haplotype;
-  }
-
-  /**
-   * Calls diplotypes based on variant data as a replacement for typical diplotype calling
-   * @return a List of called Diplotypes, empty if no call
-   */
-  public List<Diplotype> makeOverrideDiplotypes() {
-    List<Diplotype> diplotypes = new ArrayList<>();
-
-    switch (f_gene) {
-      case "SLCO1B1":
-        Diplotype knownRs4149056 = callSlco1b1();
-        if (knownRs4149056 != null) {
-          diplotypes.add(knownRs4149056);
-        }
-        break;
-    }
-
-    return diplotypes;
-  }
-
-  /**
-   * Calls the SLCO1B1 gene in the case when rs4149056 is available
-   * @return the called Diplotype, can be null
-   */
-  @Nullable
-  private Diplotype callSlco1b1() {
-    Variant variant = f_variants.stream().filter(v -> v.getRsid() != null && v.getRsid().equals("rs4149056")).reduce((a,b) -> {
-      throw new UnexpectedStateException("more than one variant found");
-    }).orElse(null);
-
-    if (variant != null && variant.getVcfCall() != null) {
-      String[] alleles = variant.getVcfCall().split("[|/]");
-
-      Diplotype dip;
-      if (Arrays.equals(alleles, new String[]{"T","T"})) {
-        dip = makeDiplotype("*1A/*1A");
-      }
-      else if (Arrays.equals(alleles, new String[]{"C","C"})) {
-        dip = makeDiplotype("*5/*5");
-      }
-      else if ((Arrays.equals(alleles, new String[]{"T","C"})) || (Arrays.equals(alleles, new String[]{"C","T"}))) {
-        dip = makeDiplotype("*1A/*5");
-      }
-      else {
-        throw new ParseException("Unexpected genotype for " + variant);
-      }
-
-      dip.setVariant(variant);
-      return dip;
-    } else {
-      return null;
-    }
   }
 }

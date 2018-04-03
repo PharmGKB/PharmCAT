@@ -11,7 +11,7 @@ import javax.annotation.Nonnull;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
-import org.pharmgkb.pharmcat.haplotype.model.Variant;
+import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
 
 /**
@@ -33,7 +33,7 @@ public class Diplotype implements Comparable<Diplotype> {
   private Haplotype m_allele2;
   private String m_gene;
   private String m_phenotype;
-  private Variant m_variant;
+  private VariantReport m_variant;
 
   /**
    * This Function can be used in reduce() calls
@@ -282,11 +282,11 @@ public class Diplotype implements Comparable<Diplotype> {
    * Gets a variant used to make this diplotype call
    * @return a Variant used in this call
    */
-  public Variant getVariant() {
+  public VariantReport getVariant() {
     return m_variant;
   }
 
-  public void setVariant(Variant variant) {
+  public void setVariant(VariantReport variant) {
     m_variant = variant;
   }
 
