@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
@@ -252,6 +253,11 @@ public class ExtractPositions {
     List<String> alts = new ArrayList<>(); //get alts from the namedAlleles
 
     String dasRef = getDAS(chr, String.valueOf(position), genomeBuild);
+    // allele may be blank if the position is an "extra" position not used in an allele definition
+    if (StringUtils.isBlank(allele)) {
+      allele = dasRef;
+    }
+    
     if (!dasRef.equals(allele) && variantLocus.getType()== VariantType.SNP && allele.length()==1) {
       System.out.println("Star one/ref mismatch at position: " + position + " - using " + dasRef + " as ref as opposed to " + allele);
       alts.add(allele);
