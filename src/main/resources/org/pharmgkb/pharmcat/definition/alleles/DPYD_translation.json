@@ -11,7 +11,7 @@
   "notes": [
     "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
-    "Table only refects the no and decreased function variants with strong or moderate evidence of the 2017 DPYD CPIC update. The update includes a number of normal function variants and additioanl no and decreased function variants with weak, in-vitro data only evidence. Please see guideline manuscript and supplements.",
+    "Table only reflects the no and decreased function variants with strong or moderate evidence of the 2017 DPYD CPIC update. The update includes a number of normal function variants and additioanl no and decreased function variants with weak, in-vitro data only evidence. Please see guideline manuscript and supplements.",
     "As an individual only carries a maximum of two fully functional DPYD copies, common normal function variants may be located on the same gene copy as other normal",
     "c.1129-5923C>G is likely the HapB3 haplotype causal variant. Proxy SNPs are c.1236G>A (E412E), c.483+18G>A and c.959-51T>G. c.680+139G>A is not exclusive to HapB3 and therefore not a suitable proxy."
   ],
