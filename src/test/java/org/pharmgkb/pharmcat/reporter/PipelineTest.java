@@ -459,6 +459,30 @@ public class PipelineTest {
     sf_testVcfs.put("test.cyp2c19.s4s17het", new String[]{
         "cyp2c19/s4s17het.vcf"
     });
+    
+    sf_testVcfs.put("test.dpyd.c557c703", new String[]{
+        "DPYD/c557c703.vcf"
+    });
+    
+    sf_testVcfs.put("test.dpyd.c1129-5923c2846", new String[]{
+        "DPYD/c1129-5923c2846.vcf"
+    });
+    
+    sf_testVcfs.put("test.dpyd.c1156het", new String[]{
+        "DPYD/c1156het.vcf"
+    });
+    
+    sf_testVcfs.put("test.dpyd.c1679c1156", new String[]{
+        "DPYD/c1679c1156.vcf"
+    });
+    
+    sf_testVcfs.put("test.dpyd.c2846het", new String[]{
+        "DPYD/c2846het.vcf"
+    });
+    
+    sf_testVcfs.put("test.dpyd.novariant", new String[]{
+        "DPYD/novariant.vcf"
+    });
   }
 
   private PharmCAT m_pharmcat;
