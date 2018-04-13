@@ -153,8 +153,8 @@ public class ReportContext {
     });
   }
 
-  private boolean isCalled(String gene) {
-    return m_geneReports.get(gene).isCalled();
+  private boolean isReportable(String gene) {
+    return m_geneReports.get(gene).isReportable();
   }
 
   /**
@@ -165,12 +165,12 @@ public class ReportContext {
 
     for(GuidelineReport guideline : m_guidelineReports) {
       boolean reportable = guideline.getRelatedGeneSymbols().stream()
-          .anyMatch(this::isCalled);
+          .anyMatch(this::isReportable);
 
       guideline.setReportable(reportable);
 
       guideline.getRelatedGeneSymbols().stream()
-          .filter(g -> !isCalled(g))
+          .filter(g -> !isReportable(g))
           .forEach(guideline::addUncalledGene);
 
       if (!reportable) {

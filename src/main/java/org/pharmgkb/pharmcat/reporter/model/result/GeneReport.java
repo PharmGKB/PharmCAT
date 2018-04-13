@@ -173,10 +173,18 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * True if this gene has entries in the <code>diplotypes</code> property called "uncalled", false if it has a call
+   * True if the {@link NamedAlleleMatcher} has returned at least one call for this gene, false otherwise
    */
   public boolean isCalled() {
     return m_matcherDiplotypes != null && m_matcherDiplotypes.size() > 0;
+  }
+
+  /**
+   * True if there is a diplotype for this gene that the reporter can use, false otherwise. The reporter may be able to 
+   * use diplotype calls not made by the matcher (e.g. UGT1A1 or SLCO1B1)
+   */
+  public boolean isReportable() {
+    return m_reporterDiplotypes != null && m_reporterDiplotypes.size() > 0;
   }
 
   @Override

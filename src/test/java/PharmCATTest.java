@@ -254,6 +254,8 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "SLCO1B1", "rs4149056T/rs4149056C");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*5");
 
+    testMatchedGroups("simvastatin", 1);
+
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
 
