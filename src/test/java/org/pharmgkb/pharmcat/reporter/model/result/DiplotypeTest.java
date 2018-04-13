@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import com.google.common.collect.ImmutableList;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 
@@ -94,5 +95,26 @@ public class DiplotypeTest {
         .reduce(Diplotype.phasedReducer)
         .orElseThrow(RuntimeException::new);
     assertEquals("*6+*60/*28+*80", result);
+  }
+
+  @Test
+  public void testReducePhasedAlleles() {
+    String result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*1/*60", "*1/*80"));
+    assertEquals("*1/*60+*80", result);
+
+    result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*1/*2", "*2/*3"));
+    assertEquals("*1+*3/*2", result);
+
+    result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*1/*2", "*1/*3", "*2/*3")); // throw an error for this scenario
+    assertEquals("*1+*3/*2+*3", result);
+
+    result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*6/*80+*28", "*60/*80+*28"));
+    assertEquals("*6+*60/*80+*28", result);
+
+    result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*6/*80+*28", "*6/*80+*37"));
+    assertEquals("*6/(*80+*28)+(*80+*37)", result);
+
+    result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*6/*80+*28", "*6/*60"));
+    assertEquals("*6/*60+(*80+*28)", result);
   }
 }

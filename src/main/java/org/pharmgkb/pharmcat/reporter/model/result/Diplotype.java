@@ -1,13 +1,16 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
@@ -71,6 +74,45 @@ public class Diplotype implements Comparable<Diplotype> {
     String joined1 = finalRight.stream().collect(Collectors.joining("+"));
 
     return joined0+sf_delimiter+joined1;
+  };
+
+  /**
+   * When multiple diplotype calls are phased they can be combined into one String in certain circumstances. This method
+   * combines things like a/b and a/c into a/b+c.
+   * @param dips a {@link Collection} of diplotype strings in the form "a/b", "a/c", etc... 
+   * @return a single String combining the diplotypes, e.g. "a/b+c"
+   */
+  @Nonnull
+  public static String reducePhasedDiplotypes(@Nullable Collection<String> dips) {
+    if (dips == null || dips.size() == 0) return "";
+    
+    final Set<String> leftBucket = new TreeSet<>(HaplotypeNameComparator.getComparator());
+    final Set<String> rightBucket = new TreeSet<>(HaplotypeNameComparator.getComparator());
+    
+    dips.forEach(d -> {
+      String[] haps = d.split(sf_delimiter);
+      if (!rightBucket.contains(haps[0])) {
+        leftBucket.add(haps[0]);
+        rightBucket.add(haps[1]);
+      } else {
+        leftBucket.add(haps[1]);
+        rightBucket.add(haps[0]);
+      }
+    });
+    
+    Function<String,String> leftMapper = leftBucket.size() > 1 ? hapNameEncloser : Function.identity();
+    String left = leftBucket.stream().map(leftMapper).collect(Collectors.joining("+"));
+    Function<String,String> rightMapper = rightBucket.size() > 1 ? hapNameEncloser : Function.identity();
+    String right = rightBucket.stream().map(rightMapper).collect(Collectors.joining("+"));
+    
+    return left + sf_delimiter + right;
+  }
+
+  /**
+   * Takes diplotype names and encloses them in parentheses if they contain a "+"
+   */
+  private static final Function<String,String> hapNameEncloser = h -> {
+    if (h.contains("+")) return "(" + h + ")"; else return h;
   };
 
   private static void addHaps(Set<String> hapSet, String hap) {
