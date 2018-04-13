@@ -82,6 +82,10 @@ public class Ugt1a1AlleleMatcher {
 
     List<String> haplotypes = new ArrayList<>();
 
+    boolean block80Call = report.getVariantReports().stream()
+        .filter(v -> v.getPosition() == 233760233)
+        .allMatch(v -> !v.isMissing() && !v.isNonwildtype());
+
     for (VariantReport variant : report.getVariantReports()) {
       if (variant.getCall() == null) {
         continue;
@@ -97,7 +101,7 @@ public class Ugt1a1AlleleMatcher {
 
       if (variant.getPosition() == 233759924) {
         Arrays.stream(alleles)
-            .filter(a -> a.equals("T"))
+            .filter(a -> a.equals("T") && !block80Call)
             .forEach(a -> haplotypes.add("*80"));
       }
 
