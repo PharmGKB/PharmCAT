@@ -35,7 +35,7 @@
       "drugs": []
     },
     "exception_type": "gene-specific warnings",
-    "message": "CYP2C19*17, a common variant found in some populations and an increased function allele, is defined by a variant (rs12248560) in the CYP2C19 promoter region. Due to missing information in the VCF file (specifically, rs12248560), this allele cannot be detected or ruled out, and further testing may be warranted."
+    "message": "CYP2C19*17, a common variant found in some populations and an increased function allele, is defined by a variant (rs12248560) in the CYP2C19 promoter region. Due to missing information on rs12248560 in the VCF file, the presence of this allele cannot be ruled out, and further testing may be warranted."
   },
   {
     "rule_name": "TPMT *1/*3A warning",
@@ -57,7 +57,7 @@
       ]
     },
     "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*3A; however, *3B/*3C cannot be ruled out with unphased data."
+    "message": "The assigned genotype is *1/*3A; however, *3B/*3C cannot be ruled out without phased data."
   },
   {
     "rule_name": "TPMT reverse complement footnote",
@@ -105,7 +105,7 @@
       "drugs": []
     },
     "exception_type": "footnote",
-    "message": "Some alleles in UGT1A1 are distinguished by a repeat sequence. Note that some technologies may not accurately call the repeat."
+    "message": "Some alleles in UGT1A1 are distinguished by a repeat sequence; some genotyping technologies may not accurately call the repeat."
   },
   {
     "rule_name": "CYP3A5 Exome warning",
@@ -137,11 +137,11 @@
       "dips": [],
       "hapsAvailable": [],
       "drugs": [
-        "tacrolismus"
+        "tacrolimus"
       ]
     },
     "exception_type": "gene-specific warnings",
-    "message": "CYP3A5*3 is a common variant found in some populations. Due to missing information in the VCF file (specifically rs776746), the *3 allele cannot be detected or ruled out, and further testing may be warranted."
+    "message": "CYP3A5*3 is a common variant found in some populations. Due to missing information on rs776746 in the VCF file, the presence of the *3 allele cannot be ruled out, and further testing may be warranted."
   },
   {
     "rule_name": "CYP3A5 reverse complement footnote",
@@ -284,7 +284,7 @@
     "message": "In all cases, the potential for drug-drug interaction should be evaluated prior to initiating a prescription. FDA recommends against 80mg of simvastatin (unless already tolerated for 12 months)."
   },
   {
-    "rule_name": "tacrolismus table footnote",
+    "rule_name": "tacrolimus table footnote",
     "version": "1",
     "matches": {
       "gene": "",
@@ -317,7 +317,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "For unphased data, all variant alleles found are listed, based on the vcf input and the UGT1A1 definition table. For phased data, the subject’s phased UGT1A1 genotype is listed. The CPIC recommendations are provided based on an exception logic. UGT1A1*28 and *80 are assumed in cis for unphased data, see http://pharmcat.org/ for details."
+    "message": "Unphased data: all variant alleles found are listed based on the vcf input and the UGT1A1 definition table. Phased data: the subject’s phased UGT1A1 genotype is listed. The CPIC recommendations are provided based on an exception logic. UGT1A1*28 and *80 are assumed in cis for unphased data, see http://pharmcat.org/ and the UGT1A1 gene section for details on *80."
   },
   {
     "rule_name": "atazanavir table footnote",
@@ -335,7 +335,7 @@
       ]
     },
     "exception_type": "footnote",
-    "message": "These recommendations are for the use of atazanavir (boosted with either ritonavir or cobicistat) by UGT1A1phenotype. All studies correlating UGT1A1 genotypes with atazanavir adverse events have involved ritonavir boosting. However, concentration-time profiles are equivalent when boosted with either cobicistat or ritonavir, and bilirubin-related adverse events including discontinuation of atazanavir occur in a similar percentage of patients prescribed atazanavir with cobicistat or ritonavir. Associations between UGT1A1 genotype, bilirubin elevations, and atazanavir discontinuation therefore almost certainly translate to atazanavir/cobicistat."
+    "message": "These recommendations are for the use of atazanavir (boosted with either ritonavir or cobicistat) by UGT1A1 phenotype. All studies correlating UGT1A1 genotypes with atazanavir adverse events have involved ritonavir boosting. However, concentration-time profiles are equivalent when boosted with either cobicistat or ritonavir, and bilirubin-related adverse events including discontinuation of atazanavir occur in a similar percentage of patients prescribed atazanavir with cobicistat or ritonavir. Associations between UGT1A1 genotype, bilirubin elevations, and atazanavir discontinuation therefore almost certainly translate to atazanavir/cobicistat."
   },
   {
     "rule_name": "clopidogrel table footnote",
@@ -353,7 +353,7 @@
       ]
     },
     "exception_type": "footnote",
-    "message": "Antiplatelet therapy recommendations are based on CYP2C19 status when considering clopidogrel for acute coronary syndrome (ACS patients undergoing percutaneous coronary intervention (PCI). CPIC guidelines reflect the alleles/genotypes known and considered by the guideline authors for inclusion by the time of publication. CPIC guidelines are periodically updated - see cpicpgx.org."
+    "message": "Antiplatelet therapy recommendations are based on CYP2C19 status when considering clopidogrel for acute coronary syndrome (ACS patients undergoing percutaneous coronary intervention (PCI)). CPIC guidelines reflect the alleles/genotypes known and considered by the guideline authors for inclusion by the time of publication. CPIC guidelines are periodically updated - see cpicpgx.org."
   },
   {
     "rule_name": "CYP2D6 warning",
@@ -387,7 +387,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The displayed SLCO1B1 CPIC recommendations are based on the rs4149056 genotype alone as per CPIC guideline. Carriage of additional variants is possible.<br><br>SLCO1B1 alleles might be named by a star allele nomenclature, representing various SNPs alone or in combination. The minor C allele at rs4149056 is contained within SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles, and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles.<br><br>The SLCO1B1 genotype (star nomenclature) will be displayed in addition to the rs4149056 genotype if determinable with the provided data based on the SLCO1B1 star allele definition published by CPIC.<br><br>A number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as 'possible decreased function' alleles. These alleles are not accounted for in the recommendation based on the rs4149056 genotype."
+    "message": "SLCO1B1 star allele nomenclature represents various SNPs alone or in combination. The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.<br><br>In case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 is contained in SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles, and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles. A number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as 'possible decreased function' alleles. These alleles are not accounted for in the recommendation based on the rs4149056 genotype. Carriage of additional variants is possible."
   },
   {
     "rule_name": "warfarin figure 2 note",
@@ -487,7 +487,7 @@
       ]
     },
     "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*4B; however, *4A/*17 cannot be ruled out with unphased data."
+    "message": "The assigned genotype is *1/*4B; however, *4A/*17 cannot be ruled out without phased data."
   },
   {
     "rule_name": "Show rs4149056 for SLCO1B1",
@@ -522,7 +522,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The 2017 CPIC DPYD guideline update includes normal function variants with strong, moderate or in vitro data only evidence. These variants are not included in the PharmCAT DPYD gene definition table. The CPIC DPYD functionality table includes further no and decreased function variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence. According to the guideline, to date, there are no studies linking the variants listed in the “in vitro data only and/or limited clinical/ex vivo data” category as decreased or no function variants directly to toxicity related to fluoropyrimidines and therefore, these variants are not specifically included in the CPIC recommendations. Therefore, the variants are not included in the PharmCAT DPYD gene definition table. Refer to the DPYD gene section for further information."
+    "message": "The 2017 CPIC DPYD guideline update includes normal function variants with strong, moderate or in vitro data only evidence. These variants are not included in the PharmCAT DPYD gene definition table. The CPIC DPYD functionality table includes further no and decreased function variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence. According to the guideline, to date, there are no studies linking the variants listed in the “in vitro data only and/or limited clinical/ex vivo data” category as decreased or no function variants directly to toxicity related to fluoropyrimidines and therefore, these variants are not specifically included in the CPIC recommendations. These variants are not included in the PharmCAT DPYD gene definition table. Refer to the DPYD gene section for a list of these variants."
   },
   {
     "rule_name": "DPYD extra-position-header",
@@ -538,7 +538,7 @@
       "drugs": []
     },
     "exception_type": "extra-position-notes",
-    "message": "These variants are included in the CPIC supplementary material for DPYD. Variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence level are not specifically included in the CPIC recommendations. The guideline includes normal function variants with different evidenc levels. For further details follow the link to the CPIC page in the 5-fluorouracil or capecitabine drug section."
+    "message": "These variants are included in the CPIC supplementary material for DPYD. Variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence level are not specifically included in the CPIC recommendations. The table also lists normal function variants with different evidence levels based on the guideline information. For further details follow the link to the CPIC page in the fluorouracil or capecitabine drug section."
   },
   {
     "rule_name": "UGT1A1*80 without *28 or *37 warning",
@@ -553,7 +553,7 @@
       "hapsAvailable": [],
       "drugs": []
     },
-    "exception_type": "footnote",
-    "message": "UGT1A1*80 (rs887829) is in very high linkage disequilibrium with *28 and *37 (TA repeat variation in the UGT1A1 promoter). In case *80 is detected without the *28  or *37 variant present, shown as reference in row 233760233 in the table Calls at Position, not enough clinical data exists to predict metabolizer status with certainty and provide recommendations. Therefore, the presence of *80 is not considered in the determination of the UGT1A1 genotype by itself. In case *80 is detected and data for *28 or *37 are missing (position 233760233), *80 is used to infer metabilzer status."
+    "exception_type": "note",
+    "message": "UGT1A1*80 (rs887829) is in very high linkage disequilibrium with *28 and *37 (TA repeat variation in the UGT1A1 promoter). In case *80 (rs887829) is detected and input at position 233760233 (*28/*37) is MISSING from the VCF, the allele options are presented as *80+*28 and *80+*37 based on a partial match for *80, and *80 is used to infer metabolizer status.<br><br>In case *80 is detected with position 233760233 (*28/*37) detected as reference (shown as reference in row 233760233 in the table Calls at Position), not enough clinical data exists to predict metabolizer status with certainty and provide recommendations. Therefore, the presence of *80 (without the *28 or *37 variant) is not considered in the determination of the UGT1A1 genotype by itself. "
   }
 ]
