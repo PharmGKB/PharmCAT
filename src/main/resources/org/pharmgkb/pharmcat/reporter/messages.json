@@ -129,10 +129,10 @@
     "matches": {
       "gene": "CYP3A5",
       "hapsCalled": [],
-      "hapsMissing": [
-        "*3"
+      "hapsMissing": [],
+      "variantsMissing": [
+        "rs776746"
       ],
-      "variantsMissing": [],
       "variant": "",
       "dips": [],
       "hapsAvailable": [],
@@ -406,26 +406,6 @@
     },
     "exception_type": "note",
     "message": "Please follow the flow chart in figure 2 of the <a href=\"https://www.pharmgkb.org/guideline/PA166104949\">CPIC warfarin guideline</a> to determine the appropriate dosing recommendation."
-  },
-  {
-    "rule_name": "CYP3A5 multiple genotypes_rs776746 missing",
-    "version": "1",
-    "matches": {
-      "gene": "CYP3A5",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [
-        "rs776746"
-      ],
-      "variant": "",
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": [
-        "tacrolismus"
-      ]
-    },
-    "exception_type": "note",
-    "message": "CYP3A5*3 is defined by a splicing defect caused by an intronic variant (rs776746). Due to missing information for rs776746 in the vcf, the *3 allele cannot be ruled out, and further testing may be warranted. The PharmCAT definition for CYP3A5*3 is rs28383479 Y and rs776746 C. The multiple genotypes result from a partial match for the allele at position rs28383479."
   },
   {
     "rule_name": "Show rs12777823 for warfarin",
