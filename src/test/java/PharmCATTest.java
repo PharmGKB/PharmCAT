@@ -450,6 +450,33 @@ public class PharmCATTest {
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
+  
+  @Test
+  public void testCyp3a5Missing3Message() throws Exception {
+    String gene = "CYP3A5";
+    
+    generalTest("test.cyp3a5.s3missing", new String[]{
+            "cyp3a5/s1s1rs776746missing.vcf"
+        },
+        false);
+
+    testCalledGenes(gene);
+    testCalls(DipType.PRINT, gene, "*1/*1");
+    testCalls(DipType.LOOKUP, gene, "CYP3A5:*1/*1");
+    
+    // rs776746 should be missing from this report
+    assertNotNull(s_context.getGeneReport(gene).getVariantReports());
+    assertTrue(s_context.getGeneReport(gene).getVariantReports().stream().anyMatch(v -> v.isMissing() && v.getDbSnpId().equals("rs776746")));
+
+    // the guideline should have a matching message
+    assertTrue(s_context.getGuidelineReports().stream()
+        .filter(r -> r.getRelatedDrugs().contains("tacrolimus"))
+        .allMatch(r -> r.getMessages().size() > 0));
+
+    assertTrue(s_context.getGeneReport(gene).isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
 
   @Test
   public void testTpmtStar1s() throws Exception {
