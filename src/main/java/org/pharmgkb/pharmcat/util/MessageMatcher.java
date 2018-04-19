@@ -10,6 +10,7 @@ import com.google.common.collect.ImmutableList;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
@@ -88,6 +89,15 @@ public class MessageMatcher {
           geneReport.getMatcherDiplotypes().stream()
               .map(Diplotype::printBare)
               .anyMatch(b -> match.getDips().contains(b));
+    }
+    
+    if (criteriaPass && match.getVariantsMissing().size() > 0) {
+      GeneReport geneReport = m_reportContext.getGeneReport(match.getGene());
+      criteriaPass = geneReport.getVariantReports().stream()
+          .filter(VariantReport::isMissing)
+          .map(VariantReport::getDbSnpId)
+          .collect(Collectors.toSet())
+          .containsAll(match.getVariantsMissing());    
     }
 
     return criteriaPass;
