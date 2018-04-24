@@ -1,11 +1,17 @@
 package org.pharmgkb.pharmcat.util;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.jar.Attributes;
+import java.util.jar.Manifest;
 import javax.annotation.Nonnull;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
+import org.pharmgkb.pharmcat.PharmCAT;
 
 
 /**
@@ -43,5 +49,28 @@ public class CliUtils {
       throw new IllegalStateException("Not a file: " + propsFile);
     }
     return propsFile;
+  }
+
+  /**
+   * Gets the currently tagged version based on the Jar manifest or a generic "development" version if not run from a
+   * Jar.
+   * @return a String of the PharmCAT version
+   * @throws IOException can occur from reading the manifest
+   */
+  public static String getVersion() throws IOException {
+    Class clazz = PharmCAT.class;
+    String className = clazz.getSimpleName() + ".class";
+    String classPath = clazz.getResource(className).toString();
+    if (!classPath.startsWith("jar")) {
+      // Class not from JAR
+      return "development";
+    }
+    String manifestPath = classPath.substring(0, classPath.lastIndexOf("!") + 1) +
+        "/META-INF/MANIFEST.MF";
+    try (InputStream input = new URL(manifestPath).openStream()) {
+      Manifest manifest = new Manifest(input);
+      Attributes attr = manifest.getMainAttributes();
+      return attr.getValue("Implementation-Version");
+    }
   }
 }

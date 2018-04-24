@@ -20,6 +20,7 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
+import org.pharmgkb.pharmcat.util.CliUtils;
 
 
 /**
@@ -46,6 +47,7 @@ public class ReportData {
 
     Map<String,Object> result = new HashMap<>();
     result.put("generatedOn", new SimpleDateFormat("MMMMM dd, yyyy").format(new Date()));
+    result.put("version", CliUtils.getVersion());
 
     // Genotypes section
     List<Map<String,Object>> genotypes = new ArrayList<>();

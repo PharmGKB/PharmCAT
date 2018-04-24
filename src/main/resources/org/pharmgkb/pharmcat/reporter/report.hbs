@@ -19,9 +19,11 @@
 
 <h1>PharmCAT Report</h1>
 
-{{#if title}} <p>{{title}}</p>{{/if}}
-
-<p>Generated on: {{generatedOn}}</p>
+<table class="table-small">
+  {{#if title}}<tr><th>Title</th><td>{{title}}</td></tr>{{/if}}
+  <tr><th>Date created</th><td>{{generatedOn}}</td></tr>
+  <tr><th>Version</th><td>{{version}}</td></tr>
+</table>
 
 <div class="alert alert-danger">
   <h4>Pre-release software - For code testing only</h4>
