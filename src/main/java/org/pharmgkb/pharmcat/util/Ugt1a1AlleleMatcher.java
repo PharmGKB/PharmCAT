@@ -63,7 +63,7 @@ public class Ugt1a1AlleleMatcher {
         .filter(a -> haplotypes.stream().filter(h -> h.equals(a)).count() >= 1)
         .count();
 
-    if (countHomoAB >= 2 || (countHetA >= 1 && countHetB >= 1) || countHetB >= 2) {
+    if (countHomoAB >= 1 || (countHetA >= 1 && countHetB >= 1) || countHetB >= 2) {
       return ImmutableSet.of("*80/*80");
     }
     else if (countHetA == 0 && countHetB == 0) {

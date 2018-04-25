@@ -450,6 +450,23 @@ public class PharmCATTest {
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
+
+  @Test
+  public void testUgt1a1s28homMissing() throws Exception {
+    generalTest("test.ugt1a1.s28s28unphaseds60s80miss", new String[]{
+            "UGT1A1/s28s28unphaseds60s80miss.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*28+*80/*28+*80");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
+
+    // sample is effectively phased since all positions homozygous
+    assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
   
   @Test
   public void testCyp3a5Missing3Message() throws Exception {
