@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.util;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 import javax.annotation.Nonnull;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.PharmCAT;
@@ -52,8 +54,8 @@ public class CliUtils {
   }
 
   /**
-   * Gets the currently tagged version based on the Jar manifest or a generic "development" version if not run from a
-   * Jar.
+   * Gets the currently tagged version based on the Jar manifest, the current git repo tag, or a generic 
+   * "development" version as a fallback when neither of those are available.
    * @return a String of the PharmCAT version
    * @throws IOException can occur from reading the manifest
    */
@@ -63,6 +65,16 @@ public class CliUtils {
     String classPath = clazz.getResource(className).toString();
     if (!classPath.startsWith("jar")) {
       // Class not from JAR
+      try (StringWriter writer = new StringWriter()) {
+        IOUtils.copy(
+            Runtime.getRuntime().exec("git describe", new String[]{ "--tags" })
+                .getInputStream(), 
+            writer);
+        String gitVersion = writer.toString();
+        if (StringUtils.isNotBlank(gitVersion)) return gitVersion;
+      } catch (Exception e) {
+        System.err.println("Error reading git version");
+      }
       return "development";
     }
     String manifestPath = classPath.substring(0, classPath.lastIndexOf("!") + 1) +
