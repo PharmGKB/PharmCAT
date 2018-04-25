@@ -1,1 +1,4 @@
 theme: jekyll-theme-minimal
+title: PharmCAT
+logo: https://s3.pgkb.org/attachment/pharmcat_logo.png
+show_downloads: true
