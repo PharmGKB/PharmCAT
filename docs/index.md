@@ -12,12 +12,21 @@ For more details read the published [commentary](https://dx.doi.org/10.1002/cpt.
 
 PharmCAT is under development and has not been officially released.  We will post an announcement when PharmCAT is ready for beta testing.
 
+## Running PharmCAT
+
+Before running PharmCAT [read the instructions on GitHub](https://github.com/PharmGKB/PharmCAT/wiki/Running-PharmCAT) and [the VCF requirements](https://github.com/PharmGKB/PharmCAT/wiki/VCF-Requirements).
+
+## Contact
+
 If you are interested in testing the pipeline or have questions, please contact [pharmcat@pharmgkb.org](mailto:pharmcat@pharmgkb.org).
 
-### PharmCAT Leaders
+## Team
+
+### Leaders
+
 Teri Klein (Stanford) and Marylyn Ritchie (University of Pennsylvania and Geisinger)
 
-### PharmCAT Contributors
+### Contributors
 
 | Name | Institution |
 |:-----|:------------|
