@@ -13,7 +13,7 @@ own risk.</p>
 
 ### A. Allele and Genotype Determination
 
-1. PharmCAT uses [gene allele definitions from CPIC](https://www.pharmgkb.org/page/pgxGeneRef), with exceptions as noted in [Gene Definition Exceptions document](https://docs.google.com/document/d/1X9Kl5gKLGvQfMY3nYbto0D3R4ZoBrR6mIYQiqMhFSbY/edit?usp=sharing). For allele definitions and the positions used in PharmCAT, see the [gene definition tables](https://github.com/PharmGKB/PharmCAT/releases).
+1. PharmCAT uses [gene allele definitions from CPIC](https://www.pharmgkb.org/page/pgxGeneRef), with exceptions as noted in [Gene Definition Exceptions document](/methods/gene-definition-exceptions/). For allele definitions and the positions used in PharmCAT, see the [gene definition tables](https://github.com/PharmGKB/PharmCAT/releases).
 2. PharmCAT results are dependent on the supplied vcf calls for the
     queried positions (for technical information about PharmCAT input
     formatting and requirements, please go to
