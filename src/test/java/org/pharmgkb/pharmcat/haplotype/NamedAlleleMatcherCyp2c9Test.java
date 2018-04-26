@@ -25,7 +25,7 @@ public class NamedAlleleMatcherCyp2c9Test {
   private Path m_definitionFile;
 
   @Before
-  public void before() throws Exception {
+  public void before() {
     m_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("CYP2C9_translation.json");
   }
 
@@ -52,11 +52,10 @@ public class NamedAlleleMatcherCyp2c9Test {
   }
 
   @Test
-  public void cyp2c9s1s2() throws Exception {
-    // Test *1/*2 when the sample file also includes a match for *24
+  public void cyp2c9s2s24() throws Exception {
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s2s24.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*2");
+    List<String> expectedMatches = Lists.newArrayList("*2/*24");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -64,10 +63,9 @@ public class NamedAlleleMatcherCyp2c9Test {
 
   @Test
   public void cyp2c9s2s24Only() throws Exception {
-    // Test *2/*24, but also matches *1/*24
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s2s24only.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*2/*24");
+    List<String> expectedMatches = Lists.newArrayList(); // no expected match
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
