@@ -131,6 +131,13 @@ task updateData(type: JavaExec, dependsOn: 'classes') {
   args argList
 }
 
+task extractPositions(type: JavaExec, dependsOn: 'classes') {
+  main = 'org.pharmgkb.pharmcat.definition.ExtractPositions'
+  classpath = sourceSets.main.runtimeClasspath
+  def argList = ['-o', file('build/pharmcat.positions.vcf')]
+  args argList
+}
+
 artifacts {
   archives jar
   archives javadocJar
