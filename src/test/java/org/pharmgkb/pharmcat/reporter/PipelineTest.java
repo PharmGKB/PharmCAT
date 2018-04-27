@@ -82,6 +82,20 @@ public class PipelineTest {
         "IFNL3/rs12979860CC.vcf"
     });
 
+    sf_testVcfs.put("example", new String[]{
+        "DPYD/s1s1.vcf",
+        "UGT1A1/s1s1.vcf",
+        "TPMT/s1s1.vcf",
+        "CYP3A5/s1s1.vcf",
+        "CFTR/refref.vcf",
+        "CYP2C19/s1s1.vcf",
+        "CYP2C9/s1s1.vcf",
+        "SLCO1B1/s1as1a.vcf",
+        "VKORC1/-1639A-1639A.vcf",
+        "cyp4f2/s1s1.vcf",
+        "IFNL3/rs12979860CC.vcf"
+    });
+
     sf_testVcfs.put("test.cftr.reg_reg", new String[]{
         "DPYD/s1s1.vcf",
         "UGT1A1/s1s1.vcf",
