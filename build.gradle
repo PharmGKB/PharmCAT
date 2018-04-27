@@ -36,7 +36,7 @@ archivesBaseName = "pharmcat"
 mainClassName = "org.pharmgkb.pharmcat.PharmCAT"
 
 ext {
-  description = 'Common code shared among all PharmGKB projects.'
+  description = 'The Pharmacogenomic Clinical Annotation Tool'
   url = 'https://github.com/PharmGKB/PharmCAT.git'
   scm = 'scm:git@github.com:PharmGKB/PharmCAT.git'
   orgName = 'PharmGKB'
