@@ -90,6 +90,7 @@ public class ExtractPositions {
         sf_logger.error("Did not find any allele definitions at {}", sf_definitionDir);
         System.exit(1);
       }
+      sf_logger.info("Writing to {}", m_outputVcf);
       StringBuilder vcfString = sortVcf(getPositions(definitionReader));
       try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(m_outputVcf))) {
         writer.print(vcfString);
@@ -108,9 +109,11 @@ public class ExtractPositions {
     StringBuilder builder = new StringBuilder();
     builder.append(sf_fileHeader);
     for (String gene : definitionReader.getGenes()) {  // for each definition file
+      int positionCount = 0;
       // convert bXX format to hgXX
       String build = "hg" + definitionReader.getDefinitionFile(gene).getGenomeBuild().substring(1);
       for (VariantLocus variantLocus : definitionReader.getPositions(gene)) {
+        positionCount++;
         String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, build);
         String vcfLine = String.join("\t", (CharSequence[])vcfFields);
         builder.append(vcfLine).append("\n");
@@ -118,11 +121,13 @@ public class ExtractPositions {
       DefinitionExemption exemption = definitionReader.getExemption(gene);
       if (exemption != null) {
         for (VariantLocus variant : exemption.getExtraPositions()) {
+          positionCount++;
           String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variant, build);
           String vcfLine = String.join("\t", (CharSequence[])vcfFields);
           builder.append(vcfLine).append("\n");
         }
       }
+      sf_logger.info("queried {} positions for {}", positionCount, gene);
     }
     return  builder;
   }
