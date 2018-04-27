@@ -36,7 +36,7 @@ If you are interested in testing the pipeline or have questions, please contact 
 
 ### Leaders
 
-Teri Klein (Stanford) and Marylyn Ritchie (University of Pennsylvania and Geisinger)
+Teri Klein (Stanford) and Marylyn Ritchie (University of Pennsylvania)
 
 ### Contributors
 
