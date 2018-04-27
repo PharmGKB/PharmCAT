@@ -171,7 +171,7 @@ public class ExtractPositions {
     try {
       String uri =
           "http://genome.ucsc.edu/cgi-bin/das/"+ genomeBuild +  "/dna?segment="+ chr +":" +position +"," + position;
-      System.out.println("Getting position: " + uri);
+      sf_logger.debug("Getting position: {}", uri);
       URL url = new URL(uri);
       HttpURLConnection connection =
           (HttpURLConnection) url.openConnection();
@@ -259,7 +259,7 @@ public class ExtractPositions {
     }
     
     if (!dasRef.equals(allele) && variantLocus.getType()== VariantType.SNP && allele.length()==1) {
-      System.out.println("Star one/ref mismatch at position: " + position + " - using " + dasRef + " as ref as opposed to " + allele);
+      sf_logger.warn("Star one/ref mismatch at position: {} - using {} as ref as opposed to {}", position, dasRef, allele);
       alts.add(allele);
       allele = dasRef;
     }
