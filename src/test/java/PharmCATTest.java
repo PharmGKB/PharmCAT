@@ -467,7 +467,32 @@ public class PharmCATTest {
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
-  
+
+  /**
+   * Example of a UGT1A1 report that looks odd. The matcher calls *28/*60 and *60/*60 which then gets translated to the 
+   * print diplotypes listed below. It looks odd to have both "*60 (homozygous)" and "*60 (heterozygous)". This happens 
+   * because diplotype calls get translated to the zygosity format one at a time and can't "look ahead" to other 
+   * matches to check for homozygous calls that could obviate a heterozygous call display.
+   * 
+   * Leaving this here for now but could be addressed in a future release.
+   */
+  @Test
+  public void testUgt1a1_s28s60Hom() throws Exception {
+    generalTest("test.ugt1a1.s28s60hom", new String[]{
+            "UGT1A1/s28s60hom.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*28 (heterozygous)", "*60 (homozygous)", "*60 (heterozygous)");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    // sample is effectively phased since all positions homozygous
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
   @Test
   public void testCyp3a5Missing3Message() throws Exception {
     String gene = "CYP3A5";
