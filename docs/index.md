@@ -5,7 +5,7 @@ permalink: index.html
 
 # Pharmacogenomics Clinical Annotation Tool
 
-An active area of genomic medicine implementation at many health care organizations and academic medical centers includes development of decision support and return of results around pharmacogenomics.  One of the challenges in implementing pharmacogenomics is the representation of the information in clinical dosing guidelines, including star-allele haplotypes, and extracting these variants and haplotypes from genetic datasets.  In a collaboration between the [PGRN Statistical Analysis Resource (P-STAR)](http://www.pgrn.org/p-star.html), the Pharmacogenomics Knowledgebase (PharmGKB), with input from other groups, we are developing a software tool to extract guideline variants from a genetic dataset (represented as a vcf), interpret the variant alleles, and generate a report with genotype-based prescribing recommendations which can be used to inform treatment decisions.
+An active area of genomic medicine implementation at many health care organizations and academic medical centers includes development of decision support and return of results around pharmacogenomics.  One of the challenges in implementing pharmacogenomics is the representation of the information in clinical dosing guidelines, including star-allele haplotypes, and extracting these variants and haplotypes from genetic datasets.  In a collaboration between the former [PGRN Statistical Analysis Resource (P-STAR)](http://www.pgrn.org/p-star.html), the [Pharmacogenomics Knowledgebase (PharmGKB)](https://www.pharmgkb.org), with input from other groups, we are developing a software tool to extract guideline variants from a genetic dataset (represented as a vcf), interpret the variant alleles, and generate a report with genotype-based prescribing recommendations which can be used to inform treatment decisions.
 The [Clinical Pharmacogenetics Implementation Consortium (CPIC)](https://cpicpgx.org) has established guidelines surrounding gene-drug pairs that can and should lead to treatment modifications based on genetic variants.  These guidelines are used for the initial version of PharmCAT, and other sources of PGx associations and guidelines will be included in the future.
 
 For more details read the published [commentary](https://dx.doi.org/10.1002/cpt.928).
@@ -42,30 +42,30 @@ Teri Klein (Stanford) and Marylyn Ritchie (University of Pennsylvania)
 
 | Name | Institution |
 |:-----|:------------|
-|Solomon Adams| University of Pittsburgh|
-|Lester Carter | Stanford (formerly)|
-|Mark Dunnenberger| Northshore University Health System|
-|Philip Empey| University of Pittsburg
-|Alex Frase| Pennsylvania State University|
-|Robert Freimuth |Mayo Clinic|
-|Andrea Gaedigk|Children’s Mercy Hospital|
-|Adam Gordon | University of Washington|
-|Cyrine Haidar | St Jude Children’s Research Hospital|
-|James Hoffman|St Jude Children’s Research Hospital|
-|Kevin Hicks | Moffitt Cancer Center & Research Institute|
-|Ming Ta (Mike) Lee| Geisinger|
-|Neil Miller| Children’s Mercy Hospital|
-|Sean Mooney |University of Washington|
-|Minoli Perera| Northwestern University|
-|Thomas Person| Geisinger|
-|Josh Peterson |Vanderbilt University|
-|Katrin Sangkuhl |Stanford|
-|Stuart Scott| Icahn School of Medicine at Mount Sinai|
-|Greyson Twist| Children’s Mercy Hospital|
-|Anurag Verma |Geisinger|
-|Ryan Whaley| Stanford|
-|Michelle Whirl-Carrillo |Stanford|
-|Marc Williams| Geisinger|
-|Mark Woon |Stanford|
-|Chunlei Wu| Scripss Research Institute|
-|Wenjian Yang |St Jude Children’s Research Hospital|
+|Solomon Adams| University of Pittsburgh |
+|Lester Carter | Stanford (formerly) |
+|Mark Dunnenberger| Northshore University Health System |
+|Philip Empey| University of Pittsburg |
+|Alex Frase| University of Pennsylvania |
+|Robert Freimuth | Mayo Clinic |
+|Andrea Gaedigk| Children’s Mercy Hospital |
+|Adam Gordon | University of Washington |
+|Cyrine Haidar | St Jude Children’s Research Hospital |
+|James Hoffman| St Jude Children’s Research Hospital |
+|Kevin Hicks | Moffitt Cancer Center & Research Institute |
+|Ming Ta (Mike) Lee | Geisinger |
+|Neil Miller| Children’s Mercy Hospital |
+|Sean Mooney | University of Washington |
+|Minoli Perera |  Northwestern University |
+|Thomas Person | Geisinger |
+|Josh Peterson | Vanderbilt University |
+|Katrin Sangkuhl | Stanford |
+|Stuart Scott | Icahn School of Medicine at Mount Sinai |
+|Greyson Twist | Children’s Mercy Hospital|
+|Anurag Verma | University of Pennsylvania |
+|Ryan Whaley | Stanford |
+|Michelle Whirl-Carrillo | Stanford |
+|Marc Williams | Geisinger |
+|Mark Woon | Stanford |
+|Chunlei Wu | Scripss Research Institute |
+|Wenjian Yang | St Jude Children’s Research Hospital |
