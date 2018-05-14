@@ -29,6 +29,7 @@ import org.pharmgkb.pharmcat.util.DataManager;
 public class VariantReportFactory {
 
   private String m_gene;
+  private String m_chr;
   private Multimap<Integer,String> m_variantAlleleMap = TreeMultimap.create(
       Comparator.naturalOrder(),
       HaplotypeNameComparator.getComparator()
@@ -41,8 +42,9 @@ public class VariantReportFactory {
    * @param gene a gene's HGNC symbol
    * @throws IOException
    */
-  public VariantReportFactory(String gene) throws IOException {
+  public VariantReportFactory(String gene, String chr) throws IOException {
     m_gene = gene;
+    m_chr = chr;
 
     Gson gson = new Gson();
 
@@ -109,6 +111,7 @@ public class VariantReportFactory {
    */
   private VariantReport initializeReport(VariantReport variantReport) {
     assignNamedAlleles(variantReport);
+    variantReport.setChr(m_chr);
     variantReport.setWildtypeAllele(m_wildAlleleMap.get(variantReport.getPosition()));
     return variantReport;
   }

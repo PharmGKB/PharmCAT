@@ -37,6 +37,7 @@ public class GeneReport implements Comparable<GeneReport> {
   public static  final String NA = "N/A";
 
   private String m_gene;
+  private String m_chr;
   private SortedSet<String> m_uncalledHaplotypes;
   private List<MessageAnnotation> m_messages = new ArrayList<>();
   private List<DrugLink> m_relatedDrugs = new ArrayList<>();
@@ -61,11 +62,12 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public void setCallData(@Nonnull GeneCall call) throws IOException {
     m_gene = call.getGene();
+    m_chr = call.getChromosome();
     m_uncalledHaplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
     m_uncalledHaplotypes.addAll(call.getUncallableHaplotypes());
     m_phased = call.isPhased();
 
-    VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene);
+    VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene, m_chr);
     call.getVariants().stream()
         .map(variantReportFactory::make).forEach(a -> m_variantReports.add(a));
     call.getMatchData().getMissingPositions().stream()
@@ -113,6 +115,13 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public String getGene(){
     return m_gene;
+  }
+
+  /**
+   * The chromosome this gene appears on
+   */
+  public String getChr() {
+    return m_chr;
   }
 
   /**

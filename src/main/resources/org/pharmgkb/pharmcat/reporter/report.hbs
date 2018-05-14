@@ -270,7 +270,7 @@
           <tbody>
           {{#each variants}}
             <tr>
-              <td id="{{position}}">{{position}}</td>
+              <td id="{{position}}">{{chr}}:{{position}}</td>
               <td id="{{dbSnpId}}">{{dbSnpId}}</td>
               {{#if missing}}
                 <td class="missingVariant"><em>missing</em></td>
@@ -306,7 +306,7 @@
           <tbody>
           {{#each variantsOfInterest}}
             <tr>
-              <td id="{{position}}">{{position}}</td>
+              <td id="{{position}}">{{chr}}:{{position}}</td>
               <td id="{{dbSnpId}}">{{dbSnpId}}</td>
               {{#if missing}}
                 <td class="missingVariant"><em>missing</em></td>

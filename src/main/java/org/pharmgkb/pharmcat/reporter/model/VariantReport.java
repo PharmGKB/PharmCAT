@@ -27,6 +27,9 @@ public class VariantReport {
   @SerializedName("gene")
   private String m_gene;
   @Expose
+  @SerializedName("chromosome")
+  private String m_chr;
+  @Expose
   @SerializedName("position")
   private int m_position;
   @Expose
@@ -65,6 +68,14 @@ public class VariantReport {
 
   public void setGene(String gene) {
     m_gene = gene;
+  }
+
+  public String getChr() {
+    return m_chr;
+  }
+
+  public void setChr(String chr) {
+    m_chr = chr;
   }
 
   public int getPosition() {
