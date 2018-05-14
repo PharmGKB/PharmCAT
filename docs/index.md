@@ -14,11 +14,11 @@ PharmCAT is under development and has not been officially released.  We will pos
 
 ## Documentation
 
+Refer to [the project's wiki on GitHub](https://github.com/PharmGKB/PharmCAT/wiki) for documentation about the technical aspects of PharmCAT. 
+
 Read [the PharmCAT wiki page on named allele matching](https://github.com/PharmGKB/PharmCAT/wiki/NamedAlleleMatcher-101) to learn how PharmCAT matches genotype data to allele definitions.
 
 There are detailed documents on how a few particular genes are handled by PharmCAT. See the [gene definition exceptions](methods/gene-definition-exceptions) for a rundown of exceptional circumstances when analyzing particular genes. The genes [UGT1A1](methods/calling/UGT1A1) and [CFTR](methods/calling/CFTR) also have documentation of their non-standard allele matching algorithms.
-
-Refer to [the project's wiki on GitHub](https://github.com/PharmGKB/PharmCAT/wiki) for documentation about the technical aspects of PharmCAT. 
 
 ## Running PharmCAT
 
