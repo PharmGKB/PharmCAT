@@ -485,7 +485,11 @@ public class PipelineTest {
     sf_testVcfs.put("test.cyp2c19.s4s17het", new String[]{
         "cyp2c19/s4s17het.vcf"
     });
-    
+
+    sf_testVcfs.put("test.cyp2c19.s2s35", new String[]{
+        "cyp2c19/s2s35.vcf"
+    });
+
     sf_testVcfs.put("test.dpyd.c557c703", new String[]{
         "DPYD/c557c703.vcf"
     });

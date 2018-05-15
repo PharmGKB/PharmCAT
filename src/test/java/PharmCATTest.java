@@ -64,6 +64,21 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testCyp2c19s2s35() throws Exception {
+    generalTest("test.cyp2c19.s2s35", new String[]{
+            "cyp2c19/s2s35.vcf"
+        },
+        false);
+
+
+    testCalledGenes("CYP2C19");
+    testCalls(DipType.PRINT,  "CYP2C19", "*2/*35");
+
+    testMatchedGroups("citalopram", 1);
+    testMatchedGroups("ivacaftor", 0);
+  }
+
+  @Test
   public void testCyp2c19_astrolabe() throws Exception {
     generalTest("test.cyp2c19.s1s4b", new String[]{
         "cyp2c19/s4s17het.vcf"
