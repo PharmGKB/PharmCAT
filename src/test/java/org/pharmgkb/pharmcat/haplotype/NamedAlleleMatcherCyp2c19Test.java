@@ -241,8 +241,8 @@ public class NamedAlleleMatcherCyp2c19Test {
 
   @Test
   public void s2s35() throws Exception {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s2s35.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*2/*35");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/noCall.vcf");
+    List<String> expectedMatches = Lists.newArrayList();
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true, true, true, true);
     assertDiplotypePairs(expectedMatches, result);

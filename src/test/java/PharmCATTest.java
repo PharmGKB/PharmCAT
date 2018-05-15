@@ -64,17 +64,16 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testCyp2c19s2s35() throws Exception {
-    generalTest("test.cyp2c19.s2s35", new String[]{
-            "cyp2c19/s2s35.vcf"
+  public void testCyp2c19noCall() throws Exception {
+    generalTest("test.cyp2c19.noCall", new String[]{
+            "cyp2c19/noCall.vcf"
         },
         false);
 
 
-    testCalledGenes("CYP2C19");
-    testCalls(DipType.PRINT,  "CYP2C19", "*2/*35");
+    assertFalse(s_context.getGeneReport("CYP2C19").isCalled());
 
-    testMatchedGroups("citalopram", 1);
+    testMatchedGroups("citalopram", 0);
     testMatchedGroups("ivacaftor", 0);
   }
 
