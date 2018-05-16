@@ -483,11 +483,11 @@ public class PharmCATTest {
   }
 
   /**
-   * Example of a UGT1A1 report that looks odd. The matcher calls *28/*60 and *60/*60 which then gets translated to the 
-   * print diplotypes listed below. It looks odd to have both "*60 (homozygous)" and "*60 (heterozygous)". This happens 
-   * because diplotype calls get translated to the zygosity format one at a time and can't "look ahead" to other 
+   * Example of a UGT1A1 report that looks odd. The matcher calls *28/*60 and *60/*60 which then gets translated to the
+   * print diplotypes listed below. It looks odd to have both "*60 (homozygous)" and "*60 (heterozygous)". This happens
+   * because diplotype calls get translated to the zygosity format one at a time and can't "look ahead" to other
    * matches to check for homozygous calls that could obviate a heterozygous call display.
-   * 
+   *
    * Leaving this here for now but could be addressed in a future release.
    */
   @Test
@@ -510,7 +510,7 @@ public class PharmCATTest {
   @Test
   public void testCyp3a5Missing3Message() throws Exception {
     String gene = "CYP3A5";
-    
+
     generalTest("test.cyp3a5.s3missing", new String[]{
             "cyp3a5/s1s1rs776746missing.vcf"
         },
@@ -519,7 +519,7 @@ public class PharmCATTest {
     testCalledGenes(gene);
     testCalls(DipType.PRINT, gene, "*1/*1");
     testCalls(DipType.LOOKUP, gene, "CYP3A5:*1/*1");
-    
+
     // rs776746 should be missing from this report
     assertNotNull(s_context.getGeneReport(gene).getVariantReports());
     assertTrue(s_context.getGeneReport(gene).getVariantReports().stream().anyMatch(v -> v.isMissing() && v.getDbSnpId().equals("rs776746")));
