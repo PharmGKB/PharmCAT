@@ -491,7 +491,7 @@ public class PharmCATTest {
    * Leaving this here for now but could be addressed in a future release.
    */
   @Test
-  public void testUgt1a1_s28s60Hom() throws Exception {
+  public void testUgt1a1s28s60Hom() throws Exception {
     generalTest("test.ugt1a1.s28s60hom", new String[]{
             "UGT1A1/s28s60hom.vcf"
         },
