@@ -508,6 +508,38 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testUgt1a1s27s28unphaseds80s60missing() throws Exception {
+    generalTest("test.ugt1a1.s27s28unphaseds80s60missing", new String[]{
+            "UGT1A1/s27s28unphaseds80s60missing.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*27 (heterozygous)", "*28 (heterozygous)", "*80+*28 (heterozygous)");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
+
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1s28hets60homounphaseds80missing() throws Exception {
+    generalTest("test.ugt1a1.s28hets60homounphaseds80missing", new String[]{
+            "UGT1A1/s28hets60homounphaseds80missing.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*28 (heterozygous)", "*60 (heterozygous)", "*60 (homozygous)", "*80+*28 (heterozygous)");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
   public void testCyp3a5Missing3Message() throws Exception {
     String gene = "CYP3A5";
 
