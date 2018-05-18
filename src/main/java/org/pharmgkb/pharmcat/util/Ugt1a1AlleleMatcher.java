@@ -20,6 +20,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
  */
 public class Ugt1a1AlleleMatcher {
 
+  private static final String sf_gtDelimiter = "[|/]";
   private static final List<String> sf_groupA = ImmutableList.of("*28", "*80");
   private static final List<String> sf_groupB = ImmutableList.of("*6", "*27", "*37");
   private static final List<String> sf_groupAB = new ArrayList<>();
@@ -76,33 +77,44 @@ public class Ugt1a1AlleleMatcher {
 
   /**
    * Generates a list of found Haplotype names in this {@link GeneReport} based on {@link VariantReport} data.
+   * 
+   * Basically, give a list of all found alleles based on specific positions. Most alleles are straight-forward but a 
+   * special case exists for *80. It can be called based on two different positions with one (233760233) taking priority 
+   * over the other (233759924).
+   * 
    * @param report a {@link GeneReport} for the UGT1A1 gene
+   * @return a List of String names for alleles found in this {@link GeneReport} (each allele can occur more than once)
    */
   private static List<String> matchHaplotypes(@Nonnull GeneReport report) {
 
     List<String> haplotypes = new ArrayList<>();
 
-    boolean block80Call = report.getVariantReports().stream()
-        .filter(v -> v.getPosition() == 233760233)
-        .allMatch(v -> !v.isMissing() && !v.isNonwildtype());
+    VariantReport pos60233 = report.getVariantReports().stream()
+        .filter(v -> v.getPosition() == 233760233).findFirst().orElseThrow(RuntimeException::new);
+    VariantReport pos59924 = report.getVariantReports().stream()
+        .filter(v -> v.getPosition() == 233759924).findFirst().orElseThrow(RuntimeException::new);
+    
+    if (!pos60233.isMissing()) {
+      Arrays.stream(pos60233.getCall().split(sf_gtDelimiter))
+          .filter(a -> a.startsWith("CATAT"))
+          .forEach(a -> haplotypes.add("*80"));
+    } else if (!pos59924.isMissing() && pos60233.isMissing()) {
+      Arrays.stream(pos59924.getCall().split(sf_gtDelimiter))
+          .filter(a -> a.equals("T"))
+          .forEach(a -> haplotypes.add("*80"));
+    }
 
     for (VariantReport variant : report.getVariantReports()) {
       if (variant.getCall() == null) {
         continue;
       }
 
-      String[] alleles = variant.getCall().split("[|/]");
+      String[] alleles = variant.getCall().split(sf_gtDelimiter);
 
       if (variant.getPosition() == 233757013) {
         Arrays.stream(alleles)
             .filter(a -> a.equals("G"))
             .forEach(a -> haplotypes.add("*60"));
-      }
-
-      if (variant.getPosition() == 233759924) {
-        Arrays.stream(alleles)
-            .filter(a -> a.equals("T") && !block80Call)
-            .forEach(a -> haplotypes.add("*80"));
       }
 
       if (variant.getPosition() == 233760498) {

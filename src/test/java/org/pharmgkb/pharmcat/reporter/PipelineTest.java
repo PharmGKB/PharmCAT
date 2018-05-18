@@ -429,6 +429,18 @@ public class PipelineTest {
         "UGT1A1/s28het.vcf"
     });
 
+    sf_testVcfs.put("test.ugt1a1.na12717", new String[]{
+        "UGT1A1/NA12717_UGT1A1.vcf"
+    });
+
+    sf_testVcfs.put("test.ugt1a1.na18868", new String[]{
+        "UGT1A1/NA18868_UGT1A1.vcf"
+    });
+
+    sf_testVcfs.put("test.ugt1a1.na19785", new String[]{
+        "UGT1A1/NA19785_UGT1A1.vcf"
+    });
+
     sf_testVcfs.put("test.ugt1a1.s28s28unphaseds60s80miss", new String[]{
         "UGT1A1/s28s28unphaseds60s80miss.vcf"
     });

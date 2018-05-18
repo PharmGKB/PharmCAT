@@ -466,6 +466,54 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testUgt1a1na12717() throws Exception {
+    generalTest("test.ugt1a1.na12717", new String[]{
+            "UGT1A1/NA12717_UGT1A1.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*80+*28 (heterozygous)", "*60 (heterozygous)", "*28 (heterozygous)");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1na18868() throws Exception {
+    generalTest("test.ugt1a1.na18868", new String[]{
+            "UGT1A1/NA18868_UGT1A1.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*80+*28 (heterozygous)", "*60 (heterozygous)", "*60 (homozygous)", "*28 (heterozygous)");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1na19785() throws Exception {
+    generalTest("test.ugt1a1.na19785", new String[]{
+            "UGT1A1/NA19785_UGT1A1.vcf"
+        },
+        false);
+
+    GeneReport geneReport = s_context.getGeneReport("UGT1A1");
+    assertNotNull(geneReport);
+    assertFalse(geneReport.isCalled());
+
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
   public void testUgt1a1s28homMissing() throws Exception {
     generalTest("test.ugt1a1.s28s28unphaseds60s80miss", new String[]{
             "UGT1A1/s28s28unphaseds60s80miss.vcf"
