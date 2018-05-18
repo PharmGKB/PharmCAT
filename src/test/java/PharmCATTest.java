@@ -483,15 +483,15 @@ public class PharmCATTest {
   }
 
   /**
-   * Example of a UGT1A1 report that looks odd. The matcher calls *28/*60 and *60/*60 which then gets translated to the 
-   * print diplotypes listed below. It looks odd to have both "*60 (homozygous)" and "*60 (heterozygous)". This happens 
-   * because diplotype calls get translated to the zygosity format one at a time and can't "look ahead" to other 
+   * Example of a UGT1A1 report that looks odd. The matcher calls *28/*60 and *60/*60 which then gets translated to the
+   * print diplotypes listed below. It looks odd to have both "*60 (homozygous)" and "*60 (heterozygous)". This happens
+   * because diplotype calls get translated to the zygosity format one at a time and can't "look ahead" to other
    * matches to check for homozygous calls that could obviate a heterozygous call display.
-   * 
+   *
    * Leaving this here for now but could be addressed in a future release.
    */
   @Test
-  public void testUgt1a1_s28s60Hom() throws Exception {
+  public void testUgt1a1s28s60Hom() throws Exception {
     generalTest("test.ugt1a1.s28s60hom", new String[]{
             "UGT1A1/s28s60hom.vcf"
         },
@@ -508,9 +508,41 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testUgt1a1s27s28unphaseds80s60missing() throws Exception {
+    generalTest("test.ugt1a1.s27s28unphaseds80s60missing", new String[]{
+            "UGT1A1/s27s28unphaseds80s60missing.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*27 (heterozygous)", "*28 (heterozygous)", "*80+*28 (heterozygous)");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
+
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1s28hets60homounphaseds80missing() throws Exception {
+    generalTest("test.ugt1a1.s28hets60homounphaseds80missing", new String[]{
+            "UGT1A1/s28hets60homounphaseds80missing.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*28 (heterozygous)", "*60 (heterozygous)", "*60 (homozygous)", "*80+*28 (heterozygous)");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
   public void testCyp3a5Missing3Message() throws Exception {
     String gene = "CYP3A5";
-    
+
     generalTest("test.cyp3a5.s3missing", new String[]{
             "cyp3a5/s1s1rs776746missing.vcf"
         },
@@ -519,7 +551,7 @@ public class PharmCATTest {
     testCalledGenes(gene);
     testCalls(DipType.PRINT, gene, "*1/*1");
     testCalls(DipType.LOOKUP, gene, "CYP3A5:*1/*1");
-    
+
     // rs776746 should be missing from this report
     assertNotNull(s_context.getGeneReport(gene).getVariantReports());
     assertTrue(s_context.getGeneReport(gene).getVariantReports().stream().anyMatch(v -> v.isMissing() && v.getDbSnpId().equals("rs776746")));

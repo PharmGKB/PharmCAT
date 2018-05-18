@@ -433,6 +433,14 @@ public class PipelineTest {
         "UGT1A1/s28s28unphaseds60s80miss.vcf"
     });
 
+    sf_testVcfs.put("test.ugt1a1.s27s28unphaseds80s60missing", new String[]{
+        "UGT1A1/s27s28unphaseds80s60missing.vcf"
+    });
+
+    sf_testVcfs.put("test.ugt1a1.s28hets60homounphaseds80missing", new String[]{
+        "UGT1A1/s28hets60homounphaseds80missing.vcf"
+    });
+
 
     sf_testVcfs.put("test.cyp2c19.rs12248560missing", new String[]{
         "cyp2c19/s1s1rs12248560missing.vcf"
@@ -486,30 +494,26 @@ public class PipelineTest {
         "cyp2c19/s4s17het.vcf"
     });
 
-    sf_testVcfs.put("test.cyp2c19.s2s35", new String[]{
-        "cyp2c19/s2s35.vcf"
-    });
-
     sf_testVcfs.put("test.dpyd.c557c703", new String[]{
         "DPYD/c557c703.vcf"
     });
-    
+
     sf_testVcfs.put("test.dpyd.c1129-5923c2846", new String[]{
         "DPYD/c1129-5923c2846.vcf"
     });
-    
+
     sf_testVcfs.put("test.dpyd.c1156het", new String[]{
         "DPYD/c1156het.vcf"
     });
-    
+
     sf_testVcfs.put("test.dpyd.c1679c1156", new String[]{
         "DPYD/c1679c1156.vcf"
     });
-    
+
     sf_testVcfs.put("test.dpyd.c2846het", new String[]{
         "DPYD/c2846het.vcf"
     });
-    
+
     sf_testVcfs.put("test.dpyd.novariant", new String[]{
         "DPYD/novariant.vcf"
     });
