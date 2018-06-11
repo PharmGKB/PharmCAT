@@ -453,6 +453,10 @@ public class PipelineTest {
         "UGT1A1/s28hets60homounphaseds80missing.vcf"
     });
 
+    sf_testVcfs.put("test.ugt1a1.HG00436", new String[]{
+        "UGT1A1/HG00436.vcf"
+    });
+
 
     sf_testVcfs.put("test.cyp2c19.rs12248560missing", new String[]{
         "cyp2c19/s1s1rs12248560missing.vcf"

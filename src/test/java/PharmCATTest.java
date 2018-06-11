@@ -588,6 +588,22 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testUgt1a1HG00436() throws Exception {
+    generalTest("test.ugt1a1.HG00436", new String[]{
+            "UGT1A1/HG00436.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*27+*28+*60+*80");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
+
+    assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
   public void testCyp3a5Missing3Message() throws Exception {
     String gene = "CYP3A5";
 
