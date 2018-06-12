@@ -52,36 +52,53 @@ public class Ugt1a1AlleleMatcher {
       return ImmutableSet.of();
     }
 
-    List<String> haplotypes = matchHaplotypes(report);
+    // Do this for a phased gene
+    if (report.isPhased()) {
+      List<String> haps0 = matchHaplotypesForStrand(report, 0);
+      List<String> haps1 = matchHaplotypesForStrand(report, 1);
 
-    long countHomoAB = sf_groupAB.stream()
-        .filter(a -> haplotypes.stream().filter(h -> h.equals(a)).count() >= 2)
-        .count();
-    long countHetA = sf_groupA.stream()
-        .filter(a -> haplotypes.stream().filter(h -> h.equals(a)).count() >= 1)
-        .count();
-    long countHetB = sf_groupB.stream()
-        .filter(a -> haplotypes.stream().filter(h -> h.equals(a)).count() >= 1)
-        .count();
+      if (haps0.stream().anyMatch(sf_groupAB::contains) && haps1.stream().anyMatch(sf_groupAB::contains)) {
+        return ImmutableSet.of("*80/*80");
+      }
+      else if (haps0.stream().noneMatch(sf_groupAB::contains) && haps1.stream().noneMatch(sf_groupAB::contains)) {
+        return ImmutableSet.of("*1/*1");
+      }
+      else {
+        return ImmutableSet.of("*1/*80");
+      }
+    }
 
-    if (countHomoAB >= 1 || (countHetA >= 1 && countHetB >= 1) || countHetB >= 2) {
-      return ImmutableSet.of("*80/*80");
-    }
-    else if (countHetA == 0 && countHetB == 0) {
-      return ImmutableSet.of("*1/*1");
-    }
+    // Do this for an unphased gene
     else {
-      return ImmutableSet.of("*1/*80");
+      List<String> haplotypes = matchHaplotypes(report);
+
+      long countHomoAB = sf_groupAB.stream()
+          .filter(a -> haplotypes.stream().filter(h -> h.equals(a)).count() >= 2)
+          .count();
+      long countHetA = sf_groupA.stream()
+          .filter(a -> haplotypes.stream().filter(h -> h.equals(a)).count() >= 1)
+          .count();
+      long countHetB = sf_groupB.stream()
+          .filter(a -> haplotypes.stream().filter(h -> h.equals(a)).count() >= 1)
+          .count();
+
+      if (countHomoAB >= 1 || (countHetA >= 1 && countHetB >= 1) || countHetB >= 2) {
+        return ImmutableSet.of("*80/*80");
+      } else if (countHetA == 0 && countHetB == 0) {
+        return ImmutableSet.of("*1/*1");
+      } else {
+        return ImmutableSet.of("*1/*80");
+      }
     }
   }
 
   /**
    * Generates a list of found Haplotype names in this {@link GeneReport} based on {@link VariantReport} data.
-   * 
-   * Basically, give a list of all found alleles based on specific positions. Most alleles are straight-forward but a 
-   * special case exists for *80. It can be called based on two different positions with one (233760233) taking priority 
+   *
+   * Basically, give a list of all found alleles based on specific positions. Most alleles are straight-forward but a
+   * special case exists for *80. It can be called based on two different positions with one (233760233) taking priority
    * over the other (233759924).
-   * 
+   *
    * @param report a {@link GeneReport} for the UGT1A1 gene
    * @return a List of String names for alleles found in this {@link GeneReport} (each allele can occur more than once)
    */
@@ -93,7 +110,7 @@ public class Ugt1a1AlleleMatcher {
         .filter(v -> v.getPosition() == 233760233).findFirst().orElseThrow(RuntimeException::new);
     VariantReport pos59924 = report.getVariantReports().stream()
         .filter(v -> v.getPosition() == 233759924).findFirst().orElseThrow(RuntimeException::new);
-    
+
     if (!pos60233.isMissing()) {
       Arrays.stream(pos60233.getCall().split(sf_gtDelimiter))
           .filter(a -> a.startsWith("CATAT"))
@@ -139,6 +156,65 @@ public class Ugt1a1AlleleMatcher {
         Arrays.stream(alleles)
             .filter(a -> a.equals("CATATAT"))
             .forEach(a -> haplotypes.add("*37"));
+      }
+    }
+    return haplotypes;
+  }
+
+  private static List<String> matchHaplotypesForStrand(@Nonnull GeneReport report, int strandIdx) {
+
+    List<String> haplotypes = new ArrayList<>();
+
+    VariantReport pos60233 = report.getVariantReports().stream()
+        .filter(v -> v.getPosition() == 233760233).findFirst().orElseThrow(RuntimeException::new);
+    VariantReport pos59924 = report.getVariantReports().stream()
+        .filter(v -> v.getPosition() == 233759924).findFirst().orElseThrow(RuntimeException::new);
+
+    if (!pos60233.isMissing()) {
+      if (pos60233.getCall().split(sf_gtDelimiter)[strandIdx].startsWith("CATAT")) {
+        haplotypes.add("*80");
+      }
+    } else if (!pos59924.isMissing() && pos60233.isMissing()) {
+      if (pos59924.getCall().split(sf_gtDelimiter)[strandIdx].equals("T")) {
+        haplotypes.add("*80");
+      }
+    }
+
+    for (VariantReport variant : report.getVariantReports()) {
+      if (variant.getCall() == null) continue;
+
+      String[] alleles = variant.getCall().split(sf_gtDelimiter);
+
+      if (variant.getPosition() == 233757013) {
+        if (alleles[strandIdx].equals("G")) {
+          haplotypes.add("*60");
+        }
+      }
+
+      if (variant.getPosition() == 233760498) {
+        if (alleles[strandIdx].equals("A")) {
+          haplotypes.add("*6");
+        }
+      }
+
+      if (variant.getPosition() == 233760973) {
+        if (alleles[strandIdx].equals("A")) {
+          haplotypes.add("*27");
+        }
+      }
+
+      if (variant.getPosition() == 233760233) {
+        switch (alleles[strandIdx]) {
+          case "CATAT":
+            haplotypes.add("*28");
+            break;
+          case "C":
+            haplotypes.add("*36");
+            break;
+          case "CATATAT":
+            haplotypes.add("*37");
+            break;
+        }
       }
     }
     return haplotypes;

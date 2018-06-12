@@ -607,7 +607,7 @@ public class PharmCATTest {
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*1/*27+*28+*60+*80");
-    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
