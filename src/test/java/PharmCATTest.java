@@ -167,6 +167,17 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testCftrI507Missing() throws Exception {
+    generalTest("test.cftr.refI507missing", new String[]{
+            "cftr/refI507missing.vcf"
+        },
+        false);
+
+    testNotCalledGenes("CFTR");
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
   public void testSlco1b1Test1() throws Exception {
     generalTest("test.slco1b1.17.21", new String[]{
             "SLCO1B1/s17s21.vcf"
@@ -598,7 +609,8 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "UGT1A1", "*1/*27+*28+*60+*80");
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
 
-    assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
+    GeneReport geneReport = s_context.getGeneReport("UGT1A1");
+    assertTrue(geneReport.isPhased());
 
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
@@ -741,6 +753,16 @@ public class PharmCATTest {
 
     Arrays.stream(genes)
         .forEach(g -> assertTrue(g + " is not called", s_context.getGeneReport(g).isCalled()));
+  }
+
+  /**
+   * Check to see if none ofthe given genes have been called
+   */
+  private void testNotCalledGenes(String... genes) {
+    assertTrue(genes != null && genes.length > 0);
+
+    Arrays.stream(genes)
+        .forEach(g -> assertFalse(g + " is called", s_context.getGeneReport(g).isCalled()));
   }
 
   private void testMatchedGroups(String drugName, int count) {

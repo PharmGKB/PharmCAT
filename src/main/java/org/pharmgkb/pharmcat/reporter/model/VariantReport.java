@@ -1,9 +1,11 @@
 package org.pharmgkb.pharmcat.reporter.model;
 
+import java.lang.invoke.MethodHandles;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -11,6 +13,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -22,6 +26,9 @@ import org.pharmgkb.pharmcat.haplotype.model.Variant;
  * @author Ryan Whaley
  */
 public class VariantReport {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  
+  protected static final Pattern sf_validCallPattern = Pattern.compile("^.+[|/].+$");
 
   @Expose
   @SerializedName("gene")
@@ -91,7 +98,12 @@ public class VariantReport {
   }
 
   public void setCall(String call) {
-    m_call = call;
+    if (StringUtils.isBlank(call) || sf_validCallPattern.matcher(call).matches()) {
+      m_call = call;
+    }
+    else {
+      sf_logger.warn("Bad call value for {}: {}", toString(), call);
+    }
   }
 
   public Set<String> getAlleles() {

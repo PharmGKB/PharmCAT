@@ -498,6 +498,10 @@ public class PipelineTest {
         "cyp2c9/s2s24.vcf"
     });
 
+    sf_testVcfs.put("test.cftr.refI507missing", new String[]{
+        "cftr/refI507missing.vcf"
+    });
+
     sf_testVcfs.put("test.cyp2c9.s2s24only", new String[]{
         "cyp2c9/s2s24only.vcf"
     });
