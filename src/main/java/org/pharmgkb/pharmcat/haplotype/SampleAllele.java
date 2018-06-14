@@ -67,6 +67,10 @@ public class SampleAllele implements Comparable<SampleAllele> {
   public String getAllele2() {
     return m_allele2;
   }
+  
+  public boolean isMissing() {
+    return StringUtils.isEmpty(m_allele1) && StringUtils.isEmpty(m_allele2); 
+  }
 
   public boolean isPhased() {
     return m_isPhased;

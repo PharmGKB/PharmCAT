@@ -14,15 +14,6 @@ import static org.junit.Assert.*;
 public class VariantReportTest {
   
   @Test
-  public void testCallPattern() {
-    assertTrue(VariantReport.sf_validCallPattern.matcher("A|A").matches());
-    assertTrue(VariantReport.sf_validCallPattern.matcher("C/T").matches());
-    assertTrue(VariantReport.sf_validCallPattern.matcher("G|TCCCT").matches());
-    assertFalse(VariantReport.sf_validCallPattern.matcher("|").matches());
-    assertFalse(VariantReport.sf_validCallPattern.matcher("/").matches());
-  }
-  
-  @Test
   public void testSetCall() {
     Variant variant = new Variant(1, "rs0", "A|A", 1, "foo");
     VariantReport variantReport = new VariantReport("CFTR", variant);

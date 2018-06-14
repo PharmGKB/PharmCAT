@@ -31,12 +31,14 @@ public class Variant implements Comparable<Variant>  {
 
 
   public Variant(@Nonnull VariantLocus variant, @Nonnull SampleAllele allele) {
-    String call;
+    String call = null;
     String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
-    if (allele.isPhased()) {
-      call = allele.getAllele1() + "|" + allele.getAllele2();
-    } else {
-      call = allele.getAllele1() + "/" + allele.getAllele2();
+    if (!allele.isMissing()) {
+      if (allele.isPhased()) {
+        call = allele.getAllele1() + "|" + allele.getAllele2();
+      } else {
+        call = allele.getAllele1() + "/" + allele.getAllele2();
+      }
     }
     initialize(variant.getPosition(), variant.getRsid(), call, variant.getVcfPosition(), vcfAlleles);
   }

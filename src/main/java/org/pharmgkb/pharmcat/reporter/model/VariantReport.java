@@ -5,14 +5,16 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
+import org.pharmgkb.pharmcat.util.VariantUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,11 +27,9 @@ import org.slf4j.LoggerFactory;
  *
  * @author Ryan Whaley
  */
-public class VariantReport {
+public class VariantReport implements Comparable<VariantReport> {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   
-  protected static final Pattern sf_validCallPattern = Pattern.compile("^.+[|/].+$");
-
   @Expose
   @SerializedName("gene")
   private String m_gene;
@@ -98,7 +98,7 @@ public class VariantReport {
   }
 
   public void setCall(String call) {
-    if (StringUtils.isBlank(call) || sf_validCallPattern.matcher(call).matches()) {
+    if (VariantUtils.isValidCall(call)) {
       m_call = call;
     }
     else {
@@ -163,5 +163,27 @@ public class VariantReport {
       return m_dbSnpId;
     }
     return m_gene + ":" + m_position;
+  }
+
+  @Override
+  public int compareTo(@Nonnull VariantReport o) {
+    // missing values get sorted last
+    int rez = ObjectUtils.compare(isMissing(), o.isMissing());
+    if (rez != 0) {
+      return rez;
+    }
+    
+    // then order by chromosome
+    rez = ObjectUtils.compare(getChr(), o.getChr());
+    if (rez != 0) {
+      return rez;
+    }
+
+    // then by position on the chromosome
+    rez = ObjectUtils.compare(getPosition(), o.getPosition());
+    if (rez != 0) {
+      return rez;
+    }
+    return 0;
   }
 }

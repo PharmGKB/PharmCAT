@@ -172,6 +172,14 @@ public class PharmCATTest {
             "cftr/refI507missing.vcf"
         },
         false);
+    
+    GeneReport gene = s_context.getGeneReport("CFTR");
+    VariantReport variant = gene.getVariantReports().stream()
+        .filter(v -> v.getDbSnpId().equals("rs121908745"))
+        .findFirst()
+        .orElseThrow(() -> new RuntimeException("rs121908745 should exist"));
+    assertTrue(variant.isMissing());
+    
 
     testNotCalledGenes("CFTR");
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));

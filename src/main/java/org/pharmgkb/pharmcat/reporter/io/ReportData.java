@@ -86,7 +86,7 @@ public class ReportData {
     for (GuidelineReport guideline : new TreeSet<>(reportContext.getGuidelineReports())) {
 
       // don't include guidelines that are only on blacklisted genes
-      if (guideline.getRelatedGeneSymbols().size() == 1 && guideline.getRelatedGeneSymbols().stream().allMatch(sf_geneBlacklist::contains)) {
+      if (guideline.getRelatedGeneSymbols().size() == 1 && sf_geneBlacklist.containsAll(guideline.getRelatedGeneSymbols())) {
         continue;
       }
 
@@ -206,7 +206,7 @@ public class ReportData {
       geneCallMap.put("gene", geneReport.getGene());
       geneCallMap.put("incidental", geneReport.isIncidental());
 
-      String phaseStatus = "";
+      String phaseStatus;
       if (geneReport.isAstrolabeCall()) {
         phaseStatus = "Unavailable for Astrolabe calls";
       } else {
@@ -221,9 +221,7 @@ public class ReportData {
       }
 
       List<String> diplotypes = new ArrayList<>(geneReport.printDisplayCalls());
-      for (String variant : geneReport.getHighlightedVariants()) {
-        diplotypes.add(variant);
-      }
+      diplotypes.addAll(geneReport.getHighlightedVariants());
       geneCallMap.put("diplotypes", diplotypes);
 
       if (geneReport.getMessages() != null && geneReport.getMessages().size() > 0) {
@@ -231,7 +229,7 @@ public class ReportData {
       }
 
       if (geneReport.getVariantReports().size() > 0) {
-        geneCallMap.put("variants", geneReport.getVariantReports());
+        geneCallMap.put("variants", new TreeSet<>(geneReport.getVariantReports()));
       } else {
         geneCallMap.put("variantsUnspecified", true);
       }
