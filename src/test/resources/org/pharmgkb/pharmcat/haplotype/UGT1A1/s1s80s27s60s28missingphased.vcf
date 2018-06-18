@@ -1,0 +1,11 @@
+##fileformat=VCFv4.1
+##fileDate=2015-08-04
+##source=IlluminaPlatinumGenomes, version: hg38_2.0.1
+##reference=hg38
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FILTER=<ID=PASS,Description="All filters passed">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+chr2	233757013	rs4124874	T	G	.	PASS	star-60	GT	1|0
+chr2	233759924	rs887829	C	T	.	PASS	star-80	GT	1|0
+chr2	233760498	rs4148323	G	.	.	PASS	star-6	GT	0|0
+chr2	233760973	rs35350960	C	A	.	PASS	assume-default	GT	1|0
