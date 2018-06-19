@@ -83,9 +83,6 @@ public class VariantLocus implements Comparable<VariantLocus> {
     return m_position;
   }
 
-  public void setPosition(int position) {
-    m_position = position;
-  }
 
   /**
    * The name use for this location on the chromosomal sequence, should be relative to plus strand
