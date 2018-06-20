@@ -64,11 +64,11 @@ public class Variant implements Comparable<Variant>  {
     return m_position;
   }
 
-  public String getRsid() {
+  public @Nullable String getRsid() {
     return m_rsid;
   }
 
-  public String getVcfCall() {
+  public @Nullable String getVcfCall() {
     return m_vcfCall;
   }
 
@@ -80,7 +80,7 @@ public class Variant implements Comparable<Variant>  {
     return m_vcfPosition;
   }
 
-  public String getVcfAlleles() {
+  public @Nullable String getVcfAlleles() {
     return m_vcfAlleles;
   }
 
@@ -99,11 +99,11 @@ public class Variant implements Comparable<Variant>  {
   }
 
   public String toString() {
+    String vcfCall = m_vcfCall == null ? null : m_vcfCall.replaceAll("[|/]", "");
     if (m_rsid != null) {
-      return String.format(sf_rsidFormat, getRsid(), getVcfCall().replaceAll("[|/]", ""));
-    }
-    else {
-      return String.format(sf_positionFormat, getPosition(), getVcfCall().replaceAll("[|/]", ""));
+      return String.format(sf_rsidFormat, getRsid(), vcfCall);
+    } else {
+      return String.format(sf_positionFormat, getPosition(), vcfCall);
     }
   }
 }
