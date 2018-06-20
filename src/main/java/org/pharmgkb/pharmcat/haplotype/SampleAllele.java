@@ -1,7 +1,9 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
@@ -95,6 +97,13 @@ public class SampleAllele implements Comparable<SampleAllele> {
     return ObjectUtils.compare(m_position, o.getPosition());
   }
 
+  public boolean isVcfAlleleADeletion() {
+    Set<Integer> lengths =  m_vcfAlleles.stream()
+        .map(String::length)
+        .collect(Collectors.toSet());
+    return lengths.size() > 1;
+  }
+
 
   /**
    * Interprets the alleles in this {@link SampleAllele} in terms of the given {@link VariantLocus}.
@@ -116,10 +125,12 @@ public class SampleAllele implements Comparable<SampleAllele> {
       a2 = convertInsertion(m_allele2);
 
     } else if (variant.getType() == VariantType.DEL) {
-      // VCF:         TC -> T
-      // definition:  C  -> delC
-      a1 = convertDeletion(variant, m_allele1);
-      a2 = convertDeletion(variant, m_allele2);
+      if (isVcfAlleleADeletion()) {
+        // VCF:         TC -> T
+        // definition:  C  -> delC
+        a1 = convertDeletion(variant, m_allele1);
+        a2 = convertDeletion(variant, m_allele2);
+      }
     } else if (variant.getType() == VariantType.REPEAT) {
       // VCF:         ATAA -> ATATATATATATATATAA
       // definition:  A(TA)6TAA  -> A(TA)7TAA

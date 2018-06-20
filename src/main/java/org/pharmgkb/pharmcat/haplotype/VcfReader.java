@@ -10,10 +10,13 @@ import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.SortedSetMultimap;
+import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.common.comparator.ChromosomePositionComparator;
 import org.pharmgkb.parser.vcf.VcfLineParser;
 import org.pharmgkb.parser.vcf.VcfParser;
@@ -22,6 +25,8 @@ import org.pharmgkb.parser.vcf.model.VcfMetadata;
 import org.pharmgkb.parser.vcf.model.VcfPosition;
 import org.pharmgkb.parser.vcf.model.VcfSample;
 import org.pharmgkb.pharmcat.ParseException;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.definition.model.VariantType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,13 +39,14 @@ import org.slf4j.LoggerFactory;
  */
 public class VcfReader implements VcfLineParser {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private static final Pattern sf_gtDelimiter = Pattern.compile("[\\|/]");
-  private static final Pattern sf_noCallPattern = Pattern.compile("^[\\.\\|/]+$");
+  private static final Pattern sf_gtDelimiter = Pattern.compile("[|/]");
+  private static final Pattern sf_noCallPattern = Pattern.compile("^[.|/]+$");
   private static final Pattern sf_allelePattern = Pattern.compile("^[AaCcGgTt]+$");
-  private ImmutableSet<String> m_locationsOfInterest;
+  private ImmutableMap<String, VariantLocus> m_locationsOfInterest;
   private String m_genomeBuild;
   // <chr:position, allele>
   private SortedMap<String, SampleAllele> m_alleleMap = new TreeMap<>(ChromosomePositionComparator.getComparator());
+  private SortedSetMultimap<String, String> m_warnings = TreeMultimap.create();
 
 
   /**
@@ -49,7 +55,7 @@ public class VcfReader implements VcfLineParser {
    *
    * @param locationsOfInterest set of chr:positions to pull alleles for
    */
-  public VcfReader(ImmutableSet<String> locationsOfInterest, Path vcfFile) throws IOException {
+  public VcfReader(ImmutableMap<String, VariantLocus> locationsOfInterest, Path vcfFile) throws IOException {
     m_locationsOfInterest = locationsOfInterest;
     read(vcfFile);
   }
@@ -73,6 +79,13 @@ public class VcfReader implements VcfLineParser {
     return m_alleleMap;
   }
 
+
+  /**
+   * Gets warnings from reading data, keyed to chromosomal position.
+   */
+  public SortedSetMultimap<String, String> getWarnings() {
+    return m_warnings;
+  }
 
 
   /**
@@ -106,6 +119,11 @@ public class VcfReader implements VcfLineParser {
     }
   }
 
+  private void addWarning(String chrPos, String msg) {
+    m_warnings.put(chrPos, msg);
+    sf_logger.warn(msg);
+  }
+
 
   @Override
   public void parseLine(VcfMetadata metadata, VcfPosition position, List<VcfSample> sampleData) {
@@ -117,26 +135,27 @@ public class VcfReader implements VcfLineParser {
       return;
     }
 
-    if (!m_locationsOfInterest.contains(chrPos)) {
+    VariantLocus varLoc = m_locationsOfInterest.get(chrPos);
+    if (varLoc == null) {
       sf_logger.warn("Ignoring {}", chrPos);
       return;
     }
     if (m_alleleMap.containsKey(chrPos)) {
-      sf_logger.warn("Ignoring duplicate entry for {}", chrPos);
+      addWarning(chrPos, "Ignoring (duplicate entry)");
       return;
     }
 
     if (sampleData.size() > 1) {
-      sf_logger.warn("Multiple samples found, only using first");
+      addWarning(chrPos, "Multiple samples found, only using first");
     }
 
     String gt = sampleData.get(0).getProperty("GT");
     if (gt == null) {
-      sf_logger.warn("No genotype for {}", chrPos);
+      addWarning(chrPos, "Ignoring (no genotype)");
       return;
     }
     if (sf_noCallPattern.matcher(gt).matches()) {
-      sf_logger.info("No call ({}) at {}", gt, chrPos);
+      addWarning(chrPos, "Ignoring (no call: " + gt + ")");
       return;
     }
 
@@ -177,7 +196,7 @@ public class VcfReader implements VcfLineParser {
     if (alleleIdxs.length > 1) {
       a2 = alleles.get(alleleIdxs[1]);
     } else {
-      sf_logger.warn("Only a single allele for {}", chrPos);
+      addWarning(chrPos, "Only a single allele found");
     }
 
     // genotype divided by "|" if phased and "/" if unphased
@@ -190,7 +209,13 @@ public class VcfReader implements VcfLineParser {
     vcfAlleles.add(position.getRef());
     vcfAlleles.addAll(position.getAltBases());
 
-    m_alleleMap.put(chrPos, new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased, vcfAlleles));
+    SampleAllele sampleAllele = new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased, vcfAlleles);
+    m_alleleMap.put(chrPos, sampleAllele);
+
+    if (varLoc.getType() == VariantType.DEL && !sampleAllele.isVcfAlleleADeletion()) {
+      addWarning(chrPos, "Expecting deletion but alleles do not appear to be in expected format (got " +
+          sampleAllele.getVcfAlleles().stream().collect(Collectors.joining("/")) + ")");
+    }
   }
 
 
@@ -198,6 +223,7 @@ public class VcfReader implements VcfLineParser {
    * Normalize alleles from VCF to match syntax from allele definitions
    */
   private String[] normalizeAlleles(@Nonnull String refAllele, @Nullable String varAllele) {
+    Preconditions.checkNotNull(refAllele);
 
     refAllele = refAllele.toUpperCase();
 

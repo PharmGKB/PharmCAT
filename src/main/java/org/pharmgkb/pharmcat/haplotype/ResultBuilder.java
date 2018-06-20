@@ -3,9 +3,11 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
@@ -43,13 +45,16 @@ public class ResultBuilder {
   }
 
 
-  public ResultBuilder forFile(@Nonnull Path vcfFile) {
+  public ResultBuilder forFile(@Nonnull Path vcfFile, Map<String, Collection<String>> warnings) {
     Preconditions.checkNotNull(vcfFile);
     Preconditions.checkArgument(vcfFile.toString().endsWith(".vcf"));
     Preconditions.checkArgument(Files.isRegularFile(vcfFile));
 
     m_result.setMetadata(new Metadata(NamedAlleleMatcher.VERSION, m_definitionReader.getGenomeBuild(),
         PathUtils.getFilename(vcfFile), new Date()));
+    if (warnings != null) {
+      m_result.setVcfWarnings(warnings);
+    }
     return this;
   }
 

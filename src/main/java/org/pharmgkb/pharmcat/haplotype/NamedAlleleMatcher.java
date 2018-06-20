@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableMap;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -33,9 +33,10 @@ import org.pharmgkb.pharmcat.util.DataManager;
 public class NamedAlleleMatcher {
   public static final String VERSION = "1.0.0";
   private DefinitionReader m_definitionReader;
-  private ImmutableSet<String> m_locationsOfInterest;
+  private ImmutableMap<String, VariantLocus> m_locationsOfInterest;
   private boolean m_assumeReferenceInDefinitions;
   private boolean m_topCandidateOnly;
+  private boolean m_printWarnings;
 
 
   /**
@@ -60,6 +61,12 @@ public class NamedAlleleMatcher {
     m_locationsOfInterest = calculateLocationsOfInterest(m_definitionReader);
     m_assumeReferenceInDefinitions = assumeReference;
     m_topCandidateOnly = topCandidateOnly;
+  }
+
+
+  public NamedAlleleMatcher printWarnings() {
+    m_printWarnings = true;
+    return this;
   }
 
 
@@ -92,7 +99,8 @@ public class NamedAlleleMatcher {
         System.exit(1);
       }
 
-      NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
+      NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader)
+          .printWarnings();
       Result result = namedAlleleMatcher.call(vcfFile);
 
       ResultSerializer resultSerializer = new ResultSerializer();
@@ -122,21 +130,30 @@ public class NamedAlleleMatcher {
    *
    * @return a set of {@code <chr:position>} Strings
    */
-  private static ImmutableSet<String> calculateLocationsOfInterest(DefinitionReader definitionReader) {
+  private static ImmutableMap<String, VariantLocus> calculateLocationsOfInterest(DefinitionReader definitionReader) {
 
-    ImmutableSet.Builder<String> setBuilder = ImmutableSet.builder();
+    Set<String> data = new HashSet<>();
+    ImmutableMap.Builder<String, VariantLocus> mapBuilder = ImmutableMap.builder();
     for (String gene : definitionReader.getGenes()) {
       Arrays.stream(definitionReader.getPositions(gene))
-          .map(VariantLocus::getVcfChrPosition)
-          .forEach(setBuilder::add);
+          .forEach(v -> {
+            String vcp = v.getVcfChrPosition();
+            data.add(vcp);
+            mapBuilder.put(vcp, v);
+          });
       DefinitionExemption exemption = definitionReader.getExemption(gene);
       if (exemption != null) {
-        exemption.getExtraPositions().stream()
-            .map(VariantLocus::getVcfChrPosition)
-            .forEach(setBuilder::add);
+        exemption.getExtraPositions()
+            .forEach(v -> {
+              String vcp = v.getVcfChrPosition();
+              if (!data.contains(vcp)) {
+                data.add(vcp);
+                mapBuilder.put(vcp, v);
+              }
+            });
       }
     }
-    return setBuilder.build();
+    return mapBuilder.build();
   }
 
 
@@ -148,7 +165,15 @@ public class NamedAlleleMatcher {
     VcfReader vcfReader = buildVcfReader(vcfFile);
     SortedMap<String, SampleAllele> alleles = vcfReader.getAlleleMap();
     ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader)
-        .forFile(vcfFile);
+        .forFile(vcfFile, vcfReader.getWarnings().asMap());
+    if (m_printWarnings) {
+      vcfReader.getWarnings().keySet()
+          .forEach(key -> {
+            System.out.println(key);
+            vcfReader.getWarnings().get(key)
+                .forEach(msg -> System.out.println("\t" + msg));
+          });
+    }
     // call haplotypes
     for (String gene : m_definitionReader.getGenes()) {
       DefinitionExemption exemption = m_definitionReader.getExemption(gene);

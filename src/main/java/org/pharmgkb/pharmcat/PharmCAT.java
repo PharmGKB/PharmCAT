@@ -122,7 +122,8 @@ public class PharmCAT {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionsDir);
 
-    m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true);
+    m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true)
+        .printWarnings();
     m_reporter = new Reporter(guidelinesDir);
     m_outputDir = outputDir;
 
