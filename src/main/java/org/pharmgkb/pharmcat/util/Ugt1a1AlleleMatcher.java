@@ -8,13 +8,14 @@ import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 
 /**
  * This class will handle calling UGT1A1 diplotypes based on single variant position genotypes. This should only be used
- * in the case of a GeneCall that is either unphased or phased with multiple calls.
+ * in the case of a {@link GeneCall} that is either unphased or phased with multiple calls.
  *
  * @author Ryan Whaley
  */
