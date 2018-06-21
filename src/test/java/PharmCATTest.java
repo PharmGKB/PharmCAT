@@ -624,6 +624,74 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testUgt1a1s1s80s27s60s28missingphased() throws Exception {
+    generalTest("test.ugt1a1.s1s80s27s60s28missingphased", new String[]{
+            "UGT1A1/s1s80s27s60s28missingphased.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*27+*28+*37+*60+*80");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    GeneReport geneReport = s_context.getGeneReport("UGT1A1");
+    assertTrue(geneReport.isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1s1s60s80s6phased() throws Exception {
+    generalTest("test.ugt1a1.s1s60s80s6phased", new String[]{
+            "UGT1A1/s1s60s80s6phased.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*6+*60");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    GeneReport geneReport = s_context.getGeneReport("UGT1A1");
+    assertTrue(geneReport.isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1s1s60s80s28s6phased() throws Exception {
+    generalTest("test.ugt1a1.s1s60s80s28s6phased", new String[]{
+            "UGT1A1/s1s60s80s28s6phased.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*6+*28+*60+*80");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    GeneReport geneReport = s_context.getGeneReport("UGT1A1");
+    assertTrue(geneReport.isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
+  public void testUgt1a1s1s37s80s60phased() throws Exception {
+    generalTest("test.ugt1a1.s1s37s80s60phased", new String[]{
+            "UGT1A1/s1s37s80s60phased.vcf"
+        },
+        false);
+
+    testCalledGenes("UGT1A1");
+    testCalls(DipType.PRINT, "UGT1A1", "*1/*37+*60+*80");
+    testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
+
+    GeneReport geneReport = s_context.getGeneReport("UGT1A1");
+    assertTrue(geneReport.isPhased());
+
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+  }
+
+  @Test
   public void testCyp3a5Missing3Message() throws Exception {
     String gene = "CYP3A5";
 

@@ -457,6 +457,22 @@ public class PipelineTest {
         "UGT1A1/HG00436.vcf"
     });
 
+    sf_testVcfs.put("test.ugt1a1.s1s80s27s60s28missingphased", new String[]{
+        "UGT1A1/s1s80s27s60s28missingphased.vcf"
+    });
+
+    sf_testVcfs.put("test.ugt1a1.s1s60s80s6phased", new String[]{
+        "UGT1A1/s1s60s80s6phased.vcf"
+    });
+
+    sf_testVcfs.put("test.ugt1a1.s1s60s80s28s6phased", new String[]{
+        "UGT1A1/s1s60s80s28s6phased.vcf"
+    });
+
+    sf_testVcfs.put("test.ugt1a1.s1s37s80s60phased", new String[]{
+        "UGT1A1/s1s37s80s60phased.vcf"
+    });
+
 
     sf_testVcfs.put("test.cyp2c19.rs12248560missing", new String[]{
         "cyp2c19/s1s1rs12248560missing.vcf"
