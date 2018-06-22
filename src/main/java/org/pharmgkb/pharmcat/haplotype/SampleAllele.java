@@ -70,10 +70,6 @@ public class SampleAllele implements Comparable<SampleAllele> {
     return m_allele2;
   }
   
-  public boolean isMissing() {
-    return StringUtils.isEmpty(m_allele1) && StringUtils.isEmpty(m_allele2); 
-  }
-
   public boolean isPhased() {
     return m_isPhased;
   }
