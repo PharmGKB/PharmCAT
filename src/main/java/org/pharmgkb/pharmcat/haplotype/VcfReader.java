@@ -46,6 +46,7 @@ public class VcfReader implements VcfLineParser {
   private String m_genomeBuild;
   // <chr:position, allele>
   private SortedMap<String, SampleAllele> m_alleleMap = new TreeMap<>(ChromosomePositionComparator.getComparator());
+  // <chr:position, warning>
   private SortedSetMultimap<String, String> m_warnings = TreeMultimap.create();
 
 
@@ -141,21 +142,21 @@ public class VcfReader implements VcfLineParser {
       return;
     }
     if (m_alleleMap.containsKey(chrPos)) {
-      addWarning(chrPos, "Ignoring (duplicate entry)");
+      addWarning(chrPos, "Duplicate entry: first valid position wins");
       return;
     }
 
     if (sampleData.size() > 1) {
-      addWarning(chrPos, "Multiple samples found, only using first");
+      addWarning(chrPos, "Multiple samples found, only using first entry");
     }
 
     String gt = sampleData.get(0).getProperty("GT");
     if (gt == null) {
-      addWarning(chrPos, "Ignoring (no genotype)");
+      addWarning(chrPos, "Ignoring: no genotype");
       return;
     }
     if (sf_noCallPattern.matcher(gt).matches()) {
-      addWarning(chrPos, "Ignoring (no call: " + gt + ")");
+      addWarning(chrPos, "Ignoring: no call (" + gt + ")");
       return;
     }
 
@@ -210,12 +211,13 @@ public class VcfReader implements VcfLineParser {
     vcfAlleles.addAll(position.getAltBases());
 
     SampleAllele sampleAllele = new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased, vcfAlleles);
-    m_alleleMap.put(chrPos, sampleAllele);
-
     if (varLoc.getType() == VariantType.DEL && !sampleAllele.isVcfAlleleADeletion()) {
-      addWarning(chrPos, "Expecting deletion but alleles do not appear to be in expected format (got " +
+      // must be deletion if expecting deletion because deletions require anchor bases and -1 in position
+      addWarning(chrPos, "Ignoring: expecting deletion but alleles do not appear to be in expected format (got " +
           sampleAllele.getVcfAlleles().stream().collect(Collectors.joining("/")) + ")");
+      return;
     }
+    m_alleleMap.put(chrPos, sampleAllele);
   }
 
 
