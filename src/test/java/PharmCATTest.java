@@ -181,7 +181,7 @@ public class PharmCATTest {
     assertTrue(variant.isMissing());
     
 
-    testNotCalledGenes("CFTR");
+    testCalledGenes("CFTR");
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
 
