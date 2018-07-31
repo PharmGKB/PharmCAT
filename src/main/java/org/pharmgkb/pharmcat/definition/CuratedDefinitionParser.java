@@ -28,7 +28,7 @@ import org.pharmgkb.pharmcat.definition.model.VariantType;
  * @author Ryan Whaley
  */
 public class CuratedDefinitionParser {
-  public static final String ASSEMBLY = AssemblyMap.GRCH38;
+  private static final String ASSEMBLY = AssemblyMap.GRCH38;
   private static final int sf_minLineCount = 7;
   private static final Splitter sf_tsvSplitter = Splitter.on("\t").trimResults();
   private static final Splitter sf_hgvsSplitter = Splitter.on(";").trimResults();
@@ -83,7 +83,7 @@ public class CuratedDefinitionParser {
     } catch (IOException e) {
       throw new ParseException("Couldn't read lines in "+m_filePath, e);
     }
-    Preconditions.checkState(lines.size() >= sf_minLineCount, "Not enough lines in the translation file");
+    Preconditions.checkState(lines.size() >= sf_minLineCount, "Not enough lines in the translation file " + m_filePath);
 
     parseGeneLine(sf_tsvSplitter.splitToList(lines.get(LINE_GENE)));
     // must parse chromosome first to initialize variants
