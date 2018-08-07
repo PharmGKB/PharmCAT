@@ -518,6 +518,22 @@ public class PipelineTest {
         "cftr/refI507missing.vcf"
     });
 
+    sf_testVcfs.put("test.cftr.F508delfirstsecondmis", new String[]{
+        "cftr/F508delfirstsecondmis.vcf"
+    });
+
+    sf_testVcfs.put("test.cftr.F508delfirstsecondref", new String[]{
+        "cftr/F508delfirstsecondref.vcf"
+    });
+
+    sf_testVcfs.put("test.cftr.F508delsecondreffirst", new String[]{
+        "cftr/F508delsecondreffirst.vcf"
+    });
+
+    sf_testVcfs.put("test.cftr.F508delsecondfirstmissing", new String[]{
+        "cftr/F508delsecondfirstmissing.vcf"
+    });
+
     sf_testVcfs.put("test.cyp2c9.s2s24only", new String[]{
         "cyp2c9/s2s24only.vcf"
     });
