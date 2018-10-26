@@ -353,6 +353,14 @@ public class SyntheticBatchTest {
         "IFNL3/rs12979860CC.vcf"
     });
 
+    sf_testVcfs.put("test.tpmt.unexpected.allele", new String[]{
+        "TPMT/unexpected.allele.vcf"
+    });
+
+    sf_testVcfs.put("test.tpmt.unexpected.allele.with.s9", new String[]{
+        "TPMT/unexpected.allele.with.s9.vcf"
+    });
+
     sf_testVcfs.put("test.cyp2c19.rs28399504missing", new String[]{
         "DPYD/s1s1.vcf",
         "UGT1A1/s1s1.vcf",
