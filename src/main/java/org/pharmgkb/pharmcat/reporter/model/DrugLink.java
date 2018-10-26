@@ -2,6 +2,8 @@ package org.pharmgkb.pharmcat.reporter.model;
 
 import java.util.List;
 import com.google.common.collect.ImmutableList;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 
 /**
@@ -18,8 +20,16 @@ public class DrugLink {
       "peginterferon alfa-2b"
   );
 
+  @Expose
+  @SerializedName("name")
   private String m_name;
+
+  @Expose
+  @SerializedName("guidelineId")
   private String m_guidelineId;
+
+  @Expose
+  @SerializedName("rxClass")
   private String m_rxClass;
 
   public DrugLink(String name, String guidelineId, boolean rxChange, boolean rxPossibly) {
