@@ -21,7 +21,7 @@ import org.pharmgkb.pharmcat.VcfTestUtils;
  *
  * @author Ryan Whaley
  */
-public class PipelineTest {
+public class SyntheticBatchTest {
   private static final Path sf_astrolabe = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.astrolabe.tsv");
   private static final Map<String,String[]> sf_testVcfs = new LinkedHashMap<>();
   static {
@@ -604,7 +604,7 @@ public class PipelineTest {
         guidelineDir = cliHelper.getValidDirectory("g", false);
       }
 
-      PipelineTest piplelineTest = new PipelineTest(outputDir, guidelineDir);
+      SyntheticBatchTest piplelineTest = new SyntheticBatchTest(outputDir, guidelineDir);
       piplelineTest.execute();
     } catch (Exception e) {
       e.printStackTrace();
@@ -612,7 +612,7 @@ public class PipelineTest {
   }
 
 
-  private PipelineTest(Path outputDir, Path guidelineDir) throws IOException {
+  private SyntheticBatchTest(Path outputDir, Path guidelineDir) throws IOException {
     m_outputDir = outputDir;
     m_pharmcat = new PharmCAT(outputDir, null, guidelineDir).keepMatcherOutput();
     m_pharmcat.writeJson(true);
