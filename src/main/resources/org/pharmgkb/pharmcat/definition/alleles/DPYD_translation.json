@@ -137,6 +137,48 @@
       "referenceRepeat": null
     }
   ],
+  "variantAlleles": [
+    [
+      "delAGTA",
+      "AGTA"
+    ],
+    [
+      "C",
+      "T"
+    ],
+    [
+      "A",
+      "G"
+    ],
+    [
+      "C",
+      "G"
+    ],
+    [
+      "A",
+      "C"
+    ],
+    [
+      "A",
+      "C"
+    ],
+    [
+      "delG",
+      "G"
+    ],
+    [
+      "C",
+      "T"
+    ],
+    [
+      "A",
+      "T"
+    ],
+    [
+      "A",
+      "C"
+    ]
+  ],
   "namedAlleles": [
     {
       "name": "Reference",

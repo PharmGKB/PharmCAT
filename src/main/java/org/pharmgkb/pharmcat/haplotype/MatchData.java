@@ -17,6 +17,7 @@ import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
+import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -39,6 +40,9 @@ public class MatchData {
   private Set<VariantLocus> m_missingPositions = new HashSet<>();
   private Set<VariantLocus> m_ignoredPositions = new HashSet<>();
   private SortedSet<Variant> m_extraPositions = new TreeSet<>();
+  @Expose
+  @SerializedName("mismatchedAlleles")
+  private SortedSet<VariantLocus> m_mismatchedAlleles = new TreeSet<>();
   private List<NamedAllele> m_haplotypes;
   private Set<String> m_permutations;
 
@@ -83,6 +87,21 @@ public class MatchData {
           m_extraPositions.add(new Variant(vl, allele));
         } else {
           m_extraPositions.add(new Variant(vl.getPosition(), vl.getRsid(), null, vl.getVcfPosition(), null));
+        }
+      }
+    }
+  }
+
+
+  void checkAlleles(DefinitionFile definitionFile) {
+
+    for (VariantLocus variantLocus : m_positions) {
+      SampleAllele sampleAllele = m_sampleMap.get(variantLocus.getVcfPosition());
+      if (sampleAllele != null) {
+        Set<String> alleles = definitionFile.getVariantAlleles(variantLocus);
+        if (!alleles.contains(sampleAllele.getAllele1()) ||
+            (sampleAllele.getAllele2() != null && !alleles.contains(sampleAllele.getAllele2()))) {
+          m_mismatchedAlleles.add(variantLocus);
         }
       }
     }

@@ -743,6 +743,17 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testTpmtS15OffData() throws Exception {
+    generalTest("test.tpmt.s15offdata", new String[] {
+            "TPMT/s15offdata.vcf"
+        },
+        false);
+
+    testCalledGenes("TPMT");
+  }
+
+
+  @Test
   public void testCombined() throws Exception {
     generalTest("test.combined", new String[]{
             "DPYD/s1s1.vcf",

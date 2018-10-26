@@ -1,14 +1,7 @@
 package org.pharmgkb.pharmcat.definition.model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
-import java.util.SortedMap;
-import java.util.SortedSet;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
@@ -61,6 +54,10 @@ public class DefinitionFile {
   @Expose
   @SerializedName("variants")
   private VariantLocus[] m_variants;
+  @Expose
+  @SerializedName("variantAlleles")
+  private List<Set<String>> m_variantAlleles;
+  private Map<VariantLocus, Set<String>> m_variantAllelesMap;
   @Expose
   @SerializedName("namedAlleles")
   private List<NamedAllele> m_namedAlleles;
@@ -207,7 +204,7 @@ public class DefinitionFile {
 
 
   /**
-   * The {@link VariantLocus} objects used to define alleles in this translation
+   * The {@link VariantLocus} objects used to define {@link NamedAllele}s in this translation
    */
   public VariantLocus[] getVariants() {
     return m_variants;
@@ -226,6 +223,37 @@ public class DefinitionFile {
     Preconditions.checkNotNull(rsid);
     Preconditions.checkArgument(rsid.startsWith("rs"));
     return m_rsidMap.get(rsid);
+  }
+
+
+  /**
+   * The expected alleles for {@link VariantLocus}'s used to define {@link NamedAllele}s in this translation
+   */
+  public List<Set<String>> getVariantAlleles() {
+    return m_variantAlleles;
+  }
+
+  public Set<String> getVariantAlleles(VariantLocus vl) {
+    if (m_variantAllelesMap == null) {
+      m_variantAllelesMap = new HashMap<>();
+      for (int x = 0; x < m_variants.length; x += 1) {
+        m_variantAllelesMap.put(m_variants[x], m_variantAlleles.get(x));
+      }
+    }
+    return m_variantAllelesMap.get(vl);
+  }
+
+  public void generateVariantAlleles() {
+
+    m_variantAlleles = new ArrayList<>();
+    for (VariantLocus varLoc : m_variants) {
+      m_variantAlleles.add(
+          m_namedAlleles.stream()
+              .map(na -> na.getAllele(varLoc))
+              .filter(Objects::nonNull)
+              .collect(Collectors.toSet())
+      );
+    }
   }
 
 
@@ -271,6 +299,7 @@ public class DefinitionFile {
         Objects.equals(m_notes, that.getNotes()) &&
         Objects.equals(m_populations, that.getPopulations()) &&
         Arrays.equals(m_variants, that.getVariants()) &&
+        Objects.equals(m_variantAlleles, that.getVariantAlleles()) &&
         Objects.equals(m_namedAlleles, that.getNamedAlleles());
   }
 

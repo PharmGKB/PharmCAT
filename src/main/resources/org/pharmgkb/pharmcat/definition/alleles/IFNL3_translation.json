@@ -37,6 +37,12 @@
       "referenceRepeat": null
     }
   ],
+  "variantAlleles": [
+    [
+      "C",
+      "T"
+    ]
+  ],
   "namedAlleles": [
     {
       "name": "rs12979860C",

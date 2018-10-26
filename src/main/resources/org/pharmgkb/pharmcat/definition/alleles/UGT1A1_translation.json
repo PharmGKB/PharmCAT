@@ -86,6 +86,30 @@
       "referenceRepeat": null
     }
   ],
+  "variantAlleles": [
+    [
+      "T",
+      "G"
+    ],
+    [
+      "C",
+      "T"
+    ],
+    [
+      "C",
+      "CAT",
+      "CATAT",
+      "CATATAT"
+    ],
+    [
+      "A",
+      "G"
+    ],
+    [
+      "A",
+      "C"
+    ]
+  ],
   "namedAlleles": [
     {
       "name": "*1",

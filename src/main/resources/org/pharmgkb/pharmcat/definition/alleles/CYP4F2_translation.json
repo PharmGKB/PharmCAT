@@ -39,6 +39,16 @@
       "referenceRepeat": null
     }
   ],
+  "variantAlleles": [
+    [
+      "A",
+      "C"
+    ],
+    [
+      "C",
+      "T"
+    ]
+  ],
   "namedAlleles": [
     {
       "name": "*1",

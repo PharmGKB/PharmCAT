@@ -209,6 +209,7 @@ public class NamedAlleleMatcher {
 
     // grab SampleAlleles for all positions related to current gene
     MatchData data = new MatchData(alleleMap, allPositions, extraPositions, unusedPositions);
+    data.checkAlleles(m_definitionReader.getDefinitionFile(gene));
     if (data.getNumSampleAlleles() == 0) {
       return data;
     }

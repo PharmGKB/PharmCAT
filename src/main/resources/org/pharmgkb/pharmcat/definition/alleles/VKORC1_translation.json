@@ -37,6 +37,12 @@
       "referenceRepeat": null
     }
   ],
+  "variantAlleles": [
+    [
+      "C",
+      "T"
+    ]
+  ],
   "namedAlleles": [
     {
       "name": "-1639G",

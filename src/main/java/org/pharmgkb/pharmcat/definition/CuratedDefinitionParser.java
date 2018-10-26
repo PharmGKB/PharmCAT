@@ -133,6 +133,9 @@ public class CuratedDefinitionParser {
       namedAllele.initialize(m_definitionFile.getVariants());
     }
 
+    // generate variant alleles
+    m_definitionFile.generateVariantAlleles();
+
     return m_definitionFile;
   }
 

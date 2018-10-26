@@ -51,6 +51,9 @@ public class DataSerializerTest {
 
   private DefinitionFile[] testJson(Path inFile) throws IOException {
     DefinitionFile definitionFile = new CuratedDefinitionParser(inFile).parse();
+    assertNotNull(definitionFile.getVariants());
+    assertNotNull(definitionFile.getVariantAlleles());
+    assertEquals(definitionFile.getVariants().length, definitionFile.getVariantAlleles().size());
 
     Path jsonFile = inFile.getParent().resolve(PathUtils.getBaseFilename(inFile) + ".json");
     DataSerializer cdSerializer = new DataSerializer();
@@ -58,6 +61,9 @@ public class DataSerializerTest {
     cdSerializer.serializeToJson(definitionFile, jsonFile);
     // read it back in
     DefinitionFile jsonDefinitionFile = cdSerializer.deserializeDefinitionsFromJson(jsonFile);
+    assertNotNull(jsonDefinitionFile.getVariants());
+    assertNotNull(jsonDefinitionFile.getVariantAlleles());
+    assertEquals(jsonDefinitionFile.getVariants().length, jsonDefinitionFile.getVariantAlleles().size());
 
     assertEquals(definitionFile, jsonDefinitionFile);
     return new DefinitionFile[] { definitionFile, jsonDefinitionFile };
