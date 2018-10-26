@@ -43,8 +43,8 @@ public class Reporter {
   private static final String sf_messagesFile = "org/pharmgkb/pharmcat/reporter/messages.json";
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
-  private List<Path> m_annotationFiles = null;
-  private List<MessageAnnotation> m_messages = null;
+  private List<Path> m_annotationFiles;
+  private List<MessageAnnotation> m_messages;
   private ReportContext m_reportContext = null;
 
   /**
@@ -161,6 +161,7 @@ public class Reporter {
     if (jsonFile != null) {
       try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
         writer.write(sf_gson.toJson(reportData));
+        System.out.println("Writing JSON to " + jsonFile);
       }
     }
   }

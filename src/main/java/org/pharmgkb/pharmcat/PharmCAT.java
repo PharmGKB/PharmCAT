@@ -205,7 +205,7 @@ public class PharmCAT {
    * Determine whether to write reporter JSON output or not
    * @param doWrite true to create a <code>.report.json</code> file as output
    */
-  private PharmCAT writeJson(boolean doWrite) {
+  public PharmCAT writeJson(boolean doWrite) {
     m_writeJsonReport = doWrite;
     return this;
   }

@@ -615,6 +615,7 @@ public class PipelineTest {
   private PipelineTest(Path outputDir, Path guidelineDir) throws IOException {
     m_outputDir = outputDir;
     m_pharmcat = new PharmCAT(outputDir, null, guidelineDir).keepMatcherOutput();
+    m_pharmcat.writeJson(true);
   }
 
   private void execute() throws Exception {
