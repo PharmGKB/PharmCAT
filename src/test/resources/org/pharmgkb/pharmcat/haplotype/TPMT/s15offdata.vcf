@@ -25,7 +25,7 @@ chr6	18139027	rs72552737	C	.	.	PASS	assume-default	GT	./.
 chr6	18138997	rs1800460	C	.	.	PASS	assume-default	GT	0/0
 chr6	18138983	rs2842934	G	.	.	PASS	assume-default	GT	0/0
 chr6	18138969	rs144041067	C	.	.	PASS	assume-default	GT	0/0
-chr6	18133890	rs9333570	C	.	.	PASS	assume-default	GT	CTACAAAGAACACAAGAAG/CTACAAAGAACACAAGAAG
+chr6	18133890	rs9333570	C	CTACAAAGAACACAAGAAG	.	PASS	long-insertion	GT	1/1
 chr6	18133884	rs74423290	G	.	.	PASS	assume-default	GT	0/0
 chr6	18133847	rs6921269	C	.	.	PASS	assume-default	GT	0/0
 chr6	18133845	rs75543815	T	.	.	PASS	assume-default	GT	0/0

@@ -339,6 +339,20 @@ public class PipelineTest {
         "IFNL3/rs12979860CC.vcf"
     });
 
+    sf_testVcfs.put("test.tpmt.s15offdata", new String[]{
+        "DPYD/s1s1.vcf",
+        "UGT1A1/s1s1.vcf",
+        "TPMT/s15offdata.vcf",
+        "CYP3A5/s1s7.vcf",
+        "CFTR/G542XF508del.vcf",
+        "CYP2C19/s2s2.vcf",
+        "CYP2C9/s2s3.vcf",
+        "SLCO1B1/s5s15.vcf",
+        "VKORC1/-1639A-1639A.vcf",
+        "cyp4f2/s1s1.vcf",
+        "IFNL3/rs12979860CC.vcf"
+    });
+
     sf_testVcfs.put("test.cyp2c19.rs28399504missing", new String[]{
         "DPYD/s1s1.vcf",
         "UGT1A1/s1s1.vcf",
