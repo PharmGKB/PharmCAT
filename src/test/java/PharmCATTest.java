@@ -749,7 +749,9 @@ public class PharmCATTest {
         },
         false);
 
-    testCalledGenes("TPMT");
+    testNotCalledGenes("TPMT");
+    GeneReport report = s_context.getGeneReport("TPMT");
+    assertTrue(report.getVariantReports().stream().filter(r -> r.getPosition() == 18133890).allMatch(VariantReport::isMismatch));
   }
 
 
