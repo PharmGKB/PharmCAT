@@ -74,6 +74,11 @@ public class GeneReport implements Comparable<GeneReport> {
         .map(variantReportFactory::make).forEach(a -> m_variantReports.add(a));
     call.getVariantsOfInterest().stream()
         .map(variantReportFactory::make).forEach(a -> m_variantOfInterestReports.add(a));
+
+    // set the flag in reports for the variants with mismatched alleles
+    call.getMatchData().getMismatchedPositions().stream()
+        .flatMap(a -> m_variantReports.stream().filter(v -> v.getPosition() == a.getPosition()))
+        .forEach(r -> r.setMismatch(true));
   }
 
   /**

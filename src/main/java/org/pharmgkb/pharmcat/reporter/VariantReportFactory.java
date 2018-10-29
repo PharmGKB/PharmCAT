@@ -40,7 +40,7 @@ public class VariantReportFactory {
    * Create a new factory for the specified <code>gene</code> (HGNC symbol). This will gather all necessary information
    * from the definition files.
    * @param gene a gene's HGNC symbol
-   * @throws IOException
+   * @throws IOException can occur from writing the JSON file
    */
   public VariantReportFactory(String gene, String chr) throws IOException {
     m_gene = gene;

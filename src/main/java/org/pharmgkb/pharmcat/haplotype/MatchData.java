@@ -232,6 +232,14 @@ public class MatchData {
   }
 
   /**
+   * Gets the positions that are mismatched from any allele defined for the given gene
+   * @return a Set of {@link VariantLocus} objects with mismatched alleles
+   */
+  public @Nonnull Set<VariantLocus> getMismatchedPositions() {
+    return m_mismatchedAlleles;
+  }
+
+  /**
    * Gets the extra positions specified in {@link DefinitionExemption#getExtraPositions()}.
    */
   public @Nonnull SortedSet<Variant> getExtraPositions() {

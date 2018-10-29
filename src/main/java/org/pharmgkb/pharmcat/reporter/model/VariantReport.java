@@ -54,6 +54,9 @@ public class VariantReport implements Comparable<VariantReport> {
   @Expose
   @SerializedName("wildtypeAllele")
   private String m_wildtypeAllele;
+  @Expose
+  @SerializedName("mismatch")
+  private boolean m_mismatch;
 
   public VariantReport(String gene, Variant variant) {
     setGene(gene);
@@ -140,6 +143,14 @@ public class VariantReport implements Comparable<VariantReport> {
 
   public boolean isMissing() {
     return StringUtils.isBlank(m_call);
+  }
+  
+  public boolean isMismatch() {
+    return m_mismatch;
+  }
+  
+  public void setMismatch(boolean mismatch) {
+    m_mismatch = mismatch;
   }
 
   public boolean isNonwildtype() {
