@@ -37,10 +37,10 @@ If you are interested in testing the tool or have questions, please contact [pha
 ### Leaders
 
 Co-PIs: Teri Klein (Stanford) and Marylyn Ritchie (University of Pennsylvania)  
-Katrin Sangkuhl (Stanford)  
-Ryan Whaley (Stanford) 
-Michelle Whirl-Carrillo (Stanford)  
-Mark Woon (Stanford)  
+Katrin Sangkuhl (Stanford)    
+Ryan Whaley (Stanford)   
+Michelle Whirl-Carrillo (Stanford)    
+Mark Woon (Stanford)    
   
 
 ### Contributors
