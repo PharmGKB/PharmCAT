@@ -58,7 +58,6 @@ Mark Woon (Stanford)
 |Cyrine Haidar | St Jude Children’s Research Hospital |
 |James Hoffman| St Jude Children’s Research Hospital |
 |Kevin Hicks | Moffitt Cancer Center & Research Institute |
-|Adam Lavertu | Stanford |
 |Ming Ta (Mike) Lee | Geisinger |
 |Neil Miller| Children’s Mercy Hospital |
 |Sean Mooney | University of Washington |
