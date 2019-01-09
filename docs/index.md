@@ -36,12 +36,12 @@ If you are interested in testing the tool or have questions, please contact [pha
 
 ### Leaders
 
-Co-PIs: Teri Klein (Stanford) and Marylyn Ritchie (University of Pennsylvania)
-Katrin Sangkuhl (Stanford)
-Ryan Whaley (Stanford)
-Michelle Whirl-Carrillo (Stanford)
-Mark Woon (Stanford)
-Anurag Verma (University of Pennsylvania)
+Co-PIs: Teri Klein (Stanford) and Marylyn Ritchie (University of Pennsylvania)  
+Katrin Sangkuhl (Stanford)  
+Ryan Whaley (Stanford) 
+Michelle Whirl-Carrillo (Stanford)  
+Mark Woon (Stanford)  
+  
 
 ### Contributors
 
@@ -69,4 +69,5 @@ Anurag Verma (University of Pennsylvania)
 |Greyson Twist | Children’s Mercy Hospital|
 |Marc Williams | Geisinger |
 |Chunlei Wu | Scripss Research Institute |
+|Anurag Verma | University of Pennsylvania |
 |Wenjian Yang | St Jude Children’s Research Hospital |
