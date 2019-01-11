@@ -50,7 +50,7 @@ Mark Woon (Stanford)
 |Solomon Adams| University of Pittsburgh |
 |Lester Carter | Stanford (formerly) |
 |Mark Dunnenberger| Northshore University Health System |
-|Philip Empey| University of Pittsburg |
+|Philip Empey| University of Pittsburgh |
 |Alex Frase| University of Pennsylvania |
 |Robert Freimuth | Mayo Clinic |
 |Andrea Gaedigk| Children’s Mercy Hospital |
@@ -67,6 +67,6 @@ Mark Woon (Stanford)
 |Stuart Scott | Icahn School of Medicine at Mount Sinai |
 |Greyson Twist | Children’s Mercy Hospital|
 |Marc Williams | Geisinger |
-|Chunlei Wu | Scripss Research Institute |
+|Chunlei Wu | Scrips Research Institute |
 |Anurag Verma | University of Pennsylvania |
 |Wenjian Yang | St Jude Children’s Research Hospital |
