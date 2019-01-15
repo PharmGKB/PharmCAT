@@ -25,12 +25,12 @@ chr10	94775185	.	A	.	.	PASS	assume-default	GT	0/0
 chr10	94775416	rs41291556	T	.	.	PASS	assume-default	GT	0/0
 chr10	94775453	rs72552267 	G	.	.	PASS	assume-default	GT	0/0
 chr10	94775489	rs17884712	G	.	.	PASS	assume-default	GT	0/0
-chr10	94775507	rs58973490	G	.	.	PASS	assume-default	GT	0/1
+chr10	94775507	rs58973490	G	A	.	PASS	assume-default	GT	0/1
 chr10	94780574	rs140278421	G	.	.	PASS	assume-default	GT	0/0
 chr10	94780579	rs370803989	G	.	.	PASS	assume-default	GT	0/0
 chr10	94780653	rs4986893	G	.	.	PASS	assume-default	GT	0/0
 chr10	94781858	rs6413438	C	.	.	PASS	assume-default	GT	0/0
-chr10	94781859	rs4244285	G	.	.	PASS	assume-default	GT	0/1
+chr10	94781859	rs4244285	G	A	.	PASS	assume-default	GT	0/1
 chr10	94781944		G	.	.	PASS	assume-default	GT	0/0
 chr10	94781999	.	T	.	.	PASS	assume-default	GT	0/0
 chr10	94842861	rs138142612	G	.	.	PASS	assume-default	GT	0/0
