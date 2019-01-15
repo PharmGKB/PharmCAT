@@ -125,7 +125,7 @@ public class PharmCAT {
     m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true)
         .printWarnings();
     m_reporter = new Reporter(guidelinesDir);
-    m_outputDir = outputDir;
+    setOutputDir(outputDir);
 
     sf_logger.info("Using alleles: {}", definitionsDir);
     sf_logger.info("Using annotations: {}", guidelinesDir);
@@ -216,5 +216,18 @@ public class PharmCAT {
    */
   public Reporter getReporter() {
     return m_reporter;
+  }
+
+  /**
+   * Sets the output directory and does some sanity checking
+   * @param outputDir a nonnull path to an existing directory
+   */
+  public void setOutputDir(Path outputDir) {
+    Preconditions.checkNotNull(outputDir);
+    Preconditions.checkArgument(
+        outputDir.toFile().exists() || outputDir.toFile().isDirectory(),
+        "Specified output isn't a directory: " + outputDir.toAbsolutePath());
+    
+    m_outputDir = outputDir;
   }
 }
