@@ -30,6 +30,7 @@ the following modifications:
     1.  rs17885098 (99C>T) and rs3758581 (80161A>G, I331V) are not included in the PharmCAT allele definition table given the presence of these variants in almost all star alleles, including sub alleles of \*1.
     2.  rs4917623 (87106T\>C) is an intronic variant in \*18 and \*19. Based on Table 3 of the reference (PMID: 16141610) for both alleles in the [Pharmacogene Variation Consortium](https://www.pharmvar.org/gene/CYP2C19), the variant exists in other star alleles besides \*18 and \*19. Therefore, this intronic variant is not included in the PharmCAT allele definition table.
     3.  Sequence information in the CYP2C19 5 prime region was not consistently included in the star allele definitions (see archived CYP2C19 version on the Pharmacogene Variation Consortium website). Five prime variations are included in the PharmCAT allele definition table if a) currently linked to functional relevance (-806C>T, \*17) or b) the only identifying variant of the star allele (-1041G>A, \*27).
+    4.  The variant 12802G>A (R150H) is the defining variant of the \*11 allele but can also exist on the \*2 background (see PharmVar CYP2C19\*2.010). To account for this possibility an 'R' at position 12802G>A (R150H) is included in the \*2 definition.
 4. SLCO1B1
     1.  CPIC provides recommendations based on the rs4149056 genotype or
         the SLCO1B1 star allele genotype as reporting options in Table 1 of the
