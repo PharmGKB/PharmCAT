@@ -66,10 +66,7 @@ public class CliUtils {
     if (!classPath.startsWith("jar")) {
       // Class not from JAR
       try (StringWriter writer = new StringWriter()) {
-        IOUtils.copy(
-            Runtime.getRuntime().exec("git describe", new String[]{ "--tags" })
-                .getInputStream(), 
-            writer);
+        IOUtils.copy(Runtime.getRuntime().exec("git describe --tags").getInputStream(), writer);
         String gitVersion = writer.toString();
         if (StringUtils.isNotBlank(gitVersion)) return gitVersion;
       } catch (Exception e) {
