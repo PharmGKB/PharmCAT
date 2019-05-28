@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Sep 27, 2016 12:00:00 AM",
+  "modificationDate": "May 21, 2019 12:00:00 AM",
   "gene": "CYP3A5",
   "orientation": "reverse",
   "chromosome": "chr7",
@@ -13,9 +13,7 @@
     "See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP3A5 variant alleles and updated allele information.",
     "Cytochrome database references nucleotide changes based on NCBI Reference Sequence NG_000004.3 as detailed at http://www.cypalleles.ki.se/cyp3a5.htm.",
     "For *9 the existence of the rs776746 (*3) polymorphism on the same allele cannot be excluded.",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a 'wild-type' status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of- function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as 'wild-type'",
-    "Average allele frequencies are based on the actual number of subjects with each allele reported in multiple studies and then grouped according to major race/ethnic groups for studies as defined in https://github.com/PharmGKB/cpic-guidelines/raw/master/tacrolimus/2015/25801146-CYP3A5%20allele%20frequency%20table.xlsx (details and references).",
-    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
+    "An important caveat for all genotyping tests is that the decision to assign an allele a 'wild-type' status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of- function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as 'wild-type'"
   ],
   "populations": [
     "African Allele Frequency",
@@ -128,6 +126,7 @@
     ],
     [
       "A",
+      "R",
       "G"
     ],
     [
@@ -181,7 +180,7 @@
     {
       "name": "*2",
       "id": "CA100126.1",
-      "function": "Unknown or uncertain function",
+      "function": "Unknown or Uncertain Function",
       "alleles": [
         null,
         null,
@@ -210,7 +209,7 @@
       "alleles": [
         null,
         "C",
-        null,
+        "R",
         null,
         null,
         "Y",
@@ -231,7 +230,7 @@
     {
       "name": "*4",
       "id": "CA100128.1",
-      "function": "Unknown or uncertain function",
+      "function": "Unknown or Uncertain Function",
       "alleles": [
         null,
         null,
@@ -256,7 +255,7 @@
     {
       "name": "*5",
       "id": "CA100129.1",
-      "function": "Unknown or uncertain function",
+      "function": "Unknown or Uncertain Function",
       "alleles": [
         null,
         null,
@@ -331,7 +330,7 @@
     {
       "name": "*8",
       "id": "CA100132.1",
-      "function": "Unknown or uncertain function",
+      "function": "Unknown or Uncertain Function",
       "alleles": [
         "A",
         null,
@@ -356,7 +355,7 @@
     {
       "name": "*9",
       "id": "CA100133.1",
-      "function": "Unknown or uncertain function",
+      "function": "Unknown or Uncertain Function",
       "alleles": [
         null,
         null,

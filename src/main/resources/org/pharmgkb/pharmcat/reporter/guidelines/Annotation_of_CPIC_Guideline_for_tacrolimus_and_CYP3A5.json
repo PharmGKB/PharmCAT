@@ -302,7 +302,7 @@
       },
       "version" : 6
     } ],
-    "genePhenotypes" : [ "CYP3A5:No Function/Unknown", "CYP3A5:Unknown/Unknown" ],
+    "genePhenotypes" : [ "CYP3A5:No Function/Unknown or Uncertain Function", "CYP3A5:Unknown or Uncertain Function/Unknown or Uncertain Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166124619",
@@ -651,7 +651,7 @@
       },
       "version" : 8
     } ],
-    "genePhenotypes" : [ "CYP3A5:Normal Function/Unknown" ],
+    "genePhenotypes" : [ "CYP3A5:Normal Function/Unknown or Uncertain Function" ],
     "guideline" : {
       "objCls" : "Guideline",
       "@id" : "https://api.pharmgkb.org/data/guideline/PA166124619",
@@ -684,14 +684,14 @@
   "genePhenotypes" : {
     "CYP3A5" : {
       "*1" : "Normal Function",
-      "*2" : "Unknown",
+      "*2" : "Unknown or Uncertain Function",
       "*3" : "No Function",
-      "*4" : "Unknown",
-      "*5" : "Unknown",
+      "*4" : "Unknown or Uncertain Function",
+      "*5" : "Unknown or Uncertain Function",
       "*6" : "No Function",
       "*7" : "No Function",
-      "*8" : "Unknown",
-      "*9" : "Unknown"
+      "*8" : "Unknown or Uncertain Function",
+      "*9" : "Unknown or Uncertain Function"
     }
   },
   "citations" : [ {

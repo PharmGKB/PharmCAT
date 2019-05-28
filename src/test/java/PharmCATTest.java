@@ -719,6 +719,72 @@ public class PharmCATTest {
   }
 
   @Test
+  public void testCyp3a5MissingRS776746() throws Exception {
+    generalTest("test.cyp3a5.missingRs776746", new String[]{
+            "cyp3a5/s1s1rs776746missing.vcf"
+        },
+        false);
+    
+    testCalledGenes("CYP3A5");
+    testCalls(DipType.PRINT, "CYP3A5", "*1/*1");
+  }
+
+  @Test
+  public void testCyp3a5v1() throws Exception {
+    generalTest("test.cyp3a5.s1s3rs776746rs55965422het", new String[]{
+            "cyp3a5/s1s3rs776746rs55965422het.vcf"
+        },
+        false);
+    
+    testCalledGenes("CYP3A5");
+    testCalls(DipType.PRINT, "CYP3A5", "*1/*3");
+  }
+
+  @Test
+  public void testCyp3a5v2() throws Exception {
+    generalTest("test.cyp3a5.s1s3rs776746rs55965422rs28383479het", new String[]{
+            "cyp3a5/s1s3rs776746rs55965422rs28383479het.vcf"
+        },
+        false);
+    
+    testCalledGenes("CYP3A5");
+    testCalls(DipType.PRINT, "CYP3A5", "*1/*3");
+  }
+
+  @Test
+  public void testCyp3a5v3() throws Exception {
+    generalTest("test.cyp3a5.s3s3rs55965422het", new String[]{
+            "cyp3a5/s3s3rs55965422het.vcf"
+        },
+        false);
+    
+    testCalledGenes("CYP3A5");
+    testCalls(DipType.PRINT, "CYP3A5", "*3/*3");
+  }
+
+  @Test
+  public void testCyp3a5v4() throws Exception {
+    generalTest("test.cyp3a5.s3s5-homozygous", new String[]{
+            "cyp3a5/s3s5-homozygous.vcf"
+        },
+        false);
+    
+    testCalledGenes("CYP3A5");
+    testCalls(DipType.PRINT, "CYP3A5", "*3/*5");
+  }
+
+  @Test
+  public void testCyp3a5v5() throws Exception {
+    generalTest("test.cyp3a5.s1s3rs776746rs28383479het", new String[]{
+            "cyp3a5/s1s3rs776746rs28383479het.vcf"
+        },
+        false);
+    
+    testCalledGenes("CYP3A5");
+    testCalls(DipType.PRINT, "CYP3A5", "*1/*3");
+  }
+
+  @Test
   public void testTpmtStar1s() throws Exception {
     generalTest("test.tpmt.star1s", new String[]{
             "TPMT/s1ss1ss3.vcf"

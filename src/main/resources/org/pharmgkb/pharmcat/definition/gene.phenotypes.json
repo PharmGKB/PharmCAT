@@ -590,14 +590,14 @@
     "gene": "CYP3A5",
     "haplotypes": {
       "*1": "Normal Function",
-      "*2": "Unknown",
+      "*2": "Unknown or Uncertain Function",
       "*3": "No Function",
-      "*4": "Unknown",
-      "*5": "Unknown",
+      "*4": "Unknown or Uncertain Function",
+      "*5": "Unknown or Uncertain Function",
       "*6": "No Function",
       "*7": "No Function",
-      "*8": "Unknown",
-      "*9": "Unknown"
+      "*8": "Unknown or Uncertain Function",
+      "*9": "Unknown or Uncertain Function"
     },
     "diplotypes": [
       {
@@ -611,14 +611,14 @@
         "phenotype": "Indeterminate",
         "diplotype": [
           "No Function",
-          "Unknown"
+          "Unknown or Uncertain Function"
         ]
       },
       {
         "phenotype": "Indeterminate",
         "diplotype": [
-          "Unknown",
-          "Unknown"
+          "Unknown or Uncertain Function",
+          "Unknown or Uncertain Function"
         ]
       },
       {
@@ -639,7 +639,7 @@
         "phenotype": "Possible Intermediate Metabolizer",
         "diplotype": [
           "Normal Function",
-          "Unknown"
+          "Unknown or Uncertain Function"
         ]
       }
     ]

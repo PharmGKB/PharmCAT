@@ -503,6 +503,21 @@ public class SyntheticBatchTest {
     sf_testVcfs.put("cyp3a5.s1s1rs776746missing", new String[]{
         "cyp3a5/s1s1rs776746missing.vcf"
     });
+    sf_testVcfs.put("cyp3a5.s1s3rs776746rs55965422het", new String[]{
+        "cyp3a5/s1s3rs776746rs55965422het.vcf"
+    });
+    sf_testVcfs.put("cyp3a5.s1s3rs776746rs55965422rs28383479het", new String[]{
+        "cyp3a5/s1s3rs776746rs55965422rs28383479het.vcf"
+    });
+    sf_testVcfs.put("cyp3a5.s3s3rs55965422het", new String[]{
+        "cyp3a5/s3s3rs55965422het.vcf"
+    });
+    sf_testVcfs.put("cyp3a5.s3s5-homozygous", new String[]{
+        "cyp3a5/s3s5-homozygous.vcf"
+    });
+    sf_testVcfs.put("cyp3a5.s1s3rs776746rs28383479het", new String[]{
+        "cyp3a5/s1s3rs776746rs28383479het.vcf"
+    });
 
     sf_testVcfs.put("cftr.G1244Eref", new String[]{
         "cftr/G1244Eref.vcf"
