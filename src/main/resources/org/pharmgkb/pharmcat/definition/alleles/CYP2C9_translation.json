@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Nov 16, 2017 12:00:00 AM",
+  "modificationDate": "Jan 11, 2019 12:00:00 AM",
   "gene": "CYP2C9",
   "orientation": "forward",
   "chromosome": "chr10",
@@ -186,10 +186,10 @@
       "chromosome": "chr10",
       "position": 94942234,
       "rsid": "rs72558189",
-      "chromosomeHgvsName": "g.94942234G>A",
-      "geneHgvsName": "g.8577G>A",
-      "proteinNote": "R125H",
-      "resourceNote": "3552G>A",
+      "chromosomeHgvsName": "g.94942234G>A; g.94942234G>T",
+      "geneHgvsName": "g.8577G>A; g.8577G>T",
+      "proteinNote": "R125H; R125L",
+      "resourceNote": "3552G>A; 3552G>T",
       "type": "SNP",
       "referenceRepeat": null
     },
@@ -664,6 +664,7 @@
     ],
     [
       "A",
+      "T",
       "G"
     ],
     [
@@ -2912,7 +2913,7 @@
         null,
         null,
         null,
-        "A",
+        "T",
         null,
         null,
         null,
