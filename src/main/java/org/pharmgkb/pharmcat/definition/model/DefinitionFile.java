@@ -227,7 +227,9 @@ public class DefinitionFile {
 
 
   /**
-   * The expected alleles for {@link VariantLocus}'s used to define {@link NamedAllele}s in this translation
+   * The expected alleles for {@link VariantLocus}'s used to define {@link NamedAllele}s in this translation.
+   *
+   * @throws IllegalStateException if m_variantAlleles have not been generated (using {@link #generateVariantAlleles()}
    */
   public List<Set<String>> getVariantAlleles() {
     return m_variantAlleles;
@@ -235,6 +237,12 @@ public class DefinitionFile {
 
   public Set<String> getVariantAlleles(VariantLocus vl) {
     if (m_variantAllelesMap == null) {
+      if (m_variantAlleles == null) {
+        throw new IllegalStateException("Variant alleles have not been generated yet.");
+      }
+      if (m_variantAlleles.size() < m_variants.length) {
+        throw new IllegalStateException("More variants than there are alleles.");
+      }
       m_variantAllelesMap = new HashMap<>();
       for (int x = 0; x < m_variants.length; x += 1) {
         m_variantAllelesMap.put(m_variants[x], m_variantAlleles.get(x));
@@ -243,6 +251,9 @@ public class DefinitionFile {
     return m_variantAllelesMap.get(vl);
   }
 
+  /**
+   * Generates variant alleles.  Must be called before using {@link #getVariantAlleles()}.
+   */
   public void generateVariantAlleles() {
 
     m_variantAlleles = new ArrayList<>();
