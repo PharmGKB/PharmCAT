@@ -120,21 +120,24 @@ public class Reporter {
    *
    * @param callFile file of haplotype calls
    */
-  public Reporter analyze(@Nonnull Path callFile, @Nullable Path outsideCallPath) throws Exception {
-    Preconditions.checkNotNull(callFile);
-    Preconditions.checkArgument(Files.exists(callFile));
-    Preconditions.checkArgument(Files.isRegularFile(callFile));
-
+  public Reporter analyze(@Nullable Path callFile, @Nullable Path outsideCallPath) throws Exception {
     //Generate class used for loading JSON into
     JsonFileLoader loader = new JsonFileLoader();
 
     //Load the haplotype json, this is pointed at a test json and will likely break when meeting real
     // requiring some if not all rewriting
-    List<GeneCall> calls = loader.loadHaplotypeGeneCalls(callFile);
+    List<GeneCall> calls = new ArrayList<>();
+    if (callFile != null) {
+      Preconditions.checkArgument(Files.exists(callFile));
+      Preconditions.checkArgument(Files.isRegularFile(callFile));
+      calls = loader.loadHaplotypeGeneCalls(callFile);
+    }
 
     //Load the outside calls if it's available
     List<OutsideCall> outsideCalls = new ArrayList<>();
     if (outsideCallPath != null) {
+      Preconditions.checkArgument(Files.exists(outsideCallPath));
+      Preconditions.checkArgument(Files.isRegularFile(outsideCallPath));
       outsideCalls = OutsideCallParser.parse(outsideCallPath);
     }
 
