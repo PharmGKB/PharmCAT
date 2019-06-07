@@ -38,7 +38,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
   private String m_gene;
   private String m_chr;
-  private SortedSet<String> m_uncalledHaplotypes;
+  private SortedSet<String> m_uncalledHaplotypes = new TreeSet<>();
   private List<MessageAnnotation> m_messages = new ArrayList<>();
   private List<DrugLink> m_relatedDrugs = new ArrayList<>();
   private boolean m_outsideCall = false;
