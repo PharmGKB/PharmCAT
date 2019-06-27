@@ -8,7 +8,7 @@
 chr1	97450058	rs3918290	C	T	.	PASS	star-2b	GT	0/1
 chr1	97883352	rs80081766	C	.	.	PASS	assume-default	GT	0/0
 chr1	97883329	rs1801265	A	.	.	PASS	assume-default	GT	0/0
-chr1	97740415	rs72549309	A	.	.	PASS	assume-default	GT	0/0
+chr1	97740411	rs72549309	A	.	.	PASS	assume-default	GT	0/0
 chr1	97691776	rs1801266	G	.	.	PASS	assume-default	GT	0/0
 chr1	97593343	rs72549306	C	.	.	PASS	assume-default	GT	0/0
 chr1	97573943	rs78060119	C	.	.	PASS	assume-default	GT	0/0
