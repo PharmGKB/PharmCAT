@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -56,6 +57,7 @@ public class CliUtils {
   /**
    * Gets the currently tagged version based on the Jar manifest, the current git repo tag, or a generic 
    * "development" version as a fallback when neither of those are available.
+   *
    * @return a String of the PharmCAT version
    * @throws IOException can occur from reading the manifest
    */
@@ -66,9 +68,12 @@ public class CliUtils {
     if (!classPath.startsWith("jar")) {
       // Class not from JAR
       try (StringWriter writer = new StringWriter()) {
-        IOUtils.copy(Runtime.getRuntime().exec("git describe --tags").getInputStream(), writer);
+        IOUtils.copy(Runtime.getRuntime().exec("git describe --tags").getInputStream(), writer,
+            Charset.defaultCharset());
         String gitVersion = writer.toString();
-        if (StringUtils.isNotBlank(gitVersion)) return gitVersion;
+        if (StringUtils.isNotBlank(gitVersion)) {
+          return gitVersion;
+        }
       } catch (Exception e) {
         System.err.println("Error reading git version");
       }

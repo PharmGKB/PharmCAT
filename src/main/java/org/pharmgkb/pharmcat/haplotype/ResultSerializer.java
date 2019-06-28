@@ -18,11 +18,12 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.text.StrSubstitutor;
+import org.apache.commons.text.StringSubstitutor;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -226,8 +227,8 @@ public class ResultSerializer {
       varMap.put("title", "PharmCAT Allele Call Report for " + result.getMetadata().getInputFilename());
       varMap.put("content", builder.toString());
       varMap.put("timestamp", m_dateFormat.format(new Date()));
-      StrSubstitutor sub = new StrSubstitutor(varMap);
-      String template = IOUtils.toString(getClass().getResourceAsStream("template.html"));
+      StringSubstitutor sub = new StringSubstitutor(varMap);
+      String template = IOUtils.toString(getClass().getResourceAsStream("template.html"), Charsets.UTF_8);
       writer.println(sub.replace(template));
     }
     return this;
@@ -262,7 +263,7 @@ public class ResultSerializer {
 
     for (Variant variant : variants) {
       String vcfCall = variant.getVcfCall();
-      if (vcfCall.contains("\\")) {
+      if (vcfCall != null && vcfCall.contains("\\")) {
         vcfCall = vcfCall.replaceAll("\\\\", "");
       }
       builder.append("<td>");
