@@ -20,6 +20,8 @@ Read [the PharmCAT wiki page on named allele matching](https://github.com/PharmG
 
 There are detailed documents on how a few particular genes are handled by PharmCAT. See the [gene definition exceptions](methods/gene-definition-exceptions) for a rundown of exceptional circumstances when analyzing particular genes. The genes [UGT1A1](methods/calling/UGT1A1) and [CFTR](methods/calling/CFTR) also have documentation of their non-standard allele matching algorithms.
 
+HLA's and G6PD are not included in the initial version of PharmCAT, see [PMID: 31306493] (https://www.ncbi.nlm.nih.gov/pubmed/?term=31306493) for further explanations. The allele definition tables used in PharmCAT are based on CPIC allele definition tables from 2018.  Newer guidelines (published after 2017) are not currently included in PharmCAT reports, covering additional genes RYR1, CACNA1S, NUTD15, CYP2B6 and recommendations for tamoxifen, atomoxetine, efavirenz, potent volatile anesthetic agents, succinylcholine.
+
 ## Running PharmCAT
 
 Before running PharmCAT [read the instructions on GitHub](https://github.com/PharmGKB/PharmCAT/wiki/Running-PharmCAT) and [the VCF requirements](https://github.com/PharmGKB/PharmCAT/wiki/VCF-Requirements).
