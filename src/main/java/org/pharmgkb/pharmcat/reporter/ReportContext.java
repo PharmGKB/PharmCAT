@@ -100,7 +100,7 @@ public class ReportContext {
       guidelinePackage.getGuideline().getRelatedGenes().stream()
           .map(RelatedGene::getSymbol)
           .distinct()
-          .forEach(s -> m_geneReports.put(s, GeneReportFactory.newReport(s)));
+          .forEach(s -> m_geneReports.put(s, new GeneReport(s)));
     }
   }
 
@@ -110,7 +110,7 @@ public class ReportContext {
    */
   private void compileMatcherData(List<GeneCall> calls) throws Exception {
     for (GeneCall call : calls) {
-      GeneReport geneReport = GeneReportFactory.newReport(call);
+      GeneReport geneReport = new GeneReport(call.getGene());
       geneReport.setCallData(call);
       m_geneReports.put(call.getGene(), geneReport);
 
