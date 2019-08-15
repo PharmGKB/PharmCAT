@@ -14,6 +14,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import com.github.jknack.handlebars.Handlebars;
+import com.github.jknack.handlebars.Template;
+import com.github.jknack.handlebars.helper.StringHelpers;
+import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,6 +25,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.io.AstrolabeOutputParser;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.ReportData;
@@ -40,7 +45,10 @@ import org.pharmgkb.pharmcat.util.DataManager;
  * @author Ryan Whaley
  */
 public class Reporter {
-  private static final String sf_messagesFile = "org/pharmgkb/pharmcat/reporter/messages.json";
+  private static final String FINAL_REPORT      = "report";
+  private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
+  private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/reporter/messages.json";
+
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
   private List<Path> m_annotationFiles;
@@ -156,13 +164,30 @@ public class Reporter {
       reportData.put("title", title);
     }
 
-    HtmlReportGenerator.writeFinalReport(reportData, reportFile);
+    writeFinalReport(reportData, reportFile);
 
     if (jsonFile != null) {
       try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
         writer.write(sf_gson.toJson(reportData));
         System.out.println("Writing JSON to " + jsonFile);
       }
+    }
+  }
+
+  /**
+   * Generate a final report for a Map of data
+   * @param data a Map of data from the reporter system
+   * @param filePath the path to write the report to
+   */
+  public static void writeFinalReport(@Nonnull Map<String,Object> data, @Nonnull Path filePath) throws IOException {
+    Handlebars handlebars = new Handlebars(new ClassPathTemplateLoader(sf_templatePrefix));
+    StringHelpers.register(handlebars);
+    handlebars.registerHelpers(ReportHelpers.class);
+    Template template = handlebars.compile(FINAL_REPORT);
+
+    String html = template.apply(data);
+    try (BufferedWriter writer = Files.newBufferedWriter(filePath, StandardCharsets.UTF_8)) {
+      writer.write(html);
     }
   }
 
