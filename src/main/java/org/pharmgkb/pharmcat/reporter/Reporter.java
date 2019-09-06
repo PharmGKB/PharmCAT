@@ -15,20 +15,17 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.github.jknack.handlebars.Handlebars;
-import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.io.AstrolabeOutputParser;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
-import org.pharmgkb.pharmcat.reporter.io.ReportData;
 import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -158,36 +155,21 @@ public class Reporter {
    */
   public void printHtml(@Nonnull Path reportFile, @Nullable String title, @Nullable Path jsonFile) throws IOException {
 
-    Map<String,Object> reportData = ReportData.compile(m_reportContext);
+    Map<String,Object> reportData = m_reportContext.compile(title);
 
-    if (StringUtils.isNotBlank(title)) {
-      reportData.put("title", title);
+    Handlebars handlebars = new Handlebars(new ClassPathTemplateLoader(sf_templatePrefix));
+    StringHelpers.register(handlebars);
+    handlebars.registerHelpers(ReportHelpers.class);
+
+    try (BufferedWriter writer = Files.newBufferedWriter(reportFile, StandardCharsets.UTF_8)) {
+      writer.write(handlebars.compile(FINAL_REPORT).apply(reportData));
     }
-
-    writeFinalReport(reportData, reportFile);
 
     if (jsonFile != null) {
       try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
         writer.write(sf_gson.toJson(reportData));
         System.out.println("Writing JSON to " + jsonFile);
       }
-    }
-  }
-
-  /**
-   * Generate a final report for a Map of data
-   * @param data a Map of data from the reporter system
-   * @param filePath the path to write the report to
-   */
-  public static void writeFinalReport(@Nonnull Map<String,Object> data, @Nonnull Path filePath) throws IOException {
-    Handlebars handlebars = new Handlebars(new ClassPathTemplateLoader(sf_templatePrefix));
-    StringHelpers.register(handlebars);
-    handlebars.registerHelpers(ReportHelpers.class);
-    Template template = handlebars.compile(FINAL_REPORT);
-
-    String html = template.apply(data);
-    try (BufferedWriter writer = Files.newBufferedWriter(filePath, StandardCharsets.UTF_8)) {
-      writer.write(html);
     }
   }
 
