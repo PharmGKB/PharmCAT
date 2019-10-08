@@ -15,7 +15,7 @@ import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
-import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
+import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
@@ -23,7 +23,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 /**
  * Factory class for spitting out {@link Diplotype} objects from known information about the gene
  *
- * This is designed to take information from either the Matcher or from Astrolabe and produce consistent results
+ * This is designed to take information from either the Matcher or from outside calls and produce consistent results
  *
  * @author Ryan Whaley
  */
@@ -72,13 +72,13 @@ public class DiplotypeFactory {
   }
 
   /**
-   * Make diplotype objects based on AstrolabeCall objects that are parsed from astrolabe output
+   * Make diplotype objects based on {@link OutsideCall} objects
    */
-  public List<Diplotype> makeDiplotypes(@Nonnull AstrolabeCall astrolabeCall) {
-    Preconditions.checkNotNull(astrolabeCall);
-    Preconditions.checkArgument(astrolabeCall.getGene().equals(f_gene));
+  public List<Diplotype> makeDiplotypes(@Nonnull OutsideCall outsideCall) {
+    Preconditions.checkNotNull(outsideCall);
+    Preconditions.checkArgument(outsideCall.getGene().equals(f_gene));
 
-    return makeDiplotypes(astrolabeCall.getDiplotypes());
+    return makeDiplotypes(outsideCall.getDiplotypes());
   }
 
   /**

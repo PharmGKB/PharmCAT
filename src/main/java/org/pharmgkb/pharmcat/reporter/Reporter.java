@@ -24,11 +24,11 @@ import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.io.AstrolabeOutputParser;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
-import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
+import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.util.DataManager;
 
 
@@ -60,7 +60,7 @@ public class Reporter {
 
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("c", "call-file", "named allele call JSON file", true, "c")
-        .addOption("a", "astrolabe-file", "optional, astrolabe call file", false, "a")
+        .addOption("a", "outside-call-file", "optional, outside call TSV file", false, "a")
         .addOption("o", "output-file", "file path to write HTML report to", true, "o")
         .addOption("t", "title", "optional, text to add to the report title", false, "t")
         .addOption("g", "guidelines-dir", "directory of guideline annotations (JSON files)", false, "n")
@@ -76,12 +76,12 @@ public class Reporter {
         guidelinesDir = cliHelper.getValidDirectory("g", false);
       }
       Path callFile = cliHelper.getValidFile("c", true);
-      Path astrolabeFile = cliHelper.hasOption("a") ? cliHelper.getValidFile("a", true) : null;
+      Path outsideCallPath = cliHelper.hasOption("a") ? cliHelper.getValidFile("a", true) : null;
       Path outputFile = cliHelper.getPath("o");
       String title = cliHelper.getValue("t");
 
       new Reporter(guidelinesDir)
-          .analyze(callFile, astrolabeFile)
+          .analyze(callFile, outsideCallPath)
           .printHtml(outputFile, title, null);
 
     } catch (Exception ex) {
@@ -120,7 +120,7 @@ public class Reporter {
    *
    * @param callFile file of haplotype calls
    */
-  public Reporter analyze(@Nonnull Path callFile, @Nullable Path astrolabeFile) throws Exception {
+  public Reporter analyze(@Nonnull Path callFile, @Nullable Path outsideCallPath) throws Exception {
     Preconditions.checkNotNull(callFile);
     Preconditions.checkArgument(Files.exists(callFile));
     Preconditions.checkArgument(Files.isRegularFile(callFile));
@@ -132,17 +132,17 @@ public class Reporter {
     // requiring some if not all rewriting
     List<GeneCall> calls = loader.loadHaplotypeGeneCalls(callFile);
 
-    //Load the astrolabe calls if it's available
-    List<AstrolabeCall> astrolabeCalls = new ArrayList<>();
-    if (astrolabeFile != null) {
-      astrolabeCalls = AstrolabeOutputParser.parse(astrolabeFile);
+    //Load the outside calls if it's available
+    List<OutsideCall> outsideCalls = new ArrayList<>();
+    if (outsideCallPath != null) {
+      outsideCalls = OutsideCallParser.parse(outsideCallPath);
     }
 
     //Load the gene drug interaction list. This currently only handles single gene-drug guidelines and will require updating to handle multi gene-drug interaction
     List<GuidelinePackage> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
-    m_reportContext = new ReportContext(calls, astrolabeCalls, guidelines);
+    m_reportContext = new ReportContext(calls, outsideCalls, guidelines);
 
     m_reportContext.applyMessage(m_messages);
 

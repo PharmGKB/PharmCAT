@@ -42,7 +42,7 @@ public class PharmCAT {
         .addOption("vcf", "sample-file", "input call file (VCF)", true, "vcf")
         .addOption("o", "output-dir", "directory to output to", true, "o")
         .addOption("f", "output-file", "the base name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "f")
-        .addOption("a", "astrolabe-file", "path to astrolabe result file (TSV)", false, "a")
+        .addOption("a", "outside-call-file", "path to an outside call file (TSV)", false, "a")
         // optional data
         .addOption("g", "guidelines-dir", "directory of guideline annotations (JSON files)", false, "n")
         .addOption("na", "alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
@@ -57,9 +57,9 @@ public class PharmCAT {
 
       Path vcfFile = cliHelper.getValidFile("vcf", true);
       Path outputDir = cliHelper.getValidDirectory("o", true);
-      Path astrolabeFile = null;
+      Path outsideCallPath = null;
       if (cliHelper.hasOption("a")) {
-        astrolabeFile = cliHelper.getPath("a");
+        outsideCallPath = cliHelper.getPath("a");
       }
 
       Path guidelinesDir = null;
@@ -83,7 +83,7 @@ public class PharmCAT {
 
       pharmcat
           .writeJson(cliHelper.hasOption("j"))
-          .execute(vcfFile, astrolabeFile, outputFile);
+          .execute(vcfFile, outsideCallPath, outputFile);
 
     } catch (Exception e) {
       e.printStackTrace();
@@ -139,11 +139,11 @@ public class PharmCAT {
   /**
    * Executes the {@link NamedAlleleMatcher} then the {@link Reporter} on the given sample data
    * @param vcfFile the input sample VCF file
-   * @param astrolabeFile the optional input astrolabe TSV file
+   * @param outsideCallFile the optional input outside call TSV file
    * @param outputFile the optional name to write the output to
    * @throws Exception can occur from file I/O or unexpected state
    */
-  public void execute(@Nonnull Path vcfFile, @Nullable Path astrolabeFile, @Nullable String outputFile) throws Exception {
+  public void execute(@Nonnull Path vcfFile, @Nullable Path outsideCallFile, @Nullable String outputFile) throws Exception {
     Preconditions.checkArgument(Files.isRegularFile(vcfFile), "Not a file: %s", vcfFile);
 
     sf_logger.info("Run time: " + new Date());
@@ -161,7 +161,7 @@ public class PharmCAT {
       resultSerializer.toHtml(result, m_outputDir.resolve(fileRoot + ".matcher.html"));
     }
 
-    m_reporter.analyze(callFile, astrolabeFile);
+    m_reporter.analyze(callFile, outsideCallFile);
 
     Path reportPath = m_outputDir.resolve(fileRoot + ".report.html");
     Path jsonPath = m_writeJsonReport ? m_outputDir.resolve(fileRoot + ".report.json") : null;

@@ -89,7 +89,7 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "CYP2D6", "*1/*4");
     testCalls(DipType.PRINT, "CYP2C19", "*1/*4B");
 
-    assertTrue(s_context.getGeneReport("CYP2D6").isAstrolabeCall());
+    assertTrue(s_context.getGeneReport("CYP2D6").isOutsideCall());
   }
 
   @Test

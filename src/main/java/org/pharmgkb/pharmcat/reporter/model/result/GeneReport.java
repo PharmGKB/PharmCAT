@@ -19,9 +19,9 @@ import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
-import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.util.Slco1b1AlleleMatcher;
 import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
@@ -41,7 +41,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private SortedSet<String> m_uncalledHaplotypes;
   private List<MessageAnnotation> m_messages = new ArrayList<>();
   private List<DrugLink> m_relatedDrugs = new ArrayList<>();
-  private boolean m_astrolabeCall = false;
+  private boolean m_outsideCall = false;
   private List<Diplotype> m_matcherDiplotypes = new ArrayList<>();
   private List<Diplotype> m_reporterDiplotypes = new ArrayList<>();
   private List<VariantReport> m_variantReports = new ArrayList<>();
@@ -82,11 +82,11 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Sets data in this report based on data found in a {@link AstrolabeCall}
-   * @param call a {@link AstrolabeCall} to pull data from
+   * Sets data in this report based on data found in a {@link OutsideCall}
+   * @param call a {@link OutsideCall} to pull data from
    */
-  public void setAstrolabeData(@Nonnull AstrolabeCall call) {
-    m_astrolabeCall = true;
+  public void setOutsideCallData(@Nonnull OutsideCall call) {
+    m_outsideCall = true;
     m_gene = call.getGene();
   }
 
@@ -108,8 +108,8 @@ public class GeneReport implements Comparable<GeneReport> {
     }
   }
 
-  public void setDiplotypes(DiplotypeFactory diplotypeFactory, AstrolabeCall astrolabeCall) {
-    diplotypeFactory.makeDiplotypes(astrolabeCall).forEach(d -> {
+  public void setDiplotypes(DiplotypeFactory diplotypeFactory, OutsideCall outsideCall) {
+    diplotypeFactory.makeDiplotypes(outsideCall).forEach(d -> {
       m_matcherDiplotypes.add(d);
       m_reporterDiplotypes.add(d);
     });
@@ -230,10 +230,10 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * True if the genotyping data in the report comes from astrolabe, false if from somewhere else
+   * True if the genotyping data in the report comes from outside PharmCAT, false if match is made by PharmCAT
    */
-  public boolean isAstrolabeCall() {
-    return m_astrolabeCall;
+  public boolean isOutsideCall() {
+    return m_outsideCall;
   }
 
   /**

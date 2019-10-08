@@ -136,7 +136,7 @@
 
       <section>
         {{#each geneCalls}}
-          <div class="geneCall"><a href="#{{gene}}">{{gene}}: {{diplotypes}}</a>{{#if astrolabe}} (from Astrolabe){{/if}}</div>
+          <div class="geneCall"><a href="#{{gene}}">{{gene}}: {{diplotypes}}</a>{{#if outsideCall}} (from Outside Call){{/if}}</div>
           {{#if showHighlights}}
             <div class="geneCall">{{#each highlightedVariants}}<div><a href="#{{gene}}">{{this}}</a></div>{{/each}}</div>
           {{/if}}
@@ -218,7 +218,7 @@
     <section class="gene">
       <h3 id="{{gene}}">{{gene}} allele match data</h3>
 
-      <h4>Genotype matched</h4>
+      <h4>Genotype {{#if outsideCall}}reported{{/if}}{{#unless outsideCall}}matched{{/unless}}</h4>
       <ul>
         {{#each diplotypes}}
           <li>{{this}}</li>
@@ -233,10 +233,10 @@
         <p>Carriage of these alleles might result in a different metabolizer phenotype and different guideline recommendations.</p>
       {{/if}}
 
-      {{#if astrolabe}}
+      {{#if outsideCall}}
         <div class="alert alert-info">
-          The call for {{gene}} comes from Astrolabe data which does not supply position-level detail. For specific
-          disclaimers and limitations, see Astrolabe specification.
+          The call for {{gene}} comes from an outside data source which does not supply position-level detail. For specific
+          disclaimers and limitations, the original genotyping source.
         </div>
       {{/if}}
 

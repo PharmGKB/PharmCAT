@@ -10,11 +10,11 @@ import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 
 
 /**
- * Call data from astrolabe
+ * Calls from an outside data source. For example, Astrolabe (but could be others)
  *
  * @author Ryan Whaley
  */
-public class AstrolabeCall {
+public class OutsideCall {
 
   private static final String sf_separator = " or ";
   private static final String sf_lineSeparator = "\t";
@@ -27,10 +27,16 @@ public class AstrolabeCall {
   private List<String> m_diplotypes;
   private SortedSet<String> m_haplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
 
-  public AstrolabeCall(@Nonnull String line) throws RuntimeException {
+  /**
+   * Constructor that expects a TSV formatted String with the gene symbol in the first field and the diplotype call 
+   * (e.g. *1/*2) in the second field.
+   * @param line a TSV-formatted string
+   * @throws RuntimeException can occur if data not in expected format
+   */
+  public OutsideCall(@Nonnull String line) throws RuntimeException {
     String[] fields = line.split(sf_lineSeparator);
     if (fields.length < 2) {
-      throw new RuntimeException("Astrolabe output not in expected format");
+      throw new RuntimeException("Expected at least 2 TSV fields, got " + fields.length);
     }
 
     String gene = fields[IDX_GENE];

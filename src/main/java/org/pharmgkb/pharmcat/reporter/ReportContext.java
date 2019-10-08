@@ -23,10 +23,10 @@ import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.Annotation;
-import org.pharmgkb.pharmcat.reporter.model.AstrolabeCall;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -73,10 +73,10 @@ public class ReportContext {
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
    * @param calls {@link GeneCall} objects from the sample data
-   * @param astrolabeCalls {@link AstrolabeCall} objects from the astrolabe data, non-null but can be empty
+   * @param outsideCalls {@link OutsideCall} objects, non-null but can be empty
    * @param guidelinePackages a List of all the guidelines to try to apply
    */
-  public ReportContext(List<GeneCall> calls, @Nonnull List<AstrolabeCall> astrolabeCalls, List<GuidelinePackage> guidelinePackages) throws Exception {
+  public ReportContext(List<GeneCall> calls, @Nonnull List<OutsideCall> outsideCalls, List<GuidelinePackage> guidelinePackages) throws Exception {
 
     makeGuidelineReports(guidelinePackages);
     makeGeneReports(guidelinePackages);
@@ -85,7 +85,7 @@ public class ReportContext {
     m_phenotypeMap = new PhenotypeMap(calls);
 
     compileMatcherData(calls);
-    compileAstrolabeData(astrolabeCalls);
+    compileOutsideCallData(outsideCalls);
 
     findMatches();
 
@@ -145,20 +145,20 @@ public class ReportContext {
   }
 
   /**
-   * Takes astrolabe calls, find the GeneReport for each one and then adds astrolabe information to it
-   * @param calls astrolabe calls
+   * Takes outside calls, find the GeneReport for each one and then adds call information to it
+   * @param calls outside calls
    */
-  private void compileAstrolabeData(List<AstrolabeCall> calls) {
-    for (AstrolabeCall astrolabeCall : calls) {
-      GeneReport geneReport = m_geneReports.get(astrolabeCall.getGene());
-      geneReport.setAstrolabeData(astrolabeCall);
+  private void compileOutsideCallData(List<OutsideCall> calls) {
+    for (OutsideCall outsideCall : calls) {
+      GeneReport geneReport = m_geneReports.get(outsideCall.getGene());
+      geneReport.setOutsideCallData(outsideCall);
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
-          astrolabeCall.getGene(),
-          m_phenotypeMap.lookup(astrolabeCall.getGene()).orElse(null),
+          outsideCall.getGene(),
+          m_phenotypeMap.lookup(outsideCall.getGene()).orElse(null),
           m_incidentalFinder,
-          m_refAlleleForGene.get(astrolabeCall.getGene()));
-      geneReport.setDiplotypes(diplotypeFactory, astrolabeCall);
+          m_refAlleleForGene.get(outsideCall.getGene()));
+      geneReport.setDiplotypes(diplotypeFactory, outsideCall);
     }
   }
 
@@ -314,7 +314,7 @@ public class ReportContext {
       genotype.put("missingVariants", geneReport.isMissingVariants());
       genotype.put("phenotype", geneReport.printDisplayPhenotypes());
       genotype.put("hasMessages", geneReport.getMessages().size()>0);
-      genotype.put("astrolabe", geneReport.isAstrolabeCall());
+      genotype.put("outsideCall", geneReport.isOutsideCall());
 
       genotypes.add(genotype);
     }
@@ -351,7 +351,7 @@ public class ReportContext {
         geneCall.put("diplotypes", String.join(", ", geneReport.printDisplayCalls()));
         geneCall.put("showHighlights", !geneReport.getHighlightedVariants().isEmpty());
         geneCall.put("highlightedVariants", geneReport.getHighlightedVariants());
-        geneCall.put("astrolabe", geneReport.isAstrolabeCall());
+        geneCall.put("outsideCall", geneReport.isOutsideCall());
         geneCallList.add(geneCall);
       }
       for (String variant : guideline.getReportVariants()) {
@@ -363,7 +363,7 @@ public class ReportContext {
         Map<String,Object> geneCall = new LinkedHashMap<>();
         geneCall.put("gene", variant);
         geneCall.put("diplotypes", StringUtils.isBlank(call) ? "missing" : call);
-        geneCall.put("astrolabe", false);
+        geneCall.put("outsideCall", false);
         geneCallList.add(geneCall);
       }
       if (geneCallList.size() > 0) {
@@ -449,8 +449,8 @@ public class ReportContext {
       geneCallMap.put("incidental", geneReport.isIncidental());
 
       String phaseStatus;
-      if (geneReport.isAstrolabeCall()) {
-        phaseStatus = "Unavailable for Astrolabe calls";
+      if (geneReport.isOutsideCall()) {
+        phaseStatus = "Unavailable for calls made outside PharmCAT";
       } else {
         phaseStatus = geneReport.isPhased() ? "Phased" : "Unphased";
       }
@@ -482,7 +482,7 @@ public class ReportContext {
         geneCallMap.put("variantsOfInterestUnspecified", true);
       }
 
-      geneCallMap.put("astrolabe", geneReport.isAstrolabeCall());
+      geneCallMap.put("outsideCall", geneReport.isOutsideCall());
 
       geneCallMap.put("totalMissingVariants",
           geneReport.getVariantReports().stream().filter(VariantReport::isMissing).count());
