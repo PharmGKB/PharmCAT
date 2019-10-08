@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.definition.model;
 
+import java.lang.invoke.MethodHandles;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -8,6 +9,8 @@ import javax.annotation.Nullable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -16,6 +19,7 @@ import org.pharmgkb.pharmcat.UnexpectedStateException;
  * @author Ryan Whaley
  */
 public class GenePhenotype {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   @SerializedName("gene")
   @Expose
@@ -86,18 +90,24 @@ public class GenePhenotype {
     String func2 = getHaplotypes().get(hap2);
 
     if (func1 == null) {
-      throw new UnexpectedStateException("No function phenotype for " + getGene() + " " + hap1);
-    }
+      sf_logger.warn("No function phenotype for " + getGene() + " " + hap1);
+    } 
     if (func2 == null) {
-      throw new UnexpectedStateException("No function phenotype for " + getGene() + " " + hap2);
+      sf_logger.warn("No function phenotype for " + getGene() + " " + hap2);
+    } 
+    if (func1 != null && func2 != null) {
+      return new String[]{func1,func2};
+    } else {
+      return null;
     }
-
-    return new String[]{func1,func2};
   }
 
   public String makePhenotype(String diplotype) {
 
     String[] phenoPair = makePhenoPair(diplotype);
+    if (phenoPair == null) {
+      return "N/A";
+    }
 
     Set<String> phenos = getDiplotypes().stream()
         .filter(d -> ((phenoPair[0].equals(d.getDiplotype().get(0)) && phenoPair[1].equals(d.getDiplotype().get(1))) || (phenoPair[0].equals(d.getDiplotype().get(1)) && phenoPair[1].equals(d.getDiplotype().get(0)))))
