@@ -1,16 +1,12 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 
 
@@ -70,27 +66,6 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
     Preconditions.checkArgument(pair.length == 2, "Sequence pair must have 2 sequences");
     m_sequences.add(pair);
   }
-
-  public String getFunction() {
-    if (m_haplotype1 != null && m_haplotype2 != null
-        && StringUtils.isNotBlank(m_haplotype1.getFunction()) && StringUtils.isNotBlank(m_haplotype2.getFunction())) {
-
-      SortedSet<String> alleleNames = new TreeSet<>();
-      alleleNames.add(m_haplotype1.getFunction().toLowerCase());
-      alleleNames.add(m_haplotype2.getFunction().toLowerCase());
-
-      if (alleleNames.size() == 1) {
-        return "Two " + alleleNames.first() + " alleles";
-      }
-      else {
-        Iterator<String> alleleIt = alleleNames.iterator();
-        return "One " + alleleIt.next() + " allele and one " + alleleIt.next() + " allele";
-      }
-
-    }
-    return "N/A";
-  }
-
 
   public MatchData getDataset() {
     return m_dataset;

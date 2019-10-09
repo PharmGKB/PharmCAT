@@ -16,7 +16,7 @@ public class PhenotypeMapTest {
 
   @Test
   public void test() throws Exception {
-    PhenotypeMap phenotypeMap = new PhenotypeMap(null);
+    PhenotypeMap phenotypeMap = new PhenotypeMap();
 
     assertNotNull(phenotypeMap);
 

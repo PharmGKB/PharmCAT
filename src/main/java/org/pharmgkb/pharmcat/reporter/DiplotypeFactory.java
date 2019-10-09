@@ -152,11 +152,6 @@ public class DiplotypeFactory {
   }
 
   private Haplotype makeHaplotype(HaplotypeMatch haplotypeMatch) {
-    String name = haplotypeMatch.getName();
-
-    Haplotype haplotype = makeHaplotype(name);
-    haplotype.setCalledFunction(haplotypeMatch.getFunction());
-
-    return haplotype;
+    return makeHaplotype(haplotypeMatch.getName());
   }
 }

@@ -314,10 +314,6 @@ public class CuratedDefinitionParser {
       m_errors.add("Expected the title 'Allele' in " + prettyLineCol(LINE_POPS, 0));
       hasError = true;
     }
-    if (!fields.get(1).equals("Allele Functional Status")) {
-      m_errors.add("Expected the title 'Allele Functional Status' in " + prettyLineCol(LINE_POPS, 1));
-      hasError = true;
-    }
     if (hasError) {
       return;
     }
@@ -374,11 +370,10 @@ public class CuratedDefinitionParser {
           String id = m_haplotypeIdMap.getId(m_definitionFile.getGeneSymbol(), name);
           if (id == null) {
             m_errors.add("Allele has no ID: " + m_definitionFile.getGeneSymbol() + " " + name);
-            return;
+            continue;
           }
 
           NamedAllele namedAllele = new NamedAllele(id, name, variantAlleles);
-          namedAllele.setFunction(fields.get(1));
 
           Map<String,String> popFreqMap = new HashMap<>();
           m_populationPositionMap.keySet().stream()

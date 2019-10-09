@@ -32,9 +32,6 @@ public class NamedAllele implements Comparable<NamedAllele> {
   @SerializedName("id")
   private String m_id;
   @Expose
-  @SerializedName("function")
-  private String m_function;
-  @Expose
   @SerializedName("alleles")
   private String[] m_alleles;
   @Expose
@@ -119,17 +116,6 @@ public class NamedAllele implements Comparable<NamedAllele> {
     return m_id;
   }
 
-  /**
-   * The function of this allele (e.g. normal, reduced function).
-   */
-  public String getFunction() {
-    return m_function;
-  }
-
-  public void setFunction(String function) {
-    m_function = function;
-  }
-
 
   /**
    * The array of alleles that define this allele.
@@ -206,14 +192,13 @@ public class NamedAllele implements Comparable<NamedAllele> {
     NamedAllele that = (NamedAllele)o;
     return Objects.equal(m_name, that.getName()) &&
         Objects.equal(m_id, that.getId()) &&
-        Objects.equal(m_function, that.getFunction()) &&
         Arrays.equals(m_alleles, that.getAlleles()) &&
         Objects.equal(m_popFreqMap, that.getPopFreqMap());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(m_name, m_id, m_function, m_alleles, m_popFreqMap);
+    return Objects.hashCode(m_name, m_id, m_alleles, m_popFreqMap);
   }
 
 

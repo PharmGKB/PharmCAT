@@ -82,7 +82,7 @@ public class ReportContext {
     makeGeneReports(guidelinePackages);
     loadReferenceAlleleNames();
 
-    m_phenotypeMap = new PhenotypeMap(calls);
+    m_phenotypeMap = new PhenotypeMap();
 
     compileMatcherData(calls);
     compileOutsideCallData(outsideCalls);
