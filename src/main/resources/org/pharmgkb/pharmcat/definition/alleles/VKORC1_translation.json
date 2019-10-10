@@ -14,16 +14,7 @@
     "Allele frequencies based on the CPIC Warfarin Guideline supplement: https://github.com/PharmGKB/cpic-guidelines/raw/master/warfarin/2011/21900891-supplement.pdf",
     "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
   ],
-  "populations": [
-    "African Allele Frequency",
-    "African American Allele Frequency",
-    "Americas Allele Frequency",
-    "Caucasian (European + North American) Allele Frequency",
-    "East Asian Allele Frequency",
-    "Middle Eastern Allele Frequency",
-    "Oceanian Allele Frequency",
-    "South/Central Asian Allele Frequency"
-  ],
+  "populations": null,
   "variants": [
     {
       "chromosome": "chr16",
@@ -51,16 +42,7 @@
       "alleles": [
         "C"
       ],
-      "populationFrequency": {
-        "Oceanian Allele Frequency": "",
-        "African American Allele Frequency": "",
-        "Caucasian (European + North American) Allele Frequency": "",
-        "Middle Eastern Allele Frequency": "",
-        "East Asian Allele Frequency": "",
-        "South/Central Asian Allele Frequency": "",
-        "Americas Allele Frequency": "",
-        "African Allele Frequency": ""
-      }
+      "populationFrequency": {}
     },
     {
       "name": "-1639A",
@@ -69,16 +51,7 @@
       "alleles": [
         "T"
       ],
-      "populationFrequency": {
-        "Oceanian Allele Frequency": "",
-        "African American Allele Frequency": "0.11",
-        "Caucasian (European + North American) Allele Frequency": "0.39",
-        "Middle Eastern Allele Frequency": "",
-        "East Asian Allele Frequency": "0.91",
-        "South/Central Asian Allele Frequency": "",
-        "Americas Allele Frequency": "",
-        "African Allele Frequency": ""
-      }
+      "populationFrequency": {}
     }
   ]
 }

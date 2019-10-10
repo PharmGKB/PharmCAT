@@ -1,1024 +1,1454 @@
 [
   {
+    "diplotypes": [
+      {
+        "diplotype": [
+          "Class IV",
+          "Class IV"
+        ],
+        "phenotype": "R117H (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Class IV",
+          "Decreased function"
+        ],
+        "phenotype": "R117H (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Class IV",
+          "Loss of function"
+        ],
+        "phenotype": "R117H (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Class IV",
+          "No function"
+        ],
+        "phenotype": "R117H (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Class IV",
+          "Presence"
+        ],
+        "phenotype": "R117H (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Class IV",
+          "Unknown"
+        ],
+        "phenotype": "R117H (Moderate)"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Unknown"
+        ],
+        "phenotype": "Two other alleles"
+      },
+      {
+        "diplotype": [
+          "Unknown",
+          "Unknown"
+        ],
+        "phenotype": "Two other alleles"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "No function"
+        ],
+        "phenotype": "Folding and Traffic (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Decreased function"
+        ],
+        "phenotype": "Gating Variant (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "No function"
+        ],
+        "phenotype": "Gating Variant (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Presence"
+        ],
+        "phenotype": "Gating Variant (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Unknown"
+        ],
+        "phenotype": "Gating Variant (Moderate)"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Presence"
+        ],
+        "phenotype": "Gating Variant (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Presence",
+          "Presence"
+        ],
+        "phenotype": "Gating Variant (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Presence",
+          "Unknown"
+        ],
+        "phenotype": "Gating Variant (Moderate)"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Loss of function"
+        ],
+        "phenotype": "Gating Variant (Strong)"
+      },
+      {
+        "diplotype": [
+          "Loss of function",
+          "Loss of function"
+        ],
+        "phenotype": "Gating Variant (Strong)"
+      },
+      {
+        "diplotype": [
+          "Loss of function",
+          "No function"
+        ],
+        "phenotype": "Gating Variant (Strong)"
+      },
+      {
+        "diplotype": [
+          "Loss of function",
+          "Presence"
+        ],
+        "phenotype": "Gating Variant (Strong)"
+      },
+      {
+        "diplotype": [
+          "Loss of function",
+          "Unknown"
+        ],
+        "phenotype": "Gating Variant (Strong)"
+      }
+    ],
+    "gene": "CFTR",
+    "haplotypes": {
+      "A1067T": "Presence",
+      "A455E": "Presence",
+      "D110E": "Presence",
+      "D110H": "Presence",
+      "D1152H": "Presence",
+      "D1270N": "Presence",
+      "D579G": "Presence",
+      "E193K": "Presence",
+      "E56K": "Presence",
+      "F1052V": "Presence",
+      "F1074L": "Presence",
+      "F508del(CTT)": "No function",
+      "F508del(TCT)": "No function",
+      "G1069R": "Presence",
+      "G1244E": "Decreased function",
+      "G1349D": "Decreased function",
+      "G178R": "Decreased function",
+      "G551D": "Loss of function",
+      "G551S": "Decreased function",
+      "K1060T": "Presence",
+      "L206W": "Presence",
+      "Other": "Unknown",
+      "P67L": "Presence",
+      "R1070Q": "Presence",
+      "R1070W": "Presence",
+      "R117C": "Presence",
+      "R117H": "Class IV",
+      "R347H": "Presence",
+      "R352Q": "Presence",
+      "R74W": "Presence",
+      "S1251N": "Decreased function",
+      "S1255P": "Decreased function",
+      "S549N": "Decreased function",
+      "S549R(A>C)": "Decreased function",
+      "S549R(T>G)": "Decreased function",
+      "S945L": "Presence",
+      "S977F": "Presence"
+    }
+  },
+  {
+    "diplotypes": [
+      {
+        "diplotype": [
+          "Increased function",
+          "Increased function"
+        ],
+        "phenotype": "Ultra Rapid Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Decreased function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "No function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "No function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Increased function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Normal function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "No function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Normal function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "Normal function"
+        ],
+        "phenotype": "Rapid Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Uncertain function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Uncertain function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Unknown function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      }
+    ],
+    "gene": "CYP2B6",
+    "haplotypes": {
+      "*1": "Normal function",
+      "*10": "Uncertain function",
+      "*11": "Uncertain function",
+      "*12": "No function",
+      "*13": "No function",
+      "*14": "Uncertain function",
+      "*15": "Uncertain function",
+      "*16": "Decreased function",
+      "*17": "Normal function",
+      "*18": "No function",
+      "*19": "Decreased function",
+      "*2": "Normal function",
+      "*20": "Decreased function",
+      "*21": "Uncertain function",
+      "*22": "Increased function",
+      "*23": "Unknown function",
+      "*24": "No function",
+      "*25": "Unknown function",
+      "*26": "Decreased function",
+      "*27": "Uncertain function",
+      "*28": "No function",
+      "*29": "Decreased function",
+      "*3": "Uncertain function",
+      "*30": "No function",
+      "*31": "Normal function",
+      "*32": "Normal function",
+      "*33": "Uncertain function",
+      "*34": "Decreased function",
+      "*35": "No function",
+      "*36": "Decreased function",
+      "*37": "No function",
+      "*38": "No function",
+      "*4": "Increased function",
+      "*5": "Normal function",
+      "*6": "Decreased function",
+      "*7": "Decreased function",
+      "*8": "No function",
+      "*9": "Decreased function"
+    }
+  },
+  {
+    "diplotypes": [
+      {
+        "diplotype": [
+          "Increased function",
+          "Increased function"
+        ],
+        "phenotype": "Ultrarapid Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "No function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Normal function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "No function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Decreased function"
+        ],
+        "phenotype": "Likely Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Increased function"
+        ],
+        "phenotype": "Likely Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Normal function"
+        ],
+        "phenotype": "Likely Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Uncertain function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "No function"
+        ],
+        "phenotype": "Likely Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "Normal function"
+        ],
+        "phenotype": "Rapid Metabolizer"
+      }
+    ],
     "gene": "CYP2C19",
     "haplotypes": {
-      "*1": "Normal Function",
-      "*2": "No Function",
-      "*3": "No Function",
-      "*4A": "No Function",
-      "*4B": "No Function",
-      "*5": "No Function",
-      "*6": "No Function",
-      "*7": "No Function",
-      "*8": "No Function",
-      "*9": "Decreased Function",
-      "*10": "Decreased Function",
-      "*11": "Normal Function",
-      "*12": "Uncertain Function",
-      "*13": "Normal Function",
-      "*14": "Uncertain Function",
-      "*15": "Normal Function",
-      "*16": "Decreased Function",
-      "*17": "Increased Function",
-      "*18": "Normal Function",
-      "*19": "Decreased Function",
-      "*22": "No Function",
-      "*23": "Uncertain Function",
-      "*24": "No Function",
-      "*25": "Decreased Function",
-      "*26": "Decreased Function",
-      "*27": "Uncertain Function",
-      "*28": "Normal Function",
-      "*29": "Uncertain Function",
-      "*30": "Uncertain Function",
-      "*31": "Uncertain Function",
-      "*32": "Uncertain Function",
-      "*33": "Uncertain Function",
-      "*34": "Uncertain Function",
-      "*35": "No Function"
-    },
-    "diplotypes": [
-      {
-        "phenotype": "Ultrarapid Metabolizer",
-        "diplotype": [
-          "Increased Function",
-          "Increased Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Decreased Function",
-          "Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Increased Function",
-          "Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "No Function",
-          "Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Normal Function",
-          "Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Uncertain Function",
-          "Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer",
-        "diplotype": [
-          "Increased Function",
-          "No Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer",
-        "diplotype": [
-          "No Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Likely Intermediate Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Decreased Function"
-        ]
-      },
-      {
-        "phenotype": "Likely Intermediate Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Increased Function"
-        ]
-      },
-      {
-        "phenotype": "Likely Intermediate Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Likely Poor Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "No Function"
-        ]
-      },
-      {
-        "phenotype": "Normal Metabolizer",
-        "diplotype": [
-          "Normal Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Poor Metabolizer",
-        "diplotype": [
-          "No Function",
-          "No Function"
-        ]
-      },
-      {
-        "phenotype": "Rapid Metabolizer",
-        "diplotype": [
-          "Increased Function",
-          "Normal Function"
-        ]
-      }
-    ]
+      "*1": "Normal function",
+      "*10": "Decreased function",
+      "*11": "Normal function",
+      "*12": "Uncertain function",
+      "*13": "Normal function",
+      "*14": "Uncertain function",
+      "*15": "Normal function",
+      "*16": "Decreased function",
+      "*17": "Increased function",
+      "*18": "Normal function",
+      "*19": "Decreased function",
+      "*2": "No function",
+      "*22": "No function",
+      "*23": "Uncertain function",
+      "*24": "No function",
+      "*25": "Decreased function",
+      "*26": "Decreased function",
+      "*28": "Normal function",
+      "*29": "Uncertain function",
+      "*3": "No function",
+      "*30": "Uncertain function",
+      "*31": "Uncertain function",
+      "*32": "Uncertain function",
+      "*33": "Uncertain function",
+      "*34": "Uncertain function",
+      "*35": "No function",
+      "*4": "No function",
+      "*5": "No function",
+      "*6": "No function",
+      "*7": "No function",
+      "*8": "No function",
+      "*9": "Decreased function"
+    }
   },
   {
+    "diplotypes": [
+      {
+        "diplotype": [
+          "Decreased function",
+          "No function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Decreased function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "No function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Increased function"
+        ],
+        "phenotype": "Ultrarapid Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "Increased function"
+        ],
+        "phenotype": "Ultrarapid Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "Normal function"
+        ],
+        "phenotype": "Ultrarapid Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "No function"
+        ],
+        "phenotype": "Ultrarapid Metabolizer or Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Uncertain function",
+          "Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Uncertain function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Unknown function",
+          "Unknown function"
+        ],
+        "phenotype": "Indeterminate"
+      }
+    ],
     "gene": "CYP2D6",
     "haplotypes": {
-      "*1": "Normal Function",
-      "*1xN": "Increased Function",
-      "*2": "Normal Function",
-      "*2xN": "Increased Function",
-      "*3": "No Function",
-      "*3xN": "No Function",
-      "*4": "No Function",
-      "*4xN": "No Function",
-      "*5": "No Function",
-      "*6": "No Function",
-      "*6xN": "No Function",
-      "*7": "No Function",
-      "*8": "No Function",
-      "*9": "Decreased Function",
-      "*9x2": "Normal Function",
-      "*10": "Decreased Function",
-      "*10x2": "Normal Function",
-      "*11": "No Function",
-      "*12": "No Function",
-      "*13": "No Function",
-      "*14A": "No Function",
-      "*14B": "Decreased Function",
-      "*15": "No Function",
-      "*17": "Decreased Function",
-      "*17x2": "Normal Function",
-      "*18": "No Function",
-      "*19": "No Function",
-      "*20": "No Function",
-      "*21": "No Function",
-      "*22": "Uncertain Function",
-      "*23": "Uncertain Function",
-      "*24": "Uncertain Function",
-      "*25": "Uncertain Function",
-      "*26": "Uncertain Function",
-      "*27": "Normal Function",
-      "*28": "Uncertain Function",
-      "*29": "Decreased Function",
-      "*29x2": "Normal Function",
-      "*30": "Uncertain Function",
-      "*31": "No Function",
-      "*32": "Uncertain Function",
-      "*33": "Normal Function",
-      "*34": "Normal Function",
-      "*35": "Normal Function",
-      "*35xN": "Increased Function",
-      "*36": "No Function",
-      "*36xN": "No Function",
-      "*37": "Uncertain Function",
-      "*38": "No Function",
-      "*39": "Normal Function",
-      "*40": "No Function",
-      "*41": "Decreased Function",
-      "*41x2": "Normal Function",
-      "*42": "No Function",
-      "*43": "Uncertain Function",
-      "*44": "No Function",
-      "*45": "Normal Function",
-      "*45xN": "Increased Function",
-      "*46": "Normal Function",
-      "*47": "No Function",
-      "*48": "Normal Function",
-      "*49": "Decreased Function",
-      "*50": "Decreased Function",
-      "*51": "No Function",
-      "*52": "Uncertain Function",
-      "*53": "Normal Function",
-      "*54": "Decreased Function",
-      "*55": "Decreased Function",
-      "*56": "No Function",
-      "*57": "No Function",
-      "*58": "Unknown Function",
-      "*59": "Decreased Function",
-      "*60": "Unknown Function",
-      "*61": "Uncertain Function",
-      "*62": "No Function",
-      "*63": "Uncertain Function",
-      "*64": "Uncertain Function",
-      "*65": "Uncertain Function",
-      "*68": "No Function",
-      "*69": "No Function",
-      "*70": "Uncertain Function",
-      "*71": "Uncertain Function",
-      "*72": "Decreased Function",
-      "*73": "Unknown Function",
-      "*74": "Unknown Function",
-      "*75": "Uncertain Function",
-      "*81": "Uncertain Function",
-      "*82": "Unknown Function",
-      "*83": "Unknown Function",
-      "*84": "Decreased Function",
-      "*85": "Unknown Function",
-      "*86": "Unknown Function",
-      "*87": "Uncertain Function",
-      "*88": "Uncertain Function",
-      "*89": "Uncertain Function",
-      "*90": "Uncertain Function",
-      "*91": "Uncertain Function",
-      "*92": "No Function",
-      "*93": "Uncertain Function",
-      "*94": "Uncertain Function",
-      "*95": "Uncertain Function",
-      "*96": "No Function",
-      "*97": "Uncertain Function",
-      "*98": "Uncertain Function",
-      "*99": "No Function",
-      "*100": "No Function",
-      "*101": "No Function",
-      "*102": "Unknown Function",
-      "*103": "Unknown Function",
-      "*104": "Unknown Function",
-      "*105": "Unknown Function",
-      "*107": "Unknown Function",
-      "*108": "Unknown Function",
-      "*109": "Unknown Function",
-      "*110": "Unknown Function",
-      "*111": "Unknown Function",
-      "*112": "Unknown Function",
-      "*113": "Unknown Function"
-    },
-    "diplotypes": [
-      {
-        "phenotype": "Normal Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Decreased Function"
-        ]
-      },
-      {
-        "phenotype": "Normal Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Normal Metabolizer",
-        "diplotype": [
-          "No Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Normal Metabolizer",
-        "diplotype": [
-          "Normal Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "No Function"
-        ]
-      },
-      {
-        "phenotype": "Poor Metabolizer",
-        "diplotype": [
-          "No Function",
-          "No Function"
-        ]
-      },
-      {
-        "phenotype": "Ultrarapid Metabolizer or Normal Metabolizer",
-        "diplotype": [
-          "Increased Function",
-          "No Function"
-        ]
-      },
-      {
-        "phenotype": "Ultrarapid Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Increased Function"
-        ]
-      },
-      {
-        "phenotype": "Ultrarapid Metabolizer",
-        "diplotype": [
-          "Increased Function",
-          "Increased Function"
-        ]
-      },
-      {
-        "phenotype": "Ultrarapid Metabolizer",
-        "diplotype": [
-          "Increased Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Decreased Function",
-          "Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Decreased Function",
-          "Unknown Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Increased Function",
-          "Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Increased Function",
-          "Unknown Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "No Function",
-          "Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "No Function",
-          "Unknown Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Normal Function",
-          "Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Normal Function",
-          "Unknown Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Uncertain Function",
-          "Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Uncertain Function",
-          "Unknown Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Unknown Function",
-          "Unknown Function"
-        ]
-      }
-    ]
+      "*1": "Normal function",
+      "*10": "Decreased function",
+      "*100": "No function",
+      "*101": "No function",
+      "*102": "Unknown function",
+      "*103": "Unknown function",
+      "*104": "Unknown function",
+      "*105": "Unknown function",
+      "*106": "Uncertain function",
+      "*107": "Unknown function",
+      "*108": "Unknown function",
+      "*109": "Unknown function",
+      "*11": "No function",
+      "*110": "Unknown function",
+      "*111": "Unknown function",
+      "*112": "Unknown function",
+      "*113": "Unknown function",
+      "*114": "No function",
+      "*12": "No function",
+      "*13": "No function",
+      "*14": "Decreased function",
+      "*15": "No function",
+      "*17": "Decreased function",
+      "*17x2": "Normal function",
+      "*18": "No function",
+      "*19": "No function",
+      "*1xN": "Increased function",
+      "*2": "Normal function",
+      "*20": "No function",
+      "*21": "No function",
+      "*22": "Uncertain function",
+      "*23": "Uncertain function",
+      "*24": "Uncertain function",
+      "*25": "Uncertain function",
+      "*26": "Uncertain function",
+      "*27": "Normal function",
+      "*28": "Uncertain function",
+      "*29": "Decreased function",
+      "*29x2": "Normal function",
+      "*2xN": "Increased function",
+      "*3": "No function",
+      "*30": "Uncertain function",
+      "*31": "No function",
+      "*32": "Uncertain function",
+      "*33": "Normal function",
+      "*34": "Normal function",
+      "*35": "Normal function",
+      "*35xN": "Increased function",
+      "*36": "No function",
+      "*36xN": "No function",
+      "*37": "Uncertain function",
+      "*38": "No function",
+      "*39": "Normal function",
+      "*3xN": "No function",
+      "*4": "No function",
+      "*40": "No function",
+      "*41": "Decreased function",
+      "*41x2": "Normal function",
+      "*42": "No function",
+      "*43": "Uncertain function",
+      "*44": "No function",
+      "*45": "Normal function",
+      "*45xN": "Increased function",
+      "*46": "Normal function",
+      "*47": "No function",
+      "*48": "Normal function",
+      "*49": "Decreased function",
+      "*4xN": "No function",
+      "*5": "No function",
+      "*50": "Decreased function",
+      "*51": "No function",
+      "*52": "Uncertain function",
+      "*53": "Normal function",
+      "*54": "Decreased function",
+      "*55": "Decreased function",
+      "*56": "No function",
+      "*57": "No function",
+      "*58": "Unknown function",
+      "*59": "Decreased function",
+      "*6": "No function",
+      "*60": "No function",
+      "*61": "Uncertain function",
+      "*62": "No function",
+      "*63": "Uncertain function",
+      "*64": "Uncertain function",
+      "*65": "Uncertain function",
+      "*68": "No function",
+      "*69": "No function",
+      "*6xN": "No function",
+      "*7": "No function",
+      "*70": "Uncertain function",
+      "*71": "Uncertain function",
+      "*72": "Decreased function",
+      "*73": "Unknown function",
+      "*74": "Unknown function",
+      "*75": "Uncertain function",
+      "*8": "No function",
+      "*81": "Uncertain function",
+      "*82": "Unknown function",
+      "*83": "Unknown function",
+      "*84": "Decreased function",
+      "*85": "Unknown function",
+      "*86": "Unknown function",
+      "*87": "Uncertain function",
+      "*88": "Uncertain function",
+      "*89": "Uncertain function",
+      "*9": "Decreased function",
+      "*90": "Uncertain function",
+      "*91": "Uncertain function",
+      "*92": "No function",
+      "*93": "Uncertain function",
+      "*94": "Uncertain function",
+      "*95": "Uncertain function",
+      "*96": "No function",
+      "*97": "Uncertain function",
+      "*98": "Uncertain function",
+      "*99": "No function",
+      "*9x2": "Normal function"
+    }
   },
   {
+    "diplotypes": [
+      {
+        "diplotype": [
+          "Normal function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Normal function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Normal function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Decreased function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "No function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "No function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Possible Decreased function"
+        ],
+        "phenotype": "Possible Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Possible Decreased function"
+        ],
+        "phenotype": "Possible Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Possible Decreased function",
+          "Possible Decreased function"
+        ],
+        "phenotype": "Possible Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Possible Decreased function"
+        ],
+        "phenotype": "Possible Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Possible Decreased function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Unknown or Uncertain function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      }
+    ],
     "gene": "CYP2C9",
     "haplotypes": {
-      "*1": "Normal Function",
-      "*2": "Decreased Function",
-      "*3": "Decreased Function",
-      "*4": "Possible Decreased Function",
-      "*5": "Possible Decreased Function",
-      "*6": "No Function",
-      "*7": "Unknown or Uncertain Function",
-      "*8": "Possible Decreased Function",
-      "*9": "Normal Function",
-      "*10": "Unknown or Uncertain Function",
-      "*11": "Possible Decreased Function",
-      "*12": "Possible Decreased Function",
-      "*13": "Possible Decreased Function",
-      "*14": "Unknown or Uncertain Function",
-      "*15": "No Function",
-      "*16": "Unknown or Uncertain Function",
-      "*17": "Unknown or Uncertain Function",
-      "*18": "Unknown or Uncertain Function",
-      "*19": "Unknown or Uncertain Function",
-      "*20": "Unknown or Uncertain Function",
-      "*21": "Unknown or Uncertain Function",
-      "*22": "Unknown or Uncertain Function",
-      "*23": "Unknown or Uncertain Function",
-      "*24": "Unknown or Uncertain Function",
-      "*25": "No Function",
-      "*26": "Unknown or Uncertain Function",
-      "*27": "Unknown or Uncertain Function",
-      "*28": "Unknown or Uncertain Function",
-      "*29": "Unknown or Uncertain Function",
-      "*30": "Unknown or Uncertain Function",
-      "*31": "Possible Decreased Function",
-      "*32": "Unknown or Uncertain Function",
-      "*33": "Unknown or Uncertain Function",
-      "*34": "Unknown or Uncertain Function",
-      "*35": "Unknown or Uncertain Function",
-      "*36": "Unknown or Uncertain Function",
-      "*37": "Unknown or Uncertain Function",
-      "*38": "Unknown or Uncertain Function",
-      "*39": "Unknown or Uncertain Function",
-      "*40": "Unknown or Uncertain Function",
-      "*41": "Unknown or Uncertain Function",
-      "*42": "Unknown or Uncertain Function",
-      "*43": "Unknown or Uncertain Function",
-      "*44": "Unknown or Uncertain Function",
-      "*45": "Unknown or Uncertain Function",
-      "*46": "Unknown or Uncertain Function",
-      "*47": "Unknown or Uncertain Function",
-      "*48": "Unknown or Uncertain Function",
-      "*49": "Unknown or Uncertain Function",
-      "*50": "Unknown or Uncertain Function",
-      "*51": "Unknown or Uncertain Function",
-      "*52": "Unknown or Uncertain Function",
-      "*53": "Unknown or Uncertain Function",
-      "*54": "Unknown or Uncertain Function",
-      "*55": "Unknown or Uncertain Function",
-      "*56": "Unknown or Uncertain Function",
-      "*57": "Unknown or Uncertain Function"
-    },
-    "diplotypes": [
-      {
-        "phenotype": "Normal Metabolizer",
-        "diplotype": [
-          "Normal Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer",
-        "diplotype": [
-          "No Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Poor Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Decreased Function"
-        ]
-      },
-      {
-        "phenotype": "Poor Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "No Function"
-        ]
-      },
-      {
-        "phenotype": "Poor Metabolizer",
-        "diplotype": [
-          "No Function",
-          "No Function"
-        ]
-      },
-      {
-        "phenotype": "Possible Intermediate Metabolizer",
-        "diplotype": [
-          "Normal Function",
-          "Possible Decreased Function"
-        ]
-      },
-      {
-        "phenotype": "Possible Poor Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Possible Decreased Function"
-        ]
-      },
-      {
-        "phenotype": "Possible Poor Metabolizer",
-        "diplotype": [
-          "No Function",
-          "Possible Decreased Function"
-        ]
-      },
-      {
-        "phenotype": "Possible Poor Metabolizer",
-        "diplotype": [
-          "Possible Decreased Function",
-          "Possible Decreased Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Decreased Function",
-          "Unknown or Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "No Function",
-          "Unknown or Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Normal Function",
-          "Unknown or Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Possible Decreased Function",
-          "Unknown or Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Unknown or Uncertain Function",
-          "Unknown or Uncertain Function"
-        ]
-      }
-    ]
+      "*1": "Normal function",
+      "*10": "Unknown or Uncertain function",
+      "*11": "Possible Decreased function",
+      "*12": "Possible Decreased function",
+      "*13": "Possible Decreased function",
+      "*14": "Unknown or Uncertain function",
+      "*15": "No function",
+      "*16": "Unknown or Uncertain function",
+      "*17": "Unknown or Uncertain function",
+      "*18": "Unknown or Uncertain function",
+      "*19": "Unknown or Uncertain function",
+      "*2": "Decreased function",
+      "*20": "Unknown or Uncertain function",
+      "*21": "Unknown or Uncertain function",
+      "*22": "Unknown or Uncertain function",
+      "*23": "Unknown or Uncertain function",
+      "*24": "Unknown or Uncertain function",
+      "*25": "No function",
+      "*26": "Unknown or Uncertain function",
+      "*27": "Unknown or Uncertain function",
+      "*28": "Unknown or Uncertain function",
+      "*29": "Unknown or Uncertain function",
+      "*3": "Decreased function",
+      "*30": "Unknown or Uncertain function",
+      "*31": "Possible Decreased function",
+      "*32": "Unknown or Uncertain function",
+      "*33": "Unknown or Uncertain function",
+      "*34": "Unknown or Uncertain function",
+      "*35": "Unknown or Uncertain function",
+      "*36": "Unknown or Uncertain function",
+      "*37": "Unknown or Uncertain function",
+      "*38": "Unknown or Uncertain function",
+      "*39": "Unknown or Uncertain function",
+      "*4": "Possible Decreased function",
+      "*40": "Unknown or Uncertain function",
+      "*41": "Unknown or Uncertain function",
+      "*42": "Unknown or Uncertain function",
+      "*43": "Unknown or Uncertain function",
+      "*44": "Unknown or Uncertain function",
+      "*45": "Unknown or Uncertain function",
+      "*46": "Unknown or Uncertain function",
+      "*47": "Unknown or Uncertain function",
+      "*48": "Unknown or Uncertain function",
+      "*49": "Unknown or Uncertain function",
+      "*5": "Possible Decreased function",
+      "*50": "Unknown or Uncertain function",
+      "*51": "Unknown or Uncertain function",
+      "*52": "Unknown or Uncertain function",
+      "*53": "Unknown or Uncertain function",
+      "*54": "Unknown or Uncertain function",
+      "*55": "Unknown or Uncertain function",
+      "*56": "Unknown or Uncertain function",
+      "*57": "Unknown or Uncertain function",
+      "*6": "No function",
+      "*7": "Unknown or Uncertain function",
+      "*8": "Possible Decreased function",
+      "*9": "Normal function"
+    }
   },
   {
+    "diplotypes": [
+      {
+        "diplotype": [
+          "No function",
+          "Unknown"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Unknown",
+          "Unknown"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Normal function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "No function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Unknown"
+        ],
+        "phenotype": "Possible Intermediate Metabolizer"
+      }
+    ],
     "gene": "CYP3A5",
     "haplotypes": {
-      "*1": "Normal Function",
-      "*2": "Unknown or Uncertain Function",
-      "*3": "No Function",
-      "*4": "Unknown or Uncertain Function",
-      "*5": "Unknown or Uncertain Function",
-      "*6": "No Function",
-      "*7": "No Function",
-      "*8": "Unknown or Uncertain Function",
-      "*9": "Unknown or Uncertain Function"
-    },
-    "diplotypes": [
-      {
-        "phenotype": "Normal Metabolizer",
-        "diplotype": [
-          "Normal Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "No Function",
-          "Unknown or Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Unknown or Uncertain Function",
-          "Unknown or Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer",
-        "diplotype": [
-          "No Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Poor Metabolizer",
-        "diplotype": [
-          "No Function",
-          "No Function"
-        ]
-      },
-      {
-        "phenotype": "Possible Intermediate Metabolizer",
-        "diplotype": [
-          "Normal Function",
-          "Unknown or Uncertain Function"
-        ]
-      }
-    ]
+      "*1": "Normal function",
+      "*2": "Unknown",
+      "*3": "No function",
+      "*4": "Unknown",
+      "*5": "Unknown",
+      "*6": "No function",
+      "*7": "No function",
+      "*8": "Unknown",
+      "*9": "Unknown"
+    }
   },
   {
+    "diplotypes": [
+      {
+        "diplotype": [
+          "Favorable response allele",
+          "Favorable response allele"
+        ],
+        "phenotype": "Favorable response genotype"
+      },
+      {
+        "diplotype": [
+          "Favorable response allele",
+          "Unfavorable response allele"
+        ],
+        "phenotype": "Unfavorable response genotype"
+      },
+      {
+        "diplotype": [
+          "Unfavorable response allele",
+          "Unfavorable response allele"
+        ],
+        "phenotype": "Unfavorable response genotype"
+      }
+    ],
+    "gene": "IFNL3",
+    "haplotypes": {
+      "rs12979860C": "Favorable response allele",
+      "rs12979860T": "Unfavorable response allele"
+    }
+  },
+  {
+    "diplotypes": [
+      {
+        "diplotype": [
+          "No function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Possible Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Unknown or Uncertain function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Normal function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "No function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      }
+    ],
+    "gene": "NUDT15"
+  },
+  {
+    "diplotypes": [
+      {
+        "diplotype": [
+          "Increased function",
+          "Increased function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Increased function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Increased function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Normal function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Decreased function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      }
+    ],
     "gene": "UGT1A1",
     "haplotypes": {
-      "*1": "Normal Function",
-      "*6": "Decreased Function",
-      "*27": "Decreased Function",
-      "*28": "Decreased Function",
-      "*36": "Increased Function",
-      "*37": "Decreased Function",
-      "*60": "Normal Function",
-      "*80": "Decreased Function"
-    },
-    "diplotypes": [
-      {
-        "phenotype": "Normal Metabolizer",
-        "diplotype": [
-          "Increased Function",
-          "Increased Function"
-        ]
-      },
-      {
-        "phenotype": "Normal Metabolizer",
-        "diplotype": [
-          "Increased Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Normal Metabolizer",
-        "diplotype": [
-          "Normal Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Increased Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Poor Metabolizer",
-        "diplotype": [
-          "Decreased Function",
-          "Decreased Function"
-        ]
-      }
-    ]
+      "*1": "Normal function",
+      "*27": "Decreased function",
+      "*28": "Decreased function",
+      "*36": "Increased function",
+      "*37": "Decreased function",
+      "*6": "Decreased function",
+      "*60": "Normal function",
+      "*80": "Decreased function"
+    }
   },
   {
+    "diplotypes": [
+      {
+        "diplotype": [
+          "Decreased function",
+          "No function"
+        ],
+        "phenotype": "Poor Metabolizer with Activity Score of 0.5"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Decreased function"
+        ],
+        "phenotype": "Intermediate Metabolizer with Activity Score of 1"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Normal function"
+        ],
+        "phenotype": "Intermediate Metabolizer with Activity Score of 1"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer (Activity Score=2)"
+      },
+      {
+        "diplotype": [
+          "Decreased function",
+          "Normal function"
+        ],
+        "phenotype": "Intermediate Metabolizer with Activity Score of 1.5"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "No function"
+        ],
+        "phenotype": "Poor Metabolizer with Activity Score of 0"
+      }
+    ],
     "gene": "DPYD",
     "haplotypes": {
-      "Any normal function variant or no variant detected": "Normal Function",
-      "c.295_298delTCAT": "No Function",
-      "c.557A>G": "Decreased Function",
-      "c.703C>T": "No Function",
-      "c.1129-5923C>G": "Decreased Function",
-      "c.1156G>T": "No Function",
-      "c.1679T>G": "No Function",
-      "c.1898delC": "No Function",
-      "c.1905+1G>A": "No Function",
-      "c.2846A>T": "Decreased Function",
-      "c.2983G>T": "No Function"
-    },
-    "diplotypes": [
-      {
-        "phenotype": "Poor Metabolizer with Activity Score of 0.5",
-        "diplotype": [
-          "Decreased Function",
-          "No Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer with Activity Score of 1",
-        "diplotype": [
-          "Decreased Function",
-          "Decreased Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer with Activity Score of 1",
-        "diplotype": [
-          "No Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Normal Metabolizer (Activity Score=2)",
-        "diplotype": [
-          "Normal Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer with Activity Score of 1.5",
-        "diplotype": [
-          "Decreased Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Poor Metabolizer with Activity Score of 0",
-        "diplotype": [
-          "No Function",
-          "No Function"
-        ]
-      }
-    ]
+      "Any normal function variant or no variant detected": "Normal function",
+      "c.1129-5923C>G": "Decreased function",
+      "c.1156G>T": "No function",
+      "c.1679T>G": "No function",
+      "c.1898delC": "No function",
+      "c.1905+1G>A": "No function",
+      "c.2846A>T": "Decreased function",
+      "c.295_298delTCAT": "No function",
+      "c.2983G>T": "No function",
+      "c.557A>G": "Decreased function",
+      "c.703C>T": "No function"
+    }
   },
   {
+    "diplotypes": [
+      {
+        "diplotype": [
+          "No function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Possible Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Unknown or Uncertain function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
+      },
+      {
+        "diplotype": [
+          "Normal function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "Normal function"
+        ],
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "diplotype": [
+          "No function",
+          "No function"
+        ],
+        "phenotype": "Poor Metabolizer"
+      }
+    ],
     "gene": "TPMT",
     "haplotypes": {
-      "*1": "Normal Function",
-      "*1S": "Normal Function",
-      "*2": "No Function",
-      "*3A": "No Function",
-      "*3B": "No Function",
-      "*3C": "No Function",
-      "*4": "No Function",
-      "*5": "Probable Decreased Function",
-      "*6": "Probable Decreased Function",
-      "*7": "Unknown or Uncertain Function",
-      "*8": "Probable Decreased Function",
-      "*9": "Probable Decreased Function",
+      "*1": "Normal function",
       "*10": "Probable Decreased Function",
       "*11": "Probable Decreased Function",
       "*12": "Probable Decreased Function",
       "*13": "Probable Decreased Function",
-      "*14": "Unknown or Uncertain Function",
-      "*15": "Unknown or Uncertain Function",
+      "*14": "Unknown or Uncertain function",
+      "*15": "Unknown or Uncertain function",
       "*16": "Probable Decreased Function",
       "*17": "Probable Decreased Function",
       "*18": "Probable Decreased Function",
-      "*19": "Unknown or Uncertain Function",
-      "*20": "Unknown or Uncertain Function",
-      "*21": "Unknown or Uncertain Function",
-      "*22": "Unknown or Uncertain Function",
-      "*23": "Unknown or Uncertain Function",
-      "*24": "Unknown or Uncertain Function",
-      "*25": "Unknown or Uncertain Function",
-      "*26": "Unknown or Uncertain Function",
-      "*27": "Unknown or Uncertain Function",
-      "*28": "Unknown or Uncertain Function",
-      "*29": "Unknown or Uncertain Function",
-      "*30": "Unknown or Uncertain Function",
-      "*31": "Unknown or Uncertain Function"
-    },
-    "diplotypes": [
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "No Function",
-          "Probable Decreased Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "No Function",
-          "Unknown or Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Normal Function",
-          "Probable Decreased Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Normal Function",
-          "Unknown or Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Probable Decreased Function",
-          "Probable Decreased Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Probable Decreased Function",
-          "Unknown or Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Indeterminate",
-        "diplotype": [
-          "Unknown or Uncertain Function",
-          "Unknown or Uncertain Function"
-        ]
-      },
-      {
-        "phenotype": "Intermediate Metabolizer",
-        "diplotype": [
-          "No Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Normal Metabolizer",
-        "diplotype": [
-          "Normal Function",
-          "Normal Function"
-        ]
-      },
-      {
-        "phenotype": "Poor Metabolizer",
-        "diplotype": [
-          "No Function",
-          "No Function"
-        ]
-      }
-    ]
+      "*19": "Unknown or Uncertain function",
+      "*1S": "Normal function",
+      "*2": "No function",
+      "*20": "Unknown or Uncertain function",
+      "*21": "Unknown or Uncertain function",
+      "*22": "Unknown or Uncertain function",
+      "*23": "Unknown or Uncertain function",
+      "*24": "Unknown or Uncertain function",
+      "*25": "Unknown or Uncertain function",
+      "*26": "Unknown or Uncertain function",
+      "*27": "Unknown or Uncertain function",
+      "*28": "Unknown or Uncertain function",
+      "*29": "Unknown or Uncertain function",
+      "*30": "Unknown or Uncertain function",
+      "*31": "Unknown or Uncertain function",
+      "*3A": "No function",
+      "*3B": "No function",
+      "*3C": "No function",
+      "*4": "No function",
+      "*5": "Probable Decreased Function",
+      "*6": "Probable Decreased Function",
+      "*7": "Unknown or Uncertain function",
+      "*8": "Probable Decreased Function",
+      "*9": "Probable Decreased Function"
+    }
   },
   {
-    "gene": "SLCO1B1",
-    "haplotypes": {
-      "*1A": "Normal Function",
-      "*1B": "Normal Function",
-      "*2": "Possible Decreased Function",
-      "*3": "Possible Decreased Function",
-      "*4": "Unknown or Uncertain Function",
-      "*5": "Decreased Function",
-      "*6": "Possible Decreased Function",
-      "*7": "Unknown or Uncertain Function",
-      "*8": "Unknown or Uncertain Function",
-      "*9": "Possible Decreased Function",
-      "*10": "Possible Decreased Function",
-      "*11": "Unknown or Uncertain Function",
-      "*12": "Unknown or Uncertain Function",
-      "*13": "Unknown or Uncertain Function",
-      "*14": "Possible Increased Function",
-      "*15": "Decreased Function",
-      "*16": "Unknown or Uncertain Function",
-      "*17": "Decreased Function",
-      "*18": "Unknown or Uncertain Function",
-      "*19": "Unknown or Uncertain Function",
-      "*20": "Unknown or Uncertain Function",
-      "*21": "Unknown or Uncertain Function",
-      "*22": "Unknown or Uncertain Function",
-      "*23": "Possible Decreased Function",
-      "*24": "Unknown or Uncertain Function",
-      "*25": "Unknown or Uncertain Function",
-      "*26": "Unknown or Uncertain Function",
-      "*27": "Unknown or Uncertain Function",
-      "*28": "Unknown or Uncertain Function",
-      "*29": "Unknown or Uncertain Function",
-      "*30": "Unknown or Uncertain Function",
-      "*31": "Possible Decreased Function",
-      "*32": "Unknown or Uncertain Function",
-      "*33": "Unknown or Uncertain Function",
-      "*34": "Unknown or Uncertain Function",
-      "*35": "Possible Increased Function",
-      "*36": "Unknown or Uncertain Function"
-    },
     "diplotypes": [
       {
-        "phenotype": "Decreased Function",
         "diplotype": [
-          "Decreased Function",
-          "Normal Function"
-        ]
+          "Decreased function",
+          "Possible Increased function"
+        ],
+        "phenotype": "Indeterminate"
       },
       {
-        "phenotype": "Poor Function",
         "diplotype": [
-          "Decreased Function",
-          "Decreased Function"
-        ]
+          "Decreased function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
       },
       {
-        "phenotype": "Normal Function",
         "diplotype": [
-          "Normal Function",
-          "Normal Function"
-        ]
+          "Normal function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
       },
       {
-        "phenotype": "Possible Increased Function",
         "diplotype": [
-          "Normal Function",
-          "Possible Increased Function"
-        ]
+          "Possible Decreased function",
+          "Possible Increased function"
+        ],
+        "phenotype": "Indeterminate"
       },
       {
-        "phenotype": "Possible Increased Function",
         "diplotype": [
-          "Possible Increased Function",
-          "Possible Increased Function"
-        ]
+          "Possible Decreased function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
       },
       {
-        "phenotype": "Possible Decreased Function",
         "diplotype": [
-          "Normal Function",
-          "Possible Decreased Function"
-        ]
+          "Possible Increased function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
       },
       {
-        "phenotype": "Possible Poor Function",
         "diplotype": [
-          "Decreased Function",
-          "Possible Decreased Function"
-        ]
+          "Unknown or Uncertain function",
+          "Unknown or Uncertain function"
+        ],
+        "phenotype": "Indeterminate"
       },
       {
-        "phenotype": "Possible Poor Function",
         "diplotype": [
-          "Possible Decreased Function",
-          "Possible Decreased Function"
-        ]
+          "Normal function",
+          "Normal function"
+        ],
+        "phenotype": "Normal Function"
       },
       {
-        "phenotype": "Indeterminate",
         "diplotype": [
-          "Decreased Function",
-          "Possible Increased Function"
-        ]
+          "Decreased function",
+          "Normal function"
+        ],
+        "phenotype": "Decreased Function"
       },
       {
-        "phenotype": "Indeterminate",
         "diplotype": [
-          "Decreased Function",
-          "Unknown or Uncertain Function"
-        ]
+          "Decreased function",
+          "Decreased function"
+        ],
+        "phenotype": "Poor Function"
       },
       {
-        "phenotype": "Indeterminate",
         "diplotype": [
-          "Normal Function",
-          "Unknown or Uncertain Function"
-        ]
+          "Normal function",
+          "Possible Increased function"
+        ],
+        "phenotype": "Possible Increased Function"
       },
       {
-        "phenotype": "Indeterminate",
         "diplotype": [
-          "Possible Decreased Function",
-          "Possible Increased Function"
-        ]
+          "Possible Increased function",
+          "Possible Increased function"
+        ],
+        "phenotype": "Possible Increased Function"
       },
       {
-        "phenotype": "Indeterminate",
         "diplotype": [
-          "Possible Decreased Function",
-          "Unknown or Uncertain Function"
-        ]
+          "Normal function",
+          "Possible Decreased function"
+        ],
+        "phenotype": "Possible Decreased Function"
       },
       {
-        "phenotype": "Indeterminate",
         "diplotype": [
-          "Possible Increased Function",
-          "Unknown or Uncertain Function"
-        ]
+          "Decreased function",
+          "Possible Decreased function"
+        ],
+        "phenotype": "Possible Poor Function"
       },
       {
-        "phenotype": "Indeterminate",
         "diplotype": [
-          "Unknown or Uncertain Function",
-          "Unknown or Uncertain Function"
-        ]
+          "Possible Decreased function",
+          "Possible Decreased function"
+        ],
+        "phenotype": "Possible Poor Function"
       }
-    ]
+    ],
+    "gene": "SLCO1B1",
+    "haplotypes": {
+      "*10": "Possible Decreased function",
+      "*11": "Unknown or Uncertain function",
+      "*12": "Unknown or Uncertain function",
+      "*13": "Unknown or Uncertain function",
+      "*14": "Possible Increased function",
+      "*15": "Decreased function",
+      "*16": "Unknown or Uncertain function",
+      "*17": "Decreased function",
+      "*18": "Unknown or Uncertain function",
+      "*19": "Unknown or Uncertain function",
+      "*1A": "Normal function",
+      "*1B": "Normal function",
+      "*2": "Possible Decreased function",
+      "*20": "Unknown or Uncertain function",
+      "*21": "Unknown or Uncertain function",
+      "*22": "Unknown or Uncertain function",
+      "*23": "Possible Decreased function",
+      "*24": "Unknown or Uncertain function",
+      "*25": "Unknown or Uncertain function",
+      "*26": "Unknown or Uncertain function",
+      "*27": "Unknown or Uncertain function",
+      "*28": "Unknown or Uncertain function",
+      "*29": "Unknown or Uncertain function",
+      "*3": "Possible Decreased function",
+      "*30": "Unknown or Uncertain function",
+      "*31": "Possible Decreased function",
+      "*32": "Unknown or Uncertain function",
+      "*33": "Unknown or Uncertain function",
+      "*34": "Unknown or Uncertain function",
+      "*35": "Possible Increased function",
+      "*36": "Unknown or Uncertain function",
+      "*4": "Unknown or Uncertain function",
+      "*5": "Decreased function",
+      "*6": "Possible Decreased function",
+      "*7": "Unknown or Uncertain function",
+      "*8": "Unknown or Uncertain function",
+      "*9": "Possible Decreased function"
+    }
   }
 ]

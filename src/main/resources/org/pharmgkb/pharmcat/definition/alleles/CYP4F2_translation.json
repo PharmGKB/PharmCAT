@@ -53,7 +53,7 @@
     {
       "name": "*1",
       "id": "CA100233.1",
-      "function": "Normal function",
+      "function": "",
       "alleles": [
         "A",
         "C"
@@ -63,7 +63,7 @@
     {
       "name": "*2",
       "id": "CA100234.1",
-      "function": "Normal or Increased Function",
+      "function": "",
       "alleles": [
         "C",
         null
@@ -73,7 +73,7 @@
     {
       "name": "*3",
       "id": "CA100235.1",
-      "function": "Decreased function",
+      "function": "",
       "alleles": [
         null,
         "T"

@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.pharmgkb.pharmcat.PharmCAT;
@@ -57,7 +55,7 @@ public class PharmCATTest {
 
 
     testCalledGenes("CYP2C19");
-    testCalls(DipType.PRINT,  "CYP2C19", "*1/*4B");
+    testCalls(DipType.PRINT,  "CYP2C19", "*1/*4");
 
     testMatchedGroups("citalopram", 1);
     testMatchedGroups("ivacaftor", 0);
@@ -87,7 +85,7 @@ public class PharmCATTest {
     testCalledGenes("CYP2C19", "CYP2D6");
 
     testCalls(DipType.PRINT, "CYP2D6", "*1/*4");
-    testCalls(DipType.PRINT, "CYP2C19", "*1/*4B");
+    testCalls(DipType.PRINT, "CYP2C19", "*1/*4");
 
     assertTrue(s_context.getGeneReport("CYP2D6").isOutsideCall());
   }
@@ -100,10 +98,11 @@ public class PharmCATTest {
         false);
 
     testCalledGenes("CFTR");
-    testCalls(DipType.PRINT, "CFTR", "F508del(CTT)/G542X");
+    // G542X is no longer defined for PharmCAT so only F508 should appear
+    testCalls(DipType.PRINT, "CFTR", "F508del(CTT) (heterozygous)");
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/Other");
 
-    assertTrue("Missing incidental allele", s_context.getGeneReports().stream().anyMatch(GeneReport::isIncidental));
+    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
 
   @Test
@@ -163,25 +162,6 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "CFTR", "F508del(CTT) (heterozygous)");
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/Other");
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
-  }
-
-  @Test
-  public void testCftrI507Missing() throws Exception {
-    generalTest("test.cftr.refI507missing", new String[]{
-            "cftr/refI507missing.vcf"
-        },
-        false);
-    
-    GeneReport gene = s_context.getGeneReport("CFTR");
-    VariantReport variant = gene.getVariantReports().stream()
-        .filter(v -> v.getDbSnpId().equals("rs121908745"))
-        .findFirst()
-        .orElseThrow(() -> new RuntimeException("rs121908745 should exist"));
-    assertTrue(variant.isMissing());
-    
-
-    testCalledGenes("CFTR");
     assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
   }
 
@@ -867,7 +847,7 @@ public class PharmCATTest {
     s_pharmcat.execute(tempVcfPath, astrolabePath, null);
     s_context = s_pharmcat.getReporter().getContext();
 
-    assertEquals(14, s_context.getGeneReports().size());
+    assertEquals(16, s_context.getGeneReports().size());
     assertEquals(32, s_context.getGuidelineReports().size());
   }
 
@@ -884,7 +864,7 @@ public class PharmCATTest {
         geneReport.printDisplayCalls()
         : new ArrayList<>(geneReport.getDiplotypeLookupKeys());
 
-    assertEquals(gene + " call count doesn't match " + dips.stream().collect(Collectors.joining(";")), calls.length, dips.size());
+    assertEquals(gene + " call count doesn't match " + String.join(";", dips), calls.length, dips.size());
 
     Arrays.stream(calls)
         .forEach(c -> assertTrue(c + " not in "+type+" for " + gene + ":" + dips + printDiagnostic(geneReport), dips.contains(c)));
@@ -921,18 +901,13 @@ public class PharmCATTest {
   }
 
   private void testMatchedGroups(String drugName, int count) {
-    Stream<GuidelineReport> guidelineStream = s_context.getGuidelineReports().stream()
-        .filter(r -> r.getRelatedDrugs().contains(drugName));
+    GuidelineReport guideline = s_context.getGuidelineReports().stream()
+        .filter(r -> r.getRelatedDrugs().contains(drugName))
+        .findFirst().orElseThrow(() -> new RuntimeException("No guideline found for " + drugName));
 
-    if (count > 0) {
-      assertTrue(
-          drugName + " does not have matching group count of " + count,
-          guidelineStream.allMatch(r -> r.getMatchingGroups().size() == count));
-    }
-    else {
-      assertTrue(
-          guidelineStream.allMatch(g -> g.getMatchingGroups() == null || g.getMatchingGroups().size() == 0));
-    }
+    assertEquals(drugName + " does not have matching group count of " + count,
+        guideline.getMatchingGroups().size(),
+        count);
   }
 
   private enum DipType {
