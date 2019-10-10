@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,7 +46,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
 
   private DosingGuideline m_dosingGuideline;
   private List<Group> m_groups;
-  private Set<Group> m_matchingGroups;
+  private SortedSet<Group> m_matchingGroups = new TreeSet<>();
   private Multimap<String,String> m_matchedDiplotypes = TreeMultimap.create();
   private boolean m_reportable = false;
   private Set<String> m_uncalledGenes = new TreeSet<>();
@@ -116,18 +117,15 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   }
 
   private void addMatchingGroup(Group group) {
-    if (m_matchingGroups == null) {
-      m_matchingGroups = new TreeSet<>();
-    }
     m_matchingGroups.add(group);
   }
 
   public boolean isMatched() {
-    return sf_notApplicableMatches.contains(getId()) || (m_matchingGroups != null && m_matchingGroups.size()>0);
+    return sf_notApplicableMatches.contains(getId()) || m_matchingGroups.size()>0;
   }
 
   public boolean hasMultipleMatches() {
-    return m_matchingGroups != null && m_matchingGroups.size()>1;
+    return m_matchingGroups.size()>1;
   }
 
   /**
