@@ -72,7 +72,7 @@ public class NamedAlleleMatcherCftrTest {
   @Test
   public void G551DG542X() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/G551DG542X.vcf");
-    List<String> expectedMatches = Lists.newArrayList("G542X/G551D");
+    List<String> expectedMatches = Lists.newArrayList("G551D/Reference");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);

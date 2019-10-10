@@ -20,14 +20,14 @@ public class PhenotypeMapTest {
 
     assertNotNull(phenotypeMap);
 
-    assertEquals(8, phenotypeMap.getGenes().size());
+    assertEquals(12, phenotypeMap.getGenes().size());
 
     assertEquals(
-        "No Function",
+        "No function",
         phenotypeMap.lookup("CYP2C9").orElseThrow(Exception::new).getHaplotypes().get("*6"));
 
     GenePhenotype genePhenotype = phenotypeMap.lookup("DPYD").orElseThrow(Exception::new);
     assertNotNull(genePhenotype);
-    assertEquals("Normal Function", genePhenotype.lookupHaplotype("Any normal function variant or no variant detected"));
+    assertEquals("Normal function", genePhenotype.lookupHaplotype("Any normal function variant or no variant detected"));
   }
 }

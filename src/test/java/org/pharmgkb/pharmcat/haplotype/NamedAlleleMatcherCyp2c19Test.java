@@ -53,7 +53,7 @@ public class NamedAlleleMatcherCyp2c19Test {
   public void cyp2c19s1s4b() throws Exception {
     // Test *1 *4b. s1s4b-longest wins(not s4as17)
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s4b.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*4B", "*4A/*17");
+    List<String> expectedMatches = Lists.newArrayList("*1/*4", "*4/*17");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -64,7 +64,7 @@ public class NamedAlleleMatcherCyp2c19Test {
   public void cyp2c19s1s4bMissingCalls() throws Exception {
     // Test *1 *4b - but with some of the calls deleted from the vcf.  As requested by Michelle.
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s4bMissing.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*4B", "*4A/*17");
+    List<String> expectedMatches = Lists.newArrayList("*1/*4", "*4/*17");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -75,7 +75,7 @@ public class NamedAlleleMatcherCyp2c19Test {
   public void cyp2c19s1s17s1s4bMissingCalls() throws Exception {
     // Test *1 *4b - but with 94762706	rs28399504	A	G	.	PASS	star-4a-4b	GT	./. to test partial call
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s17s1s4bmissing.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*17", "*1/*4B");
+    List<String> expectedMatches = Lists.newArrayList("*1/*17", "*1/*4", "*4/*17", "*4/*4");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -93,7 +93,7 @@ public class NamedAlleleMatcherCyp2c19Test {
 
      */
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s17s1s4bmissingmore.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*17", "*1/*4B");
+    List<String> expectedMatches = Lists.newArrayList("*1/*17", "*1/*4", "*4/*17", "*4/*4");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -137,7 +137,7 @@ public class NamedAlleleMatcherCyp2c19Test {
   public void cyp2c19s4as4b() throws Exception {
     // Test *4a *4b. het and homo rsids
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4as4b.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*4A/*4B");
+    List<String> expectedMatches = Lists.newArrayList("*4/*4");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -148,7 +148,7 @@ public class NamedAlleleMatcherCyp2c19Test {
   public void cyp2c19s4bs17() throws Exception {
     // Test *4b/*17
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4bs17.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*4B/*17");
+    List<String> expectedMatches = Lists.newArrayList("*4/*17");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -201,7 +201,7 @@ public class NamedAlleleMatcherCyp2c19Test {
   public void rs12769205call() throws Exception {
     // Test no call, but reporter can give output based on rs12769205
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/rs12769205call.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*27/*35");
+    List<String> expectedMatches = Lists.newArrayList("*1/*35");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -211,7 +211,7 @@ public class NamedAlleleMatcherCyp2c19Test {
   public void s4bs17rs28399504missing() throws Exception {
     // rs28399504 missing
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4bs17rs28399504missing.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*17/*17", "*17/*4B", "*4B/*4B");
+    List<String> expectedMatches = Lists.newArrayList("*17/*17", "*17/*4", "*4/*4");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -232,7 +232,7 @@ public class NamedAlleleMatcherCyp2c19Test {
   @Test
   public void s4s17het() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4s17het.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*4B");
+    List<String> expectedMatches = Lists.newArrayList("*1/*4");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true, true, true, true);
     assertDiplotypePairs(expectedMatches, result);
