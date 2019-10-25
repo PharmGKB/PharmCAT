@@ -12,7 +12,7 @@ the following modifications:
 1.  CYP3A5
     1.  The variant 12952T>C (rs55965422) is the defining variant of the \*5 allele but can also exist on the \*3 background (see [Pharmacogene Variation Consortium](https://www.pharmvar.org/gene/CYP3A5) CYP3A5\*3G). To account for this possibility an 'R' at position 12952T>C (rs55965422) is included in the \*3 definition. The inclusion of the ambiguous nucleotide 'R' in the \*3 definition results in a \*1/\*3 genotype call in case rs55965422 A\>G is present together with rs776746 T\>C since the match is based on the longer allele.
 2. CYP2C19
-    1.  rs3758581 (80161A>G, I331V) is not included in the PharmCAT allele definition table given the presence of these variant in almost all star alleles, including sub alleles of \*1.
+    1.  rs3758581 (80161A>G, I331V) is not included in the PharmCAT allele definition table given the presence of this variant in almost all star alleles, including sub alleles of \*1.
     2.  \*36 and \*37 are not included in the table since these alleles are a full or a partical deletion of CYP2C19. 
 4. SLCO1B1
     1.  CPIC provides recommendations based on the rs4149056 genotype or the SLCO1B1 star allele genotype as reporting       options in Table 1 of the SLCO1B1/simvastatin guideline \[PMID: 24918167\]. While PharmCAT attempts to determine the star allele genotype for SLCO1B1, in case no call can be determined it provides the CPIC recommendation based on the rs4149056 variant genotype.
