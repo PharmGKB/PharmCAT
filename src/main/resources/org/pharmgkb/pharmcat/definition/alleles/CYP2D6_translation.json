@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Oct 10, 2019 12:00:00 AM",
+  "modificationDate": "Oct 29, 2019 12:00:00 AM",
   "gene": "CYP2D6",
   "orientation": "reverse",
   "chromosome": "chr22",
@@ -1006,7 +1006,7 @@
     {
       "chromosome": "chr22",
       "position": 42127514,
-      "rsid": "rs267608293",
+      "rsid": null,
       "chromosomeHgvsName": "g.42127514A>G",
       "geneHgvsName": "g.7478T>C",
       "proteinNote": "I369T",
