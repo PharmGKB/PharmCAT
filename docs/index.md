@@ -20,7 +20,7 @@ Read [the PharmCAT wiki page on named allele matching](https://github.com/PharmG
 
 There are detailed documents on how a few particular genes are handled by PharmCAT. See the [gene definition exceptions](methods/gene-definition-exceptions) for a rundown of exceptional circumstances when analyzing particular genes. The genes [UGT1A1](methods/calling/UGT1A1) and [CFTR](methods/calling/CFTR) also have documentation of their non-standard allele matching algorithms.
 
-HLA's and G6PD are not included in the initial version of PharmCAT, see [PMID: 31306493] (https://www.ncbi.nlm.nih.gov/pubmed/?term=31306493) for further explanations. The allele definition tables used in PharmCAT are based on CPIC allele definition tables from 2018.  Newer guidelines (published after 2017) are not currently included in PharmCAT reports, covering additional genes RYR1, CACNA1S, NUTD15, CYP2B6 and recommendations for tamoxifen, atomoxetine, efavirenz, potent volatile anesthetic agents, succinylcholine.
+HLA's and G6PD are not included in the initial version of PharmCAT, see [PMID: 31306493] (https://www.ncbi.nlm.nih.gov/pubmed/?term=31306493) for further explanations. The allele definition tables used in PharmCAT are based on CPIC allele definition tables from 2018.  Newer guidelines (published after 2017) are NOT currently included in PharmCAT reports, covering additional genes RYR1, CACNA1S, NUTD15, CYP2B6 and recommendations for tamoxifen, atomoxetine, efavirenz, potent volatile anesthetic agents, succinylcholine and the DPYD update related to changes in recommendation for DPYD Intermediate Metabolizers. The CYP2D6 metabolizer grouping and the activity value for \*10 are NOT updated to the newly released consensus metabolizer groups for CYP2D6.
 
 ## Running PharmCAT
 
