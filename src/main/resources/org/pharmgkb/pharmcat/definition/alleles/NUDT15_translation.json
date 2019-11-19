@@ -277,7 +277,6 @@
     {
       "name": "*1",
       "id": "CA100269.1",
-      "function": "",
       "alleles": [
         "T",
         "G",
@@ -302,7 +301,6 @@
     {
       "name": "*2",
       "id": "CA100270.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -327,7 +325,6 @@
     {
       "name": "*3",
       "id": "CA100271.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -352,7 +349,6 @@
     {
       "name": "*4",
       "id": "CA100272.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -377,7 +373,6 @@
     {
       "name": "*5",
       "id": "CA100273.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -402,7 +397,6 @@
     {
       "name": "*6",
       "id": "CA100274.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -427,7 +421,6 @@
     {
       "name": "*7",
       "id": "CA100275.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -452,7 +445,6 @@
     {
       "name": "*8",
       "id": "CA100276.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -477,7 +469,6 @@
     {
       "name": "*9",
       "id": "CA100277.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -502,7 +493,6 @@
     {
       "name": "*10",
       "id": "CA100278.1",
-      "function": "",
       "alleles": [
         "C",
         null,
@@ -527,7 +517,6 @@
     {
       "name": "*11",
       "id": "CA100279.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -552,7 +541,6 @@
     {
       "name": "*12",
       "id": "CA100280.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -577,7 +565,6 @@
     {
       "name": "*13",
       "id": "CA100281.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -602,7 +589,6 @@
     {
       "name": "*14",
       "id": "CA100282.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -627,7 +613,6 @@
     {
       "name": "*15",
       "id": "CA100283.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -652,7 +637,6 @@
     {
       "name": "*16",
       "id": "CA100284.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -677,7 +661,6 @@
     {
       "name": "*17",
       "id": "CA100285.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -702,7 +685,6 @@
     {
       "name": "*18",
       "id": "CA100286.1",
-      "function": "",
       "alleles": [
         null,
         null,
@@ -727,7 +709,6 @@
     {
       "name": "*19",
       "id": "CA100287.1",
-      "function": "",
       "alleles": [
         null,
         "C",
