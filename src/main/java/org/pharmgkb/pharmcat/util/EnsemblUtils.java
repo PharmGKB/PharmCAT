@@ -2,8 +2,6 @@ package org.pharmgkb.pharmcat.util;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nonnull;
@@ -12,6 +10,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpHeaders;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 
 
@@ -38,22 +42,15 @@ public class EnsemblUtils {
   @Nullable
   public static VariantLocus download(@Nonnull String rsid) {
     VariantLocus variantLocus = null;
-
-    try {
-      URL url = new URL(String.format(sf_variantUrl, rsid));
-      HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-      conn.setRequestMethod("GET");
-      conn.setRequestProperty("Accept", "application/json");
-      conn.setRequestProperty("Content-Type", "application/json");
-      InputStream inputStream = conn.getInputStream();
-
-      variantLocus = parse(inputStream);
-    }
-
-    catch (Exception e) {
+    CloseableHttpClient httpclient = HttpClients.createDefault();
+    HttpGet httpGet = new HttpGet(String.format(sf_variantUrl, rsid));
+    httpGet.setHeader(HttpHeaders.ACCEPT, "application/json");
+    try (CloseableHttpResponse response = httpclient.execute(httpGet)) {
+      HttpEntity entity = response.getEntity();
+      variantLocus = parse(entity.getContent());
+    } catch (Exception e) {
       e.printStackTrace();
     }
-
     return variantLocus;
   }
 

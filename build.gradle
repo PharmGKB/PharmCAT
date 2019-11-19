@@ -70,7 +70,7 @@ dependencies {
       [group: 'com.google.http-client', name: 'google-http-client-gson', version: '1.22.0'],
       [group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'],
       [group: 'org.apache.commons', name: 'commons-text', version: '1.6'],
-      [group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.8'],
+      [group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.10'],
       [group: 'org.pharmgkb', name: 'pgkb-common', version: '0.2.2'],
       [group: 'org.pharmgkb', name: 'pgkb-common-io', version: '0.1.5'],
       [group: 'org.pharmgkb', name: 'vcf-parser', version: '0.2.0'],
