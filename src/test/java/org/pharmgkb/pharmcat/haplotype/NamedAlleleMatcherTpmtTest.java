@@ -42,7 +42,7 @@ public class NamedAlleleMatcherTpmtTest {
   public void tpmts1s1s() throws Exception {
     // without exemptions
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s1s1s.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1S/*1S");
+    List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
     Result result = NamedAlleleMatcherTest.testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, true, false);
     assertDiplotypePairs(expectedMatches, result);
