@@ -802,6 +802,19 @@ public class PharmCATTest {
 
 
   @Test
+  public void testCyp2c9star61() throws Exception {
+    generalTest("test.cyp2c9.s1s61", new String[] {
+            "cyp2c9/s1s61.vcf"
+        },
+        false);
+
+    testCalledGenes("CYP2C9");
+    testCalls(DipType.PRINT, "CYP2C9", "*1/*61");
+    testCalls(DipType.LOOKUP, "CYP2C9", "CYP2C9:*1/*61");
+  }
+
+
+  @Test
   public void testCombined() throws Exception {
     generalTest("test.combined", new String[]{
             "DPYD/s1s1.vcf",

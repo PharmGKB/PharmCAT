@@ -575,6 +575,10 @@ public class SyntheticBatchTest {
         "cyp2c9/s2s24only.vcf"
     });
 
+    sf_testVcfs.put("cyp2c9.s1s61", new String[]{
+        "cyp2c9/s1s61.vcf"
+    });
+
     sf_testVcfs.put("cyp2c19.rs12769205call", new String[]{
         "cyp2c19/rs12769205call.vcf"
     });

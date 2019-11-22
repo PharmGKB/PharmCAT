@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Oct 8, 2019 12:00:00 AM",
+  "modificationDate": "Nov 21, 2019 12:00:00 AM",
   "gene": "CYP2C9",
   "orientation": "forward",
   "chromosome": "chr10",
@@ -4818,7 +4818,7 @@
         null,
         null,
         null,
-        null,
+        "T",
         null,
         null,
         null,
