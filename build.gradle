@@ -68,6 +68,7 @@ dependencies {
       [group: 'com.google.guava', name: 'guava', version: '24.0-jre'],
       [group: 'com.google.gdata', name: 'core', version: '1.47.1'],
       [group: 'com.google.http-client', name: 'google-http-client-gson', version: '1.22.0'],
+      [group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'],
       [group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'],
       [group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'],
       [group: 'org.apache.commons', name: 'commons-text', version: '1.6'],
