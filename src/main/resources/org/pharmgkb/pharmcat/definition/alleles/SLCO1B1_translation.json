@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Mar 30, 2016 12:00:00 AM",
+  "modificationDate": "Mar 30, 2016, 12:00:00 AM",
   "gene": "SLCO1B1",
   "orientation": "forward",
   "chromosome": "chr12",
@@ -219,7 +219,7 @@
     {
       "chromosome": "chr12",
       "position": 21202553,
-      "rsid": null,
+      "rsid": "rs1228465562",
       "chromosomeHgvsName": "g.21202553T>G",
       "geneHgvsName": "g.76360T>G",
       "proteinNote": "F400V",
