@@ -135,10 +135,10 @@ public class ExtractPositions {
   }
 
 
-  /*
-  * Helper method to convert repeats into standard format
-  */
-  private static String expandAllele(@Nonnull String allele) {
+  /**
+   * Helper method to convert repeats into standard format
+   */
+  private static String expandRepeats(@Nonnull String allele) {
     String finalAllele = allele;
     if (allele.contains("(")) {
       int bracketStart=0;
@@ -168,10 +168,9 @@ public class ExtractPositions {
   }
 
 
-  /*
-  * For deletions we need to be able to get the nucleotide at the previous position.
-  * This is not stored in the definition file, so we need to use an external source.
-  *
+  /**
+   * For deletions we need to be able to get the nucleotide at the previous position.
+   * This is not stored in the definition file, so we need to use an external source.
    */
   private static String getDAS(String chr, String position, String genomeBuild) {
     String nucleotide= "";
@@ -198,9 +197,8 @@ public class ExtractPositions {
   }
 
 
-  /*
-  * Simple sorting of Vcf file on chr and position
-  *
+  /**
+   * Simple sorting of Vcf file on chr and position
    */
   private StringBuilder sortVcf (StringBuilder vcfString) {
     StringBuilder sortedVcfString = new StringBuilder();
@@ -238,9 +236,9 @@ public class ExtractPositions {
 
 
 
-  /*
-  * Helper method to convert repeats into standard format
-  */
+  /**
+   * Helper method to convert repeats into standard format
+   */
   private static String[] getVcfLineFromDefinition(@Nonnull DefinitionReader definitionReader, @Nonnull String gene,
       @Nonnull VariantLocus variantLocus, String genomeBuild) {
 
@@ -276,9 +274,9 @@ public class ExtractPositions {
     definitionFile.getNamedAlleles().stream()
         .filter(namedAllele -> namedAllele.getAllele(variantLocus) != null)
         .forEachOrdered(namedAllele -> {
-          if (!alts.contains(expandAllele(namedAllele.getAllele(variantLocus)))
-              && !finalAlleleRef.equals(expandAllele(namedAllele.getAllele(variantLocus)))) {
-            alts.add(expandAllele(namedAllele.getAllele(variantLocus)));
+          if (!alts.contains(expandRepeats(namedAllele.getAllele(variantLocus)))
+              && !finalAlleleRef.equals(expandRepeats(namedAllele.getAllele(variantLocus)))) {
+            alts.add(expandRepeats(namedAllele.getAllele(variantLocus)));
           }
 
       //calculate size of haplotype
@@ -290,7 +288,7 @@ public class ExtractPositions {
     if (alts.size() == 0 ) {
       alts.add(".");
     }
-    String finalAllele = expandAllele(allele);
+    String finalAllele = expandRepeats(allele);
     alts.remove(finalAllele); // get rid of any lingering duplicates
     if (alts.contains("Y")) {
       alts.remove("Y");
