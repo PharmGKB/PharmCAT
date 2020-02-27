@@ -7,6 +7,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,8 +48,8 @@ public class ExtractPositions {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Path sf_definitionDir = DataManager.DEFAULT_DEFINITION_DIR;
   private static final String sf_fileHeader = "##fileformat=VCFv4.1\n" +
-      "##fileDate=2015-08-04\n" +
-      "##source=Electronic, version: hg38_2.0.1\n" +
+      "##fileDate=%s\n" +
+      "##source=PharmCAT allele definitions\n" +
       "##reference=hg38\n" +
       "##INFO=<ID=PX,Number=.,Type=String,Description=\"PGX\">\n" +
       "##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n" +
@@ -107,7 +109,7 @@ public class ExtractPositions {
   // Build up vcf string
   public  StringBuilder getPositions(@Nonnull DefinitionReader definitionReader) {
     StringBuilder builder = new StringBuilder();
-    builder.append(sf_fileHeader);
+    builder.append(String.format(sf_fileHeader, DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now())));
     for (String gene : definitionReader.getGenes()) {  // for each definition file
       int positionCount = 0;
       // convert bXX format to hgXX
