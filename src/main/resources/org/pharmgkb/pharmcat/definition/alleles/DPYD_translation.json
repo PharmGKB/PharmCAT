@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Dec 18, 2019, 12:00:00 AM",
+  "modificationDate": "Feb 27, 2020, 12:00:00 AM",
   "gene": "DPYD",
   "orientation": "reverse",
   "chromosome": "chr1",
@@ -332,8 +332,8 @@
       "G"
     ],
     [
-      "ATGA",
-      "del"
+      "delATGA",
+      "ATGA"
     ],
     [
       "C",
@@ -404,8 +404,8 @@
       "T"
     ],
     [
-      "G",
-      "del"
+      "delG",
+      "G"
     ],
     [
       "C",
@@ -516,7 +516,7 @@
       "id": "CA100259.1",
       "alleles": [
         null,
-        "del",
+        "delATGA",
         null,
         null,
         null,
@@ -1129,7 +1129,7 @@
         null,
         null,
         null,
-        "del",
+        "delG",
         null,
         null,
         null,

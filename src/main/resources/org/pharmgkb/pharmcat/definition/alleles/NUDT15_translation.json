@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Oct 8, 2019 12:00:00 AM",
+  "modificationDate": "Feb 27, 2020, 12:00:00 AM",
   "gene": "NUDT15",
   "orientation": null,
   "chromosome": "chr13",
@@ -213,8 +213,8 @@
       "G"
     ],
     [
-      "GGAGTC",
-      "del"
+      "delGGAGTC",
+      "GGAGTC"
     ],
     [
       "A",
@@ -250,7 +250,7 @@
     ],
     [
       "A",
-      "del"
+      "delA"
     ],
     [
       "insG",
@@ -472,7 +472,7 @@
       "alleles": [
         null,
         null,
-        "del",
+        "delGGAGTC",
         null,
         null,
         null,
@@ -697,7 +697,7 @@
         null,
         null,
         null,
-        "del",
+        "delA",
         null,
         null,
         null,
