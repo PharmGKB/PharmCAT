@@ -5,24 +5,24 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import org.apache.commons.lang3.StringUtils;
+import java.util.Arrays;
 import org.junit.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 
 import static org.junit.Assert.assertEquals;
 
-
 /**
- *
  * JUnit test for {@link ExtractPositions}.
  *
- * Created by lester on 6/21/16.
+ * @author lester
  */
 public class ExtractPositionsTest {
-
-
-  // Quick test on a single definition file, comparing number of positions with final number of variants in vcf string
+  /**
+   * Test to see if making a VCF of just VKORC1 positions will have the same count of positions as the input
+   * definition file.
+   * @throws IOException can occur when writing temporary files to the filesystem
+   */
   @Test
   public void testExtract() throws IOException {
     DefinitionReader definitionReader = new DefinitionReader();
@@ -33,9 +33,10 @@ public class ExtractPositionsTest {
     try {
       ExtractPositions extractPositions = new ExtractPositions(outputVcf);
       StringBuilder vcfText = extractPositions.getPositions(definitionReader);
-      int definitionPositions = definitionReader.getPositions("VKORC1").length;
-      int vcfVariants = StringUtils.countMatches(vcfText.toString(), "chr");
-      assertEquals(definitionPositions, vcfVariants);
+
+      int numPositionsInDefinitinoFile = definitionReader.getPositions("VKORC1").length;
+      long numPositionsInVcfFile = Arrays.stream(vcfText.toString().split("\\n")).filter(l -> !l.startsWith("#")).count();
+      assertEquals(numPositionsInDefinitinoFile, numPositionsInVcfFile);
     } finally {
       Files.deleteIfExists(outputVcf);
     }
