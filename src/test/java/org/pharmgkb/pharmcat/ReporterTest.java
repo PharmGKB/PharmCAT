@@ -48,20 +48,25 @@ public class ReporterTest {
   
   @Test
   public void testMain() throws Exception {
-    Path outputPath = Files.createTempDirectory(OUTPUT_DIR).resolve("ReporterTest.html");
+    Path outputReportPath = Files.createTempFile("ReporterTest", ".html");
     String[] args = new String[]{
         "-c",
         PathUtils.getPathToResource(MATCHER_FILE_PATH).toAbsolutePath().toString(),
         "-o",
-        outputPath.toString(),
+        outputReportPath.toString(),
         "-t",
         "example_title"
     };
     Reporter.main(args);
-    
-    File outputFile = outputPath.toFile();
+
+    File outputFile = outputReportPath.toFile();
     assertTrue(outputFile.exists());
     assertFalse(outputFile.isDirectory());
+
+    assertEquals(
+        "<!DOCTYPE html>",
+        Files.lines(outputReportPath).findFirst().orElseThrow(() -> new RuntimeException("Report is empty"))
+    );
     
     outputFile.deleteOnExit();
   }
