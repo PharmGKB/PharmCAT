@@ -1,9 +1,12 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.util.List;
 import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableList;
+
 
 /**
  * Enumeration of IUPAC DNA codes.
@@ -11,30 +14,32 @@ import com.google.common.base.Preconditions;
  * @author Mark Woon
  */
 public enum Iupac {
-  A("A", "A"),
-  C("C", "C"),
-  G("G", "G"),
-  T("T", "T"),
-  R("R", "[AG]"),
-  Y("Y", "[CT]"),
-  S("S", "[GC]"),
-  W("W", "[AT]"),
-  K("K", "[GT]"),
-  M("M", "[AC]"),
-  B("B", "[CGT]"),
-  D("D", "[AGT]"),
-  H("H", "[ACT]"),
-  V("V", "[ACG]"),
-  N("N", "[ACGT]"),
-  DEL("-", "del");
+  A("A", "A", false),
+  C("C", "C", false),
+  G("G", "G", false),
+  T("T", "T", false),
+  R("R", "[AG]", true),
+  Y("Y", "[CT]", true),
+  S("S", "[GC]", true),
+  W("W", "[AT]", true),
+  K("K", "[GT]", true),
+  M("M", "[AC]", true),
+  B("B", "[CGT]", true),
+  D("D", "[AGT]", true),
+  H("H", "[ACT]", true),
+  V("V", "[ACG]", true),
+  N("N", "[ACGT]", true),
+  DEL("-", "del", false);
 
 
   private String m_code;
   private Pattern m_pattern;
+  private boolean m_ambiguity;
 
 
-  Iupac(@Nonnull String code, @Nullable String regex) {
+  Iupac(@Nonnull String code, @Nullable String regex, boolean isAmbiguity) {
     m_code = code;
+    m_ambiguity = isAmbiguity;
     if (regex != null) {
       m_pattern = Pattern.compile(regex);
     }
@@ -48,6 +53,19 @@ public enum Iupac {
     return m_pattern.pattern();
   }
 
+  public boolean isAmbiguity() {
+    return m_ambiguity;
+  }
+
+  public List<String> getBases() {
+    if (this == DEL) {
+      return ImmutableList.of();
+    } else if (getRegex().length() == 1) {
+      return ImmutableList.of(getRegex());
+    } else {
+      return ImmutableList.copyOf(getRegex().substring(1, getRegex().length() - 1).split("(?!^)"));
+    }
+  }
 
   public static @Nonnull Iupac lookup(@Nonnull String value) {
     Preconditions.checkNotNull(value);

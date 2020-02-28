@@ -11,10 +11,13 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.xml.parsers.DocumentBuilder;
@@ -27,6 +30,7 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.definition.model.VariantType;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
+import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.util.DataManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +55,32 @@ public class ExtractPositions {
       "##fileDate=%s\n" +
       "##source=PharmCAT allele definitions\n" +
       "##reference=hg38\n" +
+      "##contig=<ID=chr1,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr2,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr3,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr4,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr5,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr6,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr7,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr8,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr9,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr10,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr11,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr12,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr13,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr14,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr15,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr16,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr17,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr18,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr19,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr20,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr21,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chr22,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chrX,assembly=hg38,species=\"Homo sapiens\">\n" +
+      "##contig=<ID=chrY,assembly=hg38,species=\"Homo sapiens\">\n" +
       "##INFO=<ID=PX,Number=.,Type=String,Description=\"PGX\">\n" +
+      "##INFO=<ID=POI,Number=0,Type=Flag,Description=\"Position of Interest but not part of an allele definition\">\n" +
       "##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n" +
       "##FILTER=<ID=PASS,Description=\"All filters passed\">\n" +
       "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tPharmCAT\n";
@@ -117,7 +146,7 @@ public class ExtractPositions {
       for (VariantLocus variantLocus : definitionReader.getPositions(gene)) {
         positionCount++;
         String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, build);
-        String vcfLine = String.join("\t", (CharSequence[])vcfFields);
+        String vcfLine = String.join("\t", vcfFields);
         builder.append(vcfLine).append("\n");
       }
       DefinitionExemption exemption = definitionReader.getExemption(gene);
@@ -125,7 +154,7 @@ public class ExtractPositions {
         for (VariantLocus variant : exemption.getExtraPositions()) {
           positionCount++;
           String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variant, build);
-          String vcfLine = String.join("\t", (CharSequence[])vcfFields);
+          String vcfLine = String.join("\t", vcfFields);
           builder.append(vcfLine).append("\n");
         }
       }
@@ -162,7 +191,7 @@ public class ExtractPositions {
       for (int repeats = 0; repeats< Integer.parseInt(repeat.toString()); repeats++) {
         expandedAlelle.append(repeatSeq);
       }
-      finalAllele = allele.substring(0, bracketStart) + expandedAlelle + allele.substring(bracketEnd+1+repeat.length(), allele.length());
+      finalAllele = allele.substring(0, bracketStart) + expandedAlelle + allele.substring(bracketEnd+1+repeat.length());
     }
     return finalAllele;
   }
@@ -289,30 +318,13 @@ public class ExtractPositions {
       alts.add(".");
     }
     String finalAllele = expandRepeats(allele);
-    alts.remove(finalAllele); // get rid of any lingering duplicates
-    if (alts.contains("Y")) {
-      alts.remove("Y");
-      if (!alts.contains("C") && !allele.equals("C")) {
-        alts.add("C");
-      }
-      if (!alts.contains("T")  && !allele.equals("T")) {
-        alts.add("T");
-      }
-    }
-    if (alts.contains("R")) {
-      alts.remove("R");
-      if (!alts.contains("G")  && !allele.equals("G")) {
-        alts.add("G");
-      }
-      if (!alts.contains("A")  && !allele.equals("A")) {
-        alts.add("A");
-      }
-    }
     // Simplest possible del/ins parsing, presuming the only a single ins or del string, or the correct one being first
     if (alts.size()>0) {
-      if (alts.get(0).contains("ins")) {
+      if (alts.stream().anyMatch(a -> a.contains("ins"))) {
         String nucleotide = getDAS(chr, Integer.toString(position), genomeBuild);
-        alts.set(0, nucleotide + alts.get(0).replace("ins", ""));
+        for (int i = 0; i < alts.size(); i++) {
+          alts.set(i, alts.get(i).replace("ins", nucleotide));
+        }
         finalAllele = nucleotide;
       }
       if (alts.get(0).contains("del")) {
@@ -321,8 +333,16 @@ public class ExtractPositions {
         alts.set(0, nucleotide);
       }
     }
-    String alt = String.join(",", alts);
-    String starAllele = "PX=" + String.join(",", starAlleles)+";";
+    SortedSet<String> expandedAlts = expandIupacAlts(alts);
+    alts.remove(finalAllele);
+
+    String alt = String.join(",", expandedAlts);
+    String starAllele;
+    if (starAlleles.size() > 0) {
+      starAllele = "PX=" + String.join(",", starAlleles);
+    } else {
+      starAllele = "POI";
+    }
 
     return new String[]{
         chr,
@@ -335,5 +355,29 @@ public class ExtractPositions {
         starAllele,
         "GT",
         "0/0" };
+  }
+
+  /**
+   * For the list of given alt alleles, replace Iupac ambiguity codes with all the bases they represent
+   * @param alts a Collection of alt alleles
+   * @return a SortedSet of alt alleles with no ambiguity codes (may include the ref allele)
+   */
+  private static SortedSet<String> expandIupacAlts(Collection<String> alts) {
+    SortedSet<String> bases = new TreeSet<>();
+
+    for (String alt : alts) {
+      if (alt.length() == 1 && !alt.equals(".")) {
+        try {
+          Iupac iupac = Iupac.lookup(alt);
+          bases.addAll(iupac.getBases());
+        } catch (IllegalArgumentException ex) {
+          throw new RuntimeException("Bad IUPAC code " + alt, ex);
+        }
+      } else {
+        bases.add(alt);
+      }
+    }
+
+    return bases;
   }
 }
