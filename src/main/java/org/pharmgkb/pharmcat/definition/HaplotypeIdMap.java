@@ -13,14 +13,13 @@ import java.util.Map;
  * @author Ryan Whaley
  */
 public class HaplotypeIdMap {
-  private int m_idSequence;
   private Map<String,Map<String,String>> m_geneHaplotypeMap = new HashMap<>();
 
 
   public HaplotypeIdMap() {
     try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("haplotype.id.list.tsv")))) {
       // first line is the sequence
-      m_idSequence = Integer.parseInt(reader.readLine());
+      reader.readLine();
       String line;
       while ((line = reader.readLine()) != null) {
         String[] fields = line.split("\t");
@@ -31,21 +30,6 @@ public class HaplotypeIdMap {
     } catch (IOException ex) {
       throw new IllegalStateException("Cannot find haplotype.id.list.tsv", ex);
     }
-  }
-
-
-  public String newId(String geneName, String haplotypeName) {
-
-    if (m_geneHaplotypeMap.containsKey(geneName) && m_geneHaplotypeMap.get(geneName).containsKey(haplotypeName)) {
-      throw new IllegalStateException(geneName + " " + haplotypeName + " has already been assigned ID "+
-          m_geneHaplotypeMap.get(geneName).get(haplotypeName));
-    }
-
-    String id = (m_idSequence + 1) + ".1";
-    Map<String, String> hapMap = m_geneHaplotypeMap.computeIfAbsent(geneName, k -> new HashMap<>());
-    hapMap.put(haplotypeName, id);
-    m_idSequence += 1;
-    return id;
   }
 
 

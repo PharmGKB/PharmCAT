@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Oct 29, 2019 12:00:00 AM",
+  "modificationDate": "Mar 2, 2020, 12:00:00 AM",
   "gene": "CYP2D6",
   "orientation": "reverse",
   "chromosome": "chr22",
@@ -1729,7 +1729,8 @@
     ],
     [
       "C",
-      "T"
+      "T",
+      "Y"
     ],
     [
       "A",
@@ -2356,7 +2357,7 @@
         null,
         null,
         null,
-        null,
+        "Y",
         null,
         null,
         null,
