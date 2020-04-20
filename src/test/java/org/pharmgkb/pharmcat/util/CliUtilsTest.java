@@ -20,5 +20,6 @@ public class CliUtilsTest {
     assertNotNull(version);
     // we already have tags, so this should never happen if we're running from within a checked-out repo
     assertNotEquals("development", version);
+    assertNotEquals("master", version);
   }
 }

@@ -1,14 +1,22 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'biz.aQute.bnd:biz.aQute.bnd.gradle:4.2.0'
+  }
+}
 plugins {
   id 'java'
   id 'application'
   id 'jacoco'
   id 'com.github.kt3k.coveralls' version '2.8.2'
-  id 'osgi'
   id 'com.jfrog.bintray' version '1.8.4'
   id 'maven-publish'
   id 'com.github.johnrengelman.shadow' version '5.0.0'
   id 'signing'
 }
+apply plugin: 'biz.aQute.bnd.builder'
 
 
 def getVersionName() {
@@ -86,6 +94,15 @@ dependencies {
 }
 
 
+test {
+  testLogging {
+    // set options for log level LIFECYCLE
+    events 'failed', 'standard_error'
+    exceptionFormat 'full'
+  }
+}
+
+
 jacocoTestReport {
   reports {
     xml.enabled = true // coveralls plugin depends on xml format report
@@ -95,15 +112,13 @@ jacocoTestReport {
 
 
 jar {
+  inputs.property('moduleName', project.ext.moduleName)
   manifest {
     attributes 'Automatic-Module-Name': project.ext.moduleName
     attributes 'Bundle-SymbolicName': project.ext.moduleName
     attributes 'Implementation-Title': project.name
     attributes 'Implementation-Version': project.version
     attributes 'Main-Class': mainClassName
-    instruction 'Import-Package',
-        'javax.annotation;resolution:=optional',
-        '*'
   }
 }
 
