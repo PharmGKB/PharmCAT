@@ -41,4 +41,11 @@ public class ExtractPositionsTest {
       Files.deleteIfExists(outputVcf);
     }
   }
+
+  @Test
+  public void testGetDAS() throws IOException {
+    ExtractPositions extractPositions = new ExtractPositions(Files.createTempFile("testGetDAS", "vcf"));
+    String ref = extractPositions.getDAS("chr6", "18149127", "hg38");
+    assertEquals("T", ref);
+  }
 }

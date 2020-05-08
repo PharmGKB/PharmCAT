@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
@@ -85,12 +86,20 @@ public class ExtractPositions {
       "##FILTER=<ID=PASS,Description=\"All filters passed\">\n" +
       "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tPharmCAT\n";
 
-  private Path m_outputVcf;
+  private final Path m_outputVcf;
+  private final DocumentBuilderFactory f_dbf;
 
 
   // Default constructor
   public ExtractPositions(Path outputVcf) {
     m_outputVcf = outputVcf;
+    f_dbf = DocumentBuilderFactory.newInstance();
+    f_dbf.setValidating(false);
+    try {
+      f_dbf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+    } catch (ParserConfigurationException e) {
+      throw new RuntimeException("Error setting up XML parser", e);
+    }
   }
 
 
@@ -136,7 +145,7 @@ public class ExtractPositions {
 
 
   // Build up vcf string
-  public  StringBuilder getPositions(@Nonnull DefinitionReader definitionReader) {
+  public StringBuilder getPositions(@Nonnull DefinitionReader definitionReader) {
     StringBuilder builder = new StringBuilder();
     builder.append(String.format(sf_fileHeader, DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now())));
     for (String gene : definitionReader.getGenes()) {  // for each definition file
@@ -201,8 +210,8 @@ public class ExtractPositions {
    * For deletions we need to be able to get the nucleotide at the previous position.
    * This is not stored in the definition file, so we need to use an external source.
    */
-  private static String getDAS(String chr, String position, String genomeBuild) {
-    String nucleotide= "";
+  String getDAS(String chr, String position, String genomeBuild) {
+    String nucleotide;
     try {
       String uri =
           "http://genome.ucsc.edu/cgi-bin/das/"+ genomeBuild +  "/dna?segment="+ chr +":" +position +"," + position;
@@ -213,13 +222,12 @@ public class ExtractPositions {
       connection.setRequestMethod("GET");
       connection.setRequestProperty("Accept", "application/xml");
       InputStream xml = connection.getInputStream();
-      DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-      DocumentBuilder db = dbf.newDocumentBuilder();
+      DocumentBuilder db = f_dbf.newDocumentBuilder();
       Document doc = db.parse(xml);
       doc.getDocumentElement().normalize();
       nucleotide = doc.getElementsByTagName("DNA").item(0).getTextContent();
-    }  catch (Exception e) {
-      e.printStackTrace();
+    } catch (Exception e) {
+      throw new RuntimeException("Error when requesting DAS data", e);
     }
     nucleotide = nucleotide.toUpperCase().trim();
     return nucleotide;
@@ -268,7 +276,7 @@ public class ExtractPositions {
   /**
    * Helper method to convert repeats into standard format
    */
-  private static String[] getVcfLineFromDefinition(@Nonnull DefinitionReader definitionReader, @Nonnull String gene,
+  private String[] getVcfLineFromDefinition(@Nonnull DefinitionReader definitionReader, @Nonnull String gene,
       @Nonnull VariantLocus variantLocus, String genomeBuild) {
 
     DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
