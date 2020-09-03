@@ -37,6 +37,7 @@ public class DataSerializer {
       .serializeNulls()
       .disableHtmlEscaping()
       .excludeFieldsWithoutExposeAnnotation()
+      .setDateFormat("MMM d, yyyy hh:mm:ss aaa")
       .setPrettyPrinting().create();
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
 
