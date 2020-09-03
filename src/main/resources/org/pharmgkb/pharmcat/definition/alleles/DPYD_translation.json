@@ -32,7 +32,7 @@
       "chromosome": "chr1",
       "position": 97740411,
       "rsid": "rs72549309",
-      "chromosomeHgvsName": "g.97740411_97740414ATGA",
+      "chromosomeHgvsName": "g.97740411_97740414delATGA",
       "geneHgvsName": "g.185642_185645delTCAT",
       "proteinNote": "p.F100Sfs",
       "resourceNote": "c.295_298delTCAT",
