@@ -12,7 +12,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
-import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
@@ -31,7 +30,6 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
  *
  * @author Mark Woon
  */
-@ThreadSafe
 public class DataSerializer {
   private static final Gson sf_gson = new GsonBuilder()
       .serializeNulls()

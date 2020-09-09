@@ -32,9 +32,9 @@ public enum Iupac {
   DEL("-", "del", false);
 
 
-  private String m_code;
+  private final String m_code;
   private Pattern m_pattern;
-  private boolean m_ambiguity;
+  private final boolean m_ambiguity;
 
 
   Iupac(@Nonnull String code, @Nullable String regex, boolean isAmbiguity) {

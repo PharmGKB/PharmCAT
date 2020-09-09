@@ -47,7 +47,7 @@ public class VariantReport implements Comparable<VariantReport> {
   private String m_call;
   @Expose
   @SerializedName("alleles")
-  private Set<String> m_alleles = new TreeSet<>(HaplotypeNameComparator.getComparator());
+  private final Set<String> m_alleles = new TreeSet<>(HaplotypeNameComparator.getComparator());
   @Expose
   @SerializedName("phased")
   private boolean m_phased = false;

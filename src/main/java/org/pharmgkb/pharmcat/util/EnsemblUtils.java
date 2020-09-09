@@ -70,7 +70,7 @@ public class EnsemblUtils {
     return variantLocus;
   }
 
-  private class EnsemblMapping {
+  private static class EnsemblMapping {
     private static final String sf_chrPrefix = "chr";
 
     @Expose
@@ -103,7 +103,7 @@ public class EnsemblUtils {
     }
   }
 
-  private class EnsemblResponse {
+  private static class EnsemblResponse {
 
     @Expose
     @SerializedName("name")

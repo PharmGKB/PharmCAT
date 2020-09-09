@@ -42,7 +42,7 @@ public class ResultSerializer {
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
   private boolean m_alwaysShowUnmatchedHaplotypes;
-  private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
+  private final SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
 
   public ResultSerializer() {

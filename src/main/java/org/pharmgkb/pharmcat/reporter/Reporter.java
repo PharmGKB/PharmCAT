@@ -48,8 +48,8 @@ public class Reporter {
 
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
-  private List<Path> m_annotationFiles;
-  private List<MessageAnnotation> m_messages;
+  private final List<Path> m_annotationFiles;
+  private final List<MessageAnnotation> m_messages;
   private ReportContext m_reportContext = null;
 
   /**

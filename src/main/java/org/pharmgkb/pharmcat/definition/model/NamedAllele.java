@@ -27,13 +27,13 @@ import org.pharmgkb.pharmcat.haplotype.Iupac;
 public class NamedAllele implements Comparable<NamedAllele> {
   @Expose
   @SerializedName("name")
-  private String m_name;
+  private final String m_name;
   @Expose
   @SerializedName("id")
-  private String m_id;
+  private final String m_id;
   @Expose
   @SerializedName("alleles")
-  private String[] m_alleles;
+  private final String[] m_alleles;
   @Expose
   @SerializedName("populationFrequency")
   private Map<String,String> m_popFreqMap;
