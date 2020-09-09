@@ -1,8 +1,8 @@
 # PharmCAT
 
-[![Build Status](https://travis-ci.org/PharmGKB/PharmCAT.svg?branch=master)](https://travis-ci.org/PharmGKB/PharmCAT)
-[![Coverage Status](https://coveralls.io/repos/github/PharmGKB/PharmCAT/badge.svg?branch=master)](https://coveralls.io/github/PharmGKB/PharmCAT?branch=master)
-[![codecov.io](https://codecov.io/github/PharmGKB/PharmCAT/coverage.svg?branch=master)](https://codecov.io/github/PharmGKB/PharmCAT?branch=master)
+[![Build Status](https://travis-ci.com/PharmGKB/PharmCAT.svg?branch=main)](https://travis-ci.com/PharmGKB/PharmCAT?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/PharmGKB/PharmCAT/badge.svg?branch=main)](https://coveralls.io/github/PharmGKB/PharmCAT?branch=main)
+[![codecov.io](https://codecov.io/github/PharmGKB/PharmCAT/coverage.svg?branch=main)](https://codecov.io/github/PharmGKB/PharmCAT?branch=main)
 
 A tool to extract all [CPIC](https://cpicpgx.org) guideline gene variants from a genetic dataset (represented as a [VCF file](https://github.com/samtools/hts-specs#variant-calling-data-files)), interpret the variant alleles, and generate a report.
 
