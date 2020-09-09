@@ -2,20 +2,20 @@ package org.pharmgkb.pharmcat.definition;
 
 import java.nio.file.Path;
 import com.google.common.base.Joiner;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantType;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
-public class CuratedDefinitionParserTest {
+class CuratedDefinitionParserTest {
 
   @Test
-  public void testReaderGood() throws Exception {
+  void testReaderGood() {
 
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
     CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
@@ -33,7 +33,7 @@ public class CuratedDefinitionParserTest {
 
 
   @Test
-  public void testReader2C19() throws Exception {
+  void testReader2C19() {
 
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP2C19.tsv");
     CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
@@ -43,7 +43,7 @@ public class CuratedDefinitionParserTest {
   }
 
   @Test
-  public void testReaderCFTR() throws Exception {
+  void testReaderCFTR() {
     
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CFTR.tsv");
     CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
@@ -54,7 +54,7 @@ public class CuratedDefinitionParserTest {
   }
 
   @Test
-  public void testReaderRepeats() throws Exception {
+  void testReaderRepeats() {
 
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/repeats.tsv");
     CuratedDefinitionParser parser = new CuratedDefinitionParser(tsvFile);
@@ -73,14 +73,14 @@ public class CuratedDefinitionParserTest {
   }
 
   @Test
-  public void testReaderDeletes() throws Exception {
+  void testReaderDeletes() {
     // TODO(markwoon): finish this
   }
 
 
 
   @Test
-  public void testReaderBad() throws Exception {
+  void testReaderBad() {
 
     try {
       Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP3A5.bad.tsv");
@@ -95,7 +95,7 @@ public class CuratedDefinitionParserTest {
   }
 
   @Test
-  public void testColumnNumberToName() {
+  void testColumnNumberToName() {
     assertEquals("A", CuratedDefinitionParser.columnNumberToName(0));
     assertEquals("B", CuratedDefinitionParser.columnNumberToName(1));
     assertEquals("Z", CuratedDefinitionParser.columnNumberToName(25));

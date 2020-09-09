@@ -1,9 +1,9 @@
 package org.pharmgkb.pharmcat.util;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 /**
@@ -11,10 +11,10 @@ import static org.junit.Assert.assertNotNull;
  *
  * @author Mark Woon
  */
-public class CliUtilsTest {
+class CliUtilsTest {
 
   @Test
-  public void testVersion() throws Exception {
+  void testVersion() throws Exception {
 
     String version = CliUtils.getVersion();
     assertNotNull(version);

@@ -3,8 +3,8 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.nio.file.Path;
 import java.util.List;
 import com.google.common.collect.Lists;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -18,16 +18,16 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
  *
  * @author Lester Carter
  */
-public class NamedAlleleMatcherSlco1b1Test {
+class NamedAlleleMatcherSlco1b1Test {
   private Path m_definitionFile;
 
-  @Before
-  public void before() throws Exception {
+  @BeforeEach
+  void before() {
     m_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("SLCO1B1_translation.json");
   }
 
   @Test
-  public void slco1b1s1as1a() throws Exception {
+  void slco1b1s1as1a() throws Exception {
     // Test *1/*1
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as1a.vcf");
@@ -38,7 +38,7 @@ public class NamedAlleleMatcherSlco1b1Test {
   }
 
   @Test
-  public void slco1b1s5s15() throws Exception {
+  void slco1b1s5s15() throws Exception {
     // Test *5/*15
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s5s15.vcf");
@@ -49,7 +49,7 @@ public class NamedAlleleMatcherSlco1b1Test {
   }
 
   @Test
-  public void slco1b1s1as15() throws Exception {
+  void slco1b1s1as15() throws Exception {
     // Test *1a/*15. Except we can't distinguish *1B/*5.
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15.vcf");
@@ -60,7 +60,7 @@ public class NamedAlleleMatcherSlco1b1Test {
   }
 
   @Test
-  public void slco1b1s1as15s1bs5Missing() throws Exception {
+  void slco1b1s1as15s1bs5Missing() throws Exception {
     /* Test *1a/*15. Except we can't distinguish *1B/*5.
 
     However in this case we are missing the final position in the file:
@@ -80,7 +80,7 @@ public class NamedAlleleMatcherSlco1b1Test {
   }
 
   @Test
-  public void slco1b1s1as15s1bs5TwoMissing() throws Exception {
+  void slco1b1s1as15s1bs5TwoMissing() throws Exception {
     /* Test two positions missing:
       chr12	21239145	rs200995543	C	T	.	PASS	only--star-3-4	GT	0/0
       chr12	21239158	rs140790673	C	T	.	PASS	second-star-29	GT	0/0
@@ -103,7 +103,7 @@ public class NamedAlleleMatcherSlco1b1Test {
 
 
   @Test
-  public void s1as15s1bs5NotCalled() throws Exception {
+  void s1as15s1bs5NotCalled() throws Exception {
     // Test *1a/*15. Except we can't distinguish *1B/*5 or *5/*29, because final position is ./.
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5notcalled.vcf");
@@ -116,7 +116,7 @@ public class NamedAlleleMatcherSlco1b1Test {
 
 
   @Test
-  public void slco1b17s1bs21() throws Exception {
+  void slco1b17s1bs21() throws Exception {
     // Test *17/*21
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s17s21.vcf");

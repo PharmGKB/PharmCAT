@@ -4,12 +4,12 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import com.google.common.collect.Lists;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -17,11 +17,11 @@ import static org.junit.Assert.assertEquals;
  *
  * @author Mark Woon
  */
-public class DiplotypeMatchTest {
+class DiplotypeMatchTest {
 
 
   @Test
-  public void testCompareTo() {
+  void testCompareTo() {
 
     VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
     VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");

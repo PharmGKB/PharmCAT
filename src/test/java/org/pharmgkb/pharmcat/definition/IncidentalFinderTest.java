@@ -1,10 +1,10 @@
 package org.pharmgkb.pharmcat.definition;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**
@@ -12,10 +12,10 @@ import static org.junit.Assert.assertTrue;
  *
  * @author Ryan Whaley
  */
-public class IncidentalFinderTest {
+class IncidentalFinderTest {
 
   @Test
-  public void testConstruct() throws Exception {
+  void testConstruct() throws Exception {
     IncidentalFinder incidentalFinder = new IncidentalFinder();
 
     Haplotype h1 = new Haplotype("CFTR", "R334W");

@@ -1,9 +1,9 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -11,10 +11,10 @@ import static org.junit.Assert.*;
  *
  * @author Ryan Whaley
  */
-public class HaplotypeTest {
+class HaplotypeTest {
 
   @Test
-  public void testCyp2c19() {
+  void testCyp2c19() {
     Haplotype haplotype = new Haplotype("CYP2C19", "*4A");
 
     assertEquals("CYP2C19", haplotype.getGene());
@@ -25,7 +25,7 @@ public class HaplotypeTest {
   }
 
   @Test
-  public void testCftr() {
+  void testCftr() {
     Haplotype haplotype = new Haplotype("CFTR", "Reference");
 
     assertEquals("CFTR", haplotype.getGene());
@@ -35,7 +35,7 @@ public class HaplotypeTest {
   }
 
   @Test
-  public void testDpyd() {
+  void testDpyd() {
     Haplotype haplotype = new Haplotype("DPYD", "Reference");
 
     assertEquals("DPYD", haplotype.getGene());
@@ -45,7 +45,7 @@ public class HaplotypeTest {
   }
 
   @Test
-  public void testIncidental() throws Exception {
+  void testIncidental() throws Exception {
     IncidentalFinder incidentalFinder = new IncidentalFinder();
 
     Haplotype haplotype = new Haplotype("CFTR", "G542X");
@@ -59,12 +59,12 @@ public class HaplotypeTest {
   }
 
   @Test
-  public void testEquals() {
+  void testEquals() {
     Haplotype h1 = new Haplotype("TPMT", "*1");
     Haplotype h2 = new Haplotype("TPMT", "*1");
     Haplotype h3 = new Haplotype("TPMT", "*2");
 
-    assertTrue(h1.equals(h2));
-    assertFalse(h1.equals(h3));
+    assertEquals(h2, h1);
+    assertNotEquals(h3, h1);
   }
 }

@@ -6,25 +6,26 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * JUnit test for {@link ExtractPositions}.
  *
  * @author lester
  */
-public class ExtractPositionsTest {
+class ExtractPositionsTest {
+
   /**
    * Test to see if making a VCF of just VKORC1 positions will have the same count of positions as the input
    * definition file.
    * @throws IOException can occur when writing temporary files to the filesystem
    */
   @Test
-  public void testExtract() throws IOException {
+  void testExtract() throws IOException {
     DefinitionReader definitionReader = new DefinitionReader();
     File file = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/VKORC1_translation.json").toFile();
     Path path = Paths.get(file.getAbsolutePath());
@@ -43,7 +44,7 @@ public class ExtractPositionsTest {
   }
 
   @Test
-  public void testGetDAS() throws IOException {
+  void testGetDAS() throws IOException {
     ExtractPositions extractPositions = new ExtractPositions(Files.createTempFile("testGetDAS", "vcf"));
     String ref = extractPositions.getDAS("chr6", "18149127", "hg38");
     assertEquals("T", ref);

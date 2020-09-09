@@ -21,7 +21,7 @@ import org.pharmgkb.pharmcat.VcfTestUtils;
  *
  * @author Ryan Whaley
  */
-public class SyntheticBatchTest {
+class SyntheticBatchTest {
   private static final Path sf_astrolabe = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/test.astrolabe.tsv");
   private static final Map<String,String[]> sf_testVcfs = new LinkedHashMap<>();
   static {
@@ -612,8 +612,8 @@ public class SyntheticBatchTest {
     });
   }
 
-  private PharmCAT m_pharmcat;
-  private Path m_outputDir;
+  private final PharmCAT m_pharmcat;
+  private final Path m_outputDir;
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())

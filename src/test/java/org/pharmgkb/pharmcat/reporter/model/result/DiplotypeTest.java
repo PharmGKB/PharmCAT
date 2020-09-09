@@ -4,10 +4,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.collect.ImmutableList;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -15,10 +15,10 @@ import static org.junit.Assert.*;
  *
  * @author Ryan Whaley
  */
-public class DiplotypeTest {
+class DiplotypeTest {
 
   @Test
-  public void testCftr() throws Exception {
+  void testCftr() throws Exception {
     String gene = "CFTR";
 
     Haplotype h1 = new Haplotype(gene, "Reference");
@@ -46,7 +46,7 @@ public class DiplotypeTest {
   }
 
   @Test
-  public void testCyp2d6() throws Exception {
+  void testCyp2d6() throws Exception {
     String gene = "CYP2D6";
 
     Haplotype h1 = new Haplotype(gene, "*1");
@@ -75,7 +75,7 @@ public class DiplotypeTest {
   }
 
   @Test
-  public void testJoinPhased() {
+  void testJoinPhased() {
     String result = Stream.of("*1/*60", "*1/*80")
         .reduce(Diplotype.phasedReducer)
         .orElseThrow(RuntimeException::new);
@@ -98,7 +98,7 @@ public class DiplotypeTest {
   }
 
   @Test
-  public void testReducePhasedAlleles() {
+  void testReducePhasedAlleles() {
     String result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*1/*60", "*1/*80"));
     assertEquals("*1/*60+*80", result);
 

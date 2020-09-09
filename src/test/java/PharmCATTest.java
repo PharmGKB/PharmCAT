@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.function.Predicate;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.PharmCAT;
 import org.pharmgkb.pharmcat.VcfTestUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
@@ -16,7 +16,7 @@ import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -24,7 +24,7 @@ import static org.junit.Assert.*;
  *
  * @author Ryan Whaley
  */
-public class PharmCATTest {
+class PharmCATTest {
 
   private static final String sf_astrolabeOutput = "##Test Astrolabe output\n" +
       "#ROI_label\tdiplotype labels\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\tspecial case\tnomenclature version\n" +
@@ -34,8 +34,8 @@ public class PharmCATTest {
   private static Path s_tempAstroPath;
   private static ReportContext s_context;
 
-  @BeforeClass
-  public static void prepare() throws IOException {
+  @BeforeAll
+  static void prepare() throws IOException {
 
     s_tempAstroPath = Files.createTempFile("astrolabe", ".tsv");
     try (FileWriter fw = new FileWriter(s_tempAstroPath.toFile())) {
@@ -47,7 +47,7 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testCyp2c19_1() throws Exception {
+  void testCyp2c19_1() throws Exception {
     generalTest("test.cyp2c19.s4s17het", new String[]{
             "cyp2c19/s4s17het.vcf"
         },
@@ -62,7 +62,7 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testCyp2c19noCall() throws Exception {
+  void testCyp2c19noCall() throws Exception {
     generalTest("test.cyp2c19.noCall", new String[]{
             "cyp2c19/noCall.vcf"
         },
@@ -76,7 +76,7 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testCyp2c19_astrolabe() throws Exception {
+  void testCyp2c19_astrolabe() throws Exception {
     generalTest("test.cyp2c19.s1s4b", new String[]{
         "cyp2c19/s4s17het.vcf"
         },
@@ -91,7 +91,7 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testCftrRegInc() throws Exception {
+  void testCftrRegInc() throws Exception {
     generalTest("test.cftr.reg_inc", new String[]{
             "cftr/G542XF508del.vcf"
         },
@@ -102,11 +102,12 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "CFTR", "F508del(CTT) (heterozygous)");
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/Other");
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testCftrRefRef() throws Exception {
+  void testCftrRefRef() throws Exception {
     generalTest("test.cftr.ref_ref", new String[]{
             "cftr/refref.vcf"
         },
@@ -116,11 +117,12 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:Other/Other");
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testCftrF508() throws Exception {
+  void testCftrF508() throws Exception {
     generalTest("test.cftr.refF508del", new String[]{
             "cftr/refF508del.vcf"
         },
@@ -130,11 +132,12 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "CFTR", "F508del(CTT) (heterozygous)");
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/Other");
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testCftrF508HomCTT() throws Exception {
+  void testCftrF508HomCTT() throws Exception {
     generalTest("test.cftr.F508delHom_CTT", new String[]{
             "cftr/F508delF508del.vcf"
         },
@@ -144,7 +147,8 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "CFTR", "F508del(CTT)/F508del(CTT)");
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/F508del(CTT)");
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   /**
@@ -152,7 +156,7 @@ public class PharmCATTest {
    * lexigraphically. This should not affect the calling and should lead to same diplotype output.
    */
   @Test
-  public void testCftrF508Sorted() throws Exception {
+  void testCftrF508Sorted() throws Exception {
     generalTest("test.cftr.refF508del_sorted", new String[]{
             "cftr/refF508del_sorted.vcf"
         },
@@ -162,11 +166,12 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "CFTR", "F508del(CTT) (heterozygous)");
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/Other");
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testSlco1b1Test1() throws Exception {
+  void testSlco1b1Test1() throws Exception {
     generalTest("test.slco1b1.17.21", new String[]{
             "SLCO1B1/s17s21.vcf"
         },
@@ -176,11 +181,12 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "SLCO1B1", "*17/*21");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*17/*21");
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testSlco1b1HomWild() throws Exception {
+  void testSlco1b1HomWild() throws Exception {
     generalTest("test.slco1b1.hom.wild", new String[]{
             "SLCO1B1/s1as1a.vcf"
         },
@@ -190,11 +196,12 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "SLCO1B1", "*1A/*1A");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*1A");
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testSlco1b1HomVar() throws Exception {
+  void testSlco1b1HomVar() throws Exception {
     generalTest("test.slco1b1.hom.var", new String[]{
             "SLCO1B1/s5s15.vcf"
         },
@@ -204,11 +211,12 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "SLCO1B1", "*5/*15");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*5/*15");
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testSlco1b1Test3() throws Exception {
+  void testSlco1b1Test3() throws Exception {
     generalTest("test.slco1b1.1a.15", new String[]{
             "SLCO1B1/s1as15.vcf"
         },
@@ -218,11 +226,12 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "SLCO1B1", "*1A/*15");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*15");
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testSlco1b1TestMissing() throws Exception {
+  void testSlco1b1TestMissing() throws Exception {
     generalTest("test.slco1b1.missing", new String[]{
             "DPYD/s1s1.vcf",
             "TPMT/s1s1.vcf"
@@ -232,11 +241,12 @@ public class PharmCATTest {
     testCalledGenes("DPYD", "TPMT");
     assertFalse(s_context.getGeneReport("SLCO1B1").isCalled());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testDpydS1S2B() throws Exception {
+  void testDpydS1S2B() throws Exception {
     generalTest("test.slco1b1.missing", new String[]{
             "DPYD/s1s2b.vcf"
         },
@@ -250,11 +260,12 @@ public class PharmCATTest {
     testMatchedGroups("fluorouracil", 1);
     testMatchedGroups("capecitabine", 1);
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testSlco1b1TestMulti() throws Exception {
+  void testSlco1b1TestMulti() throws Exception {
     generalTest("test.slco1b1.multi", new String[]{
             "SLCO1B1/multi.vcf"
         },
@@ -269,11 +280,12 @@ public class PharmCATTest {
 
     testMatchedGroups("simvastatin", 1);
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1PhasedMulti() throws Exception {
+  void testUgt1a1PhasedMulti() throws Exception {
     generalTest("test.ugt1a1.phased.multi", new String[]{
             "UGT1A1/s1s60s80phased.vcf"
         },
@@ -285,11 +297,12 @@ public class PharmCATTest {
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1UnphasedMulti() throws Exception {
+  void testUgt1a1UnphasedMulti() throws Exception {
     generalTest("test.ugt1a1.unphased.multi", new String[]{
             "UGT1A1/s1s60s80unphased.vcf"
         },
@@ -301,11 +314,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1S1S28S60S80() throws Exception {
+  void testUgt1a1S1S28S60S80() throws Exception {
     generalTest("test.ugt1a1.s1s28s60s80unphased", new String[]{
             "UGT1A1/s1s28s60s80unphased.vcf"
         },
@@ -317,11 +331,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1S28S37() throws Exception {
+  void testUgt1a1S28S37() throws Exception {
     generalTest("test.ugt1a1.s28s37", new String[]{
             "UGT1A1/s28s37.vcf"
         },
@@ -333,11 +348,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s28s80phased() throws Exception {
+  void testUgt1a1s28s80phased() throws Exception {
     generalTest("test.ugt1a1.s28s80phased", new String[]{
             "UGT1A1/s28s80phased.vcf"
         },
@@ -349,11 +365,12 @@ public class PharmCATTest {
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s28s80s6s60phased() throws Exception {
+  void testUgt1a1s28s80s6s60phased() throws Exception {
     generalTest("test.ugt1a1.s28s80s6s60phased", new String[]{
             "UGT1A1/s28s80s6s60phased.vcf"
         },
@@ -365,11 +382,12 @@ public class PharmCATTest {
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s28s80s6s60unphased() throws Exception {
+  void testUgt1a1s28s80s6s60unphased() throws Exception {
     generalTest("test.ugt1a1.s28s80s6s60unphased", new String[]{
             "UGT1A1/s28s80s6s60unphased.vcf"
         },
@@ -381,11 +399,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s28s80unphased() throws Exception {
+  void testUgt1a1s28s80unphased() throws Exception {
     generalTest("test.ugt1a1.s28s80unphased", new String[]{
             "UGT1A1/s28s80unphased.vcf"
         },
@@ -397,11 +416,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s6s6() throws Exception {
+  void testUgt1a1s6s6() throws Exception {
     generalTest("test.ugt1a1.s6s6", new String[]{
             "UGT1A1/s6s6.vcf"
         },
@@ -413,11 +433,12 @@ public class PharmCATTest {
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s6s60s80s28MissingPhased() throws Exception {
+  void testUgt1a1s6s60s80s28MissingPhased() throws Exception {
     generalTest("test.ugt1a1.s6s60s80s28MissingPhased", new String[]{
             "UGT1A1/s6s60s80s28missingphased.vcf"
         },
@@ -429,11 +450,12 @@ public class PharmCATTest {
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s6s60s80s28MissingUnphased() throws Exception {
+  void testUgt1a1s6s60s80s28MissingUnphased() throws Exception {
     generalTest("test.ugt1a1.s6s60s80s28MissingUnphased", new String[]{
             "UGT1A1/s6s60s80s28missingunphased.vcf"
         },
@@ -445,11 +467,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s80s28missing() throws Exception {
+  void testUgt1a1s80s28missing() throws Exception {
     generalTest("test.ugt1a1.s80s28missing", new String[]{
             "UGT1A1/s80s28missing.vcf"
         },
@@ -461,11 +484,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1na12717() throws Exception {
+  void testUgt1a1na12717() throws Exception {
     generalTest("test.ugt1a1.na12717", new String[]{
             "UGT1A1/NA12717_UGT1A1.vcf"
         },
@@ -477,11 +501,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1na18868() throws Exception {
+  void testUgt1a1na18868() throws Exception {
     generalTest("test.ugt1a1.na18868", new String[]{
             "UGT1A1/NA18868_UGT1A1.vcf"
         },
@@ -493,11 +518,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1na19785() throws Exception {
+  void testUgt1a1na19785() throws Exception {
     generalTest("test.ugt1a1.na19785", new String[]{
             "UGT1A1/NA19785_UGT1A1.vcf"
         },
@@ -509,11 +535,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s28homMissing() throws Exception {
+  void testUgt1a1s28homMissing() throws Exception {
     generalTest("test.ugt1a1.s28s28unphaseds60s80miss", new String[]{
             "UGT1A1/s28s28unphaseds60s80miss.vcf"
         },
@@ -526,7 +553,8 @@ public class PharmCATTest {
     // sample is effectively phased since all positions homozygous
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   /**
@@ -538,7 +566,7 @@ public class PharmCATTest {
    * Leaving this here for now but could be addressed in a future release.
    */
   @Test
-  public void testUgt1a1s28s60Hom() throws Exception {
+  void testUgt1a1s28s60Hom() throws Exception {
     generalTest("test.ugt1a1.s28s60hom", new String[]{
             "UGT1A1/s28s60hom.vcf"
         },
@@ -551,11 +579,12 @@ public class PharmCATTest {
     // sample is effectively phased since all positions homozygous
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s27s28unphaseds80s60missing() throws Exception {
+  void testUgt1a1s27s28unphaseds80s60missing() throws Exception {
     generalTest("test.ugt1a1.s27s28unphaseds80s60missing", new String[]{
             "UGT1A1/s27s28unphaseds80s60missing.vcf"
         },
@@ -567,11 +596,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s28hets60homounphaseds80missing() throws Exception {
+  void testUgt1a1s28hets60homounphaseds80missing() throws Exception {
     generalTest("test.ugt1a1.s28hets60homounphaseds80missing", new String[]{
             "UGT1A1/s28hets60homounphaseds80missing.vcf"
         },
@@ -583,11 +613,12 @@ public class PharmCATTest {
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1HG00436() throws Exception {
+  void testUgt1a1HG00436() throws Exception {
     generalTest("test.ugt1a1.HG00436", new String[]{
             "UGT1A1/HG00436.vcf"
         },
@@ -600,11 +631,12 @@ public class PharmCATTest {
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s1s80s27s60s28missingphased() throws Exception {
+  void testUgt1a1s1s80s27s60s28missingphased() throws Exception {
     generalTest("test.ugt1a1.s1s80s27s60s28missingphased", new String[]{
             "UGT1A1/s1s80s27s60s28missingphased.vcf"
         },
@@ -617,11 +649,12 @@ public class PharmCATTest {
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s1s60s80s6phased() throws Exception {
+  void testUgt1a1s1s60s80s6phased() throws Exception {
     generalTest("test.ugt1a1.s1s60s80s6phased", new String[]{
             "UGT1A1/s1s60s80s6phased.vcf"
         },
@@ -634,11 +667,12 @@ public class PharmCATTest {
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s1s60s80s28s6phased() throws Exception {
+  void testUgt1a1s1s60s80s28s6phased() throws Exception {
     generalTest("test.ugt1a1.s1s60s80s28s6phased", new String[]{
             "UGT1A1/s1s60s80s28s6phased.vcf"
         },
@@ -651,11 +685,12 @@ public class PharmCATTest {
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testUgt1a1s1s37s80s60phased() throws Exception {
+  void testUgt1a1s1s37s80s60phased() throws Exception {
     generalTest("test.ugt1a1.s1s37s80s60phased", new String[]{
             "UGT1A1/s1s37s80s60phased.vcf"
         },
@@ -668,11 +703,12 @@ public class PharmCATTest {
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testCyp3a5Missing3Message() throws Exception {
+  void testCyp3a5Missing3Message() throws Exception {
     String gene = "CYP3A5";
 
     generalTest("test.cyp3a5.s3missing", new String[]{
@@ -695,11 +731,12 @@ public class PharmCATTest {
 
     assertTrue(s_context.getGeneReport(gene).isPhased());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testCyp3a5MissingRS776746() throws Exception {
+  void testCyp3a5MissingRS776746() throws Exception {
     generalTest("test.cyp3a5.missingRs776746", new String[]{
             "cyp3a5/s1s1rs776746missing.vcf"
         },
@@ -710,7 +747,7 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testCyp3a5v1() throws Exception {
+  void testCyp3a5v1() throws Exception {
     generalTest("test.cyp3a5.s1s3rs776746rs55965422het", new String[]{
             "cyp3a5/s1s3rs776746rs55965422het.vcf"
         },
@@ -721,7 +758,7 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testCyp3a5v2() throws Exception {
+  void testCyp3a5v2() throws Exception {
     generalTest("test.cyp3a5.s1s3rs776746rs55965422rs28383479het", new String[]{
             "cyp3a5/s1s3rs776746rs55965422rs28383479het.vcf"
         },
@@ -732,7 +769,7 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testCyp3a5v3() throws Exception {
+  void testCyp3a5v3() throws Exception {
     generalTest("test.cyp3a5.s3s3rs55965422het", new String[]{
             "cyp3a5/s3s3rs55965422het.vcf"
         },
@@ -743,7 +780,7 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testCyp3a5v4() throws Exception {
+  void testCyp3a5v4() throws Exception {
     generalTest("test.cyp3a5.s3s5-homozygous", new String[]{
             "cyp3a5/s3s5-homozygous.vcf"
         },
@@ -754,7 +791,7 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testCyp3a5v5() throws Exception {
+  void testCyp3a5v5() throws Exception {
     generalTest("test.cyp3a5.s1s3rs776746rs28383479het", new String[]{
             "cyp3a5/s1s3rs776746rs28383479het.vcf"
         },
@@ -765,7 +802,7 @@ public class PharmCATTest {
   }
 
   @Test
-  public void testTpmtStar1s() throws Exception {
+  void testTpmtStar1s() throws Exception {
     generalTest("test.tpmt.star1s", new String[]{
             "TPMT/s1ss1ss3.vcf"
         },
@@ -785,11 +822,12 @@ public class PharmCATTest {
 
     assertEquals(0, tpmtReport.getHighlightedVariants().size());
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
   @Test
-  public void testTpmtS15OffData() throws Exception {
+  void testTpmtS15OffData() throws Exception {
     generalTest("test.tpmt.s15offdata", new String[] {
             "TPMT/s15offdata.vcf"
         },
@@ -802,7 +840,7 @@ public class PharmCATTest {
 
 
   @Test
-  public void testCyp2c9star61() throws Exception {
+  void testCyp2c9star61() throws Exception {
     generalTest("test.cyp2c9.s1s61", new String[] {
             "cyp2c9/s1s61.vcf"
         },
@@ -815,7 +853,7 @@ public class PharmCATTest {
 
 
   @Test
-  public void testCombined() throws Exception {
+  void testCombined() throws Exception {
     generalTest("test.combined", new String[]{
             "DPYD/s1s1.vcf",
             "UGT1A1/s1s1.vcf",
@@ -840,7 +878,8 @@ public class PharmCATTest {
     testCalls(DipType.PRINT, "CYP2D6", "*1/*4");
     testCalls(DipType.PRINT, "UGT1A1", "*1/*1");
 
-    assertTrue("Should be no incidental alleles", s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental));
+    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
+        "Should have no incidental alleles");
   }
 
 
@@ -877,10 +916,11 @@ public class PharmCATTest {
         geneReport.printDisplayCalls()
         : new ArrayList<>(geneReport.getDiplotypeLookupKeys());
 
-    assertEquals(gene + " call count doesn't match " + String.join(";", dips), calls.length, dips.size());
+    assertEquals(calls.length, dips.size(), gene + " call count doesn't match " + String.join(";", dips));
 
     Arrays.stream(calls)
-        .forEach(c -> assertTrue(c + " not in "+type+" for " + gene + ":" + dips + printDiagnostic(geneReport), dips.contains(c)));
+        .forEach(c -> assertTrue(dips.contains(c),
+            c + " not in "+type+" for " + gene + ":" + dips + printDiagnostic(geneReport)));
   }
 
   private static String printDiagnostic(GeneReport geneReport) {
@@ -900,7 +940,7 @@ public class PharmCATTest {
     assertTrue(genes != null && genes.length > 0);
 
     Arrays.stream(genes)
-        .forEach(g -> assertTrue(g + " is not called", s_context.getGeneReport(g).isCalled()));
+        .forEach(g -> assertTrue(s_context.getGeneReport(g).isCalled(), g + " is not called"));
   }
 
   /**
@@ -910,7 +950,7 @@ public class PharmCATTest {
     assertTrue(genes != null && genes.length > 0);
 
     Arrays.stream(genes)
-        .forEach(g -> assertFalse(g + " is called", s_context.getGeneReport(g).isCalled()));
+        .forEach(g -> assertFalse(s_context.getGeneReport(g).isCalled(), g + " is called"));
   }
 
   private void testMatchedGroups(String drugName, int count) {
@@ -918,9 +958,8 @@ public class PharmCATTest {
         .filter(r -> r.getRelatedDrugs().contains(drugName))
         .findFirst().orElseThrow(() -> new RuntimeException("No guideline found for " + drugName));
 
-    assertEquals(drugName + " does not have matching group count of " + count,
-        guideline.getMatchingGroups().size(),
-        count);
+    assertEquals(guideline.getMatchingGroups().size(), count,
+        drugName + " does not have matching group count of " + count);
   }
 
   private enum DipType {

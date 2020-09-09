@@ -3,20 +3,20 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.util.DataManager;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class DefinitionReaderTest {
+class DefinitionReaderTest {
 
 
   @Test
-  public void testVkorc1() throws Exception {
+  void testVkorc1() throws Exception {
 
     System.out.println("DefinitionReaderTest");
 
@@ -31,7 +31,7 @@ public class DefinitionReaderTest {
 
 
   @Test
-  public void testReadAllDefinitions() throws Exception {
+  void testReadAllDefinitions() throws Exception {
 
     DefinitionReader reader = new DefinitionReader();
     reader.read(DataManager.DEFAULT_DEFINITION_DIR);

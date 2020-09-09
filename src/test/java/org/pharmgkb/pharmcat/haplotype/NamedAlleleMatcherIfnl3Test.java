@@ -3,8 +3,8 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.nio.file.Path;
 import java.util.List;
 import com.google.common.collect.Lists;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -18,16 +18,16 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
  *
  * @author Lester Carter
  */
-public class NamedAlleleMatcherIfnl3Test {
+class NamedAlleleMatcherIfnl3Test {
   private Path m_definitionFile;
 
-  @Before
-  public void before() throws Exception {
+  @BeforeEach
+  void before() {
     m_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("IFNL3_translation.json");
   }
 
   @Test
-  public void rs12979860CC() throws Exception {
+  void rs12979860CC() throws Exception {
     // Test rs12979860 CC
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
@@ -38,7 +38,7 @@ public class NamedAlleleMatcherIfnl3Test {
   }
 
   @Test
-  public void rs12979860CT() throws Exception {
+  void rs12979860CT() throws Exception {
     // Test rs12979860 CC
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CT.vcf");
@@ -49,7 +49,7 @@ public class NamedAlleleMatcherIfnl3Test {
   }
 
   @Test
-  public void rs12979860TT() throws Exception {
+  void rs12979860TT() throws Exception {
     // Test rs12979860 CC
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860TT.vcf");

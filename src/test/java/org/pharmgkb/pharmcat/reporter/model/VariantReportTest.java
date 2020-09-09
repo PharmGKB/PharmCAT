@@ -1,9 +1,9 @@
 package org.pharmgkb.pharmcat.reporter.model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -11,10 +11,10 @@ import static org.junit.Assert.*;
  *
  * @author Ryan Whaley
  */
-public class VariantReportTest {
+class VariantReportTest {
   
   @Test
-  public void testSetCall() {
+  void testSetCall() {
     Variant variant = new Variant(1, "rs0", "A|A", 1, "foo");
     VariantReport variantReport = new VariantReport("CFTR", variant);
     assertEquals("A|A", variantReport.getCall());

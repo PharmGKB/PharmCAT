@@ -2,12 +2,12 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.definition.model.VariantType;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 
 /**
@@ -15,11 +15,11 @@ import static org.junit.Assert.assertTrue;
  *
  * @author Mark Woon
  */
-public class SampleAlleleTest {
+class SampleAlleleTest {
 
 
   @Test
-  public void testCompare() {
+  void testCompare() {
 
     SampleAllele sa1 = new SampleAllele("chr1", 1, "A", "A", true, Lists.newArrayList("A", "G"));
     SampleAllele sa2 = new SampleAllele("chr1", 2, "A", "A", true, Lists.newArrayList("A", "G"));
@@ -28,17 +28,17 @@ public class SampleAlleleTest {
     SampleAllele sa5 = new SampleAllele("chrY", 1, "A", "A", true, Lists.newArrayList("A", "G"));
     SampleAllele sa6 = new SampleAllele("chr11", 1, "A", "A", true, Lists.newArrayList("A", "G"));
 
-    assertTrue(Sets.newTreeSet(Sets.newHashSet(sa1, sa2)).first() == sa1);
-    assertTrue(Sets.newTreeSet(Sets.newHashSet(sa2, sa1)).first() == sa1);
-    assertTrue(Sets.newTreeSet(Sets.newHashSet(sa2, sa3)).first() == sa2);
-    assertTrue(Sets.newTreeSet(Sets.newHashSet(sa6, sa2)).first() == sa2);
-    assertTrue(Sets.newTreeSet(Sets.newHashSet(sa1, sa4)).first() == sa1);
-    assertTrue(Sets.newTreeSet(Sets.newHashSet(sa4, sa5)).first() == sa4);
-    assertTrue(Sets.newTreeSet(Sets.newHashSet(sa5, sa4)).first() == sa4);
+    assertSame(Sets.newTreeSet(Sets.newHashSet(sa1, sa2)).first(), sa1);
+    assertSame(Sets.newTreeSet(Sets.newHashSet(sa2, sa1)).first(), sa1);
+    assertSame(Sets.newTreeSet(Sets.newHashSet(sa2, sa3)).first(), sa2);
+    assertSame(Sets.newTreeSet(Sets.newHashSet(sa6, sa2)).first(), sa2);
+    assertSame(Sets.newTreeSet(Sets.newHashSet(sa1, sa4)).first(), sa1);
+    assertSame(Sets.newTreeSet(Sets.newHashSet(sa4, sa5)).first(), sa4);
+    assertSame(Sets.newTreeSet(Sets.newHashSet(sa5, sa4)).first(), sa4);
   }
 
   @Test
-  public void testForVariant() {
+  void testForVariant() {
 
     VariantLocus insVariant = new VariantLocus("chr1", 1, "g.1A>AT");
 

@@ -3,12 +3,12 @@ package org.pharmgkb.pharmcat;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.Reporter;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -16,14 +16,14 @@ import static org.junit.Assert.*;
  *
  * @author Ryan Whaley
  */
-public class ReporterTest {
+class ReporterTest {
   
   private static final String CALL_FILE_PATH = "org/pharmgkb/pharmcat/haplotype/cyp2c9/s1s1.vcf";
   private static final String MATCHER_FILE_PATH = "org/pharmgkb/pharmcat/example_matcher.json";
   private static final String OUTPUT_DIR = "ReporterTest";
 
   @Test
-  public void testCypc2c9VariantPassthrough() throws Exception {
+  void testCypc2c9VariantPassthrough() throws Exception {
 
     Path vcfFile = PathUtils.getPathToResource(CALL_FILE_PATH);
 
@@ -40,14 +40,14 @@ public class ReporterTest {
 
 
     assertTrue(
-        "Exemption variant not included in gene report",
         geneReport.getVariantOfInterestReports().stream()
-            .anyMatch(r -> r.getDbSnpId() != null && r.getDbSnpId().equals("rs12777823"))
+            .anyMatch(r -> r.getDbSnpId() != null && r.getDbSnpId().equals("rs12777823")),
+        "Exemption variant not included in gene report"
     );
   }
   
   @Test
-  public void testMain() throws Exception {
+  void testMain() throws Exception {
     Path outputReportPath = Files.createTempFile("ReporterTest", ".html");
     String[] args = new String[]{
         "-c",

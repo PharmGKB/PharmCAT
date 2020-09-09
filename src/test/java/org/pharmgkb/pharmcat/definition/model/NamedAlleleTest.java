@@ -3,10 +3,10 @@ package org.pharmgkb.pharmcat.definition.model;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.regex.Pattern;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**
@@ -14,10 +14,10 @@ import static org.junit.Assert.assertTrue;
  *
  * @author Mark Woon
  */
-public class NamedAlleleTest {
+class NamedAlleleTest {
 
   @Test
-  public void testCalculatePermutations() {
+  void testCalculatePermutations() {
 
     VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
     VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
@@ -48,7 +48,7 @@ public class NamedAlleleTest {
 
 
   @Test
-  public void testPermutationPattern() {
+  void testPermutationPattern() {
 
     String seq = "1:C;2:C;3:C;4:C;";
     Pattern p = Pattern.compile("1:C;2:.?;3:.?;4:[CT];");

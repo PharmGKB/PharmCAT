@@ -3,12 +3,12 @@ package org.pharmgkb.pharmcat.util;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 /**
@@ -16,14 +16,14 @@ import static org.junit.Assert.assertNotNull;
  *
  * @author Ryan Whaley
  */
-public class EnsemblUtilsTest {
+class EnsemblUtilsTest {
   private static final Path sf_variantTestDataPath = PathUtils.getPathToResource("org/pharmgkb/pharmcat/util/EnsemblUtilsVariant.json");
 
   /**
    * Testing a known variant record
    */
   @Test
-  public void testParse() throws IOException {
+  void testParse() throws IOException {
     VariantLocus locus = EnsemblUtils.parse(Files.newInputStream(sf_variantTestDataPath));
 
     assertNotNull(locus);

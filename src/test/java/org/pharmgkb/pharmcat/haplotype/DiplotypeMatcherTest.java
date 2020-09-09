@@ -15,16 +15,18 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.NoDuplicateMergeFunction;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 
 /**
@@ -32,13 +34,13 @@ import static org.junit.Assert.*;
  *
  * @author Mark Woon
  */
-public class DiplotypeMatcherTest {
+class DiplotypeMatcherTest {
   private static VariantLocus[] s_positions;
   private static List<NamedAllele> s_haplotypes;
 
 
-  @BeforeClass
-  public static void beforeClass() {
+  @BeforeAll
+  static void beforeClass() {
 
     // initialize test variants
     VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
@@ -73,7 +75,7 @@ public class DiplotypeMatcherTest {
 
 
   @Test
-  public void test1() throws Exception {
+  void test1() {
 
     List<SampleAllele> alleles = Arrays.asList(
         new SampleAllele("chr1", 1, "A", "G", false, Lists.newArrayList("A", "G")),
@@ -88,7 +90,7 @@ public class DiplotypeMatcherTest {
 
 
   @Test
-  public void test2() throws Exception {
+  void test2() {
 
     List<SampleAllele> alleles = Arrays.asList(
         new SampleAllele("chr1", 1, "A", "G", false, Lists.newArrayList("A", "G")),
@@ -103,7 +105,7 @@ public class DiplotypeMatcherTest {
 
 
   @Test
-  public void test3() throws Exception {
+  void test3() {
 
     List<SampleAllele> alleles = Arrays.asList(
         new SampleAllele("chr1", 1, "A", "A", false, Lists.newArrayList("A", "G")),
@@ -118,7 +120,7 @@ public class DiplotypeMatcherTest {
 
 
   @Test
-  public void test4() throws Exception {
+  void test4() {
 
     List<SampleAllele> alleles = Arrays.asList(
         new SampleAllele("chr1", 1, "G", "G", false, Lists.newArrayList("A", "G")),
@@ -133,7 +135,7 @@ public class DiplotypeMatcherTest {
 
 
   @Test
-  public void test5() throws Exception {
+  void test5() {
 
     List<SampleAllele> alleles = Arrays.asList(
         new SampleAllele("chr1", 1, "G", "G", false, Lists.newArrayList("A", "G")),
@@ -169,7 +171,7 @@ public class DiplotypeMatcherTest {
     List<String> pairs = matches.stream()
         .map(DiplotypeMatch::getName)
         .collect(Collectors.toList());
-    assertEquals("Incoming matches has non-unique pairs", matches.size(), new HashSet<>(pairs).size());
+    assertEquals(matches.size(), new HashSet<>(pairs).size(), "Incoming matches has non-unique pairs");
 
     if (expectedPairs.size() != pairs.size() || !expectedPairs.equals(pairs)) {
       System.out.println("Expected: [" + Joiner.on(", ").join(expectedPairs));
@@ -180,7 +182,7 @@ public class DiplotypeMatcherTest {
 
 
   @Test
-  public void testComparePermutations() throws Exception {
+  void testComparePermutations() {
 
     VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
     VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");

@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -17,8 +17,9 @@ import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.util.DataManager;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -26,7 +27,7 @@ import static org.junit.Assert.*;
  *
  * @author Mark Woon
  */
-public class NamedAlleleMatcherTest {
+class NamedAlleleMatcherTest {
 
 
   /**
@@ -106,7 +107,7 @@ public class NamedAlleleMatcherTest {
     List<String> pairs = new ArrayList<>();
     GeneCall geneCall = result.getGeneCalls().get(0);
 
-    assertTrue("Provided sample is not phased so this test is improper", geneCall.isPhased());
+    assertTrue(geneCall.isPhased(), "Provided sample is not phased so this test is improper");
 
     for (DiplotypeMatch dm : result.getGeneCalls().get(0).getDiplotypes()) {
       pairs.add(dm.getName());
@@ -114,12 +115,12 @@ public class NamedAlleleMatcherTest {
 
     String testResult = pairs.stream().reduce(Diplotype.phasedReducer).orElseThrow(RuntimeException::new);
 
-    assertEquals("Phased output wasn't expected", expected, testResult);
+    assertEquals(expected, testResult, "Phased output wasn't expected");
   }
 
 
   @Test
-  public void testCall() throws Exception {
+  void testCall() throws Exception {
 
     Path vcfFile  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/haplotyper.vcf");
     Path jsonFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/haplotyper.json");
@@ -140,7 +141,7 @@ public class NamedAlleleMatcherTest {
    * This breaks down the main code path that {@link #testCall()} runs to simplify testing smaller chunks at a time.
    */
   @Test
-  public void testCallDiplotypePath() throws Exception {
+  void testCallDiplotypePath() throws Exception {
 
     Path vcfFile  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/haplotyper.vcf");
     Path jsonFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/haplotyper.json");

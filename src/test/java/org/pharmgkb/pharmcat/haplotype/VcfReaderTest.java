@@ -2,11 +2,11 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.Map;
 import com.google.common.collect.ImmutableMap;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -14,10 +14,10 @@ import static org.junit.Assert.*;
  *
  * @author Mark Woon
  */
-public class VcfReaderTest {
+class VcfReaderTest {
 
   @Test
-  public void testPhasing() throws Exception {
+  void testPhasing() throws Exception {
 
     ImmutableMap<String, VariantLocus> locationsOfInterest = ImmutableMap.of();
     VcfReader reader = new VcfReader(locationsOfInterest,

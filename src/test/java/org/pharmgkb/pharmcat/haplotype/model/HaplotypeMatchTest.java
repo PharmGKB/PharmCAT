@@ -2,10 +2,10 @@ package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.SortedSet;
 import java.util.TreeSet;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -13,11 +13,10 @@ import static org.junit.Assert.assertEquals;
  *
  * @author Mark Woon
  */
-public class HaplotypeMatchTest {
-
+class HaplotypeMatchTest {
 
   @Test
-  public void testCompare() {
+  void testCompare() {
 
     SortedSet<HaplotypeMatch> sortedSet = new TreeSet<>();
     HaplotypeMatch hm1 = new HaplotypeMatch(new NamedAllele("*4", "*4", new String[1]));

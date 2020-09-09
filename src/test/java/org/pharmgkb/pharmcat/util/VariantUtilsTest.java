@@ -1,9 +1,9 @@
 package org.pharmgkb.pharmcat.util;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**
@@ -11,10 +11,10 @@ import static org.junit.Assert.assertTrue;
  *
  * @author Ryan Whaley
  */
-public class VariantUtilsTest {
+class VariantUtilsTest {
 
   @Test
-  public void testIsValidCall() {
+  void testIsValidCall() {
     assertTrue(VariantUtils.isValidCall("A|A"));
     assertTrue(VariantUtils.isValidCall("C/T"));
     assertTrue(VariantUtils.isValidCall("G|TCCCT"));

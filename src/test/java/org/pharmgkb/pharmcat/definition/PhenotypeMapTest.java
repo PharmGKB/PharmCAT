@@ -1,10 +1,10 @@
 package org.pharmgkb.pharmcat.definition;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 /**
@@ -12,10 +12,10 @@ import static org.junit.Assert.assertNotNull;
  *
  * @author Ryan Whaley
  */
-public class PhenotypeMapTest {
+class PhenotypeMapTest {
 
   @Test
-  public void test() throws Exception {
+  void test() throws Exception {
     PhenotypeMap phenotypeMap = new PhenotypeMap();
 
     assertNotNull(phenotypeMap);

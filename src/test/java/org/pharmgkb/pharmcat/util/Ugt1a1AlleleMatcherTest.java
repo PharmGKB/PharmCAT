@@ -5,14 +5,14 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Set;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.PharmCAT;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -20,17 +20,17 @@ import static org.junit.Assert.*;
  *
  * @author Ryan Whaley
  */
-public class Ugt1a1AlleleMatcherTest {
+class Ugt1a1AlleleMatcherTest {
 
   private static PharmCAT s_pharmcat;
 
-  @BeforeClass
-  public static void prepare() throws IOException {
+  @BeforeAll
+  static void prepare() throws IOException {
     s_pharmcat = new PharmCAT(Files.createTempDirectory(MethodHandles.lookup().lookupClass().getName()), null, null);
   }
 
   @Test
-  public void test() throws Exception {
+  void test() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s28s60s80unphased.vcf");
     s_pharmcat.execute(vcfFile, null, null);
 
@@ -50,7 +50,7 @@ public class Ugt1a1AlleleMatcherTest {
   }
 
   @Test
-  public void testPhasedBalanced() throws Exception {
+  void testPhasedBalanced() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s6s60s80s28missingphased.vcf");
     s_pharmcat.execute(vcfFile, null, null);
 
@@ -70,7 +70,7 @@ public class Ugt1a1AlleleMatcherTest {
   }
 
   @Test
-  public void testPhasedLopsided() throws Exception {
+  void testPhasedLopsided() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/HG00436.vcf");
     s_pharmcat.execute(vcfFile, null, null);
 

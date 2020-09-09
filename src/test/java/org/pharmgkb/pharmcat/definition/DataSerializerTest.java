@@ -2,12 +2,12 @@ package org.pharmgkb.pharmcat.definition;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.util.DataSerializer;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -15,10 +15,10 @@ import static org.junit.Assert.*;
  *
  * @author Mark Woon
  */
-public class DataSerializerTest {
+class DataSerializerTest {
 
   @Test
-  public void testJson1() throws Exception {
+  void testJson1() throws Exception {
 
     // is INS
     Path inFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP3A5.good.tsv");
@@ -28,7 +28,7 @@ public class DataSerializerTest {
 
 
   @Test
-  public void testJsonRepeat() throws Exception {
+  void testJsonRepeat() throws Exception {
 
     Path inFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/repeats.tsv");
     DefinitionFile[] definitionFiles = testJson(inFile);
@@ -37,7 +37,7 @@ public class DataSerializerTest {
 
 
   @Test
-  public void testJson2() throws Exception {
+  void testJson2() throws Exception {
 
     // contains population frequencies
     Path inFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/CYP2C19.tsv");

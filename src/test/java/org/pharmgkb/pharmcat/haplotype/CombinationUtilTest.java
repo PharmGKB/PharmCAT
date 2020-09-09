@@ -7,11 +7,11 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**
@@ -19,11 +19,11 @@ import static org.junit.Assert.assertTrue;
  *
  * @author Mark Woon
  */
-public class CombinationUtilTest {
+class CombinationUtilTest {
 
 
   @Test
-  public void testGeneratePermutationsNotPhased() {
+  void testGeneratePermutationsNotPhased() {
 
     List<SampleAllele> alleles = Arrays.asList(
         new SampleAllele("chr1", 1, "T", "T", false, Lists.newArrayList("T", "C")),
@@ -47,7 +47,7 @@ public class CombinationUtilTest {
   }
 
   @Test
-  public void testGeneratePermutationPhased() {
+  void testGeneratePermutationPhased() {
 
     List<SampleAllele> alleles = Arrays.asList(
         new SampleAllele("chr1", 1, "T", "T", true, Lists.newArrayList("T", "C")),
@@ -70,7 +70,7 @@ public class CombinationUtilTest {
 
 
   @Test
-  public void testGeneratePerfectPairs() {
+  void testGeneratePerfectPairs() {
 
     SortedSet<NamedAllele> haplotypes = new TreeSet<>();
 
