@@ -4,10 +4,9 @@ import java.util.Collections;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 
 /**
@@ -34,7 +33,7 @@ public class DefinitionExemption {
   private boolean m_assumeReference;
 
 
-  public DefinitionExemption(@Nonnull String gene, @Nullable SortedSet<VariantLocus> extraPositions,
+  public DefinitionExemption(String gene, @Nullable SortedSet<VariantLocus> extraPositions,
       @Nullable SortedSet<String> ignoredAlleles, boolean allHits, boolean assumeReference) {
     m_gene = gene;
     if (extraPositions == null) {
@@ -62,14 +61,14 @@ public class DefinitionExemption {
   /**
    * Gets the extra positions to pull allele information for.
    */
-  public @Nonnull SortedSet<VariantLocus> getExtraPositions() {
+  public SortedSet<VariantLocus> getExtraPositions() {
     return m_extraPositions;
   }
 
   /**
    * Gets the named alleles to ignore.
    */
-  public @Nonnull SortedSet<String> getIgnoredAlleles() {
+  public SortedSet<String> getIgnoredAlleles() {
     return m_ignoredAlleles;
   }
 

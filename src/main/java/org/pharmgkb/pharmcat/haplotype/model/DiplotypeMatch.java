@@ -2,7 +2,6 @@ package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.HashSet;
 import java.util.Set;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -18,22 +17,22 @@ import org.pharmgkb.pharmcat.haplotype.MatchData;
 public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
   @Expose
   @SerializedName("name")
-  private String m_name;
+  private final String m_name;
   @Expose
   @SerializedName("haplotype1")
-  private HaplotypeMatch m_haplotype1;
+  private final HaplotypeMatch m_haplotype1;
   @Expose
   @SerializedName("haplotype2")
-  private HaplotypeMatch m_haplotype2;
+  private final HaplotypeMatch m_haplotype2;
   @Expose
   @SerializedName("score")
-  private int m_score;
-  private Set<String[]> m_sequences = new HashSet<>();
-  private MatchData m_dataset;
+  private final int m_score;
+  private final Set<String[]> m_sequences = new HashSet<>();
+  private final MatchData m_dataset;
 
 
 
-  public DiplotypeMatch(@Nonnull HaplotypeMatch hm1, @Nonnull HaplotypeMatch hm2, @Nonnull MatchData dataset) {
+  public DiplotypeMatch(HaplotypeMatch hm1, HaplotypeMatch hm2, MatchData dataset) {
     m_haplotype1 = hm1;
     m_haplotype2 = hm2;
     m_name = m_haplotype1.getName() + "/" + m_haplotype2.getName();
@@ -61,7 +60,7 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
     return m_sequences;
   }
 
-  public void addSequencePair(@Nonnull  String[] pair) {
+  public void addSequencePair(String[] pair) {
     Preconditions.checkNotNull(pair);
     Preconditions.checkArgument(pair.length == 2, "Sequence pair must have 2 sequences");
     m_sequences.add(pair);
@@ -78,7 +77,7 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
   }
 
   @Override
-  public int compareTo(@Nonnull DiplotypeMatch o) {
+  public int compareTo(DiplotypeMatch o) {
 
     int rez = ObjectUtils.compare(o.getScore(), m_score);
     if (rez != 0) {

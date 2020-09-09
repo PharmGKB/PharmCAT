@@ -1,7 +1,6 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -29,7 +28,7 @@ public class Haplotype implements Comparable<Haplotype> {
    * this can apply some known transformations to the allele name in some cases. the name you get out may not match the
    * name you put in.
    */
-  public Haplotype(@Nonnull String gene, @Nonnull String name) {
+  public Haplotype(String gene, String name) {
     m_gene = gene;
     m_name = name;
   }
@@ -146,7 +145,7 @@ public class Haplotype implements Comparable<Haplotype> {
    * Uses the {@link HaplotypeNameComparator} class to compare based on allele name
    */
   @Override
-  public int compareTo(@Nonnull Haplotype o) {
+  public int compareTo(Haplotype o) {
     int rez = ObjectUtils.compare(getGene(), o.getGene());
     if (rez != 0) {
       return rez;

@@ -10,7 +10,6 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
@@ -25,7 +24,7 @@ public class DiplotypeMatcher {
   private MatchData m_dataset;
 
 
-  public DiplotypeMatcher(@Nonnull MatchData dataset) {
+  public DiplotypeMatcher(MatchData dataset) {
 
     m_dataset = dataset;
   }
@@ -49,7 +48,7 @@ public class DiplotypeMatcher {
   /**
    * Compares a sample's allele permutations to haplotype definitions and return matches.
    */
-  protected @Nonnull SortedSet<HaplotypeMatch> comparePermutations() {
+  protected SortedSet<HaplotypeMatch> comparePermutations() {
 
     Set<HaplotypeMatch> haplotypeMatches = m_dataset.getHaplotypes().stream()
         .map(HaplotypeMatch::new)
@@ -71,7 +70,7 @@ public class DiplotypeMatcher {
    *
    * @param haplotypeMatches the matches that were found via {@link #comparePermutations()}
    */
-  private @Nonnull List<DiplotypeMatch> determineHomozygousPairs(@Nonnull SortedSet<HaplotypeMatch> haplotypeMatches) {
+  private List<DiplotypeMatch> determineHomozygousPairs(SortedSet<HaplotypeMatch> haplotypeMatches) {
 
     String seq = m_dataset.getPermutations().iterator().next();
     List<DiplotypeMatch> matches = new ArrayList<>();
@@ -101,7 +100,7 @@ public class DiplotypeMatcher {
    *
    * @param haplotypeMatches the matches that were found via {@link #comparePermutations()}
    */
-  private @Nonnull List<DiplotypeMatch> determineHeterozygousPairs(@Nonnull SortedSet<HaplotypeMatch> haplotypeMatches) {
+  private List<DiplotypeMatch> determineHeterozygousPairs(SortedSet<HaplotypeMatch> haplotypeMatches) {
 
     SortedMap<NamedAllele, HaplotypeMatch> hapMap = new TreeMap<>();
     for (HaplotypeMatch hm : haplotypeMatches) {
@@ -144,7 +143,7 @@ public class DiplotypeMatcher {
   /**
    * Finds valid complementary pairs of sample's alleles for possible diplotype match.
    */
-  private Set<String[]> findSequencePairs(@Nonnull HaplotypeMatch hm1, @Nonnull HaplotypeMatch hm2) {
+  private Set<String[]> findSequencePairs(HaplotypeMatch hm1, HaplotypeMatch hm2) {
 
     Set<String[]> sequencePairs = new HashSet<>();
     for (String seq1 : hm1.getSequences()) {
@@ -161,7 +160,7 @@ public class DiplotypeMatcher {
   /**
    * Checks whether the two sequences is complementary based on sample alleles.
    */
-  private boolean isViableComplement(@Nonnull String sequence1, @Nonnull String sequence2) {
+  private boolean isViableComplement(String sequence1, String sequence2) {
 
     String[] seq1 = sequence1.split(";");
     String[] seq2 = sequence2.split(";");

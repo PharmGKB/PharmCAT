@@ -2,7 +2,6 @@ package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.SortedSet;
 import java.util.TreeSet;
-import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
@@ -24,7 +23,7 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
   private SortedSet<String> m_sequences = new TreeSet<>();
 
 
-  public HaplotypeMatch(@Nonnull NamedAllele haplotype) {
+  public HaplotypeMatch(NamedAllele haplotype) {
     m_haplotype = haplotype;
     m_name = m_haplotype.getName();
   }
@@ -39,7 +38,7 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
   }
 
 
-  public boolean match(@Nonnull String seq) {
+  public boolean match(String seq) {
     if (m_haplotype.getPermutations().matcher(seq).matches()) {
       m_sequences.add(seq);
       return true;
@@ -47,13 +46,13 @@ public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
     return false;
   }
 
-  public @Nonnull SortedSet<String> getSequences() {
+  public SortedSet<String> getSequences() {
     return m_sequences;
   }
 
 
   @Override
-  public int compareTo(@Nonnull HaplotypeMatch o) {
+  public int compareTo(HaplotypeMatch o) {
 
     int rez = ObjectUtils.compare(m_name, o.getName());
     if (rez != 0) {

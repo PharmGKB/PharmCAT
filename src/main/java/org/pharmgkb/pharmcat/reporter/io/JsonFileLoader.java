@@ -8,7 +8,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
@@ -32,7 +31,7 @@ public class JsonFileLoader {
   /**
    * Load all the gene calls coming from the {@link NamedAlleleMatcher} utility
    */
-  public List<GeneCall> loadHaplotypeGeneCalls(@Nonnull Path haplotypeCalledFile) throws IOException{
+  public List<GeneCall> loadHaplotypeGeneCalls(Path haplotypeCalledFile) throws IOException{
     Preconditions.checkNotNull(haplotypeCalledFile);
     Preconditions.checkArgument(Files.exists(haplotypeCalledFile));
     Preconditions.checkArgument(Files.isRegularFile(haplotypeCalledFile));

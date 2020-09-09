@@ -23,7 +23,7 @@ public class OutsideCallParser {
   private static final List<String> sf_geneWhitelist = ImmutableList.of("CYP2D6");
 
   @Nonnull
-  public static List<OutsideCall> parse(@Nonnull Path filePath) throws IOException {
+  public static List<OutsideCall> parse(Path filePath) throws IOException {
     Preconditions.checkNotNull(filePath);
 
     return Files.lines(filePath)

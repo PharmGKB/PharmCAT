@@ -15,13 +15,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
@@ -160,7 +160,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   }
 
   @Override
-  public int compareTo(@Nonnull GuidelineReport o) {
+  public int compareTo(GuidelineReport o) {
     int rez = Boolean.compare(isReportable(), o.isReportable());
     if (rez != 0) {
       return rez * -1;

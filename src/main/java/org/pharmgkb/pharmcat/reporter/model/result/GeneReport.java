@@ -10,7 +10,6 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import org.apache.commons.lang3.StringUtils;
@@ -52,7 +51,7 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * public constructor
    */
-  public GeneReport(@Nonnull String geneSymbol) {
+  public GeneReport(String geneSymbol) {
     m_gene = geneSymbol;
   }
 
@@ -60,7 +59,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * Sets data in this report based on data found in a {@link GeneCall}
    * @param call a {@link GeneCall} that has been made by the {@link NamedAlleleMatcher}
    */
-  public void setCallData(@Nonnull GeneCall call) throws IOException {
+  public void setCallData(GeneCall call) throws IOException {
     m_gene = call.getGene();
     m_chr = call.getChromosome();
     m_uncalledHaplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
@@ -85,7 +84,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * Sets data in this report based on data found in a {@link OutsideCall}
    * @param call a {@link OutsideCall} to pull data from
    */
-  public void setOutsideCallData(@Nonnull OutsideCall call) {
+  public void setOutsideCallData(OutsideCall call) {
     m_outsideCall = true;
     m_gene = call.getGene();
   }
@@ -202,7 +201,7 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   @Override
-  public int compareTo(@Nonnull GeneReport o) {
+  public int compareTo(GeneReport o) {
     int rez = Objects.compare(getGene(), o.getGene(), String.CASE_INSENSITIVE_ORDER);
     if (rez != 0) {
       return rez;

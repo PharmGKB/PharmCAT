@@ -6,10 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -46,7 +45,7 @@ public class DiplotypeFactory {
    * @param incidentalFinder the IncidentalFinder object for finding incidental alleles
    * @param referenceAlleleName the name of the reference allele
    */
-  public DiplotypeFactory(String gene, GenePhenotype genePhenotype, IncidentalFinder incidentalFinder, @Nonnull String referenceAlleleName) {
+  public DiplotypeFactory(String gene, GenePhenotype genePhenotype, IncidentalFinder incidentalFinder, String referenceAlleleName) {
     f_gene = gene;
     f_incidentalFinder = incidentalFinder;
     f_genePhenotype = genePhenotype;
@@ -74,7 +73,7 @@ public class DiplotypeFactory {
   /**
    * Make diplotype objects based on {@link OutsideCall} objects
    */
-  public List<Diplotype> makeDiplotypes(@Nonnull OutsideCall outsideCall) {
+  public List<Diplotype> makeDiplotypes(OutsideCall outsideCall) {
     Preconditions.checkNotNull(outsideCall);
     Preconditions.checkArgument(outsideCall.getGene().equals(f_gene));
 

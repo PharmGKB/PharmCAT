@@ -16,14 +16,13 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.text.StringSubstitutor;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -56,7 +55,7 @@ public class ResultSerializer {
 
 
 
-  public ResultSerializer toJson(@Nonnull Result result, @Nonnull Path jsonFile) throws IOException {
+  public ResultSerializer toJson(Result result, Path jsonFile) throws IOException {
     Preconditions.checkNotNull(result);
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"));
@@ -68,7 +67,7 @@ public class ResultSerializer {
   }
 
 
-  public Result fromJson(@Nonnull Path jsonFile) throws IOException {
+  public Result fromJson(Path jsonFile) throws IOException {
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"));
     Preconditions.checkArgument(Files.isRegularFile(jsonFile));
@@ -80,7 +79,7 @@ public class ResultSerializer {
 
 
 
-  public ResultSerializer toHtml(@Nonnull Result result, @Nonnull Path htmlFile) throws IOException {
+  public ResultSerializer toHtml(Result result, Path htmlFile) throws IOException {
     Preconditions.checkNotNull(result);
     Preconditions.checkNotNull(htmlFile);
     Preconditions.checkArgument(htmlFile.toString().endsWith(".html"));
@@ -235,7 +234,7 @@ public class ResultSerializer {
   }
 
 
-  private void printAllele(@Nonnull StringBuilder builder, @Nullable String name, @Nonnull String allele,
+  private void printAllele(StringBuilder builder, @Nullable String name, String allele,
       @Nullable String rowClass) {
 
     SortedSet<Variant> variants = new TreeSet<>();

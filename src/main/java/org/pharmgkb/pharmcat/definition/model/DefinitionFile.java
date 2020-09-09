@@ -2,11 +2,10 @@ package org.pharmgkb.pharmcat.definition.model;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 
 /**
@@ -219,7 +218,7 @@ public class DefinitionFile {
     }
   }
 
-  public @Nullable VariantLocus getVariantByRsid(@Nonnull String rsid) {
+  public @Nullable VariantLocus getVariantByRsid(String rsid) {
     Preconditions.checkNotNull(rsid);
     Preconditions.checkArgument(rsid.startsWith("rs"));
     return m_rsidMap.get(rsid);

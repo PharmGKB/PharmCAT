@@ -2,10 +2,9 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.List;
 import java.util.regex.Pattern;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 
 /**
@@ -37,7 +36,7 @@ public enum Iupac {
   private final boolean m_ambiguity;
 
 
-  Iupac(@Nonnull String code, @Nullable String regex, boolean isAmbiguity) {
+  Iupac(String code, @Nullable String regex, boolean isAmbiguity) {
     m_code = code;
     m_ambiguity = isAmbiguity;
     if (regex != null) {
@@ -67,7 +66,7 @@ public enum Iupac {
     }
   }
 
-  public static @Nonnull Iupac lookup(@Nonnull String value) {
+  public static Iupac lookup(String value) {
     Preconditions.checkNotNull(value);
 
     if (value.equals("-")) {

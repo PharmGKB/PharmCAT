@@ -54,8 +54,8 @@ public class GeneCall {
   private Set<String> m_ignoredHaplotypes;
 
 
-  public GeneCall(@Nonnull String alleleDefinitionVersion, @Nonnull String chromosome, @Nonnull String gene,
-      @Nonnull MatchData matchData, @Nonnull Set<String> uncallableHaplotypes, @Nonnull Set<String> ignoredHaplotypes) {
+  public GeneCall(String alleleDefinitionVersion, String chromosome, String gene,
+      MatchData matchData, Set<String> uncallableHaplotypes, Set<String> ignoredHaplotypes) {
 
     m_alleleDefinitionVersion = alleleDefinitionVersion;
     m_chromosome = chromosome;
@@ -70,27 +70,27 @@ public class GeneCall {
   /**
    * Gets the version of the definition file used to make this call.
    */
-  public @Nonnull String getAlleleDefinitionVersion() {
+  public String getAlleleDefinitionVersion() {
     return m_alleleDefinitionVersion;
   }
 
-  public @Nonnull String getChromosome() {
+  public String getChromosome() {
     return m_chromosome;
   }
 
-  public @Nonnull String getGene() {
+  public String getGene() {
     return m_gene;
   }
 
-  public @Nonnull MatchData getMatchData() {
+  public MatchData getMatchData() {
     return m_matchData;
   }
 
-  public @Nonnull Set<String> getUncallableHaplotypes() {
+  public Set<String> getUncallableHaplotypes() {
     return m_uncallableHaplotypes;
   }
 
-  public @Nonnull Set<String> getIgnoredHaplotypes() {
+  public Set<String> getIgnoredHaplotypes() {
     return m_ignoredHaplotypes;
   }
 
@@ -118,11 +118,11 @@ public class GeneCall {
     return m_variants;
   }
 
-  public void setVariants(@Nonnull SortedSet<Variant> variants) {
+  public void setVariants(SortedSet<Variant> variants) {
     m_variants = variants;
   }
 
-  public void add(@Nonnull Variant pos) {
+  public void add(Variant pos) {
     Preconditions.checkNotNull(pos);
     m_variants.add(pos);
     if (!pos.isPhased()) {

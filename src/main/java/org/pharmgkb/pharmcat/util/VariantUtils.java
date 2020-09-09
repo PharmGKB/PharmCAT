@@ -1,8 +1,8 @@
 package org.pharmgkb.pharmcat.util;
 
 import java.util.regex.Pattern;
-import javax.annotation.Nullable;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 
 /**

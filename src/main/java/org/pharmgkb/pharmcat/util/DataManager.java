@@ -18,7 +18,6 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.zip.ZipFile;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -161,7 +160,7 @@ public class DataManager {
   }
 
 
-  private void download(@Nonnull Path downloadDir, @Nonnull Path exemptionsFile, @Nonnull Path messagesFile) throws Exception {
+  private void download(Path downloadDir, Path exemptionsFile, Path messagesFile) throws Exception {
 
     SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
     sh.downloadAlleleDefinitions(downloadDir);
@@ -173,7 +172,7 @@ public class DataManager {
   /**
    * Does the work for stepping through the files and applying the format.
    */
-  private void transformAlleleDefinitions(@Nonnull Path downloadDir, @Nonnull Path definitionsDir) throws Exception {
+  private void transformAlleleDefinitions(Path downloadDir, Path definitionsDir) throws Exception {
 
     System.out.println();
     System.out.println("Saving allele definitions in " + definitionsDir.toString());
@@ -211,21 +210,21 @@ public class DataManager {
     deleteObsoleteFiles(definitionsDir, currentFiles);
   }
 
-  private void transformExemptions(@Nonnull Path tsvFile, @Nonnull Path jsonFile) throws IOException {
+  private void transformExemptions(Path tsvFile, Path jsonFile) throws IOException {
 
     System.out.println();
     System.out.println("Saving exemptions to " + jsonFile.toString());
     m_dataSerializer.serializeToJson(m_dataSerializer.deserializeExemptionsFromTsv(tsvFile), jsonFile);
   }
 
-  private void transformMessages(@Nonnull Path tsvFile, @Nonnull Path jsonFile) throws IOException {
+  private void transformMessages(Path tsvFile, Path jsonFile) throws IOException {
 
     System.out.println();
     System.out.println("Saving messages to " + jsonFile.toString());
     m_dataSerializer.serializeToJson(m_dataSerializer.deserializeMessagesFromTsv(tsvFile), jsonFile);
   }
 
-  private void downloadGuidelines(@Nonnull Path guidelinesZip) throws Exception {
+  private void downloadGuidelines(Path guidelinesZip) throws Exception {
 
     try (CloseableHttpClient client = HttpClients.createDefault()) {
       try (CloseableHttpResponse response = client.execute(new HttpGet(DOSING_GUIDELINE_URL))) {
@@ -240,7 +239,7 @@ public class DataManager {
     }
   }
 
-  private void transformGuidelines(@Nonnull Path zipFile, @Nonnull Path guidelinesDir) throws IOException {
+  private void transformGuidelines(Path zipFile, Path guidelinesDir) throws IOException {
 
     System.out.println();
     System.out.println("Saving guidelines to " + guidelinesDir.toString());
@@ -286,7 +285,7 @@ public class DataManager {
   }
 
 
-  private void deleteObsoleteFiles(@Nonnull Path dir, @Nonnull Set<String> obsoleteFilenames) {
+  private void deleteObsoleteFiles(Path dir, Set<String> obsoleteFilenames) {
 
     for (String filename : obsoleteFilenames) {
       Path file = dir.resolve(filename);

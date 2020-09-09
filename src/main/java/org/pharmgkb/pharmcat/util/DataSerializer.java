@@ -11,7 +11,6 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
@@ -41,7 +40,7 @@ public class DataSerializer {
 
 
 
-  public void serializeToJson(@Nonnull Object data, @Nonnull Path jsonFile) throws IOException {
+  public void serializeToJson(Object data, Path jsonFile) throws IOException {
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: %s does not end with .json", jsonFile);
 
@@ -51,7 +50,7 @@ public class DataSerializer {
   }
 
 
-  public DefinitionFile deserializeDefinitionsFromJson(@Nonnull Path jsonFile) throws IOException {
+  public DefinitionFile deserializeDefinitionsFromJson(Path jsonFile) throws IOException {
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: file name does not end with .json");
     Preconditions.checkArgument(Files.isRegularFile(jsonFile), "%s is not a file", jsonFile);
@@ -66,7 +65,7 @@ public class DataSerializer {
   }
 
 
-  public Set<DefinitionExemption> deserializeExemptionsFromJson(@Nonnull Path jsonFile) throws IOException {
+  public Set<DefinitionExemption> deserializeExemptionsFromJson(Path jsonFile) throws IOException {
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: %s does not end with .json", jsonFile);
     Preconditions.checkArgument(Files.isRegularFile(jsonFile), "%s is not a file", jsonFile);
@@ -77,7 +76,7 @@ public class DataSerializer {
     }
   }
 
-  public Set<DefinitionExemption> deserializeExemptionsFromTsv(@Nonnull Path tsvFile) throws IOException {
+  public Set<DefinitionExemption> deserializeExemptionsFromTsv(Path tsvFile) throws IOException {
     Preconditions.checkNotNull(tsvFile);
     Preconditions.checkArgument(tsvFile.toString().endsWith(".tsv"), "Invalid format: %s does not end with .tsv", tsvFile);
     Preconditions.checkArgument(Files.isRegularFile(tsvFile), "%s is not a file", tsvFile);
@@ -110,7 +109,7 @@ public class DataSerializer {
   }
 
 
-  public List<MessageAnnotation> deserializeMessagesFromTsv(@Nonnull Path tsvFile) throws IOException {
+  public List<MessageAnnotation> deserializeMessagesFromTsv(Path tsvFile) throws IOException {
     Preconditions.checkNotNull(tsvFile);
     Preconditions.checkArgument(tsvFile.toString().endsWith(".tsv"), "Invalid format: %s does not end with .tsv", tsvFile);
     Preconditions.checkArgument(Files.isRegularFile(tsvFile), "%s is not a file", tsvFile);

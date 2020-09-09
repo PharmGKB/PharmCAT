@@ -26,7 +26,7 @@ public class MessageMatcher {
   private Collection<MessageAnnotation> m_messages;
   private ReportContext m_reportContext;
 
-  public MessageMatcher(@Nonnull Collection<MessageAnnotation> messages, @Nonnull ReportContext reportContext) {
+  public MessageMatcher(Collection<MessageAnnotation> messages, ReportContext reportContext) {
     Preconditions.checkNotNull(messages);
     Preconditions.checkNotNull(reportContext);
     m_messages = ImmutableList.copyOf(messages);

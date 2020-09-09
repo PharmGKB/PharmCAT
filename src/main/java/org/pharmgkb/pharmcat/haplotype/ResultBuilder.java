@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
@@ -35,7 +34,7 @@ public class ResultBuilder {
   private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
 
-  public ResultBuilder(@Nonnull DefinitionReader definitionReader) {
+  public ResultBuilder(DefinitionReader definitionReader) {
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
   }
@@ -45,7 +44,7 @@ public class ResultBuilder {
   }
 
 
-  public ResultBuilder forFile(@Nonnull Path vcfFile, Map<String, Collection<String>> warnings) {
+  public ResultBuilder forFile(Path vcfFile, Map<String, Collection<String>> warnings) {
     Preconditions.checkNotNull(vcfFile);
     Preconditions.checkArgument(vcfFile.toString().endsWith(".vcf"));
     Preconditions.checkArgument(Files.isRegularFile(vcfFile));
@@ -59,7 +58,7 @@ public class ResultBuilder {
   }
 
 
-  protected ResultBuilder gene(@Nonnull String gene, @Nonnull MatchData matchData, List<DiplotypeMatch> matches) {
+  protected ResultBuilder gene(String gene, MatchData matchData, List<DiplotypeMatch> matches) {
     Preconditions.checkNotNull(gene);
 
     DefinitionFile tsvFile = m_definitionReader.getDefinitionFile(gene);

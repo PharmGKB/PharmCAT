@@ -10,7 +10,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
-import javax.annotation.Nonnull;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
@@ -30,7 +29,7 @@ public class CliUtils {
    *
    * @throws IllegalStateException if properties file cannot be found
    */
-  public static @Nonnull Path getPropsFile(@Nonnull CliHelper cliHelper, @Nonnull String propArgKey) {
+  public static Path getPropsFile(CliHelper cliHelper, String propArgKey) {
 
     if (cliHelper.hasOption(propArgKey)) {
       return cliHelper.getValidFile(propArgKey, true);

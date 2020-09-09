@@ -4,11 +4,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.ChromosomeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.definition.model.VariantType;
@@ -30,8 +29,8 @@ public class SampleAllele implements Comparable<SampleAllele> {
   private boolean m_isPhased;
   private List<String> m_vcfAlleles;
 
-  public SampleAllele(@Nonnull String chromosome, long position, @Nonnull String a1, @Nullable String a2,
-      boolean isPhased, @Nonnull List<String> vcfAlleles) {
+  public SampleAllele(String chromosome, long position, String a1, @Nullable String a2,
+      boolean isPhased, List<String> vcfAlleles) {
     m_chromosome = chromosome;
     m_position = (int)position;
     if (a1.contains("ins") || a1.contains("del")) {
@@ -84,7 +83,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
   }
 
   @Override
-  public int compareTo(@Nonnull SampleAllele o) {
+  public int compareTo(SampleAllele o) {
 
     int rez = ChromosomeNameComparator.getComparator().compare(m_chromosome, o.getChromosome());
     if (rez != 0) {
@@ -157,7 +156,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
    * definition:  del -> insA
    * </code></pre>
    */
-  private @Nonnull String convertInsertion(@Nonnull String allele) {
+  private String convertInsertion(String allele) {
 
     String ref = m_vcfAlleles.get(0);
     if (allele.equals(ref)) {
@@ -176,7 +175,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
    * definition:  C  -> delC
    * </code></pre>
    */
-  private @Nonnull String convertDeletion(@Nonnull VariantLocus variant, @Nonnull String allele) {
+  private String convertDeletion(VariantLocus variant, String allele) {
 
     String ref = m_vcfAlleles.get(0);
     if (allele.equals(ref)) {
@@ -189,8 +188,8 @@ public class SampleAllele implements Comparable<SampleAllele> {
     return "del" + ref.substring(1);
   }
 
-  private @Nonnull String convertRepeat(@Nonnull VariantLocus variant, @Nonnull String prefix, @Nonnull String repeat,
-      @Nonnull String postfix, @Nonnull String allele) {
+  private String convertRepeat(VariantLocus variant, String prefix, String repeat,
+      String postfix, String allele) {
 
     if (allele.contains("(")) {
       // already a repeat

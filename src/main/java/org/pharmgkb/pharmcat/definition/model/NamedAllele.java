@@ -9,7 +9,6 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
@@ -50,15 +49,15 @@ public class NamedAllele implements Comparable<NamedAllele> {
    * Primary constructor.
    * Use this when reading in allele definitions.
    */
-  public NamedAllele(@Nonnull String id, @Nonnull String name, @Nonnull String[] alleles) {
+  public NamedAllele(String id, String name, String[] alleles) {
     this(id, name, alleles, Collections.emptySortedSet());
   }
 
   /**
    * Constructor for duplicating/modifying a {@link NamedAllele}.
    */
-  public NamedAllele(@Nonnull String id, @Nonnull String name, @Nonnull String[] alleles,
-      @Nonnull SortedSet<VariantLocus> missingPositions) {
+  public NamedAllele(String id, String name, String[] alleles,
+      SortedSet<VariantLocus> missingPositions) {
     Preconditions.checkNotNull(id);
     Preconditions.checkNotNull(name);
     Preconditions.checkNotNull(alleles);
@@ -73,7 +72,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
   /**
    * Call this to initialize this object for use.
    */
-  public void initialize(@Nonnull VariantLocus[] refVariants) {
+  public void initialize(VariantLocus[] refVariants) {
 
     Preconditions.checkNotNull(refVariants);
     Preconditions.checkNotNull(m_alleles);
@@ -95,7 +94,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
    *
    * @param score the score for this {@link NamedAllele}
    */
-  public void initialize(@Nonnull VariantLocus[] refVariants, int score) {
+  public void initialize(VariantLocus[] refVariants, int score) {
 
     initialize(refVariants);
     m_score = score;
@@ -145,7 +144,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
   /**
    * Gets the positions that are missing from this NamedAllele.
    */
-  public @Nonnull SortedSet<VariantLocus> getMissingPositions() {
+  public SortedSet<VariantLocus> getMissingPositions() {
     if (m_missingPositions == null) {
       // this is possible if marshalled via GSON
       m_missingPositions = Collections.emptySortedSet();
@@ -172,7 +171,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
   }
 
   @Override
-  public int compareTo(@Nonnull NamedAllele o) {
+  public int compareTo(NamedAllele o) {
     int rez = HaplotypeNameComparator.getComparator().compare(m_name, o.m_name);
     if (rez != 0) {
       return rez;

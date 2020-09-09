@@ -11,11 +11,10 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -56,7 +55,7 @@ public class MatchData {
    * @param extraPositions extra positions to track sample alleles for
    * @param ignoredPositions ignored positions due to ignored named alleles
    */
-  public MatchData(@Nonnull SortedMap<String, SampleAllele> alleleMap, @Nonnull VariantLocus[] allPositions,
+  public MatchData(SortedMap<String, SampleAllele> alleleMap, VariantLocus[] allPositions,
       @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<VariantLocus> ignoredPositions) {
 
     if (ignoredPositions != null) {
@@ -183,7 +182,7 @@ public class MatchData {
     return m_sampleMap.size();
   }
 
-  public @Nonnull SampleAllele getSampleAllele(int position) {
+  public SampleAllele getSampleAllele(int position) {
     SampleAllele sampleAllele = m_sampleMap.get(position);
     if (sampleAllele == null) {
       throw new IllegalArgumentException("No sample allele for position " + position);
@@ -194,7 +193,7 @@ public class MatchData {
   /**
    * Gets all permutations of sample alleles at positions of interest.
    */
-  public @Nonnull Set<String> getPermutations() {
+  public Set<String> getPermutations() {
     if (m_permutations == null) {
       throw new IllegalStateException("Not initialized - call generateSamplePermutations()");
     }
@@ -217,7 +216,7 @@ public class MatchData {
   /**
    * Gets the positions available for calling the haplotypes for the gene.
    */
-  public @Nonnull VariantLocus[] getPositions() {
+  public VariantLocus[] getPositions() {
     return m_positions;
   }
 
@@ -225,7 +224,7 @@ public class MatchData {
    * Gets the positions that are missing from the sample VCF that would have been helpful for calling the haplotypes for
    * the gene.
    */
-  public @Nonnull Set<VariantLocus> getMissingPositions() {
+  public Set<VariantLocus> getMissingPositions() {
     return m_missingPositions;
   }
 
@@ -233,21 +232,21 @@ public class MatchData {
    * Gets the positions that are mismatched from any allele defined for the given gene
    * @return a Set of {@link VariantLocus} objects with mismatched alleles
    */
-  public @Nonnull Set<VariantLocus> getMismatchedPositions() {
+  public Set<VariantLocus> getMismatchedPositions() {
     return m_mismatchedAlleles;
   }
 
   /**
    * Gets the extra positions specified in {@link DefinitionExemption#getExtraPositions()}.
    */
-  public @Nonnull SortedSet<Variant> getExtraPositions() {
+  public SortedSet<Variant> getExtraPositions() {
     return m_extraPositions;
   }
 
   /**
    * Gets the callable haplotypes for the gene based on the available positions.
    */
-  public @Nonnull List<NamedAllele> getHaplotypes() {
+  public List<NamedAllele> getHaplotypes() {
     if (m_haplotypes == null) {
       if (m_sampleMap.size() == 0) {
         return Collections.emptyList();

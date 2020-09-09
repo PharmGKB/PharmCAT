@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
@@ -177,7 +176,7 @@ public class VariantReport implements Comparable<VariantReport> {
   }
 
   @Override
-  public int compareTo(@Nonnull VariantReport o) {
+  public int compareTo(VariantReport o) {
     // missing values get sorted last
     int rez = ObjectUtils.compare(isMissing(), o.isMissing());
     if (rez != 0) {
@@ -191,10 +190,6 @@ public class VariantReport implements Comparable<VariantReport> {
     }
 
     // then by position on the chromosome
-    rez = ObjectUtils.compare(getPosition(), o.getPosition());
-    if (rez != 0) {
-      return rez;
-    }
-    return 0;
+    return ObjectUtils.compare(getPosition(), o.getPosition());
   }
 }

@@ -3,7 +3,6 @@ package org.pharmgkb.pharmcat.util;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
-import javax.annotation.Nonnull;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
@@ -29,7 +28,7 @@ public class SheetsHelper implements AutoCloseable {
   private Drive m_drive;
 
 
-  public SheetsHelper(@Nonnull String user, @Nonnull String key) throws Exception {
+  public SheetsHelper(String user, String key) throws Exception {
 
     Preconditions.checkNotNull(user);
     Preconditions.checkNotNull(key);
@@ -55,7 +54,7 @@ public class SheetsHelper implements AutoCloseable {
    * <p>
    * This is the main entry point.
    */
-  public void downloadAlleleDefinitions(@Nonnull Path outputDir) throws IOException, ServiceException {
+  public void downloadAlleleDefinitions(Path outputDir) throws IOException, ServiceException {
     Preconditions.checkNotNull(outputDir);
 
     String folderId = findAlleleDefinitionsFolder().getId();
@@ -63,12 +62,12 @@ public class SheetsHelper implements AutoCloseable {
     downloadAsTsv(files, outputDir);
   }
 
-  public void downloadAlleleExemptionsFile(@Nonnull Path file) throws IOException, ServiceException {
+  public void downloadAlleleExemptionsFile(Path file) throws IOException, ServiceException {
     Preconditions.checkNotNull(file);
     downloadAsTsv(findAlleleExemptionsSheet(), file);
   }
 
-  public void downloadMessagesFile(@Nonnull Path messagesFile) throws IOException, ServiceException {
+  public void downloadMessagesFile(Path messagesFile) throws IOException, ServiceException {
     Preconditions.checkNotNull(messagesFile);
     downloadAnnotations(messagesFile);
   }
@@ -76,7 +75,7 @@ public class SheetsHelper implements AutoCloseable {
   /**
    * Saves an annotations sheet as a .tsv file.
    */
-  private void downloadAnnotations(@Nonnull Path outputFile) throws IOException, ServiceException {
+  private void downloadAnnotations(Path outputFile) throws IOException, ServiceException {
 
     Drive.Files.List request = m_drive.files().list();
     List<File> files = request.setQ("name='PharmCAT Message Annotations'" +
@@ -91,7 +90,7 @@ public class SheetsHelper implements AutoCloseable {
   }
 
 
-  private void downloadAsTsv(@Nonnull File srcFile, @Nonnull Path targetFile) throws IOException, ServiceException {
+  private void downloadAsTsv(File srcFile, Path targetFile) throws IOException, ServiceException {
     m_spreadsheetHelper.exportToTsv(srcFile.getId(), targetFile);
   }
 
@@ -115,7 +114,7 @@ public class SheetsHelper implements AutoCloseable {
   }
 
 
-  private @Nonnull File findAlleleDefinitionsFolder() throws IOException {
+  private File findAlleleDefinitionsFolder() throws IOException {
 
     Drive.Files.List request = m_drive.files().list();
     // get directory
@@ -131,7 +130,7 @@ public class SheetsHelper implements AutoCloseable {
   }
 
 
-  private @Nonnull File findAlleleExemptionsSheet() throws IOException {
+  private File findAlleleExemptionsSheet() throws IOException {
     Drive.Files.Get request = m_drive.files().get(sf_alleleExemptionsFileId);
     File file = request.execute();
     if (file == null) {

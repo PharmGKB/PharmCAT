@@ -43,7 +43,7 @@ public class Slco1b1AlleleMatcher {
    * @return an Optional Diplotype result, can be empty if the necessary position is missing
    */
   @Nonnull
-  public static Optional<Diplotype> makeLookupCalls(@Nonnull GeneReport report, @Nonnull DiplotypeFactory diplotypeFactory) {
+  public static Optional<Diplotype> makeLookupCalls(GeneReport report, DiplotypeFactory diplotypeFactory) {
     Preconditions.checkNotNull(report);
     Preconditions.checkArgument(report.getGene().equals(SLCO1B1), "Can only be used on SLCO1B1");
     

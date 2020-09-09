@@ -12,14 +12,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -156,7 +155,7 @@ public class Reporter {
    * Print a HTML file of compiled report data
    * @param reportFile file to write output to
    */
-  public void printHtml(@Nonnull Path reportFile, @Nullable String title, @Nullable Path jsonFile) throws IOException {
+  public void printHtml(Path reportFile, @Nullable String title, @Nullable Path jsonFile) throws IOException {
 
     Map<String,Object> reportData = m_reportContext.compile(title);
 

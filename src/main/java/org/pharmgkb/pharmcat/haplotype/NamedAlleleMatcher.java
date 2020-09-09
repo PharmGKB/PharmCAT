@@ -11,8 +11,6 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.concurrent.ThreadSafe;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import org.pharmgkb.common.io.util.CliHelper;
@@ -29,13 +27,12 @@ import org.pharmgkb.pharmcat.util.DataManager;
  *
  * @author Mark Woon
  */
-@ThreadSafe
 public class NamedAlleleMatcher {
   public static final String VERSION = "1.0.0";
-  private DefinitionReader m_definitionReader;
-  private ImmutableMap<String, VariantLocus> m_locationsOfInterest;
-  private boolean m_assumeReferenceInDefinitions;
-  private boolean m_topCandidateOnly;
+  private final DefinitionReader m_definitionReader;
+  private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
+  private final boolean m_assumeReferenceInDefinitions;
+  private final boolean m_topCandidateOnly;
   private boolean m_printWarnings;
 
 
@@ -43,7 +40,7 @@ public class NamedAlleleMatcher {
    * Default constructor.
    * This will only call the top candidate(s) and assume reference.
    */
-  public NamedAlleleMatcher(@Nonnull DefinitionReader definitionReader) {
+  public NamedAlleleMatcher(DefinitionReader definitionReader) {
     this(definitionReader, true, false);
   }
 
@@ -53,7 +50,7 @@ public class NamedAlleleMatcher {
    * @param topCandidateOnly true if only top candidate(s) should be called, false to call all possible candidates
    * @param assumeReference true if missing alleles in definitions should be treated as reference, false otherwise
    */
-  public NamedAlleleMatcher(@Nonnull DefinitionReader definitionReader, boolean assumeReference,
+  public NamedAlleleMatcher(DefinitionReader definitionReader, boolean assumeReference,
       boolean topCandidateOnly) {
 
     Preconditions.checkNotNull(definitionReader);
@@ -160,7 +157,7 @@ public class NamedAlleleMatcher {
   /**
    * Calls diplotypes for the given VCF file for all genes for which a definition exists.
    */
-  public Result call(@Nonnull Path vcfFile) throws IOException {
+  public Result call(Path vcfFile) throws IOException {
 
     VcfReader vcfReader = buildVcfReader(vcfFile);
     SortedMap<String, SampleAllele> alleles = vcfReader.getAlleleMap();
@@ -195,7 +192,7 @@ public class NamedAlleleMatcher {
    *
    * @param alleleMap map of {@link SampleAllele}s from VCF
    */
-  private @Nonnull MatchData initializeCallData(SortedMap<String, SampleAllele> alleleMap, String gene) {
+  private MatchData initializeCallData(SortedMap<String, SampleAllele> alleleMap, String gene) {
 
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     SortedSet<VariantLocus> extraPositions = null;
@@ -269,7 +266,7 @@ public class NamedAlleleMatcher {
   }
 
   /**
-   * Find positions that are used by an ignored alleles (and are therefore potentially ignoreable).
+   * Find positions that are used by ignored alleles (and are therefore potentially ignoreable).
    */
   private Set<VariantLocus> findIgnorablePositions(VariantLocus[] allPositions, NamedAllele namedAllele)  {
     Set<VariantLocus> ignorablePositions = new HashSet<>();

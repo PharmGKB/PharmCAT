@@ -3,7 +3,6 @@ package org.pharmgkb.pharmcat.reporter.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -84,7 +83,7 @@ public class Group implements Comparable<Group> {
 
 
   @Override
-  public int compareTo(@Nonnull Group o) {
+  public int compareTo(Group o) {
 
     if (id == null) {
       return -1;

@@ -3,7 +3,6 @@ package org.pharmgkb.pharmcat.reporter.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
-import javax.annotation.Nonnull;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
@@ -31,7 +30,7 @@ public class MessageAnnotation {
    * @param row a row of text from the messages TSV file
    * @throws RuntimeException can occur if the line is not in the expected form
    */
-  public MessageAnnotation(@Nonnull String row) throws RuntimeException {
+  public MessageAnnotation(String row) throws RuntimeException {
     String[] fields = row.split("\\t");
 
     if (fields.length < sf_rowLength) {

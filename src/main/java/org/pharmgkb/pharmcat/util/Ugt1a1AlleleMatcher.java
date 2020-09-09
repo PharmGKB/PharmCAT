@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -35,7 +34,7 @@ public class Ugt1a1AlleleMatcher {
    * @param gene a GeneReport to check
    * @return true if this matcher should be used, false otherwise
    */
-  public static boolean shouldBeUsedOn(@Nonnull GeneReport gene) {
+  public static boolean shouldBeUsedOn(GeneReport gene) {
     return gene.getGene().equals("UGT1A1") && (!gene.isPhased() || gene.getMatcherDiplotypes().size() > 1);
   }
 
@@ -103,7 +102,7 @@ public class Ugt1a1AlleleMatcher {
    * @param report a {@link GeneReport} for the UGT1A1 gene
    * @return a List of String names for alleles found in this {@link GeneReport} (each allele can occur more than once)
    */
-  private static List<String> matchHaplotypes(@Nonnull GeneReport report) {
+  private static List<String> matchHaplotypes(GeneReport report) {
 
     List<String> haplotypes = new ArrayList<>();
 
@@ -162,7 +161,7 @@ public class Ugt1a1AlleleMatcher {
     return haplotypes;
   }
 
-  private static List<String> matchHaplotypesForStrand(@Nonnull GeneReport report, int strandIdx) {
+  private static List<String> matchHaplotypesForStrand(GeneReport report, int strandIdx) {
 
     List<String> haplotypes = new ArrayList<>();
 

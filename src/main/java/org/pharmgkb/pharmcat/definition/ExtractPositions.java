@@ -19,7 +19,6 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -145,7 +144,7 @@ public class ExtractPositions {
 
 
   // Build up vcf string
-  public StringBuilder getPositions(@Nonnull DefinitionReader definitionReader) {
+  public StringBuilder getPositions(DefinitionReader definitionReader) {
     StringBuilder builder = new StringBuilder();
     builder.append(String.format(sf_fileHeader, DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now())));
     for (String gene : definitionReader.getGenes()) {  // for each definition file
@@ -176,7 +175,7 @@ public class ExtractPositions {
   /**
    * Helper method to convert repeats into standard format
    */
-  private static String expandRepeats(@Nonnull String allele) {
+  private static String expandRepeats(String allele) {
     String finalAllele = allele;
     if (allele.contains("(")) {
       int bracketStart=0;
@@ -276,8 +275,8 @@ public class ExtractPositions {
   /**
    * Helper method to convert repeats into standard format
    */
-  private String[] getVcfLineFromDefinition(@Nonnull DefinitionReader definitionReader, @Nonnull String gene,
-      @Nonnull VariantLocus variantLocus, String genomeBuild) {
+  private String[] getVcfLineFromDefinition(DefinitionReader definitionReader, String gene,
+      VariantLocus variantLocus, String genomeBuild) {
 
     DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
     NamedAllele namedAlleleFirst = definitionFile.getNamedAlleles().get(0); //Get star one for Ref column of vcf. Use DAS in future

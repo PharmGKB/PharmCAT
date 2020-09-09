@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 
@@ -19,7 +18,7 @@ public class CombinationUtil {
   /**
    * Builds permutations for given alleles based on phasing.
    */
-  public static Set<String> generatePermutations(@Nonnull List<SampleAllele> alleles) {
+  public static Set<String> generatePermutations(List<SampleAllele> alleles) {
     Preconditions.checkNotNull(alleles);
     Preconditions.checkArgument(alleles.size() > 0, "No alleles to generate permutations for");
 
@@ -37,8 +36,8 @@ public class CombinationUtil {
   /**
    * Builds permutations for given variants based on phasing.
    */
-  private static Set<String> generatePermutations(@Nonnull List<SampleAllele> sampleAlleles, int position,
-      boolean firstAllele, @Nonnull String alleleSoFar) {
+  private static Set<String> generatePermutations(List<SampleAllele> sampleAlleles, int position,
+      boolean firstAllele, String alleleSoFar) {
 
     if (position >= sampleAlleles.size()) {
       return Sets.newHashSet(alleleSoFar);

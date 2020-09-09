@@ -11,12 +11,11 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.ChromosomePositionComparator;
 import org.pharmgkb.parser.vcf.VcfLineParser;
 import org.pharmgkb.parser.vcf.VcfParser;
@@ -224,7 +223,7 @@ public class VcfReader implements VcfLineParser {
   /**
    * Normalize alleles from VCF to match syntax from allele definitions
    */
-  private String[] normalizeAlleles(@Nonnull String refAllele, @Nullable String varAllele) {
+  private String[] normalizeAlleles(String refAllele, @Nullable String varAllele) {
     Preconditions.checkNotNull(refAllele);
 
     refAllele = refAllele.toUpperCase();
@@ -241,7 +240,7 @@ public class VcfReader implements VcfLineParser {
   /**
    * Validate GT input per VCF 4.2 specification.
    */
-  private static void validateAlleles(@Nonnull String chrPos, @Nonnull String gt1, @Nullable String gt2) {
+  private static void validateAlleles(String chrPos, String gt1, @Nullable String gt2) {
 
     StringBuilder problems = new StringBuilder();
     if (gt1.startsWith("<")) {

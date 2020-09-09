@@ -10,9 +10,9 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
@@ -333,7 +333,7 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   @Override
-  public int compareTo(@Nonnull Diplotype o) {
+  public int compareTo(Diplotype o) {
     int rez = ObjectUtils.compare(getGene(), o.getGene());
     if (rez != 0) {
       return rez;

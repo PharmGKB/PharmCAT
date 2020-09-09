@@ -3,7 +3,6 @@ package org.pharmgkb.pharmcat.reporter.model;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
@@ -33,7 +32,7 @@ public class OutsideCall {
    * @param line a TSV-formatted string
    * @throws RuntimeException can occur if data not in expected format
    */
-  public OutsideCall(@Nonnull String line) throws RuntimeException {
+  public OutsideCall(String line) throws RuntimeException {
     String[] fields = line.split(sf_lineSeparator);
     if (fields.length < 2) {
       throw new RuntimeException("Expected at least 2 TSV fields, got " + fields.length);

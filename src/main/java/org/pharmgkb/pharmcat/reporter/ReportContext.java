@@ -16,9 +16,9 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
@@ -77,7 +77,7 @@ public class ReportContext {
    * @param outsideCalls {@link OutsideCall} objects, non-null but can be empty
    * @param guidelinePackages a List of all the guidelines to try to apply
    */
-  public ReportContext(List<GeneCall> calls, @Nonnull List<OutsideCall> outsideCalls, List<GuidelinePackage> guidelinePackages) throws Exception {
+  public ReportContext(List<GeneCall> calls, List<OutsideCall> outsideCalls, List<GuidelinePackage> guidelinePackages) throws Exception {
 
     makeGuidelineReports(guidelinePackages);
     makeGeneReports(guidelinePackages);
@@ -242,7 +242,7 @@ public class ReportContext {
    * @param results the existing call list to add to
    * @return a new Set of gene calls with the calls for the specified gene
    */
-  private Set<String> makeCalledGenotypes(GuidelineReport guidelineReport, String symbol, @Nonnull Set<String> results) {
+  private Set<String> makeCalledGenotypes(GuidelineReport guidelineReport, String symbol, Set<String> results) {
     if (results.size() == 0) {
       return getGeneReport(symbol).getDiplotypeLookupKeys().stream()
           .map(guidelineReport::translateToPhenotype)
@@ -272,7 +272,7 @@ public class ReportContext {
   }
 
   @Nonnull
-  public GeneReport getGeneReport(@Nonnull String geneSymbol) {
+  public GeneReport getGeneReport(String geneSymbol) {
     return m_geneReports.get(geneSymbol);
   }
 

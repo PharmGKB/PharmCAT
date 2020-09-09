@@ -2,7 +2,6 @@ package org.pharmgkb.pharmcat.definition.model;
 
 import java.util.Objects;
 import java.util.regex.Pattern;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -45,7 +44,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
   private String m_referenceRepeat;
 
 
-  public VariantLocus(@Nonnull String chromosome, int position, @Nonnull String chromosomeHgvsName) {
+  public VariantLocus(String chromosome, int position, String chromosomeHgvsName) {
     Preconditions.checkNotNull(chromosome);
     Preconditions.checkNotNull(chromosomeHgvsName);
     m_chromosome = chromosome;
@@ -87,7 +86,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
   /**
    * The name use for this location on the chromosomal sequence, should be relative to plus strand
    */
-  public @Nonnull String getChromosomeHgvsName() {
+  public String getChromosomeHgvsName() {
     return m_chromosomeHgvsName;
   }
 
@@ -188,7 +187,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
 
 
   @Override
-  public int compareTo(@Nonnull VariantLocus o) {
+  public int compareTo(VariantLocus o) {
 
     int rez = ChromosomeNameComparator.getComparator().compare(m_chromosome, o.getChromosome());
     if (rez != 0) {

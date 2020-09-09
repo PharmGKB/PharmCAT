@@ -8,9 +8,9 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import org.apache.commons.io.FileUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
@@ -100,7 +100,7 @@ public class PharmCAT {
    * @param guidelinesDir Path to the directory where guideline annotations are, null will use default annotations
    * @throws IOException can be throwsn if filesystem objects not in proper state
    */
-  public PharmCAT(@Nonnull Path outputDir, @Nullable Path definitionsDir, @Nullable Path guidelinesDir)
+  public PharmCAT(Path outputDir, @Nullable Path definitionsDir, @Nullable Path guidelinesDir)
       throws IOException {
 
     boolean madeDir = outputDir.toFile().mkdirs();
@@ -143,7 +143,7 @@ public class PharmCAT {
    * @param outputFile the optional name to write the output to
    * @throws Exception can occur from file I/O or unexpected state
    */
-  public void execute(@Nonnull Path vcfFile, @Nullable Path outsideCallFile, @Nullable String outputFile) throws Exception {
+  public void execute(Path vcfFile, @Nullable Path outsideCallFile, @Nullable String outputFile) throws Exception {
     Preconditions.checkArgument(Files.isRegularFile(vcfFile), "Not a file: %s", vcfFile);
 
     sf_logger.info("Run time: " + new Date());
@@ -181,7 +181,7 @@ public class PharmCAT {
    * @return a file name to use without extension
    */
   @Nonnull
-  private String makeFileRoot(@Nonnull Path inputFile, @Nullable String outputFile) {
+  private String makeFileRoot(Path inputFile, @Nullable String outputFile) {
     Matcher m = sf_inputNamePattern.matcher(inputFile.getFileName().toString());
     String fileRoot;
     if (outputFile != null) {

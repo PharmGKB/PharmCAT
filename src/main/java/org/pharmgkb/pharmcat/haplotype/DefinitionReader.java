@@ -9,9 +9,8 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -53,28 +52,28 @@ public class DefinitionReader {
   }
 
 
-  public @Nonnull Set<String> getGenes() {
+  public Set<String> getGenes() {
     return m_definitionFiles.keySet();
   }
 
 
-  public @Nonnull DefinitionFile getDefinitionFile(String gene) {
+  public DefinitionFile getDefinitionFile(String gene) {
     Preconditions.checkArgument(m_definitionFiles.containsKey(gene));
     return m_definitionFiles.get(gene);
   }
 
 
-  public @Nonnull VariantLocus[] getPositions(String gene) {
+  public VariantLocus[] getPositions(String gene) {
     return m_definitionFiles.get(gene).getVariants();
   }
 
 
-  public @Nonnull List<NamedAllele> getHaplotypes(String gene) {
+  public List<NamedAllele> getHaplotypes(String gene) {
     Preconditions.checkArgument(m_definitionFiles.containsKey(gene));
     return m_definitionFiles.get(gene).getNamedAlleles();
   }
 
-  public @Nullable DefinitionExemption getExemption(@Nonnull String gene) {
+  public @Nullable DefinitionExemption getExemption(String gene) {
     return m_exemptions.get(gene.toLowerCase());
   }
 
@@ -96,7 +95,7 @@ public class DefinitionReader {
   }
 
 
-  private void readFile(@Nonnull Path file) throws IOException {
+  private void readFile(Path file) throws IOException {
 
     Preconditions.checkNotNull(file);
     Preconditions.checkArgument(Files.isRegularFile(file), "%s is not a file", file);
@@ -108,7 +107,7 @@ public class DefinitionReader {
   }
 
 
-  public void readExemptions(@Nonnull Path path) throws IOException {
+  public void readExemptions(Path path) throws IOException {
 
     Preconditions.checkNotNull(path);
     Path file;

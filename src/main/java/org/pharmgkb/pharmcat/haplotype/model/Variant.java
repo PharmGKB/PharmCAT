@@ -2,11 +2,10 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.Comparator;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.google.api.client.repackaged.com.google.common.base.Joiner;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.SampleAllele;
 
@@ -30,7 +29,7 @@ public class Variant implements Comparable<Variant>  {
   private String m_vcfAlleles;
 
 
-  public Variant(@Nonnull VariantLocus variant, @Nonnull SampleAllele allele) {
+  public Variant(VariantLocus variant, SampleAllele allele) {
     String call;
     String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
     if (allele.isPhased()) {
@@ -83,7 +82,7 @@ public class Variant implements Comparable<Variant>  {
   }
 
   @Override
-  public int compareTo(@Nonnull Variant o) {
+  public int compareTo(Variant o) {
 
     int rez = Integer.compare(m_position, o.getPosition());
     if (rez != 0) {
