@@ -16,10 +16,14 @@ This application is __under development__ and has __not been officially released
 
 All technical requirements and documentation are available in the [wiki](../../wiki).
 
+PharmCAT is managed at Stanford University & University of Pennsylvania (NHGRI U24HG010862)
+
 
 ## Contact
 
-For questions about the PharmCAT project, contact [pharmcat@pharmgkb.org](mailto:pharmcat@pharmgkb.org)
+For technical questions or bug reports, [file an issue](https://github.com/PharmGKB/PharmCAT/issues).
+
+For general questions about the PharmCAT project, contact [pharmcat@pharmgkb.org](mailto:pharmcat@pharmgkb.org).
 
 
 ## Liability
