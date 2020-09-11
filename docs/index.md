@@ -36,14 +36,22 @@ If you are interested in testing the tool or have questions, please contact [pha
 
 ## Team
 
-### Leaders
+### Co-PIs
 
-Co-PIs: Teri Klein (Stanford) and Marylyn Ritchie (University of Pennsylvania)  
-Katrin Sangkuhl (Stanford)    
-Ryan Whaley (Stanford)   
-Michelle Whirl-Carrillo (Stanford)    
-Mark Woon (Stanford)    
-  
+Teri Klein (Stanford University) and Marylyn Ritchie (University of Pennsylvania)
+
+### Current Team
+
+| Name | Institution |
+|:-----|:------------|
+| Alex Frase| University of Pennsylvania |
+| Anurag Verma | University of Pennsylvania |
+| Katrin Sangkuhl | Stanford University |
+| Mark Woon | Stanford University |  
+| Michelle Whirl-Carrillo | Stanford University |
+| Ryan Whaley | Stanford University |
+| Shefali Setia Verma | University of Pennsylvania |
+| Sony Tuteja | University of Pennsylvania |
 
 ### Contributors
 
@@ -53,7 +61,6 @@ Mark Woon (Stanford)
 |Lester Carter | Stanford (formerly) |
 |Mark Dunnenberger| Northshore University Health System |
 |Philip Empey| University of Pittsburgh |
-|Alex Frase| University of Pennsylvania |
 |Robert Freimuth | Mayo Clinic |
 |Andrea Gaedigk| Children’s Mercy Hospital |
 |Adam Gordon | University of Washington |
@@ -70,5 +77,4 @@ Mark Woon (Stanford)
 |Greyson Twist | Children’s Mercy Hospital|
 |Marc Williams | Geisinger |
 |Chunlei Wu | Scrips Research Institute |
-|Anurag Verma | University of Pennsylvania |
 |Wenjian Yang | St Jude Children’s Research Hospital |
