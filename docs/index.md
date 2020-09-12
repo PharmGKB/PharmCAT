@@ -44,12 +44,12 @@ Teri Klein (Stanford University) and Marylyn Ritchie (University of Pennsylvania
 
 | Name | Institution |
 |:-----|:------------|
-| Alex Frase| University of Pennsylvania |
-| Anurag Verma | University of Pennsylvania |
 | Katrin Sangkuhl | Stanford University |
 | Mark Woon | Stanford University |  
 | Michelle Whirl-Carrillo | Stanford University |
 | Ryan Whaley | Stanford University |
+| Alex Frase| University of Pennsylvania |
+| Anurag Verma | University of Pennsylvania |
 | Shefali Setia Verma | University of Pennsylvania |
 | Sony Tuteja | University of Pennsylvania |
 
