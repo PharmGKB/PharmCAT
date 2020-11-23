@@ -123,8 +123,6 @@ public class Reporter {
     //Generate class used for loading JSON into
     JsonFileLoader loader = new JsonFileLoader();
 
-    //Load the haplotype json, this is pointed at a test json and will likely break when meeting real
-    // requiring some if not all rewriting
     List<GeneCall> calls = new ArrayList<>();
     if (callFile != null) {
       Preconditions.checkArgument(Files.exists(callFile));
@@ -140,7 +138,6 @@ public class Reporter {
       outsideCalls = OutsideCallParser.parse(outsideCallPath);
     }
 
-    //Load the gene drug interaction list. This currently only handles single gene-drug guidelines and will require updating to handle multi gene-drug interaction
     List<GuidelinePackage> guidelines = loader.loadGuidelines(m_annotationFiles);
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
