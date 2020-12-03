@@ -32,9 +32,9 @@ public class Diplotype implements Comparable<Diplotype> {
   private static final String sf_hetSuffix = " (heterozygous)";
   private static final String sf_homSuffix = " (homozygous)";
 
-  private Haplotype m_allele1;
-  private Haplotype m_allele2;
-  private String m_gene;
+  private final Haplotype m_allele1;
+  private final Haplotype m_allele2;
+  private final String m_gene;
   private String m_phenotype;
   private VariantReport m_variant;
 
@@ -70,8 +70,8 @@ public class Diplotype implements Comparable<Diplotype> {
       addHaps(finalRight, bHaps[right]);
     }
 
-    String joined0 = finalLeft.stream().collect(Collectors.joining("+"));
-    String joined1 = finalRight.stream().collect(Collectors.joining("+"));
+    String joined0 = String.join("+", finalLeft);
+    String joined1 = String.join("+", finalRight);
 
     return joined0+sf_delimiter+joined1;
   };
@@ -181,7 +181,7 @@ public class Diplotype implements Comparable<Diplotype> {
 
     String[] alleles = new String[]{m_allele1.printDisplay(), m_allele2.printDisplay()};
     Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
-    return Arrays.stream(alleles).collect(Collectors.joining(sf_delimiter));
+    return String.join(sf_delimiter, alleles);
   }
 
   /**
@@ -206,7 +206,7 @@ public class Diplotype implements Comparable<Diplotype> {
   public String printBareLookupKey() {
     String[] alleles = new String[]{m_allele1.printLookup(), m_allele2.printLookup()};
     Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
-    return Arrays.stream(alleles).collect(Collectors.joining(sf_delimiter));
+    return String.join(sf_delimiter, alleles);
   }
 
   /**

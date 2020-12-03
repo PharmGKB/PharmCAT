@@ -37,16 +37,16 @@ public class GeneReport implements Comparable<GeneReport> {
 
   private String m_gene;
   private String m_chr;
-  private SortedSet<String> m_uncalledHaplotypes = new TreeSet<>();
-  private List<MessageAnnotation> m_messages = new ArrayList<>();
-  private List<DrugLink> m_relatedDrugs = new ArrayList<>();
-  private boolean m_outsideCall = false;
-  private List<Diplotype> m_matcherDiplotypes = new ArrayList<>();
-  private List<Diplotype> m_reporterDiplotypes = new ArrayList<>();
-  private List<VariantReport> m_variantReports = new ArrayList<>();
-  private List<VariantReport> m_variantOfInterestReports = new ArrayList<>();
   private boolean m_phased = false;
-  private List<String> m_highlightedVariants = new ArrayList<>();
+  private boolean m_outsideCall = false;
+  private final SortedSet<String> m_uncalledHaplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
+  private final List<MessageAnnotation> m_messages = new ArrayList<>();
+  private final List<DrugLink> m_relatedDrugs = new ArrayList<>();
+  private final List<Diplotype> m_matcherDiplotypes = new ArrayList<>();
+  private final List<Diplotype> m_reporterDiplotypes = new ArrayList<>();
+  private final List<VariantReport> m_variantReports = new ArrayList<>();
+  private final List<VariantReport> m_variantOfInterestReports = new ArrayList<>();
+  private final List<String> m_highlightedVariants = new ArrayList<>();
 
   /**
    * public constructor
@@ -62,17 +62,17 @@ public class GeneReport implements Comparable<GeneReport> {
   public void setCallData(GeneCall call) throws IOException {
     m_gene = call.getGene();
     m_chr = call.getChromosome();
-    m_uncalledHaplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
+    m_uncalledHaplotypes.clear();
     m_uncalledHaplotypes.addAll(call.getUncallableHaplotypes());
     m_phased = call.isPhased();
 
     VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene, m_chr);
     call.getVariants().stream()
-        .map(variantReportFactory::make).forEach(a -> m_variantReports.add(a));
+        .map(variantReportFactory::make).forEach(m_variantReports::add);
     call.getMatchData().getMissingPositions().stream()
-        .map(variantReportFactory::make).forEach(a -> m_variantReports.add(a));
+        .map(variantReportFactory::make).forEach(m_variantReports::add);
     call.getVariantsOfInterest().stream()
-        .map(variantReportFactory::make).forEach(a -> m_variantOfInterestReports.add(a));
+        .map(variantReportFactory::make).forEach(m_variantOfInterestReports::add);
 
     // set the flag in reports for the variants with mismatched alleles
     call.getMatchData().getMismatchedPositions().stream()
@@ -100,7 +100,7 @@ public class GeneReport implements Comparable<GeneReport> {
     else if (Slco1b1AlleleMatcher.shouldBeUsedOn(this)) {
       Slco1b1AlleleMatcher
           .makeLookupCalls(this, diplotypeFactory)
-          .ifPresent(s -> m_reporterDiplotypes.add(s));
+          .ifPresent(m_reporterDiplotypes::add);
     }
     else {
       m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
@@ -189,7 +189,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if the {@link NamedAlleleMatcher} has returned at least one call for this gene, false otherwise
    */
   public boolean isCalled() {
-    return m_matcherDiplotypes != null && m_matcherDiplotypes.size() > 0;
+    return m_matcherDiplotypes.size() > 0;
   }
 
   /**
@@ -197,16 +197,12 @@ public class GeneReport implements Comparable<GeneReport> {
    * use diplotype calls not made by the matcher (e.g. UGT1A1 or SLCO1B1)
    */
   public boolean isReportable() {
-    return m_reporterDiplotypes != null && m_reporterDiplotypes.size() > 0;
+    return m_reporterDiplotypes.size() > 0;
   }
 
   @Override
   public int compareTo(GeneReport o) {
-    int rez = Objects.compare(getGene(), o.getGene(), String.CASE_INSENSITIVE_ORDER);
-    if (rez != 0) {
-      return rez;
-    }
-    return 0;
+    return Objects.compare(getGene(), o.getGene(), String.CASE_INSENSITIVE_ORDER);
   }
 
   /**
@@ -225,7 +221,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
     guideline.getRelatedDrugs().stream()
         .map(d -> new DrugLink(d, guideline.getId(), guideline.isRxChange(), guideline.isRxPossible()))
-        .forEach(m -> m_relatedDrugs.add(m));
+        .forEach(m_relatedDrugs::add);
   }
 
   /**
