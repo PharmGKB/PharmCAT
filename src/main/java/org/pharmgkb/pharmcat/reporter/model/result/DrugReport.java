@@ -26,7 +26,7 @@ import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
  *
  * @author Ryan Whaley
  */
-public class GuidelineReport implements Comparable<GuidelineReport> {
+public class DrugReport implements Comparable<DrugReport> {
   private static final List<String> sf_notApplicableMatches = ImmutableList.of("PA166104949");
 
   private final Drug m_drug;
@@ -38,7 +38,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private final List<MessageAnnotation> m_messages = new ArrayList<>();
   private final List<String> m_reportVariants = new ArrayList<>();
 
-  public GuidelineReport(Drug drug) {
+  public DrugReport(Drug drug) {
     m_drug = drug;
   }
 
@@ -120,7 +120,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   }
 
   @Override
-  public int compareTo(GuidelineReport o) {
+  public int compareTo(DrugReport o) {
     int rez = Boolean.compare(isReportable(), o.isReportable());
     if (rez != 0) {
       return rez * -1;

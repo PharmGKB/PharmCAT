@@ -217,7 +217,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * Adds the drugs in the given <code>guideline</code> to this report as {@link DrugLink} objects
    * @param guideline a GuidelineReport with relatedDrugs
    */
-  public void addRelatedDrugs(GuidelineReport guideline) {
+  public void addRelatedDrugs(DrugReport guideline) {
 
     guideline.getRelatedDrugs().stream()
         .map(d -> new DrugLink(d, guideline.getId(), guideline.isRxChange(), guideline.isRxPossible()))

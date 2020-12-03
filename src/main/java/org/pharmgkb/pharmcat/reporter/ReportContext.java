@@ -29,8 +29,8 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
+import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
 import org.pharmgkb.pharmcat.util.MessageMatcher;
@@ -44,7 +44,7 @@ import org.slf4j.LoggerFactory;
  * It currently gathers
  * <ul>
  *   <li>{@link GeneCall} objects from the named allele matcher</li>
- *   <li>{@link GuidelineReport} objects from dosing guideline annotations</li>
+ *   <li>{@link DrugReport} objects from dosing guideline annotations</li>
  *   <li>Allele definitions on a per-gene basis</li>
  * </ul>
  *
@@ -59,7 +59,7 @@ public class ReportContext {
       "G6PD", "HLA-A", "HLA-B");
 
   private final Map<String,GeneReport> m_geneReports = new TreeMap<>();
-  private List<GuidelineReport> m_guidelineReports;
+  private List<DrugReport> m_drugReports;
   private final PhenotypeMap m_phenotypeMap;
   private final IncidentalFinder m_incidentalFinder = new IncidentalFinder();
   private final Map<String,String> m_refAlleleForGene = new HashMap<>();
@@ -97,16 +97,16 @@ public class ReportContext {
     MessageMatcher messageMatcher = new MessageMatcher(messages, this);
 
     m_geneReports.values().forEach(r -> r.addMessages(messageMatcher.match(r)));
-    m_guidelineReports.forEach(r -> r.addMessages(messageMatcher.match(r)));
+    m_drugReports.forEach(r -> r.addMessages(messageMatcher.match(r)));
   }
 
   /**
-   * Takes the raw GuidelinePackage objects from PharmGKG and maps them to {@link GuidelineReport} objects that can be
+   * Takes the raw GuidelinePackage objects from PharmGKG and maps them to {@link DrugReport} objects that can be
    * used in the reporter
    * @param drugs a List of PharmGKB {@link Drug} objects
    */
   private void makeDrugReports(List<Drug> drugs) {
-    m_guidelineReports = drugs.stream().map(GuidelineReport::new).collect(Collectors.toList());
+    m_drugReports = drugs.stream().map(DrugReport::new).collect(Collectors.toList());
   }
 
   /**
@@ -162,7 +162,7 @@ public class ReportContext {
    * collection of all drugs that are related to each gene.
    */
   private void compileDrugsForGenes() {
-    m_guidelineReports.forEach(r -> {
+    m_drugReports.forEach(r -> {
       for (String gene : r.getRelatedGeneSymbols()) {
         getGeneReport(gene).addRelatedDrugs(r);
       }
@@ -179,23 +179,23 @@ public class ReportContext {
    */
   private void findMatches() {
 
-    for(GuidelineReport guideline : m_guidelineReports) {
-      boolean reportable = guideline.getRelatedGeneSymbols().stream()
+    for(DrugReport drugReport : m_drugReports) {
+      boolean reportable = drugReport.getRelatedGeneSymbols().stream()
           .anyMatch(this::isReportable);
 
-      guideline.setReportable(reportable);
+      drugReport.setReportable(reportable);
 
-      guideline.getRelatedGeneSymbols().stream()
+      drugReport.getRelatedGeneSymbols().stream()
           .filter(g -> !isReportable(g))
-          .forEach(guideline::addUncalledGene);
+          .forEach(drugReport::addUncalledGene);
 
       if (!reportable) {
         continue;
       }
 
-      makeAllReportGenotypes(guideline);
-      guideline.setIncidentalResult(
-          guideline.getRelatedGeneSymbols().stream()
+      makeAllReportGenotypes(drugReport);
+      drugReport.setIncidentalResult(
+          drugReport.getRelatedGeneSymbols().stream()
               .anyMatch(isGeneIncidental));
     }
   }
@@ -214,17 +214,17 @@ public class ReportContext {
 
   /**
    * Makes a set of called genotype function Strings (in the form "GENEA:No Function/No Function;GENEB:Normal Function/Normal Function") for the given
-   * {@link GuidelineReport} and then adds them to the given {@link GuidelineReport}.
+   * {@link DrugReport} and then adds them to the given {@link DrugReport}.
    *
    * <em>note:</em> this needs to stay in the {@link ReportContext} since it relies on referencing possibly multiple
    * {@link GeneReport} objects.
    */
-  private void makeAllReportGenotypes(GuidelineReport guidelineReport) {
+  private void makeAllReportGenotypes(DrugReport drugReport) {
     Set<String> results = new TreeSet<>();
-    for (String symbol : guidelineReport.getRelatedGeneSymbols()) {
+    for (String symbol : drugReport.getRelatedGeneSymbols()) {
       results = makeCalledGenotypes(symbol, results);
     }
-    results.forEach(guidelineReport::addReportGenotype);
+    results.forEach(drugReport::addReportGenotype);
   }
 
   /**
@@ -256,8 +256,8 @@ public class ReportContext {
     }
   }
 
-  public List<GuidelineReport> getGuidelineReports() {
-    return m_guidelineReports;
+  public List<DrugReport> getDrugReports() {
+    return m_drugReports;
   }
 
   public Collection<GeneReport> getGeneReports() {
@@ -327,7 +327,7 @@ public class ReportContext {
 
     // Guidelines section
     List<Map<String,Object>> guidelines = new ArrayList<>();
-    for (GuidelineReport guideline : getGuidelineReports()) {
+    for (DrugReport guideline : getDrugReports()) {
       sf_logger.debug("Start GuidelineReport for {}", guideline.toString());
 
       // don't include guidelines that are only on blacklisted genes

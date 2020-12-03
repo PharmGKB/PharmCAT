@@ -13,8 +13,8 @@ import org.pharmgkb.pharmcat.PharmCAT;
 import org.pharmgkb.pharmcat.VcfTestUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -725,7 +725,7 @@ class PharmCATTest {
     assertTrue(s_context.getGeneReport(gene).getVariantReports().stream().anyMatch(v -> v.isMissing() && v.getDbSnpId().equals("rs776746")));
 
     // the guideline should have a matching message
-    assertTrue(s_context.getGuidelineReports().stream()
+    assertTrue(s_context.getDrugReports().stream()
         .filter(r -> r.getRelatedDrugs().contains("tacrolimus"))
         .allMatch(r -> r.getMessages().size() > 0));
 
@@ -900,7 +900,7 @@ class PharmCATTest {
     s_context = s_pharmcat.getReporter().getContext();
 
     assertEquals(19, s_context.getGeneReports().size());
-    assertEquals(42, s_context.getGuidelineReports().size());
+    assertEquals(42, s_context.getDrugReports().size());
   }
 
   /**
@@ -954,7 +954,7 @@ class PharmCATTest {
   }
 
   private void testMatchedGroups(String drugName, int count) {
-    GuidelineReport guideline = s_context.getGuidelineReports().stream()
+    DrugReport guideline = s_context.getDrugReports().stream()
         .filter(r -> r.getRelatedDrugs().contains(drugName))
         .findFirst().orElseThrow(() -> new RuntimeException("No guideline found for " + drugName));
 

@@ -12,8 +12,8 @@ import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
+import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
 
 /**
@@ -46,7 +46,7 @@ public class MessageMatcher {
   }
 
   @Nonnull
-  public List<MessageAnnotation> match(GuidelineReport guideline) {
+  public List<MessageAnnotation> match(DrugReport guideline) {
     return m_messages.stream()
         .filter(m -> match(m.getMatches(), guideline))
         .collect(Collectors.toList());
@@ -79,7 +79,7 @@ public class MessageMatcher {
     return criteriaPass;
   }
 
-  public boolean match(MatchLogic match, GuidelineReport report) {
+  public boolean match(MatchLogic match, DrugReport report) {
 
     boolean criteriaPass = !match.getDrugs().isEmpty() && !Collections.disjoint(match.getDrugs(), report.getRelatedDrugs());
 
