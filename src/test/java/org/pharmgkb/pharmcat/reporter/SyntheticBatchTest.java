@@ -617,8 +617,7 @@ class SyntheticBatchTest {
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        .addOption("o", "output-dir", "directory to output to", true, "o")
-        .addOption("g", "guideline-dir", "directory of guideline annotations (JSON files)", false, "n");
+        .addOption("o", "output-dir", "directory to output to", true, "o");
 
     try {
       if (!cliHelper.parse(args)) {
@@ -626,12 +625,8 @@ class SyntheticBatchTest {
       }
 
       Path outputDir = cliHelper.getValidDirectory("o", true);
-      Path guidelineDir = null;
-      if (cliHelper.hasOption("g")) {
-        guidelineDir = cliHelper.getValidDirectory("g", false);
-      }
 
-      SyntheticBatchTest piplelineTest = new SyntheticBatchTest(outputDir, guidelineDir);
+      SyntheticBatchTest piplelineTest = new SyntheticBatchTest(outputDir);
       piplelineTest.execute();
     } catch (Exception e) {
       e.printStackTrace();
@@ -639,9 +634,9 @@ class SyntheticBatchTest {
   }
 
 
-  private SyntheticBatchTest(Path outputDir, Path guidelineDir) throws IOException {
+  private SyntheticBatchTest(Path outputDir) throws IOException {
     m_outputDir = outputDir;
-    m_pharmcat = new PharmCAT(outputDir, null, guidelineDir).keepMatcherOutput();
+    m_pharmcat = new PharmCAT(outputDir, null).keepMatcherOutput();
     m_pharmcat.writeJson(true);
   }
 

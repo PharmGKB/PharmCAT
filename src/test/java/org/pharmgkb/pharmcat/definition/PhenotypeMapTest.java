@@ -20,7 +20,7 @@ class PhenotypeMapTest {
 
     assertNotNull(phenotypeMap);
 
-    assertEquals(12, phenotypeMap.getGenes().size());
+    assertEquals(17, phenotypeMap.getGenes().size());
 
     assertEquals(
         "No function",
@@ -28,6 +28,18 @@ class PhenotypeMapTest {
 
     GenePhenotype genePhenotype = phenotypeMap.lookup("DPYD").orElseThrow(Exception::new);
     assertNotNull(genePhenotype);
-    assertEquals("Normal function", genePhenotype.lookupHaplotype("Any normal function variant or no variant detected"));
+    assertEquals("Normal function", genePhenotype.lookupHaplotype("Reference"));
+  }
+
+  @Test
+  void testLookupPhenotype() throws Exception {
+    PhenotypeMap phenotypeMap = new PhenotypeMap();
+
+    String genotype = "CYP2C9:*1/*1";
+    GenePhenotype genePhenotype = phenotypeMap.lookup("CYP2C9")
+        .orElseThrow(() -> new RuntimeException("No CYP2C9 phenotype map found"));
+    assertNotNull(genePhenotype.getDiplotypeResults());
+    String result = genePhenotype.getDiplotypeResults().get(genotype);
+    assertEquals("2", result);
   }
 }

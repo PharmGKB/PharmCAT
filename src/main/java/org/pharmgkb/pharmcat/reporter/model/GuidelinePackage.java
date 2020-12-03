@@ -12,6 +12,7 @@ import com.google.gson.annotations.SerializedName;
  * This class packs together the main guideline and the groups of diplotype-specific annotations
  *
  * @author Ryan Whaley
+ * @deprecated
  */
 public class GuidelinePackage {
 

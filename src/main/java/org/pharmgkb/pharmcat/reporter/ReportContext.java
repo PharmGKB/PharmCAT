@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.reporter;
 
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,18 +24,18 @@ import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.reporter.model.Annotation;
-import org.pharmgkb.pharmcat.reporter.model.Group;
-import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
-import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
 import org.pharmgkb.pharmcat.util.MessageMatcher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -51,22 +52,17 @@ import org.pharmgkb.pharmcat.util.MessageMatcher;
  * @author Ryan Whaley
  */
 public class ReportContext {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   // never display these genes in the gene call list
   private static final List<String> sf_geneBlacklist = ImmutableList.of(
-      "G6PD", "HLA-B");
-  // never display these drugs in the guideline section
-  private static final List<String> sf_drugHidePhenotype = ImmutableList.of(
-      "ivacaftor", "peginterferon alfa-2a", "peginterferon alfa-2b", "ribavirin");
-  // never display these types of annotations in the guidelines section
-  private static final List<String> sf_annotationTermBlacklist = ImmutableList.of(
-      "Phenotype (Genotype)", "Metabolizer Status");
+      "G6PD", "HLA-A", "HLA-B");
 
-  private Map<String,GeneReport> m_geneReports = new TreeMap<>();
+  private final Map<String,GeneReport> m_geneReports = new TreeMap<>();
   private List<GuidelineReport> m_guidelineReports;
-  private PhenotypeMap m_phenotypeMap;
-  private IncidentalFinder m_incidentalFinder = new IncidentalFinder();
-  private Map<String,String> m_refAlleleForGene = new HashMap<>();
+  private final PhenotypeMap m_phenotypeMap;
+  private final IncidentalFinder m_incidentalFinder = new IncidentalFinder();
+  private final Map<String,String> m_refAlleleForGene = new HashMap<>();
 
   private final Predicate<String> isGeneIncidental = s -> m_geneReports.values().stream()
       .anyMatch(r -> r.getGene().equals(s) && r.isIncidental());
@@ -75,12 +71,12 @@ public class ReportContext {
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
    * @param calls {@link GeneCall} objects from the sample data
    * @param outsideCalls {@link OutsideCall} objects, non-null but can be empty
-   * @param guidelinePackages a List of all the guidelines to try to apply
    */
-  public ReportContext(List<GeneCall> calls, List<OutsideCall> outsideCalls, List<GuidelinePackage> guidelinePackages) throws Exception {
+  public ReportContext(List<GeneCall> calls, List<OutsideCall> outsideCalls) throws Exception {
+    List<Drug> drugs = new DrugCollection().list();
 
-    makeGuidelineReports(guidelinePackages);
-    makeGeneReports(guidelinePackages);
+    makeDrugReports(drugs);
+    makeGeneReports(drugs);
     loadReferenceAlleleNames();
 
     m_phenotypeMap = new PhenotypeMap();
@@ -107,23 +103,21 @@ public class ReportContext {
   /**
    * Takes the raw GuidelinePackage objects from PharmGKG and maps them to {@link GuidelineReport} objects that can be
    * used in the reporter
-   * @param guidelinePackages a List of PharmGKB {@link GuidelinePackage} objects
+   * @param drugs a List of PharmGKB {@link Drug} objects
    */
-  private void makeGuidelineReports(List<GuidelinePackage> guidelinePackages) {
-    m_guidelineReports = guidelinePackages.stream().map(GuidelineReport::new).collect(Collectors.toList());
+  private void makeDrugReports(List<Drug> drugs) {
+    m_guidelineReports = drugs.stream().map(GuidelineReport::new).collect(Collectors.toList());
   }
 
   /**
-   * Makes {@link GeneReport} objects for each of the genes found in PharmGKB {@link GuidelinePackage} objects
-   * @param guidelinePackages a List of PharmGKB {@link GuidelinePackage} objects
+   * Makes {@link GeneReport} objects for each of the genes found in PharmGKB {@link Drug} objects
+   * @param drugs a List of CPIC {@link Drug} objects
    */
-  private void  makeGeneReports(List<GuidelinePackage> guidelinePackages) {
-    for (GuidelinePackage guidelinePackage : guidelinePackages) {
-      guidelinePackage.getGuideline().getRelatedGenes().stream()
-          .map(RelatedGene::getSymbol)
-          .distinct()
-          .forEach(s -> m_geneReports.put(s, new GeneReport(s)));
-    }
+  private void  makeGeneReports(List<Drug> drugs) {
+    drugs.stream()
+        .flatMap(d -> d.getGenes().stream())
+        .sorted().distinct()
+        .forEach((g) -> m_geneReports.put(g, new GeneReport(g)));
   }
 
   /**
@@ -228,7 +222,7 @@ public class ReportContext {
   private void makeAllReportGenotypes(GuidelineReport guidelineReport) {
     Set<String> results = new TreeSet<>();
     for (String symbol : guidelineReport.getRelatedGeneSymbols()) {
-      results = makeCalledGenotypes(guidelineReport, symbol, results);
+      results = makeCalledGenotypes(symbol, results);
     }
     results.forEach(guidelineReport::addReportGenotype);
   }
@@ -237,25 +231,24 @@ public class ReportContext {
    * Makes the genotype Strings for the given gene <code>symbol</code> and either creates a new Set if the passed
    * <code>results</code> is empty or adds to the existing <code>results</code> if there are already entries
    *
-   * @param guidelineReport a GuidelineReport with gene calls
    * @param symbol the gene to generate calls for
    * @param results the existing call list to add to
    * @return a new Set of gene calls with the calls for the specified gene
    */
-  private Set<String> makeCalledGenotypes(GuidelineReport guidelineReport, String symbol, Set<String> results) {
+  private Set<String> makeCalledGenotypes(String symbol, Set<String> results) {
     if (results.size() == 0) {
       return getGeneReport(symbol).getDiplotypeLookupKeys().stream()
-          .map(guidelineReport::translateToPhenotype)
+          .map(k -> m_phenotypeMap.lookupPhenotype(k).orElse(symbol+":N/A"))
           .collect(Collectors.toSet());
     }
     else {
       Set<String> newResults = new TreeSet<>();
       for (String geno1 : results) {
-        getGeneReport(symbol).getDiplotypeLookupKeys().stream().map(guidelineReport::translateToPhenotype).forEach(
+        getGeneReport(symbol).getDiplotypeLookupKeys().stream().map(m_phenotypeMap::lookupPhenotype).forEach(
             geno2 -> {
               Set<String> genos = new TreeSet<>();
               genos.add(geno1);
-              genos.add(geno2);
+              genos.add(geno2.orElse(symbol+":N/A"));
               newResults.add(String.join(";", genos));
             });
       }
@@ -293,6 +286,7 @@ public class ReportContext {
 
     // Genotypes section
     List<Map<String,Object>> genotypes = new ArrayList<>();
+    int calledGenes = 0;
     for (GeneReport geneReport : getGeneReports()) {
       String symbol = geneReport.getGene();
 
@@ -303,6 +297,10 @@ public class ReportContext {
 
       // skip any uncalled genes
       if (!geneReport.isCalled() && geneReport.getReporterDiplotypes().isEmpty()) {
+        continue;
+      }
+
+      if (geneReport.getRelatedDrugs().size() == 0) {
         continue;
       }
 
@@ -318,17 +316,23 @@ public class ReportContext {
       genotype.put("outsideCall", geneReport.isOutsideCall());
 
       genotypes.add(genotype);
+
+      if (geneReport.isCalled()) {
+        calledGenes += 1;
+      }
     }
     result.put("genotypes", genotypes);
     result.put("totalGenes", genotypes.size());
-    result.put("calledGenes", getGeneReports().stream().filter(GeneReport::isCalled).count());
+    result.put("calledGenes", calledGenes);
 
     // Guidelines section
     List<Map<String,Object>> guidelines = new ArrayList<>();
-    for (GuidelineReport guideline : new TreeSet<>(getGuidelineReports())) {
+    for (GuidelineReport guideline : getGuidelineReports()) {
+      sf_logger.debug("Start GuidelineReport for {}", guideline.toString());
 
       // don't include guidelines that are only on blacklisted genes
-      if (guideline.getRelatedGeneSymbols().size() == 1 && sf_geneBlacklist.containsAll(guideline.getRelatedGeneSymbols())) {
+      if (sf_geneBlacklist.containsAll(guideline.getRelatedGeneSymbols())) {
+        sf_logger.debug("Hiding GuidelineReport for {}", guideline.toString());
         continue;
       }
 
@@ -336,22 +340,23 @@ public class ReportContext {
 
       String drugs = String.join(", ", guideline.getRelatedDrugs());
       guidelineMap.put("drugs", drugs);
-      guidelineMap.put("summary", guideline.getSummaryHtml());
       guidelineMap.put("url", guideline.getUrl());
       guidelineMap.put("id", guideline.getId());
       String lastModified = guideline.getLastModified() != null
-          ? new SimpleDateFormat("YYYY.MM.dd").format(guideline.getLastModified())
+          ? new SimpleDateFormat("yyyy.MM.dd").format(guideline.getLastModified())
           : "not available";
       guidelineMap.put("lastModified", lastModified);
 
       List<Map<String,Object>> geneCallList = new ArrayList<>();
       for (String gene : guideline.getRelatedGeneSymbols()) {
         GeneReport geneReport = getGeneReport(gene);
+        String functions = geneReport.isCalled() ? String.join("; ", geneReport.printDisplayFunctions()) : null;
         Map<String,Object> geneCall = new LinkedHashMap<>();
         geneCall.put("gene", gene);
         geneCall.put("diplotypes", String.join(", ", geneReport.printDisplayCalls()));
         geneCall.put("showHighlights", !geneReport.getHighlightedVariants().isEmpty());
         geneCall.put("highlightedVariants", geneReport.getHighlightedVariants());
+        geneCall.put("functions", functions);
         geneCall.put("outsideCall", geneReport.isOutsideCall());
         geneCallList.add(geneCall);
       }
@@ -393,44 +398,48 @@ public class ReportContext {
         guidelineMap.put("citations", guideline.getCitations());
       }
 
-      if (guideline.getId().equals("PA166104949")) {
+      // special case the display for warfarin recommendation since it's an image
+      if (guideline.toString().equals("warfarin")) {
         Map<String,String> imageData = new LinkedHashMap<>();
         imageData.put("url", "http://s3.pgkb.org/attachment/CPIC_warfarin_2017_Fig_2.png");
         imageData.put("altText", "Figure 2 from the CPIC guideline for warfarin");
         guidelineMap.put("image", imageData);
       }
 
-      if (guideline.getMatchingGroups() != null) {
+      if (guideline.getMatchingRecommendations() != null) {
         List<Map<String, Object>> groupList = new ArrayList<>();
-        for (Group group : guideline.getMatchingGroups()) {
+        for (Recommendation recommendation : guideline.getMatchingRecommendations()) {
           Map<String, Object> groupData = new HashMap<>();
-          Collection<String> geneFunctions = guideline.getMatchedDiplotypes().get(group.getId());
 
           List<Map<String, String>> annotationList = new ArrayList<>();
-          if (guideline.getRelatedDrugs().stream().noneMatch(sf_drugHidePhenotype::contains)) {
-            String alleleFn = geneFunctions.stream()
-                .map(f -> f.replace(";", "<br/>"))
-                .collect(Collectors.joining("<br/><br/>"));
-            annotationList.add(makeAnnotation("Allele Functionality", alleleFn));
-            annotationList.add(makeAnnotation("Phenotype", group.getName()));
+          annotationList.add(makeAnnotation("Population", recommendation.getPopulation()));
+          for (String geneSymbol : recommendation.getImplications().keySet()) {
+            annotationList.add(makeAnnotation("Implication for " + geneSymbol, recommendation.getImplications().get(geneSymbol)));
           }
-          for (Annotation ann : group.getAnnotations()) {
-            if (sf_annotationTermBlacklist.contains(ann.getType().getTerm())) {
-              continue;
+          for (String geneSymbol : recommendation.getPhenotypes().keySet()) {
+            annotationList.add(makeAnnotation("Phenotype for " + geneSymbol, recommendation.getPhenotypes().get(geneSymbol)));
+          }
+          for (String geneSymbol : recommendation.getActivityScore().keySet()) {
+            String score = recommendation.getActivityScore().get(geneSymbol);
+            if (score != null && !score.equalsIgnoreCase("n/a")) {
+              annotationList.add(makeAnnotation("Activity Score for " + geneSymbol, score));
             }
-            annotationList.add(makeAnnotation(ann.getType().getTerm(), ann.getMarkdown().getHtml()));
           }
-          Map<String, String> strengthMap = new HashMap<>();
-          strengthMap.put("term", "Classification of Recommendation");
-          strengthMap.put("annotation", group.getStrength() != null ? group.getStrength().getTerm() : "N/A");
-          annotationList.add(strengthMap);
+          for (String geneSymbol : recommendation.getAlleleStatus().keySet()) {
+            String status = recommendation.getAlleleStatus().get(geneSymbol);
+            if (status != null && !status.equalsIgnoreCase("n/a")) {
+              annotationList.add(makeAnnotation("Allele Status for " + geneSymbol, status));
+            }
+          }
+          annotationList.add(makeAnnotation("Recommendation", recommendation.getDrugRecommendation()));
+          annotationList.add(makeAnnotation("Classification of Recommendation", recommendation.getClassification()));
           groupData.put("annotations", annotationList);
-          groupData.put("name", group.getName());
           groupList.add(groupData);
         }
         guidelineMap.put("groups", groupList);
       }
 
+      sf_logger.debug("Reporting GuidelineReport for {}", guideline.toString());
       guidelines.add(guidelineMap);
     }
     result.put("guidelines", guidelines);

@@ -76,7 +76,7 @@ public class PharmCAT {
         outputFile = cliHelper.getValue("f");
       }
 
-      PharmCAT pharmcat = new PharmCAT(outputDir, definitionsDir, guidelinesDir);
+      PharmCAT pharmcat = new PharmCAT(outputDir, definitionsDir);
       if (cliHelper.hasOption("k")) {
         pharmcat.keepMatcherOutput();
       }
@@ -97,10 +97,9 @@ public class PharmCAT {
    *
    * @param outputDir Path to the directory to write output to
    * @param definitionsDir Path to the directory where allele definitions are, null will use default definitions
-   * @param guidelinesDir Path to the directory where guideline annotations are, null will use default annotations
    * @throws IOException can be throwsn if filesystem objects not in proper state
    */
-  public PharmCAT(Path outputDir, @Nullable Path definitionsDir, @Nullable Path guidelinesDir)
+  public PharmCAT(Path outputDir, @Nullable Path definitionsDir)
       throws IOException {
 
     boolean madeDir = outputDir.toFile().mkdirs();
@@ -114,21 +113,15 @@ public class PharmCAT {
     }
     Preconditions.checkArgument(Files.isDirectory(definitionsDir), "Not a directory: %s", definitionsDir);
 
-    if (guidelinesDir == null) {
-      guidelinesDir = DataManager.DEFAULT_GUIDELINE_DIR;
-    }
-    Preconditions.checkArgument(Files.isDirectory(guidelinesDir), "Not a directory: %s", guidelinesDir);
-
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionsDir);
 
     m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true)
         .printWarnings();
-    m_reporter = new Reporter(guidelinesDir);
+    m_reporter = new Reporter();
     setOutputDir(outputDir);
 
     sf_logger.info("Using alleles: {}", definitionsDir);
-    sf_logger.info("Using annotations: {}", guidelinesDir);
     sf_logger.info("Writing to: {}", outputDir);
 
     System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");

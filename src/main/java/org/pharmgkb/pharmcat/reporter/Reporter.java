@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
@@ -25,10 +24,8 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
-import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
-import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
@@ -47,7 +44,6 @@ public class Reporter {
 
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
-  private final List<Path> m_annotationFiles;
   private final List<MessageAnnotation> m_messages;
   private ReportContext m_reportContext = null;
 
@@ -62,7 +58,6 @@ public class Reporter {
         .addOption("a", "outside-call-file", "optional, outside call TSV file", false, "a")
         .addOption("o", "output-file", "file path to write HTML report to", true, "o")
         .addOption("t", "title", "optional, text to add to the report title", false, "t")
-        .addOption("g", "guidelines-dir", "directory of guideline annotations (JSON files)", false, "n")
         ;
 
     try {
@@ -70,16 +65,12 @@ public class Reporter {
         System.exit(1);
       }
 
-      Path guidelinesDir = null;
-      if (cliHelper.hasOption("g")) {
-        guidelinesDir = cliHelper.getValidDirectory("g", false);
-      }
       Path callFile = cliHelper.getValidFile("c", true);
       Path outsideCallPath = cliHelper.hasOption("a") ? cliHelper.getValidFile("a", true) : null;
       Path outputFile = cliHelper.getPath("o");
       String title = cliHelper.getValue("t");
 
-      new Reporter(guidelinesDir)
+      new Reporter()
           .analyze(callFile, outsideCallPath)
           .printHtml(outputFile, title, null);
 
@@ -90,24 +81,8 @@ public class Reporter {
 
   /**
    * public constructor. start a new reporter based on annotation data found in the given <code>annotationsDir</code>.
-   *
-   * @param annotationsDir directory of annotation files
    */
-  public Reporter(@Nullable Path annotationsDir) throws IOException {
-
-    if (annotationsDir == null) {
-      annotationsDir = DataManager.DEFAULT_GUIDELINE_DIR;
-    }
-    Preconditions.checkArgument(Files.exists(annotationsDir));
-    Preconditions.checkArgument(Files.isDirectory(annotationsDir));
-
-    m_annotationFiles = Files.list(annotationsDir)
-        .filter(f -> f.getFileName().toString().endsWith(".json"))
-        .collect(Collectors.toList());
-    if (m_annotationFiles.size() == 0) {
-      throw new IOException("No annotation definitions to read from");
-    }
-
+  public Reporter() throws IOException {
     try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(sf_messagesFile))) {
       MessageAnnotation[] messages = new Gson().fromJson(reader, MessageAnnotation[].class);
       m_messages = Arrays.asList(messages);
@@ -138,10 +113,8 @@ public class Reporter {
       outsideCalls = OutsideCallParser.parse(outsideCallPath);
     }
 
-    List<GuidelinePackage> guidelines = loader.loadGuidelines(m_annotationFiles);
-
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
-    m_reportContext = new ReportContext(calls, outsideCalls, guidelines);
+    m_reportContext = new ReportContext(calls, outsideCalls);
 
     m_reportContext.applyMessage(m_messages);
 

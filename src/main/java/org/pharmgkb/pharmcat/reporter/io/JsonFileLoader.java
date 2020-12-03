@@ -44,6 +44,7 @@ public class JsonFileLoader {
   /**
    * Load the <strong>CPIC</strong> guideline annotations into {@link DosingGuideline} objects from the list of guideline {@link File}
    * list
+   * @deprecated replace with drug list
    */
   public List<GuidelinePackage> loadGuidelines(List<Path> guidelineFileList) throws IOException {
     List<GuidelinePackage> guidelines = new ArrayList<>();

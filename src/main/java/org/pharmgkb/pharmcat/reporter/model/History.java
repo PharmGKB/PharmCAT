@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * History event object for tracking history on pharmgkb objects
  *
  * @author Ryan Whaley
+ * @deprecated
  */
 public class History {
 

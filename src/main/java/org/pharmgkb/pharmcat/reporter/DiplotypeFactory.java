@@ -32,8 +32,7 @@ public class DiplotypeFactory {
   private final String f_referenceAlleleName;
   private final GenePhenotype f_genePhenotype;
   private final IncidentalFinder f_incidentalFinder;
-
-  private Map<String,Haplotype> m_haplotypeCache = new HashMap<>();
+  private final Map<String,Haplotype> m_haplotypeCache = new HashMap<>();
 
   /**
    * public constructor
@@ -123,6 +122,7 @@ public class DiplotypeFactory {
 
   private void fillDiplotype(Diplotype diplotype) {
     if (f_genePhenotype != null) {
+      // TODO: change this to use "diplotypeResults"?
       diplotype.setPhenotype(f_genePhenotype.makePhenotype(diplotype.printBareLookupKey()));
     }
   }

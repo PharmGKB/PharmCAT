@@ -26,7 +26,7 @@ class Ugt1a1AlleleMatcherTest {
 
   @BeforeAll
   static void prepare() throws IOException {
-    s_pharmcat = new PharmCAT(Files.createTempDirectory(MethodHandles.lookup().lookupClass().getName()), null, null);
+    s_pharmcat = new PharmCAT(Files.createTempDirectory(MethodHandles.lookup().lookupClass().getName()), null);
   }
 
   @Test

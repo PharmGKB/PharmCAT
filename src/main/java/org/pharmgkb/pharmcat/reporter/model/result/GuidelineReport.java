@@ -1,138 +1,120 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.reporter.model.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.Group;
-import org.pharmgkb.pharmcat.reporter.model.GuidelinePackage;
-import org.pharmgkb.pharmcat.reporter.model.History;
-import org.pharmgkb.pharmcat.reporter.model.Literature;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
-import org.pharmgkb.pharmcat.reporter.model.RelatedChemical;
-import org.pharmgkb.pharmcat.reporter.model.RelatedGene;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
 
 
 /**
- * This class is a wrapper around the {@link GuidelinePackage} class that also handles the matching of genotype
+ * This class is a wrapper around the {@link Drug} class that also handles the matching of genotype
  * functions to annotation {@link Group} objects.
  *
  * @author Ryan Whaley
  */
 public class GuidelineReport implements Comparable<GuidelineReport> {
-
-  private static final Pattern sf_genotypePattern = Pattern.compile("(.*):(.*)\\/(.*)");
-  private static final String sf_unmatchedPhenotype = "N/A";
   private static final List<String> sf_notApplicableMatches = ImmutableList.of("PA166104949");
 
-  private DosingGuideline m_dosingGuideline;
-  private List<Group> m_groups;
-  private SortedSet<Group> m_matchingGroups = new TreeSet<>();
-  private Multimap<String,String> m_matchedDiplotypes = TreeMultimap.create();
+  private final Drug m_drug;
   private boolean m_reportable = false;
-  private Set<String> m_uncalledGenes = new TreeSet<>();
-  private Map<String,Map<String,String>> m_phenotypeMap;
-  private List<MessageAnnotation> m_messages = new ArrayList<>();
   private boolean m_isIncidentalResult = false;
-  private List<Literature> m_citations = new ArrayList<>();
-  private List<String> m_reportVariants = new ArrayList<>();
-  private Multimap<String,String> m_functionToGenotypeMap = TreeMultimap.create();
-  private Date m_lastModified;
+  private final SortedSet<Group> m_matchingGroups = new TreeSet<>();
+  private final List<Recommendation> m_matchingRecommendations = new ArrayList<>();
+  private final Multimap<String,String> m_matchedDiplotypes = TreeMultimap.create();
+  private final Set<String> m_uncalledGenes = new TreeSet<>();
+  private final List<MessageAnnotation> m_messages = new ArrayList<>();
+  private final List<String> m_reportVariants = new ArrayList<>();
 
-  public GuidelineReport(GuidelinePackage guidelinePackage){
-    m_dosingGuideline = guidelinePackage.getGuideline();
-    m_groups = guidelinePackage.getGroups();
-    m_phenotypeMap = guidelinePackage.getPhenotypeMap();
-    m_citations.addAll(guidelinePackage.getCitations());
-
-    History event = m_dosingGuideline.getHistory().get(m_dosingGuideline.getHistory().size()-1);
-    m_lastModified = event.getDate();
+  public GuidelineReport(Drug drug) {
+    m_drug = drug;
   }
 
   /**
    * Gets the name of the guideline, a pass-through to the stored guideline.
    */
   public String getName() {
-    return m_dosingGuideline.getName();
+    return m_drug.getGuidelineName();
   }
 
   /**
    * Gets the ID of the guideline
    */
   public String getId() {
-    return m_dosingGuideline.getId();
+    return m_drug.getDrugId();
   }
 
   /**
    * Gets just the symbols of the related genes of the guideline. Calculated from data in the original guideline.
    */
-  public Set<String> getRelatedGeneSymbols() {
-    return m_dosingGuideline.getRelatedGenes().stream()
-        .map(RelatedGene::getSymbol).collect(Collectors.toSet());
+  public List<String> getRelatedGeneSymbols() {
+    return m_drug.getGenes();
   }
 
   public Set<String> getRelatedDrugs() {
-    return m_dosingGuideline.getRelatedChemicals().stream()
-        .map(RelatedChemical::getName).collect(Collectors.toSet());
-  }
-
-  /**
-   * Gets the summary text of the guideline, a pass-through to the stored guideline.
-   */
-  public String getSummaryHtml() {
-    return m_dosingGuideline.getSummaryMarkdown().getHtml();
+    return ImmutableSet.of(m_drug.getDrugName());
   }
 
   /**
    * Gets all annotation groups of the guideline, a pass-through to the stored guideline.
    */
   public List<Group> getGroups() {
-    return m_groups;
+    return new ArrayList<>();
+  }
+
+  public List<Recommendation> getRecommendations() {
+    if (m_drug == null || m_drug.getRecommendations() == null) {
+      return new ArrayList<>();
+    } else {
+      return m_drug.getRecommendations();
+    }
   }
 
   /**
    * Gets only the matching annotation groups based on the called genotypes
+   * @deprecated
    */
   public Set<Group> getMatchingGroups() {
     return m_matchingGroups;
   }
 
-  private void addMatchingGroup(Group group) {
-    m_matchingGroups.add(group);
-  }
-
   public boolean isMatched() {
-    return sf_notApplicableMatches.contains(getId()) || m_matchingGroups.size()>0;
+    return sf_notApplicableMatches.contains(getId()) || m_matchingRecommendations.size()>0;
   }
 
   public boolean hasMultipleMatches() {
     return m_matchingGroups.size()>1;
   }
 
+
+  public List<Recommendation> getMatchingRecommendations() {
+    return m_matchingRecommendations;
+  }
+
+  public void addMatchingRecommendation(Recommendation recommendation) {
+    m_matchingRecommendations.add(recommendation);
+  }
+
   /**
    * Gets the URL for the whole annotation
    */
   public String getUrl() {
-    return "https://www.pharmgkb.org/guideline/" + m_dosingGuideline.getId();
+    return m_drug.getUrl();
   }
 
   /**
@@ -166,10 +148,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
       return rez * -1;
     }
     rez = Objects.compare(getName(), o.getName(), String.CASE_INSENSITIVE_ORDER);
-    if (rez != 0) {
-      return rez;
-    }
-    return 0;
+    return rez;
   }
 
   public Set<String> getUncalledGenes() {
@@ -191,47 +170,6 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   }
 
   /**
-   * Translates a raw genotype (e.g. GENE:*1/*2) to a phenotype (e.g. GENE:Normal Function/Loss of Function). The
-   * individual phenotypes are guaranteed to be sorted alphabetically.
-   *
-   * @param genotype a genotype string in the form GENE:Allele1/Allele2
-   * @return a phenotype string in the form GENE:Pheno1/Pheno2
-   */
-  @Nonnull
-  public String translateToPhenotype(@Nullable String genotype) {
-    if (StringUtils.isBlank(genotype)) {
-      return sf_unmatchedPhenotype;
-    }
-
-    Matcher m = sf_genotypePattern.matcher(genotype);
-    if (!m.matches()) {
-      return sf_unmatchedPhenotype;
-    }
-
-    String gene    = m.group(1);
-    String allele1 = m.group(2);
-    String allele2 = m.group(3);
-
-    if (m_phenotypeMap.get(gene) == null) {
-      return sf_unmatchedPhenotype;
-    }
-
-    String pheno1 = m_phenotypeMap.get(gene).get(allele1);
-    String pheno2 = m_phenotypeMap.get(gene).get(allele2);
-
-    if (pheno1 == null || pheno2 == null) {
-      return sf_unmatchedPhenotype;
-    }
-
-    List<String> phenotypes = Lists.newArrayList(pheno1, pheno2);
-    Collections.sort(phenotypes);
-
-    String finalFunction = gene+":"+phenotypes.stream().collect(Collectors.joining("/"));
-    m_functionToGenotypeMap.put(finalFunction, genotype);
-    return finalFunction;
-  }
-
-  /**
    * Finds the matching {@link Group} objects for the given <code>reportGenotype</code>, adds it to the group, and then
    * marks it as a match.
    * @param reportGenotype a multi-gene genotype function String in the form of "GENEA:No Function/No Function;GENEB:Normal Function/Normal Function"
@@ -239,11 +177,11 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   public void addReportGenotype(String reportGenotype) {
     Preconditions.checkArgument(StringUtils.isNotBlank(reportGenotype));
 
-    getGroups().stream()
-        .filter(group -> group.getGenePhenotypes().contains(reportGenotype))
-        .forEach(group -> {
-          addMatchingGroup(group);
-          putMatchedDiplotype(group.getId(), reportGenotype);
+    getRecommendations().stream()
+        .filter(r -> r.matchLookupKey(reportGenotype))
+        .forEach(r -> {
+          addMatchingRecommendation(r);
+          r.addMatchedDiplotype(reportGenotype);
         });
   }
 
@@ -283,31 +221,24 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   }
 
   public String toString() {
-    return getRelatedDrugs().stream().collect(Collectors.joining(", "));
+    return String.join(", ", getRelatedDrugs());
   }
 
   /**
    * Gets the literature objects that are used for citation of this Guideline
    */
-  public List<Literature> getCitations() {
-    return m_citations;
+  public List<Publication> getCitations() {
+    return m_drug.getPublications();
   }
 
-  public String lookupDiplotypes(String geneFunction) {
-    if (geneFunction == null) {
-      return null;
-    }
-
-    return Arrays.stream(geneFunction.split(";"))
-        .flatMap(f -> m_functionToGenotypeMap.get(f).stream())
-        .collect(Collectors.joining(";"));
-  }
-
+  /**
+   * Date of last modification for the guideline information.
+   *
+   * This is currently not supported by CPIC-sourced guideline data, will eventually re-implement.
+   *
+   * @return a nullable Date of last modification
+   */
   public Date getLastModified() {
-    return m_lastModified;
-  }
-
-  public void setLastModified(Date lastModified) {
-    m_lastModified = lastModified;
+    return null;
   }
 }

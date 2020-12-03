@@ -30,6 +30,9 @@ public class GenePhenotype {
   @SerializedName("diplotypes")
   @Expose
   private List<DiplotypePhenotype> m_diplotypes;
+  @SerializedName("diplotypeResults")
+  @Expose
+  private Map<String,String> m_diplotypeResults;
 
   /**
    * The HGNC gene symbol
@@ -102,6 +105,13 @@ public class GenePhenotype {
     }
   }
 
+  /**
+   * TODO: working on this
+   * Function1/Function2 -> Metabolizer
+   *
+   * @param diplotype a String like CYP2D6:*1/*4
+   * @return Normal Metabolizer
+   */
   public String makePhenotype(String diplotype) {
 
     String[] phenoPair = makePhenoPair(diplotype);
@@ -114,12 +124,20 @@ public class GenePhenotype {
         .map(DiplotypePhenotype::getPhenotype)
         .collect(Collectors.toSet());
     if (phenos.size()>1) {
-      throw new IllegalStateException("More than one phenotype match made");
+      throw new IllegalStateException("More than one phenotype match made for " + getGene() + " " + diplotype + ": " + String.join("; ", phenos));
     } else if (phenos.size() == 0) {
       return "N/A";
     } else {
       return phenos.iterator().next();
     }
+  }
+
+  public Map<String, String> getDiplotypeResults() {
+    return m_diplotypeResults;
+  }
+
+  public void setDiplotypeResults(Map<String, String> diplotypeResults) {
+    m_diplotypeResults = diplotypeResults;
   }
 
   public String toString() {

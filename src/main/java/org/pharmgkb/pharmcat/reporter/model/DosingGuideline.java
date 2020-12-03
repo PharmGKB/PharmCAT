@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.result.Markdown;
 
 
+/**
+ * @deprecated Use {@link Drug} instead
+ */
 public class DosingGuideline {
 
   @SerializedName("objCls")

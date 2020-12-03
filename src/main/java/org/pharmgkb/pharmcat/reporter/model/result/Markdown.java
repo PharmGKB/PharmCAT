@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * @author Ryan Whaley
+ * @deprecated
  */
 public class Markdown {
   

@@ -29,7 +29,7 @@ class ReporterTest {
 
     Path tempOutDir = Files.createTempDirectory(OUTPUT_DIR);
 
-    PharmCAT pharmcat = new PharmCAT(tempOutDir, null, null);
+    PharmCAT pharmcat = new PharmCAT(tempOutDir, null);
     pharmcat.execute(vcfFile, null, null);
 
     Reporter reporter = pharmcat.getReporter();

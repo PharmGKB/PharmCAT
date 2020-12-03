@@ -43,7 +43,7 @@ class PharmCATTest {
     }
 
     Path tempDirPath = Files.createTempDirectory(MethodHandles.lookup().lookupClass().getName());
-    s_pharmcat = new PharmCAT(tempDirPath, null, null);
+    s_pharmcat = new PharmCAT(tempDirPath, null);
   }
 
   @Test
@@ -899,8 +899,8 @@ class PharmCATTest {
     s_pharmcat.execute(tempVcfPath, astrolabePath, null);
     s_context = s_pharmcat.getReporter().getContext();
 
-    assertEquals(16, s_context.getGeneReports().size());
-    assertEquals(32, s_context.getGuidelineReports().size());
+    assertEquals(19, s_context.getGeneReports().size());
+    assertEquals(42, s_context.getGuidelineReports().size());
   }
 
   /**

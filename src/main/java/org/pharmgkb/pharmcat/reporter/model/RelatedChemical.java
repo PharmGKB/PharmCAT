@@ -4,6 +4,9 @@ package org.pharmgkb.pharmcat.reporter.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * @deprecated
+ */
 public class RelatedChemical {
   @Expose
   @SerializedName("id")

@@ -121,12 +121,6 @@
     <section class="guideline">
       <h3 id="{{id}}">{{drugs}}</h3>
 
-      <section>
-        {{{summary}}}
-
-        <p>The official guideline can be found on the <a href="https://cpicpgx.org">CPIC website</a>.</p>
-      </section>
-
       {{#if incidental}}
         <div class="alert alert-warning">
           Variant is included in CPIC supplemental table of variants recommended by the American College of Medical
@@ -136,7 +130,11 @@
 
       <section>
         {{#each geneCalls}}
-          <div class="geneCall"><a href="#{{gene}}">{{gene}}: {{diplotypes}}</a>{{#if outsideCall}} (from Outside Call){{/if}}</div>
+          <div class="geneCall">
+            <a href="#{{gene}}">{{gene}}: {{diplotypes}}</a>
+            <span>{{functions}}</span>
+            {{#if outsideCall}} (from Outside Call){{/if}}
+          </div>
           {{#if showHighlights}}
             <div class="geneCall">{{#each highlightedVariants}}<div><a href="#{{gene}}">{{this}}</a></div>{{/each}}</div>
           {{/if}}
@@ -188,7 +186,7 @@
       </section>
 
       <section>
-        <p>For more information see the <a href="{{url}}">annotation on PharmGKB</a>.</p>
+        <p>For more information read the <a href="{{url}}">guideline on cpicpgx.org</a>.</p>
         {{#if citations}}
           <p>Citations:</p>
           <ul>
@@ -197,7 +195,6 @@
             {{/each}}
           </ul>
         {{/if}}
-        <p><em>Guideline annotation last modified: </em>{{lastModified}}</p>
       </section>
     </section>
   {{/each}}
