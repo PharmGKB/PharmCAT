@@ -37,6 +37,7 @@ public class Diplotype implements Comparable<Diplotype> {
   private final String m_gene;
   private String m_phenotype;
   private VariantReport m_variant;
+  private String m_lookupKey;
 
   /**
    * This Function can be used in reduce() calls
@@ -254,6 +255,8 @@ public class Diplotype implements Comparable<Diplotype> {
    * Gets a String term for the overall phenotype of this Diplotype
    *
    * Will print a default N/A String if no phenotype exists
+   *
+   * <strong>Use only for display purposes, not for matchign recommendations</strong>
    */
   public String getPhenotype() {
     return m_phenotype == null ? NA : m_phenotype;
@@ -345,5 +348,13 @@ public class Diplotype implements Comparable<Diplotype> {
     }
 
     return ObjectUtils.compare(getAllele2(), o.getAllele2());
+  }
+
+  public String getLookupKey() {
+    return m_lookupKey;
+  }
+
+  public void setLookupKey(String lookupKey) {
+    m_lookupKey = lookupKey;
   }
 }

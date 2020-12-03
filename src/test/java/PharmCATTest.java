@@ -958,8 +958,8 @@ class PharmCATTest {
         .filter(r -> r.getRelatedDrugs().contains(drugName))
         .findFirst().orElseThrow(() -> new RuntimeException("No guideline found for " + drugName));
 
-    assertEquals(guideline.getMatchingGroups().size(), count,
-        drugName + " does not have matching group count of " + count);
+    assertEquals(guideline.getMatchingRecommendations().size(), count,
+        drugName + " does not have matching recommendation count of " + count);
   }
 
   private enum DipType {

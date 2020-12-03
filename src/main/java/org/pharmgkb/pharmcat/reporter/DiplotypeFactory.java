@@ -122,8 +122,9 @@ public class DiplotypeFactory {
 
   private void fillDiplotype(Diplotype diplotype) {
     if (f_genePhenotype != null) {
-      // TODO: change this to use "diplotypeResults"?
+      // TODO(ryan): delete the following line and use lookupKey instead?
       diplotype.setPhenotype(f_genePhenotype.makePhenotype(diplotype.printBareLookupKey()));
+      diplotype.setLookupKey(f_genePhenotype.getDiplotypeResult(diplotype.printBareLookupKey()));
     }
   }
 

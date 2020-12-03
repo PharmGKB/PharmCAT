@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
@@ -15,7 +14,6 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.reporter.model.Group;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
@@ -24,7 +22,7 @@ import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
 
 /**
  * This class is a wrapper around the {@link Drug} class that also handles the matching of genotype
- * functions to annotation {@link Group} objects.
+ * functions to recommendations.
  *
  * @author Ryan Whaley
  */
@@ -34,7 +32,6 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private final Drug m_drug;
   private boolean m_reportable = false;
   private boolean m_isIncidentalResult = false;
-  private final SortedSet<Group> m_matchingGroups = new TreeSet<>();
   private final List<Recommendation> m_matchingRecommendations = new ArrayList<>();
   private final Multimap<String,String> m_matchedDiplotypes = TreeMultimap.create();
   private final Set<String> m_uncalledGenes = new TreeSet<>();
@@ -70,13 +67,6 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     return ImmutableSet.of(m_drug.getDrugName());
   }
 
-  /**
-   * Gets all annotation groups of the guideline, a pass-through to the stored guideline.
-   */
-  public List<Group> getGroups() {
-    return new ArrayList<>();
-  }
-
   public List<Recommendation> getRecommendations() {
     if (m_drug == null || m_drug.getRecommendations() == null) {
       return new ArrayList<>();
@@ -85,20 +75,12 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     }
   }
 
-  /**
-   * Gets only the matching annotation groups based on the called genotypes
-   * @deprecated
-   */
-  public Set<Group> getMatchingGroups() {
-    return m_matchingGroups;
-  }
-
   public boolean isMatched() {
     return sf_notApplicableMatches.contains(getId()) || m_matchingRecommendations.size()>0;
   }
 
   public boolean hasMultipleMatches() {
-    return m_matchingGroups.size()>1;
+    return m_matchingRecommendations.size()>1;
   }
 
 
@@ -124,10 +106,6 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
    */
   public Multimap<String,String> getMatchedDiplotypes() {
     return m_matchedDiplotypes;
-  }
-
-  private void putMatchedDiplotype(String id, String diplotype) {
-    m_matchedDiplotypes.put(id, diplotype);
   }
 
   /**
@@ -159,24 +137,31 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     m_uncalledGenes.add(geneSymbol);
   }
 
+  /**
+   * TODO(ryan): needs to be re-implemented
+   * @return true if this guideline matches to a recommendation with an Rx Change
+   */
   public boolean isRxChange() {
-    return getMatchingGroups() != null && getMatchingGroups().stream()
-        .anyMatch(g -> g.getRxChange() != null && g.getRxChange().getTerm().equals("Yes"));
-  }
-
-  public boolean isRxPossible() {
-    return getMatchingGroups() != null && getMatchingGroups().stream()
-        .anyMatch(g -> g.getRxChange() != null && g.getRxChange().getTerm().equals("Possibly"));
+    return false;
   }
 
   /**
-   * Finds the matching {@link Group} objects for the given <code>reportGenotype</code>, adds it to the group, and then
+   * TODO(ryan): needs to be re-implemented
+   * @return true if this guideline matches to a recommendation with a "Possibly" Rx Change
+   */
+  public boolean isRxPossible() {
+    return false;
+  }
+
+  /**
+   * Finds the matching {@link Recommendation} objects for the given <code>reportGenotype</code>, adds it to the group, and then
    * marks it as a match.
    * @param reportGenotype a multi-gene genotype function String in the form of "GENEA:No Function/No Function;GENEB:Normal Function/Normal Function"
    */
   public void addReportGenotype(String reportGenotype) {
     Preconditions.checkArgument(StringUtils.isNotBlank(reportGenotype));
 
+    //TODO(ryan): this is where rec matching needs to change?
     getRecommendations().stream()
         .filter(r -> r.matchLookupKey(reportGenotype))
         .forEach(r -> {

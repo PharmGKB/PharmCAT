@@ -106,7 +106,7 @@ public class GenePhenotype {
   }
 
   /**
-   * TODO: working on this
+   * TODO(ryan): working on this
    * Function1/Function2 -> Metabolizer
    *
    * @param diplotype a String like CYP2D6:*1/*4
@@ -138,6 +138,15 @@ public class GenePhenotype {
 
   public void setDiplotypeResults(Map<String, String> diplotypeResults) {
     m_diplotypeResults = diplotypeResults;
+  }
+
+  /**
+   * Gets the lookup key for the given bare diplotype of this gene.
+   * @param diplotype in the form of "*1/*3"
+   * @return the lookup key related to this diplotype
+   */
+  public String getDiplotypeResult(String diplotype) {
+    return m_diplotypeResults.get(m_gene + ":" + diplotype);
   }
 
   public String toString() {
