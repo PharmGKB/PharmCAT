@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "modificationDate": "2020-12-04T05:59:35.231Z",
+  "modificationDate": "2020-12-08T21:17:58.915Z",
   "gene": "NUDT15",
   "chromosome": "chr13",
   "genomeBuild": "b38",
@@ -15,6 +15,18 @@
   "variants": [
     {
       "chromosome": "chr13",
+      "position": 48037801,
+      "rsid": "rs746071566",
+      "chromosomeHgvsName": "g.48037801_48037802insGAGTCG",
+      "geneHgvsName": "g.5235_5326insGAGTCG",
+      "proteinNote": "V18_V19insGV",
+      "resourceNote": "55_56insGAGTCG",
+      "type": "INS",
+      "referenceRepeat": null,
+      "sequenceLocationId": 263279
+    },
+    {
+      "chromosome": "chr13",
       "position": 48037748,
       "rsid": "rs769369441",
       "chromosomeHgvsName": "g.48037748T>C",
@@ -23,7 +35,7 @@
       "resourceNote": "2T>C",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112307
+      "sequenceLocationId": 263275
     },
     {
       "chromosome": "chr13",
@@ -35,7 +47,7 @@
       "resourceNote": "3G>C",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112308
+      "sequenceLocationId": 263276
     },
     {
       "chromosome": "chr13",
@@ -47,7 +59,7 @@
       "resourceNote": "50delGAGTCG",
       "type": "DEL",
       "referenceRepeat": null,
-      "sequenceLocationId": 112309
+      "sequenceLocationId": 263277
     },
     {
       "chromosome": "chr13",
@@ -59,19 +71,7 @@
       "resourceNote": "52G>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112310
-    },
-    {
-      "chromosome": "chr13",
-      "position": 0,
-      "rsid": "rs746071566",
-      "chromosomeHgvsName": "48037801_48037802insGAGTCG",
-      "geneHgvsName": "g.5235_5326insGAGTCG",
-      "proteinNote": "V18_V19insGV",
-      "resourceNote": "55_56insGAGTCG",
-      "type": "INS",
-      "referenceRepeat": null,
-      "sequenceLocationId": 112311
+      "sequenceLocationId": 263278
     },
     {
       "chromosome": "chr13",
@@ -83,7 +83,7 @@
       "resourceNote": "80_81insCGGG",
       "type": "INS",
       "referenceRepeat": null,
-      "sequenceLocationId": 112312
+      "sequenceLocationId": 263280
     },
     {
       "chromosome": "chr13",
@@ -95,7 +95,7 @@
       "resourceNote": "88C>T",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112313
+      "sequenceLocationId": 263281
     },
     {
       "chromosome": "chr13",
@@ -107,7 +107,7 @@
       "resourceNote": "101G>C",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112314
+      "sequenceLocationId": 263282
     },
     {
       "chromosome": "chr13",
@@ -119,7 +119,7 @@
       "resourceNote": "103A>G",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112315
+      "sequenceLocationId": 263283
     },
     {
       "chromosome": "chr13",
@@ -131,7 +131,7 @@
       "resourceNote": "139G>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112316
+      "sequenceLocationId": 263284
     },
     {
       "chromosome": "chr13",
@@ -143,7 +143,7 @@
       "resourceNote": "156C>G",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112317
+      "sequenceLocationId": 263285
     },
     {
       "chromosome": "chr13",
@@ -155,7 +155,7 @@
       "resourceNote": "221delA",
       "type": "DEL",
       "referenceRepeat": null,
-      "sequenceLocationId": 112318
+      "sequenceLocationId": 263286
     },
     {
       "chromosome": "chr13",
@@ -167,7 +167,7 @@
       "resourceNote": "342_343insG",
       "type": "INS",
       "referenceRepeat": null,
-      "sequenceLocationId": 112319
+      "sequenceLocationId": 263287
     },
     {
       "chromosome": "chr13",
@@ -179,7 +179,7 @@
       "resourceNote": "352G>T",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112320
+      "sequenceLocationId": 263288
     },
     {
       "chromosome": "chr13",
@@ -191,7 +191,7 @@
       "resourceNote": "386C>G",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112321
+      "sequenceLocationId": 263289
     },
     {
       "chromosome": "chr13",
@@ -203,7 +203,7 @@
       "resourceNote": "415C>T",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112322
+      "sequenceLocationId": 263290
     },
     {
       "chromosome": "chr13",
@@ -215,7 +215,7 @@
       "resourceNote": "416G>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112323
+      "sequenceLocationId": 263291
     },
     {
       "chromosome": "chr13",
@@ -227,7 +227,7 @@
       "resourceNote": "467T>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112324
+      "sequenceLocationId": 263292
     },
     {
       "chromosome": "chr13",
@@ -239,10 +239,14 @@
       "resourceNote": "502G>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112325
+      "sequenceLocationId": 263293
     }
   ],
   "variantAlleles": [
+    [
+      "del",
+      "insGAGTCG"
+    ],
     [
       "C",
       "T"
@@ -258,10 +262,6 @@
     [
       "A",
       "G"
-    ],
-    [
-      "del",
-      "insGAGTCG"
     ],
     [
       "del",
@@ -322,139 +322,14 @@
   ],
   "namedAlleles": [
     {
-      "name": "*12",
-      "id": "112348",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "G",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*19",
-      "id": "112362",
-      "alleles": [
-        null,
-        "C",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*14",
-      "id": "112352",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        "insCGGG",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*4",
-      "id": "112332",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "A",
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*9",
-      "id": "112342",
-      "alleles": [
-        null,
-        null,
-        "delGGAGTC",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
       "name": "*1",
-      "id": "112326",
+      "id": "263294",
       "alleles": [
+        "del",
         "T",
         "G",
         "GGAGTC",
         "G",
-        "del",
         "del",
         "C",
         "G",
@@ -472,10 +347,11 @@
       ]
     },
     {
-      "name": "*8",
-      "id": "112340",
+      "name": "*10",
+      "id": "263312",
       "alleles": [
         null,
+        "C",
         null,
         null,
         null,
@@ -483,7 +359,6 @@
         null,
         null,
         null,
-        "G",
         null,
         null,
         null,
@@ -498,7 +373,7 @@
     },
     {
       "name": "*11",
-      "id": "112346",
+      "id": "263314",
       "alleles": [
         null,
         null,
@@ -522,188 +397,9 @@
       ]
     },
     {
-      "name": "*2",
-      "id": "112328",
+      "name": "*12",
+      "id": "263316",
       "alleles": [
-        null,
-        null,
-        null,
-        null,
-        "insGAGTCG",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "T",
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*7",
-      "id": "112338",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "C",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*6",
-      "id": "112336",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        "insGAGTCG",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*3",
-      "id": "112330",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "T",
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*5",
-      "id": "112334",
-      "alleles": [
-        null,
-        null,
-        null,
-        "A",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*10",
-      "id": "112344",
-      "alleles": [
-        "C",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*16",
-      "id": "112356",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "T",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*20",
-      "id": "112364",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         null,
@@ -718,52 +414,6 @@
         null,
         null,
         null,
-        "A"
-      ]
-    },
-    {
-      "name": "*18",
-      "id": "112360",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "delA",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*17",
-      "id": "112358",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "T",
         null,
         null,
         null,
@@ -773,7 +423,7 @@
     },
     {
       "name": "*13",
-      "id": "112350",
+      "id": "263318",
       "alleles": [
         null,
         null,
@@ -797,8 +447,33 @@
       ]
     },
     {
+      "name": "*14",
+      "id": "263320",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        "insCGGG",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
       "name": "*15",
-      "id": "112354",
+      "id": "263322",
       "alleles": [
         null,
         null,
@@ -818,6 +493,331 @@
         null,
         null,
         "A",
+        null
+      ]
+    },
+    {
+      "name": "*16",
+      "id": "263324",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*17",
+      "id": "263326",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*18",
+      "id": "263328",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "delA",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*19",
+      "id": "263330",
+      "alleles": [
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*2",
+      "id": "263296",
+      "alleles": [
+        "insGAGTCG",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*20",
+      "id": "263332",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "G",
+        null,
+        null,
+        null,
+        "A"
+      ]
+    },
+    {
+      "name": "*3",
+      "id": "263298",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*4",
+      "id": "263300",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*5",
+      "id": "263302",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*6",
+      "id": "263304",
+      "alleles": [
+        "insGAGTCG",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*7",
+      "id": "263306",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*8",
+      "id": "263308",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "G",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*9",
+      "id": "263310",
+      "alleles": [
+        null,
+        null,
+        null,
+        "delGGAGTC",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ]
     }

@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "modificationDate": "2020-12-04T05:59:35.263Z",
+  "modificationDate": "2020-12-08T21:17:58.964Z",
   "gene": "UGT1A1",
   "chromosome": "chr2",
   "genomeBuild": "b38",
@@ -28,7 +28,7 @@
       "resourceNote": "-3275T>G",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112746
+      "sequenceLocationId": 263714
     },
     {
       "chromosome": "chr2",
@@ -40,7 +40,7 @@
       "resourceNote": "-364C>T",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112747
+      "sequenceLocationId": 263715
     },
     {
       "chromosome": "chr2",
@@ -52,7 +52,7 @@
       "resourceNote": "CA(TA)5TAA                     CA(TA)6TAA                     CA(TA)7TAA                     CA(TA)8TAA",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112748
+      "sequenceLocationId": 263716
     },
     {
       "chromosome": "chr2",
@@ -64,7 +64,7 @@
       "resourceNote": "211G>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112749
+      "sequenceLocationId": 263717
     },
     {
       "chromosome": "chr2",
@@ -76,7 +76,7 @@
       "resourceNote": "686C>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112750
+      "sequenceLocationId": 263718
     }
   ],
   "variantAlleles": [
@@ -105,7 +105,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "112751",
+      "id": "263719",
       "alleles": [
         "T",
         "C",
@@ -115,22 +115,66 @@
       ]
     },
     {
-      "name": "*80+*37",
-      "id": "112767",
+      "name": "*27",
+      "id": "263723",
       "alleles": [
-        "T",
-        "CATATAT",
         null,
+        null,
+        null,
+        null,
+        "A"
+      ]
+    },
+    {
+      "name": "*28",
+      "id": "263725",
+      "alleles": [
+        null,
+        null,
+        "CATAT",
         null,
         null
       ]
     },
     {
-      "name": "*28",
-      "id": "112757",
+      "name": "*36",
+      "id": "263727",
       "alleles": [
-        "CATAT",
         null,
+        null,
+        "C",
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*37",
+      "id": "263729",
+      "alleles": [
+        null,
+        null,
+        "CATATAT",
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*6",
+      "id": "263721",
+      "alleles": [
+        null,
+        null,
+        null,
+        "A",
+        null
+      ]
+    },
+    {
+      "name": "*80",
+      "id": "263731",
+      "alleles": [
+        null,
+        "T",
         null,
         null,
         null
@@ -138,66 +182,22 @@
     },
     {
       "name": "*80+*28",
-      "id": "112765",
+      "id": "263733",
       "alleles": [
+        null,
         "T",
         "CATAT",
         null,
-        null,
         null
       ]
     },
     {
-      "name": "*6",
-      "id": "112753",
+      "name": "*80+*37",
+      "id": "263735",
       "alleles": [
-        "A",
         null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*27",
-      "id": "112755",
-      "alleles": [
-        "A",
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*36",
-      "id": "112759",
-      "alleles": [
-        "C",
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*37",
-      "id": "112761",
-      "alleles": [
-        "CATATAT",
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*80",
-      "id": "112763",
-      "alleles": [
         "T",
-        null,
-        null,
+        "CATATAT",
         null,
         null
       ]

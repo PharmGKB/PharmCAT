@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "modificationDate": "2020-12-04T05:59:35.149Z",
+  "modificationDate": "2020-12-08T21:17:58.744Z",
   "gene": "CYP4F2",
   "chromosome": "chr19",
   "genomeBuild": "b38",
@@ -16,18 +16,6 @@
   "variants": [
     {
       "chromosome": "chr19",
-      "position": 15897578,
-      "rsid": "rs3093105",
-      "chromosomeHgvsName": "g.15897578A>C",
-      "geneHgvsName": "g.5497T>G",
-      "proteinNote": "W12G",
-      "resourceNote": "34T>G",
-      "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 111496
-    },
-    {
-      "chromosome": "chr19",
       "position": 15879621,
       "rsid": "rs2108622",
       "chromosomeHgvsName": "g.15879621C>T",
@@ -36,39 +24,51 @@
       "resourceNote": "1297G>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 111497
+      "sequenceLocationId": 262465
+    },
+    {
+      "chromosome": "chr19",
+      "position": 15897578,
+      "rsid": "rs3093105",
+      "chromosomeHgvsName": "g.15897578A>C",
+      "geneHgvsName": "g.5497T>G",
+      "proteinNote": "W12G",
+      "resourceNote": "34T>G",
+      "type": "SNP",
+      "referenceRepeat": null,
+      "sequenceLocationId": 262464
     }
   ],
   "variantAlleles": [
     [
-      "A",
-      "C"
-    ],
-    [
       "C",
       "T"
+    ],
+    [
+      "A",
+      "C"
     ]
   ],
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "111498",
+      "id": "262466",
       "alleles": [
-        "A",
-        "C"
+        "C",
+        "A"
       ]
     },
     {
       "name": "*2",
-      "id": "111500",
+      "id": "262468",
       "alleles": [
-        "C",
-        null
+        null,
+        "C"
       ]
     },
     {
       "name": "*3",
-      "id": "111502",
+      "id": "262470",
       "alleles": [
         "T",
         null

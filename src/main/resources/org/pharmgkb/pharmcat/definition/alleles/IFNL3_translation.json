@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "modificationDate": "2020-12-04T05:59:35.225Z",
+  "modificationDate": "2020-12-08T21:17:58.909Z",
   "gene": "IFNL3",
   "chromosome": "chr19",
   "genomeBuild": "b38",
@@ -22,7 +22,7 @@
       "resourceNote": "-1595G>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112302
+      "sequenceLocationId": 263270
     }
   ],
   "variantAlleles": [
@@ -34,14 +34,14 @@
   "namedAlleles": [
     {
       "name": "rs12979860 reference (C)",
-      "id": "112303",
+      "id": "263271",
       "alleles": [
         "C"
       ]
     },
     {
       "name": "rs12979860 variant (T)",
-      "id": "112305",
+      "id": "263273",
       "alleles": [
         "T"
       ]

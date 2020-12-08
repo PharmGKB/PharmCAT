@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "modificationDate": "2020-12-04T05:59:35.146Z",
+  "modificationDate": "2020-12-08T21:17:58.740Z",
   "gene": "CYP3A5",
   "chromosome": "chr7",
   "genomeBuild": "b38",
@@ -18,75 +18,15 @@
   "variants": [
     {
       "chromosome": "chr7",
-      "position": 99676198,
-      "rsid": "rs55817950",
-      "chromosomeHgvsName": "g.99676198G>A",
-      "geneHgvsName": "g.8801C>T",
-      "proteinNote": "R28C",
-      "resourceNote": "3699C>T",
+      "position": 99652613,
+      "rsid": "rs28365083",
+      "chromosomeHgvsName": "g.99652613G>T",
+      "geneHgvsName": "g.32386C>A",
+      "proteinNote": "T398N",
+      "resourceNote": "27284C>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 111470
-    },
-    {
-      "chromosome": "chr7",
-      "position": 99672916,
-      "rsid": "rs776746",
-      "chromosomeHgvsName": "g.99672916T>C",
-      "geneHgvsName": "g.12083A>G",
-      "proteinNote": "Splicing defect",
-      "resourceNote": "6981A>G",
-      "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 111471
-    },
-    {
-      "chromosome": "chr7",
-      "position": 99666950,
-      "rsid": "rs55965422",
-      "chromosomeHgvsName": "g.99666950A>G",
-      "geneHgvsName": "g.18049T>C",
-      "proteinNote": "Splicing defect",
-      "resourceNote": "12947T>C",
-      "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 111472
-    },
-    {
-      "chromosome": "chr7",
-      "position": 99665237,
-      "rsid": "rs56411402",
-      "chromosomeHgvsName": "g.99665237T>C",
-      "geneHgvsName": "g.19762A>G",
-      "proteinNote": "Q200R",
-      "resourceNote": "14660A>G",
-      "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 111473
-    },
-    {
-      "chromosome": "chr7",
-      "position": 99665212,
-      "rsid": "rs10264272",
-      "chromosomeHgvsName": "g.99665212C>T",
-      "geneHgvsName": "g.19787G>A",
-      "proteinNote": "Splicing defect",
-      "resourceNote": "14685G>A",
-      "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 111474
-    },
-    {
-      "chromosome": "chr7",
-      "position": 99660516,
-      "rsid": "rs28383479",
-      "chromosomeHgvsName": "g.99660516C>T",
-      "geneHgvsName": "g.24483G>A",
-      "proteinNote": "A337T",
-      "resourceNote": "19381G>A",
-      "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 111475
+      "sequenceLocationId": 262445
     },
     {
       "chromosome": "chr7",
@@ -98,29 +38,104 @@
       "resourceNote": "27126_27127insT",
       "type": "INS",
       "referenceRepeat": null,
-      "sequenceLocationId": 111476
+      "sequenceLocationId": 262444
     },
     {
       "chromosome": "chr7",
-      "position": 99652613,
-      "rsid": "rs28365083",
-      "chromosomeHgvsName": "g.99652613G>T",
-      "geneHgvsName": "g.32386C>A",
-      "proteinNote": "T398N",
-      "resourceNote": "27284C>A",
+      "position": 99660516,
+      "rsid": "rs28383479",
+      "chromosomeHgvsName": "g.99660516C>T",
+      "geneHgvsName": "g.24483G>A",
+      "proteinNote": "A337T",
+      "resourceNote": "19381G>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 111477
+      "sequenceLocationId": 262443
+    },
+    {
+      "chromosome": "chr7",
+      "position": 99665212,
+      "rsid": "rs10264272",
+      "chromosomeHgvsName": "g.99665212C>T",
+      "geneHgvsName": "g.19787G>A",
+      "proteinNote": "Splicing defect",
+      "resourceNote": "14685G>A",
+      "type": "SNP",
+      "referenceRepeat": null,
+      "sequenceLocationId": 262442
+    },
+    {
+      "chromosome": "chr7",
+      "position": 99665237,
+      "rsid": "rs56411402",
+      "chromosomeHgvsName": "g.99665237T>C",
+      "geneHgvsName": "g.19762A>G",
+      "proteinNote": "Q200R",
+      "resourceNote": "14660A>G",
+      "type": "SNP",
+      "referenceRepeat": null,
+      "sequenceLocationId": 262441
+    },
+    {
+      "chromosome": "chr7",
+      "position": 99666950,
+      "rsid": "rs55965422",
+      "chromosomeHgvsName": "g.99666950A>G",
+      "geneHgvsName": "g.18049T>C",
+      "proteinNote": "Splicing defect",
+      "resourceNote": "12947T>C",
+      "type": "SNP",
+      "referenceRepeat": null,
+      "sequenceLocationId": 262440
+    },
+    {
+      "chromosome": "chr7",
+      "position": 99672916,
+      "rsid": "rs776746",
+      "chromosomeHgvsName": "g.99672916T>C",
+      "geneHgvsName": "g.12083A>G",
+      "proteinNote": "Splicing defect",
+      "resourceNote": "6981A>G",
+      "type": "SNP",
+      "referenceRepeat": null,
+      "sequenceLocationId": 262439
+    },
+    {
+      "chromosome": "chr7",
+      "position": 99676198,
+      "rsid": "rs55817950",
+      "chromosomeHgvsName": "g.99676198G>A",
+      "geneHgvsName": "g.8801C>T",
+      "proteinNote": "R28C",
+      "resourceNote": "3699C>T",
+      "type": "SNP",
+      "referenceRepeat": null,
+      "sequenceLocationId": 262438
     }
   ],
   "variantAlleles": [
     [
-      "A",
-      "G"
+      "G",
+      "K",
+      "T"
+    ],
+    [
+      "del",
+      "insA"
+    ],
+    [
+      "C",
+      "T",
+      "Y"
     ],
     [
       "C",
       "T"
+    ],
+    [
+      "C",
+      "T",
+      "Y"
     ],
     [
       "A",
@@ -129,62 +144,33 @@
     ],
     [
       "C",
-      "T",
-      "Y"
-    ],
-    [
-      "C",
       "T"
     ],
     [
-      "C",
-      "T",
-      "Y"
-    ],
-    [
-      "del",
-      "insA"
-    ],
-    [
-      "G",
-      "K",
-      "T"
+      "A",
+      "G"
     ]
   ],
   "namedAlleles": [
     {
-      "name": "*9",
-      "id": "111494",
+      "name": "*1",
+      "id": "262446",
       "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
+        "G",
+        "del",
+        "C",
+        "C",
         "T",
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*6",
-      "id": "111488",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        "T",
-        null,
-        null,
-        null
-      ]
-    },
-    {
-      "name": "*8",
-      "id": "111492",
-      "alleles": [
         "A",
+        "T",
+        "G"
+      ]
+    },
+    {
+      "name": "*2",
+      "id": "262448",
+      "alleles": [
+        "T",
         null,
         null,
         null,
@@ -196,55 +182,27 @@
     },
     {
       "name": "*3",
-      "id": "111482",
+      "id": "262450",
       "alleles": [
+        "K",
         null,
-        "C",
+        "Y",
+        null,
+        "Y",
         "R",
-        "Y",
-        null,
-        "Y",
-        null,
-        "K"
-      ]
-    },
-    {
-      "name": "*2",
-      "id": "111480",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "T"
-      ]
-    },
-    {
-      "name": "*1",
-      "id": "111478",
-      "alleles": [
-        "G",
-        "T",
-        "A",
-        "T",
         "C",
-        "C",
-        "del",
-        "G"
+        null
       ]
     },
     {
       "name": "*4",
-      "id": "111484",
+      "id": "262452",
       "alleles": [
         null,
         null,
         null,
-        "C",
         null,
+        "C",
         null,
         null,
         null
@@ -252,12 +210,26 @@
     },
     {
       "name": "*5",
-      "id": "111486",
+      "id": "262454",
       "alleles": [
+        null,
+        null,
+        null,
         null,
         null,
         "G",
         null,
+        null
+      ]
+    },
+    {
+      "name": "*6",
+      "id": "262456",
+      "alleles": [
+        null,
+        null,
+        null,
+        "T",
         null,
         null,
         null,
@@ -266,7 +238,21 @@
     },
     {
       "name": "*7",
-      "id": "111490",
+      "id": "262458",
+      "alleles": [
+        null,
+        "insA",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*8",
+      "id": "262460",
       "alleles": [
         null,
         null,
@@ -274,7 +260,21 @@
         null,
         null,
         null,
-        "insA",
+        null,
+        "A"
+      ]
+    },
+    {
+      "name": "*9",
+      "id": "262462",
+      "alleles": [
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
         null
       ]
     }

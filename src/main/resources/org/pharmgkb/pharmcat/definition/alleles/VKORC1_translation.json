@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "modificationDate": "2020-12-04T05:59:35.265Z",
+  "modificationDate": "2020-12-08T21:17:58.966Z",
   "gene": "VKORC1",
   "chromosome": "chr16",
   "genomeBuild": "b38",
@@ -22,7 +22,7 @@
       "resourceNote": "-1639G>A",
       "type": "SNP",
       "referenceRepeat": null,
-      "sequenceLocationId": 112769
+      "sequenceLocationId": 263737
     }
   ],
   "variantAlleles": [
@@ -34,14 +34,14 @@
   "namedAlleles": [
     {
       "name": "rs9923231 reference (C)",
-      "id": "112770",
+      "id": "263738",
       "alleles": [
         "C"
       ]
     },
     {
       "name": "rs9923231 variant (T)",
-      "id": "112772",
+      "id": "263740",
       "alleles": [
         "T"
       ]
