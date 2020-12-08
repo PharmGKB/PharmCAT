@@ -31,7 +31,7 @@ class NamedAlleleMatcherVkorc1Test {
     // Test -1639G/-1639G
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VKORC1/-1639G-1639G.vcf");
-    List<String> expectedMatches = Lists.newArrayList("-1639G/-1639G");
+    List<String> expectedMatches = Lists.newArrayList("rs9923231 reference (C)/rs9923231 reference (C)");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -42,7 +42,7 @@ class NamedAlleleMatcherVkorc1Test {
     // Test -1639G/-1639A
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VKORC1/-1639G-1639A.vcf");
-    List<String> expectedMatches = Lists.newArrayList("-1639A/-1639G");
+    List<String> expectedMatches = Lists.newArrayList("rs9923231 reference (C)/rs9923231 variant (T)");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -53,7 +53,7 @@ class NamedAlleleMatcherVkorc1Test {
     // Test -1639A/-1639A
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VKORC1/-1639A-1639A.vcf");
-    List<String> expectedMatches = Lists.newArrayList("-1639A/-1639A");
+    List<String> expectedMatches = Lists.newArrayList("rs9923231 variant (T)/rs9923231 variant (T)");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);

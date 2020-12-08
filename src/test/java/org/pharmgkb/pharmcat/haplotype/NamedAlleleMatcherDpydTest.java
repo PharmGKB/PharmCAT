@@ -44,7 +44,7 @@ class NamedAlleleMatcherDpydTest {
     // Test *2a/Rs67376798A
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD/s2aRs67376798A.vcf");
-    List<String> expectedMatches = Lists.newArrayList("c.1905+1G>A/c.2846A>T");
+    List<String> expectedMatches = Lists.newArrayList("c.1905+1G>A (*2A)/c.2846A>T");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -55,7 +55,7 @@ class NamedAlleleMatcherDpydTest {
     // Test *1/*2b - however can't be distinguished from *2A/*5
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD/s1s2b.vcf");
-    List<String> expectedMatches = Lists.newArrayList("Reference/c.1905+1G>A");
+    List<String> expectedMatches = Lists.newArrayList("c.1627A>G (*5)/c.1905+1G>A (*2A)");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);

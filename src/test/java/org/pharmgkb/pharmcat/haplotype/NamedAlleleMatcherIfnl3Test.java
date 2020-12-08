@@ -31,7 +31,7 @@ class NamedAlleleMatcherIfnl3Test {
     // Test rs12979860 CC
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
-    List<String> expectedMatches = Lists.newArrayList("rs12979860C/rs12979860C");
+    List<String> expectedMatches = Lists.newArrayList("rs12979860 reference (C)/rs12979860 reference (C)");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -42,7 +42,7 @@ class NamedAlleleMatcherIfnl3Test {
     // Test rs12979860 CC
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CT.vcf");
-    List<String> expectedMatches = Lists.newArrayList("rs12979860C/rs12979860T");
+    List<String> expectedMatches = Lists.newArrayList("rs12979860 reference (C)/rs12979860 variant (T)");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -53,7 +53,7 @@ class NamedAlleleMatcherIfnl3Test {
     // Test rs12979860 CC
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860TT.vcf");
-    List<String> expectedMatches = Lists.newArrayList("rs12979860T/rs12979860T");
+    List<String> expectedMatches = Lists.newArrayList("rs12979860 variant (T)/rs12979860 variant (T)");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);

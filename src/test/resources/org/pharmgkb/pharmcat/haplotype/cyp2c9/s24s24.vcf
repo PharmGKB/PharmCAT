@@ -5,6 +5,7 @@
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ##FILTER=<ID=PASS,Description="All filters passed">
 #CHROM  POS  ID REF  ALT  QUAL FILTER INFO FORMAT NA12878
+chr10	94936917	.	T	C	.	PASS	assume-default	GT	0/0
 chr10	94938683	rs114071557	A	G	.	PASS	assume-default	GT	0/0
 chr10	94938737	rs67807361	C	A	.	PASS	assume-default	GT	0/0
 chr10	94938771	rs142240658	C	T	.	PASS	assume-default	GT	0/0
@@ -21,6 +22,7 @@ chr10	94942213	.	A	.	.	PASS	assume-default	GT	0/0
 chr10	94942216	.	A	G	.	PASS	assume-default	GT	0/0
 chr10	94942230	rs767576260	C	T	.	PASS	assume-default	GT	0/0
 chr10	94942231	rs12414460	G	A	.	PASS	assume-default	GT	0/0
+chr10	94942233	.	C	T	.	PASS	assume-default	GT	0/0
 chr10	94942234	rs72558189	G	A	.	PASS	assume-default	GT	0/0
 chr10	94942249	rs200965026	C	G,T	.	PASS	assume-default	GT	0/0
 chr10	94942254	rs199523631	C	T	.	PASS	assume-default	GT	0/0
@@ -37,8 +39,9 @@ chr10	94949129	.	A	G	.	PASS	assume-default	GT	0/0
 chr10	94949144	.	C	T	.	PASS	assume-default	GT	0/0
 chr10	94949217	rs2256871	A	G	.	PASS	assume-default	GT	0/0
 chr10	94949280	rs9332130	A	G	.	PASS	assume-default	GT	0/0
+chr10	94949281	.	GA	G	.	PASS	assume-default	GT	0/0
 chr10	94949281	rs9332131	GA	G		PASS	assume-default	GT	0/0
-chr10	94949282	.	A	.	.	PASS	assume-default	GT	0/0
+chr10	94949282	.	AA	A	.	PASS	assume-default	GT	0/0
 chr10	94972119	rs182132442	C	A	.	PASS	assume-default	GT	0/0
 chr10	94972134	.	A	G	.	PASS	assume-default	GT	0/0
 chr10	94972179	rs72558192	A	G	.	PASS	assume-default	GT	0/0
@@ -47,6 +50,7 @@ chr10	94972233	.	C	T	.	PASS	assume-default	GT	0/0
 chr10	94981201	rs57505750	T	C	.	PASS	assume-default	GT	0/0
 chr10	94981224	rs28371685	C	T	.	PASS	assume-default	GT	0/0
 chr10	94981225	rs367826293	G	A	.	PASS	assume-default	GT	0/0
+chr10	94981230	.	C	A	.	PASS	assume-default	GT	0/0
 chr10	94981250	rs750820937	C	A	.	PASS	assume-default	GT	0/0
 chr10	94981281	rs749060448	G	A	.	PASS	assume-default	GT	1/1
 chr10	94981296	rs1057910	A	C	.	PASS	assume-default	GT	0/0
@@ -56,8 +60,10 @@ chr10	94981302	.	C	A	.	PASS	assume-default	GT	0/0
 chr10	94981365	.	C	T	.	PASS	assume-default	GT	0/0
 chr10	94986042	rs764211126	A	G	.	PASS	assume-default	GT	0/0
 chr10	94986073	rs72558193	A	C	.	PASS	assume-default	GT	0/0
+chr10	94988855	.	A	T	.	PASS	assume-default	GT	0/0
 chr10	94988917	rs769942899	G	C	.	PASS	assume-default	GT	0/0
 chr10	94988925	rs202201137	A	G	.	PASS	assume-default	GT	0/0
+chr10	94988955	.	T	C	.	PASS	assume-default	GT	0/0
 chr10	94988980	rs1057911	A	T	.	PASS	assume-default	GT	0/0
 chr10	94988984	rs781583846	G	A	.	PASS	assume-default	GT	0/0
 chr10	94989020	rs9332239	C	T	.	PASS	assume-default	GT	0/0

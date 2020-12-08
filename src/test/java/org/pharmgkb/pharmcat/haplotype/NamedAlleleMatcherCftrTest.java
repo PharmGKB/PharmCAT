@@ -31,7 +31,7 @@ class NamedAlleleMatcherCftrTest {
   void cftrReferenceReference() throws Exception {
     // Test reference
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/refref.vcf");
-    List<String> expectedMatches = Lists.newArrayList("Reference/Reference");
+    List<String> expectedMatches = Lists.newArrayList("ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);

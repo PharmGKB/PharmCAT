@@ -39,7 +39,7 @@ class DefinitionReaderTest {
     for (String gene : reader.getGenes()) {
       assertTrue(reader.getDefinitionFile(gene).getChromosome().startsWith("chr"));
       for (VariantLocus variant : reader.getPositions(gene)) {
-        assertTrue(variant.getPosition() > 0);
+        assertTrue(variant.getPosition() > 0, "Zero position [" + variant.getPosition() + "] for variant " + variant.getChromosomeHgvsName() + " in gene " + gene);
       }
     }
   }
