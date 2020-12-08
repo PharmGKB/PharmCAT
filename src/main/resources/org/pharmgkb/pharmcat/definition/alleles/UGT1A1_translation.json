@@ -1,8 +1,7 @@
 {
-  "formatVersion": "1",
-  "modificationDate": "Jul 31, 2017 12:00:00 AM",
+  "formatVersion": 1,
+  "modificationDate": "2020-12-04T05:59:35.263Z",
   "gene": "UGT1A1",
-  "orientation": "forward",
   "chromosome": "chr2",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000002.12",
@@ -12,14 +11,12 @@
     "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
     "To see a full list of known UGT1A1 alleles see https://www.pharmacogenomics.pha.ulaval.ca/wp-content/uploads/2015/04/UGT1A1-allele-nomenclature.html",
-    "Alleles are derived from the UDP-Glucoronosyltransferase (UGT) Alleles Nomenclature page (http://www.pharmacogenomics.pha.ulaval.ca/cms/site/pharmacogenomics/ugt_alleles). See https://www.pharmgkb.org/gene/PA420 for updates on UGT1A1 gene alleles and nomenclature.",
     "To see a full list of known UGT1A1 alleles and function see http://www.pharmacogenomics.pha.ulaval.ca/files/content/sites/pharmacogenomics/files/Nomen clature/UGT1A/UGT1A1.htm.",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a \"wild-type\" status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as \"wild-type\".",
+    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”.",
     "UGT1A1*60 is in incomplete linkage disequilibrium with *28 and to date, there are no data to suggest that *60 by itself results in decreased UGT1A1 function.",
-    "Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see https://github.com/PharmGKB/cpic-guidelines/raw/master/atazanavir/2015/26417955-UGT1A1_allele_frequency.xlsx",
-    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
+    "Citations for assignment of function can be found at https://www.pharmgkb.org/page/ugt1a1RefMaterials",
+    "UGT1A1*80 is in very high linkage disequilibrium with *28 and *37.  However, the function of the *80 allele alone, in the absence of *28 or *37, is uncertain.  If a patient is only tested for *80, decreased function may be inferred."
   ],
-  "populations": null,
   "variants": [
     {
       "chromosome": "chr2",
@@ -30,7 +27,8 @@
       "proteinNote": "5' of UGT1A1; intronic for other UGT1As e.g. UGT1A4",
       "resourceNote": "-3275T>G",
       "type": "SNP",
-      "referenceRepeat": null
+      "referenceRepeat": null,
+      "sequenceLocationId": 112746
     },
     {
       "chromosome": "chr2",
@@ -41,7 +39,8 @@
       "proteinNote": "nearGene-5",
       "resourceNote": "-364C>T",
       "type": "SNP",
-      "referenceRepeat": null
+      "referenceRepeat": null,
+      "sequenceLocationId": 112747
     },
     {
       "chromosome": "chr2",
@@ -50,9 +49,10 @@
       "chromosomeHgvsName": "g.233760233",
       "geneHgvsName": "g.175490",
       "proteinNote": "Promoter region",
-      "resourceNote": "CA(TA)5TAA, CA(TA)6TAA, CA(TA)7TAA, CA(TA)8TAA",
+      "resourceNote": "CA(TA)5TAA                     CA(TA)6TAA                     CA(TA)7TAA                     CA(TA)8TAA",
       "type": "SNP",
-      "referenceRepeat": null
+      "referenceRepeat": null,
+      "sequenceLocationId": 112748
     },
     {
       "chromosome": "chr2",
@@ -63,7 +63,8 @@
       "proteinNote": "G71R",
       "resourceNote": "211G>A",
       "type": "SNP",
-      "referenceRepeat": null
+      "referenceRepeat": null,
+      "sequenceLocationId": 112749
     },
     {
       "chromosome": "chr2",
@@ -74,13 +75,13 @@
       "proteinNote": "P229Q",
       "resourceNote": "686C>A",
       "type": "SNP",
-      "referenceRepeat": null
+      "referenceRepeat": null,
+      "sequenceLocationId": 112750
     }
   ],
   "variantAlleles": [
     [
-      "T",
-      "G"
+      "T"
     ],
     [
       "C",
@@ -104,111 +105,102 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "CA100223.1",
+      "id": "112751",
       "alleles": [
         "T",
         "C",
         "CAT",
         "G",
         "C"
-      ],
-      "populationFrequency": {}
-    },
-    {
-      "name": "*6",
-      "id": "CA100224.1",
-      "alleles": [
-        null,
-        null,
-        null,
-        "A",
-        null
-      ],
-      "populationFrequency": {}
-    },
-    {
-      "name": "*27",
-      "id": "CA100225.1",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        "A"
-      ],
-      "populationFrequency": {}
-    },
-    {
-      "name": "*28",
-      "id": "CA100226.1",
-      "alleles": [
-        null,
-        null,
-        "CATAT",
-        null,
-        null
-      ],
-      "populationFrequency": {}
-    },
-    {
-      "name": "*36",
-      "id": "CA100227.1",
-      "alleles": [
-        null,
-        null,
-        "C",
-        null,
-        null
-      ],
-      "populationFrequency": {}
-    },
-    {
-      "name": "*37",
-      "id": "CA100228.1",
-      "alleles": [
-        null,
-        null,
-        "CATATAT",
-        null,
-        null
-      ],
-      "populationFrequency": {}
-    },
-    {
-      "name": "*60",
-      "id": "CA100229.1",
-      "alleles": [
-        "G",
-        null,
-        null,
-        null,
-        null
-      ],
-      "populationFrequency": {}
-    },
-    {
-      "name": "*80+*28",
-      "id": "CA100269.1",
-      "alleles": [
-        null,
-        "T",
-        "CATAT",
-        null,
-        null
-      ],
-      "populationFrequency": {}
+      ]
     },
     {
       "name": "*80+*37",
-      "id": "CA100270.1",
+      "id": "112767",
       "alleles": [
-        null,
         "T",
         "CATATAT",
         null,
+        null,
         null
-      ],
-      "populationFrequency": {}
+      ]
+    },
+    {
+      "name": "*28",
+      "id": "112757",
+      "alleles": [
+        "CATAT",
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*80+*28",
+      "id": "112765",
+      "alleles": [
+        "T",
+        "CATAT",
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*6",
+      "id": "112753",
+      "alleles": [
+        "A",
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*27",
+      "id": "112755",
+      "alleles": [
+        "A",
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*36",
+      "id": "112759",
+      "alleles": [
+        "C",
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*37",
+      "id": "112761",
+      "alleles": [
+        "CATATAT",
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "*80",
+      "id": "112763",
+      "alleles": [
+        "T",
+        null,
+        null,
+        null,
+        null
+      ]
     }
   ]
 }

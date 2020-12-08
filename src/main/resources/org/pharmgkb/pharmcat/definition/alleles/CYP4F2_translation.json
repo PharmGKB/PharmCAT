@@ -1,20 +1,18 @@
 {
-  "formatVersion": "1",
-  "modificationDate": "Nov 8, 2016 12:00:00 AM",
+  "formatVersion": 1,
+  "modificationDate": "2020-12-04T05:59:35.149Z",
   "gene": "CYP4F2",
-  "orientation": "reverse",
   "chromosome": "chr19",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000019.10",
-  "refSeqGeneId": "NG_007971.2",
+  "refSeqGeneId": "",
   "refSeqProteinId": "NP_001073.3",
   "notes": [
     "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
-    "See Human Cytochrome P450 Allele Nomenclature Committee website (http://www.cypalleles.ki.se) for comprehensive haplotype definitions of CYP4F2 variant alleles and updated allele information.",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a 'wild-type' status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as 'wild-type.'"
+    "See PharmVar website (http://pharmvar.org) for comprehensive haplotype definitions of CYP4F2 variant alleles and updated allele information.",
+    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”"
   ],
-  "populations": null,
   "variants": [
     {
       "chromosome": "chr19",
@@ -25,7 +23,8 @@
       "proteinNote": "W12G",
       "resourceNote": "34T>G",
       "type": "SNP",
-      "referenceRepeat": null
+      "referenceRepeat": null,
+      "sequenceLocationId": 111496
     },
     {
       "chromosome": "chr19",
@@ -36,7 +35,8 @@
       "proteinNote": "V433M",
       "resourceNote": "1297G>A",
       "type": "SNP",
-      "referenceRepeat": null
+      "referenceRepeat": null,
+      "sequenceLocationId": 111497
     }
   ],
   "variantAlleles": [
@@ -52,30 +52,27 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "CA100233.1",
+      "id": "111498",
       "alleles": [
         "A",
         "C"
-      ],
-      "populationFrequency": {}
+      ]
     },
     {
       "name": "*2",
-      "id": "CA100234.1",
+      "id": "111500",
       "alleles": [
         "C",
         null
-      ],
-      "populationFrequency": {}
+      ]
     },
     {
       "name": "*3",
-      "id": "CA100235.1",
+      "id": "111502",
       "alleles": [
-        null,
-        "T"
-      ],
-      "populationFrequency": {}
+        "T",
+        null
+      ]
     }
   ]
 }

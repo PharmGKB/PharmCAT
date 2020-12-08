@@ -1,20 +1,16 @@
 {
-  "formatVersion": "1",
-  "modificationDate": "Apr 12, 2016 12:00:00 AM",
+  "formatVersion": 1,
+  "modificationDate": "2020-12-04T05:59:35.225Z",
   "gene": "IFNL3",
-  "orientation": "reverse",
   "chromosome": "chr19",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000019.10",
   "refSeqGeneId": "NG_042193.1",
-  "refSeqProteinId": "NP_742151.2",
+  "refSeqProteinId": "",
   "notes": [
     "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
-    "All variants are annotated to the positive DNA strand.",
-    "Allele frequencies from the CPIC supplement at https://github.com/PharmGKB/cpic-guidelines/raw/master/pegintron/2013/24096968-supplement.pdf",
-    "Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913]."
+    "All variants are annotated to the positive DNA strand."
   ],
-  "populations": null,
   "variants": [
     {
       "chromosome": "chr19",
@@ -22,10 +18,11 @@
       "rsid": "rs12979860",
       "chromosomeHgvsName": "g.39248147C>T",
       "geneHgvsName": "g.1825G>A",
-      "proteinNote": "nearGene-5",
-      "resourceNote": "rs12979860C/T",
+      "proteinNote": "unknown (upstream)",
+      "resourceNote": "-1595G>A",
       "type": "SNP",
-      "referenceRepeat": null
+      "referenceRepeat": null,
+      "sequenceLocationId": 112302
     }
   ],
   "variantAlleles": [
@@ -36,20 +33,18 @@
   ],
   "namedAlleles": [
     {
-      "name": "rs12979860C",
-      "id": "CA100150.1",
+      "name": "rs12979860 reference (C)",
+      "id": "112303",
       "alleles": [
         "C"
-      ],
-      "populationFrequency": {}
+      ]
     },
     {
-      "name": "rs12979860T",
-      "id": "CA100151.1",
+      "name": "rs12979860 variant (T)",
+      "id": "112305",
       "alleles": [
         "T"
-      ],
-      "populationFrequency": {}
+      ]
     }
   ]
 }
