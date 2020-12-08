@@ -100,6 +100,11 @@ public class Recommendation {
     m_lookupKey = lookupKey;
   }
 
+  /**
+   * Will return true if this recommendation matches the given genotype
+   * @param genotype in the form "GENEX:*1/*3;GENEY:*2/*5"
+   * @return whether this recommendation matches that key
+   */
   public boolean matchLookupKey(String genotype) {
     if (StringUtils.isBlank(genotype)) return false;
 

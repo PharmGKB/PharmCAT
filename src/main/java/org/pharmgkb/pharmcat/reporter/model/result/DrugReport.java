@@ -161,7 +161,6 @@ public class DrugReport implements Comparable<DrugReport> {
   public void addReportGenotype(String reportGenotype) {
     Preconditions.checkArgument(StringUtils.isNotBlank(reportGenotype));
 
-    //TODO(ryan): this is where rec matching needs to change?
     getRecommendations().stream()
         .filter(r -> r.matchLookupKey(reportGenotype))
         .forEach(r -> {

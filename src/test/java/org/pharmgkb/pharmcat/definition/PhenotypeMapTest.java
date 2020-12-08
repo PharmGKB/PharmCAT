@@ -20,7 +20,7 @@ class PhenotypeMapTest {
 
     assertNotNull(phenotypeMap);
 
-    assertEquals(17, phenotypeMap.getGenes().size());
+    assertEquals(14, phenotypeMap.getGenes().size());
 
     assertEquals(
         "No function",
@@ -35,11 +35,9 @@ class PhenotypeMapTest {
   void testLookupPhenotype() throws Exception {
     PhenotypeMap phenotypeMap = new PhenotypeMap();
 
-    String genotype = "CYP2C9:*1/*1";
     GenePhenotype genePhenotype = phenotypeMap.lookup("CYP2C9")
         .orElseThrow(() -> new RuntimeException("No CYP2C9 phenotype map found"));
-    assertNotNull(genePhenotype.getDiplotypeResults());
-    String result = genePhenotype.getDiplotypeResults().get(genotype);
-    assertEquals("2", result);
+    assertNotNull(genePhenotype.getDiplotypes());
+    assertEquals("2", genePhenotype.getLookupKeyForDiplotype("*1/*1"));
   }
 }

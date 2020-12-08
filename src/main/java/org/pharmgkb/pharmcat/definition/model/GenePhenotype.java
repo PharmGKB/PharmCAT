@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.definition.model;
 
-import java.lang.invoke.MethodHandles;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -8,9 +7,6 @@ import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.UnexpectedStateException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /**
@@ -19,7 +15,6 @@ import org.slf4j.LoggerFactory;
  * @author Ryan Whaley
  */
 public class GenePhenotype {
-  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   @SerializedName("gene")
   @Expose
@@ -29,10 +24,7 @@ public class GenePhenotype {
   private Map<String,String> m_haplotypes;
   @SerializedName("diplotypes")
   @Expose
-  private List<DiplotypePhenotype> m_diplotypes;
-  @SerializedName("diplotypeResults")
-  @Expose
-  private Map<String,String> m_diplotypeResults;
+  private List<DiplotypeRecord> m_diplotypes;
 
   /**
    * The HGNC gene symbol
@@ -73,55 +65,25 @@ public class GenePhenotype {
   /**
    * List of all diplotype to phenotype mappings for this gene
    */
-  public List<DiplotypePhenotype> getDiplotypes() {
+  public List<DiplotypeRecord> getDiplotypes() {
     return m_diplotypes;
   }
 
-  public void setDiplotypes(List<DiplotypePhenotype> diplotypes) {
+  public void setDiplotypes(List<DiplotypeRecord> diplotypes) {
     m_diplotypes = diplotypes;
   }
 
-  private String[] makePhenoPair(String diplotype) {
-    String[] haps = diplotype.split("/");
-    if (haps.length != 2) {
-      throw new UnexpectedStateException("Diplotype doesn't have two alleles");
-    }
-
-    String hap1 = haps[0];
-    String hap2 = haps[1];
-    String func1 = getHaplotypes().get(hap1);
-    String func2 = getHaplotypes().get(hap2);
-
-    if (func1 == null) {
-      sf_logger.warn("No function phenotype for " + getGene() + " " + hap1);
-    } 
-    if (func2 == null) {
-      sf_logger.warn("No function phenotype for " + getGene() + " " + hap2);
-    } 
-    if (func1 != null && func2 != null) {
-      return new String[]{func1,func2};
-    } else {
-      return null;
-    }
-  }
-
   /**
-   * TODO(ryan): working on this
-   * Function1/Function2 -> Metabolizer
+   * *1/*3 -> Phenotype
    *
-   * @param diplotype a String like CYP2D6:*1/*4
-   * @return Normal Metabolizer
+   * @param diplotype a String like "*1/*4"
+   * @return a phenotype value Normal Metabolizer
    */
-  public String makePhenotype(String diplotype) {
-
-    String[] phenoPair = makePhenoPair(diplotype);
-    if (phenoPair == null) {
-      return "N/A";
-    }
+  public String getPhenotypeForDiplotype(String diplotype) {
 
     Set<String> phenos = getDiplotypes().stream()
-        .filter(d -> ((phenoPair[0].equals(d.getDiplotype().get(0)) && phenoPair[1].equals(d.getDiplotype().get(1))) || (phenoPair[0].equals(d.getDiplotype().get(1)) && phenoPair[1].equals(d.getDiplotype().get(0)))))
-        .map(DiplotypePhenotype::getPhenotype)
+        .filter(d -> d.getDiplotype().equalsIgnoreCase(diplotype))
+        .map(DiplotypeRecord::getGeneresult)
         .collect(Collectors.toSet());
     if (phenos.size()>1) {
       throw new IllegalStateException("More than one phenotype match made for " + getGene() + " " + diplotype + ": " + String.join("; ", phenos));
@@ -132,21 +94,23 @@ public class GenePhenotype {
     }
   }
 
-  public Map<String, String> getDiplotypeResults() {
-    return m_diplotypeResults;
-  }
-
-  public void setDiplotypeResults(Map<String, String> diplotypeResults) {
-    m_diplotypeResults = diplotypeResults;
-  }
-
   /**
    * Gets the lookup key for the given bare diplotype of this gene.
    * @param diplotype in the form of "*1/*3"
    * @return the lookup key related to this diplotype
    */
-  public String getDiplotypeResult(String diplotype) {
-    return m_diplotypeResults.get(m_gene + ":" + diplotype);
+  public String getLookupKeyForDiplotype(String diplotype) {
+    Set<String> keys = m_diplotypes.stream()
+        .filter(d -> d.getDiplotype().equalsIgnoreCase(diplotype))
+        .map(DiplotypeRecord::getLookupKey)
+        .collect(Collectors.toSet());
+    if (keys.size() > 1) {
+      throw new IllegalStateException("More than one key match made for " + getGene() + " " + diplotype + ": " + String.join("; ", keys));
+    } else if (keys.size() == 0) {
+      return "N/A";
+    } else {
+      return keys.iterator().next();
+    }
   }
 
   public String toString() {

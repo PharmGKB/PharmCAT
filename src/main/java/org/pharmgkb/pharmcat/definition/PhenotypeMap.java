@@ -51,7 +51,7 @@ public class PhenotypeMap {
 
     GenePhenotype genePhenotype = lookup(tokens[0]).orElse(null);
     if (genePhenotype != null) {
-      String result = genePhenotype.getDiplotypeResults().get(genotype);
+      String result = genePhenotype.getLookupKeyForDiplotype(tokens[1]);
       if (result != null) {
         return Optional.of(tokens[0] + ":" + result);
       } else {
