@@ -15,22 +15,22 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class DefinitionExemption {
   @Expose
   @SerializedName("gene")
-  private String m_gene;
+  private final String m_gene;
   @Expose
   @SerializedName("extraPositions")
-  private SortedSet<VariantLocus> m_extraPositions;
+  private final SortedSet<VariantLocus> m_extraPositions;
   @Expose
   @SerializedName("ignoredAlleles")
-  private SortedSet<String> m_ignoredAlleles;
+  private final SortedSet<String> m_ignoredAlleles;
   @Expose
   @SerializedName("ignoredAllelesLc")
-  private SortedSet<String> m_ignoredAllelesLc;
+  private final SortedSet<String> m_ignoredAllelesLc;
   @Expose
   @SerializedName("allHits")
-  private boolean m_allHits;
+  private final boolean m_allHits;
   @Expose
   @SerializedName("assumeReference")
-  private boolean m_assumeReference;
+  private final boolean m_assumeReference;
 
 
   public DefinitionExemption(String gene, @Nullable SortedSet<VariantLocus> extraPositions,

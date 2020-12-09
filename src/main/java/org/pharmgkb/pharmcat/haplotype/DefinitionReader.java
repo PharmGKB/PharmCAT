@@ -25,9 +25,9 @@ import org.pharmgkb.pharmcat.util.DataSerializer;
  * @author Mark Woon
  */
 public class DefinitionReader {
-  private DataSerializer m_definitionSerializer = new DataSerializer();
-  private SortedMap<String, DefinitionFile> m_definitionFiles = new TreeMap<>();
-  private Map<String, DefinitionExemption> m_exemptions = new TreeMap<>();
+  private final DataSerializer m_definitionSerializer = new DataSerializer();
+  private final SortedMap<String, DefinitionFile> m_definitionFiles = new TreeMap<>();
+  private final Map<String, DefinitionExemption> m_exemptions = new TreeMap<>();
   private String m_genomeBuild;
 
 

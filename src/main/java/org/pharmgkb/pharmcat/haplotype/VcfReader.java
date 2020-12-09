@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.SortedSetMultimap;
@@ -41,12 +40,12 @@ public class VcfReader implements VcfLineParser {
   private static final Pattern sf_gtDelimiter = Pattern.compile("[|/]");
   private static final Pattern sf_noCallPattern = Pattern.compile("^[.|/]+$");
   private static final Pattern sf_allelePattern = Pattern.compile("^[AaCcGgTt]+$");
-  private ImmutableMap<String, VariantLocus> m_locationsOfInterest;
+  private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
   private String m_genomeBuild;
   // <chr:position, allele>
-  private SortedMap<String, SampleAllele> m_alleleMap = new TreeMap<>(ChromosomePositionComparator.getComparator());
+  private final SortedMap<String, SampleAllele> m_alleleMap = new TreeMap<>(ChromosomePositionComparator.getComparator());
   // <chr:position, warning>
-  private SortedSetMultimap<String, String> m_warnings = TreeMultimap.create();
+  private final SortedSetMultimap<String, String> m_warnings = TreeMultimap.create();
 
 
   /**
@@ -168,7 +167,7 @@ public class VcfReader implements VcfLineParser {
       String gt1 = position.getAllele(0);
       validateAlleles(chrPos, gt1, null);
 
-      String g[] = normalizeAlleles(gt1, null);
+      String[] g = normalizeAlleles(gt1, null);
       alleles.add(g[0]);
 
     } else {
@@ -176,7 +175,7 @@ public class VcfReader implements VcfLineParser {
         String gt1 = position.getAllele(0);
         validateAlleles(chrPos, gt1, gt2);
 
-        String g[] = normalizeAlleles(gt1, gt2);
+        String[] g = normalizeAlleles(gt1, gt2);
         String g1 = g[0];
         String g2 = g[1];
         if (alleles.size() == 0) {
@@ -213,7 +212,7 @@ public class VcfReader implements VcfLineParser {
     if (varLoc.getType() == VariantType.DEL && !sampleAllele.isVcfAlleleADeletion()) {
       // must be deletion if expecting deletion because deletions require anchor bases and -1 in position
       addWarning(chrPos, "Ignoring: expecting deletion but alleles do not appear to be in expected format (got " +
-          sampleAllele.getVcfAlleles().stream().collect(Collectors.joining("/")) + ")");
+          String.join("/", sampleAllele.getVcfAlleles()) + ")");
       return;
     }
     m_alleleMap.put(chrPos, sampleAllele);

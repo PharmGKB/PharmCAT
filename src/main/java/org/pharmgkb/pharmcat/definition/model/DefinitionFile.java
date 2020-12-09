@@ -60,7 +60,7 @@ public class DefinitionFile {
   @Expose
   @SerializedName("namedAlleles")
   private List<NamedAllele> m_namedAlleles;
-  private SortedMap<String, VariantLocus> m_rsidMap = new TreeMap<>();
+  private final SortedMap<String, VariantLocus> m_rsidMap = new TreeMap<>();
 
 
   /**

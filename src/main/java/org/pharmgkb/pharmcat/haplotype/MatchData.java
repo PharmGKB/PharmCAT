@@ -32,16 +32,16 @@ import org.slf4j.LoggerFactory;
  */
 public class MatchData {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private SortedMap<Integer, SampleAllele> m_sampleMap = new TreeMap<>();
-  private VariantLocus[] m_positions;
+  private final SortedMap<Integer, SampleAllele> m_sampleMap = new TreeMap<>();
+  private final VariantLocus[] m_positions;
   @Expose
   @SerializedName("missingPositions")
-  private Set<VariantLocus> m_missingPositions = new HashSet<>();
-  private Set<VariantLocus> m_ignoredPositions = new HashSet<>();
-  private SortedSet<Variant> m_extraPositions = new TreeSet<>();
+  private final Set<VariantLocus> m_missingPositions = new HashSet<>();
+  private final Set<VariantLocus> m_ignoredPositions = new HashSet<>();
+  private final SortedSet<Variant> m_extraPositions = new TreeSet<>();
   @Expose
   @SerializedName("mismatchedAlleles")
-  private SortedSet<VariantLocus> m_mismatchedAlleles = new TreeSet<>();
+  private final SortedSet<VariantLocus> m_mismatchedAlleles = new TreeSet<>();
   private List<NamedAllele> m_haplotypes;
   private Set<String> m_permutations;
 

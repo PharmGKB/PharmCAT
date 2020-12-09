@@ -29,9 +29,9 @@ import org.pharmgkb.pharmcat.haplotype.model.Variant;
  * @author Mark Woon
  */
 public class ResultBuilder {
-  private DefinitionReader m_definitionReader;
-  private Result m_result = new Result();
-  private SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
+  private final DefinitionReader m_definitionReader;
+  private final Result m_result = new Result();
+  private final SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
 
   public ResultBuilder(DefinitionReader definitionReader) {

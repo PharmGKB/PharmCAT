@@ -17,16 +17,16 @@ public class VariantLocus implements Comparable<VariantLocus> {
   public static final Pattern REPEAT_PATTERN = Pattern.compile("([ACGT]+)\\(([ACGT]+)\\)(\\d+)([ACGT]+)");
   @Expose
   @SerializedName("chromosome")
-  private String m_chromosome;
+  private final String m_chromosome;
   @Expose
   @SerializedName("position")
-  private int m_position;
+  private final int m_position;
   @Expose
   @SerializedName("rsid")
   private String m_rsid;
   @Expose
   @SerializedName("chromosomeHgvsName")
-  private String m_chromosomeHgvsName;
+  private final String m_chromosomeHgvsName;
   @Expose
   @SerializedName("geneHgvsName")
   private String m_geneHgvsName;

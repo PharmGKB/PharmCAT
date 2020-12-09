@@ -21,19 +21,19 @@ import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 public class GeneCall {
   @Expose
   @SerializedName("alleleDefinitionVersion")
-  private String m_alleleDefinitionVersion;
+  private final String m_alleleDefinitionVersion;
   @Expose
   @SerializedName("chromosome")
-  private String m_chromosome;
+  private final String m_chromosome;
   @Expose
   @SerializedName("gene")
-  private String m_gene;
+  private final String m_gene;
   @Expose
   @SerializedName("diplotypes")
-  private LinkedHashSet<DiplotypeMatch> m_diplotypes = new LinkedHashSet<>();
+  private final LinkedHashSet<DiplotypeMatch> m_diplotypes = new LinkedHashSet<>();
   @Expose
   @SerializedName("haplotypes")
-  private SortedSet<HaplotypeMatch> m_haplotypes = new TreeSet<>();
+  private final SortedSet<HaplotypeMatch> m_haplotypes = new TreeSet<>();
   @Expose
   @SerializedName("phased")
   private boolean m_isPhased = true;
@@ -42,16 +42,16 @@ public class GeneCall {
   private SortedSet<Variant> m_variants = new TreeSet<>();
   @Expose
   @SerializedName("variantsOfInterest")
-  private SortedSet<Variant> m_variantsOfInterest;
+  private final SortedSet<Variant> m_variantsOfInterest;
   @Expose
   @SerializedName("matchData")
-  private MatchData m_matchData;
+  private final MatchData m_matchData;
   @Expose
   @SerializedName("uncallableHaplotypes")
-  private Set<String> m_uncallableHaplotypes;
+  private final Set<String> m_uncallableHaplotypes;
   @Expose
   @SerializedName("ignoredHaplotypes")
-  private Set<String> m_ignoredHaplotypes;
+  private final Set<String> m_ignoredHaplotypes;
 
 
   public GeneCall(String alleleDefinitionVersion, String chromosome, String gene,

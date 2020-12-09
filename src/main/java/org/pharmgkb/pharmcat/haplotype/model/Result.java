@@ -18,7 +18,7 @@ public class Result {
 
   @SerializedName("results")
   @Expose
-  private List<GeneCall> m_geneCalls = new ArrayList<>();
+  private final List<GeneCall> m_geneCalls = new ArrayList<>();
 
   @SerializedName("vcfWarnings")
   @Expose
