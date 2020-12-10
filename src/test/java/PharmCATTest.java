@@ -254,8 +254,8 @@ class PharmCATTest {
 
     testCalledGenes("DPYD");
     assertTrue(s_context.getGeneReport("DPYD").isCalled());
-    testCalls(DipType.PRINT, "DPYD", "Reference/c.1905+1G>A");
-    testCalls(DipType.LOOKUP, "DPYD", "DPYD:Any normal function variant or no variant detected/c.1905+1G>A");
+    testCalls(DipType.PRINT, "DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
+    testCalls(DipType.LOOKUP, "DPYD", "DPYD:c.1627A>G (*5)/c.1905+1G>A (*2A)");
 
     testMatchedGroups("fluorouracil", 1);
     testMatchedGroups("capecitabine", 1);
