@@ -64,18 +64,10 @@ public class Haplotype implements Comparable<Haplotype> {
    * modifications that need to be done to allele calls before lookup.
    */
   public String printLookup() {
-    switch (m_gene) {
-      case "CFTR":
-        if (m_name.equals("Reference") || m_incidental) {
-          return "Other";
-        }
-        return m_name;
-      case "DPYD":
-        if (m_name.equals("Reference")) {
-          return "Any normal function variant or no variant detected";
-        }
-      default:
-        return m_name;
+    if (m_gene.equals("DPYD") && m_name.equals("Reference")) {
+      return "Any normal function variant or no variant detected";
+    } else {
+      return m_name;
     }
   }
 

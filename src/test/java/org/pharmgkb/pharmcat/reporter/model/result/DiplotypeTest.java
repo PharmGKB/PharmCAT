@@ -21,7 +21,7 @@ class DiplotypeTest {
   void testCftr() throws Exception {
     String gene = "CFTR";
 
-    Haplotype h1 = new Haplotype(gene, "Reference");
+    Haplotype h1 = new Haplotype(gene, "ivacaftor non-responsive CFTR sequence");
     h1.setReference(true);
     Haplotype h2 = new Haplotype(gene, "G542X");
 
@@ -34,14 +34,14 @@ class DiplotypeTest {
     assertEquals("CFTR:G542X (heterozygous)", diplotype.toString());
     assertEquals("G542X (heterozygous)", diplotype.printBare());
     assertEquals("G542X (heterozygous)", diplotype.printDisplay());
-    assertEquals("CFTR:Other/Other", diplotype.printLookupKey());
+    assertEquals("CFTR:G542X/ivacaftor non-responsive CFTR sequence", diplotype.printLookupKey());
 
     Set<String> alleles = diplotype.streamAllelesByZygosity().collect(Collectors.toSet());
     assertEquals(1, alleles.size());
     assertEquals("G542X (heterozygous)", alleles.iterator().next());
 
     assertTrue(diplotype.hasAllele("G542X"));
-    assertTrue(diplotype.hasAllele("Reference"));
+    assertTrue(diplotype.hasAllele("ivacaftor non-responsive CFTR sequence"));
     assertTrue(diplotype.isIncidental());
   }
 

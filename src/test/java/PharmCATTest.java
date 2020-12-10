@@ -99,8 +99,8 @@ class PharmCATTest {
 
     testCalledGenes("CFTR");
     // G542X is no longer defined for PharmCAT so only F508 should appear
-    testCalls(DipType.PRINT, "CFTR", "F508del(CTT) (heterozygous)");
-    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/Other");
+    testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
+    testCalls(DipType.LOOKUP, "CFTR", "CFTR:ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
 
     assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
         "Should have no incidental alleles");
@@ -115,7 +115,7 @@ class PharmCATTest {
 
     testCalledGenes("CFTR");
     testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
-    testCalls(DipType.LOOKUP, "CFTR", "CFTR:Other/Other");
+    testCalls(DipType.LOOKUP, "CFTR", "CFTR:ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
 
     assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
         "Should have no incidental alleles");
@@ -129,8 +129,8 @@ class PharmCATTest {
         false);
 
     testCalledGenes("CFTR");
-    testCalls(DipType.PRINT, "CFTR", "F508del(CTT) (heterozygous)");
-    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/Other");
+    testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
+    testCalls(DipType.LOOKUP, "CFTR", "CFTR:ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
 
     assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
         "Should have no incidental alleles");
@@ -144,8 +144,8 @@ class PharmCATTest {
         false);
 
     testCalledGenes("CFTR");
-    testCalls(DipType.PRINT, "CFTR", "F508del(CTT)/F508del(CTT)");
-    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/F508del(CTT)");
+    testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
+    testCalls(DipType.LOOKUP, "CFTR", "CFTR:ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
 
     assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
         "Should have no incidental alleles");
@@ -163,8 +163,8 @@ class PharmCATTest {
         false);
 
     testCalledGenes("CFTR");
-    testCalls(DipType.PRINT, "CFTR", "F508del(CTT) (heterozygous)");
-    testCalls(DipType.LOOKUP, "CFTR", "CFTR:F508del(CTT)/Other");
+    testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
+    testCalls(DipType.LOOKUP, "CFTR", "CFTR:ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
 
     assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
         "Should have no incidental alleles");

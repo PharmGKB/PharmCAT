@@ -26,12 +26,12 @@ class HaplotypeTest {
 
   @Test
   void testCftr() {
-    Haplotype haplotype = new Haplotype("CFTR", "Reference");
+    Haplotype haplotype = new Haplotype("CFTR", "ivacaftor non-responsive CFTR sequence");
 
     assertEquals("CFTR", haplotype.getGene());
-    assertEquals("Reference", haplotype.getName());
-    assertEquals("Other", haplotype.printLookup());
-    assertEquals("CFTR Reference", haplotype.toString());
+    assertEquals("ivacaftor non-responsive CFTR sequence", haplotype.getName());
+    assertEquals("ivacaftor non-responsive CFTR sequence", haplotype.printLookup());
+    assertEquals("CFTR ivacaftor non-responsive CFTR sequence", haplotype.toString());
   }
 
   @Test
@@ -53,7 +53,7 @@ class HaplotypeTest {
 
     assertEquals("CFTR", haplotype.getGene());
     assertEquals("G542X", haplotype.getName());
-    assertEquals("Other", haplotype.printLookup());
+    assertEquals("G542X", haplotype.printLookup());
     assertEquals("CFTR G542X", haplotype.toString());
     assertTrue(haplotype.isIncidental());
   }
