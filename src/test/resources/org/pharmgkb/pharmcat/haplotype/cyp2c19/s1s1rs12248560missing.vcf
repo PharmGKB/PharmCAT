@@ -9,7 +9,6 @@ chr10	94760676	.	C	.	.	PASS	assume-default	GT	0/0
 chr10	94760686	rs111490789	C	.	.	PASS	assume-default	GT	0/0
 chr10	94761267	rs17878739	T	.	.	PASS	assume-default	GT	0/0
 chr10	94761665	rs7902257	G	.	.	PASS	assume-default	GT	0/0
-chr10	94761900	rs12248560	C	T	.	PASS	star4band17	GT	./.
 chr10	94762693	rs367543001	G	.	.	PASS	assume-default	GT	0/0
 chr10	94762706	rs28399504	A	G	.	PASS	Gin17	GT	0/0
 chr10	94762712	rs367543002	C	.	.	PASS	assume-default	GT	0/0
