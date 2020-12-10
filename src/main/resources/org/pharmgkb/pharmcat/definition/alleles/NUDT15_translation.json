@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "modificationDate": "2020-12-08T21:17:58.915Z",
+  "modificationDate": "2020-12-09T23:49:04.141Z",
   "gene": "NUDT15",
   "chromosome": "chr13",
   "genomeBuild": "b38",
@@ -13,18 +13,6 @@
     "rs554405994  was merged into rs869320766 which was merged into rs746071566"
   ],
   "variants": [
-    {
-      "chromosome": "chr13",
-      "position": 48037801,
-      "rsid": "rs746071566",
-      "chromosomeHgvsName": "g.48037801_48037802insGAGTCG",
-      "geneHgvsName": "g.5235_5326insGAGTCG",
-      "proteinNote": "V18_V19insGV",
-      "resourceNote": "55_56insGAGTCG",
-      "type": "INS",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263279
-    },
     {
       "chromosome": "chr13",
       "position": 48037748,
@@ -72,6 +60,18 @@
       "type": "SNP",
       "referenceRepeat": null,
       "sequenceLocationId": 263278
+    },
+    {
+      "chromosome": "chr13",
+      "position": 48037801,
+      "rsid": "rs746071566",
+      "chromosomeHgvsName": "g.48037801_48037802insGAGTCG",
+      "geneHgvsName": "g.5235_5326insGAGTCG",
+      "proteinNote": "V18_V19insGV",
+      "resourceNote": "55_56insGAGTCG",
+      "type": "INS",
+      "referenceRepeat": null,
+      "sequenceLocationId": 263279
     },
     {
       "chromosome": "chr13",
@@ -244,10 +244,6 @@
   ],
   "variantAlleles": [
     [
-      "del",
-      "insGAGTCG"
-    ],
-    [
       "C",
       "T"
     ],
@@ -262,6 +258,10 @@
     [
       "A",
       "G"
+    ],
+    [
+      "del",
+      "insGAGTCG"
     ],
     [
       "del",
@@ -325,11 +325,11 @@
       "name": "*1",
       "id": "263294",
       "alleles": [
-        "del",
         "T",
         "G",
         "GGAGTC",
         "G",
+        "del",
         "del",
         "C",
         "G",
@@ -350,8 +350,8 @@
       "name": "*10",
       "id": "263312",
       "alleles": [
-        null,
         "C",
+        null,
         null,
         null,
         null,
@@ -576,8 +576,8 @@
       "id": "263330",
       "alleles": [
         null,
-        null,
         "C",
+        null,
         null,
         null,
         null,
@@ -600,11 +600,11 @@
       "name": "*2",
       "id": "263296",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
         "insGAGTCG",
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         null,
@@ -703,8 +703,8 @@
         null,
         null,
         null,
-        null,
         "A",
+        null,
         null,
         null,
         null,
@@ -725,11 +725,11 @@
       "name": "*6",
       "id": "263304",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
         "insGAGTCG",
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         null,
@@ -802,8 +802,8 @@
       "alleles": [
         null,
         null,
-        null,
         "delGGAGTC",
+        null,
         null,
         null,
         null,

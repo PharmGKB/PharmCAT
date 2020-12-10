@@ -42,7 +42,7 @@ class NamedAlleleMatcherCftrTest {
   void cftrF508delF508del() throws Exception {
     // Test F508del(TCT)/F508del(TCT)
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/F508delF508del.vcf");
-    List<String> expectedMatches = Lists.newArrayList("F508del(CTT)/F508del(CTT)");
+    List<String> expectedMatches = Lists.newArrayList("ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -52,7 +52,7 @@ class NamedAlleleMatcherCftrTest {
   @Test
   void G1244Eref() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/G1244Eref.vcf");
-    List<String> expectedMatches = Lists.newArrayList("G1244E/Reference");
+    List<String> expectedMatches = Lists.newArrayList("G1244E/ivacaftor non-responsive CFTR sequence");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -62,7 +62,7 @@ class NamedAlleleMatcherCftrTest {
   @Test
   void G1244EF508del() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/G1244EF508del.vcf");
-    List<String> expectedMatches = Lists.newArrayList("F508del(CTT)/G1244E");
+    List<String> expectedMatches = Lists.newArrayList("G1244E/ivacaftor non-responsive CFTR sequence");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -72,7 +72,7 @@ class NamedAlleleMatcherCftrTest {
   @Test
   void G551DG542X() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/G551DG542X.vcf");
-    List<String> expectedMatches = Lists.newArrayList("G551D/Reference");
+    List<String> expectedMatches = Lists.newArrayList("G551D/ivacaftor non-responsive CFTR sequence");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);

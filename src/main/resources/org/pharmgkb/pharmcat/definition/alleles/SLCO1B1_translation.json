@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "modificationDate": "2020-12-08T21:17:58.950Z",
+  "modificationDate": "2020-12-09T23:49:04.161Z",
   "gene": "SLCO1B1",
   "chromosome": "chr12",
   "genomeBuild": "b38",
@@ -483,6 +483,41 @@
   ],
   "namedAlleles": [
     {
+      "name": "*1A",
+      "id": "263505",
+      "alleles": [
+        "G",
+        "C",
+        "G",
+        "T",
+        "T",
+        "A",
+        "G",
+        "A",
+        "C",
+        "A",
+        "T",
+        "T",
+        "T",
+        "C",
+        "A",
+        "A",
+        "G",
+        "T",
+        "T",
+        "C",
+        "A",
+        "G",
+        "A",
+        "G",
+        "A",
+        "A",
+        "A",
+        "C",
+        "C"
+      ]
+    },
+    {
       "name": "*10",
       "id": "263525",
       "alleles": [
@@ -830,41 +865,6 @@
         null,
         null,
         null
-      ]
-    },
-    {
-      "name": "*1A",
-      "id": "263505",
-      "alleles": [
-        "G",
-        "C",
-        "G",
-        "T",
-        "T",
-        "A",
-        "G",
-        "A",
-        "C",
-        "A",
-        "T",
-        "T",
-        "T",
-        "C",
-        "A",
-        "A",
-        "G",
-        "T",
-        "T",
-        "C",
-        "A",
-        "G",
-        "A",
-        "G",
-        "A",
-        "A",
-        "A",
-        "C",
-        "C"
       ]
     },
     {
