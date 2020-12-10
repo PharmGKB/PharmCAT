@@ -8,7 +8,7 @@
 chr1	97079071	rs1801268	C	A	.	PASS	PX=DPYD:Reference[10]isC,DPYD:c.2983G>T[1]isA;	GT	0/0
 chr1	97082391	rs67376798	T	A	.	PASS	PX=DPYD:Reference[10]isT,DPYD:c.2846A>T[1]isA;	GT	0/0
 chr1	97450058	rs3918290	C	T	.	PASS	PX=DPYD:Reference[10]isC,DPYD:c.1905+1G>A[1]isT;	GT	0/0
-chr1	97450065	rs72549303	TG	T	.	PASS	PX=DPYD:Reference[10]isG,DPYD:c.1898delC[1]isdelG;	GT	0/0
+chr1	97450066	rs72549303	GG	G	.	PASS	assume-default	GT	0/0
 chr1	97515787	rs55886062	A	C	.	PASS	PX=DPYD:Reference[10]isA,DPYD:c.1679T>G[1]isC;	GT	0/0
 chr1	97573943	rs78060119	C	A	.	PASS	PX=DPYD:Reference[10]isC,DPYD:c.1156G>T[1]isA;	GT	0/0
 chr1	97579893	rs75017182	G	C	.	PASS	PX=DPYD:Reference[10]isG,DPYD:c.1129-5923C>G[1]isC;	GT	0/0
@@ -186,7 +186,7 @@ chr10	94949144	.	C	T	.	PASS	assume-default	GT	0/0
 chr10	94949217	rs2256871	A	G	.	PASS	assume-default	GT	0/0
 chr10	94949280	rs9332130	A	G	.	PASS	assume-default	GT	0/0
 chr10	94949281	rs9332131	GA	G		PASS	assume-default	GT	0/0
-chr10	94949282	.	A	.	.	PASS	assume-default	GT	0/0
+chr10	94949282	.	AA	A	.	PASS	assume-default	GT	0/0
 chr10	94972119	rs182132442	C	A	.	PASS	assume-default	GT	0/0
 chr10	94972134	.	A	G	.	PASS	assume-default	GT	0/0
 chr10	94972179	rs72558192	A	G	.	PASS	assume-default	GT	0/0

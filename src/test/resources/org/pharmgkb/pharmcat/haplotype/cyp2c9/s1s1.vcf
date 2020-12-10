@@ -39,7 +39,7 @@ chr10	94949144	.	C	T	.	PASS	assume-default	GT	0/0
 chr10	94949217	rs2256871	A	G	.	PASS	assume-default	GT	0/0
 chr10	94949280	rs9332130	A	G	.	PASS	assume-default	GT	0/0
 chr10	94949281	rs9332131	GA	G		PASS	assume-default	GT	0/0
-chr10	94949282	.	A	.	.	PASS	assume-default	GT	0/0
+chr10	94949282	.	AA	A	.	PASS	assume-default	GT	0/0
 chr10	94972119	rs182132442	C	A	.	PASS	assume-default	GT	0/0
 chr10	94972134	.	A	G	.	PASS	assume-default	GT	0/0
 chr10	94972179	rs72558192	A	G	.	PASS	assume-default	GT	0/0

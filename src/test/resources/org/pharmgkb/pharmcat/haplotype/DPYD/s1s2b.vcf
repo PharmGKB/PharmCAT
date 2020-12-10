@@ -15,7 +15,7 @@ chr1	97573943	rs78060119	C	.	.	PASS	assume-default	GT	0/0
 chr1	97515865	rs1801158	C	.	.	PASS	assume-default	GT	0/0
 chr1	97515839	rs1801159	T	C	.	PASS	star-5	GT	0/1
 chr1	97515787	rs55886062	A	.	.	PASS	assume-default	GT	0/0
-chr1	97450066	rs72549303	G	.	.	PASS	assume-default	GT	0/0
+chr1	97450066	rs72549303	GG	G	.	PASS	assume-default	GT	0/0
 chr1	97305364	rs1801160	C	.	.	PASS	assume-default	GT	0/0
 chr1	97098598	rs1801267	C	.	.	PASS	assume-default	GT	0/0
 chr1	97082391	rs67376798	T	.	.	PASS	assume-default	GT	0/0
