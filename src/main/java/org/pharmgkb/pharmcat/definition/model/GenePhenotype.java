@@ -74,7 +74,7 @@ public class GenePhenotype {
   }
 
   /**
-   * *1/*3 -> Phenotype
+   * *1/*3 to phenotype
    *
    * @param diplotype a String like "*1/*4"
    * @return a phenotype value Normal Metabolizer
