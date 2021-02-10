@@ -10,7 +10,10 @@ def run(args):
     ## tabix commands are exclusively "tabix -p vcf <input_vcf>", which generates an index file (.tbi) for an input file (<input_file>) whose file type is specified by "-p vcf". The .tabi is, by default, output to the current working directory. 
     ## "bcftools <common_options> <input_vcf>". "-O" (capitalized letter O) specifies the output type as compressed VCF (z). "-o" writes to a file rather than to default standard output.
     ## "bcftools annotate <options> <input_vcf>" annotates and converts the VCF column info. "--rename-chrs <chr_name_mapping_file>" convert chromosome names from the old ones to the new ones.
-    ## "bcftools norm <options> <input_vcf>" normalizes the input VCF file. "-m+" join biallelic sites into multiallelic records. "-f" reference genome sequence in fasta format. "--check-ref" when incorrect or missing REF allele is encountered: exit (e), warn (w), exclude (x), or set/fix (s) bad sites.
+    ## "bcftools norm <options> <input_vcf>" normalizes the input VCF file. "-m+" join biallelic sites into multiallelic records. "-f" reference genome sequence in fasta format.
+
+    # (function pending) validate the input arguments
+    #validate(args)
 
     # assign the current working directory as the output path if not specified
     output_folder = os.getcwd() if not args.output_folder else args.output_folder
@@ -18,9 +21,6 @@ def run(args):
     output_full_name = os.path.join(output_folder, args.output_prefix + ".vcf.gz")
     tabix_executable_path = args.path_to_tabix if args.path_to_tabix else "tabix"
     bcftools_executable_path = args.path_to_bcftools if args.path_to_bcftools else "bcftools"
-
-    # (function pending) validate the input arguments
-    #validate(args)
 
     # if the input VCF file is not indexed (.tbi doesn't exist), index the file using tabix
     if not os.path.exists(args.input_vcf + ".tbi"):
@@ -36,7 +36,7 @@ def run(args):
     # normalize the input VCF
     # modify this part to comply to the PharmCAT VCF requirements and PharmCAT only
     # explain bcftools flags
-    subprocess.run([bcftools_executable_path, "norm", "--check-ref", "s", "-m+", "-Oz", "-o", output_full_name, "-f", args.ref_seq, input_renamed_chr])
+    subprocess.run([bcftools_executable_path, "norm", "-m+", "-Oz", "-o", output_full_name, "-f", args.ref_seq, input_renamed_chr])
 
     # index the output VCF
     subprocess.run([tabix_executable_path, "-p", "vcf", output_full_name], cwd = args.output_folder)

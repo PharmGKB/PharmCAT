@@ -55,7 +55,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='convert_to_normalized_vcf.py :  Will normalize the input VCF file, as well as reconstruct multi-allelic variants')
 
     # list arguments
-    parser.add_argument("--normalized_vcf", help="Load a compressed, normalized VCF file.")
+    parser.add_argument("--input_vcf", help="Load a compressed, normalized VCF file.")
     parser.add_argument("--ref_pgx_vcf", help="Load a VCF file of PGx variants. This file is available from the PharmCAT GitHub release.")
     parser.add_argument("--path_to_bcftools", help="Load an alternative path to the executable bcftools.")
     parser.add_argument("--path_to_tabix", help="Load an alternative path to the executable tabix.")
