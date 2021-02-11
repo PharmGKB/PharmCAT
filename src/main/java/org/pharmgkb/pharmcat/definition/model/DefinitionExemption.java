@@ -76,6 +76,17 @@ public class DefinitionExemption {
   }
 
   /**
+   * Checks if should ignore the given position.
+   * <p>
+   * <b>Currently only checks based on RSID!</b>
+   */
+  public boolean shouldIgnorePosition(VariantLocus position) {
+    return m_ignoredPositions.stream()
+        .anyMatch(vl -> vl.getRsid().equals(position.getRsid()));
+  }
+
+
+  /**
    * Gets the extra positions to pull allele information for.
    */
   public SortedSet<VariantLocus> getExtraPositions() {
@@ -93,7 +104,7 @@ public class DefinitionExemption {
   /**
    * Checks if should ignore the given named allele.
    */
-  public boolean shouldIgnore(String allele) {
+  public boolean shouldIgnoreAllele(String allele) {
     return m_ignoredAllelesLc.contains(allele.toLowerCase());
   }
 
