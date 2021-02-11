@@ -12,7 +12,7 @@ def obtain_vcf_file_prefix(path):
         vcf_file_prefix = '.'.join(vcf_file_full_name[:len(vcf_file_full_name) - 2])
         return vcf_file_prefix
     else:
-        raise Exceptions.InappropriateVCFSuffix(self.path)
+        raise Exceptions.InappropriateVCFSuffix(path)
 
 def setOutputPath(folder):
     return os.getcwd() if not folder else folder
