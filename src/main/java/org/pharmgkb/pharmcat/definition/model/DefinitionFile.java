@@ -211,6 +211,7 @@ public class DefinitionFile {
 
   public void setVariants(VariantLocus[] variants) {
     m_variants = variants;
+    m_rsidMap.clear();
     for (VariantLocus varLoc : variants) {
       if (varLoc.getRsid() != null) {
         m_rsidMap.put(varLoc.getRsid(), varLoc);
