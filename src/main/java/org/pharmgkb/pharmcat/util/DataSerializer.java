@@ -86,24 +86,29 @@ public class DataSerializer {
         .map(line -> {
           String[] data = line.split("\t");
           String gene = data[0];
-          final SortedSet<VariantLocus> extraLoci = new TreeSet<>();
+          final SortedSet<VariantLocus> ignoreLoci = new TreeSet<>();
           if (data.length > 1) {
-            SortedSet<String> extraPositions = Sets.newTreeSet(sf_commaSplitter.splitToList(data[1]));
+            SortedSet<String> ignoredPositions = Sets.newTreeSet(sf_commaSplitter.splitToList(data[1]));
+            ignoredPositions.stream().map(EnsemblUtils::download).forEach(ignoreLoci::add);
+          }
+          final SortedSet<VariantLocus> extraLoci = new TreeSet<>();
+          if (data.length > 2) {
+            SortedSet<String> extraPositions = Sets.newTreeSet(sf_commaSplitter.splitToList(data[2]));
             extraPositions.stream().map(EnsemblUtils::download).forEach(extraLoci::add);
           }
           SortedSet<String> ignoreAlleles = null;
-          if (data.length > 2) {
-            ignoreAlleles = Sets.newTreeSet(sf_commaSplitter.splitToList(data[2]));
+          if (data.length > 3) {
+            ignoreAlleles = Sets.newTreeSet(sf_commaSplitter.splitToList(data[3]));
           }
           boolean allHits = false;
-          if (data.length > 3) {
-            allHits = Boolean.parseBoolean(data[3]);
+          if (data.length > 4) {
+            allHits = Boolean.parseBoolean(data[4]);
           }
           boolean assumeReference = true;
-          if (data.length > 4 && StringUtils.stripToEmpty(data[4]).equalsIgnoreCase("false")) {
+          if (data.length > 5 && StringUtils.stripToEmpty(data[5]).equalsIgnoreCase("false")) {
             assumeReference = false;
           }
-          return new DefinitionExemption(gene, extraLoci, ignoreAlleles, allHits, assumeReference);
+          return new DefinitionExemption(gene, ignoreLoci, extraLoci, ignoreAlleles, allHits, assumeReference);
         })
         .collect(Collectors.toSet());
   }

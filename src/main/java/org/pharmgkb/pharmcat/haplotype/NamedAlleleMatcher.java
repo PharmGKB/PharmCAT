@@ -213,7 +213,7 @@ public class NamedAlleleMatcher {
 
     if (exemption != null) {
       alleles = alleles.stream()
-          .filter(a -> !exemption.shouldIgnore(a.getName()))
+          .filter(a -> !exemption.shouldIgnoreAllele(a.getName()))
           .collect(Collectors.toList());
     }
     // handle missing positions (if any)
@@ -243,7 +243,7 @@ public class NamedAlleleMatcher {
     List<NamedAllele> variantNamedAlleles = namedAlleles.subList(1, namedAlleles.size() - 1);
     Set<VariantLocus> ignorablePositions = new HashSet<>();
     for (NamedAllele namedAllele : variantNamedAlleles) {
-      if (exemption.shouldIgnore(namedAllele.getName())) {
+      if (exemption.shouldIgnoreAllele(namedAllele.getName())) {
         ignorablePositions.addAll(findIgnorablePositions(allPositions, namedAllele));
       }
     }
@@ -251,7 +251,7 @@ public class NamedAlleleMatcher {
     for (VariantLocus vl : ignorablePositions) {
       boolean isUnused = true;
       for (NamedAllele namedAllele : variantNamedAlleles) {
-        if (!exemption.shouldIgnore(namedAllele.getName())) {
+        if (!exemption.shouldIgnoreAllele(namedAllele.getName())) {
           if (namedAllele.getAllele(vl) != null) {
             isUnused = false;
             break;

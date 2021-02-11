@@ -76,7 +76,7 @@ public class ResultBuilder {
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     if (exemption != null) {
       uncallableHaplotypes = uncallableHaplotypes.stream()
-          .filter(h -> !exemption.shouldIgnore(h))
+          .filter(h -> !exemption.shouldIgnoreAllele(h))
           .collect(Collectors.toSet());
       ignoredHaplotypes = exemption.getIgnoredAlleles().stream()
           .map(String::toUpperCase)

@@ -17,6 +17,9 @@ public class DefinitionExemption {
   @SerializedName("gene")
   private final String m_gene;
   @Expose
+  @SerializedName("ignoredPositions")
+  private final SortedSet<VariantLocus> m_ignoredPositions;
+  @Expose
   @SerializedName("extraPositions")
   private final SortedSet<VariantLocus> m_extraPositions;
   @Expose
@@ -33,9 +36,16 @@ public class DefinitionExemption {
   private final boolean m_assumeReference;
 
 
-  public DefinitionExemption(String gene, @Nullable SortedSet<VariantLocus> extraPositions,
-      @Nullable SortedSet<String> ignoredAlleles, boolean allHits, boolean assumeReference) {
+  public DefinitionExemption(String gene, @Nullable SortedSet<VariantLocus> ignoredPositions,
+      @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<String> ignoredAlleles, boolean allHits,
+      boolean assumeReference) {
     m_gene = gene;
+
+    if (ignoredPositions == null) {
+      m_ignoredPositions = Collections.emptySortedSet();
+    } else {
+      m_ignoredPositions = ignoredPositions;
+    }
     if (extraPositions == null) {
       m_extraPositions = Collections.emptySortedSet();
     } else {
@@ -59,11 +69,30 @@ public class DefinitionExemption {
 
 
   /**
+   * Gets the positions from definition that to ignore.
+   */
+  public SortedSet<VariantLocus> getIgnoredPositions() {
+    return m_ignoredPositions;
+  }
+
+  /**
+   * Checks if should ignore the given position.
+   * <p>
+   * <b>Currently only checks based on RSID!</b>
+   */
+  public boolean shouldIgnorePosition(VariantLocus position) {
+    return m_ignoredPositions.stream()
+        .anyMatch(vl -> vl.getRsid().equals(position.getRsid()));
+  }
+
+
+  /**
    * Gets the extra positions to pull allele information for.
    */
   public SortedSet<VariantLocus> getExtraPositions() {
     return m_extraPositions;
   }
+
 
   /**
    * Gets the named alleles to ignore.
@@ -75,7 +104,7 @@ public class DefinitionExemption {
   /**
    * Checks if should ignore the given named allele.
    */
-  public boolean shouldIgnore(String allele) {
+  public boolean shouldIgnoreAllele(String allele) {
     return m_ignoredAllelesLc.contains(allele.toLowerCase());
   }
 
