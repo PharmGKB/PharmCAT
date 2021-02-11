@@ -3,24 +3,22 @@ package org.pharmgkb.pharmcat.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
-import java.net.URI;
-import java.nio.file.DirectoryStream;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.stream.Collectors;
+import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
+import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.definition.CuratedDefinitionParser;
+import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 
 
@@ -34,7 +32,6 @@ public class DataManager {
   private static final Path DEFAULT_REPORTER_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter");
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
-  private static final String ALLELE_DEFINITION_ARCHIVE =  "allele.definitions.zip";
   private final String m_googleUser;
   private final String m_googleKey;
   private final DataSerializer m_dataSerializer = new DataSerializer();
@@ -108,8 +105,8 @@ public class DataManager {
         }
 
         if (!cliHelper.hasOption("sa")) {
-          manager.transformAlleleDefinitions(downloadDir, allelesDir);
-          manager.transformExemptions(exemptionsTsv, exemptionsJson);
+          Map<String, DefinitionExemption> exemptionsMap = manager.transformExemptions(exemptionsTsv, exemptionsJson);
+          manager.transformAlleleDefinitions(downloadDir, allelesDir, exemptionsMap);
         }
         if (!cliHelper.hasOption("sm")) {
           manager.transformMessages(messagesTsv, messagesJson);
@@ -129,8 +126,13 @@ public class DataManager {
 
   private void download(Path downloadDir, Path exemptionsFile, Path messagesFile) throws Exception {
 
+    // download allele definitions
+    FileUtils.copyURLToFile(
+        new URL("http://files.cpicpgx.org/data/report/current/allele_definitions.json"),
+        downloadDir.resolve("allele_definitions.json").toFile());
+
+    // download exemptions and messages
     SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
-    sh.downloadAlleleDefinitions(downloadDir);
     sh.downloadAlleleExemptionsFile(exemptionsFile);
     sh.downloadMessagesFile(messagesFile);
   }
@@ -139,49 +141,61 @@ public class DataManager {
   /**
    * Does the work for stepping through the files and applying the format.
    */
-  private void transformAlleleDefinitions(Path downloadDir, Path definitionsDir) throws Exception {
+  private void transformAlleleDefinitions(Path downloadDir, Path definitionsDir,
+      Map<String, DefinitionExemption> exemptionsMap) throws Exception {
+
+    Path definitionsFile = downloadDir.resolve("allele_definitions.json");
+    if (!Files.exists(definitionsFile)) {
+      throw new IOException("Cannot find alleles definitions (" + definitionsFile + ")");
+    }
+    String json = FileUtils.readFileToString(definitionsFile.toFile(), Charsets.UTF_8);
+    Gson gson = new Gson();
+    Map<String, DefinitionFile> definitionFileMap = new HashMap<>();
+    for (DefinitionFile df : gson.fromJson(json, DefinitionFile[].class)) {
+      definitionFileMap.put(df.getGeneSymbol(), df);
+    }
 
     System.out.println();
     System.out.println("Saving allele definitions in " + definitionsDir.toString());
     Set<String> currentFiles = Files.list(definitionsDir)
         .map(PathUtils::getFilename)
+        .filter(f -> f.endsWith("_translation.json"))
         .collect(Collectors.toSet());
 
-    try (FileSystem zipFs = makeZipFilesystem(definitionsDir, ALLELE_DEFINITION_ARCHIVE)) {
-      try (DirectoryStream<Path> files = Files.newDirectoryStream(downloadDir, f -> f.toString().endsWith("_translation.tsv"))) {
-        for (Path file : files) {
-          if (m_verbose) {
-            System.out.println("Parsing " + file);
-          }
-          CuratedDefinitionParser parser = new CuratedDefinitionParser(file);
-
-          DefinitionFile definitionFile = parser.parse();
-          if (!parser.getWarnings().isEmpty()) {
-            System.out.println("Warnings for " + file);
-            parser.getWarnings()
-                .forEach(System.out::println);
-          }
-
-          Path internalPath = zipFs.getPath(PathUtils.getFilename(file));
-          Files.copy(file, internalPath, StandardCopyOption.REPLACE_EXISTING);
-
-          Path jsonFile = definitionsDir.resolve(PathUtils.getBaseFilename(file) + ".json");
-          m_dataSerializer.serializeToJson(definitionFile, jsonFile);
-          if (m_verbose) {
-            System.out.println("Wrote " + jsonFile);
-          }
-          currentFiles.remove(PathUtils.getFilename(jsonFile));
+    for (String gene : exemptionsMap.keySet()) {
+      DefinitionExemption exemption = exemptionsMap.get(gene);
+      if (exemption.getIgnoredPositions().size() > 0) {
+        System.out.println("Removing ignored positions in " + gene + "...");
+        DefinitionFile definitionFile = definitionFileMap.get(gene);
+        if (definitionFile == null) {
+          throw new Exception("No definition for " + gene);
         }
+        definitionFile.removeIgnoredPositions(exemption);
       }
     }
+
+    for (String gene : definitionFileMap.keySet()) {
+      DefinitionFile definitionFile = definitionFileMap.get(gene);
+      Path jsonFile = definitionsDir.resolve(gene + "_translation.json");
+      m_dataSerializer.serializeToJson(definitionFile, jsonFile);
+      if (m_verbose) {
+        System.out.println("Wrote " + jsonFile);
+      }
+    }
+
     deleteObsoleteFiles(definitionsDir, currentFiles);
   }
 
-  private void transformExemptions(Path tsvFile, Path jsonFile) throws IOException {
+  private Map<String, DefinitionExemption> transformExemptions(Path tsvFile, Path jsonFile) throws IOException {
 
     System.out.println();
     System.out.println("Saving exemptions to " + jsonFile.toString());
-    m_dataSerializer.serializeToJson(m_dataSerializer.deserializeExemptionsFromTsv(tsvFile), jsonFile);
+    Set<DefinitionExemption> exemptions = m_dataSerializer.deserializeExemptionsFromTsv(tsvFile);
+    m_dataSerializer.serializeToJson(exemptions, jsonFile);
+
+    Map<String, DefinitionExemption> exemptionsMap = new HashMap<>();
+    exemptions.forEach(exemption -> exemptionsMap.put(exemption.getGene(), exemption));
+    return exemptionsMap;
   }
 
   private void transformMessages(Path tsvFile, Path jsonFile) throws IOException {
@@ -199,18 +213,5 @@ public class DataManager {
       System.out.println("Deleting obsolete file: " + file);
       FileUtils.deleteQuietly(file.toFile());
     }
-  }
-
-  private FileSystem makeZipFilesystem(Path directory, String filename) throws Exception {
-
-    Path zipFile = directory.resolve(filename);
-    System.out.println();
-    System.out.println("Saving allele definition tables to "+zipFile.toString());
-
-    Map<String,String> env = new HashMap<>();
-    env.put("create", String.valueOf(Files.notExists(zipFile)));
-    URI fileUri = zipFile.toUri();
-    URI zipUri = new URI("jar:" + fileUri.getScheme(), fileUri.getPath(), null);
-    return FileSystems.newFileSystem(zipUri, env);
   }
 }

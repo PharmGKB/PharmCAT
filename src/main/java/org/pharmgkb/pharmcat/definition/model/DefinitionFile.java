@@ -320,4 +320,38 @@ public class DefinitionFile {
         m_chromosome, m_genomeBuild, m_refSeqChromosome, m_refSeqGene, m_refSeqProtein, m_notes, m_populations,
         m_variants, m_namedAlleles);
   }
+
+
+  /**
+   * Remove ignored positions specified in {@link DefinitionExemption}.
+   */
+  public void removeIgnoredPositions(DefinitionExemption exemption) {
+    // find ignored positions
+    Set<Integer> ignoredPositions = new HashSet<>();
+    for (int x = 0; x < m_variants.length; x += 1) {
+      if (exemption.shouldIgnorePosition(m_variants[x])) {
+        ignoredPositions.add(x);
+      }
+    }
+    if (exemption.getIgnoredPositions().size() != ignoredPositions.size()) {
+      throw new IllegalStateException("Should have " + exemption.getIgnoredPositions().size() + " ignored positions, " +
+          "but only found " + ignoredPositions.size());
+    }
+
+    // remove ignored positions
+    VariantLocus[] newPositions = new VariantLocus[m_variants.length - ignoredPositions.size()];
+    for (int x = 0, y = 0; x < m_variants.length; x += 1) {
+      if (!ignoredPositions.contains(x)) {
+        newPositions[y] = m_variants[x];
+        y += 1;
+      }
+    }
+    if (newPositions.length != m_variants.length - ignoredPositions.size()) {
+      throw new IllegalStateException("Should have " + (m_variants.length - ignoredPositions.size()) +
+          " positions, but ended up with " + newPositions.length);
+    }
+
+    // update variants
+    setVariants(newPositions);
+  }
 }

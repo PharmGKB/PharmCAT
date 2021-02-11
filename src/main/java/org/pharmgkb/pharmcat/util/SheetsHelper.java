@@ -6,7 +6,6 @@ import java.util.List;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
-import com.google.api.services.drive.model.FileList;
 import com.google.common.base.Preconditions;
 import com.google.gdata.util.ServiceException;
 import org.pharmgkb.common.io.google.GoogleApiHelper;
@@ -23,9 +22,9 @@ public class SheetsHelper implements AutoCloseable {
   private static final String sf_serviceName = "PharmCAT";
   private static final String sf_alleleExemptionsFileId = "1xHvvXQIMv3xbqNhuN7zG6WP4DB7lpQDmLvz18w-u_lk";
 
-  private GoogleApiHelper m_googleApiHelper;
-  private GoogleSheetsHelper m_spreadsheetHelper;
-  private Drive m_drive;
+  private final GoogleApiHelper m_googleApiHelper;
+  private final GoogleSheetsHelper m_spreadsheetHelper;
+  private final Drive m_drive;
 
 
   public SheetsHelper(String user, String key) throws Exception {
@@ -48,19 +47,6 @@ public class SheetsHelper implements AutoCloseable {
     m_googleApiHelper.close();
   }
 
-
-  /**
-   * Downloads all allele definitions as TSV files.
-   * <p>
-   * This is the main entry point.
-   */
-  public void downloadAlleleDefinitions(Path outputDir) throws IOException, ServiceException {
-    Preconditions.checkNotNull(outputDir);
-
-    String folderId = findAlleleDefinitionsFolder().getId();
-    List<File> files = getSheetsInDirectory(folderId);
-    downloadAsTsv(files, outputDir);
-  }
 
   public void downloadAlleleExemptionsFile(Path file) throws IOException, ServiceException {
     Preconditions.checkNotNull(file);
@@ -92,41 +78,6 @@ public class SheetsHelper implements AutoCloseable {
 
   private void downloadAsTsv(File srcFile, Path targetFile) throws IOException, ServiceException {
     m_spreadsheetHelper.exportToTsv(srcFile.getId(), targetFile);
-  }
-
-  private void downloadAsTsv(List<File> files, Path outputDir) throws IOException, ServiceException {
-
-    for (File file : files) {
-      m_spreadsheetHelper.exportToTsv(file.getId(), outputDir.resolve(file.getName().replaceAll("\\s+", "_") + ".tsv"));
-    }
-  }
-
-
-
-  private List<File> getSheetsInDirectory(String folderId) throws IOException {
-
-    Drive.Files.List request = m_drive.files().list();
-    // get directory
-    FileList files = request.setQ("'" + folderId + "' in parents and mimeType='application/vnd.google-apps.spreadsheet' " +
-        "and trashed=false")
-        .execute();
-    return files.getFiles();
-  }
-
-
-  private File findAlleleDefinitionsFolder() throws IOException {
-
-    Drive.Files.List request = m_drive.files().list();
-    // get directory
-    FileList files = request.setQ("name='Allele Definitions' and mimeType='application/vnd.google-apps.folder' " +
-        "and sharedWithMe and trashed=false")
-        .execute();
-    if (files.getFiles().size() == 0) {
-      throw new IOException("Cannot find 'Allele Definitions' folder on Drive");
-    } else if (files.getFiles().size() > 1) {
-      throw new IOException("Found " + files.getFiles().size() + " 'Allele Definitions' folder on Drive!");
-    }
-    return files.getFiles().get(0);
   }
 
 
