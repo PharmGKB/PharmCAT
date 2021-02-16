@@ -4,6 +4,7 @@ __author__ = 'BinglanLi'
 
 import os
 import subprocess
+import vcf_preprocess_utilities as Utilities
 
 def run(args):
     ## this section invokes external tabix and bcftools to normalize an input VCF file
@@ -19,22 +20,17 @@ def run(args):
     bcftools_executable_path = args.path_to_bcftools if args.path_to_bcftools else "bcftools"
     input_folder = os.path.split(args.input_vcf)[0]
 
-    # (function pending) validate the input arguments
-    #validate(args)
-
     # if the input VCF file is not index (.tbi doesn't exist), index the file using tabix
     if not os.path.exists(args.input_vcf + ".tbi"):
         subprocess.run([tabix_executable_path, "-p", "vcf", args.input_vcf], cwd = input_folder)
 
     # obtain list of samples
-    # explain bcftools flags
     input_vcf_sample_list = subprocess.check_output([bcftools_executable_path, "query", "-l", args.input_vcf], universal_newlines=True, cwd = input_folder).split('\n')
     input_vcf_sample_list.pop()
 
     # generate PharmCAT-ready single-sample VCF file(s)
     for input_vcf_single_sample in input_vcf_sample_list:
         output_full_name = os.path.join(output_folder, args.output_prefix + "." + input_vcf_single_sample + ".vcf.gz")
-        # explain bcftools flags
         bcftools_command = [bcftools_executable_path, "view", "-Oz", "-o", output_full_name]
         bcftools_command.extend(["-s", input_vcf_single_sample, args.input_vcf]) if args.ref_pgx_vcf else bcftools_command.append(args.input_vcf) 
 
@@ -59,7 +55,7 @@ if __name__ == "__main__":
     parser.add_argument("--ref_pgx_vcf", required=True, type = str, help="Load a VCF file of PGx variants. This file is available from the PharmCAT GitHub release.")
     parser.add_argument("--path_to_bcftools", help="Load an alternative path to the executable bcftools.")
     parser.add_argument("--path_to_tabix", help="Load an alternative path to the executable tabix.")
-    parser.add_argument("--output_folder", required=True, type = str, help="Directory of the output VCF, by default, current working directory.")
+    parser.add_argument("--output_folder", help="Directory of the output VCF, by default, current working directory.")
     parser.add_argument("--output_prefix", required=True, type = str, help="Prefix of the output VCF")
 
     # parse arguments
