@@ -1,5 +1,14 @@
 [
   {
+    "gene": "UGT1A1",
+    "ignoredPositions": [],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": true,
+    "assumeReference": false
+  },
+  {
     "gene": "CYP2C19",
     "ignoredPositions": [
       {
@@ -19,15 +28,6 @@
     "ignoredAllelesLc": [],
     "allHits": false,
     "assumeReference": true
-  },
-  {
-    "gene": "UGT1A1",
-    "ignoredPositions": [],
-    "extraPositions": [],
-    "ignoredAlleles": [],
-    "ignoredAllelesLc": [],
-    "allHits": true,
-    "assumeReference": false
   },
   {
     "gene": "CYP2C9",

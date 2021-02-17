@@ -353,5 +353,22 @@ public class DefinitionFile {
 
     // update variants
     setVariants(newPositions);
+
+    List<NamedAllele> updatedNamedAlleles = new ArrayList<>();
+    for (NamedAllele namedAllele : m_namedAlleles) {
+      String[] alleles = new String[namedAllele.getAlleles().length - ignoredPositions.size()];
+      if (newPositions.length != alleles.length) {
+        throw new IllegalStateException("Number of variants (" + newPositions.length + ") and number of alleles (" +
+            alleles.length + ") don't match up for " + namedAllele.getName());
+      }
+      for (int x = 0, y = 0; x < namedAllele.getAlleles().length; x += 1) {
+        if (!ignoredPositions.contains(x)) {
+          alleles[y] = namedAllele.getAlleles()[x];
+          y += 1;
+        }
+      }
+      updatedNamedAlleles.add(new NamedAllele(namedAllele.getId(), namedAllele.getName(), alleles));
+    }
+    setNamedAlleles(updatedNamedAlleles);
   }
 }
