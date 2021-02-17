@@ -1,7 +1,8 @@
 {
-  "formatVersion": 1,
-  "modificationDate": "2020-12-08T21:17:58.740Z",
+  "formatVersion": "1",
+  "modificationDate": "Jan 27, 2021 09:24:02 AM",
   "gene": "CYP3A5",
+  "orientation": null,
   "chromosome": "chr7",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000007.14",
@@ -15,6 +16,7 @@
     "An important caveat for all genotyping tests is that the decision to assign an allele a “wild- type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of- function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”",
     "Citations for assignment of function can be found at https://www.pharmgkb.org/page/cyp3a5RefMaterials"
   ],
+  "populations": null,
   "variants": [
     {
       "chromosome": "chr7",
@@ -25,8 +27,7 @@
       "proteinNote": "T398N",
       "resourceNote": "27284C>A",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 262445
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr7",
@@ -37,8 +38,7 @@
       "proteinNote": "346Frameshift",
       "resourceNote": "27126_27127insT",
       "type": "INS",
-      "referenceRepeat": null,
-      "sequenceLocationId": 262444
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr7",
@@ -49,8 +49,7 @@
       "proteinNote": "A337T",
       "resourceNote": "19381G>A",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 262443
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr7",
@@ -61,8 +60,7 @@
       "proteinNote": "Splicing defect",
       "resourceNote": "14685G>A",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 262442
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr7",
@@ -73,8 +71,7 @@
       "proteinNote": "Q200R",
       "resourceNote": "14660A>G",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 262441
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr7",
@@ -85,8 +82,7 @@
       "proteinNote": "Splicing defect",
       "resourceNote": "12947T>C",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 262440
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr7",
@@ -97,8 +93,7 @@
       "proteinNote": "Splicing defect",
       "resourceNote": "6981A>G",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 262439
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr7",
@@ -109,8 +104,7 @@
       "proteinNote": "R28C",
       "resourceNote": "3699C>T",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 262438
+      "referenceRepeat": null
     }
   ],
   "variantAlleles": [
@@ -154,7 +148,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "262446",
+      "id": "520288",
       "alleles": [
         "G",
         "del",
@@ -164,11 +158,12 @@
         "A",
         "T",
         "G"
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*2",
-      "id": "262448",
+      "id": "520290",
       "alleles": [
         "T",
         null,
@@ -178,11 +173,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*3",
-      "id": "262450",
+      "id": "520292",
       "alleles": [
         "K",
         null,
@@ -192,11 +188,12 @@
         "R",
         "C",
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*4",
-      "id": "262452",
+      "id": "520294",
       "alleles": [
         null,
         null,
@@ -206,11 +203,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*5",
-      "id": "262454",
+      "id": "520296",
       "alleles": [
         null,
         null,
@@ -220,11 +218,12 @@
         "G",
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*6",
-      "id": "262456",
+      "id": "520298",
       "alleles": [
         null,
         null,
@@ -234,11 +233,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*7",
-      "id": "262458",
+      "id": "520300",
       "alleles": [
         null,
         "insA",
@@ -248,11 +248,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*8",
-      "id": "262460",
+      "id": "520302",
       "alleles": [
         null,
         null,
@@ -262,11 +263,12 @@
         null,
         null,
         "A"
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*9",
-      "id": "262462",
+      "id": "520304",
       "alleles": [
         null,
         null,
@@ -276,7 +278,8 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     }
   ]
 }

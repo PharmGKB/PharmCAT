@@ -1,7 +1,8 @@
 {
-  "formatVersion": 1,
-  "modificationDate": "2020-12-09T23:49:04.161Z",
+  "formatVersion": "1",
+  "modificationDate": "Jan 27, 2021 09:24:05 AM",
   "gene": "SLCO1B1",
+  "orientation": null,
   "chromosome": "chr12",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000012.12",
@@ -13,6 +14,7 @@
     "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”",
     "Citations for assignment of function can be found at https://www.pharmgkb.org/page/slco1b1RefMaterials"
   ],
+  "populations": null,
   "variants": [
     {
       "chromosome": "chr12",
@@ -23,8 +25,7 @@
       "proteinNote": null,
       "resourceNote": "-910G>A",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263476
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -35,8 +36,7 @@
       "proteinNote": "R57W",
       "resourceNote": "R57W",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263477
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -47,8 +47,7 @@
       "proteinNote": "G71R",
       "resourceNote": "G71R",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263478
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -59,8 +58,7 @@
       "proteinNote": "F73L",
       "resourceNote": "F73L",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263479
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -71,8 +69,7 @@
       "proteinNote": "V82A",
       "resourceNote": "V82A",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263480
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -83,8 +80,7 @@
       "proteinNote": "N130D",
       "resourceNote": "N130D",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263481
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -95,8 +91,7 @@
       "proteinNote": "S137=",
       "resourceNote": "S137=",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263482
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -107,8 +102,7 @@
       "proteinNote": "N151S",
       "resourceNote": "N151S",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263483
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -119,8 +113,7 @@
       "proteinNote": "P155T",
       "resourceNote": "P155T",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263484
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -131,8 +124,7 @@
       "proteinNote": "E156G",
       "resourceNote": "E156G",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263485
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -143,8 +135,7 @@
       "proteinNote": "V174A",
       "resourceNote": "V174A",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263486
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -155,8 +146,7 @@
       "proteinNote": "L191=",
       "resourceNote": "L191=",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263487
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -167,8 +157,7 @@
       "proteinNote": "L193R",
       "resourceNote": "L193R",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263488
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -179,8 +168,7 @@
       "proteinNote": "F199=",
       "resourceNote": "F199=",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263489
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -191,8 +179,7 @@
       "proteinNote": "I222V",
       "resourceNote": "I222V",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263490
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -203,8 +190,7 @@
       "proteinNote": "I245V",
       "resourceNote": "I245V",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263491
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -215,8 +201,7 @@
       "proteinNote": "R253Q",
       "resourceNote": "R253Q",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263492
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -227,8 +212,7 @@
       "proteinNote": "I353T",
       "resourceNote": "I353T",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263493
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -239,8 +223,7 @@
       "proteinNote": "F400V",
       "resourceNote": "F400V",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263494
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -251,8 +234,7 @@
       "proteinNote": "F400L",
       "resourceNote": "F400L",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263495
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -263,8 +245,7 @@
       "proteinNote": "N432D",
       "resourceNote": "N432D",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263496
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -275,8 +256,7 @@
       "proteinNote": "G437R",
       "resourceNote": "G437R",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263497
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -287,8 +267,7 @@
       "proteinNote": "D462G",
       "resourceNote": "D462G",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263498
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -299,8 +278,7 @@
       "proteinNote": "G488A",
       "resourceNote": "G488A",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263499
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -311,8 +289,7 @@
       "proteinNote": "L643F",
       "resourceNote": "L643F",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263500
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -323,8 +300,7 @@
       "proteinNote": "D655G",
       "resourceNote": "D655G",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263501
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -335,8 +311,7 @@
       "proteinNote": "E667G",
       "resourceNote": "E667G",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263502
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -347,8 +322,7 @@
       "proteinNote": "H678Y",
       "resourceNote": "H678Y",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263503
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr12",
@@ -359,8 +333,7 @@
       "proteinNote": "S682F",
       "resourceNote": "S682F",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263504
+      "referenceRepeat": null
     }
   ],
   "variantAlleles": [
@@ -484,7 +457,7 @@
   "namedAlleles": [
     {
       "name": "*1A",
-      "id": "263505",
+      "id": "521347",
       "alleles": [
         "G",
         "C",
@@ -515,11 +488,12 @@
         "A",
         "C",
         "C"
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*10",
-      "id": "263525",
+      "id": "521367",
       "alleles": [
         null,
         null,
@@ -550,11 +524,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*11",
-      "id": "263527",
+      "id": "521369",
       "alleles": [
         null,
         null,
@@ -585,11 +560,12 @@
         "G",
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*12",
-      "id": "263529",
+      "id": "521371",
       "alleles": [
         null,
         null,
@@ -620,11 +596,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*13",
-      "id": "263531",
+      "id": "521373",
       "alleles": [
         null,
         null,
@@ -655,11 +632,12 @@
         "G",
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*14",
-      "id": "263533",
+      "id": "521375",
       "alleles": [
         null,
         null,
@@ -690,11 +668,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*15",
-      "id": "263535",
+      "id": "521377",
       "alleles": [
         null,
         null,
@@ -725,11 +704,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*16",
-      "id": "263537",
+      "id": "521379",
       "alleles": [
         null,
         null,
@@ -760,11 +740,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*17",
-      "id": "263539",
+      "id": "521381",
       "alleles": [
         "A",
         null,
@@ -795,11 +776,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*18",
-      "id": "263541",
+      "id": "521383",
       "alleles": [
         null,
         null,
@@ -830,11 +812,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*19",
-      "id": "263543",
+      "id": "521385",
       "alleles": [
         null,
         null,
@@ -865,11 +848,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*1B",
-      "id": "263507",
+      "id": "521349",
       "alleles": [
         null,
         null,
@@ -900,11 +884,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*2",
-      "id": "263509",
+      "id": "521351",
       "alleles": [
         null,
         null,
@@ -935,11 +920,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*20",
-      "id": "263545",
+      "id": "521387",
       "alleles": [
         null,
         null,
@@ -970,11 +956,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*21",
-      "id": "263547",
+      "id": "521389",
       "alleles": [
         "A",
         null,
@@ -1005,11 +992,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*22",
-      "id": "263549",
+      "id": "521391",
       "alleles": [
         null,
         null,
@@ -1040,11 +1028,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*23",
-      "id": "263551",
+      "id": "521393",
       "alleles": [
         null,
         null,
@@ -1075,11 +1064,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*24",
-      "id": "263553",
+      "id": "521395",
       "alleles": [
         null,
         null,
@@ -1110,11 +1100,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*25",
-      "id": "263555",
+      "id": "521397",
       "alleles": [
         null,
         null,
@@ -1145,11 +1136,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*26",
-      "id": "263557",
+      "id": "521399",
       "alleles": [
         null,
         null,
@@ -1180,11 +1172,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*27",
-      "id": "263559",
+      "id": "521401",
       "alleles": [
         null,
         null,
@@ -1215,11 +1208,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*28",
-      "id": "263561",
+      "id": "521403",
       "alleles": [
         null,
         null,
@@ -1250,11 +1244,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*29",
-      "id": "263563",
+      "id": "521405",
       "alleles": [
         null,
         null,
@@ -1285,11 +1280,12 @@
         null,
         null,
         "T"
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*3",
-      "id": "263511",
+      "id": "521353",
       "alleles": [
         null,
         null,
@@ -1320,11 +1316,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*30",
-      "id": "263565",
+      "id": "521407",
       "alleles": [
         null,
         null,
@@ -1355,11 +1352,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*31",
-      "id": "263567",
+      "id": "521409",
       "alleles": [
         null,
         null,
@@ -1390,11 +1388,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*32",
-      "id": "263569",
+      "id": "521411",
       "alleles": [
         null,
         null,
@@ -1425,11 +1424,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*33",
-      "id": "263571",
+      "id": "521413",
       "alleles": [
         null,
         "T",
@@ -1460,11 +1460,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*34",
-      "id": "263573",
+      "id": "521415",
       "alleles": [
         null,
         null,
@@ -1495,11 +1496,12 @@
         null,
         "T",
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*35",
-      "id": "263575",
+      "id": "521417",
       "alleles": [
         null,
         null,
@@ -1530,11 +1532,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*36",
-      "id": "263577",
+      "id": "521419",
       "alleles": [
         null,
         null,
@@ -1565,11 +1568,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*4",
-      "id": "263513",
+      "id": "521355",
       "alleles": [
         null,
         null,
@@ -1600,11 +1604,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*5",
-      "id": "263515",
+      "id": "521357",
       "alleles": [
         null,
         null,
@@ -1635,11 +1640,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*6",
-      "id": "263517",
+      "id": "521359",
       "alleles": [
         null,
         null,
@@ -1670,11 +1676,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*7",
-      "id": "263519",
+      "id": "521361",
       "alleles": [
         null,
         null,
@@ -1705,11 +1712,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*8",
-      "id": "263521",
+      "id": "521363",
       "alleles": [
         null,
         null,
@@ -1740,11 +1748,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*9",
-      "id": "263523",
+      "id": "521365",
       "alleles": [
         null,
         null,
@@ -1775,7 +1784,8 @@
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     }
   ]
 }

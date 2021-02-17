@@ -1,12 +1,15 @@
 {
-  "formatVersion": 1,
-  "modificationDate": "2020-12-08T21:17:58.414Z",
+  "formatVersion": "1",
+  "modificationDate": "Jan 27, 2021 09:23:56 AM",
   "gene": "CACNA1S",
+  "orientation": null,
   "chromosome": "chr1",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000001.11",
   "refSeqGeneId": "NG_009816.1",
   "refSeqProteinId": "NP_000060.2",
+  "notes": null,
+  "populations": null,
   "variants": [
     {
       "chromosome": "chr1",
@@ -17,8 +20,7 @@
       "proteinNote": "R1086H",
       "resourceNote": "c.3257G>A",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 261526
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr1",
@@ -29,8 +31,7 @@
       "proteinNote": "R174W",
       "resourceNote": "c.520C>T",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 261525
+      "referenceRepeat": null
     }
   ],
   "variantAlleles": [
@@ -46,27 +47,30 @@
   "namedAlleles": [
     {
       "name": "Reference",
-      "id": "261527",
+      "id": "519334",
       "alleles": [
         "C",
         "G"
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "c.3257G>A",
-      "id": "261531",
+      "id": "519338",
       "alleles": [
         "T",
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "c.520C>T",
-      "id": "261529",
+      "id": "519336",
       "alleles": [
         null,
         "A"
-      ]
+      ],
+      "populationFrequency": null
     }
   ]
 }

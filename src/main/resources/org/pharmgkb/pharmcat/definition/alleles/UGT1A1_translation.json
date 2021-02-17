@@ -1,7 +1,8 @@
 {
-  "formatVersion": 1,
-  "modificationDate": "2020-12-08T21:17:58.964Z",
+  "formatVersion": "1",
+  "modificationDate": "Jan 27, 2021 09:24:06 AM",
   "gene": "UGT1A1",
+  "orientation": null,
   "chromosome": "chr2",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000002.12",
@@ -17,6 +18,7 @@
     "Citations for assignment of function can be found at https://www.pharmgkb.org/page/ugt1a1RefMaterials",
     "UGT1A1*80 is in very high linkage disequilibrium with *28 and *37.  However, the function of the *80 allele alone, in the absence of *28 or *37, is uncertain.  If a patient is only tested for *80, decreased function may be inferred."
   ],
+  "populations": null,
   "variants": [
     {
       "chromosome": "chr2",
@@ -27,8 +29,7 @@
       "proteinNote": "5' of UGT1A1; intronic for other UGT1As e.g. UGT1A4",
       "resourceNote": "-3275T>G",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263714
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr2",
@@ -39,8 +40,7 @@
       "proteinNote": "nearGene-5",
       "resourceNote": "-364C>T",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263715
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr2",
@@ -51,8 +51,7 @@
       "proteinNote": "Promoter region",
       "resourceNote": "CA(TA)5TAA                     CA(TA)6TAA                     CA(TA)7TAA                     CA(TA)8TAA",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263716
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr2",
@@ -63,8 +62,7 @@
       "proteinNote": "G71R",
       "resourceNote": "211G>A",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263717
+      "referenceRepeat": null
     },
     {
       "chromosome": "chr2",
@@ -75,8 +73,7 @@
       "proteinNote": "P229Q",
       "resourceNote": "686C>A",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263718
+      "referenceRepeat": null
     }
   ],
   "variantAlleles": [
@@ -105,102 +102,111 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "263719",
+      "id": "521561",
       "alleles": [
         "T",
         "C",
         "CAT",
         "G",
         "C"
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*27",
-      "id": "263723",
+      "id": "521565",
       "alleles": [
         null,
         null,
         null,
         null,
         "A"
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*28",
-      "id": "263725",
+      "id": "521567",
       "alleles": [
         null,
         null,
         "CATAT",
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*36",
-      "id": "263727",
+      "id": "521569",
       "alleles": [
         null,
         null,
         "C",
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*37",
-      "id": "263729",
+      "id": "521571",
       "alleles": [
         null,
         null,
         "CATATAT",
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*6",
-      "id": "263721",
+      "id": "521563",
       "alleles": [
         null,
         null,
         null,
         "A",
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*80",
-      "id": "263731",
+      "id": "521573",
       "alleles": [
         null,
         "T",
         null,
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*80+*28",
-      "id": "263733",
+      "id": "521575",
       "alleles": [
         null,
         "T",
         "CATAT",
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "*80+*37",
-      "id": "263735",
+      "id": "521577",
       "alleles": [
         null,
         "T",
         "CATATAT",
         null,
         null
-      ]
+      ],
+      "populationFrequency": null
     }
   ]
 }

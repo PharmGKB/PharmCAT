@@ -1,7 +1,8 @@
 {
-  "formatVersion": 1,
-  "modificationDate": "2020-12-08T21:17:58.966Z",
+  "formatVersion": "1",
+  "modificationDate": "Jan 27, 2021 09:24:07 AM",
   "gene": "VKORC1",
+  "orientation": null,
   "chromosome": "chr16",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000016.10",
@@ -11,6 +12,7 @@
     "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand."
   ],
+  "populations": null,
   "variants": [
     {
       "chromosome": "chr16",
@@ -21,8 +23,7 @@
       "proteinNote": "5' region",
       "resourceNote": "-1639G>A",
       "type": "SNP",
-      "referenceRepeat": null,
-      "sequenceLocationId": 263737
+      "referenceRepeat": null
     }
   ],
   "variantAlleles": [
@@ -34,17 +35,19 @@
   "namedAlleles": [
     {
       "name": "rs9923231 reference (C)",
-      "id": "263738",
+      "id": "521580",
       "alleles": [
         "C"
-      ]
+      ],
+      "populationFrequency": null
     },
     {
       "name": "rs9923231 variant (T)",
-      "id": "263740",
+      "id": "521582",
       "alleles": [
         "T"
-      ]
+      ],
+      "populationFrequency": null
     }
   ]
 }
