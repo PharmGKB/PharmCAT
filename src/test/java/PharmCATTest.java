@@ -6,7 +6,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.function.Predicate;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.PharmCAT;
@@ -814,11 +813,6 @@ class PharmCATTest {
 
     GeneReport tpmtReport = s_context.getGeneReport("TPMT");
     assertEquals(43, tpmtReport.getVariantReports().size());
-    assertEquals(1, tpmtReport.getVariantOfInterestReports().size());
-
-    Predicate<VariantReport> singlePosition = r -> r.getDbSnpId() != null && r.getDbSnpId().equals("rs2842934");
-    assertTrue(tpmtReport.getVariantOfInterestReports().stream().anyMatch(singlePosition));
-    assertTrue(tpmtReport.getVariantOfInterestReports().stream().filter(singlePosition).allMatch(r -> r.getCall().equals("G|G")));
 
     assertEquals(0, tpmtReport.getHighlightedVariants().size());
 
