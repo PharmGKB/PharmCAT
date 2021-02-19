@@ -11,3 +11,7 @@ class InappropriateVCFSuffix(ReportableException):
     def __init__(self, msg):
         super(InappropriateVCFSuffix, self).__init__("Inappropriate VCF suffix (not ending with '.vcf.gz'): %s" % (msg))
 
+class InvalidURL(ReportableException):
+    """Inappropriate URL. No downloadable content found."""
+    def __init__(self, msg):
+        super(InvalidURL, self).__init__("Invalid downloading URL: %s" % (msg))

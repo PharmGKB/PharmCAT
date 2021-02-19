@@ -2,32 +2,51 @@
 __author__ = 'BinglanLi'
 
 import os
+import re
+import sys
 import subprocess
 import shutil
-import urllib.request as request
-from contextlib import closing
-import  vcf_preprocess_exceptions as Exceptions
-
-    ## "bcftools annotate <options> <input_vcf>" annotates and converts the VCF column info. "--rename-chrs <chr_name_mapping_file>" convert chromosome names from the old ones to the new ones.
-    ## "bcftools merge <options> <input_vcf>" merge multiple VCF/BCF files to create one multi-sample file. "-m both" allows both SNP and indel records to be multiallelic (as expected by PharmCAT).
-    ## "bcftools norm <options> <input_vcf>" normalizes the input VCF file. "-m+" join biallelic sites into multiallelic records. "-f" reference genome sequence in fasta format.
+import urllib.parse
+import urllib.request
+import gzip
+import vcf_preprocess_exceptions as Exceptions
 
 def obtain_vcf_file_prefix(path):
-    vcf_file_full_name = os.path.split(path)[1].split('.')
-    if (vcf_file_full_name[-2] == 'vcf') and (vcf_file_full_name[-1] == 'gz'):
-        vcf_file_prefix = '.'.join(vcf_file_full_name[:len(vcf_file_full_name) - 2])
-        return vcf_file_prefix
+    vcf_file_name = os.path.split(path)[1]
+    if re.search('[.]vcf[.]gz$', vcf_file_name):
+        return re.search('(\w+)[.]vcf[.]gz$', vcf_file_name).group(1)
     else:
         raise Exceptions.InappropriateVCFSuffix(path)
 
 
+def quit_if_exists(path):
+    # report an error if the file exists
+    if os.path.exists(path):
+        print('File already exists. Delete if you want to proceed: %s' % (path))
+        sys.exit()
+
 def download_from_url(url, download_to_dir, save_to_file = None):
-    local_filename = os.path.join(download_to_dir, url.split('/')[-1]) if not save_to_file else save_to_file
-    with closing(request.urlopen(url)) as r:
-        with open(local_filename, 'wb') as f:
-            print('Downloading %s' %local_filename)
-            shutil.copyfileobj(r, f)
-    return local_filename
+    # download from an url
+
+    remote_basename = os.path.basename(urllib.parse.urlparse(url).path)
+    if remote_basename:
+        local_path = os.path.join(download_to_dir, remote_basename) if not save_to_file else save_to_file
+        quit_if_exists(local_path)
+        with urllib.request.urlopen(url) as response, open(local_path, 'wb') as out_file:
+            print('Downloading from \"%s\"\n\tto \"%s\"' %(url, local_path))
+            shutil.copyfileobj(response, out_file)
+        return local_path
+    else:
+        raise Exceptions.InvalidURL(url)
+
+
+def decompress_gz_file(path):
+    path_to_decompressed = os.path.splitext(path)[0]
+    with gzip.open(path, 'rb') as f_in:
+        with open(path_to_decompressed, 'wb') as f_out:
+            print('Decompressing %s' %(path))
+            shutil.copyfileobj(f_in, f_out)
+    return path_to_decompressed
 
 
 def download_grch38_ref_fasta_and_index(download_to_dir, save_to_file = None):
@@ -39,9 +58,9 @@ def download_grch38_ref_fasta_and_index(download_to_dir, save_to_file = None):
     
     # download and prepare files for vcf normalization using the bcftools
     path_to_ref_seq = download_from_url(url_grch38_fasta, download_to_dir)
-    subprocess.run(['gunzip', path_to_ref_seq], cwd = download_to_dir)
+    path_to_ref_seq = decompress_gz_file(path_to_ref_seq)
     download_from_url(url_grch38_fasta_index, download_to_dir)
-    return os.path.splitext(path_to_ref_seq)[0]
+    return path_to_ref_seq
 
 
 def tabix_index_vcf(tabix_executable_path, vcf_path):
