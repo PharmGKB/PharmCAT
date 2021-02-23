@@ -20,9 +20,9 @@ import com.google.gson.GsonBuilder;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.io.JsonFileLoader;
 import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
@@ -95,14 +95,12 @@ public class Reporter {
    * @param callFile file of haplotype calls
    */
   public Reporter analyze(@Nullable Path callFile, @Nullable Path outsideCallPath) throws Exception {
-    //Generate class used for loading JSON into
-    JsonFileLoader loader = new JsonFileLoader();
 
     List<GeneCall> calls = new ArrayList<>();
     if (callFile != null) {
       Preconditions.checkArgument(Files.exists(callFile));
       Preconditions.checkArgument(Files.isRegularFile(callFile));
-      calls = loader.loadHaplotypeGeneCalls(callFile);
+      calls = new ResultSerializer().fromJson(callFile).getGeneCalls();
     }
 
     //Load the outside calls if it's available
