@@ -10,6 +10,7 @@ import urllib.parse
 import urllib.request
 import gzip
 import vcf_preprocess_exceptions as Exceptions
+import tempfile
 
 def obtain_vcf_file_prefix(path):
     vcf_file_name = os.path.split(path)[1]
@@ -30,11 +31,18 @@ def download_from_url(url, download_to_dir, save_to_file = None):
 
     remote_basename = os.path.basename(urllib.parse.urlparse(url).path)
     if remote_basename:
+        # Download to a temp file. If a download succeeds, rename the temp file.
+        # If a download fails, the function will throw an exception. The temp file will be removed.
+
         local_path = os.path.join(download_to_dir, remote_basename) if not save_to_file else save_to_file
         quit_if_exists(local_path)
-        with urllib.request.urlopen(url) as response, open(local_path, 'wb') as out_file:
-            print('Downloading from \"%s\"\n\tto \"%s\"' %(url, local_path))
-            shutil.copyfileobj(response, out_file)
+        temp_download_path = os.path.join(download_to_dir, 'temp_' + remote_basename)
+        with tempfile.TemporaryDirectory(dir = download_to_dir) as temp_dir:
+            with urllib.request.urlopen(url) as response:
+                with open(temp_download_path, 'wb') as out_file:
+                    print('Downloading from \"%s\"\n\tto \"%s\"' %(url, local_path))
+                    shutil.copyfileobj(response, out_file)
+            os.rename(temp_download_path, local_path)
         return local_path
     else:
         raise Exceptions.InvalidURL(url)
@@ -49,7 +57,7 @@ def decompress_gz_file(path):
     return path_to_decompressed
 
 
-def download_grch38_ref_fasta_and_index(download_to_dir, save_to_file = None):
+def download_grch38_ref_fasta_and_index(download_to_dir, save_to_file=None):
     # download the human reference genome sequence GRChh38/hg38 from the NIH FTP site
 
     # download ftp web address (dated Feb 2021)
