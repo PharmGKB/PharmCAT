@@ -1,6 +1,9 @@
 package org.pharmgkb.pharmcat.definition;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.lang.invoke.MethodHandles;
 import java.net.HttpURLConnection;
@@ -12,6 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -46,6 +50,7 @@ import org.w3c.dom.Document;
  * </ul>
  *
  * @author Lester Carter
+ * @author Ryan Whaley
  */
 public class ExtractPositions {
 
@@ -79,7 +84,7 @@ public class ExtractPositions {
       "##contig=<ID=chr22,assembly=hg38,species=\"Homo sapiens\">\n" +
       "##contig=<ID=chrX,assembly=hg38,species=\"Homo sapiens\">\n" +
       "##contig=<ID=chrY,assembly=hg38,species=\"Homo sapiens\">\n" +
-      "##INFO=<ID=PX,Number=.,Type=String,Description=\"PGX\">\n" +
+      "##INFO=<ID=PX,Number=.,Type=String,Description=\"Gene(:Allele Name(n of defining positions)defining allele)\">\n" +
       "##INFO=<ID=POI,Number=0,Type=Flag,Description=\"Position of Interest but not part of an allele definition\">\n" +
       "##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n" +
       "##FILTER=<ID=PASS,Description=\"All filters passed\">\n" +
@@ -87,54 +92,82 @@ public class ExtractPositions {
 
   private final Path m_outputVcf;
   private final DocumentBuilderFactory f_dbf;
+  private final DefinitionReader f_definitionReader;
+  private final Map<String,String> f_refCache = new HashMap<>();
 
 
-  // Default constructor
+  /**
+   * Default constructor
+   * @param outputVcf file path to write output VCF to
+   */
   public ExtractPositions(Path outputVcf) {
     m_outputVcf = outputVcf;
     f_dbf = DocumentBuilderFactory.newInstance();
     f_dbf.setValidating(false);
     try {
       f_dbf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+
+      // load the allele definition files
+      f_definitionReader = new DefinitionReader();
+      f_definitionReader.read(sf_definitionDir);
+      if (f_definitionReader.getGenes().size() == 0) {
+        throw new RuntimeException("Did not find any allele definitions at " + sf_definitionDir);
+      }
+
+      // load the DAS lookup cache
+      try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("positions_reference.tsv")))) {
+        String line;
+        List<String> errors = new ArrayList<>();
+        while ((line = reader.readLine()) != null) {
+          String[] fields = line.split("\t");
+          String previousValue = f_refCache.put(fields[0], fields[1]);
+          if (previousValue != null) {
+            errors.add("Duplicate key found: " + fields[0]);
+          }
+        }
+        if (errors.size() > 0) {
+          throw new RuntimeException("Found problems in the reference cache\n" + String.join("\n", errors));
+        }
+      }
     } catch (ParserConfigurationException e) {
       throw new RuntimeException("Error setting up XML parser", e);
+    } catch (IOException e) {
+      throw new RuntimeException("Error reading gene definitions", e);
     }
   }
 
 
-  // Main method for command line use
+  /**
+   * Main method for command line use
+   * @param args CLI args to parse
+   */
   public static void main(String[] args) {
-    try {
-      CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-          .addOption("o", "output-file", "output vcf file", true, "o");
-      if (!cliHelper.parse(args)) {
-        System.exit(1);
-      }
-      Path outputVcf= cliHelper.getValidFile("o", false);
+    CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
+        .addOption("o", "output-file", "output vcf file", true, "o");
 
-      ExtractPositions extractPositions = new ExtractPositions(outputVcf);
-      extractPositions.run();
-    } catch (Exception ex) {
-      ex.printStackTrace();
-    }
+    cliHelper.execute(args, cli -> {
+      try {
+        ExtractPositions extractPositions = new ExtractPositions(cli.getValidFile("o", false));
+        extractPositions.run();
+        return 0;
+      } catch (Exception ex) {
+        ex.printStackTrace();
+        return 1;
+      }
+    });
   }
 
 
   //Extract the positions and print them to file
   private void run() {
     try {
-      DefinitionReader definitionReader = new DefinitionReader();
-      definitionReader.read(sf_definitionDir);
-      if (definitionReader.getGenes().size() == 0) {
-        sf_logger.error("Did not find any allele definitions at {}", sf_definitionDir);
-        System.exit(1);
-      }
-      sf_logger.info("Writing to {}", m_outputVcf);
-      StringBuilder vcfString = sortVcf(getPositions(definitionReader));
+      StringBuilder vcfString = sortVcf(getPositions());
       try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(m_outputVcf))) {
+        sf_logger.info("Writing to {}", m_outputVcf);
         writer.print(vcfString);
         writer.flush();
       }
+      sf_logger.info("Done");
     }
     catch (Exception ex) {
       ex.printStackTrace();
@@ -144,31 +177,31 @@ public class ExtractPositions {
 
 
   // Build up vcf string
-  public StringBuilder getPositions(DefinitionReader definitionReader) {
+  public StringBuilder getPositions() {
     StringBuilder builder = new StringBuilder();
     builder.append(String.format(sf_fileHeader, DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now())));
-    for (String gene : definitionReader.getGenes()) {  // for each definition file
+    for (String gene : f_definitionReader.getGenes()) {  // for each definition file
       int positionCount = 0;
       // convert bXX format to hgXX
-      String build = "hg" + definitionReader.getDefinitionFile(gene).getGenomeBuild().substring(1);
-      for (VariantLocus variantLocus : definitionReader.getPositions(gene)) {
+      String build = "hg" + f_definitionReader.getDefinitionFile(gene).getGenomeBuild().substring(1);
+      for (VariantLocus variantLocus : f_definitionReader.getPositions(gene)) {
         positionCount++;
-        String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variantLocus, build);
+        String[] vcfFields = getVcfLineFromDefinition(f_definitionReader, gene, variantLocus, build);
         String vcfLine = String.join("\t", vcfFields);
         builder.append(vcfLine).append("\n");
       }
-      DefinitionExemption exemption = definitionReader.getExemption(gene);
+      DefinitionExemption exemption = f_definitionReader.getExemption(gene);
       if (exemption != null) {
         for (VariantLocus variant : exemption.getExtraPositions()) {
           positionCount++;
-          String[] vcfFields = getVcfLineFromDefinition(definitionReader, gene, variant, build);
+          String[] vcfFields = getVcfLineFromDefinition(f_definitionReader, gene, variant, build);
           String vcfLine = String.join("\t", vcfFields);
           builder.append(vcfLine).append("\n");
         }
       }
       sf_logger.info("queried {} positions for {}", positionCount, gene);
     }
-    return  builder;
+    return builder;
   }
 
 
@@ -211,6 +244,14 @@ public class ExtractPositions {
    */
   String getDAS(String chr, String position, String genomeBuild) {
     String nucleotide;
+
+    // check the cache before doing an expensive DAS lookup
+    String cacheKey = genomeBuild + ":" + chr + ":" + position;
+    if (f_refCache.containsKey(cacheKey)) {
+      return f_refCache.get(cacheKey);
+    }
+
+    // do the call out to UCSC to get the ref sequence
     try {
       String uri =
           "http://genome.ucsc.edu/cgi-bin/das/"+ genomeBuild +  "/dna?segment="+ chr +":" +position +"," + position;
@@ -229,6 +270,9 @@ public class ExtractPositions {
       throw new RuntimeException("Error when requesting DAS data", e);
     }
     nucleotide = nucleotide.toUpperCase().trim();
+
+    // log cache misses so they can be collected and added to the cache
+    sf_logger.debug("cache miss [{}]", cacheKey + "\t" + nucleotide);
     return nucleotide;
   }
 
@@ -279,16 +323,16 @@ public class ExtractPositions {
       VariantLocus variantLocus, String genomeBuild) {
 
     DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
-    NamedAllele namedAlleleFirst = definitionFile.getNamedAlleles().get(0); //Get star one for Ref column of vcf. Use DAS in future
+    NamedAllele referenceAllele = definitionFile.getNamedAlleles().get(0); //Get star one for Ref column of vcf. Use DAS in future
     String allele = "";
 
-    if (namedAlleleFirst.getAllele(variantLocus) != null) {  // for the exceptions/exemptions
-      allele = namedAlleleFirst.getAllele(variantLocus);
+    if (referenceAllele.getAllele(variantLocus) != null) {  // for the exceptions/exemptions
+      allele = referenceAllele.getAllele(variantLocus);
     }
     int position = variantLocus.getVcfPosition();
-    String rsid = variantLocus.getRsid();
-    if (rsid == null) {
-      rsid = ".";
+    String idField = variantLocus.getRsid();
+    if (idField == null) {
+      idField = ".";
     }
     String chr = definitionReader.getDefinitionFile(gene).getChromosome();
     List<String> alts = new ArrayList<>(); //get alts from the namedAlleles
@@ -324,7 +368,7 @@ public class ExtractPositions {
     if (alts.size() == 0 ) {
       alts.add(".");
     }
-    String finalAllele = expandRepeats(allele);
+    String refField = expandRepeats(allele);
     // Simplest possible del/ins parsing, presuming the only a single ins or del string, or the correct one being first
     if (alts.size()>0) {
       if (alts.stream().anyMatch(a -> a.contains("ins"))) {
@@ -332,34 +376,34 @@ public class ExtractPositions {
         for (int i = 0; i < alts.size(); i++) {
           alts.set(i, alts.get(i).replace("ins", nucleotide));
         }
-        finalAllele = nucleotide;
+        refField = nucleotide;
       }
-      if (alts.get(0).contains("del")) {
+      if (alts.get(0).contains("del") && !alts.get(0).contains("delGene")) {
         String nucleotide = getDAS(chr, Integer.toString(position), genomeBuild);
-        finalAllele = nucleotide+ alts.get(0).replace("del", "");
+        refField = nucleotide + alts.get(0).replace("del", "");
         alts.set(0, nucleotide);
       }
     }
     SortedSet<String> expandedAlts = expandIupacAlts(alts);
-    alts.remove(finalAllele);
+    expandedAlts.remove(refField);
 
-    String alt = String.join(",", expandedAlts);
-    String starAllele;
+    String altField = String.join(",", expandedAlts);
+    String infoField;
     if (starAlleles.size() > 0) {
-      starAllele = "PX=" + String.join(",", starAlleles);
+      infoField = "PX=" + String.join(",", starAlleles);
     } else {
-      starAllele = "POI";
+      infoField = "POI";
     }
 
     return new String[]{
         chr,
         Integer.toString(position),
-        rsid,
-        finalAllele,
-        alt,
+        idField,
+        refField,
+        altField,
         ".",
         "PASS",
-        starAllele,
+        infoField,
         "GT",
         "0/0" };
   }
@@ -381,7 +425,9 @@ public class ExtractPositions {
           throw new RuntimeException("Bad IUPAC code " + alt, ex);
         }
       } else {
-        bases.add(alt);
+        if (!alt.equals("delGene")) {
+          bases.add(alt);
+        }
       }
     }
 

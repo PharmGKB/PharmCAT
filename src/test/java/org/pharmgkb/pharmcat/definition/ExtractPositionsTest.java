@@ -1,11 +1,11 @@
 package org.pharmgkb.pharmcat.definition;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.List;
+import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
@@ -26,18 +26,22 @@ class ExtractPositionsTest {
    */
   @Test
   void testExtract() throws IOException {
+    List<String> genesToTest = ImmutableList.of("VKORC1", "CYP2C9");
+
     DefinitionReader definitionReader = new DefinitionReader();
-    File file = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/VKORC1_translation.json").toFile();
-    Path path = Paths.get(file.getAbsolutePath());
-    definitionReader.read(path);
+    for (String geneToTest : genesToTest) {
+      definitionReader.read(PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/" + geneToTest + "_translation.json").toAbsolutePath());
+    }
     Path outputVcf = Files.createTempFile("positions", ".vcf");
     try {
       ExtractPositions extractPositions = new ExtractPositions(outputVcf);
-      StringBuilder vcfText = extractPositions.getPositions(definitionReader);
+      String[] vcfLines = extractPositions.getPositions().toString().split("\\n");
 
-      int numPositionsInDefinitinoFile = definitionReader.getPositions("VKORC1").length;
-      long numPositionsInVcfFile = Arrays.stream(vcfText.toString().split("\\n")).filter(l -> !l.startsWith("#")).count();
-      assertEquals(numPositionsInDefinitinoFile, numPositionsInVcfFile);
+      for (String geneToTest : genesToTest) {
+        int numPositionsInDefinitionFile = definitionReader.getPositions(geneToTest).length;
+        long numPositionsInVcfFile = Arrays.stream(vcfLines).filter(l -> !l.startsWith("#") && l.contains(geneToTest)).count();
+        assertEquals(numPositionsInDefinitionFile, numPositionsInVcfFile, geneToTest + " has mismatched number of positions between definition and VCF");
+      }
     } finally {
       Files.deleteIfExists(outputVcf);
     }
