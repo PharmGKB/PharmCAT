@@ -15,6 +15,7 @@ plugins {
   id 'maven-publish'
   id 'com.github.johnrengelman.shadow' version '5.0.0'
   id 'signing'
+  id 'org.owasp.dependencycheck' version '6.1.1'
 }
 apply plugin: 'biz.aQute.bnd.builder'
 
