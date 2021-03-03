@@ -73,8 +73,7 @@ public class CombinationUtil {
 
     List<T> list;
     if (data instanceof List) {
-      //noinspection unchecked
-      list = (List)data;
+      list = (List<T>)data;
     } else {
       list = new ArrayList<>(data);
     }
