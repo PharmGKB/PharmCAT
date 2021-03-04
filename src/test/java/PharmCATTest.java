@@ -70,7 +70,20 @@ class PharmCATTest {
     testCalledGenes("CYP2C19");
     testCalls(DipType.PRINT,  "CYP2C19", "*2/*2");
 
+    testMatchedGroups("amitriptyline", 1);
     testMatchedGroups("clomipramine", 1);
+    testMatchedGroups("desipramine", 1);
+    testMatchedGroups("doxepin", 1);
+    testMatchedGroups("imipramine", 1);
+    testMatchedGroups("nortriptyline", 1);
+    testMatchedGroups("trimipramine", 1);
+
+    testMatchedGroups("clopidogrel", 1);
+
+    testMatchedGroups("lansoprazole", 1);
+
+    // voriconazole has 2 populations with recommendations so should have 2 matching groups
+    testMatchedGroups("voriconazole", 2);
   }
 
   @Test
@@ -128,6 +141,8 @@ class PharmCATTest {
     testCalledGenes("CFTR");
     testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
+
+    testMatchedGroups("ivacaftor", 1);
 
     assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
         "Should have no incidental alleles");
@@ -856,6 +871,27 @@ class PharmCATTest {
     testCalledGenes("CYP2C9");
     testCalls(DipType.PRINT, "CYP2C9", "*1/*61");
     testCalls(DipType.LOOKUP, "CYP2C9", "CYP2C9:*1/*61");
+
+    testMatchedGroups("lornoxicam", 1);
+  }
+
+  @Test
+  void testCyp2c9star1Hom() throws Exception {
+    generalTest("test.cyp2c9.s1s1", new String[] {
+            "cyp2c9/s1s1.vcf"
+        },
+        false);
+
+    testCalledGenes("CYP2C9");
+    testCalls(DipType.PRINT, "CYP2C9", "*1/*1");
+    testCalls(DipType.LOOKUP, "CYP2C9", "CYP2C9:*1/*1");
+
+    testMatchedGroups("celecoxib", 1);
+    testMatchedGroups("ibuprofen", 1);
+    testMatchedGroups("lornoxicam", 1);
+
+    // not matched since it needs HLA-B too
+    testMatchedGroups("phenytoin", 0);
   }
 
 
@@ -960,13 +996,18 @@ class PharmCATTest {
         .forEach(g -> assertFalse(s_context.getGeneReport(g).isCalled(), g + " is called"));
   }
 
-  private void testMatchedGroups(String drugName, int count) {
+  /**
+   * Check to see if there is a matching recommendation for the given drug name
+   * @param drugName a drug name that has recommendations
+   * @param expectedCount the number of matching recommendations you expect
+   */
+  private void testMatchedGroups(String drugName, int expectedCount) {
     DrugReport guideline = s_context.getDrugReports().stream()
         .filter(r -> r.getRelatedDrugs().contains(drugName))
         .findFirst().orElseThrow(() -> new RuntimeException("No guideline found for " + drugName));
 
-    assertEquals(count, guideline.getMatchingRecommendations().size(),
-        drugName + " does not have matching recommendation count of " + count);
+    assertEquals(expectedCount, guideline.getMatchingRecommendations().size(),
+        drugName + " does not have matching recommendation count of " + expectedCount);
   }
 
   private enum DipType {
