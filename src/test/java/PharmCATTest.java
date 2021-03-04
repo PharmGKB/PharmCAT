@@ -61,6 +61,19 @@ class PharmCATTest {
   }
 
   @Test
+  void testClomipramineCall() throws Exception {
+    generalTest("test.clomipramine", new String[]{
+            "cyp2c19/s2s2.vcf"
+        },
+        true);
+
+    testCalledGenes("CYP2C19");
+    testCalls(DipType.PRINT,  "CYP2C19", "*2/*2");
+
+    testMatchedGroups("clomipramine", 1);
+  }
+
+  @Test
   void testCyp2c19noCall() throws Exception {
     generalTest("test.cyp2c19.noCall", new String[]{
             "cyp2c19/noCall.vcf"
@@ -894,7 +907,7 @@ class PharmCATTest {
     s_context = s_pharmcat.getReporter().getContext();
 
     assertEquals(19, s_context.getGeneReports().size());
-    assertEquals(42, s_context.getDrugReports().size());
+    assertEquals(56, s_context.getDrugReports().size());
   }
 
   /**
@@ -952,7 +965,7 @@ class PharmCATTest {
         .filter(r -> r.getRelatedDrugs().contains(drugName))
         .findFirst().orElseThrow(() -> new RuntimeException("No guideline found for " + drugName));
 
-    assertEquals(guideline.getMatchingRecommendations().size(), count,
+    assertEquals(count, guideline.getMatchingRecommendations().size(),
         drugName + " does not have matching recommendation count of " + count);
   }
 

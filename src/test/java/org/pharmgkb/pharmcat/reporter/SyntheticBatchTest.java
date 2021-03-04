@@ -394,6 +394,10 @@ class SyntheticBatchTest {
         "CYP2C19/s1s17.vcf"
     });
 
+    sf_testVcfs.put("cyp2c19.s2s2", new String[]{
+        "CYP2C19/s2s2.vcf"
+    });
+
 
     sf_testVcfs.put("ugt1a1.s1s1", new String[]{
       "UGT1A1/s1s1.vcf"

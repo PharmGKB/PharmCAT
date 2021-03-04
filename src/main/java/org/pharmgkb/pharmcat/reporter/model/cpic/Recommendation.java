@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter.model.cpic;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
@@ -108,7 +109,8 @@ public class Recommendation {
   public boolean matchLookupKey(String genotype) {
     if (StringUtils.isBlank(genotype)) return false;
 
-    String matchValue = m_lookupKey.keySet().stream().map((k) -> k+":"+m_lookupKey.get(k)).collect(Collectors.joining(";"));
+    SortedSet<String> sortedKeys = new TreeSet<>(m_lookupKey.keySet());
+    String matchValue = sortedKeys.stream().map((k) -> k+":"+m_lookupKey.get(k)).collect(Collectors.joining(";"));
     return genotype.equalsIgnoreCase(matchValue);
   }
 
