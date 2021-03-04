@@ -75,7 +75,10 @@ public class ReportContext {
    * @param outsideCalls {@link OutsideCall} objects, non-null but can be empty
    */
   public ReportContext(List<GeneCall> calls, List<OutsideCall> outsideCalls) throws Exception {
-    List<Drug> drugs = new DrugCollection().list();
+    // do not make drug or gene reports that involve blacklisted genes
+    List<Drug> drugs = new DrugCollection().list().stream()
+        .filter(drug -> drug.getGenes().stream().noneMatch(sf_geneBlacklist::contains))
+        .collect(Collectors.toList());
 
     makeDrugReports(drugs);
     makeGeneReports(drugs);

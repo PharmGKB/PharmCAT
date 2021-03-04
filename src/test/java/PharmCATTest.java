@@ -890,9 +890,6 @@ class PharmCATTest {
     testMatchedGroups("celecoxib", 1);
     testMatchedGroups("ibuprofen", 1);
     testMatchedGroups("lornoxicam", 1);
-
-    // not matched since it needs HLA-B too
-    testMatchedGroups("phenytoin", 0);
   }
 
 
@@ -979,8 +976,8 @@ class PharmCATTest {
     s_pharmcat.execute(tempVcfPath, outsideCallPath, null);
     s_context = s_pharmcat.getReporter().getContext();
 
-    assertEquals(19, s_context.getGeneReports().size());
-    assertEquals(56, s_context.getDrugReports().size());
+    assertEquals(16, s_context.getGeneReports().size());
+    assertEquals(49, s_context.getDrugReports().size());
   }
 
   /**
