@@ -30,6 +30,8 @@ import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
  * This class is used to help collect Gene-related data for later reporting
  */
 public class GeneReport implements Comparable<GeneReport> {
+  // never display these genes in the gene call list
+  public static final List<String> IGNORED_GENES = ImmutableList.of("G6PD", "HLA-A", "HLA-B");
   private static final List<String> sf_reducibleGeneCalls = ImmutableList.of("UGT1A1");
   private static final Set<String> sf_overrideDiplotypes = ImmutableSet.of("SLCO1B1");
   private static final String UNCALLED = "not called";
@@ -333,6 +335,14 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   private boolean isCallReducible() {
     return sf_reducibleGeneCalls.contains(getGene()) && isPhased();
+  }
+
+  /**
+   * Is this gene ignored, meaning it shouldn't be included in reports
+   * @return true if this gene should be left out of output reports
+   */
+  public boolean isIgnored() {
+    return IGNORED_GENES.contains(getGene());
   }
 
   public List<Diplotype> getMatcherDiplotypes() {

@@ -17,7 +17,6 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
-import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.ParseException;
@@ -56,12 +55,8 @@ import org.slf4j.LoggerFactory;
 public class ReportContext {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-  // never display these genes in the gene call list
-  private static final List<String> sf_geneBlacklist = ImmutableList.of(
-      "G6PD", "HLA-A", "HLA-B");
-
   private final Map<String,GeneReport> m_geneReports = new TreeMap<>();
-  private List<DrugReport> m_drugReports;
+  private final List<DrugReport> m_drugReports = new ArrayList<>();
   private final PhenotypeMap m_phenotypeMap;
   private final IncidentalFinder m_incidentalFinder = new IncidentalFinder();
   private final Map<String,String> m_refAlleleForGene = new HashMap<>();
@@ -75,13 +70,21 @@ public class ReportContext {
    * @param outsideCalls {@link OutsideCall} objects, non-null but can be empty
    */
   public ReportContext(List<GeneCall> calls, List<OutsideCall> outsideCalls) throws Exception {
-    // do not make drug or gene reports that involve blacklisted genes
-    List<Drug> drugs = new DrugCollection().list().stream()
-        .filter(drug -> drug.getGenes().stream().noneMatch(sf_geneBlacklist::contains))
-        .collect(Collectors.toList());
+    for (Drug drug : new DrugCollection()) {
+      DrugReport drugReport = new DrugReport(drug);
 
-    makeDrugReports(drugs);
-    makeGeneReports(drugs);
+      // do not report any drug (or gene) that has a gene on the "ignored" list
+      if (drugReport.isIgnored()) continue;
+
+      // initialize the gene report
+      m_drugReports.add(drugReport);
+
+      // initialize any non-present drug reports
+      for (String gene : drug.getGenes()) {
+        m_geneReports.putIfAbsent(gene, new GeneReport(gene));
+      }
+    }
+
     loadReferenceAlleleNames();
 
     m_phenotypeMap = new PhenotypeMap();
@@ -103,26 +106,6 @@ public class ReportContext {
 
     m_geneReports.values().forEach(r -> r.addMessages(messageMatcher.match(r)));
     m_drugReports.forEach(r -> r.addMessages(messageMatcher.match(r)));
-  }
-
-  /**
-   * Takes the raw GuidelinePackage objects from PharmGKG and maps them to {@link DrugReport} objects that can be
-   * used in the reporter
-   * @param drugs a List of PharmGKB {@link Drug} objects
-   */
-  private void makeDrugReports(List<Drug> drugs) {
-    m_drugReports = drugs.stream().map(DrugReport::new).collect(Collectors.toList());
-  }
-
-  /**
-   * Makes {@link GeneReport} objects for each of the genes found in PharmGKB {@link Drug} objects
-   * @param drugs a List of CPIC {@link Drug} objects
-   */
-  private void  makeGeneReports(List<Drug> drugs) {
-    drugs.stream()
-        .flatMap(d -> d.getGenes().stream())
-        .sorted().distinct()
-        .forEach((g) -> m_geneReports.put(g, new GeneReport(g)));
   }
 
   /**
@@ -303,7 +286,7 @@ public class ReportContext {
       String symbol = geneReport.getGene();
 
       // skip any genes on the blacklist
-      if (sf_geneBlacklist.contains(symbol)) {
+      if (geneReport.isIgnored()) {
         continue;
       }
 
@@ -341,12 +324,6 @@ public class ReportContext {
     List<Map<String,Object>> guidelines = new ArrayList<>();
     for (DrugReport guideline : getDrugReports()) {
       sf_logger.debug("Start GuidelineReport for {}", guideline.toString());
-
-      // don't include guidelines that are only on blacklisted genes
-      if (sf_geneBlacklist.containsAll(guideline.getRelatedGeneSymbols())) {
-        sf_logger.debug("Hiding GuidelineReport for {}", guideline.toString());
-        continue;
-      }
 
       Map<String,Object> guidelineMap = new HashMap<>();
 
@@ -461,7 +438,7 @@ public class ReportContext {
 
     List<Map<String,Object>> geneCallList = new ArrayList<>();
     for (GeneReport geneReport : getGeneReports()) {
-      if (sf_geneBlacklist.contains(geneReport.getGene())) {
+      if (geneReport.isIgnored()) {
         continue;
       }
 

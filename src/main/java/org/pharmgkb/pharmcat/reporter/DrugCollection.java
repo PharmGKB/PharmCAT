@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -17,7 +20,7 @@ import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 /**
  * This class will read the drugs.json file and serve the data as {@link Drug} objects.
  */
-public class DrugCollection {
+public class DrugCollection implements Iterable<Drug> {
   private static final String FILE_NAME = "drugs.json";
   private static final Type DRUG_LIST_TYPE = new TypeToken<ArrayList<Drug>>(){}.getType();
   private static final Gson GSON = new GsonBuilder()
@@ -54,5 +57,20 @@ public class DrugCollection {
     return m_drugList.stream()
         .filter((d) -> d.getDrugId().equalsIgnoreCase(identifier) || d.getDrugName().equalsIgnoreCase(identifier))
         .findFirst();
+  }
+
+  @Override
+  public Iterator<Drug> iterator() {
+    return m_drugList.iterator();
+  }
+
+  @Override
+  public void forEach(Consumer<? super Drug> action) {
+    m_drugList.forEach(action);
+  }
+
+  @Override
+  public Spliterator<Drug> spliterator() {
+    return m_drugList.spliterator();
   }
 }

@@ -79,6 +79,10 @@ public class DrugReport implements Comparable<DrugReport> {
     return sf_notApplicableMatches.contains(getId()) || m_matchingRecommendations.size()>0;
   }
 
+  public boolean isIgnored() {
+    return m_drug.getGenes().stream().anyMatch(GeneReport.IGNORED_GENES::contains);
+  }
+
   public boolean hasMultipleMatches() {
     return m_matchingRecommendations.size()>1;
   }
