@@ -35,10 +35,10 @@ public class GeneReport implements Comparable<GeneReport> {
   private static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
 
-  private String m_gene;
+  private final String f_gene;
   private String m_chr;
   private boolean m_phased = false;
-  private boolean m_outsideCall = false;
+  private CallSource m_callSource = CallSource.NONE;
   private final SortedSet<String> m_uncalledHaplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
   private final List<MessageAnnotation> m_messages = new ArrayList<>();
   private final List<DrugLink> m_relatedDrugs = new ArrayList<>();
@@ -52,7 +52,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * public constructor
    */
   public GeneReport(String geneSymbol) {
-    m_gene = geneSymbol;
+    f_gene = geneSymbol;
   }
 
   /**
@@ -60,13 +60,13 @@ public class GeneReport implements Comparable<GeneReport> {
    * @param call a {@link GeneCall} that has been made by the {@link NamedAlleleMatcher}
    */
   public void setCallData(GeneCall call) throws IOException {
-    m_gene = call.getGene();
     m_chr = call.getChromosome();
     m_uncalledHaplotypes.clear();
     m_uncalledHaplotypes.addAll(call.getUncallableHaplotypes());
     m_phased = call.isPhased();
+    m_callSource = CallSource.MATCHER;
 
-    VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene, m_chr);
+    VariantReportFactory variantReportFactory = new VariantReportFactory(f_gene, m_chr);
     call.getVariants().stream()
         .map(variantReportFactory::make).forEach(m_variantReports::add);
     call.getMatchData().getMissingPositions().stream()
@@ -82,11 +82,9 @@ public class GeneReport implements Comparable<GeneReport> {
 
   /**
    * Sets data in this report based on data found in a {@link OutsideCall}
-   * @param call a {@link OutsideCall} to pull data from
    */
-  public void setOutsideCallData(OutsideCall call) {
-    m_outsideCall = true;
-    m_gene = call.getGene();
+  public void setOutsideCallData() {
+    m_callSource = CallSource.OUTSIDE;
   }
 
   public void setDiplotypes(DiplotypeFactory diplotypeFactory, GeneCall geneCall) {
@@ -118,7 +116,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * The gene symbol for this gene
    */
   public String getGene(){
-    return m_gene;
+    return f_gene;
   }
 
   /**
@@ -182,7 +180,7 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   public String toString() {
-    return m_gene + " Report";
+    return f_gene + " Report";
   }
 
   /**
@@ -228,7 +226,11 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if the genotyping data in the report comes from outside PharmCAT, false if match is made by PharmCAT
    */
   public boolean isOutsideCall() {
-    return m_outsideCall;
+    return m_callSource == CallSource.OUTSIDE;
+  }
+
+  public CallSource getCallSource() {
+    return m_callSource;
   }
 
   /**
@@ -245,7 +247,7 @@ public class GeneReport implements Comparable<GeneReport> {
       else {
         // only HLA-B uses Other/Other, all else is Unknown/Unknown
         String defaultUncalled = getGene().equals("HLA-B") ? "Other/Other" : "Unknown/Unknown";
-        results = ImmutableSet.of(m_gene + ":" + defaultUncalled);
+        results = ImmutableSet.of(f_gene + ":" + defaultUncalled);
       }
     }
     else {
@@ -271,7 +273,7 @@ public class GeneReport implements Comparable<GeneReport> {
       }
       return ImmutableList.of(UNCALLED);
     }
-    else if (m_gene.equals("UGT1A1") && !isPhased()) {
+    else if (f_gene.equals("UGT1A1") && !isPhased()) {
       return m_matcherDiplotypes.stream()
           .flatMap(Diplotype::streamAllelesByZygosity)
           .distinct()

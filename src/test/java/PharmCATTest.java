@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.PharmCAT;
 import org.pharmgkb.pharmcat.VcfTestUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
@@ -50,7 +51,7 @@ class PharmCATTest {
     generalTest("test.cyp2c19.s4s17het", new String[]{
             "cyp2c19/s4s17het.vcf"
         },
-        false);
+        null);
 
 
     testCalledGenes("CYP2C19");
@@ -65,7 +66,7 @@ class PharmCATTest {
     generalTest("test.clomipramine", new String[]{
             "cyp2c19/s2s2.vcf"
         },
-        true);
+        s_tempAstroPath);
 
     testCalledGenes("CYP2C19");
     testCalls(DipType.PRINT,  "CYP2C19", "*2/*2");
@@ -91,7 +92,7 @@ class PharmCATTest {
     generalTest("test.cyp2c19.noCall", new String[]{
             "cyp2c19/noCall.vcf"
         },
-        false);
+        null);
 
 
     assertFalse(s_context.getGeneReport("CYP2C19").isCalled());
@@ -105,7 +106,7 @@ class PharmCATTest {
     generalTest("test.cyp2c19.s1s4b", new String[]{
         "cyp2c19/s4s17het.vcf"
         },
-        true);
+        s_tempAstroPath);
 
     testCalledGenes("CYP2C19", "CYP2D6");
 
@@ -120,7 +121,7 @@ class PharmCATTest {
     generalTest("test.cftr.reg_inc", new String[]{
             "cftr/G542XF508del.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("CFTR");
     // G542X is no longer defined for PharmCAT so only F508 should appear
@@ -136,7 +137,7 @@ class PharmCATTest {
     generalTest("test.cftr.ref_ref", new String[]{
             "cftr/refref.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("CFTR");
     testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
@@ -153,7 +154,7 @@ class PharmCATTest {
     generalTest("test.cftr.refF508del", new String[]{
             "cftr/refF508del.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("CFTR");
     testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
@@ -168,7 +169,7 @@ class PharmCATTest {
     generalTest("test.cftr.F508delHom_CTT", new String[]{
             "cftr/F508delF508del.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("CFTR");
     testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
@@ -187,7 +188,7 @@ class PharmCATTest {
     generalTest("test.cftr.refF508del_sorted", new String[]{
             "cftr/refF508del_sorted.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("CFTR");
     testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
@@ -202,7 +203,7 @@ class PharmCATTest {
     generalTest("test.slco1b1.17.21", new String[]{
             "SLCO1B1/s17s21.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("SLCO1B1");
     testCalls(DipType.PRINT, "SLCO1B1", "*17/*21");
@@ -217,7 +218,7 @@ class PharmCATTest {
     generalTest("test.slco1b1.hom.wild", new String[]{
             "SLCO1B1/s1as1a.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("SLCO1B1");
     testCalls(DipType.PRINT, "SLCO1B1", "*1A/*1A");
@@ -232,7 +233,7 @@ class PharmCATTest {
     generalTest("test.slco1b1.hom.var", new String[]{
             "SLCO1B1/s5s15.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("SLCO1B1");
     testCalls(DipType.PRINT, "SLCO1B1", "*5/*15");
@@ -247,7 +248,7 @@ class PharmCATTest {
     generalTest("test.slco1b1.1a.15", new String[]{
             "SLCO1B1/s1as15.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("SLCO1B1");
     testCalls(DipType.PRINT, "SLCO1B1", "*1A/*15");
@@ -263,7 +264,7 @@ class PharmCATTest {
             "DPYD/s1s1.vcf",
             "TPMT/s1s1.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("DPYD", "TPMT");
     assertFalse(s_context.getGeneReport("SLCO1B1").isCalled());
@@ -277,7 +278,7 @@ class PharmCATTest {
     generalTest("test.slco1b1.missing", new String[]{
             "DPYD/s1s2b.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("DPYD");
     assertTrue(s_context.getGeneReport("DPYD").isCalled());
@@ -296,7 +297,7 @@ class PharmCATTest {
     generalTest("test.slco1b1.multi", new String[]{
             "SLCO1B1/multi.vcf"
         },
-        false);
+        null);
 
     GeneReport geneReport = s_context.getGeneReport("SLCO1B1");
     assertNotNull(geneReport);
@@ -316,7 +317,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.phased.multi", new String[]{
             "UGT1A1/s1s60s80phased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*1/*80");
@@ -333,7 +334,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.unphased.multi", new String[]{
             "UGT1A1/s1s60s80unphased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*80 (heterozygous)");
@@ -350,7 +351,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s1s28s60s80unphased", new String[]{
             "UGT1A1/s1s28s60s80unphased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*80+*28 (heterozygous)", "*28 (heterozygous)", "*80 (heterozygous)");
@@ -367,7 +368,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s28s37", new String[]{
             "UGT1A1/s28s37.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*28 (heterozygous)", "*37 (heterozygous)");
@@ -384,7 +385,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s28s80phased", new String[]{
             "UGT1A1/s28s80phased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*1/*28+*80");
@@ -401,7 +402,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s28s80s6s60phased", new String[]{
             "UGT1A1/s28s80s6s60phased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*6/*28+*80");
@@ -418,7 +419,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s28s80s6s60unphased", new String[]{
             "UGT1A1/s28s80s6s60unphased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*80+*28 (heterozygous)","*28 (heterozygous)","*6 (heterozygous)","*80 (heterozygous)");
@@ -435,7 +436,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s28s80unphased", new String[]{
             "UGT1A1/s28s80unphased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*80+*28 (heterozygous)", "*28 (heterozygous)", "*80 (heterozygous)");
@@ -452,7 +453,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s6s6", new String[]{
             "UGT1A1/s6s6.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*6/*6");
@@ -469,7 +470,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s6s60s80s28MissingPhased", new String[]{
             "UGT1A1/s6s60s80s28missingphased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*6/*28+*37+*80");
@@ -486,7 +487,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s6s60s80s28MissingUnphased", new String[]{
             "UGT1A1/s6s60s80s28missingunphased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*6 (heterozygous)","*80 (heterozygous)","*80+*28 (heterozygous)","*80+*37 (heterozygous)");
@@ -503,7 +504,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s80s28missing", new String[]{
             "UGT1A1/s80s28missing.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*80 (heterozygous)", "*80+*28 (heterozygous)", "*80+*37 (heterozygous)");
@@ -520,7 +521,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.na12717", new String[]{
             "UGT1A1/NA12717_UGT1A1.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
@@ -537,7 +538,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.na18868", new String[]{
             "UGT1A1/NA18868_UGT1A1.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
@@ -554,7 +555,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.na19785", new String[]{
             "UGT1A1/NA19785_UGT1A1.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
@@ -571,7 +572,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s28s28unphaseds60s80miss", new String[]{
             "UGT1A1/s28s28unphaseds60s80miss.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*28+*80/*28+*80");
@@ -597,7 +598,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s28s60hom", new String[]{
             "UGT1A1/s28s60hom.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*28 (heterozygous)");
@@ -615,7 +616,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s27s28unphaseds80s60missing", new String[]{
             "UGT1A1/s27s28unphaseds80s60missing.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*27 (heterozygous)", "*28 (heterozygous)", "*80+*28 (heterozygous)");
@@ -632,7 +633,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s28hets60homounphaseds80missing", new String[]{
             "UGT1A1/s28hets60homounphaseds80missing.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*28 (heterozygous)", "*80+*28 (heterozygous)");
@@ -649,7 +650,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.HG00436", new String[]{
             "UGT1A1/HG00436.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*1/*27+*28+*80");
@@ -667,7 +668,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s1s80s27s60s28missingphased", new String[]{
             "UGT1A1/s1s80s27s60s28missingphased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*1/*27+*28+*37+*80");
@@ -685,7 +686,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s1s60s80s6phased", new String[]{
             "UGT1A1/s1s60s80s6phased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*1/*6+*80");
@@ -703,7 +704,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s1s60s80s28s6phased", new String[]{
             "UGT1A1/s1s60s80s28s6phased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*1/*6+*28+*80");
@@ -721,7 +722,7 @@ class PharmCATTest {
     generalTest("test.ugt1a1.s1s37s80s60phased", new String[]{
             "UGT1A1/s1s37s80s60phased.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("UGT1A1");
     testCalls(DipType.PRINT, "UGT1A1", "*1/*37+*80");
@@ -741,7 +742,7 @@ class PharmCATTest {
     generalTest("test.cyp3a5.s3missing", new String[]{
             "cyp3a5/s1s1rs776746missing.vcf"
         },
-        false);
+        null);
 
     testCalledGenes(gene);
     testCalls(DipType.PRINT, gene, "*1/*1");
@@ -767,7 +768,7 @@ class PharmCATTest {
     generalTest("test.cyp3a5.missingRs776746", new String[]{
             "cyp3a5/s1s1rs776746missing.vcf"
         },
-        false);
+        null);
     
     testCalledGenes("CYP3A5");
     testCalls(DipType.PRINT, "CYP3A5", "*1/*1");
@@ -778,7 +779,7 @@ class PharmCATTest {
     generalTest("test.cyp3a5.s1s3rs776746rs55965422het", new String[]{
             "cyp3a5/s1s3rs776746rs55965422het.vcf"
         },
-        false);
+        null);
     
     testCalledGenes("CYP3A5");
     testCalls(DipType.PRINT, "CYP3A5", "*1/*3");
@@ -789,7 +790,7 @@ class PharmCATTest {
     generalTest("test.cyp3a5.s1s3rs776746rs55965422rs28383479het", new String[]{
             "cyp3a5/s1s3rs776746rs55965422rs28383479het.vcf"
         },
-        false);
+        null);
     
     testCalledGenes("CYP3A5");
     testCalls(DipType.PRINT, "CYP3A5", "*1/*3");
@@ -800,7 +801,7 @@ class PharmCATTest {
     generalTest("test.cyp3a5.s3s3rs55965422het", new String[]{
             "cyp3a5/s3s3rs55965422het.vcf"
         },
-        false);
+        null);
     
     testCalledGenes("CYP3A5");
     testCalls(DipType.PRINT, "CYP3A5", "*3/*3");
@@ -811,7 +812,7 @@ class PharmCATTest {
     generalTest("test.cyp3a5.s3s5-homozygous", new String[]{
             "cyp3a5/s3s5-homozygous.vcf"
         },
-        false);
+        null);
     
     testCalledGenes("CYP3A5");
     testCalls(DipType.PRINT, "CYP3A5", "*3/*5");
@@ -822,7 +823,7 @@ class PharmCATTest {
     generalTest("test.cyp3a5.s1s3rs776746rs28383479het", new String[]{
             "cyp3a5/s1s3rs776746rs28383479het.vcf"
         },
-        false);
+        null);
     
     testCalledGenes("CYP3A5");
     testCalls(DipType.PRINT, "CYP3A5", "*1/*3");
@@ -833,7 +834,7 @@ class PharmCATTest {
     generalTest("test.tpmt.star1s", new String[]{
             "TPMT/s1ss1ss3.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("TPMT");
     testCalls(DipType.PRINT, "TPMT", "*1/*3A");
@@ -853,7 +854,7 @@ class PharmCATTest {
     generalTest("test.tpmt.s15offdata", new String[] {
             "TPMT/s15offdata.vcf"
         },
-        false);
+        null);
 
     testNotCalledGenes("TPMT");
     GeneReport report = s_context.getGeneReport("TPMT");
@@ -866,7 +867,7 @@ class PharmCATTest {
     generalTest("test.cyp2c9.s1s61", new String[] {
             "cyp2c9/s1s61.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("CYP2C9");
     testCalls(DipType.PRINT, "CYP2C9", "*1/*61");
@@ -880,7 +881,7 @@ class PharmCATTest {
     generalTest("test.cyp2c9.s1s1", new String[] {
             "cyp2c9/s1s1.vcf"
         },
-        false);
+        null);
 
     testCalledGenes("CYP2C9");
     testCalls(DipType.PRINT, "CYP2C9", "*1/*1");
@@ -910,7 +911,7 @@ class PharmCATTest {
             "cyp4f2/s1s1.vcf",
             "IFNL3/rs12979860CC.vcf"
         },
-        true);
+        s_tempAstroPath);
 
     testCalledGenes("DPYD", "UGT1A1", "TPMT", "CYP3A5", "CFTR", "CYP2C19",
         "CYP2C9", "SLCO1B1", "VKORC1", "CYP4F2", "IFNL3", "CYP2D6");
@@ -925,11 +926,48 @@ class PharmCATTest {
         "Should have no incidental alleles");
   }
 
+  @Test
+  void testBadOutsideData() throws Exception {
+    Path badOutsideDataPath = Files.createTempFile("astrolabe", ".tsv");
+    try (FileWriter fw = new FileWriter(badOutsideDataPath.toFile())) {
+      fw.write("CYP2D6\t*1/*2\nCYP2D6\t*3/*4");
+    }
+
+    try {
+      generalTest("test.badOutsideData", new String[]{
+          "cyp2c19/s2s2.vcf",
+          "cyp2c9/s2s3.vcf",
+      }, badOutsideDataPath);
+      fail("Should have failed due to a duplicate gene definition in outside call");
+    }
+    catch (ParseException ex) {
+      // we want this to fail so ignore handling the exception
+    }
+  }
+
+  @Test
+  void testCallerCollision() throws Exception {
+    Path outsidePath = Files.createTempFile("astrolabe", ".tsv");
+    try (FileWriter fw = new FileWriter(outsidePath.toFile())) {
+      fw.write("CYP2C19\t*2/*2");
+    }
+
+    try {
+      generalTest("test.badOutsideData", new String[]{
+          "cyp2c19/s2s2.vcf",
+      }, outsidePath);
+      fail("Should have failed due to a duplicate gene definition between matcher and outside caller");
+    }
+    catch (ParseException ex) {
+      // we want this to fail so ignore handling the exception
+    }
+  }
+
 
   /**
    * Runs the PharmCAT tool for the given example gene call data
    */
-  private void generalTest(String name, String[] geneCalls, boolean includeAstrolabe) throws Exception {
+  private void generalTest(String name, String[] geneCalls, Path outsideCallPath) throws Exception {
     Path tempVcfPath = Files.createTempFile(name, ".vcf");
     try (FileWriter fw = new FileWriter(tempVcfPath.toFile())) {
       fw.write(VcfTestUtils.writeVcf(geneCalls));
@@ -938,8 +976,7 @@ class PharmCATTest {
       throw ex;
     }
 
-    Path astrolabePath = includeAstrolabe ? s_tempAstroPath : null;
-    s_pharmcat.execute(tempVcfPath, astrolabePath, null);
+    s_pharmcat.execute(tempVcfPath, outsideCallPath, null);
     s_context = s_pharmcat.getReporter().getContext();
 
     assertEquals(19, s_context.getGeneReports().size());

@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableList;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 
 
@@ -16,11 +15,17 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
  * can be used for any outside calls. This parser will ignore any lines starting with "#" or blank lines and interpret 
  * the rest as TSV formatted lines with the first field as gene symbol and the second field as diplotype call.
  *
+ * The diplotype call in the second "column" can optionally include the gene symbol as a prefix on the allele name, but
+ * it will be ignored. The gene is read from the first "column". As an example, this means both
+ * <code>CYP2D6*1/CYP2D6*2</code> and <code>*1/*2</code> values in the second "column" are equivalent.
+ *
+ * The diplotype call must include 2 alleles and they must be separated by a "/".
+ *
+ * Multiple diplotypes can be separated by " or ". For example, "*1/*2 or *2/*3".
+ *
  * @author Ryan Whaley
  */
 public class OutsideCallParser {
-
-  private static final List<String> sf_geneWhitelist = ImmutableList.of("CYP2D6");
 
   @Nonnull
   public static List<OutsideCall> parse(Path filePath) throws IOException {
@@ -29,7 +34,6 @@ public class OutsideCallParser {
     return Files.lines(filePath)
         .filter(l -> !l.startsWith("#"))
         .map(OutsideCall::new)
-        .filter(c -> sf_geneWhitelist.contains(c.getGene()))
         .collect(Collectors.toList());
   }
 }

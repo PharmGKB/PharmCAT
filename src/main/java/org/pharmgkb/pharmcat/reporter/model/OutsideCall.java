@@ -6,6 +6,7 @@ import java.util.TreeSet;
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
+import org.pharmgkb.pharmcat.ParseException;
 
 
 /**
@@ -24,7 +25,7 @@ public class OutsideCall {
 
   private String m_gene;
   private List<String> m_diplotypes;
-  private SortedSet<String> m_haplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
+  private final SortedSet<String> m_haplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
 
   /**
    * Constructor that expects a TSV formatted String with the gene symbol in the first field and the diplotype call 
@@ -53,8 +54,13 @@ public class OutsideCall {
 
     m_diplotypes.forEach(d -> {
       String[] alleles = d.split(sf_dipSeparator);
+      if (alleles.length > 2) {
+        throw new ParseException("Too many alleles specified in " + d);
+      }
       m_haplotypes.add(alleles[0]);
-      m_haplotypes.add(alleles[1]);
+      if (alleles.length == 2) {
+        m_haplotypes.add(alleles[1]);
+      }
     });
   }
 

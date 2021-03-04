@@ -20,6 +20,7 @@ import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
@@ -29,6 +30,7 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
+import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
@@ -146,7 +148,14 @@ public class ReportContext {
   private void compileOutsideCallData(List<OutsideCall> calls) {
     for (OutsideCall outsideCall : calls) {
       GeneReport geneReport = m_geneReports.get(outsideCall.getGene());
-      geneReport.setOutsideCallData(outsideCall);
+      if (geneReport.isOutsideCall()) {
+        throw new ParseException("Duplicate outside call found for " + geneReport.getGene());
+      }
+      if (geneReport.getCallSource() == CallSource.MATCHER && geneReport.isCalled()) {
+        throw new ParseException("Cannot specify outside call for " + geneReport.getGene() + " since it's already in sample data");
+      }
+
+      geneReport.setOutsideCallData();
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
           outsideCall.getGene(),
