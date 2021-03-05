@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
@@ -60,9 +59,6 @@ public class ReportContext {
   private final PhenotypeMap m_phenotypeMap;
   private final IncidentalFinder m_incidentalFinder = new IncidentalFinder();
   private final Map<String,String> m_refAlleleForGene = new HashMap<>();
-
-  private final Predicate<String> isGeneIncidental = s -> m_geneReports.values().stream()
-      .anyMatch(r -> r.getGene().equals(s) && r.isIncidental());
 
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
@@ -133,7 +129,7 @@ public class ReportContext {
    */
   private void compileOutsideCallData(List<OutsideCall> calls) {
     for (OutsideCall outsideCall : calls) {
-      GeneReport geneReport = m_geneReports.get(outsideCall.getGene());
+      GeneReport geneReport = getGeneReport(outsideCall.getGene());
       if (geneReport.isOutsideCall()) {
         throw new ParseException("Duplicate outside call found for " + geneReport.getGene());
       }
@@ -165,7 +161,7 @@ public class ReportContext {
   }
 
   private boolean isReportable(String gene) {
-    return m_geneReports.get(gene).isReportable();
+    return getGeneReport(gene).isReportable();
   }
 
   /**
@@ -191,7 +187,7 @@ public class ReportContext {
       makeAllReportGenotypes(drugReport);
       drugReport.setIncidentalResult(
           drugReport.getRelatedGeneSymbols().stream()
-              .anyMatch(isGeneIncidental));
+              .anyMatch(s -> getGeneReport(s).isIncidental()));
     }
   }
 

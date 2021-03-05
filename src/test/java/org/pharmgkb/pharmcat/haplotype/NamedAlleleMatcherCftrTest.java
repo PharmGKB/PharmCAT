@@ -69,14 +69,4 @@ class NamedAlleleMatcherCftrTest {
   }
 
 
-  @Test
-  void G551DG542X() throws Exception {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/G551DG542X.vcf");
-    List<String> expectedMatches = Lists.newArrayList("G551D/ivacaftor non-responsive CFTR sequence");
-
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
-  }
-
-
 }

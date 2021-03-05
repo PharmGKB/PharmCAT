@@ -31,7 +31,7 @@ class SyntheticBatchTest {
         "UGT1A1/s1s1.vcf",
         "TPMT/s1s1.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/G542XF508del.vcf",
+        "CFTR/refref.vcf",
         "CYP2C19/s2s2.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -45,7 +45,7 @@ class SyntheticBatchTest {
         "UGT1A1/s1s1.vcf",
         "TPMT/s1s1.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/refG542X.vcf",
+        "CFTR/refref.vcf",
         "CYP2C19/s2s2.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -59,7 +59,7 @@ class SyntheticBatchTest {
         "UGT1A1/s1s1.vcf",
         "TPMT/s1s1.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/G542XG542X.vcf",
+        "CFTR/refref.vcf",
         "CYP2C19/s2s2.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -288,7 +288,7 @@ class SyntheticBatchTest {
         "UGT1A1/s1s1.vcf",
         "TPMT/s1ss1ss3.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/G542XF508del.vcf",
+        "CFTR/refref.vcf",
         "CYP2C19/s2s2.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -302,7 +302,7 @@ class SyntheticBatchTest {
         "UGT1A1/s1s1.vcf",
         "TPMT/s1s1s.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/G542XF508del.vcf",
+        "CFTR/refref.vcf",
         "CYP2C19/s2s2.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -316,7 +316,7 @@ class SyntheticBatchTest {
         "UGT1A1/s1s1.vcf",
         "TPMT/hom1s_het3a.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/G542XF508del.vcf",
+        "CFTR/refref.vcf",
         "CYP2C19/s2s2.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -330,7 +330,7 @@ class SyntheticBatchTest {
         "UGT1A1/s1s1.vcf",
         "TPMT/het3a.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/G542XF508del.vcf",
+        "CFTR/refref.vcf",
         "CYP2C19/s2s2.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -344,7 +344,7 @@ class SyntheticBatchTest {
         "UGT1A1/s1s1.vcf",
         "TPMT/s15offdata.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/G542XF508del.vcf",
+        "CFTR/refref.vcf",
         "CYP2C19/s2s2.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -366,7 +366,7 @@ class SyntheticBatchTest {
         "UGT1A1/s1s1.vcf",
         "TPMT/s1ss1ss3.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/G542XF508del.vcf",
+        "CFTR/refref.vcf",
         "CYP2C19/s4bs17rs28399504missing.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -381,7 +381,7 @@ class SyntheticBatchTest {
         "UGT1A1/s1s1.vcf",
         "TPMT/s1ss1ss3.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/G542XF508del.vcf",
+        "CFTR/refref.vcf",
         "CYP2C19/s2s2.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -529,14 +529,6 @@ class SyntheticBatchTest {
 
     sf_testVcfs.put("cftr.G1244EF508del", new String[]{
         "cftr/G1244EF508del.vcf"
-    });
-
-    sf_testVcfs.put("cftr.G551DG542X", new String[]{
-        "cftr/G551DG542X.vcf"
-    });
-
-    sf_testVcfs.put("cftr.inc_vwithrecom", new String[]{
-        "cftr/inc_vwithrecom.vcf"
     });
 
     sf_testVcfs.put("cftr.ref_vwithrecom", new String[]{

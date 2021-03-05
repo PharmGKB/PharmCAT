@@ -117,22 +117,6 @@ class PharmCATTest {
   }
 
   @Test
-  void testCftrRegInc() throws Exception {
-    generalTest("test.cftr.reg_inc", new String[]{
-            "cftr/G542XF508del.vcf"
-        },
-        null);
-
-    testCalledGenes("CFTR");
-    // G542X is no longer defined for PharmCAT so only F508 should appear
-    testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
-    testCalls(DipType.LOOKUP, "CFTR", "CFTR:ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
-  }
-
-  @Test
   void testCftrRefRef() throws Exception {
     generalTest("test.cftr.ref_ref", new String[]{
             "cftr/refref.vcf"
