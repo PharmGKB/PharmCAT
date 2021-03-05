@@ -166,15 +166,7 @@ public class Diplotype implements Comparable<Diplotype> {
    * Gets a Sting representation of this haplotype with no gene prefix (e.g. *1/*10)
    */
   public String printBare() {
-
-    Optional<String> override = printOverride();
-    if (override.isPresent()) {
-      return override.get();
-    }
-
-    String[] alleles = new String[]{m_allele1.printDisplay(), m_allele2.printDisplay()};
-    Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
-    return String.join(sf_delimiter, alleles);
+    return printOverride().orElse(printBareLookupKey());
   }
 
   /**
@@ -197,7 +189,7 @@ public class Diplotype implements Comparable<Diplotype> {
    * @return a String key used to match guideline groups without gene symbol (e.g. *4/*10)
    */
   public String printBareLookupKey() {
-    String[] alleles = new String[]{m_allele1.printLookup(), m_allele2.printLookup()};
+    String[] alleles = new String[]{m_allele1.getName(), m_allele2.getName()};
     Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
     return String.join(sf_delimiter, alleles);
   }
@@ -288,15 +280,15 @@ public class Diplotype implements Comparable<Diplotype> {
       if (getAllele1().isReference()) {
         return Stream.empty();
       }
-      return Stream.of(getAllele1().printDisplay() + sf_homSuffix);
+      return Stream.of(getAllele1().getName() + sf_homSuffix);
     }
     else {
       Set<String> alleles = new TreeSet<>(HaplotypeNameComparator.getComparator());
       if (!getAllele1().isReference()) {
-        alleles.add(getAllele1().printDisplay() + sf_hetSuffix);
+        alleles.add(getAllele1().getName() + sf_hetSuffix);
       }
       if (!getAllele2().isReference()) {
-        alleles.add(getAllele2().printDisplay() + sf_hetSuffix);
+        alleles.add(getAllele2().getName() + sf_hetSuffix);
       }
       return alleles.stream();
     }

@@ -19,8 +19,6 @@ class HaplotypeTest {
 
     assertEquals("CYP2C19", haplotype.getGene());
     assertEquals("*4A", haplotype.getName());
-    assertEquals("*4A", haplotype.printLookup());
-    assertEquals("*4A", haplotype.printDisplay());
     assertEquals("CYP2C19*4A", haplotype.toString());
   }
 
@@ -30,7 +28,6 @@ class HaplotypeTest {
 
     assertEquals("CFTR", haplotype.getGene());
     assertEquals("ivacaftor non-responsive CFTR sequence", haplotype.getName());
-    assertEquals("ivacaftor non-responsive CFTR sequence", haplotype.printLookup());
     assertEquals("CFTR ivacaftor non-responsive CFTR sequence", haplotype.toString());
   }
 
@@ -40,7 +37,6 @@ class HaplotypeTest {
 
     assertEquals("DPYD", haplotype.getGene());
     assertEquals("Reference", haplotype.getName());
-    assertEquals("Reference", haplotype.printLookup());
     assertEquals("DPYD Reference", haplotype.toString());
   }
 
@@ -50,7 +46,6 @@ class HaplotypeTest {
 
     assertEquals("CFTR", haplotype.getGene());
     assertEquals("D110H", haplotype.getName());
-    assertEquals("D110H", haplotype.printLookup());
     assertEquals("CFTR D110H", haplotype.toString());
   }
 
