@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
-import java.util.Optional;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -16,8 +15,7 @@ public class Haplotype implements Comparable<Haplotype> {
 
   private final String f_gene;
   private final String f_name;
-  private String m_calledFunction;
-  private String m_guidelineFunction;
+  private String m_function;
   private boolean m_reference = false;
 
   /**
@@ -70,37 +68,16 @@ public class Haplotype implements Comparable<Haplotype> {
   }
 
   /**
-   * Gets the function for this haplotype that the caller specified
-   */
-  private Optional<String> getCalledFunction() {
-    return Optional.ofNullable(m_calledFunction);
-  }
-
-  public void setCalledFunction(String calledFunction) {
-    m_calledFunction = calledFunction;
-  }
-
-  /**
-   * Gets the function for this haplotype that the guideline specified
-   */
-  private String getGuidelineFunction() {
-    return m_guidelineFunction;
-  }
-
-  public void setGuidelineFunction(String guidelineFunction) {
-    m_guidelineFunction = guidelineFunction;
-  }
-
-  /**
-   * Gets the preferred function for this allele.
+   * Gets the function for this allele.
    *
-   * Defaults to called function but will fall back to guideline function if called is null
-   *
-   * @return the called function, or the guideline function if that's not present
+   * @return the function
    */
   public String getFunction() {
+    return m_function;
+  }
 
-    return getCalledFunction().orElse(getGuidelineFunction());
+  public void setFunction(String function) {
+    m_function = function;
   }
 
   /**

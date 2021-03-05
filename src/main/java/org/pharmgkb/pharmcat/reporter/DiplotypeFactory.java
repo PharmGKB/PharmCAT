@@ -137,7 +137,7 @@ public class DiplotypeFactory {
 
     Haplotype haplotype = new Haplotype(f_gene, name);
     if (f_genePhenotype != null && f_genePhenotype.getHaplotypes() != null) {
-      haplotype.setGuidelineFunction(f_genePhenotype.getHaplotypes().get(name));
+      haplotype.setFunction(f_genePhenotype.getHaplotypes().get(name));
     }
     haplotype.setReference(name.equals(f_referenceAlleleName));
 
