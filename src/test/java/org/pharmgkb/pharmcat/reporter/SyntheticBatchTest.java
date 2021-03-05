@@ -26,48 +26,6 @@ class SyntheticBatchTest {
   private static final Map<String,String[]> sf_testVcfs = new LinkedHashMap<>();
   static {
 
-    sf_testVcfs.put("cftr.reg_inc", new String[]{
-        "DPYD/s1s1.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "CYP2C19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
-    });
-
-    sf_testVcfs.put("cftr.ref_inc", new String[]{
-        "DPYD/s1s1.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "CYP2C19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
-    });
-
-    sf_testVcfs.put("cftr.inc_inc", new String[]{
-        "DPYD/s1s1.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "CYP2C19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
-    });
-
     sf_testVcfs.put("cftr.ref_ref", new String[]{
         "DPYD/s1s1.vcf",
         "UGT1A1/s1s1.vcf",
