@@ -266,23 +266,14 @@ public class Diplotype implements Comparable<Diplotype> {
     boolean refAllele1 = getAllele1().isReference();
     boolean refAllele2 = getAllele2().isReference();
 
-    switch (m_gene) {
-
-      case "CFTR":
-        if (refAllele1 && refAllele2) {
-          return Optional.of("No CPIC variants found");
-        }
-        else if (refAllele1 || refAllele2) {
-          String allele = refAllele1 ? getAllele2().getName() : getAllele1().getName();
-          return Optional.of(allele + sf_hetSuffix);
-        }
-        break;
-
-      case "DPYD":
-        if (refAllele1 && refAllele2) {
-          return Optional.of("No CPIC decreased or no function variant with strong or moderate evidence found");
-        }
-        break;
+    if (m_gene.equals("CFTR")) {
+      if (refAllele1 && refAllele2) {
+        return Optional.of("No CPIC variants found");
+      }
+      else if (refAllele1 || refAllele2) {
+        String allele = refAllele1 ? getAllele2().getName() : getAllele1().getName();
+        return Optional.of(allele + sf_hetSuffix);
+      }
     }
     return Optional.empty();
   }

@@ -62,11 +62,7 @@ public class Haplotype implements Comparable<Haplotype> {
    * modifications that need to be done to allele calls before lookup.
    */
   public String printLookup() {
-    if (f_gene.equals("DPYD") && f_name.equals("Reference")) {
-      return "Any normal function variant or no variant detected";
-    } else {
-      return f_name;
-    }
+    return f_name;
   }
 
   public String printDisplay() {
@@ -129,11 +125,7 @@ public class Haplotype implements Comparable<Haplotype> {
       return rez;
     }
 
-    rez = HaplotypeNameComparator.getComparator().compare(getName(), o.getName());
-    if (rez != 0) {
-      return rez;
-    }
-    return 0;
+    return HaplotypeNameComparator.getComparator().compare(getName(), o.getName());
   }
 
   @Override

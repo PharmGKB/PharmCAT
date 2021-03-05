@@ -40,7 +40,7 @@ class HaplotypeTest {
 
     assertEquals("DPYD", haplotype.getGene());
     assertEquals("Reference", haplotype.getName());
-    assertEquals("Any normal function variant or no variant detected", haplotype.printLookup());
+    assertEquals("Reference", haplotype.printLookup());
     assertEquals("DPYD Reference", haplotype.toString());
   }
 
