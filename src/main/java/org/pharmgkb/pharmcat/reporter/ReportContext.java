@@ -19,7 +19,6 @@ import javax.annotation.Nonnull;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.ParseException;
-import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -57,7 +56,6 @@ public class ReportContext {
   private final Map<String,GeneReport> m_geneReports = new TreeMap<>();
   private final List<DrugReport> m_drugReports = new ArrayList<>();
   private final PhenotypeMap m_phenotypeMap;
-  private final IncidentalFinder m_incidentalFinder = new IncidentalFinder();
   private final Map<String,String> m_refAlleleForGene = new HashMap<>();
 
   /**
@@ -117,7 +115,6 @@ public class ReportContext {
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
           call.getGene(),
           m_phenotypeMap.lookup(call.getGene()).orElse(null),
-          m_incidentalFinder,
           m_refAlleleForGene.get(call.getGene()));
       geneReport.setDiplotypes(diplotypeFactory, call);
     }
@@ -142,7 +139,6 @@ public class ReportContext {
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
           outsideCall.getGene(),
           m_phenotypeMap.lookup(outsideCall.getGene()).orElse(null),
-          m_incidentalFinder,
           m_refAlleleForGene.get(outsideCall.getGene()));
       geneReport.setDiplotypes(diplotypeFactory, outsideCall);
     }
@@ -185,9 +181,6 @@ public class ReportContext {
       }
 
       makeAllReportGenotypes(drugReport);
-      drugReport.setIncidentalResult(
-          drugReport.getRelatedGeneSymbols().stream()
-              .anyMatch(s -> getGeneReport(s).isIncidental()));
     }
   }
 
@@ -367,7 +360,6 @@ public class ReportContext {
 
       guidelineMap.put("matched", guideline.isMatched());
       guidelineMap.put("mutliMatch", guideline.hasMultipleMatches());
-      guidelineMap.put("incidental", guideline.isIncidentalResult());
 
       guidelineMap.put("messages", guideline.getMessages().stream()
           .filter(MessageAnnotation.isMessage)
@@ -441,7 +433,6 @@ public class ReportContext {
       Map<String,Object> geneCallMap = new HashMap<>();
 
       geneCallMap.put("gene", geneReport.getGene());
-      geneCallMap.put("incidental", geneReport.isIncidental());
 
       String phaseStatus;
       if (geneReport.isOutsideCall()) {

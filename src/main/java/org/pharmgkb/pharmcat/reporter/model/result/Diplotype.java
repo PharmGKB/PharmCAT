@@ -163,14 +163,6 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   /**
-   * Flag for whether this diplotype includes an incidental finding
-   * @return true if this diplotype includes an incidental finding allele
-   */
-  public boolean isIncidental() {
-    return m_allele1.isIncidental() || m_allele2.isIncidental();
-  }
-
-  /**
    * Gets a Sting representation of this haplotype with no gene prefix (e.g. *1/*10)
    */
   public String printBare() {
@@ -277,10 +269,6 @@ public class Diplotype implements Comparable<Diplotype> {
     switch (m_gene) {
 
       case "CFTR":
-        if (getAllele1().isIncidental() && getAllele2().isIncidental()) {
-          return Optional.of(getAllele1().getName() + sf_homSuffix);
-        }
-
         if (refAllele1 && refAllele2) {
           return Optional.of("No CPIC variants found");
         }

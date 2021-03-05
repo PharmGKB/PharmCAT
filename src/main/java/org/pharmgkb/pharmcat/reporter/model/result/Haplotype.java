@@ -5,7 +5,6 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
-import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 
 
 /**
@@ -15,11 +14,10 @@ import org.pharmgkb.pharmcat.definition.IncidentalFinder;
  */
 public class Haplotype implements Comparable<Haplotype> {
 
-  private String m_gene;
-  private String m_name;
+  private final String f_gene;
+  private final String f_name;
   private String m_calledFunction;
   private String m_guidelineFunction;
-  private boolean m_incidental = false;
   private boolean m_reference = false;
 
   /**
@@ -29,33 +27,33 @@ public class Haplotype implements Comparable<Haplotype> {
    * name you put in.
    */
   public Haplotype(String gene, String name) {
-    m_gene = gene;
-    m_name = name;
+    f_gene = gene;
+    f_name = name;
   }
 
   /**
    * Gets the name of the gene for this haplotype
    */
   public String getGene() {
-    return m_gene;
+    return f_gene;
   }
 
   /**
    * Gets just the name of this haplotype, e.g. "*10"
    */
   public String getName() {
-    return m_name;
+    return f_name;
   }
 
   /**
    * Gets the display name of this haplotype, e.g. "GENEX*10"
    */
   public String toString() {
-    if (m_name.startsWith("*")) {
-      return m_gene + m_name;
+    if (f_name.startsWith("*")) {
+      return f_gene + f_name;
     }
     else {
-      return m_gene + " " + m_name;
+      return f_gene + " " + f_name;
     }
   }
 
@@ -64,15 +62,15 @@ public class Haplotype implements Comparable<Haplotype> {
    * modifications that need to be done to allele calls before lookup.
    */
   public String printLookup() {
-    if (m_gene.equals("DPYD") && m_name.equals("Reference")) {
+    if (f_gene.equals("DPYD") && f_name.equals("Reference")) {
       return "Any normal function variant or no variant detected";
     } else {
-      return m_name;
+      return f_name;
     }
   }
 
   public String printDisplay() {
-    return m_name;
+    return f_name;
   }
 
   /**
@@ -107,18 +105,6 @@ public class Haplotype implements Comparable<Haplotype> {
   public String getFunction() {
 
     return getCalledFunction().orElse(getGuidelineFunction());
-  }
-
-  /**
-   * Flags whether this allele is an incidental finding
-   * @return true if this allele is an incidental finding, false otherwise
-   */
-  public boolean isIncidental() {
-    return m_incidental;
-  }
-
-  public void setIncidental(IncidentalFinder incidental) {
-    m_incidental = incidental.isFinding(this);
   }
 
   /**
@@ -161,16 +147,16 @@ public class Haplotype implements Comparable<Haplotype> {
 
     Haplotype h = (Haplotype)o;
     return new EqualsBuilder()
-        .append(m_gene, h.getGene())
-        .append(m_name, h.getName())
+        .append(f_gene, h.getGene())
+        .append(f_name, h.getName())
         .isEquals();
   }
 
   @Override
   public int hashCode() {
     return new HashCodeBuilder(31, 167)
-        .append(m_gene)
-        .append(m_name)
+        .append(f_gene)
+        .append(f_name)
         .toHashCode();
   }
 }

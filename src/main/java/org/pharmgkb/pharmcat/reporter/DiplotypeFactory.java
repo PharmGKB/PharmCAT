@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -31,7 +30,6 @@ public class DiplotypeFactory {
   private final String f_gene;
   private final String f_referenceAlleleName;
   private final GenePhenotype f_genePhenotype;
-  private final IncidentalFinder f_incidentalFinder;
   private final Map<String,Haplotype> m_haplotypeCache = new HashMap<>();
 
   /**
@@ -41,12 +39,10 @@ public class DiplotypeFactory {
    *
    * @param gene the gene symbol for the diplotypes this will call
    * @param genePhenotype a {@link GenePhenotype} object that maps haplotypes and functions to phenotypes
-   * @param incidentalFinder the IncidentalFinder object for finding incidental alleles
    * @param referenceAlleleName the name of the reference allele
    */
-  public DiplotypeFactory(String gene, GenePhenotype genePhenotype, IncidentalFinder incidentalFinder, String referenceAlleleName) {
+  public DiplotypeFactory(String gene, GenePhenotype genePhenotype, String referenceAlleleName) {
     f_gene = gene;
-    f_incidentalFinder = incidentalFinder;
     f_genePhenotype = genePhenotype;
     f_referenceAlleleName = referenceAlleleName;
   }
@@ -143,7 +139,6 @@ public class DiplotypeFactory {
     if (f_genePhenotype != null && f_genePhenotype.getHaplotypes() != null) {
       haplotype.setGuidelineFunction(f_genePhenotype.getHaplotypes().get(name));
     }
-    haplotype.setIncidental(f_incidentalFinder);
     haplotype.setReference(name.equals(f_referenceAlleleName));
 
     m_haplotypeCache.put(name, haplotype);

@@ -128,9 +128,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
 
     testMatchedGroups("ivacaftor", 1);
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -143,9 +140,6 @@ class PharmCATTest {
     testCalledGenes("CFTR");
     testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -158,9 +152,6 @@ class PharmCATTest {
     testCalledGenes("CFTR");
     testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   /**
@@ -177,9 +168,6 @@ class PharmCATTest {
     testCalledGenes("CFTR");
     testCalls(DipType.PRINT, "CFTR", "No CPIC variants found");
     testCalls(DipType.LOOKUP, "CFTR", "CFTR:ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -192,9 +180,6 @@ class PharmCATTest {
     testCalledGenes("SLCO1B1");
     testCalls(DipType.PRINT, "SLCO1B1", "*17/*21");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*17/*21");
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -207,9 +192,6 @@ class PharmCATTest {
     testCalledGenes("SLCO1B1");
     testCalls(DipType.PRINT, "SLCO1B1", "*1A/*1A");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*1A");
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -222,9 +204,6 @@ class PharmCATTest {
     testCalledGenes("SLCO1B1");
     testCalls(DipType.PRINT, "SLCO1B1", "*5/*15");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*5/*15");
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -237,9 +216,6 @@ class PharmCATTest {
     testCalledGenes("SLCO1B1");
     testCalls(DipType.PRINT, "SLCO1B1", "*1A/*15");
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*15");
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -252,9 +228,6 @@ class PharmCATTest {
 
     testCalledGenes("DPYD", "TPMT");
     assertFalse(s_context.getGeneReport("SLCO1B1").isCalled());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -271,9 +244,6 @@ class PharmCATTest {
 
     testMatchedGroups("fluorouracil", 1);
     testMatchedGroups("capecitabine", 1);
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -291,9 +261,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "SLCO1B1", "SLCO1B1:*1A/*5");
 
     testMatchedGroups("simvastatin", 1);
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -308,9 +275,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -325,9 +289,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*1");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -342,9 +303,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -359,9 +317,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -376,9 +331,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -393,9 +345,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -410,9 +359,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -427,9 +373,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -444,9 +387,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*6/*6");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -461,9 +401,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -478,9 +415,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -495,9 +429,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -512,9 +443,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -529,9 +457,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -546,9 +471,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -564,9 +486,6 @@ class PharmCATTest {
 
     // sample is effectively phased since all positions homozygous
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   /**
@@ -590,9 +509,6 @@ class PharmCATTest {
 
     // sample is effectively phased since all positions homozygous
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -607,9 +523,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*80/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -624,9 +537,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "UGT1A1", "UGT1A1:*1/*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -642,9 +552,6 @@ class PharmCATTest {
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -660,9 +567,6 @@ class PharmCATTest {
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -678,9 +582,6 @@ class PharmCATTest {
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -696,9 +597,6 @@ class PharmCATTest {
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -714,9 +612,6 @@ class PharmCATTest {
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -742,9 +637,6 @@ class PharmCATTest {
         .allMatch(r -> r.getMessages().size() > 0));
 
     assertTrue(s_context.getGeneReport(gene).isPhased());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -828,9 +720,6 @@ class PharmCATTest {
     assertEquals(43, tpmtReport.getVariantReports().size());
 
     assertEquals(0, tpmtReport.getHighlightedVariants().size());
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test
@@ -902,9 +791,6 @@ class PharmCATTest {
     testCalls(DipType.LOOKUP, "TPMT", "TPMT:*1/*1");
     testCalls(DipType.PRINT, "CYP2D6", "*1/*4");
     testCalls(DipType.PRINT, "UGT1A1", "*1/*1");
-
-    assertTrue(s_context.getGeneReports().stream().noneMatch(GeneReport::isIncidental),
-        "Should have no incidental alleles");
   }
 
   @Test

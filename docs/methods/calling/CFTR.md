@@ -25,15 +25,7 @@ functionality and phenotype.
 In recommendation section:  
 For combinations including F508del(CTT), F508del(TCT), G551D, G1244E,
 G1349D, G178R, G551S, S1251N, S1255P, S549N, S549R(A\>C), S549R(T\>G),
-R117H use recommendation as in guideline tool with \'other\' being
-either Reference or any ***incidental allele***.
-
-For combinations between ***incidental allele*** display:  
-\'CPIC does not provide recommendations for this genotype. Variant is
-included in CPIC supplemental table of variants recommended by the
-American College of Medical Genetics (ACMG) Cystic Fibrosis Carrier
-Screening Working Group that should be tested to determine carrier
-status as a part of population screening programs.\'
+R117H use recommendation as in guideline tool with \'other\' being Reference.
 
 ### If caller returns variant/reference with variant being any name we have in definition file 
 
@@ -51,11 +43,3 @@ For a heterozygous variant of any of F508del(CTT), F508del(TCT), G551D,
 G1244E, G1349D, G178R, G551S, S1251N, S1255P, S549N, S549R(A\>C),
 S549R(T\>G), R117H use recommendation as in guideline tool in
 combination with \'other\'.
-
-For a heterozygous variant of any of ***incidental allele*** display:
-
-\'CPIC does not provide recommendations for this genotype. Variant is
-included in CPIC supplemental table of variants recommended by the
-American College of Medical Genetics (ACMG) Cystic Fibrosis Carrier
-Screening Working Group that should be tested to determine carrier
-status as a part of population screening programs.\'

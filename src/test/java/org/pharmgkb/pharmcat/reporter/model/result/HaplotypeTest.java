@@ -1,9 +1,9 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
 import org.junit.jupiter.api.Test;
-import org.pharmgkb.pharmcat.definition.IncidentalFinder;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 
 /**
@@ -45,17 +45,13 @@ class HaplotypeTest {
   }
 
   @Test
-  void testIncidental() throws Exception {
-    IncidentalFinder incidentalFinder = new IncidentalFinder();
-
-    Haplotype haplotype = new Haplotype("CFTR", "G542X");
-    haplotype.setIncidental(incidentalFinder);
+  void testCftrNonreference() {
+    Haplotype haplotype = new Haplotype("CFTR", "D110H");
 
     assertEquals("CFTR", haplotype.getGene());
-    assertEquals("G542X", haplotype.getName());
-    assertEquals("G542X", haplotype.printLookup());
-    assertEquals("CFTR G542X", haplotype.toString());
-    assertTrue(haplotype.isIncidental());
+    assertEquals("D110H", haplotype.getName());
+    assertEquals("D110H", haplotype.printLookup());
+    assertEquals("CFTR D110H", haplotype.toString());
   }
 
   @Test

@@ -31,7 +31,6 @@ public class DrugReport implements Comparable<DrugReport> {
 
   private final Drug m_drug;
   private boolean m_reportable = false;
-  private boolean m_isIncidentalResult = false;
   private final List<Recommendation> m_matchingRecommendations = new ArrayList<>();
   private final Multimap<String,String> m_matchedDiplotypes = TreeMultimap.create();
   private final Set<String> m_uncalledGenes = new TreeSet<>();
@@ -191,17 +190,6 @@ public class DrugReport implements Comparable<DrugReport> {
         m_messages.add(ma);
       }
     });
-  }
-
-  /**
-   * Gets whether any related gene has any incidental allele called for it
-   */
-  public boolean isIncidentalResult() {
-    return m_isIncidentalResult;
-  }
-
-  public void setIncidentalResult(boolean incidentalResult) {
-    m_isIncidentalResult = incidentalResult;
   }
 
   public List<String> getReportVariants() {

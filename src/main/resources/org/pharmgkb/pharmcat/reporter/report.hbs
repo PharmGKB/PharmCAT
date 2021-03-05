@@ -121,13 +121,6 @@
     <section class="guideline">
       <h3 id="{{id}}">{{drugs}}</h3>
 
-      {{#if incidental}}
-        <div class="alert alert-warning">
-          Variant is included in CPIC supplemental table of variants recommended by the American College of Medical
-          Genetics (ACMG) that should be tested to determine carrier status as a part of population screening programs.
-        </div>
-      {{/if}}
-
       <section>
         {{#each geneCalls}}
           <div class="geneCall">
@@ -239,13 +232,6 @@
 
       {{#if variantsUnspecified}}
         <div class="alert alert-info">No variant data available.</div>
-      {{/if}}
-
-      {{#if incidental}}
-        <div class="alert alert-warning">
-          Variant is included in CPIC supplemental table of variants recommended by the American College of Medical
-          Genetics (ACMG) that should be tested to determine carrier status as a part of population screening programs.
-        </div>
       {{/if}}
 
       {{#each messages}}

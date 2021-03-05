@@ -315,13 +315,6 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Does this gene contain an "incidental" allele that should be reported on
-   */
-  public boolean isIncidental() {
-    return m_matcherDiplotypes.stream().anyMatch(Diplotype::isIncidental);
-  }
-
-  /**
    * Wether this gene has been marked as phased by the matcher
    */
   public boolean isPhased() {
