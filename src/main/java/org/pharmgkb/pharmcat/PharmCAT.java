@@ -31,8 +31,8 @@ public class PharmCAT {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Pattern sf_inputNamePattern = Pattern.compile("(.*)\\.vcf");
 
-  private NamedAlleleMatcher m_namedAlleleMatcher;
-  private Reporter m_reporter;
+  private final NamedAlleleMatcher f_namedAlleleMatcher;
+  private final Reporter f_reporter;
   private Path m_outputDir;
   private boolean m_keepMatcherOutput = false;
   private boolean m_writeJsonReport = false;
@@ -44,7 +44,6 @@ public class PharmCAT {
         .addOption("f", "output-file", "the base name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "f")
         .addOption("a", "outside-call-file", "path to an outside call file (TSV)", false, "a")
         // optional data
-        .addOption("g", "guidelines-dir", "directory of guideline annotations (JSON files)", false, "n")
         .addOption("na", "alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
         // controls
         .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files")
@@ -62,10 +61,6 @@ public class PharmCAT {
         outsideCallPath = cliHelper.getPath("a");
       }
 
-      Path guidelinesDir = null;
-      if (cliHelper.hasOption("g")) {
-        guidelinesDir = cliHelper.getValidDirectory("g", false);
-      }
       Path definitionsDir = null;
       if (cliHelper.hasOption("na")) {
         definitionsDir = cliHelper.getValidDirectory("l", false);
@@ -116,9 +111,9 @@ public class PharmCAT {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionsDir);
 
-    m_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true)
+    f_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true)
         .printWarnings();
-    m_reporter = new Reporter();
+    f_reporter = new Reporter();
     setOutputDir(outputDir);
 
     sf_logger.info("Using alleles: {}", definitionsDir);
@@ -147,18 +142,18 @@ public class PharmCAT {
       callFile.toFile().deleteOnExit();
     }
 
-    Result result = m_namedAlleleMatcher.call(vcfFile);
+    Result result = f_namedAlleleMatcher.call(vcfFile);
     ResultSerializer resultSerializer = new ResultSerializer();
     resultSerializer.toJson(result, callFile);
     if (m_keepMatcherOutput) {
       resultSerializer.toHtml(result, m_outputDir.resolve(fileRoot + ".matcher.html"));
     }
 
-    m_reporter.analyze(callFile, outsideCallFile);
+    f_reporter.analyze(callFile, outsideCallFile);
 
     Path reportPath = m_outputDir.resolve(fileRoot + ".report.html");
     Path jsonPath = m_writeJsonReport ? m_outputDir.resolve(fileRoot + ".report.json") : null;
-    m_reporter.printHtml(reportPath, fileRoot, jsonPath);
+    f_reporter.printHtml(reportPath, fileRoot, jsonPath);
 
     if (!m_keepMatcherOutput) {
       FileUtils.deleteQuietly(callFile.toFile());
@@ -208,7 +203,7 @@ public class PharmCAT {
    * @return the current Reporter instance
    */
   public Reporter getReporter() {
-    return m_reporter;
+    return f_reporter;
   }
 
   /**
