@@ -226,15 +226,15 @@ public class DefinitionFile {
   }
 
 
+  public List<Set<String>> getVariantAlleles() {
+    return m_variantAlleles;
+  }
+
   /**
    * The expected alleles for {@link VariantLocus}'s used to define {@link NamedAllele}s in this translation.
    *
    * @throws IllegalStateException if m_variantAlleles have not been generated (using {@link #generateVariantAlleles()}
    */
-  public List<Set<String>> getVariantAlleles() {
-    return m_variantAlleles;
-  }
-
   public Set<String> getVariantAlleles(VariantLocus vl) {
     if (m_variantAllelesMap == null) {
       if (m_variantAlleles == null) {

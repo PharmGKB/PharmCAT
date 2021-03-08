@@ -126,7 +126,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
   }
 
   public String getAllele(VariantLocus variantLocus) {
-    Preconditions.checkState(m_alleleMap != null, "This NamedAllele has not been finalized()");
+    Preconditions.checkState(m_alleleMap != null, "This NamedAllele has not been initialized()");
     return m_alleleMap.get(variantLocus);
   }
 
