@@ -340,9 +340,11 @@ public class DefinitionFile {
 
     // remove ignored positions
     VariantLocus[] newPositions = new VariantLocus[m_variants.length - ignoredPositions.size()];
+    List<Set<String>> newVariantAlleles = new ArrayList<>();
     for (int x = 0, y = 0; x < m_variants.length; x += 1) {
       if (!ignoredPositions.contains(x)) {
         newPositions[y] = m_variants[x];
+        newVariantAlleles.add(m_variantAlleles.get(x));
         y += 1;
       }
     }
@@ -353,6 +355,7 @@ public class DefinitionFile {
 
     // update variants
     setVariants(newPositions);
+    m_variantAlleles = newVariantAlleles;
 
     List<NamedAllele> updatedNamedAlleles = new ArrayList<>();
     for (NamedAllele namedAllele : m_namedAlleles) {

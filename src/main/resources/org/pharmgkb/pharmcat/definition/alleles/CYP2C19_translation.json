@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Jan 27, 2021 09:23:58 AM",
+  "modificationDate": "Feb 25, 2021 02:13:05 PM",
   "gene": "CYP2C19",
   "orientation": null,
   "chromosome": "chr10",
@@ -502,12 +502,6 @@
       "A",
       "delGene",
       "G"
-    ],
-    [
-      "delGene",
-      "G",
-      "R",
-      "A"
     ],
     [
       "A",
