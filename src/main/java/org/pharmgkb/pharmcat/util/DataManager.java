@@ -181,6 +181,9 @@ public class DataManager {
       if (m_verbose) {
         System.out.println("Wrote " + jsonFile);
       }
+      if (!currentFiles.remove(gene + "_translation.json")) {
+        System.out.println("New gene: " + gene);
+      }
     }
 
     deleteObsoleteFiles(definitionsDir, currentFiles);
