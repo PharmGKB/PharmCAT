@@ -3,6 +3,7 @@
 __author__ = 'BinglanLi'
 
 import os
+from pathlib import Path
 import vcf_preprocess_utilities as Utilities
 
 def run(args):
@@ -12,6 +13,9 @@ def run(args):
     current_working_dir = os.getcwd()
     tabix_executable_path = args.path_to_tabix if args.path_to_tabix else 'tabix'
     bcftools_executable_path = args.path_to_bcftools if args.path_to_bcftools else 'bcftools'
+
+    # create the output folder if not existing
+    Path(args.output_folder).mkdir(parents=True, exist_ok=True)
 
     tmp_files_to_be_removed = []
 
