@@ -33,6 +33,9 @@ def run(args):
     tmp_files_to_be_removed.append(intermediate_vcf_renamed_chr)
 
     # merge the input VCF with the PGx position file provided by '--ref_pgx_vcf'
+    # index ref_pgx_vcf if not indexed
+    if not os.path.exists(args.ref_pgx_vcf + '.tbi'):
+        Utilities.tabix_index_vcf(tabix_executable_path, args.ref_pgx_vcf)
     # run this step to ensure the output VCF will have THE SAME VARIANT REPRESENTATION per PharmCAT's expectations
     intermediate_vcf_pgx_merged = os.path.join(args.output_folder, Utilities.obtain_vcf_file_prefix(intermediate_vcf_renamed_chr) + '.pgx_merged.vcf.gz')
     Utilities.merge_vcfs(bcftools_executable_path, intermediate_vcf_renamed_chr, args.ref_pgx_vcf, intermediate_vcf_pgx_merged)
