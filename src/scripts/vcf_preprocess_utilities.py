@@ -15,7 +15,7 @@ import tempfile
 def obtain_vcf_file_prefix(path):
     vcf_file_name = os.path.split(path)[1]
     if re.search('[.]vcf[.]gz$', vcf_file_name):
-        return re.search('(\w+)[.]vcf[.]gz$', vcf_file_name).group(1)
+        return re.search('(.+)[.]vcf[.]gz$', vcf_file_name).group(1)
     else:
         raise Exceptions.InappropriateVCFSuffix(path)
 
