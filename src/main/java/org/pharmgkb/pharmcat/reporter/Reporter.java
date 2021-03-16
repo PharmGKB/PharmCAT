@@ -40,7 +40,7 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 public class Reporter {
   private static final String FINAL_REPORT      = "report";
   private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
-  private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/reporter/messages.json";
+  private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/definition/messages.json";
 
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();

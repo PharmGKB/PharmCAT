@@ -24,12 +24,12 @@ public class PhenotypeMap {
   /**
    * public constructor, loads the data from a local file
    */
-  public PhenotypeMap() throws Exception {
+  public PhenotypeMap() {
     try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(FILE_NAME)))) {
       Gson gson = new Gson();
       m_genes = Arrays.asList(gson.fromJson(reader, GenePhenotype[].class));
     } catch (IOException e) {
-      throw new Exception("Error reading phenotype definitions", e);
+      throw new RuntimeException("Error reading phenotype definitions", e);
     }
   }
 

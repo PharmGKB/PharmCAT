@@ -10,6 +10,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -32,11 +34,23 @@ public class Diplotype implements Comparable<Diplotype> {
   private static final String sf_hetSuffix = " (heterozygous)";
   private static final String sf_homSuffix = " (homozygous)";
 
+  @Expose
+  @SerializedName("allele1")
   private final Haplotype m_allele1;
+  @Expose
+  @SerializedName("allele2")
   private final Haplotype m_allele2;
+  @Expose
+  @SerializedName("gene")
   private final String m_gene;
+  @Expose
+  @SerializedName("phenotype")
   private String m_phenotype;
+  @Expose
+  @SerializedName("variant")
   private VariantReport m_variant;
+  @Expose
+  @SerializedName("lookupKey")
   private String m_lookupKey;
 
   /**

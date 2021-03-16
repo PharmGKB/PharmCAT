@@ -11,27 +11,23 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
-import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
+import org.pharmgkb.pharmcat.genotype.GenotypeInterpretation;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
-import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
-import org.pharmgkb.pharmcat.util.DataManager;
 import org.pharmgkb.pharmcat.util.MessageMatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,10 +49,9 @@ import org.slf4j.LoggerFactory;
 public class ReportContext {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-  private final Map<String,GeneReport> m_geneReports = new TreeMap<>();
+  private final GenotypeInterpretation f_genotypeInterpretation;
   private final List<DrugReport> m_drugReports = new ArrayList<>();
   private final PhenotypeMap m_phenotypeMap;
-  private final Map<String,String> m_refAlleleForGene = new HashMap<>();
 
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
@@ -64,6 +59,7 @@ public class ReportContext {
    * @param outsideCalls {@link OutsideCall} objects, non-null but can be empty
    */
   public ReportContext(List<GeneCall> calls, List<OutsideCall> outsideCalls) throws Exception {
+    f_genotypeInterpretation = new GenotypeInterpretation(calls, outsideCalls);
     for (Drug drug : new DrugCollection()) {
       DrugReport drugReport = new DrugReport(drug);
 
@@ -75,16 +71,13 @@ public class ReportContext {
 
       // initialize any non-present drug reports
       for (String gene : drug.getGenes()) {
-        m_geneReports.putIfAbsent(gene, new GeneReport(gene));
+        if (!f_genotypeInterpretation.findGeneReport(gene).isPresent()) {
+          f_genotypeInterpretation.addGeneReport(gene);
+        }
       }
     }
 
-    loadReferenceAlleleNames();
-
     m_phenotypeMap = new PhenotypeMap();
-
-    compileMatcherData(calls);
-    compileOutsideCallData(outsideCalls);
 
     findMatches();
 
@@ -98,50 +91,7 @@ public class ReportContext {
   public void applyMessage(List<MessageAnnotation> messages) {
     MessageMatcher messageMatcher = new MessageMatcher(messages, this);
 
-    m_geneReports.values().forEach(r -> r.addMessages(messageMatcher.match(r)));
     m_drugReports.forEach(r -> r.addMessages(messageMatcher.match(r)));
-  }
-
-  /**
-   * Takes {@link GeneCall} data and preps internal data structures for usage. Also prepares exception logic and applies
-   * it to the calling data
-   */
-  private void compileMatcherData(List<GeneCall> calls) throws Exception {
-    for (GeneCall call : calls) {
-      GeneReport geneReport = new GeneReport(call.getGene());
-      geneReport.setCallData(call);
-      m_geneReports.put(call.getGene(), geneReport);
-
-      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
-          call.getGene(),
-          m_phenotypeMap.lookup(call.getGene()).orElse(null),
-          m_refAlleleForGene.get(call.getGene()));
-      geneReport.setDiplotypes(diplotypeFactory, call);
-    }
-  }
-
-  /**
-   * Takes outside calls, find the GeneReport for each one and then adds call information to it
-   * @param calls outside calls
-   */
-  private void compileOutsideCallData(List<OutsideCall> calls) {
-    for (OutsideCall outsideCall : calls) {
-      GeneReport geneReport = getGeneReport(outsideCall.getGene());
-      if (geneReport.isOutsideCall()) {
-        throw new ParseException("Duplicate outside call found for " + geneReport.getGene());
-      }
-      if (geneReport.getCallSource() == CallSource.MATCHER && geneReport.isCalled()) {
-        throw new ParseException("Cannot specify outside call for " + geneReport.getGene() + " since it's already in sample data");
-      }
-
-      geneReport.setOutsideCallData();
-
-      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
-          outsideCall.getGene(),
-          m_phenotypeMap.lookup(outsideCall.getGene()).orElse(null),
-          m_refAlleleForGene.get(outsideCall.getGene()));
-      geneReport.setDiplotypes(diplotypeFactory, outsideCall);
-    }
   }
 
   /**
@@ -182,18 +132,6 @@ public class ReportContext {
 
       makeAllReportGenotypes(drugReport);
     }
-  }
-
-  /**
-   *
-   */
-  private void loadReferenceAlleleNames() throws IOException {
-    m_refAlleleForGene.put("CYP2D6", "*1");
-
-    DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
-    definitionReader.getGenes()
-        .forEach(g -> m_refAlleleForGene.put(g, definitionReader.getHaplotypes(g).get(0).getName()));
   }
 
   /**
@@ -245,12 +183,14 @@ public class ReportContext {
   }
 
   public Collection<GeneReport> getGeneReports() {
-    return m_geneReports.values();
+    return f_genotypeInterpretation.getGeneReports();
   }
 
   @Nonnull
   public GeneReport getGeneReport(String geneSymbol) {
-    return m_geneReports.get(geneSymbol);
+    return f_genotypeInterpretation
+        .findGeneReport(geneSymbol)
+        .orElseThrow(() -> new RuntimeException("No gene exists for " + geneSymbol));
   }
 
   /**
@@ -271,7 +211,7 @@ public class ReportContext {
     // Genotypes section
     List<Map<String,Object>> genotypes = new ArrayList<>();
     int calledGenes = 0;
-    for (GeneReport geneReport : getGeneReports()) {
+    for (GeneReport geneReport : f_genotypeInterpretation.getGeneReports()) {
       String symbol = geneReport.getGene();
 
       // skip any genes on the blacklist
@@ -339,7 +279,7 @@ public class ReportContext {
         geneCallList.add(geneCall);
       }
       for (String variant : guideline.getReportVariants()) {
-        String call = getGeneReports().stream()
+        String call = f_genotypeInterpretation.getGeneReports().stream()
             .flatMap(g -> Stream.concat(g.getVariantReports().stream(), g.getVariantOfInterestReports().stream()))
             .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(variant) && !v.isMissing())
             .map(VariantReport::getCall)
@@ -425,7 +365,7 @@ public class ReportContext {
     // Gene calls
 
     List<Map<String,Object>> geneCallList = new ArrayList<>();
-    for (GeneReport geneReport : getGeneReports()) {
+    for (GeneReport geneReport : f_genotypeInterpretation.getGeneReports()) {
       if (geneReport.isIgnored()) {
         continue;
       }

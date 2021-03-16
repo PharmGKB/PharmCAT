@@ -58,7 +58,7 @@ public class ResultSerializer {
   public ResultSerializer toJson(Result result, Path jsonFile) throws IOException {
     Preconditions.checkNotNull(result);
     Preconditions.checkNotNull(jsonFile);
-    Preconditions.checkArgument(jsonFile.toString().endsWith(".json"));
+    Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Output JSON file needs to end in '.json'");
 
     try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
       writer.write(sf_gson.toJson(result));

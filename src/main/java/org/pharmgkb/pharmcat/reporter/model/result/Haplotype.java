@@ -1,5 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -13,9 +15,17 @@ import org.pharmgkb.common.comparator.HaplotypeNameComparator;
  */
 public class Haplotype implements Comparable<Haplotype> {
 
+  @Expose
+  @SerializedName("gene")
   private final String f_gene;
+  @Expose
+  @SerializedName("name")
   private final String f_name;
+  @Expose
+  @SerializedName("function")
   private String m_function;
+  @Expose
+  @SerializedName("reference")
   private boolean m_reference = false;
 
   /**

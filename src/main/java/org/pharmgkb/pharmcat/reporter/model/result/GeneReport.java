@@ -12,6 +12,8 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
@@ -37,17 +39,37 @@ public class GeneReport implements Comparable<GeneReport> {
   private static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
 
+  @Expose
+  @SerializedName("geneSymbol")
   private final String f_gene;
+  @Expose
+  @SerializedName("chr")
   private String m_chr;
+  @Expose
+  @SerializedName("phased")
   private boolean m_phased = false;
-  private CallSource m_callSource = CallSource.NONE;
+  @Expose
+  @SerializedName("callSource")
+  private final CallSource f_callSource;
+  @Expose
+  @SerializedName("uncalledHaplotypes")
   private final SortedSet<String> m_uncalledHaplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
+  @Expose
+  @SerializedName("messages")
   private final List<MessageAnnotation> m_messages = new ArrayList<>();
   private final List<DrugLink> m_relatedDrugs = new ArrayList<>();
   private final List<Diplotype> m_matcherDiplotypes = new ArrayList<>();
+  @Expose
+  @SerializedName("diplotypes")
   private final List<Diplotype> m_reporterDiplotypes = new ArrayList<>();
+  @Expose
+  @SerializedName("variants")
   private final List<VariantReport> m_variantReports = new ArrayList<>();
+  @Expose
+  @SerializedName("variantsOfInterest")
   private final List<VariantReport> m_variantOfInterestReports = new ArrayList<>();
+  @Expose
+  @SerializedName("highlightedVariants")
   private final List<String> m_highlightedVariants = new ArrayList<>();
 
   /**
@@ -55,38 +77,38 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public GeneReport(String geneSymbol) {
     f_gene = geneSymbol;
+    f_callSource = CallSource.NONE;
   }
 
-  /**
-   * Sets data in this report based on data found in a {@link GeneCall}
-   * @param call a {@link GeneCall} that has been made by the {@link NamedAlleleMatcher}
-   */
-  public void setCallData(GeneCall call) throws IOException {
-    m_chr = call.getChromosome();
-    m_uncalledHaplotypes.clear();
-    m_uncalledHaplotypes.addAll(call.getUncallableHaplotypes());
-    m_phased = call.isPhased();
-    m_callSource = CallSource.MATCHER;
+  public GeneReport(GeneCall call) {
+    f_gene = call.getGene();
+    f_callSource = CallSource.MATCHER;
+    try {
+      m_chr = call.getChromosome();
+      m_uncalledHaplotypes.clear();
+      m_uncalledHaplotypes.addAll(call.getUncallableHaplotypes());
+      m_phased = call.isPhased();
 
-    VariantReportFactory variantReportFactory = new VariantReportFactory(f_gene, m_chr);
-    call.getVariants().stream()
-        .map(variantReportFactory::make).forEach(m_variantReports::add);
-    call.getMatchData().getMissingPositions().stream()
-        .map(variantReportFactory::make).forEach(m_variantReports::add);
-    call.getVariantsOfInterest().stream()
-        .map(variantReportFactory::make).forEach(m_variantOfInterestReports::add);
+      VariantReportFactory variantReportFactory = new VariantReportFactory(f_gene, m_chr);
+      call.getVariants().stream()
+          .map(variantReportFactory::make).forEach(m_variantReports::add);
+      call.getMatchData().getMissingPositions().stream()
+          .map(variantReportFactory::make).forEach(m_variantReports::add);
+      call.getVariantsOfInterest().stream()
+          .map(variantReportFactory::make).forEach(m_variantOfInterestReports::add);
 
-    // set the flag in reports for the variants with mismatched alleles
-    call.getMatchData().getMismatchedPositions().stream()
-        .flatMap(a -> m_variantReports.stream().filter(v -> v.getPosition() == a.getPosition()))
-        .forEach(r -> r.setMismatch(true));
+      // set the flag in reports for the variants with mismatched alleles
+      call.getMatchData().getMismatchedPositions().stream()
+          .flatMap(a -> m_variantReports.stream().filter(v -> v.getPosition() == a.getPosition()))
+          .forEach(r -> r.setMismatch(true));
+    } catch (IOException ex) {
+      throw new RuntimeException("Could not start a gene report", ex);
+    }
   }
 
-  /**
-   * Sets data in this report based on data found in a {@link OutsideCall}
-   */
-  public void setOutsideCallData() {
-    m_callSource = CallSource.OUTSIDE;
+  public GeneReport(OutsideCall call) {
+    f_gene = call.getGene();
+    f_callSource = CallSource.OUTSIDE;
   }
 
   public void setDiplotypes(DiplotypeFactory diplotypeFactory, GeneCall geneCall) {
@@ -228,11 +250,11 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if the genotyping data in the report comes from outside PharmCAT, false if match is made by PharmCAT
    */
   public boolean isOutsideCall() {
-    return m_callSource == CallSource.OUTSIDE;
+    return f_callSource == CallSource.OUTSIDE;
   }
 
   public CallSource getCallSource() {
-    return m_callSource;
+    return f_callSource;
   }
 
   /**

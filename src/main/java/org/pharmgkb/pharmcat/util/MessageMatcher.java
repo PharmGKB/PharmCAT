@@ -34,50 +34,12 @@ public class MessageMatcher {
   }
 
   @Nonnull
-  public List<MessageAnnotation> match(GeneReport gene) {
-    if (!gene.isCalled()) {
-      // puposely don't apply any messages if the gene is not called
-      return ImmutableList.of();
-    }
-
-    return m_messages.stream()
-        .filter(m -> match(m.getMatches(), gene))
-        .collect(Collectors.toList());
-  }
-
-  @Nonnull
   public List<MessageAnnotation> match(DrugReport guideline) {
     return m_messages.stream()
         .filter(m -> match(m.getMatches(), guideline))
         .collect(Collectors.toList());
   }
 
-
-
-  public static boolean match(MatchLogic match, GeneReport gene) {
-
-    boolean criteriaPass = !match.getGene().isEmpty() && match.getGene().equals(gene.getGene());
-
-    if (criteriaPass && !match.getHapsCalled().isEmpty()) {
-      criteriaPass = match.getHapsCalled().stream().anyMatch(h -> gene.getMatcherDiplotypes().stream().anyMatch(d -> d.hasAllele(h)));
-    }
-
-    if (criteriaPass && !match.getHapsMissing().isEmpty()) {
-      criteriaPass = match.getHapsMissing().isEmpty()
-          || match.getHapsMissing().stream().allMatch(h -> gene.getUncalledHaplotypes().contains(h));
-    }
-
-    if (criteriaPass && !match.getDips().isEmpty()) {
-      criteriaPass = match.getDips().stream().allMatch(d -> gene.getMatcherDiplotypes().stream().anyMatch(e -> e.printBare().equals(d)));
-    }
-
-    if (criteriaPass && !match.getVariantsMissing().isEmpty()) {
-      criteriaPass = match.getVariantsMissing().stream().allMatch(v -> gene.getVariantReports().isEmpty() || gene.getVariantReports().stream()
-          .anyMatch(a -> a.getDbSnpId() != null && a.getDbSnpId().equals(v) && a.isMissing()));
-    }
-
-    return criteriaPass;
-  }
 
   public boolean match(MatchLogic match, DrugReport report) {
 
