@@ -370,7 +370,10 @@ public class DefinitionFile {
           y += 1;
         }
       }
-      updatedNamedAlleles.add(new NamedAllele(namedAllele.getId(), namedAllele.getName(), alleles));
+      // if there's nothing left that differs from reference allele then don't include the allele in output
+      if (!Arrays.stream(alleles).allMatch(Objects::isNull)) {
+        updatedNamedAlleles.add(new NamedAllele(namedAllele.getId(), namedAllele.getName(), alleles, namedAllele.isReference()));
+      }
     }
     setNamedAlleles(updatedNamedAlleles);
   }
