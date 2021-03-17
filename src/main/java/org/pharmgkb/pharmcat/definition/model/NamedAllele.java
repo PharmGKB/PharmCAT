@@ -36,6 +36,9 @@ public class NamedAllele implements Comparable<NamedAllele> {
   @Expose
   @SerializedName("populationFrequency")
   private Map<String,String> m_popFreqMap;
+  @Expose
+  @SerializedName("reference")
+  private boolean m_reference;
   //-- variables after this point are used by NamedAlleleMatcher --//
   /** The set of positions that are missing from this copy of the NamedAllele **/
   private SortedSet<VariantLocus> m_missingPositions;
@@ -49,15 +52,15 @@ public class NamedAllele implements Comparable<NamedAllele> {
    * Primary constructor.
    * Use this when reading in allele definitions.
    */
-  public NamedAllele(String id, String name, String[] alleles) {
-    this(id, name, alleles, Collections.emptySortedSet());
+  public NamedAllele(String id, String name, String[] alleles, boolean reference) {
+    this(id, name, alleles, Collections.emptySortedSet(), reference);
   }
 
   /**
    * Constructor for duplicating/modifying a {@link NamedAllele}.
    */
   public NamedAllele(String id, String name, String[] alleles,
-      SortedSet<VariantLocus> missingPositions) {
+      SortedSet<VariantLocus> missingPositions, boolean reference) {
     Preconditions.checkNotNull(id);
     Preconditions.checkNotNull(name);
     Preconditions.checkNotNull(alleles);
@@ -66,6 +69,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
     m_name = name;
     m_alleles = alleles;
     m_missingPositions = missingPositions;
+    m_reference = reference;
   }
 
 
@@ -113,6 +117,10 @@ public class NamedAllele implements Comparable<NamedAllele> {
    */
   public String getId() {
     return m_id;
+  }
+
+  public boolean isReference() {
+    return m_reference;
   }
 
 

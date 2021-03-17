@@ -50,16 +50,16 @@ class DiplotypeMatcherTest {
     s_positions = new VariantLocus[] { var1, var2, var3 };
 
     // initialize test haplotypes
-    NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "A", "C", "C" });
+    NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "A", "C", "C" }, true);
     hap1.initialize(s_positions);
 
-    NamedAllele hap2 = new NamedAllele("*4a", "*4a", new String[] { "G", null, null });
+    NamedAllele hap2 = new NamedAllele("*4a", "*4a", new String[] { "G", null, null }, false);
     hap2.initialize(s_positions);
 
-    NamedAllele hap3 = new NamedAllele("*4b", "*4b", new String[] { "G", "T", "T" });
+    NamedAllele hap3 = new NamedAllele("*4b", "*4b", new String[] { "G", "T", "T" }, false);
     hap3.initialize(s_positions);
 
-    NamedAllele hap4 = new NamedAllele("*17", "*17", new String[] { null, "T", "T" });
+    NamedAllele hap4 = new NamedAllele("*17", "*17", new String[] { null, "T", "T" }, false);
     hap4.initialize(s_positions);
 
     s_haplotypes = Lists.newArrayList(hap1, hap2, hap3, hap4);
@@ -190,13 +190,13 @@ class DiplotypeMatcherTest {
     VariantLocus var4 = new VariantLocus("chr1", 4, "g.3T>A");
     VariantLocus[] variants = new VariantLocus[] { var1, var2, var3, var4 };
 
-    NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "T", "A", "C", "C" });
+    NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "T", "A", "C", "C" }, true);
     hap1.initialize(variants);
 
-    NamedAllele hap2 = new NamedAllele("*2", "*2", new String[] { null, "T", "C", null });
+    NamedAllele hap2 = new NamedAllele("*2", "*2", new String[] { null, "T", "C", null }, false);
     hap2.initialize(variants);
 
-    NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { null, null, "GG", null });
+    NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { null, null, "GG", null }, false);
     hap3.initialize(variants);
 
     Set<String> permutations = Sets.newHashSet(

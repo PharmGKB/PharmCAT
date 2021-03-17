@@ -130,7 +130,7 @@ public class MatchData {
             .filter(l -> hap.getAllele(l) != null)
             .collect(Collectors.toCollection(TreeSet::new));
 
-        NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles, missingPositions);
+        NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles, missingPositions, hap.isReference());
         newHap.setPopFreqMap(hap.getPopFreqMap());
         newHap.initialize(m_positions);
         if (newHap.getScore() > 0) {
@@ -168,7 +168,7 @@ public class MatchData {
         }
       }
 
-      NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles, hap.getMissingPositions());
+      NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles, hap.getMissingPositions(), hap.isReference());
       fixedHap.setPopFreqMap(hap.getPopFreqMap());
       fixedHap.initialize(m_positions, hap.getScore());
       updatedHaplotypes.add(fixedHap);

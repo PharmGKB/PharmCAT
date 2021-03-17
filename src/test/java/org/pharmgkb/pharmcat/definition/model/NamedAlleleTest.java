@@ -26,17 +26,17 @@ class NamedAlleleTest {
     VariantLocus[] variants = new VariantLocus[] { var1, var2, var3, var4 };
 
 
-    NamedAllele ref = new NamedAllele("*1", "*1", new String[] { "T", "A", "G", "C" });
+    NamedAllele ref = new NamedAllele("*1", "*1", new String[] { "T", "A", "G", "C" }, true);
     ref.initialize(variants);
 
-    NamedAllele hap2 = new NamedAllele("*2", "*2", new String[] { "C", "T", null, null });
+    NamedAllele hap2 = new NamedAllele("*2", "*2", new String[] { "C", "T", null, null }, false);
     hap2.initialize(variants);
 
-    NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { "C", null, null, "Y" });
+    NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { "C", null, null, "Y" }, false);
     hap3.initialize(variants);
 
     // permutations should be consistent even if positions are out-of-order
-    NamedAllele hap4 = new NamedAllele("*4", "*4", new String[] { "Y", null, null, "C" });
+    NamedAllele hap4 = new NamedAllele("*4", "*4", new String[] { "Y", null, null, "C" }, false);
     Arrays.sort(variants, Collections.reverseOrder());
     hap4.initialize(variants);
 
