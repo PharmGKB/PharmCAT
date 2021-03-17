@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
@@ -48,6 +49,7 @@ import org.slf4j.LoggerFactory;
  */
 public class ReportContext {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final Predicate<String> hasValue = (value) -> StringUtils.isNotBlank(value) && !value.equalsIgnoreCase("n/a");
 
   private final GenotypeInterpretation f_genotypeInterpretation;
   private final List<DrugReport> m_drugReports = new ArrayList<>();
@@ -338,18 +340,21 @@ public class ReportContext {
           }
           for (String geneSymbol : recommendation.getActivityScore().keySet()) {
             String score = recommendation.getActivityScore().get(geneSymbol);
-            if (score != null && !score.equalsIgnoreCase("n/a")) {
+            if (hasValue.test(score)) {
               annotationList.add(makeAnnotation("Activity Score for " + geneSymbol, score));
             }
           }
           for (String geneSymbol : recommendation.getAlleleStatus().keySet()) {
             String status = recommendation.getAlleleStatus().get(geneSymbol);
-            if (status != null && !status.equalsIgnoreCase("n/a")) {
+            if (hasValue.test(status)) {
               annotationList.add(makeAnnotation("Allele Status for " + geneSymbol, status));
             }
           }
           annotationList.add(makeAnnotation("Recommendation", recommendation.getDrugRecommendation()));
           annotationList.add(makeAnnotation("Classification of Recommendation", recommendation.getClassification()));
+          if (hasValue.test(recommendation.getComments())) {
+            annotationList.add(makeAnnotation("Comments", recommendation.getComments()));
+          }
           groupData.put("annotations", annotationList);
           groupList.add(groupData);
         }
