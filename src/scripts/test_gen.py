@@ -401,6 +401,8 @@ if False: # old CSV format, for initial manual inspection
 basepath = sys.argv[2]
 if not os.path.exists(basepath):
     os.makedirs(basepath)
+print("Writing files...")
+numFiles = 0;
 for matches1,matches2 in itertools.combinations_with_replacement(sorted(matchesTests.keys()), 2):
     if len(matches1) != 1: # always put uncallable haplotypes second
         matches1,matches2 = matches2,matches1
@@ -412,6 +414,7 @@ for matches1,matches2 in itertools.combinations_with_replacement(sorted(matchesT
             (("noCall%s" % (".".join(str(m) for m in sorted(matches2)))) if (len(matches2) != 1) else namedalleles[next(iter(matches2))]['name'].replace('*','s')),
     )))
     with open(outPath,'w') as outFile:
+        numFiles += 1
         # write meta-info header
         outFile.write("##fileformat=VCFv4.3\n")
         outFile.write("##fileDate=%s\n" % (datetime.date.today().strftime("%Y%m%d"), ))
@@ -465,3 +468,4 @@ for matches1,matches2 in itertools.combinations_with_replacement(sorted(matchesT
         #for variant
     #with outFile
 #for matches1,matches2
+print(f"Done: {numFiles} files")
