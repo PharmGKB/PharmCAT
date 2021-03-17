@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Jan 27, 2021 09:24:06 AM",
+  "modificationDate": "Mar 17, 2021 03:57:13 PM",
   "gene": "UGT1A1",
   "orientation": null,
   "chromosome": "chr2",
@@ -102,7 +102,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "521561",
+      "id": "574177",
       "alleles": [
         "T",
         "C",
@@ -110,11 +110,12 @@
         "G",
         "C"
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": true
     },
     {
       "name": "*27",
-      "id": "521565",
+      "id": "574181",
       "alleles": [
         null,
         null,
@@ -122,11 +123,12 @@
         null,
         "A"
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*28",
-      "id": "521567",
+      "id": "574183",
       "alleles": [
         null,
         null,
@@ -134,11 +136,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*36",
-      "id": "521569",
+      "id": "574185",
       "alleles": [
         null,
         null,
@@ -146,11 +149,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*37",
-      "id": "521571",
+      "id": "574187",
       "alleles": [
         null,
         null,
@@ -158,11 +162,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*6",
-      "id": "521563",
+      "id": "574179",
       "alleles": [
         null,
         null,
@@ -170,11 +175,12 @@
         "A",
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*80",
-      "id": "521573",
+      "id": "574189",
       "alleles": [
         null,
         "T",
@@ -182,11 +188,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*80+*28",
-      "id": "521575",
+      "id": "574191",
       "alleles": [
         null,
         "T",
@@ -194,11 +201,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*80+*37",
-      "id": "521577",
+      "id": "574193",
       "alleles": [
         null,
         "T",
@@ -206,7 +214,8 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Jan 27, 2021 09:24:02 AM",
+  "modificationDate": "Mar 17, 2021 03:57:08 PM",
   "gene": "CYP3A5",
   "orientation": null,
   "chromosome": "chr7",
@@ -148,7 +148,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "520288",
+      "id": "572906",
       "alleles": [
         "G",
         "del",
@@ -159,11 +159,12 @@
         "T",
         "G"
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": true
     },
     {
       "name": "*2",
-      "id": "520290",
+      "id": "572908",
       "alleles": [
         "T",
         null,
@@ -174,11 +175,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*3",
-      "id": "520292",
+      "id": "572910",
       "alleles": [
         "K",
         null,
@@ -189,11 +191,12 @@
         "C",
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*4",
-      "id": "520294",
+      "id": "572912",
       "alleles": [
         null,
         null,
@@ -204,11 +207,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*5",
-      "id": "520296",
+      "id": "572914",
       "alleles": [
         null,
         null,
@@ -219,11 +223,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*6",
-      "id": "520298",
+      "id": "572916",
       "alleles": [
         null,
         null,
@@ -234,11 +239,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*7",
-      "id": "520300",
+      "id": "572918",
       "alleles": [
         null,
         "insA",
@@ -249,11 +255,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*8",
-      "id": "520302",
+      "id": "572920",
       "alleles": [
         null,
         null,
@@ -264,11 +271,12 @@
         null,
         "A"
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*9",
-      "id": "520304",
+      "id": "572922",
       "alleles": [
         null,
         null,
@@ -279,7 +287,8 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     }
   ]
 }

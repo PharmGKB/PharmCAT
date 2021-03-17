@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Jan 27, 2021 09:23:57 AM",
+  "modificationDate": "Mar 17, 2021 03:57:03 PM",
   "gene": "CFTR",
   "orientation": null,
   "chromosome": "chr7",
@@ -607,7 +607,7 @@
   "namedAlleles": [
     {
       "name": "ivacaftor non-responsive CFTR sequence",
-      "id": "519379",
+      "id": "571998",
       "alleles": [
         "G",
         "C",
@@ -649,11 +649,12 @@
         "G",
         "G"
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": true
     },
     {
       "name": "2789+5G->A",
-      "id": "519381",
+      "id": "572000",
       "alleles": [
         null,
         null,
@@ -695,11 +696,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "3272-26A->G",
-      "id": "519383",
+      "id": "572002",
       "alleles": [
         null,
         null,
@@ -741,11 +743,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "3849+10kbC->T",
-      "id": "519385",
+      "id": "572004",
       "alleles": [
         null,
         null,
@@ -787,11 +790,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "711+3A->G",
-      "id": "519387",
+      "id": "572006",
       "alleles": [
         null,
         null,
@@ -833,11 +837,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "A1067T",
-      "id": "519389",
+      "id": "572008",
       "alleles": [
         null,
         null,
@@ -879,11 +884,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "A455E",
-      "id": "519391",
+      "id": "572010",
       "alleles": [
         null,
         null,
@@ -925,11 +931,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "D110E",
-      "id": "519393",
+      "id": "572012",
       "alleles": [
         null,
         null,
@@ -971,11 +978,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "D110H",
-      "id": "519395",
+      "id": "572014",
       "alleles": [
         null,
         null,
@@ -1017,11 +1025,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "D1152H",
-      "id": "519397",
+      "id": "572016",
       "alleles": [
         null,
         null,
@@ -1063,11 +1072,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "D1270N",
-      "id": "519399",
+      "id": "572018",
       "alleles": [
         null,
         null,
@@ -1109,11 +1119,12 @@
         "A",
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "D579G",
-      "id": "519401",
+      "id": "572020",
       "alleles": [
         null,
         null,
@@ -1155,11 +1166,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "E193K",
-      "id": "519403",
+      "id": "572022",
       "alleles": [
         null,
         null,
@@ -1201,11 +1213,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "E56K",
-      "id": "519405",
+      "id": "572024",
       "alleles": [
         "A",
         null,
@@ -1247,11 +1260,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "E831X",
-      "id": "519407",
+      "id": "572026",
       "alleles": [
         null,
         null,
@@ -1293,11 +1307,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "F1052V",
-      "id": "519409",
+      "id": "572028",
       "alleles": [
         null,
         null,
@@ -1339,11 +1354,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "F1074L",
-      "id": "519411",
+      "id": "572030",
       "alleles": [
         null,
         null,
@@ -1385,11 +1401,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "G1069R",
-      "id": "519413",
+      "id": "572032",
       "alleles": [
         null,
         null,
@@ -1431,11 +1448,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "G1244E",
-      "id": "519415",
+      "id": "572034",
       "alleles": [
         null,
         null,
@@ -1477,11 +1495,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "G1349D",
-      "id": "519417",
+      "id": "572036",
       "alleles": [
         null,
         null,
@@ -1523,11 +1542,12 @@
         null,
         "A"
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "G178R",
-      "id": "519419",
+      "id": "572038",
       "alleles": [
         null,
         null,
@@ -1569,11 +1589,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "G551D",
-      "id": "519421",
+      "id": "572040",
       "alleles": [
         null,
         null,
@@ -1615,11 +1636,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "G551S",
-      "id": "519423",
+      "id": "572042",
       "alleles": [
         null,
         null,
@@ -1661,11 +1683,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "K1060T",
-      "id": "519425",
+      "id": "572044",
       "alleles": [
         null,
         null,
@@ -1707,11 +1730,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "L206W",
-      "id": "519427",
+      "id": "572046",
       "alleles": [
         null,
         null,
@@ -1753,11 +1777,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "P67L",
-      "id": "519429",
+      "id": "572048",
       "alleles": [
         null,
         "T",
@@ -1799,11 +1824,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "R1070Q",
-      "id": "519431",
+      "id": "572050",
       "alleles": [
         null,
         null,
@@ -1845,11 +1871,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "R1070W",
-      "id": "519433",
+      "id": "572052",
       "alleles": [
         null,
         null,
@@ -1891,11 +1918,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "R117C",
-      "id": "519435",
+      "id": "572054",
       "alleles": [
         null,
         null,
@@ -1937,11 +1965,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "R117H",
-      "id": "519437",
+      "id": "572056",
       "alleles": [
         null,
         null,
@@ -1983,11 +2012,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "R347H",
-      "id": "519439",
+      "id": "572058",
       "alleles": [
         null,
         null,
@@ -2029,11 +2059,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "R352Q",
-      "id": "519441",
+      "id": "572060",
       "alleles": [
         null,
         null,
@@ -2075,11 +2106,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "R74W",
-      "id": "519443",
+      "id": "572062",
       "alleles": [
         null,
         null,
@@ -2121,11 +2153,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "S1251N",
-      "id": "519445",
+      "id": "572064",
       "alleles": [
         null,
         null,
@@ -2167,11 +2200,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "S1255P",
-      "id": "519447",
+      "id": "572066",
       "alleles": [
         null,
         null,
@@ -2213,11 +2247,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "S549N",
-      "id": "519449",
+      "id": "572068",
       "alleles": [
         null,
         null,
@@ -2259,11 +2294,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "S549R(A>C)",
-      "id": "519451",
+      "id": "572070",
       "alleles": [
         null,
         null,
@@ -2305,11 +2341,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "S549R(T>G)",
-      "id": "519453",
+      "id": "572072",
       "alleles": [
         null,
         null,
@@ -2351,11 +2388,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "S945L",
-      "id": "519455",
+      "id": "572074",
       "alleles": [
         null,
         null,
@@ -2397,11 +2435,12 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "S977F",
-      "id": "519457",
+      "id": "572076",
       "alleles": [
         null,
         null,
@@ -2443,7 +2482,8 @@
         null,
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     }
   ]
 }

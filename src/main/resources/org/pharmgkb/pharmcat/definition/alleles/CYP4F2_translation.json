@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Jan 27, 2021 09:24:02 AM",
+  "modificationDate": "Mar 17, 2021 03:57:08 PM",
   "gene": "CYP4F2",
   "orientation": null,
   "chromosome": "chr19",
@@ -52,30 +52,33 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "520308",
+      "id": "572926",
       "alleles": [
         "C",
         "A"
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": true
     },
     {
       "name": "*2",
-      "id": "520310",
+      "id": "572928",
       "alleles": [
         null,
         "C"
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     },
     {
       "name": "*3",
-      "id": "520312",
+      "id": "572930",
       "alleles": [
         "T",
         null
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     }
   ]
 }

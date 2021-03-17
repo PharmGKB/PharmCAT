@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Jan 27, 2021 09:24:07 AM",
+  "modificationDate": "Mar 17, 2021 03:57:14 PM",
   "gene": "VKORC1",
   "orientation": null,
   "chromosome": "chr16",
@@ -35,19 +35,21 @@
   "namedAlleles": [
     {
       "name": "rs9923231 reference (C)",
-      "id": "521580",
+      "id": "574196",
       "alleles": [
         "C"
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": true
     },
     {
       "name": "rs9923231 variant (T)",
-      "id": "521582",
+      "id": "574198",
       "alleles": [
         "T"
       ],
-      "populationFrequency": null
+      "populationFrequency": null,
+      "reference": false
     }
   ]
 }
