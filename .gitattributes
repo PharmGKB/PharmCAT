@@ -44,7 +44,7 @@ gradlew          text eol=lf
 *.pem            text
 *.pm             text diff=perl
 *.properties     text
-*.py             text diff=python
+*.py             text eol=lf diff=python
 *.rb             text diff=ruby
 *.scss           text
 *.sh             text eol=lf
