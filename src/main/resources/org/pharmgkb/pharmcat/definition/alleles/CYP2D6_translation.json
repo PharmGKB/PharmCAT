@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Mar 17, 2021 03:57:07 PM",
+  "modificationDate": "Mar 17, 2021 07:03:03 PM",
   "gene": "CYP2D6",
   "orientation": null,
   "chromosome": "chr22",
@@ -1404,647 +1404,522 @@
   "variantAlleles": [
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "G",
       "S"
     ],
     [
       "C",
-      "delGene",
       "G",
       "S"
     ],
     [
       "C",
-      "delGene",
       "T",
       "Y"
     ],
     [
       "A",
       "C",
-      "delGene",
       "M"
     ],
     [
       "C",
-      "delGene",
       "G",
       "S"
     ],
     [
       "A",
-      "C",
-      "delGene"
+      "C"
     ],
     [
-      "delGene",
       "G",
       "K",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G",
       "R"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "del",
-      "delGene",
       "insAGTGGGCAC"
     ],
     [
       "C",
-      "delGene",
       "T",
       "Y"
     ],
     [
       "C",
-      "delGene",
       "G",
       "S"
     ],
     [
       "C",
-      "delGene",
       "G"
     ],
     [
-      "delGene",
       "G",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
-      "T"
-    ],
-    [
-      "A",
-      "delGene",
-      "G"
-    ],
-    [
-      "A",
-      "delGene",
-      "G"
-    ],
-    [
-      "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
+      "G"
+    ],
+    [
+      "A",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
-      "delGene",
+      "A",
+      "G"
+    ],
+    [
+      "C",
+      "T"
+    ],
+    [
       "G",
       "T"
     ],
     [
       "delGA",
-      "delGene",
       "GA"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T",
       "Y"
     ],
     [
       "del",
-      "delGene",
       "insAC"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
-      "delGene",
       "G",
       "T"
     ],
     [
       "C",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "G"
     ],
     [
       "CACATCCGGATGTAGGATC",
-      "delCACATCCGGATGTAGGATC",
-      "delGene"
+      "delCACATCCGGATGTAGGATC"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
-      "delGene",
       "G",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
-      "delGene",
       "G",
       "T"
     ],
     [
       "R",
-      "delGene",
       "G",
       "A"
     ],
     [
       "delG",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "CTT",
-      "delCTT",
-      "delGene"
+      "delCTT"
     ],
     [
       "A",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "AGTC",
-      "delAGTC",
-      "delGene"
+      "delAGTC"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
-      "delGene",
       "G",
       "T"
     ],
     [
       "del",
-      "delGene",
       "insG"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
-      "delGene",
       "delT",
       "T"
     ],
     [
       "AGTT",
-      "delAGTT",
-      "delGene"
+      "delAGTT"
     ],
     [
-      "delGene",
       "G",
       "T"
     ],
     [
       "A",
-      "C",
-      "delGene"
+      "C"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "delG",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "del",
-      "delGene",
       "insC"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "C",
-      "delGene"
+      "C"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "del",
-      "delGene",
       "insTA"
     ],
     [
       "del",
-      "delGene",
       "insGGGGCGAAA",
       "insGGGGCGAAAGGGGCGAAA"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "C",
-      "delGene"
+      "C"
     ],
     [
       "C",
-      "delGene",
       "T",
       "Y"
     ],
     [
       "C",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T",
       "Y"
     ],
     [
       "A",
-      "delA",
-      "delGene"
+      "delA"
     ],
     [
       "C",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "C",
-      "delGene"
+      "C"
     ],
     [
       "A",
-      "C",
-      "delGene"
+      "C"
     ],
     [
       "A",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G",
       "T"
     ],
     [
       "A",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T",
       "Y"
     ],
     [
-      "delGene",
       "G",
       "K",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "C",
-      "delGene"
+      "C"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "G"
     ],
     [
       "del",
-      "delGene",
       "insA"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
-      "delGene",
+      "A",
       "G",
-      "R",
-      "A"
+      "R"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T",
       "Y"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "delG",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
-      "delGene",
       "G",
       "T"
     ]

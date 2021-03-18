@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Mar 17, 2021 03:57:05 PM",
+  "modificationDate": "Mar 17, 2021 07:03:00 PM",
   "gene": "CYP2C19",
   "orientation": null,
   "chromosome": "chr10",
@@ -378,165 +378,133 @@
   "variantAlleles": [
     [
       "C",
-      "delGene",
       "T",
       "Y"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "C",
-      "delGene"
+      "C"
     ],
     [
       "A",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G",
       "R"
     ],
     [
       "C",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "T"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "delGene",
       "G"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "T"
     ],
     [
       "C",
-      "delGene",
       "G"
     ],
     [
       "A",
-      "C",
-      "delGene"
+      "C"
     ]
   ],
   "namedAlleles": [
