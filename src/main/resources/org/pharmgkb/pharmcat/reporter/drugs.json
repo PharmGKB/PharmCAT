@@ -64,6 +64,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -170,6 +171,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -287,6 +289,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -5074,6 +5077,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -5196,6 +5200,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -6142,6 +6147,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -7019,6 +7025,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -7192,6 +7199,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -7258,8 +7266,8 @@
           "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
           "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
-        "classification": "Strong",
+        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
+        "classification": "Optional",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
@@ -7270,8 +7278,8 @@
           "HLA-A": "*31:01 negative",
           "HLA-B": "*15:02 positive"
         },
-        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-        "population": "CBZ naive"
+        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+        "population": "CBZ use >3mos "
       },
       {
         "implications": {
@@ -7298,8 +7306,8 @@
           "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
           "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
-        "classification": "Optional",
+        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+        "classification": "Strong",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
@@ -7310,8 +7318,8 @@
           "HLA-A": "*31:01 negative",
           "HLA-B": "*15:02 positive"
         },
-        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-        "population": "CBZ use >3mos "
+        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+        "population": "CBZ naive"
       },
       {
         "implications": {
@@ -7438,26 +7446,6 @@
           "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
           "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
-        "classification": "Optional",
-        "phenotypes": {},
-        "activityscore": {},
-        "allelestatus": {
-          "HLA-A": "HLA-A*31:01 positive",
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-A": "*31:01 positive",
-          "HLA-B": "*15:02 positive"
-        },
-        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-        "population": "CBZ use >3mos "
-      },
-      {
-        "implications": {
-          "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
-        },
         "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
         "classification": "Strong",
         "phenotypes": {},
@@ -7496,21 +7484,21 @@
       {
         "implications": {
           "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-          "HLA-B": "n/a"
+          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within three months of regular dosing. Therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine.",
+        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
         "classification": "Optional",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
           "HLA-A": "HLA-A*31:01 positive",
-          "HLA-B": "No HLA-B*15:02 result"
+          "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
           "HLA-A": "*31:01 positive",
-          "HLA-B": "No *15:02 result"
+          "HLA-B": "*15:02 positive"
         },
-        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
         "population": "CBZ use >3mos "
       },
       {
@@ -7555,6 +7543,46 @@
       },
       {
         "implications": {
+          "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+          "HLA-B": "n/a"
+        },
+        "drugrecommendation": "The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within three months of regular dosing. Therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine.",
+        "classification": "Optional",
+        "phenotypes": {},
+        "activityscore": {},
+        "allelestatus": {
+          "HLA-A": "HLA-A*31:01 positive",
+          "HLA-B": "No HLA-B*15:02 result"
+        },
+        "lookupkey": {
+          "HLA-A": "*31:01 positive",
+          "HLA-B": "No *15:02 result"
+        },
+        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+        "population": "CBZ use >3mos "
+      },
+      {
+        "implications": {
+          "HLA-A": "n/a",
+          "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+        },
+        "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+        "classification": "Strong",
+        "phenotypes": {},
+        "activityscore": {},
+        "allelestatus": {
+          "HLA-A": "No HLA-A*31:01 result",
+          "HLA-B": "HLA-B*15:02 negative"
+        },
+        "lookupkey": {
+          "HLA-A": "No *31:01 result",
+          "HLA-B": "*15:02 negative"
+        },
+        "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only.  Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+        "population": "CBZ naive"
+      },
+      {
+        "implications": {
           "HLA-A": "n/a",
           "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
         },
@@ -7596,22 +7624,22 @@
       {
         "implications": {
           "HLA-A": "n/a",
-          "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
         "classification": "Strong",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
           "HLA-A": "No HLA-A*31:01 result",
-          "HLA-B": "HLA-B*15:02 negative"
+          "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
           "HLA-A": "No *31:01 result",
-          "HLA-B": "*15:02 negative"
+          "HLA-B": "*15:02 positive"
         },
-        "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only.  Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-        "population": "CBZ naive"
+        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+        "population": "CBZ-no alternatives"
       },
       {
         "implications": {
@@ -7652,26 +7680,6 @@
         },
         "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
         "population": "CBZ use >3mos "
-      },
-      {
-        "implications": {
-          "HLA-A": "n/a",
-          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
-        },
-        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
-        "classification": "Strong",
-        "phenotypes": {},
-        "activityscore": {},
-        "allelestatus": {
-          "HLA-A": "No HLA-A*31:01 result",
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-A": "No *31:01 result",
-          "HLA-B": "*15:02 positive"
-        },
-        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-        "population": "CBZ-no alternatives"
       }
     ]
   },
@@ -7715,6 +7723,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -7882,6 +7891,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -8117,6 +8127,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -12926,6 +12937,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -13190,6 +13202,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -13658,6 +13671,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -13809,6 +13823,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -14282,6 +14297,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -14517,6 +14533,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -19306,6 +19323,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -19470,6 +19488,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -19592,6 +19611,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -19816,6 +19836,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -19954,6 +19975,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -20121,6 +20143,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -20615,6 +20638,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -21217,6 +21241,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -21398,6 +21423,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -21859,6 +21885,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -22056,6 +22083,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -26844,6 +26872,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -26955,6 +26984,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -27048,6 +27078,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -27243,6 +27274,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -27400,6 +27432,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -27624,6 +27657,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -28479,6 +28513,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -28630,6 +28665,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -29103,6 +29139,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -29301,6 +29338,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -29796,6 +29834,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -29923,6 +29962,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -30128,6 +30168,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -30550,6 +30591,90 @@
     ]
   },
   {
+    "drugid": "RxNorm:120608",
+    "drugname": "peginterferon alfa-2a",
+    "guidelinename": "IFNL3 and Peginterferon-alpha-based Regimens",
+    "url": "https://cpicpgx.org/guidelines/guideline-for-peg-interferon-alpha-based-regimens-and-ifnl3/",
+    "guidelinepharmgkbids": [
+      "PA166110235"
+    ],
+    "genes": [
+      "IFNL3",
+      "IFNL4"
+    ],
+    "citations": [
+      {
+        "id": 110007,
+        "guidelineid": 100424,
+        "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for IFNL3 (IL28B) genotype and peginterferon alpha based regimens",
+        "authors": [
+          "Muir Andrew J",
+          "Gong Li",
+          "Johnson Samuel G",
+          "Michael Lee Ming Ta",
+          "Williams Marc S",
+          "Klein Teri E",
+          "Caudle Kelly E",
+          "Nelson David R"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 10,
+        "page": "",
+        "volume": "",
+        "year": 2013,
+        "pmid": "24096968",
+        "pmcid": "PMC3904555",
+        "doi": "10.1038/clpt.2013.203",
+        "url": null,
+        "version": 2,
+        "highlightedonsite": false
+      }
+    ],
+    "notesonusage": null
+  },
+  {
+    "drugid": "RxNorm:253453",
+    "drugname": "peginterferon alfa-2b",
+    "guidelinename": "IFNL3 and Peginterferon-alpha-based Regimens",
+    "url": "https://cpicpgx.org/guidelines/guideline-for-peg-interferon-alpha-based-regimens-and-ifnl3/",
+    "guidelinepharmgkbids": [
+      "PA166110235"
+    ],
+    "genes": [
+      "IFNL3",
+      "IFNL4"
+    ],
+    "citations": [
+      {
+        "id": 110007,
+        "guidelineid": 100424,
+        "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for IFNL3 (IL28B) genotype and peginterferon alpha based regimens",
+        "authors": [
+          "Muir Andrew J",
+          "Gong Li",
+          "Johnson Samuel G",
+          "Michael Lee Ming Ta",
+          "Williams Marc S",
+          "Klein Teri E",
+          "Caudle Kelly E",
+          "Nelson David R"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 10,
+        "page": "",
+        "volume": "",
+        "year": 2013,
+        "pmid": "24096968",
+        "pmcid": "PMC3904555",
+        "doi": "10.1038/clpt.2013.203",
+        "url": null,
+        "version": 2,
+        "highlightedonsite": false
+      }
+    ],
+    "notesonusage": null
+  },
+  {
     "drugid": "RxNorm:8183",
     "drugname": "phenytoin",
     "guidelinename": "CYP2C9, HLA-B and Phenytoin",
@@ -30622,6 +30747,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -30644,7 +30770,7 @@
           "CYP2C9": "0"
         },
         "comments": "n/a",
-        "population": "PHT use >3mos"
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -30667,7 +30793,7 @@
           "CYP2C9": "0"
         },
         "comments": "n/a",
-        "population": "PHT naive"
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -30904,29 +31030,6 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
         },
-        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-        "classification": "Optional",
-        "phenotypes": {
-          "CYP2C9": "Poor Metabolizer"
-        },
-        "activityscore": {
-          "CYP2C9": "0.0"
-        },
-        "allelestatus": {
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-B": "*15:02 positive",
-          "CYP2C9": "0"
-        },
-        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-        "population": "PHT use >3mos"
-      },
-      {
-        "implications": {
-          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-        },
         "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
         "classification": "Strong",
         "phenotypes": {
@@ -30944,6 +31047,29 @@
         },
         "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital,  have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
         "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "0"
+        },
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -31042,8 +31168,8 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
         },
-        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-        "classification": "Strong",
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
         "phenotypes": {
           "CYP2C9": "Intermediate Metabolizer"
         },
@@ -31057,16 +31183,16 @@
           "HLA-B": "*15:02 positive",
           "CYP2C9": "1.5"
         },
-        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital,  have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-        "population": "PHT naive"
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
         },
-        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-        "classification": "Optional",
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
         "phenotypes": {
           "CYP2C9": "Intermediate Metabolizer"
         },
@@ -31080,29 +31206,6 @@
           "HLA-B": "*15:02 positive",
           "CYP2C9": "1.5"
         },
-        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-        "population": "PHT use >3mos"
-      },
-      {
-        "implications": {
-          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "Normal phenytoin metabolism"
-        },
-        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-        "classification": "Strong",
-        "phenotypes": {
-          "CYP2C9": "Normal Metabolizer"
-        },
-        "activityscore": {
-          "CYP2C9": "2.0"
-        },
-        "allelestatus": {
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-B": "*15:02 positive",
-          "CYP2C9": "2"
-        },
         "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital,  have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
         "population": "PHT naive"
       },
@@ -31132,25 +31235,25 @@
       {
         "implications": {
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "n/a"
+          "CYP2C9": "Normal phenytoin metabolism"
         },
-        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-        "classification": "Optional",
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
         "phenotypes": {
-          "CYP2C9": "Indeterminate"
+          "CYP2C9": "Normal Metabolizer"
         },
         "activityscore": {
-          "CYP2C9": "n/a"
+          "CYP2C9": "2.0"
         },
         "allelestatus": {
           "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
           "HLA-B": "*15:02 positive",
-          "CYP2C9": "n/a"
+          "CYP2C9": "2"
         },
-        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-        "population": "PHT use >3mos"
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital,  have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -31174,6 +31277,29 @@
         },
         "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital,  have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
         "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "n/a"
+        },
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
       }
     ]
   },
@@ -31217,6 +31343,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -31373,6 +31500,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -31502,6 +31630,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -31704,6 +31833,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -31855,6 +31985,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -32038,6 +32169,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -32157,6 +32289,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -32301,6 +32434,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -32762,6 +32896,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -32986,6 +33121,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -33903,6 +34039,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -34404,6 +34541,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -39188,6 +39326,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -39653,6 +39792,7 @@
         "highlightedonsite": false
       }
     ],
+    "notesonusage": null,
     "recommendations": [
       {
         "implications": {
@@ -39669,7 +39809,7 @@
           "CYP2C19": "Indeterminate"
         },
         "comments": "n/a",
-        "population": "pediatrics"
+        "population": "adults"
       },
       {
         "implications": {
@@ -39686,24 +39826,7 @@
           "CYP2C19": "Indeterminate"
         },
         "comments": "n/a",
-        "population": "adults"
-      },
-      {
-        "implications": {
-          "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
-        },
-        "drugrecommendation": "Initiate therapy with recommended standard of care dosing",
-        "classification": "Moderate",
-        "phenotypes": {
-          "CYP2C19": "Intermediate Metabolizer"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C19": "Intermediate Metabolizer"
-        },
-        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
-        "population": "adults"
+        "population": "pediatrics"
       },
       {
         "implications": {
@@ -39721,6 +39844,23 @@
         },
         "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
         "population": "pediatrics"
+      },
+      {
+        "implications": {
+          "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
+        },
+        "drugrecommendation": "Initiate therapy with recommended standard of care dosing",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C19": "Intermediate Metabolizer"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C19": "Intermediate Metabolizer"
+        },
+        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
+        "population": "adults"
       },
       {
         "implications": {
@@ -39854,6 +39994,23 @@
         "allelestatus": {},
         "lookupkey": {
           "CYP2C19": "Poor Metabolizer"
+        },
+        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
+        "population": "adults"
+      },
+      {
+        "implications": {
+          "CYP2C19": "In patients for whom a rapid metabolizer genotype (*1/*17) is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing"
+        },
+        "drugrecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole.  Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C19": "Rapid Metabolizer"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C19": "Rapid Metabolizer"
         },
         "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
         "population": "adults"
@@ -39874,23 +40031,6 @@
         },
         "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring (TDM), and comorbidities. Achieving voriconazole therapeutic concentrations in the pediatric population with ultrarapid and rapid metabolizer phenotypes in a timely manner is difficult. As critical time may be lost in achieving therapeutic concentrations, an alternative antifungal agent is recommended in order that the child receives effective antifungal therapy as soon as possible. Meticulous TDM is critical for rapid metabolizers. There is insufficient evidence to distinguish a CYP2C19*1/*17 and *1/*1 pediatric patient due to large variability in trough concentrations.",
         "population": "pediatrics"
-      },
-      {
-        "implications": {
-          "CYP2C19": "In patients for whom a rapid metabolizer genotype (*1/*17) is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing"
-        },
-        "drugrecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole.  Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.",
-        "classification": "Moderate",
-        "phenotypes": {
-          "CYP2C19": "Rapid Metabolizer"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C19": "Rapid Metabolizer"
-        },
-        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
-        "population": "adults"
       },
       {
         "implications": {
@@ -39927,5 +40067,87 @@
         "population": "pediatrics"
       }
     ]
+  },
+  {
+    "drugid": "RxNorm:11289",
+    "drugname": "warfarin",
+    "guidelinename": "CYP2C9, VKORC1, CYP4F2 and Warfarin",
+    "url": "https://cpicpgx.org/guidelines/guideline-for-warfarin-and-cyp2c9-and-vkorc1/",
+    "guidelinepharmgkbids": [
+      "PA166104949"
+    ],
+    "genes": [
+      "CYP2C9",
+      "CYP4F2",
+      "VKORC1"
+    ],
+    "citations": [
+      {
+        "id": 110016,
+        "guidelineid": 100425,
+        "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for CYP2C9 and VKORC1 Genotypes and Warfarin Dosing",
+        "authors": [
+          "Johnson J A",
+          "Gong L",
+          "Whirl-Carrillo M",
+          "Gage B F",
+          "Scott S A",
+          "Stein C M",
+          "Anderson J L",
+          "Kimmel S E",
+          "Lee M T M",
+          "Pirmohamed M",
+          "Wadelius M",
+          "Klein T E",
+          "Altman R B"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 9,
+        "page": "",
+        "volume": "",
+        "year": 2011,
+        "pmid": "21900891",
+        "pmcid": "PMC3187550",
+        "doi": "10.1038/clpt.2011.185",
+        "url": null,
+        "version": 2,
+        "highlightedonsite": false
+      },
+      {
+        "id": 110030,
+        "guidelineid": 100425,
+        "title": "Clinical pharmacogenetics implementation consortium (cpic) guideline for pharmacogenetics-guided warfarin dosing: 2017 update",
+        "authors": [
+          "Johnson Julie A",
+          "Caudle Kelly E",
+          "Gong Li",
+          "Whirl-Carrillo Michelle",
+          "Stein C Michael",
+          "Scott Stuart A",
+          "Lee Ming Ta Michael",
+          "Gage Brian F",
+          "Kimmel Stephen E",
+          "Perera Minoli A",
+          "Anderson Jeffrey L",
+          "Pirmohamed Munir",
+          "Klein Teri E",
+          "Limdi Nita A",
+          "Cavallari Larisa H",
+          "Wadelius Mia"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 2,
+        "page": "",
+        "volume": "",
+        "year": 2017,
+        "pmid": "28198005",
+        "pmcid": "PMC5546947",
+        "doi": "10.1002/cpt.668",
+        "url": null,
+        "version": 2,
+        "highlightedonsite": false
+      }
+    ],
+    "notesonusage": "Warfarin recommendation does not follow simple diplotype to phenotype translation. Read the guideline text and follow the recommendation diagram found at http://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png"
   }
 ]

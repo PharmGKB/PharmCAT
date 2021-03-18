@@ -846,8 +846,8 @@ class PharmCATTest {
     s_pharmcat.execute(tempVcfPath, outsideCallPath, null);
     s_context = s_pharmcat.getReporter().getContext();
 
-    assertEquals(16, s_context.getGeneReports().size());
-    assertEquals(49, s_context.getDrugReports().size());
+    assertEquals(17, s_context.getGeneReports().size());
+    assertEquals(52, s_context.getDrugReports().size());
   }
 
   /**

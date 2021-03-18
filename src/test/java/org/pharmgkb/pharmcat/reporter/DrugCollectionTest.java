@@ -10,6 +10,6 @@ class DrugCollectionTest {
   @Test
   void testLoad() throws IOException {
     DrugCollection drugCollection = new DrugCollection();
-    assertEquals(56, drugCollection.size());
+    assertEquals(59, drugCollection.size());
   }
 }

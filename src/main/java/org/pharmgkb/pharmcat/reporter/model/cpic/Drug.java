@@ -41,6 +41,9 @@ public class Drug {
   @Expose
   @SerializedName("genes")
   private List<String> m_genes;
+  @Expose
+  @SerializedName("notesonusage")
+  private String m_notesOnUsage;
 
   public String toString() {
     return m_drugName;
@@ -108,5 +111,13 @@ public class Drug {
 
   public void setGenes(List<String> genes) {
     m_genes = genes;
+  }
+
+  public String getNotesOnUsage() {
+    return m_notesOnUsage;
+  }
+
+  public void setNotesOnUsage(String notesOnUsage) {
+    m_notesOnUsage = notesOnUsage;
   }
 }
