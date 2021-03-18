@@ -95,8 +95,10 @@ public class GenotypeInterpretation {
       findGeneReport(outsideCall.getGene()).filter(GeneReport::isCalled).ifPresent((r) -> {
         throw new ParseException("Cannot specify outside call for " + r.getGene() + ", it is already called in sample data");
       });
+      // a gene report may still exist if there are allele definitions but no sample data so remove it before adding new
+      removeGeneReport(outsideCall.getGene());
 
-      GeneReport geneReport = new GeneReport(outsideCall.getGene());
+      GeneReport geneReport = new GeneReport(outsideCall);
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
           geneReport.getGene(),
           phenotypeMap.lookup(geneReport.getGene()).orElse(null),
@@ -150,5 +152,9 @@ public class GenotypeInterpretation {
    */
   public Optional<GeneReport> findGeneReport(String geneSymbol) {
     return getGeneReports().stream().filter(r -> r.getGene().equals(geneSymbol)).findFirst();
+  }
+
+  private void removeGeneReport(String geneSymbol) {
+    findGeneReport(geneSymbol).ifPresent(f_geneReports::remove);
   }
 }
