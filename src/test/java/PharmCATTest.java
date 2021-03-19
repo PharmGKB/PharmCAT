@@ -247,6 +247,22 @@ class PharmCATTest {
   }
 
   @Test
+  void testDpydC2846het() throws Exception {
+    generalTest("test.dpyd.c2846het", new String[]{
+            "DPYD/c2846het.vcf"
+        },
+        null);
+
+    testCalledGenes("DPYD");
+    assertTrue(s_context.getGeneReport("DPYD").isCalled());
+    testCalls(DipType.PRINT, "DPYD", "Reference/c.2846A>T");
+    testCalls(DipType.LOOKUP, "DPYD", "DPYD:Reference/c.2846A>T");
+
+    testMatchedGroups("fluorouracil", 1);
+    testMatchedGroups("capecitabine", 1);
+  }
+
+  @Test
   void testSlco1b1TestMulti() throws Exception {
     generalTest("test.slco1b1.multi", new String[]{
             "SLCO1B1/multi.vcf"

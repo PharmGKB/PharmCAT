@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.definition.model;
 
+import java.util.Map;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -23,6 +24,9 @@ public class DiplotypeRecord {
   @SerializedName("lookupkey")
   @Expose
   private String m_lookupKey;
+  @SerializedName("diplotypekey")
+  @Expose
+  private Map<String,Integer> m_diplotypeKey;
 
   public String getGeneresult() {
     return m_generesult;
@@ -62,5 +66,13 @@ public class DiplotypeRecord {
 
   public void setLookupKey(String lookupKey) {
     m_lookupKey = lookupKey;
+  }
+
+  public Map<String, Integer> getDiplotypeKey() {
+    return m_diplotypeKey;
+  }
+
+  public void setDiplotypeKey(Map<String, Integer> diplotypeKey) {
+    m_diplotypeKey = diplotypeKey;
   }
 }
