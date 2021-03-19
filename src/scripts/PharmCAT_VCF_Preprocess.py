@@ -4,11 +4,13 @@ __author__ = 'BinglanLi'
 
 import os
 from pathlib import Path
+from timeit import default_timer as timer
 
 import vcf_preprocess_utilities as util
 
 def run(args):
     ## normalize and prepare the input VCF for PharmCAT
+    start = timer()
 
     # organize args
     current_working_dir = os.getcwd()
@@ -62,6 +64,8 @@ def run(args):
     for single_path in tmp_files_to_be_removed:
        util.remove_vcf_and_index(single_path)
 
+    end = timer()
+    print("Successfully preprocessed input VCF in %s seconds"%(str(end-start)))
 
 if __name__ == "__main__":
     import argparse
