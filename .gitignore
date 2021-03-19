@@ -13,7 +13,6 @@
 /.idea/vcs.xml
 /.idea/workspace.xml
 /.idea/watcherTasks.xml
-/.idea/PharmCAT.iml
 
 # External tools
 .gradle/

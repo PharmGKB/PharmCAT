@@ -76,7 +76,6 @@ if __name__ == "__main__":
     # list arguments
     parser.add_argument("--input_vcf", required=True, type = str, help="Load a compressed VCF file.")
     parser.add_argument("--ref_seq", help="Load the Human Reference Genome GRCh38/hg38 in the fasta format.")
-    parser.add_argument("--rename_chrs", required=True, type = str, help="Load a chromosome rename map file. This is a must for VCF normalization if the chromosomes are not named 'chr##'.")
     parser.add_argument("--ref_pgx_vcf", required=True, type = str, help="Load a VCF file of PGx variants. This file is available from the PharmCAT GitHub release.")
     parser.add_argument("--path_to_bcftools", help="Load an alternative path to the executable bcftools.")
     parser.add_argument("--path_to_tabix", help="Load an alternative path to the executable tabix.")
