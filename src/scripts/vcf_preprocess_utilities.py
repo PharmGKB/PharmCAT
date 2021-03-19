@@ -11,6 +11,8 @@ import urllib.request
 import gzip
 import vcf_preprocess_exceptions as Exceptions
 import tempfile
+from cyvcf2 import VCF, Writer
+import allel
 
 def obtain_vcf_file_prefix(path):
     vcf_file_name = os.path.split(path)[1]
@@ -21,13 +23,14 @@ def obtain_vcf_file_prefix(path):
 
 
 def quit_if_exists(path):
-    # report an error if the file exists
+    '''report an error if the file exists'''
     if os.path.exists(path):
         print('File already exists. Delete if you want to proceed: %s' % (path))
         sys.exit()
 
+
 def download_from_url(url, download_to_dir, save_to_file = None):
-    # download from an url
+    '''download from an url'''
 
     remote_basename = os.path.basename(urllib.parse.urlparse(url).path)
     if remote_basename:
@@ -58,7 +61,7 @@ def decompress_gz_file(path):
 
 
 def download_grch38_ref_fasta_and_index(download_to_dir, save_to_file=None):
-    # download the human reference genome sequence GRChh38/hg38 from the NIH FTP site
+    '''download the human reference genome sequence GRChh38/hg38 from the NIH FTP site'''
 
     # download ftp web address (dated Feb 2021)
     url_grch38_fasta = 'ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz'
@@ -72,11 +75,12 @@ def download_grch38_ref_fasta_and_index(download_to_dir, save_to_file=None):
 
 
 def tabix_index_vcf(tabix_executable_path, vcf_path):
-    # index the input vcf using tabix, and the output index file will be written to the working directory
+    '''
+    index the input vcf using tabix, and the output index file will be written to the working directory
 
-    #####################
-    # tabix commands are exclusively "tabix -p vcf <input_vcf>", which generates an index file (.tbi) for an input file (<input_file>) whose file type is specified by "-p vcf". The .tabi is, by default, output to the current working directory. 
-    #####################
+    tabix commands are exclusively "tabix -p vcf <input_vcf>", which generates an index file (.tbi) for an input file (<input_file>) whose file type is specified by "-p vcf".
+    .tbi will be output to the current working directory by default.
+    '''
     
     try:
         subprocess.run([tabix_executable_path, '-p', 'vcf', vcf_path], cwd = os.path.split(vcf_path)[0])
@@ -87,27 +91,27 @@ def tabix_index_vcf(tabix_executable_path, vcf_path):
 
 
 def running_bcftools(list_bcftools_command, show_msg = None):
-    # run the bcftools following the commands stored in the list_bcftools_command
+    '''
+    run the bcftools following the commands stored in the list_bcftools_command
 
-    #####################
-    # "bcftools <common_options> <input_vcf>". 
-    # "-Oz" (capitalized letter O) specifies the output type as compressed VCF (z). "-o" writes to a file rather than to default standard output.
-    # "--no-version" will cease appending version and command line information to the output VCF header.
-    # "-s sample_ID(s)" comma-separated list of samples to include or exclude if prefixed with "^". 
-    #####################
+    "bcftools <common_options> <input_vcf>".
+    "-Oz" (capitalized letter O) specifies the output type as compressed VCF (z). "-o" writes to a file rather than to default standard output.
+    "--no-version" will cease appending version and command line information to the output VCF header.
+    "-s sample_ID(s)" comma-separated list of samples to include or exclude if prefixed with "^".
+    '''
 
     #print("%s [ %s ]" % (show_msg, ' '.join(list_bcftools_command))) if show_msg else print("Running [ %s ]" % (' '.join(list_bcftools_command)))
     print("%s" % (show_msg)) if show_msg else print("Running [ %s ]" % (' '.join(list_bcftools_command)))
     subprocess.run(list_bcftools_command)
 
-
+#to be replaced with cyvcf2 VCF.samples #
 def obtain_vcf_sample_list(bcftools_executable_path, path_to_vcf):
-    # obtain a list of samples from the input VCF
+    '''
+    obtain a list of samples from the input VCF
 
-    #####################
-    # "bcftools query <options> <input_vcf>". For bcftools common options, see running_bcftools().
-    # "-l" list sample names and exit. Samples are delimited by '\n' and the last line ends as 'last_sample_ID\n\n'. 
-    #####################
+    "bcftools query <options> <input_vcf>". For bcftools common options, see running_bcftools().
+    "-l" list sample names and exit. Samples are delimited by '\n' and the last line ends as 'last_sample_ID\n\n'.
+    '''
     
     vcf_sample_list = subprocess.check_output([bcftools_executable_path, 'query', '-l', path_to_vcf], universal_newlines=True).split('\n')[:-1] # remove the black line at the end
     vcf_sample_list.remove('PharmCAT')
@@ -115,7 +119,7 @@ def obtain_vcf_sample_list(bcftools_executable_path, path_to_vcf):
 
 
 def remove_vcf_and_index(path_to_vcf):
-    # remove the compressed vcf as well as the index file
+    '''remove the compressed vcf as well as the index file'''
 
     try:
         os.remove(path_to_vcf)
@@ -124,70 +128,94 @@ def remove_vcf_and_index(path_to_vcf):
     except OSError as error_remove_tmp:
         print("Error: %s : %s" % (path_to_vcf, error_remove_tmp.strerror))
 
+def get_vcf_pos_min_max(positions, flanking_bp = 100):
+    ''' given input positions, return "<min_pos>-<max_pos>"  '''
+    return '-'.join([str(min(positions)-flanking_bp), str(max(positions)+flanking_bp)])
 
-def rename_chr(bcftools_executable_path, input_vcf, file_rename_chrs, path_output):
-    # rename chromosomes in input vcf according to a chr-renaming mapping file
+def extract_pharmcat_pgx_regions(input_vcf, input_ref_pgx_vcf, path_output):
+    '''
+    extract pgx regions in input_ref_pgx_vcf from input_vcf and save variants to path_output
+    '''
 
-    #####################
-    # "bcftools annotate <options> <input_vcf>". For bcftools common options, see running_bcftools().
-    # "--rename-chrs" renames chromosomes according to the map in file_rename_chrs. 
-    #####################
+    input_vcf_cyvcf2 = VCF(input_vcf)
+    input_ref_pgx_pos_cyvcf2 = VCF(input_ref_pgx_vcf)
 
-    bcftools_command_to_rename_chr = [bcftools_executable_path, 'annotate', '--no-version', '--rename-chrs', file_rename_chrs, '-Oz', '-o', path_output, input_vcf]
-    running_bcftools(bcftools_command_to_rename_chr, show_msg = 'Renaming chromosome(s)')
+    # add chromosome name with leading 'chr' to the VCF header
+    for single_chr in input_ref_pgx_pos_cyvcf2.seqnames:
+        input_vcf_cyvcf2.add_to_header('##contig=<ID=' + single_chr + '>')
+
+    # get pgx regions in each chromosome
+    input_ref_pgx_pos_pandas = allel.vcf_to_dataframe(input_ref_pgx_vcf)
+    input_ref_pgx_pos_pandas['CHROM'] = input_ref_pgx_pos_pandas['CHROM'].replace({'chr':''}, regex=True).astype(str).astype(int)
+    ref_pgx_regions = input_ref_pgx_pos_pandas.groupby(['CHROM'])['POS'].agg(get_vcf_pos_min_max).reset_index()
+    ref_pgx_regions = ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1).replace({'chr':''}, regex=True)
+
+    # write to a VCF output file
+    # header
+    output_vcf_cyvcf2 = Writer(path_output, input_vcf_cyvcf2)
+    # content
+    for single_region in ref_pgx_regions:
+        for single_variant in input_vcf_cyvcf2(single_region):
+            single_variant.CHROM = re.sub(r'^([0-9]+)', r'chr\1', single_variant.CHROM)
+            output_vcf_cyvcf2.write_record(single_variant)
+
+    # close pipe
+    input_vcf_cyvcf2.close()
+    input_ref_pgx_pos_cyvcf2.close()
+    output_vcf_cyvcf2.close()
 
 
-def merge_vcfs(bcftools_executable_path, input_vcf, file_ref_pgx_vcf, path_output):
-    # merge the input VCF with a reference VCF of PGx core allele defining positions to enforce the same variant representation format across files
+def merge_vcfs(bcftools_executable_path, input_vcf, input_ref_pgx_vcf, path_output):
+    '''
+    merge the input VCF with a reference VCF of PGx core allele defining positions to enforce the same variant representation format across files
 
-    #####################
-    # "bcftools merge <options> <input_vcf>". For bcftools common options, see running_bcftools().
-    # "-m both" allows both SNP and indel records can be multiallelic. But SNP and indel will not be merged as one multiallelic record. 
-    #####################
+    bcftools merge <options> <input_vcf>". For bcftools common options, see running_bcftools().
+    "-m both" allows both SNP and indel records can be multiallelic. But SNP and indel will not be merged as one multiallelic record.
+    '''
 
-    bcftools_command_to_merge = [bcftools_executable_path, 'merge', '--no-version', '-m', 'both', '-Oz', '-o', path_output, input_vcf, file_ref_pgx_vcf]
+    bcftools_command_to_merge = [bcftools_executable_path, 'merge', '--no-version', '-m', 'both', '-Oz', '-o', path_output, input_vcf, input_ref_pgx_vcf]
     running_bcftools(bcftools_command_to_merge, show_msg = 'Enforcing the same variant representation as that in the reference PGx variant file')
 
 
-def normalize_vcf(bcftools_executable_path, input_vcf, path_to_ref_seq, path_output):
-    # normalize the input VCF against the human reference genome sequence GRCh38/hg38
+def normalize_vcf(bcftools_executable_path, input_vcf, path_to_ref_seq, input_ref_pgx_vcf, path_output):
+    '''
+    normalize the input VCF against the human reference genome sequence GRCh38/hg38
 
-    #####################
-    # "bcftools norm <options> <input_vcf>". For bcftools common options, see running_bcftools().
-    # "-m+" joins biallelic sites into multiallelic records (+). 
-    # "-f <ref_seq_fasta>" reference sequence. Supplying this option turns on left-alignment and normalization.
-    #####################
+    "bcftools norm <options> <input_vcf>". For bcftools common options, see running_bcftools().
+    "-m+" joins biallelic sites into multiallelic records (+).
+    "-f <ref_seq_fasta>" reference sequence. Supplying this option turns on left-alignment and normalization.
+    '''
 
     bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '--no-version', '-m+', '-Oz', '-o', path_output, '-f', path_to_ref_seq, input_vcf]
     running_bcftools(bcftools_command_to_normalize_vcf, show_msg = 'Normalize VCF') # run bcftools to merge VCF files
 
 
-def output_pharmcat_ready_vcf(bcftools_executable_path, input_vcf, output_dir, output_prefix):
-    # iteratively write to a PharmCAT-ready VCF for each sample
+def output_pharmcat_ready_vcf(bcftools_executable_path, input_vcf, input_ref_pgx_vcf, output_dir, output_prefix):
+    '''
+    iteratively write to a PharmCAT-ready VCF for each sample
 
-    #####################
-    # "bcftools view <options> <input_vcf>". For bcftools common options, see running_bcftools().
-    # "-U" exclude sites without a called genotype, i.e., GT = './.'
-    #####################
+    "bcftools view <options> <input_vcf>". For bcftools common options, see running_bcftools().
+    "-U" exclude sites without a called genotype, i.e., GT = './.'
+    '''
 
     sample_list = obtain_vcf_sample_list(bcftools_executable_path, input_vcf)
     
     for single_sample in sample_list:
         output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf.gz')
-        bcftools_command_to_output_pharmcat_ready_vcf = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o', output_file_name, '-s', single_sample, input_vcf]
+        bcftools_command_to_output_pharmcat_ready_vcf = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o', output_file_name, '-s', single_sample, '-R', input_ref_pgx_vcf, input_vcf]
         running_bcftools(bcftools_command_to_output_pharmcat_ready_vcf, show_msg = 'Generating a PharmCAT-ready VCF for ' + single_sample)
 
 
-def output_missing_pgx_positions(bcftools_executable_path, input_vcf, file_ref_pgx_vcf, output_dir, output_prefix):
-    # generate a report VCF of missing PGx positions from the input VCF against a reference PGx VCF
+def output_missing_pgx_positions(bcftools_executable_path, input_vcf, input_ref_pgx_vcf, output_dir, output_prefix):
+    '''
+    generate a report VCF of missing PGx positions from the input VCF against a reference PGx VCF
 
-    #####################
-    # "bcftools isec <options> <input_vcf>". For bcftools common options, see running_bcftools().
-    # "-c" controls how to treat records with duplicate positions. "-c indels" means that all indel records are compatible, regardless of whether the REF and ALT alleles match or not. For duplicate positions, only the first indel record will be considered and appear on output.
-    # "-C" outputs positions present only in the first file but missing in the others.
-    # "-w" lists input files to output given as 1-based indices. "-w1" extracts and writes records from the first file, `file_ref_pgx_vcf`, as set by this program. 
-    #####################
+    "bcftools isec <options> <input_vcf>". For bcftools common options, see running_bcftools().
+    "-c" controls how to treat records with duplicate positions. "-c indels" means that all indel records are compatible, regardless of whether the REF and ALT alleles match or not. For duplicate positions, only the first indel record will be considered and appear on output.
+    "-C" outputs positions present only in the first file but missing in the others.
+    "-w" lists input files to output given as 1-based indices. "-w1" extracts and writes records only present in the first file (the reference PGx positions).
+    '''
 
     output_file_name = os.path.join(output_dir, output_prefix + '.missing_pgx_var.vcf.gz')
-    bcftools_command_to_report_missing_pgx = [bcftools_executable_path, 'isec', '--no-version', '-c', 'indels', '-w1', '-Oz', '-o', output_file_name, '-C', file_ref_pgx_vcf, input_vcf]
+    bcftools_command_to_report_missing_pgx = [bcftools_executable_path, 'isec', '--no-version', '-c', 'indels', '-w1', '-Oz', '-o', output_file_name, '-C', input_ref_pgx_vcf, input_vcf]
     running_bcftools(bcftools_command_to_report_missing_pgx, show_msg = 'Generating a report of missing PGx core allele defining positions')

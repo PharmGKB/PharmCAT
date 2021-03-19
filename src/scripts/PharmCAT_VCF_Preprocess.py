@@ -4,10 +4,11 @@ __author__ = 'BinglanLi'
 
 import os
 from pathlib import Path
-import vcf_preprocess_utilities as Utilities
+
+import vcf_preprocess_utilities as util
 
 def run(args):
-    ## this section normalizes and prepares the input VCF file for the PharmCAT
+    ## normalize and prepare the input VCF for PharmCAT
 
     # organize args
     current_working_dir = os.getcwd()
@@ -20,44 +21,46 @@ def run(args):
     tmp_files_to_be_removed = []
 
     # download the human reference sequence if not provided
-    path_to_ref_seq = Utilities.download_grch38_ref_fasta_and_index(current_working_dir) if not args.ref_seq else args.ref_seq
+    path_to_ref_seq = util.download_grch38_ref_fasta_and_index(current_working_dir) if not args.ref_seq else args.ref_seq
 
     # if the input VCF file is not indexed (.tbi doesn't exist), create an index file in the input folder using tabix
     if not os.path.exists(args.input_vcf + '.tbi'):
-        Utilities.tabix_index_vcf(tabix_executable_path, args.input_vcf)
+        util.tabix_index_vcf(tabix_executable_path, args.input_vcf)
 
-    # rename chromosomes
-    intermediate_vcf_renamed_chr = os.path.join(args.output_folder, Utilities.obtain_vcf_file_prefix(args.input_vcf) + '.chr_renamed.vcf.gz')
-    Utilities.rename_chr(bcftools_executable_path, args.input_vcf, args.rename_chrs, intermediate_vcf_renamed_chr)
-    Utilities.tabix_index_vcf(tabix_executable_path, intermediate_vcf_renamed_chr)
-    tmp_files_to_be_removed.append(intermediate_vcf_renamed_chr)
-
-    # merge the input VCF with the PGx position file provided by '--ref_pgx_vcf'
     # index ref_pgx_vcf if not indexed
     if not os.path.exists(args.ref_pgx_vcf + '.tbi'):
-        Utilities.tabix_index_vcf(tabix_executable_path, args.ref_pgx_vcf)
-    # run this step to ensure the output VCF will have THE SAME VARIANT REPRESENTATION per PharmCAT's expectations
-    intermediate_vcf_pgx_merged = os.path.join(args.output_folder, Utilities.obtain_vcf_file_prefix(intermediate_vcf_renamed_chr) + '.pgx_merged.vcf.gz')
-    Utilities.merge_vcfs(bcftools_executable_path, intermediate_vcf_renamed_chr, args.ref_pgx_vcf, intermediate_vcf_pgx_merged)
-    Utilities.tabix_index_vcf(tabix_executable_path, intermediate_vcf_pgx_merged)
+        util.tabix_index_vcf(tabix_executable_path, args.ref_pgx_vcf)
+
+    # shrink input VCF down to PGx allele defining positions to speed up
+    # modify input VCF chromosomes naming format to <chr##>
+    intermediate_vcf_pgx_regions = os.path.join(args.output_folder, util.obtain_vcf_file_prefix(args.input_vcf) + '.pgx_regions.chr_renamed.vcf.gz')
+    util.extract_pharmcat_pgx_regions(args.input_vcf, args.ref_pgx_vcf, intermediate_vcf_pgx_regions)
+    util.tabix_index_vcf(tabix_executable_path, intermediate_vcf_pgx_regions)
+    tmp_files_to_be_removed.append(intermediate_vcf_pgx_regions)
+
+    # merge the input VCF with the PGx position file provided by '--ref_pgx_vcf'
+    # run this step to ensure the output VCF will have THE SAME VARIANT REPRESENTATION as PharmCAT does
+    intermediate_vcf_pgx_merged = os.path.join(args.output_folder, util.obtain_vcf_file_prefix(intermediate_vcf_pgx_regions) + '.pgx_merged.vcf.gz')
+    util.merge_vcfs(bcftools_executable_path, intermediate_vcf_pgx_regions, args.ref_pgx_vcf, intermediate_vcf_pgx_merged)
+    util.tabix_index_vcf(tabix_executable_path, intermediate_vcf_pgx_merged)
     tmp_files_to_be_removed.append(intermediate_vcf_pgx_merged)
 
-    # normalize the input VCF; and extract only the PGx positions in the 'ref_pgx_vcf' file
-    # modify this part to comply to the PharmCAT VCF requirements and PharmCAT only
-    intermediate_vcf_pgx_merged_normalized = os.path.join(args.output_folder, Utilities.obtain_vcf_file_prefix(intermediate_vcf_pgx_merged) + '.normalized.vcf.gz')
-    Utilities.normalize_vcf(bcftools_executable_path, intermediate_vcf_pgx_merged, path_to_ref_seq, intermediate_vcf_pgx_merged_normalized)
-    Utilities.tabix_index_vcf(tabix_executable_path, intermediate_vcf_pgx_merged_normalized)
-    tmp_files_to_be_removed.append(intermediate_vcf_pgx_merged_normalized)
-
-    # iteratively output each sample into a single-sample PharmCAT-ready VCF
-    Utilities.output_pharmcat_ready_vcf(bcftools_executable_path, intermediate_vcf_pgx_merged_normalized, args.output_folder, args.output_prefix)
+    # normalize the input VCF
+    intermediate_vcf_normalized = os.path.join(args.output_folder, util.obtain_vcf_file_prefix(intermediate_vcf_pgx_merged) + '.normalized.vcf.gz')
+    util.normalize_vcf(bcftools_executable_path, intermediate_vcf_pgx_merged, path_to_ref_seq, args.ref_pgx_vcf, intermediate_vcf_normalized)
+    util.tabix_index_vcf(tabix_executable_path, intermediate_vcf_normalized)
+    tmp_files_to_be_removed.append(intermediate_vcf_normalized)
 
     # generate a report of missing PGx positions in VCF format
-    Utilities.output_missing_pgx_positions(bcftools_executable_path, intermediate_vcf_pgx_merged_normalized, args.ref_pgx_vcf, args.output_folder, args.output_prefix)
+    util.output_missing_pgx_positions(bcftools_executable_path, intermediate_vcf_normalized, args.ref_pgx_vcf, args.output_folder, args.output_prefix)
+
+    # output PharmCAT-ready single-sample VCF
+    # retain only the PharmCAT allele defining positions in the output VCF file
+    util.output_pharmcat_ready_vcf(bcftools_executable_path, intermediate_vcf_normalized, args.ref_pgx_vcf, args.output_folder, args.output_prefix)
 
     # remove intermediate files
     for single_path in tmp_files_to_be_removed:
-       Utilities.remove_vcf_and_index(single_path)
+       util.remove_vcf_and_index(single_path)
 
 
 if __name__ == "__main__":
