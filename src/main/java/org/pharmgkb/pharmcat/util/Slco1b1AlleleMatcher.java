@@ -33,7 +33,9 @@ public class Slco1b1AlleleMatcher {
    * @return true if this matcher should be used, false otherwise
    */
   public static boolean shouldBeUsedOn(GeneReport report) {
-    return report != null && report.getGene().equals(SLCO1B1) && report.getMatcherDiplotypes().isEmpty();
+    return report != null
+        && report.getGene().equals(SLCO1B1)
+        && (report.getMatcherDiplotypes().isEmpty() || report.getMatcherDiplotypes().stream().allMatch(Diplotype::isUnknown));
   }
 
   /**

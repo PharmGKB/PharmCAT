@@ -25,6 +25,7 @@ import org.pharmgkb.pharmcat.reporter.model.VariantReport;
  * @author Ryan Whaley
  */
 public class Diplotype implements Comparable<Diplotype> {
+  public static final String UNKNOWN = "Unknown/Unknown";
 
   private static final String NA = "N/A";
   private static final String sf_toStringPattern = "%s:%s";
@@ -174,6 +175,10 @@ public class Diplotype implements Comparable<Diplotype> {
   public boolean hasAllele(String alleleName) {
     return (m_allele1 != null && m_allele1.getName().equals(alleleName))
         || (m_allele2 != null && m_allele2.getName().equals(alleleName));
+  }
+
+  public boolean isUnknown() {
+    return m_allele1.isUnknown() && m_allele2.isUnknown();
   }
 
   /**

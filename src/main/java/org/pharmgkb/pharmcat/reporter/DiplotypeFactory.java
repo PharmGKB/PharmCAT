@@ -59,9 +59,9 @@ public class DiplotypeFactory {
       return geneCall.getDiplotypes().stream().map(this::makeDiplotype).collect(Collectors.toList());
     }
 
-    // some genes get a second shot at the call in cases where certain variant data is known
+    // if not diplotypes are matched then mark it as unknown
     else {
-      return ImmutableList.of();
+      return ImmutableList.of(makeUnknownDiplotype());
     }
   }
 
@@ -114,6 +114,10 @@ public class DiplotypeFactory {
     fillDiplotype(diplotype);
 
     return diplotype;
+  }
+
+  private Diplotype makeUnknownDiplotype() {
+    return makeDiplotype(Diplotype.UNKNOWN);
   }
 
   private void fillDiplotype(Diplotype diplotype) {

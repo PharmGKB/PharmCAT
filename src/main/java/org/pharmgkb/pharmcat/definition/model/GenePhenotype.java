@@ -10,6 +10,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 
 
 /**
@@ -18,6 +19,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * @author Ryan Whaley
  */
 public class GenePhenotype {
+  private static final String NO_RESULT = "No Result";
 
   @SerializedName("gene")
   @Expose
@@ -51,11 +53,6 @@ public class GenePhenotype {
     m_haplotypes = haplotypes;
   }
 
-  public void addHaplotypeFunction(String haplotype, String func) {
-    if (m_haplotypes != null) {
-      m_haplotypes.put(haplotype, func);
-    }
-  }
 
   @Nullable
   public String lookupHaplotype(@Nullable String hap) {
@@ -83,6 +80,9 @@ public class GenePhenotype {
    * @return a phenotype value Normal Metabolizer
    */
   public String getPhenotypeForDiplotype(String diplotype) {
+    if (diplotype.equals(Diplotype.UNKNOWN)) {
+      return NO_RESULT;
+    }
 
     Set<String> phenos = getDiplotypes().stream()
         .filter(d -> d.getDiplotypeKey().equals(makeDiplotypeKey(diplotype)))
@@ -103,6 +103,10 @@ public class GenePhenotype {
    * @return the lookup key related to this diplotype
    */
   public String getLookupKeyForDiplotype(String diplotype) {
+    if (diplotype.equals(Diplotype.UNKNOWN)) {
+      return NO_RESULT;
+    }
+
     Set<String> keys = m_diplotypes.stream()
         .filter(d -> d.getDiplotypeKey().equals(makeDiplotypeKey(diplotype)))
         .map(DiplotypeRecord::getLookupKey)

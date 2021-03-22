@@ -131,6 +131,20 @@ class PharmCATTest {
   }
 
   @Test
+  void testCyp2c19NoCall() throws Exception {
+    generalTest("test.cftr.ref_ref", new String[]{
+            "DPYD/c1679c1156.vcf"
+        },
+        s_tempAstroPath);
+
+    testCalledGenes("CYP2D6");
+    testCalls(DipType.PRINT, "CYP2D6", "*1/*4");
+    testCalls(DipType.LOOKUP, "CYP2D6", "CYP2D6:*1/*4");
+
+    testMatchedGroups("amitriptyline", 1);
+  }
+
+  @Test
   void testCftrF508() throws Exception {
     generalTest("test.cftr.refF508del", new String[]{
             "cftr/refF508del.vcf"

@@ -211,7 +211,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if the {@link NamedAlleleMatcher} has returned at least one call for this gene, false otherwise
    */
   public boolean isCalled() {
-    return m_matcherDiplotypes.size() > 0;
+    return m_matcherDiplotypes.size() > 0 && m_matcherDiplotypes.stream().noneMatch(Diplotype::isUnknown);
   }
 
   /**

@@ -14,6 +14,7 @@ import org.pharmgkb.common.comparator.HaplotypeNameComparator;
  * @author Ryan Whaley
  */
 public class Haplotype implements Comparable<Haplotype> {
+  public static final String UNKNOWN = "Unknown";
 
   @Expose
   @SerializedName("gene")
@@ -88,6 +89,14 @@ public class Haplotype implements Comparable<Haplotype> {
 
   public void setReference(boolean reference) {
     m_reference = reference;
+  }
+
+
+  /**
+   * True if this haplotype is unknown
+   */
+  public boolean isUnknown() {
+    return f_name.equals(UNKNOWN);
   }
 
   /**
