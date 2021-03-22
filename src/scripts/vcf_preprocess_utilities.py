@@ -140,15 +140,24 @@ def extract_pharmcat_pgx_regions(input_vcf, input_ref_pgx_vcf, path_output):
     input_vcf_cyvcf2 = VCF(input_vcf)
     input_ref_pgx_pos_cyvcf2 = VCF(input_ref_pgx_vcf)
 
-    # add chromosome name with leading 'chr' to the VCF header
-    for single_chr in input_ref_pgx_pos_cyvcf2.seqnames:
-        input_vcf_cyvcf2.add_to_header('##contig=<ID=' + single_chr + '>')
-
     # get pgx regions in each chromosome
     input_ref_pgx_pos_pandas = allel.vcf_to_dataframe(input_ref_pgx_vcf)
     input_ref_pgx_pos_pandas['CHROM'] = input_ref_pgx_pos_pandas['CHROM'].replace({'chr':''}, regex=True).astype(str).astype(int)
     ref_pgx_regions = input_ref_pgx_pos_pandas.groupby(['CHROM'])['POS'].agg(get_vcf_pos_min_max).reset_index()
-    ref_pgx_regions = ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1).replace({'chr':''}, regex=True)
+    # fix chr names
+    chr_name_match = re.compile("^chr")
+    if any(chr_name_match.match(line) for line in input_vcf_cyvcf2.seqnames):
+        # add chromosome name with leading 'chr' to the VCF header
+        for single_chr in input_vcf_cyvcf2.seqnames:
+            input_vcf_cyvcf2.add_to_header('##contig=<ID=' + single_chr + '>')
+        # pgx regions to be extracted
+        ref_pgx_regions = ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1).replace({'^':'chr'}, regex=True)
+    else:
+        # add chromosome name with leading 'chr' to the VCF header
+        for single_chr in input_vcf_cyvcf2.seqnames:
+            input_vcf_cyvcf2.add_to_header('##contig=<ID=chr' + single_chr + '>')
+        # pgx regions to be extracted
+        ref_pgx_regions = ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1)
 
     # write to a VCF output file
     # header
@@ -184,9 +193,10 @@ def normalize_vcf(bcftools_executable_path, input_vcf, path_to_ref_seq, input_re
     "bcftools norm <options> <input_vcf>". For bcftools common options, see running_bcftools().
     "-m+" joins biallelic sites into multiallelic records (+).
     "-f <ref_seq_fasta>" reference sequence. Supplying this option turns on left-alignment and normalization.
+    "-c ws" when incorrect or missing REF allele is encountered, warn (w) and set/fix(s) bad sites. 's' will swap alleles and update GT and AC acounts. Importantly, s will NOT fix strand issues in a VCF.
     '''
 
-    bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '--no-version', '-m+', '-Oz', '-o', path_output, '-f', path_to_ref_seq, input_vcf]
+    bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '--no-version', '-m+', '-c', 'ws',  '-Oz', '-o', path_output, '-f', path_to_ref_seq, input_vcf]
     running_bcftools(bcftools_command_to_normalize_vcf, show_msg = 'Normalize VCF') # run bcftools to merge VCF files
 
 
