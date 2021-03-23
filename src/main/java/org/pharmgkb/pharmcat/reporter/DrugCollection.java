@@ -8,13 +8,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.Spliterator;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
+import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 
 /**
@@ -57,6 +60,17 @@ public class DrugCollection implements Iterable<Drug> {
     return m_drugList.stream()
         .filter((d) -> d.getDrugId().equalsIgnoreCase(identifier) || d.getDrugName().equalsIgnoreCase(identifier))
         .findFirst();
+  }
+
+  /**
+   * Gets a Set of all genes that are related to drugs for this collection and not ignored
+   * @return a Set of all genes reportable by these drugs
+   */
+  public Set<String> getAllReportableGenes() {
+    return m_drugList.stream()
+        .flatMap(d -> d.getGenes().stream())
+        .filter(g -> !GeneReport.IGNORED_GENES.contains(g))
+        .collect(Collectors.toSet());
   }
 
   @Override

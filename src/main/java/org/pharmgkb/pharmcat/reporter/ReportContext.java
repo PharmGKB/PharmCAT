@@ -62,28 +62,39 @@ public class ReportContext {
    */
   public ReportContext(List<GeneCall> calls, List<OutsideCall> outsideCalls) throws Exception {
     f_genotypeInterpretation = new GenotypeInterpretation(calls, outsideCalls);
-    for (Drug drug : new DrugCollection()) {
+    m_phenotypeMap = new PhenotypeMap();
+
+    DrugCollection drugCollection = new DrugCollection();
+    drugCollection.getAllReportableGenes()
+        .forEach(f_genotypeInterpretation::addGeneReport);
+
+    for (Drug drug : drugCollection) {
       DrugReport drugReport = new DrugReport(drug);
+      if (!drugReport.isIgnored()) {
+        // set if this drug can be shown in the report
+        drugReport.setReportable(drugReport.getRelatedGeneSymbols().stream().anyMatch(this::isReportable));
 
-      // do not report any drug (or gene) that has a gene on the "ignored" list
-      if (drugReport.isIgnored()) continue;
+        // determine which genes don't have calls for this drug
+        drugReport.getRelatedGeneSymbols().stream()
+            .filter(g -> !isReportable(g))
+            .forEach(drugReport::addUncalledGene);
 
-      // initialize the gene report
-      m_drugReports.add(drugReport);
+        // add matching recommendations if this drug is reportable
+        if (drugReport.isReportable()) {
+          Set<String> genotypeForMatching = new TreeSet<>();
+          for (String symbol : drugReport.getRelatedGeneSymbols()) {
+            genotypeForMatching = makeCalledGenotypes(symbol, genotypeForMatching);
+          }
+          genotypeForMatching.forEach(drugReport::addReportGenotype);
+        }
+        m_drugReports.add(drugReport);
 
-      // initialize any non-present drug reports
-      for (String gene : drug.getGenes()) {
-        if (!f_genotypeInterpretation.findGeneReport(gene).isPresent()) {
-          f_genotypeInterpretation.addGeneReport(gene);
+        // add the inverse relationship to gene reports
+        for (String gene : drugReport.getRelatedGeneSymbols()) {
+          getGeneReport(gene).addRelatedDrugs(drugReport);
         }
       }
     }
-
-    m_phenotypeMap = new PhenotypeMap();
-
-    findMatches();
-
-    compileDrugsForGenes();
   }
 
   /**
@@ -96,59 +107,8 @@ public class ReportContext {
     m_drugReports.forEach(r -> r.addMessages(messageMatcher.match(r)));
   }
 
-  /**
-   * Adds compiled drug data to each {@link GeneReport} object that's related through a guideline. This gives a useful
-   * collection of all drugs that are related to each gene.
-   */
-  private void compileDrugsForGenes() {
-    m_drugReports.forEach(r -> {
-      for (String gene : r.getRelatedGeneSymbols()) {
-        getGeneReport(gene).addRelatedDrugs(r);
-      }
-    });
-  }
-
   private boolean isReportable(String gene) {
     return getGeneReport(gene).isReportable();
-  }
-
-  /**
-   * Assigns matched guideline groups for all guidelines in this report based on called diplotype functions for each
-   * gene and guideline combination.
-   */
-  private void findMatches() {
-
-    for(DrugReport drugReport : m_drugReports) {
-      boolean reportable = drugReport.getRelatedGeneSymbols().stream()
-          .anyMatch(this::isReportable);
-
-      drugReport.setReportable(reportable);
-
-      drugReport.getRelatedGeneSymbols().stream()
-          .filter(g -> !isReportable(g))
-          .forEach(drugReport::addUncalledGene);
-
-      if (!reportable) {
-        continue;
-      }
-
-      makeAllReportGenotypes(drugReport);
-    }
-  }
-
-  /**
-   * Makes a set of called genotype function Strings (in the form "GENEA:No Function/No Function;GENEB:Normal Function/Normal Function") for the given
-   * {@link DrugReport} and then adds them to the given {@link DrugReport}.
-   *
-   * <em>note:</em> this needs to stay in the {@link ReportContext} since it relies on referencing possibly multiple
-   * {@link GeneReport} objects.
-   */
-  private void makeAllReportGenotypes(DrugReport drugReport) {
-    Set<String> results = new TreeSet<>();
-    for (String symbol : drugReport.getRelatedGeneSymbols()) {
-      results = makeCalledGenotypes(symbol, results);
-    }
-    results.forEach(drugReport::addReportGenotype);
   }
 
   /**
@@ -157,7 +117,7 @@ public class ReportContext {
    *
    * @param symbol the gene to generate calls for
    * @param results the existing call list to add to
-   * @return a new Set of gene calls with the calls for the specified gene
+   * @return a new Set of gene calls with the calls for the specified gene, non-null
    */
   private Set<String> makeCalledGenotypes(String symbol, Set<String> results) {
     if (results.size() == 0) {

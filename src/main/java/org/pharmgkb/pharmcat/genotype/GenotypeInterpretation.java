@@ -139,11 +139,13 @@ public class GenotypeInterpretation {
   }
 
   /**
-   * Add a "blank" {@link GeneReport} object just based on the gene symbol
+   * Add a "blank" {@link GeneReport} object just based on the gene symbol if a {@link GeneReport} doesn't already exist
    * @param geneSymbol the gene symbol
    */
   public void addGeneReport(String geneSymbol) {
-    f_geneReports.add(new GeneReport(geneSymbol));
+    if (!findGeneReport(geneSymbol).isPresent()) {
+      f_geneReports.add(new GeneReport(geneSymbol));
+    }
   }
 
   /**
