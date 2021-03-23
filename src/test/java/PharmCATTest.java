@@ -102,6 +102,20 @@ class PharmCATTest {
   }
 
   @Test
+  void testMultipleCallsOnOneGene() throws Exception {
+    generalTest("test.cyp2c19.rs28399504missing", new String[]{
+            "cyp2c19/s4bs17rs28399504missing.vcf"
+        },
+        null);
+
+
+    assertTrue(s_context.getGeneReport("CYP2C19").isCalled());
+    assertEquals(3, s_context.getGeneReport("CYP2C19").getMatcherDiplotypes().size());
+
+    testMatchedGroups("citalopram", 3);
+  }
+
+  @Test
   void testCyp2c19_astrolabe() throws Exception {
     generalTest("test.cyp2c19.s1s4b", new String[]{
         "cyp2c19/s4s17het.vcf"
