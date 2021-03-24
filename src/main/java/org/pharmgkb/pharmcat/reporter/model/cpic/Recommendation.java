@@ -2,12 +2,9 @@ package org.pharmgkb.pharmcat.reporter.model.cpic;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.apache.commons.lang3.StringUtils;
 
 
 /**
@@ -99,19 +96,6 @@ public class Recommendation {
 
   public void setLookupKey(Map<String, String> lookupKey) {
     m_lookupKey = lookupKey;
-  }
-
-  /**
-   * Will return true if this recommendation matches the given genotype
-   * @param genotype in the form "GENEX:*1/*3;GENEY:*2/*5"
-   * @return whether this recommendation matches that key
-   */
-  public boolean matchLookupKey(String genotype) {
-    if (StringUtils.isBlank(genotype)) return false;
-
-    SortedSet<String> sortedKeys = new TreeSet<>(m_lookupKey.keySet());
-    String matchValue = sortedKeys.stream().map((k) -> k+":"+m_lookupKey.get(k)).collect(Collectors.joining(";"));
-    return genotype.equalsIgnoreCase(matchValue);
   }
 
   public Set<String> getMatchedDiplotypes() {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
@@ -12,7 +13,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
@@ -157,18 +157,19 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   /**
-   * Finds the matching {@link Recommendation} objects for the given <code>reportGenotype</code>, adds it to the group, and then
-   * marks it as a match.
-   * @param reportGenotype a multi-gene genotype function String in the form of "GENEA:No Function/No Function;GENEB:Normal Function/Normal Function"
+   * Finds the matching {@link Recommendation} objects for the given <code>phenotypeKey</code>, adds it to the group,
+   * and then marks it as a match.
+   * @param phenotypeKey a Map of gene symbol to phenotype String
    */
-  public void addReportGenotype(String reportGenotype) {
-    Preconditions.checkArgument(StringUtils.isNotBlank(reportGenotype));
+  public void addReportGenotype(Map<String,String> phenotypeKey) {
+    Preconditions.checkNotNull(phenotypeKey);
+    Preconditions.checkArgument(!phenotypeKey.isEmpty());
 
     getRecommendations().stream()
-        .filter(r -> r.matchLookupKey(reportGenotype))
+        .filter(r -> r.getLookupKey().equals(phenotypeKey))
         .forEach(r -> {
           addMatchingRecommendation(r);
-          r.addMatchedDiplotype(reportGenotype);
+          r.addMatchedDiplotype(phenotypeKey.toString());
         });
   }
 

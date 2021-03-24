@@ -7,7 +7,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -158,5 +161,39 @@ public class GenotypeInterpretation {
 
   private void removeGeneReport(String geneSymbol) {
     findGeneReport(geneSymbol).ifPresent(f_geneReports::remove);
+  }
+
+  public List<Map<String,String>> makePhenotypeKeys(Collection<String> geneSymbols) {
+    List<Map<String,String>> keys = new ArrayList<>();
+    for (String geneSymbol : geneSymbols) {
+      keys = makePhenotypeKeys(geneSymbol, keys);
+    }
+    return keys;
+  }
+
+  private List<Map<String,String>> makePhenotypeKeys(String geneSymbol, List<Map<String,String>> existingList) {
+    if (existingList.isEmpty()) {
+      findGeneReport(geneSymbol).ifPresent((r) ->
+        r.getReporterDiplotypes().forEach((d) -> {
+          Map<String,String> newKey = new HashMap<>();
+          newKey.put(geneSymbol, d.getLookupKey());
+          existingList.add(newKey);
+        })
+      );
+      return existingList;
+    }
+    else {
+      List<Map<String,String>> newList = new ArrayList<>();
+      findGeneReport(geneSymbol).ifPresent((r) ->
+        r.getReporterDiplotypes().forEach((d) -> {
+          for (Map<String,String> existingKey : existingList) {
+            Map<String, String> newKey = new HashMap<>(existingKey);
+            newKey.put(geneSymbol, d.getLookupKey());
+            newList.add(newKey);
+          }
+        })
+      );
+      return newList;
+    }
   }
 }

@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -18,7 +17,6 @@ import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.genotype.GenotypeInterpretation;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -53,7 +51,6 @@ public class ReportContext {
 
   private final GenotypeInterpretation f_genotypeInterpretation;
   private final List<DrugReport> m_drugReports = new ArrayList<>();
-  private final PhenotypeMap m_phenotypeMap;
 
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
@@ -62,7 +59,6 @@ public class ReportContext {
    */
   public ReportContext(List<GeneCall> calls, List<OutsideCall> outsideCalls) throws Exception {
     f_genotypeInterpretation = new GenotypeInterpretation(calls, outsideCalls);
-    m_phenotypeMap = new PhenotypeMap();
 
     DrugCollection drugCollection = new DrugCollection();
     drugCollection.getAllReportableGenes()
@@ -81,11 +77,10 @@ public class ReportContext {
 
         // add matching recommendations if this drug is reportable
         if (drugReport.isReportable()) {
-          Set<String> genotypeForMatching = new TreeSet<>();
-          for (String symbol : drugReport.getRelatedGeneSymbols()) {
-            genotypeForMatching = makeCalledGenotypes(symbol, genotypeForMatching);
+          List<Map<String,String>> phenoKeys = f_genotypeInterpretation.makePhenotypeKeys(drugReport.getRelatedGeneSymbols());
+          for (Map<String,String> phenoKey : phenoKeys) {
+            drugReport.addReportGenotype(phenoKey);
           }
-          genotypeForMatching.forEach(drugReport::addReportGenotype);
         }
         m_drugReports.add(drugReport);
 
@@ -109,35 +104,6 @@ public class ReportContext {
 
   private boolean isReportable(String gene) {
     return getGeneReport(gene).isReportable();
-  }
-
-  /**
-   * Makes the genotype Strings for the given gene <code>symbol</code> and either creates a new Set if the passed
-   * <code>results</code> is empty or adds to the existing <code>results</code> if there are already entries
-   *
-   * @param symbol the gene to generate calls for
-   * @param results the existing call list to add to
-   * @return a new Set of gene calls with the calls for the specified gene, non-null
-   */
-  private Set<String> makeCalledGenotypes(String symbol, Set<String> results) {
-    if (results.size() == 0) {
-      return getGeneReport(symbol).getDiplotypeLookupKeys().stream()
-          .map(k -> m_phenotypeMap.lookupPhenotype(k).orElse(symbol+":N/A"))
-          .collect(Collectors.toSet());
-    }
-    else {
-      Set<String> newResults = new TreeSet<>();
-      for (String geno1 : results) {
-        getGeneReport(symbol).getDiplotypeLookupKeys().stream().map(m_phenotypeMap::lookupPhenotype).forEach(
-            geno2 -> {
-              Set<String> genos = new TreeSet<>();
-              genos.add(geno1);
-              genos.add(geno2.orElse(symbol+":N/A"));
-              newResults.add(String.join(";", genos));
-            });
-      }
-      return newResults;
-    }
   }
 
   public List<DrugReport> getDrugReports() {
