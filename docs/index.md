@@ -76,7 +76,7 @@ Teri Klein (Stanford University) and Marylyn Ritchie (University of Pennsylvania
 |Minoli Perera |  Northwestern University |
 |Thomas Person | Geisinger |
 |Josh Peterson | Vanderbilt University |
-|Stuart Scott | Icahn School of Medicine at Mount Sinai |
+|Stuart Scott | Stanford University |
 |Greyson Twist | Children’s Mercy Hospital|
 |Marc Williams | Geisinger |
 |Chunlei Wu | Scrips Research Institute |
