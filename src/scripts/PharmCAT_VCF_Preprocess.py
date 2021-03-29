@@ -48,9 +48,7 @@ def run(args):
     tmp_files_to_be_removed.append(intermediate_vcf_pgx_merged)
 
     # normalize the input VCF
-    intermediate_vcf_normalized = os.path.join(args.output_folder, util.obtain_vcf_file_prefix(intermediate_vcf_pgx_merged) + '.normalized.vcf.gz')
-    util.normalize_vcf(bcftools_executable_path, intermediate_vcf_pgx_merged, path_to_ref_seq, args.ref_pgx_vcf, intermediate_vcf_normalized)
-    util.tabix_index_vcf(tabix_executable_path, intermediate_vcf_normalized)
+    intermediate_vcf_normalized = util.normalize_vcf(bcftools_executable_path, tabix_executable_path, intermediate_vcf_pgx_merged, path_to_ref_seq, args.ref_pgx_vcf)
     tmp_files_to_be_removed.append(intermediate_vcf_normalized)
 
     # generate a report of missing PGx positions in VCF format
@@ -58,7 +56,7 @@ def run(args):
 
     # output PharmCAT-ready single-sample VCF
     # retain only the PharmCAT allele defining positions in the output VCF file
-    util.output_pharmcat_ready_vcf(bcftools_executable_path, intermediate_vcf_normalized, args.ref_pgx_vcf, args.output_folder, args.output_prefix)
+    util.output_pharmcat_ready_vcf(bcftools_executable_path, intermediate_vcf_normalized, args.output_folder, args.output_prefix)
 
     # remove intermediate files
     for single_path in tmp_files_to_be_removed:

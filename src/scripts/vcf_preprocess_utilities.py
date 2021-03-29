@@ -186,7 +186,7 @@ def merge_vcfs(bcftools_executable_path, input_vcf, input_ref_pgx_vcf, path_outp
     running_bcftools(bcftools_command_to_merge, show_msg = 'Enforcing the same variant representation as that in the reference PGx variant file')
 
 
-def normalize_vcf(bcftools_executable_path, input_vcf, path_to_ref_seq, input_ref_pgx_vcf, path_output):
+def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, path_to_ref_seq, input_ref_pgx_vcf):
     '''
     normalize the input VCF against the human reference genome sequence GRCh38/hg38
 
@@ -196,13 +196,22 @@ def normalize_vcf(bcftools_executable_path, input_vcf, path_to_ref_seq, input_re
     "-c ws" when incorrect or missing REF allele is encountered, warn (w) and set/fix(s) bad sites. 's' will swap alleles and update GT and AC acounts. Importantly, s will NOT fix strand issues in a VCF.
     '''
 
-    bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '--no-version', '-m+', '-c', 'ws',  '-Oz', '-o', path_output, '-f', path_to_ref_seq, input_vcf]
-    running_bcftools(bcftools_command_to_normalize_vcf, show_msg = 'Normalize VCF') # run bcftools to merge VCF files
+    intermdiate_output_vcf_normalized = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.intermediate.vcf.gz'
+    # normalize
+    bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '--no-version', '-m+', '-c', 'ws',  '-Oz', '-o', intermdiate_output_vcf_normalized, '-f', path_to_ref_seq, input_vcf]
+    running_bcftools(bcftools_command_to_normalize_vcf, show_msg = 'Normalize VCF')
+    tabix_index_vcf(tabix_executable_path, intermdiate_output_vcf_normalized)
     # extract only PGx positions
-    # Bcftools command
+    output_vcf_normalized = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.normalized.vcf.gz'
+    bcftools_command_to_extract_only_pgx = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o', output_vcf_normalized, '-R', input_ref_pgx_vcf, intermdiate_output_vcf_normalized]
+    running_bcftools(bcftools_command_to_extract_only_pgx, show_msg = 'Retain only PGx positions in the normalized VCF') # run bcftools to merge VCF files
+    tabix_index_vcf(tabix_executable_path, output_vcf_normalized)
 
+    remove_vcf_and_index(intermdiate_output_vcf_normalized)
 
-def output_pharmcat_ready_vcf(bcftools_executable_path, input_vcf, input_ref_pgx_vcf, output_dir, output_prefix):
+    return output_vcf_normalized
+
+def output_pharmcat_ready_vcf(bcftools_executable_path, input_vcf, output_dir, output_prefix):
     '''
     iteratively write to a PharmCAT-ready VCF for each sample
 
@@ -214,7 +223,7 @@ def output_pharmcat_ready_vcf(bcftools_executable_path, input_vcf, input_ref_pgx
     
     for single_sample in sample_list:
         output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf')
-        bcftools_command_to_output_pharmcat_ready_vcf = [bcftools_executable_path, 'view', '--no-version', '-U', '-Ov', '-o', output_file_name, '-s', single_sample, '-R', input_ref_pgx_vcf, input_vcf]
+        bcftools_command_to_output_pharmcat_ready_vcf = [bcftools_executable_path, 'view', '--no-version', '-U', '-Ov', '-o', output_file_name, '-s', single_sample, input_vcf]
         running_bcftools(bcftools_command_to_output_pharmcat_ready_vcf, show_msg = 'Generating a PharmCAT-ready VCF for ' + single_sample)
 
 
