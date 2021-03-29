@@ -198,6 +198,8 @@ def normalize_vcf(bcftools_executable_path, input_vcf, path_to_ref_seq, input_re
 
     bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '--no-version', '-m+', '-c', 'ws',  '-Oz', '-o', path_output, '-f', path_to_ref_seq, input_vcf]
     running_bcftools(bcftools_command_to_normalize_vcf, show_msg = 'Normalize VCF') # run bcftools to merge VCF files
+    # extract only PGx positions
+    # Bcftools command
 
 
 def output_pharmcat_ready_vcf(bcftools_executable_path, input_vcf, input_ref_pgx_vcf, output_dir, output_prefix):
@@ -211,8 +213,8 @@ def output_pharmcat_ready_vcf(bcftools_executable_path, input_vcf, input_ref_pgx
     sample_list = obtain_vcf_sample_list(bcftools_executable_path, input_vcf)
     
     for single_sample in sample_list:
-        output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf.gz')
-        bcftools_command_to_output_pharmcat_ready_vcf = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o', output_file_name, '-s', single_sample, '-R', input_ref_pgx_vcf, input_vcf]
+        output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf')
+        bcftools_command_to_output_pharmcat_ready_vcf = [bcftools_executable_path, 'view', '--no-version', '-U', '-Ov', '-o', output_file_name, '-s', single_sample, '-R', input_ref_pgx_vcf, input_vcf]
         running_bcftools(bcftools_command_to_output_pharmcat_ready_vcf, show_msg = 'Generating a PharmCAT-ready VCF for ' + single_sample)
 
 
