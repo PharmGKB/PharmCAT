@@ -129,22 +129,6 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   /**
-   * TODO(ryan): needs to be re-implemented
-   * @return true if this guideline matches to a recommendation with an Rx Change
-   */
-  public boolean isRxChange() {
-    return false;
-  }
-
-  /**
-   * TODO(ryan): needs to be re-implemented
-   * @return true if this guideline matches to a recommendation with a "Possibly" Rx Change
-   */
-  public boolean isRxPossible() {
-    return false;
-  }
-
-  /**
    * Finds the matching {@link Recommendation} objects for the given <code>phenotypeKey</code>, adds it to the group,
    * and then marks it as a match.
    * @param phenotypeKey a Map of gene symbol to phenotype String

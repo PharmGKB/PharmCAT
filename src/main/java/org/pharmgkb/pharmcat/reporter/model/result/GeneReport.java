@@ -242,7 +242,7 @@ public class GeneReport implements Comparable<GeneReport> {
   public void addRelatedDrugs(DrugReport guideline) {
 
     guideline.getRelatedDrugs().stream()
-        .map(d -> new DrugLink(d, guideline.getId(), guideline.isRxChange(), guideline.isRxPossible()))
+        .map(d -> new DrugLink(d, guideline.getId()))
         .forEach(m_relatedDrugs::add);
   }
 
