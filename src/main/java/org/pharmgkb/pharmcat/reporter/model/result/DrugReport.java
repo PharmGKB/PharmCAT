@@ -11,8 +11,6 @@ import java.util.TreeSet;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
@@ -32,7 +30,6 @@ public class DrugReport implements Comparable<DrugReport> {
   private final Drug m_drug;
   private boolean m_reportable = false;
   private final List<Recommendation> m_matchingRecommendations = new ArrayList<>();
-  private final Multimap<String,String> m_matchedDiplotypes = TreeMultimap.create();
   private final Set<String> m_uncalledGenes = new TreeSet<>();
   private final List<MessageAnnotation> m_messages = new ArrayList<>();
   private final List<String> m_reportVariants = new ArrayList<>();
@@ -100,15 +97,6 @@ public class DrugReport implements Comparable<DrugReport> {
    */
   public String getUrl() {
     return m_drug.getUrl();
-  }
-
-  /**
-   * Gets the matched diplotypes for this annotation (should be a subset of all called genotypes).
-   *
-   * Will be in functional form, e.g. "GENEX:No Function/Increased Function"
-   */
-  public Multimap<String,String> getMatchedDiplotypes() {
-    return m_matchedDiplotypes;
   }
 
   /**
