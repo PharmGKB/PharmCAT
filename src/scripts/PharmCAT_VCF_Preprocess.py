@@ -56,7 +56,7 @@ def run(args):
 
     # output PharmCAT-ready single-sample VCF
     # retain only the PharmCAT allele defining positions in the output VCF file
-    util.output_pharmcat_ready_vcf(bcftools_executable_path, intermediate_vcf_normalized, args.output_folder, args.output_prefix)
+    util.output_pharmcat_ready_vcf(intermediate_vcf_normalized, args.output_folder, args.output_prefix)
 
     # remove intermediate files
     for single_path in tmp_files_to_be_removed:

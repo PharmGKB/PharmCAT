@@ -104,20 +104,6 @@ def running_bcftools(list_bcftools_command, show_msg = None):
     print("%s" % (show_msg)) if show_msg else print("Running [ %s ]" % (' '.join(list_bcftools_command)))
     subprocess.run(list_bcftools_command)
 
-#to be replaced with cyvcf2 VCF.samples #
-def obtain_vcf_sample_list(bcftools_executable_path, path_to_vcf):
-    '''
-    obtain a list of samples from the input VCF
-
-    "bcftools query <options> <input_vcf>". For bcftools common options, see running_bcftools().
-    "-l" list sample names and exit. Samples are delimited by '\n' and the last line ends as 'last_sample_ID\n\n'.
-    '''
-    
-    vcf_sample_list = subprocess.check_output([bcftools_executable_path, 'query', '-l', path_to_vcf], universal_newlines=True).split('\n')[:-1] # remove the black line at the end
-    vcf_sample_list.remove('PharmCAT')
-    return vcf_sample_list # remove the '\n' at the end
-
-
 def remove_vcf_and_index(path_to_vcf):
     '''remove the compressed vcf as well as the index file'''
 
@@ -147,12 +133,11 @@ def extract_pharmcat_pgx_regions(input_vcf, input_ref_pgx_vcf, path_output):
     # fix chr names
     chr_name_match = re.compile("^chr")
     if any(chr_name_match.match(line) for line in input_vcf_cyvcf2.seqnames):
-        # add chromosome name with leading 'chr' to the VCF header
-        for single_chr in input_vcf_cyvcf2.seqnames:
-            input_vcf_cyvcf2.add_to_header('##contig=<ID=' + single_chr + '>')
+        # chromosomes have leading 'chr' characters in the original VCF
         # pgx regions to be extracted
         ref_pgx_regions = ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1).replace({'^':'chr'}, regex=True)
     else:
+        # chromosomes do not have leading 'chr' characters in the original VCF
         # add chromosome name with leading 'chr' to the VCF header
         for single_chr in input_vcf_cyvcf2.seqnames:
             input_vcf_cyvcf2.add_to_header('##contig=<ID=chr' + single_chr + '>')
@@ -161,7 +146,7 @@ def extract_pharmcat_pgx_regions(input_vcf, input_ref_pgx_vcf, path_output):
 
     # write to a VCF output file
     # header
-    output_vcf_cyvcf2 = Writer(path_output, input_vcf_cyvcf2)
+    output_vcf_cyvcf2 = Writer(path_output, input_vcf_cyvcf2, mode="wz")
     # content
     for single_region in ref_pgx_regions:
         for single_variant in input_vcf_cyvcf2(single_region):
@@ -211,7 +196,7 @@ def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, pa
 
     return output_vcf_normalized
 
-def output_pharmcat_ready_vcf(bcftools_executable_path, input_vcf, output_dir, output_prefix):
+def output_pharmcat_ready_vcf(input_vcf, output_dir, output_prefix):
     '''
     iteratively write to a PharmCAT-ready VCF for each sample
 
@@ -219,12 +204,25 @@ def output_pharmcat_ready_vcf(bcftools_executable_path, input_vcf, output_dir, o
     "-U" exclude sites without a called genotype, i.e., GT = './.'
     '''
 
-    sample_list = obtain_vcf_sample_list(bcftools_executable_path, input_vcf)
-    
-    for single_sample in sample_list:
+    input_vcf_cyvcf2 = VCF(input_vcf)
+    input_vcf_sample_list=input_vcf_cyvcf2.samples
+    input_vcf_sample_list.remove('PharmCAT')
+
+    # output each single sample to a separete VCF
+    for single_sample in input_vcf_sample_list:
+        print('Generating a PharmCAT-ready VCF for ' + single_sample)
+        input_vcf_cyvcf2.set_samples(single_sample)
+
+        # write to a VCF output file
         output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf')
-        bcftools_command_to_output_pharmcat_ready_vcf = [bcftools_executable_path, 'view', '--no-version', '-U', '-Ov', '-o', output_file_name, '-s', single_sample, input_vcf]
-        running_bcftools(bcftools_command_to_output_pharmcat_ready_vcf, show_msg = 'Generating a PharmCAT-ready VCF for ' + single_sample)
+        # header
+        output_vcf_cyvcf2 = Writer(output_file_name, input_vcf_cyvcf2, mode = 'w')
+        # content
+        for single_var in input_vcf_cyvcf2:
+            output_vcf_cyvcf2.write_record(single_var)
+        output_vcf_cyvcf2.close()
+
+    input_vcf_cyvcf2.close()
 
 
 def output_missing_pgx_positions(bcftools_executable_path, input_vcf, input_ref_pgx_vcf, output_dir, output_prefix):
