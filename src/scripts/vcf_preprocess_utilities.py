@@ -118,10 +118,13 @@ def get_vcf_pos_min_max(positions, flanking_bp = 100):
     ''' given input positions, return "<min_pos>-<max_pos>"  '''
     return '-'.join([str(min(positions)-flanking_bp), str(max(positions)+flanking_bp)])
 
-def extract_pharmcat_pgx_regions(input_vcf, input_ref_pgx_vcf, path_output):
+def extract_pharmcat_pgx_regions(tabix_executable_path, input_vcf, output_dir, input_ref_pgx_vcf):
     '''
     extract pgx regions in input_ref_pgx_vcf from input_vcf and save variants to path_output
     '''
+
+    print('Modify chromosome names.\nExtract PGx regions based on the input reference PGx position file.')
+    path_output = os.path.join(output_dir, obtain_vcf_file_prefix(input_vcf) + '.pgx_regions.vcf.gz')
 
     input_vcf_cyvcf2 = VCF(input_vcf)
     input_ref_pgx_pos_cyvcf2 = VCF(input_ref_pgx_vcf)
@@ -158,8 +161,12 @@ def extract_pharmcat_pgx_regions(input_vcf, input_ref_pgx_vcf, path_output):
     input_ref_pgx_pos_cyvcf2.close()
     output_vcf_cyvcf2.close()
 
+    tabix_index_vcf(tabix_executable_path, path_output)
 
-def merge_vcfs(bcftools_executable_path, input_vcf, input_ref_pgx_vcf, path_output):
+    return path_output
+
+
+def merge_vcfs(bcftools_executable_path, tabix_executable_path, input_vcf, input_ref_pgx_vcf):
     '''
     merge the input VCF with a reference VCF of PGx core allele defining positions to enforce the same variant representation format across files
 
@@ -167,9 +174,14 @@ def merge_vcfs(bcftools_executable_path, input_vcf, input_ref_pgx_vcf, path_outp
     "-m both" allows both SNP and indel records can be multiallelic. But SNP and indel will not be merged as one multiallelic record.
     '''
 
+    path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.pgx_merged.vcf.gz'
+
     bcftools_command_to_merge = [bcftools_executable_path, 'merge', '--no-version', '-m', 'both', '-Oz', '-o', path_output, input_vcf, input_ref_pgx_vcf]
     running_bcftools(bcftools_command_to_merge, show_msg = 'Enforcing the same variant representation as that in the reference PGx variant file')
 
+    tabix_index_vcf(tabix_executable_path, path_output)
+
+    return path_output
 
 def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, path_to_ref_seq, input_ref_pgx_vcf):
     '''
@@ -181,20 +193,21 @@ def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, pa
     "-c ws" when incorrect or missing REF allele is encountered, warn (w) and set/fix(s) bad sites. 's' will swap alleles and update GT and AC acounts. Importantly, s will NOT fix strand issues in a VCF.
     '''
 
-    intermdiate_output_vcf_normalized = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.intermediate.vcf.gz'
+    temp_normalized_vcf = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.tmp_normed.vcf.gz'
     # normalize
-    bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '--no-version', '-m+', '-c', 'ws',  '-Oz', '-o', intermdiate_output_vcf_normalized, '-f', path_to_ref_seq, input_vcf]
+    bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '--no-version', '-m+', '-c', 'ws',  '-Oz', '-o', temp_normalized_vcf, '-f', path_to_ref_seq, input_vcf]
     running_bcftools(bcftools_command_to_normalize_vcf, show_msg = 'Normalize VCF')
-    tabix_index_vcf(tabix_executable_path, intermdiate_output_vcf_normalized)
+    tabix_index_vcf(tabix_executable_path, temp_normalized_vcf)
+
     # extract only PGx positions
-    output_vcf_normalized = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.normalized.vcf.gz'
-    bcftools_command_to_extract_only_pgx = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o', output_vcf_normalized, '-R', input_ref_pgx_vcf, intermdiate_output_vcf_normalized]
+    path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.normalized.vcf.gz'
+    bcftools_command_to_extract_only_pgx = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o', path_output, '-R', input_ref_pgx_vcf, temp_normalized_vcf]
     running_bcftools(bcftools_command_to_extract_only_pgx, show_msg = 'Retain only PGx positions in the normalized VCF') # run bcftools to merge VCF files
-    tabix_index_vcf(tabix_executable_path, output_vcf_normalized)
+    tabix_index_vcf(tabix_executable_path, path_output)
 
-    remove_vcf_and_index(intermdiate_output_vcf_normalized)
+    remove_vcf_and_index(temp_normalized_vcf)
 
-    return output_vcf_normalized
+    return path_output
 
 def output_pharmcat_ready_vcf(input_vcf, output_dir, output_prefix):
     '''
@@ -205,7 +218,7 @@ def output_pharmcat_ready_vcf(input_vcf, output_dir, output_prefix):
     '''
 
     input_vcf_cyvcf2 = VCF(input_vcf)
-    input_vcf_sample_list=input_vcf_cyvcf2.samples
+    input_vcf_sample_list = input_vcf_cyvcf2.samples
     input_vcf_sample_list.remove('PharmCAT')
 
     # output each single sample to a separete VCF

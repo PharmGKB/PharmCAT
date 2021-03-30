@@ -35,16 +35,12 @@ def run(args):
 
     # shrink input VCF down to PGx allele defining positions to speed up
     # modify input VCF chromosomes naming format to <chr##>
-    intermediate_vcf_pgx_regions = os.path.join(args.output_folder, util.obtain_vcf_file_prefix(args.input_vcf) + '.pgx_regions.chr_renamed.vcf.gz')
-    util.extract_pharmcat_pgx_regions(args.input_vcf, args.ref_pgx_vcf, intermediate_vcf_pgx_regions)
-    util.tabix_index_vcf(tabix_executable_path, intermediate_vcf_pgx_regions)
+    intermediate_vcf_pgx_regions = util.extract_pharmcat_pgx_regions(tabix_executable_path, args.input_vcf, args.output_folder, args.ref_pgx_vcf)
     tmp_files_to_be_removed.append(intermediate_vcf_pgx_regions)
 
     # merge the input VCF with the PGx position file provided by '--ref_pgx_vcf'
     # run this step to ensure the output VCF will have THE SAME VARIANT REPRESENTATION as PharmCAT does
-    intermediate_vcf_pgx_merged = os.path.join(args.output_folder, util.obtain_vcf_file_prefix(intermediate_vcf_pgx_regions) + '.pgx_merged.vcf.gz')
-    util.merge_vcfs(bcftools_executable_path, intermediate_vcf_pgx_regions, args.ref_pgx_vcf, intermediate_vcf_pgx_merged)
-    util.tabix_index_vcf(tabix_executable_path, intermediate_vcf_pgx_merged)
+    intermediate_vcf_pgx_merged = util.merge_vcfs(bcftools_executable_path, tabix_executable_path, intermediate_vcf_pgx_regions, args.ref_pgx_vcf)
     tmp_files_to_be_removed.append(intermediate_vcf_pgx_merged)
 
     # normalize the input VCF
