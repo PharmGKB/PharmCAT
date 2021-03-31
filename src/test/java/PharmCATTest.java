@@ -903,7 +903,7 @@ class PharmCATTest {
   private void testCalls(String gene, String... calls) {
     GeneReport geneReport = s_context.getGeneReport(gene);
     Collection<String> dips = geneReport.printDisplayCalls();
-    assertEquals(calls.length, dips.size(), gene + " call count doesn't match " + String.join(";", dips));
+    assertEquals(calls.length, dips.size(), "Expected " + gene + " call count (" + calls.length + ") doesn't match actual call count (" + dips.size() + ")");
     Arrays.stream(calls)
         .forEach(c -> assertTrue(dips.contains(c),
             c + " not in " + gene + ":" + dips + printDiagnostic(geneReport)));
