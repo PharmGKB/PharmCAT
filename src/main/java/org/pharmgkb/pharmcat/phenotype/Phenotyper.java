@@ -68,7 +68,7 @@ public class Phenotyper {
       } else {
         DefinitionReader definitionReader = new DefinitionReader();
         definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
-        NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true);
+        NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
         Result result = namedAlleleMatcher.call(vcfFile);
         calls = result.getGeneCalls();
       }
