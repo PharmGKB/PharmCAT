@@ -372,7 +372,7 @@ class PharmCATTest {
         null);
 
     testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*28+*80");
+    testCalls("UGT1A1", "*1/*28", "*1/*80", "*1/*80+*28");
     testLookup("UGT1A1", "*1", "*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
@@ -386,7 +386,7 @@ class PharmCATTest {
         null);
 
     testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*6/*28+*80");
+    testCalls("UGT1A1", "*6/*28", "*6/*80", "*6/*80+*28");
     testLookup("UGT1A1", "*80", "*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
@@ -442,7 +442,7 @@ class PharmCATTest {
         null);
 
     testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*6/*28+*37+*80");
+    testCalls("UGT1A1", "*6/*80", "*6/*80+*28", "*6/*80+*37");
     testLookup("UGT1A1", "*80", "*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
@@ -526,7 +526,7 @@ class PharmCATTest {
         null);
 
     testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*28+*80/*28+*80");
+    testCalls("UGT1A1", "*28/*28", "*28/*80+*28", "*80+*28/*80+*28");
     testLookup("UGT1A1", "*80", "*80");
 
     // sample is effectively phased since all positions homozygous
@@ -592,7 +592,7 @@ class PharmCATTest {
         null);
 
     testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*27+*28+*80");
+    testCalls("UGT1A1", "*1/*27", "*1/*28", "*1/*80", "*1/*80+*28");
     testLookup("UGT1A1", "*1", "*80");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
@@ -607,7 +607,7 @@ class PharmCATTest {
         null);
 
     testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*27+*28+*37+*80");
+    testCalls("UGT1A1", "*1/*27", "*1/*80", "*1/*80+*28", "*1/*80+*37");
     testLookup("UGT1A1", "*1", "*80");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
@@ -622,7 +622,7 @@ class PharmCATTest {
         null);
 
     testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*6+*80");
+    testCalls("UGT1A1", "*1/*6", "*1/*80");
     testLookup("UGT1A1", "*1", "*80");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
@@ -637,7 +637,7 @@ class PharmCATTest {
         null);
 
     testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*6+*28+*80");
+    testCalls("UGT1A1", "*1/*6", "*1/*28", "*1/*80", "*1/*80+*28");
     testLookup("UGT1A1", "*1", "*80");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
@@ -652,7 +652,7 @@ class PharmCATTest {
         null);
 
     testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*37+*80");
+    testCalls("UGT1A1", "*1/*37", "*1/*80", "*1/*80+*37");
     testLookup("UGT1A1", "*1", "*80");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
@@ -903,7 +903,7 @@ class PharmCATTest {
   private void testCalls(String gene, String... calls) {
     GeneReport geneReport = s_context.getGeneReport(gene);
     Collection<String> dips = geneReport.printDisplayCalls();
-    assertEquals(calls.length, dips.size(), "Expected " + gene + " call count (" + calls.length + ") doesn't match actual call count (" + dips.size() + ")");
+    assertEquals(calls.length, dips.size(), "Expected " + gene + " call count (" + calls.length + ") doesn't match actual call count (" + dips.size() + "): " + String.join(", ", dips));
     Arrays.stream(calls)
         .forEach(c -> assertTrue(dips.contains(c),
             c + " not in " + gene + ":" + dips + printDiagnostic(geneReport)));
