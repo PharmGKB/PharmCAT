@@ -34,7 +34,6 @@ import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
 public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
   public static final List<String> IGNORED_GENES = ImmutableList.of("G6PD", "HLA-A", "HLA-B");
-  private static final List<String> sf_reducibleGeneCalls = ImmutableList.of("UGT1A1");
   private static final Set<String> sf_overrideDiplotypes = ImmutableSet.of("SLCO1B1");
   private static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
@@ -274,13 +273,6 @@ public class GeneReport implements Comparable<GeneReport> {
           .distinct()
           .collect(Collectors.toList());
     }
-    else if (isCallReducible()) {
-      return ImmutableSet.of(
-          m_matcherDiplotypes.stream()
-              .map(Diplotype::printBare)
-              .reduce(Diplotype.phasedReducer)
-              .orElse(UNCALLED));
-    }
 
     return m_matcherDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
   }
@@ -312,15 +304,6 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public boolean isPhased() {
     return m_phased;
-  }
-
-  /**
-   * Can multiple phased diplotype calls be reduced down into the "+" notation.
-   *
-   * For example, 2 gene calls of *1/*2 and *1/*3 will be reduced to 1 call of *1/*2+*3.
-   */
-  private boolean isCallReducible() {
-    return sf_reducibleGeneCalls.contains(getGene()) && isPhased();
   }
 
   /**
