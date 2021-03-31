@@ -55,6 +55,9 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("lookupKey")
   private String m_lookupKey;
+  @Expose
+  @SerializedName("label")
+  private final String f_label;
 
   /**
    * This Function can be used in reduce() calls
@@ -145,6 +148,7 @@ public class Diplotype implements Comparable<Diplotype> {
     m_allele1 = h1;
     m_allele2 = h2;
     m_gene = gene;
+    f_label = printBare();
   }
 
   /**
