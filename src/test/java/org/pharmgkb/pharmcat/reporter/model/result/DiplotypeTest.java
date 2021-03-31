@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,7 +30,7 @@ class DiplotypeTest {
     assertEquals("CFTR:D110H (heterozygous)", diplotype.toString());
     assertEquals("D110H (heterozygous)", diplotype.printBare());
     assertEquals("D110H (heterozygous)", diplotype.printDisplay());
-    assertEquals("CFTR:D110H/ivacaftor non-responsive CFTR sequence", diplotype.printLookupKey());
+    assertEquals(ImmutableMap.of("D110H", 1, "ivacaftor non-responsive CFTR sequence", 1), diplotype.makeLookupMap());
 
     Set<String> alleles = diplotype.streamAllelesByZygosity().collect(Collectors.toSet());
     assertEquals(1, alleles.size());
@@ -52,7 +53,7 @@ class DiplotypeTest {
     assertEquals("CYP2D6:*1/*3", diplotype.toString());
     assertEquals("*1/*3", diplotype.printBare());
     assertEquals("*1/*3", diplotype.printDisplay());
-    assertEquals("CYP2D6:*1/*3", diplotype.printLookupKey());
+    assertEquals(ImmutableMap.of("*1", 1, "*3", 1), diplotype.makeLookupMap());
 
     Set<String> alleles = diplotype.streamAllelesByZygosity().collect(Collectors.toSet());
     assertEquals(1, alleles.size());

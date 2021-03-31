@@ -258,35 +258,6 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Gets a Set of the diplotype keys (Strings) that should be used when looking up matching annotation groups.
-   * This method ensures all per-gene adjustments and fixes have been applied before it's time to match.
-   * @return a Set of diplotype Strings in the form "GENE:
-   */
-  public Set<String> getDiplotypeLookupKeys() {
-    Set<String> results;
-    if (!isCalled()) {
-      if (sf_overrideDiplotypes.contains(getGene()) && !m_reporterDiplotypes.isEmpty()) {
-        results = m_reporterDiplotypes.stream().map(Diplotype::printLookupKey).collect(Collectors.toSet());
-      }
-      else {
-        // only HLA-B uses Other/Other, all else is Unknown/Unknown
-        String defaultUncalled = getGene().equals("HLA-B") ? "Other/Other" : "Unknown/Unknown";
-        results = ImmutableSet.of(f_gene + ":" + defaultUncalled);
-      }
-    }
-    else {
-      if (getGene().equals("UGT1A1") && (!isPhased() || m_reporterDiplotypes.size() > 1)) {
-        results = Ugt1a1AlleleMatcher.makeLookupCalls(this).stream()
-            .map(c -> "UGT1A1:"+c).collect(Collectors.toSet());
-      }
-      else {
-        results = m_reporterDiplotypes.stream().map(Diplotype::printLookupKey).collect(Collectors.toSet());
-      }
-    }
-    return results;
-  }
-
-  /**
    * Used in the final report template in the Genotype Summary table in the "Genotype" column
    * @return a Collection of diplotype Strings (e.g. *2/*3, *4 (heterozygote))
    */

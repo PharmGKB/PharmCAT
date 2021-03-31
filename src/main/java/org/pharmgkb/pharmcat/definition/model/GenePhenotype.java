@@ -1,14 +1,11 @@
 package org.pharmgkb.pharmcat.definition.model;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 
@@ -79,13 +76,13 @@ public class GenePhenotype {
    * @param diplotype a String like "*1/*4"
    * @return a phenotype value Normal Metabolizer
    */
-  public String getPhenotypeForDiplotype(String diplotype) {
-    if (diplotype.equals(Diplotype.UNKNOWN)) {
+  public String getPhenotypeForDiplotype(Diplotype diplotype) {
+    if (diplotype.isUnknown()) {
       return NO_RESULT;
     }
 
     Set<String> phenos = getDiplotypes().stream()
-        .filter(d -> d.getDiplotypeKey().equals(makeDiplotypeKey(diplotype)))
+        .filter(d -> d.getDiplotypeKey().equals(diplotype.makeLookupMap()))
         .map(DiplotypeRecord::getGeneresult)
         .collect(Collectors.toSet());
     if (phenos.size()>1) {
@@ -102,13 +99,13 @@ public class GenePhenotype {
    * @param diplotype in the form of "*1/*3"
    * @return the lookup key related to this diplotype
    */
-  public String getLookupKeyForDiplotype(String diplotype) {
-    if (diplotype.equals(Diplotype.UNKNOWN)) {
+  public String getLookupKeyForDiplotype(Diplotype diplotype) {
+    if (diplotype.isUnknown()) {
       return NO_RESULT;
     }
 
     Set<String> keys = m_diplotypes.stream()
-        .filter(d -> d.getDiplotypeKey().equals(makeDiplotypeKey(diplotype)))
+        .filter(d -> d.getDiplotypeKey().equals(diplotype.makeLookupMap()))
         .map(DiplotypeRecord::getLookupKey)
         .collect(Collectors.toSet());
     if (keys.size() > 1) {
@@ -118,21 +115,6 @@ public class GenePhenotype {
     } else {
       return keys.iterator().next();
     }
-  }
-
-  /**
-   * Take a diplotype string (e.g. *1/*2) and make a Map of alleles to counts that acts as a key that can be matched
-   * @param source a diplotype like "*1/*2"
-   * @return a Map of allele names to counts
-   */
-  private Map<String,Integer> makeDiplotypeKey(String source) {
-    if (StringUtils.isBlank(source)) {
-      return new HashMap<>();
-    }
-    Map<String,Integer> key = new HashMap<>();
-    Arrays.stream(source.split("/"))
-        .forEach(part -> key.merge(part, 1, Integer::sum));
-    return key;
   }
 
   public String toString() {

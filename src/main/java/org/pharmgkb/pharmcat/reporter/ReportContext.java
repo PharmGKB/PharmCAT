@@ -1,7 +1,6 @@
 package org.pharmgkb.pharmcat.reporter;
 
 import java.io.IOException;
-import java.lang.invoke.MethodHandles;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,8 +27,6 @@ import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.MessageMatcher;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /**
@@ -46,7 +43,6 @@ import org.slf4j.LoggerFactory;
  * @author Ryan Whaley
  */
 public class ReportContext {
-  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Predicate<String> hasValue = (value) -> StringUtils.isNotBlank(value) && !value.equalsIgnoreCase("n/a");
 
   private final GenotypeInterpretation f_genotypeInterpretation;
@@ -177,24 +173,22 @@ public class ReportContext {
     result.put("totalGenes", genotypes.size());
     result.put("calledGenes", calledGenes);
 
-    // Guidelines section
-    List<Map<String,Object>> guidelines = new ArrayList<>();
-    for (DrugReport guideline : getDrugReports()) {
-      sf_logger.debug("Start GuidelineReport for {}", guideline.toString());
-
+    // Drugs section
+    List<Map<String,Object>> drugReports = new ArrayList<>();
+    for (DrugReport drugReport : getDrugReports()) {
       Map<String,Object> guidelineMap = new HashMap<>();
 
-      String drugs = String.join(", ", guideline.getRelatedDrugs());
+      String drugs = String.join(", ", drugReport.getRelatedDrugs());
       guidelineMap.put("drugs", drugs);
-      guidelineMap.put("url", guideline.getUrl());
-      guidelineMap.put("id", guideline.getId());
-      String lastModified = guideline.getLastModified() != null
-          ? new SimpleDateFormat("yyyy.MM.dd").format(guideline.getLastModified())
+      guidelineMap.put("url", drugReport.getUrl());
+      guidelineMap.put("id", drugReport.getId());
+      String lastModified = drugReport.getLastModified() != null
+          ? new SimpleDateFormat("yyyy.MM.dd").format(drugReport.getLastModified())
           : "not available";
       guidelineMap.put("lastModified", lastModified);
 
       List<Map<String,Object>> geneCallList = new ArrayList<>();
-      for (String gene : guideline.getRelatedGeneSymbols()) {
+      for (String gene : drugReport.getRelatedGeneSymbols()) {
         GeneReport geneReport = getGeneReport(gene);
         String functions = geneReport.isCalled() ? String.join("; ", geneReport.printDisplayFunctions()) : null;
         Map<String,Object> geneCall = new LinkedHashMap<>();
@@ -206,7 +200,7 @@ public class ReportContext {
         geneCall.put("outsideCall", geneReport.isOutsideCall());
         geneCallList.add(geneCall);
       }
-      for (String variant : guideline.getReportVariants()) {
+      for (String variant : drugReport.getReportVariants()) {
         String call = f_genotypeInterpretation.getGeneReports().stream()
             .flatMap(g -> Stream.concat(g.getVariantReports().stream(), g.getVariantOfInterestReports().stream()))
             .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(variant) && !v.isMissing())
@@ -222,38 +216,38 @@ public class ReportContext {
         guidelineMap.put("geneCalls", geneCallList);
       }
 
-      guidelineMap.put("reportable", guideline.isReportable());
+      guidelineMap.put("reportable", drugReport.isReportable());
       guidelineMap.put("uncalledGenes",
-          String.join(", ", guideline.getUncalledGenes()));
+          String.join(", ", drugReport.getUncalledGenes()));
 
-      guidelineMap.put("matched", guideline.isMatched());
-      guidelineMap.put("mutliMatch", guideline.hasMultipleMatches());
+      guidelineMap.put("matched", drugReport.isMatched());
+      guidelineMap.put("mutliMatch", drugReport.hasMultipleMatches());
 
-      guidelineMap.put("messages", guideline.getMessages().stream()
+      guidelineMap.put("messages", drugReport.getMessages().stream()
           .filter(MessageAnnotation.isMessage)
           .map(MessageAnnotation::getMessage)
           .collect(Collectors.toList()));
 
-      guidelineMap.put("footnotes", guideline.getMessages().stream()
+      guidelineMap.put("footnotes", drugReport.getMessages().stream()
           .filter(MessageAnnotation.isFootnote)
           .map(MessageAnnotation::getMessage)
           .collect(Collectors.toList()));
 
-      if (guideline.getCitations().size()>0) {
-        guidelineMap.put("citations", guideline.getCitations());
+      if (drugReport.getCitations().size()>0) {
+        guidelineMap.put("citations", drugReport.getCitations());
       }
 
       // special case the display for warfarin recommendation since it's an image
-      if (guideline.toString().equals("warfarin")) {
+      if (drugReport.toString().equals("warfarin")) {
         Map<String,String> imageData = new LinkedHashMap<>();
         imageData.put("url", "http://s3.pgkb.org/attachment/CPIC_warfarin_2017_Fig_2.png");
         imageData.put("altText", "Figure 2 from the CPIC guideline for warfarin");
         guidelineMap.put("image", imageData);
       }
 
-      if (guideline.getMatchingRecommendations() != null) {
+      if (drugReport.getMatchingRecommendations() != null) {
         List<Map<String, Object>> groupList = new ArrayList<>();
-        for (Recommendation recommendation : guideline.getMatchingRecommendations()) {
+        for (Recommendation recommendation : drugReport.getMatchingRecommendations()) {
           Map<String, Object> groupData = new HashMap<>();
 
           List<Map<String, String>> annotationList = new ArrayList<>();
@@ -287,10 +281,9 @@ public class ReportContext {
         guidelineMap.put("groups", groupList);
       }
 
-      sf_logger.debug("Reporting GuidelineReport for {}", guideline.toString());
-      guidelines.add(guidelineMap);
+      drugReports.add(guidelineMap);
     }
-    result.put("guidelines", guidelines);
+    result.put("guidelines", drugReports);
 
 
     // Gene calls

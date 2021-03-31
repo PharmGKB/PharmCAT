@@ -2,6 +2,8 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
@@ -185,7 +187,11 @@ public class Diplotype implements Comparable<Diplotype> {
    * Gets a Sting representation of this haplotype with no gene prefix (e.g. *1/*10)
    */
   public String printBare() {
-    return printOverride().orElse(printBareLookupKey());
+    return printOverride().orElseGet(() -> {
+      String[] alleles = new String[]{m_allele1.getName(), m_allele2.getName()};
+      Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
+      return String.join(sf_delimiter, alleles);
+    });
   }
 
   /**
@@ -200,26 +206,6 @@ public class Diplotype implements Comparable<Diplotype> {
     else {
       return printBare();
     }
-  }
-
-  /**
-   * Gets a string diplotype pair used to look up matching guideline groups. This could be different than what's displayed in the
-   * report to the user so we use a separate method.
-   * @return a String key used to match guideline groups without gene symbol (e.g. *4/*10)
-   */
-  public String printBareLookupKey() {
-    String[] alleles = new String[]{m_allele1.getName(), m_allele2.getName()};
-    Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
-    return String.join(sf_delimiter, alleles);
-  }
-
-  /**
-   * Gets a string key used to look up matching guideline groups. This could be different than what's displayed in the
-   * report to the user so we use a separate method.
-   * @return a String key used to match guideline groups without gene symbol (e.g. *4/*10)
-   */
-  public String printLookupKey() {
-    return m_gene + ":" + printBareLookupKey();
   }
 
   /**
@@ -346,5 +332,16 @@ public class Diplotype implements Comparable<Diplotype> {
 
   public void setLookupKey(String lookupKey) {
     m_lookupKey = lookupKey;
+  }
+
+  public Map<String,Integer> makeLookupMap() {
+    Map<String,Integer> lookupMap = new HashMap<>();
+    if (m_allele1.equals(m_allele2)) {
+      lookupMap.put(m_allele1.getName(), 2);
+    } else {
+      lookupMap.put(m_allele1.getName(), 1);
+      lookupMap.put(m_allele2.getName(), 1);
+    }
+    return lookupMap;
   }
 }

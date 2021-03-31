@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import com.google.gson.Gson;
-import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 
 
@@ -43,22 +42,5 @@ public class PhenotypeMap {
    */
   public Optional<GenePhenotype> lookup(String gene) {
     return m_genes.stream().filter(p -> gene.equals(p.getGene())).findFirst();
-  }
-
-  public Optional<String> lookupPhenotype(String genotype) {
-    if (StringUtils.isBlank(genotype) || !genotype.contains(":")) return Optional.empty();
-    String[] tokens = genotype.split(":");
-
-    GenePhenotype genePhenotype = lookup(tokens[0]).orElse(null);
-    if (genePhenotype != null) {
-      String result = genePhenotype.getLookupKeyForDiplotype(tokens[1]);
-      if (result != null) {
-        return Optional.of(tokens[0] + ":" + result);
-      } else {
-        return Optional.empty();
-      }
-    } else {
-      return Optional.empty();
-    }
   }
 }

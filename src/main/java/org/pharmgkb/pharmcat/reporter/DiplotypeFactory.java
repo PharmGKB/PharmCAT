@@ -122,8 +122,8 @@ public class DiplotypeFactory {
 
   private void fillDiplotype(Diplotype diplotype) {
     if (f_genePhenotype != null) {
-      diplotype.setPhenotype(f_genePhenotype.getPhenotypeForDiplotype(diplotype.printBareLookupKey()));
-      diplotype.setLookupKey(f_genePhenotype.getLookupKeyForDiplotype(diplotype.printBareLookupKey()));
+      diplotype.setPhenotype(f_genePhenotype.getPhenotypeForDiplotype(diplotype));
+      diplotype.setLookupKey(f_genePhenotype.getLookupKeyForDiplotype(diplotype));
     }
   }
 
