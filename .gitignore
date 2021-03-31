@@ -29,6 +29,7 @@
 
 # PharmCAT specific
 /out/
+/tmp/
 log.txt
 pharmcat.log
 # temp files for testing the Jekyll site
