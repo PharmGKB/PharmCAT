@@ -220,11 +220,12 @@ def output_pharmcat_ready_vcf(input_vcf, output_dir, output_prefix):
     input_vcf_cyvcf2 = VCF(input_vcf)
     input_vcf_sample_list = input_vcf_cyvcf2.samples
     input_vcf_sample_list.remove('PharmCAT')
+    input_vcf_cyvcf2.close()
 
     # output each single sample to a separete VCF
     for single_sample in input_vcf_sample_list:
         print('Generating a PharmCAT-ready VCF for ' + single_sample)
-        input_vcf_cyvcf2.set_samples(single_sample)
+        input_vcf_cyvcf2 = VCF(input_vcf, samples = single_sample)
 
         # write to a VCF output file
         output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf')
@@ -234,8 +235,7 @@ def output_pharmcat_ready_vcf(input_vcf, output_dir, output_prefix):
         for single_var in input_vcf_cyvcf2:
             output_vcf_cyvcf2.write_record(single_var)
         output_vcf_cyvcf2.close()
-
-    input_vcf_cyvcf2.close()
+        input_vcf_cyvcf2.close()
 
 
 def output_missing_pgx_positions(bcftools_executable_path, input_vcf, input_ref_pgx_vcf, output_dir, output_prefix):
