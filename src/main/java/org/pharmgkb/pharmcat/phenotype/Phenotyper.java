@@ -129,7 +129,7 @@ public class Phenotyper {
       Gson gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
           .setPrettyPrinting().create();
       writer.write(gson.toJson(f_geneReports));
-      System.out.println("Writing JSON to " + outputPath);
+      System.out.println("Writing Phenotyper JSON to " + outputPath);
     }
   }
 

@@ -155,6 +155,11 @@ public class PharmCAT {
     Path jsonPath = m_writeJsonReport ? m_outputDir.resolve(fileRoot + ".report.json") : null;
     f_reporter.printHtml(reportPath, fileRoot, jsonPath);
 
+    if (m_writeJsonReport) {
+      f_reporter.getContext().getPhenotyper().write(m_outputDir.resolve(fileRoot + ".phenotyper.json"));
+    }
+
+
     if (!m_keepMatcherOutput) {
       FileUtils.deleteQuietly(callFile.toFile());
     }

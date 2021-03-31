@@ -110,6 +110,10 @@ public class ReportContext {
     return f_phenotyper.getGeneReports();
   }
 
+  public Phenotyper getPhenotyper() {
+    return f_phenotyper;
+  }
+
   @Nonnull
   public GeneReport getGeneReport(String geneSymbol) {
     return f_phenotyper
