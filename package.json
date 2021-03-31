@@ -1,0 +1,45 @@
+{
+  "name": "pharmcat",
+  "version": "0.7.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PharmGKB/PharmCAT.git"
+  },
+  "private": true,
+  "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "conventional-changelog-conventionalcommits": "^4.5.0",
+    "semantic-release": "^17.4.2"
+  },
+  "release": {
+    "branches": [
+      "development"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits",
+          "writerOpts": {
+            "commitsGroupSort": [
+              "feat",
+              "perf",
+              "fix"
+            ],
+            "commitsSort": "header"
+          }
+        }
+      ],
+      "@semantic-release/changelog",
+      "@semantic-release/github",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "ci": false
+  },
+  "scripts": {
+    "release": "semantic-release"
+  }
+}
