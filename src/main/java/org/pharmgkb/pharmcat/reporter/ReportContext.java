@@ -17,7 +17,7 @@ import javax.annotation.Nonnull;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.phenotype.GenotypeInterpretation;
+import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
@@ -45,7 +45,7 @@ import org.pharmgkb.pharmcat.util.MessageMatcher;
 public class ReportContext {
   private static final Predicate<String> hasValue = (value) -> StringUtils.isNotBlank(value) && !value.equalsIgnoreCase("n/a");
 
-  private final GenotypeInterpretation f_genotypeInterpretation;
+  private final Phenotyper f_phenotyper;
   private final List<DrugReport> m_drugReports = new ArrayList<>();
 
   /**
@@ -54,11 +54,11 @@ public class ReportContext {
    * @param outsideCalls {@link OutsideCall} objects, non-null but can be empty
    */
   public ReportContext(List<GeneCall> calls, List<OutsideCall> outsideCalls) throws Exception {
-    f_genotypeInterpretation = new GenotypeInterpretation(calls, outsideCalls);
+    f_phenotyper = new Phenotyper(calls, outsideCalls);
 
     DrugCollection drugCollection = new DrugCollection();
     drugCollection.getAllReportableGenes()
-        .forEach(f_genotypeInterpretation::addGeneReport);
+        .forEach(f_phenotyper::addGeneReport);
 
     for (Drug drug : drugCollection) {
       DrugReport drugReport = new DrugReport(drug);
@@ -73,7 +73,7 @@ public class ReportContext {
 
         // add matching recommendations if this drug is reportable
         if (drugReport.isReportable()) {
-          List<Map<String,String>> phenoKeys = f_genotypeInterpretation.makePhenotypeKeys(drugReport.getRelatedGeneSymbols());
+          List<Map<String,String>> phenoKeys = f_phenotyper.makePhenotypeKeys(drugReport.getRelatedGeneSymbols());
           for (Map<String,String> phenoKey : phenoKeys) {
             drugReport.addReportGenotype(phenoKey);
           }
@@ -107,12 +107,12 @@ public class ReportContext {
   }
 
   public Collection<GeneReport> getGeneReports() {
-    return f_genotypeInterpretation.getGeneReports();
+    return f_phenotyper.getGeneReports();
   }
 
   @Nonnull
   public GeneReport getGeneReport(String geneSymbol) {
-    return f_genotypeInterpretation
+    return f_phenotyper
         .findGeneReport(geneSymbol)
         .orElseThrow(() -> new RuntimeException("No gene exists for " + geneSymbol));
   }
@@ -135,7 +135,7 @@ public class ReportContext {
     // Genotypes section
     List<Map<String,Object>> genotypes = new ArrayList<>();
     int calledGenes = 0;
-    for (GeneReport geneReport : f_genotypeInterpretation.getGeneReports()) {
+    for (GeneReport geneReport : f_phenotyper.getGeneReports()) {
       String symbol = geneReport.getGene();
 
       // skip any genes on the blacklist
@@ -201,7 +201,7 @@ public class ReportContext {
         geneCallList.add(geneCall);
       }
       for (String variant : drugReport.getReportVariants()) {
-        String call = f_genotypeInterpretation.getGeneReports().stream()
+        String call = f_phenotyper.getGeneReports().stream()
             .flatMap(g -> Stream.concat(g.getVariantReports().stream(), g.getVariantOfInterestReports().stream()))
             .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(variant) && !v.isMissing())
             .map(VariantReport::getCall)
@@ -289,7 +289,7 @@ public class ReportContext {
     // Gene calls
 
     List<Map<String,Object>> geneCallList = new ArrayList<>();
-    for (GeneReport geneReport : f_genotypeInterpretation.getGeneReports()) {
+    for (GeneReport geneReport : f_phenotyper.getGeneReports()) {
       if (geneReport.isIgnored()) {
         continue;
       }

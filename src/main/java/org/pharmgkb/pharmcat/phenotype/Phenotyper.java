@@ -37,7 +37,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
  * interprets them into phenotype assignments, diplotype calls, and other information needed for subsequent use in the
  * {@link Reporter}. The data is compiled into {@link GeneReport} objects which can then serialized
  */
-public class GenotypeInterpretation {
+public class Phenotyper {
   private final SortedSet<GeneReport> f_geneReports = new TreeSet<>();
 
   public static void main(String[] args) {
@@ -65,8 +65,8 @@ public class GenotypeInterpretation {
         outsideCalls = OutsideCallParser.parse(outsideCallPath);
       }
 
-      GenotypeInterpretation genotypeInterpretation = new GenotypeInterpretation(calls, outsideCalls);
-      genotypeInterpretation.write(outputFile);
+      Phenotyper phenotyper = new Phenotyper(calls, outsideCalls);
+      phenotyper.write(outputFile);
     } catch (IOException e) {
       e.printStackTrace();
       System.exit(1);
@@ -79,7 +79,7 @@ public class GenotypeInterpretation {
    * @param geneCalls a List of {@link GeneCall} objects
    * @param outsideCalls a List of {@link OutsideCall} objects
    */
-  public GenotypeInterpretation(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls) {
+  public Phenotyper(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls) {
     ReferenceAlleleMap referenceAlleleMap = new ReferenceAlleleMap();
     PhenotypeMap phenotypeMap = new PhenotypeMap();
 
