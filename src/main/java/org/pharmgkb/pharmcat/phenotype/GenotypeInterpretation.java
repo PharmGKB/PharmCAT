@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.genotype;
+package org.pharmgkb.pharmcat.phenotype;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
