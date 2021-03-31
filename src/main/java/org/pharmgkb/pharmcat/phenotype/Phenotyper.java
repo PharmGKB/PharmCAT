@@ -22,14 +22,17 @@ import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.definition.MessageList;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.ReferenceAlleleMap;
+import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.Reporter;
 import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
@@ -42,20 +45,33 @@ public class Phenotyper {
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        .addOption("c", "call-file", "named allele call JSON file", true, "call-file-path")
+        .addOption("vcf", "sample-file", "input sample file (VCF)", false, "vcf")
+        .addOption("c", "call-file", "named allele call JSON file", false, "call-file-path")
         .addOption("o", "outside-call-file", "optional, outside call TSV file", false, "outside-file-path")
         .addOption("f", "output-file", "file path to write JSON data to", true, "vcf-file-path");
     try {
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
-      Path callFile = cliHelper.getValidFile("c", true);
+      Path vcfFile = cliHelper.hasOption("vcf") ? cliHelper.getValidFile("vcf", true) : null;
+      Path callFile = cliHelper.hasOption("c") ? cliHelper.getValidFile("c", true) : null;
       Path outsideCallPath = cliHelper.hasOption("o") ? cliHelper.getValidFile("o", true) : null;
       Path outputFile = cliHelper.getPath("f");
 
-      Preconditions.checkArgument(Files.exists(callFile));
-      Preconditions.checkArgument(Files.isRegularFile(callFile));
-      List<GeneCall> calls = new ResultSerializer().fromJson(callFile).getGeneCalls();
+      Preconditions.checkArgument(callFile != null ^ vcfFile != null, "Can use VCF file or Matcher JSON file, not both");
+      Preconditions.checkArgument(callFile == null || Files.isRegularFile(callFile), "Call file does not exist or is not a regular file");
+      Preconditions.checkArgument(vcfFile == null || Files.isRegularFile(vcfFile), "Sample VCF file does not exist or is not a regular file");
+
+      List<GeneCall> calls;
+      if (callFile != null) {
+        calls = new ResultSerializer().fromJson(callFile).getGeneCalls();
+      } else {
+        DefinitionReader definitionReader = new DefinitionReader();
+        definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
+        NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true);
+        Result result = namedAlleleMatcher.call(vcfFile);
+        calls = result.getGeneCalls();
+      }
 
       //Load the outside calls if it's available
       List<OutsideCall> outsideCalls = new ArrayList<>();
