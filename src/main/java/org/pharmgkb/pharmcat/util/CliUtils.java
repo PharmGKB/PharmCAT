@@ -61,7 +61,7 @@ public class CliUtils {
    * @throws IOException can occur from reading the manifest
    */
   public static String getVersion() throws IOException {
-    Class clazz = PharmCAT.class;
+    Class<PharmCAT> clazz = PharmCAT.class;
     String className = clazz.getSimpleName() + ".class";
     String classPath = clazz.getResource(className).toString();
     if (!classPath.startsWith("jar")) {

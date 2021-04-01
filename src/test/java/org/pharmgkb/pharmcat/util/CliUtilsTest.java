@@ -2,8 +2,7 @@ package org.pharmgkb.pharmcat.util;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -18,8 +17,14 @@ class CliUtilsTest {
 
     String version = CliUtils.getVersion();
     assertNotNull(version);
-    // we already have tags, so this should never happen if we're running from within a checked-out repo
-    assertNotEquals("development", version);
-    assertNotEquals("master", version);
+    String githubAction = System.getenv("GITHUB_ACTION");
+    if (githubAction != null) {
+      // running via GH Actions, won't get anything via git
+      assertEquals("development", version);
+    } else {
+      // we already have tags, so this should never happen if we're running from within a checked-out repo
+      assertNotEquals("development", version);
+      assertNotEquals("main", version);
+    }
   }
 }
