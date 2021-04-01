@@ -3,10 +3,13 @@ package org.pharmgkb.pharmcat.reporter.io;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
+import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 
 
@@ -26,13 +29,22 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
  * @author Ryan Whaley
  */
 public class OutsideCallParser {
+  private static final Predicate<String> sf_nonCommentLine = (l) -> !l.startsWith("#");
 
   @Nonnull
   public static List<OutsideCall> parse(Path filePath) throws IOException {
     Preconditions.checkNotNull(filePath);
 
     return Files.lines(filePath)
-        .filter(l -> !l.startsWith("#"))
+        .filter(sf_nonCommentLine)
+        .map(OutsideCall::new)
+        .collect(Collectors.toList());
+  }
+
+  @Nonnull
+  public static List<OutsideCall> parse(String outsideCallData) {
+    return Arrays.stream(StringUtils.stripToEmpty(outsideCallData).split("\n"))
+        .filter(sf_nonCommentLine)
         .map(OutsideCall::new)
         .collect(Collectors.toList());
   }
