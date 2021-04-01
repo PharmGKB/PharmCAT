@@ -1,0 +1,62 @@
+name: Upload assets to release
+
+on:
+  create:
+    tags:
+      - v*
+
+jobs:
+  release:
+    name: Upload assets to release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set appVersion
+        uses: bhowell2/github-substring-action@v1
+        id: appVersion
+        with:
+          value: ${{github.ref}}
+          index_of_str: "refs/tags/v"
+
+      - run: echo "Version = ${{steps.appVersion.outputs.substring}}"
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 14
+
+      - name: Package app
+        run: gradle shadowJar
+
+      - name: Extract positions
+        run: ./gradlew extractPositions
+
+      - name: Extract intervals
+        run: ./gradlew extractIntervals
+
+      - name: Upload jar to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          file: build/libs/pharmcat-${{steps.appVersion.outputs.substring}}-all.jar
+          overwrite: true
+
+      - name: Upload positions.vcf to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          file: build/pharmcat_positions_${{steps.appVersion.outputs.substring}}.vcf
+          overwrite: true
+
+      - name: Upload intervals.txt to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          file: build/pharmcat_intervals_{{steps.appVersion.outputs.substring}}.txt
+          overwrite: true

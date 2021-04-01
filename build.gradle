@@ -156,6 +156,7 @@ task updateData(type: JavaExec, dependsOn: 'classes') {
   args argList
 }
 
+// NOTE: update .github/workflows/release.yml if changing filename
 task extractPositions(type: JavaExec, dependsOn: 'classes') {
   main = 'org.pharmgkb.pharmcat.definition.ExtractPositions'
   classpath = sourceSets.main.runtimeClasspath
@@ -163,6 +164,7 @@ task extractPositions(type: JavaExec, dependsOn: 'classes') {
   args argList
 }
 
+// NOTE: update .github/workflows/release.yml if changing filename
 task extractIntervals(type: JavaExec, dependsOn: 'classes') {
   main = 'org.pharmgkb.pharmcat.definition.ChromosomalIntervals'
   classpath = sourceSets.main.runtimeClasspath
