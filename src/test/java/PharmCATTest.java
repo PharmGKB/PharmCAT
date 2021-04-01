@@ -47,6 +47,10 @@ class PharmCATTest {
     s_pharmcat = new PharmCAT(tempDirPath, null);
   }
 
+  /**
+   * This test illustrates when one gene in a two-gene guideline (amitriptyline) is not called that it should still be
+   * able to come up with a matched group
+   */
   @Test
   void testCyp2c19_1() throws Exception {
     generalTest("test.cyp2c19.s4s17het", new String[]{
@@ -54,10 +58,12 @@ class PharmCATTest {
         },
         null);
 
-
     testCalledGenes("CYP2C19");
     testCalls( "CYP2C19", "*1/*4");
 
+    testNotCalledGenes("CYP2D6");
+
+    testMatchedGroups("amitriptyline", 1);
     testMatchedGroups("citalopram", 1);
     testMatchedGroups("ivacaftor", 0);
   }
