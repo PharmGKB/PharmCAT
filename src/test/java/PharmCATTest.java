@@ -27,20 +27,20 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class PharmCATTest {
 
-  private static final String sf_astrolabeOutput = "##Test Astrolabe output\n" +
-      "#ROI_label\tdiplotype labels\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\tspecial case\tnomenclature version\n" +
+  private static final String sf_outsideCalls = "##Test Outside Call Data\n" +
+      "#Gene\tDiplotype\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\tspecial case\tnomenclature version\n" +
       "CYP2D6\tCYP2D6*1/CYP2D6*4\t?/?\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
   private static final String sf_diplotypesTemplate = "\nmatcher: %s\nreporter: %s\nprint (displayCalls): %s";
   private static PharmCAT s_pharmcat;
-  private static Path s_tempAstroPath;
+  private static Path s_outsideCallFilePath;
   private static ReportContext s_context;
 
   @BeforeAll
   static void prepare() throws IOException {
 
-    s_tempAstroPath = Files.createTempFile("astrolabe", ".tsv");
-    try (FileWriter fw = new FileWriter(s_tempAstroPath.toFile())) {
-      fw.write(sf_astrolabeOutput);
+    s_outsideCallFilePath = Files.createTempFile("outsideCall", ".tsv");
+    try (FileWriter fw = new FileWriter(s_outsideCallFilePath.toFile())) {
+      fw.write(sf_outsideCalls);
     }
 
     Path tempDirPath = Files.createTempDirectory(MethodHandles.lookup().lookupClass().getName());
@@ -58,10 +58,10 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("CYP2C19");
-    testCalls( "CYP2C19", "*1/*4");
+    testCalledByMatcher("CYP2C19");
+    testPrintCalls( "CYP2C19", "*1/*4");
 
-    testNotCalledGenes("CYP2D6");
+    testNotCalledByMatcher("CYP2D6");
 
     testMatchedGroups("amitriptyline", 1);
     testMatchedGroups("citalopram", 1);
@@ -73,10 +73,10 @@ class PharmCATTest {
     generalTest("test.clomipramine", new String[]{
             "cyp2c19/s2s2.vcf"
         },
-        s_tempAstroPath);
+        s_outsideCallFilePath);
 
-    testCalledGenes("CYP2C19");
-    testCalls( "CYP2C19", "*2/*2");
+    testCalledByMatcher("CYP2C19");
+    testPrintCalls( "CYP2C19", "*2/*2");
 
     testMatchedGroups("amitriptyline", 1);
     testMatchedGroups("clomipramine", 1);
@@ -102,7 +102,7 @@ class PharmCATTest {
         null);
 
 
-    assertFalse(s_context.getGeneReport("CYP2C19").isCalled());
+    testNotCalledByMatcher("CYP2C19");
 
     testMatchedGroups("citalopram", 0);
     testMatchedGroups("ivacaftor", 0);
@@ -116,23 +116,23 @@ class PharmCATTest {
         null);
 
 
-    assertTrue(s_context.getGeneReport("CYP2C19").isCalled());
-    assertEquals(3, s_context.getGeneReport("CYP2C19").getMatcherDiplotypes().size());
+    testCalledByMatcher("CYP2C19");
+    testPrintCalls("CYP2C19", "*4/*4", "*4/*17", "*17/*17");
 
     testMatchedGroups("citalopram", 3);
   }
 
   @Test
-  void testCyp2c19_astrolabe() throws Exception {
+  void testCyp2c19_with_outsideCall() throws Exception {
     generalTest("test.cyp2c19.s1s4b", new String[]{
         "cyp2c19/s4s17het.vcf"
         },
-        s_tempAstroPath);
+        s_outsideCallFilePath);
 
-    testCalledGenes("CYP2C19", "CYP2D6");
+    testCalledByMatcher("CYP2C19", "CYP2D6");
 
-    testCalls("CYP2D6", "*1/*4");
-    testCalls("CYP2C19", "*1/*4");
+    testPrintCalls("CYP2D6", "*1/*4");
+    testPrintCalls("CYP2C19", "*1/*4");
 
     assertTrue(s_context.getGeneReport("CYP2D6").isOutsideCall());
   }
@@ -144,8 +144,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("CFTR");
-    testCalls("CFTR", "No CPIC variants found");
+    testCalledByMatcher("CFTR");
+    testPrintCalls("CFTR", "No CPIC variants found");
     testLookup("CFTR", "ivacaftor non-responsive CFTR sequence");
 
     testMatchedGroups("ivacaftor", 1);
@@ -156,10 +156,10 @@ class PharmCATTest {
     generalTest("test.cftr.ref_ref", new String[]{
             "DPYD/c1679c1156.vcf"
         },
-        s_tempAstroPath);
+        s_outsideCallFilePath);
 
-    testCalledGenes("CYP2D6");
-    testCalls("CYP2D6", "*1/*4");
+    testCalledByMatcher("CYP2D6");
+    testPrintCalls("CYP2D6", "*1/*4");
     testLookup("CYP2D6", "*1", "*4");
 
     testMatchedGroups("amitriptyline", 1);
@@ -172,8 +172,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("CFTR");
-    testCalls("CFTR", "No CPIC variants found");
+    testCalledByMatcher("CFTR");
+    testPrintCalls("CFTR", "No CPIC variants found");
     testLookup("CFTR", "ivacaftor non-responsive CFTR sequence");
   }
 
@@ -184,8 +184,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("CFTR");
-    testCalls("CFTR", "No CPIC variants found");
+    testCalledByMatcher("CFTR");
+    testPrintCalls("CFTR", "No CPIC variants found");
     testLookup("CFTR", "ivacaftor non-responsive CFTR sequence");
   }
 
@@ -200,8 +200,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("CFTR");
-    testCalls("CFTR", "No CPIC variants found");
+    testCalledByMatcher("CFTR");
+    testPrintCalls("CFTR", "No CPIC variants found");
     testLookup("CFTR", "ivacaftor non-responsive CFTR sequence");
   }
 
@@ -212,8 +212,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("SLCO1B1");
-    testCalls("SLCO1B1", "*17/*21");
+    testCalledByMatcher("SLCO1B1");
+    testPrintCalls("SLCO1B1", "*17/*21");
     testLookup("SLCO1B1", "*17", "*21");
   }
 
@@ -224,8 +224,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("SLCO1B1");
-    testCalls("SLCO1B1", "*1A/*1A");
+    testCalledByMatcher("SLCO1B1");
+    testPrintCalls("SLCO1B1", "*1A/*1A");
     testLookup("SLCO1B1", "*1A");
   }
 
@@ -236,8 +236,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("SLCO1B1");
-    testCalls("SLCO1B1", "*5/*15");
+    testCalledByMatcher("SLCO1B1");
+    testPrintCalls("SLCO1B1", "*5/*15");
     testLookup("SLCO1B1", "*5", "*15");
   }
 
@@ -248,8 +248,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("SLCO1B1");
-    testCalls("SLCO1B1", "*1A/*15");
+    testCalledByMatcher("SLCO1B1");
+    testPrintCalls("SLCO1B1", "*1A/*15");
     testLookup("SLCO1B1", "*1A", "*15");
   }
 
@@ -261,8 +261,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("DPYD", "TPMT");
-    assertFalse(s_context.getGeneReport("SLCO1B1").isCalled());
+    testCalledByMatcher("DPYD", "TPMT");
+    testNotCalledByMatcher("SLCO1B1");
   }
 
   @Test
@@ -272,9 +272,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("DPYD");
-    assertTrue(s_context.getGeneReport("DPYD").isCalled());
-    testCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
+    testCalledByMatcher("DPYD");
+    testPrintCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
     testLookup("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
 
     testMatchedGroups("fluorouracil", 1);
@@ -288,15 +287,19 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("DPYD");
-    assertTrue(s_context.getGeneReport("DPYD").isCalled());
-    testCalls("DPYD", "Reference/c.2846A>T");
+    testCalledByMatcher("DPYD");
+    testPrintCalls("DPYD", "Reference/c.2846A>T");
     testLookup("DPYD", "Reference", "c.2846A>T");
 
     testMatchedGroups("fluorouracil", 1);
     testMatchedGroups("capecitabine", 1);
   }
 
+  /**
+   * This tests a special case of SLCO1B1. The gene in this scenario is "uncalled" by the matcher due the sample VCF
+   * data. However, SLCO1B1 has an override that will display the rs4149056 diplotype regardless of call status. That
+   * same override will assign alleles to use for recommendation lookup
+   */
   @Test
   void testSlco1b1TestMulti() throws Exception {
     generalTest("test.slco1b1.multi", new String[]{
@@ -304,11 +307,8 @@ class PharmCATTest {
         },
         null);
 
-    GeneReport geneReport = s_context.getGeneReport("SLCO1B1");
-    assertNotNull(geneReport);
-    assertFalse(geneReport.isCalled());
-
-    testCalls("SLCO1B1", "rs4149056T/rs4149056C");
+    testNotCalledByMatcher("SLCO1B1");
+    testPrintCalls("SLCO1B1", "rs4149056T/rs4149056C");
     testLookup("SLCO1B1", "*1A", "*5");
 
     testMatchedGroups("simvastatin", 1);
@@ -321,8 +321,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*80");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*1/*80");
     testLookup("UGT1A1", "*1", "*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
@@ -335,8 +335,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*80 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*80 (heterozygous)");
     testLookup("UGT1A1", "*1", "*1");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -349,8 +349,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*80+*28 (heterozygous)", "*28 (heterozygous)", "*80 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*28 (heterozygous)", "*80 (heterozygous)");
     testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -363,8 +363,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*28 (heterozygous)", "*37 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*28 (heterozygous)", "*37 (heterozygous)");
     testLookup("UGT1A1", "*80", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -377,8 +377,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*28", "*1/*80", "*1/*80+*28");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*1/*28", "*1/*80", "*1/*80+*28");
     testLookup("UGT1A1", "*1", "*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
@@ -391,8 +391,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*6/*28", "*6/*80", "*6/*80+*28");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*6/*28", "*6/*80", "*6/*80+*28");
     testLookup("UGT1A1", "*80", "*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
@@ -405,8 +405,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*80+*28 (heterozygous)","*28 (heterozygous)","*6 (heterozygous)","*80 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)","*28 (heterozygous)","*6 (heterozygous)","*80 (heterozygous)");
     testLookup("UGT1A1", "*80", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -419,8 +419,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*80+*28 (heterozygous)", "*28 (heterozygous)", "*80 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*28 (heterozygous)", "*80 (heterozygous)");
     testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -433,8 +433,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*6/*6");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*6/*6");
     testLookup("UGT1A1", "*6", "*6");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
@@ -447,8 +447,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*6/*80", "*6/*80+*28", "*6/*80+*37");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*6/*80", "*6/*80+*28", "*6/*80+*37");
     testLookup("UGT1A1", "*80", "*80");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
@@ -461,8 +461,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*6 (heterozygous)","*80 (heterozygous)","*80+*28 (heterozygous)","*80+*37 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*6 (heterozygous)","*80 (heterozygous)","*80+*28 (heterozygous)","*80+*37 (heterozygous)");
     testLookup("UGT1A1", "*80", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -475,8 +475,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*80 (heterozygous)", "*80+*28 (heterozygous)", "*80+*37 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*80 (heterozygous)", "*80+*28 (heterozygous)", "*80+*37 (heterozygous)");
     testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -489,8 +489,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
     testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -503,8 +503,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
     testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -517,8 +517,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
     testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -531,8 +531,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*28/*28", "*28/*80+*28", "*80+*28/*80+*28");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*28/*28", "*28/*80+*28", "*80+*28/*80+*28");
     testLookup("UGT1A1", "*80", "*80");
 
     // sample is effectively phased since all positions homozygous
@@ -554,8 +554,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*28 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*28 (heterozygous)");
     testLookup("UGT1A1", "*1", "*80");
 
     // sample is effectively phased since all positions homozygous
@@ -569,8 +569,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*27 (heterozygous)", "*28 (heterozygous)", "*80+*28 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*27 (heterozygous)", "*28 (heterozygous)", "*80+*28 (heterozygous)");
     testLookup("UGT1A1", "*80", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -583,8 +583,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*28 (heterozygous)", "*80+*28 (heterozygous)");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*28 (heterozygous)", "*80+*28 (heterozygous)");
     testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -597,8 +597,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*27", "*1/*28", "*1/*80", "*1/*80+*28");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*1/*27", "*1/*28", "*1/*80", "*1/*80+*28");
     testLookup("UGT1A1", "*1", "*80");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
@@ -612,8 +612,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*27", "*1/*80", "*1/*80+*28", "*1/*80+*37");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*1/*27", "*1/*80", "*1/*80+*28", "*1/*80+*37");
     testLookup("UGT1A1", "*1", "*80");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
@@ -627,8 +627,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*6", "*1/*80");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*1/*6", "*1/*80");
     testLookup("UGT1A1", "*1", "*80");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
@@ -642,8 +642,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*6", "*1/*28", "*1/*80", "*1/*80+*28");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*1/*6", "*1/*28", "*1/*80", "*1/*80+*28");
     testLookup("UGT1A1", "*1", "*80");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
@@ -657,8 +657,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("UGT1A1");
-    testCalls("UGT1A1", "*1/*37", "*1/*80", "*1/*80+*37");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*1/*37", "*1/*80", "*1/*80+*37");
     testLookup("UGT1A1", "*1", "*80");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
@@ -674,8 +674,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes(gene);
-    testCalls(gene, "*1/*1");
+    testCalledByMatcher(gene);
+    testPrintCalls(gene, "*1/*1");
     testLookup(gene, "*1", "*1");
 
     // rs776746 should be missing from this report
@@ -697,8 +697,8 @@ class PharmCATTest {
         },
         null);
     
-    testCalledGenes("CYP3A5");
-    testCalls("CYP3A5", "*1/*1");
+    testCalledByMatcher("CYP3A5");
+    testPrintCalls("CYP3A5", "*1/*1");
   }
 
   @Test
@@ -708,8 +708,8 @@ class PharmCATTest {
         },
         null);
     
-    testCalledGenes("CYP3A5");
-    testCalls("CYP3A5", "*1/*3");
+    testCalledByMatcher("CYP3A5");
+    testPrintCalls("CYP3A5", "*1/*3");
   }
 
   @Test
@@ -719,8 +719,8 @@ class PharmCATTest {
         },
         null);
     
-    testCalledGenes("CYP3A5");
-    testCalls("CYP3A5", "*1/*3");
+    testCalledByMatcher("CYP3A5");
+    testPrintCalls("CYP3A5", "*1/*3");
   }
 
   @Test
@@ -730,8 +730,8 @@ class PharmCATTest {
         },
         null);
     
-    testCalledGenes("CYP3A5");
-    testCalls("CYP3A5", "*3/*3");
+    testCalledByMatcher("CYP3A5");
+    testPrintCalls("CYP3A5", "*3/*3");
   }
 
   @Test
@@ -741,8 +741,8 @@ class PharmCATTest {
         },
         null);
     
-    testCalledGenes("CYP3A5");
-    testCalls("CYP3A5", "*3/*5");
+    testCalledByMatcher("CYP3A5");
+    testPrintCalls("CYP3A5", "*3/*5");
   }
 
   @Test
@@ -752,8 +752,8 @@ class PharmCATTest {
         },
         null);
     
-    testCalledGenes("CYP3A5");
-    testCalls("CYP3A5", "*1/*3");
+    testCalledByMatcher("CYP3A5");
+    testPrintCalls("CYP3A5", "*1/*3");
   }
 
   @Test
@@ -763,8 +763,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("TPMT");
-    testCalls("TPMT", "*1/*3A");
+    testCalledByMatcher("TPMT");
+    testPrintCalls("TPMT", "*1/*3A");
     testLookup("TPMT", "*1", "*3A");
 
     GeneReport tpmtReport = s_context.getGeneReport("TPMT");
@@ -780,7 +780,7 @@ class PharmCATTest {
         },
         null);
 
-    testNotCalledGenes("TPMT");
+    testNotCalledByMatcher("TPMT");
     GeneReport report = s_context.getGeneReport("TPMT");
     assertTrue(report.getVariantReports().stream().filter(r -> r.getPosition() == 18133890).allMatch(VariantReport::isMismatch));
   }
@@ -793,8 +793,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("CYP2C9");
-    testCalls("CYP2C9", "*1/*61");
+    testCalledByMatcher("CYP2C9");
+    testPrintCalls("CYP2C9", "*1/*61");
     testLookup("CYP2C9", "*1", "*61");
 
     testMatchedGroups("lornoxicam", 1);
@@ -807,8 +807,8 @@ class PharmCATTest {
         },
         null);
 
-    testCalledGenes("CYP2C9");
-    testCalls("CYP2C9", "*1/*1");
+    testCalledByMatcher("CYP2C9");
+    testPrintCalls("CYP2C9", "*1/*1");
     testLookup("CYP2C9", "*1", "*1");
 
     testMatchedGroups("celecoxib", 1);
@@ -832,21 +832,25 @@ class PharmCATTest {
             "cyp4f2/s1s1.vcf",
             "IFNL3/rs12979860CC.vcf"
         },
-        s_tempAstroPath);
+        s_outsideCallFilePath);
 
-    testCalledGenes("DPYD", "UGT1A1", "TPMT", "CYP3A5", "CFTR", "CYP2C19",
+    testCalledByMatcher("DPYD", "UGT1A1", "TPMT", "CYP3A5", "CFTR", "CYP2C19",
         "CYP2C9", "SLCO1B1", "VKORC1", "CYP4F2", "IFNL3", "CYP2D6");
-    testCalls("TPMT", "*1/*1");
-    testCalls("DPYD", "Reference/Reference");
-    testCalls("CYP2C19", "*2/*2");
+    testPrintCalls("TPMT", "*1/*1");
+    testPrintCalls("DPYD", "Reference/Reference");
+    testPrintCalls("CYP2C19", "*2/*2");
     testLookup("TPMT", "*1", "*1");
-    testCalls("CYP2D6", "*1/*4");
-    testCalls("UGT1A1", "*1/*1");
+    testPrintCalls("CYP2D6", "*1/*4");
+    testPrintCalls("UGT1A1", "*1/*1");
   }
 
+  /**
+   * This tests the case when an outside call file contains two references to the same gene
+   * supplied. This should result in an error
+   */
   @Test
   void testBadOutsideData() throws Exception {
-    Path badOutsideDataPath = Files.createTempFile("astrolabe", ".tsv");
+    Path badOutsideDataPath = Files.createTempFile("outsideCall", ".tsv");
     try (FileWriter fw = new FileWriter(badOutsideDataPath.toFile())) {
       fw.write("CYP2D6\t*1/*2\nCYP2D6\t*3/*4");
     }
@@ -863,9 +867,13 @@ class PharmCATTest {
     }
   }
 
+  /**
+   * This tests the case when the incoming sample file has coverage for a gene but then an outside call is also
+   * supplied. This should result in an error
+   */
   @Test
   void testCallerCollision() throws Exception {
-    Path outsidePath = Files.createTempFile("astrolabe", ".tsv");
+    Path outsidePath = Files.createTempFile("outsideCall", ".tsv");
     try (FileWriter fw = new FileWriter(outsidePath.toFile())) {
       fw.write("CYP2C19\t*2/*2");
     }
@@ -902,11 +910,12 @@ class PharmCATTest {
   }
 
   /**
-   * Test the different types of diplotype calls that come out of the reporter
+   * Test the "print" calls for a gene that will display in the final report or in the phenotyper. This will check that
+   * the call count matches and then check each individual call is present (can be 1 or more).
    * @param gene the gene to get diplotypes for
-   * @param calls the calls to match against
+   * @param calls the expected display of the calls, 1 or more
    */
-  private void testCalls(String gene, String... calls) {
+  private void testPrintCalls(String gene, String... calls) {
     GeneReport geneReport = s_context.getGeneReport(gene);
     Collection<String> dips = geneReport.printDisplayCalls();
     assertEquals(calls.length, dips.size(), "Expected " + gene + " call count (" + calls.length + ") doesn't match actual call count (" + dips.size() + "): " + String.join(", ", dips));
@@ -915,6 +924,12 @@ class PharmCATTest {
             c + " not in " + gene + ":" + dips + printDiagnostic(geneReport)));
   }
 
+  /**
+   * Test the diplotype that will be used for looking up the recommendation. This will mostly match what's printed in
+   * displays but will differ for particular genes
+   * @param gene the gene to get diplotypes for
+   * @param haplotypes the expected haplotypes names used for calling, specifying one will assume homozygous, otherwise specify two haplotype names
+   */
   private void testLookup(String gene, String... haplotypes) {
     Map<String,Integer> lookup = new HashMap<>();
     if (haplotypes.length == 1) {
@@ -946,9 +961,9 @@ class PharmCATTest {
   }
 
   /**
-   * Check to see if all the given genes have been called
+   * Check to see if all the given genes have been called by the matcher
    */
-  private void testCalledGenes(String... genes) {
+  private void testCalledByMatcher(String... genes) {
     assertTrue(genes != null && genes.length > 0);
 
     Arrays.stream(genes)
@@ -956,9 +971,9 @@ class PharmCATTest {
   }
 
   /**
-   * Check to see if none ofthe given genes have been called
+   * Check to see if none of the given genes have been called by the matcher
    */
-  private void testNotCalledGenes(String... genes) {
+  private void testNotCalledByMatcher(String... genes) {
     assertTrue(genes != null && genes.length > 0);
 
     Arrays.stream(genes)
