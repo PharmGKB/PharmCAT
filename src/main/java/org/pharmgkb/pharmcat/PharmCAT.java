@@ -36,6 +36,7 @@ public class PharmCAT {
   private Path m_outputDir;
   private boolean m_keepMatcherOutput = false;
   private boolean m_writeJsonReport = false;
+  private boolean m_writeJsonPheno = false;
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
@@ -47,7 +48,8 @@ public class PharmCAT {
         .addOption("na", "alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
         // controls
         .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files")
-        .addOption("j", "write-report-json", "flag to write a JSON file of the data used to populate the final report");
+        .addOption("j", "write-reporter-json", "flag to write a JSON file of the data used to populate the final report")
+        .addOption("pj", "write-phenotyper-json", "flag to write a JSON file of the data used in the phenotyper");
 
     try {
       if (!cliHelper.parse(args)) {
@@ -78,6 +80,7 @@ public class PharmCAT {
 
       pharmcat
           .writeJson(cliHelper.hasOption("j"))
+          .writePhenotyperJson(cliHelper.hasOption("pj"))
           .execute(vcfFile, outsideCallPath, outputFile);
 
     } catch (Exception e) {
@@ -155,7 +158,7 @@ public class PharmCAT {
     Path jsonPath = m_writeJsonReport ? m_outputDir.resolve(fileRoot + ".report.json") : null;
     f_reporter.printHtml(reportPath, fileRoot, jsonPath);
 
-    if (m_writeJsonReport) {
+    if (m_writeJsonPheno) {
       f_reporter.getContext().getPhenotyper().write(m_outputDir.resolve(fileRoot + ".phenotyper.json"));
     }
 
@@ -200,6 +203,11 @@ public class PharmCAT {
    */
   public PharmCAT writeJson(boolean doWrite) {
     m_writeJsonReport = doWrite;
+    return this;
+  }
+
+  public PharmCAT writePhenotyperJson(boolean doWrite) {
+    m_writeJsonPheno = doWrite;
     return this;
   }
 
