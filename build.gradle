@@ -159,7 +159,14 @@ task updateData(type: JavaExec, dependsOn: 'classes') {
 task extractPositions(type: JavaExec, dependsOn: 'classes') {
   main = 'org.pharmgkb.pharmcat.definition.ExtractPositions'
   classpath = sourceSets.main.runtimeClasspath
-  def argList = ['-o', file('build/pharmcat.positions.vcf')]
+  def argList = ['-o', file('build/pharmcat_positions_' + getVersionName() + '.vcf')]
+  args argList
+}
+
+task extractIntervals(type: JavaExec, dependsOn: 'classes') {
+  main = 'org.pharmgkb.pharmcat.definition.ChromosomalIntervals'
+  classpath = sourceSets.main.runtimeClasspath
+  def argList = ['-o', file('build/pharmcat_intervals_' + getVersionName() + '.txt')]
   args argList
 }
 
