@@ -1,6 +1,6 @@
 # PharmCAT
 
-[![Build Status](https://travis-ci.com/PharmGKB/PharmCAT.svg?branch=main)](https://travis-ci.com/PharmGKB/PharmCAT?branch=main)
+[![Build project](https://github.com/PharmGKB/PharmCAT/actions/workflows/build.yml/badge.svg)](https://github.com/PharmGKB/PharmCAT/actions/workflows/build.yml)
 [![Coverage Status](https://coveralls.io/repos/github/PharmGKB/PharmCAT/badge.svg?branch=main)](https://coveralls.io/github/PharmGKB/PharmCAT?branch=main)
 [![codecov.io](https://codecov.io/github/PharmGKB/PharmCAT/coverage.svg?branch=main)](https://codecov.io/github/PharmGKB/PharmCAT?branch=main)
 
