@@ -30,9 +30,8 @@ jobs:
         with:
           java-version: 14
 
-#      cannot do this until we can sign jars via GH actions
-#      - name: Package app
-#        run: ./gradlew shadowJar
+      - name: Package app
+        run: ./gradlew shadowJar
 
       - name: Compile
         run: ./gradlew classes
@@ -43,13 +42,13 @@ jobs:
       - name: Extract intervals
         run: ./gradlew extractIntervals
 
-#      - name: Upload jar to release
-#        uses: svenstaro/upload-release-action@v2
-#        with:
-#          repo_token: ${{ secrets.GITHUB_TOKEN }}
-#          tag: ${{ github.ref }}
-#          file: build/libs/pharmcat-${{steps.appVersion.outputs.substring}}-all.jar
-#          overwrite: true
+      - name: Upload jar to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          file: build/libs/pharmcat-${{steps.appVersion.outputs.substring}}-all.jar
+          overwrite: true
 
       - name: Upload positions.vcf to release
         uses: svenstaro/upload-release-action@v2
