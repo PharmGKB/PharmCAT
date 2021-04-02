@@ -78,14 +78,9 @@ class Ugt1a1AlleleMatcherTest {
     GeneReport geneReport = context.getGeneReport("UGT1A1");
 
     assertNotNull(geneReport);
-    assertTrue(geneReport.isCalled());
+    assertFalse(geneReport.isCalled());
     assertTrue(geneReport.isPhased());
 
-    assertTrue(Ugt1a1AlleleMatcher.shouldBeUsedOn(geneReport));
-
-    Set<String> lookupCalls = Ugt1a1AlleleMatcher.makeLookupCalls(geneReport);
-    assertNotNull(lookupCalls);
-    assertEquals(1, lookupCalls.size());
-    assertTrue(lookupCalls.contains("*1/*80"));
+    assertFalse(Ugt1a1AlleleMatcher.shouldBeUsedOn(geneReport));
   }
 }

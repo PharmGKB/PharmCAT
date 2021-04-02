@@ -31,7 +31,7 @@ class DataSerializerTest {
     try {
       DataSerializer dataSerializer = new DataSerializer();
       Set<DefinitionExemption> definitionExemptions = dataSerializer.deserializeExemptionsFromTsv(tsvFile);
-      assertEquals(3, definitionExemptions.size());
+      assertEquals(2, definitionExemptions.size());
 
       Optional<DefinitionExemption> cyp2c9 = definitionExemptions.stream()
           .filter((de) -> de.getGene().equals("CYP2C9"))
@@ -52,16 +52,6 @@ class DataSerializerTest {
       assertEquals(0, cyp2c19.get().getIgnoredAlleles().size());
       assertFalse(cyp2c19.get().isAllHits());
       assertTrue(cyp2c19.get().isAssumeReference());
-
-      Optional<DefinitionExemption> ugt1a1 = definitionExemptions.stream()
-          .filter((de) -> de.getGene().equals("UGT1A1"))
-          .findFirst();
-      assertTrue(ugt1a1.isPresent());
-      assertEquals(0, ugt1a1.get().getIgnoredPositions().size());
-      assertEquals(0, ugt1a1.get().getExtraPositions().size());
-      assertEquals(0, ugt1a1.get().getIgnoredAlleles().size());
-      assertTrue(ugt1a1.get().isAllHits());
-      assertFalse(ugt1a1.get().isAssumeReference());
 
       // write it out
       dataSerializer.serializeToJson(definitionExemptions, jsonFile);

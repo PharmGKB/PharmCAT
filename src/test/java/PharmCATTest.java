@@ -350,7 +350,7 @@ class PharmCATTest {
         null);
 
     testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*28 (heterozygous)", "*80 (heterozygous)");
+    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)");
     testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -378,8 +378,8 @@ class PharmCATTest {
         null);
 
     testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*1/*28", "*1/*80", "*1/*80+*28");
-    testLookup("UGT1A1", "*1", "*80");
+    testPrintCalls("UGT1A1", "*1/*80+*28");
+    testLookup("UGT1A1", "*1", "*80+*28");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
   }
@@ -392,8 +392,8 @@ class PharmCATTest {
         null);
 
     testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*6/*28", "*6/*80", "*6/*80+*28");
-    testLookup("UGT1A1", "*80", "*80");
+    testPrintCalls("UGT1A1", "*6/*80+*28");
+    testLookup("UGT1A1", "*6", "*80+*28");
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
   }
@@ -406,7 +406,7 @@ class PharmCATTest {
         null);
 
     testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)","*28 (heterozygous)","*6 (heterozygous)","*80 (heterozygous)");
+    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*6 (heterozygous)");
     testLookup("UGT1A1", "*80", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -420,7 +420,7 @@ class PharmCATTest {
         null);
 
     testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*28 (heterozygous)", "*80 (heterozygous)");
+    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)");
     testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -489,9 +489,7 @@ class PharmCATTest {
         },
         null);
 
-    testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
-    testLookup("UGT1A1", "*1", "*80");
+    testNotCalledByMatcher("UGT1A1");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
   }
@@ -503,9 +501,7 @@ class PharmCATTest {
         },
         null);
 
-    testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
-    testLookup("UGT1A1", "*1", "*80");
+    testNotCalledByMatcher("UGT1A1");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
   }
@@ -518,7 +514,7 @@ class PharmCATTest {
         null);
 
     testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)", "*80 (homozygous)", "*28 (heterozygous)");
+    testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)");
     testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
@@ -539,14 +535,6 @@ class PharmCATTest {
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
   }
 
-  /**
-   * Example of a UGT1A1 report that looks odd. The matcher calls *28/*60 and *60/*60 which then gets translated to the
-   * print diplotypes listed below. It looks odd to have both "*60 (homozygous)" and "*60 (heterozygous)". This happens
-   * because diplotype calls get translated to the zygosity format one at a time and can't "look ahead" to other
-   * matches to check for homozygous calls that could obviate a heterozygous call display.
-   *
-   * Leaving this here for now but could be addressed in a future release.
-   */
   @Test
   void testUgt1a1s28s60Hom() throws Exception {
     generalTest("test.ugt1a1.s28s60hom", new String[]{
@@ -597,9 +585,7 @@ class PharmCATTest {
         },
         null);
 
-    testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*1/*27", "*1/*28", "*1/*80", "*1/*80+*28");
-    testLookup("UGT1A1", "*1", "*80");
+    testNotCalledByMatcher("UGT1A1");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
@@ -612,9 +598,7 @@ class PharmCATTest {
         },
         null);
 
-    testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*1/*27", "*1/*80", "*1/*80+*28", "*1/*80+*37");
-    testLookup("UGT1A1", "*1", "*80");
+    testNotCalledByMatcher("UGT1A1");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
@@ -627,9 +611,7 @@ class PharmCATTest {
         },
         null);
 
-    testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*1/*6", "*1/*80");
-    testLookup("UGT1A1", "*1", "*80");
+    testNotCalledByMatcher("UGT1A1");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
@@ -642,9 +624,7 @@ class PharmCATTest {
         },
         null);
 
-    testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*1/*6", "*1/*28", "*1/*80", "*1/*80+*28");
-    testLookup("UGT1A1", "*1", "*80");
+    testNotCalledByMatcher("UGT1A1");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
@@ -658,8 +638,8 @@ class PharmCATTest {
         null);
 
     testCalledByMatcher("UGT1A1");
-    testPrintCalls("UGT1A1", "*1/*37", "*1/*80", "*1/*80+*37");
-    testLookup("UGT1A1", "*1", "*80");
+    testPrintCalls("UGT1A1", "*1/*80+*37");
+    testLookup("UGT1A1", "*1", "*80+*37");
 
     GeneReport geneReport = s_context.getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
