@@ -93,6 +93,16 @@ class NamedAlleleMatcherCyp2c9Test {
     assertDiplotypePairs(expectedMatches, result);
   }
 
+  @Test
+  void cyp2c9s24s2s24() throws Exception {
+    // Test *24/*2+*24
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s24s2pluss24.vcf");
+    List<String> expectedMatches = Lists.newArrayList("*24/*2+*24");
+
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, true, true);
+    assertDiplotypePairs(expectedMatches, result);
+  }
+
 
   @Test
   void testExtraPosition() throws Exception {
