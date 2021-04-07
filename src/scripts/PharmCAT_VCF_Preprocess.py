@@ -55,8 +55,9 @@ def run(args):
     util.output_pharmcat_ready_vcf(intermediate_vcf_normalized, args.output_folder, args.output_prefix)
 
     # remove intermediate files
-    for single_path in tmp_files_to_be_removed:
-       util.remove_vcf_and_index(single_path)
+    if not args.keep_intermediate_files:
+        for single_path in tmp_files_to_be_removed:
+           util.remove_vcf_and_index(single_path)
 
     end = timer()
     print("Successfully preprocessed input VCF in %s seconds"%(str(end-start)))
@@ -75,6 +76,7 @@ if __name__ == "__main__":
     parser.add_argument("--path_to_tabix", help="Load an alternative path to the executable tabix.")
     parser.add_argument("--output_folder", default = os.getcwd(), type = str, help="Directory of the output VCF, by default, current working directory.")
     parser.add_argument("--output_prefix", default = 'pharmcat_ready_vcf', type = str, help="Prefix of the output VCF")
+    parser.add_argument("--keep_intermediate_files", action='store_true', help="Keep intermediate files, false by default.")
 
     # parse arguments
     args = parser.parse_args()
