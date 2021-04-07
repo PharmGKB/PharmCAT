@@ -228,9 +228,9 @@ def output_pharmcat_ready_vcf(input_vcf, output_dir, output_prefix):
         input_vcf_cyvcf2 = VCF(input_vcf, samples = single_sample)
 
         # write to a VCF output file
-        output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf.gz')
+        output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf')
         # header
-        output_vcf_cyvcf2 = Writer(output_file_name, input_vcf_cyvcf2, mode = 'wz')
+        output_vcf_cyvcf2 = Writer(output_file_name, input_vcf_cyvcf2, mode = 'w')
         # content
         for single_var in input_vcf_cyvcf2:
             output_vcf_cyvcf2.write_record(single_var)
