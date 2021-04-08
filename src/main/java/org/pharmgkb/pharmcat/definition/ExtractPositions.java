@@ -137,10 +137,6 @@ public class ExtractPositions {
   }
 
 
-  /**
-   * Main method for command line use
-   * @param args CLI args to parse
-   */
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("o", "output-file", "output vcf file", true, "o");
@@ -158,35 +154,38 @@ public class ExtractPositions {
   }
 
 
-  //Extract the positions and print them to file
+  /**
+   * Extract the positions and print them to file.
+   */
   private void run() {
     try {
       StringBuilder vcfString = sortVcf(getPositions());
       try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(m_outputVcf))) {
         sf_logger.info("Writing to {}", m_outputVcf);
+        writer.print(String.format(sf_fileHeader, DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now())));
         writer.print(vcfString);
         writer.flush();
       }
       sf_logger.info("Done");
-    }
-    catch (Exception ex) {
+    } catch (Exception ex) {
       ex.printStackTrace();
     }
-
   }
 
 
-  // Build up vcf string
+  /**
+   * Build up VCF positions.
+   */
   public StringBuilder getPositions() {
     StringBuilder builder = new StringBuilder();
-    builder.append(String.format(sf_fileHeader, DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now())));
     for (String gene : f_definitionReader.getGenes()) {  // for each definition file
+      DefinitionFile definitionFile = f_definitionReader.getDefinitionFile(gene);
       int positionCount = 0;
       // convert bXX format to hgXX
-      String build = "hg" + f_definitionReader.getDefinitionFile(gene).getGenomeBuild().substring(1);
-      for (VariantLocus variantLocus : f_definitionReader.getPositions(gene)) {
+      String build = "hg" + definitionFile.getGenomeBuild().substring(1);
+      for (VariantLocus variantLocus : definitionFile.getVariants()) {
         positionCount++;
-        String[] vcfFields = getVcfLineFromDefinition(f_definitionReader, gene, variantLocus, build);
+        String[] vcfFields = getVcfLineFromDefinition(definitionFile, variantLocus, build);
         String vcfLine = String.join("\t", vcfFields);
         builder.append(vcfLine).append("\n");
       }
@@ -194,7 +193,7 @@ public class ExtractPositions {
       if (exemption != null) {
         for (VariantLocus variant : exemption.getExtraPositions()) {
           positionCount++;
-          String[] vcfFields = getVcfLineFromDefinition(f_definitionReader, gene, variant, build);
+          String[] vcfFields = getVcfLineFromDefinition(definitionFile, variant, build);
           String vcfLine = String.join("\t", vcfFields);
           builder.append(vcfLine).append("\n");
         }
@@ -243,7 +242,6 @@ public class ExtractPositions {
    * This is not stored in the definition file, so we need to use an external source.
    */
   String getDAS(String chr, String position, String genomeBuild) {
-    String nucleotide;
 
     // check the cache before doing an expensive DAS lookup
     String cacheKey = genomeBuild + ":" + chr + ":" + position;
@@ -254,26 +252,25 @@ public class ExtractPositions {
     // do the call out to UCSC to get the ref sequence
     try {
       String uri =
-          "http://genome.ucsc.edu/cgi-bin/das/"+ genomeBuild +  "/dna?segment="+ chr +":" +position +"," + position;
+          "http://genome.ucsc.edu/cgi-bin/das/" + genomeBuild + "/dna?segment=" + chr + ":" + position + "," + position;
       sf_logger.debug("Getting position: {}", uri);
       URL url = new URL(uri);
-      HttpURLConnection connection =
-          (HttpURLConnection) url.openConnection();
+      HttpURLConnection connection = (HttpURLConnection) url.openConnection();
       connection.setRequestMethod("GET");
       connection.setRequestProperty("Accept", "application/xml");
       InputStream xml = connection.getInputStream();
       DocumentBuilder db = f_dbf.newDocumentBuilder();
       Document doc = db.parse(xml);
       doc.getDocumentElement().normalize();
-      nucleotide = doc.getElementsByTagName("DNA").item(0).getTextContent();
+      String nucleotide = doc.getElementsByTagName("DNA").item(0).getTextContent();
+      nucleotide = nucleotide.toUpperCase().trim();
+
+      // log cache misses so they can be collected and added to the cache
+      sf_logger.debug("cache miss [{}]", cacheKey + "\t" + nucleotide);
+      return nucleotide;
     } catch (Exception e) {
       throw new RuntimeException("Error when requesting DAS data", e);
     }
-    nucleotide = nucleotide.toUpperCase().trim();
-
-    // log cache misses so they can be collected and added to the cache
-    sf_logger.debug("cache miss [{}]", cacheKey + "\t" + nucleotide);
-    return nucleotide;
   }
 
 
@@ -313,20 +310,17 @@ public class ExtractPositions {
   }
 
 
-
-
-
   /**
    * Helper method to convert repeats into standard format
    */
-  private String[] getVcfLineFromDefinition(DefinitionReader definitionReader, String gene,
-      VariantLocus variantLocus, String genomeBuild) {
+  private String[] getVcfLineFromDefinition(DefinitionFile definitionFile, VariantLocus variantLocus,
+      String genomeBuild) {
 
-    DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
-    NamedAllele referenceAllele = definitionFile.getNamedAlleles().get(0); //Get star one for Ref column of vcf. Use DAS in future
+    //Get star one for Ref column of vcf. Use DAS in future
+    NamedAllele referenceAllele = definitionFile.getNamedAlleles().get(0);
     String allele = "";
-
-    if (referenceAllele.getAllele(variantLocus) != null) {  // for the exceptions/exemptions
+    // for the exceptions/exemptions
+    if (referenceAllele.getAllele(variantLocus) != null) {
       allele = referenceAllele.getAllele(variantLocus);
     }
     int position = variantLocus.getVcfPosition();
@@ -334,7 +328,7 @@ public class ExtractPositions {
     if (idField == null) {
       idField = ".";
     }
-    String chr = definitionReader.getDefinitionFile(gene).getChromosome();
+    String chr = definitionFile.getChromosome();
     List<String> alts = new ArrayList<>(); //get alts from the namedAlleles
 
     String dasRef = getDAS(chr, String.valueOf(position), genomeBuild);
@@ -363,7 +357,8 @@ public class ExtractPositions {
       List<String> l = Arrays.stream(namedAllele.getAlleles())
           .filter(Objects::nonNull)
           .collect(Collectors.toList());
-      starAlleles.add(gene + ":" + namedAllele.getName().replace(" ","")+"[" + l.size() +"]" +"is" + namedAllele.getAllele(variantLocus));
+      starAlleles.add(definitionFile.getGeneSymbol() + ":" + namedAllele.getName().replace(" ","") +
+          "[" + l.size() + "]" + "is" + namedAllele.getAllele(variantLocus));
     });
     if (alts.size() == 0 ) {
       alts.add(".");

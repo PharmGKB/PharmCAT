@@ -45,26 +45,26 @@ class SampleAlleleTest {
     // inserts
     insVariant.setType(VariantType.INS);
 
-    SampleAllele ins1 = new SampleAllele("chr1", 1, "TC", "TCA", true, Lists.newArrayList("TC", "TCA"));
-    SampleAllele rez = ins1.forVariant(insVariant);
+    SampleAllele sa = new SampleAllele("chr1", 1, "TC", "TCA", true, Lists.newArrayList("TC", "TCA"));
+    SampleAllele rez = sa.forVariant(insVariant);
     assertEquals("del", rez.getAllele1());
     assertEquals("insA", rez.getAllele2());
 
-    ins1 = new SampleAllele("chr1", 1, "TC", "TCATA", true, Lists.newArrayList("TC", "TCATA"));
-    rez = ins1.forVariant(insVariant);
+    sa = new SampleAllele("chr1", 1, "TC", "TCATA", true, Lists.newArrayList("TC", "TCATA"));
+    rez = sa.forVariant(insVariant);
     assertEquals("del", rez.getAllele1());
     assertEquals("insATA", rez.getAllele2());
 
     // deletes
     insVariant.setType(VariantType.DEL);
 
-    ins1 = new SampleAllele("chr1", 1, "TC", "T", true, Lists.newArrayList("TC", "T"));
-    rez = ins1.forVariant(insVariant);
+    sa = new SampleAllele("chr1", 1, "TC", "T", true, Lists.newArrayList("TC", "T"));
+    rez = sa.forVariant(insVariant);
     assertEquals("C", rez.getAllele1());
     assertEquals("delC", rez.getAllele2());
 
-    ins1 = new SampleAllele("chr1", 1, "TCAT", "T", true, Lists.newArrayList("TCAT", "T"));
-    rez = ins1.forVariant(insVariant);
+    sa = new SampleAllele("chr1", 1, "TCAT", "T", true, Lists.newArrayList("TCAT", "T"));
+    rez = sa.forVariant(insVariant);
     assertEquals("CAT", rez.getAllele1());
     assertEquals("delCAT", rez.getAllele2());
 
@@ -73,14 +73,14 @@ class SampleAlleleTest {
     insVariant.setType(VariantType.REPEAT);
     insVariant.setReferenceRepeat("A(TA)6TAA");
 
-    ins1 = new SampleAllele("chr1", 1, "ATATAA", "ATATATATATATAA", true, Lists.newArrayList("ATATAA", "ATATATATATATAA"));
-    rez = ins1.forVariant(insVariant);
+    sa = new SampleAllele("chr1", 1, "ATATAA", "ATATATATATATAA", true, Lists.newArrayList("ATATAA", "ATATATATATATAA"));
+    rez = sa.forVariant(insVariant);
     assertEquals("A(TA)1TAA", rez.getAllele1());
     assertEquals("A(TA)5TAA", rez.getAllele2());
 
-    ins1 = new SampleAllele("chr1", 1, "ATATATATATATATATAA", "ATATATATATATAA", true,
+    sa = new SampleAllele("chr1", 1, "ATATATATATATATATAA", "ATATATATATATAA", true,
         Lists.newArrayList("ATATATATATATATATAA", "ATATATATATATAA"));
-    rez = ins1.forVariant(insVariant);
+    rez = sa.forVariant(insVariant);
     assertEquals("A(TA)7TAA", rez.getAllele1());
     assertEquals("A(TA)5TAA", rez.getAllele2());
   }

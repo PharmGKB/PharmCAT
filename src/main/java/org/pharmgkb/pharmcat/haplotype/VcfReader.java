@@ -59,6 +59,15 @@ public class VcfReader implements VcfLineParser {
     read(vcfFile);
   }
 
+  /**
+   * Constructor.  Primarily for testing.
+   * Reads in VCF file and pull the sample's alleles for <em>ALL</em> positions.
+   */
+  VcfReader(Path vcfFile) throws IOException {
+    m_locationsOfInterest = null;
+    read(vcfFile);
+  }
+
 
   /**
    * Gets the genome build the VCF file is using.
@@ -109,8 +118,8 @@ public class VcfReader implements VcfLineParser {
           if (m_genomeBuild == null) {
             m_genomeBuild = cm.getAssembly();
           } else if (!m_genomeBuild.equals(cm.getAssembly())) {
-            throw new IllegalStateException("VCF file uses different assemblies (" + m_genomeBuild + " and " +
-                cm.getAssembly() + ")");
+            throw new IllegalStateException("VCF file uses different assemblies (" + m_genomeBuild + " vs " +
+                cm.getAssembly() + " for contig)");
           }
         }
       }
@@ -134,10 +143,13 @@ public class VcfReader implements VcfLineParser {
       return;
     }
 
-    VariantLocus varLoc = m_locationsOfInterest.get(chrPos);
-    if (varLoc == null) {
-      sf_logger.warn("Ignoring {}", chrPos);
-      return;
+    VariantLocus varLoc = null;
+    if (m_locationsOfInterest != null) {
+      varLoc = m_locationsOfInterest.get(chrPos);
+      if (varLoc == null) {
+        sf_logger.warn("Ignoring {}", chrPos);
+        return;
+      }
     }
     if (m_alleleMap.containsKey(chrPos)) {
       addWarning(chrPos, "Duplicate entry: first valid position wins");
@@ -158,9 +170,6 @@ public class VcfReader implements VcfLineParser {
       return;
     }
 
-    int[] alleleIdxs = sf_gtDelimiter.splitAsStream(gt)
-        .mapToInt(Integer::parseInt)
-        .toArray();
     // normalize alleles to use same syntax as haplotype definition
     List<String> alleles = new ArrayList<>();
     if (position.getAltBases().size() == 0) {
@@ -190,6 +199,9 @@ public class VcfReader implements VcfLineParser {
       }
     }
 
+    int[] alleleIdxs = sf_gtDelimiter.splitAsStream(gt)
+        .mapToInt(Integer::parseInt)
+        .toArray();
     String a1 = alleles.get(alleleIdxs[0]);
     String a2 = null;
     if (alleleIdxs.length > 1) {
@@ -209,7 +221,7 @@ public class VcfReader implements VcfLineParser {
     vcfAlleles.addAll(position.getAltBases());
 
     SampleAllele sampleAllele = new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased, vcfAlleles);
-    if (varLoc.getType() == VariantType.DEL && !sampleAllele.isVcfAlleleADeletion()) {
+    if (varLoc != null && varLoc.getType() == VariantType.DEL && !sampleAllele.isVcfAlleleADeletion()) {
       // must be deletion if expecting deletion because deletions require anchor bases and -1 in position
       addWarning(chrPos, "Ignoring: expecting deletion but alleles do not appear to be in expected format (got " +
           String.join("/", sampleAllele.getVcfAlleles()) + ")");

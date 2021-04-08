@@ -178,16 +178,17 @@ public class PharmCAT {
    */
   @Nonnull
   private String makeFileRoot(Path inputFile, @Nullable String outputFile) {
-    Matcher m = sf_inputNamePattern.matcher(inputFile.getFileName().toString());
     String fileRoot;
     if (outputFile != null) {
       fileRoot = outputFile;
-    }
-    else if (m.matches()) {
-      fileRoot = m.group(1);
-    }
-    else {
-      fileRoot = inputFile.getFileName().toString();
+    } else {
+      Matcher m = sf_inputNamePattern.matcher(inputFile.getFileName().toString());
+      if (m.matches()) {
+        fileRoot = m.group(1);
+      }
+      else {
+        fileRoot = inputFile.getFileName().toString();
+      }
     }
     return fileRoot;
   }

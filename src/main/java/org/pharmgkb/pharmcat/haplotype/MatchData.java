@@ -229,7 +229,9 @@ public class MatchData {
   }
 
   /**
-   * Gets the positions that are mismatched from any allele defined for the given gene
+   * Gets the positions that are mismatched from any allele defined for the given gene (i.e. at given position, no
+   * alleles in VCF match what we expect to see).
+   *
    * @return a Set of {@link VariantLocus} objects with mismatched alleles
    */
   public Set<VariantLocus> getMismatchedPositions() {
