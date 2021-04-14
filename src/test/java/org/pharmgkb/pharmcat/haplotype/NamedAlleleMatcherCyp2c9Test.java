@@ -7,6 +7,7 @@ import com.google.common.collect.Lists;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -93,14 +94,23 @@ class NamedAlleleMatcherCyp2c9Test {
     assertDiplotypePairs(expectedMatches, result);
   }
 
+  /**
+   * This tests what happens when a homozygous allele is mixed with a heterozygous allele. It should result in a
+   * non-call since the matcher cannot match to a single definition.
+   *
+   * This also asserts that no missing or mismatched data exists to ensure the mismatch is not due to invalid input.
+   */
   @Test
   void cyp2c9s24s2s24() throws Exception {
-    // Test *24/*2+*24
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c9/s24s2pluss24.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*24/*2+*24");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, true, true);
-    assertDiplotypePairs(expectedMatches, result);
+    GeneCall call = result.getGeneCalls().stream()
+        .filter(c -> c.getGene().equals("CYP2C9")).findFirst()
+        .orElseThrow(() -> new RuntimeException("No gene call found"));
+    assertEquals(0, call.getDiplotypes().size());
+    assertEquals(0, call.getMatchData().getMissingPositions().size());
+    assertEquals(0, call.getMatchData().getMismatchedPositions().size());
   }
 
 
