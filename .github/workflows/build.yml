@@ -1,6 +1,9 @@
 name: Build project
 
-on: push
+on:
+  push:
+    branches:
+      - "*"
 
 jobs:
   build:

@@ -1,11 +1,8 @@
 name: Upload assets to release
 
 on:
-  push:
-    branches:
-      - main
-    tags:
-      - v[0-9]+.[0-9]+.[0-9]+
+  release:
+    types: [published]
 
 jobs:
   release:
