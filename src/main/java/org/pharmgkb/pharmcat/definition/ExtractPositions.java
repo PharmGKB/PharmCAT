@@ -270,10 +270,9 @@ public class ExtractPositions implements AutoCloseable {
 
 
   /**
-   * For deletions we need to be able to get the nucleotide at the previous position.
-   * This is not stored in the definition file, so we need to use an external source.
+   * Gets the reference allele for the specified position.
    */
-  String getPreviousBase(String assembly, String chr, int position) {
+  String getReferenceAllele(String assembly, String chr, int position) {
     String cacheKey = assembly + ":" + chr + ":" + position;
     if (m_refCache.containsKey(cacheKey)) {
       return m_refCache.get(cacheKey);
@@ -314,26 +313,28 @@ public class ExtractPositions implements AutoCloseable {
     // get alts from the namedAlleles
     List<String> alts = new ArrayList<>();
 
+    String dasRef = getReferenceAllele(genomeBuild, chr, position);
     NamedAllele refNamedAllele = definitionFile.getNamedAlleles().get(0);
-    String allele;
-    String dasRef = getPreviousBase(genomeBuild, chr, position);
+    String referenceAllele;
     // reference named allele may not have allele if the position is an extra or exemption position
     // not used in the allele definition
     if (refNamedAllele.getAllele(variantLocus) != null) {
-      allele = refNamedAllele.getAllele(variantLocus);
-      if (!dasRef.equals(allele) && variantLocus.getType() == VariantType.SNP && allele.length() == 1) {
-        System.err.println("Star one/ref mismatch at position: " + position + " - using " + dasRef +
-            " as ref as opposed to " + allele);
-        alts.add(allele);
-        allele = dasRef;
+      referenceAllele = refNamedAllele.getAllele(variantLocus);
+      if (!dasRef.equals(referenceAllele) && variantLocus.getType() == VariantType.SNP && referenceAllele.length() == 1) {
+        System.err.println(definitionFile.getGeneSymbol() + " " + refNamedAllele.getName() +
+            " has ref mismatch at position " + position +
+            (variantLocus.getRsid() != null ? " (" + variantLocus.getRsid() + ")" : "") + " - using " + dasRef +
+            " as ref as opposed to " + referenceAllele);
+        alts.add(referenceAllele);
+        referenceAllele = dasRef;
       }
     } else {
-      allele = dasRef;
+      referenceAllele = dasRef;
     }
 
     List<String> pxInfo = new ArrayList<>();
     // this is because lambda expression needs an effectively final variable
-    final String finalAlleleRef = allele;
+    final String finalAlleleRef = referenceAllele;
     definitionFile.getNamedAlleles().stream()
         .filter(namedAllele -> namedAllele.getAllele(variantLocus) != null)
         .forEachOrdered(namedAllele -> {
@@ -351,18 +352,18 @@ public class ExtractPositions implements AutoCloseable {
       alts.add(".");
     }
 
-    String refField = expandRepeats(allele);
+    String refField = expandRepeats(referenceAllele);
     // simplest possible del/ins parsing, presuming the only a single ins or del string, or the correct one being first
     if (alts.size() > 0) {
       if (alts.stream().anyMatch(a -> a.contains("ins"))) {
-        String nucleotide = getPreviousBase(genomeBuild, chr, position);
+        String nucleotide = getReferenceAllele(genomeBuild, chr, position);
         for (int i = 0; i < alts.size(); i++) {
           alts.set(i, alts.get(i).replace("ins", nucleotide));
         }
         refField = nucleotide;
       }
       if (alts.get(0).contains("del") && !alts.get(0).contains("delGene")) {
-        String nucleotide = getPreviousBase(genomeBuild, chr, position);
+        String nucleotide = getReferenceAllele(genomeBuild, chr, position);
         refField = nucleotide + alts.get(0).replace("del", "");
         alts.set(0, nucleotide);
       }

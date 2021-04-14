@@ -47,9 +47,9 @@ class ExtractPositionsTest {
   }
 
   @Test
-  void testPreviousBase() throws IOException {
+  void testGetReferenceAllele() throws IOException {
     ExtractPositions extractPositions = new ExtractPositions(Files.createTempFile("testGetDAS", "vcf"));
-    String ref = extractPositions.getPreviousBase("hg38", "chr6", 18149127);
+    String ref = extractPositions.getReferenceAllele("hg38", "chr6", 18149127);
     assertEquals("T", ref);
   }
 }
