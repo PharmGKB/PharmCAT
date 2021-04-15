@@ -41,6 +41,7 @@ public class VcfReader implements VcfLineParser {
   private static final Pattern sf_noCallPattern = Pattern.compile("^[.|/]+$");
   private static final Pattern sf_allelePattern = Pattern.compile("^[AaCcGgTt]+$");
   private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
+  private VcfMetadata m_vcfMetadata;
   private String m_genomeBuild;
   // <chr:position, allele>
   private final SortedMap<String, SampleAllele> m_alleleMap = new TreeMap<>(ChromosomePositionComparator.getComparator());
@@ -66,6 +67,11 @@ public class VcfReader implements VcfLineParser {
   VcfReader(Path vcfFile) throws IOException {
     m_locationsOfInterest = null;
     read(vcfFile);
+  }
+
+
+  public VcfMetadata getVcfMetadata() {
+    return m_vcfMetadata;
   }
 
 
@@ -113,7 +119,8 @@ public class VcfReader implements VcfLineParser {
           .fromReader(reader)
           .parseWith(this)
           .build();
-      for (ContigMetadata cm : vcfParser.parseMetadata().getContigs().values()) {
+      m_vcfMetadata = vcfParser.parseMetadata();
+      for (ContigMetadata cm : m_vcfMetadata.getContigs().values()) {
         if (cm.getAssembly() != null) {
           if (m_genomeBuild == null) {
             m_genomeBuild = cm.getAssembly();
@@ -200,6 +207,7 @@ public class VcfReader implements VcfLineParser {
     }
 
     int[] alleleIdxs = sf_gtDelimiter.splitAsStream(gt)
+        .filter(a -> !a.equals("."))
         .mapToInt(Integer::parseInt)
         .toArray();
     String a1 = alleles.get(alleleIdxs[0]);
