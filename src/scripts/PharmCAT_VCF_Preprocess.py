@@ -17,8 +17,8 @@ def run(args):
     tabix_executable_path = args.path_to_tabix if args.path_to_tabix else 'tabix'
     bcftools_executable_path = args.path_to_bcftools if args.path_to_bcftools else 'bcftools'
     # read the sample list
+    sample_list = []
     if args.sample_file:
-        sample_list = []
         with open(args.sample_file, 'r') as file:
             for line in file:
                 line = line.strip()
