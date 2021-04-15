@@ -30,6 +30,7 @@
 
 # PharmCAT specific
 /out/
+/testVcf/
 /tmp/
 log.txt
 pharmcat.log
