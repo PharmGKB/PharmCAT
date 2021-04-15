@@ -1,7 +1,5 @@
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
-    <option name="USE_SAME_INDENTS" value="true" />
-    <option name="IGNORE_SAME_INDENTS_FOR_LANGUAGES" value="true" />
     <option name="AUTODETECT_INDENTS" value="false" />
     <option name="OTHER_INDENT_OPTIONS">
       <value>
@@ -11,10 +9,10 @@
       </value>
     </option>
     <option name="LINE_SEPARATOR" value="&#10;" />
+    <option name="SPACE_AFTER_TYPE_CAST" value="false" />
     <option name="BLANK_LINES_AFTER_IMPORTS" value="2" />
     <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
     <option name="SPACE_WITHIN_ARRAY_INITIALIZER_BRACES" value="true" />
-    <option name="SPACE_AFTER_TYPE_CAST" value="false" />
     <HTMLCodeStyleSettings>
       <option name="HTML_KEEP_WHITESPACES" value="true" />
       <option name="HTML_TEXT_WRAP" value="0" />
@@ -55,7 +53,6 @@
       <option name="XML_TEXT_WRAP" value="0" />
       <option name="XML_ALIGN_ATTRIBUTES" value="false" />
       <option name="XML_SPACE_INSIDE_EMPTY_TAG" value="true" />
-      <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
     </XML>
     <editorconfig>
       <option name="ENABLED" value="false" />
