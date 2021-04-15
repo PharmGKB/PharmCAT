@@ -75,6 +75,7 @@ public class NamedAlleleMatcher {
           .addOption("json", "json-out", "file to save results to (in JSON format)", false, "json")
           .addOption("html", "html-out", "file to save results to (in HTML format)", false, "html")
           .addOption("d", "definition-dir", "directory of allele definition files", false, "d")
+          .addOption("a", "all-results", "return all possible results, not just top hits")
           ;
 
       if (!cliHelper.parse(args)) {
@@ -96,7 +97,8 @@ public class NamedAlleleMatcher {
         System.exit(1);
       }
 
-      NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader)
+      boolean topCandidateOnly = !cliHelper.hasOption("a");
+      NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, topCandidateOnly)
           .printWarnings();
       Result result = namedAlleleMatcher.call(vcfFile);
 
