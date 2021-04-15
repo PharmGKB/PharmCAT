@@ -466,7 +466,10 @@ for matches1, matches2 in itertools.combinations_with_replacement(sorted(matches
 
         # write variants data
         for v, variant in enumerate(definition['variants']):
-            varalleles = [refNamedallele['_maxdef'].get(v) or "."]
+            refAllele = refNamedallele['_maxdef'].get(v)
+            if not refAllele or refAllele == ".":
+                continue
+            varalleles = [refNamedallele['_maxdef'].get(v)]
             # collate alt alleles used by these tests
             for t, alleles in itertools.chain(enumerate(test1alleles), enumerate(test2alleles)):
                 alt = (None if ((v not in alleles) or alleles[v] == ".") else alleles[v])
@@ -477,7 +480,7 @@ for matches1, matches2 in itertools.combinations_with_replacement(sorted(matches
                 str(variant.get('chromosome') or "."),
                 str(variant.get('position') or "."),
                 str(variant.get('rsid') or "."),
-                varalleles[0],
+                refAllele,
                 (",".join(varalleles[1:]) if (len(varalleles) > 1) else "."),
                 ".",  # QUAL
                 "PASS",  # FILTER
