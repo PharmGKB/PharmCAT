@@ -118,7 +118,7 @@ def get_vcf_pos_min_max(positions, flanking_bp = 100):
     ''' given input positions, return "<min_pos>-<max_pos>"  '''
     return '-'.join([str(min(positions)-flanking_bp), str(max(positions)+flanking_bp)])
 
-def extract_pharmcat_pgx_regions(tabix_executable_path, input_vcf, output_dir, input_ref_pgx_vcf):
+def extract_pharmcat_pgx_regions(tabix_executable_path, input_vcf, output_dir, input_ref_pgx_vcf, sample_list):
     '''
     extract pgx regions in input_ref_pgx_vcf from input_vcf and save variants to path_output
     '''
@@ -126,7 +126,7 @@ def extract_pharmcat_pgx_regions(tabix_executable_path, input_vcf, output_dir, i
     print('Modify chromosome names.\nExtract PGx regions based on the input reference PGx position file.')
     path_output = os.path.join(output_dir, obtain_vcf_file_prefix(input_vcf) + '.pgx_regions.vcf.gz')
 
-    input_vcf_cyvcf2 = VCF(input_vcf)
+    input_vcf_cyvcf2 = VCF(input_vcf, samples = sample_list) if sample_list else VCF(input_vcf)
     input_ref_pgx_pos_cyvcf2 = VCF(input_ref_pgx_vcf)
 
     # get pgx regions in each chromosome
@@ -201,7 +201,7 @@ def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, pa
 
     # extract only PGx positions
     path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.normalized.vcf.gz'
-    bcftools_command_to_extract_only_pgx = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o', path_output, '-R', input_ref_pgx_vcf, temp_normalized_vcf]
+    bcftools_command_to_extract_only_pgx = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o', path_output, '-s', '^PharmCAT', '-R', input_ref_pgx_vcf, temp_normalized_vcf]
     running_bcftools(bcftools_command_to_extract_only_pgx, show_msg = 'Retain only PGx positions in the normalized VCF') # run bcftools to merge VCF files
     tabix_index_vcf(tabix_executable_path, path_output)
 
@@ -219,7 +219,6 @@ def output_pharmcat_ready_vcf(input_vcf, output_dir, output_prefix):
 
     input_vcf_cyvcf2 = VCF(input_vcf)
     input_vcf_sample_list = input_vcf_cyvcf2.samples
-    input_vcf_sample_list.remove('PharmCAT')
     input_vcf_cyvcf2.close()
 
     # output each single sample to a separete VCF

@@ -16,6 +16,14 @@ def run(args):
     current_working_dir = os.getcwd()
     tabix_executable_path = args.path_to_tabix if args.path_to_tabix else 'tabix'
     bcftools_executable_path = args.path_to_bcftools if args.path_to_bcftools else 'bcftools'
+    # read the sample list
+    if args.sample_file:
+        sample_list = []
+        with open(args.sample_file, 'r') as file:
+            for line in file:
+                line = line.strip()
+                sample_list.append(line)
+        file.close()
 
     # create the output folder if not existing
     Path(args.output_folder).mkdir(parents=True, exist_ok=True)
@@ -35,7 +43,7 @@ def run(args):
 
     # shrink input VCF down to PGx allele defining positions to speed up
     # modify input VCF chromosomes naming format to <chr##>
-    intermediate_vcf_pgx_regions = util.extract_pharmcat_pgx_regions(tabix_executable_path, args.input_vcf, args.output_folder, args.ref_pgx_vcf)
+    intermediate_vcf_pgx_regions = util.extract_pharmcat_pgx_regions(tabix_executable_path, args.input_vcf, args.output_folder, args.ref_pgx_vcf, sample_list)
     tmp_files_to_be_removed.append(intermediate_vcf_pgx_regions)
 
     # merge the input VCF with the PGx position file provided by '--ref_pgx_vcf'
@@ -72,6 +80,7 @@ if __name__ == "__main__":
     parser.add_argument("--input_vcf", required=True, type = str, help="Load a compressed VCF file.")
     parser.add_argument("--ref_seq", help="Load the Human Reference Genome GRCh38/hg38 in the fasta format.")
     parser.add_argument("--ref_pgx_vcf", required=True, type = str, help="Load a VCF file of PGx variants. This file is available from the PharmCAT GitHub release.")
+    parser.add_argument("--sample_file", help="A file of samples to be prepared for the PharmCAT.")
     parser.add_argument("--path_to_bcftools", help="Load an alternative path to the executable bcftools.")
     parser.add_argument("--path_to_tabix", help="Load an alternative path to the executable tabix.")
     parser.add_argument("--output_folder", default = os.getcwd(), type = str, help="Directory of the output VCF, by default, current working directory.")
