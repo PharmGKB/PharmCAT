@@ -16,11 +16,11 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
   @Expose
   @SerializedName("name")
-  private String m_name;
-  private NamedAllele m_haplotype;
+  private final String m_name;
+  private final NamedAllele m_haplotype;
   @Expose
   @SerializedName("sequences")
-  private SortedSet<String> m_sequences = new TreeSet<>();
+  private final SortedSet<String> m_sequences = new TreeSet<>();
 
 
   public HaplotypeMatch(NamedAllele haplotype) {

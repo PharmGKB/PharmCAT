@@ -28,19 +28,19 @@ but may contain multiple "samples", one for each generated test case that yielde
 final call.
 """
 
-## TODO: once available, use definition's specified referent named allele rather than just the first fully-defined named allele
-## TODO: add maxdef test cases for cluster ambiguity
+# TODO: once available, use definition's specified referent named allele rather than just the first fully-defined named allele
+# TODO: add maxdef test cases for cluster ambiguity
 
-## ask: definition specifies genomeBuild "b38", vcf seems to expect "hg38"
-## ask: does the VCF need 'source' meta info? old test files have it
+# ask: definition specifies genomeBuild "b38", vcf seems to expect "hg38"
+# ask: does the VCF need 'source' meta info? old test files have it
 
-## ASK: VCFv4.3 ALT is defined as
-##          "base Strings made up of the bases A,C,G,T,N (case insensitive)
-##          or the '*’  symbol (allele missing due to overlapping deletion)
-##          or a MISSING value ‘.’ (no variant)"
-##      some gene definitions have deletions with a length that would run
-##      over subsequent variants in the definition; how is this handled?
-##      will PharmCAT parse the '*' symbol correctly in that context?
+# ASK: VCFv4.3 ALT is defined as
+#          "base Strings made up of the bases A,C,G,T,N (case insensitive)
+#          or the '*’  symbol (allele missing due to overlapping deletion)
+#          or a MISSING value ‘.’ (no variant)"
+#      some gene definitions have deletions with a length that would run
+#      over subsequent variants in the definition; how is this handled?
+#      will PharmCAT parse the '*' symbol correctly in that context?
 
 import collections
 import datetime
@@ -68,21 +68,21 @@ symbolBases = {
     'C': {'C'},
     'G': {'G'},
     'T': {'T'},
-    'M': {'A','C'},
-    'R': {'A','G'},
-    'W': {'A','T'},
-    'S': {'C','G'},
-    'Y': {'C','T'},
-    'K': {'G','T'},
-    'V': {'A','C','G'},
-    'H': {'A','C','T'},
-    'D': {'A','G','T'},
-    'B': {'C','G','T'},
-    'N': {'A','C','G','T'},
+    'M': {'A', 'C'},
+    'R': {'A', 'G'},
+    'W': {'A', 'T'},
+    'S': {'C', 'G'},
+    'Y': {'C', 'T'},
+    'K': {'G', 'T'},
+    'V': {'A', 'C', 'G'},
+    'H': {'A', 'C', 'T'},
+    'D': {'A', 'G', 'T'},
+    'B': {'C', 'G', 'T'},
+    'N': {'A', 'C', 'G', 'T'},
     '.': {'.'},
 }
-symbolBaselist = { s:tuple(sorted(symbolBases[s])) for s in symbolBases.keys() }
-basesSymbol = { frozenset(bases):symbol for symbol,bases in symbolBases.items() }
+symbolBaselist = {s: tuple(sorted(symbolBases[s])) for s in symbolBases.keys()}
+basesSymbol = {frozenset(bases): symbol for symbol, bases in symbolBases.items()}
 
 # define helper functions
 
@@ -99,10 +99,10 @@ def expandSymbol(symbol):
     # resume from the previous iteration point so that combinatorial expansion of several multi-symbols doesn't start with A,A,A every time
     number = len(symbolBaselist[symbol])
     for n in range(number):
-        offset = symbolOffset.get(symbol,0)
+        offset = symbolOffset.get(symbol, 0)
         symbolOffset[symbol] = (offset + 1) % number
         yield symbolBaselist[symbol][(n + offset) % number]
-#expandSymbol()
+# expandSymbol()
 
 def expandString(string, limit=None):
     """
@@ -110,8 +110,11 @@ def expandString(string, limit=None):
     each possible actual basepair string after combinatorically expanding each symbol.
     "A" -> "A" ; "AC" -> "AC" ; "AM" -> "AA","AC" ; "MR" -> "AA","AG","CA","CG" ; ...
     """
-    return itertools.islice( (''.join(expansion) for expansion in itertools.product(*( expandSymbol(symbol) for symbol in string ))), 0, limit, 1)
-#expandString()
+    return itertools.islice(
+        (''.join(expansion) for expansion in itertools.product(*(expandSymbol(symbol) for symbol in string))),
+        0, limit, 1
+    )
+# expandString()
 
 def expandAlleles(alleles, limit=None):
     """
@@ -120,8 +123,11 @@ def expandAlleles(alleles, limit=None):
     expanding each string (basepair(s) or IUPAC code(s)) at each index.
     ((1,"A"),(2,"C")) -> ((1,"A"),(2,"C")) ; ((1,"A"),(2,"M")) -> ((1,"A"),(2,"A")),((1,"A"),(2,"C")) ; ...
     """
-    return itertools.islice( itertools.product(*( tuple( (i,expansion) for expansion in expandString(string) ) for i,string in alleles )), 0, limit, 1)
-#expandAlleles()
+    return itertools.islice(
+        itertools.product(*(tuple((i, expansion) for expansion in expandString(string)) for i, string in alleles)),
+        0, limit, 1
+    )
+# expandAlleles()
 
 def symbolIntersect(string1, string2):
     """
@@ -130,29 +136,39 @@ def symbolIntersect(string1, string2):
     ("AM","AR") -> "AA" ; ("AM","AK") -> None ; ...
     """
     try:
-        intersection = ''.join( basesSymbol[frozenset(symbolBases[symbol1] & symbolBases[symbol2])] for symbol1,symbol2 in itertools.zip_longest(string1,string2,fillvalue='.') )
+        intersection = ''.join(
+            basesSymbol[frozenset(symbolBases[symbol1] & symbolBases[symbol2])]
+            for symbol1, symbol2 in itertools.zip_longest(string1, string2, fillvalue='.')
+        )
     except KeyError:
         return None
     return intersection
-#symbolIntersect()
+# symbolIntersect()
 
 def percentEncode(string):
     """
-    Takes a string and replaces all characters except numbers, letters, underscores, and
+    Takes a string and replaces all characters except numbers, letters, underscores, dashes and
     periods with "%" followed by their hexadecimal character code.
     "A B" -> "A%20B" ; ...
     """
-    return re.sub(r"[^0-9A-Za-z_.]", (lambda match: '%'+match[0].encode('utf-8').hex().upper()), string)
-#percentEncode()
+    return re.sub(r"[^0-9A-Za-z_.-]", (lambda match: '%' + match[0].encode('utf-8').hex().upper()), string)
+# percentEncode()
+
+def joinMatches(matches):
+    if len(matches) != 1:
+        return "noCall%s" % (".".join(str(m) for m in sorted(matches)))
+    else:
+        return namedalleles[next(iter(matches))]['name'].replace('*', 's').replace('>', '-')
+# joinMatches()
 
 
 # load the named allele definitions
 defPath = sys.argv[1]
 
 print(f"Loading '{defPath}' ... ")
-with open(defPath,'r') as defFile:
+with open(defPath, 'r') as defFile:
     definition = json.load(defFile)
-#with defFile
+# with defFile
 if len(definition['variants']) != len(definition['variantAlleles']):
     sys.exit("ERROR: variants / variantAlleles length mismatch")
 print(f"done: {len(definition['variants'])} variants, {len(definition['namedAlleles'])} named alleles\n")
@@ -163,9 +179,11 @@ namedalleles = list()
 refNamedallele = None
 for namedallele in definition['namedAlleles']:
     if len(namedallele['alleles']) != len(definition['variants']):
-        sys.exit("ERROR: named allele '%s' has %d variants, expected %d" % (namedallele['name'], len(namedallele['alleles']), len(definition['variants'])))
+        sys.exit("ERROR: named allele '%s' has %d variants, expected %d" % (
+            namedallele['name'], len(namedallele['alleles']), len(definition['variants'])
+        ))
     namedallele['_num'] = len(namedalleles)
-    namedallele['_mindef'] = { i:a for i,a in enumerate(namedallele['alleles']) if a is not None }
+    namedallele['_mindef'] = {i: a for i, a in enumerate(namedallele['alleles']) if a is not None}
     namedallele['_indecies'] = set(namedallele['_mindef'].keys())
     if not namedallele['_mindef']:
         print(f"  WARNING: null definition for named allele '{namedallele['name']}'")
@@ -174,59 +192,60 @@ for namedallele in definition['namedAlleles']:
     # check if it's the referent named allele
     # (eventually this should be explicit; for now we assume only the referent allele is defined for all positions,
     # except for total-gene deletion alleles which will be defined as 'delGene' for all positions)
-    if not (None in namedallele['alleles']) and any( (not a.startswith('del')) for a in namedallele['alleles'] ):
+    if not (None in namedallele['alleles']) and any((not a.startswith('del')) for a in namedallele['alleles']):
         if not refNamedallele:
             refNamedallele = namedallele
         elif len(definition['variants']) > 1:
             # if there's only one variant position, all named alleles must be defined for that one position
             # so we shouldn't warn about it and just have to trust that the correct "referent " allele is first
-            print("  WARNING: two possible referent named alleles, '%s' and '%s'" % (refNamedallele['name'], namedallele['name']))
-    #if ref?
-#for namedallele
+            print("  WARNING: two possible referent named alleles, '%s' and '%s'" %
+                  (refNamedallele['name'], namedallele['name']))
+    # if ref?
+# for namedallele
 print("done\n")
 
 # validate referent allele
 print("Checking nucleic code notations ... ")
 unalleles = set()
-for i,a in refNamedallele['_mindef'].items():
+for i, a in refNamedallele['_mindef'].items():
     if a.startswith('del'):
         if a != 'del':
-            sys.exit("ERROR: named allele '%s' invalid deletion #%d '%s'" % (refNamedallele['name'], i+1, a))
+            sys.exit("ERROR: named allele '%s' invalid deletion #%d '%s'" % (refNamedallele['name'], i + 1, a))
         refNamedallele['_mindef'][i] = '.'
     elif a.startswith('ins'):
-        sys.exit("ERROR: named allele '%s' invalid insertion #%d '%s'" % (refNamedallele['name'], i+1, a))
+        sys.exit("ERROR: named allele '%s' invalid insertion #%d '%s'" % (refNamedallele['name'], i + 1, a))
     else:
-        if any( (s not in symbolBases) for s in a ):
-            sys.exit("ERROR: named allele '%s' invalid allele #%d '%s'" % (refNamedallele['name'], i+1, a))
+        if any((s not in symbolBases) for s in a):
+            sys.exit("ERROR: named allele '%s' invalid allele #%d '%s'" % (refNamedallele['name'], i + 1, a))
         # initialize a pool of "unknown alleles" starting with all possible non-referent alleles
         if len(a) == 1:
-            unalleles.update( (i,b) for b in ('A','C','G','T') if b not in symbolBases[a] )
-    #if del/ins/swap
-#for i,a in _mindef
+            unalleles.update((i, b) for b in ('A', 'C', 'G', 'T') if b not in symbolBases[a])
+    # if del/ins/swap
+# for i,a in _mindef
 
 # validate other alleles
 for namedallele in namedalleles:
     if namedallele is refNamedallele:
         continue
-    for i,a in namedallele['_mindef'].items():
+    for i, a in namedallele['_mindef'].items():
         if a.startswith('del'):
             if (a != 'delGene') and (a[3:] != refNamedallele['_mindef'][i]):
-                sys.exit("ERROR: named allele '%s' invalid deletion #%d '%s'" % (refNamedallele['name'], i+1, a))
+                sys.exit("ERROR: named allele '%s' invalid deletion #%d '%s'" % (refNamedallele['name'], i + 1, a))
             namedallele['_mindef'][i] = '.'
         else:
             if a.startswith('ins'):
                 if refNamedallele['_mindef'][i] != '.':
-                    sys.exit("ERROR: named allele '%s' invalid insertion #%d '%s'" % (refNamedallele['name'], i+1, a))
+                    sys.exit("ERROR: named allele '%s' invalid insertion #%d '%s'" % (refNamedallele['name'], i + 1, a))
                 a = a[3:]
-            #if ins
-            if any( (s not in symbolBases) for s in a ):
-                sys.exit("ERROR: named allele '%s' invalid allele #%d '%s'" % (refNamedallele['name'], i+1, a))
+            # if ins
+            if any((s not in symbolBases) for s in a):
+                sys.exit("ERROR: named allele '%s' invalid allele #%d '%s'" % (refNamedallele['name'], i + 1, a))
             namedallele['_mindef'][i] = a
-        #if del/ins/swap
-    #for i,a in _mindef
+        # if del/ins/swap
+    # for i,a in _mindef
     # update the pool of unknown alleles, removing any that are part of this definition
-    unalleles.difference_update(*( expandAlleles(namedallele['_mindef'].items()) ))
-#for namedallele
+    unalleles.difference_update(*(expandAlleles(namedallele['_mindef'].items())))
+# for namedallele
 unalleles = tuple(sorted(unalleles))
 unalleleOffset = 0
 print(f"done: {len(unalleles)} possible unknown alleles\n")
@@ -242,7 +261,9 @@ for namedallele in namedalleles:
     # implying that the named allele could be identified by variants at those positions
     # alone; the maximum definition fills in all those missing positions from the referent
     # named allele, leaving no positions missing.
-    namedallele['_maxdef'] = { i:namedallele['_mindef'].get(i,refNamedallele['_mindef'][i]) for i in range(len(definition['variants'])) }
+    namedallele['_maxdef'] = {
+        i: namedallele['_mindef'].get(i, refNamedallele['_mindef'][i]) for i in range(len(definition['variants']))
+    }
     if namedallele['_mindef'] != namedallele['_maxdef']:
         for alleles in expandAlleles(namedallele['_mindef'].items(), optNumAlleleExpansions):
             test = frozenset(alleles)
@@ -251,31 +272,32 @@ for namedallele in namedalleles:
                 # for the first non-referent allele, also generate a test with an unexpected allele
                 # (pull one from the pool which is at a position not already part of this allele's mindef)
                 first = False
-                indecies = set( i for i,a in test )
+                indecies = set(i for i, a in test)
                 o = unalleleOffset
                 while unalleles[o][0] in indecies:
                     o = (o + 1) % len(unalleles)
-                tests[frozenset(test.union(unalleles[o:(o+1)]))].discard(None) # no-op just to populate the defaultdict key
+                # no-op just to populate the defaultdict key
+                tests[frozenset(test.union(unalleles[o:(o + 1)]))].discard(None)
                 unalleleOffset = (o + 1) % len(unalleles)
-            #if first
-        #for alleles
-    #if min!=max
+            # if first
+        # for alleles
+    # if min!=max
     for alleles in expandAlleles(namedallele['_maxdef'].items(), optNumAlleleExpansions):
         tests[frozenset(alleles)].add(namedallele['name'])
-#for namedallele
+# for namedallele
 
 # identify clusters of overlapping alleles
 clusters = list()
 naCluster = dict()
 n = m = 0
-for na1,namedallele1 in enumerate(namedalleles):
+for na1, namedallele1 in enumerate(namedalleles):
     # for each named allele that's not yet part of a cluster, we start with the variants
     # in that named allele's mindef and then iteratively expand the cluster to include
     # all other named alleles that share mindef variants with any that are in the cluster
     # (here, "variants" means both the position and the allele
     if (namedallele1 is refNamedallele) or (na1 in naCluster):
         continue
-    cluster = { na1 }
+    cluster = {na1}
     naCluster[na1] = len(clusters)
     clusters.append(cluster)
     union = set()
@@ -284,18 +306,18 @@ for na1,namedallele1 in enumerate(namedalleles):
     expand = True
     while expand:
         expand = False
-        for na2,namedallele2 in enumerate(namedalleles):
+        for na2, namedallele2 in enumerate(namedalleles):
             if (namedallele2 is refNamedallele) or (na2 in naCluster):
                 continue
-            if any( any(ia in union for ia in alleles) for alleles in expandAlleles(namedallele2['_mindef'].items()) ):
+            if any(any(ia in union for ia in alleles) for alleles in expandAlleles(namedallele2['_mindef'].items())):
                 expand = True
                 cluster.add(na2)
                 naCluster[na2] = naCluster[na1]
                 for alleles in expandAlleles(namedallele2['_mindef'].items()):
                     union.update(alleles)
-            #if overlap
-        #for na2,namedallele2
-    #while expand
+            # if overlap
+        # for na2,namedallele2
+    # while expand
     # just a little fun, tallying up the number of possible subsets of this cluster in
     # terms of named alleles and of specific variants. I added this when debugging an
     # early draft that tried to generate tests for *all* possible subsets of each cluster
@@ -304,8 +326,8 @@ for na1,namedallele1 in enumerate(namedalleles):
         n += (math.factorial(len(cluster)) / (math.factorial(i) * math.factorial(len(cluster) - i)))
     for i in range(len(union) + 1):
         m += (math.factorial(len(union)) / (math.factorial(i) * math.factorial(len(union) - i)))
-#for na1,namedallele1
-#sys.exit("%d / %d combinations\n" % (n,m))
+# for na1,namedallele1
+# sys.exit("%d / %d combinations\n" % (n,m))
 
 # generate ambiguity tests for each cluster
 for cluster in clusters:
@@ -313,159 +335,165 @@ for cluster in clusters:
     # plus the referent alleles that distinguish them from the rest of the cluster.
     # (limit to subsets of 1,2,n-1,n; CYP2D6 has a cluster of 91 named alleles with
     # 2,475,880,078,570,759,450,286,620,672 or ~2.5 octillion possible subsets)
-    indecies = set.union(*( namedalleles[na]['_indecies'] for na in cluster ))
-    sizes = { 1, min(2,len(cluster)), max(1,len(cluster) - 1), len(cluster) }
+    indecies = set.union(*(namedalleles[na]['_indecies'] for na in cluster))
+    sizes = {1, min(2, len(cluster)), max(1, len(cluster) - 1), len(cluster)}
     for size in sizes:
         for subcluster in itertools.combinations(cluster, size):
             # build a _mindef as the intersection of all subcluster members
             subdef = dict(namedalleles[subcluster[0]]['_mindef'])
             for na in itertools.islice(subcluster, 1, None, 1):
-                for i in tuple(subdef.keys()): # copy so we can delete
-                    subdef[i] = symbolIntersect(subdef[i], namedalleles[na]['_mindef'].get(i,'.'))
+                for i in tuple(subdef.keys()):  # copy so we can delete
+                    subdef[i] = symbolIntersect(subdef[i], namedalleles[na]['_mindef'].get(i, '.'))
                     if not subdef[i]:
                         del subdef[i]
-                #for i
-            #for na
+                # for i
+            # for na
             if subdef:
                 # add referent alleles for variants present in the cluster but not the subcluster
                 referent = dict(next(expandAlleles(refNamedallele['_maxdef'].items(), 1)))
-                subdef.update( (i,referent[i]) for i in indecies.difference(*( namedalleles[na]['_indecies'] for na in subcluster )) )
+                subdef.update((i, referent[i])
+                              for i in indecies.difference(*(namedalleles[na]['_indecies'] for na in subcluster)))
                 # generate test case(s) for this subcluster mindef
                 for alleles in expandAlleles(subdef.items(), optNumAlleleExpansions):
-                    tests[frozenset(alleles)].update( namedalleles[na]['name'] for na in subcluster )
+                    tests[frozenset(alleles)].update(namedalleles[na]['name'] for na in subcluster)
                 # add referent alleles for all remaining positions and generate test case(s) for the maxdef
-                subdef.update( (i,referent[i]) for i in range(len(definition['variants'])) if (i not in indecies) )
+                subdef.update((i, referent[i]) for i in range(len(definition['variants'])) if (i not in indecies))
                 for alleles in expandAlleles(subdef.items(), optNumAlleleExpansions):
-                    tests[frozenset(alleles)].update( namedalleles[na]['name'] for na in subcluster )
-            #if intersection
-        #for subcluster
-    #for size
-#for cluster
+                    tests[frozenset(alleles)].update(namedalleles[na]['name'] for na in subcluster)
+            # if intersection
+        # for subcluster
+    # for size
+# for cluster
 print(f"done: {len(tests)} tests\n")
 
 # analyze test cases
 for test in tests.keys():
     alleles = dict(test)
-    
+
     # identify candidate named alleles
     candidates = collections.OrderedDict()
-    for na,namedallele in enumerate(namedalleles):
-        match = collections.Counter( bool(symbolIntersect(alleles[i], namedallele['_maxdef'][i])) for i in alleles.keys() )
+    for na, namedallele in enumerate(namedalleles):
+        match = collections.Counter(
+            bool(symbolIntersect(alleles[i], namedallele['_maxdef'][i])) for i in alleles.keys())
         if match[True] and not match[False]:
             candidates[na] = match[True]
-    #for na,namedallele
-    
+    # for na,namedallele
+
     # drop superseded candidates
     if candidates:
         best = max(candidates.values())
-        for na in list(candidates): # copy keys to a list so we can delete from the original as we go
+        for na in list(candidates):  # copy keys to a list so we can delete from the original as we go
             if candidates[na] < best:
                 del candidates[na]
-        #for candidate
+        # for candidate
     elif tests[test]:
-        print("WARNING: test '%s' expected %s, matched none" % (alleles,tests[test]))
-    #if candidates
-    
+        print("WARNING: test '%s' expected %s, matched none" % (alleles, tests[test]))
+    # if candidates
+
     # store result
     tests[test] = (tuple(candidates.keys()), -len(test))
-#for test
+# for test
 
 # collate tests by expected calls
 alltests = list()
 matchesTests = collections.defaultdict(list)
-for test,testmatches in tests.items():
+for test, testmatches in tests.items():
     alltests.append(test)
     matchesTests[testmatches[0]].append(test)
-#for test,matches
+# for test,matches
 alltests.sort(key=tests.get)
 for matches in matchesTests.keys():
     matchesTests[matches].sort(key=tests.get)
-#for matches
+# for matches
 
 # output results
-if False: # old CSV format, for initial manual inspection
+if False:
+    # old CSV format, for initial manual inspection
     outFile = csv.writer(sys.stdout)
-    outFile.writerow( variant['position'] for variant in definition['variants'] )
-    outFile.writerow( variant['rsid'] for variant in definition['variants'] )
-    outFile.writerow( variant['chromosomeHgvsName'] for variant in definition['variants'] )
-    outFile.writerow( variant['geneHgvsName'] for variant in definition['variants'] )
+    outFile.writerow(variant['position'] for variant in definition['variants'])
+    outFile.writerow(variant['rsid'] for variant in definition['variants'])
+    outFile.writerow(variant['chromosomeHgvsName'] for variant in definition['variants'])
+    outFile.writerow(variant['geneHgvsName'] for variant in definition['variants'])
     for test in alltests:
         alleles = dict(test)
-        row = list(alleles.get(i,'') for i in range(len(definition['variants'])))
+        row = list(alleles.get(i, '') for i in range(len(definition['variants'])))
         row.append('; '.join(namedalleles[na]['name'] for na in tests[test][0]))
         outFile.writerow(row)
-    #for test
+    # for test
     sys.exit(0)
-#if CSV
+# if CSV
 
 basepath = sys.argv[2]
 if not os.path.exists(basepath):
     os.makedirs(basepath)
 print("Writing files...")
-numFiles = 0;
-for matches1,matches2 in itertools.combinations_with_replacement(sorted(matchesTests.keys()), 2):
-    if len(matches1) != 1: # always put uncallable haplotypes second
-        matches1,matches2 = matches2,matches1
-    if (len(matches1) != 1) or (len(matches2) != 1 and matches1 != (refNamedallele['_num'],)): # only generate uncallables paired with *1/...
+numFiles = 0
+for matches1, matches2 in itertools.combinations_with_replacement(sorted(matchesTests.keys()), 2):
+    # always put uncallable haplotypes second
+    if len(matches1) != 1:
+        matches1, matches2 = matches2, matches1
+    # only generate uncallables paired with *1/...
+    if (len(matches1) != 1) or (len(matches2) != 1 and matches1 != (refNamedallele['_num'],)):
         continue
     outPath = os.path.join(basepath, percentEncode("%s_%s_%s.vcf" % (
-            definition['gene'],
-            (("noCall%s" % (".".join(str(m) for m in sorted(matches1)))) if (len(matches1) != 1) else namedalleles[next(iter(matches1))]['name'].replace('*','s')),
-            (("noCall%s" % (".".join(str(m) for m in sorted(matches2)))) if (len(matches2) != 1) else namedalleles[next(iter(matches2))]['name'].replace('*','s')),
+        definition['gene'],
+        joinMatches(matches1),
+        joinMatches(matches2),
     )))
-    with open(outPath,'w') as outFile:
+    with open(outPath, 'w') as outFile:
         numFiles += 1
         # write meta-info header
         outFile.write("##fileformat=VCFv4.3\n")
-        outFile.write("##fileDate=%s\n" % (datetime.date.today().strftime("%Y%m%d"), ))
-        #outFile.write("##source=IlluminaPlatinumGenomes, version: hg38_2.0.1\n") #TODO: is this needed?
-        outFile.write("##reference=%s\n" % (definition['genomeBuild'].replace("b","hg"), )) #TODO: proper hg# notation?
+        outFile.write("##fileDate=%s\n" % (datetime.date.today().strftime("%Y%m%d"),))
+        # TODO: proper hg# notation?
+        outFile.write("##reference=%s\n" % (definition['genomeBuild'].replace("b", "hg"),))
         outFile.write("##PharmCATnamedAlleles=%s/%s\n" % (
             ('_'.join(namedalleles[na]['name'] for na in matches1) or "?"),
             ('_'.join(namedalleles[na]['name'] for na in matches2) or "?"),
         ))
         outFile.write("##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n")
-        #outFile.write("##FILTER=<ID=PASS,Description=\"All filters passed\">\n") # based on the spec there should be no need to define this explicitly
-        
+        # based on the spec there should be no need to define this explicitly
+        # outFile.write("##FILTER=<ID=PASS,Description=\"All filters passed\">\n")
+
         # write variants header
         match1tests = matchesTests[matches1]
         match2tests = matchesTests[matches2]
-        test1alleles = list( dict(test) for test in match1tests )
-        test2alleles = list( dict(test) for test in match2tests )
-        row = ["#CHROM","POS","ID","REF","ALT","QUAL","FILTER","INFO","FORMAT"]
-        row.extend( ("TEST%d" % (t+1,)) for t in range(len(match1tests) * len(match2tests)) )
+        test1alleles = list(dict(test) for test in match1tests)
+        test2alleles = list(dict(test) for test in match2tests)
+        row = ["#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO", "FORMAT"]
+        row.extend(("TEST%d" % (t + 1,)) for t in range(len(match1tests) * len(match2tests)))
         outFile.write("\t".join(row) + "\n")
-        
+
         # write variants data
-        for v,variant in enumerate(definition['variants']):
-            varalleles = [ refNamedallele['_maxdef'].get(v) or "." ]
+        for v, variant in enumerate(definition['variants']):
+            varalleles = [refNamedallele['_maxdef'].get(v) or "."]
             # collate alt alleles used by these tests
-            for t,alleles in itertools.chain(enumerate(test1alleles), enumerate(test2alleles)):
+            for t, alleles in itertools.chain(enumerate(test1alleles), enumerate(test2alleles)):
                 alt = (None if ((v not in alleles) or alleles[v] == ".") else alleles[v])
                 if alt and (alt not in varalleles):
                     varalleles.append(alt)
-            #for t,alleles
+            # for t, alleles
             row = [
                 str(variant.get('chromosome') or "."),
                 str(variant.get('position') or "."),
                 str(variant.get('rsid') or "."),
                 varalleles[0],
                 (",".join(varalleles[1:]) if (len(varalleles) > 1) else "."),
-                ".", # QUAL
-                "PASS", # FILTER
-                ".", # INFO
-                "GT", # FORMAT
+                ".",  # QUAL
+                "PASS",  # FILTER
+                ".",  # INFO
+                "GT",  # FORMAT
             ]
-            for alleles1,alleles2 in itertools.product(test1alleles, test2alleles):
+            for alleles1, alleles2 in itertools.product(test1alleles, test2alleles):
                 a1 = alleles1.get(v)
                 a2 = alleles2.get(v)
                 row.append("%s/%s" % (
                     (varalleles.index(a1) if (a1 and a1 != ".") else "."),
                     (varalleles.index(a2) if (a2 and a2 != ".") else "."),
                 ))
-            #for t,alleles
+            # for t,alleles
             outFile.write("\t".join(row) + "\n")
-        #for variant
-    #with outFile
-#for matches1,matches2
+        # for variant
+    # with outFile
+# for matches1,matches2
 print(f"Done: {numFiles} files")
