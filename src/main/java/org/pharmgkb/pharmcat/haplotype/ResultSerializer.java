@@ -16,13 +16,13 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.text.StringSubstitutor;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -42,6 +42,7 @@ public class ResultSerializer {
       .setPrettyPrinting().create();
   private boolean m_alwaysShowUnmatchedHaplotypes;
   private final SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
+  private String m_htmlTemplate;
 
 
   public ResultSerializer() {
@@ -53,6 +54,15 @@ public class ResultSerializer {
     return this;
   }
 
+
+  private String getHtmlTemplate() throws IOException {
+    if (m_htmlTemplate == null) {
+      try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(getClass(), "template.html"))) {
+        m_htmlTemplate = IOUtils.toString(reader);
+      }
+    }
+    return m_htmlTemplate;
+  }
 
 
   public ResultSerializer toJson(Result result, Path jsonFile) throws IOException {
@@ -220,15 +230,13 @@ public class ResultSerializer {
       }
     }
 
-    System.out.println("Printing to " + htmlFile);
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(htmlFile, StandardCharsets.UTF_8))) {
       Map<String, String> varMap = new HashMap<>();
       varMap.put("title", "PharmCAT Allele Call Report for " + result.getMetadata().getInputFilename());
       varMap.put("content", builder.toString());
       varMap.put("timestamp", m_dateFormat.format(new Date()));
       StringSubstitutor sub = new StringSubstitutor(varMap);
-      String template = IOUtils.toString(getClass().getResourceAsStream("template.html"), Charsets.UTF_8);
-      writer.println(sub.replace(template));
+      writer.println(sub.replace(getHtmlTemplate()));
     }
     return this;
   }
