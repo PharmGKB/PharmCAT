@@ -2,7 +2,6 @@ plugins {
   id 'java'
   id 'application'
   id 'jacoco'
-  id 'com.github.kt3k.coveralls' version '2.11.0'
   id 'com.github.johnrengelman.shadow' version '5.2.0'
   id 'org.owasp.dependencycheck' version '6.1.5'
 }
@@ -85,12 +84,17 @@ test {
     events 'failed', 'standard_error'
     exceptionFormat 'full'
   }
+
+  // always generate reports after tests are run
+  finalizedBy jacocoTestReport
 }
 
 
 jacocoTestReport {
+  // tests must be run before generating the report
+  dependsOn test
   reports {
-    xml.enabled = true // coveralls plugin depends on xml format report
+    xml.enabled = true // codecov depends on xml format report
     html.enabled = true
   }
 }

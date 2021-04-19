@@ -29,8 +29,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Build with Gradle
+      - name: Run tests
         run: ./gradlew test
+
+      - name: Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          files: ./build/reports/jacoco/test/jacocoTestReport.xml
+          flags: unittests
 
       - name: Send Slack notification on failure
         if: failure()
