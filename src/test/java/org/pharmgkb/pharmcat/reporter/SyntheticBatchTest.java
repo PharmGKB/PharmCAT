@@ -564,6 +564,14 @@ class SyntheticBatchTest {
     sf_testVcfs.put("dpyd.novariant", new String[]{
         "DPYD/novariant.vcf"
     });
+
+    sf_testVcfs.put("nudt15.refref", new String[]{
+        "NUDT15/refref.vcf"
+    });
+
+    sf_testVcfs.put("nudt15.s3ref", new String[]{
+        "NUDT15/s3ref.vcf"
+    });
   }
 
   private final PharmCAT m_pharmcat;

@@ -1,9 +1,7 @@
 package org.pharmgkb.pharmcat.phenotype;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -11,16 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.pharmgkb.pharmcat.VcfTestUtils;
-import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
-import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
+import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.util.DataManager;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,18 +24,11 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class PhenotyperTest {
   private static final Supplier<RuntimeException> unfoundGene = () -> new RuntimeException("Gene report not found");
-  private static DefinitionReader s_definitionReader;
-
-  @BeforeAll
-  static void setup() throws IOException {
-    s_definitionReader = new DefinitionReader();
-    s_definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
-  }
 
   @Test
   void testCyp2C19Het() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
-        matchVcfData(true, "cyp2c19/s4s17het.vcf"),
+        readMatchData("Cyp2C19Het_call.json"),
         OutsideCallParser.parse("CYP2D6\t*1/*3"));
 
     assertCalledByMatcher(phenotyper, "CYP2C19", "CYP2D6");
@@ -72,7 +58,7 @@ class PhenotyperTest {
   @Test
   void testCyp2C19Hom() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
-        matchVcfData("cyp2c19/s2s2.vcf"),
+        readMatchData("Cyp2C19s2s2_call.json"),
         new ArrayList<>());
 
     assertCalledByMatcher(phenotyper, "CYP2C19");
@@ -84,7 +70,7 @@ class PhenotyperTest {
   @Test
   void testUGT1A1Phased() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
-        matchVcfData("UGT1A1/s1s60s80phased.vcf"),
+        readMatchData("UGT1A1s1s60s80phased_call.json"),
         new ArrayList<>());
 
     assertCalledByMatcher(phenotyper, "UGT1A1");
@@ -97,20 +83,20 @@ class PhenotyperTest {
   @Test
   void testUGT1A1Unphased() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
-        matchVcfData("UGT1A1/s1s60s80phased.vcf"),
+        readMatchData("UGT1A1s1s60s80unphased_call.json"),
         new ArrayList<>());
 
     assertCalledByMatcher(phenotyper, "UGT1A1");
 
-    assertDiplotypeDisplay(phenotyper, "UGT1A1", "*1/*80");
-    assertLookup(phenotyper, "UGT1A1", "*1", "*80");
-    assertTrue(phenotyper.findGeneReport("UGT1A1").orElseThrow(unfoundGene).isPhased());
+    assertDiplotypeDisplay(phenotyper, "UGT1A1", "*80 (heterozygous)");
+    assertLookup(phenotyper, "UGT1A1", "*1", "*1");
+    assertFalse(phenotyper.findGeneReport("UGT1A1").orElseThrow(unfoundGene).isPhased());
   }
 
   @Test
   void testNUDT15() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
-        matchVcfData("NUDT15/refref.vcf"),
+        readMatchData("NUDT15ref_call.json"),
         new ArrayList<>());
 
     assertCalledByMatcher(phenotyper, "NUDT15");
@@ -122,7 +108,7 @@ class PhenotyperTest {
   @Test
   void testNUDT15star3() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
-        matchVcfData("NUDT15/s3ref.vcf"),
+        readMatchData("NUDT15s3_call.json"),
         new ArrayList<>());
 
     assertCalledByMatcher(phenotyper, "NUDT15");
@@ -134,29 +120,12 @@ class PhenotyperTest {
 
   //  Helper methods found below =======================================================================================
 
-  /**
-   * Run the {@link NamedAlleleMatcher} on the specified VCF data and return the {@link GeneCall} results
-   * @param vcfs VCF test fils found in the test resources package
-   * @return a List of GeneCall objects
-   */
-  private List<GeneCall> matchVcfData(String ...vcfs) throws IOException {
-    return matchVcfData(false, vcfs);
-  }
-
-  private List<GeneCall> matchVcfData(boolean topCandidateOnly, String ...vcfs) throws IOException {
-    NamedAlleleMatcher matcher = new NamedAlleleMatcher(s_definitionReader, true, topCandidateOnly);
-
-    Path tempVcfPath = Files.createTempFile(getClass().getSimpleName(), ".vcf");
-    try (FileWriter fw = new FileWriter(tempVcfPath.toFile())) {
-      fw.write(VcfTestUtils.writeVcf(vcfs));
-    } catch (Exception ex) {
-      ex.printStackTrace();
-      throw ex;
+  private List<GeneCall> readMatchData(String testResourceFileName) throws Exception {
+    URL testFileUrl = getClass().getResource(testResourceFileName);
+    if (testFileUrl == null) {
+      throw new RuntimeException("No test file found for " + testResourceFileName);
     }
-
-    VcfTestUtils.writeVcf(vcfs);
-    Result result = matcher.call(tempVcfPath);
-    return result.getGeneCalls();
+    return new ResultSerializer().fromJson(Paths.get(testFileUrl.toURI())).getGeneCalls();
   }
 
   /**
