@@ -489,7 +489,9 @@ class PharmCATTest {
         },
         null);
 
-    testNotCalledByMatcher("UGT1A1");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*80 (heterozygous)", "*80+*28 (heterozygous)");
+    testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
   }
@@ -501,7 +503,9 @@ class PharmCATTest {
         },
         null);
 
-    testNotCalledByMatcher("UGT1A1");
+    testCalledByMatcher("UGT1A1");
+    testPrintCalls("UGT1A1", "*80 (heterozygous)", "*80+*28 (heterozygous)");
+    testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_context.getGeneReport("UGT1A1").isPhased());
   }
