@@ -179,7 +179,10 @@ public class NamedAlleleMatcher {
       MatchData data = initializeCallData(alleles, gene);
       List<DiplotypeMatch> matches = null;
       if (data.getNumSampleAlleles() > 0) {
-        boolean topCandidateOnly = exemption == null ? m_topCandidateOnly : !exemption.isAllHits();
+        boolean topCandidateOnly = m_topCandidateOnly;
+        if (exemption != null && exemption.isAllHits() != null) {
+          topCandidateOnly = !exemption.isAllHits();
+        }
         matches = callDiplotypes(data, topCandidateOnly);
       }
 
@@ -221,7 +224,10 @@ public class NamedAlleleMatcher {
     // handle missing positions (if any)
     data.marshallHaplotypes(alleles);
 
-    boolean assumeReference = exemption != null ? exemption.isAssumeReference() : m_assumeReferenceInDefinitions;
+    boolean assumeReference = m_assumeReferenceInDefinitions;
+    if (exemption != null && exemption.isAssumeReference() != null) {
+      assumeReference = exemption.isAssumeReference();
+    }
     if (assumeReference) {
       data.defaultMissingAllelesToReference();
     }

@@ -100,17 +100,17 @@ public class DataSerializer {
           if (data.length > 3) {
             ignoreAlleles = Sets.newTreeSet(sf_commaSplitter.splitToList(data[3]));
           }
-          boolean allHits = false;
-          if (data.length > 4) {
+          Boolean allHits = null;
+          if (data.length > 4 && StringUtils.stripToNull(data[4]) != null) {
             allHits = Boolean.parseBoolean(data[4]);
           }
-          boolean assumeReference = true;
-          if (data.length > 5 && StringUtils.stripToEmpty(data[5]).equalsIgnoreCase("false")) {
-            assumeReference = false;
+          Boolean assumeReference = null;
+          if (data.length > 5 && StringUtils.stripToNull(data[5]) != null) {
+            assumeReference = Boolean.parseBoolean(data[5]);
           }
           return new DefinitionExemption(gene, ignoreLoci, extraLoci, ignoreAlleles, allHits, assumeReference);
         })
-        .collect(Collectors.toSet());
+        .collect(Collectors.toCollection(TreeSet::new));
   }
 
 

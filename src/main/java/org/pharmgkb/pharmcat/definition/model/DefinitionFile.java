@@ -6,6 +6,7 @@ import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
@@ -324,6 +325,7 @@ public class DefinitionFile {
 
   /**
    * Remove ignored positions specified in {@link DefinitionExemption}.
+   * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
    */
   public void removeIgnoredPositions(DefinitionExemption exemption) {
     // find ignored positions
