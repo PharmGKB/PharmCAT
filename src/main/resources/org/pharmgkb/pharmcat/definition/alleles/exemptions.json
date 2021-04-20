@@ -17,8 +17,8 @@
     "extraPositions": [],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "allHits": false,
-    "assumeReference": true
+    "allHits": null,
+    "assumeReference": null
   },
   {
     "gene": "CYP2C9",
@@ -38,7 +38,7 @@
     ],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "allHits": false,
-    "assumeReference": true
+    "allHits": null,
+    "assumeReference": null
   }
 ]

@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Mar 17, 2021 03:57:08 PM",
+  "modificationDate": "Apr 15, 2021 02:08:31 PM",
   "gene": "CYP3A5",
   "orientation": null,
   "chromosome": "chr7",
@@ -9,11 +9,11 @@
   "refSeqGeneId": "NG_007938.1",
   "refSeqProteinId": "NP_000768.1",
   "notes": [
-    "The variants included  are based on the PharmVar core alleles (for core alleles only see https://www.pharmvar.org/gene/CYP3a5).  In addition, variants that present in the core allele for one star allele but also present in some but not allsuballeles of another star allele are included in the other star allele as ambiguous changes using the IUPAC nucleotide code (https://www.bioinformatics.org/sms/iupac.html), e.g. the *3 consensus allele includes a \"Y\" being either C or T at the 14660A>G position since this variant is part of the *4 core allele but is not part of the *3 core allele at PharmVar since it is not present in all *3 suballeles (only in *3.009). These postions are represented in grey in the Comparative Allele ViewEr (CAVE) tool at PharmVar.",
+    "The variants included are based on the PharmVar core alleles (for core alleles only see https://www.pharmvar.org/gene/CYP3a5). In addition, variants that present in the core allele for one star allele but also present in some but not allsuballeles of another star allele are included in the other star allele as ambiguous changes using the IUPAC nucleotide code (https://www.bioinformatics.org/sms/iupac.html), e.g. the *3 consensus allele includes a \"Y\" being either C or T at the 14660A>G position since this variant is part of the *4 core allele but is not part of the *3 core allele at PharmVar since it is not present in all *3 suballeles (only in *3.009). These postions are represented in grey in the Comparative Allele ViewEr (CAVE) tool at PharmVar.",
     "See PharmVar website (http://www.pharmvar.org) for comprehensive haplotype definitions of CYP3A5 variant alleles, including sub-alleles, and updated allele information.",
     "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild- type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of- function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”",
+    "An important caveat for all genotyping tests is that the decision to assign an allele a \"wild- type\" status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of- function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as \"wild-type\"",
     "Citations for assignment of function can be found at https://www.pharmgkb.org/page/cyp3a5RefMaterials"
   ],
   "populations": null,
@@ -148,7 +148,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "572906",
+      "id": "623673",
       "alleles": [
         "G",
         "del",
@@ -164,7 +164,7 @@
     },
     {
       "name": "*2",
-      "id": "572908",
+      "id": "623675",
       "alleles": [
         "T",
         null,
@@ -180,7 +180,7 @@
     },
     {
       "name": "*3",
-      "id": "572910",
+      "id": "623677",
       "alleles": [
         "K",
         null,
@@ -196,7 +196,7 @@
     },
     {
       "name": "*4",
-      "id": "572912",
+      "id": "623679",
       "alleles": [
         null,
         null,
@@ -212,7 +212,7 @@
     },
     {
       "name": "*5",
-      "id": "572914",
+      "id": "623681",
       "alleles": [
         null,
         null,
@@ -228,7 +228,7 @@
     },
     {
       "name": "*6",
-      "id": "572916",
+      "id": "623683",
       "alleles": [
         null,
         null,
@@ -244,7 +244,7 @@
     },
     {
       "name": "*7",
-      "id": "572918",
+      "id": "623685",
       "alleles": [
         null,
         "insA",
@@ -260,7 +260,7 @@
     },
     {
       "name": "*8",
-      "id": "572920",
+      "id": "623687",
       "alleles": [
         null,
         null,
@@ -276,7 +276,7 @@
     },
     {
       "name": "*9",
-      "id": "572922",
+      "id": "623689",
       "alleles": [
         null,
         null,

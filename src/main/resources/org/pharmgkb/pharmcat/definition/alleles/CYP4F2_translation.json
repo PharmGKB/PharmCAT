@@ -1,18 +1,18 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Mar 17, 2021 03:57:08 PM",
+  "modificationDate": "Apr 15, 2021 02:08:31 PM",
   "gene": "CYP4F2",
   "orientation": null,
   "chromosome": "chr19",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000019.10",
-  "refSeqGeneId": "",
+  "refSeqGeneId": "NG_007938.1",
   "refSeqProteinId": "NP_001073.3",
   "notes": [
     "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
     "See PharmVar website (http://pharmvar.org) for comprehensive haplotype definitions of CYP4F2 variant alleles and updated allele information.",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”"
+    "An important caveat for all genotyping tests is that the decision to assign an allele a \"wild-type\" status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as \"wild-type.\""
   ],
   "populations": null,
   "variants": [
@@ -52,7 +52,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "572926",
+      "id": "623693",
       "alleles": [
         "C",
         "A"
@@ -62,7 +62,7 @@
     },
     {
       "name": "*2",
-      "id": "572928",
+      "id": "623695",
       "alleles": [
         null,
         "C"
@@ -72,7 +72,7 @@
     },
     {
       "name": "*3",
-      "id": "572930",
+      "id": "623697",
       "alleles": [
         "T",
         null

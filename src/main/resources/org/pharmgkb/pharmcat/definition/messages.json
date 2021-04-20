@@ -502,7 +502,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The 2017 CPIC DPYD guideline update includes normal function variants with strong, moderate or in vitro data only evidence. These variants are not included in the PharmCAT DPYD gene definition table. The CPIC DPYD functionality table includes further no and decreased function variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence. According to the guideline, to date, there are no studies linking the variants listed in the “in vitro data only and/or limited clinical/ex vivo data” category as decreased or no function variants directly to toxicity related to fluoropyrimidines and therefore, these variants are not specifically included in the CPIC recommendations. These variants are not included in the PharmCAT DPYD gene definition table. Refer to the DPYD gene section for a list of these variants."
+    "message": "The 2017 CPIC DPYD guideline update includes normal function variants (activity value = 1, like the DPYD reference). These variants are not included in the PharmCAT DPYD gene definition table and not used in the \"Allele Matcher\" process. However, the positions are interrogated and if present, referred to in the DPYD gene section."
   },
   {
     "rule_name": "DPYD extra-position-header",
@@ -518,14 +518,16 @@
       "drugs": []
     },
     "exception_type": "extra-position-notes",
-    "message": "These variants are included in the CPIC supplementary material for DPYD. Variants with 'In vitro data only and/or limited clinical/ex vivo data' evidence level are not specifically included in the CPIC recommendations. The table also lists normal function variants with different evidence levels based on the guideline information. For further details follow the link to the CPIC page in the fluorouracil or capecitabine drug section."
+    "message": "These variants are classified as normal function in the CPIC material for DPYD, having an activity value of 1 like the DPYD reference entry. \"Irrespective of the presence of decreased/no function variants, patients may carry multiple normal function variants. As an individual only carries a maximum of two fully functional DPYD copies, common normal function variants may be located on the same gene copy as other normal function variants or decreased/no function variants.\" Given this guideline statement, PharmCAT is not considering normal function variants during the allele matching process and assigns reference if neither a decreased or no function variant incldued in the CPIC DPYD material is identified."
   },
   {
     "rule_name": "UGT1A1*80 without *28 or *37 warning",
     "version": "1",
     "matches": {
       "gene": "UGT1A1",
-      "hapsCalled": [],
+      "hapsCalled": [
+        "*80; *80+*28; *80+*37"
+      ],
       "hapsMissing": [],
       "variantsMissing": [],
       "variant": "",
@@ -534,6 +536,6 @@
       "drugs": []
     },
     "exception_type": "note",
-    "message": "UGT1A1*80 (rs887829) is in very high linkage disequilibrium with *28 and *37 (TA repeat variation in the UGT1A1 promoter). In case *80 (rs887829) is detected and input at position 233760233 (*28/*37) is MISSING from the VCF, the allele options are presented as *80+*28 and *80+*37 based on a partial match for *80, and *80 is used to infer metabolizer status.<br><br>In case *80 is detected with position 233760233 (*28/*37) detected as reference (shown as reference in row 233760233 in the table Calls at Position), not enough clinical data exists to predict metabolizer status with certainty and provide recommendations. Therefore, the presence of *80 (without the *28 or *37 variant) is not considered in the determination of the UGT1A1 genotype by itself. "
+    "message": "UGT1A1*80 (rs887829) is in very high linkage disequilibrium with *28 and *37 (TA repeat variation in the UGT1A1 promoter). In case *80 (rs887829) is detected and input at position 233760233 (*28/*37) is MISSING from the VCF, the allele options are presented as *80+*28 and *80+*37 based on a partial match for *80, and *80 is used to infer metabolizer status.<br><br>In case *80 is detected with position 233760233 (*28/*37) detected as reference (shown as reference in row 233760233 in the table Calls at Position), not enough clinical data exists to predict metabolizer status with certainty and provide recommendations. "
   }
 ]

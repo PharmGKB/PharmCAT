@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Mar 17, 2021 03:57:10 PM",
+  "modificationDate": "Apr 15, 2021 02:08:34 PM",
   "gene": "NUDT15",
   "orientation": null,
   "chromosome": "chr13",
@@ -11,7 +11,7 @@
   "notes": [
     "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
-    "rs554405994  was merged into rs869320766 which was merged into rs746071566"
+    "rs554405994 was merged into rs869320766 which was merged into rs746071566"
   ],
   "populations": null,
   "variants": [
@@ -306,7 +306,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "573752",
+      "id": "624519",
       "alleles": [
         "T",
         "G",
@@ -333,7 +333,7 @@
     },
     {
       "name": "*10",
-      "id": "573770",
+      "id": "624537",
       "alleles": [
         "C",
         null,
@@ -360,7 +360,7 @@
     },
     {
       "name": "*11",
-      "id": "573772",
+      "id": "624539",
       "alleles": [
         null,
         null,
@@ -387,7 +387,7 @@
     },
     {
       "name": "*12",
-      "id": "573774",
+      "id": "624541",
       "alleles": [
         null,
         null,
@@ -414,7 +414,7 @@
     },
     {
       "name": "*13",
-      "id": "573776",
+      "id": "624543",
       "alleles": [
         null,
         null,
@@ -441,7 +441,7 @@
     },
     {
       "name": "*14",
-      "id": "573778",
+      "id": "624545",
       "alleles": [
         null,
         null,
@@ -468,7 +468,7 @@
     },
     {
       "name": "*15",
-      "id": "573780",
+      "id": "624547",
       "alleles": [
         null,
         null,
@@ -495,7 +495,7 @@
     },
     {
       "name": "*16",
-      "id": "573782",
+      "id": "624549",
       "alleles": [
         null,
         null,
@@ -522,7 +522,7 @@
     },
     {
       "name": "*17",
-      "id": "573784",
+      "id": "624551",
       "alleles": [
         null,
         null,
@@ -549,7 +549,7 @@
     },
     {
       "name": "*18",
-      "id": "573786",
+      "id": "624553",
       "alleles": [
         null,
         null,
@@ -576,7 +576,7 @@
     },
     {
       "name": "*19",
-      "id": "573788",
+      "id": "624555",
       "alleles": [
         null,
         "C",
@@ -603,7 +603,7 @@
     },
     {
       "name": "*2",
-      "id": "573754",
+      "id": "624521",
       "alleles": [
         null,
         null,
@@ -630,7 +630,7 @@
     },
     {
       "name": "*20",
-      "id": "573790",
+      "id": "624557",
       "alleles": [
         null,
         null,
@@ -657,7 +657,7 @@
     },
     {
       "name": "*3",
-      "id": "573756",
+      "id": "624523",
       "alleles": [
         null,
         null,
@@ -684,7 +684,7 @@
     },
     {
       "name": "*4",
-      "id": "573758",
+      "id": "624525",
       "alleles": [
         null,
         null,
@@ -711,7 +711,7 @@
     },
     {
       "name": "*5",
-      "id": "573760",
+      "id": "624527",
       "alleles": [
         null,
         null,
@@ -738,7 +738,7 @@
     },
     {
       "name": "*6",
-      "id": "573762",
+      "id": "624529",
       "alleles": [
         null,
         null,
@@ -765,7 +765,7 @@
     },
     {
       "name": "*7",
-      "id": "573764",
+      "id": "624531",
       "alleles": [
         null,
         null,
@@ -792,7 +792,7 @@
     },
     {
       "name": "*8",
-      "id": "573766",
+      "id": "624533",
       "alleles": [
         null,
         null,
@@ -819,7 +819,7 @@
     },
     {
       "name": "*9",
-      "id": "573768",
+      "id": "624535",
       "alleles": [
         null,
         null,

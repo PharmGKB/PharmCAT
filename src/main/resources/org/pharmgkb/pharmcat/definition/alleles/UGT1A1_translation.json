@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Mar 17, 2021 03:57:13 PM",
+  "modificationDate": "Apr 15, 2021 02:08:38 PM",
   "gene": "UGT1A1",
   "orientation": null,
   "chromosome": "chr2",
@@ -13,24 +13,13 @@
     "All variants are annotated to the positive DNA strand.",
     "To see a full list of known UGT1A1 alleles see https://www.pharmacogenomics.pha.ulaval.ca/wp-content/uploads/2015/04/UGT1A1-allele-nomenclature.html",
     "To see a full list of known UGT1A1 alleles and function see http://www.pharmacogenomics.pha.ulaval.ca/files/content/sites/pharmacogenomics/files/Nomen clature/UGT1A/UGT1A1.htm.",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type”.",
+    "An important caveat for all genotyping tests is that the decision to assign an allele a \"wild-type\" status is based upon a genotyping test that interrogates only the most common and already- proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as \"wild-type\".",
     "UGT1A1*60 is in incomplete linkage disequilibrium with *28 and to date, there are no data to suggest that *60 by itself results in decreased UGT1A1 function.",
     "Citations for assignment of function can be found at https://www.pharmgkb.org/page/ugt1a1RefMaterials",
-    "UGT1A1*80 is in very high linkage disequilibrium with *28 and *37.  However, the function of the *80 allele alone, in the absence of *28 or *37, is uncertain.  If a patient is only tested for *80, decreased function may be inferred."
+    "UGT1A1*80 is in very high linkage disequilibrium with *28 and *37. However, the function of the *80 allele alone, in the absence of *28 or *37, is uncertain. If a patient is only tested for *80, decreased function may be inferred."
   ],
   "populations": null,
   "variants": [
-    {
-      "chromosome": "chr2",
-      "position": 233757013,
-      "rsid": "rs4124874",
-      "chromosomeHgvsName": "g.233757013T>G",
-      "geneHgvsName": "g.172270T>G",
-      "proteinNote": "5' of UGT1A1; intronic for other UGT1As e.g. UGT1A4",
-      "resourceNote": "-3275T>G",
-      "type": "SNP",
-      "referenceRepeat": null
-    },
     {
       "chromosome": "chr2",
       "position": 233759924,
@@ -49,7 +38,7 @@
       "chromosomeHgvsName": "g.233760233",
       "geneHgvsName": "g.175490",
       "proteinNote": "Promoter region",
-      "resourceNote": "CA(TA)5TAA                     CA(TA)6TAA                     CA(TA)7TAA                     CA(TA)8TAA",
+      "resourceNote": "CA(TA)5TAA CA(TA)6TAA CA(TA)7TAA CA(TA)8TAA",
       "type": "SNP",
       "referenceRepeat": null
     },
@@ -78,9 +67,6 @@
   ],
   "variantAlleles": [
     [
-      "T"
-    ],
-    [
       "C",
       "T"
     ],
@@ -102,9 +88,8 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "574177",
+      "id": "624943",
       "alleles": [
-        "T",
         "C",
         "CAT",
         "G",
@@ -115,9 +100,8 @@
     },
     {
       "name": "*27",
-      "id": "574181",
+      "id": "624947",
       "alleles": [
-        null,
         null,
         null,
         null,
@@ -128,9 +112,8 @@
     },
     {
       "name": "*28",
-      "id": "574183",
+      "id": "624949",
       "alleles": [
-        null,
         null,
         "CATAT",
         null,
@@ -141,9 +124,8 @@
     },
     {
       "name": "*36",
-      "id": "574185",
+      "id": "624951",
       "alleles": [
-        null,
         null,
         "C",
         null,
@@ -154,9 +136,8 @@
     },
     {
       "name": "*37",
-      "id": "574187",
+      "id": "624953",
       "alleles": [
-        null,
         null,
         "CATATAT",
         null,
@@ -167,9 +148,8 @@
     },
     {
       "name": "*6",
-      "id": "574179",
+      "id": "624945",
       "alleles": [
-        null,
         null,
         null,
         "A",
@@ -180,9 +160,8 @@
     },
     {
       "name": "*80",
-      "id": "574189",
+      "id": "624955",
       "alleles": [
-        null,
         "T",
         null,
         null,
@@ -193,9 +172,8 @@
     },
     {
       "name": "*80+*28",
-      "id": "574191",
+      "id": "624957",
       "alleles": [
-        null,
         "T",
         "CATAT",
         null,
@@ -206,9 +184,8 @@
     },
     {
       "name": "*80+*37",
-      "id": "574193",
+      "id": "624959",
       "alleles": [
-        null,
         "T",
         "CATATAT",
         null,

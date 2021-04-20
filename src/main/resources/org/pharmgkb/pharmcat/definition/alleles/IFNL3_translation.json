@@ -1,13 +1,13 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Mar 17, 2021 03:57:10 PM",
+  "modificationDate": "Apr 15, 2021 02:08:33 PM",
   "gene": "IFNL3",
   "orientation": null,
   "chromosome": "chr19",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000019.10",
   "refSeqGeneId": "NG_042193.1",
-  "refSeqProteinId": "",
+  "refSeqProteinId": "NP_000101.2",
   "notes": [
     "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand."
@@ -35,7 +35,7 @@
   "namedAlleles": [
     {
       "name": "rs12979860 reference (C)",
-      "id": "573729",
+      "id": "624496",
       "alleles": [
         "C"
       ],
@@ -44,7 +44,7 @@
     },
     {
       "name": "rs12979860 variant (T)",
-      "id": "573731",
+      "id": "624498",
       "alleles": [
         "T"
       ],
