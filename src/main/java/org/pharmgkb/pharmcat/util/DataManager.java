@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.util;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.net.URL;
@@ -8,14 +7,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.common.base.Charsets;
-import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
@@ -32,22 +28,11 @@ public class DataManager {
   private static final Path DEFAULT_REPORTER_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter");
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
-  private final String m_googleUser;
-  private final String m_googleKey;
   private final DataSerializer m_dataSerializer = new DataSerializer();
   private final boolean m_verbose;
 
 
-  private DataManager(Path propertyFile, boolean verbose) throws IOException {
-
-    Properties properties = new Properties();
-    try (BufferedReader reader = Files.newBufferedReader(propertyFile)) {
-      properties.load(reader);
-    }
-    m_googleUser = StringUtils.stripToNull((String)properties.get("google.user"));
-    Preconditions.checkState(m_googleUser != null, "Missing property: 'google.user");
-    m_googleKey = StringUtils.stripToNull((String)properties.get("google.key"));
-    Preconditions.checkState(m_googleKey != null, "Missing property: 'google.key");
+  private DataManager(boolean verbose) {
     m_verbose = verbose;
   }
 
@@ -56,10 +41,9 @@ public class DataManager {
 
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-          .addOption("p", "properties-file", "PharmCAT properties file", false, "p")
           .addOption("dl", "download-dir", "directory to save downloaded files", false, "dl")
-          .addOption("a", "alleles-dir", "directory to save generated allele definition files", false, "a")
-          .addOption("m", "messages-dir", "directory to write messages to", false, "m")
+          .addOption("a", "alleles-dir", "directory to save generated allele definition files", true, "a")
+          .addOption("m", "messages-dir", "directory to write messages to", true, "m")
           .addOption("g", "guidelines-dir", "directory to save guideline annotations to", false, "g")
           .addOption("sd", "skip-download", "skip downloading")
           .addOption("sa", "skip-alleles", "skip alleles")
@@ -71,7 +55,6 @@ public class DataManager {
         System.exit(1);
       }
 
-      Path propsFile = CliUtils.getPropsFile(cliHelper, "p");
       Path downloadDir;
       if (cliHelper.hasOption("dl")) {
         downloadDir = cliHelper.getValidDirectory("dl", true);
@@ -99,7 +82,7 @@ public class DataManager {
         Path messagesTsv = downloadDir.resolve("messages.tsv");
         Path messagesJson = messageDir.resolve(MESSAGES_JSON_FILE_NAME);
 
-        DataManager manager = new DataManager(propsFile, cliHelper.isVerbose());
+        DataManager manager = new DataManager(cliHelper.isVerbose());
         if (!cliHelper.hasOption("sd")) {
           manager.download(downloadDir, exemptionsTsv, messagesTsv);
         }
@@ -131,10 +114,12 @@ public class DataManager {
         new URL("http://files.cpicpgx.org/data/report/current/allele_definitions.json"),
         downloadDir.resolve("allele_definitions.json").toFile());
 
+    String urlFmt = "https://docs.google.com/spreadsheets/d/%s/export?format=tsv";
     // download exemptions and messages
-    SheetsHelper sh = new SheetsHelper(m_googleUser, m_googleKey);
-    sh.downloadAlleleExemptionsFile(exemptionsFile);
-    sh.downloadMessagesFile(messagesFile);
+    FileUtils.copyURLToFile(new URL(String.format(urlFmt, "1xHvvXQIMv3xbqNhuN7zG6WP4DB7lpQDmLvz18w-u_lk")),
+        exemptionsFile.toFile());
+    FileUtils.copyURLToFile(new URL(String.format(urlFmt, "1MkWV6TlJTnw-KRNWeylyUJAUocCgupcJLlmV2fRdtcM")),
+        messagesFile.toFile());
   }
 
 
