@@ -42,7 +42,7 @@ class PhenotyperTest {
   @Test
   void testCyp2C19Het() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
-        matchVcfData("cyp2c19/s4s17het.vcf"),
+        matchVcfData(true, "cyp2c19/s4s17het.vcf"),
         OutsideCallParser.parse("CYP2D6\t*1/*3"));
 
     assertCalledByMatcher(phenotyper, "CYP2C19", "CYP2D6");
@@ -140,7 +140,11 @@ class PhenotyperTest {
    * @return a List of GeneCall objects
    */
   private List<GeneCall> matchVcfData(String ...vcfs) throws IOException {
-    NamedAlleleMatcher matcher = new NamedAlleleMatcher(s_definitionReader);
+    return matchVcfData(false, vcfs);
+  }
+
+  private List<GeneCall> matchVcfData(boolean topCandidateOnly, String ...vcfs) throws IOException {
+    NamedAlleleMatcher matcher = new NamedAlleleMatcher(s_definitionReader, true, topCandidateOnly);
 
     Path tempVcfPath = Files.createTempFile(getClass().getSimpleName(), ".vcf");
     try (FileWriter fw = new FileWriter(tempVcfPath.toFile())) {

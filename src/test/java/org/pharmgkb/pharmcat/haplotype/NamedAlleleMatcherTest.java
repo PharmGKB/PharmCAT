@@ -41,7 +41,11 @@ class NamedAlleleMatcherTest {
    *
    */
   static Result testMatchNamedAlleles(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
-    return testMatchNamedAlleles(tsvFile, vcfFile, true, false, true, true);
+    return testMatchNamedAlleles(tsvFile, vcfFile, false);
+  }
+
+  static Result testMatchNamedAlleles(@Nonnull Path tsvFile, @Nonnull Path vcfFile, boolean topCandidateOnly) throws Exception {
+    return testMatchNamedAlleles(tsvFile, vcfFile, true, topCandidateOnly, true, true);
   }
 
   /**

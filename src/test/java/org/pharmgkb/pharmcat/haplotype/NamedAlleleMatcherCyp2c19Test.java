@@ -55,7 +55,7 @@ class NamedAlleleMatcherCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s4b.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*4");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -66,7 +66,7 @@ class NamedAlleleMatcherCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s4bMissing.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*4");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -77,7 +77,7 @@ class NamedAlleleMatcherCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s17s1s4bmissing.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*17", "*1/*4");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -92,7 +92,7 @@ class NamedAlleleMatcherCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s17s1s4bmissingmore.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*17", "*1/*4");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -190,7 +190,7 @@ class NamedAlleleMatcherCyp2c19Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/rs12769205hetrs4244285missing.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*2");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true);
     assertDiplotypePairs(expectedMatches, result);
   }
 
