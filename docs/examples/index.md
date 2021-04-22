@@ -1,4 +1,3 @@
-
 ---
 title: Example Reports
 prermalink: examples/
