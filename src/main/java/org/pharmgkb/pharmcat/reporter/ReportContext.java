@@ -53,6 +53,8 @@ public class ReportContext {
    * @param geneReports {@link GeneReport} objects, non-null but can be empty
    */
   public ReportContext(Collection<GeneReport> geneReports) throws Exception {
+    MessageMatcher messageMatcher = new MessageMatcher();
+
     // add all existing gene data
     f_geneReports.addAll(geneReports);
 
@@ -86,17 +88,8 @@ public class ReportContext {
           getGeneReport(gene).addRelatedDrugs(drugReport);
         }
       }
+      messageMatcher.match(drugReport, this);
     }
-  }
-
-  /**
-   * Applies the given {@link MessageAnnotation} objects to the data in this report.
-   * @param messages a List of {@link MessageAnnotation} objects
-   */
-  public void applyMessage(List<MessageAnnotation> messages) {
-    MessageMatcher messageMatcher = new MessageMatcher(messages, this);
-
-    m_drugReports.forEach(r -> r.addMessages(messageMatcher.match(r)));
   }
 
   private boolean isReportable(String gene) {

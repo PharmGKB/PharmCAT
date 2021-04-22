@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.phenotype;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
@@ -7,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.SortedSet;
@@ -166,4 +168,19 @@ public class Phenotyper {
     findGeneReport(geneSymbol).ifPresent(f_geneReports::remove);
   }
 
+  /**
+   * Read gene resport information from a given JSON file path. This should be the JSON output of this class.
+   * @param filePath a path to an existing JSON file
+   * @return a List of {@link GeneReport} objects
+   * @throws IOException can occur if file is unable to be read
+   */
+  public static List<GeneReport> readGeneReports(Path filePath) throws IOException {
+    Preconditions.checkNotNull(filePath);
+    Preconditions.checkArgument(filePath.toFile().exists());
+    Preconditions.checkArgument(filePath.toFile().isFile());
+    Gson gson = new GsonBuilder().create();
+    try (BufferedReader reader = Files.newBufferedReader(filePath)) {
+      return Arrays.asList(gson.fromJson(reader, GeneReport[].class));
+    }
+  }
 }

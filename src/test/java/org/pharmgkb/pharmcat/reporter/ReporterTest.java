@@ -1,11 +1,12 @@
-package org.pharmgkb.pharmcat;
+package org.pharmgkb.pharmcat.reporter;
 
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.reporter.Reporter;
+import org.pharmgkb.pharmcat.phenotype.Phenotyper;
+import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,33 +18,37 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Ryan Whaley
  */
 class ReporterTest {
-  
-  private static final String CALL_FILE_PATH = "org/pharmgkb/pharmcat/haplotype/cyp2c9/s1s1.vcf";
   private static final String PHENOTYPER_FILE_PATH = "org/pharmgkb/pharmcat/phenotyper_output.json";
-  private static final String OUTPUT_DIR = "ReporterTest";
 
   @Test
   void testCypc2c9VariantPassthrough() throws Exception {
 
-    Path vcfFile = PathUtils.getPathToResource(CALL_FILE_PATH);
+    Reporter reporter = new Reporter();
+    reporter.analyze(Phenotyper.readGeneReports(PathUtils.getPathToResource(PHENOTYPER_FILE_PATH)));
 
-    Path tempOutDir = Files.createTempDirectory(OUTPUT_DIR);
-
-    PharmCAT pharmcat = new PharmCAT(tempOutDir, null);
-    pharmcat.execute(vcfFile, null, null);
-
-    Reporter reporter = pharmcat.getReporter();
+    // test the CYP2C9 data
     GeneReport geneReport = reporter.getContext().getGeneReport("CYP2C9");
-
-    assertNotNull(geneReport);
+    assertTrue(geneReport.isReportable());
+    assertTrue(geneReport.isCalled());
+    assertFalse(geneReport.isOutsideCall());
     assertNotNull(geneReport.getVariantReports());
-
-
     assertTrue(
         geneReport.getVariantOfInterestReports().stream()
             .anyMatch(r -> r.getDbSnpId() != null && r.getDbSnpId().equals("rs12777823")),
         "Exemption variant not included in gene report"
     );
+
+    // test that messages were applied for a drug
+    DrugReport warfarinReport = reporter.getContext().getDrugReports().stream()
+        .filter(d -> d.getRelatedDrugs().contains("warfarin")).findFirst()
+        .orElseThrow(() -> new RuntimeException("No warfarin drug report found"));
+    assertEquals(2, warfarinReport.getMessages().size());
+
+    // test that recommendations were matched
+    DrugReport desfluraneReport = reporter.getContext().getDrugReports().stream()
+        .filter(d -> d.getRelatedDrugs().contains("desflurane")).findFirst()
+        .orElseThrow(() -> new RuntimeException("No desflurane drug report found"));
+    assertEquals(1, desfluraneReport.getMatchingRecommendations().size());
   }
   
   @Test

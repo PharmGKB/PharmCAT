@@ -1,12 +1,14 @@
 package org.pharmgkb.pharmcat.util;
 
-import java.util.Collection;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
+import com.google.gson.Gson;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -22,31 +24,30 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
  * @author Ryan Whaley
  */
 public class MessageMatcher {
+  private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/definition/messages.json";
 
-  private Collection<MessageAnnotation> m_messages;
-  private ReportContext m_reportContext;
+  private final List<MessageAnnotation> m_messages;
 
-  public MessageMatcher(Collection<MessageAnnotation> messages, ReportContext reportContext) {
-    Preconditions.checkNotNull(messages);
-    Preconditions.checkNotNull(reportContext);
-    m_messages = ImmutableList.copyOf(messages);
-    m_reportContext = reportContext;
+  public MessageMatcher() throws IOException {
+    try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(sf_messagesFile))) {
+      m_messages = ImmutableList.copyOf(new Gson().fromJson(reader, MessageAnnotation[].class));
+    }
   }
 
-  @Nonnull
-  public List<MessageAnnotation> match(DrugReport guideline) {
-    return m_messages.stream()
-        .filter(m -> match(m.getMatches(), guideline))
+  public void match(DrugReport guideline, ReportContext reportContext) {
+    List<MessageAnnotation> matchedMessages = m_messages.stream()
+        .filter(m -> match(m.getMatches(), guideline, reportContext))
         .collect(Collectors.toList());
+    guideline.addMessages(matchedMessages);
   }
 
 
-  public boolean match(MatchLogic match, DrugReport report) {
+  public boolean match(MatchLogic match, DrugReport report, ReportContext reportContext) {
 
     boolean criteriaPass = !match.getDrugs().isEmpty() && !Collections.disjoint(match.getDrugs(), report.getRelatedDrugs());
 
     if (criteriaPass && match.getDips().size() > 0) {
-      GeneReport geneReport = m_reportContext.getGeneReport(match.getGene());
+      GeneReport geneReport = reportContext.getGeneReport(match.getGene());
       criteriaPass = geneReport.getMatcherDiplotypes() != null && geneReport.getMatcherDiplotypes().size() > 0 &&
           geneReport.getMatcherDiplotypes().stream()
               .map(Diplotype::printBare)
@@ -54,7 +55,7 @@ public class MessageMatcher {
     }
     
     if (criteriaPass && match.getVariantsMissing().size() > 0) {
-      GeneReport geneReport = m_reportContext.getGeneReport(match.getGene());
+      GeneReport geneReport = reportContext.getGeneReport(match.getGene());
       criteriaPass = geneReport.getVariantReports().stream()
           .filter(VariantReport::isMissing)
           .map(VariantReport::getDbSnpId)

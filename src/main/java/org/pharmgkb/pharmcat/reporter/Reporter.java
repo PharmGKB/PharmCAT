@@ -1,15 +1,12 @@
 package org.pharmgkb.pharmcat.reporter;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
@@ -18,9 +15,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.io.util.CliHelper;
-import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 
@@ -36,11 +32,9 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 public class Reporter {
   private static final String FINAL_REPORT      = "report";
   private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
-  private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/definition/messages.json";
 
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
-  private final List<MessageAnnotation> m_messages;
   private ReportContext m_reportContext = null;
 
   /**
@@ -69,28 +63,12 @@ public class Reporter {
       }
       String title = cliHelper.getValue("t");
 
-      Gson gson = new GsonBuilder().create();
-      List<GeneReport> inputReports;
-      try (BufferedReader reader = Files.newBufferedReader(phenotyperFile)) {
-        inputReports = Arrays.asList(gson.fromJson(reader, GeneReport[].class));
-      }
-
       new Reporter()
-          .analyze(inputReports)
+          .analyze(Phenotyper.readGeneReports(phenotyperFile))
           .printHtml(outputFile, title, jsonPath);
 
     } catch (Exception ex) {
       ex.printStackTrace();
-    }
-  }
-
-  /**
-   * public constructor. start a new reporter based on annotation data found in the given <code>annotationsDir</code>.
-   */
-  public Reporter() throws IOException {
-    try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(sf_messagesFile))) {
-      MessageAnnotation[] messages = new Gson().fromJson(reader, MessageAnnotation[].class);
-      m_messages = Arrays.asList(messages);
     }
   }
 
@@ -103,8 +81,6 @@ public class Reporter {
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
     m_reportContext = new ReportContext(geneReports);
-
-    m_reportContext.applyMessage(m_messages);
 
     return this;
   }
