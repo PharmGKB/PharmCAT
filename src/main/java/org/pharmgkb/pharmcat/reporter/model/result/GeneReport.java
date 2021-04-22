@@ -56,7 +56,11 @@ public class GeneReport implements Comparable<GeneReport> {
   @Expose
   @SerializedName("messages")
   private final List<MessageAnnotation> m_messages = new ArrayList<>();
-  private final List<DrugLink> m_relatedDrugs = new ArrayList<>();
+  @Expose
+  @SerializedName("relatedDrugs")
+  private List<DrugLink> m_relatedDrugs = new ArrayList<>();
+  @Expose
+  @SerializedName("matcherDiplotypes")
   private final List<Diplotype> m_matcherDiplotypes = new ArrayList<>();
   @Expose
   @SerializedName("diplotypes")
@@ -210,7 +214,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if the {@link NamedAlleleMatcher} has returned at least one call for this gene, false otherwise
    */
   public boolean isCalled() {
-    return m_matcherDiplotypes.size() > 0 && m_matcherDiplotypes.stream().noneMatch(Diplotype::isUnknown);
+    return m_matcherDiplotypes != null && m_matcherDiplotypes.size() > 0 && m_matcherDiplotypes.stream().noneMatch(Diplotype::isUnknown);
   }
 
   /**
@@ -234,6 +238,13 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_relatedDrugs;
   }
 
+  public void addRelatedDrug(DrugLink drug) {
+    if (m_relatedDrugs == null) {
+      m_relatedDrugs = new ArrayList<>();
+    }
+    m_relatedDrugs.add(drug);
+  }
+
   /**
    * Adds the drugs in the given <code>guideline</code> to this report as {@link DrugLink} objects
    * @param guideline a GuidelineReport with relatedDrugs
@@ -242,7 +253,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
     guideline.getRelatedDrugs().stream()
         .map(d -> new DrugLink(d, guideline.getId()))
-        .forEach(m_relatedDrugs::add);
+        .forEach(this::addRelatedDrug);
   }
 
   /**

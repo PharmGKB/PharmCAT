@@ -7,10 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -158,16 +155,6 @@ public class Phenotyper {
   }
 
   /**
-   * Add a "blank" {@link GeneReport} object just based on the gene symbol if a {@link GeneReport} doesn't already exist
-   * @param geneSymbol the gene symbol
-   */
-  public void addGeneReport(String geneSymbol) {
-    if (!findGeneReport(geneSymbol).isPresent()) {
-      f_geneReports.add(new GeneReport(geneSymbol));
-    }
-  }
-
-  /**
    * Find a {@link GeneReport} based on the gene symbol
    * @param geneSymbol a gene symbol
    */
@@ -179,37 +166,4 @@ public class Phenotyper {
     findGeneReport(geneSymbol).ifPresent(f_geneReports::remove);
   }
 
-  public List<Map<String,String>> makePhenotypeKeys(Collection<String> geneSymbols) {
-    List<Map<String,String>> keys = new ArrayList<>();
-    for (String geneSymbol : geneSymbols) {
-      keys = makePhenotypeKeys(geneSymbol, keys);
-    }
-    return keys;
-  }
-
-  private List<Map<String,String>> makePhenotypeKeys(String geneSymbol, List<Map<String,String>> existingList) {
-    if (existingList.isEmpty()) {
-      findGeneReport(geneSymbol).ifPresent((r) ->
-        r.getReporterDiplotypes().forEach((d) -> {
-          Map<String,String> newKey = new HashMap<>();
-          newKey.put(geneSymbol, d.getLookupKey());
-          existingList.add(newKey);
-        })
-      );
-      return existingList;
-    }
-    else {
-      List<Map<String,String>> newList = new ArrayList<>();
-      findGeneReport(geneSymbol).ifPresent((r) ->
-        r.getReporterDiplotypes().forEach((d) -> {
-          for (Map<String,String> existingKey : existingList) {
-            Map<String, String> newKey = new HashMap<>(existingKey);
-            newKey.put(geneSymbol, d.getLookupKey());
-            newList.add(newKey);
-          }
-        })
-      );
-      return newList;
-    }
-  }
 }

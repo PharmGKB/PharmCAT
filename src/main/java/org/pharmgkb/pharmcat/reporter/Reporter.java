@@ -7,25 +7,21 @@ import java.lang.invoke.MethodHandles;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
-import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
-import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
-import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
+import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 
 /**
@@ -54,10 +50,10 @@ public class Reporter {
   public static void main(String[] args) {
 
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        .addOption("c", "call-file", "named allele call JSON file", true, "c")
-        .addOption("a", "outside-call-file", "optional, outside call TSV file", false, "a")
-        .addOption("o", "output-file", "file path to write HTML report to", true, "o")
-        .addOption("t", "title", "optional, text to add to the report title", false, "t")
+        .addOption("p", "phenotyper-file", "phenotyper output JSON file", true, "file-path")
+        .addOption("o", "output-file", "file path to write HTML report to", true, "file-path")
+        .addOption("j", "output-json", "optional, file path to write JSON data to", false, "file-path")
+        .addOption("t", "title", "optional, text to add to the report title", false, "title")
         ;
 
     try {
@@ -65,14 +61,23 @@ public class Reporter {
         System.exit(1);
       }
 
-      Path callFile = cliHelper.getValidFile("c", true);
-      Path outsideCallPath = cliHelper.hasOption("a") ? cliHelper.getValidFile("a", true) : null;
+      Path phenotyperFile = cliHelper.getValidFile("p", true);
       Path outputFile = cliHelper.getPath("o");
+      Path jsonPath = null;
+      if (cliHelper.hasOption("j")) {
+        jsonPath = cliHelper.getPath("j");
+      }
       String title = cliHelper.getValue("t");
 
+      Gson gson = new GsonBuilder().create();
+      List<GeneReport> inputReports;
+      try (BufferedReader reader = Files.newBufferedReader(phenotyperFile)) {
+        inputReports = Arrays.asList(gson.fromJson(reader, GeneReport[].class));
+      }
+
       new Reporter()
-          .analyze(callFile, outsideCallPath)
-          .printHtml(outputFile, title, null);
+          .analyze(inputReports)
+          .printHtml(outputFile, title, jsonPath);
 
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -92,27 +97,12 @@ public class Reporter {
   /**
    * Run the actual report process. Parse the input file, do the matching, and write the report files.
    *
-   * @param callFile file of haplotype calls
+   * @param geneReports collection of {@link GeneReport} objects that came from the Phenotyper
    */
-  public Reporter analyze(@Nullable Path callFile, @Nullable Path outsideCallPath) throws Exception {
-
-    List<GeneCall> calls = new ArrayList<>();
-    if (callFile != null) {
-      Preconditions.checkArgument(Files.exists(callFile));
-      Preconditions.checkArgument(Files.isRegularFile(callFile));
-      calls = new ResultSerializer().fromJson(callFile).getGeneCalls();
-    }
-
-    //Load the outside calls if it's available
-    List<OutsideCall> outsideCalls = new ArrayList<>();
-    if (outsideCallPath != null) {
-      Preconditions.checkArgument(Files.exists(outsideCallPath));
-      Preconditions.checkArgument(Files.isRegularFile(outsideCallPath));
-      outsideCalls = OutsideCallParser.parse(outsideCallPath);
-    }
+  public Reporter analyze(Collection<GeneReport> geneReports) throws Exception {
 
     //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
-    m_reportContext = new ReportContext(calls, outsideCalls);
+    m_reportContext = new ReportContext(geneReports);
 
     m_reportContext.applyMessage(m_messages);
 

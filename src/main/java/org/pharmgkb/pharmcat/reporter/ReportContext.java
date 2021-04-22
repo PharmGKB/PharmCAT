@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -17,9 +19,7 @@ import javax.annotation.Nonnull;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
-import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
@@ -45,20 +45,21 @@ import org.pharmgkb.pharmcat.util.MessageMatcher;
 public class ReportContext {
   private static final Predicate<String> hasValue = (value) -> StringUtils.isNotBlank(value) && !value.equalsIgnoreCase("n/a");
 
-  private final Phenotyper f_phenotyper;
+  private final SortedSet<GeneReport> f_geneReports = new TreeSet<>();
   private final List<DrugReport> m_drugReports = new ArrayList<>();
 
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
-   * @param calls {@link GeneCall} objects from the sample data
-   * @param outsideCalls {@link OutsideCall} objects, non-null but can be empty
+   * @param geneReports {@link GeneReport} objects, non-null but can be empty
    */
-  public ReportContext(List<GeneCall> calls, List<OutsideCall> outsideCalls) throws Exception {
-    f_phenotyper = new Phenotyper(calls, outsideCalls);
+  public ReportContext(Collection<GeneReport> geneReports) throws Exception {
+    // add all existing gene data
+    f_geneReports.addAll(geneReports);
 
+    // add gene data for genes that have no sample data or outside calls
     DrugCollection drugCollection = new DrugCollection();
     drugCollection.getAllReportableGenes()
-        .forEach(f_phenotyper::addGeneReport);
+        .forEach(this::addGeneReport);
 
     for (Drug drug : drugCollection) {
       DrugReport drugReport = new DrugReport(drug);
@@ -73,7 +74,7 @@ public class ReportContext {
 
         // add matching recommendations if this drug is reportable
         if (drugReport.isReportable()) {
-          List<Map<String,String>> phenoKeys = f_phenotyper.makePhenotypeKeys(drugReport.getRelatedGeneSymbols());
+          List<Map<String,String>> phenoKeys = makePhenotypeKeys(drugReport.getRelatedGeneSymbols());
           for (Map<String,String> phenoKey : phenoKeys) {
             drugReport.addReportGenotype(phenoKey);
           }
@@ -107,18 +108,31 @@ public class ReportContext {
   }
 
   public Collection<GeneReport> getGeneReports() {
-    return f_phenotyper.getGeneReports();
+    return f_geneReports;
   }
 
-  public Phenotyper getPhenotyper() {
-    return f_phenotyper;
+  /**
+   * Find a {@link GeneReport} based on the gene symbol
+   * @param geneSymbol a gene symbol
+   */
+  public Optional<GeneReport> findGeneReport(String geneSymbol) {
+    return getGeneReports().stream().filter(r -> r.getGene().equals(geneSymbol)).findFirst();
   }
 
   @Nonnull
   public GeneReport getGeneReport(String geneSymbol) {
-    return f_phenotyper
-        .findGeneReport(geneSymbol)
+    return findGeneReport(geneSymbol)
         .orElseThrow(() -> new RuntimeException("No gene exists for " + geneSymbol));
+  }
+
+  /**
+   * Add a "blank" {@link GeneReport} object just based on the gene symbol if a {@link GeneReport} doesn't already exist
+   * @param geneSymbol the gene symbol
+   */
+  private void addGeneReport(String geneSymbol) {
+    if (!findGeneReport(geneSymbol).isPresent()) {
+      f_geneReports.add(new GeneReport(geneSymbol));
+    }
   }
 
   /**
@@ -139,7 +153,7 @@ public class ReportContext {
     // Genotypes section
     List<Map<String,Object>> genotypes = new ArrayList<>();
     int calledGenes = 0;
-    for (GeneReport geneReport : f_phenotyper.getGeneReports()) {
+    for (GeneReport geneReport : getGeneReports()) {
       String symbol = geneReport.getGene();
 
       // skip any genes on the blacklist
@@ -205,7 +219,7 @@ public class ReportContext {
         geneCallList.add(geneCall);
       }
       for (String variant : drugReport.getReportVariants()) {
-        String call = f_phenotyper.getGeneReports().stream()
+        String call = getGeneReports().stream()
             .flatMap(g -> Stream.concat(g.getVariantReports().stream(), g.getVariantOfInterestReports().stream()))
             .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(variant) && !v.isMissing())
             .map(VariantReport::getCall)
@@ -244,7 +258,7 @@ public class ReportContext {
       // special case the display for warfarin recommendation since it's an image
       if (drugReport.toString().equals("warfarin")) {
         Map<String,String> imageData = new LinkedHashMap<>();
-        imageData.put("url", "http://s3.pgkb.org/attachment/CPIC_warfarin_2017_Fig_2.png");
+        imageData.put("url", "https://s3.pgkb.org/attachment/CPIC_warfarin_2017_Fig_2.png");
         imageData.put("altText", "Figure 2 from the CPIC guideline for warfarin");
         guidelineMap.put("image", imageData);
       }
@@ -293,7 +307,7 @@ public class ReportContext {
     // Gene calls
 
     List<Map<String,Object>> geneCallList = new ArrayList<>();
-    for (GeneReport geneReport : f_phenotyper.getGeneReports()) {
+    for (GeneReport geneReport : getGeneReports()) {
       if (geneReport.isIgnored()) {
         continue;
       }
@@ -363,5 +377,39 @@ public class ReportContext {
     annotationMap.put("term", type);
     annotationMap.put("annotation", text.replaceAll("[\\n\\r]", " "));
     return annotationMap;
+  }
+
+  private List<Map<String,String>> makePhenotypeKeys(Collection<String> geneSymbols) {
+    List<Map<String,String>> keys = new ArrayList<>();
+    for (String geneSymbol : geneSymbols) {
+      keys = makePhenotypeKeys(geneSymbol, keys);
+    }
+    return keys;
+  }
+
+  private List<Map<String,String>> makePhenotypeKeys(String geneSymbol, List<Map<String,String>> existingList) {
+    if (existingList.isEmpty()) {
+      findGeneReport(geneSymbol).ifPresent((r) ->
+          r.getReporterDiplotypes().forEach((d) -> {
+            Map<String,String> newKey = new HashMap<>();
+            newKey.put(geneSymbol, d.getLookupKey());
+            existingList.add(newKey);
+          })
+      );
+      return existingList;
+    }
+    else {
+      List<Map<String,String>> newList = new ArrayList<>();
+      findGeneReport(geneSymbol).ifPresent((r) ->
+          r.getReporterDiplotypes().forEach((d) -> {
+            for (Map<String,String> existingKey : existingList) {
+              Map<String, String> newKey = new HashMap<>(existingKey);
+              newKey.put(geneSymbol, d.getLookupKey());
+              newList.add(newKey);
+            }
+          })
+      );
+      return newList;
+    }
   }
 }

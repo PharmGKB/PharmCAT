@@ -47,7 +47,7 @@ public class MessageMatcher {
 
     if (criteriaPass && match.getDips().size() > 0) {
       GeneReport geneReport = m_reportContext.getGeneReport(match.getGene());
-      criteriaPass = geneReport.getMatcherDiplotypes().size() > 0 &&
+      criteriaPass = geneReport.getMatcherDiplotypes() != null && geneReport.getMatcherDiplotypes().size() > 0 &&
           geneReport.getMatcherDiplotypes().stream()
               .map(Diplotype::printBare)
               .anyMatch(b -> match.getDips().contains(b));

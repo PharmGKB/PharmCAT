@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
@@ -16,7 +18,10 @@ import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.Reporter;
+import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
+import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.util.DataManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -130,17 +135,17 @@ public class PharmCAT {
   /**
    * Executes the {@link NamedAlleleMatcher} then the {@link Reporter} on the given sample data
    * @param vcfFile the input sample VCF file
-   * @param outsideCallFile the optional input outside call TSV file
+   * @param outsideCallPath the optional input outside call TSV file
    * @param outputFile the optional name to write the output to
    * @throws Exception can occur from file I/O or unexpected state
    */
-  public void execute(Path vcfFile, @Nullable Path outsideCallFile, @Nullable String outputFile) throws Exception {
+  public void execute(Path vcfFile, @Nullable Path outsideCallPath, @Nullable String outputFile) throws Exception {
     Preconditions.checkArgument(Files.isRegularFile(vcfFile), "Not a file: %s", vcfFile);
 
     sf_logger.info("Run time: " + new Date());
     String fileRoot = makeFileRoot(vcfFile, outputFile);
 
-    Path callFile = m_outputDir.resolve(fileRoot + ".call.json");
+    Path callFile = m_outputDir.resolve(fileRoot + ".matcher.json");
     if (!m_keepMatcherOutput) {
       callFile.toFile().deleteOnExit();
     }
@@ -152,14 +157,24 @@ public class PharmCAT {
       resultSerializer.toHtml(result, m_outputDir.resolve(fileRoot + ".matcher.html"));
     }
 
-    f_reporter.analyze(callFile, outsideCallFile);
+    //Load the outside calls if it's available
+    List<OutsideCall> outsideCalls = new ArrayList<>();
+    if (outsideCallPath != null) {
+      Preconditions.checkArgument(Files.exists(outsideCallPath));
+      Preconditions.checkArgument(Files.isRegularFile(outsideCallPath));
+      outsideCalls = OutsideCallParser.parse(outsideCallPath);
+    }
+
+    Phenotyper phenotyper = new Phenotyper(result.getGeneCalls(), outsideCalls);
+
+    f_reporter.analyze(phenotyper.getGeneReports());
 
     Path reportPath = m_outputDir.resolve(fileRoot + ".report.html");
     Path jsonPath = m_writeJsonReport ? m_outputDir.resolve(fileRoot + ".report.json") : null;
     f_reporter.printHtml(reportPath, fileRoot, jsonPath);
 
     if (m_writeJsonPheno) {
-      f_reporter.getContext().getPhenotyper().write(m_outputDir.resolve(fileRoot + ".phenotyper.json"));
+      phenotyper.write(m_outputDir.resolve(fileRoot + ".phenotyper.json"));
     }
 
 
