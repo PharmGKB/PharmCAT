@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 """
-Usage: test_gen.py <definition.json> <vcfOutputDir>
+Usage: test_gen.py <definition.json> <positions.vcf> <vcfOutputDir>
 Author: Alex Frase
 
 This tool generates test cases for PharmCAT by reading a single gene definition JSON file
-and writnig a set of synthetic VCF files with their expected haplotype calls for a
-variety of scenarios.
+and the PharmCAT positions file. It then writes a set of synthetic VCF files with their
+expected haplotype calls for a variety of scenarios.
 
 Tests include:
 * Homozygous (two copies of the same allele) complete (all basepair positions included and
@@ -50,14 +50,18 @@ import math
 import os
 import re
 import sys
+import csv
 
 
 # TODO: a proper argparse handler!
-if len(sys.argv) != 3:
-    sys.exit("ERROR: Expecting 2 arguments\n")
+if len(sys.argv) != 4:
+    sys.exit("ERROR: Expecting 3 arguments\n")
 
 if not os.path.isfile(sys.argv[1]):
     sys.exit(f"ERROR: Cannot find JSON file '{sys.argv[1]}'\n")
+
+if not os.path.isfile(sys.argv[2]):
+    sys.exit(f"ERROR: Cannot find VCF file '{sys.argv[2]}'\n")
 
 # set options
 optNumAlleleExpansions = 2
@@ -83,6 +87,85 @@ symbolBases = {
 }
 symbolBaselist = {s: tuple(sorted(symbolBases[s])) for s in symbolBases.keys()}
 basesSymbol = {frozenset(bases): symbol for symbol, bases in symbolBases.items()}
+
+
+# define VCF parsing and JSON update functions
+
+def parseVCF(vcf):
+    """
+    Takes the path to the pharmCAT VCF file containing all positions
+    Returns a collection with gene names (from 'INFO' column) as key
+    and a list of dicts (from rows) as values
+    """
+    start=0
+    with open(vcf) as vcffile:
+        for index,line in enumerate(vcffile):
+            if line.startswith('#CHROM'):
+                start=index
+                break
+        # for index,line
+    # open vcf
+
+    vcfRef=collections.defaultdict(list)
+
+    pxpattern=re.compile('PX=(\w+)')
+    with open(vcf) as vcffile:
+        reader = csv.DictReader(itertools.islice(vcffile,start,None), delimiter='\t')
+        for row in reader:
+            m=pxpattern.match(row['INFO'])
+            if m is not None:
+                vcfRef[m.group(1)].append(row)
+        # for row
+    # open vcf
+    return vcfRef
+# parseVCF()
+
+
+def updateVarAlleles(jsondef, vcfref):
+    """
+    Takes JSON dict and dict from parsed VCF
+    Updates JSON dict with corrected indel information obtained from the VCF dict
+    """
+    gene=jsondef['gene']
+    if gene not in vcfref:
+        sys.exit("ERROR: %s is not present in VCF file" % gene)
+    if len(vcfref[gene]) != len(jsondef["variantAlleles"]):
+        sys.exit("ERROR: number of rows ({0}) for {1} in VCF file doesn't match number of variantAlleles ({2}) in JSON file".format(
+        len(vcfref[gene]), gene, len(jsondef["variantAlleles"])))
+
+    allpattern = re.compile('ins|del')
+    delpattern = re.compile('del')
+    inspattern = re.compile('ins')
+    for i,variant in enumerate(jsondef["variants"]):
+        variant['_jsonidx'] = i
+
+    for i,variant in enumerate(sorted(jsondef["variants"], key= lambda i: i['position'])):
+       variant['_vcfidx'] = i
+        if variant['rsid'] is not None and variant['rsid'] != vcfref[gene][i]["ID"]:
+            sys.exit("ERROR: '%s' doesn't match any ID in VCF" % variant['rsid'])
+
+        # look for ins/del and update from VCF reference
+        if any(allpattern.match(allele) for allele in jsondef["variantAlleles"][variant['_jsonidx']]):
+            variant["position"] = vcfref[gene][i]["POS"]
+            vmap={}
+            prebase=vcfref[gene][i]["REF"][0]
+            # update indels with base before event (from VCF reference)
+            for j,allele in enumerate(jsondef["variantAlleles"][variant['_jsonidx']]):
+                if delpattern.match(allele):
+                    vmap[allele] = prebase
+                elif inspattern.match(allele):
+                    vmap[allele] = prebase + allele[3:]
+                else:
+                    vmap[allele] = prebase+allele
+                jsondef['variantAlleles'][variant['_jsonidx']][j] = vmap[allele]
+            # for j, allele
+            for na in jsondef['namedAlleles']:
+                if na["alleles"][variant['_jsonidx']]:
+                        na["alleles"][variant['_jsonidx']] = vmap[na["alleles"][variant['_jsonidx']]]
+            # for na
+        # isindel?
+    # for i, variant
+# updateVarAlleles()
 
 # define helper functions
 
@@ -169,6 +252,13 @@ print(f"Loading '{defPath}' ... ")
 with open(defPath, 'r') as defFile:
     definition = json.load(defFile)
 # with defFile
+
+# update indel variants with information from positions VCF
+vcfPath = sys.argv[2]
+print(f"Loading.'{vcfPath}")
+vcfreference = parseVCF(vcfPath)
+updateVarAlleles(definition,vcfreference)
+
 if len(definition['variants']) != len(definition['variantAlleles']):
     sys.exit("ERROR: variants / variantAlleles length mismatch")
 print(f"done: {len(definition['variants'])} variants, {len(definition['namedAlleles'])} named alleles\n")
@@ -423,7 +513,7 @@ if False:
     sys.exit(0)
 # if CSV
 
-basepath = sys.argv[2]
+basepath = sys.argv[3]
 if not os.path.exists(basepath):
     os.makedirs(basepath)
 print("Writing files...")
@@ -476,6 +566,8 @@ for matches1, matches2 in itertools.combinations_with_replacement(sorted(matches
                 if alt and (alt not in varalleles):
                     varalleles.append(alt)
             # for t, alleles
+            if(len(varalleles)==1 and "ALT" in vcfreference[definition["gene"]][variant['_vcfidx']]):
+                varalleles.append(vcfreference[definition["gene"]][variant['_vcfidx']]["ALT"])
             row = [
                 str(variant.get('chromosome') or "."),
                 str(variant.get('position') or "."),
