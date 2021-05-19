@@ -36,7 +36,7 @@ final call.
 
 # ASK: VCFv4.3 ALT is defined as
 #          "base Strings made up of the bases A,C,G,T,N (case insensitive)
-#          or the '*’  symbol (allele missing due to overlapping deletion)
+#          or the '*'  symbol (allele missing due to overlapping deletion)
 #          or a MISSING value ‘.’ (no variant)"
 #      some gene definitions have deletions with a length that would run
 #      over subsequent variants in the definition; how is this handled?
