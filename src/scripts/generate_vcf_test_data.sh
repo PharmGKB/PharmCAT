@@ -17,7 +17,7 @@ for file in "$DEFINITION_DIR"/*; do
     gene=$(echo $(basename $file) | cut -d "_" -f1)
     echo "$gene"
     mkdir -p ${OUTPUT_DIR}/${gene}
-    python test_gen.py $file ${VCF_FILE} ${OUTPUT_DIR}/${gene}
+    ./test_gen.py $file ${VCF_FILE} ${OUTPUT_DIR}/${gene}
     echo ""
     echo ""
   fi
