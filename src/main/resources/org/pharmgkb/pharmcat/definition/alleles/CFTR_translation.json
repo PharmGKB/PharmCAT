@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Apr 15, 2021 02:08:25 PM",
+  "modificationDate": "May 19, 2021 03:11:20 PM",
   "gene": "CFTR",
   "orientation": null,
   "chromosome": "chr7",
@@ -607,7 +607,7 @@
   "namedAlleles": [
     {
       "name": "ivacaftor non-responsive CFTR sequence",
-      "id": "622765",
+      "id": "726581",
       "alleles": [
         "G",
         "C",
@@ -654,7 +654,7 @@
     },
     {
       "name": "2789+5G->A",
-      "id": "622767",
+      "id": "726583",
       "alleles": [
         null,
         null,
@@ -701,7 +701,7 @@
     },
     {
       "name": "3272-26A->G",
-      "id": "622769",
+      "id": "726585",
       "alleles": [
         null,
         null,
@@ -748,7 +748,7 @@
     },
     {
       "name": "3849+10kbC->T",
-      "id": "622771",
+      "id": "726587",
       "alleles": [
         null,
         null,
@@ -795,7 +795,7 @@
     },
     {
       "name": "711+3A->G",
-      "id": "622773",
+      "id": "726589",
       "alleles": [
         null,
         null,
@@ -842,7 +842,7 @@
     },
     {
       "name": "A1067T",
-      "id": "622775",
+      "id": "726591",
       "alleles": [
         null,
         null,
@@ -889,7 +889,7 @@
     },
     {
       "name": "A455E",
-      "id": "622777",
+      "id": "726593",
       "alleles": [
         null,
         null,
@@ -936,7 +936,7 @@
     },
     {
       "name": "D110E",
-      "id": "622779",
+      "id": "726595",
       "alleles": [
         null,
         null,
@@ -983,7 +983,7 @@
     },
     {
       "name": "D110H",
-      "id": "622781",
+      "id": "726597",
       "alleles": [
         null,
         null,
@@ -1030,7 +1030,7 @@
     },
     {
       "name": "D1152H",
-      "id": "622783",
+      "id": "726599",
       "alleles": [
         null,
         null,
@@ -1077,7 +1077,7 @@
     },
     {
       "name": "D1270N",
-      "id": "622785",
+      "id": "726601",
       "alleles": [
         null,
         null,
@@ -1124,7 +1124,7 @@
     },
     {
       "name": "D579G",
-      "id": "622787",
+      "id": "726603",
       "alleles": [
         null,
         null,
@@ -1171,7 +1171,7 @@
     },
     {
       "name": "E193K",
-      "id": "622789",
+      "id": "726605",
       "alleles": [
         null,
         null,
@@ -1218,7 +1218,7 @@
     },
     {
       "name": "E56K",
-      "id": "622791",
+      "id": "726607",
       "alleles": [
         "A",
         null,
@@ -1265,7 +1265,7 @@
     },
     {
       "name": "E831X",
-      "id": "622793",
+      "id": "726609",
       "alleles": [
         null,
         null,
@@ -1312,7 +1312,7 @@
     },
     {
       "name": "F1052V",
-      "id": "622795",
+      "id": "726611",
       "alleles": [
         null,
         null,
@@ -1359,7 +1359,7 @@
     },
     {
       "name": "F1074L",
-      "id": "622797",
+      "id": "726613",
       "alleles": [
         null,
         null,
@@ -1406,7 +1406,7 @@
     },
     {
       "name": "G1069R",
-      "id": "622799",
+      "id": "726615",
       "alleles": [
         null,
         null,
@@ -1453,7 +1453,7 @@
     },
     {
       "name": "G1244E",
-      "id": "622801",
+      "id": "726617",
       "alleles": [
         null,
         null,
@@ -1500,7 +1500,7 @@
     },
     {
       "name": "G1349D",
-      "id": "622803",
+      "id": "726619",
       "alleles": [
         null,
         null,
@@ -1547,7 +1547,7 @@
     },
     {
       "name": "G178R",
-      "id": "622805",
+      "id": "726621",
       "alleles": [
         null,
         null,
@@ -1594,7 +1594,7 @@
     },
     {
       "name": "G551D",
-      "id": "622807",
+      "id": "726623",
       "alleles": [
         null,
         null,
@@ -1641,7 +1641,7 @@
     },
     {
       "name": "G551S",
-      "id": "622809",
+      "id": "726625",
       "alleles": [
         null,
         null,
@@ -1688,7 +1688,7 @@
     },
     {
       "name": "K1060T",
-      "id": "622811",
+      "id": "726627",
       "alleles": [
         null,
         null,
@@ -1735,7 +1735,7 @@
     },
     {
       "name": "L206W",
-      "id": "622813",
+      "id": "726629",
       "alleles": [
         null,
         null,
@@ -1782,7 +1782,7 @@
     },
     {
       "name": "P67L",
-      "id": "622815",
+      "id": "726631",
       "alleles": [
         null,
         "T",
@@ -1829,7 +1829,7 @@
     },
     {
       "name": "R1070Q",
-      "id": "622817",
+      "id": "726633",
       "alleles": [
         null,
         null,
@@ -1876,7 +1876,7 @@
     },
     {
       "name": "R1070W",
-      "id": "622819",
+      "id": "726635",
       "alleles": [
         null,
         null,
@@ -1923,7 +1923,7 @@
     },
     {
       "name": "R117C",
-      "id": "622821",
+      "id": "726637",
       "alleles": [
         null,
         null,
@@ -1970,7 +1970,7 @@
     },
     {
       "name": "R117H",
-      "id": "622823",
+      "id": "726639",
       "alleles": [
         null,
         null,
@@ -2017,7 +2017,7 @@
     },
     {
       "name": "R347H",
-      "id": "622825",
+      "id": "726641",
       "alleles": [
         null,
         null,
@@ -2064,7 +2064,7 @@
     },
     {
       "name": "R352Q",
-      "id": "622827",
+      "id": "726643",
       "alleles": [
         null,
         null,
@@ -2111,7 +2111,7 @@
     },
     {
       "name": "R74W",
-      "id": "622829",
+      "id": "726645",
       "alleles": [
         null,
         null,
@@ -2158,7 +2158,7 @@
     },
     {
       "name": "S1251N",
-      "id": "622831",
+      "id": "726647",
       "alleles": [
         null,
         null,
@@ -2205,7 +2205,7 @@
     },
     {
       "name": "S1255P",
-      "id": "622833",
+      "id": "726649",
       "alleles": [
         null,
         null,
@@ -2252,7 +2252,7 @@
     },
     {
       "name": "S549N",
-      "id": "622835",
+      "id": "726651",
       "alleles": [
         null,
         null,
@@ -2299,7 +2299,7 @@
     },
     {
       "name": "S549R(A>C)",
-      "id": "622837",
+      "id": "726653",
       "alleles": [
         null,
         null,
@@ -2346,7 +2346,7 @@
     },
     {
       "name": "S549R(T>G)",
-      "id": "622839",
+      "id": "726655",
       "alleles": [
         null,
         null,
@@ -2393,7 +2393,7 @@
     },
     {
       "name": "S945L",
-      "id": "622841",
+      "id": "726657",
       "alleles": [
         null,
         null,
@@ -2440,7 +2440,7 @@
     },
     {
       "name": "S977F",
-      "id": "622843",
+      "id": "726659",
       "alleles": [
         null,
         null,

@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Apr 15, 2021 02:08:31 PM",
+  "modificationDate": "May 19, 2021 03:11:25 PM",
   "gene": "CYP4F2",
   "orientation": null,
   "chromosome": "chr19",
@@ -52,7 +52,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "623693",
+      "id": "727512",
       "alleles": [
         "C",
         "A"
@@ -62,7 +62,7 @@
     },
     {
       "name": "*2",
-      "id": "623695",
+      "id": "727514",
       "alleles": [
         null,
         "C"
@@ -72,7 +72,7 @@
     },
     {
       "name": "*3",
-      "id": "623697",
+      "id": "727516",
       "alleles": [
         "T",
         null

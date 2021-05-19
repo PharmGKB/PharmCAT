@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Apr 15, 2021 02:08:26 PM",
+  "modificationDate": "May 19, 2021 03:11:21 PM",
   "gene": "CYP2C19",
   "orientation": null,
   "chromosome": "chr10",
@@ -10,7 +10,6 @@
   "refSeqProteinId": "NP_000760.1",
   "notes": [
     "The variants included in the alleles are based on the PharmVar core alleles (for core allele definitions only, see https://www.pharmvar.org/gene/CYP2C19). In addition, variants that present in the core allele for one star allele but also present in some but not allsuballeles of another star allele are included in the other star allele as ambiguous changes using the IUPAC nucleotide code (https://www.bioinformatics.org/sms/iupac.html), e.g. the *4 consensus allele includes a \"Y\" being either C or T at the -806C>T position since this variant is part of the *17 core allele but is not part of the *4 core allele at PharmVar since it is not present in all *4 suballeles. These postions are represented in grey in the Comparative Allele ViewEr (CAVE) tool at PharmVar.",
-    "The file reflects Version 4.0 Last Updated May 7 2019.",
     "PharmVAR releases new alleles based on received submissions, see https://www.pharmvar.org for comprehensive haplotype definitions of CYP2C19 variant alleles, including sub-alleles, and updated allele information.",
     "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
     "All variants are annotated to the positive DNA strand.",
@@ -18,7 +17,8 @@
     "The detrimental CYP2C19*4-defining SNP (rs28399504) has been identified to be linked (i.e. on the same chromosome) with *17 (-806C>T; rs12248560) in certain ethnic subpopulations. To distinguish the *4 (no function) and *17 (increased function) alleles, both rs28399504 and rs12248560 should be genotyped [PMID: 21358751, PMID: 24012947]). This haplotype is designated CYP2C19*4B [PMID: 21716271, PMID: 21358751].",
     "A novel SNP (c.463G>T; rs374036992) has been identified to occur in linkage with the *17-defining SNP (- 806C>T; rs12248560). This allele has not been assigned a separate star (*) designation by the Nomenclature Committee. To distinguish *17 from this novel haplotype, c.463G>T needs to be genotyped [PMID: 25141895]",
     "CYP2C19*27 was reassigned to CYP2C19*1.006 with PharmVar Version 4.0 Last Updated May 7 2019",
-    "CYP2C19*36 is a full gene deletion and *37 is a partial gene deletion that includes at least exon 1; for details see Botton et al 31260137 and PharmVar.org."
+    "CYP2C19*36 is a full gene deletion and *37 is a partial gene deletion that includes at least exon 1; for details see Botton et al 31260137 and PharmVar.org.",
+    "CYP2C19*38 was set as reference allel as this allele matches the human genome CYP2C19 Reference sequence LRG_584 / NG_008384.3. The RefSeq (LRG_584 / NG_008384.3) has 80161A while many of star alleles, including all *1 suballeles have 80161G. Thus, the CYP2C19*1 core allele is defined by one amino acid (I331V), while the *38 core allele definition does not have any amino acid changes."
   ],
   "populations": null,
   "variants": [
@@ -91,7 +91,7 @@
     {
       "chromosome": "chr10",
       "position": 94762788,
-      "rsid": null,
+      "rsid": "rs1564656981",
       "chromosomeHgvsName": "g.94762788A>T",
       "geneHgvsName": "g.5108A>T",
       "proteinNote": "K28I",
@@ -102,7 +102,7 @@
     {
       "chromosome": "chr10",
       "position": 94762856,
-      "rsid": null,
+      "rsid": "rs1564657013",
       "chromosomeHgvsName": "g.94762856A>G",
       "geneHgvsName": "g.5176A>G",
       "proteinNote": "S51G",
@@ -124,7 +124,7 @@
     {
       "chromosome": "chr10",
       "position": 94775121,
-      "rsid": null,
+      "rsid": "rs1564660997",
       "chromosomeHgvsName": "g.94775121C>T",
       "geneHgvsName": "g.17441C>T",
       "proteinNote": "H78Y",
@@ -146,7 +146,7 @@
     {
       "chromosome": "chr10",
       "position": 94775185,
-      "rsid": null,
+      "rsid": "rs1288601658",
       "chromosomeHgvsName": "g.94775185A>G",
       "geneHgvsName": "g.17505A>G",
       "proteinNote": "H99R",
@@ -173,6 +173,17 @@
       "geneHgvsName": "g.17736T>C",
       "proteinNote": "W120R",
       "resourceNote": "12711T>C",
+      "type": "SNP",
+      "referenceRepeat": null
+    },
+    {
+      "chromosome": "chr10",
+      "position": 94775423,
+      "rsid": "rs17885179",
+      "chromosomeHgvsName": "g.94775423A>C",
+      "geneHgvsName": "g.17743A>C",
+      "proteinNote": "E122A",
+      "resourceNote": "12718A>C",
       "type": "SNP",
       "referenceRepeat": null
     },
@@ -267,7 +278,7 @@
     {
       "chromosome": "chr10",
       "position": 94781944,
-      "rsid": null,
+      "rsid": "rs375781227",
       "chromosomeHgvsName": "g.94781944G>A",
       "geneHgvsName": "g.24264G>A",
       "proteinNote": "D256N",
@@ -399,39 +410,44 @@
     ],
     [
       "A",
+      "C",
+      "M"
+    ],
+    [
+      "A",
+      "T"
+    ],
+    [
+      "A",
+      "G"
+    ],
+    [
+      "C",
+      "T"
+    ],
+    [
+      "C",
+      "T"
+    ],
+    [
+      "C",
+      "G"
+    ],
+    [
+      "A",
+      "G"
+    ],
+    [
+      "A",
+      "G"
+    ],
+    [
+      "C",
+      "T"
+    ],
+    [
+      "A",
       "C"
-    ],
-    [
-      "A",
-      "T"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "C",
-      "G"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "C",
-      "T"
     ],
     [
       "A",
@@ -509,8 +525,8 @@
   ],
   "namedAlleles": [
     {
-      "name": "*1",
-      "id": "622989",
+      "name": "*38",
+      "id": "726804",
       "alleles": [
         "C",
         "A",
@@ -526,6 +542,7 @@
         "A",
         "A",
         "T",
+        "A",
         "G",
         "G",
         "G",
@@ -550,8 +567,9 @@
     },
     {
       "name": "*10",
-      "id": "623007",
+      "id": "726824",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -590,8 +608,9 @@
     },
     {
       "name": "*11",
-      "id": "623009",
+      "id": "726826",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -630,8 +649,9 @@
     },
     {
       "name": "*12",
-      "id": "623011",
+      "id": "726828",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -670,8 +690,9 @@
     },
     {
       "name": "*13",
-      "id": "623013",
+      "id": "726830",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -710,13 +731,14 @@
     },
     {
       "name": "*14",
-      "id": "623015",
+      "id": "726832",
       "alleles": [
         null,
         null,
         null,
         null,
         "C",
+        null,
         null,
         null,
         null,
@@ -750,7 +772,7 @@
     },
     {
       "name": "*15",
-      "id": "623017",
+      "id": "726834",
       "alleles": [
         null,
         null,
@@ -783,6 +805,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "populationFrequency": null,
@@ -790,8 +813,9 @@
     },
     {
       "name": "*16",
-      "id": "623019",
+      "id": "726836",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -830,9 +854,10 @@
     },
     {
       "name": "*17",
-      "id": "623021",
+      "id": "726838",
       "alleles": [
         "T",
+        null,
         null,
         null,
         null,
@@ -870,8 +895,9 @@
     },
     {
       "name": "*18",
-      "id": "623023",
+      "id": "726840",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -910,7 +936,7 @@
     },
     {
       "name": "*19",
-      "id": "623025",
+      "id": "726842",
       "alleles": [
         null,
         null,
@@ -920,6 +946,7 @@
         null,
         null,
         "G",
+        null,
         null,
         null,
         null,
@@ -950,7 +977,7 @@
     },
     {
       "name": "*2",
-      "id": "622991",
+      "id": "726808",
       "alleles": [
         null,
         null,
@@ -965,6 +992,7 @@
         null,
         null,
         "G",
+        null,
         null,
         null,
         null,
@@ -990,8 +1018,9 @@
     },
     {
       "name": "*22",
-      "id": "623027",
+      "id": "726844",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -1030,7 +1059,7 @@
     },
     {
       "name": "*23",
-      "id": "623029",
+      "id": "726846",
       "alleles": [
         null,
         null,
@@ -1063,6 +1092,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "populationFrequency": null,
@@ -1070,8 +1100,9 @@
     },
     {
       "name": "*24",
-      "id": "623031",
+      "id": "726848",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -1110,8 +1141,9 @@
     },
     {
       "name": "*25",
-      "id": "623033",
+      "id": "726850",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -1150,8 +1182,9 @@
     },
     {
       "name": "*26",
-      "id": "623035",
+      "id": "726852",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -1190,7 +1223,7 @@
     },
     {
       "name": "*28",
-      "id": "623037",
+      "id": "726854",
       "alleles": [
         null,
         null,
@@ -1198,6 +1231,7 @@
         null,
         null,
         "C",
+        null,
         null,
         null,
         null,
@@ -1230,7 +1264,7 @@
     },
     {
       "name": "*29",
-      "id": "623039",
+      "id": "726856",
       "alleles": [
         null,
         null,
@@ -1263,6 +1297,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "populationFrequency": null,
@@ -1270,8 +1305,9 @@
     },
     {
       "name": "*3",
-      "id": "622993",
+      "id": "726810",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -1310,7 +1346,7 @@
     },
     {
       "name": "*30",
-      "id": "623041",
+      "id": "726858",
       "alleles": [
         null,
         null,
@@ -1321,6 +1357,7 @@
         null,
         null,
         "T",
+        null,
         null,
         null,
         null,
@@ -1350,7 +1387,7 @@
     },
     {
       "name": "*31",
-      "id": "623043",
+      "id": "726860",
       "alleles": [
         null,
         null,
@@ -1383,6 +1420,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "populationFrequency": null,
@@ -1390,7 +1428,7 @@
     },
     {
       "name": "*32",
-      "id": "623045",
+      "id": "726862",
       "alleles": [
         null,
         null,
@@ -1423,6 +1461,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "populationFrequency": null,
@@ -1430,8 +1469,9 @@
     },
     {
       "name": "*33",
-      "id": "623047",
+      "id": "726864",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -1470,12 +1510,13 @@
     },
     {
       "name": "*34",
-      "id": "623049",
+      "id": "726866",
       "alleles": [
         null,
         null,
         "T",
         "C",
+        null,
         null,
         null,
         null,
@@ -1510,14 +1551,14 @@
     },
     {
       "name": "*35",
-      "id": "623051",
+      "id": "726868",
       "alleles": [
         null,
         null,
         null,
         null,
         null,
-        null,
+        "M",
         null,
         null,
         null,
@@ -1525,6 +1566,7 @@
         null,
         null,
         "G",
+        null,
         null,
         null,
         null,
@@ -1549,11 +1591,53 @@
       "reference": false
     },
     {
+      "name": "*39",
+      "id": "726874",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "populationFrequency": null,
+      "reference": false
+    },
+    {
       "name": "*4",
-      "id": "622995",
+      "id": "726812",
       "alleles": [
         "Y",
         "G",
+        null,
         null,
         null,
         null,
@@ -1590,8 +1674,9 @@
     },
     {
       "name": "*5",
-      "id": "622997",
+      "id": "726814",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -1630,8 +1715,9 @@
     },
     {
       "name": "*6",
-      "id": "622999",
+      "id": "726816",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -1670,8 +1756,9 @@
     },
     {
       "name": "*7",
-      "id": "623001",
+      "id": "726818",
       "alleles": [
+        null,
         null,
         null,
         null,
@@ -1710,7 +1797,7 @@
     },
     {
       "name": "*8",
-      "id": "623003",
+      "id": "726820",
       "alleles": [
         null,
         null,
@@ -1743,6 +1830,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "populationFrequency": null,
@@ -1750,8 +1838,9 @@
     },
     {
       "name": "*9",
-      "id": "623005",
+      "id": "726822",
       "alleles": [
+        null,
         null,
         null,
         null,

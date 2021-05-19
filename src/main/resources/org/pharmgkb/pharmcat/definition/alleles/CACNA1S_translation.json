@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Apr 15, 2021 02:08:24 PM",
+  "modificationDate": "May 19, 2021 03:11:19 PM",
   "gene": "CACNA1S",
   "orientation": null,
   "chromosome": "chr1",
@@ -47,7 +47,7 @@
   "namedAlleles": [
     {
       "name": "Reference",
-      "id": "622720",
+      "id": "726536",
       "alleles": [
         "C",
         "G"
@@ -57,7 +57,7 @@
     },
     {
       "name": "c.3257G>A",
-      "id": "622724",
+      "id": "726540",
       "alleles": [
         "T",
         null
@@ -67,7 +67,7 @@
     },
     {
       "name": "c.520C>T",
-      "id": "622722",
+      "id": "726538",
       "alleles": [
         null,
         "A"

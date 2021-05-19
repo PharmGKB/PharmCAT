@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Apr 15, 2021 02:08:31 PM",
+  "modificationDate": "May 19, 2021 03:11:25 PM",
   "gene": "CYP3A5",
   "orientation": null,
   "chromosome": "chr7",
@@ -148,7 +148,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "623673",
+      "id": "727492",
       "alleles": [
         "G",
         "del",
@@ -164,7 +164,7 @@
     },
     {
       "name": "*2",
-      "id": "623675",
+      "id": "727494",
       "alleles": [
         "T",
         null,
@@ -180,7 +180,7 @@
     },
     {
       "name": "*3",
-      "id": "623677",
+      "id": "727496",
       "alleles": [
         "K",
         null,
@@ -196,7 +196,7 @@
     },
     {
       "name": "*4",
-      "id": "623679",
+      "id": "727498",
       "alleles": [
         null,
         null,
@@ -212,7 +212,7 @@
     },
     {
       "name": "*5",
-      "id": "623681",
+      "id": "727500",
       "alleles": [
         null,
         null,
@@ -228,7 +228,7 @@
     },
     {
       "name": "*6",
-      "id": "623683",
+      "id": "727502",
       "alleles": [
         null,
         null,
@@ -244,7 +244,7 @@
     },
     {
       "name": "*7",
-      "id": "623685",
+      "id": "727504",
       "alleles": [
         null,
         "insA",
@@ -260,7 +260,7 @@
     },
     {
       "name": "*8",
-      "id": "623687",
+      "id": "727506",
       "alleles": [
         null,
         null,
@@ -276,7 +276,7 @@
     },
     {
       "name": "*9",
-      "id": "623689",
+      "id": "727508",
       "alleles": [
         null,
         null,

@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Apr 15, 2021 02:08:38 PM",
+  "modificationDate": "May 19, 2021 03:11:30 PM",
   "gene": "VKORC1",
   "orientation": null,
   "chromosome": "chr16",
@@ -35,7 +35,7 @@
   "namedAlleles": [
     {
       "name": "rs9923231 reference (C)",
-      "id": "624962",
+      "id": "728781",
       "alleles": [
         "C"
       ],
@@ -44,7 +44,7 @@
     },
     {
       "name": "rs9923231 variant (T)",
-      "id": "624964",
+      "id": "728783",
       "alleles": [
         "T"
       ],
