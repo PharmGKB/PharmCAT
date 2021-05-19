@@ -22,12 +22,12 @@ import org.pharmgkb.pharmcat.definition.model.VariantType;
  */
 public class SampleAllele implements Comparable<SampleAllele> {
   static boolean STRICT_CHECKING = false;
-  private String m_chromosome;
-  private int m_position;
-  private String m_allele1;
+  private final String m_chromosome;
+  private final int m_position;
+  private final String m_allele1;
   private String m_allele2;
-  private boolean m_isPhased;
-  private List<String> m_vcfAlleles;
+  private final boolean m_isPhased;
+  private final List<String> m_vcfAlleles;
 
   public SampleAllele(String chromosome, long position, String a1, @Nullable String a2,
       boolean isPhased, List<String> vcfAlleles) {
@@ -122,7 +122,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
       // VCF:         TC  -> TCA
       // definition:  del -> insA
       a1 = convertInsertion(m_allele1);
-      a2 = convertInsertion(m_allele2);
+      a2 = m_allele2 == null ? null : convertInsertion(m_allele2);
 
     } else if (variant.getType() == VariantType.DEL) {
       if (!isVcfAlleleADeletion()) {
@@ -131,7 +131,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
       // VCF:         TC -> T
       // definition:  C  -> delC
       a1 = convertDeletion(variant, m_allele1);
-      a2 = convertDeletion(variant, m_allele2);
+      a2 = m_allele2 == null ? null : convertDeletion(variant, m_allele2);
     } else if (variant.getType() == VariantType.REPEAT) {
       // VCF:         ATAA -> ATATATATATATATATAA
       // definition:  A(TA)6TAA  -> A(TA)7TAA
@@ -143,7 +143,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
       String repeat = m.group(2);
       String postfix = m.group(4);
       a1 = convertRepeat(variant, prefix, repeat, postfix, m_allele1);
-      a2 = convertRepeat(variant, prefix, repeat, postfix, m_allele2);
+      a2 = m_allele2 == null ? null : convertRepeat(variant, prefix, repeat, postfix, m_allele2);
     }
     return new SampleAllele(m_chromosome, m_position, a1, a2, m_isPhased, m_vcfAlleles);
   }
@@ -164,8 +164,11 @@ public class SampleAllele implements Comparable<SampleAllele> {
     }
 
     // must be an ALT, and therefore longer than REF
-    Preconditions.checkState(allele.length() > ref.length(), "Not an insertion: " + ref + " >" + allele);
-    return "ins" + allele.substring(ref.length());
+    if (allele.length() > ref.length()) {
+      return "ins" + allele.substring(ref.length());
+    }
+    // not an insertion
+    return allele;
   }
 
   /**
