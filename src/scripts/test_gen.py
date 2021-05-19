@@ -43,6 +43,7 @@ final call.
 #      will PharmCAT parse the '*' symbol correctly in that context?
 
 import collections
+import csv
 import datetime
 import itertools
 import json
@@ -50,7 +51,6 @@ import math
 import os
 import re
 import sys
-import csv
 
 
 # TODO: a proper argparse handler!
@@ -141,28 +141,28 @@ def updateVarAlleles(jsondef, vcfref):
 
     for i,variant in enumerate(sorted(jsondef["variants"], key= lambda i: i['position'])):
        variant['_vcfidx'] = i
-        if variant['rsid'] is not None and variant['rsid'] != vcfref[gene][i]["ID"]:
-            sys.exit("ERROR: '%s' doesn't match any ID in VCF" % variant['rsid'])
+       if variant['rsid'] is not None and variant['rsid'] != vcfref[gene][i]["ID"]:
+           sys.exit("ERROR: '%s' doesn't match any ID in VCF" % variant['rsid'])
 
-        # look for ins/del and update from VCF reference
-        if any(allpattern.match(allele) for allele in jsondef["variantAlleles"][variant['_jsonidx']]):
-            variant["position"] = vcfref[gene][i]["POS"]
-            vmap={}
-            prebase=vcfref[gene][i]["REF"][0]
-            # update indels with base before event (from VCF reference)
-            for j,allele in enumerate(jsondef["variantAlleles"][variant['_jsonidx']]):
-                if delpattern.match(allele):
-                    vmap[allele] = prebase
-                elif inspattern.match(allele):
-                    vmap[allele] = prebase + allele[3:]
-                else:
-                    vmap[allele] = prebase+allele
-                jsondef['variantAlleles'][variant['_jsonidx']][j] = vmap[allele]
-            # for j, allele
-            for na in jsondef['namedAlleles']:
-                if na["alleles"][variant['_jsonidx']]:
-                        na["alleles"][variant['_jsonidx']] = vmap[na["alleles"][variant['_jsonidx']]]
-            # for na
+       # look for ins/del and update from VCF reference
+       if any(allpattern.match(allele) for allele in jsondef["variantAlleles"][variant['_jsonidx']]):
+           variant["position"] = vcfref[gene][i]["POS"]
+           vmap={}
+           prebase=vcfref[gene][i]["REF"][0]
+           # update indels with base before event (from VCF reference)
+           for j,allele in enumerate(jsondef["variantAlleles"][variant['_jsonidx']]):
+               if delpattern.match(allele):
+                   vmap[allele] = prebase
+               elif inspattern.match(allele):
+                   vmap[allele] = prebase + allele[3:]
+               else:
+                   vmap[allele] = prebase+allele
+               jsondef['variantAlleles'][variant['_jsonidx']][j] = vmap[allele]
+           # for j, allele
+           for na in jsondef['namedAlleles']:
+               if na["alleles"][variant['_jsonidx']]:
+                       na["alleles"][variant['_jsonidx']] = vmap[na["alleles"][variant['_jsonidx']]]
+           # for na
         # isindel?
     # for i, variant
 # updateVarAlleles()
@@ -248,14 +248,14 @@ def joinMatches(matches):
 # load the named allele definitions
 defPath = sys.argv[1]
 
-print(f"Loading '{defPath}' ... ")
+print(f"Loading '{defPath}'...")
 with open(defPath, 'r') as defFile:
     definition = json.load(defFile)
 # with defFile
 
 # update indel variants with information from positions VCF
 vcfPath = sys.argv[2]
-print(f"Loading.'{vcfPath}")
+print(f"Loading '{vcfPath}'...")
 vcfreference = parseVCF(vcfPath)
 updateVarAlleles(definition,vcfreference)
 
@@ -264,7 +264,7 @@ if len(definition['variants']) != len(definition['variantAlleles']):
 print(f"done: {len(definition['variants'])} variants, {len(definition['namedAlleles'])} named alleles\n")
 
 # scan named alleles and identify the referent named allele
-print("Scanning named alleles ... ")
+print("Scanning named alleles...")
 namedalleles = list()
 refNamedallele = None
 for namedallele in definition['namedAlleles']:
@@ -295,7 +295,7 @@ for namedallele in definition['namedAlleles']:
 print("done\n")
 
 # validate referent allele
-print("Checking nucleic code notations ... ")
+print("Checking nucleic code notations...")
 unalleles = set()
 for i, a in refNamedallele['_mindef'].items():
     if a.startswith('del'):
@@ -341,7 +341,7 @@ unalleleOffset = 0
 print(f"done: {len(unalleles)} possible unknown alleles\n")
 
 # generate basic tests
-print("Generating test cases ... ")
+print("Generating test cases...")
 tests = collections.defaultdict(set)
 first = True
 for namedallele in namedalleles:
