@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -201,7 +202,7 @@ public class NamedAlleleMatcher {
 
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     SortedSet<VariantLocus> extraPositions = null;
-    List<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene);
+    SortedSet<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene);
     VariantLocus[] allPositions = m_definitionReader.getPositions(gene);
     SortedSet<VariantLocus> unusedPositions = null;
     if (exemption != null) {
@@ -219,7 +220,7 @@ public class NamedAlleleMatcher {
     if (exemption != null) {
       alleles = alleles.stream()
           .filter(a -> !exemption.shouldIgnoreAllele(a.getName()))
-          .collect(Collectors.toList());
+          .collect(Collectors.toCollection(TreeSet::new));
     }
     // handle missing positions (if any)
     data.marshallHaplotypes(alleles);
@@ -241,14 +242,15 @@ public class NamedAlleleMatcher {
    * Find positions that are only used by ignored alleles (and therefore should be eliminated from consideration).
    */
   private SortedSet<VariantLocus> findUnusedPositions(DefinitionExemption exemption, VariantLocus[] allPositions,
-      List<NamedAllele> namedAlleles) {
+      SortedSet<NamedAllele> namedAlleles) {
 
     SortedSet<VariantLocus> unusedPositions = new TreeSet<>();
     if (exemption.getIgnoredAlleles().isEmpty()) {
       return unusedPositions;
     }
 
-    List<NamedAllele> variantNamedAlleles = namedAlleles.subList(1, namedAlleles.size() - 1);
+    List<NamedAllele> allAlleles = new ArrayList<>(namedAlleles);
+    List<NamedAllele> variantNamedAlleles = allAlleles.subList(1, namedAlleles.size() - 1);
     Set<VariantLocus> ignorablePositions = new HashSet<>();
     for (NamedAllele namedAllele : variantNamedAlleles) {
       if (exemption.shouldIgnoreAllele(namedAllele.getName())) {

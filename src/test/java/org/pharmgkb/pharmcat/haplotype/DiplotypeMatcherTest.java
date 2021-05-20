@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
@@ -36,7 +37,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  */
 class DiplotypeMatcherTest {
   private static VariantLocus[] s_positions;
-  private static List<NamedAllele> s_haplotypes;
+  private static final SortedSet<NamedAllele> s_haplotypes = new TreeSet<>();
 
 
   @BeforeAll
@@ -62,7 +63,10 @@ class DiplotypeMatcherTest {
     NamedAllele hap4 = new NamedAllele("*17", "*17", new String[] { null, "T", "T" }, false);
     hap4.initialize(s_positions);
 
-    s_haplotypes = Lists.newArrayList(hap1, hap2, hap3, hap4);
+    s_haplotypes.add(hap1);
+    s_haplotypes.add(hap2);
+    s_haplotypes.add(hap3);
+    s_haplotypes.add(hap4);
 
     /*
             | 1 | 2 | 3 |
@@ -212,7 +216,7 @@ class DiplotypeMatcherTest {
     sampleAlleleMap.put("chr1:4", new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C")));
 
     MatchData dataset = new MatchData(sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes(Lists.newArrayList(hap1, hap2, hap3));
+    dataset.marshallHaplotypes(new TreeSet<>(Lists.newArrayList(hap1, hap2, hap3)));
     dataset.generateSamplePermutations();
     assertThat(dataset.getPermutations(), equalTo(permutations));
 

@@ -60,7 +60,7 @@ public class DefinitionFile {
   private Map<VariantLocus, Set<String>> m_variantAllelesMap;
   @Expose
   @SerializedName("namedAlleles")
-  private List<NamedAllele> m_namedAlleles;
+  private SortedSet<NamedAllele> m_namedAlleles;
   private final SortedMap<String, VariantLocus> m_rsidMap = new TreeMap<>();
 
 
@@ -272,17 +272,17 @@ public class DefinitionFile {
   /**
    * All the named alleles defined in this translation
    */
-  public List<NamedAllele> getNamedAlleles() {
+  public SortedSet<NamedAllele> getNamedAlleles() {
     return m_namedAlleles;
   }
 
-  public void setNamedAlleles(List<NamedAllele> namedAlleles) {
+  public void setNamedAlleles(SortedSet<NamedAllele> namedAlleles) {
     m_namedAlleles = namedAlleles;
   }
 
   public void addNamedAllele(NamedAllele allele) {
     if (m_namedAlleles == null) {
-      m_namedAlleles = new ArrayList<>();
+      m_namedAlleles = new TreeSet<>();
     }
     m_namedAlleles.add(allele);
   }
@@ -359,7 +359,7 @@ public class DefinitionFile {
     setVariants(newPositions);
     m_variantAlleles = newVariantAlleles;
 
-    List<NamedAllele> updatedNamedAlleles = new ArrayList<>();
+    SortedSet<NamedAllele> updatedNamedAlleles = new TreeSet<>();
     for (NamedAllele namedAllele : m_namedAlleles) {
       String[] alleles = new String[namedAllele.getAlleles().length - ignoredPositions.size()];
       if (newPositions.length != alleles.length) {

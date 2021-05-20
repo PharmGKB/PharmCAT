@@ -2,6 +2,8 @@ package org.pharmgkb.pharmcat.definition.model;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 
@@ -53,5 +55,17 @@ class NamedAlleleTest {
     String seq = "1:C;2:C;3:C;4:C;";
     Pattern p = Pattern.compile("1:C;2:.?;3:.?;4:[CT];");
     assertTrue(p.matcher(seq).matches());
+  }
+
+
+  @Test
+  void testSorting() {
+
+    NamedAllele nonRef = new NamedAllele("1", "*1", new String[] {"A"}, false);
+    NamedAllele ref    = new NamedAllele("2", "*2", new String[] {"A"}, true);
+    SortedSet<NamedAllele> set = new TreeSet<>();
+    set.add(nonRef);
+    set.add(ref);
+    assertEquals(ref, set.first());
   }
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
+import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
@@ -68,7 +69,7 @@ public class DefinitionReader {
   }
 
 
-  public List<NamedAllele> getHaplotypes(String gene) {
+  public SortedSet<NamedAllele> getHaplotypes(String gene) {
     Preconditions.checkArgument(m_definitionFiles.containsKey(gene));
     return m_definitionFiles.get(gene).getNamedAlleles();
   }

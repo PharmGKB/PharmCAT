@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 import com.google.common.collect.Multimap;
@@ -65,16 +66,17 @@ public class VariantReportFactory {
     }
 
     VariantLocus[] allVariants = definitionFile.getVariants();
+    Iterator<NamedAllele> it = definitionFile.getNamedAlleles().iterator();
 
-    NamedAllele wildNamedAllele = definitionFile.getNamedAlleles().get(0);
+    NamedAllele wildNamedAllele = it.next();
     wildNamedAllele.initialize(definitionFile.getVariants());
     for (VariantLocus v : allVariants) {
       m_wildAlleleMap.put(v.getPosition(), wildNamedAllele.getAllele(v));
     }
 
     // purposely skip the first allele since it's "default"
-    for (int j = 1; j < definitionFile.getNamedAlleles().size(); j++) {
-      NamedAllele namedAllele = definitionFile.getNamedAlleles().get(j);
+    while (it.hasNext()) {
+      NamedAllele namedAllele = it.next();
 
       String[] definingAlleles = namedAllele.getAlleles();
       for (int i = 0; i < definingAlleles.length; i++) {

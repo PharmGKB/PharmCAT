@@ -42,7 +42,7 @@ public class MatchData {
   @Expose
   @SerializedName("mismatchedAlleles")
   private final SortedSet<VariantLocus> m_mismatchedAlleles = new TreeSet<>();
-  private List<NamedAllele> m_haplotypes;
+  private SortedSet<NamedAllele> m_haplotypes;
   private Set<String> m_permutations;
 
 
@@ -111,14 +111,14 @@ public class MatchData {
    * Organizes the {@link NamedAllele} data for analysis.
    * This will also reorganize haplotypes to deal with samples that have missing alleles.
    */
-  void marshallHaplotypes(List<NamedAllele> allHaplotypes) {
+  void marshallHaplotypes(SortedSet<NamedAllele> allHaplotypes) {
 
     if (m_missingPositions.isEmpty() && m_ignoredPositions.isEmpty()) {
       m_haplotypes = allHaplotypes;
 
     } else {
       // handle missing positions by duplicating haplotype and eliminating missing positions
-      m_haplotypes = new ArrayList<>();
+      m_haplotypes = new TreeSet<>();
       for (NamedAllele hap : allHaplotypes) {
         // get alleles for positions we have data on
         String[] availableAlleles = new String[m_positions.length];
@@ -146,7 +146,7 @@ public class MatchData {
    */
   void defaultMissingAllelesToReference() {
 
-    List<NamedAllele> updatedHaplotypes = new ArrayList<>();
+    SortedSet<NamedAllele> updatedHaplotypes = new TreeSet<>();
     NamedAllele referenceHaplotype = null;
     for (NamedAllele hap : m_haplotypes) {
       if (referenceHaplotype == null) {
@@ -248,10 +248,10 @@ public class MatchData {
   /**
    * Gets the callable haplotypes for the gene based on the available positions.
    */
-  public List<NamedAllele> getHaplotypes() {
+  public SortedSet<NamedAllele> getHaplotypes() {
     if (m_haplotypes == null) {
       if (m_sampleMap.size() == 0) {
-        return Collections.emptyList();
+        return Collections.emptySortedSet();
       }
       throw new IllegalStateException("Not initialized - call marshallHaplotypes()");
     }

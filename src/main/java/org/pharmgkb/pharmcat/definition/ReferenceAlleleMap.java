@@ -21,7 +21,7 @@ public class ReferenceAlleleMap {
       DefinitionReader definitionReader = new DefinitionReader();
       definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
       definitionReader.getGenes()
-          .forEach(g -> f_refAlleleForGene.put(g, definitionReader.getHaplotypes(g).get(0).getName()));
+          .forEach(g -> f_refAlleleForGene.put(g, definitionReader.getHaplotypes(g).first().getName()));
     } catch (IOException ex) {
       throw new RuntimeException("Error loading reference allele map", ex);
     }
