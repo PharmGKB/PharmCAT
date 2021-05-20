@@ -3,11 +3,11 @@
     "namedAlleleMatcherVersion": "1.0.0",
     "genomeBuild": "b38",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "Apr 22, 2021, 11:02:13 AM"
+    "timestamp": "May 20, 2021, 1:37:19 PM"
   },
   "results": [
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr1",
       "gene": "CACNA1S",
       "diplotypes": [
@@ -58,7 +58,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr7",
       "gene": "CFTR",
       "diplotypes": [
@@ -294,7 +294,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr19",
       "gene": "CYP2B6",
       "diplotypes": [
@@ -417,7 +417,7 @@
         },
         {
           "position": 41006968,
-          "rsid": null,
+          "rsid": "rs373489637",
           "vcfCall": "T|T"
         },
         {
@@ -487,7 +487,7 @@
         },
         {
           "position": 41016778,
-          "rsid": null,
+          "rsid": "rs564083989",
           "vcfCall": "G|G"
         },
         {
@@ -510,32 +510,32 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
         {
-          "name": "*1/*1",
+          "name": "*38/*38",
           "haplotype1": {
-            "name": "*1",
+            "name": "*38",
             "sequences": [
-              "94761900:C;94762706:A;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;"
+              "94761900:C;94762706:A;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775423:A;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;"
             ]
           },
           "haplotype2": {
-            "name": "*1",
+            "name": "*38",
             "sequences": [
-              "94761900:C;94762706:A;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;"
+              "94761900:C;94762706:A;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775423:A;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;"
             ]
           },
-          "score": 64
+          "score": 66
         }
       ],
       "haplotypes": [
         {
-          "name": "*1",
+          "name": "*38",
           "sequences": [
-            "94761900:C;94762706:A;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;"
+            "94761900:C;94762706:A;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775423:A;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;"
           ]
         }
       ],
@@ -573,12 +573,12 @@
         },
         {
           "position": 94762788,
-          "rsid": null,
+          "rsid": "rs1564656981",
           "vcfCall": "A|A"
         },
         {
           "position": 94762856,
-          "rsid": null,
+          "rsid": "rs1564657013",
           "vcfCall": "A|A"
         },
         {
@@ -588,7 +588,7 @@
         },
         {
           "position": 94775121,
-          "rsid": null,
+          "rsid": "rs1564660997",
           "vcfCall": "C|C"
         },
         {
@@ -598,7 +598,7 @@
         },
         {
           "position": 94775185,
-          "rsid": null,
+          "rsid": "rs1288601658",
           "vcfCall": "A|A"
         },
         {
@@ -610,6 +610,11 @@
           "position": 94775416,
           "rsid": "rs41291556",
           "vcfCall": "T|T"
+        },
+        {
+          "position": 94775423,
+          "rsid": "rs17885179",
+          "vcfCall": "A|A"
         },
         {
           "position": 94775453,
@@ -653,7 +658,7 @@
         },
         {
           "position": 94781944,
-          "rsid": null,
+          "rsid": "rs375781227",
           "vcfCall": "G|G"
         },
         {
@@ -711,7 +716,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr10",
       "gene": "CYP2C9",
       "diplotypes": [
@@ -720,33 +725,28 @@
           "haplotype1": {
             "name": "*1",
             "sequences": [
-              "94936917:T;94938683:A;94938737:C;94938771:C;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941976:G;94941982:G;94942018:T;94942212:AGAAATGGAA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94949129:A;94949144:C;94949217:A;94949280:A;94949282:A;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
+              "94938683:A;94938737:C;94938771:C;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941976:G;94941982:G;94942018:T;94942212:AGAAATGGAA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94949129:A;94949144:C;94949217:A;94949280:A;94949282:A;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
             ]
           },
           "haplotype2": {
             "name": "*1",
             "sequences": [
-              "94936917:T;94938683:A;94938737:C;94938771:C;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941976:G;94941982:G;94942018:T;94942212:AGAAATGGAA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94949129:A;94949144:C;94949217:A;94949280:A;94949282:A;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
+              "94938683:A;94938737:C;94938771:C;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941976:G;94941982:G;94942018:T;94942212:AGAAATGGAA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94949129:A;94949144:C;94949217:A;94949280:A;94949282:A;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
             ]
           },
-          "score": 134
+          "score": 132
         }
       ],
       "haplotypes": [
         {
           "name": "*1",
           "sequences": [
-            "94936917:T;94938683:A;94938737:C;94938771:C;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941976:G;94941982:G;94942018:T;94942212:AGAAATGGAA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94949129:A;94949144:C;94949217:A;94949280:A;94949282:A;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
+            "94938683:A;94938737:C;94938771:C;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941976:G;94941982:G;94942018:T;94942212:AGAAATGGAA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94949129:A;94949144:C;94949217:A;94949280:A;94949282:A;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
           ]
         }
       ],
       "phased": true,
       "variants": [
-        {
-          "position": 94936917,
-          "rsid": "rs9332094",
-          "vcfCall": "T|T"
-        },
         {
           "position": 94938683,
           "rsid": "rs114071557",
@@ -804,12 +804,12 @@
         },
         {
           "position": 94942213,
-          "rsid": null,
+          "rsid": "rs1304490498",
           "vcfCall": "AGAAATGGAA|AGAAATGGAA"
         },
         {
           "position": 94942216,
-          "rsid": null,
+          "rsid": "rs774607211",
           "vcfCall": "A|A"
         },
         {
@@ -889,7 +889,7 @@
         },
         {
           "position": 94947917,
-          "rsid": null,
+          "rsid": "rs1326630788",
           "vcfCall": "T|T"
         },
         {
@@ -944,12 +944,12 @@
         },
         {
           "position": 94972180,
-          "rsid": null,
+          "rsid": "rs988617574",
           "vcfCall": "C|C"
         },
         {
           "position": 94972233,
-          "rsid": null,
+          "rsid": "rs1237225311",
           "vcfCall": "C|C"
         },
         {
@@ -974,7 +974,7 @@
         },
         {
           "position": 94981230,
-          "rsid": null,
+          "rsid": "rs1274535931",
           "vcfCall": "C|C"
         },
         {
@@ -1004,7 +1004,7 @@
         },
         {
           "position": 94981302,
-          "rsid": null,
+          "rsid": "rs1250577724",
           "vcfCall": "C|C"
         },
         {
@@ -1074,7 +1074,7 @@
         },
         {
           "position": 94989023,
-          "rsid": null,
+          "rsid": "rs868182778",
           "vcfCall": "G|G"
         }
       ],
@@ -1082,7 +1082,7 @@
         {
           "position": 94645745,
           "rsid": "rs12777823",
-          "vcfCall": "G/A"
+          "vcfCall": "G|G"
         }
       ],
       "matchData": {
@@ -1093,7 +1093,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr22",
       "gene": "CYP2D6",
       "diplotypes": [],
@@ -1105,496 +1105,12 @@
         "missingPositions": [
           {
             "chromosome": "chr22",
-            "position": 42127526,
-            "rsid": "rs1058172",
-            "chromosomeHgvsName": "g.42127526C\u003eT",
-            "geneHgvsName": "g.7466G\u003eA",
-            "proteinNote": "R365H",
-            "resourceNote": "3266G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128218,
-            "rsid": "rs72549352",
-            "chromosomeHgvsName": "g.42128218_42128219insG",
-            "geneHgvsName": "g.6780_6781insC",
-            "proteinNote": "Frameshift",
-            "resourceNote": "2580_2581insC",
-            "type": "INS",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129166,
-            "rsid": "rs766391487",
-            "chromosomeHgvsName": "g.42129166A\u003eC",
-            "geneHgvsName": "g.5826T\u003eG",
-            "proteinNote": "Y124X",
-            "resourceNote": "1626T\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129887,
-            "rsid": "rs1456026511",
-            "chromosomeHgvsName": "g.42129887A\u003eC",
-            "geneHgvsName": "g.5105T\u003eG",
-            "proteinNote": "V68G",
-            "resourceNote": "905T\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129827,
-            "rsid": "rs267608276",
-            "chromosomeHgvsName": "g.42129827C\u003eG",
-            "geneHgvsName": "g.5165G\u003eC",
-            "proteinNote": "R88P",
-            "resourceNote": "965G\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126746,
-            "rsid": "rs532668079",
-            "chromosomeHgvsName": "g.42126746C\u003eT",
-            "geneHgvsName": "g.8246G\u003eA",
-            "proteinNote": "R441H",
-            "resourceNote": "4046G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126749,
-            "rsid": "rs267608319",
-            "chromosomeHgvsName": "g.42126749C\u003eT",
-            "geneHgvsName": "g.8243G\u003eA",
-            "proteinNote": "R440H",
-            "resourceNote": "4043G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127852,
-            "rsid": "rs79292917",
-            "chromosomeHgvsName": "g.42127852C\u003eT",
-            "geneHgvsName": "g.7140G\u003eA",
-            "proteinNote": "P325\u003d(effect)",
-            "resourceNote": "2940G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42130668,
-            "rsid": "rs5030862",
-            "chromosomeHgvsName": "g.42130668C\u003eT",
-            "geneHgvsName": "g.4324G\u003eA",
-            "proteinNote": "G42R",
-            "resourceNote": "124G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127941,
-            "rsid": "rs16947",
-            "chromosomeHgvsName": "g.42127941G\u003eA",
-            "geneHgvsName": "g.7051C\u003eT",
-            "proteinNote": "R296C",
-            "resourceNote": "2851C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129779,
-            "rsid": "rs76187628",
-            "chromosomeHgvsName": "g.42129779A\u003eG",
-            "geneHgvsName": "g.5213T\u003eC",
-            "proteinNote": "V104A",
-            "resourceNote": "1013T\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126634,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42126634A\u003eC",
-            "geneHgvsName": "g.8358T\u003eG",
-            "proteinNote": "H478Q",
-            "resourceNote": "4158T\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126926,
-            "rsid": "rs747089665",
-            "chromosomeHgvsName": "g.42126926G\u003eA",
-            "geneHgvsName": "g.8066C\u003eT",
-            "proteinNote": "R414C",
-            "resourceNote": "3866C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129183,
-            "rsid": "rs374616348",
-            "chromosomeHgvsName": "g.42129183C\u003eT",
-            "geneHgvsName": "g.5809G\u003eA",
-            "proteinNote": "V119M",
-            "resourceNote": "1609G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126633,
-            "rsid": "rs1135837",
-            "chromosomeHgvsName": "g.42126633C\u003eG",
-            "geneHgvsName": "g.8359G\u003eC",
-            "proteinNote": "G479R",
-            "resourceNote": "4159G\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127631,
-            "rsid": "rs141009491",
-            "chromosomeHgvsName": "g.42127631C\u003eG",
-            "geneHgvsName": "g.7361G\u003eC",
-            "proteinNote": "R330P",
-            "resourceNote": "3161G\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126981,
-            "rsid": "rs757396767",
-            "chromosomeHgvsName": "g.42126981delGA",
-            "geneHgvsName": "g.8010delTC",
-            "proteinNote": "Frameshift",
-            "resourceNote": "3810delTC",
-            "type": "DEL",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126752,
-            "rsid": "rs569439709",
-            "chromosomeHgvsName": "g.42126752C\u003eT",
-            "geneHgvsName": "g.8240G\u003eA",
-            "proteinNote": "G439D",
-            "resourceNote": "4040G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129113,
-            "rsid": "rs375135093",
-            "chromosomeHgvsName": "g.42129113A\u003eG",
-            "geneHgvsName": "g.5879T\u003eC",
-            "proteinNote": "L142S",
-            "resourceNote": "1679T\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128325,
-            "rsid": "rs17002853",
-            "chromosomeHgvsName": "g.42128325A\u003eG",
-            "geneHgvsName": "g.6667T\u003eC",
-            "proteinNote": "L231P",
-            "resourceNote": "2467T\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126660,
-            "rsid": "rs1135835",
-            "chromosomeHgvsName": "g.42126660T\u003eC",
-            "geneHgvsName": "g.8332A\u003eG",
-            "proteinNote": "T470A",
-            "resourceNote": "4132A\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129134,
-            "rsid": "rs781457579",
-            "chromosomeHgvsName": "g.42129134G\u003eA",
-            "geneHgvsName": "g.5858C\u003eT",
-            "proteinNote": "S135F",
-            "resourceNote": "1658C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128217,
-            "rsid": "rs148769737",
-            "chromosomeHgvsName": "g.42128217G\u003eT",
-            "geneHgvsName": "g.6775C\u003eA",
-            "proteinNote": "P267H",
-            "resourceNote": "2575C\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129071,
-            "rsid": "rs267608302",
-            "chromosomeHgvsName": "g.42129071T\u003eG; g.42129071T\u003eA",
-            "geneHgvsName": "g.5921A\u003eC; g.5921A\u003eT",
-            "proteinNote": "E156A; E156V",
-            "resourceNote": "1721A\u003eC; 1721A\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126611,
-            "rsid": "rs1135840",
-            "chromosomeHgvsName": "g.42126611C\u003eG",
-            "geneHgvsName": "g.8381G\u003eC",
-            "proteinNote": "S486T",
-            "resourceNote": "4181G\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128308,
-            "rsid": "rs28371717",
-            "chromosomeHgvsName": "g.42128308C\u003eA",
-            "geneHgvsName": "g.6684G\u003eT",
-            "proteinNote": "A237S",
-            "resourceNote": "2484G\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128181,
-            "rsid": "rs1135828",
-            "chromosomeHgvsName": "g.42128181A\u003eT",
-            "geneHgvsName": "g.6811T\u003eA",
-            "proteinNote": "M279K",
-            "resourceNote": "2611T\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128174,
-            "rsid": "rs5030656",
-            "chromosomeHgvsName": "g.42128174delCTT",
-            "geneHgvsName": "g.6816delAAG",
-            "proteinNote": "K281del",
-            "resourceNote": "2616delAAG",
-            "type": "DEL",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126627,
-            "rsid": "rs1135838",
-            "chromosomeHgvsName": "g.42126627A\u003eC",
-            "geneHgvsName": "g.8365T\u003eG",
-            "proteinNote": "F481V",
-            "resourceNote": "4165T\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129132,
-            "rsid": "rs61736512",
-            "chromosomeHgvsName": "g.42129132C\u003eT",
-            "geneHgvsName": "g.5860G\u003eA",
-            "proteinNote": "V136M",
-            "resourceNote": "1660G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128329,
-            "rsid": "rs373813287",
-            "chromosomeHgvsName": "g.42128329G\u003eA",
-            "geneHgvsName": "g.6663C\u003eT",
-            "proteinNote": "L230F",
-            "resourceNote": "2463C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128903,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42128903_42128904insTA",
-            "geneHgvsName": "g.6088_6089insTA",
-            "proteinNote": "S183X",
-            "resourceNote": "1888-1889insTA",
-            "type": "INS",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127589,
-            "rsid": "rs76088846",
-            "chromosomeHgvsName": "g.42127589C\u003eT",
-            "geneHgvsName": "g.7403G\u003eA",
-            "proteinNote": "R344Q",
-            "resourceNote": "3203G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127608,
-            "rsid": "rs59421388",
-            "chromosomeHgvsName": "g.42127608C\u003eT",
-            "geneHgvsName": "g.7384G\u003eA",
-            "proteinNote": "V338M",
-            "resourceNote": "3184G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127938,
-            "rsid": "rs949717872",
-            "chromosomeHgvsName": "g.42127938T\u003eG",
-            "geneHgvsName": "g.7054A\u003eC",
-            "proteinNote": "I297L",
-            "resourceNote": "2854A\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129042,
-            "rsid": "rs1135824",
-            "chromosomeHgvsName": "g.42129042T\u003eC",
-            "geneHgvsName": "g.5950A\u003eG",
-            "proteinNote": "N166D",
-            "resourceNote": "1750A\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129765,
-            "rsid": "rs78459009",
-            "chromosomeHgvsName": "g.42129765T\u003eC",
-            "geneHgvsName": "g.5227A\u003eG",
-            "proteinNote": "I109V",
-            "resourceNote": "1027A\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126914,
-            "rsid": "rs28371733",
-            "chromosomeHgvsName": "g.42126914C\u003eT",
-            "geneHgvsName": "g.8078G\u003eA",
-            "proteinNote": "E418K",
-            "resourceNote": "3878G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128242,
-            "rsid": "rs35742686",
-            "chromosomeHgvsName": "g.42128242delT",
-            "geneHgvsName": "g.6750delA",
-            "proteinNote": "Frameshift",
-            "resourceNote": "2550delA",
-            "type": "DEL",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42130773,
-            "rsid": "rs72549358",
-            "chromosomeHgvsName": "g.42130773C\u003eT",
-            "geneHgvsName": "g.4219G\u003eA",
-            "proteinNote": "V7M",
-            "resourceNote": "19G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128272,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42128272T\u003eG",
-            "geneHgvsName": "g.6720A\u003eC",
-            "proteinNote": "T249P",
-            "resourceNote": "2520A\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127473,
-            "rsid": "rs75386357",
-            "chromosomeHgvsName": "g.42127473C\u003eT",
-            "geneHgvsName": "g.7519G\u003eA",
-            "proteinNote": "E383K",
-            "resourceNote": "3319G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42130728,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42130728delG",
-            "geneHgvsName": "g.4264delC",
-            "proteinNote": "L22X",
-            "resourceNote": "64delC",
-            "type": "DEL",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128212,
-            "rsid": "rs367543000",
-            "chromosomeHgvsName": "g.42128212G\u003eA",
-            "geneHgvsName": "g.6780C\u003eT",
-            "proteinNote": "R269X",
-            "resourceNote": "2580C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129910,
-            "rsid": "rs201377835",
-            "chromosomeHgvsName": "g.42129910C\u003eG",
-            "geneHgvsName": "g.5082G\u003eC",
-            "proteinNote": "Splicing defect",
-            "resourceNote": "882G\u003eC",
+            "position": 42129819,
+            "rsid": "rs28371703",
+            "chromosomeHgvsName": "g.42129819G\u003eT",
+            "geneHgvsName": "g.5992C\u003eA",
+            "proteinNote": "L91M",
+            "resourceNote": "973C\u003eA",
             "type": "SNP",
             "referenceRepeat": null
           },
@@ -1603,7 +1119,7 @@
             "position": 42126605,
             "rsid": "rs568495591",
             "chromosomeHgvsName": "g.42126605G\u003eA",
-            "geneHgvsName": "g.8387C\u003eT",
+            "geneHgvsName": "g.9206C\u003eT",
             "proteinNote": "S488F",
             "resourceNote": "4187C\u003eT",
             "type": "SNP",
@@ -1611,189 +1127,90 @@
           },
           {
             "chromosome": "chr22",
-            "position": 42126719,
-            "rsid": "rs369177208",
-            "chromosomeHgvsName": "g.42126719C\u003eT",
-            "geneHgvsName": "g.8273G\u003eA",
-            "proteinNote": "R450H",
-            "resourceNote": "4073G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127514,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42127514A\u003eG",
-            "geneHgvsName": "g.7478T\u003eC",
-            "proteinNote": "I369T",
-            "resourceNote": "3278T\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127523,
-            "rsid": "rs267608294",
-            "chromosomeHgvsName": "g.42127523A\u003eG",
-            "geneHgvsName": "g.7469T\u003eC",
-            "proteinNote": "F366S",
-            "resourceNote": "3269T\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126877,
-            "rsid": "rs3021084",
-            "chromosomeHgvsName": "g.42126877G\u003eA",
-            "geneHgvsName": "g.8115C\u003eT",
-            "proteinNote": "P430L",
-            "resourceNote": "3915C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128796,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42128796delG",
-            "geneHgvsName": "g.6196delC",
-            "proteinNote": "Frameshift",
-            "resourceNote": "1996delC",
-            "type": "DEL",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126624,
-            "rsid": "rs74478221",
-            "chromosomeHgvsName": "g.42126624C\u003eT",
-            "geneHgvsName": "g.8368G\u003eA",
-            "proteinNote": "A482T",
-            "resourceNote": "4168G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128201,
-            "rsid": "rs72549351",
-            "chromosomeHgvsName": "g.42128201delAGTC",
-            "geneHgvsName": "g.6788delGACT",
-            "proteinNote": "Frameshift",
-            "resourceNote": "2588delGACT",
-            "type": "DEL",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129180,
-            "rsid": "rs1135822",
-            "chromosomeHgvsName": "g.42129180A\u003eT",
-            "geneHgvsName": "g.5812T\u003eA",
-            "proteinNote": "F120I",
-            "resourceNote": "1612T\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42130719,
-            "rsid": "rs267608313",
-            "chromosomeHgvsName": "g.42130719G\u003eA",
-            "geneHgvsName": "g.4273C\u003eT",
-            "proteinNote": "R25W",
-            "resourceNote": "73C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127590,
-            "rsid": "rs72549347",
-            "chromosomeHgvsName": "g.42127590G\u003eA",
-            "geneHgvsName": "g.7402C\u003eT",
-            "proteinNote": "R344X",
-            "resourceNote": "3202C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129780,
-            "rsid": "rs267608308",
-            "chromosomeHgvsName": "g.42129780C\u003eT",
-            "geneHgvsName": "g.5212G\u003eA",
-            "proteinNote": "V104M",
-            "resourceNote": "1012G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127841,
-            "rsid": "rs72549349",
-            "chromosomeHgvsName": "g.42127841C\u003eG",
-            "geneHgvsName": "g.7151G\u003eC",
-            "proteinNote": "Splicing defect",
-            "resourceNote": "2951G\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126747,
-            "rsid": "rs730882251",
-            "chromosomeHgvsName": "g.42126747G\u003eA",
-            "geneHgvsName": "g.8245C\u003eT",
-            "proteinNote": "R441C",
-            "resourceNote": "4045C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129036,
-            "rsid": "rs1135826",
-            "chromosomeHgvsName": "g.42129036A\u003eC",
-            "geneHgvsName": "g.5956T\u003eG",
-            "proteinNote": "S168A",
-            "resourceNote": "1756T\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127610,
-            "rsid": "rs748712690",
-            "chromosomeHgvsName": "g.42127610T\u003eC",
-            "geneHgvsName": "g.7382A\u003eG",
-            "proteinNote": "D337G",
-            "resourceNote": "3182A\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129033,
-            "rsid": "rs5030865",
-            "chromosomeHgvsName": "g.42129033C\u003eT; g.42129033C\u003eA",
-            "geneHgvsName": "g.5959G\u003eA; g.5959G\u003eT",
-            "proteinNote": "G169R; G169X",
-            "resourceNote": "1759G\u003eA; 1759G\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128936,
-            "rsid": "rs72549356",
-            "chromosomeHgvsName": "g.42128936_42128937insGGGGCGAAA; g.42128936_42128937insGGGGCGAAAGGGGCGAAA",
-            "geneHgvsName": "g.6064_6065insTTTCGCCCC; g.6064_6065insTTTCGCCCCTTTCGCCCC",
-            "proteinNote": "P174_N175insFRP; P174_N175insFRPFRP",
-            "resourceNote": "1864_1865ins(TTTCGCCCC); 1864_1865ins(TTTCGCCCCTTTCGCCCC)",
+            "position": 42126657,
+            "rsid": "rs765776661",
+            "chromosomeHgvsName": "g.42126657_42126658insAGTGGGCAC",
+            "geneHgvsName": "g.9153_9154insGTGCCCACT",
+            "proteinNote": "dupVPT",
+            "resourceNote": "4134_4135insGTGCCCACT",
             "type": "INS",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129779,
+            "rsid": "rs76187628",
+            "chromosomeHgvsName": "g.42129779A\u003eG",
+            "geneHgvsName": "g.6032T\u003eC",
+            "proteinNote": "V104A",
+            "resourceNote": "1013T\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127526,
+            "rsid": "rs1058172",
+            "chromosomeHgvsName": "g.42127526C\u003eT",
+            "geneHgvsName": "g.8285G\u003eA",
+            "proteinNote": "R365H",
+            "resourceNote": "3266G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128945,
+            "rsid": "rs3892097",
+            "chromosomeHgvsName": "g.42128945C\u003eT",
+            "geneHgvsName": "g.6866G\u003eA",
+            "proteinNote": "Splicing defect/169fs",
+            "resourceNote": "1847G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129166,
+            "rsid": "rs766391487",
+            "chromosomeHgvsName": "g.42129166A\u003eC",
+            "geneHgvsName": "g.6645T\u003eG",
+            "proteinNote": "Y124X",
+            "resourceNote": "1626T\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127589,
+            "rsid": "rs76088846",
+            "chromosomeHgvsName": "g.42127589C\u003eT",
+            "geneHgvsName": "g.8222G\u003eA",
+            "proteinNote": "R344Q",
+            "resourceNote": "3203G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42130668,
+            "rsid": "rs5030862",
+            "chromosomeHgvsName": "g.42130668C\u003eT",
+            "geneHgvsName": "g.5143G\u003eA",
+            "proteinNote": "G42R",
+            "resourceNote": "124G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127631,
+            "rsid": "rs141009491",
+            "chromosomeHgvsName": "g.42127631C\u003eG",
+            "geneHgvsName": "g.8180G\u003eC",
+            "proteinNote": "R330P",
+            "resourceNote": "3161G\u003eC",
+            "type": "SNP",
             "referenceRepeat": null
           },
           {
@@ -1801,9 +1218,185 @@
             "position": 42129075,
             "rsid": "rs28371710",
             "chromosomeHgvsName": "g.42129075C\u003eT",
-            "geneHgvsName": "g.5917G\u003eA",
+            "geneHgvsName": "g.6736G\u003eA",
             "proteinNote": "E155K",
             "resourceNote": "1717G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126633,
+            "rsid": "rs1135837",
+            "chromosomeHgvsName": "g.42126633C\u003eG",
+            "geneHgvsName": "g.9178G\u003eC",
+            "proteinNote": "G479R",
+            "resourceNote": "4159G\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129821,
+            "rsid": "rs267608309",
+            "chromosomeHgvsName": "g.42129821G\u003eA",
+            "geneHgvsName": "g.5990C\u003eT",
+            "proteinNote": "A90V",
+            "resourceNote": "971C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129183,
+            "rsid": "rs374616348",
+            "chromosomeHgvsName": "g.42129183C\u003eT",
+            "geneHgvsName": "g.6628G\u003eA",
+            "proteinNote": "V119M",
+            "resourceNote": "1609G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127803,
+            "rsid": "rs28371725",
+            "chromosomeHgvsName": "g.42127803C\u003eT",
+            "geneHgvsName": "g.8008G\u003eA",
+            "proteinNote": "Splicing defect",
+            "resourceNote": "2989G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126634,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42126634A\u003eC",
+            "geneHgvsName": "g.9177T\u003eG",
+            "proteinNote": "H478Q",
+            "resourceNote": "4158T\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127973,
+            "rsid": "rs1135829",
+            "chromosomeHgvsName": "g.42127973T\u003eC",
+            "geneHgvsName": "g.7838A\u003eG",
+            "proteinNote": "N285S",
+            "resourceNote": "2819A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126624,
+            "rsid": "rs74478221",
+            "chromosomeHgvsName": "g.42126624C\u003eT",
+            "geneHgvsName": "g.9187G\u003eA",
+            "proteinNote": "A482T",
+            "resourceNote": "4168G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126749,
+            "rsid": "rs267608319",
+            "chromosomeHgvsName": "g.42126749C\u003eT",
+            "geneHgvsName": "g.9062G\u003eA",
+            "proteinNote": "R440H",
+            "resourceNote": "4043G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126746,
+            "rsid": "rs532668079",
+            "chromosomeHgvsName": "g.42126746C\u003eT",
+            "geneHgvsName": "g.9065G\u003eA",
+            "proteinNote": "R441H",
+            "resourceNote": "4046G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126938,
+            "rsid": "rs769157652",
+            "chromosomeHgvsName": "g.42126938C\u003eT",
+            "geneHgvsName": "g.8873G\u003eA",
+            "proteinNote": "E410K",
+            "resourceNote": "3854G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129174,
+            "rsid": "rs1135823",
+            "chromosomeHgvsName": "g.42129174C\u003eA",
+            "geneHgvsName": "g.6637G\u003eT",
+            "proteinNote": "A122S",
+            "resourceNote": "1618G\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129113,
+            "rsid": "rs375135093",
+            "chromosomeHgvsName": "g.42129113A\u003eG",
+            "geneHgvsName": "g.6698T\u003eC",
+            "proteinNote": "L142S",
+            "resourceNote": "1679T\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127602,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42127602C\u003eT",
+            "geneHgvsName": "g.8209G\u003eA",
+            "proteinNote": "G340R",
+            "resourceNote": "3190G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126735,
+            "rsid": "rs751092905",
+            "chromosomeHgvsName": "g.42126735C\u003eT",
+            "geneHgvsName": "g.9076G\u003eA",
+            "proteinNote": "G445R",
+            "resourceNote": "4057G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127608,
+            "rsid": "rs59421388",
+            "chromosomeHgvsName": "g.42127608C\u003eT",
+            "geneHgvsName": "g.8203G\u003eA",
+            "proteinNote": "V338M",
+            "resourceNote": "3184G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129180,
+            "rsid": "rs1135822",
+            "chromosomeHgvsName": "g.42129180A\u003eT",
+            "geneHgvsName": "g.6631T\u003eA",
+            "proteinNote": "F120I",
+            "resourceNote": "1612T\u003eA",
             "type": "SNP",
             "referenceRepeat": null
           },
@@ -1812,7 +1405,7 @@
             "position": 42130667,
             "rsid": "rs118203758",
             "chromosomeHgvsName": "g.42130667C\u003eT",
-            "geneHgvsName": "g.4325G\u003eA",
+            "geneHgvsName": "g.5144G\u003eA",
             "proteinNote": "G42E",
             "resourceNote": "125G\u003eA",
             "type": "SNP",
@@ -1823,53 +1416,9 @@
             "position": 42126636,
             "rsid": "rs28371735",
             "chromosomeHgvsName": "g.42126636G\u003eA",
-            "geneHgvsName": "g.8356C\u003eT",
+            "geneHgvsName": "g.9175C\u003eT",
             "proteinNote": "H478N",
             "resourceNote": "4156C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42130710,
-            "rsid": "rs138100349",
-            "chromosomeHgvsName": "g.42130710G\u003eA",
-            "geneHgvsName": "g.4282C\u003eT",
-            "proteinNote": "R28C",
-            "resourceNote": "82C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127602,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42127602C\u003eT",
-            "geneHgvsName": "g.7390G\u003eA",
-            "proteinNote": "G340R",
-            "resourceNote": "3190G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128812,
-            "rsid": "rs199535154",
-            "chromosomeHgvsName": "g.42128812A\u003eG",
-            "geneHgvsName": "g.6180T\u003eC",
-            "proteinNote": "L213P",
-            "resourceNote": "1980T\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129037,
-            "rsid": "rs1135825",
-            "chromosomeHgvsName": "NC_000022.11:g.42129037G\u003eT",
-            "geneHgvsName": "g.5955C\u003eA",
-            "proteinNote": "H167Q",
-            "resourceNote": "1755C\u003eA",
             "type": "SNP",
             "referenceRepeat": null
           },
@@ -1878,581 +1427,9 @@
             "position": 42127899,
             "rsid": null,
             "chromosomeHgvsName": "g.42127899T\u003eC",
-            "geneHgvsName": "g.7093A\u003eG",
+            "geneHgvsName": "g.7912A\u003eG",
             "proteinNote": "T310A",
             "resourceNote": "2893A\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128878,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42128878C\u003eA",
-            "geneHgvsName": "g.6114G\u003eT",
-            "proteinNote": "C191F",
-            "resourceNote": "1914T\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42130778,
-            "rsid": "rs773790593",
-            "chromosomeHgvsName": "g.42130778G\u003eA",
-            "geneHgvsName": "g.4214C\u003eT",
-            "proteinNote": "A5V",
-            "resourceNote": "14C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128817,
-            "rsid": "rs72549354",
-            "chromosomeHgvsName": "g.42128817_42128818insC",
-            "geneHgvsName": "g.6177_6178insG",
-            "proteinNote": "Frameshift",
-            "resourceNote": "1977_1978insG",
-            "type": "INS",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129819,
-            "rsid": "rs28371703",
-            "chromosomeHgvsName": "g.42129819G\u003eT",
-            "geneHgvsName": "g.5173C\u003eA",
-            "proteinNote": "L91M",
-            "resourceNote": "973C\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129770,
-            "rsid": "rs28371706",
-            "chromosomeHgvsName": "g.42129770G\u003eA; g.42129770G\u003eT",
-            "geneHgvsName": "g.5222C\u003eT; g.5222C\u003eA",
-            "proteinNote": "T107I; T107N",
-            "resourceNote": "1022C\u003eT; 1022C\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129821,
-            "rsid": "rs267608309",
-            "chromosomeHgvsName": "g.42129821G\u003eA",
-            "geneHgvsName": "g.5171C\u003eT",
-            "proteinNote": "A90V",
-            "resourceNote": "971C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126657,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42126657_42126658insAGTGGGCAC",
-            "geneHgvsName": "g.8334_8335insGTGCCCACT",
-            "proteinNote": "dupVPT",
-            "resourceNote": "4134_4135insGTGCCCACT",
-            "type": "INS",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126896,
-            "rsid": "rs763964554",
-            "chromosomeHgvsName": "g.42126896G\u003eA",
-            "geneHgvsName": "g.8096C\u003eT",
-            "proteinNote": "Q424X",
-            "resourceNote": "3896C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126938,
-            "rsid": "rs769157652",
-            "chromosomeHgvsName": "g.42126938C\u003eT",
-            "geneHgvsName": "g.8054G\u003eA",
-            "proteinNote": "E410K",
-            "resourceNote": "3854G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129906,
-            "rsid": "rs267608311",
-            "chromosomeHgvsName": "g.42129906G\u003eA",
-            "geneHgvsName": "g.5086C\u003eT",
-            "proteinNote": "R62W",
-            "resourceNote": "886C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127973,
-            "rsid": "rs1135829",
-            "chromosomeHgvsName": "g.42127973T\u003eC",
-            "geneHgvsName": "g.7019A\u003eG",
-            "proteinNote": "N285S",
-            "resourceNote": "2819A\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129836,
-            "rsid": "rs267608310",
-            "chromosomeHgvsName": "g.42129836G\u003eA",
-            "geneHgvsName": "g.5156C\u003eT",
-            "proteinNote": "A85V",
-            "resourceNote": "956C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127922,
-            "rsid": "rs1406719554",
-            "chromosomeHgvsName": "g.42127922A\u003eG",
-            "geneHgvsName": "g.7070T\u003eC",
-            "proteinNote": "L302P",
-            "resourceNote": "2870T\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127457,
-            "rsid": "rs77312092",
-            "chromosomeHgvsName": "g.42127457C\u003eT",
-            "geneHgvsName": "g.7535G\u003eA",
-            "proteinNote": "R388H",
-            "resourceNote": "3335G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126681,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42126681G\u003eC",
-            "geneHgvsName": "g.8311C\u003eG",
-            "proteinNote": "H463D",
-            "resourceNote": "4111C\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127611,
-            "rsid": "rs78209835",
-            "chromosomeHgvsName": "g.42127611C\u003eT",
-            "geneHgvsName": "g.7381G\u003eA",
-            "proteinNote": "D337N",
-            "resourceNote": "3181G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129087,
-            "rsid": "rs78482768",
-            "chromosomeHgvsName": "g.42129087G\u003eC",
-            "geneHgvsName": "g.5905C\u003eG",
-            "proteinNote": "Q151E",
-            "resourceNote": "1705C\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127856,
-            "rsid": "rs5030867",
-            "chromosomeHgvsName": "g.42127856T\u003eG",
-            "geneHgvsName": "g.7136A\u003eC",
-            "proteinNote": "H324P",
-            "resourceNote": "2936A\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126697,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42126697G\u003eT",
-            "geneHgvsName": "g.8295C\u003eA",
-            "proteinNote": "F457L",
-            "resourceNote": "4095C\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127556,
-            "rsid": "rs202102799",
-            "chromosomeHgvsName": "g.42127556T\u003eC",
-            "geneHgvsName": "g.7436A\u003eG",
-            "proteinNote": "Y355C",
-            "resourceNote": "3236A\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128945,
-            "rsid": "rs3892097",
-            "chromosomeHgvsName": "g.42128945C\u003eT",
-            "geneHgvsName": "g.6047G\u003eA",
-            "proteinNote": "Splicing defect",
-            "resourceNote": "1847G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42130761,
-            "rsid": "rs769258",
-            "chromosomeHgvsName": "g.42130761C\u003eT",
-            "geneHgvsName": "g.4231G\u003eA",
-            "proteinNote": "V11M",
-            "resourceNote": "31G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128185,
-            "rsid": "rs77913725",
-            "chromosomeHgvsName": "g.42128185C\u003eT",
-            "geneHgvsName": "g.6807G\u003eA",
-            "proteinNote": "E278K",
-            "resourceNote": "2607G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128249,
-            "rsid": "rs72549353",
-            "chromosomeHgvsName": "g.42128249delAGTT",
-            "geneHgvsName": "g.6740delAACT",
-            "proteinNote": "Frameshift",
-            "resourceNote": "2540delAACT",
-            "type": "DEL",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127512,
-            "rsid": "rs61745683",
-            "chromosomeHgvsName": "g.42127512C\u003eT",
-            "geneHgvsName": "g.7480G\u003eA",
-            "proteinNote": "V370I",
-            "resourceNote": "3280G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129759,
-            "rsid": "rs535642512",
-            "chromosomeHgvsName": "g.42129759C\u003eT",
-            "geneHgvsName": "g.5233G\u003eA",
-            "proteinNote": "G111S",
-            "resourceNote": "1033G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127846,
-            "rsid": "rs730882170",
-            "chromosomeHgvsName": "g.42127846delCACATCCGGATGTAGGATC",
-            "geneHgvsName": "g.7128delGATCCTACATCCGGATGTG",
-            "proteinNote": "Frameshift",
-            "resourceNote": "2928delGATCCTACATCCGGATGTG",
-            "type": "DEL",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129809,
-            "rsid": "rs28371704",
-            "chromosomeHgvsName": "g.42129809T\u003eC",
-            "geneHgvsName": "g.5183A\u003eG",
-            "proteinNote": "H94R",
-            "resourceNote": "983A\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42130692,
-            "rsid": "rs1065852",
-            "chromosomeHgvsName": "g.42130692G\u003eA",
-            "geneHgvsName": "g.4300C\u003eT",
-            "proteinNote": "P34S",
-            "resourceNote": "100C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42130715,
-            "rsid": "rs28371696",
-            "chromosomeHgvsName": "g.42130715C\u003eT",
-            "geneHgvsName": "g.4277G\u003eA",
-            "proteinNote": "R26H",
-            "resourceNote": "77G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126635,
-            "rsid": "rs766507177",
-            "chromosomeHgvsName": "g.42126635T\u003eG",
-            "geneHgvsName": "g.8357A\u003eC",
-            "proteinNote": "H478P",
-            "resourceNote": "4157A\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127803,
-            "rsid": "rs28371725",
-            "chromosomeHgvsName": "g.42127803C\u003eT",
-            "geneHgvsName": "g.7189G\u003eA",
-            "proteinNote": "Splicing defect",
-            "resourceNote": "2989G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127533,
-            "rsid": "rs72549346",
-            "chromosomeHgvsName": "g.42127533_42127534insAC",
-            "geneHgvsName": "g.7460_7461insGT",
-            "proteinNote": "Frameshift",
-            "resourceNote": "3260_3261insGT",
-            "type": "INS",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128848,
-            "rsid": "rs745365204",
-            "chromosomeHgvsName": "g.42128848C\u003eT",
-            "geneHgvsName": "g.6144G\u003eA",
-            "proteinNote": "R201H",
-            "resourceNote": "1944G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126735,
-            "rsid": "rs751092905",
-            "chromosomeHgvsName": "g.42126735C\u003eT",
-            "geneHgvsName": "g.8257G\u003eA",
-            "proteinNote": "G445R",
-            "resourceNote": "4057G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128879,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42128879A\u003eG",
-            "geneHgvsName": "g.6113T\u003eC",
-            "proteinNote": "C191R",
-            "resourceNote": "1913T\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129098,
-            "rsid": "rs569229126",
-            "chromosomeHgvsName": "g.42129098T\u003eC",
-            "geneHgvsName": "g.5894A\u003eG",
-            "proteinNote": "K147R",
-            "resourceNote": "1694A\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128351,
-            "rsid": "rs377725912",
-            "chromosomeHgvsName": "g.42128351C\u003eT",
-            "geneHgvsName": "g.6641G\u003eA",
-            "proteinNote": "Splicing defect",
-            "resourceNote": "2441G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127593,
-            "rsid": "rs267608295",
-            "chromosomeHgvsName": "g.42127593G\u003eC",
-            "geneHgvsName": "g.7399C\u003eG",
-            "proteinNote": "R343G",
-            "resourceNote": "3199C\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126578,
-            "rsid": "rs1440526469",
-            "chromosomeHgvsName": "g.42126578C\u003eT",
-            "geneHgvsName": "g.8414G\u003eA",
-            "proteinNote": "R497H",
-            "resourceNote": "4214G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126647,
-            "rsid": "rs141756339",
-            "chromosomeHgvsName": "g.42126647C\u003eT",
-            "geneHgvsName": "g.8345G\u003eA",
-            "proteinNote": "R474Q",
-            "resourceNote": "4145G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126623,
-            "rsid": "rs75467367",
-            "chromosomeHgvsName": "g.42126623G\u003eC",
-            "geneHgvsName": "g.8369C\u003eG",
-            "proteinNote": "A431G",
-            "resourceNote": "4169C\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126663,
-            "rsid": "rs1135833",
-            "chromosomeHgvsName": "g.42126663G\u003eC",
-            "geneHgvsName": "g.8329C\u003eG",
-            "proteinNote": "P469A",
-            "resourceNote": "4129C\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129174,
-            "rsid": "rs1135823",
-            "chromosomeHgvsName": "g.42129174C\u003eA",
-            "geneHgvsName": "g.5818G\u003eT",
-            "proteinNote": "A122S",
-            "resourceNote": "1618G\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129771,
-            "rsid": "rs74802369",
-            "chromosomeHgvsName": "g.42129771T\u003eA",
-            "geneHgvsName": "g.5221A\u003eT",
-            "proteinNote": "T107S",
-            "resourceNote": "1021A\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42129056,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42129056C\u003eG",
-            "geneHgvsName": "g.5936G\u003eC",
-            "proteinNote": "C161S",
-            "resourceNote": "1736G\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42126956,
-            "rsid": null,
-            "chromosomeHgvsName": "g.42126956T\u003eG",
-            "geneHgvsName": "g.8036A\u003eC",
-            "proteinNote": "K404Q",
-            "resourceNote": "3836A\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42130655,
-            "rsid": "rs774671100",
-            "chromosomeHgvsName": "g.42130655_42130656insA",
-            "geneHgvsName": "g.4337_4338insT",
-            "proteinNote": "Frameshift",
-            "resourceNote": "137_138insT",
-            "type": "INS",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127963,
-            "rsid": "rs267608279",
-            "chromosomeHgvsName": "g.42127963delG",
-            "geneHgvsName": "g.7029delC",
-            "proteinNote": "Frameshift",
-            "resourceNote": "2829delC",
-            "type": "DEL",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127619,
-            "rsid": "rs72549348",
-            "chromosomeHgvsName": "g.42127619T\u003eG",
-            "geneHgvsName": "g.7373A\u003eC",
-            "proteinNote": "E334A",
-            "resourceNote": "3173A\u003eC",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42127565,
-            "rsid": "rs61736517",
-            "chromosomeHgvsName": "g.42127565T\u003eC",
-            "geneHgvsName": "g.7427A\u003eG",
-            "proteinNote": "H352R",
-            "resourceNote": "3227A\u003eG",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr22",
-            "position": 42128235,
-            "rsid": "rs267608297",
-            "chromosomeHgvsName": "g.42128235G\u003eA",
-            "geneHgvsName": "g.6757C\u003eT",
-            "proteinNote": "T261I",
-            "resourceNote": "2557C\u003eT",
             "type": "SNP",
             "referenceRepeat": null
           },
@@ -2461,9 +1438,1010 @@
             "position": 42129155,
             "rsid": "rs1180015037",
             "chromosomeHgvsName": "g.42129155C\u003eT",
-            "geneHgvsName": "g.5837G\u003eA",
+            "geneHgvsName": "g.6656G\u003eA",
             "proteinNote": "W128X",
             "resourceNote": "1637G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127523,
+            "rsid": "rs1555888910",
+            "chromosomeHgvsName": "g.42127523A\u003eG",
+            "geneHgvsName": "g.8288T\u003eC",
+            "proteinNote": "F366S",
+            "resourceNote": "3269T\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127565,
+            "rsid": "rs61736517",
+            "chromosomeHgvsName": "g.42127565T\u003eC",
+            "geneHgvsName": "g.8246A\u003eG",
+            "proteinNote": "H352R",
+            "resourceNote": "3227A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129836,
+            "rsid": "rs267608310",
+            "chromosomeHgvsName": "g.42129836G\u003eA",
+            "geneHgvsName": "g.5975C\u003eT",
+            "proteinNote": "A85V",
+            "resourceNote": "956C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128235,
+            "rsid": "rs267608297",
+            "chromosomeHgvsName": "g.42128235G\u003eA",
+            "geneHgvsName": "g.7576C\u003eT",
+            "proteinNote": "T261I",
+            "resourceNote": "2557C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128817,
+            "rsid": "rs72549354",
+            "chromosomeHgvsName": "g.42128817_42128818insC",
+            "geneHgvsName": "g.6996_6997insG",
+            "proteinNote": "213fs",
+            "resourceNote": "1977_1978insG",
+            "type": "INS",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42130692,
+            "rsid": "rs1065852",
+            "chromosomeHgvsName": "g.42130692G\u003eA",
+            "geneHgvsName": "g.5119C\u003eT",
+            "proteinNote": "P34S",
+            "resourceNote": "100C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127856,
+            "rsid": "rs5030867",
+            "chromosomeHgvsName": "g.42127856T\u003eG",
+            "geneHgvsName": "g.7955A\u003eC",
+            "proteinNote": "H324P",
+            "resourceNote": "2936A\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128249,
+            "rsid": "rs72549353",
+            "chromosomeHgvsName": "g.42128249delAGTT",
+            "geneHgvsName": "g.7559delAACT",
+            "proteinNote": "255fs",
+            "resourceNote": "2540delAACT",
+            "type": "DEL",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128242,
+            "rsid": "rs35742686",
+            "chromosomeHgvsName": "g.42128242delT",
+            "geneHgvsName": "g.7569delA",
+            "proteinNote": "259fs",
+            "resourceNote": "2550delA",
+            "type": "DEL",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129759,
+            "rsid": "rs535642512",
+            "chromosomeHgvsName": "g.42129759C\u003eT",
+            "geneHgvsName": "g.6052G\u003eA",
+            "proteinNote": "G111S",
+            "resourceNote": "1033G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126623,
+            "rsid": "rs75467367",
+            "chromosomeHgvsName": "g.42126623G\u003eC",
+            "geneHgvsName": "g.9188C\u003eG",
+            "proteinNote": "A482G",
+            "resourceNote": "4169C\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126611,
+            "rsid": "rs1135840",
+            "chromosomeHgvsName": "g.42126611C\u003eG",
+            "geneHgvsName": "g.9200G\u003eC",
+            "proteinNote": "S486T",
+            "resourceNote": "4181G\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127530,
+            "rsid": "rs72549346",
+            "chromosomeHgvsName": "g.42127530_42127531insAC",
+            "geneHgvsName": "g.8280_8281insGT",
+            "proteinNote": "364fs",
+            "resourceNote": "3261_3262insGT",
+            "type": "INS",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128212,
+            "rsid": "rs367543000",
+            "chromosomeHgvsName": "g.42128212G\u003eA",
+            "geneHgvsName": "g.7599C\u003eT",
+            "proteinNote": "R269X",
+            "resourceNote": "2580C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128351,
+            "rsid": "rs377725912",
+            "chromosomeHgvsName": "g.42128351C\u003eT",
+            "geneHgvsName": "g.7460G\u003eA",
+            "proteinNote": "Splicing defect",
+            "resourceNote": "2441G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126981,
+            "rsid": "rs757396767",
+            "chromosomeHgvsName": "g.42126981delGA",
+            "geneHgvsName": "g.8829delTC",
+            "proteinNote": "395fs",
+            "resourceNote": "3810delTC",
+            "type": "DEL",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129906,
+            "rsid": "rs267608311",
+            "chromosomeHgvsName": "g.42129906G\u003eA",
+            "geneHgvsName": "g.5905C\u003eT",
+            "proteinNote": "R62W",
+            "resourceNote": "886C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128848,
+            "rsid": "rs745365204",
+            "chromosomeHgvsName": "g.42128848C\u003eT",
+            "geneHgvsName": "g.6963G\u003eA",
+            "proteinNote": "R201H",
+            "resourceNote": "1944G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42130715,
+            "rsid": "rs28371696",
+            "chromosomeHgvsName": "g.42130715C\u003eT",
+            "geneHgvsName": "g.5096G\u003eA",
+            "proteinNote": "R26H",
+            "resourceNote": "77G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128879,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42128879A\u003eG",
+            "geneHgvsName": "g.6932T\u003eC",
+            "proteinNote": "C191R",
+            "resourceNote": "1913T\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129130,
+            "rsid": "rs1058164",
+            "chromosomeHgvsName": "g.42129130C\u003eG",
+            "geneHgvsName": "g.6681G\u003eC",
+            "proteinNote": "V136\u003d",
+            "resourceNote": "1662G\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128181,
+            "rsid": "rs1135828",
+            "chromosomeHgvsName": "g.42128181A\u003eT",
+            "geneHgvsName": "g.7630T\u003eA",
+            "proteinNote": "M279K",
+            "resourceNote": "2611T\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126896,
+            "rsid": "rs763964554",
+            "chromosomeHgvsName": "g.42126896G\u003eA",
+            "geneHgvsName": "g.8915C\u003eT",
+            "proteinNote": "Q424X",
+            "resourceNote": "3896C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128174,
+            "rsid": "rs5030656",
+            "chromosomeHgvsName": "g.42128174delCTT",
+            "geneHgvsName": "g.7635delAAG",
+            "proteinNote": "K281del",
+            "resourceNote": "2616delAAG",
+            "type": "DEL",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127610,
+            "rsid": "rs748712690",
+            "chromosomeHgvsName": "g.42127610T\u003eC",
+            "geneHgvsName": "g.8201A\u003eG",
+            "proteinNote": "D337G",
+            "resourceNote": "3182A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126660,
+            "rsid": "rs1135835",
+            "chromosomeHgvsName": "g.42126660T\u003eC",
+            "geneHgvsName": "g.9151A\u003eG",
+            "proteinNote": "T470A",
+            "resourceNote": "4132A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128272,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42128272T\u003eG",
+            "geneHgvsName": "g.7539A\u003eC",
+            "proteinNote": "T249P",
+            "resourceNote": "2520A\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128812,
+            "rsid": "rs199535154",
+            "chromosomeHgvsName": "g.42128812A\u003eG",
+            "geneHgvsName": "g.6999T\u003eC",
+            "proteinNote": "L213P",
+            "resourceNote": "1980T\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126681,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42126681G\u003eC",
+            "geneHgvsName": "g.9130C\u003eG",
+            "proteinNote": "H463D",
+            "resourceNote": "4111C\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129042,
+            "rsid": "rs1135824",
+            "chromosomeHgvsName": "g.42129042T\u003eC",
+            "geneHgvsName": "g.6769A\u003eG",
+            "proteinNote": "N166D",
+            "resourceNote": "1750A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126956,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42126956T\u003eG",
+            "geneHgvsName": "g.8855A\u003eC",
+            "proteinNote": "K404Q",
+            "resourceNote": "3836A\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127556,
+            "rsid": "rs202102799",
+            "chromosomeHgvsName": "g.42127556T\u003eC",
+            "geneHgvsName": "g.8255A\u003eG",
+            "proteinNote": "Y355C",
+            "resourceNote": "3236A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128185,
+            "rsid": "rs77913725",
+            "chromosomeHgvsName": "g.42128185C\u003eT",
+            "geneHgvsName": "g.7626G\u003eA",
+            "proteinNote": "E278K",
+            "resourceNote": "2607G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129134,
+            "rsid": "rs781457579",
+            "chromosomeHgvsName": "g.42129134G\u003eA",
+            "geneHgvsName": "g.6677C\u003eT",
+            "proteinNote": "S135F",
+            "resourceNote": "1658C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42130761,
+            "rsid": "rs769258",
+            "chromosomeHgvsName": "g.42130761C\u003eT",
+            "geneHgvsName": "g.5050G\u003eA",
+            "proteinNote": "V11M",
+            "resourceNote": "31G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128218,
+            "rsid": "rs72549352",
+            "chromosomeHgvsName": "g.42128218_42128219insG",
+            "geneHgvsName": "g.7599_7600insC",
+            "proteinNote": "267fs",
+            "resourceNote": "2580_2581insC",
+            "type": "INS",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42130778,
+            "rsid": "rs773790593",
+            "chromosomeHgvsName": "g.42130778G\u003eA",
+            "geneHgvsName": "g.5033C\u003eT",
+            "proteinNote": "A5V",
+            "resourceNote": "14C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129887,
+            "rsid": "rs1456026511",
+            "chromosomeHgvsName": "g.42129887A\u003eC",
+            "geneHgvsName": "g.5924T\u003eG",
+            "proteinNote": "V68G",
+            "resourceNote": "905T\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126747,
+            "rsid": "rs730882251",
+            "chromosomeHgvsName": "g.42126747G\u003eA",
+            "geneHgvsName": "g.9064C\u003eT",
+            "proteinNote": "R441C",
+            "resourceNote": "4045C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129827,
+            "rsid": "rs267608276",
+            "chromosomeHgvsName": "g.42129827C\u003eG",
+            "geneHgvsName": "g.5984G\u003eC",
+            "proteinNote": "R88P",
+            "resourceNote": "965G\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127922,
+            "rsid": "rs1406719554",
+            "chromosomeHgvsName": "g.42127922A\u003eG",
+            "geneHgvsName": "g.7889T\u003eC",
+            "proteinNote": "L302P",
+            "resourceNote": "2870T\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127941,
+            "rsid": "rs16947",
+            "chromosomeHgvsName": "g.42127941G\u003eA",
+            "geneHgvsName": "g.7870C\u003eT",
+            "proteinNote": "R296C",
+            "resourceNote": "2851C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126926,
+            "rsid": "rs747089665",
+            "chromosomeHgvsName": "g.42126926G\u003eA",
+            "geneHgvsName": "g.8885C\u003eT",
+            "proteinNote": "R414C",
+            "resourceNote": "3866C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127590,
+            "rsid": "rs72549347",
+            "chromosomeHgvsName": "g.42127590G\u003eA",
+            "geneHgvsName": "g.8221C\u003eT",
+            "proteinNote": "R344X",
+            "resourceNote": "3202C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127457,
+            "rsid": "rs77312092",
+            "chromosomeHgvsName": "g.42127457C\u003eT",
+            "geneHgvsName": "g.8354G\u003eA",
+            "proteinNote": "R388H",
+            "resourceNote": "3335G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129098,
+            "rsid": "rs569229126",
+            "chromosomeHgvsName": "g.42129098T\u003eC",
+            "geneHgvsName": "g.6713A\u003eG",
+            "proteinNote": "K147R",
+            "resourceNote": "1694A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126752,
+            "rsid": "rs569439709",
+            "chromosomeHgvsName": "g.42126752C\u003eT",
+            "geneHgvsName": "g.9059G\u003eA",
+            "proteinNote": "G439D",
+            "resourceNote": "4040G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129132,
+            "rsid": "rs61736512",
+            "chromosomeHgvsName": "g.42129132C\u003eT",
+            "geneHgvsName": "g.6679G\u003eA",
+            "proteinNote": "V136M",
+            "resourceNote": "1660G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129771,
+            "rsid": "rs74802369",
+            "chromosomeHgvsName": "g.42129771T\u003eA",
+            "geneHgvsName": "g.6040A\u003eT",
+            "proteinNote": "T107S",
+            "resourceNote": "1021A\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127852,
+            "rsid": "rs79292917",
+            "chromosomeHgvsName": "g.42127852C\u003eT",
+            "geneHgvsName": "g.7959G\u003eA",
+            "proteinNote": "Splicing defect",
+            "resourceNote": "2940G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127619,
+            "rsid": "rs72549348",
+            "chromosomeHgvsName": "g.42127619T\u003eG",
+            "geneHgvsName": "g.8192A\u003eC",
+            "proteinNote": "E334A",
+            "resourceNote": "3173A\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129056,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42129056C\u003eG",
+            "geneHgvsName": "g.6755G\u003eC",
+            "proteinNote": "C161S",
+            "resourceNote": "1736G\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129780,
+            "rsid": "rs267608308",
+            "chromosomeHgvsName": "g.42129780C\u003eT",
+            "geneHgvsName": "g.6031G\u003eA",
+            "proteinNote": "V104M",
+            "resourceNote": "1012G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42130719,
+            "rsid": "rs267608313",
+            "chromosomeHgvsName": "g.42130719G\u003eA",
+            "geneHgvsName": "g.5092C\u003eT",
+            "proteinNote": "R25W",
+            "resourceNote": "73C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128308,
+            "rsid": "rs28371717",
+            "chromosomeHgvsName": "g.42128308C\u003eA",
+            "geneHgvsName": "g.7503G\u003eT",
+            "proteinNote": "A237S",
+            "resourceNote": "2484G\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127611,
+            "rsid": "rs78209835",
+            "chromosomeHgvsName": "g.42127611C\u003eT",
+            "geneHgvsName": "g.8200G\u003eA",
+            "proteinNote": "D337N",
+            "resourceNote": "3181G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129036,
+            "rsid": "rs1135826",
+            "chromosomeHgvsName": "g.42129036A\u003eC",
+            "geneHgvsName": "g.6775T\u003eG",
+            "proteinNote": "S168A",
+            "resourceNote": "1756T\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126578,
+            "rsid": "rs1440526469",
+            "chromosomeHgvsName": "g.42126578C\u003eT",
+            "geneHgvsName": "g.9233G\u003eA",
+            "proteinNote": "R497H",
+            "resourceNote": "4214G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128936,
+            "rsid": "rs72549356",
+            "chromosomeHgvsName": "g.42128936_42128937insGGGGCGAAA; g.42128936_42128937insGGGGCGAAAGGGGCGAAA",
+            "geneHgvsName": "g.6883_6884insTTTCGCCCC; g.6883_6884insTTTCGCCCCTTTCGCCCC",
+            "proteinNote": "P174_N175insFRP; P174_N175insFRPFRP",
+            "resourceNote": "1864_1865insTTTCGCCCC; 1864_1865insTTTCGCCCCTTTCGCCCC",
+            "type": "INS",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42130773,
+            "rsid": "rs72549358",
+            "chromosomeHgvsName": "g.42130773C\u003eT",
+            "geneHgvsName": "g.5038G\u003eA",
+            "proteinNote": "V7M",
+            "resourceNote": "19G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127938,
+            "rsid": "rs949717872",
+            "chromosomeHgvsName": "g.42127938T\u003eG",
+            "geneHgvsName": "g.7873A\u003eC",
+            "proteinNote": "I297L",
+            "resourceNote": "2854A\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126914,
+            "rsid": "rs28371733",
+            "chromosomeHgvsName": "g.42126914C\u003eT",
+            "geneHgvsName": "g.8897G\u003eA",
+            "proteinNote": "E418K",
+            "resourceNote": "3878G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129765,
+            "rsid": "rs78459009",
+            "chromosomeHgvsName": "g.42129765T\u003eC",
+            "geneHgvsName": "g.6046A\u003eG",
+            "proteinNote": "I109V",
+            "resourceNote": "1027A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127963,
+            "rsid": "rs267608279",
+            "chromosomeHgvsName": "g.42127963delG",
+            "geneHgvsName": "g.7848delC",
+            "proteinNote": "288fs",
+            "resourceNote": "2829delC",
+            "type": "DEL",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126697,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42126697G\u003eT",
+            "geneHgvsName": "g.9114C\u003eA",
+            "proteinNote": "F457L",
+            "resourceNote": "4095C\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127473,
+            "rsid": "rs75386357",
+            "chromosomeHgvsName": "g.42127473C\u003eT",
+            "geneHgvsName": "g.8338G\u003eA",
+            "proteinNote": "E383K",
+            "resourceNote": "3319G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129037,
+            "rsid": "rs1135825",
+            "chromosomeHgvsName": "g.42129037G\u003eT",
+            "geneHgvsName": "g.6774C\u003eA",
+            "proteinNote": "H167Q",
+            "resourceNote": "1755C\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128796,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42128796delG",
+            "geneHgvsName": "g.7015delC",
+            "proteinNote": "219fs",
+            "resourceNote": "1996delC",
+            "type": "DEL",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128201,
+            "rsid": "rs72549351",
+            "chromosomeHgvsName": "g.42128201delAGTC",
+            "geneHgvsName": "g.7607delGACT",
+            "proteinNote": "272fs",
+            "resourceNote": "2588delGACT",
+            "type": "DEL",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128878,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42128878C\u003eA",
+            "geneHgvsName": "g.6933G\u003eT",
+            "proteinNote": "C191F",
+            "resourceNote": "1914G\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129770,
+            "rsid": "rs28371706",
+            "chromosomeHgvsName": "g.42129770G\u003eT; g.42129770G\u003eA",
+            "geneHgvsName": "g.6041C\u003eA; g.6041C\u003eT",
+            "proteinNote": "T107I; T107N",
+            "resourceNote": "1022C\u003eA; 1022C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126627,
+            "rsid": "rs1135838",
+            "chromosomeHgvsName": "g.42126627A\u003eC",
+            "geneHgvsName": "g.9184T\u003eG",
+            "proteinNote": "F481V",
+            "resourceNote": "4165T\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129071,
+            "rsid": "rs267608302",
+            "chromosomeHgvsName": "g.42129071T\u003eG; g.42129071T\u003eA",
+            "geneHgvsName": "g.6740A\u003eC; g.6740A\u003eT",
+            "proteinNote": "E156A; E156V",
+            "resourceNote": "1721A\u003eC; 1721A\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126663,
+            "rsid": "rs1135833",
+            "chromosomeHgvsName": "g.42126663G\u003eC",
+            "geneHgvsName": "g.9148C\u003eG",
+            "proteinNote": "P469A",
+            "resourceNote": "4129C\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126647,
+            "rsid": "rs141756339",
+            "chromosomeHgvsName": "g.42126647C\u003eT",
+            "geneHgvsName": "g.9164G\u003eA",
+            "proteinNote": "R474Q",
+            "resourceNote": "4145G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127514,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42127514A\u003eG",
+            "geneHgvsName": "g.8297T\u003eC",
+            "proteinNote": "I369T",
+            "resourceNote": "3278T\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42130655,
+            "rsid": "rs774671100",
+            "chromosomeHgvsName": "g.42130655_42130656insA",
+            "geneHgvsName": "g.5156_5157insT",
+            "proteinNote": "47fs",
+            "resourceNote": "137_138insT",
+            "type": "INS",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126719,
+            "rsid": "rs200965026",
+            "chromosomeHgvsName": "g.42126719C\u003eT",
+            "geneHgvsName": "g.9092G\u003eA",
+            "proteinNote": "R450H",
+            "resourceNote": "4073G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126877,
+            "rsid": "rs3021084",
+            "chromosomeHgvsName": "g.42126877G\u003eA",
+            "geneHgvsName": "g.8934C\u003eT",
+            "proteinNote": "P430L",
+            "resourceNote": "3915C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42130728,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42130728delG",
+            "geneHgvsName": "g.5083delC",
+            "proteinNote": "L22X",
+            "resourceNote": "64delC",
+            "type": "DEL",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129910,
+            "rsid": "rs201377835",
+            "chromosomeHgvsName": "g.42129910C\u003eG",
+            "geneHgvsName": "g.5901G\u003eC",
+            "proteinNote": "Splicing defect",
+            "resourceNote": "882G\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128325,
+            "rsid": "rs17002853",
+            "chromosomeHgvsName": "g.42128325A\u003eG",
+            "geneHgvsName": "g.7486T\u003eC",
+            "proteinNote": "L231P",
+            "resourceNote": "2467T\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129033,
+            "rsid": "rs5030865",
+            "chromosomeHgvsName": "g.42129033C\u003eT; g.42129033C\u003eA",
+            "geneHgvsName": "g.6778G\u003eA; g.6778G\u003eT",
+            "proteinNote": "G169R; G169X",
+            "resourceNote": "1759G\u003eA; 1759G\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128329,
+            "rsid": "rs373813287",
+            "chromosomeHgvsName": "g.42128329G\u003eA",
+            "geneHgvsName": "g.7482C\u003eT",
+            "proteinNote": "L230F",
+            "resourceNote": "2463C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42130710,
+            "rsid": "rs138100349",
+            "chromosomeHgvsName": "g.42130710G\u003eA",
+            "geneHgvsName": "g.5101C\u003eT",
+            "proteinNote": "R28C",
+            "resourceNote": "82C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127846,
+            "rsid": "rs730882170",
+            "chromosomeHgvsName": "g.42127846delCACATCCGGATGTAGGATC",
+            "geneHgvsName": "g.7947delGATCCTACATCCGGATGTG",
+            "proteinNote": "321fs",
+            "resourceNote": "2928delGATCCTACATCCGGATGTG",
+            "type": "DEL",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127841,
+            "rsid": "rs72549349",
+            "chromosomeHgvsName": "g.42127841C\u003eG",
+            "geneHgvsName": "g.7970G\u003eC",
+            "proteinNote": "Splicing defect",
+            "resourceNote": "2951G\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129087,
+            "rsid": "rs78482768",
+            "chromosomeHgvsName": "g.42129087G\u003eC",
+            "geneHgvsName": "g.6724C\u003eG",
+            "proteinNote": "Q151E",
+            "resourceNote": "1705C\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42129809,
+            "rsid": "rs28371704",
+            "chromosomeHgvsName": "g.42129809T\u003eC",
+            "geneHgvsName": "g.6002A\u003eG",
+            "proteinNote": "H94R",
+            "resourceNote": "983A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127593,
+            "rsid": "rs267608295",
+            "chromosomeHgvsName": "g.42127593G\u003eC",
+            "geneHgvsName": "g.8218C\u003eG",
+            "proteinNote": "R343G",
+            "resourceNote": "3199C\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128217,
+            "rsid": "rs148769737",
+            "chromosomeHgvsName": "g.42128217G\u003eT",
+            "geneHgvsName": "g.7594C\u003eA",
+            "proteinNote": "P267H",
+            "resourceNote": "2575C\u003eA",
             "type": "SNP",
             "referenceRepeat": null
           },
@@ -2472,10 +2450,43 @@
             "position": 42129084,
             "rsid": "rs5030655",
             "chromosomeHgvsName": "g.42129084delA",
-            "geneHgvsName": "g.5908delT",
-            "proteinNote": "Frameshift",
+            "geneHgvsName": "g.6727delT",
+            "proteinNote": "152fs",
             "resourceNote": "1708delT",
             "type": "DEL",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42126635,
+            "rsid": "rs766507177",
+            "chromosomeHgvsName": "g.42126635T\u003eG",
+            "geneHgvsName": "g.9176A\u003eC",
+            "proteinNote": "H478P",
+            "resourceNote": "4157A\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42127512,
+            "rsid": "rs61745683",
+            "chromosomeHgvsName": "g.42127512C\u003eT",
+            "geneHgvsName": "g.8299G\u003eA",
+            "proteinNote": "V370I",
+            "resourceNote": "3280G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr22",
+            "position": 42128903,
+            "rsid": null,
+            "chromosomeHgvsName": "g.42128903_42128904insTA",
+            "geneHgvsName": "g.6907_6908insTA",
+            "proteinNote": "S183X",
+            "resourceNote": "1888_1889insTA",
+            "type": "INS",
             "referenceRepeat": null
           }
         ],
@@ -2618,7 +2629,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr7",
       "gene": "CYP3A5",
       "diplotypes": [
@@ -2699,7 +2710,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr19",
       "gene": "CYP4F2",
       "diplotypes": [
@@ -2750,7 +2761,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr1",
       "gene": "DPYD",
       "diplotypes": [
@@ -3206,7 +3217,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr19",
       "gene": "IFNL3",
       "diplotypes": [
@@ -3252,7 +3263,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr13",
       "gene": "NUDT15",
       "diplotypes": [
@@ -3388,7 +3399,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr19",
       "gene": "RYR1",
       "diplotypes": [
@@ -3649,7 +3660,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr12",
       "gene": "SLCO1B1",
       "diplotypes": [
@@ -3835,7 +3846,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr6",
       "gene": "TPMT",
       "diplotypes": [
@@ -4091,7 +4102,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr2",
       "gene": "UGT1A1",
       "diplotypes": [
@@ -4152,22 +4163,22 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "04/15/21",
+      "alleleDefinitionVersion": "05/19/21",
       "chromosome": "chr16",
       "gene": "VKORC1",
       "diplotypes": [
         {
-          "name": "rs9923231 variant (T)/rs9923231 variant (T)",
+          "name": "rs9923231 reference (C)/rs9923231 reference (C)",
           "haplotype1": {
-            "name": "rs9923231 variant (T)",
+            "name": "rs9923231 reference (C)",
             "sequences": [
-              "31096368:T;"
+              "31096368:C;"
             ]
           },
           "haplotype2": {
-            "name": "rs9923231 variant (T)",
+            "name": "rs9923231 reference (C)",
             "sequences": [
-              "31096368:T;"
+              "31096368:C;"
             ]
           },
           "score": 2
@@ -4175,9 +4186,9 @@
       ],
       "haplotypes": [
         {
-          "name": "rs9923231 variant (T)",
+          "name": "rs9923231 reference (C)",
           "sequences": [
-            "31096368:T;"
+            "31096368:C;"
           ]
         }
       ],
@@ -4186,7 +4197,7 @@
         {
           "position": 31096368,
           "rsid": "rs9923231",
-          "vcfCall": "T|T"
+          "vcfCall": "C|C"
         }
       ],
       "variantsOfInterest": [],

@@ -6,7 +6,36 @@
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
     "messages": [],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "desflurane",
+        "guidelineId": "RxNorm:27340"
+      },
+      {
+        "name": "enflurane",
+        "guidelineId": "RxNorm:3920"
+      },
+      {
+        "name": "halothane",
+        "guidelineId": "RxNorm:5095"
+      },
+      {
+        "name": "isoflurane",
+        "guidelineId": "RxNorm:6026"
+      },
+      {
+        "name": "methoxyflurane",
+        "guidelineId": "RxNorm:6857"
+      },
+      {
+        "name": "sevoflurane",
+        "guidelineId": "RxNorm:36453"
+      },
+      {
+        "name": "succinylcholine",
+        "guidelineId": "RxNorm:10154"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -59,7 +88,7 @@
         "alleles": [
           "c.3257G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -72,7 +101,7 @@
         "alleles": [
           "c.520C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       }
@@ -87,7 +116,12 @@
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
     "messages": [],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "ivacaftor",
+        "guidelineId": "RxNorm:1243041"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -140,7 +174,7 @@
         "alleles": [
           "E56K"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -153,7 +187,7 @@
         "alleles": [
           "P67L"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -166,7 +200,7 @@
         "alleles": [
           "R74W"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -179,7 +213,7 @@
         "alleles": [
           "D110H"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -192,7 +226,7 @@
         "alleles": [
           "D110E"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -205,7 +239,7 @@
         "alleles": [
           "R117C"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -218,7 +252,7 @@
         "alleles": [
           "R117H"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -231,7 +265,7 @@
         "alleles": [
           "G178R"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -244,7 +278,7 @@
         "alleles": [
           "E193K"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -257,7 +291,7 @@
         "alleles": [
           "711+3A-\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -270,7 +304,7 @@
         "alleles": [
           "L206W"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -283,7 +317,7 @@
         "alleles": [
           "R347H"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -296,7 +330,7 @@
         "alleles": [
           "R352Q"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -309,7 +343,7 @@
         "alleles": [
           "A455E"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -322,7 +356,7 @@
         "alleles": [
           "S549R(A\u003eC)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -335,7 +369,7 @@
         "alleles": [
           "S549N"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -348,7 +382,7 @@
         "alleles": [
           "S549R(T\u003eG)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -361,7 +395,7 @@
         "alleles": [
           "G551S"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -374,7 +408,7 @@
         "alleles": [
           "G551D"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -387,7 +421,7 @@
         "alleles": [
           "D579G"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -400,7 +434,7 @@
         "alleles": [
           "E831X"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -413,7 +447,7 @@
         "alleles": [
           "2789+5G-\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -426,7 +460,7 @@
         "alleles": [
           "S945L"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -439,7 +473,7 @@
         "alleles": [
           "S977F"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -452,7 +486,7 @@
         "alleles": [
           "3272-26A-\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -465,7 +499,7 @@
         "alleles": [
           "F1052V"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -478,7 +512,7 @@
         "alleles": [
           "K1060T"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -491,7 +525,7 @@
         "alleles": [
           "A1067T"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -504,7 +538,7 @@
         "alleles": [
           "G1069R"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -517,7 +551,7 @@
         "alleles": [
           "R1070W"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -530,7 +564,7 @@
         "alleles": [
           "R1070Q"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -543,7 +577,7 @@
         "alleles": [
           "F1074L"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -556,7 +590,7 @@
         "alleles": [
           "D1152H"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -569,7 +603,7 @@
         "alleles": [
           "3849+10kbC-\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -582,7 +616,7 @@
         "alleles": [
           "G1244E"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -595,7 +629,7 @@
         "alleles": [
           "S1251N"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -608,7 +642,7 @@
         "alleles": [
           "S1255P"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -621,7 +655,7 @@
         "alleles": [
           "D1270N"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -634,7 +668,7 @@
         "alleles": [
           "G1349D"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       }
@@ -649,7 +683,12 @@
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
     "messages": [],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "efavirenz",
+        "guidelineId": "RxNorm:195085"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -705,7 +744,7 @@
           "*35",
           "*36"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -718,7 +757,7 @@
         "alleles": [
           "*10"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -732,7 +771,7 @@
           "*2",
           "*10"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -745,7 +784,7 @@
         "alleles": [
           "*17"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -758,7 +797,7 @@
         "alleles": [
           "*17"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -771,7 +810,7 @@
         "alleles": [
           "*17"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -784,7 +823,7 @@
         "alleles": [
           "*17"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -797,7 +836,7 @@
         "alleles": [
           "*11"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -810,7 +849,7 @@
         "alleles": [
           "*38"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -823,7 +862,7 @@
         "alleles": [
           "*12"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -836,7 +875,7 @@
         "alleles": [
           "*35"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -849,7 +888,7 @@
         "alleles": [
           "*35"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -863,7 +902,7 @@
           "*8",
           "*13"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -876,7 +915,7 @@
         "alleles": [
           "*14"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -889,7 +928,7 @@
         "alleles": [
           "*35"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -902,7 +941,7 @@
         "alleles": [
           "*26"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -915,7 +954,7 @@
         "alleles": [
           "*20"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -938,7 +977,7 @@
           "*37",
           "*38"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -946,12 +985,12 @@
         "gene": "CYP2B6",
         "chromosome": "chr19",
         "position": 41006968,
-        "dbSnpId": null,
+        "dbSnpId": "rs373489637",
         "call": "T|T",
         "alleles": [
           "*37"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -965,7 +1004,7 @@
           "*27",
           "*35"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -978,7 +1017,7 @@
         "alleles": [
           "*3"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -993,7 +1032,7 @@
           "*6",
           "*7",
           "*13",
-          "*16",
+          "*18",
           "*19",
           "*20",
           "*26",
@@ -1002,7 +1041,7 @@
           "*37",
           "*38"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1015,7 +1054,7 @@
         "alleles": [
           "*35"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1028,7 +1067,7 @@
         "alleles": [
           "*28"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1041,7 +1080,7 @@
         "alleles": [
           "*31"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1052,10 +1091,9 @@
         "dbSnpId": "rs28399499",
         "call": "T|T",
         "alleles": [
-          "*16",
           "*18"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -1068,7 +1106,7 @@
         "alleles": [
           "*19"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1081,7 +1119,7 @@
         "alleles": [
           "*28"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1094,7 +1132,7 @@
         "alleles": [
           "*15"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -1107,7 +1145,7 @@
         "alleles": [
           "*32"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1120,7 +1158,7 @@
         "alleles": [
           "*21"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1133,7 +1171,7 @@
         "alleles": [
           "*23"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1141,12 +1179,12 @@
         "gene": "CYP2B6",
         "chromosome": "chr19",
         "position": 41016778,
-        "dbSnpId": null,
+        "dbSnpId": "rs564083989",
         "call": "G|G",
         "alleles": [
           "*24"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1159,7 +1197,7 @@
         "alleles": [
           "*25"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1175,7 +1213,7 @@
           "*33",
           "*34"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       }
@@ -1190,18 +1228,75 @@
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
     "messages": [],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "amitriptyline",
+        "guidelineId": "RxNorm:704"
+      },
+      {
+        "name": "citalopram",
+        "guidelineId": "RxNorm:2556"
+      },
+      {
+        "name": "clomipramine",
+        "guidelineId": "RxNorm:2597"
+      },
+      {
+        "name": "clopidogrel",
+        "guidelineId": "RxNorm:32968"
+      },
+      {
+        "name": "dexlansoprazole",
+        "guidelineId": "RxNorm:816346"
+      },
+      {
+        "name": "doxepin",
+        "guidelineId": "RxNorm:3638"
+      },
+      {
+        "name": "escitalopram",
+        "guidelineId": "RxNorm:321988"
+      },
+      {
+        "name": "imipramine",
+        "guidelineId": "RxNorm:5691"
+      },
+      {
+        "name": "lansoprazole",
+        "guidelineId": "RxNorm:17128"
+      },
+      {
+        "name": "omeprazole",
+        "guidelineId": "RxNorm:7646"
+      },
+      {
+        "name": "pantoprazole",
+        "guidelineId": "RxNorm:40790"
+      },
+      {
+        "name": "sertraline",
+        "guidelineId": "RxNorm:36437"
+      },
+      {
+        "name": "trimipramine",
+        "guidelineId": "RxNorm:10834"
+      },
+      {
+        "name": "voriconazole",
+        "guidelineId": "RxNorm:121243"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
           "gene": "CYP2C19",
-          "name": "*1",
+          "name": "*38",
           "function": "Normal function",
           "reference": true
         },
         "allele2": {
           "gene": "CYP2C19",
-          "name": "*1",
+          "name": "*38",
           "function": "Normal function",
           "reference": true
         },
@@ -1209,20 +1304,20 @@
         "phenotype": "Normal Metabolizer",
         "variant": null,
         "lookupKey": "Normal Metabolizer",
-        "label": "*1/*1"
+        "label": "*38/*38"
       }
     ],
     "diplotypes": [
       {
         "allele1": {
           "gene": "CYP2C19",
-          "name": "*1",
+          "name": "*38",
           "function": "Normal function",
           "reference": true
         },
         "allele2": {
           "gene": "CYP2C19",
-          "name": "*1",
+          "name": "*38",
           "function": "Normal function",
           "reference": true
         },
@@ -1230,7 +1325,7 @@
         "phenotype": "Normal Metabolizer",
         "variant": null,
         "lookupKey": "Normal Metabolizer",
-        "label": "*1/*1"
+        "label": "*38/*38"
       }
     ],
     "variants": [
@@ -1244,7 +1339,7 @@
           "*4",
           "*17"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1257,7 +1352,7 @@
         "alleles": [
           "*4"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1270,7 +1365,7 @@
         "alleles": [
           "*34"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1283,7 +1378,7 @@
         "alleles": [
           "*34"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -1296,7 +1391,7 @@
         "alleles": [
           "*14"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -1308,9 +1403,11 @@
         "call": "A|A",
         "alleles": [
           "*15",
-          "*28"
+          "*28",
+          "*35",
+          "*39"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1318,12 +1415,12 @@
         "gene": "CYP2C19",
         "chromosome": "chr10",
         "position": 94762788,
-        "dbSnpId": null,
+        "dbSnpId": "rs1564656981",
         "call": "A|A",
         "alleles": [
           "*29"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1331,12 +1428,12 @@
         "gene": "CYP2C19",
         "chromosome": "chr10",
         "position": 94762856,
-        "dbSnpId": null,
+        "dbSnpId": "rs1564657013",
         "call": "A|A",
         "alleles": [
           "*19"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1349,7 +1446,7 @@
         "alleles": [
           "*30"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1357,12 +1454,12 @@
         "gene": "CYP2C19",
         "chromosome": "chr10",
         "position": 94775121,
-        "dbSnpId": null,
+        "dbSnpId": "rs1564660997",
         "call": "C|C",
         "alleles": [
           "*31"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1375,7 +1472,7 @@
         "alleles": [
           "*23"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1383,12 +1480,12 @@
         "gene": "CYP2C19",
         "chromosome": "chr10",
         "position": 94775185,
-        "dbSnpId": null,
+        "dbSnpId": "rs1288601658",
         "call": "A|A",
         "alleles": [
           "*32"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1402,7 +1499,7 @@
           "*2",
           "*35"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1415,8 +1512,21 @@
         "alleles": [
           "*8"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
+        "mismatch": false
+      },
+      {
+        "gene": "CYP2C19",
+        "chromosome": "chr10",
+        "position": 94775423,
+        "dbSnpId": "rs17885179",
+        "call": "A|A",
+        "alleles": [
+          "*39"
+        ],
+        "phased": true,
+        "wildtypeAllele": "A",
         "mismatch": false
       },
       {
@@ -1428,7 +1538,7 @@
         "alleles": [
           "*6"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1441,7 +1551,7 @@
         "alleles": [
           "*9"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1455,7 +1565,7 @@
           "*2",
           "*11"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1468,7 +1578,7 @@
         "alleles": [
           "*22"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1481,7 +1591,7 @@
         "alleles": [
           "*33"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1494,7 +1604,7 @@
         "alleles": [
           "*3"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1507,7 +1617,7 @@
         "alleles": [
           "*10"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1520,7 +1630,7 @@
         "alleles": [
           "*2"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1528,12 +1638,12 @@
         "gene": "CYP2C19",
         "chromosome": "chr10",
         "position": 94781944,
-        "dbSnpId": null,
+        "dbSnpId": "rs375781227",
         "call": "G|G",
         "alleles": [
           "*26"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1546,7 +1656,7 @@
         "alleles": [
           "*7"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -1559,7 +1669,7 @@
         "alleles": [
           "*18"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1572,7 +1682,7 @@
         "alleles": [
           "*24"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1585,7 +1695,7 @@
         "alleles": [
           "*28"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1598,7 +1708,7 @@
         "alleles": [
           "*13"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1611,7 +1721,7 @@
         "alleles": [
           "*5"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1624,7 +1734,7 @@
         "alleles": [
           "*16"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1637,7 +1747,7 @@
         "alleles": [
           "*25"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1650,7 +1760,7 @@
         "alleles": [
           "*12"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       }
@@ -1665,7 +1775,40 @@
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
     "messages": [],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "celecoxib",
+        "guidelineId": "RxNorm:140587"
+      },
+      {
+        "name": "flurbiprofen",
+        "guidelineId": "RxNorm:4502"
+      },
+      {
+        "name": "ibuprofen",
+        "guidelineId": "RxNorm:5640"
+      },
+      {
+        "name": "lornoxicam",
+        "guidelineId": "RxNorm:20890"
+      },
+      {
+        "name": "meloxicam",
+        "guidelineId": "RxNorm:41493"
+      },
+      {
+        "name": "piroxicam",
+        "guidelineId": "RxNorm:8356"
+      },
+      {
+        "name": "tenoxicam",
+        "guidelineId": "RxNorm:37790"
+      },
+      {
+        "name": "warfarin",
+        "guidelineId": "RxNorm:11289"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -1712,26 +1855,13 @@
       {
         "gene": "CYP2C9",
         "chromosome": "chr10",
-        "position": 94936917,
-        "dbSnpId": "rs9332094",
-        "call": "T|T",
-        "alleles": [
-          "*8"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2C9",
-        "chromosome": "chr10",
         "position": 94938683,
         "dbSnpId": "rs114071557",
         "call": "A|A",
         "alleles": [
           "*36"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1744,7 +1874,7 @@
         "alleles": [
           "*7"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1757,7 +1887,7 @@
         "alleles": [
           "*21"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1770,7 +1900,7 @@
         "alleles": [
           "*22"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1783,7 +1913,7 @@
         "alleles": [
           "*37"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1796,7 +1926,7 @@
         "alleles": [
           "*20"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1809,7 +1939,7 @@
         "alleles": [
           "*23"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1822,7 +1952,7 @@
         "alleles": [
           "*13"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -1835,7 +1965,7 @@
         "alleles": [
           "*38"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1848,7 +1978,7 @@
         "alleles": [
           "*39"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1861,7 +1991,7 @@
         "alleles": [
           "*40"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -1869,12 +1999,12 @@
         "gene": "CYP2C9",
         "chromosome": "chr10",
         "position": 94942213,
-        "dbSnpId": null,
+        "dbSnpId": "rs1304490498",
         "call": "AGAAATGGAA|AGAAATGGAA",
         "alleles": [
           "*25"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "AGAAATGGAA",
         "mismatch": false
       },
@@ -1882,12 +2012,12 @@
         "gene": "CYP2C9",
         "chromosome": "chr10",
         "position": 94942216,
-        "dbSnpId": null,
+        "dbSnpId": "rs774607211",
         "call": "A|A",
         "alleles": [
           "*41"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -1900,7 +2030,7 @@
         "alleles": [
           "*43"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1913,7 +2043,7 @@
         "alleles": [
           "*42"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1926,7 +2056,7 @@
         "alleles": [
           "*62"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1940,7 +2070,7 @@
           "*14",
           "*35"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1954,7 +2084,7 @@
           "*26",
           "*44"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1967,7 +2097,7 @@
         "alleles": [
           "*45"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -1980,7 +2110,7 @@
         "alleles": [
           "*33"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -1995,7 +2125,7 @@
           "*35",
           "*61"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2008,7 +2138,7 @@
         "alleles": [
           "*63"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -2021,7 +2151,7 @@
         "alleles": [
           "*46"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -2035,7 +2165,7 @@
           "*8",
           "*27"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -2048,7 +2178,7 @@
         "alleles": [
           "*15"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2061,7 +2191,7 @@
         "alleles": [
           "*47"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2074,7 +2204,7 @@
         "alleles": [
           "*69"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2087,7 +2217,7 @@
         "alleles": [
           "*57"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2095,12 +2225,12 @@
         "gene": "CYP2C9",
         "chromosome": "chr10",
         "position": 94947917,
-        "dbSnpId": null,
+        "dbSnpId": "rs1326630788",
         "call": "T|T",
         "alleles": [
           "*48"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -2113,7 +2243,7 @@
         "alleles": [
           "*28"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2126,7 +2256,7 @@
         "alleles": [
           "*49"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2139,7 +2269,7 @@
         "alleles": [
           "*50"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2152,7 +2282,7 @@
         "alleles": [
           "*9"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2163,9 +2293,10 @@
         "dbSnpId": "rs9332130",
         "call": "A|A",
         "alleles": [
-          "*10"
+          "*10",
+          "*71"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2178,7 +2309,7 @@
         "alleles": [
           "*6"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2191,7 +2322,7 @@
         "alleles": [
           "*29"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2204,7 +2335,7 @@
         "alleles": [
           "*64"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2217,7 +2348,7 @@
         "alleles": [
           "*51"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2230,7 +2361,7 @@
         "alleles": [
           "*16"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2238,12 +2369,12 @@
         "gene": "CYP2C9",
         "chromosome": "chr10",
         "position": 94972180,
-        "dbSnpId": null,
+        "dbSnpId": "rs988617574",
         "call": "C|C",
         "alleles": [
           "*52"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2251,12 +2382,12 @@
         "gene": "CYP2C9",
         "chromosome": "chr10",
         "position": 94972233,
-        "dbSnpId": null,
+        "dbSnpId": "rs1237225311",
         "call": "C|C",
         "alleles": [
           "*53"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2269,7 +2400,7 @@
         "alleles": [
           "*65"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -2282,7 +2413,7 @@
         "alleles": [
           "*31"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -2295,7 +2426,7 @@
         "alleles": [
           "*11"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2308,7 +2439,7 @@
         "alleles": [
           "*34"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -2316,12 +2447,12 @@
         "gene": "CYP2C9",
         "chromosome": "chr10",
         "position": 94981230,
-        "dbSnpId": null,
+        "dbSnpId": "rs1274535931",
         "call": "C|C",
         "alleles": [
           "*58"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2334,7 +2465,7 @@
         "alleles": [
           "*54"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2347,7 +2478,7 @@
         "alleles": [
           "*24"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -2362,7 +2493,7 @@
           "*18",
           "*68"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2375,7 +2506,7 @@
         "alleles": [
           "*4"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -2388,7 +2519,7 @@
         "alleles": [
           "*5"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2396,12 +2527,12 @@
         "gene": "CYP2C9",
         "chromosome": "chr10",
         "position": 94981302,
-        "dbSnpId": null,
+        "dbSnpId": "rs1250577724",
         "call": "C|C",
         "alleles": [
           "*55"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2414,7 +2545,7 @@
         "alleles": [
           "*66"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2427,7 +2558,7 @@
         "alleles": [
           "*17"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2440,7 +2571,7 @@
         "alleles": [
           "*68"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -2453,7 +2584,7 @@
         "alleles": [
           "*56"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2466,7 +2597,7 @@
         "alleles": [
           "*18"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2479,7 +2610,7 @@
         "alleles": [
           "*67"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2492,7 +2623,7 @@
         "alleles": [
           "*59"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2505,7 +2636,7 @@
         "alleles": [
           "*70"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -2518,7 +2649,7 @@
         "alleles": [
           "*19"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -2531,7 +2662,7 @@
         "alleles": [
           "*61"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -2544,7 +2675,7 @@
         "alleles": [
           "*60"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -2557,7 +2688,7 @@
         "alleles": [
           "*30"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -2568,9 +2699,10 @@
         "dbSnpId": "rs9332239",
         "call": "C|C",
         "alleles": [
-          "*12"
+          "*12",
+          "*71"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -2578,12 +2710,12 @@
         "gene": "CYP2C9",
         "chromosome": "chr10",
         "position": 94989023,
-        "dbSnpId": null,
+        "dbSnpId": "rs868182778",
         "call": "G|G",
         "alleles": [
           "*32"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       }
@@ -2594,9 +2726,9 @@
         "chromosome": "chr10",
         "position": 94645745,
         "dbSnpId": "rs12777823",
-        "call": "G/A",
+        "call": "G|G",
         "alleles": [],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": null,
         "mismatch": false
       }
@@ -2605,2040 +2737,137 @@
   },
   {
     "geneSymbol": "CYP2D6",
-    "chr": "chr22",
-    "phased": true,
-    "callSource": "MATCHER",
-    "uncalledHaplotypes": [
-      "*1",
-      "*2",
-      "*3",
-      "*4",
-      "*6",
-      "*7",
-      "*8",
-      "*9",
-      "*10",
-      "*11",
-      "*12",
-      "*14",
-      "*15",
-      "*17",
-      "*18",
-      "*19",
-      "*20",
-      "*21",
-      "*22",
-      "*23",
-      "*24",
-      "*25",
-      "*26",
-      "*27",
-      "*28",
-      "*29",
-      "*30",
-      "*31",
-      "*32",
-      "*33",
-      "*34",
-      "*35",
-      "*36",
-      "*37",
-      "*38",
-      "*39",
-      "*40",
-      "*41",
-      "*42",
-      "*43",
-      "*44",
-      "*45",
-      "*46",
-      "*47",
-      "*48",
-      "*49",
-      "*50",
-      "*51",
-      "*52",
-      "*53",
-      "*54",
-      "*55",
-      "*56",
-      "*57",
-      "*58",
-      "*59",
-      "*60",
-      "*62",
-      "*64",
-      "*65",
-      "*69",
-      "*70",
-      "*71",
-      "*72",
-      "*73",
-      "*74",
-      "*75",
-      "*81",
-      "*82",
-      "*83",
-      "*84",
-      "*85",
-      "*86",
-      "*87",
-      "*88",
-      "*89",
-      "*90",
-      "*91",
-      "*92",
-      "*93",
-      "*94",
-      "*95",
-      "*96",
-      "*97",
-      "*98",
-      "*99",
-      "*100",
-      "*101",
-      "*102",
-      "*103",
-      "*104",
-      "*105",
-      "*106",
-      "*107",
-      "*108",
-      "*109",
-      "*110",
-      "*111",
-      "*112",
-      "*113",
-      "*114",
-      "*115",
-      "*116",
-      "*117",
-      "*118",
-      "*119",
-      "*120",
-      "*121",
-      "*122",
-      "*123",
-      "*124",
-      "*125",
-      "*126",
-      "*127",
-      "*128",
-      "*129",
-      "*130",
-      "*131",
-      "*132",
-      "*133",
-      "*134",
-      "*135",
-      "*136",
-      "*137",
-      "*138",
-      "*139",
-      "*140",
-      "*141",
-      "*142",
-      "*143",
-      "*144",
-      "*145"
+    "chr": null,
+    "phased": false,
+    "callSource": "OUTSIDE",
+    "uncalledHaplotypes": [],
+    "messages": [
+      {
+        "rule_name": "CYP2D6 warning",
+        "version": "1",
+        "matches": {
+          "gene": "CYP2D6",
+          "hapsCalled": [],
+          "hapsMissing": [],
+          "variantsMissing": [],
+          "variant": "",
+          "dips": [],
+          "hapsAvailable": [],
+          "drugs": []
+        },
+        "exception_type": "note",
+        "message": "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to \u003ca href\u003d\"https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles\"\u003ethe PharmCAT wiki\u003c/a\u003e for more information."
+      }
     ],
-    "messages": [],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "amitriptyline",
+        "guidelineId": "RxNorm:704"
+      },
+      {
+        "name": "atomoxetine",
+        "guidelineId": "RxNorm:38400"
+      },
+      {
+        "name": "clomipramine",
+        "guidelineId": "RxNorm:2597"
+      },
+      {
+        "name": "codeine",
+        "guidelineId": "RxNorm:2670"
+      },
+      {
+        "name": "desipramine",
+        "guidelineId": "RxNorm:3247"
+      },
+      {
+        "name": "doxepin",
+        "guidelineId": "RxNorm:3638"
+      },
+      {
+        "name": "fluvoxamine",
+        "guidelineId": "RxNorm:42355"
+      },
+      {
+        "name": "hydrocodone",
+        "guidelineId": "RxNorm:5489"
+      },
+      {
+        "name": "imipramine",
+        "guidelineId": "RxNorm:5691"
+      },
+      {
+        "name": "nortriptyline",
+        "guidelineId": "RxNorm:7531"
+      },
+      {
+        "name": "ondansetron",
+        "guidelineId": "RxNorm:26225"
+      },
+      {
+        "name": "paroxetine",
+        "guidelineId": "RxNorm:32937"
+      },
+      {
+        "name": "tamoxifen",
+        "guidelineId": "RxNorm:10324"
+      },
+      {
+        "name": "tramadol",
+        "guidelineId": "RxNorm:10689"
+      },
+      {
+        "name": "trimipramine",
+        "guidelineId": "RxNorm:10834"
+      },
+      {
+        "name": "tropisetron",
+        "guidelineId": "RxNorm:27392"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
           "gene": "CYP2D6",
-          "name": "Unknown",
-          "function": null,
-          "reference": false
+          "name": "*1",
+          "function": "Normal function",
+          "reference": true
         },
         "allele2": {
           "gene": "CYP2D6",
-          "name": "Unknown",
-          "function": null,
+          "name": "*3",
+          "function": "No function",
           "reference": false
         },
         "gene": "CYP2D6",
-        "phenotype": "No Result",
+        "phenotype": "Intermediate Metabolizer",
         "variant": null,
-        "lookupKey": "No Result",
-        "label": "Unknown/Unknown"
+        "lookupKey": "1",
+        "label": "*1/*3"
       }
     ],
     "diplotypes": [
       {
         "allele1": {
           "gene": "CYP2D6",
-          "name": "Unknown",
-          "function": null,
-          "reference": false
+          "name": "*1",
+          "function": "Normal function",
+          "reference": true
         },
         "allele2": {
           "gene": "CYP2D6",
-          "name": "Unknown",
-          "function": null,
+          "name": "*3",
+          "function": "No function",
           "reference": false
         },
         "gene": "CYP2D6",
-        "phenotype": "No Result",
+        "phenotype": "Intermediate Metabolizer",
         "variant": null,
-        "lookupKey": "No Result",
-        "label": "Unknown/Unknown"
+        "lookupKey": "1",
+        "label": "*1/*3"
       }
     ],
-    "variants": [
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127526,
-        "dbSnpId": "rs1058172",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*127",
-          "*139"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128218,
-        "dbSnpId": "rs72549352",
-        "call": null,
-        "alleles": [
-          "*21"
-        ],
-        "phased": false,
-        "wildtypeAllele": "del",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129166,
-        "dbSnpId": "rs766391487",
-        "call": null,
-        "alleles": [
-          "*143"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129887,
-        "dbSnpId": "rs1456026511",
-        "call": null,
-        "alleles": [
-          "*128"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129827,
-        "dbSnpId": "rs267608276",
-        "call": null,
-        "alleles": [
-          "*99"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126746,
-        "dbSnpId": "rs532668079",
-        "call": null,
-        "alleles": [
-          "*75"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126749,
-        "dbSnpId": "rs267608319",
-        "call": null,
-        "alleles": [
-          "*31"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127852,
-        "dbSnpId": "rs79292917",
-        "call": null,
-        "alleles": [
-          "*59"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42130668,
-        "dbSnpId": "rs5030862",
-        "call": null,
-        "alleles": [
-          "*12"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127941,
-        "dbSnpId": "rs16947",
-        "call": null,
-        "alleles": [
-          "*2",
-          "*4",
-          "*8",
-          "*11",
-          "*12",
-          "*14",
-          "*17",
-          "*19",
-          "*20",
-          "*21",
-          "*28",
-          "*29",
-          "*30",
-          "*31",
-          "*32",
-          "*34",
-          "*35",
-          "*40",
-          "*41",
-          "*42",
-          "*45",
-          "*46",
-          "*51",
-          "*55",
-          "*56",
-          "*58",
-          "*59",
-          "*65",
-          "*69",
-          "*73",
-          "*84",
-          "*85",
-          "*91",
-          "*98",
-          "*102",
-          "*103",
-          "*104",
-          "*105",
-          "*111",
-          "*114",
-          "*117",
-          "*121",
-          "*123",
-          "*125",
-          "*126",
-          "*128",
-          "*129",
-          "*133",
-          "*135",
-          "*136",
-          "*138",
-          "*141"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129779,
-        "dbSnpId": "rs76187628",
-        "call": null,
-        "alleles": [
-          "*82",
-          "*88"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126634,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*85"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126926,
-        "dbSnpId": "rs747089665",
-        "call": null,
-        "alleles": [
-          "*135"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129183,
-        "dbSnpId": "rs374616348",
-        "call": null,
-        "alleles": [
-          "*70"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126633,
-        "dbSnpId": "rs1135837",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*36",
-          "*57",
-          "*83",
-          "*141"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127631,
-        "dbSnpId": "rs141009491",
-        "call": null,
-        "alleles": [
-          "*116"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126981,
-        "dbSnpId": "rs757396767",
-        "call": null,
-        "alleles": [
-          "*124"
-        ],
-        "phased": false,
-        "wildtypeAllele": "GA",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126752,
-        "dbSnpId": "rs569439709",
-        "call": null,
-        "alleles": [
-          "*113"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129113,
-        "dbSnpId": "rs375135093",
-        "call": null,
-        "alleles": [
-          "*89"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128325,
-        "dbSnpId": "rs17002853",
-        "call": null,
-        "alleles": [
-          "*131"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126660,
-        "dbSnpId": "rs1135835",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*36",
-          "*57",
-          "*83",
-          "*141"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129134,
-        "dbSnpId": "rs781457579",
-        "call": null,
-        "alleles": [
-          "*126"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128217,
-        "dbSnpId": "rs148769737",
-        "call": null,
-        "alleles": [
-          "*84"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129071,
-        "dbSnpId": "rs267608302",
-        "call": null,
-        "alleles": [
-          "*50",
-          "*104"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126611,
-        "dbSnpId": "rs1135840",
-        "call": null,
-        "alleles": [
-          "*2",
-          "*4",
-          "*6",
-          "*8",
-          "*10",
-          "*11",
-          "*12",
-          "*14",
-          "*17",
-          "*19",
-          "*20",
-          "*21",
-          "*28",
-          "*29",
-          "*30",
-          "*31",
-          "*32",
-          "*35",
-          "*36",
-          "*37",
-          "*39",
-          "*40",
-          "*41",
-          "*42",
-          "*45",
-          "*46",
-          "*47",
-          "*49",
-          "*51",
-          "*52",
-          "*54",
-          "*55",
-          "*56",
-          "*57",
-          "*58",
-          "*59",
-          "*64",
-          "*65",
-          "*69",
-          "*70",
-          "*72",
-          "*73",
-          "*83",
-          "*84",
-          "*85",
-          "*87",
-          "*88",
-          "*94",
-          "*95",
-          "*98",
-          "*99",
-          "*100",
-          "*101",
-          "*102",
-          "*103",
-          "*104",
-          "*105",
-          "*111",
-          "*114",
-          "*117",
-          "*121",
-          "*123",
-          "*125",
-          "*126",
-          "*128",
-          "*129",
-          "*132",
-          "*133",
-          "*135",
-          "*136",
-          "*138",
-          "*141",
-          "*142"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128308,
-        "dbSnpId": "rs28371717",
-        "call": null,
-        "alleles": [
-          "*33"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128181,
-        "dbSnpId": "rs1135828",
-        "call": null,
-        "alleles": [
-          "*81",
-          "*86"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128174,
-        "dbSnpId": "rs5030656",
-        "call": null,
-        "alleles": [
-          "*9",
-          "*109",
-          "*115"
-        ],
-        "phased": false,
-        "wildtypeAllele": "CTT",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126627,
-        "dbSnpId": "rs1135838",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*36",
-          "*57",
-          "*83",
-          "*141"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129132,
-        "dbSnpId": "rs61736512",
-        "call": null,
-        "alleles": [
-          "*29",
-          "*70",
-          "*107"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128329,
-        "dbSnpId": "rs373813287",
-        "call": null,
-        "alleles": [
-          "*140"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128903,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*60"
-        ],
-        "phased": false,
-        "wildtypeAllele": "del",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127589,
-        "dbSnpId": "rs76088846",
-        "call": null,
-        "alleles": [
-          "*134"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127608,
-        "dbSnpId": "rs59421388",
-        "call": null,
-        "alleles": [
-          "*29",
-          "*70",
-          "*109"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127938,
-        "dbSnpId": "rs949717872",
-        "call": null,
-        "alleles": [
-          "*24"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129042,
-        "dbSnpId": "rs1135824",
-        "call": null,
-        "alleles": [
-          "*3",
-          "*103",
-          "*121"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129765,
-        "dbSnpId": "rs78459009",
-        "call": null,
-        "alleles": [
-          "*82"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126914,
-        "dbSnpId": "rs28371733",
-        "call": null,
-        "alleles": [
-          "*52",
-          "*106"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128242,
-        "dbSnpId": "rs35742686",
-        "call": null,
-        "alleles": [
-          "*3"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42130773,
-        "dbSnpId": "rs72549358",
-        "call": null,
-        "alleles": [
-          "*28"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128272,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*93"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127473,
-        "dbSnpId": "rs75386357",
-        "call": null,
-        "alleles": [
-          "*72"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42130728,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*120"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128212,
-        "dbSnpId": "rs367543000",
-        "call": null,
-        "alleles": [
-          "*81"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129910,
-        "dbSnpId": "rs201377835",
-        "call": null,
-        "alleles": [
-          "*11"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126605,
-        "dbSnpId": "rs568495591",
-        "call": null,
-        "alleles": [
-          "*112"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126719,
-        "dbSnpId": "rs369177208",
-        "call": null,
-        "alleles": [
-          "*125"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127514,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*26"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127523,
-        "dbSnpId": "rs267608294",
-        "call": null,
-        "alleles": [
-          "*105"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126877,
-        "dbSnpId": "rs3021084",
-        "call": null,
-        "alleles": [
-          "*136"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128796,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*92"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126624,
-        "dbSnpId": "rs74478221",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*36",
-          "*57",
-          "*83",
-          "*141"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128201,
-        "dbSnpId": "rs72549351",
-        "call": null,
-        "alleles": [
-          "*38"
-        ],
-        "phased": false,
-        "wildtypeAllele": "AGTC",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129180,
-        "dbSnpId": "rs1135822",
-        "call": null,
-        "alleles": [
-          "*49",
-          "*53"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42130719,
-        "dbSnpId": "rs267608313",
-        "call": null,
-        "alleles": [
-          "*47"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127590,
-        "dbSnpId": "rs72549347",
-        "call": null,
-        "alleles": [
-          "*56"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129780,
-        "dbSnpId": "rs267608308",
-        "call": null,
-        "alleles": [
-          "*73"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127841,
-        "dbSnpId": "rs72549349",
-        "call": null,
-        "alleles": [
-          "*44"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126747,
-        "dbSnpId": "rs730882251",
-        "call": null,
-        "alleles": [
-          "*62"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129036,
-        "dbSnpId": "rs1135826",
-        "call": null,
-        "alleles": [
-          "*121"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127610,
-        "dbSnpId": "rs748712690",
-        "call": null,
-        "alleles": [
-          "*94"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129033,
-        "dbSnpId": "rs5030865",
-        "call": null,
-        "alleles": [
-          "*8",
-          "*14",
-          "*114"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128936,
-        "dbSnpId": "rs72549356",
-        "call": null,
-        "alleles": [
-          "*30",
-          "*40",
-          "*58",
-          "*145"
-        ],
-        "phased": false,
-        "wildtypeAllele": "del",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129075,
-        "dbSnpId": "rs28371710",
-        "call": null,
-        "alleles": [
-          "*12",
-          "*45",
-          "*46"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42130667,
-        "dbSnpId": "rs118203758",
-        "call": null,
-        "alleles": [
-          "*71"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126636,
-        "dbSnpId": "rs28371735",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*36",
-          "*57",
-          "*83",
-          "*141"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42130710,
-        "dbSnpId": "rs138100349",
-        "call": null,
-        "alleles": [
-          "*22",
-          "*44",
-          "*142"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127602,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*133"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128812,
-        "dbSnpId": "rs199535154",
-        "call": null,
-        "alleles": [
-          "*20"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129037,
-        "dbSnpId": "rs1135825",
-        "call": null,
-        "alleles": [
-          "*121"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127899,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*118"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128878,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*130"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42130778,
-        "dbSnpId": "rs773790593",
-        "call": null,
-        "alleles": [
-          "*87"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128817,
-        "dbSnpId": "rs72549354",
-        "call": null,
-        "alleles": [
-          "*20"
-        ],
-        "phased": false,
-        "wildtypeAllele": "del",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129819,
-        "dbSnpId": "rs28371703",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*74",
-          "*82"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129770,
-        "dbSnpId": "rs28371706",
-        "call": null,
-        "alleles": [
-          "*17",
-          "*40",
-          "*58",
-          "*64",
-          "*82",
-          "*141"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129821,
-        "dbSnpId": "rs267608309",
-        "call": null,
-        "alleles": [
-          "*48",
-          "*102",
-          "*103"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126657,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*18"
-        ],
-        "phased": false,
-        "wildtypeAllele": "del",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126896,
-        "dbSnpId": "rs763964554",
-        "call": null,
-        "alleles": [
-          "*96"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126938,
-        "dbSnpId": "rs769157652",
-        "call": null,
-        "alleles": [
-          "*27",
-          "*32",
-          "*141"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129906,
-        "dbSnpId": "rs267608311",
-        "call": null,
-        "alleles": [
-          "*57"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127973,
-        "dbSnpId": "rs1135829",
-        "call": null,
-        "alleles": [
-          "*115",
-          "*132"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129836,
-        "dbSnpId": "rs267608310",
-        "call": null,
-        "alleles": [
-          "*23"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127922,
-        "dbSnpId": "rs1406719554",
-        "call": null,
-        "alleles": [
-          "*123"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127457,
-        "dbSnpId": "rs77312092",
-        "call": null,
-        "alleles": [
-          "*95"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126681,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*98"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127611,
-        "dbSnpId": "rs78209835",
-        "call": null,
-        "alleles": [
-          "*117"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129087,
-        "dbSnpId": "rs78482768",
-        "call": null,
-        "alleles": [
-          "*28"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127856,
-        "dbSnpId": "rs5030867",
-        "call": null,
-        "alleles": [
-          "*7"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126697,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*97"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127556,
-        "dbSnpId": "rs202102799",
-        "call": null,
-        "alleles": [
-          "*108",
-          "*127"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128945,
-        "dbSnpId": "rs3892097",
-        "call": null,
-        "alleles": [
-          "*4"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42130761,
-        "dbSnpId": "rs769258",
-        "call": null,
-        "alleles": [
-          "*35",
-          "*143"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128185,
-        "dbSnpId": "rs77913725",
-        "call": null,
-        "alleles": [
-          "*81",
-          "*86"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128249,
-        "dbSnpId": "rs72549353",
-        "call": null,
-        "alleles": [
-          "*19"
-        ],
-        "phased": false,
-        "wildtypeAllele": "AGTT",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127512,
-        "dbSnpId": "rs61745683",
-        "call": null,
-        "alleles": [
-          "*122"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129759,
-        "dbSnpId": "rs535642512",
-        "call": null,
-        "alleles": [
-          "*111"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127846,
-        "dbSnpId": "rs730882170",
-        "call": null,
-        "alleles": [
-          "*101"
-        ],
-        "phased": false,
-        "wildtypeAllele": "CACATCCGGATGTAGGATC",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129809,
-        "dbSnpId": "rs28371704",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*82"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42130692,
-        "dbSnpId": "rs1065852",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*10",
-          "*36",
-          "*37",
-          "*47",
-          "*49",
-          "*52",
-          "*54",
-          "*56",
-          "*57",
-          "*64",
-          "*65",
-          "*69",
-          "*72",
-          "*87",
-          "*94",
-          "*95",
-          "*99",
-          "*100",
-          "*101",
-          "*114",
-          "*132",
-          "*142"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42130715,
-        "dbSnpId": "rs28371696",
-        "call": null,
-        "alleles": [
-          "*15",
-          "*43",
-          "*46"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126635,
-        "dbSnpId": "rs766507177",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*36",
-          "*57",
-          "*83",
-          "*141"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127803,
-        "dbSnpId": "rs28371725",
-        "call": null,
-        "alleles": [
-          "*32",
-          "*41",
-          "*69",
-          "*91",
-          "*119",
-          "*123",
-          "*132",
-          "*138"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127533,
-        "dbSnpId": "rs72549346",
-        "call": null,
-        "alleles": [
-          "*42"
-        ],
-        "phased": false,
-        "wildtypeAllele": "del",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128848,
-        "dbSnpId": "rs745365204",
-        "call": null,
-        "alleles": [
-          "*37"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126735,
-        "dbSnpId": "rs751092905",
-        "call": null,
-        "alleles": [
-          "*110"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128879,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*130"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129098,
-        "dbSnpId": "rs569229126",
-        "call": null,
-        "alleles": [
-          "*90"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128351,
-        "dbSnpId": "rs377725912",
-        "call": null,
-        "alleles": [
-          "*144"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127593,
-        "dbSnpId": "rs267608295",
-        "call": null,
-        "alleles": [
-          "*25"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126578,
-        "dbSnpId": "rs1440526469",
-        "call": null,
-        "alleles": [
-          "*137"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126647,
-        "dbSnpId": "rs141756339",
-        "call": null,
-        "alleles": [
-          "*138"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126623,
-        "dbSnpId": "rs75467367",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*36",
-          "*57",
-          "*83",
-          "*141"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126663,
-        "dbSnpId": "rs1135833",
-        "call": null,
-        "alleles": [
-          "*4",
-          "*36",
-          "*57",
-          "*83",
-          "*141"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129174,
-        "dbSnpId": "rs1135823",
-        "call": null,
-        "alleles": [
-          "*53"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129771,
-        "dbSnpId": "rs74802369",
-        "call": null,
-        "alleles": [
-          "*82"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129056,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*91"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42126956,
-        "dbSnpId": null,
-        "call": null,
-        "alleles": [
-          "*55"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42130655,
-        "dbSnpId": "rs774671100",
-        "call": null,
-        "alleles": [
-          "*15"
-        ],
-        "phased": false,
-        "wildtypeAllele": "del",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127963,
-        "dbSnpId": "rs267608279",
-        "call": null,
-        "alleles": [
-          "*100"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127619,
-        "dbSnpId": "rs72549348",
-        "call": null,
-        "alleles": [
-          "*51"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42127565,
-        "dbSnpId": "rs61736517",
-        "call": null,
-        "alleles": [
-          "*108"
-        ],
-        "phased": false,
-        "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42128235,
-        "dbSnpId": "rs267608297",
-        "call": null,
-        "alleles": [
-          "*54"
-        ],
-        "phased": false,
-        "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129155,
-        "dbSnpId": "rs1180015037",
-        "call": null,
-        "alleles": [
-          "*129"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2D6",
-        "chromosome": "chr22",
-        "position": 42129084,
-        "dbSnpId": "rs5030655",
-        "call": null,
-        "alleles": [
-          "*6"
-        ],
-        "phased": false,
-        "wildtypeAllele": "A",
-        "mismatch": false
-      }
-    ],
+    "variants": [],
     "variantsOfInterest": [],
     "highlightedVariants": []
   },
@@ -4649,22 +2878,6 @@
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
     "messages": [
-      {
-        "rule_name": "CYP3A5 Exome warning",
-        "version": "1",
-        "matches": {
-          "gene": "CYP3A5",
-          "hapsCalled": [],
-          "hapsMissing": [],
-          "variantsMissing": [],
-          "variant": "",
-          "dips": [],
-          "hapsAvailable": [],
-          "drugs": []
-        },
-        "exception_type": "ambiguity",
-        "message": "CYP3A5 is known to have one or more functional variants in intronic regions.  Since intronic variants are important for CYP3A5 genotype assignment, further testing may be warranted for exome data."
-      },
       {
         "rule_name": "CYP3A5 reverse complement footnote",
         "version": "1",
@@ -4682,7 +2895,12 @@
         "message": "The CYP3A5 gene is on the negative chromosomal strand, all genotype calls for CYP3A5 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
       }
     ],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "tacrolimus",
+        "guidelineId": "RxNorm:42316"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -4736,7 +2954,7 @@
           "*2",
           "*3"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -4749,7 +2967,7 @@
         "alleles": [
           "*7"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "del",
         "mismatch": false
       },
@@ -4763,7 +2981,7 @@
           "*3",
           "*9"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -4776,7 +2994,7 @@
         "alleles": [
           "*6"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -4790,7 +3008,7 @@
           "*3",
           "*4"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -4804,7 +3022,7 @@
           "*3",
           "*5"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -4817,7 +3035,7 @@
         "alleles": [
           "*3"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -4830,7 +3048,7 @@
         "alleles": [
           "*8"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       }
@@ -4845,7 +3063,12 @@
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
     "messages": [],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "warfarin",
+        "guidelineId": "RxNorm:11289"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -4898,7 +3121,7 @@
         "alleles": [
           "*3"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -4911,7 +3134,7 @@
         "alleles": [
           "*2"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       }
@@ -4925,25 +3148,17 @@
     "phased": true,
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
-    "messages": [
+    "messages": [],
+    "relatedDrugs": [
       {
-        "rule_name": "DPYD extra-position-header",
-        "version": "1",
-        "matches": {
-          "gene": "DPYD",
-          "hapsCalled": [],
-          "hapsMissing": [],
-          "variantsMissing": [],
-          "variant": "",
-          "dips": [],
-          "hapsAvailable": [],
-          "drugs": []
-        },
-        "exception_type": "extra-position-notes",
-        "message": "These variants are classified as normal function in the CPIC material for DPYD, having an activity value of 1 like the DPYD reference entry. \"Irrespective of the presence of decreased/no function variants, patients may carry multiple normal function variants. As an individual only carries a maximum of two fully functional DPYD copies, common normal function variants may be located on the same gene copy as other normal function variants or decreased/no function variants.\" Given this guideline statement, PharmCAT is not considering normal function variants during the allele matching process and assigns reference if neither a decreased or no function variant incldued in the CPIC DPYD material is identified."
+        "name": "capecitabine",
+        "guidelineId": "RxNorm:194000"
+      },
+      {
+        "name": "fluorouracil",
+        "guidelineId": "RxNorm:4492"
       }
     ],
-    "relatedDrugs": [],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -4996,7 +3211,7 @@
         "alleles": [
           "c.3067C\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5009,7 +3224,7 @@
         "alleles": [
           "c.3061G\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5022,7 +3237,7 @@
         "alleles": [
           "c.3049G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5035,7 +3250,7 @@
         "alleles": [
           "c.2983G\u003eT (*10)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5048,7 +3263,7 @@
         "alleles": [
           "c.2978T\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -5061,7 +3276,7 @@
         "alleles": [
           "c.2977C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5074,7 +3289,7 @@
         "alleles": [
           "c.2933A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5087,7 +3302,7 @@
         "alleles": [
           "c.2921A\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5100,7 +3315,7 @@
         "alleles": [
           "c.2915A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5113,7 +3328,7 @@
         "alleles": [
           "c.2872A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5126,7 +3341,7 @@
         "alleles": [
           "c.2846A\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5139,7 +3354,7 @@
         "alleles": [
           "c.2657G\u003eA (*9B)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5152,7 +3367,7 @@
         "alleles": [
           "c.2656C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5165,7 +3380,7 @@
         "alleles": [
           "c.2639G\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5178,7 +3393,7 @@
         "alleles": [
           "c.2623A\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5191,7 +3406,7 @@
         "alleles": [
           "c.2582A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5204,7 +3419,7 @@
         "alleles": [
           "c.2482G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5217,7 +3432,7 @@
         "alleles": [
           "c.2336C\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5230,7 +3445,7 @@
         "alleles": [
           "c.2303C\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5243,7 +3458,7 @@
         "alleles": [
           "c.2279C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5256,7 +3471,7 @@
         "alleles": [
           "c.2195T\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -5269,7 +3484,7 @@
         "alleles": [
           "c.2194G\u003eA (*6)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5282,7 +3497,7 @@
         "alleles": [
           "c.2186C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5295,7 +3510,7 @@
         "alleles": [
           "c.2161G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5308,7 +3523,7 @@
         "alleles": [
           "c.2021G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5321,7 +3536,7 @@
         "alleles": [
           "c.1990G\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5334,7 +3549,7 @@
         "alleles": [
           "c.1906A\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5347,7 +3562,7 @@
         "alleles": [
           "c.1905+1G\u003eA (*2A)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5360,7 +3575,7 @@
         "alleles": [
           "c.1905C\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5373,7 +3588,7 @@
         "alleles": [
           "c.1898delC (*3)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5386,7 +3601,7 @@
         "alleles": [
           "c.1896T\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -5399,7 +3614,7 @@
         "alleles": [
           "c.1796T\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -5412,7 +3627,7 @@
         "alleles": [
           "c.1777G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5425,7 +3640,7 @@
         "alleles": [
           "c.1775G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5438,7 +3653,7 @@
         "alleles": [
           "c.1774C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5451,7 +3666,7 @@
         "alleles": [
           "c.1682G\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5464,7 +3679,7 @@
         "alleles": [
           "c.1679T\u003eG (*13)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -5477,7 +3692,7 @@
         "alleles": [
           "c.1627A\u003eG (*5)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5490,7 +3705,7 @@
         "alleles": [
           "c.1615G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5503,7 +3718,7 @@
         "alleles": [
           "c.1601G\u003eA (*4)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5516,7 +3731,7 @@
         "alleles": [
           "c.1577C\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5529,7 +3744,7 @@
         "alleles": [
           "c.1543G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5542,7 +3757,7 @@
         "alleles": [
           "c.1519G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5555,7 +3770,7 @@
         "alleles": [
           "c.1484A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5568,7 +3783,7 @@
         "alleles": [
           "c.1475C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5581,7 +3796,7 @@
         "alleles": [
           "c.1403C\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5594,7 +3809,7 @@
         "alleles": [
           "c.1371C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5607,7 +3822,7 @@
         "alleles": [
           "c.1358C\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5620,7 +3835,7 @@
         "alleles": [
           "c.1349C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5633,7 +3848,7 @@
         "alleles": [
           "c.1314T\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -5646,7 +3861,7 @@
         "alleles": [
           "c.1294G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5659,7 +3874,7 @@
         "alleles": [
           "c.1278G\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5672,7 +3887,7 @@
         "alleles": [
           "c.1260T\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -5685,7 +3900,7 @@
         "alleles": [
           "c.1129-5923C\u003eG, c.1236G\u003eA (HapB3)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5698,7 +3913,7 @@
         "alleles": [
           "c.1218G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5711,7 +3926,7 @@
         "alleles": [
           "c.1181G\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5724,7 +3939,7 @@
         "alleles": [
           "c.1180C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5737,7 +3952,7 @@
         "alleles": [
           "c.1156G\u003eT (*12)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5750,7 +3965,7 @@
         "alleles": [
           "c.1129-5923C\u003eG, c.1236G\u003eA (HapB3)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5763,7 +3978,7 @@
         "alleles": [
           "c.1108A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5776,7 +3991,7 @@
         "alleles": [
           "c.1057C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5789,7 +4004,7 @@
         "alleles": [
           "c.1024G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5802,7 +4017,7 @@
         "alleles": [
           "c.1003G\u003eT (*11)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5815,7 +4030,7 @@
         "alleles": [
           "c.967G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5828,7 +4043,7 @@
         "alleles": [
           "c.934C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5841,7 +4056,7 @@
         "alleles": [
           "c.929T\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -5854,7 +4069,7 @@
         "alleles": [
           "c.868A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5867,7 +4082,7 @@
         "alleles": [
           "c.775A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5880,7 +4095,7 @@
         "alleles": [
           "c.703C\u003eT (*8)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -5893,7 +4108,7 @@
         "alleles": [
           "c.632A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5906,7 +4121,7 @@
         "alleles": [
           "c.601A\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5919,7 +4134,7 @@
         "alleles": [
           "c.557A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5932,7 +4147,7 @@
         "alleles": [
           "c.525G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5945,7 +4160,7 @@
         "alleles": [
           "c.498G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -5958,7 +4173,7 @@
         "alleles": [
           "c.496A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5971,7 +4186,7 @@
         "alleles": [
           "c.451A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5984,7 +4199,7 @@
         "alleles": [
           "c.343A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -5997,7 +4212,7 @@
         "alleles": [
           "c.313G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6010,7 +4225,7 @@
         "alleles": [
           "c.295_298delTCAT (*7)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "ATGA",
         "mismatch": false
       },
@@ -6023,7 +4238,7 @@
         "alleles": [
           "c.85T\u003eC (*9A)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -6036,7 +4251,7 @@
         "alleles": [
           "c.62G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6049,7 +4264,7 @@
         "alleles": [
           "c.61C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6062,7 +4277,7 @@
         "alleles": [
           "c.46C\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       }
@@ -6094,7 +4309,16 @@
         "message": "The IFNL3 gene is on the negative chromosomal strand, all genotype calls for IFNL3 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
       }
     ],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "peginterferon alfa-2a",
+        "guidelineId": "RxNorm:120608"
+      },
+      {
+        "name": "peginterferon alfa-2b",
+        "guidelineId": "RxNorm:253453"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -6147,7 +4371,7 @@
         "alleles": [
           "rs12979860 variant (T)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       }
@@ -6162,7 +4386,20 @@
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
     "messages": [],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "azathioprine",
+        "guidelineId": "RxNorm:1256"
+      },
+      {
+        "name": "mercaptopurine",
+        "guidelineId": "RxNorm:103"
+      },
+      {
+        "name": "thioguanine",
+        "guidelineId": "RxNorm:10485"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -6215,7 +4452,7 @@
         "alleles": [
           "*10"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -6228,7 +4465,7 @@
         "alleles": [
           "*19"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6241,7 +4478,7 @@
         "alleles": [
           "*9"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "GGAGTC",
         "mismatch": false
       },
@@ -6254,7 +4491,7 @@
         "alleles": [
           "*5"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6268,7 +4505,7 @@
           "*2",
           "*6"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "del",
         "mismatch": false
       },
@@ -6281,7 +4518,7 @@
         "alleles": [
           "*14"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "del",
         "mismatch": false
       },
@@ -6294,7 +4531,7 @@
         "alleles": [
           "*16"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6307,7 +4544,7 @@
         "alleles": [
           "*7"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6320,7 +4557,7 @@
         "alleles": [
           "*8"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -6333,7 +4570,7 @@
         "alleles": [
           "*11"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6346,7 +4583,7 @@
         "alleles": [
           "*12"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6359,7 +4596,7 @@
         "alleles": [
           "*18"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -6372,7 +4609,7 @@
         "alleles": [
           "*13"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "del",
         "mismatch": false
       },
@@ -6385,7 +4622,7 @@
         "alleles": [
           "*17"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6398,7 +4635,7 @@
         "alleles": [
           "*20"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6412,7 +4649,7 @@
           "*2",
           "*3"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6425,7 +4662,7 @@
         "alleles": [
           "*4"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6438,7 +4675,7 @@
         "alleles": [
           "*15"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -6451,7 +4688,7 @@
         "alleles": [
           "*20"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       }
@@ -6466,7 +4703,36 @@
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
     "messages": [],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "desflurane",
+        "guidelineId": "RxNorm:27340"
+      },
+      {
+        "name": "enflurane",
+        "guidelineId": "RxNorm:3920"
+      },
+      {
+        "name": "halothane",
+        "guidelineId": "RxNorm:5095"
+      },
+      {
+        "name": "isoflurane",
+        "guidelineId": "RxNorm:6026"
+      },
+      {
+        "name": "methoxyflurane",
+        "guidelineId": "RxNorm:6857"
+      },
+      {
+        "name": "sevoflurane",
+        "guidelineId": "RxNorm:36453"
+      },
+      {
+        "name": "succinylcholine",
+        "guidelineId": "RxNorm:10154"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -6519,7 +4785,7 @@
         "alleles": [
           "c.103T\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -6532,7 +4798,7 @@
         "alleles": [
           "c.130C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6545,7 +4811,7 @@
         "alleles": [
           "c.487C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6558,7 +4824,7 @@
         "alleles": [
           "c.488G\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6572,7 +4838,7 @@
           "c.742G\u003eA",
           "c.742G\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6585,7 +4851,7 @@
         "alleles": [
           "c.982C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6599,7 +4865,7 @@
           "c.1021G\u003eA",
           "c.1021G\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6612,7 +4878,7 @@
         "alleles": [
           "c.1201C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6625,7 +4891,7 @@
         "alleles": [
           "c.1209C\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6638,7 +4904,7 @@
         "alleles": [
           "c.1565A\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -6651,7 +4917,7 @@
         "alleles": [
           "c.1589G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6664,7 +4930,7 @@
         "alleles": [
           "c.1597C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6677,7 +4943,7 @@
         "alleles": [
           "c.1598G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6690,7 +4956,7 @@
         "alleles": [
           "c.1654C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6703,7 +4969,7 @@
         "alleles": [
           "c.1840C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6716,7 +4982,7 @@
         "alleles": [
           "c.1841G\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6729,7 +4995,7 @@
         "alleles": [
           "c.6487C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6742,7 +5008,7 @@
         "alleles": [
           "c.6488G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6755,7 +5021,7 @@
         "alleles": [
           "c.6502G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6769,7 +5035,7 @@
           "c.6617C\u003eG",
           "c.6617C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6782,7 +5048,7 @@
         "alleles": [
           "c.7007G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6795,7 +5061,7 @@
         "alleles": [
           "c.7042_7044delGAG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "GAG",
         "mismatch": false
       },
@@ -6808,7 +5074,7 @@
         "alleles": [
           "c.7048G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6821,7 +5087,7 @@
         "alleles": [
           "c.7063C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6834,7 +5100,7 @@
         "alleles": [
           "c.7124G\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6847,7 +5113,7 @@
         "alleles": [
           "c.7282G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6860,7 +5126,7 @@
         "alleles": [
           "c.7300G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6873,7 +5139,7 @@
         "alleles": [
           "c.7304G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6886,7 +5152,7 @@
         "alleles": [
           "c.7354C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6899,7 +5165,7 @@
         "alleles": [
           "c.7360C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6912,7 +5178,7 @@
         "alleles": [
           "c.7361G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6925,7 +5191,7 @@
         "alleles": [
           "c.7372C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6938,7 +5204,7 @@
         "alleles": [
           "c.7373G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6952,7 +5218,7 @@
           "c.7522C\u003eG",
           "c.7522C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -6965,7 +5231,7 @@
         "alleles": [
           "c.7523G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6978,7 +5244,7 @@
         "alleles": [
           "c.9310G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -6991,7 +5257,7 @@
         "alleles": [
           "c.11969G\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7004,7 +5270,7 @@
         "alleles": [
           "c.14387A\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7017,7 +5283,7 @@
         "alleles": [
           "c.14477C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7030,7 +5296,7 @@
         "alleles": [
           "c.14497C\u003eT"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7043,7 +5309,7 @@
         "alleles": [
           "c.14512C\u003eG"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7056,7 +5322,7 @@
         "alleles": [
           "c.14545G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7069,7 +5335,7 @@
         "alleles": [
           "c.14582G\u003eA"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7082,7 +5348,7 @@
         "alleles": [
           "c.14693T\u003eC"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       }
@@ -7097,7 +5363,12 @@
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
     "messages": [],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "simvastatin",
+        "guidelineId": "RxNorm:36567"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -7151,7 +5422,7 @@
           "*17",
           "*21"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7164,7 +5435,7 @@
         "alleles": [
           "*33"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7177,7 +5448,7 @@
         "alleles": [
           "*23"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7191,7 +5462,7 @@
           "*2",
           "*12"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7205,7 +5476,7 @@
           "*3",
           "*13"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7234,7 +5505,7 @@
           "*33",
           "*35"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7247,7 +5518,7 @@
         "alleles": [
           "*18"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7260,7 +5531,7 @@
         "alleles": [
           "*16"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7277,7 +5548,7 @@
           "*25",
           "*32"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7291,7 +5562,7 @@
           "*3",
           "*13"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7306,7 +5577,7 @@
           "*15",
           "*17"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7320,7 +5591,7 @@
           "*18",
           "*19"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7333,7 +5604,7 @@
         "alleles": [
           "*18"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7347,7 +5618,7 @@
           "*20",
           "*21"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7360,7 +5631,7 @@
         "alleles": [
           "*30"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7377,7 +5648,7 @@
           "*32",
           "*33"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7392,7 +5663,7 @@
           "*28",
           "*33"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7405,7 +5676,7 @@
         "alleles": [
           "*6"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7418,7 +5689,7 @@
         "alleles": [
           "*36"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7431,7 +5702,7 @@
         "alleles": [
           "*27"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7444,7 +5715,7 @@
         "alleles": [
           "*7"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7457,7 +5728,7 @@
         "alleles": [
           "*26"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7470,7 +5741,7 @@
         "alleles": [
           "*8"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7484,7 +5755,7 @@
           "*9",
           "*31"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7500,7 +5771,7 @@
           "*22",
           "*35"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7514,7 +5785,7 @@
           "*10",
           "*12"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7528,7 +5799,7 @@
           "*11",
           "*13"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7541,7 +5812,7 @@
         "alleles": [
           "*34"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7554,7 +5825,7 @@
         "alleles": [
           "*29"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       }
@@ -7586,25 +5857,22 @@
         },
         "exception_type": "footnote",
         "message": "The TPMT gene is on the negative chromosomal strand, all genotype calls for TPMT in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
-      },
-      {
-        "rule_name": "TPMT extra-position header",
-        "version": "1",
-        "matches": {
-          "gene": "TPMT",
-          "hapsCalled": [],
-          "hapsMissing": [],
-          "variantsMissing": [],
-          "variant": "",
-          "dips": [],
-          "hapsAvailable": [],
-          "drugs": []
-        },
-        "exception_type": "extra-position-notes",
-        "message": "The following position is included in the CPIC TPMT allele defintions but not in the recommendation."
       }
     ],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "azathioprine",
+        "guidelineId": "RxNorm:1256"
+      },
+      {
+        "name": "mercaptopurine",
+        "guidelineId": "RxNorm:103"
+      },
+      {
+        "name": "thioguanine",
+        "guidelineId": "RxNorm:10485"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -7659,7 +5927,7 @@
           "*3C",
           "*41"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7672,7 +5940,7 @@
         "alleles": [
           "*20"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7685,7 +5953,7 @@
         "alleles": [
           "*7"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7698,7 +5966,7 @@
         "alleles": [
           "*40"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7711,7 +5979,7 @@
         "alleles": [
           "*37"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7724,7 +5992,7 @@
         "alleles": [
           "*8"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7737,7 +6005,7 @@
         "alleles": [
           "*25"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7750,7 +6018,7 @@
         "alleles": [
           "*4"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7763,7 +6031,7 @@
         "alleles": [
           "*26"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7776,7 +6044,7 @@
         "alleles": [
           "*31"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7789,7 +6057,7 @@
         "alleles": [
           "*36"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7802,7 +6070,7 @@
         "alleles": [
           "*6"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7815,7 +6083,7 @@
         "alleles": [
           "*24"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7828,7 +6096,7 @@
         "alleles": [
           "*38"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -7841,7 +6109,7 @@
         "alleles": [
           "*23"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7854,7 +6122,7 @@
         "alleles": [
           "*44"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7867,7 +6135,7 @@
         "alleles": [
           "*15"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7881,7 +6149,7 @@
           "*16",
           "*22"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7894,7 +6162,7 @@
         "alleles": [
           "*33"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7908,7 +6176,7 @@
           "*3A",
           "*3B"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7921,7 +6189,7 @@
         "alleles": [
           "*10"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7934,7 +6202,7 @@
         "alleles": [
           "*11"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7947,7 +6215,7 @@
         "alleles": [
           "*12"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -7960,7 +6228,7 @@
         "alleles": [
           "*19"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7973,7 +6241,7 @@
         "alleles": [
           "*9"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -7986,7 +6254,7 @@
         "alleles": [
           "*28"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -7999,7 +6267,7 @@
         "alleles": [
           "*32"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -8012,7 +6280,7 @@
         "alleles": [
           "*27"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -8025,7 +6293,7 @@
         "alleles": [
           "*43"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -8038,7 +6306,7 @@
         "alleles": [
           "*34"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -8051,7 +6319,7 @@
         "alleles": [
           "*2"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -8064,7 +6332,7 @@
         "alleles": [
           "*43"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -8077,7 +6345,7 @@
         "alleles": [
           "*39"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -8090,7 +6358,7 @@
         "alleles": [
           "*18"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -8103,7 +6371,7 @@
         "alleles": [
           "*21"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -8116,7 +6384,7 @@
         "alleles": [
           "*35"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -8129,7 +6397,7 @@
         "alleles": [
           "*5"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -8142,7 +6410,7 @@
         "alleles": [
           "*17"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -8155,7 +6423,7 @@
         "alleles": [
           "*30"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -8168,7 +6436,7 @@
         "alleles": [
           "*42"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "del",
         "mismatch": false
       },
@@ -8181,7 +6449,7 @@
         "alleles": [
           "*13"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       },
@@ -8194,7 +6462,7 @@
         "alleles": [
           "*29"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "A",
         "mismatch": false
       },
@@ -8207,7 +6475,7 @@
         "alleles": [
           "*14"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
       }
@@ -8239,7 +6507,12 @@
         "message": "Some alleles in UGT1A1 are distinguished by a repeat sequence; some genotyping technologies may not accurately call the repeat."
       }
     ],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "atazanavir",
+        "guidelineId": "RxNorm:343047"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
@@ -8294,7 +6567,7 @@
           "*80+*28",
           "*80+*37"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       },
@@ -8311,7 +6584,7 @@
           "*80+*28",
           "*80+*37"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "CAT",
         "mismatch": false
       },
@@ -8324,7 +6597,7 @@
         "alleles": [
           "*6"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
       },
@@ -8337,7 +6610,7 @@
         "alleles": [
           "*27"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       }
@@ -8385,47 +6658,52 @@
         "message": "The VKORC1 gene is on the negative chromosomal strand, all genotype calls for VKORC1 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
       }
     ],
-    "relatedDrugs": [],
+    "relatedDrugs": [
+      {
+        "name": "warfarin",
+        "guidelineId": "RxNorm:11289"
+      }
+    ],
     "matcherDiplotypes": [
       {
         "allele1": {
           "gene": "VKORC1",
-          "name": "rs9923231 variant (T)",
+          "name": "rs9923231 reference (C)",
           "function": null,
-          "reference": false
+          "reference": true
         },
         "allele2": {
           "gene": "VKORC1",
-          "name": "rs9923231 variant (T)",
+          "name": "rs9923231 reference (C)",
           "function": null,
-          "reference": false
+          "reference": true
         },
         "gene": "VKORC1",
         "phenotype": null,
         "variant": null,
         "lookupKey": null,
-        "label": "rs9923231 variant (T)/rs9923231 variant (T)"
+        "label": "rs9923231 reference (C)/rs9923231 reference (C)"
       }
     ],
     "diplotypes": [
       {
         "allele1": {
           "gene": "VKORC1",
-          "name": "rs9923231 variant (T)",
+          "name": "rs9923231 reference (C)",
           "function": null,
-          "reference": false
+          "reference": true
         },
         "allele2": {
           "gene": "VKORC1",
-          "name": "rs9923231 variant (T)",
+          "name": "rs9923231 reference (C)",
           "function": null,
-          "reference": false
+          "reference": true
         },
         "gene": "VKORC1",
         "phenotype": null,
         "variant": null,
         "lookupKey": null,
-        "label": "rs9923231 variant (T)/rs9923231 variant (T)"
+        "label": "rs9923231 reference (C)/rs9923231 reference (C)"
       }
     ],
     "variants": [
@@ -8434,11 +6712,11 @@
         "chromosome": "chr16",
         "position": 31096368,
         "dbSnpId": "rs9923231",
-        "call": "T|T",
+        "call": "C|C",
         "alleles": [
           "rs9923231 variant (T)"
         ],
-        "phased": false,
+        "phased": true,
         "wildtypeAllele": "C",
         "mismatch": false
       }
