@@ -51,6 +51,7 @@ Teri Klein (Stanford University) and Marylyn Ritchie (University of Pennsylvania
 | Mark Woon | Stanford University |  
 | Michelle Whirl-Carrillo | Stanford University |
 | Ryan Whaley | Stanford University |
+| Yuki Bradford | University of Pennsylvania |
 | Scott Dudek | University of Pennsylvania |
 | Anastasia Lucas | University of Pennsylvania |
 | Sony Tuteja | University of Pennsylvania |
