@@ -11,7 +11,6 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -20,8 +19,8 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.lang3.StringUtils;
@@ -101,6 +100,7 @@ public class ExtractPositions implements AutoCloseable {
 
   private final Path m_outputVcf;
   private final DefinitionReader m_definitionReader;
+  private final SortedSet<String> m_genes = new TreeSet<>();
   private final CloseableHttpClient m_httpClient = HttpClients.createDefault();
   private final SortedMap<String,String> m_refCache = new TreeMap<>();
   private boolean m_foundNewPosition;
@@ -110,14 +110,19 @@ public class ExtractPositions implements AutoCloseable {
    * Default constructor.
    *
    * @param outputVcf file path to write output VCF to
+   * @param allGenes true to all genes; otherwise will exclude genes for which guidelines are not supported
    */
-  public ExtractPositions(Path outputVcf) {
+  public ExtractPositions(Path outputVcf, boolean allGenes) {
     m_outputVcf = outputVcf;
     try {
       // load the allele definition files
       m_definitionReader = new DefinitionReader();
       m_definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
-      if (getGenes().size() == 0) {
+      m_genes.addAll(m_definitionReader.getGenes());
+      if (!allGenes) {
+        m_genes.removeAll(sf_excludedGenes);
+      }
+      if (m_genes.size() == 0) {
         throw new RuntimeException("Did not find any allele definitions at " + DataManager.DEFAULT_DEFINITION_DIR);
       }
 
@@ -151,7 +156,7 @@ public class ExtractPositions implements AutoCloseable {
 
     if (m_foundNewPosition) {
       Path cacheFile = m_outputVcf.getParent().resolve(sf_refCacheFilename);
-      System.out.println("New positions found, saving cache file to " + cacheFile);
+      System.out.println("\nNew positions found, saving cache file to " + cacheFile);
       System.out.println("Don't forget to save this file!");
       try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(cacheFile))) {
         for (String key : m_refCache.keySet()) {
@@ -166,11 +171,13 @@ public class ExtractPositions implements AutoCloseable {
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        .addOption("o", "output-file", "output vcf file", true, "o");
+        .addOption("o", "output-file", "output vcf file", true, "o")
+        .addOption("a", "all-genes", "include all genes");
 
     cliHelper.execute(args, cli -> {
       try {
-        try (ExtractPositions extractPositions = new ExtractPositions(cli.getValidFile("o", false))) {
+        try (ExtractPositions extractPositions =
+                 new ExtractPositions(cli.getValidFile("o", false), cli.hasOption("a"))) {
           extractPositions.run();
         }
         return 0;
@@ -199,7 +206,7 @@ public class ExtractPositions implements AutoCloseable {
           }
         }
       }
-      System.out.println("Done");
+      System.out.println("Done.");
     } catch (Exception ex) {
       ex.printStackTrace();
     }
@@ -210,7 +217,7 @@ public class ExtractPositions implements AutoCloseable {
    */
   Map<Integer, Map<Integer, String[]>> getPositions() {
     Map<Integer, Map<Integer, String[]>> chrMap = new TreeMap<>();
-    for (String gene : getGenes()) {
+    for (String gene : m_genes) {
       DefinitionFile definitionFile = m_definitionReader.getDefinitionFile(gene);
       int positionCount = 0;
       // convert bXX format to hgXX
@@ -318,12 +325,22 @@ public class ExtractPositions implements AutoCloseable {
     List<String> alts = new ArrayList<>();
 
     String dasRef = getReferenceAllele(genomeBuild, chr, position);
-    NamedAllele refNamedAllele = definitionFile.getNamedAlleles().get(0);
+    NamedAllele refNamedAllele = definitionFile.getNamedAlleles().first();
     String referenceAllele;
     // reference named allele may not have allele if the position is an extra or exemption position
     // not used in the allele definition
     if (refNamedAllele.getAllele(variantLocus) != null) {
       referenceAllele = refNamedAllele.getAllele(variantLocus);
+      if (referenceAllele.length() == 1 && Iupac.lookup(referenceAllele).isAmbiguity()) {
+        alts.addAll(Iupac.lookup(referenceAllele).getBases());
+        if (alts.remove(dasRef)) {
+          referenceAllele = dasRef;
+        } else {
+          // this will be undone in dasRef check below, but do it anyway so we don't have to duplicate warning message
+          referenceAllele = alts.get(0);
+          alts.remove(referenceAllele);
+        }
+      }
       if (!dasRef.equals(referenceAllele) && variantLocus.getType() == VariantType.SNP && referenceAllele.length() == 1) {
         System.err.println(definitionFile.getGeneSymbol() + " " + refNamedAllele.getName() +
             " has ref mismatch at position " + position +
@@ -337,21 +354,28 @@ public class ExtractPositions implements AutoCloseable {
     }
 
     List<String> pxInfo = new ArrayList<>();
-    // this is because lambda expression needs an effectively final variable
-    final String finalAlleleRef = referenceAllele;
-    definitionFile.getNamedAlleles().stream()
-        .filter(namedAllele -> namedAllele.getAllele(variantLocus) != null)
-        .forEachOrdered(namedAllele -> {
-          String a = expandRepeats(namedAllele.getAllele(variantLocus));
-          if (!alts.contains(a) && !finalAlleleRef.equals(a)) {
-            alts.add(a);
-          }
-          long numAlleles = Arrays.stream(namedAllele.getAlleles())
-              .filter(Objects::nonNull)
-              .count();
-          pxInfo.add(definitionFile.getGeneSymbol() + ":" + namedAllele.getName().replace(" ","") +
-              "[" + numAlleles + "]" + "is" + namedAllele.getAllele(variantLocus));
-        });
+    for (NamedAllele namedAllele : definitionFile.getNamedAlleles()) {
+      String allele = namedAllele.getAllele(variantLocus);
+      if (allele == null) {
+        continue;
+      }
+      List<String> alleles;;
+      if (allele.length() == 1) {
+        alleles = Iupac.lookup(allele).getBases();
+      } else {
+        alleles = Lists.newArrayList(expandRepeats(allele));
+      }
+      for (String a : alleles) {
+        if (!alts.contains(a) && !referenceAllele.equals(a)) {
+          alts.add(a);
+        }
+      }
+      long numAlleles = Arrays.stream(namedAllele.getAlleles())
+          .filter(Objects::nonNull)
+          .count();
+      pxInfo.add(definitionFile.getGeneSymbol() + ":" + namedAllele.getName().replace(" ","") +
+          "[" + numAlleles + "]" + "is" + namedAllele.getAllele(variantLocus));
+    }
     if (alts.size() == 0 ) {
       alts.add(".");
     }
@@ -371,9 +395,11 @@ public class ExtractPositions implements AutoCloseable {
         refField = nucleotide + alts.get(0).replace("del", "");
         alts.set(0, nucleotide);
       }
+      // sanity check
+      if (alts.stream().anyMatch(a -> a.contains("del"))) {
+        throw new IllegalStateException("An ALT allele contains 'del': " + String.join("/", alts));
+      }
     }
-    SortedSet<String> expandedAlts = expandIupacAlts(alts);
-    expandedAlts.remove(refField);
 
     String idField = variantLocus.getRsid();
     if (idField == null) {
@@ -392,7 +418,7 @@ public class ExtractPositions implements AutoCloseable {
         Integer.toString(position),
         idField,
         refField,
-        String.join(",", expandedAlts),
+        String.join(",", new TreeSet<>(alts)),
         ".",
         "PASS",
         infoField,
@@ -402,37 +428,11 @@ public class ExtractPositions implements AutoCloseable {
   }
 
   /**
-   * For the list of given alt alleles, replace IUPAC ambiguity codes with all the bases they represent.
-   *
-   * @param alts a Collection of alt alleles
-   * @return a SortedSet of alt alleles with no ambiguity codes (may include the ref allele)
-   */
-  private static SortedSet<String> expandIupacAlts(Collection<String> alts) {
-    SortedSet<String> bases = new TreeSet<>();
-    for (String alt : alts) {
-      if (alt.length() == 1 && !alt.equals(".")) {
-        try {
-          Iupac iupac = Iupac.lookup(alt);
-          bases.addAll(iupac.getBases());
-        } catch (IllegalArgumentException ex) {
-          throw new RuntimeException("Bad IUPAC code " + alt, ex);
-        }
-      } else {
-        if (!alt.equals("delGene")) {
-          bases.add(alt);
-        }
-      }
-    }
-    return bases;
-  }
-
-  /**
    * Gets the genes applicable to this process which excludes genes we are not currently supporting for allele matching.
+   *
    * @return a Set of gene symbols
    */
   Set<String> getGenes() {
-    return m_definitionReader.getGenes().stream()
-        .filter((g) -> !sf_excludedGenes.contains(g))
-        .collect(Collectors.toSet());
+    return m_genes;
   }
 }

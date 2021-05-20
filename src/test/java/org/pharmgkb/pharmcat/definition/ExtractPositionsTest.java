@@ -28,7 +28,7 @@ class ExtractPositionsTest {
     definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
     Path outputVcf = Files.createTempFile("positions", ".vcf");
     try {
-      ExtractPositions extractPositions = new ExtractPositions(outputVcf);
+      ExtractPositions extractPositions = new ExtractPositions(outputVcf, true);
       Map<Integer, Map<Integer, String[]>> chrMap = extractPositions.getPositions();
 
       for (String gene : extractPositions.getGenes()) {
@@ -48,7 +48,7 @@ class ExtractPositionsTest {
 
   @Test
   void testGetReferenceAllele() throws IOException {
-    ExtractPositions extractPositions = new ExtractPositions(Files.createTempFile("testGetDAS", "vcf"));
+    ExtractPositions extractPositions = new ExtractPositions(Files.createTempFile("testGetDAS", "vcf"), true);
     String ref = extractPositions.getReferenceAllele("hg38", "chr6", 18149127);
     assertEquals("T", ref);
   }
