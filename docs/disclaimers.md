@@ -77,13 +77,8 @@ own risk.</p>
 2. Further genes will be incorporated into PharmCAT as the tool is
     developed.
 
-### E. PharmCAT Updates
 
-1. Updates to PharmCAT may occur, for the latest version go to the
-    [PharmCAT release
-    page](https://github.com/PharmGKB/PharmCAT/releases).
-
-### F. CPIC Guideline Disclaimers and Caveats
+### E. CPIC Guideline Disclaimers and Caveats
 
 1.  A version of the following quoted disclaimer is part of each CPIC
     guideline and applies to the CPIC recommendations as used in
@@ -131,7 +126,7 @@ own risk.</p>
 3. CPIC is a registered service mark of the U.S. Department of Health
     & Human Services (HHS).
 
-### G. PharmGKB Disclaimers and Caveats
+### F. PharmGKB Disclaimers and Caveats
 
 1.  PharmGKB is a registered service mark of the U.S. Department of
     Health & Human Services (HHS).
