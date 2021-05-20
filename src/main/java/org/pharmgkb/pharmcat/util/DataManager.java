@@ -25,7 +25,6 @@ import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
  */
 public class DataManager {
   public static final Path DEFAULT_DEFINITION_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
-  private static final Path DEFAULT_REPORTER_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter");
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   private final DataSerializer m_dataSerializer = new DataSerializer();
@@ -64,17 +63,12 @@ public class DataManager {
       }
 
       try {
-        Path allelesDir;
-        if (cliHelper.hasOption("a")) {
-          allelesDir = cliHelper.getValidDirectory("a", true);
-        } else {
-          allelesDir = DEFAULT_DEFINITION_DIR;
-        }
-        Path messageDir;
-        if (cliHelper.hasOption("m")) {
-          messageDir = cliHelper.getValidDirectory("m", true);
-        } else {
-          messageDir = DEFAULT_REPORTER_DIR;
+        Path allelesDir = cliHelper.getValidDirectory("a", true);
+        Path messageDir = cliHelper.getValidDirectory("m", true);
+
+        Path guidelineDir = null;
+        if (cliHelper.hasOption("g")) {
+          guidelineDir = cliHelper.getValidDirectory("g", true);
         }
 
         Path exemptionsTsv = downloadDir.resolve("exemptions.tsv");
@@ -84,7 +78,7 @@ public class DataManager {
 
         DataManager manager = new DataManager(cliHelper.isVerbose());
         if (!cliHelper.hasOption("sd")) {
-          manager.download(downloadDir, exemptionsTsv, messagesTsv);
+          manager.download(downloadDir, exemptionsTsv, messagesTsv, guidelineDir);
         }
 
         if (!cliHelper.hasOption("sa")) {
@@ -107,12 +101,21 @@ public class DataManager {
   }
 
 
-  private void download(Path downloadDir, Path exemptionsFile, Path messagesFile) throws Exception {
+  private void download(Path downloadDir, Path exemptionsFile, Path messagesFile, Path guidelinesDir) throws Exception {
 
     // download allele definitions
     FileUtils.copyURLToFile(
-        new URL("http://files.cpicpgx.org/data/report/current/allele_definitions.json"),
+        new URL("https://files.cpicpgx.org/data/report/current/allele_definitions.json"),
         downloadDir.resolve("allele_definitions.json").toFile());
+
+    // download drugs/guidelines file
+    if (guidelinesDir != null) {
+      Path drugsPath = guidelinesDir.resolve("drugs.json");
+      FileUtils.copyURLToFile(
+          new URL("https://files.cpicpgx.org/data/report/current/drugs.json"),
+          drugsPath.toFile());
+      System.out.println();
+      System.out.println("Saving messages to " + drugsPath);    }
 
     String urlFmt = "https://docs.google.com/spreadsheets/d/%s/export?format=tsv";
     // download exemptions and messages
