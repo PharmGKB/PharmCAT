@@ -20,6 +20,7 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -116,7 +117,7 @@ public class ExtractPositions implements AutoCloseable {
       // load the allele definition files
       m_definitionReader = new DefinitionReader();
       m_definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
-      if (m_definitionReader.getGenes().size() == 0) {
+      if (getGenes().size() == 0) {
         throw new RuntimeException("Did not find any allele definitions at " + DataManager.DEFAULT_DEFINITION_DIR);
       }
 
@@ -209,9 +210,7 @@ public class ExtractPositions implements AutoCloseable {
    */
   Map<Integer, Map<Integer, String[]>> getPositions() {
     Map<Integer, Map<Integer, String[]>> chrMap = new TreeMap<>();
-    for (String gene : m_definitionReader.getGenes()) {
-      if (sf_excludedGenes.contains(gene)) continue;
-
+    for (String gene : getGenes()) {
       DefinitionFile definitionFile = m_definitionReader.getDefinitionFile(gene);
       int positionCount = 0;
       // convert bXX format to hgXX
@@ -425,5 +424,15 @@ public class ExtractPositions implements AutoCloseable {
       }
     }
     return bases;
+  }
+
+  /**
+   * Gets the genes applicable to this process which excludes genes we are not currently supporting for allele matching.
+   * @return a Set of gene symbols
+   */
+  Set<String> getGenes() {
+    return m_definitionReader.getGenes().stream()
+        .filter((g) -> !sf_excludedGenes.contains(g))
+        .collect(Collectors.toSet());
   }
 }

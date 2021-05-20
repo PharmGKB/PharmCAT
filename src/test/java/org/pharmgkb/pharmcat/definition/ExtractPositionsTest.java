@@ -31,7 +31,7 @@ class ExtractPositionsTest {
       ExtractPositions extractPositions = new ExtractPositions(outputVcf);
       Map<Integer, Map<Integer, String[]>> chrMap = extractPositions.getPositions();
 
-      for (String gene : definitionReader.getGenes()) {
+      for (String gene : extractPositions.getGenes()) {
         int numPositionsInDefinitionFile = definitionReader.getPositions(gene).length;
         long numPositionsInVcfFile = chrMap.values().stream()
             .flatMap(m -> m.values().stream())
