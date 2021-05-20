@@ -51,12 +51,31 @@ Teri Klein (Stanford University) and Marylyn Ritchie (University of Pennsylvania
 | Mark Woon | Stanford University |  
 | Michelle Whirl-Carrillo | Stanford University |
 | Ryan Whaley | Stanford University |
-| Alex Frase| University of Pennsylvania |
+| Scott Dudek | University of Pennsylvania |
+| Anastasia Lucas | University of Pennsylvania |
+| Sony Tuteja | University of Pennsylvania |
 | Anurag Verma | University of Pennsylvania |
 | Shefali Setia Verma | University of Pennsylvania |
-| Sony Tuteja | University of Pennsylvania |
 
-### Contributors
+
+### Scientific Advisory Board
+
+| Name |
+|:-----|
+|Burns Blaxall |
+|Rhonda DeHoff |
+|Phil Empey |
+|Andrea Gaedigk |
+|Houda Hachad |
+|Jonathan Haines |
+|James Hoffman |
+|Janina Jeff |
+|Stuart Scott|
+|Casey Overby Taylor |
+|Sara Van Driest |
+|Marc Williams | 
+
+### Past Contributors
 
 | Name | Institution |
 |:-----|:------------|
@@ -64,6 +83,7 @@ Teri Klein (Stanford University) and Marylyn Ritchie (University of Pennsylvania
 |Lester Carter | Stanford (formerly) |
 |Mark Dunnenberger| Northshore University Health System |
 |Philip Empey| University of Pittsburgh |
+|Alex Frase| University of Pennsylvania |
 |Robert Freimuth | Mayo Clinic |
 |Andrea Gaedigk| Children’s Mercy Hospital |
 |Adam Gordon | University of Washington |
