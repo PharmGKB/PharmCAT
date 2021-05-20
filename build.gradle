@@ -161,7 +161,10 @@ task extractIntervals(type: JavaExec, dependsOn: 'classes') {
 task extractPositionsForTest(type: JavaExec, dependsOn: 'classes') {
   main = 'org.pharmgkb.pharmcat.definition.ExtractPositions'
   classpath = sourceSets.main.runtimeClasspath
-  def argList = ['-o', file('build/pharmcat_positions.vcf')]
+  def argList = [
+      '-o', file('build/pharmcat_positions.vcf'),
+      '-a'
+  ]
   args argList
 }
 
