@@ -59,7 +59,7 @@ class PharmCATTest {
         null);
 
     testCalledByMatcher("CYP2C19");
-    testPrintCalls( "CYP2C19", "*1/*4");
+    testPrintCalls( "CYP2C19", "*4/*38");
 
     testNotCalledByMatcher("CYP2D6");
 
@@ -132,7 +132,7 @@ class PharmCATTest {
     testCalledByMatcher("CYP2C19", "CYP2D6");
 
     testPrintCalls("CYP2D6", "*1/*4");
-    testPrintCalls("CYP2C19", "*1/*4");
+    testPrintCalls("CYP2C19", "*4/*38");
 
     assertTrue(s_context.getGeneReport("CYP2D6").isOutsideCall());
   }
