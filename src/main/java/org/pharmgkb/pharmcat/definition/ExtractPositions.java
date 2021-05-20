@@ -15,10 +15,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.lang3.StringUtils;
@@ -56,6 +58,7 @@ import org.slf4j.LoggerFactory;
 public class ExtractPositions implements AutoCloseable {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final String sf_refCacheFilename = "positions_reference.tsv";
+  private static final Set<String> sf_excludedGenes = ImmutableSet.of("CYP2D6");
   private static final String sf_fileHeader = "##fileformat=VCFv4.1\n" +
       "##fileDate=%s\n" +
       "##source=PharmCAT allele definitions\n" +
@@ -207,6 +210,8 @@ public class ExtractPositions implements AutoCloseable {
   Map<Integer, Map<Integer, String[]>> getPositions() {
     Map<Integer, Map<Integer, String[]>> chrMap = new TreeMap<>();
     for (String gene : m_definitionReader.getGenes()) {
+      if (sf_excludedGenes.contains(gene)) continue;
+
       DefinitionFile definitionFile = m_definitionReader.getDefinitionFile(gene);
       int positionCount = 0;
       // convert bXX format to hgXX
