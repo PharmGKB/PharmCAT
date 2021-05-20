@@ -13,39 +13,38 @@ own risk.</p>
 
 ### A. Allele and Genotype Determination
 
-1. PharmCAT uses [gene allele definitions from CPIC](https://www.pharmgkb.org/page/pgxGeneRef), with exceptions as noted in [Gene Definition Exceptions document](/methods/gene-definition-exceptions/). For allele definitions and the positions used in PharmCAT, see the [gene definition tables](https://github.com/PharmGKB/PharmCAT/releases).
+1. PharmCAT uses gene allele definitions included in the CPIC database, with exceptions as noted in [Gene Definition Exceptions document](/methods/gene-definition-exceptions/). For allele definitions and the positions used in PharmCAT, see the [gene definition tables](https://github.com/PharmGKB/PharmCAT/releases).
 2. PharmCAT results are dependent on the supplied vcf calls for the
     queried positions (for technical information about PharmCAT input
     formatting and requirements, please go to
     [pharmcat.org](http://pharmcat.org/)). PharmCAT does not assume any
-    reference calls for positions missing from the submitted vcf; all
+    reference calls for positions missing from the submitted vcf file; all
     missing queried positions are not considered in the allele
     determination process. See the [gene definition
     tables](https://github.com/PharmGKB/PharmCAT/releases) for more
-    information about what positions are queried in the vcf. Missing
+    information about what positions are queried in the vcf file. Missing
     positions might alter the assigned genotype, subsequent phenotype
-    prediction and CPIC recommendation. If the supplied vcf is missing
+    prediction and CPIC recommendation. If the supplied vcf file is missing
     positions, those positions will be noted in Section 3: Allele Calls
     for each gene of this report. For the most reliable allele
-    determination, reference calls as well as variant calls in the vcf
+    determination, reference calls as well as variant calls in the vcf file
     for every queried position must be provided by the user.
-3. For cytochrome P450 genes, TPMT, DPYD, and SLCO1B1, the \*1 (or
-    reference in case of DPYD) allele is defined by the absence of
+3. For cytochrome P450 genes, TPMT, NUDT15, UGT1A1, and SLCO1B1, the \*1 allele is defined by the absence of
     variation specified in the gene definition tables. This allele
     cannot be identified by variants; rather, \*1 is assigned by default
     when no variation for the queried positions is reported in the
-    submitted vcf. It is always possible un-interrogated variation can
+    submitted vcf file. The same is true for all other genes with multiple variant positions in the definition table (CACNA1S, CFTR, DPYD, RYR1): the reference sequence is the default result when variants are not reported in the vcf file. It is always possible un-interrogated variation can
     occur which could potentially affect allele function, but because it
-    is undetected, the assignment would be defaulted to a \*1 allele and
+    is undetected, the assignment would be defaulted to a \*1 (or reference) allele and
     normal function.
-4. For all genes, variation reported in the vcf but NOT included in the
+4. For all genes, variation reported in the vcf file but NOT included in the
     gene definition table will not be considered during allele
     assignment. There is a possibility that any such variation results
     in a reduced or no activity allele which could lead to inaccurate
     phenotype and CPIC recommendation, similar to the situation in point
-    iii, above.
-5.  PharmCAT matches variants to genotypes using unphased data (unless
-    phased data is provided in the vcf and noted as such, see
+    3, above.
+5.  PharmCAT matches variants to genotypes assuming unphased data (unless
+    phased data is provided in the vcf file and noted as such, see
     [pharmcat.org](http://pharmcat.org/) for details). The assumption is
     that defined alleles exist in trans configuration, i.e. on opposite
     chromosomes, with exceptions noted in Section 3: Allele Calls under
@@ -63,87 +62,28 @@ own risk.</p>
 
 ### B. CPIC Allele Function, Phenotype and Recommendation
 
-1.  Allele functionality and phenotype terms are based on the [CPIC Term Standardization Project](https://cpicpgx.org/wp-content/uploads/2016/01/CPIC_term_standardization_project_final_terms.pdf) \[PMID: 27441996\]. Please see this reference for details but note the following changes from original CPIC guidelines based on this project:
-  1.  This terminology replaces the term 'extensive' metabolizer with
-        'normal' metabolizer for drug metabolizing enzymes such as CYPs,
-        DPYD, TPMT, UGT1A1. Guidelines published prior to this
-        recommendation used the term 'extensive' metabolizer whereas the
-        PharmCAT report uses 'normal'.
-  2.  The terminology introduces the use of the term 'rapid'
-        metabolizer for CYP2C19\*1/\*17 to distinguish between \*1/\*17
-        and \*17/\*17 ('ultrarapid' metabolizer). CYP2C19 \*1/\*17 was
-        grouped as 'ultrarapid' metabolizer in prior guidelines.
-        PharmCAT uses the 'rapid' metabolizer group.
-  3.  PharmCAT uses allele functions from [gene information
-        tables](https://www.pharmgkb.org/page/pgxGeneRef), including
-        alleles with 'possible' or 'likely' added to the function term.
-2. PharmCAT uses metabolizer phenotypes from [gene information
-    tables](https://www.pharmgkb.org/page/pgxGeneRef). 'Likely' or
-    'possible' metabolizer phenotypes are originally based on
-    supplemental materials for respective guidelines and are listed in
-    the gene "Diplotype-Phenotype Table."
-3. PharmCAT uses recommendation wording as provided in the CPIC
-    guideline. CPIC typically provides the same recommendations for
-    'likely' or 'possible' metabolizer phenotypes in supplemental and
-    [gene information tables](https://www.pharmgkb.org/page/pgxGeneRef)
-    as those without the 'likely' or 'possible' labels, but do not
-    provide a strength of therapeutic recommendation.
+1.  All content is sourced from the CPIC database.
+  
 
 ### C. CYP2D6 Allele Determination and Metabolizer Status
 
-1.  CYP2D6 genotypes are based on
-    [Astrolabe](http://www.childrensmercy.org/Health_Care_Professionals/Research/Pediatric_Genomic_Medicine/Software_Tools/)
-    calls. For specific disclaimers and limitations, see the
-    [Astrolabe](http://www.childrensmercy.org/Health_Care_Professionals/Research/Pediatric_Genomic_Medicine/Software_Tools/)
-    documentation and specifications made available with the product.
-2. Metabolizer Status: CPIC classifies genotypes with a gene activity
-    score of 1.0 as normal metabolizers; however, other guidelines or
-    reference laboratories may classify the same genotypes as
-    intermediate metabolizers.
+1.  PharmCAT does not determine CYP2D6 genotypes from the vcf file, but CYP2D6 genotypes can be provided to PharmCAT from an outside source and the corresponding CPIC metabolizer status (phenotype), activity score and prescribing recommendations will be included in the generated report. 
 
-### D. Prescribing Change Designations
 
-1.  The drugs in Section 1: Genotype summary table are colored to
-    indicate whether CPIC recommends a prescribing change based on the
-    given genotype; highlighting is not based on CPIC classification of
-    recommendation.
-    1.  [ Red]{.rxChange} indicates a prescribing change is recommended
-        for the given genotype. That is, the recommendation is different
-        than 'use label recommendation' or 'use recommended starting
-        dose', except for ivacaftor.
-    2.  [ Orange]{.rxPossibly} indicates possible prescribing changes
-        depending on additional information, e.g. pediatrics vs. adult,
-        or the specific number of CYP2D6 normal alleles present (copy
-        number).
-    3.  [ Green]{.normal} indicates that there is no CPIC recommended
-        prescribing change for the given genotype, except for ivacaftor.
-    4.  [ Blue]{.highlight} indicates the specific guideline must be
-        consulted because a CPIC recommended action cannot be provided
-        based solely on genotype (eg. warfarin and
-        ribavirin/peginterferon).
-2. When multiple genotypes are possible for a gene, the drug is
-    highlighted according to the highest level of prescribing change.
+### D. PharmCAT Exceptions to the CPIC Guideline Gene List
 
-### E. PharmCAT Exceptions to the CPIC Guideline Gene List
-
-1.  HLA-B and G6PD are currently not included in PharmCAT. Therefore, no
+1.  HLA genes and G6PD are currently not included in PharmCAT. Therefore, no
     CPIC guideline recommendations are included for these genes.
 2. Further genes will be incorporated into PharmCAT as the tool is
     developed.
 
-### F. PharmCAT Updates
+### E. PharmCAT Updates
 
-1.  PharmCAT monitors publication of new CPIC guidelines and guideline
-    updates. New publication content will be included into PharmCAT
-    within one month of CPIC publication.
-2. Updates to the gene definition tables may occur, the latest version
-    can be found alongside [the software
-    releases](https://github.com/PharmGKB/PharmCAT/releases).
-3. Updates to PharmCAT may occur, for the latest version go to the
+1. Updates to PharmCAT may occur, for the latest version go to the
     [PharmCAT release
     page](https://github.com/PharmGKB/PharmCAT/releases).
 
-### G. CPIC Guideline Disclaimers and Caveats
+### F. CPIC Guideline Disclaimers and Caveats
 
 1.  A version of the following quoted disclaimer is part of each CPIC
     guideline and applies to the CPIC recommendations as used in
@@ -185,13 +125,13 @@ own risk.</p>
 2. CPIC guidelines reflect the alleles/genotypes known and considered
     by the guideline authors for inclusion by the time of publication,
     however they may be updated online at
-    [cpicpgx.org](https://cpicpgx.org) in between publications.
+    [cpicpgx.org](https://cpicpgx.org) and in the CPIC database in between publications.
     Additional alleles and/or more extensive allele definitions might
     exist by the representative gene nomenclatures for various genes.
 3. CPIC is a registered service mark of the U.S. Department of Health
     & Human Services (HHS).
 
-### H. PharmGKB Disclaimers and Caveats
+### G. PharmGKB Disclaimers and Caveats
 
 1.  PharmGKB is a registered service mark of the U.S. Department of
     Health & Human Services (HHS).
