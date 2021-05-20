@@ -52,11 +52,11 @@ own risk.</p>
     "Gene-specific warnings." However, in cases where an allele is
     defined by a combination of two or more variants, where each variant
     alone also defines an allele, the match is based on the longer
-    allele (except for UGT1A1). For example, CYP2C19\*4A is defined one
-    SNP, \*17 is defined by another SNP, and \*4B is defined by the
+    allele. For example, TPMT\*3B is defined by one
+    SNP, \*3C is defined by another SNP, and \*3A is defined by the
     combination of those two SNPs. In the case of unphased data that is
-    heterozygous for both SNPs, the \*1/\*4B genotype is returned though
-    the possibility of \*4A/\*17 cannot be ruled out.
+    heterozygous for both SNPs, the \*1/\*3A genotype is returned though
+    the possibility of \*3B/\*3C cannot be ruled out.
 6. Nucleotide base calls are displayed on the positive chromosomal
     strand regardless of the gene strand; further information is
     provided under Gene-specific warnings in Section 3: Allele Calls.
