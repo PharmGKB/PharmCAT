@@ -56,21 +56,21 @@
       "reference": true
     },
     {
-      "name": "c.3257G>A",
-      "id": "726540",
-      "alleles": [
-        "T",
-        null
-      ],
-      "populationFrequency": null,
-      "reference": false
-    },
-    {
       "name": "c.520C>T",
       "id": "726538",
       "alleles": [
         null,
         "A"
+      ],
+      "populationFrequency": null,
+      "reference": false
+    },
+    {
+      "name": "c.3257G>A",
+      "id": "726540",
+      "alleles": [
+        "T",
+        null
       ],
       "populationFrequency": null,
       "reference": false

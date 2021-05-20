@@ -99,6 +99,18 @@
       "reference": true
     },
     {
+      "name": "*6",
+      "id": "728764",
+      "alleles": [
+        null,
+        null,
+        "A",
+        null
+      ],
+      "populationFrequency": null,
+      "reference": false
+    },
+    {
       "name": "*27",
       "id": "728766",
       "alleles": [
@@ -141,18 +153,6 @@
         null,
         "CATATAT",
         null,
-        null
-      ],
-      "populationFrequency": null,
-      "reference": false
-    },
-    {
-      "name": "*6",
-      "id": "728764",
-      "alleles": [
-        null,
-        null,
-        "A",
         null
       ],
       "populationFrequency": null,
