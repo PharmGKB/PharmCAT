@@ -251,7 +251,7 @@ public class ReportContext {
       // special case the display for warfarin recommendation since it's an image
       if (drugReport.toString().equals("warfarin")) {
         Map<String,String> imageData = new LinkedHashMap<>();
-        imageData.put("url", "https://s3.pgkb.org/attachment/CPIC_warfarin_2017_Fig_2.png");
+        imageData.put("url", "https://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png");
         imageData.put("altText", "Figure 2 from the CPIC guideline for warfarin");
         guidelineMap.put("image", imageData);
       }
