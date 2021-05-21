@@ -25,7 +25,8 @@ import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
  * @author Ryan Whaley
  */
 public class DrugReport implements Comparable<DrugReport> {
-  private static final List<String> sf_notApplicableMatches = ImmutableList.of("PA166104949");
+  // NOTE: This is so the "No Recommendations" section doesn't show in the warfarin guideline
+  private static final List<String> sf_notApplicableMatches = ImmutableList.of("RxNorm:11289"); // ID for warfarin
 
   private final Drug m_drug;
   private boolean m_reportable = false;

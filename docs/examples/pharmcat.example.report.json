@@ -1,6 +1,6 @@
 {
   "totalGenes": 16,
-  "generatedOn": "May 20, 2021",
+  "generatedOn": "May 21, 2021",
   "geneCalls": [
     {
       "diplotypes": [
@@ -11155,7 +11155,7 @@
       "messages": [
         "Please follow the flow chart in figure 2 of the \u003ca href\u003d\"https://www.pharmgkb.org/guideline/PA166104949\"\u003eCPIC warfarin guideline\u003c/a\u003e to determine the appropriate dosing recommendation."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:11289",
       "lastModified": "not available",
       "footnotes": [
@@ -11164,5 +11164,5 @@
     }
   ],
   "title": "pharmcat.example",
-  "version": "v0.8.0-64-gc85ee49\n"
+  "version": "v0.8.0-75-gf13e3be\n"
 }
