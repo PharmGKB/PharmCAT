@@ -208,7 +208,7 @@ class NamedAlleleMatcherCyp2c19Test {
   void s4bs17rs28399504missing() throws Exception {
     // rs28399504 missing
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4bs17rs28399504missing.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*17/*17", "*17/*4", "*4/*4");
+    List<String> expectedMatches = Lists.newArrayList("*17/*17", "*4/*17", "*4/*4");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);

@@ -1,11 +1,14 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
+import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 
 
@@ -35,7 +38,11 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
   public DiplotypeMatch(HaplotypeMatch hm1, HaplotypeMatch hm2, MatchData dataset) {
     m_haplotype1 = hm1;
     m_haplotype2 = hm2;
-    m_name = m_haplotype1.getName() + "/" + m_haplotype2.getName();
+    List<String> hapNames = new ArrayList<>();
+    hapNames.add(m_haplotype1.getName());
+    hapNames.add(m_haplotype2.getName());
+    hapNames.sort(HaplotypeNameComparator.getComparator());
+    m_name = String.join("/", hapNames);
     m_score = m_haplotype1.getHaplotype().getScore() + m_haplotype2.getHaplotype().getScore();
     m_dataset = dataset;
   }
