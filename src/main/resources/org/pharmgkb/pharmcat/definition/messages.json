@@ -17,7 +17,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "Warning! Haplotype matches *17 (increased function allele); however, the existence of *4B (no function allele) cannot be ruled out due to lack of coverage in the provided VCF file for this allele (missing rs28399504)."
+    "message": "Warning! Haplotype matches *17 (increased function allele); however, the existence of *4 (no function allele) cannot be ruled out due to lack of coverage in the provided VCF file for this allele (missing rs28399504)."
   },
   {
     "rule_name": "CYP2C19 *17 missing",
@@ -106,22 +106,6 @@
     },
     "exception_type": "footnote",
     "message": "Some alleles in UGT1A1 are distinguished by a repeat sequence; some genotyping technologies may not accurately call the repeat."
-  },
-  {
-    "rule_name": "CYP3A5 Exome warning",
-    "version": "1",
-    "matches": {
-      "gene": "CYP3A5",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": []
-    },
-    "exception_type": "ambiguity",
-    "message": "CYP3A5 is known to have one or more functional variants in intronic regions.  Since intronic variants are important for CYP3A5 genotype assignment, further testing may be warranted for exome data."
   },
   {
     "rule_name": "CYP3A5 *3 missing",
@@ -226,28 +210,6 @@
     "message": "The IFNL3 gene is on the negative chromosomal strand, all genotype calls for IFNL3 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
-    "rule_name": "CYP2D6 and CYP2C19 combined gene display ",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": [
-        "amitriptyline",
-        "clomipramine",
-        "imipramine",
-        "trimipramine",
-        "doxepin"
-      ]
-    },
-    "exception_type": "footnote",
-    "message": "Classification of recommendation might differ based on the availabilty of CYP2D6 or CYP2C19 genotypes only or a combination of CYP2D6 and CYP2C19 genotypes; see full guideline at cpicpgx.org."
-  },
-  {
     "rule_name": "Phenytoin_HLA-B warning",
     "version": "1",
     "matches": {
@@ -266,78 +228,6 @@
     "message": "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin."
   },
   {
-    "rule_name": "simvastatin table footnote",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": [
-        "simvastatin"
-      ]
-    },
-    "exception_type": "footnote",
-    "message": "In all cases, the potential for drug-drug interaction should be evaluated prior to initiating a prescription. FDA recommends against 80mg of simvastatin (unless already tolerated for 12 months)."
-  },
-  {
-    "rule_name": "tacrolimus table footnote",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": [
-        "tacrolismus"
-      ]
-    },
-    "exception_type": "footnote",
-    "message": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical."
-  },
-  {
-    "rule_name": "UGT1A1-atazanavir",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": [
-        "atazanavir"
-      ]
-    },
-    "exception_type": "note",
-    "message": "Unphased data: all variant alleles found are listed based on the vcf input and the UGT1A1 definition table. Phased data: the subject’s phased UGT1A1 genotype is listed. The CPIC recommendations are provided based on an exception logic. UGT1A1*28 and *80 are assumed in cis for unphased data, see http://pharmcat.org/ and the UGT1A1 gene section for details on *80."
-  },
-  {
-    "rule_name": "atazanavir table footnote",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": [
-        "atazanavir"
-      ]
-    },
-    "exception_type": "footnote",
-    "message": "These recommendations are for the use of atazanavir (boosted with either ritonavir or cobicistat) by UGT1A1 phenotype. All studies correlating UGT1A1 genotypes with atazanavir adverse events have involved ritonavir boosting. However, concentration-time profiles are equivalent when boosted with either cobicistat or ritonavir, and bilirubin-related adverse events including discontinuation of atazanavir occur in a similar percentage of patients prescribed atazanavir with cobicistat or ritonavir. Associations between UGT1A1 genotype, bilirubin elevations, and atazanavir discontinuation therefore almost certainly translate to atazanavir/cobicistat."
-  },
-  {
     "rule_name": "clopidogrel table footnote",
     "version": "1",
     "matches": {
@@ -353,7 +243,7 @@
       ]
     },
     "exception_type": "footnote",
-    "message": "Antiplatelet therapy recommendations are based on CYP2C19 status when considering clopidogrel for acute coronary syndrome (ACS patients undergoing percutaneous coronary intervention (PCI)). CPIC guidelines reflect the alleles/genotypes known and considered by the guideline authors for inclusion by the time of publication. CPIC guidelines are periodically updated - see cpicpgx.org."
+    "message": "Antiplatelet therapy recommendations are based on CYP2C19 status when considering clopidogrel for acute coronary syndrome (ACS patients undergoing percutaneous coronary intervention (PCI)). "
   },
   {
     "rule_name": "CYP2D6 warning",
@@ -426,32 +316,16 @@
     "message": ""
   },
   {
-    "rule_name": "TPMT extra-position header",
-    "version": "1",
-    "matches": {
-      "gene": "TPMT",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": []
-    },
-    "exception_type": "extra-position-notes",
-    "message": "The following position is included in the CPIC TPMT allele defintions but not in the recommendation."
-  },
-  {
-    "rule_name": "CYP2C19 *1/*4B warning",
+    "rule_name": "CYP2C19 *1/*4 warning",
     "version": "1",
     "matches": {
       "gene": "CYP2C19",
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": "rs12248560",
       "dips": [
-        "*1/*4B"
+        "*1/*4"
       ],
       "hapsAvailable": [],
       "drugs": [
@@ -463,11 +337,16 @@
         "sertraline",
         "clopidogrel",
         "escitalopram",
-        "citalopram"
+        "citalopram",
+        "voriconazole",
+        "pantoprazole",
+        "omeprazole",
+        "lansoprazole",
+        "dexlansoprazole"
       ]
     },
     "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*4B; however, *4A/*17 cannot be ruled out without phased data."
+    "message": "The assigned genotype is *1/*4; however, *4/*17 cannot be ruled out without phased data."
   },
   {
     "rule_name": "Show rs4149056 for SLCO1B1",
@@ -484,41 +363,6 @@
     },
     "exception_type": "report-genotype",
     "message": ""
-  },
-  {
-    "rule_name": "DPYD variant information",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": [
-        "fluorouracil",
-        "capecitabine"
-      ]
-    },
-    "exception_type": "note",
-    "message": "The 2017 CPIC DPYD guideline update includes normal function variants (activity value = 1, like the DPYD reference). These variants are not included in the PharmCAT DPYD gene definition table and not used in the \"Allele Matcher\" process. However, the positions are interrogated and if present, referred to in the DPYD gene section."
-  },
-  {
-    "rule_name": "DPYD extra-position-header",
-    "version": "1",
-    "matches": {
-      "gene": "DPYD",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "hapsAvailable": [],
-      "drugs": []
-    },
-    "exception_type": "extra-position-notes",
-    "message": "These variants are classified as normal function in the CPIC material for DPYD, having an activity value of 1 like the DPYD reference entry. \"Irrespective of the presence of decreased/no function variants, patients may carry multiple normal function variants. As an individual only carries a maximum of two fully functional DPYD copies, common normal function variants may be located on the same gene copy as other normal function variants or decreased/no function variants.\" Given this guideline statement, PharmCAT is not considering normal function variants during the allele matching process and assigns reference if neither a decreased or no function variant incldued in the CPIC DPYD material is identified."
   },
   {
     "rule_name": "UGT1A1*80 without *28 or *37 warning",
