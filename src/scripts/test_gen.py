@@ -163,9 +163,24 @@ def updateVarAlleles(jsondef, vcfref):
                if na["alleles"][variant['_jsonidx']]:
                        na["alleles"][variant['_jsonidx']] = vmap[na["alleles"][variant['_jsonidx']]]
            # for na
-        # isindel?
+       # isindel?
     # for i, variant
 # updateVarAlleles()
+
+def checkRefNamedAllele(jsondef, vcfref, refna):
+    """
+    Takes JSON dict, dict from parsed VCF and reference named allele
+    Updates alleles in reference to match VCF where different
+    """
+    gene=jsondef['gene']
+    for variant in jsondef["variants"]:
+        if refna['alleles'][variant['_jsonidx']] != vcfref[gene][variant['_vcfidx']]['REF']:
+            jsondef['variantAlleles'][variant['_jsonidx']] = [vcfref[gene][variant['_vcfidx']]["REF"] if v == refna['alleles'][variant['_jsonidx']] else v for v in jsondef['variantAlleles'][variant['_jsonidx']]]
+            refna['alleles'][variant['_jsonidx']] = vcfref[gene][variant['_vcfidx']]['REF']
+            refna['_mindef'][variant['_jsonidx']] = vcfref[gene][variant['_vcfidx']]['REF']
+    # for variant
+# checkRefNamedAllele()
+
 
 # define helper functions
 
@@ -259,6 +274,7 @@ print(f"Loading '{vcfPath}'...")
 vcfreference = parseVCF(vcfPath)
 updateVarAlleles(definition,vcfreference)
 
+
 if len(definition['variants']) != len(definition['variantAlleles']):
     sys.exit("ERROR: variants / variantAlleles length mismatch")
 print(f"done: {len(definition['variants'])} variants, {len(definition['namedAlleles'])} named alleles\n")
@@ -293,6 +309,9 @@ for namedallele in definition['namedAlleles']:
     # if ref?
 # for namedallele
 print("done\n")
+
+# check referent allele against VCF positions file and correct where needed for ambiguous
+checkRefNamedAllele(definition, vcfreference, refNamedallele)
 
 # validate referent allele
 print("Checking nucleic code notations...")
