@@ -1,26 +1,5 @@
 [
   {
-    "gene": "CYP2C19",
-    "ignoredPositions": [
-      {
-        "chromosome": "chr10",
-        "position": 94842866,
-        "rsid": "rs3758581",
-        "chromosomeHgvsName": "g.94842866",
-        "geneHgvsName": null,
-        "proteinNote": null,
-        "resourceNote": null,
-        "type": "SNP",
-        "referenceRepeat": null
-      }
-    ],
-    "extraPositions": [],
-    "ignoredAlleles": [],
-    "ignoredAllelesLc": [],
-    "allHits": null,
-    "assumeReference": null
-  },
-  {
     "gene": "CYP2C9",
     "ignoredPositions": [],
     "extraPositions": [
