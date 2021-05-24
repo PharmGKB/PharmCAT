@@ -1,6 +1,6 @@
 {
   "totalGenes": 16,
-  "generatedOn": "May 21, 2021",
+  "generatedOn": "May 24, 2021",
   "geneCalls": [
     {
       "diplotypes": [
@@ -1078,7 +1078,7 @@
       "outsideCall": false,
       "messages": [],
       "totalMissingVariants": 0,
-      "totalVariants": 33,
+      "totalVariants": 34,
       "variants": [
         {
           "gene": "CYP2C19",
@@ -1422,6 +1422,47 @@
           ],
           "phased": true,
           "wildtypeAllele": "G",
+          "mismatch": false
+        },
+        {
+          "gene": "CYP2C19",
+          "chromosome": "chr10",
+          "position": 94842866,
+          "dbSnpId": "rs3758581",
+          "call": "A|A",
+          "alleles": [
+            "*1",
+            "*2",
+            "*3",
+            "*4",
+            "*5",
+            "*6",
+            "*8",
+            "*9",
+            "*10",
+            "*11",
+            "*12",
+            "*13",
+            "*14",
+            "*15",
+            "*17",
+            "*18",
+            "*19",
+            "*22",
+            "*23",
+            "*24",
+            "*25",
+            "*26",
+            "*28",
+            "*29",
+            "*31",
+            "*32",
+            "*33",
+            "*35",
+            "*39"
+          ],
+          "phased": true,
+          "wildtypeAllele": "A",
           "mismatch": false
         },
         {
@@ -11059,7 +11100,7 @@
     },
     {
       "image": {
-        "url": "https://s3.pgkb.org/attachment/CPIC_warfarin_2017_Fig_2.png",
+        "url": "https://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png",
         "altText": "Figure 2 from the CPIC guideline for warfarin"
       },
       "uncalledGenes": "",
@@ -11164,5 +11205,5 @@
     }
   ],
   "title": "pharmcat.example",
-  "version": "v0.8.0-76-g57eaf10\n"
+  "version": "v0.8.0-84-g4524f84\n"
 }
