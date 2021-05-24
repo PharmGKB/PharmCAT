@@ -158,6 +158,16 @@ task extractIntervals(type: JavaExec, dependsOn: 'classes') {
 }
 
 // extracts pharmcat_positions.vcf without version number
+task extractPositionsForDocs(type: JavaExec, dependsOn: 'classes') {
+  main = 'org.pharmgkb.pharmcat.definition.ExtractPositions'
+  classpath = sourceSets.main.runtimeClasspath
+  def argList = [
+      '-o', file('build/pharmcat_positions.vcf'),
+  ]
+  args argList
+}
+
+// extracts ALL pharmcat_positions.vcf without version number
 task extractPositionsForTest(type: JavaExec, dependsOn: 'classes') {
   main = 'org.pharmgkb.pharmcat.definition.ExtractPositions'
   classpath = sourceSets.main.runtimeClasspath

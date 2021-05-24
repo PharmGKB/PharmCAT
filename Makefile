@@ -5,9 +5,9 @@ MAKEFLAGS = -j1
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 
 ifeq ($(OS),Windows_NT)
-	GRADLE_CMD := cmd /c gradlew.bat
+	GRADLE_CMD := cmd /c gradlew.bat --console=plain
 else
-	GRADLE_CMD := ./gradlew
+	GRADLE_CMD := ./gradlew --console=plain
 endif
 
 
@@ -23,9 +23,9 @@ vcfTests:
 .PHONY: updateData
 updateData:
 	${GRADLE_CMD} clean
-	rm -f build/positions_reference.tsv
 	${GRADLE_CMD} updateData
-	${GRADLE_CMD} extractPositions
+	${GRADLE_CMD} extractPositionsForDocs
+	cp build/pharmcat_positions.vcf PharmCAT.wiki/pharmcat.example.vcf
 	if [ -f "build/positions_reference.tsv" ]; then \
 	  cp build/positions_reference.tsv src/main/resources/org/pharmgkb/pharmcat/definition; \
 	fi
