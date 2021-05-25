@@ -26,7 +26,7 @@ HLA's and G6PD are not included in the initial version of PharmCAT, see [PMID: 3
 
 ## Running PharmCAT
 
-Before running PharmCAT [read the instructions on GitHub](https://github.com/PharmGKB/PharmCAT/wiki/Running-PharmCAT) and [the VCF requirements](https://github.com/PharmGKB/PharmCAT/wiki/VCF-Requirements).
+To learn how to run PharmCAT, [read the instructions on GitHub](https://github.com/PharmGKB/PharmCAT/wiki/Running-PharmCAT).  Please make sure to also read and understand PharmCAT's [VCF requirements](https://github.com/PharmGKB/PharmCAT/wiki/VCF-Requirements).
 
 ## Examples
 
