@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python3
 
 __author__ = 'BinglanLi'
 
@@ -7,6 +7,7 @@ from pathlib import Path
 from timeit import default_timer as timer
 
 import vcf_preprocess_utilities as util
+
 
 def run(args):
     ## normalize and prepare the input VCF for PharmCAT
