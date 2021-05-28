@@ -53,13 +53,13 @@ class PharmCATTest {
    */
   @Test
   void testCyp2c19_1() throws Exception {
-    generalTest("test.cyp2c19.s4s17het", new String[]{
-            "cyp2c19/s4s17het.vcf"
+    generalTest("test.cyp2c19.singleGeneMatch", new String[]{
+            "cyp2c19/s1s1.vcf"
         },
         null);
 
     testCalledByMatcher("CYP2C19");
-    testPrintCalls( "CYP2C19", "*4/*38");
+    testPrintCalls( "CYP2C19", "*1/*1");
 
     testNotCalledByMatcher("CYP2D6");
 
@@ -132,7 +132,7 @@ class PharmCATTest {
     testCalledByMatcher("CYP2C19", "CYP2D6");
 
     testPrintCalls("CYP2D6", "*1/*4");
-    testPrintCalls("CYP2C19", "*4/*38");
+    testPrintCalls("CYP2C19", "*4/*17");
 
     assertTrue(s_context.getGeneReport("CYP2D6").isOutsideCall());
   }
