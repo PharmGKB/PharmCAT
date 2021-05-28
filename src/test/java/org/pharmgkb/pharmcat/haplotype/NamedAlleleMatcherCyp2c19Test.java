@@ -31,7 +31,7 @@ class NamedAlleleMatcherCyp2c19Test {
   void cyp2c19s1s1() throws Exception {
     // Simple *1/*1 reference test
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s1s1.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*38/*38");
+    List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -229,7 +229,7 @@ class NamedAlleleMatcherCyp2c19Test {
   @Test
   void s4s17het() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4s17het.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*4/*38");
+    List<String> expectedMatches = Lists.newArrayList("*4/*17");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true, true, true, true);
     assertDiplotypePairs(expectedMatches, result);
