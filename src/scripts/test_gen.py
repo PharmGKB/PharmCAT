@@ -544,70 +544,76 @@ for matches1, matches2 in itertools.combinations_with_replacement(sorted(matches
     # only generate uncallables paired with *1/...
     if (len(matches1) != 1) or (len(matches2) != 1 and matches1 != (refNamedallele['_num'],)):
         continue
-    outPath = os.path.join(basepath, percentEncode("%s_%s_%s.vcf" % (
-        definition['gene'],
-        joinMatches(matches1),
-        joinMatches(matches2),
-    )))
-    with open(outPath, 'w') as outFile:
-        numFiles += 1
-        # write meta-info header
-        outFile.write("##fileformat=VCFv4.3\n")
-        outFile.write("##fileDate=%s\n" % (datetime.date.today().strftime("%Y%m%d"),))
-        # TODO: proper hg# notation?
-        outFile.write("##reference=%s\n" % (definition['genomeBuild'].replace("b", "hg"),))
-        outFile.write("##PharmCATnamedAlleles=%s/%s\n" % (
-            ('_'.join(namedalleles[na]['name'] for na in matches1) or "?"),
-            ('_'.join(namedalleles[na]['name'] for na in matches2) or "?"),
-        ))
-        outFile.write("##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n")
-        # based on the spec there should be no need to define this explicitly
-        # outFile.write("##FILTER=<ID=PASS,Description=\"All filters passed\">\n")
 
-        # write variants header
-        match1tests = matchesTests[matches1]
-        match2tests = matchesTests[matches2]
-        test1alleles = list(dict(test) for test in match1tests)
-        test2alleles = list(dict(test) for test in match2tests)
-        row = ["#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO", "FORMAT"]
-        row.extend(("TEST%d" % (t + 1,)) for t in range(len(match1tests) * len(match2tests)))
-        outFile.write("\t".join(row) + "\n")
+    match1tests = matchesTests[matches1]
+    match2tests = matchesTests[matches2]
+    test1alleles = list(dict(test) for test in match1tests)
+    test2alleles = list(dict(test) for test in match2tests)
+    numTest=0
 
-        # write variants data
-        for v, variant in enumerate(definition['variants']):
-            refAllele = refNamedallele['_maxdef'].get(v)
-            if not refAllele or refAllele == ".":
-                continue
-            varalleles = [refNamedallele['_maxdef'].get(v)]
-            # collate alt alleles used by these tests
-            for t, alleles in itertools.chain(enumerate(test1alleles), enumerate(test2alleles)):
-                alt = (None if ((v not in alleles) or alleles[v] == ".") else alleles[v])
-                if alt and (alt not in varalleles):
-                    varalleles.append(alt)
-            # for t, alleles
-            if(len(varalleles)==1 and "ALT" in vcfreference[definition["gene"]][variant['_vcfidx']]):
-                varalleles.append(vcfreference[definition["gene"]][variant['_vcfidx']]["ALT"])
-            row = [
-                str(variant.get('chromosome') or "."),
-                str(variant.get('position') or "."),
-                str(variant.get('rsid') or "."),
-                refAllele,
-                (",".join(varalleles[1:]) if (len(varalleles) > 1) else "."),
-                ".",  # QUAL
-                "PASS",  # FILTER
-                ".",  # INFO
-                "GT",  # FORMAT
-            ]
-            for alleles1, alleles2 in itertools.product(test1alleles, test2alleles):
+    # each test sample will have its own file
+    for alleles1, alleles2 in itertools.product(test1alleles, test2alleles):
+        numTest += 1
+        outPath = os.path.join(basepath, percentEncode("%s_%s_%s_t%s.vcf" % (
+            definition['gene'],
+            joinMatches(matches1),
+            joinMatches(matches2),
+            numTest
+        )))
+
+
+        with open(outPath, 'w') as outFile:
+            numFiles += 1
+            # write meta-info header
+            outFile.write("##fileformat=VCFv4.3\n")
+            outFile.write("##fileDate=%s\n" % (datetime.date.today().strftime("%Y%m%d"),))
+            # TODO: proper hg# notation?
+            outFile.write("##reference=%s\n" % (definition['genomeBuild'].replace("b", "hg"),))
+            outFile.write("##PharmCATnamedAlleles=%s/%s\n" % (
+                ('_'.join(namedalleles[na]['name'] for na in matches1) or "?"),
+                ('_'.join(namedalleles[na]['name'] for na in matches2) or "?"),
+            ))
+            outFile.write("##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n")
+            # based on the spec there should be no need to define this explicitly
+            # outFile.write("##FILTER=<ID=PASS,Description=\"All filters passed\">\n")
+
+
+            row = ["#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO", "FORMAT","TEST" + str(numTest)]
+            outFile.write("\t".join(row) + "\n")
+            for v, variant in enumerate(definition['variants']):
+                refAllele = refNamedallele['_maxdef'].get(v)
+                if not refAllele or refAllele == ".":
+                    continue
+                varalleles = [refNamedallele['_maxdef'].get(v)]
+                for alleles in [alleles1, alleles2]:
+                    allele = alleles.get(v,None)
+                    alt = None if (allele is None) or allele == "." else allele
+                    if alt and (alt not in varalleles):
+                        varalleles.append(alt)
+                # for allele
+                if(len(varalleles)==1 and "ALT" in vcfreference[definition["gene"]][variant['_vcfidx']]):
+                    varalleles.append(vcfreference[definition["gene"]][variant['_vcfidx']]["ALT"])
+                row = [
+                    str(variant.get('chromosome') or "."),
+                    str(variant.get('position') or "."),
+                    str(variant.get('rsid') or "."),
+                    refAllele,
+                    (",".join(varalleles[1:]) if (len(varalleles) > 1) else "."),
+                    ".",  # QUAL
+                    "PASS",  # FILTER
+                    ".",  # INFO
+                    "GT",  # FORMAT
+                ]
                 a1 = alleles1.get(v)
                 a2 = alleles2.get(v)
                 row.append("%s/%s" % (
                     (varalleles.index(a1) if (a1 and a1 != ".") else "."),
                     (varalleles.index(a2) if (a2 and a2 != ".") else "."),
                 ))
-            # for t,alleles
-            outFile.write("\t".join(row) + "\n")
-        # for variant
-    # with outFile
-# for matches1,matches2
+                outFile.write("\t".join(row) + "\n")
+            # for v,variant
+        # with outFile
+    # for alleles1, alleles2
+# for matches1, matches2
 print(f"Done: {numFiles} files")
+
