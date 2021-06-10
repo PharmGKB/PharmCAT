@@ -1,0 +1,35 @@
+##fileformat=VCFv4.1
+##source=PharmCAT allele definitions
+##reference=hg38
+##contig=<ID=chr1,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr2,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr3,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr4,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr5,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr6,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr7,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr8,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr9,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr10,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr11,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr12,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr13,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr14,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr15,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr16,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr17,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr18,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr19,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr20,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr21,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr22,assembly=hg38,species="Homo sapiens">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FILTER=<ID=PASS,Description="All filters passed">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PharmCAT
+chr1	97740410	rs72549309	GATGA	G	.	PASS	.	GT	0/0
+chr2	233760233	.	CAT	CATAT,C,CATATAT	.	PASS	.	GT  1/3
+chr7	117548628	rs1805177	GTT	G	.	PASS	.	GT	0/1
+chr10	94942205	rs1304490498	CAATGGAAAGA	C	.	PASS	.	GT	0/0
+chr13	48037825	rs777311140	C	CGCGG	.	PASS	.	GT	1/0
+chr19	38499644	rs121918596	TGGA	T	.	PASS	.	GT	1/0
+chr22	42130728	.	GG	G	.	PASS	.	GT	1/0

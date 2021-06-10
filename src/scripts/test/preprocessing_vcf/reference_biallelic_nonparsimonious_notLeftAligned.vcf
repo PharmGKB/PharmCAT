@@ -1,0 +1,36 @@
+##fileformat=VCFv4.1
+##FILTER=<ID=PASS,Description="All filters passed">
+##fileDate=2020-01-25
+##source=Electronic, version: hg38_2.0.1
+##reference=hg38
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##contig=<ID=chr2>
+##contig=<ID=chr7>
+##contig=<ID=chr1,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr3,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr4,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr5,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr6,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr8,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr9,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr10,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr11,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr12,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr13,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr14,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr15,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr16,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr17,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr18,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr19,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr20,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr21,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr22,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chrX,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chrY,assembly=hg38,species="Homo sapiens">
+##INFO=<ID=PX,Number=.,Type=String,Description="Gene(:Allele Name(n of defining positions)defining allele)">
+##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not part of an allele definition">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
+chr2	233760233	.	CAT	C,CATATAT,CATAT	.	PASS	PX=UGT1A1:*1[5]isCAT,UGT1A1:*28[1]isCATAT,UGT1A1:*36[1]isC,UGT1A1:*37[1]isCATATAT,UGT1A1:*80+*28[2]isCATAT,UGT1A1:*80+*37[2]isCATATAT;AC=0,1,1;AN=2	GT	3/2
