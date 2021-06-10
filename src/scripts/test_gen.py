@@ -199,7 +199,7 @@ def expandSymbol(symbol):
     for n in range(number):
         offset = symbolOffset.get(symbol, 0)
         symbolOffset[symbol] = (offset + 1) % number
-        yield symbolBaselist[symbol][(n + offset) % number]
+        yield symbolBaselist[symbol][offset % number]
 # expandSymbol()
 
 def expandString(string, limit=None):
