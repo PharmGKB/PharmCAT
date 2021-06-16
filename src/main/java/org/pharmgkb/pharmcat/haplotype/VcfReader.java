@@ -211,11 +211,16 @@ public class VcfReader implements VcfLineParser {
         .mapToInt(Integer::parseInt)
         .toArray();
     String a1 = alleles.get(alleleIdxs[0]);
-    String a2 = null;
+    String a2 = ".";
     if (alleleIdxs.length > 1) {
       a2 = alleles.get(alleleIdxs[1]);
     } else {
-      addWarning(chrPos, "Only a single allele found");
+      if (alleleIdxs[0] == 0) {
+        addWarning(chrPos, "Ignoring: only a single allele found.  Since it's reference, treating this as a missing position.");
+        return;
+      }
+      // missing allele is guaranteed to produce a no-call if assumeReferenceInDefinitions is true
+      addWarning(chrPos, "Only a single allele found.");
     }
 
     // genotype divided by "|" if phased and "/" if unphased
