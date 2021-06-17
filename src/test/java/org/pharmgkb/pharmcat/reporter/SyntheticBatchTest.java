@@ -189,6 +189,14 @@ class SyntheticBatchTest {
         "IFNL3/rs12979860CC.vcf"
     });
 
+    sf_testVcfs.put("cyp2c19.s4s17missingS1", new String[]{
+        "cyp2c19/s4s17missingS1.vcf"
+    });
+
+    sf_testVcfs.put("cyp2c19.s1s4s17", new String[]{
+        "cyp2c19/s1s4s17.vcf"
+    });
+
     sf_testVcfs.put("ugt1a1.phased.multi", new String[]{
         "DPYD/s1s1.vcf",
         "UGT1A1/s1s60s80phased.vcf",

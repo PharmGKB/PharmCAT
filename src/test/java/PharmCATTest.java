@@ -138,6 +138,21 @@ class PharmCATTest {
   }
 
   @Test
+  void testCyp2c19s4s17() throws Exception {
+    generalTest("test.cyp2c19s4s17", new String[]{
+        "cyp2c19/s1s4s17.vcf"
+        },
+        s_outsideCallFilePath);
+
+    testCalledByMatcher("CYP2C19", "CYP2D6");
+
+    testPrintCalls("CYP2D6", "*1/*4");
+    testPrintCalls("CYP2C19", "*4/*17");
+
+    assertTrue(s_context.getGeneReport("CYP2D6").isOutsideCall());
+  }
+
+  @Test
   void testCftrRefRef() throws Exception {
     generalTest("test.cftr.ref_ref", new String[]{
             "cftr/refref.vcf"
