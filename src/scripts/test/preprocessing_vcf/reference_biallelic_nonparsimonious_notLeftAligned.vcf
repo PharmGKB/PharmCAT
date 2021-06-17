@@ -6,28 +6,28 @@
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ##contig=<ID=chr2>
 ##contig=<ID=chr7>
-##contig=<ID=chr1,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr3,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr4,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr5,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr6,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr8,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr9,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr10,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr11,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr12,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr13,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr14,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr15,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr16,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr17,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr18,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr19,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr20,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr21,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chr22,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chrX,assembly=hg38,species="Homo sapiens">
-##contig=<ID=chrY,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr1,species="Homo sapiens">
+##contig=<ID=chr3,species="Homo sapiens">
+##contig=<ID=chr4,species="Homo sapiens">
+##contig=<ID=chr5,species="Homo sapiens">
+##contig=<ID=chr6,species="Homo sapiens">
+##contig=<ID=chr8,species="Homo sapiens">
+##contig=<ID=chr9,species="Homo sapiens">
+##contig=<ID=chr10,species="Homo sapiens">
+##contig=<ID=chr11,species="Homo sapiens">
+##contig=<ID=chr12,species="Homo sapiens">
+##contig=<ID=chr13,species="Homo sapiens">
+##contig=<ID=chr14,species="Homo sapiens">
+##contig=<ID=chr15,species="Homo sapiens">
+##contig=<ID=chr16,species="Homo sapiens">
+##contig=<ID=chr17,species="Homo sapiens">
+##contig=<ID=chr18,species="Homo sapiens">
+##contig=<ID=chr19,species="Homo sapiens">
+##contig=<ID=chr20,species="Homo sapiens">
+##contig=<ID=chr21,species="Homo sapiens">
+##contig=<ID=chr22,species="Homo sapiens">
+##contig=<ID=chrX,species="Homo sapiens">
+##contig=<ID=chrY,species="Homo sapiens">
 ##INFO=<ID=PX,Number=.,Type=String,Description="Gene(:Allele Name(n of defining positions)defining allele)">
 ##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not part of an allele definition">
 ##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes">

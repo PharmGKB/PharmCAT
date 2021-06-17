@@ -143,7 +143,7 @@ def extract_pharmcat_pgx_regions(tabix_executable_path, input_vcf, output_dir, i
         # chromosomes do not have leading 'chr' characters in the original VCF
         # add chromosome name with leading 'chr' to the VCF header
         for single_chr in input_vcf_cyvcf2.seqnames:
-            input_vcf_cyvcf2.add_to_header('##contig=<ID=chr' + single_chr + '>')
+            input_vcf_cyvcf2.add_to_header('##contig=<ID=chr' + single_chr + ', species="Homo sapiens">')
         # pgx regions to be extracted
         ref_pgx_regions = ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1)
 
@@ -195,7 +195,7 @@ def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, pa
 
     temp_normalized_vcf = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.tmp_normed.vcf.gz'
     # normalize
-    bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '--no-version', '-m+', '-c', 'ws',  '-Oz', '-o', temp_normalized_vcf, '-f', path_to_ref_seq, input_vcf]
+    bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '-m+', '-c', 'ws',  '-Oz', '-o', temp_normalized_vcf, '-f', path_to_ref_seq, input_vcf]
     running_bcftools(bcftools_command_to_normalize_vcf, show_msg = 'Normalize VCF')
     tabix_index_vcf(tabix_executable_path, temp_normalized_vcf)
 
