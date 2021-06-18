@@ -36,12 +36,13 @@ public class PharmCAT {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Pattern sf_inputNamePattern = Pattern.compile("(.*)\\.vcf");
 
-  private final NamedAlleleMatcher f_namedAlleleMatcher;
   private final Reporter f_reporter;
+  private final Path f_definitionsDir;
   private Path m_outputDir;
   private boolean m_keepMatcherOutput = false;
   private boolean m_writeJsonReport = false;
   private boolean m_writeJsonPheno = false;
+  private boolean m_showAllMatches = false;
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
@@ -52,6 +53,7 @@ public class PharmCAT {
         // optional data
         .addOption("na", "alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
         // controls
+        .addOption("m", "show-all-matches", "show all matching diplotype pairs, not just top-scoring match")
         .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files")
         .addOption("j", "write-reporter-json", "flag to write a JSON file of the data used to populate the final report")
         .addOption("pj", "write-phenotyper-json", "flag to write a JSON file of the data used in the phenotyper");
@@ -81,6 +83,9 @@ public class PharmCAT {
       PharmCAT pharmcat = new PharmCAT(outputDir, definitionsDir);
       if (cliHelper.hasOption("k")) {
         pharmcat.keepMatcherOutput();
+      }
+      if (cliHelper.hasOption("m")) {
+        pharmcat.showAllMatches();
       }
 
       pharmcat
@@ -112,15 +117,12 @@ public class PharmCAT {
     Preconditions.checkArgument(Files.isDirectory(outputDir), "Not a directory: %s", outputDir);
 
     if (definitionsDir == null) {
-      definitionsDir = DataManager.DEFAULT_DEFINITION_DIR;
+      f_definitionsDir = DataManager.DEFAULT_DEFINITION_DIR;
+    } else {
+      f_definitionsDir = definitionsDir;
     }
-    Preconditions.checkArgument(Files.isDirectory(definitionsDir), "Not a directory: %s", definitionsDir);
+    Preconditions.checkArgument(Files.isDirectory(f_definitionsDir), "Not a directory: %s", definitionsDir);
 
-    DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(definitionsDir);
-
-    f_namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true)
-        .printWarnings();
     f_reporter = new Reporter();
     setOutputDir(outputDir);
 
@@ -150,7 +152,11 @@ public class PharmCAT {
       callFile.toFile().deleteOnExit();
     }
 
-    Result result = f_namedAlleleMatcher.call(vcfFile);
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(f_definitionsDir);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, !m_showAllMatches)
+        .printWarnings();
+    Result result = namedAlleleMatcher.call(vcfFile);
     ResultSerializer resultSerializer = new ResultSerializer();
     resultSerializer.toJson(result, callFile);
     if (m_keepMatcherOutput) {
@@ -210,6 +216,11 @@ public class PharmCAT {
 
   public PharmCAT keepMatcherOutput() {
     m_keepMatcherOutput = true;
+    return this;
+  }
+
+  public PharmCAT showAllMatches() {
+    m_showAllMatches = true;
     return this;
   }
 

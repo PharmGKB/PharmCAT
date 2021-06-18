@@ -606,7 +606,7 @@ class SyntheticBatchTest {
 
   private SyntheticBatchTest(Path outputDir) throws IOException {
     m_outputDir = outputDir;
-    m_pharmcat = new PharmCAT(outputDir, null).keepMatcherOutput();
+    m_pharmcat = new PharmCAT(outputDir, null).keepMatcherOutput().showAllMatches();
     m_pharmcat
         .writeJson(true)
         .writePhenotyperJson(true);
