@@ -84,9 +84,10 @@ def tabix_index_vcf(tabix_executable_path, vcf_path):
     
     try:
         subprocess.run([tabix_executable_path, '-p', 'vcf', vcf_path], cwd = os.path.split(vcf_path)[0])
-    except:
+    except Exception as e:
         import sys
         print('Error: cannot index the file: %s' %vcf_path)
+        print(e)
         sys.exit(1)
 
 
