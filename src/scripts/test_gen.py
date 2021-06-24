@@ -2,7 +2,7 @@
 
 """
 Usage: test_gen.py <definition.json> <positions.vcf> <vcfOutputDir>
-Author: Alex Frase
+Authors Alex Frase, Scott Dudek
 
 This tool generates test cases for PharmCAT by reading a single gene definition JSON file
 and the PharmCAT positions file. It then writes a set of synthetic VCF files with their
@@ -10,26 +10,27 @@ expected haplotype calls for a variety of scenarios.
 
 Tests include:
 * Homozygous (two copies of the same allele) complete (all basepair positions included and
-  non-missing) and incomplete (only positions relevant to the allele included, all others
-  missing) cases for each allele; *1/*1, *2/*2, ...
-* Heterozygous complete and incomplete cases for each pair of alleles; *1/*2, *1/*3, *2/*3, ...
-* A case with one referent allele and one uncallable allele due to a non-referent base
-  that is not part of any minor allele definition
-* Cases with one referent allele and one uncallable allele due to missing data that
-  causes ambiguity between two or more possible minor alleles; several tests are generated
-  for each cluster of minor alleles with overlapping definitions: some which are ambiguous
-  only between two minor alleles in the cluster (one test for each such pair), and some
-  which are ambiguous between all but one minor allele in the cluster (one test which
-  rules out each allele)
+  non-missing) for each allele; *1/*1,*2/*2, ...
+* Heterozygous complete cases for each pair of alleles; *1/*2, *1/*3, *2/*3, ...
+* Alleles with wobble (ambiguous nucleic codes) are expanded into separate tests for each
+  of the cases above.
 
-Tests are grouped by expected haplotype call, such that each VCF file covers a single
-call (reflected in the filename and the "##PharmCATnamedAlleles" meta information header)
-but may contain multiple "samples", one for each generated test case that yielded the same
-final call.
+Output files are VCFv4.3 and have a single sample each. The call for the sample is
+reflected in the filename and the "##PharmCATnamedAlleles" meta information header). If
+an allele contains ambiguous codes it, multiple files will be generated for that call with
+a different variation of the wobble in each. Such files will have "wobble" appended to the
+name.
+
+Example filenames:
+* no wobble for CYP3A5 *1/*7
+CYP3A5_s1_s7_t1.vcf
+
+* CYP3A5 *3 has multiple ambiguous codes resulting in 16 files when paired with *7
+CYP3A5_s3_s7_wobble1.vcf, CYP3A5_s3_s7_wobble2.vcf, ... CYP3A5_s3_s7_wobble16.vcf
+
 """
 
 # TODO: once available, use definition's specified referent named allele rather than just the first fully-defined named allele
-# TODO: add maxdef test cases for cluster ambiguity
 
 # ask: definition specifies genomeBuild "b38", vcf seems to expect "hg38"
 # ask: does the VCF need 'source' meta info? old test files have it
@@ -47,7 +48,6 @@ import csv
 import datetime
 import itertools
 import json
-import math
 import os
 import re
 import sys
@@ -64,7 +64,7 @@ if not os.path.isfile(sys.argv[2]):
     sys.exit(f"ERROR: Cannot find VCF file '{sys.argv[2]}'\n")
 
 # set options
-optNumAlleleExpansions = 2
+optNumAlleleExpansions = 128
 
 # build basepair symbol lookup tables
 symbolBases = {
@@ -94,7 +94,8 @@ basesSymbol = {frozenset(bases): symbol for symbol, bases in symbolBases.items()
 def parseVCF(vcf):
     """
     Takes the path to the pharmCAT VCF file containing all positions
-    Returns a collection with gene names (from 'INFO' column) as key
+    Returns a
+     with gene names (from 'INFO' column) as key
     and a list of dicts (from rows) as values
     """
     start=0
@@ -177,7 +178,7 @@ def checkRefNamedAllele(jsondef, vcfref, refna):
         if refna['alleles'][variant['_jsonidx']] != vcfref[gene][variant['_vcfidx']]['REF']:
             jsondef['variantAlleles'][variant['_jsonidx']] = [vcfref[gene][variant['_vcfidx']]["REF"] if v == refna['alleles'][variant['_jsonidx']] else v for v in jsondef['variantAlleles'][variant['_jsonidx']]]
             refna['alleles'][variant['_jsonidx']] = vcfref[gene][variant['_vcfidx']]['REF']
-            refna['_mindef'][variant['_jsonidx']] = vcfref[gene][variant['_vcfidx']]['REF']
+            refna['_maxdef'][variant['_jsonidx']] = vcfref[gene][variant['_vcfidx']]['REF']
     # for variant
 # checkRefNamedAllele()
 
@@ -310,12 +311,9 @@ for namedallele in definition['namedAlleles']:
 # for namedallele
 print("done\n")
 
-# check referent allele against VCF positions file and correct where needed for ambiguous
-checkRefNamedAllele(definition, vcfreference, refNamedallele)
 
 # validate referent allele
 print("Checking nucleic code notations...")
-unalleles = set()
 for i, a in refNamedallele['_mindef'].items():
     if a.startswith('del'):
         if a != 'del':
@@ -326,9 +324,6 @@ for i, a in refNamedallele['_mindef'].items():
     else:
         if any((s not in symbolBases) for s in a):
             sys.exit("ERROR: named allele '%s' invalid allele #%d '%s'" % (refNamedallele['name'], i + 1, a))
-        # initialize a pool of "unknown alleles" starting with all possible non-referent alleles
-        if len(a) == 1:
-            unalleles.update((i, b) for b in ('A', 'C', 'G', 'T') if b not in symbolBases[a])
     # if del/ins/swap
 # for i,a in _mindef
 
@@ -352,268 +347,115 @@ for namedallele in namedalleles:
             namedallele['_mindef'][i] = a
         # if del/ins/swap
     # for i,a in _mindef
-    # update the pool of unknown alleles, removing any that are part of this definition
-    unalleles.difference_update(*(expandAlleles(namedallele['_mindef'].items())))
 # for namedallele
-unalleles = tuple(sorted(unalleles))
-unalleleOffset = 0
-print(f"done: {len(unalleles)} possible unknown alleles\n")
 
-# generate basic tests
+# generate tests
 print("Generating test cases...")
-tests = collections.defaultdict(set)
-first = True
+# tests = collections.defaultdict(set)
 for namedallele in namedalleles:
-    # generate tests for both the minimum and maximum definition of the named allele.
-    # the minimum definition is the way it's notated in the original JSON, with only
-    # the non-referent positions defined for the named allele and all others left null,
-    # implying that the named allele could be identified by variants at those positions
-    # alone; the maximum definition fills in all those missing positions from the referent
-    # named allele, leaving no positions missing.
+    namedallele['_tests'] = set()
+    # generate tests for each namedallele with every position defined and referent used
+    # for any position that is NULL in the defintion. Wobbles are expanded so that
+    # a namedallele may have multiple tests
     namedallele['_maxdef'] = {
         i: namedallele['_mindef'].get(i, refNamedallele['_mindef'][i]) for i in range(len(definition['variants']))
     }
-    if namedallele['_mindef'] != namedallele['_maxdef']:
-        for alleles in expandAlleles(namedallele['_mindef'].items(), optNumAlleleExpansions):
-            test = frozenset(alleles)
-            tests[test].add(namedallele['name'])
-            if first:
-                # for the first non-referent allele, also generate a test with an unexpected allele
-                # (pull one from the pool which is at a position not already part of this allele's mindef)
-                first = False
-                indecies = set(i for i, a in test)
-                o = unalleleOffset
-                while unalleles[o][0] in indecies:
-                    o = (o + 1) % len(unalleles)
-                # no-op just to populate the defaultdict key
-                tests[frozenset(test.union(unalleles[o:(o + 1)]))].discard(None)
-                unalleleOffset = (o + 1) % len(unalleles)
-            # if first
-        # for alleles
-    # if min!=max
     for alleles in expandAlleles(namedallele['_maxdef'].items(), optNumAlleleExpansions):
-        tests[frozenset(alleles)].add(namedallele['name'])
+        namedallele['_tests'].add(frozenset(alleles))
+    # for alleles
 # for namedallele
 
-# identify clusters of overlapping alleles
-clusters = list()
-naCluster = dict()
-n = m = 0
-for na1, namedallele1 in enumerate(namedalleles):
-    # for each named allele that's not yet part of a cluster, we start with the variants
-    # in that named allele's mindef and then iteratively expand the cluster to include
-    # all other named alleles that share mindef variants with any that are in the cluster
-    # (here, "variants" means both the position and the allele
-    if (namedallele1 is refNamedallele) or (na1 in naCluster):
-        continue
-    cluster = {na1}
-    naCluster[na1] = len(clusters)
-    clusters.append(cluster)
-    union = set()
-    for alleles in expandAlleles(namedallele1['_mindef'].items()):
-        union.update(alleles)
-    expand = True
-    while expand:
-        expand = False
-        for na2, namedallele2 in enumerate(namedalleles):
-            if (namedallele2 is refNamedallele) or (na2 in naCluster):
-                continue
-            if any(any(ia in union for ia in alleles) for alleles in expandAlleles(namedallele2['_mindef'].items())):
-                expand = True
-                cluster.add(na2)
-                naCluster[na2] = naCluster[na1]
-                for alleles in expandAlleles(namedallele2['_mindef'].items()):
-                    union.update(alleles)
-            # if overlap
-        # for na2,namedallele2
-    # while expand
-    # just a little fun, tallying up the number of possible subsets of this cluster in
-    # terms of named alleles and of specific variants. I added this when debugging an
-    # early draft that tried to generate tests for *all* possible subsets of each cluster
-    # and was running out of memory; turns out there are a few BIG clusters (see below)
-    for i in range(len(cluster) + 1):
-        n += (math.factorial(len(cluster)) / (math.factorial(i) * math.factorial(len(cluster) - i)))
-    for i in range(len(union) + 1):
-        m += (math.factorial(len(union)) / (math.factorial(i) * math.factorial(len(union) - i)))
-# for na1,namedallele1
-# sys.exit("%d / %d combinations\n" % (n,m))
-
-# generate ambiguity tests for each cluster
-for cluster in clusters:
-    # for some subsets of each cluster, test for the alleles they all have in common
-    # plus the referent alleles that distinguish them from the rest of the cluster.
-    # (limit to subsets of 1,2,n-1,n; CYP2D6 has a cluster of 91 named alleles with
-    # 2,475,880,078,570,759,450,286,620,672 or ~2.5 octillion possible subsets)
-    indecies = set.union(*(namedalleles[na]['_indecies'] for na in cluster))
-    sizes = {1, min(2, len(cluster)), max(1, len(cluster) - 1), len(cluster)}
-    for size in sizes:
-        for subcluster in itertools.combinations(cluster, size):
-            # build a _mindef as the intersection of all subcluster members
-            subdef = dict(namedalleles[subcluster[0]]['_mindef'])
-            for na in itertools.islice(subcluster, 1, None, 1):
-                for i in tuple(subdef.keys()):  # copy so we can delete
-                    subdef[i] = symbolIntersect(subdef[i], namedalleles[na]['_mindef'].get(i, '.'))
-                    if not subdef[i]:
-                        del subdef[i]
-                # for i
-            # for na
-            if subdef:
-                # add referent alleles for variants present in the cluster but not the subcluster
-                referent = dict(next(expandAlleles(refNamedallele['_maxdef'].items(), 1)))
-                subdef.update((i, referent[i])
-                              for i in indecies.difference(*(namedalleles[na]['_indecies'] for na in subcluster)))
-                # generate test case(s) for this subcluster mindef
-                for alleles in expandAlleles(subdef.items(), optNumAlleleExpansions):
-                    tests[frozenset(alleles)].update(namedalleles[na]['name'] for na in subcluster)
-                # add referent alleles for all remaining positions and generate test case(s) for the maxdef
-                subdef.update((i, referent[i]) for i in range(len(definition['variants'])) if (i not in indecies))
-                for alleles in expandAlleles(subdef.items(), optNumAlleleExpansions):
-                    tests[frozenset(alleles)].update(namedalleles[na]['name'] for na in subcluster)
-            # if intersection
-        # for subcluster
-    # for size
-# for cluster
-print(f"done: {len(tests)} tests\n")
-
-# analyze test cases
-for test in tests.keys():
-    alleles = dict(test)
-
-    # identify candidate named alleles
-    candidates = collections.OrderedDict()
-    for na, namedallele in enumerate(namedalleles):
-        match = collections.Counter(
-            bool(symbolIntersect(alleles[i], namedallele['_maxdef'][i])) for i in alleles.keys())
-        if match[True] and not match[False]:
-            candidates[na] = match[True]
-    # for na,namedallele
-
-    # drop superseded candidates
-    if candidates:
-        best = max(candidates.values())
-        for na in list(candidates):  # copy keys to a list so we can delete from the original as we go
-            if candidates[na] < best:
-                del candidates[na]
-        # for candidate
-    elif tests[test]:
-        print("WARNING: test '%s' expected %s, matched none" % (alleles, tests[test]))
-    # if candidates
-
-    # store result
-    tests[test] = (tuple(candidates.keys()), -len(test))
-# for test
-
-# collate tests by expected calls
-alltests = list()
-matchesTests = collections.defaultdict(list)
-for test, testmatches in tests.items():
-    alltests.append(test)
-    matchesTests[testmatches[0]].append(test)
-# for test,matches
-alltests.sort(key=tests.get)
-for matches in matchesTests.keys():
-    matchesTests[matches].sort(key=tests.get)
-# for matches
-
-# output results
-if False:
-    # old CSV format, for initial manual inspection
-    outFile = csv.writer(sys.stdout)
-    outFile.writerow(variant['position'] for variant in definition['variants'])
-    outFile.writerow(variant['rsid'] for variant in definition['variants'])
-    outFile.writerow(variant['chromosomeHgvsName'] for variant in definition['variants'])
-    outFile.writerow(variant['geneHgvsName'] for variant in definition['variants'])
-    for test in alltests:
-        alleles = dict(test)
-        row = list(alleles.get(i, '') for i in range(len(definition['variants'])))
-        row.append('; '.join(namedalleles[na]['name'] for na in tests[test][0]))
-        outFile.writerow(row)
-    # for test
-    sys.exit(0)
-# if CSV
+# check referent allele against VCF positions file and correct where needed for ambiguous
+checkRefNamedAllele(definition, vcfreference, refNamedallele)
 
 basepath = sys.argv[3]
 if not os.path.exists(basepath):
     os.makedirs(basepath)
 print("Writing files...")
-numFiles = 0
-for matches1, matches2 in itertools.combinations_with_replacement(sorted(matchesTests.keys()), 2):
-    # always put uncallable haplotypes second
-    if len(matches1) != 1:
-        matches1, matches2 = matches2, matches1
-    # only generate uncallables paired with *1/...
-    if (len(matches1) != 1) or (len(matches2) != 1 and matches1 != (refNamedallele['_num'],)):
-        continue
+numFiles=0
+for i,na1 in enumerate(namedalleles):
+    test1alleles = list(dict(test) for test in na1["_tests"])
+    matches1 = (i,)
 
-    match1tests = matchesTests[matches1]
-    match2tests = matchesTests[matches2]
-    test1alleles = list(dict(test) for test in match1tests)
-    test2alleles = list(dict(test) for test in match2tests)
-    numTest=0
+    for j,na2 in itertools.islice(enumerate(namedalleles),i, None):
+        test2alleles = list(dict(test) for test in na2["_tests"])
+        matches2 = (j,)
 
-    # each test sample will have its own file
-    for alleles1, alleles2 in itertools.product(test1alleles, test2alleles):
-        numTest += 1
-        outPath = os.path.join(basepath, percentEncode("%s_%s_%s_t%s.vcf" % (
-            definition['gene'],
-            joinMatches(matches1),
-            joinMatches(matches2),
-            numTest
-        )))
+        combos = collections.defaultdict(list)
+        testtype="t"
+        if len(test1alleles) > 1 or len(test2alleles) > 1:
+            testtype="wobble"
+        numTest=1
+        for alleles1, alleles2 in itertools.product(test1alleles, test2alleles):
+            tall = tuple(sorted(alleles2.items()))
+            # skip if combination already done
+            if any(x == alleles1 for x in combos[tuple(sorted(alleles2.items()))]):
+                continue
+            combos[tuple(sorted(alleles1.items()))].append(alleles2)
 
+            outPath = os.path.join(basepath, percentEncode("%s_%s_%s_%s%s.vcf" % (
+                definition['gene'],
+                joinMatches(matches1),
+                joinMatches(matches2),
+                testtype,
+                numTest
+            )))
+            numTest+=1
 
-        with open(outPath, 'w') as outFile:
-            numFiles += 1
-            # write meta-info header
-            outFile.write("##fileformat=VCFv4.3\n")
-            outFile.write("##fileDate=%s\n" % (datetime.date.today().strftime("%Y%m%d"),))
-            # TODO: proper hg# notation?
-            outFile.write("##reference=%s\n" % (definition['genomeBuild'].replace("b", "hg"),))
-            outFile.write("##PharmCATnamedAlleles=%s/%s\n" % (
-                ('_'.join(namedalleles[na]['name'] for na in matches1) or "?"),
-                ('_'.join(namedalleles[na]['name'] for na in matches2) or "?"),
-            ))
-            outFile.write("##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n")
-            # based on the spec there should be no need to define this explicitly
-            # outFile.write("##FILTER=<ID=PASS,Description=\"All filters passed\">\n")
-
-
-            row = ["#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO", "FORMAT","TEST" + str(numTest)]
-            outFile.write("\t".join(row) + "\n")
-            for v, variant in enumerate(definition['variants']):
-                refAllele = refNamedallele['_maxdef'].get(v)
-                if not refAllele or refAllele == ".":
-                    continue
-                varalleles = [refNamedallele['_maxdef'].get(v)]
-                for alleles in [alleles1, alleles2]:
-                    allele = alleles.get(v,None)
-                    alt = None if (allele is None) or allele == "." else allele
-                    if alt and (alt not in varalleles):
-                        varalleles.append(alt)
-                # for allele
-                if(len(varalleles)==1 and "ALT" in vcfreference[definition["gene"]][variant['_vcfidx']]):
-                    varalleles.append(vcfreference[definition["gene"]][variant['_vcfidx']]["ALT"])
-                row = [
-                    str(variant.get('chromosome') or "."),
-                    str(variant.get('position') or "."),
-                    str(variant.get('rsid') or "."),
-                    refAllele,
-                    (",".join(varalleles[1:]) if (len(varalleles) > 1) else "."),
-                    ".",  # QUAL
-                    "PASS",  # FILTER
-                    ".",  # INFO
-                    "GT",  # FORMAT
-                ]
-                a1 = alleles1.get(v)
-                a2 = alleles2.get(v)
-                row.append("%s/%s" % (
-                    (varalleles.index(a1) if (a1 and a1 != ".") else "."),
-                    (varalleles.index(a2) if (a2 and a2 != ".") else "."),
+            with open(outPath, 'w') as outFile:
+                numFiles += 1
+                # write meta-info header
+                outFile.write("##fileformat=VCFv4.3\n")
+                outFile.write("##fileDate=%s\n" % (datetime.date.today().strftime("%Y%m%d"),))
+                # TODO: proper hg# notation?
+                outFile.write("##reference=%s\n" % (definition['genomeBuild'].replace("b", "hg"),))
+                outFile.write("##PharmCATnamedAlleles=%s/%s\n" % (
+                    ('_'.join(namedalleles[na]['name'] for na in matches1) or "?"),
+                    ('_'.join(namedalleles[na]['name'] for na in matches2) or "?"),
                 ))
+                outFile.write("##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n")
+                # based on the spec there should be no need to define this explicitly
+                # outFile.write("##FILTER=<ID=PASS,Description=\"All filters passed\">\n")
+
+
+                row = ["#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO", "FORMAT","TEST" + str(numTest)]
                 outFile.write("\t".join(row) + "\n")
-            # for v,variant
-        # with outFile
-    # for alleles1, alleles2
-# for matches1, matches2
+                for v, variant in enumerate(definition['variants']):
+                    refAllele = refNamedallele['_maxdef'].get(v)
+                    if not refAllele or refAllele == ".":
+                        continue
+                    varalleles = [refNamedallele['_maxdef'].get(v)]
+                    for alleles in [alleles1, alleles2]:
+                        allele = alleles.get(v,None)
+                        alt = None if (allele is None) or allele == "." else allele
+                        if alt and (alt not in varalleles):
+                            varalleles.append(alt)
+                    # for alleles
+                    if(len(varalleles)==1 and "ALT" in vcfreference[definition["gene"]][variant['_vcfidx']]):
+                        varalleles.append(vcfreference[definition["gene"]][variant['_vcfidx']]["ALT"])
+                    row = [
+                        str(variant.get('chromosome') or "."),
+                        str(variant.get('position') or "."),
+                        str(variant.get('rsid') or "."),
+                        refAllele,
+                        (",".join(varalleles[1:]) if (len(varalleles) > 1) else "."),
+                        ".",  # QUAL
+                        "PASS",  # FILTER
+                        ".",  # INFO
+                        "GT",  # FORMAT
+                    ]
+                    a1 = alleles1.get(v)
+                    a2 = alleles2.get(v)
+                    row.append("%s/%s" % (
+                        (varalleles.index(a1) if (a1 and a1 != ".") else "."),
+                        (varalleles.index(a2) if (a2 and a2 != ".") else "."),
+                    ))
+                    outFile.write("\t".join(row) + "\n")
+                # for v,variant
+            # with outFile
+        # for alleles1, alleles2
+    # for j,na2
+# for i,na1
+
 print(f"Done: {numFiles} files")
 
