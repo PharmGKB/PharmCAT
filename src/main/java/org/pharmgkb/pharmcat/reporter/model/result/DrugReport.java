@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
@@ -134,7 +135,7 @@ public class DrugReport implements Comparable<DrugReport> {
    * and then marks it as a match.
    * @param phenotypeKey a Map of gene symbol to phenotype String
    */
-  public void addReportGenotype(Map<String,String> phenotypeKey) {
+  public void addReportGenotype(Map<String,String> phenotypeKey, SortedSet<String> diplotypes) {
     Preconditions.checkNotNull(phenotypeKey);
     Preconditions.checkArgument(!phenotypeKey.isEmpty());
 
@@ -142,7 +143,7 @@ public class DrugReport implements Comparable<DrugReport> {
         .filter(r -> r.getLookupKey().equals(phenotypeKey))
         .forEach(r -> {
           addMatchingRecommendation(r);
-          r.addMatchedDiplotype(phenotypeKey.toString());
+          r.addMatchedDiplotype(String.join(", ", diplotypes));
         });
   }
 

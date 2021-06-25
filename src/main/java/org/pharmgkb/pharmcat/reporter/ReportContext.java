@@ -78,7 +78,8 @@ public class ReportContext {
         if (drugReport.isReportable()) {
           List<Map<String,String>> phenoKeys = makePhenotypeKeys(drugReport.getRelatedGeneSymbols());
           for (Map<String,String> phenoKey : phenoKeys) {
-            drugReport.addReportGenotype(phenoKey);
+            SortedSet<String> diplotypes = findMatchingDiplotypesForPhenotypeKey(phenoKey);
+            drugReport.addReportGenotype(phenoKey, diplotypes);
           }
         }
         m_drugReports.add(drugReport);
@@ -266,6 +267,7 @@ public class ReportContext {
           for (String geneSymbol : recommendation.getImplications().keySet()) {
             annotationList.add(makeAnnotation("Implication for " + geneSymbol, recommendation.getImplications().get(geneSymbol)));
           }
+          annotationList.add(makeAnnotation("Matched Diplotypes", String.join("; ", recommendation.getMatchedDiplotypes())));
           for (String geneSymbol : recommendation.getPhenotypes().keySet()) {
             annotationList.add(makeAnnotation("Phenotype for " + geneSymbol, recommendation.getPhenotypes().get(geneSymbol)));
           }
@@ -404,5 +406,21 @@ public class ReportContext {
       );
       return newList;
     }
+  }
+
+  /**
+   * Given a map of Gene-&gt;LookupKey values (e.g. CYP2C19 Normal Metabolizer), find the corresponding diplotypes
+   * (e.g. CYP2C19:*1/*2) and return them in a set.
+   * @param phenotypeKey a Gene-&gt;LookupKey map from the list of diplotypes
+   * @return a SortedSet of each gene:diplotype strings corresponding to the lookup keys in the phenotype key
+   */
+  private SortedSet<String> findMatchingDiplotypesForPhenotypeKey(Map<String,String> phenotypeKey) {
+    SortedSet<String> diplotypes = new TreeSet<>();
+    for (String gene : phenotypeKey.keySet()) {
+      findGeneReport(gene).ifPresent((r) -> r.getReporterDiplotypes().stream()
+          .filter((d) -> d.getLookupKey() != null && d.getLookupKey().equals(phenotypeKey.get(gene)))
+          .forEach((d) -> diplotypes.add(gene + ":" + d.printDisplay())));
+    }
+    return diplotypes;
   }
 }
