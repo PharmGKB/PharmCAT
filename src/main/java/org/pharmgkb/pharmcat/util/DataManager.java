@@ -10,12 +10,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.common.base.Charsets;
+import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 
 
 /**
@@ -150,6 +152,7 @@ public class DataManager {
         .filter(f -> f.endsWith("_translation.json"))
         .collect(Collectors.toSet());
 
+    // transform data as necessary
     for (String gene : exemptionsMap.keySet()) {
       DefinitionExemption exemption = exemptionsMap.get(gene);
       if (exemption.getIgnoredPositions().size() > 0) {
@@ -161,7 +164,9 @@ public class DataManager {
         definitionFile.removeIgnoredPositions(exemption);
       }
     }
+    fixCyp2c19(definitionFileMap.get("CYP2C19"));
 
+    // output file
     for (String gene : definitionFileMap.keySet()) {
       DefinitionFile definitionFile = definitionFileMap.get(gene);
       Path jsonFile = definitionsDir.resolve(gene + "_translation.json");
@@ -176,6 +181,24 @@ public class DataManager {
 
     deleteObsoleteFiles(definitionsDir, currentFiles);
   }
+
+  private void fixCyp2c19(DefinitionFile definitionFile) {
+    Preconditions.checkNotNull(definitionFile);
+    NamedAllele star1 = definitionFile.getNamedAlleles().stream()
+        .filter(na -> na.getName().equals("*1"))
+        .findFirst()
+        .orElseThrow(() -> new IllegalStateException("Cannot find CYP2C19*1"));
+    NamedAllele star38 = definitionFile.getNamedAlleles().stream()
+        .filter(na -> na.getName().equals("*38"))
+        .findFirst()
+        .orElseThrow(() -> new IllegalStateException("Cannot find CYP2C19*38"));
+    for (int x = 0; x < star38.getAlleles().length; x += 1) {
+      if (star1.getAlleles()[x] == null) {
+        star1.getAlleles()[x] = star38.getAlleles()[x];
+      }
+    }
+  }
+
 
   private Map<String, DefinitionExemption> transformExemptions(Path tsvFile, Path jsonFile) throws IOException {
 

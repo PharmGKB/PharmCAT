@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "May 19, 2021 03:11:21 PM",
+  "modificationDate": "Jun 14, 2021 10:15:04 AM",
   "gene": "CYP2C19",
   "orientation": null,
   "chromosome": "chr10",
@@ -542,7 +542,7 @@
   "namedAlleles": [
     {
       "name": "*38",
-      "id": "726804",
+      "id": "777530",
       "alleles": [
         "C",
         "A",
@@ -584,49 +584,49 @@
     },
     {
       "name": "*1",
-      "id": "726806",
+      "id": "777532",
       "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+        "C",
+        "A",
+        "C",
+        "T",
+        "T",
+        "A",
+        "A",
+        "A",
+        "C",
+        "C",
         "G",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
+        "A",
+        "A",
+        "T",
+        "A",
+        "G",
+        "G",
+        "G",
+        "G",
+        "G",
+        "G",
+        "C",
+        "G",
+        "G",
+        "T",
+        "G",
+        "G",
+        "G",
+        "G",
+        "C",
+        "C",
+        "C",
+        "C",
+        "A"
       ],
       "populationFrequency": null,
       "reference": false
     },
     {
       "name": "*2",
-      "id": "726808",
+      "id": "777534",
       "alleles": [
         null,
         null,
@@ -668,7 +668,7 @@
     },
     {
       "name": "*3",
-      "id": "726810",
+      "id": "777536",
       "alleles": [
         null,
         null,
@@ -710,7 +710,7 @@
     },
     {
       "name": "*4",
-      "id": "726812",
+      "id": "777538",
       "alleles": [
         "Y",
         "G",
@@ -752,7 +752,7 @@
     },
     {
       "name": "*5",
-      "id": "726814",
+      "id": "777540",
       "alleles": [
         null,
         null,
@@ -794,7 +794,7 @@
     },
     {
       "name": "*6",
-      "id": "726816",
+      "id": "777542",
       "alleles": [
         null,
         null,
@@ -836,7 +836,7 @@
     },
     {
       "name": "*7",
-      "id": "726818",
+      "id": "777544",
       "alleles": [
         null,
         null,
@@ -878,7 +878,7 @@
     },
     {
       "name": "*8",
-      "id": "726820",
+      "id": "777546",
       "alleles": [
         null,
         null,
@@ -920,7 +920,7 @@
     },
     {
       "name": "*9",
-      "id": "726822",
+      "id": "777548",
       "alleles": [
         null,
         null,
@@ -962,7 +962,7 @@
     },
     {
       "name": "*10",
-      "id": "726824",
+      "id": "777550",
       "alleles": [
         null,
         null,
@@ -1004,7 +1004,7 @@
     },
     {
       "name": "*11",
-      "id": "726826",
+      "id": "777552",
       "alleles": [
         null,
         null,
@@ -1046,7 +1046,7 @@
     },
     {
       "name": "*12",
-      "id": "726828",
+      "id": "777554",
       "alleles": [
         null,
         null,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "*13",
-      "id": "726830",
+      "id": "777556",
       "alleles": [
         null,
         null,
@@ -1130,7 +1130,7 @@
     },
     {
       "name": "*14",
-      "id": "726832",
+      "id": "777558",
       "alleles": [
         null,
         null,
@@ -1172,7 +1172,7 @@
     },
     {
       "name": "*15",
-      "id": "726834",
+      "id": "777560",
       "alleles": [
         null,
         null,
@@ -1214,7 +1214,7 @@
     },
     {
       "name": "*16",
-      "id": "726836",
+      "id": "777562",
       "alleles": [
         null,
         null,
@@ -1256,7 +1256,7 @@
     },
     {
       "name": "*17",
-      "id": "726838",
+      "id": "777564",
       "alleles": [
         "T",
         null,
@@ -1298,7 +1298,7 @@
     },
     {
       "name": "*18",
-      "id": "726840",
+      "id": "777566",
       "alleles": [
         null,
         null,
@@ -1340,7 +1340,7 @@
     },
     {
       "name": "*19",
-      "id": "726842",
+      "id": "777568",
       "alleles": [
         null,
         null,
@@ -1382,7 +1382,7 @@
     },
     {
       "name": "*22",
-      "id": "726844",
+      "id": "777570",
       "alleles": [
         null,
         null,
@@ -1424,7 +1424,7 @@
     },
     {
       "name": "*23",
-      "id": "726846",
+      "id": "777572",
       "alleles": [
         null,
         null,
@@ -1466,7 +1466,7 @@
     },
     {
       "name": "*24",
-      "id": "726848",
+      "id": "777574",
       "alleles": [
         null,
         null,
@@ -1508,7 +1508,7 @@
     },
     {
       "name": "*25",
-      "id": "726850",
+      "id": "777576",
       "alleles": [
         null,
         null,
@@ -1550,7 +1550,7 @@
     },
     {
       "name": "*26",
-      "id": "726852",
+      "id": "777578",
       "alleles": [
         null,
         null,
@@ -1592,7 +1592,7 @@
     },
     {
       "name": "*28",
-      "id": "726854",
+      "id": "777580",
       "alleles": [
         null,
         null,
@@ -1634,7 +1634,7 @@
     },
     {
       "name": "*29",
-      "id": "726856",
+      "id": "777582",
       "alleles": [
         null,
         null,
@@ -1676,7 +1676,7 @@
     },
     {
       "name": "*30",
-      "id": "726858",
+      "id": "777584",
       "alleles": [
         null,
         null,
@@ -1718,7 +1718,7 @@
     },
     {
       "name": "*31",
-      "id": "726860",
+      "id": "777586",
       "alleles": [
         null,
         null,
@@ -1760,7 +1760,7 @@
     },
     {
       "name": "*32",
-      "id": "726862",
+      "id": "777588",
       "alleles": [
         null,
         null,
@@ -1802,7 +1802,7 @@
     },
     {
       "name": "*33",
-      "id": "726864",
+      "id": "777590",
       "alleles": [
         null,
         null,
@@ -1844,7 +1844,7 @@
     },
     {
       "name": "*34",
-      "id": "726866",
+      "id": "777592",
       "alleles": [
         null,
         null,
@@ -1886,7 +1886,7 @@
     },
     {
       "name": "*35",
-      "id": "726868",
+      "id": "777594",
       "alleles": [
         null,
         null,
@@ -1928,7 +1928,7 @@
     },
     {
       "name": "*39",
-      "id": "726874",
+      "id": "777600",
       "alleles": [
         null,
         null,
