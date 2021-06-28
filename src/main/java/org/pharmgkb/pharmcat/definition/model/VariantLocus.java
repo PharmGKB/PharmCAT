@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.ChromosomeNameComparator;
 
 
@@ -200,4 +201,12 @@ public class VariantLocus implements Comparable<VariantLocus> {
     return m_chromosomeHgvsName.compareTo(o.getChromosomeHgvsName());
   }
 
+  @Override
+  public String toString() {
+    return String.format(
+        "%s:%d%s",
+        m_chromosome,
+        m_position,
+        StringUtils.isBlank(m_rsid) ? "" : String.format(" (%s)", m_rsid));
+  }
 }
