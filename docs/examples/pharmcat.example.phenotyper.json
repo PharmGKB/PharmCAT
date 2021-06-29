@@ -1336,6 +1336,7 @@
         "dbSnpId": "rs12248560",
         "call": "C|C",
         "alleles": [
+          "*1",
           "*4",
           "*17"
         ],
@@ -1350,6 +1351,7 @@
         "dbSnpId": "rs28399504",
         "call": "A|A",
         "alleles": [
+          "*1",
           "*4"
         ],
         "phased": true,
@@ -1363,6 +1365,7 @@
         "dbSnpId": "rs367543002",
         "call": "C|C",
         "alleles": [
+          "*1",
           "*34"
         ],
         "phased": true,
@@ -1376,6 +1379,7 @@
         "dbSnpId": "rs367543003",
         "call": "T|T",
         "alleles": [
+          "*1",
           "*34"
         ],
         "phased": true,
@@ -1389,6 +1393,7 @@
         "dbSnpId": "rs55752064",
         "call": "T|T",
         "alleles": [
+          "*1",
           "*14"
         ],
         "phased": true,
@@ -1402,6 +1407,7 @@
         "dbSnpId": "rs17882687",
         "call": "A|A",
         "alleles": [
+          "*1",
           "*15",
           "*28",
           "*35",
@@ -1418,6 +1424,7 @@
         "dbSnpId": "rs1564656981",
         "call": "A|A",
         "alleles": [
+          "*1",
           "*29"
         ],
         "phased": true,
@@ -1431,6 +1438,7 @@
         "dbSnpId": "rs1564657013",
         "call": "A|A",
         "alleles": [
+          "*1",
           "*19"
         ],
         "phased": true,
@@ -1444,6 +1452,7 @@
         "dbSnpId": "rs145328984",
         "call": "C|C",
         "alleles": [
+          "*1",
           "*30"
         ],
         "phased": true,
@@ -1457,6 +1466,7 @@
         "dbSnpId": "rs1564660997",
         "call": "C|C",
         "alleles": [
+          "*1",
           "*31"
         ],
         "phased": true,
@@ -1470,6 +1480,7 @@
         "dbSnpId": "rs118203756",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*23"
         ],
         "phased": true,
@@ -1483,6 +1494,7 @@
         "dbSnpId": "rs1288601658",
         "call": "A|A",
         "alleles": [
+          "*1",
           "*32"
         ],
         "phased": true,
@@ -1496,6 +1508,7 @@
         "dbSnpId": "rs12769205",
         "call": "A|A",
         "alleles": [
+          "*1",
           "*2",
           "*35"
         ],
@@ -1510,6 +1523,7 @@
         "dbSnpId": "rs41291556",
         "call": "T|T",
         "alleles": [
+          "*1",
           "*8"
         ],
         "phased": true,
@@ -1523,6 +1537,7 @@
         "dbSnpId": "rs17885179",
         "call": "A|A",
         "alleles": [
+          "*1",
           "*39"
         ],
         "phased": true,
@@ -1536,6 +1551,7 @@
         "dbSnpId": "rs72552267",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*6"
         ],
         "phased": true,
@@ -1549,6 +1565,7 @@
         "dbSnpId": "rs17884712",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*9"
         ],
         "phased": true,
@@ -1562,6 +1579,7 @@
         "dbSnpId": "rs58973490",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*2",
           "*11"
         ],
@@ -1576,6 +1594,7 @@
         "dbSnpId": "rs140278421",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*22"
         ],
         "phased": true,
@@ -1589,6 +1608,7 @@
         "dbSnpId": "rs370803989",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*33"
         ],
         "phased": true,
@@ -1602,6 +1622,7 @@
         "dbSnpId": "rs4986893",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*3"
         ],
         "phased": true,
@@ -1615,6 +1636,7 @@
         "dbSnpId": "rs6413438",
         "call": "C|C",
         "alleles": [
+          "*1",
           "*10"
         ],
         "phased": true,
@@ -1628,6 +1650,7 @@
         "dbSnpId": "rs4244285",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*2"
         ],
         "phased": true,
@@ -1641,6 +1664,7 @@
         "dbSnpId": "rs375781227",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*26"
         ],
         "phased": true,
@@ -1654,6 +1678,7 @@
         "dbSnpId": "rs72558186",
         "call": "T|T",
         "alleles": [
+          "*1",
           "*7"
         ],
         "phased": true,
@@ -1667,6 +1692,7 @@
         "dbSnpId": "rs138142612",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*18"
         ],
         "phased": true,
@@ -1721,6 +1747,7 @@
         "dbSnpId": "rs118203757",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*24"
         ],
         "phased": true,
@@ -1734,6 +1761,7 @@
         "dbSnpId": "rs113934938",
         "call": "G|G",
         "alleles": [
+          "*1",
           "*28"
         ],
         "phased": true,
@@ -1747,6 +1775,7 @@
         "dbSnpId": "rs17879685",
         "call": "C|C",
         "alleles": [
+          "*1",
           "*13"
         ],
         "phased": true,
@@ -1760,6 +1789,7 @@
         "dbSnpId": "rs56337013",
         "call": "C|C",
         "alleles": [
+          "*1",
           "*5"
         ],
         "phased": true,
@@ -1773,6 +1803,7 @@
         "dbSnpId": "rs192154563",
         "call": "C|C",
         "alleles": [
+          "*1",
           "*16"
         ],
         "phased": true,
@@ -1786,6 +1817,7 @@
         "dbSnpId": "rs118203759",
         "call": "C|C",
         "alleles": [
+          "*1",
           "*25"
         ],
         "phased": true,
@@ -1799,6 +1831,7 @@
         "dbSnpId": "rs55640102",
         "call": "A|A",
         "alleles": [
+          "*1",
           "*12"
         ],
         "phased": true,

@@ -214,6 +214,105 @@
     ]
   },
   {
+    "drugid": "RxNorm:641",
+    "drugname": "amikacin",
+    "guidelinename": "MT-RNR1 and Aminoglycosides",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
+    "guidelinepharmgkbids": [
+      "PA166229081"
+    ],
+    "genes": [
+      "MT-RNR1"
+    ],
+    "citations": [
+      {
+        "id": 876861,
+        "guidelineid": 826283,
+        "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
+        "authors": [
+          "McDermott John Henry",
+          "Wolf Joshua",
+          "Hoshitsuki Keito",
+          "Huddart Rachel",
+          "Caudle Kelly E",
+          "Whirl-Carrillo Michelle",
+          "Steyger Peter S",
+          "Smith Richard J H",
+          "Cody Neal",
+          "Rodriguez-Antona Cristina",
+          "Klein Teri E",
+          "Newman William G"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": null,
+        "volume": null,
+        "year": 2021,
+        "pmid": "34032273",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2309",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "recommendations": [
+      {
+        "implications": {
+          "MT-RNR1": "Very high risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Normal risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Weak or no evidence for an increased risk of MT-RNR1 associated hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Optional",
+        "phenotypes": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:704",
     "drugname": "amitriptyline",
     "guidelinename": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
@@ -7281,8 +7380,8 @@
           "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
           "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
-        "classification": "Optional",
+        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+        "classification": "Strong",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
@@ -7293,8 +7392,8 @@
           "HLA-A": "*31:01 negative",
           "HLA-B": "*15:02 positive"
         },
-        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-        "population": "CBZ use >3mos "
+        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+        "population": "CBZ naive"
       },
       {
         "implications": {
@@ -7321,8 +7420,8 @@
           "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
           "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
-        "classification": "Strong",
+        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
+        "classification": "Optional",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
@@ -7333,8 +7432,8 @@
           "HLA-A": "*31:01 negative",
           "HLA-B": "*15:02 positive"
         },
-        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-        "population": "CBZ naive"
+        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+        "population": "CBZ use >3mos "
       },
       {
         "implications": {
@@ -7461,6 +7560,26 @@
           "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
           "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
+        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
+        "classification": "Optional",
+        "phenotypes": {},
+        "activityscore": {},
+        "allelestatus": {
+          "HLA-A": "HLA-A*31:01 positive",
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-A": "*31:01 positive",
+          "HLA-B": "*15:02 positive"
+        },
+        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+        "population": "CBZ use >3mos "
+      },
+      {
+        "implications": {
+          "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
+        },
         "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
         "classification": "Strong",
         "phenotypes": {},
@@ -7499,21 +7618,21 @@
       {
         "implications": {
           "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
+          "HLA-B": "n/a"
         },
-        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
+        "drugrecommendation": "The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within three months of regular dosing. Therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine.",
         "classification": "Optional",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
           "HLA-A": "HLA-A*31:01 positive",
-          "HLA-B": "HLA-B*15:02 positive"
+          "HLA-B": "No HLA-B*15:02 result"
         },
         "lookupkey": {
           "HLA-A": "*31:01 positive",
-          "HLA-B": "*15:02 positive"
+          "HLA-B": "No *15:02 result"
         },
-        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
         "population": "CBZ use >3mos "
       },
       {
@@ -7558,23 +7677,43 @@
       },
       {
         "implications": {
-          "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-          "HLA-B": "n/a"
+          "HLA-A": "n/a",
+          "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within three months of regular dosing. Therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine.",
-        "classification": "Optional",
+        "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+        "classification": "Strong",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
-          "HLA-A": "HLA-A*31:01 positive",
-          "HLA-B": "No HLA-B*15:02 result"
+          "HLA-A": "No HLA-A*31:01 result",
+          "HLA-B": "HLA-B*15:02 negative"
         },
         "lookupkey": {
-          "HLA-A": "*31:01 positive",
-          "HLA-B": "No *15:02 result"
+          "HLA-A": "No *31:01 result",
+          "HLA-B": "*15:02 negative"
         },
-        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+        "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
         "population": "CBZ use >3mos "
+      },
+      {
+        "implications": {
+          "HLA-A": "n/a",
+          "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+        },
+        "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+        "classification": "Strong",
+        "phenotypes": {},
+        "activityscore": {},
+        "allelestatus": {
+          "HLA-A": "No HLA-A*31:01 result",
+          "HLA-B": "HLA-B*15:02 negative"
+        },
+        "lookupkey": {
+          "HLA-A": "No *31:01 result",
+          "HLA-B": "*15:02 negative"
+        },
+        "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+        "population": "CBZ-no alternatives"
       },
       {
         "implications": {
@@ -7595,66 +7734,6 @@
         },
         "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
         "population": "CBZ naive"
-      },
-      {
-        "implications": {
-          "HLA-A": "n/a",
-          "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
-        },
-        "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
-        "classification": "Strong",
-        "phenotypes": {},
-        "activityscore": {},
-        "allelestatus": {
-          "HLA-A": "No HLA-A*31:01 result",
-          "HLA-B": "HLA-B*15:02 negative"
-        },
-        "lookupkey": {
-          "HLA-A": "No *31:01 result",
-          "HLA-B": "*15:02 negative"
-        },
-        "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-        "population": "CBZ use >3mos "
-      },
-      {
-        "implications": {
-          "HLA-A": "n/a",
-          "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
-        },
-        "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
-        "classification": "Strong",
-        "phenotypes": {},
-        "activityscore": {},
-        "allelestatus": {
-          "HLA-A": "No HLA-A*31:01 result",
-          "HLA-B": "HLA-B*15:02 negative"
-        },
-        "lookupkey": {
-          "HLA-A": "No *31:01 result",
-          "HLA-B": "*15:02 negative"
-        },
-        "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-        "population": "CBZ-no alternatives"
-      },
-      {
-        "implications": {
-          "HLA-A": "n/a",
-          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
-        },
-        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
-        "classification": "Strong",
-        "phenotypes": {},
-        "activityscore": {},
-        "allelestatus": {
-          "HLA-A": "No HLA-A*31:01 result",
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-A": "No *31:01 result",
-          "HLA-B": "*15:02 positive"
-        },
-        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-        "population": "CBZ-no alternatives"
       },
       {
         "implications": {
@@ -7695,6 +7774,26 @@
         },
         "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
         "population": "CBZ use >3mos "
+      },
+      {
+        "implications": {
+          "HLA-A": "n/a",
+          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
+        },
+        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+        "classification": "Strong",
+        "phenotypes": {},
+        "activityscore": {},
+        "allelestatus": {
+          "HLA-A": "No HLA-A*31:01 result",
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-A": "No *31:01 result",
+          "HLA-B": "*15:02 positive"
+        },
+        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+        "population": "CBZ-no alternatives"
       }
     ]
   },
@@ -20792,7 +20891,7 @@
           "CYP2C9": "1"
         },
         "comments": "n/a",
-        "population": "PHT use >3mos"
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -20815,7 +20914,7 @@
           "CYP2C9": "1"
         },
         "comments": "n/a",
-        "population": "PHT naive"
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -20884,7 +20983,7 @@
           "CYP2C9": "2"
         },
         "comments": "n/a",
-        "population": "PHT naive"
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -20907,6 +21006,29 @@
           "CYP2C9": "2"
         },
         "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "No recommendation",
+        "classification": "n/a",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 negative"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 negative",
+          "CYP2C9": "n/a"
+        },
+        "comments": "n/a",
         "population": "PHT use >3mos"
       },
       {
@@ -20937,45 +21059,45 @@
           "HLA-B": "n/a",
           "CYP2C9": "n/a"
         },
-        "drugrecommendation": "No recommendation",
-        "classification": "n/a",
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
         "phenotypes": {
-          "CYP2C9": "Indeterminate"
+          "CYP2C9": "No Result"
         },
         "activityscore": {
-          "CYP2C9": "n/a"
+          "CYP2C9": "No Result"
         },
         "allelestatus": {
           "HLA-B": "HLA-B*15:02 negative"
         },
         "lookupkey": {
           "HLA-B": "*15:02 negative",
-          "CYP2C9": "n/a"
+          "CYP2C9": "No Result"
         },
         "comments": "n/a",
         "population": "PHT use >3mos"
       },
       {
         "implications": {
-          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+          "HLA-B": "n/a",
+          "CYP2C9": "n/a"
         },
-        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
         "classification": "Strong",
         "phenotypes": {
-          "CYP2C9": "Poor Metabolizer"
+          "CYP2C9": "No Result"
         },
         "activityscore": {
-          "CYP2C9": "0.0"
+          "CYP2C9": "No Result"
         },
         "allelestatus": {
-          "HLA-B": "HLA-B*15:02 positive"
+          "HLA-B": "HLA-B*15:02 negative"
         },
         "lookupkey": {
-          "HLA-B": "*15:02 positive",
-          "CYP2C9": "0"
+          "HLA-B": "*15:02 negative",
+          "CYP2C9": "No Result"
         },
-        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "comments": "n/a",
         "population": "PHT naive"
       },
       {
@@ -21000,6 +21122,29 @@
         },
         "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
         "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "0"
+        },
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -21144,8 +21289,8 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Normal phenytoin metabolism"
         },
-        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-        "classification": "Optional",
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
         "phenotypes": {
           "CYP2C9": "Normal Metabolizer"
         },
@@ -21159,16 +21304,16 @@
           "HLA-B": "*15:02 positive",
           "CYP2C9": "2"
         },
-        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-        "population": "PHT use >3mos"
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "population": "PHT naive"
       },
       {
         "implications": {
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Normal phenytoin metabolism"
         },
-        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-        "classification": "Strong",
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
         "phenotypes": {
           "CYP2C9": "Normal Metabolizer"
         },
@@ -21182,8 +21327,31 @@
           "HLA-B": "*15:02 positive",
           "CYP2C9": "2"
         },
-        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-        "population": "PHT naive"
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "n/a"
+        },
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -21216,20 +21384,418 @@
         "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
         "classification": "Optional",
         "phenotypes": {
-          "CYP2C9": "Indeterminate"
+          "CYP2C9": "No Result"
         },
         "activityscore": {
-          "CYP2C9": "n/a"
+          "CYP2C9": "No Result"
         },
         "allelestatus": {
           "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
           "HLA-B": "*15:02 positive",
-          "CYP2C9": "n/a"
+          "CYP2C9": "No Result"
         },
         "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
         "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "No Result"
+        },
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "0"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "0"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "0.5"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "0.5"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses, use approximately 25% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "1"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses, use approximately 25% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "1"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
+        },
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "1.5"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "1.5"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
+        },
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "1.5"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "1.5"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Normal phenytoin metabolism"
+        },
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "2"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Normal phenytoin metabolism"
+        },
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "2"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "No recommendation",
+        "classification": "n/a",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "n/a"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "No recommendation",
+        "classification": "n/a",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "n/a"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      }
+    ]
+  },
+  {
+    "drugid": "ATC:D06AX07",
+    "drugname": "gentamicin",
+    "guidelinename": "MT-RNR1 and Aminoglycosides",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
+    "guidelinepharmgkbids": [
+      "PA166229081"
+    ],
+    "genes": [
+      "MT-RNR1"
+    ],
+    "citations": [
+      {
+        "id": 876861,
+        "guidelineid": 826283,
+        "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
+        "authors": [
+          "McDermott John Henry",
+          "Wolf Joshua",
+          "Hoshitsuki Keito",
+          "Huddart Rachel",
+          "Caudle Kelly E",
+          "Whirl-Carrillo Michelle",
+          "Steyger Peter S",
+          "Smith Richard J H",
+          "Cody Neal",
+          "Rodriguez-Antona Cristina",
+          "Klein Teri E",
+          "Newman William G"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": null,
+        "volume": null,
+        "year": 2021,
+        "pmid": "34032273",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2309",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "recommendations": [
+      {
+        "implications": {
+          "MT-RNR1": "Very high risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Normal risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Weak or no evidence for an increased risk of MT-RNR1 associated hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Optional",
+        "phenotypes": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+        "population": "general"
       }
     ]
   },
@@ -27075,6 +27641,105 @@
     ]
   },
   {
+    "drugid": "RxNorm:6099",
+    "drugname": "kanamycin",
+    "guidelinename": "MT-RNR1 and Aminoglycosides",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
+    "guidelinepharmgkbids": [
+      "PA166229081"
+    ],
+    "genes": [
+      "MT-RNR1"
+    ],
+    "citations": [
+      {
+        "id": 876861,
+        "guidelineid": 826283,
+        "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
+        "authors": [
+          "McDermott John Henry",
+          "Wolf Joshua",
+          "Hoshitsuki Keito",
+          "Huddart Rachel",
+          "Caudle Kelly E",
+          "Whirl-Carrillo Michelle",
+          "Steyger Peter S",
+          "Smith Richard J H",
+          "Cody Neal",
+          "Rodriguez-Antona Cristina",
+          "Klein Teri E",
+          "Newman William G"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": null,
+        "volume": null,
+        "year": 2021,
+        "pmid": "34032273",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2309",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "recommendations": [
+      {
+        "implications": {
+          "MT-RNR1": "Very high risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Normal risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Weak or no evidence for an increased risk of MT-RNR1 associated hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Optional",
+        "phenotypes": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:17128",
     "drugname": "lansoprazole",
     "guidelinename": "CYP2C19 and Proton Pump Inhibitors",
@@ -30181,6 +30846,105 @@
     ]
   },
   {
+    "drugid": "RxNorm:7934",
+    "drugname": "paromomycin",
+    "guidelinename": "MT-RNR1 and Aminoglycosides",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
+    "guidelinepharmgkbids": [
+      "PA166229081"
+    ],
+    "genes": [
+      "MT-RNR1"
+    ],
+    "citations": [
+      {
+        "id": 876861,
+        "guidelineid": 826283,
+        "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
+        "authors": [
+          "McDermott John Henry",
+          "Wolf Joshua",
+          "Hoshitsuki Keito",
+          "Huddart Rachel",
+          "Caudle Kelly E",
+          "Whirl-Carrillo Michelle",
+          "Steyger Peter S",
+          "Smith Richard J H",
+          "Cody Neal",
+          "Rodriguez-Antona Cristina",
+          "Klein Teri E",
+          "Newman William G"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": null,
+        "volume": null,
+        "year": 2021,
+        "pmid": "34032273",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2309",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "recommendations": [
+      {
+        "implications": {
+          "MT-RNR1": "Very high risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Normal risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Weak or no evidence for an increased risk of MT-RNR1 associated hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Optional",
+        "phenotypes": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:32937",
     "drugname": "paroxetine",
     "guidelinename": "CYP2D6, CYP2C19 and Selective Serotonin Reuptake Inhibitors",
@@ -30662,8 +31426,7 @@
       "PA166110235"
     ],
     "genes": [
-      "IFNL3",
-      "IFNL4"
+      "IFNL3"
     ],
     "citations": [
       {
@@ -30705,8 +31468,7 @@
       "PA166110235"
     ],
     "genes": [
-      "IFNL3",
-      "IFNL4"
+      "IFNL3"
     ],
     "citations": [
       {
@@ -31067,7 +31829,7 @@
           "CYP2C9": "n/a"
         },
         "comments": "n/a",
-        "population": "PHT naive"
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -31088,6 +31850,52 @@
         "lookupkey": {
           "HLA-B": "*15:02 negative",
           "CYP2C9": "n/a"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 negative"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 negative",
+          "CYP2C9": "No Result"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 negative"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 negative",
+          "CYP2C9": "No Result"
         },
         "comments": "n/a",
         "population": "PHT use >3mos"
@@ -31143,29 +31951,6 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
         },
-        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-        "classification": "Strong",
-        "phenotypes": {
-          "CYP2C9": "Poor Metabolizer"
-        },
-        "activityscore": {
-          "CYP2C9": "0.5"
-        },
-        "allelestatus": {
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-B": "*15:02 positive",
-          "CYP2C9": "0.5"
-        },
-        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-        "population": "PHT naive"
-      },
-      {
-        "implications": {
-          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-        },
         "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
         "classification": "Optional",
         "phenotypes": {
@@ -31189,23 +31974,23 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
         },
-        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-        "classification": "Optional",
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
         "phenotypes": {
-          "CYP2C9": "Intermediate Metabolizer"
+          "CYP2C9": "Poor Metabolizer"
         },
         "activityscore": {
-          "CYP2C9": "1.0"
+          "CYP2C9": "0.5"
         },
         "allelestatus": {
           "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
           "HLA-B": "*15:02 positive",
-          "CYP2C9": "1"
+          "CYP2C9": "0.5"
         },
-        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-        "population": "PHT use >3mos"
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -31229,6 +32014,29 @@
         },
         "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
         "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "1"
+        },
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -31281,8 +32089,8 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Normal phenytoin metabolism"
         },
-        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-        "classification": "Optional",
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
         "phenotypes": {
           "CYP2C9": "Normal Metabolizer"
         },
@@ -31296,16 +32104,16 @@
           "HLA-B": "*15:02 positive",
           "CYP2C9": "2"
         },
-        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-        "population": "PHT use >3mos"
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "population": "PHT naive"
       },
       {
         "implications": {
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Normal phenytoin metabolism"
         },
-        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-        "classification": "Strong",
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
         "phenotypes": {
           "CYP2C9": "Normal Metabolizer"
         },
@@ -31319,8 +32127,8 @@
           "HLA-B": "*15:02 positive",
           "CYP2C9": "2"
         },
-        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-        "population": "PHT naive"
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -31367,6 +32175,328 @@
         },
         "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
         "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "No Result"
+        },
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "No Result"
+        },
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "0"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "0"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "0.5"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "0.5"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses, use approximately 25% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "1"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses, use approximately 25% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "1"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
+        },
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "1.5"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "1.5"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
+        },
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "1.5"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "1.5"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Normal phenytoin metabolism"
+        },
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "2"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "Normal phenytoin metabolism"
+        },
+        "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "2"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "No recommendation",
+        "classification": "n/a",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "n/a"
+        },
+        "comments": "n/a",
+        "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "n/a",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "No recommendation",
+        "classification": "n/a",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {
+          "HLA-B": "No HLA-B Result"
+        },
+        "lookupkey": {
+          "HLA-B": "No Result",
+          "CYP2C9": "n/a"
+        },
+        "comments": "n/a",
+        "population": "PHT naive"
       }
     ]
   },
@@ -31525,6 +32655,105 @@
           "CYP2C9": "n/a"
         },
         "comments": "n/a",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:2049549",
+    "drugname": "plazomicin",
+    "guidelinename": "MT-RNR1 and Aminoglycosides",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
+    "guidelinepharmgkbids": [
+      "PA166229081"
+    ],
+    "genes": [
+      "MT-RNR1"
+    ],
+    "citations": [
+      {
+        "id": 876861,
+        "guidelineid": 826283,
+        "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
+        "authors": [
+          "McDermott John Henry",
+          "Wolf Joshua",
+          "Hoshitsuki Keito",
+          "Huddart Rachel",
+          "Caudle Kelly E",
+          "Whirl-Carrillo Michelle",
+          "Steyger Peter S",
+          "Smith Richard J H",
+          "Cody Neal",
+          "Rodriguez-Antona Cristina",
+          "Klein Teri E",
+          "Newman William G"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": null,
+        "volume": null,
+        "year": 2021,
+        "pmid": "34032273",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2309",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "recommendations": [
+      {
+        "implications": {
+          "MT-RNR1": "Very high risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Normal risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Weak or no evidence for an increased risk of MT-RNR1 associated hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Optional",
+        "phenotypes": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
         "population": "general"
       }
     ]
@@ -32191,6 +33420,105 @@
           "SLCO1B1": "Possible Poor Function"
         },
         "comments": "In all cases, the potential for drug-drug interactions should be evaluated prior to initiating a prescription.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:10109",
+    "drugname": "streptomycin",
+    "guidelinename": "MT-RNR1 and Aminoglycosides",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
+    "guidelinepharmgkbids": [
+      "PA166229081"
+    ],
+    "genes": [
+      "MT-RNR1"
+    ],
+    "citations": [
+      {
+        "id": 876861,
+        "guidelineid": 826283,
+        "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
+        "authors": [
+          "McDermott John Henry",
+          "Wolf Joshua",
+          "Hoshitsuki Keito",
+          "Huddart Rachel",
+          "Caudle Kelly E",
+          "Whirl-Carrillo Michelle",
+          "Steyger Peter S",
+          "Smith Richard J H",
+          "Cody Neal",
+          "Rodriguez-Antona Cristina",
+          "Klein Teri E",
+          "Newman William G"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": null,
+        "volume": null,
+        "year": 2021,
+        "pmid": "34032273",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2309",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "recommendations": [
+      {
+        "implications": {
+          "MT-RNR1": "Very high risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Normal risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Weak or no evidence for an increased risk of MT-RNR1 associated hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Optional",
+        "phenotypes": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
         "population": "general"
       }
     ]
@@ -34006,6 +35334,105 @@
           "NUDT15": "Possible Intermediate Metabolizer"
         },
         "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:10627",
+    "drugname": "tobramycin",
+    "guidelinename": "MT-RNR1 and Aminoglycosides",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
+    "guidelinepharmgkbids": [
+      "PA166229081"
+    ],
+    "genes": [
+      "MT-RNR1"
+    ],
+    "citations": [
+      {
+        "id": 876861,
+        "guidelineid": 826283,
+        "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
+        "authors": [
+          "McDermott John Henry",
+          "Wolf Joshua",
+          "Hoshitsuki Keito",
+          "Huddart Rachel",
+          "Caudle Kelly E",
+          "Whirl-Carrillo Michelle",
+          "Steyger Peter S",
+          "Smith Richard J H",
+          "Cody Neal",
+          "Rodriguez-Antona Cristina",
+          "Klein Teri E",
+          "Newman William G"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": null,
+        "volume": null,
+        "year": 2021,
+        "pmid": "34032273",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2309",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "recommendations": [
+      {
+        "implications": {
+          "MT-RNR1": "Very high risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Normal risk of developing hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Strong",
+        "phenotypes": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "MT-RNR1": "Weak or no evidence for an increased risk of MT-RNR1 associated hearing loss if administered an aminoglycoside antibiotic."
+        },
+        "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+        "classification": "Optional",
+        "phenotypes": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+        },
+        "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
         "population": "general"
       }
     ]
@@ -39896,7 +41323,7 @@
           "CYP2C19": "Indeterminate"
         },
         "comments": "n/a",
-        "population": "adults"
+        "population": "pediatrics"
       },
       {
         "implications": {
@@ -39913,24 +41340,7 @@
           "CYP2C19": "Indeterminate"
         },
         "comments": "n/a",
-        "population": "pediatrics"
-      },
-      {
-        "implications": {
-          "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
-        },
-        "drugrecommendation": "Initiate therapy with recommended standard of care dosing",
-        "classification": "Moderate",
-        "phenotypes": {
-          "CYP2C19": "Intermediate Metabolizer"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C19": "Intermediate Metabolizer"
-        },
-        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
-        "population": "pediatrics"
+        "population": "adults"
       },
       {
         "implications": {
@@ -39948,6 +41358,23 @@
         },
         "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
         "population": "adults"
+      },
+      {
+        "implications": {
+          "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
+        },
+        "drugrecommendation": "Initiate therapy with recommended standard of care dosing",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C19": "Intermediate Metabolizer"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C19": "Intermediate Metabolizer"
+        },
+        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
+        "population": "pediatrics"
       },
       {
         "implications": {
@@ -40081,23 +41508,6 @@
         "allelestatus": {},
         "lookupkey": {
           "CYP2C19": "Poor Metabolizer"
-        },
-        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
-        "population": "adults"
-      },
-      {
-        "implications": {
-          "CYP2C19": "In patients for whom a rapid metabolizer genotype (*1/*17) is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing"
-        },
-        "drugrecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.",
-        "classification": "Moderate",
-        "phenotypes": {
-          "CYP2C19": "Rapid Metabolizer"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C19": "Rapid Metabolizer"
         },
         "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
         "population": "adults"
@@ -40118,6 +41528,23 @@
         },
         "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring (TDM), and comorbidities. Achieving voriconazole therapeutic concentrations in the pediatric population with ultrarapid and rapid metabolizer phenotypes in a timely manner is difficult. As critical time may be lost in achieving therapeutic concentrations, an alternative antifungal agent is recommended in order that the child receives effective antifungal therapy as soon as possible. Meticulous TDM is critical for rapid metabolizers. There is insufficient evidence to distinguish a CYP2C19*1/*17 and *1/*1 pediatric patient due to large variability in trough concentrations.",
         "population": "pediatrics"
+      },
+      {
+        "implications": {
+          "CYP2C19": "In patients for whom a rapid metabolizer genotype (*1/*17) is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing"
+        },
+        "drugrecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C19": "Rapid Metabolizer"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C19": "Rapid Metabolizer"
+        },
+        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
+        "population": "adults"
       },
       {
         "implications": {

@@ -905,7 +905,7 @@ class PharmCATTest {
     s_context = s_pharmcat.getReporter().getContext();
 
     assertEquals(17, s_context.getGeneReports().size());
-    assertEquals(52, s_context.getDrugReports().size());
+    assertEquals(59, s_context.getDrugReports().size());
   }
 
   /**

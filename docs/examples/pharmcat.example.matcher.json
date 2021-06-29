@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "1.0.0",
     "genomeBuild": "b38",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "Jun 25, 2021, 9:49:33 AM"
+    "timestamp": "Jun 29, 2021, 10:57:18 AM"
   },
   "results": [
     {
@@ -510,7 +510,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "05/19/21",
+      "alleleDefinitionVersion": "06/14/21",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
