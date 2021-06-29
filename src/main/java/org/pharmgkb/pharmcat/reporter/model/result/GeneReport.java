@@ -147,6 +147,19 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
+   * The gene symbol for display purposes, like in a report. This accounts for the IFNL3/4 problem
+   */
+  public String getGeneDisplay() {
+    switch (f_gene) {
+      case "IFNL3":
+      case "IFNL4":
+        return "IFNL3/4";
+      default:
+        return f_gene;
+    }
+  }
+
+  /**
    * The chromosome this gene appears on
    */
   public String getChr() {
@@ -214,7 +227,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if the {@link NamedAlleleMatcher} has returned at least one call for this gene, false otherwise
    */
   public boolean isCalled() {
-    return m_matcherDiplotypes != null && m_matcherDiplotypes.size() > 0 && m_matcherDiplotypes.stream().noneMatch(Diplotype::isUnknown);
+    return m_matcherDiplotypes.size() > 0 && m_matcherDiplotypes.stream().noneMatch(Diplotype::isUnknown);
   }
 
   /**
@@ -238,7 +251,7 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_relatedDrugs;
   }
 
-  public void addRelatedDrug(DrugLink drug) {
+  private void addRelatedDrug(DrugLink drug) {
     if (m_relatedDrugs == null) {
       m_relatedDrugs = new ArrayList<>();
     }

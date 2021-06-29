@@ -94,7 +94,9 @@ public class ReportContext {
   }
 
   private boolean isReportable(String gene) {
-    return getGeneReport(gene).isReportable();
+    return findGeneReport(gene)
+        .map(GeneReport::isReportable)
+        .orElse(false);
   }
 
   public List<DrugReport> getDrugReports() {
@@ -148,8 +150,6 @@ public class ReportContext {
     List<Map<String,Object>> genotypes = new ArrayList<>();
     int calledGenes = 0;
     for (GeneReport geneReport : getGeneReports()) {
-      String symbol = geneReport.getGene();
-
       // skip any genes on the blacklist
       if (geneReport.isIgnored()) {
         continue;
@@ -165,7 +165,7 @@ public class ReportContext {
       }
 
       Map<String,Object> genotype = new HashMap<>();
-      genotype.put("gene", symbol);
+      genotype.put("gene", geneReport.getGeneDisplay());
       genotype.put("called", geneReport.isCalled());
       genotype.put("drugs", geneReport.getRelatedDrugs());
       genotype.put("calls", geneReport.printDisplayCalls());
@@ -201,16 +201,17 @@ public class ReportContext {
 
       List<Map<String,Object>> geneCallList = new ArrayList<>();
       for (String gene : drugReport.getRelatedGeneSymbols()) {
-        GeneReport geneReport = getGeneReport(gene);
-        String functions = geneReport.isCalled() ? String.join("; ", geneReport.printDisplayFunctions()) : null;
-        Map<String,Object> geneCall = new LinkedHashMap<>();
-        geneCall.put("gene", gene);
-        geneCall.put("diplotypes", String.join(", ", geneReport.printDisplayCalls()));
-        geneCall.put("showHighlights", !geneReport.getHighlightedVariants().isEmpty());
-        geneCall.put("highlightedVariants", geneReport.getHighlightedVariants());
-        geneCall.put("functions", functions);
-        geneCall.put("outsideCall", geneReport.isOutsideCall());
-        geneCallList.add(geneCall);
+        findGeneReport(gene).ifPresent((geneReport) -> {
+          String functions = geneReport.isCalled() ? String.join("; ", geneReport.printDisplayFunctions()) : null;
+          Map<String,Object> geneCall = new LinkedHashMap<>();
+          geneCall.put("gene", geneReport.getGeneDisplay());
+          geneCall.put("diplotypes", String.join(", ", geneReport.printDisplayCalls()));
+          geneCall.put("showHighlights", !geneReport.getHighlightedVariants().isEmpty());
+          geneCall.put("highlightedVariants", geneReport.getHighlightedVariants());
+          geneCall.put("functions", functions);
+          geneCall.put("outsideCall", geneReport.isOutsideCall());
+          geneCallList.add(geneCall);
+        });
       }
       for (String variant : drugReport.getReportVariants()) {
         String call = getGeneReports().stream()
@@ -309,7 +310,7 @@ public class ReportContext {
 
       Map<String,Object> geneCallMap = new HashMap<>();
 
-      geneCallMap.put("gene", geneReport.getGene());
+      geneCallMap.put("gene", geneReport.getGeneDisplay());
 
       String phaseStatus;
       if (geneReport.isOutsideCall()) {
