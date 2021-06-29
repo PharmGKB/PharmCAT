@@ -17,14 +17,6 @@ def run(args):
     current_working_dir = os.getcwd()
     tabix_executable_path = args.path_to_tabix if args.path_to_tabix else 'tabix'
     bcftools_executable_path = args.path_to_bcftools if args.path_to_bcftools else 'bcftools'
-    # read the sample list
-    sample_list = []
-    if args.sample_file:
-        with open(args.sample_file, 'r') as file:
-            for line in file:
-                line = line.strip()
-                sample_list.append(line)
-        file.close()
 
     # create the output folder if not existing
     Path(args.output_folder).mkdir(parents=True, exist_ok=True)
@@ -42,9 +34,20 @@ def run(args):
     if not os.path.exists(args.ref_pgx_vcf + '.tbi'):
         util.tabix_index_vcf(tabix_executable_path, args.ref_pgx_vcf)
 
-    # shrink input VCF down to PGx allele defining positions to speed up
+    # read the sample list
+    sample_list = []
+    if args.sample_file:
+        with open(args.sample_file, 'r') as file:
+            for line in file:
+                line = line.strip()
+                sample_list.append(line)
+        file.close()
+    else:
+        sample_list = util.obtain_vcf_sample_list(bcftools_executable_path, args.input_vcf)
+
+    # shrink input VCF down to PGx allele defining regions and selected samples
     # modify input VCF chromosomes naming format to <chr##>
-    intermediate_vcf_pgx_regions = util.extract_pharmcat_pgx_regions(tabix_executable_path, args.input_vcf, args.output_folder, args.ref_pgx_vcf, sample_list)
+    intermediate_vcf_pgx_regions = util.extract_pharmcat_pgx_regions(bcftools_executable_path, tabix_executable_path, args.input_vcf, args.output_folder, args.ref_pgx_vcf, sample_list)
     tmp_files_to_be_removed.append(intermediate_vcf_pgx_regions)
 
     # merge the input VCF with the PGx position file provided by '--ref_pgx_vcf'
@@ -61,7 +64,7 @@ def run(args):
 
     # output PharmCAT-ready single-sample VCF
     # retain only the PharmCAT allele defining positions in the output VCF file
-    util.output_pharmcat_ready_vcf(intermediate_vcf_normalized, args.output_folder, args.output_prefix)
+    util.output_pharmcat_ready_vcf(bcftools_executable_path, intermediate_vcf_normalized, args.output_folder, args.output_prefix, sample_list)
 
     # remove intermediate files
     if not args.keep_intermediate_files:
