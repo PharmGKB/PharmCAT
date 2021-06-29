@@ -40,8 +40,8 @@ def download_from_url(url, download_to_dir, save_to_file = None):
 
         local_path = os.path.join(download_to_dir, remote_basename) if not save_to_file else save_to_file
         quit_if_exists(local_path)
-        temp_download_path = os.path.join(download_to_dir, 'temp_' + remote_basename)
         with tempfile.TemporaryDirectory(dir = download_to_dir) as temp_dir:
+            temp_download_path = os.path.join(temp_dir, 'temp_' + remote_basename)
             with urllib.request.urlopen(url) as response:
                 with open(temp_download_path, 'wb') as out_file:
                     print('Downloading from \"%s\"\n\tto \"%s\"' %(url, local_path))
