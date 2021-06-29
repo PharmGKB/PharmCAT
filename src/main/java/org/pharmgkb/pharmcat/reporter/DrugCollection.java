@@ -69,7 +69,7 @@ public class DrugCollection implements Iterable<Drug> {
   public Set<String> getAllReportableGenes() {
     return m_drugList.stream()
         .flatMap(d -> d.getGenes().stream())
-        .filter(g -> !GeneReport.IGNORED_GENES.contains(g))
+        .filter(g -> !GeneReport.isIgnored(g))
         .collect(Collectors.toSet());
   }
 

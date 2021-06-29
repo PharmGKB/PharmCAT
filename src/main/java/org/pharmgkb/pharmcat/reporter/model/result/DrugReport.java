@@ -78,7 +78,7 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   public boolean isIgnored() {
-    return m_drug.getGenes().stream().anyMatch(GeneReport.IGNORED_GENES::contains);
+    return m_drug.getGenes().stream().anyMatch(GeneReport::isIgnored);
   }
 
   public boolean hasMultipleMatches() {

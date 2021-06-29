@@ -33,7 +33,7 @@ import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
  */
 public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
-  public static final List<String> IGNORED_GENES = ImmutableList.of("G6PD", "HLA-A", "HLA-B");
+  private static final List<String> IGNORED_GENES = ImmutableList.of("G6PD", "HLA-A", "HLA-B", "IFNL4");
   private static final Set<String> sf_overrideDiplotypes = ImmutableSet.of("SLCO1B1");
   private static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
@@ -322,7 +322,16 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return true if this gene should be left out of output reports
    */
   public boolean isIgnored() {
-    return IGNORED_GENES.contains(getGene());
+    return isIgnored(getGene());
+  }
+
+  /**
+   * Is the specified gene symbol ignored, e.g. it shouldn't be included in reports
+   * @param gene a gene symbol
+   * @return true if this gene should be left out of output reports
+   */
+  public static boolean isIgnored(String gene) {
+    return StringUtils.isNotBlank(gene) && IGNORED_GENES.contains(gene);
   }
 
   public List<Diplotype> getMatcherDiplotypes() {
