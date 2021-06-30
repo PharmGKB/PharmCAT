@@ -14,6 +14,11 @@ import vcf_preprocess_exceptions as Exceptions
 import tempfile
 import allel
 
+def byte_decoder(a):
+    ''' Decode byte data into utf-8 '''
+    return a.decode("utf-8")
+
+
 def obtain_vcf_file_prefix(path):
     vcf_file_name = os.path.split(path)[1]
     if re.search('[.]vcf[.]gz$', vcf_file_name):
@@ -102,7 +107,11 @@ def running_bcftools(list_bcftools_command, show_msg = None):
     '''
 
     print("%s" % (show_msg)) if show_msg else print("Running [ %s ]" % (' '.join(list_bcftools_command)))
-    subprocess.run(list_bcftools_command)
+
+    p = subprocess.run(list_bcftools_command, stderr = subprocess.PIPE)
+    if p.returncode != 0:
+        print('Error: ', p.stderr.decode("utf-8"))
+        sys.exit(1)
 
 def obtain_vcf_sample_list(bcftools_executable_path, path_to_vcf):
     '''
@@ -128,10 +137,6 @@ def remove_vcf_and_index(path_to_vcf):
 def get_vcf_pos_min_max(positions, flanking_bp = 100):
     ''' given input positions, return "<min_pos>-<max_pos>"  '''
     return '-'.join([str(min(positions)-flanking_bp), str(max(positions)+flanking_bp)])
-
-def byte_decoder(a):
-    ''' Decode byte data into utf-8 '''
-    return a.decode("utf-8")
 
 
 def has_chr_string(input_vcf):
@@ -188,7 +193,6 @@ def extract_pharmcat_pgx_regions(bcftools_executable_path, tabix_executable_path
 
             # extract pgx regions and rename chromosomes
             ref_pgx_regions = ",".join(ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1))
-            print(file_rename_chrs.name)
             bcftools_command_to_rename_and_extract = [bcftools_executable_path, 'annotate', '-s', ",".join(sample_list), '--rename-chrs', file_rename_chrs.name, '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
             running_bcftools(bcftools_command_to_rename_and_extract, show_msg = 'Extract PGx regions based on the input reference PGx position file.\nModify chromosome names.')
 
