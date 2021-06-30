@@ -168,6 +168,10 @@ public class DataManager {
 
     // output file
     for (String gene : definitionFileMap.keySet()) {
+      // TODO: remove after v1 is released
+      if (gene.equals("MT-RNR1")) {
+        continue;
+      }
       DefinitionFile definitionFile = definitionFileMap.get(gene);
       Path jsonFile = definitionsDir.resolve(gene + "_translation.json");
       m_dataSerializer.serializeToJson(definitionFile, jsonFile);

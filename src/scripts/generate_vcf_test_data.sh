@@ -15,10 +15,14 @@ OUTPUT_DIR="../../build/testVcf"
 for file in "$DEFINITION_DIR"/*; do
   if [[ $file == *_translation.json ]]; then
     gene=$(echo $(basename $file) | cut -d "_" -f1)
-    echo "$gene"
-    mkdir -p ${OUTPUT_DIR}/${gene}
-    ./test_gen.py $file ${VCF_FILE} ${OUTPUT_DIR}/${gene}
-    echo ""
-    echo ""
+    # TODO: remove after v1 is released
+    # not performing testing on CYP2D6 for now
+    if [[ $gene != "CYP2D6" ]]; then
+      echo "$gene"
+      mkdir -p ${OUTPUT_DIR}/${gene}
+      ./test_gen.py $file ${VCF_FILE} ${OUTPUT_DIR}/${gene}
+      echo ""
+      echo ""
+    fi
   fi
 done
