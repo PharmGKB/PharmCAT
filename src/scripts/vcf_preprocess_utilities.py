@@ -12,7 +12,6 @@ import urllib.request
 import gzip
 import vcf_preprocess_exceptions as Exceptions
 import tempfile
-from cyvcf2 import VCF, Writer
 import allel
 
 def obtain_vcf_file_prefix(path):
