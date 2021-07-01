@@ -174,8 +174,15 @@ def extract_pharmcat_pgx_regions(bcftools_executable_path, tabix_executable_path
     if has_chr_string(input_vcf) == "true":
         # add chromosome name with leading 'chr' to the VCF header
         ref_pgx_regions = ",".join(ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1).replace({'^':'chr'}, regex=True))
-        bcftools_command_to_rename_and_extract = [bcftools_executable_path, 'view', '-s', ",".join(sample_list), '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
-        running_bcftools(bcftools_command_to_rename_and_extract, show_msg = 'Extract PGx regions based on the input reference PGx position file.')
+
+        # run bcftools
+        with tempfile.NamedTemporaryFile(mode = "w", dir = output_dir) as file_sample_list:
+            for single_sample in sample_list:
+                file_sample_list.write("%s\n" % single_sample)
+            file_sample_list.seek(0)
+
+            bcftools_command_to_rename_and_extract = [bcftools_executable_path, 'view', '-S', file_sample_list.name, '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
+            running_bcftools(bcftools_command_to_rename_and_extract, show_msg = 'Extract PGx regions based on the input reference PGx position file.')
     elif has_chr_string(input_vcf) == "false":
         # chromosome names
         chr_names_wo_strings = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22"]
@@ -193,11 +200,16 @@ def extract_pharmcat_pgx_regions(bcftools_executable_path, tabix_executable_path
 
             # extract pgx regions and rename chromosomes
             ref_pgx_regions = ",".join(ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1))
-            bcftools_command_to_rename_and_extract = [bcftools_executable_path, 'annotate', '-s', ",".join(sample_list), '--rename-chrs', file_rename_chrs.name, '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
-            running_bcftools(bcftools_command_to_rename_and_extract, show_msg = 'Extract PGx regions based on the input reference PGx position file.\nModify chromosome names.')
 
-        # close temp file
-        file_rename_chrs.close()
+            # generate a temporary file of sample names
+            with tempfile.NamedTemporaryFile(mode = "w", dir = output_dir) as file_sample_list:
+                for single_sample in sample_list:
+                    file_sample_list.write("%s\n" % single_sample)
+                file_sample_list.seek(0)
+
+                # run bcftools
+                bcftools_command_to_rename_and_extract = [bcftools_executable_path, 'annotate', '-S', file_sample_list.name, '--rename-chrs', file_rename_chrs.name, '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
+                running_bcftools(bcftools_command_to_rename_and_extract, show_msg = 'Extract PGx regions based on the input reference PGx position file.\nModify chromosome names.')
     else:
         print("The CHROM column does not comply with either 'chr##' or '##' format.")
 
