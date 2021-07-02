@@ -192,9 +192,8 @@ for namedallele in namedalleles:
 # generate tests
 totalTests = 0
 print("Generating test cases...")
-# tests = collections.defaultdict(set)
 for namedallele in namedalleles:
-    namedallele['_tests'] = set()
+    namedallele['_tests'] = list()
     # generate tests for each namedallele with every position defined and referent used
     # for any position that is NULL in the defintion. Wobbles are expanded so that
     # a namedallele may have multiple tests
@@ -202,7 +201,7 @@ for namedallele in namedalleles:
         i: namedallele['_mindef'].get(i, refNamedallele['_mindef'][i]) for i in range(len(definition['variants']))
     }
     for alleles in util.expandAlleles(namedallele['_maxdef'].items(), 16 ):
-        namedallele['_tests'].add(frozenset(alleles))
+        namedallele['_tests'].append(frozenset(alleles))
     totalTests += len(namedallele['_tests'])
     # for alleles
 # for namedallele
