@@ -77,6 +77,12 @@ public class DrugReport implements Comparable<DrugReport> {
     return sf_notApplicableMatches.contains(getId()) || m_matchingRecommendations.size()>0;
   }
 
+  /**
+   * Determines if a DrugReport is "ignored". If ignored, it will not be displayed in the reporter output. The drug
+   * report is ignored if any gene used for the recommendations is ignored as determined by
+   * {@link GeneReport#isIgnored(String)}.
+   * @return true if the drug report will not be included
+   */
   public boolean isIgnored() {
     return m_drug.getGenes().stream().anyMatch(GeneReport::isIgnored);
   }
