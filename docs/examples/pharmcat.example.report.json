@@ -1,6 +1,6 @@
 {
   "totalGenes": 16,
-  "generatedOn": "June 29, 2021",
+  "generatedOn": "July 02, 2021",
   "geneCalls": [
     {
       "diplotypes": [
@@ -3806,21 +3806,6 @@
     },
     {
       "diplotypes": [
-        "not called"
-      ],
-      "gene": "MT-RNR1",
-      "hasUncalledHaps": false,
-      "variantsOfInterestUnspecified": true,
-      "outsideCall": false,
-      "variantsUnspecified": true,
-      "messages": [],
-      "totalMissingVariants": 0,
-      "totalVariants": 0,
-      "phaseStatus": "Unphased",
-      "extra-position-notes": []
-    },
-    {
-      "diplotypes": [
         "*1/*1"
       ],
       "gene": "NUDT15",
@@ -6372,54 +6357,6 @@
   ],
   "guidelines": [
     {
-      "uncalledGenes": "MT-RNR1",
-      "geneCalls": [
-        {
-          "gene": "MT-RNR1",
-          "diplotypes": "not called",
-          "showHighlights": false,
-          "highlightedVariants": [],
-          "functions": null,
-          "outsideCall": false
-        }
-      ],
-      "drugs": "amikacin",
-      "groups": [],
-      "reportable": false,
-      "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
-      "mutliMatch": false,
-      "citations": [
-        {
-          "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
-          "authors": [
-            "McDermott John Henry",
-            "Wolf Joshua",
-            "Hoshitsuki Keito",
-            "Huddart Rachel",
-            "Caudle Kelly E",
-            "Whirl-Carrillo Michelle",
-            "Steyger Peter S",
-            "Smith Richard J H",
-            "Cody Neal",
-            "Rodriguez-Antona Cristina",
-            "Klein Teri E",
-            "Newman William G"
-          ],
-          "pmid": "34032273",
-          "pmcid": null,
-          "doi": "10.1002/cpt.2309",
-          "month": 5,
-          "year": 2021
-        }
-      ],
-      "messages": [],
-      "matched": false,
-      "id": "RxNorm:641",
-      "lastModified": "not available",
-      "footnotes": []
-    },
-    {
       "uncalledGenes": "",
       "geneCalls": [
         {
@@ -8441,54 +8378,6 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "MT-RNR1",
-      "geneCalls": [
-        {
-          "gene": "MT-RNR1",
-          "diplotypes": "not called",
-          "showHighlights": false,
-          "highlightedVariants": [],
-          "functions": null,
-          "outsideCall": false
-        }
-      ],
-      "drugs": "gentamicin",
-      "groups": [],
-      "reportable": false,
-      "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
-      "mutliMatch": false,
-      "citations": [
-        {
-          "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
-          "authors": [
-            "McDermott John Henry",
-            "Wolf Joshua",
-            "Hoshitsuki Keito",
-            "Huddart Rachel",
-            "Caudle Kelly E",
-            "Whirl-Carrillo Michelle",
-            "Steyger Peter S",
-            "Smith Richard J H",
-            "Cody Neal",
-            "Rodriguez-Antona Cristina",
-            "Klein Teri E",
-            "Newman William G"
-          ],
-          "pmid": "34032273",
-          "pmcid": null,
-          "doi": "10.1002/cpt.2309",
-          "month": 5,
-          "year": 2021
-        }
-      ],
-      "messages": [],
-      "matched": false,
-      "id": "ATC:D06AX07",
-      "lastModified": "not available",
-      "footnotes": []
-    },
-    {
       "uncalledGenes": "",
       "geneCalls": [
         {
@@ -9085,54 +8974,6 @@
       "messages": [],
       "matched": true,
       "id": "RxNorm:1243041",
-      "lastModified": "not available",
-      "footnotes": []
-    },
-    {
-      "uncalledGenes": "MT-RNR1",
-      "geneCalls": [
-        {
-          "gene": "MT-RNR1",
-          "diplotypes": "not called",
-          "showHighlights": false,
-          "highlightedVariants": [],
-          "functions": null,
-          "outsideCall": false
-        }
-      ],
-      "drugs": "kanamycin",
-      "groups": [],
-      "reportable": false,
-      "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
-      "mutliMatch": false,
-      "citations": [
-        {
-          "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
-          "authors": [
-            "McDermott John Henry",
-            "Wolf Joshua",
-            "Hoshitsuki Keito",
-            "Huddart Rachel",
-            "Caudle Kelly E",
-            "Whirl-Carrillo Michelle",
-            "Steyger Peter S",
-            "Smith Richard J H",
-            "Cody Neal",
-            "Rodriguez-Antona Cristina",
-            "Klein Teri E",
-            "Newman William G"
-          ],
-          "pmid": "34032273",
-          "pmcid": null,
-          "doi": "10.1002/cpt.2309",
-          "month": 5,
-          "year": 2021
-        }
-      ],
-      "messages": [],
-      "matched": false,
-      "id": "RxNorm:6099",
       "lastModified": "not available",
       "footnotes": []
     },
@@ -9980,54 +9821,6 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "MT-RNR1",
-      "geneCalls": [
-        {
-          "gene": "MT-RNR1",
-          "diplotypes": "not called",
-          "showHighlights": false,
-          "highlightedVariants": [],
-          "functions": null,
-          "outsideCall": false
-        }
-      ],
-      "drugs": "paromomycin",
-      "groups": [],
-      "reportable": false,
-      "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
-      "mutliMatch": false,
-      "citations": [
-        {
-          "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
-          "authors": [
-            "McDermott John Henry",
-            "Wolf Joshua",
-            "Hoshitsuki Keito",
-            "Huddart Rachel",
-            "Caudle Kelly E",
-            "Whirl-Carrillo Michelle",
-            "Steyger Peter S",
-            "Smith Richard J H",
-            "Cody Neal",
-            "Rodriguez-Antona Cristina",
-            "Klein Teri E",
-            "Newman William G"
-          ],
-          "pmid": "34032273",
-          "pmcid": null,
-          "doi": "10.1002/cpt.2309",
-          "month": 5,
-          "year": 2021
-        }
-      ],
-      "messages": [],
-      "matched": false,
-      "id": "RxNorm:7934",
-      "lastModified": "not available",
-      "footnotes": []
-    },
-    {
       "uncalledGenes": "",
       "geneCalls": [
         {
@@ -10275,54 +10068,6 @@
       "messages": [],
       "matched": true,
       "id": "RxNorm:8356",
-      "lastModified": "not available",
-      "footnotes": []
-    },
-    {
-      "uncalledGenes": "MT-RNR1",
-      "geneCalls": [
-        {
-          "gene": "MT-RNR1",
-          "diplotypes": "not called",
-          "showHighlights": false,
-          "highlightedVariants": [],
-          "functions": null,
-          "outsideCall": false
-        }
-      ],
-      "drugs": "plazomicin",
-      "groups": [],
-      "reportable": false,
-      "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
-      "mutliMatch": false,
-      "citations": [
-        {
-          "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
-          "authors": [
-            "McDermott John Henry",
-            "Wolf Joshua",
-            "Hoshitsuki Keito",
-            "Huddart Rachel",
-            "Caudle Kelly E",
-            "Whirl-Carrillo Michelle",
-            "Steyger Peter S",
-            "Smith Richard J H",
-            "Cody Neal",
-            "Rodriguez-Antona Cristina",
-            "Klein Teri E",
-            "Newman William G"
-          ],
-          "pmid": "34032273",
-          "pmcid": null,
-          "doi": "10.1002/cpt.2309",
-          "month": 5,
-          "year": 2021
-        }
-      ],
-      "messages": [],
-      "matched": false,
-      "id": "RxNorm:2049549",
       "lastModified": "not available",
       "footnotes": []
     },
@@ -10614,54 +10359,6 @@
       ],
       "matched": true,
       "id": "RxNorm:36567",
-      "lastModified": "not available",
-      "footnotes": []
-    },
-    {
-      "uncalledGenes": "MT-RNR1",
-      "geneCalls": [
-        {
-          "gene": "MT-RNR1",
-          "diplotypes": "not called",
-          "showHighlights": false,
-          "highlightedVariants": [],
-          "functions": null,
-          "outsideCall": false
-        }
-      ],
-      "drugs": "streptomycin",
-      "groups": [],
-      "reportable": false,
-      "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
-      "mutliMatch": false,
-      "citations": [
-        {
-          "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
-          "authors": [
-            "McDermott John Henry",
-            "Wolf Joshua",
-            "Hoshitsuki Keito",
-            "Huddart Rachel",
-            "Caudle Kelly E",
-            "Whirl-Carrillo Michelle",
-            "Steyger Peter S",
-            "Smith Richard J H",
-            "Cody Neal",
-            "Rodriguez-Antona Cristina",
-            "Klein Teri E",
-            "Newman William G"
-          ],
-          "pmid": "34032273",
-          "pmcid": null,
-          "doi": "10.1002/cpt.2309",
-          "month": 5,
-          "year": 2021
-        }
-      ],
-      "messages": [],
-      "matched": false,
-      "id": "RxNorm:10109",
       "lastModified": "not available",
       "footnotes": []
     },
@@ -11149,54 +10846,6 @@
       "messages": [],
       "matched": true,
       "id": "RxNorm:10485",
-      "lastModified": "not available",
-      "footnotes": []
-    },
-    {
-      "uncalledGenes": "MT-RNR1",
-      "geneCalls": [
-        {
-          "gene": "MT-RNR1",
-          "diplotypes": "not called",
-          "showHighlights": false,
-          "highlightedVariants": [],
-          "functions": null,
-          "outsideCall": false
-        }
-      ],
-      "drugs": "tobramycin",
-      "groups": [],
-      "reportable": false,
-      "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
-      "mutliMatch": false,
-      "citations": [
-        {
-          "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
-          "authors": [
-            "McDermott John Henry",
-            "Wolf Joshua",
-            "Hoshitsuki Keito",
-            "Huddart Rachel",
-            "Caudle Kelly E",
-            "Whirl-Carrillo Michelle",
-            "Steyger Peter S",
-            "Smith Richard J H",
-            "Cody Neal",
-            "Rodriguez-Antona Cristina",
-            "Klein Teri E",
-            "Newman William G"
-          ],
-          "pmid": "34032273",
-          "pmcid": null,
-          "doi": "10.1002/cpt.2309",
-          "month": 5,
-          "year": 2021
-        }
-      ],
-      "messages": [],
-      "matched": false,
-      "id": "RxNorm:10627",
       "lastModified": "not available",
       "footnotes": []
     },
@@ -11762,5 +11411,5 @@
     }
   ],
   "title": "pharmcat.example",
-  "version": "v0.8.0-116-gb7bfce6\n"
+  "version": "v0.8.0-129-g4dbd05a\n"
 }
