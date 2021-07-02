@@ -80,7 +80,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
 
     Preconditions.checkNotNull(refVariants);
     Preconditions.checkNotNull(m_alleles);
-    Preconditions.checkState(refVariants.length == m_alleles.length);
+    Preconditions.checkState(refVariants.length == m_alleles.length, "Mismatch of variants for " + this + ", " + refVariants.length + " reference variants does not match " + m_alleles.length);
 
     m_alleleMap = new TreeMap<>();
     for (int x = 0; x < refVariants.length; x += 1) {
