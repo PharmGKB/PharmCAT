@@ -904,8 +904,11 @@ class PharmCATTest {
     s_pharmcat.execute(tempVcfPath, outsideCallPath, null);
     s_context = s_pharmcat.getReporter().getContext();
 
-    assertEquals(17, s_context.getGeneReports().size());
-    assertEquals(59, s_context.getDrugReports().size());
+    // NOTE: if these assertions fail then new data may have been added from the DataManager because of an update to the
+    // CPIC database. If that's true, then update these numbers to the current count. If the count changes with no known
+    // change to the CPIC database then something may be wrong in code.
+    assertEquals(16, s_context.getGeneReports().size());
+    assertEquals(52, s_context.getDrugReports().size());
   }
 
   /**

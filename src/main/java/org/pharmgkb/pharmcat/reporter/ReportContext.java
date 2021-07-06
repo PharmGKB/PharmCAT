@@ -63,31 +63,29 @@ public class ReportContext {
     drugCollection.getAllReportableGenes()
         .forEach(this::addGeneReport);
 
-    for (Drug drug : drugCollection) {
+    for (Drug drug : drugCollection.listReportable()) {
       DrugReport drugReport = new DrugReport(drug);
-      if (!drugReport.isIgnored()) {
-        // set if this drug can be shown in the report
-        drugReport.setReportable(drugReport.getRelatedGeneSymbols().stream().anyMatch(this::isReportable));
+      // set if this drug can be shown in the report
+      drugReport.setReportable(drugReport.getRelatedGeneSymbols().stream().anyMatch(this::isReportable));
 
-        // determine which genes don't have calls for this drug
-        drugReport.getRelatedGeneSymbols().stream()
-            .filter(g -> !isReportable(g))
-            .forEach(drugReport::addUncalledGene);
+      // determine which genes don't have calls for this drug
+      drugReport.getRelatedGeneSymbols().stream()
+          .filter(g -> !isReportable(g))
+          .forEach(drugReport::addUncalledGene);
 
-        // add matching recommendations if this drug is reportable
-        if (drugReport.isReportable()) {
-          List<Map<String,String>> phenoKeys = makePhenotypeKeys(drugReport.getRelatedGeneSymbols());
-          for (Map<String,String> phenoKey : phenoKeys) {
-            SortedSet<String> diplotypes = findMatchingDiplotypesForPhenotypeKey(phenoKey);
-            drugReport.addReportGenotype(phenoKey, diplotypes);
-          }
+      // add matching recommendations if this drug is reportable
+      if (drugReport.isReportable()) {
+        List<Map<String,String>> phenoKeys = makePhenotypeKeys(drugReport.getRelatedGeneSymbols());
+        for (Map<String,String> phenoKey : phenoKeys) {
+          SortedSet<String> diplotypes = findMatchingDiplotypesForPhenotypeKey(phenoKey);
+          drugReport.addReportGenotype(phenoKey, diplotypes);
         }
-        m_drugReports.add(drugReport);
+      }
+      m_drugReports.add(drugReport);
 
-        // add the inverse relationship to gene reports
-        for (String gene : drugReport.getRelatedGeneSymbols()) {
-          getGeneReport(gene).addRelatedDrugs(drugReport);
-        }
+      // add the inverse relationship to gene reports
+      for (String gene : drugReport.getRelatedGeneSymbols()) {
+        getGeneReport(gene).addRelatedDrugs(drugReport);
       }
       messageMatcher.match(drugReport, this);
     }

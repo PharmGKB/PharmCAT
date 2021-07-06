@@ -11,6 +11,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.Spliterator;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,6 +40,9 @@ public class DrugCollection implements Iterable<Drug> {
     }
   }
 
+  // A drug is ignored if it associated with ANY ignored gene.
+  private static final Predicate<Drug> sf_filterIgnoredGenes = (drug) -> drug.getGenes().stream().noneMatch(GeneReport::isIgnored);
+
   public int size() {
     return m_drugList.size();
   }
@@ -49,6 +53,14 @@ public class DrugCollection implements Iterable<Drug> {
    */
   public List<Drug> list() {
     return m_drugList;
+  }
+
+  /**
+   * Get only the "reportable" drugs that do note use "ignored" genes. A reportable drug cannot use _ANY_ ignored gene.
+   * @return a List of {@link Drug} that can be reported on
+   */
+  public List<Drug> listReportable() {
+    return m_drugList.stream().filter(sf_filterIgnoredGenes).collect(Collectors.toList());
   }
 
   /**
