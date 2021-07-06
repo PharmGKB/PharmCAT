@@ -59,7 +59,7 @@ own risk.</p>
     
     Below cases are summarized for which two calls with different scores are possible when provided unphased data and heterozygous calls for the variants that define the two alleles. The genotype with the higher score (longer allele) will be used to determine allele functionality, phenotype, and recommendation but the genotype with the lower score cannot be ruled out.
     
-    The table 1 includes cases for which there is an overlap in the allele definitions.
+    The Table 1 includes cases for which there is an overlap in the allele definitions.
     
 | Gene      | Genotype (Higher Score)     | Metabolizer phenotype | Genotype (Lower Score)| Metabolizer phenotype |
 | ---------   | ----------------- |---------------------------------| ------------- | ------------------------------- |
@@ -74,7 +74,7 @@ own risk.</p>
 | CYP2B6   | *1/*7            | Intermediate                    |*5/*6          | Intermediate                   |
 | CYP2B6   | *1/*13          | Intermediate                    |*6/*8          | Intermediate                   |
 
-The table 2 includes cases for which there is an overlap in the allele definitions because the definition of the non-reference allele in the genotype with the higher score allows for reference or variant at the position that defines the allele listed in the lower score genotype.
+   The Table 2 includes cases for which there is an overlap in the allele definitions because the definition of the non-\*1 allele in the genotype with the higher score allows for reference or variant at the position that defines the first allele listed in the genotype with the lower score. Both genotypes cannot be ruled out with unphased data if the position that overlaps between the respectives alleles is heterozygous (0/1) in addition to heterozyous calls for the other variants that define the non-\*1 allele in the genotype with the higher score. 
 
 | Gene      | Genotype (Higher Score)     | Metabolizer phenotype | Genotype (Lower Score)| Metabolizer phenotype |
 | ---------   | ----------------- |---------------------------------| ------------- | ------------------------------- |
@@ -82,10 +82,10 @@ The table 2 includes cases for which there is an overlap in the allele definitio
 | CYP2C19| *1/*2             | Intermediate                    |*11/*2       | Intermediate                   |
 | CYP2C19| *1/*35           | Intermediate                    |*15/*35    | Intermediate                    |
 | CYP3A5  | *1/*3             | Intermediate                    |*2/*3         | Indeterminate                 |
-| CYP3A5  | *1/*3             | Intermediate                    |*3/*4         | Indeterminate                 |
-| CYP3A5  | *1/*3             | Intermediate                    |*3/*5         | Indeterminate                 |
-| CYP3A5  | *1/*3             | Intermediate                    |*3/*9         | Indeterminate                 |
-| CYP2B6  | *1/*18           | Intermediate                    |*4/*8         | Indeterminate                 |
+| CYP3A5  | *1/*3             | Intermediate                    |*4/*3         | Indeterminate                 |
+| CYP3A5  | *1/*3             | Intermediate                    |*5/*3         | Indeterminate                 |
+| CYP3A5  | *1/*3             | Intermediate                    |*9/*3         | Indeterminate                 |
+| CYP2B6  | *1/*18           | Intermediate                    |*4/*18         | Indeterminate                 |
 
 
 6. Nucleotide base calls are displayed on the positive chromosomal
