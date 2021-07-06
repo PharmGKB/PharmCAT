@@ -65,20 +65,12 @@ own risk.</p>
 1.  All content is sourced from the CPIC database.
   
 
-### C. CYP2D6 Allele Determination and Metabolizer Status
+### C. PharmCAT Exceptions to the CPIC Guideline Gene List
 
-1.  PharmCAT does not determine CYP2D6 genotypes from the vcf file, but CYP2D6 genotypes can be provided to PharmCAT from an outside source and the corresponding CPIC metabolizer status (phenotype), activity score and prescribing recommendations will be included in the generated report. 
+1.  PharmCAT does not determine CYP2D6 or HLA genotypes from the vcf file, but genotypes for these genes can be provided to PharmCAT from an outside source and the corresponding phenotype and prescribing recommendations will be included in the generated report. 
+2.  G6PD is currently not included in PharmCAT.
 
-
-### D. PharmCAT Exceptions to the CPIC Guideline Gene List
-
-1.  HLA genes and G6PD are currently not included in PharmCAT. Therefore, no
-    CPIC guideline recommendations are included for these genes.
-2. Further genes will be incorporated into PharmCAT as the tool is
-    developed.
-
-
-### E. CPIC Guideline Disclaimers and Caveats
+### D. CPIC Guideline Disclaimers and Caveats
 
 1.  A version of the following quoted disclaimer is part of each CPIC
     guideline and applies to the CPIC recommendations as used in
@@ -126,7 +118,7 @@ own risk.</p>
 3. CPIC is a registered service mark of the U.S. Department of Health
     & Human Services (HHS).
 
-### F. PharmGKB Disclaimers and Caveats
+### E. PharmGKB Disclaimers and Caveats
 
 1.  PharmGKB is a registered service mark of the U.S. Department of
     Health & Human Services (HHS).
