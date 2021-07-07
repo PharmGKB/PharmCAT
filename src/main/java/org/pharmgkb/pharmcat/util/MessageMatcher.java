@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
+import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
@@ -46,21 +47,33 @@ public class MessageMatcher {
 
     boolean criteriaPass = !match.getDrugs().isEmpty() && !Collections.disjoint(match.getDrugs(), report.getRelatedDrugs());
 
+    if (StringUtils.isBlank(match.getGene())) return criteriaPass;
+
+    GeneReport geneReport = reportContext.findGeneReport(match.getGene())
+        .orElseThrow(() -> new RuntimeException("Unexpected missing gene report for [" + match.getGene() + "]"));
+
+    // see if there is a matching diplotype call for message's diplotype
     if (criteriaPass && match.getDips().size() > 0) {
-      GeneReport geneReport = reportContext.getGeneReport(match.getGene());
       criteriaPass = geneReport.getMatcherDiplotypes() != null && geneReport.getMatcherDiplotypes().size() > 0 &&
           geneReport.getMatcherDiplotypes().stream()
               .map(Diplotype::printBare)
               .anyMatch(b -> match.getDips().contains(b));
     }
-    
+
+    // see if the variant specified in the message is missing
     if (criteriaPass && match.getVariantsMissing().size() > 0) {
-      GeneReport geneReport = reportContext.getGeneReport(match.getGene());
       criteriaPass = geneReport.getVariantReports().stream()
           .filter(VariantReport::isMissing)
           .map(VariantReport::getDbSnpId)
           .collect(Collectors.toSet())
           .containsAll(match.getVariantsMissing());    
+    }
+
+    // see if there is a heterozygous call for the given RSID in the message annotation
+    if (criteriaPass && StringUtils.isNotBlank(match.getVariant())) {
+      criteriaPass = geneReport.findVariantReport(match.getVariant())
+          .map(VariantReport::isHetCall)
+          .orElse(false);
     }
 
     return criteriaPass;

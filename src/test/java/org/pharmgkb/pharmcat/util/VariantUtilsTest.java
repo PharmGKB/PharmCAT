@@ -23,4 +23,17 @@ class VariantUtilsTest {
     assertFalse(VariantUtils.isValidCall(""));
     assertFalse(VariantUtils.isValidCall(null));
   }
+
+  @Test
+  void testIsHetCall() {
+    assertFalse(VariantUtils.isHetCall("A|A"));
+    assertFalse(VariantUtils.isHetCall("A/A"));
+    assertTrue(VariantUtils.isHetCall("C/T"));
+    assertTrue(VariantUtils.isHetCall("C|T"));
+    assertTrue(VariantUtils.isHetCall("G|TCCCT"));
+    assertFalse(VariantUtils.isHetCall("|"));
+    assertFalse(VariantUtils.isHetCall("/"));
+    assertFalse(VariantUtils.isHetCall(""));
+    assertFalse(VariantUtils.isHetCall(null));
+  }
 }

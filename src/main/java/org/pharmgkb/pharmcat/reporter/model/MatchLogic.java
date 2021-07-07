@@ -17,25 +17,22 @@ public class MatchLogic {
   private String m_gene;
   @Expose
   @SerializedName("hapsCalled")
-  private List<String> m_hapsCalled = new ArrayList<>();
+  private final List<String> m_hapsCalled = new ArrayList<>();
   @Expose
   @SerializedName("hapsMissing")
-  private List<String> m_hapsMissing = new ArrayList<>();
+  private final List<String> m_hapsMissing = new ArrayList<>();
   @Expose
   @SerializedName("variantsMissing")
-  private List<String> m_variantsMissing = new ArrayList<>();
+  private final List<String> m_variantsMissing = new ArrayList<>();
   @Expose
   @SerializedName("variant")
   private String m_variant;
   @Expose
   @SerializedName("dips")
-  private List<String> m_dips = new ArrayList<>();
-  @Expose
-  @SerializedName("hapsAvailable")
-  private List<String> m_hapsAvailable = new ArrayList<>();
+  private final List<String> m_dips = new ArrayList<>();
   @Expose
   @SerializedName("drugs")
-  private List<String> m_drugs = new ArrayList<>();
+  private final List<String> m_drugs = new ArrayList<>();
 
 
   @Nonnull
@@ -57,15 +54,6 @@ public class MatchLogic {
   }
 
   @Nonnull
-  public List<String> getHapsAvailable() {
-    return m_hapsAvailable;
-  }
-
-  public void setHapsAvailable(List<String> haps) {
-    m_hapsAvailable.addAll(haps);
-  }
-
-  @Nonnull
   public List<String> getDips() {
     return m_dips;
   }
@@ -80,7 +68,7 @@ public class MatchLogic {
   }
 
   public void setDrugs(List<String> drugs) {
-    m_drugs = drugs;
+    m_drugs.addAll(drugs);
   }
 
   public List<String> getHapsMissing() {
@@ -88,7 +76,7 @@ public class MatchLogic {
   }
 
   public void setHapsMissing(List<String> hapsMissing) {
-    m_hapsMissing = hapsMissing;
+    m_hapsMissing.addAll(hapsMissing);
   }
 
   public List<String> getVariantsMissing() {
@@ -96,7 +84,7 @@ public class MatchLogic {
   }
 
   public void setVariantsMissing(List<String> variantsMissing) {
-    m_variantsMissing = variantsMissing;
+    m_variantsMissing.addAll(variantsMissing);
   }
 
   public String getVariant() {

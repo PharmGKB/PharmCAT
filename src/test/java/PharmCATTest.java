@@ -13,6 +13,7 @@ import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.PharmCAT;
 import org.pharmgkb.pharmcat.VcfTestUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -66,6 +67,68 @@ class PharmCATTest {
     testMatchedGroups("amitriptyline", 1);
     testMatchedGroups("citalopram", 1);
     testMatchedGroups("ivacaftor", 0);
+  }
+
+  /**
+   * This test case demos that an "ambiguity" {@link MessageAnnotation} which specifies a variant and a diplotype call
+   * for a given drug report will be matched and added to the {@link DrugReport}
+   */
+  @Test
+  void testCyp2c19_s1s2rs58973490het() throws Exception {
+    generalTest("test.cyp2c19.singleGeneMatch", new String[]{
+            "cyp2c19/s1s2rs58973490het.vcf"
+        },
+        null);
+
+    testCalledByMatcher("CYP2C19");
+    testPrintCalls( "CYP2C19", "*1/*2");
+
+    testNotCalledByMatcher("CYP2D6");
+
+    testMatchedGroups("amitriptyline", 1);
+    testMatchedGroups("citalopram", 1);
+    testMatchedGroups("clomipramine", 1);
+    testMatchedGroups("ivacaftor", 0);
+
+    VariantReport vr = s_context.getGeneReport("CYP2C19").findVariantReport("rs58973490")
+        .orElseThrow(() -> new RuntimeException("Variant missing from test data"));
+    assertTrue(vr.isHetCall());
+
+    assertTrue(s_context.getDrugReports().stream()
+        .filter(r -> r.getRelatedDrugs().contains("amitriptyline"))
+        .flatMap(r -> r.getMessages().stream())
+        .allMatch(m -> m.getMatches().getVariant().equals("rs58973490") && m.getMatches().getDips().contains("*1/*2") && m.getExceptionType().equals("ambiguity")));
+  }
+
+  /**
+   * This test case demos that an "ambiguity" {@link MessageAnnotation} which specifies a variant and a diplotype call
+   * for a given drug report will not be matched when the variant in the message is homozygous
+   */
+  @Test
+  void testCyp2c19_s1s2() throws Exception {
+    generalTest("test.cyp2c19.singleGeneMatch", new String[]{
+            "cyp2c19/s1s2.vcf"
+        },
+        null);
+
+    testCalledByMatcher("CYP2C19");
+    testPrintCalls( "CYP2C19", "*1/*2");
+
+    testNotCalledByMatcher("CYP2D6");
+
+    testMatchedGroups("amitriptyline", 1);
+    testMatchedGroups("citalopram", 1);
+    testMatchedGroups("clomipramine", 1);
+    testMatchedGroups("ivacaftor", 0);
+
+    VariantReport vr = s_context.getGeneReport("CYP2C19").findVariantReport("rs58973490")
+        .orElseThrow(() -> new RuntimeException("Variant missing from test data"));
+    assertFalse(vr.isHetCall());
+
+    assertEquals(0, s_context.getDrugReports().stream()
+        .filter(r -> r.getRelatedDrugs().contains("amitriptyline"))
+        .mapToLong(r -> r.getMessages().size())
+        .sum());
   }
 
   @Test
@@ -242,6 +305,9 @@ class PharmCATTest {
     testCalledByMatcher("SLCO1B1");
     testPrintCalls("SLCO1B1", "*1A/*1A");
     testLookup("SLCO1B1", "*1A");
+
+    GeneReport slco1b1Report = s_context.getGeneReport("SLCO1B1");
+    assertTrue(slco1b1Report.getHighlightedVariants().contains("rs4149056T/rs4149056T"));
   }
 
   @Test
@@ -395,6 +461,11 @@ class PharmCATTest {
     testCalledByMatcher("UGT1A1");
     testPrintCalls("UGT1A1", "*1/*80+*28");
     testLookup("UGT1A1", "*1", "*80+*28");
+
+    // the guideline should have a matching message
+    assertTrue(s_context.getDrugReports().stream()
+        .filter(r -> r.getRelatedDrugs().contains("atazanavir"))
+        .allMatch(r -> r.getMessages().size() == 1));
 
     assertTrue(s_context.getGeneReport("UGT1A1").isPhased());
   }

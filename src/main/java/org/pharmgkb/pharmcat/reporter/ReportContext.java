@@ -113,6 +113,13 @@ public class ReportContext {
     return getGeneReports().stream().filter(r -> r.getGene().equals(geneSymbol)).findFirst();
   }
 
+  /**
+   * Finds the {@link GeneReport} for the given gene symbol and will throw a RuntimeException if it's not found,
+   * effectively guaranteeing a non-null result
+   * @param geneSymbol a gene symbol to find a report for
+   * @return a GeneReport object
+   * @throws RuntimeException if the desired gene report does not exist
+   */
   @Nonnull
   public GeneReport getGeneReport(String geneSymbol) {
     return findGeneReport(geneSymbol)

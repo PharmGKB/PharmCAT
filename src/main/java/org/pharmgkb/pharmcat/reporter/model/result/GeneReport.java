@@ -208,6 +208,16 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_variantReports;
   }
 
+  /**
+   * Finds the first {@link VariantReport} in this gene report that has the specified RSID. Since RSIDs should be unique
+   * to variants this should never silently hide multiple matches.
+   * @param rsid a dbSNP RSID that identifies a variant
+   * @return an {@link Optional} {@link VariantReport}
+   */
+  public Optional<VariantReport> findVariantReport(String rsid) {
+    return m_variantReports.stream().filter(v -> v.getDbSnpId().contains(rsid)).findFirst();
+  }
+
   public List<VariantReport> getVariantOfInterestReports() {
     return m_variantOfInterestReports;
   }

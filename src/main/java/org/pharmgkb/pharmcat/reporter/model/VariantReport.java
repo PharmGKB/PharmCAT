@@ -108,6 +108,10 @@ public class VariantReport implements Comparable<VariantReport> {
     }
   }
 
+  public boolean isHetCall() {
+    return VariantUtils.isHetCall(m_call);
+  }
+
   public Set<String> getAlleles() {
     return m_alleles;
   }
