@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "May 19, 2021 03:11:30 PM",
+  "modificationDate": "Jun 29, 2021 08:50:48 AM",
   "gene": "UGT1A1",
   "orientation": null,
   "chromosome": "chr2",
@@ -88,7 +88,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "728762",
+      "id": "779488",
       "alleles": [
         "C",
         "CAT",
@@ -100,7 +100,7 @@
     },
     {
       "name": "*6",
-      "id": "728764",
+      "id": "779490",
       "alleles": [
         null,
         null,
@@ -112,7 +112,7 @@
     },
     {
       "name": "*27",
-      "id": "728766",
+      "id": "779492",
       "alleles": [
         null,
         null,
@@ -124,7 +124,7 @@
     },
     {
       "name": "*28",
-      "id": "728768",
+      "id": "779494",
       "alleles": [
         null,
         "CATAT",
@@ -136,7 +136,7 @@
     },
     {
       "name": "*36",
-      "id": "728770",
+      "id": "779496",
       "alleles": [
         null,
         "C",
@@ -148,7 +148,7 @@
     },
     {
       "name": "*37",
-      "id": "728772",
+      "id": "779498",
       "alleles": [
         null,
         "CATATAT",
@@ -160,7 +160,7 @@
     },
     {
       "name": "*80",
-      "id": "728774",
+      "id": "779500",
       "alleles": [
         "T",
         null,
@@ -172,7 +172,7 @@
     },
     {
       "name": "*80+*28",
-      "id": "728776",
+      "id": "779502",
       "alleles": [
         "T",
         "CATAT",
@@ -184,7 +184,7 @@
     },
     {
       "name": "*80+*37",
-      "id": "728778",
+      "id": "779504",
       "alleles": [
         "T",
         "CATATAT",

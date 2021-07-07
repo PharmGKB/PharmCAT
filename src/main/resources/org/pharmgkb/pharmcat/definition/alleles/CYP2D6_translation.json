@@ -1,6 +1,6 @@
 {
   "formatVersion": "1",
-  "modificationDate": "May 19, 2021 03:11:25 PM",
+  "modificationDate": "Jun 29, 2021 08:50:48 AM",
   "gene": "CYP2D6",
   "orientation": null,
   "chromosome": "chr22",
@@ -31,7 +31,7 @@
       "rsid": "rs1440526469",
       "chromosomeHgvsName": "g.42126578C>T",
       "geneHgvsName": "g.9233G>A",
-      "proteinNote": "R497H",
+      "proteinNote": "p.R497H",
       "resourceNote": "4214G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -42,7 +42,7 @@
       "rsid": "rs568495591",
       "chromosomeHgvsName": "g.42126605G>A",
       "geneHgvsName": "g.9206C>T",
-      "proteinNote": "S488F",
+      "proteinNote": "p.S488F",
       "resourceNote": "4187C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -53,7 +53,7 @@
       "rsid": "rs1135840",
       "chromosomeHgvsName": "g.42126611C>G",
       "geneHgvsName": "g.9200G>C",
-      "proteinNote": "S486T",
+      "proteinNote": "p.S486T",
       "resourceNote": "4181G>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -64,7 +64,7 @@
       "rsid": "rs75467367",
       "chromosomeHgvsName": "g.42126623G>C",
       "geneHgvsName": "g.9188C>G",
-      "proteinNote": "A482G",
+      "proteinNote": "p.A482G",
       "resourceNote": "4169C>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -75,7 +75,7 @@
       "rsid": "rs74478221",
       "chromosomeHgvsName": "g.42126624C>T",
       "geneHgvsName": "g.9187G>A",
-      "proteinNote": "A482T",
+      "proteinNote": "p.A482T",
       "resourceNote": "4168G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -83,10 +83,10 @@
     {
       "chromosome": "chr22",
       "position": 42126627,
-      "rsid": "rs1135838",
+      "rsid": null,
       "chromosomeHgvsName": "g.42126627A>C",
       "geneHgvsName": "g.9184T>G",
-      "proteinNote": "F481V",
+      "proteinNote": "p.F481V",
       "resourceNote": "4165T>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -94,10 +94,10 @@
     {
       "chromosome": "chr22",
       "position": 42126633,
-      "rsid": "rs1135837",
+      "rsid": null,
       "chromosomeHgvsName": "g.42126633C>G",
       "geneHgvsName": "g.9178G>C",
-      "proteinNote": "G479R",
+      "proteinNote": "p.G479R",
       "resourceNote": "4159G>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -108,7 +108,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42126634A>C",
       "geneHgvsName": "g.9177T>G",
-      "proteinNote": "H478Q",
+      "proteinNote": "p.H478Q",
       "resourceNote": "4158T>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -119,7 +119,7 @@
       "rsid": "rs766507177",
       "chromosomeHgvsName": "g.42126635T>G",
       "geneHgvsName": "g.9176A>C",
-      "proteinNote": "H478P",
+      "proteinNote": "p.H478P",
       "resourceNote": "4157A>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -130,7 +130,7 @@
       "rsid": "rs28371735",
       "chromosomeHgvsName": "g.42126636G>A",
       "geneHgvsName": "g.9175C>T",
-      "proteinNote": "H478N",
+      "proteinNote": "p.H478Y",
       "resourceNote": "4156C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -141,7 +141,7 @@
       "rsid": "rs141756339",
       "chromosomeHgvsName": "g.42126647C>T",
       "geneHgvsName": "g.9164G>A",
-      "proteinNote": "R474Q",
+      "proteinNote": "p.R474Q",
       "resourceNote": "4145G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -163,7 +163,7 @@
       "rsid": "rs1135835",
       "chromosomeHgvsName": "g.42126660T>C",
       "geneHgvsName": "g.9151A>G",
-      "proteinNote": "T470A",
+      "proteinNote": "p.T470A",
       "resourceNote": "4132A>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -174,7 +174,7 @@
       "rsid": "rs1135833",
       "chromosomeHgvsName": "g.42126663G>C",
       "geneHgvsName": "g.9148C>G",
-      "proteinNote": "P469A",
+      "proteinNote": "p.P469A",
       "resourceNote": "4129C>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -185,7 +185,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42126681G>C",
       "geneHgvsName": "g.9130C>G",
-      "proteinNote": "H463D",
+      "proteinNote": "p.H463D",
       "resourceNote": "4111C>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -196,7 +196,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42126697G>T",
       "geneHgvsName": "g.9114C>A",
-      "proteinNote": "F457L",
+      "proteinNote": "p.F457L",
       "resourceNote": "4095C>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -204,10 +204,10 @@
     {
       "chromosome": "chr22",
       "position": 42126719,
-      "rsid": "rs200965026",
+      "rsid": "rs369177208",
       "chromosomeHgvsName": "g.42126719C>T",
       "geneHgvsName": "g.9092G>A",
-      "proteinNote": "R450H",
+      "proteinNote": "p.R450H",
       "resourceNote": "4073G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -218,7 +218,7 @@
       "rsid": "rs751092905",
       "chromosomeHgvsName": "g.42126735C>T",
       "geneHgvsName": "g.9076G>A",
-      "proteinNote": "G445R",
+      "proteinNote": "p.G445R",
       "resourceNote": "4057G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -229,7 +229,7 @@
       "rsid": "rs532668079",
       "chromosomeHgvsName": "g.42126746C>T",
       "geneHgvsName": "g.9065G>A",
-      "proteinNote": "R441H",
+      "proteinNote": "p.R441H",
       "resourceNote": "4046G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -240,7 +240,7 @@
       "rsid": "rs730882251",
       "chromosomeHgvsName": "g.42126747G>A",
       "geneHgvsName": "g.9064C>T",
-      "proteinNote": "R441C",
+      "proteinNote": "p.R441C",
       "resourceNote": "4045C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -251,7 +251,7 @@
       "rsid": "rs267608319",
       "chromosomeHgvsName": "g.42126749C>T",
       "geneHgvsName": "g.9062G>A",
-      "proteinNote": "R440H",
+      "proteinNote": "p.R440H",
       "resourceNote": "4043G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -262,7 +262,7 @@
       "rsid": "rs569439709",
       "chromosomeHgvsName": "g.42126752C>T",
       "geneHgvsName": "g.9059G>A",
-      "proteinNote": "G439D",
+      "proteinNote": "p.G439D",
       "resourceNote": "4040G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -273,7 +273,7 @@
       "rsid": "rs3021084",
       "chromosomeHgvsName": "g.42126877G>A",
       "geneHgvsName": "g.8934C>T",
-      "proteinNote": "P430L",
+      "proteinNote": "p.P430L",
       "resourceNote": "3915C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -284,7 +284,7 @@
       "rsid": "rs763964554",
       "chromosomeHgvsName": "g.42126896G>A",
       "geneHgvsName": "g.8915C>T",
-      "proteinNote": "Q424X",
+      "proteinNote": "p.Q424X",
       "resourceNote": "3896C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -295,7 +295,7 @@
       "rsid": "rs28371733",
       "chromosomeHgvsName": "g.42126914C>T",
       "geneHgvsName": "g.8897G>A",
-      "proteinNote": "E418K",
+      "proteinNote": "p.E418K",
       "resourceNote": "3878G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -306,7 +306,7 @@
       "rsid": "rs747089665",
       "chromosomeHgvsName": "g.42126926G>A",
       "geneHgvsName": "g.8885C>T",
-      "proteinNote": "R414C",
+      "proteinNote": "p.R414C",
       "resourceNote": "3866C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -317,7 +317,7 @@
       "rsid": "rs769157652",
       "chromosomeHgvsName": "g.42126938C>T",
       "geneHgvsName": "g.8873G>A",
-      "proteinNote": "E410K",
+      "proteinNote": "p.E410K",
       "resourceNote": "3854G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -328,7 +328,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42126956T>G",
       "geneHgvsName": "g.8855A>C",
-      "proteinNote": "K404Q",
+      "proteinNote": "p.K404Q",
       "resourceNote": "3836A>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -339,7 +339,7 @@
       "rsid": "rs757396767",
       "chromosomeHgvsName": "g.42126981delGA",
       "geneHgvsName": "g.8829delTC",
-      "proteinNote": "395fs",
+      "proteinNote": "p.395fs",
       "resourceNote": "3810delTC",
       "type": "DEL",
       "referenceRepeat": null
@@ -350,7 +350,7 @@
       "rsid": "rs77312092",
       "chromosomeHgvsName": "g.42127457C>T",
       "geneHgvsName": "g.8354G>A",
-      "proteinNote": "R388H",
+      "proteinNote": "p.R388H",
       "resourceNote": "3335G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -361,7 +361,7 @@
       "rsid": "rs75386357",
       "chromosomeHgvsName": "g.42127473C>T",
       "geneHgvsName": "g.8338G>A",
-      "proteinNote": "E383K",
+      "proteinNote": "p.E383K",
       "resourceNote": "3319G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -372,7 +372,7 @@
       "rsid": "rs61745683",
       "chromosomeHgvsName": "g.42127512C>T",
       "geneHgvsName": "g.8299G>A",
-      "proteinNote": "V370I",
+      "proteinNote": "p.V370I",
       "resourceNote": "3280G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -383,7 +383,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42127514A>G",
       "geneHgvsName": "g.8297T>C",
-      "proteinNote": "I369T",
+      "proteinNote": "p.I369T",
       "resourceNote": "3278T>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -394,7 +394,7 @@
       "rsid": "rs1555888910",
       "chromosomeHgvsName": "g.42127523A>G",
       "geneHgvsName": "g.8288T>C",
-      "proteinNote": "F366S",
+      "proteinNote": "p.F366S",
       "resourceNote": "3269T>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -405,7 +405,7 @@
       "rsid": "rs1058172",
       "chromosomeHgvsName": "g.42127526C>T",
       "geneHgvsName": "g.8285G>A",
-      "proteinNote": "R365H",
+      "proteinNote": "p.R365H",
       "resourceNote": "3266G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -416,7 +416,7 @@
       "rsid": "rs72549346",
       "chromosomeHgvsName": "g.42127530_42127531insAC",
       "geneHgvsName": "g.8280_8281insGT",
-      "proteinNote": "364fs",
+      "proteinNote": "p.364fs",
       "resourceNote": "3261_3262insGT",
       "type": "INS",
       "referenceRepeat": null
@@ -427,7 +427,7 @@
       "rsid": "rs202102799",
       "chromosomeHgvsName": "g.42127556T>C",
       "geneHgvsName": "g.8255A>G",
-      "proteinNote": "Y355C",
+      "proteinNote": "p.Y355C",
       "resourceNote": "3236A>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -438,7 +438,7 @@
       "rsid": "rs61736517",
       "chromosomeHgvsName": "g.42127565T>C",
       "geneHgvsName": "g.8246A>G",
-      "proteinNote": "H352R",
+      "proteinNote": "p.H352R",
       "resourceNote": "3227A>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -449,7 +449,7 @@
       "rsid": "rs76088846",
       "chromosomeHgvsName": "g.42127589C>T",
       "geneHgvsName": "g.8222G>A",
-      "proteinNote": "R344Q",
+      "proteinNote": "p.R344Q",
       "resourceNote": "3203G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -460,7 +460,7 @@
       "rsid": "rs72549347",
       "chromosomeHgvsName": "g.42127590G>A",
       "geneHgvsName": "g.8221C>T",
-      "proteinNote": "R344X",
+      "proteinNote": "p.R344X",
       "resourceNote": "3202C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -471,7 +471,7 @@
       "rsid": "rs267608295",
       "chromosomeHgvsName": "g.42127593G>C",
       "geneHgvsName": "g.8218C>G",
-      "proteinNote": "R343G",
+      "proteinNote": "p.R343G",
       "resourceNote": "3199C>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -482,7 +482,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42127602C>T",
       "geneHgvsName": "g.8209G>A",
-      "proteinNote": "G340R",
+      "proteinNote": "p.G340R",
       "resourceNote": "3190G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -493,7 +493,7 @@
       "rsid": "rs59421388",
       "chromosomeHgvsName": "g.42127608C>T",
       "geneHgvsName": "g.8203G>A",
-      "proteinNote": "V338M",
+      "proteinNote": "p.V338M",
       "resourceNote": "3184G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -504,7 +504,7 @@
       "rsid": "rs748712690",
       "chromosomeHgvsName": "g.42127610T>C",
       "geneHgvsName": "g.8201A>G",
-      "proteinNote": "D337G",
+      "proteinNote": "p.D337G",
       "resourceNote": "3182A>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -515,7 +515,7 @@
       "rsid": "rs78209835",
       "chromosomeHgvsName": "g.42127611C>T",
       "geneHgvsName": "g.8200G>A",
-      "proteinNote": "D337N",
+      "proteinNote": "p.D337N",
       "resourceNote": "3181G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -526,7 +526,7 @@
       "rsid": "rs72549348",
       "chromosomeHgvsName": "g.42127619T>G",
       "geneHgvsName": "g.8192A>C",
-      "proteinNote": "E334A",
+      "proteinNote": "p.E334A",
       "resourceNote": "3173A>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -537,7 +537,7 @@
       "rsid": "rs141009491",
       "chromosomeHgvsName": "g.42127631C>G",
       "geneHgvsName": "g.8180G>C",
-      "proteinNote": "R330P",
+      "proteinNote": "p.R330P",
       "resourceNote": "3161G>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -570,7 +570,7 @@
       "rsid": "rs730882170",
       "chromosomeHgvsName": "g.42127846delCACATCCGGATGTAGGATC",
       "geneHgvsName": "g.7947delGATCCTACATCCGGATGTG",
-      "proteinNote": "321fs",
+      "proteinNote": "p.321fs",
       "resourceNote": "2928delGATCCTACATCCGGATGTG",
       "type": "DEL",
       "referenceRepeat": null
@@ -592,7 +592,7 @@
       "rsid": "rs5030867",
       "chromosomeHgvsName": "g.42127856T>G",
       "geneHgvsName": "g.7955A>C",
-      "proteinNote": "H324P",
+      "proteinNote": "p.H324P",
       "resourceNote": "2936A>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -603,7 +603,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42127899T>C",
       "geneHgvsName": "g.7912A>G",
-      "proteinNote": "T310A",
+      "proteinNote": "p.T310A",
       "resourceNote": "2893A>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -614,7 +614,7 @@
       "rsid": "rs1406719554",
       "chromosomeHgvsName": "g.42127922A>G",
       "geneHgvsName": "g.7889T>C",
-      "proteinNote": "L302P",
+      "proteinNote": "p.L302P",
       "resourceNote": "2870T>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -625,7 +625,7 @@
       "rsid": "rs949717872",
       "chromosomeHgvsName": "g.42127938T>G",
       "geneHgvsName": "g.7873A>C",
-      "proteinNote": "I297L",
+      "proteinNote": "p.I297L",
       "resourceNote": "2854A>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -636,7 +636,7 @@
       "rsid": "rs16947",
       "chromosomeHgvsName": "g.42127941G>A",
       "geneHgvsName": "g.7870C>T",
-      "proteinNote": "R296C",
+      "proteinNote": "p.R296C",
       "resourceNote": "2851C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -647,7 +647,7 @@
       "rsid": "rs267608279",
       "chromosomeHgvsName": "g.42127963delG",
       "geneHgvsName": "g.7848delC",
-      "proteinNote": "288fs",
+      "proteinNote": "p.288fs",
       "resourceNote": "2829delC",
       "type": "DEL",
       "referenceRepeat": null
@@ -658,7 +658,7 @@
       "rsid": "rs1135829",
       "chromosomeHgvsName": "g.42127973T>C",
       "geneHgvsName": "g.7838A>G",
-      "proteinNote": "N285S",
+      "proteinNote": "p.N285S",
       "resourceNote": "2819A>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -669,7 +669,7 @@
       "rsid": "rs5030656",
       "chromosomeHgvsName": "g.42128174delCTT",
       "geneHgvsName": "g.7635delAAG",
-      "proteinNote": "K281del",
+      "proteinNote": "p.K281del",
       "resourceNote": "2616delAAG",
       "type": "DEL",
       "referenceRepeat": null
@@ -680,7 +680,7 @@
       "rsid": "rs1135828",
       "chromosomeHgvsName": "g.42128181A>T",
       "geneHgvsName": "g.7630T>A",
-      "proteinNote": "M279K",
+      "proteinNote": "p.M279K",
       "resourceNote": "2611T>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -691,7 +691,7 @@
       "rsid": "rs77913725",
       "chromosomeHgvsName": "g.42128185C>T",
       "geneHgvsName": "g.7626G>A",
-      "proteinNote": "E278K",
+      "proteinNote": "p.E278K",
       "resourceNote": "2607G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -702,7 +702,7 @@
       "rsid": "rs72549351",
       "chromosomeHgvsName": "g.42128201delAGTC",
       "geneHgvsName": "g.7607delGACT",
-      "proteinNote": "272fs",
+      "proteinNote": "p.272fs",
       "resourceNote": "2588delGACT",
       "type": "DEL",
       "referenceRepeat": null
@@ -713,7 +713,7 @@
       "rsid": "rs367543000",
       "chromosomeHgvsName": "g.42128212G>A",
       "geneHgvsName": "g.7599C>T",
-      "proteinNote": "R269X",
+      "proteinNote": "p.R269X",
       "resourceNote": "2580C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -724,7 +724,7 @@
       "rsid": "rs148769737",
       "chromosomeHgvsName": "g.42128217G>T",
       "geneHgvsName": "g.7594C>A",
-      "proteinNote": "P267H",
+      "proteinNote": "p.P267H",
       "resourceNote": "2575C>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -735,7 +735,7 @@
       "rsid": "rs72549352",
       "chromosomeHgvsName": "g.42128218_42128219insG",
       "geneHgvsName": "g.7599_7600insC",
-      "proteinNote": "267fs",
+      "proteinNote": "p.267fs",
       "resourceNote": "2580_2581insC",
       "type": "INS",
       "referenceRepeat": null
@@ -746,7 +746,7 @@
       "rsid": "rs267608297",
       "chromosomeHgvsName": "g.42128235G>A",
       "geneHgvsName": "g.7576C>T",
-      "proteinNote": "T261I",
+      "proteinNote": "p.T261I",
       "resourceNote": "2557C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -757,7 +757,7 @@
       "rsid": "rs35742686",
       "chromosomeHgvsName": "g.42128242delT",
       "geneHgvsName": "g.7569delA",
-      "proteinNote": "259fs",
+      "proteinNote": "p.259fs",
       "resourceNote": "2550delA",
       "type": "DEL",
       "referenceRepeat": null
@@ -768,7 +768,7 @@
       "rsid": "rs72549353",
       "chromosomeHgvsName": "g.42128249delAGTT",
       "geneHgvsName": "g.7559delAACT",
-      "proteinNote": "255fs",
+      "proteinNote": "p.255fs",
       "resourceNote": "2540delAACT",
       "type": "DEL",
       "referenceRepeat": null
@@ -779,7 +779,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42128272T>G",
       "geneHgvsName": "g.7539A>C",
-      "proteinNote": "T249P",
+      "proteinNote": "p.T249P",
       "resourceNote": "2520A>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -790,7 +790,7 @@
       "rsid": "rs28371717",
       "chromosomeHgvsName": "g.42128308C>A",
       "geneHgvsName": "g.7503G>T",
-      "proteinNote": "A237S",
+      "proteinNote": "p.A237S",
       "resourceNote": "2484G>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -801,7 +801,7 @@
       "rsid": "rs17002853",
       "chromosomeHgvsName": "g.42128325A>G",
       "geneHgvsName": "g.7486T>C",
-      "proteinNote": "L231P",
+      "proteinNote": "p.L231P",
       "resourceNote": "2467T>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -812,7 +812,7 @@
       "rsid": "rs373813287",
       "chromosomeHgvsName": "g.42128329G>A",
       "geneHgvsName": "g.7482C>T",
-      "proteinNote": "L230F",
+      "proteinNote": "p.L230F",
       "resourceNote": "2463C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -834,7 +834,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42128796delG",
       "geneHgvsName": "g.7015delC",
-      "proteinNote": "219fs",
+      "proteinNote": "p.219fs",
       "resourceNote": "1996delC",
       "type": "DEL",
       "referenceRepeat": null
@@ -845,7 +845,7 @@
       "rsid": "rs199535154",
       "chromosomeHgvsName": "g.42128812A>G",
       "geneHgvsName": "g.6999T>C",
-      "proteinNote": "L213P",
+      "proteinNote": "p.L213P",
       "resourceNote": "1980T>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -856,7 +856,7 @@
       "rsid": "rs72549354",
       "chromosomeHgvsName": "g.42128817_42128818insC",
       "geneHgvsName": "g.6996_6997insG",
-      "proteinNote": "213fs",
+      "proteinNote": "p.213fs",
       "resourceNote": "1977_1978insG",
       "type": "INS",
       "referenceRepeat": null
@@ -867,7 +867,7 @@
       "rsid": "rs745365204",
       "chromosomeHgvsName": "g.42128848C>T",
       "geneHgvsName": "g.6963G>A",
-      "proteinNote": "R201H",
+      "proteinNote": "p.R201H",
       "resourceNote": "1944G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -878,7 +878,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42128878C>A",
       "geneHgvsName": "g.6933G>T",
-      "proteinNote": "C191F",
+      "proteinNote": "p.C191F",
       "resourceNote": "1914G>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -889,7 +889,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42128879A>G",
       "geneHgvsName": "g.6932T>C",
-      "proteinNote": "C191R",
+      "proteinNote": "p.C191R",
       "resourceNote": "1913T>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -900,7 +900,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42128903_42128904insTA",
       "geneHgvsName": "g.6907_6908insTA",
-      "proteinNote": "S183X",
+      "proteinNote": "p.S183X",
       "resourceNote": "1888_1889insTA",
       "type": "INS",
       "referenceRepeat": null
@@ -911,7 +911,7 @@
       "rsid": "rs72549356",
       "chromosomeHgvsName": "g.42128936_42128937insGGGGCGAAA; g.42128936_42128937insGGGGCGAAAGGGGCGAAA",
       "geneHgvsName": "g.6883_6884insTTTCGCCCC; g.6883_6884insTTTCGCCCCTTTCGCCCC",
-      "proteinNote": "P174_N175insFRP; P174_N175insFRPFRP",
+      "proteinNote": "p.P174_N175insFRP; p.P174_N175insFRPFRP",
       "resourceNote": "1864_1865insTTTCGCCCC; 1864_1865insTTTCGCCCCTTTCGCCCC",
       "type": "INS",
       "referenceRepeat": null
@@ -922,7 +922,7 @@
       "rsid": "rs3892097",
       "chromosomeHgvsName": "g.42128945C>T",
       "geneHgvsName": "g.6866G>A",
-      "proteinNote": "Splicing defect/169fs",
+      "proteinNote": "Splicing defect/p.169fs",
       "resourceNote": "1847G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -933,7 +933,7 @@
       "rsid": "rs5030865",
       "chromosomeHgvsName": "g.42129033C>T; g.42129033C>A",
       "geneHgvsName": "g.6778G>A; g.6778G>T",
-      "proteinNote": "G169R; G169X",
+      "proteinNote": "p.G169R; p.G169X",
       "resourceNote": "1759G>A; 1759G>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -944,7 +944,7 @@
       "rsid": "rs1135826",
       "chromosomeHgvsName": "g.42129036A>C",
       "geneHgvsName": "g.6775T>G",
-      "proteinNote": "S168A",
+      "proteinNote": "p.S168A",
       "resourceNote": "1756T>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -955,7 +955,7 @@
       "rsid": "rs1135825",
       "chromosomeHgvsName": "g.42129037G>T",
       "geneHgvsName": "g.6774C>A",
-      "proteinNote": "H167Q",
+      "proteinNote": "p.H167Q",
       "resourceNote": "1755C>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -966,7 +966,7 @@
       "rsid": "rs1135824",
       "chromosomeHgvsName": "g.42129042T>C",
       "geneHgvsName": "g.6769A>G",
-      "proteinNote": "N166D",
+      "proteinNote": "p.N166D",
       "resourceNote": "1750A>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -977,7 +977,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42129056C>G",
       "geneHgvsName": "g.6755G>C",
-      "proteinNote": "C161S",
+      "proteinNote": "p.C161S",
       "resourceNote": "1736G>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -988,7 +988,7 @@
       "rsid": "rs267608302",
       "chromosomeHgvsName": "g.42129071T>G; g.42129071T>A",
       "geneHgvsName": "g.6740A>C; g.6740A>T",
-      "proteinNote": "E156A; E156V",
+      "proteinNote": "p.E156A; p.E156V",
       "resourceNote": "1721A>C; 1721A>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -999,7 +999,7 @@
       "rsid": "rs28371710",
       "chromosomeHgvsName": "g.42129075C>T",
       "geneHgvsName": "g.6736G>A",
-      "proteinNote": "E155K",
+      "proteinNote": "p.E155K",
       "resourceNote": "1717G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1010,7 +1010,7 @@
       "rsid": "rs5030655",
       "chromosomeHgvsName": "g.42129084delA",
       "geneHgvsName": "g.6727delT",
-      "proteinNote": "152fs",
+      "proteinNote": "p.152fs",
       "resourceNote": "1708delT",
       "type": "DEL",
       "referenceRepeat": null
@@ -1021,7 +1021,7 @@
       "rsid": "rs78482768",
       "chromosomeHgvsName": "g.42129087G>C",
       "geneHgvsName": "g.6724C>G",
-      "proteinNote": "Q151E",
+      "proteinNote": "p.Q151E",
       "resourceNote": "1705C>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -1032,7 +1032,7 @@
       "rsid": "rs569229126",
       "chromosomeHgvsName": "g.42129098T>C",
       "geneHgvsName": "g.6713A>G",
-      "proteinNote": "K147R",
+      "proteinNote": "p.K147R",
       "resourceNote": "1694A>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -1043,7 +1043,7 @@
       "rsid": "rs375135093",
       "chromosomeHgvsName": "g.42129113A>G",
       "geneHgvsName": "g.6698T>C",
-      "proteinNote": "L142S",
+      "proteinNote": "p.L142S",
       "resourceNote": "1679T>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -1054,7 +1054,7 @@
       "rsid": "rs1058164",
       "chromosomeHgvsName": "g.42129130C>G",
       "geneHgvsName": "g.6681G>C",
-      "proteinNote": "V136=",
+      "proteinNote": "p.V136=",
       "resourceNote": "1662G>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -1065,7 +1065,7 @@
       "rsid": "rs61736512",
       "chromosomeHgvsName": "g.42129132C>T",
       "geneHgvsName": "g.6679G>A",
-      "proteinNote": "V136M",
+      "proteinNote": "p.V136M",
       "resourceNote": "1660G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1076,7 +1076,7 @@
       "rsid": "rs781457579",
       "chromosomeHgvsName": "g.42129134G>A",
       "geneHgvsName": "g.6677C>T",
-      "proteinNote": "S135F",
+      "proteinNote": "p.S135F",
       "resourceNote": "1658C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -1087,7 +1087,7 @@
       "rsid": "rs1180015037",
       "chromosomeHgvsName": "g.42129155C>T",
       "geneHgvsName": "g.6656G>A",
-      "proteinNote": "W128X",
+      "proteinNote": "p.W128X",
       "resourceNote": "1637G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1098,7 +1098,7 @@
       "rsid": "rs766391487",
       "chromosomeHgvsName": "g.42129166A>C",
       "geneHgvsName": "g.6645T>G",
-      "proteinNote": "Y124X",
+      "proteinNote": "p.Y124X",
       "resourceNote": "1626T>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -1109,7 +1109,7 @@
       "rsid": "rs1135823",
       "chromosomeHgvsName": "g.42129174C>A",
       "geneHgvsName": "g.6637G>T",
-      "proteinNote": "A122S",
+      "proteinNote": "p.A122S",
       "resourceNote": "1618G>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -1120,7 +1120,7 @@
       "rsid": "rs1135822",
       "chromosomeHgvsName": "g.42129180A>T",
       "geneHgvsName": "g.6631T>A",
-      "proteinNote": "F120I",
+      "proteinNote": "p.F120I",
       "resourceNote": "1612T>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1131,7 +1131,7 @@
       "rsid": "rs374616348",
       "chromosomeHgvsName": "g.42129183C>T",
       "geneHgvsName": "g.6628G>A",
-      "proteinNote": "V119M",
+      "proteinNote": "p.V119M",
       "resourceNote": "1609G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1142,7 +1142,7 @@
       "rsid": "rs535642512",
       "chromosomeHgvsName": "g.42129759C>T",
       "geneHgvsName": "g.6052G>A",
-      "proteinNote": "G111S",
+      "proteinNote": "p.G111S",
       "resourceNote": "1033G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1153,7 +1153,7 @@
       "rsid": "rs78459009",
       "chromosomeHgvsName": "g.42129765T>C",
       "geneHgvsName": "g.6046A>G",
-      "proteinNote": "I109V",
+      "proteinNote": "p.I109V",
       "resourceNote": "1027A>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -1164,7 +1164,7 @@
       "rsid": "rs28371706",
       "chromosomeHgvsName": "g.42129770G>T; g.42129770G>A",
       "geneHgvsName": "g.6041C>A; g.6041C>T",
-      "proteinNote": "T107I; T107N",
+      "proteinNote": "p.T107I; p.T107N",
       "resourceNote": "1022C>A; 1022C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -1175,7 +1175,7 @@
       "rsid": "rs74802369",
       "chromosomeHgvsName": "g.42129771T>A",
       "geneHgvsName": "g.6040A>T",
-      "proteinNote": "T107S",
+      "proteinNote": "p.T107S",
       "resourceNote": "1021A>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -1186,7 +1186,7 @@
       "rsid": "rs76187628",
       "chromosomeHgvsName": "g.42129779A>G",
       "geneHgvsName": "g.6032T>C",
-      "proteinNote": "V104A",
+      "proteinNote": "p.V104A",
       "resourceNote": "1013T>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -1197,7 +1197,7 @@
       "rsid": "rs267608308",
       "chromosomeHgvsName": "g.42129780C>T",
       "geneHgvsName": "g.6031G>A",
-      "proteinNote": "V104M",
+      "proteinNote": "p.V104M",
       "resourceNote": "1012G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1208,7 +1208,7 @@
       "rsid": "rs28371704",
       "chromosomeHgvsName": "g.42129809T>C",
       "geneHgvsName": "g.6002A>G",
-      "proteinNote": "H94R",
+      "proteinNote": "p.H94R",
       "resourceNote": "983A>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -1219,7 +1219,7 @@
       "rsid": "rs28371703",
       "chromosomeHgvsName": "g.42129819G>T",
       "geneHgvsName": "g.5992C>A",
-      "proteinNote": "L91M",
+      "proteinNote": "p.L91M",
       "resourceNote": "973C>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1230,7 +1230,7 @@
       "rsid": "rs267608309",
       "chromosomeHgvsName": "g.42129821G>A",
       "geneHgvsName": "g.5990C>T",
-      "proteinNote": "A90V",
+      "proteinNote": "p.A90V",
       "resourceNote": "971C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -1241,7 +1241,7 @@
       "rsid": "rs267608276",
       "chromosomeHgvsName": "g.42129827C>G",
       "geneHgvsName": "g.5984G>C",
-      "proteinNote": "R88P",
+      "proteinNote": "p.R88P",
       "resourceNote": "965G>C",
       "type": "SNP",
       "referenceRepeat": null
@@ -1252,7 +1252,7 @@
       "rsid": "rs267608310",
       "chromosomeHgvsName": "g.42129836G>A",
       "geneHgvsName": "g.5975C>T",
-      "proteinNote": "A85V",
+      "proteinNote": "p.A85V",
       "resourceNote": "956C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -1263,7 +1263,7 @@
       "rsid": "rs1456026511",
       "chromosomeHgvsName": "g.42129887A>C",
       "geneHgvsName": "g.5924T>G",
-      "proteinNote": "V68G",
+      "proteinNote": "p.V68G",
       "resourceNote": "905T>G",
       "type": "SNP",
       "referenceRepeat": null
@@ -1274,7 +1274,7 @@
       "rsid": "rs267608311",
       "chromosomeHgvsName": "g.42129906G>A",
       "geneHgvsName": "g.5905C>T",
-      "proteinNote": "R62W",
+      "proteinNote": "p.R62W",
       "resourceNote": "886C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -1296,7 +1296,7 @@
       "rsid": "rs774671100",
       "chromosomeHgvsName": "g.42130655_42130656insA",
       "geneHgvsName": "g.5156_5157insT",
-      "proteinNote": "47fs",
+      "proteinNote": "p.47fs",
       "resourceNote": "137_138insT",
       "type": "INS",
       "referenceRepeat": null
@@ -1307,7 +1307,7 @@
       "rsid": "rs118203758",
       "chromosomeHgvsName": "g.42130667C>T",
       "geneHgvsName": "g.5144G>A",
-      "proteinNote": "G42E",
+      "proteinNote": "p.G42E",
       "resourceNote": "125G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1318,7 +1318,7 @@
       "rsid": "rs5030862",
       "chromosomeHgvsName": "g.42130668C>T",
       "geneHgvsName": "g.5143G>A",
-      "proteinNote": "G42R",
+      "proteinNote": "p.G42R",
       "resourceNote": "124G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1329,7 +1329,7 @@
       "rsid": "rs1065852",
       "chromosomeHgvsName": "g.42130692G>A",
       "geneHgvsName": "g.5119C>T",
-      "proteinNote": "P34S",
+      "proteinNote": "p.P34S",
       "resourceNote": "100C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -1340,7 +1340,7 @@
       "rsid": "rs138100349",
       "chromosomeHgvsName": "g.42130710G>A",
       "geneHgvsName": "g.5101C>T",
-      "proteinNote": "R28C",
+      "proteinNote": "p.R28C",
       "resourceNote": "82C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -1351,7 +1351,7 @@
       "rsid": "rs28371696",
       "chromosomeHgvsName": "g.42130715C>T",
       "geneHgvsName": "g.5096G>A",
-      "proteinNote": "R26H",
+      "proteinNote": "p.R26H",
       "resourceNote": "77G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1362,7 +1362,7 @@
       "rsid": "rs267608313",
       "chromosomeHgvsName": "g.42130719G>A",
       "geneHgvsName": "g.5092C>T",
-      "proteinNote": "R25W",
+      "proteinNote": "p.R25W",
       "resourceNote": "73C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -1373,7 +1373,7 @@
       "rsid": null,
       "chromosomeHgvsName": "g.42130728delG",
       "geneHgvsName": "g.5083delC",
-      "proteinNote": "L22X",
+      "proteinNote": "p.L22X",
       "resourceNote": "64delC",
       "type": "DEL",
       "referenceRepeat": null
@@ -1384,7 +1384,7 @@
       "rsid": "rs769258",
       "chromosomeHgvsName": "g.42130761C>T",
       "geneHgvsName": "g.5050G>A",
-      "proteinNote": "V11M",
+      "proteinNote": "p.V11M",
       "resourceNote": "31G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1395,7 +1395,7 @@
       "rsid": "rs72549358",
       "chromosomeHgvsName": "g.42130773C>T",
       "geneHgvsName": "g.5038G>A",
-      "proteinNote": "V7M",
+      "proteinNote": "p.V7M",
       "resourceNote": "19G>A",
       "type": "SNP",
       "referenceRepeat": null
@@ -1406,7 +1406,7 @@
       "rsid": "rs773790593",
       "chromosomeHgvsName": "g.42130778G>A",
       "geneHgvsName": "g.5033C>T",
-      "proteinNote": "A5V",
+      "proteinNote": "p.A5V",
       "resourceNote": "14C>T",
       "type": "SNP",
       "referenceRepeat": null
@@ -1942,7 +1942,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "727210",
+      "id": "777936",
       "alleles": [
         "C",
         "G",
@@ -2076,7 +2076,7 @@
     },
     {
       "name": "*2",
-      "id": "727212",
+      "id": "777938",
       "alleles": [
         null,
         null,
@@ -2210,7 +2210,7 @@
     },
     {
       "name": "*3",
-      "id": "727214",
+      "id": "777940",
       "alleles": [
         null,
         null,
@@ -2344,7 +2344,7 @@
     },
     {
       "name": "*4",
-      "id": "727216",
+      "id": "777942",
       "alleles": [
         null,
         null,
@@ -2478,7 +2478,7 @@
     },
     {
       "name": "*6",
-      "id": "727220",
+      "id": "777946",
       "alleles": [
         null,
         null,
@@ -2612,7 +2612,7 @@
     },
     {
       "name": "*7",
-      "id": "727222",
+      "id": "777948",
       "alleles": [
         null,
         null,
@@ -2746,7 +2746,7 @@
     },
     {
       "name": "*8",
-      "id": "727224",
+      "id": "777950",
       "alleles": [
         null,
         null,
@@ -2880,7 +2880,7 @@
     },
     {
       "name": "*9",
-      "id": "727226",
+      "id": "777952",
       "alleles": [
         null,
         null,
@@ -3014,7 +3014,7 @@
     },
     {
       "name": "*10",
-      "id": "727228",
+      "id": "777954",
       "alleles": [
         null,
         null,
@@ -3148,7 +3148,7 @@
     },
     {
       "name": "*11",
-      "id": "727230",
+      "id": "777956",
       "alleles": [
         null,
         null,
@@ -3282,7 +3282,7 @@
     },
     {
       "name": "*12",
-      "id": "727232",
+      "id": "777958",
       "alleles": [
         null,
         null,
@@ -3416,7 +3416,7 @@
     },
     {
       "name": "*14",
-      "id": "727236",
+      "id": "777962",
       "alleles": [
         null,
         null,
@@ -3550,7 +3550,7 @@
     },
     {
       "name": "*15",
-      "id": "727238",
+      "id": "777964",
       "alleles": [
         null,
         null,
@@ -3684,7 +3684,7 @@
     },
     {
       "name": "*17",
-      "id": "727240",
+      "id": "777966",
       "alleles": [
         null,
         null,
@@ -3818,7 +3818,7 @@
     },
     {
       "name": "*18",
-      "id": "727242",
+      "id": "777968",
       "alleles": [
         null,
         null,
@@ -3952,7 +3952,7 @@
     },
     {
       "name": "*19",
-      "id": "727244",
+      "id": "777970",
       "alleles": [
         null,
         null,
@@ -4086,7 +4086,7 @@
     },
     {
       "name": "*20",
-      "id": "727246",
+      "id": "777972",
       "alleles": [
         null,
         null,
@@ -4220,7 +4220,7 @@
     },
     {
       "name": "*21",
-      "id": "727248",
+      "id": "777974",
       "alleles": [
         null,
         null,
@@ -4354,7 +4354,7 @@
     },
     {
       "name": "*22",
-      "id": "727250",
+      "id": "777976",
       "alleles": [
         null,
         null,
@@ -4488,7 +4488,7 @@
     },
     {
       "name": "*23",
-      "id": "727252",
+      "id": "777978",
       "alleles": [
         null,
         null,
@@ -4622,7 +4622,7 @@
     },
     {
       "name": "*24",
-      "id": "727254",
+      "id": "777980",
       "alleles": [
         null,
         null,
@@ -4756,7 +4756,7 @@
     },
     {
       "name": "*25",
-      "id": "727256",
+      "id": "777982",
       "alleles": [
         null,
         null,
@@ -4890,7 +4890,7 @@
     },
     {
       "name": "*26",
-      "id": "727258",
+      "id": "777984",
       "alleles": [
         null,
         null,
@@ -5024,7 +5024,7 @@
     },
     {
       "name": "*27",
-      "id": "727260",
+      "id": "777986",
       "alleles": [
         null,
         null,
@@ -5158,7 +5158,7 @@
     },
     {
       "name": "*28",
-      "id": "727262",
+      "id": "777988",
       "alleles": [
         null,
         null,
@@ -5292,7 +5292,7 @@
     },
     {
       "name": "*29",
-      "id": "727264",
+      "id": "777990",
       "alleles": [
         null,
         null,
@@ -5426,7 +5426,7 @@
     },
     {
       "name": "*30",
-      "id": "727266",
+      "id": "777992",
       "alleles": [
         null,
         null,
@@ -5560,7 +5560,7 @@
     },
     {
       "name": "*31",
-      "id": "727268",
+      "id": "777994",
       "alleles": [
         null,
         null,
@@ -5694,7 +5694,7 @@
     },
     {
       "name": "*32",
-      "id": "727270",
+      "id": "777996",
       "alleles": [
         null,
         null,
@@ -5828,7 +5828,7 @@
     },
     {
       "name": "*33",
-      "id": "727272",
+      "id": "777998",
       "alleles": [
         null,
         null,
@@ -5962,7 +5962,7 @@
     },
     {
       "name": "*34",
-      "id": "727274",
+      "id": "778000",
       "alleles": [
         null,
         null,
@@ -6096,7 +6096,7 @@
     },
     {
       "name": "*35",
-      "id": "727276",
+      "id": "778002",
       "alleles": [
         null,
         null,
@@ -6230,7 +6230,7 @@
     },
     {
       "name": "*36",
-      "id": "727278",
+      "id": "778004",
       "alleles": [
         null,
         null,
@@ -6364,7 +6364,7 @@
     },
     {
       "name": "*37",
-      "id": "727280",
+      "id": "778006",
       "alleles": [
         null,
         null,
@@ -6498,7 +6498,7 @@
     },
     {
       "name": "*38",
-      "id": "727282",
+      "id": "778008",
       "alleles": [
         null,
         null,
@@ -6632,7 +6632,7 @@
     },
     {
       "name": "*39",
-      "id": "727284",
+      "id": "778010",
       "alleles": [
         null,
         null,
@@ -6766,7 +6766,7 @@
     },
     {
       "name": "*40",
-      "id": "727286",
+      "id": "778012",
       "alleles": [
         null,
         null,
@@ -6900,7 +6900,7 @@
     },
     {
       "name": "*41",
-      "id": "727288",
+      "id": "778014",
       "alleles": [
         null,
         null,
@@ -7034,7 +7034,7 @@
     },
     {
       "name": "*42",
-      "id": "727290",
+      "id": "778016",
       "alleles": [
         null,
         null,
@@ -7168,7 +7168,7 @@
     },
     {
       "name": "*43",
-      "id": "727292",
+      "id": "778018",
       "alleles": [
         null,
         null,
@@ -7302,7 +7302,7 @@
     },
     {
       "name": "*44",
-      "id": "727294",
+      "id": "778020",
       "alleles": [
         null,
         null,
@@ -7436,7 +7436,7 @@
     },
     {
       "name": "*45",
-      "id": "727296",
+      "id": "778022",
       "alleles": [
         null,
         null,
@@ -7570,7 +7570,7 @@
     },
     {
       "name": "*46",
-      "id": "727298",
+      "id": "778024",
       "alleles": [
         null,
         null,
@@ -7704,7 +7704,7 @@
     },
     {
       "name": "*47",
-      "id": "727300",
+      "id": "778026",
       "alleles": [
         null,
         null,
@@ -7838,7 +7838,7 @@
     },
     {
       "name": "*48",
-      "id": "727302",
+      "id": "778028",
       "alleles": [
         null,
         null,
@@ -7972,7 +7972,7 @@
     },
     {
       "name": "*49",
-      "id": "727304",
+      "id": "778030",
       "alleles": [
         null,
         null,
@@ -8106,7 +8106,7 @@
     },
     {
       "name": "*50",
-      "id": "727306",
+      "id": "778032",
       "alleles": [
         null,
         null,
@@ -8240,7 +8240,7 @@
     },
     {
       "name": "*51",
-      "id": "727308",
+      "id": "778034",
       "alleles": [
         null,
         null,
@@ -8374,7 +8374,7 @@
     },
     {
       "name": "*52",
-      "id": "727310",
+      "id": "778036",
       "alleles": [
         null,
         null,
@@ -8508,7 +8508,7 @@
     },
     {
       "name": "*53",
-      "id": "727312",
+      "id": "778038",
       "alleles": [
         null,
         null,
@@ -8642,7 +8642,7 @@
     },
     {
       "name": "*54",
-      "id": "727314",
+      "id": "778040",
       "alleles": [
         null,
         null,
@@ -8776,7 +8776,7 @@
     },
     {
       "name": "*55",
-      "id": "727316",
+      "id": "778042",
       "alleles": [
         null,
         null,
@@ -8910,7 +8910,7 @@
     },
     {
       "name": "*56",
-      "id": "727318",
+      "id": "778044",
       "alleles": [
         null,
         null,
@@ -9044,7 +9044,7 @@
     },
     {
       "name": "*57",
-      "id": "727320",
+      "id": "778046",
       "alleles": [
         null,
         null,
@@ -9178,7 +9178,7 @@
     },
     {
       "name": "*58",
-      "id": "727322",
+      "id": "778048",
       "alleles": [
         null,
         null,
@@ -9312,7 +9312,7 @@
     },
     {
       "name": "*59",
-      "id": "727324",
+      "id": "778050",
       "alleles": [
         null,
         null,
@@ -9446,7 +9446,7 @@
     },
     {
       "name": "*60",
-      "id": "727326",
+      "id": "778052",
       "alleles": [
         null,
         null,
@@ -9580,7 +9580,7 @@
     },
     {
       "name": "*62",
-      "id": "727330",
+      "id": "778056",
       "alleles": [
         null,
         null,
@@ -9714,7 +9714,7 @@
     },
     {
       "name": "*64",
-      "id": "727334",
+      "id": "778060",
       "alleles": [
         null,
         null,
@@ -9848,7 +9848,7 @@
     },
     {
       "name": "*65",
-      "id": "727336",
+      "id": "778062",
       "alleles": [
         null,
         null,
@@ -9982,7 +9982,7 @@
     },
     {
       "name": "*69",
-      "id": "727340",
+      "id": "778066",
       "alleles": [
         null,
         null,
@@ -10116,7 +10116,7 @@
     },
     {
       "name": "*70",
-      "id": "727342",
+      "id": "778068",
       "alleles": [
         null,
         null,
@@ -10250,7 +10250,7 @@
     },
     {
       "name": "*71",
-      "id": "727344",
+      "id": "778070",
       "alleles": [
         null,
         null,
@@ -10384,7 +10384,7 @@
     },
     {
       "name": "*72",
-      "id": "727346",
+      "id": "778072",
       "alleles": [
         null,
         null,
@@ -10518,7 +10518,7 @@
     },
     {
       "name": "*73",
-      "id": "727348",
+      "id": "778074",
       "alleles": [
         null,
         null,
@@ -10652,7 +10652,7 @@
     },
     {
       "name": "*74",
-      "id": "727350",
+      "id": "778076",
       "alleles": [
         null,
         null,
@@ -10786,7 +10786,7 @@
     },
     {
       "name": "*75",
-      "id": "727352",
+      "id": "778078",
       "alleles": [
         null,
         null,
@@ -10920,7 +10920,7 @@
     },
     {
       "name": "*81",
-      "id": "727354",
+      "id": "778080",
       "alleles": [
         null,
         null,
@@ -11054,7 +11054,7 @@
     },
     {
       "name": "*82",
-      "id": "727356",
+      "id": "778082",
       "alleles": [
         null,
         null,
@@ -11188,7 +11188,7 @@
     },
     {
       "name": "*83",
-      "id": "727358",
+      "id": "778084",
       "alleles": [
         null,
         null,
@@ -11322,7 +11322,7 @@
     },
     {
       "name": "*84",
-      "id": "727360",
+      "id": "778086",
       "alleles": [
         null,
         null,
@@ -11456,7 +11456,7 @@
     },
     {
       "name": "*85",
-      "id": "727362",
+      "id": "778088",
       "alleles": [
         null,
         null,
@@ -11590,7 +11590,7 @@
     },
     {
       "name": "*86",
-      "id": "727364",
+      "id": "778090",
       "alleles": [
         null,
         null,
@@ -11724,7 +11724,7 @@
     },
     {
       "name": "*87",
-      "id": "727366",
+      "id": "778092",
       "alleles": [
         null,
         null,
@@ -11858,7 +11858,7 @@
     },
     {
       "name": "*88",
-      "id": "727368",
+      "id": "778094",
       "alleles": [
         null,
         null,
@@ -11992,7 +11992,7 @@
     },
     {
       "name": "*89",
-      "id": "727370",
+      "id": "778096",
       "alleles": [
         null,
         null,
@@ -12126,7 +12126,7 @@
     },
     {
       "name": "*90",
-      "id": "727372",
+      "id": "778098",
       "alleles": [
         null,
         null,
@@ -12260,7 +12260,7 @@
     },
     {
       "name": "*91",
-      "id": "727374",
+      "id": "778100",
       "alleles": [
         null,
         null,
@@ -12394,7 +12394,7 @@
     },
     {
       "name": "*92",
-      "id": "727376",
+      "id": "778102",
       "alleles": [
         null,
         null,
@@ -12528,7 +12528,7 @@
     },
     {
       "name": "*93",
-      "id": "727378",
+      "id": "778104",
       "alleles": [
         null,
         null,
@@ -12662,7 +12662,7 @@
     },
     {
       "name": "*94",
-      "id": "727380",
+      "id": "778106",
       "alleles": [
         null,
         null,
@@ -12796,7 +12796,7 @@
     },
     {
       "name": "*95",
-      "id": "727382",
+      "id": "778108",
       "alleles": [
         null,
         null,
@@ -12930,7 +12930,7 @@
     },
     {
       "name": "*96",
-      "id": "727384",
+      "id": "778110",
       "alleles": [
         null,
         null,
@@ -13064,7 +13064,7 @@
     },
     {
       "name": "*97",
-      "id": "727386",
+      "id": "778112",
       "alleles": [
         null,
         null,
@@ -13198,7 +13198,7 @@
     },
     {
       "name": "*98",
-      "id": "727388",
+      "id": "778114",
       "alleles": [
         null,
         null,
@@ -13332,7 +13332,7 @@
     },
     {
       "name": "*99",
-      "id": "727390",
+      "id": "778116",
       "alleles": [
         null,
         null,
@@ -13466,7 +13466,7 @@
     },
     {
       "name": "*100",
-      "id": "727392",
+      "id": "778118",
       "alleles": [
         null,
         null,
@@ -13600,7 +13600,7 @@
     },
     {
       "name": "*101",
-      "id": "727394",
+      "id": "778120",
       "alleles": [
         null,
         null,
@@ -13734,7 +13734,7 @@
     },
     {
       "name": "*102",
-      "id": "727396",
+      "id": "778122",
       "alleles": [
         null,
         null,
@@ -13868,7 +13868,7 @@
     },
     {
       "name": "*103",
-      "id": "727398",
+      "id": "778124",
       "alleles": [
         null,
         null,
@@ -14002,7 +14002,7 @@
     },
     {
       "name": "*104",
-      "id": "727400",
+      "id": "778126",
       "alleles": [
         null,
         null,
@@ -14136,7 +14136,7 @@
     },
     {
       "name": "*105",
-      "id": "727402",
+      "id": "778128",
       "alleles": [
         null,
         null,
@@ -14270,7 +14270,7 @@
     },
     {
       "name": "*106",
-      "id": "727404",
+      "id": "778130",
       "alleles": [
         null,
         null,
@@ -14404,7 +14404,7 @@
     },
     {
       "name": "*107",
-      "id": "727406",
+      "id": "778132",
       "alleles": [
         null,
         null,
@@ -14538,7 +14538,7 @@
     },
     {
       "name": "*108",
-      "id": "727408",
+      "id": "778134",
       "alleles": [
         null,
         null,
@@ -14672,7 +14672,7 @@
     },
     {
       "name": "*109",
-      "id": "727410",
+      "id": "778136",
       "alleles": [
         null,
         null,
@@ -14806,7 +14806,7 @@
     },
     {
       "name": "*110",
-      "id": "727412",
+      "id": "778138",
       "alleles": [
         null,
         null,
@@ -14940,7 +14940,7 @@
     },
     {
       "name": "*111",
-      "id": "727414",
+      "id": "778140",
       "alleles": [
         null,
         null,
@@ -15074,7 +15074,7 @@
     },
     {
       "name": "*112",
-      "id": "727416",
+      "id": "778142",
       "alleles": [
         null,
         "A",
@@ -15208,7 +15208,7 @@
     },
     {
       "name": "*113",
-      "id": "727418",
+      "id": "778144",
       "alleles": [
         null,
         null,
@@ -15342,7 +15342,7 @@
     },
     {
       "name": "*114",
-      "id": "727420",
+      "id": "778146",
       "alleles": [
         null,
         null,
@@ -15476,7 +15476,7 @@
     },
     {
       "name": "*115",
-      "id": "727422",
+      "id": "778148",
       "alleles": [
         null,
         null,
@@ -15610,7 +15610,7 @@
     },
     {
       "name": "*116",
-      "id": "727424",
+      "id": "778150",
       "alleles": [
         null,
         null,
@@ -15744,7 +15744,7 @@
     },
     {
       "name": "*117",
-      "id": "727426",
+      "id": "778152",
       "alleles": [
         null,
         null,
@@ -15878,7 +15878,7 @@
     },
     {
       "name": "*118",
-      "id": "727428",
+      "id": "778154",
       "alleles": [
         null,
         null,
@@ -16012,7 +16012,7 @@
     },
     {
       "name": "*119",
-      "id": "727430",
+      "id": "778156",
       "alleles": [
         null,
         null,
@@ -16146,7 +16146,7 @@
     },
     {
       "name": "*120",
-      "id": "727432",
+      "id": "778158",
       "alleles": [
         null,
         null,
@@ -16280,7 +16280,7 @@
     },
     {
       "name": "*121",
-      "id": "727434",
+      "id": "778160",
       "alleles": [
         null,
         null,
@@ -16414,7 +16414,7 @@
     },
     {
       "name": "*122",
-      "id": "727436",
+      "id": "778162",
       "alleles": [
         null,
         null,
@@ -16548,7 +16548,7 @@
     },
     {
       "name": "*123",
-      "id": "727438",
+      "id": "778164",
       "alleles": [
         null,
         null,
@@ -16682,7 +16682,7 @@
     },
     {
       "name": "*124",
-      "id": "727440",
+      "id": "778166",
       "alleles": [
         null,
         null,
@@ -16816,7 +16816,7 @@
     },
     {
       "name": "*125",
-      "id": "727442",
+      "id": "778168",
       "alleles": [
         null,
         null,
@@ -16950,7 +16950,7 @@
     },
     {
       "name": "*126",
-      "id": "727444",
+      "id": "778170",
       "alleles": [
         null,
         null,
@@ -17084,7 +17084,7 @@
     },
     {
       "name": "*127",
-      "id": "727446",
+      "id": "778172",
       "alleles": [
         null,
         null,
@@ -17218,7 +17218,7 @@
     },
     {
       "name": "*128",
-      "id": "727448",
+      "id": "778174",
       "alleles": [
         null,
         null,
@@ -17352,7 +17352,7 @@
     },
     {
       "name": "*129",
-      "id": "727450",
+      "id": "778176",
       "alleles": [
         null,
         null,
@@ -17486,7 +17486,7 @@
     },
     {
       "name": "*130",
-      "id": "727452",
+      "id": "778178",
       "alleles": [
         null,
         null,
@@ -17620,7 +17620,7 @@
     },
     {
       "name": "*131",
-      "id": "727454",
+      "id": "778180",
       "alleles": [
         null,
         null,
@@ -17754,7 +17754,7 @@
     },
     {
       "name": "*132",
-      "id": "727456",
+      "id": "778182",
       "alleles": [
         null,
         null,
@@ -17888,7 +17888,7 @@
     },
     {
       "name": "*133",
-      "id": "727458",
+      "id": "778184",
       "alleles": [
         null,
         null,
@@ -18022,7 +18022,7 @@
     },
     {
       "name": "*134",
-      "id": "727460",
+      "id": "778186",
       "alleles": [
         null,
         null,
@@ -18156,7 +18156,7 @@
     },
     {
       "name": "*135",
-      "id": "727462",
+      "id": "778188",
       "alleles": [
         null,
         null,
@@ -18290,7 +18290,7 @@
     },
     {
       "name": "*136",
-      "id": "727464",
+      "id": "778190",
       "alleles": [
         null,
         null,
@@ -18424,7 +18424,7 @@
     },
     {
       "name": "*137",
-      "id": "727466",
+      "id": "778192",
       "alleles": [
         "T",
         null,
@@ -18558,7 +18558,7 @@
     },
     {
       "name": "*138",
-      "id": "727468",
+      "id": "778194",
       "alleles": [
         null,
         null,
@@ -18692,7 +18692,7 @@
     },
     {
       "name": "*139",
-      "id": "727470",
+      "id": "778196",
       "alleles": [
         null,
         null,
@@ -18826,7 +18826,7 @@
     },
     {
       "name": "*140",
-      "id": "727472",
+      "id": "778198",
       "alleles": [
         null,
         null,
@@ -18960,7 +18960,7 @@
     },
     {
       "name": "*141",
-      "id": "727474",
+      "id": "778200",
       "alleles": [
         null,
         null,
@@ -19094,7 +19094,7 @@
     },
     {
       "name": "*142",
-      "id": "727476",
+      "id": "778202",
       "alleles": [
         null,
         null,
@@ -19228,7 +19228,7 @@
     },
     {
       "name": "*143",
-      "id": "727478",
+      "id": "778204",
       "alleles": [
         null,
         null,
@@ -19362,7 +19362,7 @@
     },
     {
       "name": "*144",
-      "id": "727480",
+      "id": "778206",
       "alleles": [
         null,
         null,
@@ -19496,7 +19496,7 @@
     },
     {
       "name": "*145",
-      "id": "727482",
+      "id": "778208",
       "alleles": [
         null,
         null,
