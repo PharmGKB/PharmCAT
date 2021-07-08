@@ -11,7 +11,6 @@ import tempfile
 import traceback
 import urllib.parse
 import urllib.request
-
 import allel
 
 import vcf_preprocess_exceptions as Exceptions
@@ -100,7 +99,7 @@ def tabix_index_vcf(tabix_executable_path, vcf_path):
     """
 
     try:
-        subprocess.run([tabix_executable_path, '-p', 'vcf', vcf_path], cwd=os.path.split(os.path.abspath(vcf_path))[0])
+        subprocess.run([tabix_executable_path, '-p', 'vcf', vcf_path])
     except Exception as e:
         print('Error: cannot index the file: %s' % vcf_path)
         traceback.print_exception(type(e), e, e.__traceback__)
@@ -284,23 +283,23 @@ def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, pa
     alleles and update GT and AC acounts. Importantly, s will NOT fix strand issues in a VCF.
     """
 
-    temp_normalized_vcf = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.tmp_normed.vcf.gz'
-    # normalize
-    bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '-m+', '-c', 'ws', '-Oz', '-o',
-                                         temp_normalized_vcf, '-f', path_to_ref_seq, input_vcf]
-    running_bcftools(bcftools_command_to_normalize_vcf, show_msg='Normalize VCF')
-    tabix_index_vcf(tabix_executable_path, temp_normalized_vcf)
+    output_dir = os.path.split(os.path.abspath(input_vcf))[0]
 
-    # extract only PGx positions
-    path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.normalized.vcf.gz'
-    bcftools_command_to_extract_only_pgx = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o',
-                                            path_output, '-s', '^PharmCAT', '-R', input_ref_pgx_vcf,
-                                            temp_normalized_vcf]
-    running_bcftools(bcftools_command_to_extract_only_pgx,
-                     show_msg='Retain only PGx positions in the normalized VCF')  # run bcftools to merge VCF files
-    tabix_index_vcf(tabix_executable_path, path_output)
+    with tempfile.NamedTemporaryFile(mode="w", dir=output_dir) as file_temp_norm:
+        # normalize
+        bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '-m+', '-c', 'ws', '-Oz', '-o',
+                                             file_temp_norm.name, '-f', path_to_ref_seq, input_vcf]
+        running_bcftools(bcftools_command_to_normalize_vcf, show_msg='Normalize VCF')
+        tabix_index_vcf(tabix_executable_path, file_temp_norm.name)
 
-    remove_vcf_and_index(temp_normalized_vcf)
+        # extract only PGx positions
+        path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.normalized.vcf.gz'
+        bcftools_command_to_extract_only_pgx = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o',
+                                                path_output, '-s', '^PharmCAT', '-T', input_ref_pgx_vcf,
+                                                file_temp_norm.name]
+        running_bcftools(bcftools_command_to_extract_only_pgx,
+                         show_msg='Retain only PGx positions in the normalized VCF')  # run bcftools to merge VCF files
+        tabix_index_vcf(tabix_executable_path, path_output)
 
     return path_output
 

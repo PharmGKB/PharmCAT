@@ -3,6 +3,9 @@
 __author__ = 'BinglanLi'
 
 import os
+import sys
+import subprocess
+import traceback
 from pathlib import Path
 from timeit import default_timer as timer
 
@@ -15,8 +18,22 @@ def run(args):
 
     # organize args
     current_working_dir = os.getcwd()
-    tabix_executable_path = args.path_to_tabix if args.path_to_tabix else 'tabix'
+
+    # validate bcftools
     bcftools_executable_path = args.path_to_bcftools if args.path_to_bcftools else 'bcftools'
+    try:
+        subprocess.run([bcftools_executable_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except:
+        print('Error: %s not found or not executable' % bcftools_executable_path)
+        sys.exit(1)
+
+    # validate tabix
+    tabix_executable_path = args.path_to_tabix if args.path_to_tabix else 'tabix'
+    try:
+        subprocess.run([tabix_executable_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except:
+        print('Error: %s not found or not executable' % tabix_executable_path)
+        sys.exit(1)
 
     # create the output folder if not existing
     Path(args.output_folder).mkdir(parents=True, exist_ok=True)
