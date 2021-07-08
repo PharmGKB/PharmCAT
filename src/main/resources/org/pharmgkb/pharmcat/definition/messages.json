@@ -13,7 +13,6 @@
       ],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "ambiguity",
@@ -31,7 +30,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "gene-specific warnings",
@@ -49,7 +47,6 @@
       "dips": [
         "*1/*3A"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "azathioprine",
         "mercaptopurine",
@@ -69,7 +66,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "footnote",
@@ -85,7 +81,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "footnote",
@@ -101,7 +96,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "footnote",
@@ -119,7 +113,6 @@
       ],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": [
         "tacrolimus"
       ]
@@ -137,7 +130,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "footnote",
@@ -153,7 +145,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": [
         "warfarin"
       ]
@@ -171,7 +162,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "footnote",
@@ -187,7 +177,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "footnote",
@@ -203,7 +192,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "footnote",
@@ -219,7 +207,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": [
         "phenytoin"
       ]
@@ -237,7 +224,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": [
         "clopidogrel"
       ]
@@ -255,7 +241,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "note",
@@ -271,7 +256,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": [
         "simvastatin"
       ]
@@ -289,7 +273,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": [
         "warfarin"
       ]
@@ -307,7 +290,6 @@
       "variantsMissing": [],
       "variant": "rs12777823",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": [
         "warfarin"
       ]
@@ -327,7 +309,6 @@
       "dips": [
         "*1/*4"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "amitriptyline",
         "clomipramine",
@@ -358,7 +339,6 @@
       "variantsMissing": [],
       "variant": "rs4149056",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "report-genotype",
@@ -376,7 +356,6 @@
       "variantsMissing": [],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "note",
@@ -394,7 +373,6 @@
       "dips": [
         "*1/*80+*28"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "atazanavir"
       ]
@@ -414,7 +392,6 @@
       "dips": [
         "*1/*80+*37"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "atazanavir"
       ]
@@ -434,7 +411,6 @@
       "dips": [
         "*1/*2"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "azathioprine",
         "mercaptopurine",
@@ -456,7 +432,6 @@
       "dips": [
         "*1/*71"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "fosphenytoin",
         "phenytoin",
@@ -484,7 +459,6 @@
       "dips": [
         "*1/*36"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "efavirenz"
       ]
@@ -504,7 +478,6 @@
       "dips": [
         "*1/*6"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "efavirenz"
       ]
@@ -524,7 +497,6 @@
       "dips": [
         "*1/*34"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "efavirenz"
       ]
@@ -544,7 +516,6 @@
       "dips": [
         "*1/*7"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "efavirenz"
       ]
@@ -564,7 +535,6 @@
       "dips": [
         "*1/*13"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "efavirenz"
       ]
@@ -584,7 +554,6 @@
       "dips": [
         "*1/*2"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "amitriptyline",
         "clomipramine",
@@ -617,7 +586,6 @@
       "dips": [
         "*1/*35"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "amitriptyline",
         "clomipramine",
@@ -650,7 +618,6 @@
       "dips": [
         "*1/*3"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "tacrolimus"
       ]
@@ -670,7 +637,6 @@
       "dips": [
         "*1/*3"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "tacrolimus"
       ]
@@ -690,7 +656,6 @@
       "dips": [
         "*1/*3"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "tacrolimus"
       ]
@@ -710,7 +675,6 @@
       "dips": [
         "*1/*3"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "tacrolimus"
       ]
@@ -730,7 +694,6 @@
       "dips": [
         "*1/*18"
       ],
-      "hapsAvailable": [],
       "drugs": [
         "efavirenz"
       ]
@@ -752,7 +715,6 @@
       ],
       "variant": "",
       "dips": [],
-      "hapsAvailable": [],
       "drugs": []
     },
     "exception_type": "ambiguity",
