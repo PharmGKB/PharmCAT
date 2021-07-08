@@ -1,18 +1,20 @@
 #! /usr/bin/env python
 __author__ = 'BinglanLi'
 
+import gzip
 import os
 import re
-import sys
-import traceback
-import subprocess
 import shutil
+import subprocess
+import sys
+import tempfile
+import traceback
 import urllib.parse
 import urllib.request
-import gzip
-import vcf_preprocess_exceptions as Exceptions
-import tempfile
+
 import allel
+
+import vcf_preprocess_exceptions as Exceptions
 
 
 def byte_decoder(a):
@@ -81,6 +83,11 @@ def download_grch38_ref_fasta_and_index(download_to_dir, save_to_file=None):
     path_to_ref_seq = download_from_url(url_grch38_fasta, download_to_dir)
     path_to_ref_seq = decompress_gz_file(path_to_ref_seq)
     download_from_url(url_grch38_fasta_index, download_to_dir)
+
+    if save_to_file:
+        os.rename(path_to_ref_seq, save_to_file)
+        os.rename(path_to_ref_seq + '.fai', save_to_file + '.fai')
+        return save_to_file
     return path_to_ref_seq
 
 
