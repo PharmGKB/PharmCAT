@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -34,8 +35,29 @@ public class DrugCollection implements Iterable<Drug> {
 
   private final List<Drug> m_drugList = new ArrayList<>();
 
+  /**
+   * Default constructor. Will use the drugs.json file defined in the codebase
+   * @throws IOException when the drugs.json file cannot be read
+   */
   public DrugCollection() throws IOException {
-    try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(FILE_NAME)))) {
+    InputStream inputStream = getClass().getResourceAsStream(FILE_NAME);
+    if (inputStream == null) {
+      throw new RuntimeException("Drug definition file not found");
+    }
+
+    try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
+      m_drugList.addAll(GSON.fromJson(br, DRUG_LIST_TYPE));
+    }
+  }
+
+  /**
+   * Alternate constructor. Will use the supplied stream to load drug data. Expected to deserialize into {@link Drug}
+   * objects.
+   * @param inputStream an InputStream of serialized Drug JSON data
+   * @throws IOException when the input stream cannot be read
+   */
+  public DrugCollection(InputStream inputStream) throws IOException {
+    try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
       m_drugList.addAll(GSON.fromJson(br, DRUG_LIST_TYPE));
     }
   }

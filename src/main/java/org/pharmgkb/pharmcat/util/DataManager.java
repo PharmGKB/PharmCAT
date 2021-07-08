@@ -1,11 +1,17 @@
 package org.pharmgkb.pharmcat.util;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringWriter;
 import java.lang.invoke.MethodHandles;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -13,11 +19,15 @@ import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
+import org.pharmgkb.pharmcat.reporter.DrugCollection;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 
 
 /**
@@ -29,6 +39,7 @@ public class DataManager {
   public static final Path DEFAULT_DEFINITION_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
+  private static final String SUMMARY_REPORT = "summary.md";
   private final DataSerializer m_dataSerializer = new DataSerializer();
   private final boolean m_verbose;
 
@@ -45,16 +56,21 @@ public class DataManager {
           .addOption("dl", "download-dir", "directory to save downloaded files", false, "dl")
           .addOption("a", "alleles-dir", "directory to save generated allele definition files", true, "a")
           .addOption("m", "messages-dir", "directory to write messages to", true, "m")
-          .addOption("g", "guidelines-dir", "directory to save guideline annotations to", false, "g")
+          .addOption("g", "drugs-dir", "directory to save drug data to", false, "g")
+          .addOption("d", "documenation-dir", "directory to save documentation to", false, "documentation-path")
           .addOption("sd", "skip-download", "skip downloading")
           .addOption("sa", "skip-alleles", "skip alleles")
           .addOption("sm", "skip-messages", "skip messages")
-          .addOption("sg", "skip-guidelines", "skip guidelines");
+          .addOption("sg", "skip-drugs", "skip drugs");
 
 
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
+
+      boolean skipDownload = cliHelper.hasOption("sd");
+      boolean skipDrugs = cliHelper.hasOption("sg");
+      boolean skipAlleles = cliHelper.hasOption("sa");
 
       Path downloadDir;
       if (cliHelper.hasOption("dl")) {
@@ -68,9 +84,9 @@ public class DataManager {
         Path allelesDir = cliHelper.getValidDirectory("a", true);
         Path messageDir = cliHelper.getValidDirectory("m", true);
 
-        Path guidelineDir = null;
+        Path drugsDir = null;
         if (cliHelper.hasOption("g")) {
-          guidelineDir = cliHelper.getValidDirectory("g", true);
+          drugsDir = cliHelper.getValidDirectory("g", true);
         }
 
         Path exemptionsTsv = downloadDir.resolve("exemptions.tsv");
@@ -79,16 +95,29 @@ public class DataManager {
         Path messagesJson = messageDir.resolve(MESSAGES_JSON_FILE_NAME);
 
         DataManager manager = new DataManager(cliHelper.isVerbose());
-        if (!cliHelper.hasOption("sd")) {
-          manager.download(downloadDir, exemptionsTsv, messagesTsv, guidelineDir);
+        if (!skipDownload) {
+          manager.download(downloadDir, exemptionsTsv, messagesTsv);
         }
 
-        if (!cliHelper.hasOption("sa")) {
+        DrugCollection drugs = manager.saveDrugData(drugsDir, skipDrugs);
+
+        Set<String> genes;
+        if (!skipAlleles) {
           Map<String, DefinitionExemption> exemptionsMap = manager.transformExemptions(exemptionsTsv, exemptionsJson);
-          manager.transformAlleleDefinitions(downloadDir, allelesDir, exemptionsMap);
+          // if we're loading new gene data, use the list of genes from the new data
+          genes = manager.transformAlleleDefinitions(downloadDir, allelesDir, exemptionsMap);
+        } else {
+          // if we're sipping new gene data, then use the existing list of genes
+          genes = new DefinitionReader().getGenes();
         }
+
         if (!cliHelper.hasOption("sm")) {
           manager.transformMessages(messagesTsv, messagesJson);
+        }
+
+        if (cliHelper.hasOption("d")) {
+          Path docsDir = cliHelper.getValidDirectory("d", true);
+          manager.writeSummary(docsDir, genes, drugs);
         }
 
       } finally {
@@ -103,21 +132,12 @@ public class DataManager {
   }
 
 
-  private void download(Path downloadDir, Path exemptionsFile, Path messagesFile, Path guidelinesDir) throws Exception {
+  private void download(Path downloadDir, Path exemptionsFile, Path messagesFile) throws Exception {
 
     // download allele definitions
     FileUtils.copyURLToFile(
         new URL("https://files.cpicpgx.org/data/report/current/allele_definitions.json"),
         downloadDir.resolve("allele_definitions.json").toFile());
-
-    // download drugs/guidelines file
-    if (guidelinesDir != null) {
-      Path drugsPath = guidelinesDir.resolve("drugs.json");
-      FileUtils.copyURLToFile(
-          new URL("https://files.cpicpgx.org/data/report/current/drugs.json"),
-          drugsPath.toFile());
-      System.out.println();
-      System.out.println("Saving messages to " + drugsPath);    }
 
     String urlFmt = "https://docs.google.com/spreadsheets/d/%s/export?format=tsv";
     // download exemptions and messages
@@ -127,11 +147,44 @@ public class DataManager {
         messagesFile.toFile());
   }
 
+  private DrugCollection saveDrugData(Path drugsDir, boolean skip) throws Exception {
+    DrugCollection existingDrugs = new DrugCollection();
+    if (drugsDir == null || skip) return existingDrugs;
+
+    Path drugsPath = drugsDir.resolve("drugs.json");
+    FileUtils.copyURLToFile(
+        new URL("https://files.cpicpgx.org/data/report/current/drugs.json"),
+        drugsPath.toFile());
+    System.out.println();
+    System.out.println("Saving messages to " + drugsPath);
+
+    Set<String> existingDrugNames = existingDrugs.list().stream()
+        .map(Drug::getDrugName).collect(Collectors.toSet());
+    try (InputStream is = Files.newInputStream(drugsPath)) {
+      DrugCollection newDrugs = new DrugCollection(is);
+      Set<String> newDrugNames = newDrugs.list().stream()
+          .map(Drug::getDrugName).collect(Collectors.toSet());
+
+      Set<String> removedDrugs = new HashSet<>(existingDrugNames);
+      removedDrugs.removeAll(newDrugNames);
+      if (removedDrugs.size() > 0) {
+        System.out.println("Removed drugs: " + String.join("; ", removedDrugs));
+      }
+
+      Set<String> addedDrugs = new HashSet<>(newDrugNames);
+      addedDrugs.removeAll(existingDrugNames);
+      if (addedDrugs.size() > 0) {
+        System.out.println("New drugs: " + String.join("; ", addedDrugs));
+      }
+      return newDrugs;
+    }
+  }
+
 
   /**
    * Does the work for stepping through the files and applying the format.
    */
-  private void transformAlleleDefinitions(Path downloadDir, Path definitionsDir,
+  private Set<String> transformAlleleDefinitions(Path downloadDir, Path definitionsDir,
       Map<String, DefinitionExemption> exemptionsMap) throws Exception {
 
     Path definitionsFile = downloadDir.resolve("allele_definitions.json");
@@ -142,6 +195,9 @@ public class DataManager {
     Gson gson = new Gson();
     Map<String, DefinitionFile> definitionFileMap = new HashMap<>();
     for (DefinitionFile df : gson.fromJson(json, DefinitionFile[].class)) {
+      // TODO: remove after v1 is released
+      if (df.getGeneSymbol().equals("MT-RNR1")) continue;
+
       definitionFileMap.put(df.getGeneSymbol(), df);
     }
 
@@ -168,10 +224,6 @@ public class DataManager {
 
     // output file
     for (String gene : definitionFileMap.keySet()) {
-      // TODO: remove after v1 is released
-      if (gene.equals("MT-RNR1")) {
-        continue;
-      }
       DefinitionFile definitionFile = definitionFileMap.get(gene);
       Path jsonFile = definitionsDir.resolve(gene + "_translation.json");
       m_dataSerializer.serializeToJson(definitionFile, jsonFile);
@@ -184,6 +236,7 @@ public class DataManager {
     }
 
     deleteObsoleteFiles(definitionsDir, currentFiles);
+    return definitionFileMap.keySet();
   }
 
   private void fixCyp2c19(DefinitionFile definitionFile) {
@@ -230,6 +283,27 @@ public class DataManager {
       Path file = dir.resolve(filename);
       System.out.println("Deleting obsolete file: " + file);
       FileUtils.deleteQuietly(file.toFile());
+    }
+  }
+
+  private void writeSummary(Path documenationDir, Set<String> genes, DrugCollection drugs) throws IOException {
+    try (
+        InputStream mdStream = getClass().getResourceAsStream("summary.md");
+        StringWriter templateWriter = new StringWriter()
+    ) {
+      if (mdStream == null) {
+        throw new RuntimeException("No summary report templater found");
+      }
+      IOUtils.copy(mdStream, templateWriter, Charset.defaultCharset());
+      String mdTemplate = templateWriter.toString();
+
+      File summaryFile = documenationDir.resolve(SUMMARY_REPORT).toFile();
+      try (FileWriter fw = new FileWriter(summaryFile)) {
+        String geneList = genes.stream().sorted().map(g -> "- " + g).collect(Collectors.joining("\n"));
+        String drugList = drugs.listReportable().stream().map(d -> "- " + d.getDrugName()).collect(Collectors.joining("\n"));
+        IOUtils.write(String.format(mdTemplate, geneList, drugList), fw);
+      }
+      System.out.println("\nSaving summary file to " + summaryFile);
     }
   }
 }
