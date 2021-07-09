@@ -5,7 +5,6 @@ __author__ = 'BinglanLi'
 import os
 import sys
 import subprocess
-import traceback
 from pathlib import Path
 from timeit import default_timer as timer
 
@@ -15,6 +14,11 @@ import vcf_preprocess_utilities as util
 def run(args):
     ## normalize and prepare the input VCF for PharmCAT
     start = timer()
+
+    # validate input
+    if bool(args.input_vcf) == bool(args.input_list):
+        print("Invalid input file(s). Provide either [--input_vcf] or [--input_list].")
+        sys.exit(1)
 
     # organize args
     current_working_dir = os.getcwd()
@@ -38,14 +42,11 @@ def run(args):
     # create the output folder if not existing
     Path(args.output_folder).mkdir(parents=True, exist_ok=True)
 
+    # list of files to be deleted
     tmp_files_to_be_removed = []
 
     # download the human reference sequence if not provided
     path_to_ref_seq = util.download_grch38_ref_fasta_and_index(current_working_dir) if not args.ref_seq else args.ref_seq
-
-    # if the input VCF file is not indexed (.tbi doesn't exist), create an index file in the input folder using tabix
-    if not os.path.exists(args.input_vcf + '.tbi'):
-        util.tabix_index_vcf(tabix_executable_path, args.input_vcf)
 
     # index ref_pgx_vcf if not indexed
     if not os.path.exists(args.ref_pgx_vcf + '.tbi'):
@@ -59,12 +60,29 @@ def run(args):
                 line = line.strip()
                 sample_list.append(line)
         file.close()
-    else:
+    elif args.input_vcf:
         sample_list = util.obtain_vcf_sample_list(bcftools_executable_path, args.input_vcf)
+    else:
+        first_valid_file = False
+        with open(args.input_list, 'r') as file:
+            for line in file:
+                if not first_valid_file:
+                    line = line.strip()
+                    if os.path.isfile(line):
+                        sample_list = util.obtain_vcf_sample_list(bcftools_executable_path, line)
+                        first_valid_file = True
+                else:
+                    break
+        file.close()
 
     # shrink input VCF down to PGx allele defining regions and selected samples
     # modify input VCF chromosomes naming format to <chr##>
-    intermediate_vcf_pgx_regions = util.extract_pharmcat_pgx_regions(bcftools_executable_path, tabix_executable_path, args.input_vcf, args.output_folder, args.ref_pgx_vcf, sample_list)
+    if args.input_list:
+        intermediate_vcf_pgx_regions = util.extract_pharmcat_regions_from_multiple_files(bcftools_executable_path, tabix_executable_path,
+                                                                                         args.input_list, args.ref_pgx_vcf, args.output_folder, args.output_prefix, sample_list)
+    else:
+        intermediate_vcf_pgx_regions = util.extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_executable_path,
+                                                                         args.input_vcf, args.ref_pgx_vcf, args.output_folder, args.output_prefix, sample_list)
     tmp_files_to_be_removed.append(intermediate_vcf_pgx_regions)
 
     # merge the input VCF with the PGx position file provided by '--ref_pgx_vcf'
@@ -98,7 +116,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Prepare an input VCF for the PharmCAT')
 
     # list arguments
-    parser.add_argument("--input_vcf", required=True, type = str, help="Load a compressed VCF file.")
+    parser.add_argument("--input_vcf", type = str, help="Load a compressed VCF file.")
+    parser.add_argument("--input_list", type = str, help="A sorted list of compressed VCF file names.")
     parser.add_argument("--ref_seq", help="Load the Human Reference Genome GRCh38/hg38 in the fasta format.")
     parser.add_argument("--ref_pgx_vcf", required=True, type = str, help="Load a VCF file of PGx variants. This file is available from the PharmCAT GitHub release.")
     parser.add_argument("--sample_file", help="A file of samples to be prepared for the PharmCAT, one sample at a line.")

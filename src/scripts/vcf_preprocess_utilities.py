@@ -156,7 +156,7 @@ def get_vcf_pos_min_max(positions, flanking_bp=100):
     return '-'.join([str(min(positions) - flanking_bp), str(max(positions) + flanking_bp)])
 
 
-def has_chr_string(input_vcf):
+def _has_chr_string(input_vcf):
     with gzip.open(input_vcf) as f:
         for line in f:
             try:
@@ -170,9 +170,8 @@ def has_chr_string(input_vcf):
 
     return has_string
 
-
-def extract_pharmcat_pgx_regions(bcftools_executable_path, tabix_executable_path, input_vcf, output_dir,
-                                 input_ref_pgx_vcf, sample_list):
+def extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_executable_path, input_vcf,
+        input_ref_pgx_vcf, output_dir, output_prefix, sample_list):
     """
     Rename chromosomes in input vcf according to a chr-renaming mapping file.
     Extract pgx regions from input_vcf based on the input_ref_pgx_vcf.
@@ -182,7 +181,11 @@ def extract_pharmcat_pgx_regions(bcftools_executable_path, tabix_executable_path
     """
 
     # output path
-    path_output = os.path.join(output_dir, obtain_vcf_file_prefix(input_vcf) + '.pgx_regions.vcf.gz')
+    path_output = os.path.join(output_dir, 'PharmCAT_preprocess_' + output_prefix + '.pgx_regions.vcf.gz')
+
+    # create index if not already existed
+    if not os.path.exists(input_vcf + '.tbi'):
+        tabix_index_vcf(tabix_executable_path, input_vcf)
 
     # obtain PGx regions to be extracted
     input_ref_pgx_pos_pandas = allel.vcf_to_dataframe(input_ref_pgx_vcf)
@@ -191,7 +194,7 @@ def extract_pharmcat_pgx_regions(bcftools_executable_path, tabix_executable_path
     ref_pgx_regions = input_ref_pgx_pos_pandas.groupby(['CHROM'])['POS'].agg(get_vcf_pos_min_max).reset_index()
 
     # define the regions to be extracted
-    if has_chr_string(input_vcf) == "true":
+    if _has_chr_string(input_vcf) == "true":
         # add chromosome name with leading 'chr' to the VCF header
         ref_pgx_regions = ",".join(
             ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1).replace({'^': 'chr'},
@@ -206,8 +209,8 @@ def extract_pharmcat_pgx_regions(bcftools_executable_path, tabix_executable_path
             bcftools_command_to_rename_and_extract = [bcftools_executable_path, 'view', '-S', file_sample_list.name,
                                                       '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
             running_bcftools(bcftools_command_to_rename_and_extract,
-                             show_msg='Extract PGx regions based on the input reference PGx position file.')
-    elif has_chr_string(input_vcf) == "false":
+                             show_msg='Extracting PGx regions for %s.' % input_vcf)
+    elif _has_chr_string(input_vcf) == "false":
         # chromosome names
         chr_names_wo_strings = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
                                 "17", "18", "19", "20", "21", "22"]
@@ -239,13 +242,58 @@ def extract_pharmcat_pgx_regions(bcftools_executable_path, tabix_executable_path
                                                           file_sample_list.name, '--rename-chrs', file_rename_chrs.name,
                                                           '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
                 running_bcftools(bcftools_command_to_rename_and_extract,
-                                 show_msg='Extract PGx regions based on the input reference PGx position file.\nModify chromosome names.')
+                                 show_msg='Extracting PGx regions and modifying chromosome names for %s.' %input_vcf)
     else:
         print("The CHROM column does not comply with either 'chr##' or '##' format.")
 
     # index the output PGx file
     tabix_index_vcf(tabix_executable_path, path_output)
 
+    return path_output
+
+
+def extract_pharmcat_regions_from_multiple_files(bcftools_executable_path, tabix_executable_path, input_list,
+        input_ref_pgx_vcf, output_dir, output_prefix, sample_list):
+    """
+    iterarte through the list of input files
+    """
+
+    path_output = os.path.join(output_dir, 'PharmCAT_preprocess_' + output_prefix + '.pgx_regions.vcf.gz')
+
+    with tempfile.TemporaryDirectory(dir=output_dir) as temp_dir:
+        preprocessed_file_list = []
+        i = 1
+        with open(input_list, 'r') as file:
+            for line in file:
+                line = line.strip()
+                if os.path.isfile(line):
+                    temp_output_prefix = output_prefix + '_' + str(i)
+                    single_file = extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_executable_path,
+                                                                            line, input_ref_pgx_vcf, temp_dir, temp_output_prefix, sample_list)
+                    preprocessed_file_list.append(single_file)
+                    i += 1
+                else:
+                    print("Warning: Skip %s because the file does not exist." % line)
+        file.close()
+
+        # concatenate files if input list is not sorted
+        with tempfile.NamedTemporaryFile(mode = 'w+', dir = output_dir) as temp_concat:
+            with tempfile.NamedTemporaryFile(mode = 'w+', dir = output_dir) as temp_file_list:
+                for j in range(len(preprocessed_file_list)):
+                    temp_file_list.write(preprocessed_file_list[j] + "\n")
+                temp_file_list.seek(0)
+
+                # concatenate vcfs
+                bcftools_command = [bcftools_executable_path, 'concat', '-a', '-f', temp_file_list.name, '-Oz', '-o', temp_concat.name]
+                running_bcftools(bcftools_command,
+                                 show_msg='Concatenating chromosome VCFs.')
+                # sort
+                bcftools_command = [bcftools_executable_path, 'sort', '-Oz', '-o', path_output, temp_concat.name]
+                running_bcftools(bcftools_command,
+                                 show_msg='Sorting the concatenated VCF.')
+
+    # index the concatenated, sorted VCF
+    tabix_index_vcf(tabix_executable_path, path_output)
     return path_output
 
 
@@ -289,7 +337,7 @@ def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, pa
         # normalize
         bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '-m+', '-c', 'ws', '-Oz', '-o',
                                              file_temp_norm.name, '-f', path_to_ref_seq, input_vcf]
-        running_bcftools(bcftools_command_to_normalize_vcf, show_msg='Normalize VCF')
+        running_bcftools(bcftools_command_to_normalize_vcf, show_msg='Normalizing VCF')
         tabix_index_vcf(tabix_executable_path, file_temp_norm.name)
 
         # extract only PGx positions
@@ -298,9 +346,11 @@ def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, pa
                                                 path_output, '-s', '^PharmCAT', '-T', input_ref_pgx_vcf,
                                                 file_temp_norm.name]
         running_bcftools(bcftools_command_to_extract_only_pgx,
-                         show_msg='Retain only PGx positions in the normalized VCF')  # run bcftools to merge VCF files
+                         show_msg='Retaining only PGx positions in the normalized VCF')  # run bcftools to merge VCF files
         tabix_index_vcf(tabix_executable_path, path_output)
 
+        # remove intermediate tabix file
+        os.remove(file_temp_norm.name + ".tbi")
     return path_output
 
 
