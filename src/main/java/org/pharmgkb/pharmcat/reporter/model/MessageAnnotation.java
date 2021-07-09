@@ -19,6 +19,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class MessageAnnotation {
   public static final String TYPE_GENOTYPE = "report-genotype";
+  public static final String TYPE_AMBIGUITY = "ambiguity";
   private static final int sf_rowLength = 12;
 
   public static Predicate<MessageAnnotation> isFootnote = m -> m.getExceptionType().equals("footnote");

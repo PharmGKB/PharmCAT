@@ -7,9 +7,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import com.google.gson.Gson;
+import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 
@@ -43,18 +45,19 @@ public class MessageList {
     }
 
     List<MessageAnnotation> messages = f_messages.stream()
-        .filter(m -> match(m.getMatches(), gene))
+        .filter(m -> match(m, gene))
         .collect(Collectors.toList());
     gene.addMessages(messages);
   }
 
   /**
    * Method that will determine if a message's {@link MatchLogic} applies to a {@link GeneReport}
-   * @param match match logic from a {@link MessageAnnotation}
+   * @param message match logic from a {@link MessageAnnotation}
    * @param gene a {@link GeneReport} to try to match to
    * @return true if the given logic matches
    */
-  public static boolean match(MatchLogic match, GeneReport gene) {
+  public static boolean match(MessageAnnotation message, GeneReport gene) {
+    MatchLogic match = message.getMatches();
 
     boolean criteriaPass = !match.getGene().isEmpty() && match.getGene().equals(gene.getGene());
 
@@ -74,6 +77,13 @@ public class MessageList {
     if (criteriaPass && !match.getVariantsMissing().isEmpty()) {
       criteriaPass = match.getVariantsMissing().stream().allMatch(v -> gene.getVariantReports().isEmpty() || gene.getVariantReports().stream()
           .anyMatch(a -> a.getDbSnpId() != null && a.getDbSnpId().equals(v) && a.isMissing()));
+    }
+
+    // see if there is a heterozygous call for the given RSID in the ambiguity message annotation
+    if (criteriaPass && message.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && StringUtils.isNotBlank(match.getVariant())) {
+      criteriaPass = gene.findVariantReport(match.getVariant())
+          .map(VariantReport::isHetCall)
+          .orElse(false);
     }
 
     return criteriaPass;

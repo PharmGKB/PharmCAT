@@ -37,13 +37,14 @@ public class MessageMatcher {
 
   public void match(DrugReport guideline, ReportContext reportContext) {
     List<MessageAnnotation> matchedMessages = m_messages.stream()
-        .filter(m -> match(m.getMatches(), guideline, reportContext))
+        .filter(m -> match(m, guideline, reportContext))
         .collect(Collectors.toList());
     guideline.addMessages(matchedMessages);
   }
 
 
-  public boolean match(MatchLogic match, DrugReport report, ReportContext reportContext) {
+  public boolean match(MessageAnnotation message, DrugReport report, ReportContext reportContext) {
+    MatchLogic match = message.getMatches();
 
     boolean criteriaPass = !match.getDrugs().isEmpty() && !Collections.disjoint(match.getDrugs(), report.getRelatedDrugs());
 
@@ -69,8 +70,8 @@ public class MessageMatcher {
           .containsAll(match.getVariantsMissing());    
     }
 
-    // see if there is a heterozygous call for the given RSID in the message annotation
-    if (criteriaPass && StringUtils.isNotBlank(match.getVariant())) {
+    // see if there is a heterozygous call for the given RSID in the ambiguity message annotation
+    if (criteriaPass && message.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && StringUtils.isNotBlank(match.getVariant())) {
       criteriaPass = geneReport.findVariantReport(match.getVariant())
           .map(VariantReport::isHetCall)
           .orElse(false);

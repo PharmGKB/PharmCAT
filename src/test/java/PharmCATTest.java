@@ -90,9 +90,15 @@ class PharmCATTest {
     testMatchedGroups("clomipramine", 1);
     testMatchedGroups("ivacaftor", 0);
 
-    VariantReport vr = s_context.getGeneReport("CYP2C19").findVariantReport("rs58973490")
+    GeneReport cyp2c19report = s_context.getGeneReport("CYP2C19");
+
+    VariantReport vr = cyp2c19report.findVariantReport("rs58973490")
         .orElseThrow(() -> new RuntimeException("Variant missing from test data"));
     assertTrue(vr.isHetCall());
+
+    assertEquals(1, cyp2c19report.getMessages().stream()
+        .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
+        .count());
 
     assertTrue(s_context.getDrugReports().stream()
         .filter(r -> r.getRelatedDrugs().contains("amitriptyline"))
@@ -121,9 +127,15 @@ class PharmCATTest {
     testMatchedGroups("clomipramine", 1);
     testMatchedGroups("ivacaftor", 0);
 
-    VariantReport vr = s_context.getGeneReport("CYP2C19").findVariantReport("rs58973490")
+    GeneReport cyp2c19report = s_context.getGeneReport("CYP2C19");
+
+    VariantReport vr = cyp2c19report.findVariantReport("rs58973490")
         .orElseThrow(() -> new RuntimeException("Variant missing from test data"));
     assertFalse(vr.isHetCall());
+
+    assertEquals(0, cyp2c19report.getMessages().stream()
+        .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
+        .count());
 
     assertEquals(0, s_context.getDrugReports().stream()
         .filter(r -> r.getRelatedDrugs().contains("amitriptyline"))
