@@ -206,9 +206,9 @@ def extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_ex
                 file_sample_list.write("%s\n" % single_sample)
             file_sample_list.seek(0)
 
-            bcftools_command_to_rename_and_extract = [bcftools_executable_path, 'view', '-S', file_sample_list.name,
+            bcftools_command = [bcftools_executable_path, 'view', '-S', file_sample_list.name,
                                                       '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
-            running_bcftools(bcftools_command_to_rename_and_extract,
+            running_bcftools(bcftools_command,
                              show_msg='Extracting PGx regions for %s.' % input_vcf)
     elif _has_chr_string(input_vcf) == "false":
         # chromosome names
@@ -238,10 +238,10 @@ def extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_ex
                 file_sample_list.seek(0)
 
                 # run bcftools
-                bcftools_command_to_rename_and_extract = [bcftools_executable_path, 'annotate', '-S',
+                bcftools_command = [bcftools_executable_path, 'annotate', '-S',
                                                           file_sample_list.name, '--rename-chrs', file_rename_chrs.name,
                                                           '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
-                running_bcftools(bcftools_command_to_rename_and_extract,
+                running_bcftools(bcftools_command,
                                  show_msg='Extracting PGx regions and modifying chromosome names for %s.' %input_vcf)
     else:
         print("The CHROM column does not comply with either 'chr##' or '##' format.")
@@ -310,9 +310,9 @@ def merge_vcfs(bcftools_executable_path, tabix_executable_path, input_vcf, input
 
     path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.pgx_merged.vcf.gz'
 
-    bcftools_command_to_merge = [bcftools_executable_path, 'merge', '--no-version', '-m', 'both', '-Oz', '-o',
+    bcftools_command = [bcftools_executable_path, 'merge', '--no-version', '-m', 'both', '-Oz', '-o',
                                  path_output, input_vcf, input_ref_pgx_vcf]
-    running_bcftools(bcftools_command_to_merge,
+    running_bcftools(bcftools_command,
                      show_msg='Enforcing the same variant representation as that in the reference PGx variant file')
 
     tabix_index_vcf(tabix_executable_path, path_output)
@@ -335,17 +335,17 @@ def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, pa
 
     with tempfile.NamedTemporaryFile(mode="w", dir=output_dir) as file_temp_norm:
         # normalize
-        bcftools_command_to_normalize_vcf = [bcftools_executable_path, 'norm', '-m+', '-c', 'ws', '-Oz', '-o',
+        bcftools_command = [bcftools_executable_path, 'norm', '-m+', '-c', 'ws', '-Oz', '-o',
                                              file_temp_norm.name, '-f', path_to_ref_seq, input_vcf]
-        running_bcftools(bcftools_command_to_normalize_vcf, show_msg='Normalizing VCF')
+        running_bcftools(bcftools_command, show_msg='Normalizing VCF')
         tabix_index_vcf(tabix_executable_path, file_temp_norm.name)
 
         # extract only PGx positions
         path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.normalized.vcf.gz'
-        bcftools_command_to_extract_only_pgx = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o',
+        bcftools_command = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o',
                                                 path_output, '-s', '^PharmCAT', '-T', input_ref_pgx_vcf,
                                                 file_temp_norm.name]
-        running_bcftools(bcftools_command_to_extract_only_pgx,
+        running_bcftools(bcftools_command,
                          show_msg='Retaining only PGx positions in the normalized VCF')  # run bcftools to merge VCF files
         tabix_index_vcf(tabix_executable_path, path_output)
 
@@ -363,10 +363,10 @@ def output_pharmcat_ready_vcf(bcftools_executable_path, input_vcf, output_dir, o
     """
 
     for single_sample in sample_list:
-        output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf.gz')
-        bcftools_command_to_output_pharmcat_ready_vcf = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz',
+        output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf')
+        bcftools_command = [bcftools_executable_path, 'view', '--no-version', '-U', '-Ov',
                                                          '-o', output_file_name, '-s', single_sample, input_vcf]
-        running_bcftools(bcftools_command_to_output_pharmcat_ready_vcf,
+        running_bcftools(bcftools_command,
                          show_msg='Generating a PharmCAT-ready VCF for ' + single_sample)
 
 
@@ -381,7 +381,7 @@ def output_missing_pgx_positions(bcftools_executable_path, input_vcf, input_ref_
     """
 
     output_file_name = os.path.join(output_dir, output_prefix + '.missing_pgx_var.vcf.gz')
-    bcftools_command_to_report_missing_pgx = [bcftools_executable_path, 'isec', '--no-version', '-c', 'indels', '-w1',
+    bcftools_command = [bcftools_executable_path, 'isec', '--no-version', '-c', 'indels', '-w1',
                                               '-Oz', '-o', output_file_name, '-C', input_ref_pgx_vcf, input_vcf]
-    running_bcftools(bcftools_command_to_report_missing_pgx,
+    running_bcftools(bcftools_command,
                      show_msg='Generating a report of missing PGx core allele defining positions')

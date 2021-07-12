@@ -130,5 +130,9 @@ if __name__ == "__main__":
     # parse arguments
     args = parser.parse_args()
 
+    # to be removed at the PharmCAT v1.0
+    print("Warning: For PharmCAT v0.8.0, please use the \'pharmcat_positions_0.8.0_updated_06222021.vcf.gz\' under "
+          "\'src/scripts/test/pharmcat_pgx_vcf/\'")
+
     # normalize variant representations and reconstruct multi-allelic variants in the input VCF
     run(args)
