@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -40,6 +41,7 @@ public class DataManager {
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   private static final String SUMMARY_REPORT = "summary.md";
+  private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6");
   private final DataSerializer m_dataSerializer = new DataSerializer();
   private final boolean m_verbose;
 
@@ -299,9 +301,16 @@ public class DataManager {
 
       File summaryFile = documenationDir.resolve(SUMMARY_REPORT).toFile();
       try (FileWriter fw = new FileWriter(summaryFile)) {
-        String geneList = genes.stream().sorted().map(g -> "- " + g).collect(Collectors.joining("\n"));
+        String matcherGeneList = genes.stream()
+            .filter(g -> !PREFER_OUTSIDE_CALL.contains(g))
+            .sorted().map(g -> "- " + g)
+            .collect(Collectors.joining("\n"));
+        String outsideGeneList = genes.stream()
+            .filter(PREFER_OUTSIDE_CALL::contains)
+            .sorted().map(g -> "- " + g)
+            .collect(Collectors.joining("\n"));
         String drugList = drugs.listReportable().stream().map(d -> "- " + d.getDrugName()).collect(Collectors.joining("\n"));
-        IOUtils.write(String.format(mdTemplate, geneList, drugList), fw);
+        IOUtils.write(String.format(mdTemplate, matcherGeneList, outsideGeneList, drugList), fw);
       }
       System.out.println("\nSaving summary file to " + summaryFile);
     }

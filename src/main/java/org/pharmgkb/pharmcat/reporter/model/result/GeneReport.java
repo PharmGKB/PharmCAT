@@ -33,8 +33,8 @@ import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
  */
 public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
-  private static final List<String> IGNORED_GENES = ImmutableList.of("G6PD", "HLA-A", "HLA-B", "IFNL4", "MT-RNR1");
-  private static final Set<String> sf_overrideDiplotypes = ImmutableSet.of("SLCO1B1");
+  private static final Set<String> IGNORED_GENES       = ImmutableSet.of("G6PD", "HLA-A", "HLA-B", "IFNL4", "MT-RNR1");
+  private static final Set<String> OVERRIDE_DIPLOTYPES = ImmutableSet.of("SLCO1B1");
   private static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
 
@@ -296,7 +296,7 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public Collection<String> printDisplayCalls() {
     if (!isCalled()) {
-      if (sf_overrideDiplotypes.contains(getGene()) && !m_reporterDiplotypes.isEmpty()) {
+      if (OVERRIDE_DIPLOTYPES.contains(getGene()) && !m_reporterDiplotypes.isEmpty()) {
         return m_reporterDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
       }
       return ImmutableList.of(UNCALLED);
