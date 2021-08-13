@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
@@ -103,14 +104,14 @@ public class DataManager {
 
         DrugCollection drugs = manager.saveDrugData(drugsDir, skipDrugs);
 
-        Set<String> genes;
+        Map<String,Integer> geneAlleleCountMap;
         if (!skipAlleles) {
           Map<String, DefinitionExemption> exemptionsMap = manager.transformExemptions(exemptionsTsv, exemptionsJson);
           // if we're loading new gene data, use the list of genes from the new data
-          genes = manager.transformAlleleDefinitions(downloadDir, allelesDir, exemptionsMap);
+          geneAlleleCountMap = manager.transformAlleleDefinitions(downloadDir, allelesDir, exemptionsMap);
         } else {
-          // if we're sipping new gene data, then use the existing list of genes
-          genes = new DefinitionReader().getGenes();
+          // if we're skipping new gene data, then use the existing list of genes
+          geneAlleleCountMap = new DefinitionReader().getGeneAlleleCount();
         }
 
         if (!cliHelper.hasOption("sm")) {
@@ -119,7 +120,7 @@ public class DataManager {
 
         if (cliHelper.hasOption("d")) {
           Path docsDir = cliHelper.getValidDirectory("d", true);
-          manager.writeSummary(docsDir, genes, drugs);
+          manager.writeSummary(docsDir, geneAlleleCountMap, drugs);
         }
 
       } finally {
@@ -186,7 +187,7 @@ public class DataManager {
   /**
    * Does the work for stepping through the files and applying the format.
    */
-  private Set<String> transformAlleleDefinitions(Path downloadDir, Path definitionsDir,
+  private Map<String,Integer> transformAlleleDefinitions(Path downloadDir, Path definitionsDir,
       Map<String, DefinitionExemption> exemptionsMap) throws Exception {
 
     Path definitionsFile = downloadDir.resolve("allele_definitions.json");
@@ -224,9 +225,11 @@ public class DataManager {
     }
     fixCyp2c19(definitionFileMap.get("CYP2C19"));
 
+    Map<String,Integer> geneAlleleCountMap = new TreeMap<>();
     // output file
     for (String gene : definitionFileMap.keySet()) {
       DefinitionFile definitionFile = definitionFileMap.get(gene);
+      geneAlleleCountMap.put(gene, definitionFile.getNamedAlleles().size());
       Path jsonFile = definitionsDir.resolve(gene + "_translation.json");
       m_dataSerializer.serializeToJson(definitionFile, jsonFile);
       if (m_verbose) {
@@ -238,7 +241,7 @@ public class DataManager {
     }
 
     deleteObsoleteFiles(definitionsDir, currentFiles);
-    return definitionFileMap.keySet();
+    return geneAlleleCountMap;
   }
 
   private void fixCyp2c19(DefinitionFile definitionFile) {
@@ -288,7 +291,7 @@ public class DataManager {
     }
   }
 
-  private void writeSummary(Path documenationDir, Set<String> genes, DrugCollection drugs) throws IOException {
+  private void writeSummary(Path documenationDir, Map<String,Integer> geneAlleleCount, DrugCollection drugs) throws IOException {
     try (
         InputStream mdStream = getClass().getResourceAsStream("summary.md");
         StringWriter templateWriter = new StringWriter()
@@ -301,13 +304,13 @@ public class DataManager {
 
       File summaryFile = documenationDir.resolve(SUMMARY_REPORT).toFile();
       try (FileWriter fw = new FileWriter(summaryFile)) {
-        String matcherGeneList = genes.stream()
+        String matcherGeneList = geneAlleleCount.keySet().stream()
             .filter(g -> !PREFER_OUTSIDE_CALL.contains(g))
-            .sorted().map(g -> "- " + g)
+            .sorted().map(g -> "- " + g + " (" + geneAlleleCount.get(g) + " alleles)")
             .collect(Collectors.joining("\n"));
-        String outsideGeneList = genes.stream()
+        String outsideGeneList = geneAlleleCount.keySet().stream()
             .filter(PREFER_OUTSIDE_CALL::contains)
-            .sorted().map(g -> "- " + g)
+            .sorted().map(g -> "- " + g + " (" + geneAlleleCount.get(g) + " alleles)")
             .collect(Collectors.joining("\n"));
         String drugList = drugs.listReportable().stream().map(d -> "- " + d.getDrugName()).collect(Collectors.joining("\n"));
         IOUtils.write(String.format(mdTemplate, matcherGeneList, outsideGeneList, drugList), fw);

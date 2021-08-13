@@ -57,6 +57,15 @@ public class DefinitionReader {
     return m_definitionFiles.keySet();
   }
 
+  public Map<String,Integer> getGeneAlleleCount() {
+    Map<String,Integer> countMap = new TreeMap<>();
+    for (String gene : getGenes()) {
+      DefinitionFile file = m_definitionFiles.get(gene);
+      countMap.put(gene, file.getNamedAlleles().size());
+    }
+    return countMap;
+  }
+
 
   public DefinitionFile getDefinitionFile(String gene) {
     Preconditions.checkArgument(m_definitionFiles.containsKey(gene));
