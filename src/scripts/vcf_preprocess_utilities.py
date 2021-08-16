@@ -151,7 +151,7 @@ def remove_vcf_and_index(path_to_vcf):
         print("Error: %s : %s" % (path_to_vcf, error_remove_tmp.strerror))
 
 
-def get_vcf_pos_min_max(positions, flanking_bp=100):
+def _get_vcf_pos_min_max(positions, flanking_bp=100):
     """ given input positions, return "<min_pos>-<max_pos>"  """
     return '-'.join([str(min(positions) - flanking_bp), str(max(positions) + flanking_bp)])
 
@@ -191,7 +191,7 @@ def extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_ex
     input_ref_pgx_pos_pandas = allel.vcf_to_dataframe(input_ref_pgx_vcf)
     input_ref_pgx_pos_pandas['CHROM'] = input_ref_pgx_pos_pandas['CHROM'].replace({'chr': ''}, regex=True).astype(
         str).astype(int)
-    ref_pgx_regions = input_ref_pgx_pos_pandas.groupby(['CHROM'])['POS'].agg(get_vcf_pos_min_max).reset_index()
+    ref_pgx_regions = input_ref_pgx_pos_pandas.groupby(['CHROM'])['POS'].agg(_get_vcf_pos_min_max).reset_index()
 
     # define the regions to be extracted
     if _has_chr_string(input_vcf) == "true":
@@ -253,7 +253,7 @@ def extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_ex
 
 
 def extract_pharmcat_regions_from_multiple_files(bcftools_executable_path, tabix_executable_path, input_list,
-        input_ref_pgx_vcf, output_dir, output_prefix, sample_list):
+                                                 path_to_ref_seq, input_ref_pgx_vcf, output_dir, output_prefix, sample_list):
     """
     iterarte through the list of input files
     """
@@ -276,7 +276,7 @@ def extract_pharmcat_regions_from_multiple_files(bcftools_executable_path, tabix
                     print("Warning: Skip %s because the file does not exist." % line)
         file.close()
 
-        # concatenate files if input list is not sorted
+        # concatenate files, requiring input file list to be sorted
         with tempfile.NamedTemporaryFile(mode = 'w+', dir = output_dir) as temp_concat:
             with tempfile.NamedTemporaryFile(mode = 'w+', dir = output_dir) as temp_file_list:
                 for j in range(len(preprocessed_file_list)):
@@ -288,9 +288,10 @@ def extract_pharmcat_regions_from_multiple_files(bcftools_executable_path, tabix
                 running_bcftools(bcftools_command,
                                  show_msg='Concatenating chromosome VCFs.')
                 # sort
-                bcftools_command = [bcftools_executable_path, 'sort', '-Oz', '-o', path_output, temp_concat.name]
+                bcftools_command = [bcftools_executable_path, 'norm', '-m+', '-c', 'ws', '-Oz', '-o',
+                                    path_output, '-f', path_to_ref_seq, temp_concat.name]
                 running_bcftools(bcftools_command,
-                                 show_msg='Sorting the concatenated VCF.')
+                                 show_msg='Normalizing chromosome VCFs.')
 
     # index the concatenated, sorted VCF
     tabix_index_vcf(tabix_executable_path, path_output)

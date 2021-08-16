@@ -79,7 +79,7 @@ def run(args):
     # modify input VCF chromosomes naming format to <chr##>
     if args.input_list:
         intermediate_vcf_pgx_regions = util.extract_pharmcat_regions_from_multiple_files(bcftools_executable_path, tabix_executable_path,
-                                                                                         args.input_list, args.ref_pgx_vcf, args.output_folder, args.output_prefix, sample_list)
+                                                                                         args.input_list, path_to_ref_seq, args.ref_pgx_vcf, args.output_folder, args.output_prefix, sample_list)
     else:
         intermediate_vcf_pgx_regions = util.extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_executable_path,
                                                                          args.input_vcf, args.ref_pgx_vcf, args.output_folder, args.output_prefix, sample_list)
@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
     # list arguments
     parser.add_argument("--input_vcf", type = str, help="Load a compressed VCF file.")
-    parser.add_argument("--input_list", type = str, help="A sorted list of compressed VCF file names.")
+    parser.add_argument("--input_list", type = str, help="A sorted list of by-chromosome, compressed VCF file names.")
     parser.add_argument("--ref_seq", help="Load the Human Reference Genome GRCh38/hg38 in the fasta format.")
     parser.add_argument("--ref_pgx_vcf", required=True, type = str, help="Load a VCF file of PGx variants. This file is available from the PharmCAT GitHub release.")
     parser.add_argument("--sample_file", help="A file of samples to be prepared for the PharmCAT, one sample at a line.")
