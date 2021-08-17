@@ -10,11 +10,18 @@
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "conventional-changelog-conventionalcommits": "^4.6.0",
-    "semantic-release": "^17.4.3"
+    "semantic-release": "^17.4.5"
   },
   "release": {
     "branches": [
-      {"name": "development", "prerelease": true}, {"name": "main", "prerelease": true}
+      {
+        "name": "development",
+        "prerelease": true
+      },
+      {
+        "name": "main",
+        "prerelease": true
+      }
     ],
     "plugins": [
       "@semantic-release/commit-analyzer",
