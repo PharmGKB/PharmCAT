@@ -2,6 +2,7 @@
 /.idea/libraries/Gradle__*.xml
 /.idea/dictionaries/
 /.idea/gradle.xml
+/.idea/httpRequests/
 /.idea/jarRepositories.xml
 /.idea/markdown*
 /.idea/misc.xml
