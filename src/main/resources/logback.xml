@@ -9,8 +9,15 @@
     </filter>
   </appender>
 
-  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>pharmcat.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>pharmcat.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>3</maxHistory>
+      <totalSizeCap>100MB</totalSizeCap>
+    </rollingPolicy>
+
     <encoder>
       <pattern>%date %level %logger{10} [%file:%line] %msg%n</pattern>
     </encoder>
