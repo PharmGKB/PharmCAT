@@ -17,7 +17,7 @@ import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
  */
 public class PhenotypeMap {
 
-  private static final String FILE_NAME = "gene.phenotypes.json";
+  private static final String FILE_NAME = "gene_phenotypes.json";
   private final List<GenePhenotype> m_genes;
 
   /**
