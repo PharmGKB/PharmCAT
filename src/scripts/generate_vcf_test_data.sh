@@ -30,9 +30,16 @@ shift "$(($OPTIND -1))"
 # cd to location of script
 cd $(dirname $0)
 
+if [ -z ${PHARMCAT_DATA_DIR+x} ]; then
+  dataDir="../../build"
+else
+  # expect PHARMCAT_DATA_DIR to be a relative directory
+  dataDir="../../${PHARMCAT_DATA_DIR}"
+fi
+
 DEFINITION_DIR="../main/resources/org/pharmgkb/pharmcat/definition/alleles"
-VCF_FILE="../../build/pharmcat_positions.vcf"
-OUTPUT_DIR="../../build/testVcf"
+VCF_FILE="${dataDir}/pharmcat_positions.vcf"
+OUTPUT_DIR="${dataDir}/testVcf"
 
 for file in "$DEFINITION_DIR"/*; do
   if [[ $file == *_translation.json ]]; then
