@@ -8,6 +8,8 @@ import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.PharmCAT;
 import org.pharmgkb.pharmcat.VcfTestUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -19,13 +21,14 @@ import org.pharmgkb.pharmcat.VcfTestUtils;
  * @author Ryan Whaley
  */
 class SyntheticBatchTest {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Path sf_outsideCYP2D6File
       = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/outside_CYP2D6.tsv");
   private static final Path sf_outsideCYP2D6G6PDFile
       = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/outside_CYP2D6_G6PD.tsv");
 
-  private final PharmCAT m_pharmcat;
-  private final Path m_outputDir;
+  private final PharmCAT f_pharmcat;
+  private final Path f_outputDir;
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
@@ -624,19 +627,21 @@ class SyntheticBatchTest {
         "cyp4f2/s1s1.vcf",
         "IFNL3/rs12979860CC.vcf"
     }, sf_outsideCYP2D6G6PDFile);
+
+    sf_logger.info("Wrote reports to {}", f_outputDir);
   }
 
 
   private SyntheticBatchTest(Path outputDir) throws IOException {
-    m_outputDir = outputDir;
-    m_pharmcat = new PharmCAT(outputDir, null).keepMatcherOutput().showAllMatches();
-    m_pharmcat
+    f_outputDir = outputDir;
+    f_pharmcat = new PharmCAT(outputDir, null).keepMatcherOutput().showAllMatches();
+    f_pharmcat
         .writeJson(true)
         .writePhenotyperJson(true);
   }
 
   private void makeReport(String key, String[] testVcfs, Path outsideCallPath) throws Exception {
-    Path sampleDir = m_outputDir.resolve(key);
+    Path sampleDir = f_outputDir.resolve(key);
     if (!sampleDir.toFile().exists()) {
       if (!sampleDir.toFile().mkdirs()) {
         throw new RuntimeException("Output directory could not be created " + sampleDir.toAbsolutePath());
@@ -644,8 +649,8 @@ class SyntheticBatchTest {
     }
 
     Path sampleVcf = writeVcf(sampleDir.resolve(key + ".vcf"), testVcfs);
-    m_pharmcat.setOutputDir(sampleDir);
-    m_pharmcat.execute(sampleVcf, outsideCallPath, null);
+    f_pharmcat.setOutputDir(sampleDir);
+    f_pharmcat.execute(sampleVcf, outsideCallPath, null);
   }
 
   private Path writeVcf(Path outputVcf, String[] filesToInclude) {

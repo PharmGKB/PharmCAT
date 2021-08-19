@@ -32,6 +32,8 @@ import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.DataManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -40,6 +42,7 @@ import org.pharmgkb.pharmcat.util.DataManager;
  * {@link Reporter}. The data is compiled into {@link GeneReport} objects which can then serialized
  */
 public class Phenotyper {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private final SortedSet<GeneReport> f_geneReports = new TreeSet<>();
 
   public static void main(String[] args) {
@@ -144,7 +147,7 @@ public class Phenotyper {
       Gson gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
           .setPrettyPrinting().create();
       writer.write(gson.toJson(f_geneReports));
-      System.out.println("Writing Phenotyper JSON to " + outputPath);
+      sf_logger.info("Writing Phenotyper JSON to " + outputPath);
     }
   }
 

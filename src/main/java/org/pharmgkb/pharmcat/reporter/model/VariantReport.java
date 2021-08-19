@@ -104,7 +104,7 @@ public class VariantReport implements Comparable<VariantReport> {
       m_call = call;
     }
     else {
-      sf_logger.warn("Bad call value for {}: {}", toString(), call);
+      sf_logger.debug("Bad call value for {}: {}", this, call);
     }
   }
 

@@ -18,6 +18,8 @@ import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -30,6 +32,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
  * @author Ryan Whaley
  */
 public class Reporter {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final String FINAL_REPORT      = "report";
   private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
 
@@ -104,7 +107,7 @@ public class Reporter {
     if (jsonFile != null) {
       try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
         writer.write(sf_gson.toJson(reportData));
-        System.out.println("Writing JSON to " + jsonFile);
+        sf_logger.info("Writing Reporter JSON to " + jsonFile);
       }
     }
   }
