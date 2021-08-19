@@ -628,6 +628,14 @@ class SyntheticBatchTest {
         "IFNL3/rs12979860CC.vcf"
     }, sf_outsideCYP2D6G6PDFile);
 
+    makeReport("cyp2b6.s1s1", new String[]{
+        "cyp2b6/s1s1.vcf"
+    }, null);
+
+    makeReport("cyp2b6.s1s34", new String[]{
+        "cyp2b6/s1s34.vcf"
+    }, null);
+
     sf_logger.info("Wrote reports to {}", f_outputDir);
   }
 

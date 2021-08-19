@@ -128,6 +128,27 @@ public class ReportContext {
   }
 
   /**
+   * Find a {@link DrugReport} for the drug with the given name.
+   * @param drugName the name of the drug to find a report for
+   * @return an Optional {@link DrugReport}
+   */
+  public Optional<DrugReport> findDrugReport(String drugName) {
+    return m_drugReports.stream()
+        .filter(r -> r.getRelatedDrugs().contains(drugName))
+        .findFirst();
+  }
+
+  /**
+   * Gets a {@link DrugReport} for the drug with the given name. Will throw a {@link RuntimeException} if the drug is
+   * not found.
+   * @param drugName the name of the drug to find
+   * @return a non-null {@link DrugReport}
+   */
+  public DrugReport getDrugReport(String drugName) {
+    return findDrugReport(drugName).orElseThrow(() -> new RuntimeException("No drug exists for " + drugName));
+  }
+
+  /**
    * Add a "blank" {@link GeneReport} object just based on the gene symbol if a {@link GeneReport} doesn't already exist
    * @param geneSymbol the gene symbol
    */
