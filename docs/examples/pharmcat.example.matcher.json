@@ -3,11 +3,11 @@
     "namedAlleleMatcherVersion": "1.0.0",
     "genomeBuild": "b38",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "Aug 18, 2021, 5:25:36 PM"
+    "timestamp": "Aug 19, 2021, 4:29:54 PM"
   },
   "results": [
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr1",
       "gene": "CACNA1S",
       "diplotypes": [
@@ -58,7 +58,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr7",
       "gene": "CFTR",
       "diplotypes": [
@@ -294,7 +294,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr19",
       "gene": "CYP2B6",
       "diplotypes": [
@@ -510,7 +510,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
@@ -721,7 +721,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr10",
       "gene": "CYP2C9",
       "diplotypes": [
@@ -1098,7 +1098,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr7",
       "gene": "CYP3A5",
       "diplotypes": [
@@ -1179,7 +1179,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr19",
       "gene": "CYP4F2",
       "diplotypes": [
@@ -1230,7 +1230,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr1",
       "gene": "DPYD",
       "diplotypes": [
@@ -1686,7 +1686,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr19",
       "gene": "IFNL3",
       "diplotypes": [
@@ -1732,7 +1732,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "07/09/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr13",
       "gene": "NUDT15",
       "diplotypes": [],
@@ -1856,7 +1856,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr19",
       "gene": "RYR1",
       "diplotypes": [
@@ -2117,7 +2117,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr12",
       "gene": "SLCO1B1",
       "diplotypes": [
@@ -2303,7 +2303,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr6",
       "gene": "TPMT",
       "diplotypes": [
@@ -2559,7 +2559,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr2",
       "gene": "UGT1A1",
       "diplotypes": [
@@ -2620,7 +2620,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/29/21",
+      "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr16",
       "gene": "VKORC1",
       "diplotypes": [

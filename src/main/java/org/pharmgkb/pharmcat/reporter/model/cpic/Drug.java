@@ -44,6 +44,9 @@ public class Drug {
   @Expose
   @SerializedName("notesonusage")
   private String m_notesOnUsage;
+  @Expose
+  @SerializedName("cpicVersion")
+  private String m_cpicVersion;
 
   public String toString() {
     return m_drugName;
@@ -119,5 +122,13 @@ public class Drug {
 
   public void setNotesOnUsage(String notesOnUsage) {
     m_notesOnUsage = notesOnUsage;
+  }
+
+  public String getCpicVersion() {
+    return m_cpicVersion;
+  }
+
+  public void setCpicVersion(String cpicVersion) {
+    m_cpicVersion = cpicVersion;
   }
 }

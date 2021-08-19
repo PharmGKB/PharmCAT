@@ -49,6 +49,14 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   /**
+   * Gets the version of CPIC the resource data is based on
+   * @return a String describing the CPIC version
+   */
+  public String getCpicVersion() {
+    return m_drug.getCpicVersion();
+  }
+
+  /**
    * Gets the ID of the guideline
    */
   public String getId() {

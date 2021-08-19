@@ -167,7 +167,7 @@ public class ReportContext {
 
     Map<String,Object> result = new HashMap<>();
     result.put("generatedOn", new SimpleDateFormat("MMMMM dd, yyyy").format(new Date()));
-    result.put("version", CliUtils.getVersion());
+    result.put("pharmcatVersion", CliUtils.getVersion());
 
     if (StringUtils.isNotBlank(title)) {
       result.put("title", title);
@@ -215,6 +215,9 @@ public class ReportContext {
     // Drugs section
     List<Map<String,Object>> drugReports = new ArrayList<>();
     for (DrugReport drugReport : getDrugReports()) {
+      if (!result.containsKey("cpicVersion")) {
+        result.put("cpicVersion", drugReport.getCpicVersion());
+      }
       Map<String,Object> guidelineMap = new HashMap<>();
 
       String drugs = String.join(", ", drugReport.getRelatedDrugs());

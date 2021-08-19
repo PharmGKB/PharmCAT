@@ -1,6 +1,7 @@
 {
   "totalGenes": 17,
-  "generatedOn": "August 18, 2021",
+  "pharmcatVersion": "v0.8.0-169-g207a487\n",
+  "generatedOn": "August 19, 2021",
   "geneCalls": [
     {
       "diplotypes": [
@@ -5807,6 +5808,7 @@
     }
   ],
   "calledGenes": 16,
+  "cpicVersion": "v1.8-1-g64906f3",
   "genotypes": [
     {
       "phenotype": [
@@ -6028,7 +6030,7 @@
       ],
       "called": true,
       "functions": [
-        "One normal function allele and one no function allele"
+        "One no function allele and one normal function allele"
       ],
       "gene": "CYP2D6",
       "drugs": [
@@ -6412,7 +6414,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -6612,7 +6614,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -7142,7 +7144,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -7355,7 +7357,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -7584,7 +7586,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -7785,7 +7787,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -8340,7 +8342,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -8521,7 +8523,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -8740,7 +8742,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -9506,7 +9508,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -9699,7 +9701,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -9868,7 +9870,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -10668,7 +10670,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -10974,7 +10976,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -11115,7 +11117,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -11231,7 +11233,7 @@
           "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One normal function allele and one no function allele",
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": true
         }
       ],
@@ -11324,7 +11326,7 @@
         {
           "annotations": [
             {
-              "annotation": "adults",
+              "annotation": "pediatrics",
               "term": "Population"
             },
             {
@@ -11356,7 +11358,7 @@
         {
           "annotations": [
             {
-              "annotation": "pediatrics",
+              "annotation": "adults",
               "term": "Population"
             },
             {
@@ -11527,6 +11529,5 @@
       ]
     }
   ],
-  "title": "pharmcat.example",
-  "version": "v0.8.0-157-gf90cfe9\n"
+  "title": "pharmcat.example"
 }
