@@ -230,7 +230,9 @@ public class Diplotype implements Comparable<Diplotype> {
         return String.format(sf_homTemplate, f1);
       }
       else {
-        return String.format(sf_hetTemplate, f1, f2);
+        String[] functions = new String[]{f1, f2};
+        Arrays.sort(functions);
+        return String.format(sf_hetTemplate, functions[0], functions[1]);
       }
 
     }
