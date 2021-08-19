@@ -23,6 +23,7 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
+import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
@@ -380,6 +381,12 @@ public class ReportContext {
     return annotationMap;
   }
 
+  /**
+   * Makes a List of all possible gene combinations for a given set of genes. For example, if GENEA has 2 calls and
+   * GENEB has 1 call then the returned List will contain 2 elements.
+   * @param geneSymbols genes to make phenotype keys for
+   * @return a List of all possible phenotype keys
+   */
   private List<Map<String,String>> makePhenotypeKeys(Collection<String> geneSymbols) {
     List<Map<String,String>> keys = new ArrayList<>();
     for (String geneSymbol : geneSymbols) {
@@ -390,28 +397,27 @@ public class ReportContext {
 
   private List<Map<String,String>> makePhenotypeKeys(String geneSymbol, List<Map<String,String>> existingList) {
     if (existingList.isEmpty()) {
-      findGeneReport(geneSymbol).ifPresent((r) ->
-          r.getReporterDiplotypes().forEach((d) -> {
-            Map<String,String> newKey = new HashMap<>();
-            newKey.put(geneSymbol, d.getLookupKey());
-            existingList.add(newKey);
-          })
-      );
+      streamGeneLookupKeys(geneSymbol).forEach((k) -> existingList.add(makeGeneLookupMap(geneSymbol, k)));
       return existingList;
     }
     else {
       List<Map<String,String>> newList = new ArrayList<>();
-      findGeneReport(geneSymbol).ifPresent((r) ->
-          r.getReporterDiplotypes().forEach((d) -> {
-            for (Map<String,String> existingKey : existingList) {
-              Map<String, String> newKey = new HashMap<>(existingKey);
-              newKey.put(geneSymbol, d.getLookupKey());
-              newList.add(newKey);
-            }
-          })
-      );
+      for (Map<String,String> existingKey : existingList) {
+        streamGeneLookupKeys(geneSymbol).forEach((k) -> newList.add(copyGeneLookupMap(existingKey, geneSymbol, k)));
+      }
       return newList;
     }
+  }
+
+  private Stream<String> streamGeneLookupKeys(String gene) {
+    Optional<GeneReport> geneReportOpt = findGeneReport(gene);
+    if (geneReportOpt.isPresent()) {
+      GeneReport geneReport = geneReportOpt.get();
+      if (geneReport.getReporterDiplotypes().size() > 0) {
+        return geneReport.getReporterDiplotypes().stream().map(Diplotype::getLookupKey);
+      }
+    }
+    return Stream.of("No Result");
   }
 
   /**
@@ -428,5 +434,17 @@ public class ReportContext {
           .forEach((d) -> diplotypes.add(gene + ":" + d.printDisplay())));
     }
     return diplotypes;
+  }
+
+  private Map<String,String> makeGeneLookupMap(String gene, String lookupKey) {
+    Map<String,String> newKey = new HashMap<>();
+    newKey.put(gene, lookupKey);
+    return newKey;
+  }
+
+  private Map<String,String> copyGeneLookupMap(Map<String,String> lookupMap, String gene, String lookupKey) {
+    Map<String, String> newKey = new HashMap<>(lookupMap);
+    newKey.put(gene, lookupKey);
+    return newKey;
   }
 }
