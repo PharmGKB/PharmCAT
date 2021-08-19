@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -31,7 +32,7 @@ public class DrugReport implements Comparable<DrugReport> {
 
   private final Drug m_drug;
   private boolean m_reportable = false;
-  private final List<Recommendation> m_matchingRecommendations = new ArrayList<>();
+  private final Set<Recommendation> m_matchingRecommendations = new HashSet<>();
   private final Set<String> m_uncalledGenes = new TreeSet<>();
   private final List<MessageAnnotation> m_messages = new ArrayList<>();
   private final List<String> m_reportVariants = new ArrayList<>();
@@ -92,11 +93,11 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
 
-  public List<Recommendation> getMatchingRecommendations() {
+  public Set<Recommendation> getMatchingRecommendations() {
     return m_matchingRecommendations;
   }
 
-  public void addMatchingRecommendation(Recommendation recommendation) {
+  private void addMatchingRecommendation(Recommendation recommendation) {
     m_matchingRecommendations.add(recommendation);
   }
 
