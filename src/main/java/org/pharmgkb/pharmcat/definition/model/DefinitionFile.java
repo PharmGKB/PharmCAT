@@ -21,6 +21,9 @@ public class DefinitionFile {
   @SerializedName("formatVersion")
   private String m_formatVersion = FORMAT_VERSION;
   @Expose
+  @SerializedName("cpicVersion")
+  private String m_cpicVersion;
+  @Expose
   @SerializedName("modificationDate")
   private Date m_modificationDate;
   @Expose
@@ -73,6 +76,17 @@ public class DefinitionFile {
 
   public void setFormatVersion(String formatVersion) {
     m_formatVersion = formatVersion;
+  }
+
+  /**
+   * The version of the CPIC DB that this definition was pulled from
+   */
+  public String getCpicVersion() {
+    return m_cpicVersion;
+  }
+
+  public void setCpicVersion(String cpicVersion) {
+    m_cpicVersion = cpicVersion;
   }
 
   /**

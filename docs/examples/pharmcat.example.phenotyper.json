@@ -2826,7 +2826,6 @@
           "variantsMissing": [],
           "variant": "",
           "dips": [],
-          "hapsAvailable": [],
           "drugs": []
         },
         "exception_type": "note",
@@ -2962,7 +2961,6 @@
           "variantsMissing": [],
           "variant": "",
           "dips": [],
-          "hapsAvailable": [],
           "drugs": []
         },
         "exception_type": "footnote",
@@ -3222,7 +3220,23 @@
     "phased": true,
     "callSource": "MATCHER",
     "uncalledHaplotypes": [],
-    "messages": [],
+    "messages": [
+      {
+        "rule_name": "DPYD reverse complement footnote",
+        "version": "1",
+        "matches": {
+          "gene": "DPYD",
+          "hapsCalled": [],
+          "hapsMissing": [],
+          "variantsMissing": [],
+          "variant": "",
+          "dips": [],
+          "drugs": []
+        },
+        "exception_type": "footnote",
+        "message": "The DPYD gene is on the negative chromosomal strand, all genotype calls for DPYD in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+      }
+    ],
     "relatedDrugs": [
       {
         "name": "capecitabine",
@@ -4360,6 +4374,65 @@
     "highlightedVariants": []
   },
   {
+    "geneSymbol": "G6PD",
+    "chr": null,
+    "phased": false,
+    "callSource": "OUTSIDE",
+    "uncalledHaplotypes": [],
+    "messages": [],
+    "relatedDrugs": [
+      {
+        "name": "rasburicase",
+        "guidelineId": "RxNorm:283821"
+      }
+    ],
+    "matcherDiplotypes": [
+      {
+        "allele1": {
+          "gene": "G6PD",
+          "name": "B (wildtype)",
+          "function": "Normal function",
+          "reference": true
+        },
+        "allele2": {
+          "gene": "G6PD",
+          "name": "B (wildtype)",
+          "function": "Normal function",
+          "reference": true
+        },
+        "gene": "G6PD",
+        "phenotype": "Normal",
+        "variant": null,
+        "lookupKey": "Normal",
+        "label": "B (wildtype)/B (wildtype)"
+      }
+    ],
+    "diplotypes": [
+      {
+        "allele1": {
+          "gene": "G6PD",
+          "name": "B (wildtype)",
+          "function": "Normal function",
+          "reference": true
+        },
+        "allele2": {
+          "gene": "G6PD",
+          "name": "B (wildtype)",
+          "function": "Normal function",
+          "reference": true
+        },
+        "gene": "G6PD",
+        "phenotype": "Normal",
+        "variant": null,
+        "lookupKey": "Normal",
+        "label": "B (wildtype)/B (wildtype)"
+      }
+    ],
+    "variants": [],
+    "variantsOfInterest": [],
+    "highlightedVariants": []
+  },
+  {
     "geneSymbol": "IFNL3",
     "chr": "chr19",
     "phased": true,
@@ -4376,7 +4449,6 @@
           "variantsMissing": [],
           "variant": "",
           "dips": [],
-          "hapsAvailable": [],
           "drugs": []
         },
         "exception_type": "footnote",
@@ -4478,42 +4550,42 @@
       {
         "allele1": {
           "gene": "NUDT15",
-          "name": "*1",
-          "function": "Normal Function",
-          "reference": true
+          "name": "Unknown",
+          "function": null,
+          "reference": false
         },
         "allele2": {
           "gene": "NUDT15",
-          "name": "*1",
-          "function": "Normal Function",
-          "reference": true
+          "name": "Unknown",
+          "function": null,
+          "reference": false
         },
         "gene": "NUDT15",
-        "phenotype": "Normal Metabolizer",
+        "phenotype": "No Result",
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
-        "label": "*1/*1"
+        "lookupKey": "No Result",
+        "label": "Unknown/Unknown"
       }
     ],
     "diplotypes": [
       {
         "allele1": {
           "gene": "NUDT15",
-          "name": "*1",
-          "function": "Normal Function",
-          "reference": true
+          "name": "Unknown",
+          "function": null,
+          "reference": false
         },
         "allele2": {
           "gene": "NUDT15",
-          "name": "*1",
-          "function": "Normal Function",
-          "reference": true
+          "name": "Unknown",
+          "function": null,
+          "reference": false
         },
         "gene": "NUDT15",
-        "phenotype": "Normal Metabolizer",
+        "phenotype": "No Result",
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
-        "label": "*1/*1"
+        "lookupKey": "No Result",
+        "label": "Unknown/Unknown"
       }
     ],
     "variants": [
@@ -4553,8 +4625,8 @@
           "*9"
         ],
         "phased": true,
-        "wildtypeAllele": "GGAGTC",
-        "mismatch": false
+        "wildtypeAllele": "GAGTCG",
+        "mismatch": true
       },
       {
         "gene": "NUDT15",
@@ -5926,7 +5998,6 @@
           "variantsMissing": [],
           "variant": "",
           "dips": [],
-          "hapsAvailable": [],
           "drugs": []
         },
         "exception_type": "footnote",
@@ -6574,7 +6645,6 @@
           "variantsMissing": [],
           "variant": "",
           "dips": [],
-          "hapsAvailable": [],
           "drugs": []
         },
         "exception_type": "footnote",
@@ -6709,7 +6779,6 @@
           "variantsMissing": [],
           "variant": "",
           "dips": [],
-          "hapsAvailable": [],
           "drugs": []
         },
         "exception_type": "footnote",
@@ -6725,7 +6794,6 @@
           "variantsMissing": [],
           "variant": "",
           "dips": [],
-          "hapsAvailable": [],
           "drugs": []
         },
         "exception_type": "footnote",

@@ -31,9 +31,11 @@ class PharmCATTest {
   private static final String sf_outsideCalls = "##Test Outside Call Data\n" +
       "#Gene\tDiplotype\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\tspecial case\tnomenclature version\n" +
       "CYP2D6\tCYP2D6*1/CYP2D6*4\t?/?\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
+  private static final String sf_otherOutsideCalls = "CYP2D6\t*3/*4\nG6PD\tB (wildtype)/B (wildtype)\n";
   private static final String sf_diplotypesTemplate = "\nmatcher: %s\nreporter: %s\nprint (displayCalls): %s";
   private static PharmCAT s_pharmcat;
   private static Path s_outsideCallFilePath;
+  private static Path s_otherOutsideCallFilePath;
   private static ReportContext s_context;
 
   @BeforeAll
@@ -42,6 +44,11 @@ class PharmCATTest {
     s_outsideCallFilePath = Files.createTempFile("outsideCall", ".tsv");
     try (FileWriter fw = new FileWriter(s_outsideCallFilePath.toFile())) {
       fw.write(sf_outsideCalls);
+    }
+
+    s_otherOutsideCallFilePath = Files.createTempFile("otherOutsideCall", ".tsv");
+    try (FileWriter fw = new FileWriter(s_otherOutsideCallFilePath.toFile())) {
+      fw.write(sf_otherOutsideCalls);
     }
 
     Path tempDirPath = Files.createTempDirectory(MethodHandles.lookup().lookupClass().getName());
@@ -57,12 +64,10 @@ class PharmCATTest {
     generalTest("test.cyp2c19.singleGeneMatch", new String[]{
             "cyp2c19/s1s1.vcf"
         },
-        null);
+        s_otherOutsideCallFilePath);
 
     testCalledByMatcher("CYP2C19");
     testPrintCalls( "CYP2C19", "*1/*1");
-
-    testNotCalledByMatcher("CYP2D6");
 
     testMatchedGroups("amitriptyline", 1);
     testMatchedGroups("citalopram", 1);
@@ -78,12 +83,10 @@ class PharmCATTest {
     generalTest("test.cyp2c19.singleGeneMatch", new String[]{
             "cyp2c19/s1s2rs58973490het.vcf"
         },
-        null);
+        s_otherOutsideCallFilePath);
 
     testCalledByMatcher("CYP2C19");
     testPrintCalls( "CYP2C19", "*1/*2");
-
-    testNotCalledByMatcher("CYP2D6");
 
     testMatchedGroups("amitriptyline", 1);
     testMatchedGroups("citalopram", 1);
@@ -115,12 +118,10 @@ class PharmCATTest {
     generalTest("test.cyp2c19.singleGeneMatch", new String[]{
             "cyp2c19/s1s2.vcf"
         },
-        null);
+        s_otherOutsideCallFilePath);
 
     testCalledByMatcher("CYP2C19");
     testPrintCalls( "CYP2C19", "*1/*2");
-
-    testNotCalledByMatcher("CYP2D6");
 
     testMatchedGroups("amitriptyline", 1);
     testMatchedGroups("citalopram", 1);
@@ -990,8 +991,8 @@ class PharmCATTest {
     // NOTE: if these assertions fail then new data may have been added from the DataManager because of an update to the
     // CPIC database. If that's true, then update these numbers to the current count. If the count changes with no known
     // change to the CPIC database then something may be wrong in code.
-    assertEquals(16, s_context.getGeneReports().size());
-    assertEquals(52, s_context.getDrugReports().size());
+    assertEquals(17, s_context.getGeneReports().size());
+    assertEquals(53, s_context.getDrugReports().size());
   }
 
   /**

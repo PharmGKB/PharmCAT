@@ -1,6 +1,6 @@
 {
-  "totalGenes": 16,
-  "generatedOn": "July 02, 2021",
+  "totalGenes": 17,
+  "generatedOn": "August 18, 2021",
   "geneCalls": [
     {
       "diplotypes": [
@@ -2685,6 +2685,9 @@
       "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
+      "warnings": [
+        "The DPYD gene is on the negative chromosomal strand, all genotype calls for DPYD in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+      ],
       "messages": [],
       "totalMissingVariants": 0,
       "totalVariants": 83,
@@ -3774,6 +3777,21 @@
     },
     {
       "diplotypes": [
+        "B (wildtype)/B (wildtype)"
+      ],
+      "gene": "G6PD",
+      "hasUncalledHaps": false,
+      "variantsOfInterestUnspecified": true,
+      "outsideCall": true,
+      "variantsUnspecified": true,
+      "messages": [],
+      "totalMissingVariants": 0,
+      "totalVariants": 0,
+      "phaseStatus": "Unavailable for calls made outside PharmCAT",
+      "extra-position-notes": []
+    },
+    {
+      "diplotypes": [
         "rs12979860 reference (C)/rs12979860 reference (C)"
       ],
       "gene": "IFNL3/4",
@@ -3806,7 +3824,7 @@
     },
     {
       "diplotypes": [
-        "*1/*1"
+        "not called"
       ],
       "gene": "NUDT15",
       "hasUncalledHaps": false,
@@ -3852,8 +3870,8 @@
             "*9"
           ],
           "phased": true,
-          "wildtypeAllele": "GGAGTC",
-          "mismatch": false
+          "wildtypeAllele": "GAGTCG",
+          "mismatch": true
         },
         {
           "gene": "NUDT15",
@@ -6154,6 +6172,28 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "hasMessages": true
+    },
+    {
+      "phenotype": [
+        "Normal"
+      ],
+      "called": true,
+      "functions": [
+        "Two normal function alleles"
+      ],
+      "gene": "G6PD",
+      "drugs": [
+        {
+          "name": "rasburicase",
+          "guidelineId": "RxNorm:283821"
+        }
+      ],
+      "calls": [
+        "B (wildtype)/B (wildtype)"
+      ],
+      "missingVariants": "No",
+      "outsideCall": true,
       "hasMessages": false
     },
     {
@@ -6184,11 +6224,11 @@
     },
     {
       "phenotype": [
-        "Normal Metabolizer"
+        "N/A"
       ],
-      "called": true,
+      "called": false,
       "functions": [
-        "Two normal function alleles"
+        "N/A"
       ],
       "gene": "NUDT15",
       "drugs": [
@@ -6206,7 +6246,7 @@
         }
       ],
       "calls": [
-        "*1/*1"
+        "not called"
       ],
       "missingVariants": "No",
       "outsideCall": false,
@@ -6690,10 +6730,10 @@
       "geneCalls": [
         {
           "gene": "NUDT15",
-          "diplotypes": "*1/*1",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "Two normal function alleles",
+          "functions": null,
           "outsideCall": false
         },
         {
@@ -6718,11 +6758,11 @@
               "term": "Implication for TPMT"
             },
             {
-              "annotation": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+              "annotation": "n/a",
               "term": "Implication for NUDT15"
             },
             {
-              "annotation": "NUDT15:*1/*1, TPMT:*1/*1",
+              "annotation": "NUDT15:Unknown/Unknown, TPMT:*1/*1",
               "term": "Matched Diplotypes"
             },
             {
@@ -6730,11 +6770,11 @@
               "term": "Phenotype for TPMT"
             },
             {
-              "annotation": "Normal Metabolizer",
+              "annotation": "No Result",
               "term": "Phenotype for NUDT15"
             },
             {
-              "annotation": "Start with normal starting dose (e.g., 2-3 mg/kg/day) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506).",
+              "annotation": "Based on TPMT status, start with normal starting dose (e.g., 2-3 mg/kg/day) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506). NUDT15 genotype is not available. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.",
               "term": "Recommendation"
             },
             {
@@ -9223,10 +9263,10 @@
       "geneCalls": [
         {
           "gene": "NUDT15",
-          "diplotypes": "*1/*1",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "Two normal function alleles",
+          "functions": null,
           "outsideCall": false
         },
         {
@@ -9251,11 +9291,11 @@
               "term": "Implication for TPMT"
             },
             {
-              "annotation": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+              "annotation": "n/a",
               "term": "Implication for NUDT15"
             },
             {
-              "annotation": "NUDT15:*1/*1, TPMT:*1/*1",
+              "annotation": "NUDT15:Unknown/Unknown, TPMT:*1/*1",
               "term": "Matched Diplotypes"
             },
             {
@@ -9263,11 +9303,11 @@
               "term": "Phenotype for TPMT"
             },
             {
-              "annotation": "Normal Metabolizer",
+              "annotation": "No Result",
               "term": "Phenotype for NUDT15"
             },
             {
-              "annotation": "Start with normal starting dose (e.g., 75 mg/m2/day or 1.5 mg/kg/day) and adjust doses of mercaptopurine (and of any other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow at least 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 16401827, 11302950).",
+              "annotation": "Based on TPMT status, start with normal starting dose (e.g., 75 mg/m2/day or 1.5 mg/kg/day) and adjust doses of mercaptopurine (and of any other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow at least 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 16401827, 11302950). NUDT15 genotype result is not available. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
               "term": "Recommendation"
             },
             {
@@ -10075,6 +10115,83 @@
       "uncalledGenes": "",
       "geneCalls": [
         {
+          "gene": "G6PD",
+          "diplotypes": "B (wildtype)/B (wildtype)",
+          "showHighlights": false,
+          "highlightedVariants": [],
+          "functions": "Two normal function alleles",
+          "outsideCall": true
+        }
+      ],
+      "drugs": "rasburicase",
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Low or reduced risk of hemolytic anemia",
+              "term": "Implication for G6PD"
+            },
+            {
+              "annotation": "G6PD:B (wildtype)/B (wildtype)",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal",
+              "term": "Phenotype for G6PD"
+            },
+            {
+              "annotation": "No reason to withhold rasburicase based on G6PD status.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "A negative or inconclusive genetic test cannot be assumed to indicate normal G6PD phenotype; an enzyme actiity test is needed to assign G6PD phenotype in such cases.",
+              "term": "Comments"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
+      "url": "https://cpicpgx.org/guidelines/guideline-for-rasburicase-and-g6pd/",
+      "mutliMatch": false,
+      "citations": [
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Rasburicase Therapy in the context of G6PD Deficiency Genotype",
+          "authors": [
+            "Relling Mary V",
+            "McDonagh Ellen M",
+            "Chang Tamara",
+            "Caudle Kelly E",
+            "McLeod Howard L",
+            "Haidar Cyrine E",
+            "Klein Teri",
+            "Luzzatto Lucio"
+          ],
+          "pmid": "24787449",
+          "pmcid": "PMC4111801",
+          "doi": "10.1038/clpt.2014.97",
+          "month": 5,
+          "year": 2014
+        }
+      ],
+      "messages": [],
+      "matched": true,
+      "id": "RxNorm:283821",
+      "lastModified": "not available",
+      "footnotes": []
+    },
+    {
+      "uncalledGenes": "",
+      "geneCalls": [
+        {
           "gene": "CYP2C19",
           "diplotypes": "*38/*38",
           "showHighlights": false,
@@ -10710,10 +10827,10 @@
       "geneCalls": [
         {
           "gene": "NUDT15",
-          "diplotypes": "*1/*1",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "Two normal function alleles",
+          "functions": null,
           "outsideCall": false
         },
         {
@@ -10738,11 +10855,11 @@
               "term": "Implication for TPMT"
             },
             {
-              "annotation": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+              "annotation": "n/a",
               "term": "Implication for NUDT15"
             },
             {
-              "annotation": "NUDT15:*1/*1, TPMT:*1/*1",
+              "annotation": "NUDT15:Unknown/Unknown, TPMT:*1/*1",
               "term": "Matched Diplotypes"
             },
             {
@@ -10750,11 +10867,11 @@
               "term": "Phenotype for TPMT"
             },
             {
-              "annotation": "Normal Metabolizer",
+              "annotation": "No Result",
               "term": "Phenotype for NUDT15"
             },
             {
-              "annotation": "Start with normal starting dose (e.g., 40-60 mg/m2/day) and adjust doses of thioguanine and of other myelosuppressive therapy without any special emphasis on thioguanine. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11037857).",
+              "annotation": "Based on TPMT status, start with normal starting dose (e.g., 40-60 mg/m2/day) and adjust doses of thioguanine and of other myelosuppressive therapy without any special emphasis on thioguanine. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 203542+J1301, 11037857). NUDT15 genotype is not available. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.",
               "term": "Recommendation"
             },
             {
@@ -11411,5 +11528,5 @@
     }
   ],
   "title": "pharmcat.example",
-  "version": "v0.8.0-129-g4dbd05a\n"
+  "version": "v0.8.0-157-gf90cfe9\n"
 }

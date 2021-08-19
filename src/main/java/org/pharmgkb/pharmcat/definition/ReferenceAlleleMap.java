@@ -17,6 +17,7 @@ public class ReferenceAlleleMap {
 
   public ReferenceAlleleMap() {
     f_refAlleleForGene.put("CYP2D6", "*1");
+    f_refAlleleForGene.put("G6PD", "B (wildtype)");
     try {
       DefinitionReader definitionReader = new DefinitionReader();
       definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);

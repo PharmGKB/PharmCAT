@@ -22,7 +22,7 @@ class PhenotypeMapTest {
 
     assertNotNull(phenotypeMap);
 
-    assertEquals(13, phenotypeMap.getGenes().size());
+    assertEquals(15, phenotypeMap.getGenes().size());
 
     assertEquals(
         "No function",

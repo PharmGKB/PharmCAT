@@ -41,8 +41,9 @@ public class DataManager {
   public static final Path DEFAULT_DEFINITION_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
+  private static final String PHENOTYPES_JSON_FILE_NAME = "gene_phenotypes.json";
   private static final String SUMMARY_REPORT = "summary.md";
-  private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6");
+  private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "G6PD");
   private final DataSerializer m_dataSerializer = new DataSerializer();
   private final boolean m_verbose;
 
@@ -61,6 +62,7 @@ public class DataManager {
           .addOption("m", "messages-dir", "directory to write messages to", true, "m")
           .addOption("g", "drugs-dir", "directory to save drug data to", false, "g")
           .addOption("d", "documenation-dir", "directory to save documentation to", false, "documentation-path")
+          .addOption("p", "phenotypes-dir", "directory to save phenotypes to", false, "phenotypes-dir-path")
           .addOption("sd", "skip-download", "skip downloading")
           .addOption("sa", "skip-alleles", "skip alleles")
           .addOption("sm", "skip-messages", "skip messages")
@@ -123,6 +125,11 @@ public class DataManager {
           manager.writeSummary(docsDir, geneAlleleCountMap, drugs);
         }
 
+        if (cliHelper.hasOption("p")) {
+          Path phenoDir = cliHelper.getValidDirectory("p", true);
+          manager.writePhenotypes(downloadDir, phenoDir);
+        }
+
       } finally {
         if (!cliHelper.hasOption("dl")) {
           FileUtils.deleteQuietly(downloadDir.toFile());
@@ -142,6 +149,10 @@ public class DataManager {
         new URL("https://files.cpicpgx.org/data/report/current/allele_definitions.json"),
         downloadDir.resolve("allele_definitions.json").toFile());
 
+    FileUtils.copyURLToFile(
+        new URL("https://files.cpicpgx.org/data/report/current/gene_phenotypes.json"),
+        downloadDir.resolve(PHENOTYPES_JSON_FILE_NAME).toFile());
+
     String urlFmt = "https://docs.google.com/spreadsheets/d/%s/export?format=tsv";
     // download exemptions and messages
     FileUtils.copyURLToFile(new URL(String.format(urlFmt, "1xHvvXQIMv3xbqNhuN7zG6WP4DB7lpQDmLvz18w-u_lk")),
@@ -158,8 +169,7 @@ public class DataManager {
     FileUtils.copyURLToFile(
         new URL("https://files.cpicpgx.org/data/report/current/drugs.json"),
         drugsPath.toFile());
-    System.out.println();
-    System.out.println("Saving messages to " + drugsPath);
+    System.out.println("Saving drugs to " + drugsPath);
 
     Set<String> existingDrugNames = existingDrugs.list().stream()
         .map(Drug::getDrugName).collect(Collectors.toSet());
@@ -204,7 +214,6 @@ public class DataManager {
       definitionFileMap.put(df.getGeneSymbol(), df);
     }
 
-    System.out.println();
     System.out.println("Saving allele definitions in " + definitionsDir.toString());
     Set<String> currentFiles = Files.list(definitionsDir)
         .map(PathUtils::getFilename)
@@ -263,8 +272,6 @@ public class DataManager {
 
 
   private Map<String, DefinitionExemption> transformExemptions(Path tsvFile, Path jsonFile) throws IOException {
-
-    System.out.println();
     System.out.println("Saving exemptions to " + jsonFile.toString());
     Set<DefinitionExemption> exemptions = m_dataSerializer.deserializeExemptionsFromTsv(tsvFile);
     m_dataSerializer.serializeToJson(exemptions, jsonFile);
@@ -275,8 +282,6 @@ public class DataManager {
   }
 
   private void transformMessages(Path tsvFile, Path jsonFile) throws IOException {
-
-    System.out.println();
     System.out.println("Saving messages to " + jsonFile.toString());
     m_dataSerializer.serializeToJson(m_dataSerializer.deserializeMessagesFromTsv(tsvFile), jsonFile);
   }
@@ -315,7 +320,16 @@ public class DataManager {
         String drugList = drugs.listReportable().stream().map(d -> "- " + d.getDrugName()).collect(Collectors.joining("\n"));
         IOUtils.write(String.format(mdTemplate, matcherGeneList, outsideGeneList, drugList), fw);
       }
-      System.out.println("\nSaving summary file to " + summaryFile);
+      System.out.println("Saving summary file to " + summaryFile);
     }
+  }
+
+  private void writePhenotypes(Path downloadDir, Path outputDir) throws IOException {
+    Path outputPath = outputDir.resolve(PHENOTYPES_JSON_FILE_NAME);
+    FileUtils.copyFile(
+        downloadDir.resolve(PHENOTYPES_JSON_FILE_NAME).toFile(),
+        outputPath.toFile()
+    );
+    System.out.println("Saving phenotypes to " + outputPath);
   }
 }

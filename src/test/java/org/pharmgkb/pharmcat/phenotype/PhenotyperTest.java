@@ -62,7 +62,6 @@ class PhenotyperTest {
         new ArrayList<>());
 
     assertCalledByMatcher(phenotyper, "CYP2C19");
-    assertNotCalledByMatcher(phenotyper, "CYP2D6");
 
     assertDiplotypeDisplay(phenotyper, "CYP2C19", "*2/*2");
   }

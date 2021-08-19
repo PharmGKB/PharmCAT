@@ -31,7 +31,7 @@ class DrugCollectionTest {
   @Test
   void testLoadReportable() throws IOException {
     DrugCollection drugCollection = new DrugCollection();
-    assertEquals(52, drugCollection.listReportable().size());
+    assertEquals(53, drugCollection.listReportable().size());
 
     Set<String> reportableDrugNames = drugCollection.listReportable().stream().map((drug) -> drug.getDrugName()).collect(Collectors.toSet());
     Set<String> drugNames = drugCollection.list().stream().map((drug) -> drug.getDrugName()).collect(Collectors.toSet());

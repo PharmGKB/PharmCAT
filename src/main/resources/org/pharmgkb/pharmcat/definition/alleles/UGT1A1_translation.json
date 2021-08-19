@@ -1,6 +1,7 @@
 {
   "formatVersion": "1",
-  "modificationDate": "Jun 29, 2021 08:50:48 AM",
+  "cpicVersion": "v1.8-1-g64906f3",
+  "modificationDate": "Aug 18, 2021 04:53:20 PM",
   "gene": "UGT1A1",
   "orientation": null,
   "chromosome": "chr2",
