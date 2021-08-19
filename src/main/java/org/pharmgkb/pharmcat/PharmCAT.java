@@ -53,7 +53,6 @@ public class PharmCAT {
         // optional data
         .addOption("na", "alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
         // controls
-        .addOption("m", "show-all-matches", "show all matching diplotype pairs, not just top-scoring match")
         .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files")
         .addOption("j", "write-reporter-json", "flag to write a JSON file of the data used to populate the final report")
         .addOption("pj", "write-phenotyper-json", "flag to write a JSON file of the data used in the phenotyper");
@@ -83,9 +82,6 @@ public class PharmCAT {
       PharmCAT pharmcat = new PharmCAT(outputDir, definitionsDir);
       if (cliHelper.hasOption("k")) {
         pharmcat.keepMatcherOutput();
-      }
-      if (cliHelper.hasOption("m")) {
-        pharmcat.showAllMatches();
       }
 
       pharmcat
