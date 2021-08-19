@@ -20,6 +20,7 @@ public class VcfTestUtils {
       "##reference=hg38\n" +
       "##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n" +
       "##FILTER=<ID=PASS,Description=\"All filters passed\">\n" +
+      "##SAMPLE=<ID=PharmCAT,Description=\"Synthetic PharmCAT test\">\n" +
       "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tPharmCAT\n";
 
   public static String writeVcf(String[] filesToInclude) {
