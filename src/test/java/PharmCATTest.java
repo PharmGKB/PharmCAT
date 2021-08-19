@@ -74,6 +74,23 @@ class PharmCATTest {
     testMatchedGroups("ivacaftor", 0);
   }
 
+  @Test
+  void testCyp2c19_noCyp2d6() throws Exception {
+    generalTest("test.cyp2c19.singleGeneMatch", new String[]{
+            "cyp2c19/s1s1.vcf"
+        },
+        null);
+
+    testCalledByMatcher("CYP2C19");
+    testPrintCalls( "CYP2C19", "*1/*1");
+
+    testNotCalledByMatcher("CYP2D6");
+
+    testMatchedGroups("amitriptyline", 1);
+    testMatchedGroups("citalopram", 1);
+    testMatchedGroups("ivacaftor", 0);
+  }
+
   /**
    * This test case demos that an "ambiguity" {@link MessageAnnotation} which specifies a variant and a diplotype call
    * for a given drug report will be matched and added to the {@link DrugReport}
