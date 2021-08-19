@@ -1,16 +1,20 @@
 package org.pharmgkb.pharmcat.reporter;
 
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.DataManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class DrugCollectionTest {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   /**
    * Tests the count of the absolute list of drugs coming in from CPIC. If this assertion fails that means the list of
@@ -37,6 +41,6 @@ class DrugCollectionTest {
     Set<String> drugNames = drugCollection.list().stream().map((drug) -> drug.getDrugName()).collect(Collectors.toSet());
 
     drugNames.removeAll(reportableDrugNames);
-    System.out.println("Non-reportable drugs: " + String.join("; ", drugNames));
+    sf_logger.info("Non-reportable drugs: " + String.join("; ", drugNames));
   }
 }

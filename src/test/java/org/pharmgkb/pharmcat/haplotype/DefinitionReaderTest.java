@@ -17,9 +17,6 @@ class DefinitionReaderTest {
 
   @Test
   void testVkorc1() throws Exception {
-
-    System.out.println("DefinitionReaderTest");
-
     DefinitionReader dr = new DefinitionReader();
     File file = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/VKORC1_translation.json").toFile();
     Path path = Paths.get(file.getAbsolutePath());

@@ -68,7 +68,7 @@ public class MatchData {
       SampleAllele allele = alleleMap.get(chrPos);
       if (allele == null) {
         m_missingPositions.add(variant);
-        sf_logger.info("Sample has no allele for {}", chrPos);
+        sf_logger.debug("Sample has no allele for {}", chrPos);
         continue;
       }
       if (m_ignoredPositions.contains(variant)) {

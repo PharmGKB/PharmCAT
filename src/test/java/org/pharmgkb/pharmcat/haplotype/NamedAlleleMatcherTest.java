@@ -10,7 +10,6 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
@@ -173,10 +172,6 @@ class NamedAlleleMatcherTest {
     // get all permutations of sample at positions of interest
     data.generateSamplePermutations();
     assertThat(data.getPermutations(), equalTo(permutations));
-
-    for (NamedAllele hap : data.getHaplotypes()) {
-      System.out.println(hap.getName() + ": " + hap.getPermutations().pattern());
-    }
 
     List<DiplotypeMatch> pairs = new DiplotypeMatcher(data).compute();
     assertNotNull(pairs);

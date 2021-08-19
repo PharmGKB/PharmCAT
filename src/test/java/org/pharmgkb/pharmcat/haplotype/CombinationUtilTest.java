@@ -41,7 +41,6 @@ class CombinationUtilTest {
     Set<String> permutations = CombinationUtil.generatePermutations(alleles);
     assertEquals(expectedPermutations.size(), permutations.size());
     for (String p : permutations) {
-      System.out.println(p);
       assertTrue(expectedPermutations.remove(p));
     }
   }
@@ -63,7 +62,6 @@ class CombinationUtilTest {
     Set<String> permutations = CombinationUtil.generatePermutations(alleles);
     assertEquals(expectedPermutations.size(), permutations.size());
     for (String p : permutations) {
-      System.out.println(p);
       assertTrue(expectedPermutations.remove(p));
     }
   }
@@ -87,7 +85,6 @@ class CombinationUtilTest {
     haplotypes.add(hap);
 
     assertEquals(4, haplotypes.size());
-    System.out.println(haplotypes);
 
     Set<String> expectedPairs = Sets.newHashSet(
         "*1*1",
@@ -105,7 +102,6 @@ class CombinationUtilTest {
     assertEquals(expectedPairs.size(), pairs.size());
 
     for (List<NamedAllele> pair : pairs) {
-      System.out.println(pair);
       String p = pair.get(0).getName() + pair.get(1).getName();
       assertTrue(expectedPairs.remove(p));
     }
