@@ -71,4 +71,25 @@ class GeneReportTest {
     assertEquals(1, geneReport.printDisplayCalls().size());
     assertTrue(geneReport.printDisplayCalls().contains(PRINT_DIPLOTYPE3));
   }
+
+  @Test
+  void testNoFunctionCyp2D6() {
+    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
+        "CYP2D6",
+        sf_phenotypeMap.lookup("CYP2D6").orElse(null),
+        sf_referenceAlleleMap.get("CYP2D6"));
+
+    OutsideCall outsideCall = new OutsideCall("CYP2D6\t*1/*XXX");
+
+    GeneReport geneReport = new GeneReport(outsideCall);
+    geneReport.setDiplotypes(diplotypeFactory, outsideCall);
+
+    assertEquals("CYP2D6", geneReport.getGene());
+    assertTrue(geneReport.isCalled());
+    assertTrue(geneReport.isReportable());
+    assertEquals(1, geneReport.getReporterDiplotypes().size());
+    assertEquals(1, geneReport.printDisplayCalls().size());
+    assertTrue(geneReport.printDisplayCalls().contains("*1/*XXX"));
+    assertEquals(1, geneReport.printDisplayPhenotypes().size());
+  }
 }

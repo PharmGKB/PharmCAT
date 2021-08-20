@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.reporter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
@@ -636,6 +637,10 @@ class SyntheticBatchTest {
         "cyp2b6/s1s34.vcf"
     }, null);
 
+    makeReportWithOutputString("cyp2d6.s1unknown", new String[]{
+        "cyp2c9/s1s61.vcf"
+    }, "CYP2D6\t*1/*XXX\n");
+
     sf_logger.info("Wrote reports to {}", f_outputDir);
   }
 
@@ -659,6 +664,15 @@ class SyntheticBatchTest {
     Path sampleVcf = writeVcf(sampleDir.resolve(key + ".vcf"), testVcfs);
     f_pharmcat.setOutputDir(sampleDir);
     f_pharmcat.execute(sampleVcf, outsideCallPath, null);
+  }
+
+  private void makeReportWithOutputString(String key, String[] testVcfs, String outsideCalls) throws Exception {
+    Path outsideCallPath = Files.createTempFile("outsideCall", ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write(outsideCalls);
+    }
+    makeReport(key, testVcfs, outsideCallPath);
+    outsideCallPath.toFile().deleteOnExit();
   }
 
   private Path writeVcf(Path outputVcf, String[] filesToInclude) {

@@ -17,6 +17,7 @@ import org.pharmgkb.pharmcat.VcfTestUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
@@ -1022,6 +1023,30 @@ class PharmCATTest {
           "cyp2c9/s2s3.vcf",
       }, badOutsideDataPath);
       fail("Should have failed due to a duplicate gene definition in outside call");
+    }
+    catch (ParseException ex) {
+      // we want this to fail so ignore handling the exception
+    }
+  }
+
+  @Test
+  void testCyp2d6AlleleWithNoFunction() throws Exception {
+    Path outsideCallPath = Files.createTempFile("noFunction", ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("CYP2D6\t*1/*XXX");
+    }
+
+    try {
+      s_pharmcatTopMatch.execute("test.badOutsideData", new String[]{
+          "cyp2c19/s2s2.vcf",
+          "cyp2c9/s2s3.vcf",
+      }, outsideCallPath);
+      s_pharmcatTopMatch.testPrintCalls("CYP2D6", "*1/*XXX");
+
+      GeneReport geneReport = s_pharmcatTopMatch.getContext().getGeneReport("CYP2D6");
+      assertEquals(1, geneReport.getReporterDiplotypes().size());
+      Diplotype diplotype = geneReport.getReporterDiplotypes().get(0);
+      assertEquals("One normal function allele and one unassigned function allele", diplotype.printFunctionPhrase());
     }
     catch (ParseException ex) {
       // we want this to fail so ignore handling the exception

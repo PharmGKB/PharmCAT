@@ -26,6 +26,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
  * @author Ryan Whaley
  */
 public class DiplotypeFactory {
+  private static final String UNASSIGNED_FUNCTION = "Unassigned function";
 
   private final String f_gene;
   private final String f_referenceAlleleName;
@@ -140,8 +141,8 @@ public class DiplotypeFactory {
     }
 
     Haplotype haplotype = new Haplotype(f_gene, name);
-    if (f_genePhenotype != null && f_genePhenotype.getHaplotypes() != null) {
-      haplotype.setFunction(f_genePhenotype.getHaplotypes().get(name));
+    if (f_genePhenotype != null) {
+      haplotype.setFunction(f_genePhenotype.findHaplotypeFunction(name).orElse(UNASSIGNED_FUNCTION));
     }
     haplotype.setReference(name.equals(f_referenceAlleleName));
 

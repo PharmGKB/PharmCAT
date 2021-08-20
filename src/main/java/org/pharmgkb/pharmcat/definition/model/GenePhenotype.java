@@ -2,10 +2,12 @@ package org.pharmgkb.pharmcat.definition.model;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 
@@ -57,6 +59,13 @@ public class GenePhenotype {
       return null;
     }
     return m_haplotypes.get(hap);
+  }
+
+  public Optional<String> findHaplotypeFunction(String haplotype) {
+    if (StringUtils.isBlank(haplotype)) {
+      return Optional.empty();
+    }
+    return Optional.ofNullable(m_haplotypes.get(haplotype));
   }
 
   /**
