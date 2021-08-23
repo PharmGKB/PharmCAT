@@ -979,6 +979,54 @@ class PharmCATTest {
   }
 
 
+  /* NUDT15 */
+  @Test
+  void testNudt15Ref() throws Exception {
+    s_pharmcatTopMatch.execute("test.nudt15.s1s1", new String[] {
+            "nudt15/refref.vcf"
+        },
+        null);
+
+    s_pharmcatTopMatch.testCalledByMatcher("NUDT15");
+    s_pharmcatTopMatch.testPrintCalls("NUDT15", "*1/*1");
+    s_pharmcatTopMatch.testLookup("NUDT15", "*1", "*1");
+
+    s_pharmcatTopMatch.testMatchedGroups("azathioprine", 1);
+    s_pharmcatTopMatch.testMatchedGroups("mercaptopurine", 1);
+    s_pharmcatTopMatch.testMatchedGroups("thioguanine", 1);
+  }
+
+  @Test
+  void testNudt15S2() throws Exception {
+    s_pharmcatTopMatch.execute("test.nudt15.s2ref", new String[] {
+            "nudt15/s2ref.vcf"
+        },
+        null);
+
+    s_pharmcatTopMatch.testCalledByMatcher("NUDT15");
+    s_pharmcatTopMatch.testPrintCalls("NUDT15", "*1/*2");
+    s_pharmcatTopMatch.testLookup("NUDT15", "*1", "*2");
+
+    s_pharmcatTopMatch.testMatchedGroups("azathioprine", 1);
+  }
+
+  @Test
+  void testNudt15S3() throws Exception {
+    s_pharmcatTopMatch.execute("test.nudt15.s3ref", new String[] {
+            "nudt15/s3ref.vcf"
+        },
+        null);
+
+    s_pharmcatTopMatch.testCalledByMatcher("NUDT15");
+    s_pharmcatTopMatch.testPrintCalls("NUDT15", "*1/*3");
+    s_pharmcatTopMatch.testLookup("NUDT15", "*1", "*3");
+
+    s_pharmcatTopMatch.testMatchedGroups("azathioprine", 1);
+    s_pharmcatTopMatch.testMatchedGroups("mercaptopurine", 1);
+    s_pharmcatTopMatch.testMatchedGroups("thioguanine", 1);
+  }
+
+
   @Test
   void testCombined() throws Exception {
     s_pharmcatTopMatch.execute("test.combined", new String[]{
