@@ -99,8 +99,8 @@ own risk.</p>
 
 ### C. PharmCAT Exceptions to the CPIC Guideline Gene List
 
-1.  PharmCAT does not determine CYP2D6 or HLA genotypes from the vcf file, but genotypes for these genes can be provided to PharmCAT from an outside source and the corresponding phenotype and prescribing recommendations will be included in the generated report. 
-2.  G6PD is currently not included in PharmCAT.
+1.  PharmCAT does not determine CYP2D6, G6PD, MT-RNR1, or HLA genotypes from the vcf file, but genotypes for CYP2D6, G6PD, MT-RNR1 can be provided to PharmCAT from an outside source and the corresponding phenotype and prescribing recommendations will be included in the generated report. 
+2.  HLAs are currently not included in PharmCAT.
 
 ### D. CPIC Guideline Disclaimers and Caveats
 
