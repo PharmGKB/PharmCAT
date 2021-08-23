@@ -983,7 +983,7 @@ class PharmCATTest {
   @Test
   void testNudt15Ref() throws Exception {
     s_pharmcatTopMatch.execute("test.nudt15.s1s1", new String[] {
-            "nudt15/refref.vcf"
+            "NUDT15/refref.vcf"
         },
         null);
 
@@ -999,7 +999,7 @@ class PharmCATTest {
   @Test
   void testNudt15S2() throws Exception {
     s_pharmcatTopMatch.execute("test.nudt15.s2ref", new String[] {
-            "nudt15/s2ref.vcf"
+            "NUDT15/s2ref.vcf"
         },
         null);
 
@@ -1013,7 +1013,7 @@ class PharmCATTest {
   @Test
   void testNudt15S3() throws Exception {
     s_pharmcatTopMatch.execute("test.nudt15.s3ref", new String[] {
-            "nudt15/s3ref.vcf"
+            "NUDT15/s3ref.vcf"
         },
         null);
 

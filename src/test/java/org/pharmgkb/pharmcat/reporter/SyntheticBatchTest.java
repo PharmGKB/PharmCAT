@@ -630,11 +630,11 @@ class SyntheticBatchTest {
     }, sf_outsideCYP2D6G6PDFile);
 
     makeReport("cyp2b6.s1s1", new String[]{
-        "cyp2b6/s1s1.vcf"
+        "CYP2B6/s1s1.vcf"
     }, null);
 
     makeReport("cyp2b6.s1s34", new String[]{
-        "cyp2b6/s1s34.vcf"
+        "CYP2B6/s1s34.vcf"
     }, null);
 
     makeReportWithOutputString("cyp2d6.s1unknown", new String[]{
