@@ -940,7 +940,7 @@ class PharmCATTest {
   @Test
   void testCyp2b6star1star34() throws Exception {
     s_pharmcatTopMatch.execute("test.cyp2b6.s1s34", new String[] {
-            "cyp2b6/s1s34.vcf"
+            "CYP2B6/s1s34.vcf"
         },
         null);
     s_pharmcatTopMatch.testCalledByMatcher("CYP2B6");
@@ -958,7 +958,7 @@ class PharmCATTest {
   @Test
   void testCyp2b6star1star34AllMatch() throws Exception {
     s_pharmcatAllMatches.execute("test.cyp2b6.s1s34.allMatch", new String[] {
-            "cyp2b6/s1s34.vcf"
+            "CYP2B6/s1s34.vcf"
         },
         null);
     s_pharmcatAllMatches.testCalledByMatcher("CYP2B6");
