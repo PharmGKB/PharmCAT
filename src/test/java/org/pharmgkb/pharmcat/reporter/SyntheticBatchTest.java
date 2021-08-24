@@ -641,6 +641,10 @@ class SyntheticBatchTest {
         "cyp2c9/s1s61.vcf"
     }, "CYP2D6\t*1/*XXX\n");
 
+    makeReportWithOutputString("mtrnr1.increased", new String[]{
+        "cyp2c9/s1s61.vcf"
+    }, "MT-RNR1\t1555A>G\n");
+
     sf_logger.info("Wrote reports to {}", f_outputDir);
   }
 

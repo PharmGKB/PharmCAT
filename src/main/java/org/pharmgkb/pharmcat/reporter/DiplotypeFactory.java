@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
+import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -15,6 +16,7 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
+import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 
@@ -107,11 +109,22 @@ public class DiplotypeFactory {
    * @return a Diplotype containing the specified haplotypes
    */
   private Diplotype makeDiplotype(String diplotypeText) {
-    Preconditions.checkArgument(diplotypeText.contains("/"));
+    Preconditions.checkArgument(StringUtils.isNotBlank(diplotypeText));
 
-    String[] alleles = diplotypeText.split("/");
+    Diplotype diplotype;
+    if (diplotypeText.contains("/")) {
+      if (GeneReport.isSinglePloidy(f_gene)) {
+        throw new RuntimeException("Cannot specify two genotypes [" + diplotypeText + "] for single chromosome gene " + f_gene);
+      }
 
-    Diplotype diplotype = new Diplotype(f_gene, makeHaplotype(alleles[0]), makeHaplotype(alleles[1]));
+      String[] alleles = diplotypeText.split("/");
+      diplotype = new Diplotype(f_gene, makeHaplotype(alleles[0]), makeHaplotype(alleles[1]));
+    } else {
+      if (!GeneReport.isSinglePloidy(f_gene)) {
+        throw new RuntimeException("Expected two genotypes separated by a '/' but saw [" + diplotypeText + "] for " + f_gene);
+      }
+      diplotype = new Diplotype(f_gene, makeHaplotype(diplotypeText));
+    }
     fillDiplotype(diplotype);
 
     return diplotype;

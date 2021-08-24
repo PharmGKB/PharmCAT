@@ -33,8 +33,9 @@ import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
  */
 public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
-  private static final Set<String> IGNORED_GENES       = ImmutableSet.of("HLA-A", "HLA-B", "IFNL4", "MT-RNR1");
+  private static final Set<String> IGNORED_GENES       = ImmutableSet.of("HLA-A", "HLA-B", "IFNL4");
   private static final Set<String> OVERRIDE_DIPLOTYPES = ImmutableSet.of("SLCO1B1");
+  private static final Set<String> SINGLE_PLOIDY       = ImmutableSet.of("MT-RNR1");
   private static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
 
@@ -355,6 +356,15 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public static boolean isIgnored(String gene) {
     return StringUtils.isNotBlank(gene) && IGNORED_GENES.contains(gene);
+  }
+
+  /**
+   * Is the specified gene single ploidy, i.e. it is on chrY or chrM which occur on a single chromosome, not a pair.
+   * @param gene a gene symbol
+   * @return true if the gene occurs on a single chromosome, not a pair
+   */
+  public static boolean isSinglePloidy(String gene) {
+    return StringUtils.isNotBlank(gene) && SINGLE_PLOIDY.contains(gene);
   }
 
   public List<Diplotype> getMatcherDiplotypes() {

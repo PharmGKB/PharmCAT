@@ -35,11 +35,13 @@ class PharmCATTest {
       "#Gene\tDiplotype\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\tspecial case\tnomenclature version\n" +
       "CYP2D6\tCYP2D6*1/CYP2D6*4\t?/?\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
   private static final String sf_otherOutsideCalls = "CYP2D6\t*3/*4\nG6PD\tB (wildtype)/B (wildtype)\n";
+  private static final String sf_mtrnr1OutsideCalls = "CYP2D6\t*3/*4\nG6PD\tB (wildtype)/B (wildtype)\nMT-RNR1\t1555A>G\n";
   private static final String sf_diplotypesTemplate = "\nmatcher: %s\nreporter: %s\nprint (displayCalls): %s";
   private static PharmCATTestWrapper s_pharmcatTopMatch;
   private static PharmCATTestWrapper s_pharmcatAllMatches;
   private static Path s_outsideCallFilePath;
   private static Path s_otherOutsideCallFilePath;
+  private static Path s_mtrnr1OutsideCallFilePath;
 
   @BeforeAll
   static void prepare() throws IOException {
@@ -54,6 +56,11 @@ class PharmCATTest {
       fw.write(sf_otherOutsideCalls);
     }
 
+    s_mtrnr1OutsideCallFilePath = Files.createTempFile("mtrnr1OutsideCall", ".tsv");
+    try (FileWriter fw = new FileWriter(s_mtrnr1OutsideCallFilePath.toFile())) {
+      fw.write(sf_mtrnr1OutsideCalls);
+    }
+
     Path tempDirPath = Files.createTempDirectory(MethodHandles.lookup().lookupClass().getName());
     s_pharmcatTopMatch = new PharmCATTestWrapper(tempDirPath, false);
     s_pharmcatAllMatches = new PharmCATTestWrapper(tempDirPath, true);
@@ -66,8 +73,8 @@ class PharmCATTest {
    */
   @Test
   void testCounts() {
-    assertEquals(17, s_pharmcatTopMatch.getContext().getGeneReports().size());
-    assertEquals(53, s_pharmcatTopMatch.getContext().getDrugReports().size());
+    assertEquals(18, s_pharmcatTopMatch.getContext().getGeneReports().size());
+    assertEquals(60, s_pharmcatTopMatch.getContext().getDrugReports().size());
   }
 
   /**
@@ -1024,6 +1031,23 @@ class PharmCATTest {
     s_pharmcatTopMatch.testMatchedGroups("azathioprine", 1);
     s_pharmcatTopMatch.testMatchedGroups("mercaptopurine", 1);
     s_pharmcatTopMatch.testMatchedGroups("thioguanine", 1);
+  }
+
+
+  /* MT-RNR1 */
+  @Test
+  void testMtrnr1() throws Exception {
+    s_pharmcatTopMatch.execute("test.mtrnr1", new String[] {
+            "cyp2c19/s2s2.vcf",
+            "cyp2c9/s2s3.vcf"
+        },
+        s_mtrnr1OutsideCallFilePath);
+
+    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19");
+    s_pharmcatTopMatch.testCalledByMatcher("CYP2C9");
+    s_pharmcatTopMatch.testCalledByMatcher("MT-RNR1");
+
+    s_pharmcatTopMatch.testMatchedGroups("amikacin", 1);
   }
 
 

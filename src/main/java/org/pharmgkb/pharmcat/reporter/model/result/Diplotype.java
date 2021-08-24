@@ -144,9 +144,15 @@ public class Diplotype implements Comparable<Diplotype> {
    * public constructor
    */
   public Diplotype(String gene, Haplotype h1, Haplotype h2) {
-
     m_allele1 = h1;
     m_allele2 = h2;
+    m_gene = gene;
+    f_label = printBare();
+  }
+
+  public Diplotype(String gene, Haplotype h) {
+    m_allele1 = h;
+    m_allele2 = null;
     m_gene = gene;
     f_label = printBare();
   }
@@ -174,6 +180,16 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   /**
+   * Is this Diplotype for a single-ploidy gene like MT-RNR1. We acknowledge this isn't a "real" diplotype if this is
+   * true but for the purposes of this system we will call it a diplotype.
+   *
+   * @return true if this Diplotype is single ploidy
+   */
+  public boolean isSinglePloidy() {
+    return m_allele2 == null;
+  }
+
+  /**
    * Does this diplotype have an allele with the given name
    * @param alleleName an allele name, e.g. "*10"
    * @return true if this diplotype contains an allele with the given name
@@ -192,9 +208,13 @@ public class Diplotype implements Comparable<Diplotype> {
    */
   public String printBare() {
     return printOverride().orElseGet(() -> {
-      String[] alleles = new String[]{m_allele1.getName(), m_allele2.getName()};
-      Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
-      return String.join(sf_delimiter, alleles);
+      if (m_allele2 != null) {
+        String[] alleles = new String[]{ m_allele1.getName(), m_allele2.getName() };
+        Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
+        return String.join(sf_delimiter, alleles);
+      } else {
+        return m_allele1.getName();
+      }
     });
   }
 
@@ -224,7 +244,7 @@ public class Diplotype implements Comparable<Diplotype> {
     String f2 = getAllele2() != null && getAllele2().getFunction() != null ?
         getAllele2().getFunction().toLowerCase() : null;
 
-    if (StringUtils.isNotBlank(f1) && StringUtils.isNotBlank(f2)) {
+    if (!isSinglePloidy() && StringUtils.isNotBlank(f1) && StringUtils.isNotBlank(f2)) {
 
       if (f1.equals(f2)) {
         return String.format(sf_homTemplate, f1);
@@ -235,6 +255,8 @@ public class Diplotype implements Comparable<Diplotype> {
         return String.format(sf_hetTemplate, functions[0], functions[1]);
       }
 
+    } else if (isSinglePloidy() && StringUtils.isNotBlank(f1)) {
+      return f1;
     }
     return GeneReport.NA;
   }
@@ -267,7 +289,7 @@ public class Diplotype implements Comparable<Diplotype> {
    */
   private Optional<String> printOverride() {
     boolean refAllele1 = getAllele1().isReference();
-    boolean refAllele2 = getAllele2().isReference();
+    boolean refAllele2 = !isSinglePloidy() && getAllele2().isReference();
 
     if (m_gene.equals("CFTR")) {
       if (refAllele1 && refAllele2) {
@@ -342,11 +364,15 @@ public class Diplotype implements Comparable<Diplotype> {
 
   public Map<String,Integer> makeLookupMap() {
     Map<String,Integer> lookupMap = new HashMap<>();
-    if (m_allele1.equals(m_allele2)) {
-      lookupMap.put(m_allele1.getName(), 2);
+    if (m_allele2 != null) {
+      if (m_allele1.equals(m_allele2)) {
+        lookupMap.put(m_allele1.getName(), 2);
+      } else {
+        lookupMap.put(m_allele1.getName(), 1);
+        lookupMap.put(m_allele2.getName(), 1);
+      }
     } else {
       lookupMap.put(m_allele1.getName(), 1);
-      lookupMap.put(m_allele2.getName(), 1);
     }
     return lookupMap;
   }

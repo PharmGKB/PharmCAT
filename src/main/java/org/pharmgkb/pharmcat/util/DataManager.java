@@ -43,7 +43,7 @@ public class DataManager {
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   private static final String PHENOTYPES_JSON_FILE_NAME = "gene_phenotypes.json";
   private static final String SUMMARY_REPORT = "summary.md";
-  private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "G6PD");
+  private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "G6PD", "MT-RNR1");
   private final DataSerializer m_dataSerializer = new DataSerializer();
   private final boolean m_verbose;
 

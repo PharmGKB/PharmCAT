@@ -5,6 +5,7 @@ import java.lang.invoke.MethodHandles;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.DataManager;
 import org.slf4j.Logger;
@@ -35,10 +36,10 @@ class DrugCollectionTest {
   @Test
   void testLoadReportable() throws IOException {
     DrugCollection drugCollection = new DrugCollection();
-    assertEquals(53, drugCollection.listReportable().size());
+    assertEquals(60, drugCollection.listReportable().size());
 
-    Set<String> reportableDrugNames = drugCollection.listReportable().stream().map((drug) -> drug.getDrugName()).collect(Collectors.toSet());
-    Set<String> drugNames = drugCollection.list().stream().map((drug) -> drug.getDrugName()).collect(Collectors.toSet());
+    Set<String> reportableDrugNames = drugCollection.listReportable().stream().map(Drug::getDrugName).collect(Collectors.toSet());
+    Set<String> drugNames = drugCollection.list().stream().map(Drug::getDrugName).collect(Collectors.toSet());
 
     drugNames.removeAll(reportableDrugNames);
     sf_logger.info("Non-reportable drugs: " + String.join("; ", drugNames));
