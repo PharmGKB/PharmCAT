@@ -428,6 +428,21 @@ class PharmCATTest {
     s_pharmcatTopMatch.testMatchedGroups("capecitabine", 1);
   }
 
+  @Test
+  void testDpydS12het() throws Exception {
+    s_pharmcatTopMatch.execute("test.dpyd.c1156het", new String[]{
+            "DPYD/c1156het.vcf"
+        },
+        null);
+
+    s_pharmcatTopMatch.testCalledByMatcher("DPYD");
+    s_pharmcatTopMatch.testPrintCalls("DPYD", "Reference/c.1156G>T (*12)");
+    s_pharmcatTopMatch.testLookup("DPYD", "Reference", "c.1156G>T (*12)");
+
+    s_pharmcatTopMatch.testMatchedGroups("fluorouracil", 1);
+    s_pharmcatTopMatch.testMatchedGroups("capecitabine", 1);
+  }
+
   /**
    * This tests a special case of SLCO1B1. The gene in this scenario is "uncalled" by the matcher due the sample VCF
    * data. However, SLCO1B1 has an override that will display the rs4149056 diplotype regardless of call status. That
