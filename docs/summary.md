@@ -33,13 +33,16 @@ The `NamedAlleleMatcher` will search the given sample file for locations associa
 
 These genes will not get allele matches from PharmCAT. However, you can use an outside caller like [Astrolabe](https://www.childrensmercy.org/childrens-mercy-research-institute/research-areas/genomic-medicine-center/data-and-software-resources/) or [Stargazer](https://stargazer.gs.washington.edu/stargazerweb/index.html) to get diplotype calls and then supply that to PharmCAT for use in matching recommendation data.
 
-
+- CYP2D6 (148 alleles)
+- G6PD (187 alleles)
+- MT-RNR1 (25 alleles)
 
 
 ## Drugs
 
 The following drugs have been read from CPIC and will have "recommendation" sections in the final output report.
 
+- amikacin
 - amitriptyline
 - atazanavir
 - atomoxetine
@@ -60,12 +63,14 @@ The following drugs have been read from CPIC and will have "recommendation" sect
 - fluorouracil
 - flurbiprofen
 - fluvoxamine
+- gentamicin
 - halothane
 - hydrocodone
 - ibuprofen
 - imipramine
 - isoflurane
 - ivacaftor
+- kanamycin
 - lansoprazole
 - lornoxicam
 - meloxicam
@@ -75,19 +80,23 @@ The following drugs have been read from CPIC and will have "recommendation" sect
 - omeprazole
 - ondansetron
 - pantoprazole
+- paromomycin
 - paroxetine
 - peginterferon alfa-2a
 - peginterferon alfa-2b
 - piroxicam
+- plazomicin
 - rasburicase
 - sertraline
 - sevoflurane
 - simvastatin
+- streptomycin
 - succinylcholine
 - tacrolimus
 - tamoxifen
 - tenoxicam
 - thioguanine
+- tobramycin
 - tramadol
 - trimipramine
 - tropisetron

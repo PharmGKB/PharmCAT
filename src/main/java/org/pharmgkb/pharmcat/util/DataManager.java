@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
@@ -24,6 +25,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.pharmgkb.common.io.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -120,14 +122,17 @@ public class DataManager {
           manager.transformMessages(messagesTsv, messagesJson);
         }
 
-        if (cliHelper.hasOption("d")) {
-          Path docsDir = cliHelper.getValidDirectory("d", true);
-          manager.writeSummary(docsDir, geneAlleleCountMap, drugs);
-        }
-
+        PhenotypeMap phenotypeMap;
         if (cliHelper.hasOption("p")) {
           Path phenoDir = cliHelper.getValidDirectory("p", true);
-          manager.writePhenotypes(downloadDir, phenoDir);
+          phenotypeMap = new PhenotypeMap(manager.writePhenotypes(downloadDir, phenoDir));
+        } else {
+          phenotypeMap = new PhenotypeMap();
+        }
+
+        if (cliHelper.hasOption("d")) {
+          Path docsDir = cliHelper.getValidDirectory("d", true);
+          manager.writeSummary(docsDir, geneAlleleCountMap, drugs, phenotypeMap);
         }
 
       } finally {
@@ -296,7 +301,7 @@ public class DataManager {
     }
   }
 
-  private void writeSummary(Path documenationDir, Map<String,Integer> geneAlleleCount, DrugCollection drugs) throws IOException {
+  private void writeSummary(Path documenationDir, Map<String,Integer> geneAlleleCount, DrugCollection drugs, PhenotypeMap phenotypeMap) throws IOException {
     try (
         InputStream mdStream = getClass().getResourceAsStream("summary.md");
         StringWriter templateWriter = new StringWriter()
@@ -313,9 +318,11 @@ public class DataManager {
             .filter(g -> !PREFER_OUTSIDE_CALL.contains(g))
             .sorted().map(g -> "- " + g + " (" + geneAlleleCount.get(g) + " alleles)")
             .collect(Collectors.joining("\n"));
-        String outsideGeneList = geneAlleleCount.keySet().stream()
-            .filter(PREFER_OUTSIDE_CALL::contains)
-            .sorted().map(g -> "- " + g + " (" + geneAlleleCount.get(g) + " alleles)")
+        String outsideGeneList = PREFER_OUTSIDE_CALL.stream()
+            .map(phenotypeMap::lookup)
+            .filter(Optional::isPresent)
+            .map(Optional::get)
+            .map(g -> "- " + g.getGene() + " (" + g.getHaplotypes().size() + " alleles)")
             .collect(Collectors.joining("\n"));
         String drugList = drugs.listReportable().stream().map(d -> "- " + d.getDrugName()).collect(Collectors.joining("\n"));
         IOUtils.write(String.format(mdTemplate, matcherGeneList, outsideGeneList, drugList), fw);
@@ -324,12 +331,13 @@ public class DataManager {
     }
   }
 
-  private void writePhenotypes(Path downloadDir, Path outputDir) throws IOException {
+  private Path writePhenotypes(Path downloadDir, Path outputDir) throws IOException {
     Path outputPath = outputDir.resolve(PHENOTYPES_JSON_FILE_NAME);
     FileUtils.copyFile(
         downloadDir.resolve(PHENOTYPES_JSON_FILE_NAME).toFile(),
         outputPath.toFile()
     );
     System.out.println("Saving phenotypes to " + outputPath);
+    return outputPath;
   }
 }
