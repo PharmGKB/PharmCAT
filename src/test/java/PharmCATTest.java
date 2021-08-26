@@ -1066,6 +1066,24 @@ class PharmCATTest {
   }
 
 
+  /* IFNL3/4 */
+  @Test
+  void testIfnl3() throws Exception {
+    s_pharmcatTopMatch.execute("test.ifnl3", new String[] {
+            "IFNL3/rs12979860CC.vcf"
+        },
+        null);
+
+    s_pharmcatTopMatch.testCalledByMatcher("IFNL3");
+    s_pharmcatTopMatch.testPrintCalls("IFNL3", "rs12979860 reference (C)/rs12979860 reference (C)");
+
+    // we expect peginterferons to get drug reports, but they intentionally will not get any matching recommendations
+    // users will need to refer to the original guideline to get information
+    s_pharmcatTopMatch.testMatchedGroups("peginterferon alfa-2a", 0);
+    s_pharmcatTopMatch.testMatchedGroups("peginterferon alfa-2b", 0);
+  }
+
+
   @Test
   void testCombined() throws Exception {
     s_pharmcatTopMatch.execute("test.combined", new String[]{
