@@ -387,7 +387,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return true if there is any missing variant
    */
   public String isMissingVariants() {
-    if (getGene().equals("CYP2D6")) return NA;
+    if (getCallSource() == CallSource.OUTSIDE) return NA;
     
     return m_variantReports.stream().anyMatch(VariantReport::isMissing) ? "Yes" : "No";
   }
