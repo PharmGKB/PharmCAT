@@ -4526,6 +4526,79 @@
     "highlightedVariants": []
   },
   {
+    "geneSymbol": "MT-RNR1",
+    "chr": null,
+    "phased": false,
+    "callSource": "OUTSIDE",
+    "uncalledHaplotypes": [],
+    "messages": [],
+    "relatedDrugs": [
+      {
+        "name": "amikacin",
+        "guidelineId": "RxNorm:641"
+      },
+      {
+        "name": "gentamicin",
+        "guidelineId": "ATC:D06AX07"
+      },
+      {
+        "name": "kanamycin",
+        "guidelineId": "RxNorm:6099"
+      },
+      {
+        "name": "paromomycin",
+        "guidelineId": "RxNorm:7934"
+      },
+      {
+        "name": "plazomicin",
+        "guidelineId": "RxNorm:2049549"
+      },
+      {
+        "name": "streptomycin",
+        "guidelineId": "RxNorm:10109"
+      },
+      {
+        "name": "tobramycin",
+        "guidelineId": "RxNorm:10627"
+      }
+    ],
+    "matcherDiplotypes": [
+      {
+        "allele1": {
+          "gene": "MT-RNR1",
+          "name": "1555A\u003eG",
+          "function": "increased risk of aminoglycoside-induced hearing loss",
+          "reference": false
+        },
+        "allele2": null,
+        "gene": "MT-RNR1",
+        "phenotype": "increased risk of aminoglycoside-induced hearing loss",
+        "variant": null,
+        "lookupKey": "increased risk of aminoglycoside-induced hearing loss",
+        "label": "1555A\u003eG"
+      }
+    ],
+    "diplotypes": [
+      {
+        "allele1": {
+          "gene": "MT-RNR1",
+          "name": "1555A\u003eG",
+          "function": "increased risk of aminoglycoside-induced hearing loss",
+          "reference": false
+        },
+        "allele2": null,
+        "gene": "MT-RNR1",
+        "phenotype": "increased risk of aminoglycoside-induced hearing loss",
+        "variant": null,
+        "lookupKey": "increased risk of aminoglycoside-induced hearing loss",
+        "label": "1555A\u003eG"
+      }
+    ],
+    "variants": [],
+    "variantsOfInterest": [],
+    "highlightedVariants": []
+  },
+  {
     "geneSymbol": "NUDT15",
     "chr": "chr13",
     "phased": true,
@@ -4550,42 +4623,42 @@
       {
         "allele1": {
           "gene": "NUDT15",
-          "name": "Unknown",
-          "function": null,
-          "reference": false
+          "name": "*1",
+          "function": "Normal Function",
+          "reference": true
         },
         "allele2": {
           "gene": "NUDT15",
-          "name": "Unknown",
-          "function": null,
-          "reference": false
+          "name": "*1",
+          "function": "Normal Function",
+          "reference": true
         },
         "gene": "NUDT15",
-        "phenotype": "No Result",
+        "phenotype": "Normal Metabolizer",
         "variant": null,
-        "lookupKey": "No Result",
-        "label": "Unknown/Unknown"
+        "lookupKey": "Normal Metabolizer",
+        "label": "*1/*1"
       }
     ],
     "diplotypes": [
       {
         "allele1": {
           "gene": "NUDT15",
-          "name": "Unknown",
-          "function": null,
-          "reference": false
+          "name": "*1",
+          "function": "Normal Function",
+          "reference": true
         },
         "allele2": {
           "gene": "NUDT15",
-          "name": "Unknown",
-          "function": null,
-          "reference": false
+          "name": "*1",
+          "function": "Normal Function",
+          "reference": true
         },
         "gene": "NUDT15",
-        "phenotype": "No Result",
+        "phenotype": "Normal Metabolizer",
         "variant": null,
-        "lookupKey": "No Result",
-        "label": "Unknown/Unknown"
+        "lookupKey": "Normal Metabolizer",
+        "label": "*1/*1"
       }
     ],
     "variants": [
@@ -4620,13 +4693,13 @@
         "chromosome": "chr13",
         "position": 48037796,
         "dbSnpId": "rs746071566",
-        "call": "GGAGTC|GGAGTC",
+        "call": "GAGTCG|GAGTCG",
         "alleles": [
           "*9"
         ],
         "phased": true,
         "wildtypeAllele": "GAGTCG",
-        "mismatch": true
+        "mismatch": false
       },
       {
         "gene": "NUDT15",

@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "1.0.0",
     "genomeBuild": "b38",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "Aug 19, 2021, 4:29:54 PM"
+    "timestamp": "Aug 26, 2021, 2:17:12 PM"
   },
   "results": [
     {
@@ -1735,8 +1735,32 @@
       "alleleDefinitionVersion": "08/18/21",
       "chromosome": "chr13",
       "gene": "NUDT15",
-      "diplotypes": [],
-      "haplotypes": [],
+      "diplotypes": [
+        {
+          "name": "*1/*1",
+          "haplotype1": {
+            "name": "*1",
+            "sequences": [
+              "48037748:T;48037749:G;48037795:GAGTCG;48037798:G;48037801:del;48037826:del;48037834:C;48037847:G;48037849:A;48037885:G;48037902:C;48040981:A;48041103:del;48041113:G;48045690:C;48045719:C;48045720:G;48045771:T;48045806:G;"
+            ]
+          },
+          "haplotype2": {
+            "name": "*1",
+            "sequences": [
+              "48037748:T;48037749:G;48037795:GAGTCG;48037798:G;48037801:del;48037826:del;48037834:C;48037847:G;48037849:A;48037885:G;48037902:C;48040981:A;48041103:del;48041113:G;48045690:C;48045719:C;48045720:G;48045771:T;48045806:G;"
+            ]
+          },
+          "score": 38
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "*1",
+          "sequences": [
+            "48037748:T;48037749:G;48037795:GAGTCG;48037798:G;48037801:del;48037826:del;48037834:C;48037847:G;48037849:A;48037885:G;48037902:C;48040981:A;48041103:del;48041113:G;48045690:C;48045719:C;48045720:G;48045771:T;48045806:G;"
+          ]
+        }
+      ],
       "phased": true,
       "variants": [
         {
@@ -1752,7 +1776,7 @@
         {
           "position": 48037796,
           "rsid": "rs746071566",
-          "vcfCall": "GGAGTC|GGAGTC"
+          "vcfCall": "GAGTCG|GAGTCG"
         },
         {
           "position": 48037798,
@@ -1838,19 +1862,7 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [
-          {
-            "chromosome": "chr13",
-            "position": 48037796,
-            "rsid": "rs746071566",
-            "chromosomeHgvsName": "g.48037796delGAGTCG",
-            "geneHgvsName": "g.5230delGAGTCG",
-            "proteinNote": "G17_V18del",
-            "resourceNote": "50delGAGTCG",
-            "type": "DEL",
-            "referenceRepeat": null
-          }
-        ]
+        "mismatchedAlleles": []
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
