@@ -31,7 +31,7 @@ class NamedAlleleMatcherDpydTest {
   void dpyds1s1() throws Exception {
     // Test *1/*1 - contains a del
 
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD/s1s1.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD/novariant.vcf");
     List<String> expectedMatches = Lists.newArrayList("Reference/Reference");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);

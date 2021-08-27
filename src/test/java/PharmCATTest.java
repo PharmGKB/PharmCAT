@@ -389,7 +389,7 @@ class PharmCATTest {
   @Test
   void testSlco1b1TestMissing() throws Exception {
     s_pharmcatTopMatch.execute("test.slco1b1.missing", new String[]{
-            "DPYD/s1s1.vcf",
+            "DPYD/novariant.vcf",
             "TPMT/s1s1.vcf"
         },
         null);
@@ -1087,7 +1087,7 @@ class PharmCATTest {
   @Test
   void testCombined() throws Exception {
     s_pharmcatTopMatch.execute("test.combined", new String[]{
-            "DPYD/s1s1.vcf",
+            "DPYD/novariant.vcf",
             "UGT1A1/s1s1.vcf",
             "TPMT/s1s1.vcf",
             "cyp3a5/s1s7.vcf",
