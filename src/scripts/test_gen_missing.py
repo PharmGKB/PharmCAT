@@ -244,6 +244,8 @@ for i,na1 in enumerate(namedalleles):
         matches2 = (j,)
         if len(test1alleles) > 1 or len(test2alleles) > 1:
             testtype="wobble"
+        else:
+            testtype="t"
         numTest = 1
 
         for alleles1, alleles2 in itertools.product(test1alleles, test2alleles):
