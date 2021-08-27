@@ -73,7 +73,7 @@
           {{{drug this}}}
         {{/each}}</td>
         <td>
-          <a href="#{{gene}}">{{gene}}</a>{{#if hasMessages}}<sup href="#genotypes-dagger">&dagger;</sup>{{/if}}
+          <a href="#{{gene}}">{{gene}}</a>{{#if hasMessages}}<sup><a href="#genotypes-dagger">&dagger;</a></sup>{{/if}}
         </td>
         <td>
           {{#each calls}}
@@ -82,12 +82,12 @@
         </td>
         <td>
           {{#each functions}}
-            <div style="white-space: nowrap;">{{this}}</div>
+            <div>{{this}}</div>
           {{/each}}
         </td>
         <td>
           {{#each phenotype}}
-            <div style="white-space: nowrap">{{this}}</div>
+            <div>{{this}}</div>
           {{/each}}
         </td>
         <td>
