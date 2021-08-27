@@ -394,6 +394,14 @@ class SyntheticBatchTest {
         "cyp2c19/s1s2.vcf"
     }, sf_outsideCYP2D6File);
 
+    makeReport("cyp2c19.s1s2rs3758581missing", new String[]{
+        "cyp2c19/s1s2rs3758581missing.vcf"
+    }, sf_outsideCYP2D6File);
+
+    makeReport("cyp2c19.s1s2rs3758581missingRs58973490het", new String[]{
+        "cyp2c19/s1s2rs3758581missingRs58973490het.vcf"
+    }, sf_outsideCYP2D6File);
+
     makeReport("cyp2c19.s1s2rs58973490het", new String[]{
         "cyp2c19/s1s2rs58973490het.vcf"
     }, sf_outsideCYP2D6File);
@@ -573,6 +581,10 @@ class SyntheticBatchTest {
 
     makeReport("cyp2c9.s1s61", new String[]{
         "cyp2c9/s1s61.vcf"
+    }, sf_outsideCYP2D6File);
+
+    makeReport("cyp2c9.s3s18m94981296", new String[]{
+        "cyp2c9/s3s18m94981296.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("cyp2c19.rs12769205call", new String[]{
