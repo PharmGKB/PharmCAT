@@ -38,6 +38,8 @@ public class GeneReport implements Comparable<GeneReport> {
   private static final Set<String> SINGLE_PLOIDY       = ImmutableSet.of("MT-RNR1");
   private static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
+  public static  final String YES = "Yes";
+  public static  final String NO  = "No";
 
   @Expose
   @SerializedName("geneSymbol")
@@ -389,6 +391,6 @@ public class GeneReport implements Comparable<GeneReport> {
   public String isMissingVariants() {
     if (getCallSource() == CallSource.OUTSIDE) return NA;
     
-    return m_variantReports.stream().anyMatch(VariantReport::isMissing) ? "Yes" : "No";
+    return m_variantReports.stream().anyMatch(VariantReport::isMissing) ? YES : NO;
   }
 }

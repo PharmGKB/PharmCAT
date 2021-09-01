@@ -142,10 +142,9 @@ class PharmCATTest {
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
         .count());
 
-    assertTrue(s_pharmcatTopMatch.getContext().getDrugReports().stream()
-        .filter(r -> r.getRelatedDrugs().contains("amitriptyline"))
-        .flatMap(r -> r.getMessages().stream())
-        .allMatch(m -> m.getMatches().getVariant().equals("rs58973490") && m.getMatches().getDips().contains("*1/*2") && m.getExceptionType().equals("ambiguity")));
+    DrugReport amiReport = s_pharmcatTopMatch.getContext().getDrugReport("amitriptyline");
+    assertTrue(amiReport.getMessages().stream().anyMatch((m) -> m.getExceptionType().equals("ambiguity")));
+    assertEquals(2, amiReport.getMessages().size());
   }
 
   /**
@@ -177,10 +176,8 @@ class PharmCATTest {
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
         .count());
 
-    assertEquals(0, s_pharmcatTopMatch.getContext().getDrugReports().stream()
-        .filter(r -> r.getRelatedDrugs().contains("amitriptyline"))
-        .mapToLong(r -> r.getMessages().size())
-        .sum());
+    DrugReport amiReport = s_pharmcatTopMatch.getContext().getDrugReport("amitriptyline");
+    assertEquals(1, amiReport.getMessages().size());
   }
 
   @Test
@@ -529,10 +526,9 @@ class PharmCATTest {
     s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*80+*28");
     s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80+*28");
 
-    // the guideline should have a matching message
-    assertTrue(s_pharmcatTopMatch.getContext().getDrugReports().stream()
-        .filter(r -> r.getRelatedDrugs().contains("atazanavir"))
-        .allMatch(r -> r.getMessages().size() == 1));
+    // the guideline should have matching messages
+    DrugReport atazanavirReporrt = s_pharmcatTopMatch.getContext().getDrugReport("atazanavir");
+    assertEquals(2, atazanavirReporrt.getMessages().size());
 
     assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }

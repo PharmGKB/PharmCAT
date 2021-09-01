@@ -89,6 +89,25 @@ public class ReportContext {
         getGeneReport(gene).addRelatedDrugs(drugReport);
       }
       messageMatcher.match(drugReport, this);
+
+      // add message to drug when a related gene has a *1 allele
+      boolean hasStarOne = drugReport.getRelatedGeneSymbols().stream()
+          .flatMap((s) -> getGeneReport(s).getReporterDiplotypes().stream())
+          .anyMatch((d) -> d.hasAllele("*1"));
+      if (hasStarOne) {
+        drugReport.addMessage(new MessageAnnotation(
+            MessageAnnotation.TYPE_NOTE,
+            "The *1 allele assignment is characterized by the absence of variants that are included in the " +
+                "underlying allele definitions by either position being reference or missing."
+        ));
+      }
+
+      // add a message for any gene that has missing data
+      drugReport.getRelatedGeneSymbols().stream()
+          .filter((s) -> getGeneReport(s).isMissingVariants().equals(GeneReport.YES))
+          .map((s) -> "Some position data used to define " + s + " alleles is missing which may change the matched " +
+              "genotype. See the gene section for " + s + " for more information.")
+          .forEach((m) -> drugReport.addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, m)));
     }
   }
 
@@ -159,7 +178,7 @@ public class ReportContext {
   }
 
   /**
-   * Make a Map of data that will be used in the final report. This map will be serialized and then applied to the 
+   * Make a Map of data that will be used in the final report. This map will be serialized and then applied to the
    * handlebars template.
    * @return a Map of data to serialize into JSON
    */

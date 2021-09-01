@@ -166,6 +166,10 @@ public class DrugReport implements Comparable<DrugReport> {
     return m_messages;
   }
 
+  public void addMessage(MessageAnnotation message) {
+    m_messages.add(message);
+  }
+
   public void addMessages(@Nullable Collection<MessageAnnotation> messages) {
     if (messages == null) {
       return;

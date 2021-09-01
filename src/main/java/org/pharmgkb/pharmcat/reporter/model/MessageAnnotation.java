@@ -20,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 public class MessageAnnotation {
   public static final String TYPE_GENOTYPE = "report-genotype";
   public static final String TYPE_AMBIGUITY = "ambiguity";
+  public static final String TYPE_NOTE = "note";
   private static final int sf_rowLength = 12;
 
   public static Predicate<MessageAnnotation> isFootnote = m -> m.getExceptionType().equals("footnote");
@@ -52,6 +53,20 @@ public class MessageAnnotation {
     m_exceptionType = fields[9];
     m_message = fields[10];
     m_version = fields[11];
+  }
+
+  /**
+   * constructor that only takes the type and the message. it is left to the caller to determine whether and where the
+   * message is meant to apply
+   * @param type the type category of this message
+   * @param message the text of hte message
+   */
+  public MessageAnnotation(
+      String type,
+      String message
+  ) {
+    m_exceptionType = type;
+    m_message = message;
   }
 
   @Expose
