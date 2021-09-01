@@ -1,7 +1,7 @@
 {
   "totalGenes": 18,
-  "pharmcatVersion": "v0.8.0-188-g75d1af3\n",
-  "generatedOn": "August 26, 2021",
+  "pharmcatVersion": "v0.8.0-196-g3da72a0\n",
+  "generatedOn": "September 01, 2021",
   "geneCalls": [
     {
       "diplotypes": [
@@ -6658,7 +6658,9 @@
           "year": 2013
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:704",
       "lastModified": "not available",
@@ -6742,7 +6744,9 @@
           "year": 2015
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:343047",
       "lastModified": "not available",
@@ -6762,42 +6766,6 @@
       ],
       "drugs": "atomoxetine",
       "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "adults",
-              "term": "Population"
-            },
-            {
-              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
-              "term": "Comments"
-            }
-          ]
-        },
         {
           "annotations": [
             {
@@ -6833,6 +6801,42 @@
               "term": "Comments"
             }
           ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "adults",
+              "term": "Population"
+            },
+            {
+              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
+              "term": "Comments"
+            }
+          ]
         }
       ],
       "reportable": true,
@@ -6863,7 +6867,9 @@
           "year": 2019
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:38400",
       "lastModified": "not available",
@@ -7007,7 +7013,9 @@
           "year": 2018
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:1256",
       "lastModified": "not available",
@@ -7183,7 +7191,9 @@
           "year": 2020
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:140587",
       "lastModified": "not available",
@@ -7388,7 +7398,9 @@
           "year": 2013
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:2597",
       "lastModified": "not available",
@@ -7618,7 +7630,9 @@
           "year": 2021
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:2670",
       "lastModified": "not available",
@@ -7822,7 +7836,9 @@
           "year": 2013
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:3247",
       "lastModified": "not available",
@@ -8031,7 +8047,9 @@
           "year": 2013
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:3638",
       "lastModified": "not available",
@@ -8117,7 +8135,9 @@
           "year": 2019
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:195085",
       "lastModified": "not available",
@@ -8470,7 +8490,9 @@
           "year": 2020
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:4502",
       "lastModified": "not available",
@@ -8555,7 +8577,9 @@
           "year": 2015
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:42355",
       "lastModified": "not available",
@@ -8865,7 +8889,9 @@
           "year": 2021
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:5489",
       "lastModified": "not available",
@@ -8943,7 +8969,9 @@
           "year": 2020
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:5640",
       "lastModified": "not available",
@@ -9067,7 +9095,9 @@
           "year": 2013
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:5691",
       "lastModified": "not available",
@@ -9480,7 +9510,9 @@
           "year": 2020
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:20890",
       "lastModified": "not available",
@@ -9558,7 +9590,9 @@
           "year": 2020
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:41493",
       "lastModified": "not available",
@@ -9702,7 +9736,9 @@
           "year": 2018
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:103",
       "lastModified": "not available",
@@ -9906,7 +9942,9 @@
           "year": 2013
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:7531",
       "lastModified": "not available",
@@ -10075,7 +10113,9 @@
           "year": 2016
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:26225",
       "lastModified": "not available",
@@ -10326,7 +10366,9 @@
           "year": 2015
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:32937",
       "lastModified": "not available",
@@ -10492,7 +10534,9 @@
           "year": 2020
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:8356",
       "lastModified": "not available",
@@ -11203,7 +11247,9 @@
           "year": 2015
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:42316",
       "lastModified": "not available",
@@ -11287,7 +11333,9 @@
           "year": 2018
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:10324",
       "lastModified": "not available",
@@ -11365,7 +11413,9 @@
           "year": 2020
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:37790",
       "lastModified": "not available",
@@ -11509,7 +11559,9 @@
           "year": 2018
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:10485",
       "lastModified": "not available",
@@ -11723,7 +11775,9 @@
           "year": 2021
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:10689",
       "lastModified": "not available",
@@ -11847,7 +11901,9 @@
           "year": 2013
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:10834",
       "lastModified": "not available",
@@ -11931,7 +11987,9 @@
           "year": 2016
         }
       ],
-      "messages": [],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+      ],
       "matched": true,
       "id": "RxNorm:27392",
       "lastModified": "not available",
@@ -11954,7 +12012,7 @@
         {
           "annotations": [
             {
-              "annotation": "adults",
+              "annotation": "pediatrics",
               "term": "Population"
             },
             {
@@ -11986,7 +12044,7 @@
         {
           "annotations": [
             {
-              "annotation": "pediatrics",
+              "annotation": "adults",
               "term": "Population"
             },
             {
@@ -12147,7 +12205,8 @@
         }
       ],
       "messages": [
-        "Please follow the flow chart in figure 2 of the \u003ca href\u003d\"https://www.pharmgkb.org/guideline/PA166104949\"\u003eCPIC warfarin guideline\u003c/a\u003e to determine the appropriate dosing recommendation."
+        "Please follow the flow chart in figure 2 of the \u003ca href\u003d\"https://www.pharmgkb.org/guideline/PA166104949\"\u003eCPIC warfarin guideline\u003c/a\u003e to determine the appropriate dosing recommendation.",
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:11289",
