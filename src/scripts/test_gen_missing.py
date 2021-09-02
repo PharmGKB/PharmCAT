@@ -260,7 +260,7 @@ for i,na1 in enumerate(namedalleles):
                         util.joinMatches(matches2, namedalleles),
                         testtype,
                         numTest,
-                        ".".join([str(i) for i in sorted(combo)])
+                        ".".join([str(definition['variants'][i]['position']) for i in sorted(combo)])
                     )))
 
                     with open(outPath, 'w') as outFile:

@@ -5,6 +5,7 @@ import collections
 import re
 import csv
 import itertools
+import sys
 
 # set options
 optNumAlleleExpansions = 128
