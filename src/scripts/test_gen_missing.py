@@ -254,6 +254,7 @@ for i,na1 in enumerate(namedalleles):
                 # missing combinations are in reference to the first named allele
                 for combo in itertools.combinations(na1['_mindef'].keys(),size):
                     numCombos += 1
+
                     outPath = os.path.join(basepath, util.percentEncode("%s_%s_%s_%s%s_m%s.vcf" % (
                         definition['gene'],
                         util.joinMatches(matches1, namedalleles),
@@ -262,6 +263,9 @@ for i,na1 in enumerate(namedalleles):
                         numTest,
                         ".".join([str(definition['variants'][i]['position']) for i in sorted(combo)])
                     )))
+                    # skip test cases if all variants will be missing from second allele
+                    if set(na2['_mindef'].keys()).issubset(combo):
+                      continue
 
                     with open(outPath, 'w') as outFile:
                         numFiles += 1
