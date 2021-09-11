@@ -39,7 +39,7 @@ def run(args):
         print('Error: %s not found or not executable' % tabix_executable_path)
         sys.exit(1)
 
-    # create the output folder if not existing
+    # create the output folder
     Path(args.output_folder).mkdir(parents=True, exist_ok=True)
 
     # list of files to be deleted
@@ -78,28 +78,25 @@ def run(args):
     # shrink input VCF down to PGx allele defining regions and selected samples
     # modify input VCF chromosomes naming format to <chr##>
     if args.input_list:
-        intermediate_vcf_pgx_regions = util.extract_pharmcat_regions_from_multiple_files(bcftools_executable_path, tabix_executable_path,
-                                                                                         args.input_list, path_to_ref_seq, args.ref_pgx_vcf, args.output_folder, args.output_prefix, sample_list)
+        vcf_pgx_regions = util.extract_regions_from_multiple_files(bcftools_executable_path, tabix_executable_path,
+                                                                                args.input_list, path_to_ref_seq, args.ref_pgx_vcf, args.output_folder, args.output_prefix, sample_list)
     else:
-        intermediate_vcf_pgx_regions = util.extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_executable_path,
-                                                                         args.input_vcf, args.ref_pgx_vcf, args.output_folder, args.output_prefix, sample_list)
-    tmp_files_to_be_removed.append(intermediate_vcf_pgx_regions)
-
-    # merge the input VCF with the PGx position file provided by '--ref_pgx_vcf'
-    # run this step to ensure the output VCF will have THE SAME VARIANT REPRESENTATION as PharmCAT does
-    intermediate_vcf_pgx_merged = util.merge_vcfs(bcftools_executable_path, tabix_executable_path, intermediate_vcf_pgx_regions, args.ref_pgx_vcf)
-    tmp_files_to_be_removed.append(intermediate_vcf_pgx_merged)
+        vcf_pgx_regions = util.extract_regions_from_single_file(bcftools_executable_path, tabix_executable_path,
+                                                                             args.input_vcf, args.ref_pgx_vcf, args.output_folder, args.output_prefix, sample_list)
+    tmp_files_to_be_removed.append(vcf_pgx_regions)
 
     # normalize the input VCF
-    intermediate_vcf_normalized = util.normalize_vcf(bcftools_executable_path, tabix_executable_path, intermediate_vcf_pgx_merged, path_to_ref_seq, args.ref_pgx_vcf)
-    tmp_files_to_be_removed.append(intermediate_vcf_normalized)
+    vcf_normalized = util.normalize_vcf(bcftools_executable_path, tabix_executable_path, vcf_pgx_regions, path_to_ref_seq)
+    tmp_files_to_be_removed.append(vcf_normalized)
 
-    # generate a report of missing PGx positions in VCF format
-    util.output_missing_pgx_positions(bcftools_executable_path, intermediate_vcf_normalized, args.ref_pgx_vcf, args.output_folder, args.output_prefix)
+    # extract the specific PGx genetic variants in the reference PGx VCF
+    # this step also generates a report of missing PGx positions in the input VCF
+    vcf_normalized_pgxOnly = util.filter_pgx_variants(bcftools_executable_path, tabix_executable_path, vcf_normalized, path_to_ref_seq, args.ref_pgx_vcf, args.output_folder, args.output_prefix)
+    tmp_files_to_be_removed.append(vcf_normalized_pgxOnly)
 
     # output PharmCAT-ready single-sample VCF
     # retain only the PharmCAT allele defining positions in the output VCF file
-    util.output_pharmcat_ready_vcf(bcftools_executable_path, intermediate_vcf_normalized, args.output_folder, args.output_prefix, sample_list)
+    util.output_pharmcat_ready_vcf(bcftools_executable_path, vcf_normalized_pgxOnly, args.output_folder, args.output_prefix, sample_list)
 
     # remove intermediate files
     if not args.keep_intermediate_files:

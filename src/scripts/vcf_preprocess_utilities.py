@@ -170,7 +170,7 @@ def _has_chr_string(input_vcf):
 
     return has_string
 
-def extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_executable_path, input_vcf,
+def extract_regions_from_single_file(bcftools_executable_path, tabix_executable_path, input_vcf,
         input_ref_pgx_vcf, output_dir, output_prefix, sample_list):
     """
     Rename chromosomes in input vcf according to a chr-renaming mapping file.
@@ -252,7 +252,7 @@ def extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_ex
     return path_output
 
 
-def extract_pharmcat_regions_from_multiple_files(bcftools_executable_path, tabix_executable_path, input_list,
+def extract_regions_from_multiple_files(bcftools_executable_path, tabix_executable_path, input_list,
                                                  path_to_ref_seq, input_ref_pgx_vcf, output_dir, output_prefix, sample_list):
     """
     iterarte through the list of input files
@@ -268,8 +268,8 @@ def extract_pharmcat_regions_from_multiple_files(bcftools_executable_path, tabix
                 line = line.strip()
                 if os.path.isfile(line):
                     temp_output_prefix = output_prefix + '_' + str(i)
-                    single_file = extract_pharmcat_regions_from_single_file(bcftools_executable_path, tabix_executable_path,
-                                                                            line, input_ref_pgx_vcf, temp_dir, temp_output_prefix, sample_list)
+                    single_file = extract_regions_from_single_file(bcftools_executable_path, tabix_executable_path,
+                                                                   line, input_ref_pgx_vcf, temp_dir, temp_output_prefix, sample_list)
                     preprocessed_file_list.append(single_file)
                     i += 1
                 else:
@@ -298,60 +298,78 @@ def extract_pharmcat_regions_from_multiple_files(bcftools_executable_path, tabix
     return path_output
 
 
-def merge_vcfs(bcftools_executable_path, tabix_executable_path, input_vcf, input_ref_pgx_vcf):
-    """
-    Merge the input VCF with a reference VCF of PGx core allele defining positions to enforce the same variant
-    representation format across files.
-
-    bcftools merge <options> <input_vcf>".
-    For bcftools common options, see running_bcftools().
-    "-m both" allows both SNP and indel records to be multiallelic but SNP and indel will not be merged as one
-    multiallelic record.
-    """
-
-    path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.pgx_merged.vcf.gz'
-
-    bcftools_command = [bcftools_executable_path, 'merge', '--no-version', '-m', 'both', '-Oz', '-o',
-                                 path_output, input_vcf, input_ref_pgx_vcf]
-    running_bcftools(bcftools_command,
-                     show_msg='Enforcing the same variant representation as that in the reference PGx variant file')
-
-    tabix_index_vcf(tabix_executable_path, path_output)
-
-    return path_output
-
-
-def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, path_to_ref_seq, input_ref_pgx_vcf):
+def normalize_vcf(bcftools_executable_path, tabix_executable_path, input_vcf, path_to_ref_seq):
     """
     Normalize the input VCF against the human reference genome sequence GRCh38/hg38
 
     "bcftools norm <options> <input_vcf>". For bcftools common options, see running_bcftools().
-    "-m+" joins biallelic sites into multiallelic records (+).
+    "-m +|-" joins biallelic sites into multiallelic records (+) and convert multiallelic records into uniallelic format (-).
     "-f <ref_seq_fasta>" reference sequence. Supplying this option turns on left-alignment and normalization.
     "-c ws" when incorrect or missing REF allele is encountered, warn (w) and set/fix(s) bad sites.  's' will swap
     alleles and update GT and AC acounts. Importantly, s will NOT fix strand issues in a VCF.
     """
 
-    output_dir = os.path.split(os.path.abspath(input_vcf))[0]
+    path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.normalized.vcf.gz'
 
-    with tempfile.NamedTemporaryFile(mode="w", dir=output_dir) as file_temp_norm:
-        # normalize
-        bcftools_command = [bcftools_executable_path, 'norm', '-m+', '-c', 'ws', '-Oz', '-o',
-                                             file_temp_norm.name, '-f', path_to_ref_seq, input_vcf]
-        running_bcftools(bcftools_command, show_msg='Normalizing VCF')
-        tabix_index_vcf(tabix_executable_path, file_temp_norm.name)
+    bcftools_command = [bcftools_executable_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-Oz', '-o',
+                        path_output, '-f', path_to_ref_seq, input_vcf]
+    running_bcftools(bcftools_command, show_msg='Normalizing VCF')
+    tabix_index_vcf(tabix_executable_path, path_output)
 
-        # extract only PGx positions
-        path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.normalized.vcf.gz'
-        bcftools_command = [bcftools_executable_path, 'view', '--no-version', '-U', '-Oz', '-o',
-                                                path_output, '-s', '^PharmCAT', '-T', input_ref_pgx_vcf,
-                                                file_temp_norm.name]
+    return path_output
+
+
+def filter_pgx_variants(bcftools_executable_path, tabix_executable_path, input_vcf, path_to_ref_seq, input_ref_pgx_vcf, output_dir, output_prefix):
+    """
+    Extract specific pgx positions that are present in the reference PGx VCF
+    Generate a report of PGx positions that are missing in the input VCF
+
+    "bcftools isec <options> <input_vcf>". For bcftools common options, see running_bcftools().
+    "-c none" only records with the same CHR, POS, REF and ALT are considered identical
+    "-C" outputs positions present only in the first file but missing in the others.
+    "-w" lists input files to output given as 1-based indices. "-w1" extracts and writes records only present in the first file (the reference PGx positions).
+    """
+
+    path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.multiallelic.vcf.gz'
+
+    with tempfile.TemporaryDirectory(suffix='temp_extract_variants', dir=output_dir) as temp_dir:
+        # convert reference PGx variants to the uniallelic format
+        ref_pgx_uniallelic = os.path.join(temp_dir, 'temp_reference_pgx_variants_uniallelic.vcf.gz')
+        bcftools_command = [bcftools_executable_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', path_to_ref_seq,
+                            '-Oz', '-o', ref_pgx_uniallelic, input_ref_pgx_vcf]
+        running_bcftools(bcftools_command, show_msg='Preparing the reference PGx VCF')
+        tabix_index_vcf(tabix_executable_path, ref_pgx_uniallelic)
+
+        # extract only the required PGx positions
+        input_pgx_variants_only = os.path.join(temp_dir, 'temp_input_pgx_variants_only.vcf.gz')
+        # output the exact matching variants (both position and alleles) in the second input file
+        bcftools_command = [bcftools_executable_path, 'isec', '--no-version', '-c', 'none', '-n=2', '-w2',
+                            '-Oz', '-o', input_pgx_variants_only,
+                            ref_pgx_uniallelic, input_vcf]
+        running_bcftools(bcftools_command, show_msg='Retaining only PGx positions in the normalized VCF')
+        tabix_index_vcf(tabix_executable_path, input_pgx_variants_only)
+
+        # merging the filtered input with the reference PGx VCF to enforce the output to comply with PharmCAT format
+        merge_vcf = os.path.join(temp_dir, 'temp_merged.vcf.gz')
+        bcftools_command = [bcftools_executable_path, 'merge', '--no-version', '-m', 'both',
+                            '-Oz', '-o', merge_vcf, input_pgx_variants_only, input_ref_pgx_vcf]
         running_bcftools(bcftools_command,
-                         show_msg='Retaining only PGx positions in the normalized VCF')  # run bcftools to merge VCF files
+                         show_msg='Enforcing the same variant representation as that in the reference PGx variant file')
+        tabix_index_vcf(tabix_executable_path, merge_vcf)
+
+        # remove the artificial PharmCAT sample
+        bcftools_command = [bcftools_executable_path, 'view', '-s', '^PharmCAT',
+                            '-Oz', '-o', path_output, merge_vcf]
+        running_bcftools(bcftools_command, show_msg='Trimming file')
         tabix_index_vcf(tabix_executable_path, path_output)
 
-        # remove intermediate tabix file
-        os.remove(file_temp_norm.name + ".tbi")
+        # report missing positions in the input VCF
+        report_missing_variants = os.path.join(output_dir, output_prefix + '.missing_pgx_var.vcf.gz')
+        bcftools_command = [bcftools_executable_path, 'isec', '--no-version', '-c', 'none', '-w1',
+                            '-Oz', '-o', report_missing_variants, '-C', ref_pgx_uniallelic, input_vcf]
+        running_bcftools(bcftools_command,
+                         show_msg='Generating a report of missing PGx allele defining positions')
+
     return path_output
 
 
@@ -371,18 +389,3 @@ def output_pharmcat_ready_vcf(bcftools_executable_path, input_vcf, output_dir, o
                          show_msg='Generating a PharmCAT-ready VCF for ' + single_sample)
 
 
-def output_missing_pgx_positions(bcftools_executable_path, input_vcf, input_ref_pgx_vcf, output_dir, output_prefix):
-    """
-    generate a report VCF of missing PGx positions from the input VCF against a reference PGx VCF
-
-    "bcftools isec <options> <input_vcf>". For bcftools common options, see running_bcftools().
-    "-c" controls how to treat records with duplicate positions. "-c indels" means that all indel records are compatible, regardless of whether the REF and ALT alleles match or not. For duplicate positions, only the first indel record will be considered and appear on output.
-    "-C" outputs positions present only in the first file but missing in the others.
-    "-w" lists input files to output given as 1-based indices. "-w1" extracts and writes records only present in the first file (the reference PGx positions).
-    """
-
-    output_file_name = os.path.join(output_dir, output_prefix + '.missing_pgx_var.vcf.gz')
-    bcftools_command = [bcftools_executable_path, 'isec', '--no-version', '-c', 'indels', '-w1',
-                                              '-Oz', '-o', output_file_name, '-C', input_ref_pgx_vcf, input_vcf]
-    running_bcftools(bcftools_command,
-                     show_msg='Generating a report of missing PGx core allele defining positions')
