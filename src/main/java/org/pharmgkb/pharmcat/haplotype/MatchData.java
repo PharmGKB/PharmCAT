@@ -36,7 +36,7 @@ public class MatchData {
   private final VariantLocus[] m_positions;
   @Expose
   @SerializedName("missingPositions")
-  private final Set<VariantLocus> m_missingPositions = new HashSet<>();
+  private final SortedSet<VariantLocus> m_missingPositions = new TreeSet<>();
   private final Set<VariantLocus> m_ignoredPositions = new HashSet<>();
   private final SortedSet<Variant> m_extraPositions = new TreeSet<>();
   @Expose
@@ -224,7 +224,7 @@ public class MatchData {
    * Gets the positions that are missing from the sample VCF that would have been helpful for calling the haplotypes for
    * the gene.
    */
-  public Set<VariantLocus> getMissingPositions() {
+  public SortedSet<VariantLocus> getMissingPositions() {
     return m_missingPositions;
   }
 
