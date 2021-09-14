@@ -30,8 +30,6 @@ CYP3A5_s3_s7_wobble1.vcf, CYP3A5_s3_s7_wobble2.vcf, ... CYP3A5_s3_s7_wobble16.vc
 
 """
 
-# TODO: once available, use definition's specified referent named allele rather than just the first fully-defined named allele
-
 # ask: definition specifies genomeBuild "b38", vcf seems to expect "hg38"
 # ask: does the VCF need 'source' meta info? old test files have it
 
@@ -98,16 +96,8 @@ for namedallele in definition['namedAlleles']:
         continue
     namedalleles.append(namedallele)
     # check if it's the referent named allele
-    # (eventually this should be explicit; for now we assume only the referent allele is defined for all positions,
-    # except for total-gene deletion alleles which will be defined as 'delGene' for all positions)
-    if not (None in namedallele['alleles']) and any((not a.startswith('del')) for a in namedallele['alleles']):
-        if not refNamedallele:
-            refNamedallele = namedallele
-        elif len(definition['variants']) > 1:
-            # if there's only one variant position, all named alleles must be defined for that one position
-            # so we shouldn't warn about it and just have to trust that the correct "referent " allele is first
-            print("  WARNING: two possible referent named alleles, '%s' and '%s'" %
-                  (refNamedallele['name'], namedallele['name']))
+    if namedallele['reference']:
+        refNamedallele = namedallele
     # if ref?
 # for namedallele
 print("done\n")

@@ -137,16 +137,8 @@ for namedallele in definition['namedAlleles']:
         continue
     namedalleles.append(namedallele)
     # check if it's the referent named allele
-    # (eventually this should be explicit; for now we assume only the referent allele is defined for all positions,
-    # except for total-gene deletion alleles which will be defined as 'delGene' for all positions)
-    if not (None in namedallele['alleles']) and any((not a.startswith('del')) for a in namedallele['alleles']):
-        if not refNamedallele:
-            refNamedallele = namedallele
-        elif len(definition['variants']) > 1:
-            # if there's only one variant position, all named alleles must be defined for that one position
-            # so we shouldn't warn about it and just have to trust that the correct "referent " allele is first
-            print("  WARNING: two possible referent named alleles, '%s' and '%s'" %
-                  (refNamedallele['name'], namedallele['name']))
+    if namedallele['reference']:
+        refNamedallele = namedallele
     # if ref?
 # for namedallele
 print("done\n")
