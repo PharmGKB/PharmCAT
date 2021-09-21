@@ -719,5 +719,157 @@
     },
     "exception_type": "ambiguity",
     "message": "Information for rs3758581 is missing. CYP2C19*1 (former *1B) is defined by rs3758581 G, while CYP2C19*38 (former *1A) by rs3758581 A."
+  },
+  {
+    "rule_name": "SLCO1B1 *1A/*12 warning",
+    "version": "1",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1A/*12"
+      ],
+      "drugs": [
+        "simvastatin"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1A/*12; however, *2/*10 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "SLCO1B1 *1A/*13 warning",
+    "version": "1",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1A/*13"
+      ],
+      "drugs": [
+        "simvastatin"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1A/*13; however, *3/*11 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "SLCO1B1 *1A/*14 warning",
+    "version": "1",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1A/*14"
+      ],
+      "drugs": [
+        "simvastatin"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1A/*14; however, *1B/*4 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "SLCO1B1 *1A/*15 warning",
+    "version": "1",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1A/*15"
+      ],
+      "drugs": [
+        "simvastatin"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1A/*15; however, *1B/*5 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "SLCO1B1 *1A/*25 warning",
+    "version": "1",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1A/*25"
+      ],
+      "drugs": [
+        "simvastatin"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1A/*25; however, *4/*28 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "SLCO1B1 *1A/*31 warning",
+    "version": "1",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1A/*31"
+      ],
+      "drugs": [
+        "simvastatin"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1A/*31; however, *1B/*9 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "SLCO1B1 *1A/*32 warning",
+    "version": "1",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1A/*32"
+      ],
+      "drugs": [
+        "simvastatin"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1A/*32; however, *4/*24 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "SLCO1B1 *1A/*35 warning",
+    "version": "1",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1A/*35"
+      ],
+      "drugs": [
+        "simvastatin"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1A/*35; however, *1B/*22 cannot be ruled out without phased data."
   }
 ]
