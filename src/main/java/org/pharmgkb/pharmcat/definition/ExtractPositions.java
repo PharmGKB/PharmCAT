@@ -283,7 +283,7 @@ public class ExtractPositions implements AutoCloseable {
   /**
    * Gets the reference allele for the specified position.
    */
-  String getReferenceAllele(String assembly, String chr, int position) {
+  String getReferenceAllele(String assembly, String chr, long position) {
     String cacheKey = assembly + ":" + chr + ":" + position;
     if (m_refCache.containsKey(cacheKey)) {
       return m_refCache.get(cacheKey);
@@ -319,7 +319,7 @@ public class ExtractPositions implements AutoCloseable {
   private String[] getVcfLineFromDefinition(DefinitionFile definitionFile, VariantLocus variantLocus,
       String genomeBuild) {
 
-    int position = variantLocus.getVcfPosition();
+    long position = variantLocus.getVcfPosition();
     String chr = definitionFile.getChromosome();
     // get alts from the namedAlleles
     List<String> alts = new ArrayList<>();
@@ -415,7 +415,7 @@ public class ExtractPositions implements AutoCloseable {
 
     return new String[]{
         chr,
-        Integer.toString(position),
+        Long.toString(position),
         idField,
         refField,
         String.join(",", new TreeSet<>(alts)),

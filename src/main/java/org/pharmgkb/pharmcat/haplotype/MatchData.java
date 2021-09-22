@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
  */
 public class MatchData {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private final SortedMap<Integer, SampleAllele> m_sampleMap = new TreeMap<>();
+  private final SortedMap<Long, SampleAllele> m_sampleMap = new TreeMap<>();
   private final VariantLocus[] m_positions;
   @Expose
   @SerializedName("missingPositions")
@@ -182,7 +182,7 @@ public class MatchData {
     return m_sampleMap.size();
   }
 
-  public SampleAllele getSampleAllele(int position) {
+  public SampleAllele getSampleAllele(long position) {
     SampleAllele sampleAllele = m_sampleMap.get(position);
     if (sampleAllele == null) {
       throw new IllegalArgumentException("No sample allele for position " + position);

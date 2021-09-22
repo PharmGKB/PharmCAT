@@ -25,7 +25,7 @@ public class Variant implements Comparable<Variant>  {
   @SerializedName("vcfCall")
   private String m_vcfCall;
   private boolean m_isPhased;
-  private int m_vcfPosition;
+  private long m_vcfPosition;
   private String m_vcfAlleles;
 
 
@@ -41,11 +41,12 @@ public class Variant implements Comparable<Variant>  {
   }
 
 
-  public Variant(int pos, @Nullable String rsids, @Nullable String call, int vcfPosition, @Nullable String vcfAlleles) {
+  public Variant(int pos, @Nullable String rsids, @Nullable String call, long vcfPosition, @Nullable String vcfAlleles) {
     initialize(pos, rsids, call, vcfPosition, vcfAlleles);
   }
 
-  private void initialize(int pos, @Nullable String rsids, @Nullable String call, int vcfPosition, @Nullable String vcfAlleles) {
+  private void initialize(int pos, @Nullable String rsids, @Nullable String call, long vcfPosition,
+      @Nullable String vcfAlleles) {
     m_position = pos;
     m_rsid = rsids;
     m_vcfCall = call;
@@ -73,7 +74,7 @@ public class Variant implements Comparable<Variant>  {
     return m_isPhased;
   }
 
-  public int getVcfPosition() {
+  public long getVcfPosition() {
     return m_vcfPosition;
   }
 
@@ -88,7 +89,7 @@ public class Variant implements Comparable<Variant>  {
     if (rez != 0) {
       return rez;
     }
-    rez = Integer.compare(m_vcfPosition, o.getVcfPosition());
+    rez = Long.compare(m_vcfPosition, o.getVcfPosition());
     if (rez != 0) {
       return rez;
     }
