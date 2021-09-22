@@ -218,7 +218,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return an {@link Optional} {@link VariantReport}
    */
   public Optional<VariantReport> findVariantReport(String rsid) {
-    return m_variantReports.stream().filter(v -> v.getDbSnpId().contains(rsid)).findFirst();
+    return m_variantReports.stream().filter(v -> v.getDbSnpId() != null && v.getDbSnpId().contains(rsid)).findFirst();
   }
 
   public List<VariantReport> getVariantOfInterestReports() {
