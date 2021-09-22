@@ -362,12 +362,15 @@ public class ReportContext {
       geneCallMap.put("gene", geneReport.getGeneDisplay());
 
       String phaseStatus;
+      boolean unphased = false;
       if (geneReport.isOutsideCall()) {
         phaseStatus = "Unavailable for calls made outside PharmCAT";
       } else {
         phaseStatus = geneReport.isPhased() ? "Phased" : "Unphased";
+        unphased = !geneReport.isPhased();
       }
       geneCallMap.put("phaseStatus", phaseStatus);
+      geneCallMap.put("unphased", unphased);
 
       boolean hasUncalledHaplotypes = geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0;
       geneCallMap.put("hasUncalledHaps", hasUncalledHaplotypes);

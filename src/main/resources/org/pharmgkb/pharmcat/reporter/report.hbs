@@ -60,7 +60,7 @@
     <tr>
       <th>Drugs</th>
       <th>Gene</th>
-      <th>Genotype</th>
+      <th>Genotype<sup><a href="#genotypes-ddagger">&ddagger;</a></sup></th>
       <th>Allele Functionality</th>
       <th>Phenotype</th>
       <th>Missing Variant Input<sup><a href="#genotypes-star">*</a></sup></th>
@@ -103,6 +103,9 @@
   </div>
   <div class="footnote" id="genotypes-dagger">
     <sup>&dagger;</sup> Check the allele call details for this gene for more details about this call.
+  </div>
+  <div class="footnote" id="genotypes-ddagger">
+    <sup>&ddagger;</sup> PharmCAT reports the genotype(s) that receive the highest score during the matcher process. In case of unphased data, additional genotypes might be possible and cannot be ruled out.
   </div>
   <div class="footnote">
     For a full list of disclaimers and limitations see the <a href="#disclaimer">Disclaimer section</a>.
@@ -210,7 +213,11 @@
         {{/each}}
       </ul>
 
-      <h4>Phasing status</h4><div>{{phaseStatus}}</div>
+      <p><strong>Phasing status:</strong> {{phaseStatus}}</p>
+
+      {{#if unphased}}
+        <p>PharmCAT reports the genotype(s) that receive the highest score during the matcher process. In case of unphased data, additional genotypes might be possible and cannot be ruled out.</p>
+      {{/if}}
 
       {{#if hasUncalledHaps}}
         <h4>Alleles Not Considered</h4>
