@@ -217,6 +217,7 @@ public class ReportContext {
       genotype.put("calls", geneReport.printDisplayCalls());
       genotype.put("functions", geneReport.printDisplayFunctions());
       genotype.put("missingVariants", geneReport.isMissingVariants());
+      genotype.put("unphased", !geneReport.isOutsideCall() && !geneReport.isPhased());
       genotype.put("phenotype", geneReport.printDisplayPhenotypes());
       genotype.put("hasMessages", geneReport.getMessages().size()>0);
       genotype.put("outsideCall", geneReport.isOutsideCall());

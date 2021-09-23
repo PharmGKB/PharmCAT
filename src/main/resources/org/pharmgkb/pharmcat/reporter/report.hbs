@@ -60,7 +60,7 @@
     <tr>
       <th>Drugs</th>
       <th>Gene</th>
-      <th>Genotype<sup><a href="#genotypes-ddagger">&ddagger;</a></sup></th>
+      <th>Genotype</th>
       <th>Allele Functionality</th>
       <th>Phenotype</th>
       <th>Missing Variant Input<sup><a href="#genotypes-star">*</a></sup></th>
@@ -76,9 +76,14 @@
           <a href="#{{gene}}">{{gene}}</a>{{#if hasMessages}}<sup><a href="#genotypes-dagger">&dagger;</a></sup>{{/if}}
         </td>
         <td>
-          {{#each calls}}
-            <div>{{this}}</div>
-          {{/each}}
+          <div style="display: flex;">
+            <div>
+              {{#each calls}}
+                <div>{{this}}</div>
+              {{/each}}
+            </div>
+            {{#if unphased}}<div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>{{/if}}
+          </div>
         </td>
         <td>
           {{#each functions}}
