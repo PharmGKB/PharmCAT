@@ -84,7 +84,11 @@ public class VariantReportFactory {
         VariantLocus locus = allVariants[i];
 
         if (alleleValue != null) {
-          m_variantAlleleMap.put(locus.getPosition(), namedAllele.getName());
+          // this is a special case for CYP2C19 since *1 is not the "reference" allele
+          // this is here to prevent *1 from being shown repetitively in reports
+          if (!gene.equals("CYP2C19") || !namedAllele.getName().equals("*1")) {
+            m_variantAlleleMap.put(locus.getPosition(), namedAllele.getName());
+          }
         }
       }
     }
