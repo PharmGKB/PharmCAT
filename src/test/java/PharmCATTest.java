@@ -272,9 +272,12 @@ class PharmCATTest {
 
     assertFalse(cyp2c19report.isPhased());
     assertTrue(cyp2c19report.findVariantReport("rs12248560").map(VariantReport::isHetCall).orElse(false));
+    assertTrue(cyp2c19report.findVariantReport("rs3758581").map(VariantReport::isMissing).orElse(false));
+
+    assertTrue(cyp2c19report.hasHaplotype("*38"));
 
     // message is for *1/*4 being ambiuguous with unphased data
-    assertEquals(1, cyp2c19report.getMessages().stream()
+    assertEquals(2, cyp2c19report.getMessages().stream()
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY))
         .count());
 

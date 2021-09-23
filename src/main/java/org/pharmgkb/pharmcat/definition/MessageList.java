@@ -80,6 +80,7 @@ public class MessageList {
 
     // "ambiguity" messages only apply when the gene unphased, other criteria still apply too
     boolean passAmbiguityCriteria = !message.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY)
+        || match.getDips().isEmpty()
         || (!match.getDips().isEmpty() && !gene.isPhased());
 
     // if it's an "ambiguity" message and a variant is specified then that variant must be het
