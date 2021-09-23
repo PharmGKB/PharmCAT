@@ -1,7 +1,7 @@
 {
   "totalGenes": 18,
-  "pharmcatVersion": "v0.8.0-196-g3da72a0\n",
-  "generatedOn": "September 01, 2021",
+  "pharmcatVersion": "v0.8.0-211-g1c0b4f4\n",
+  "generatedOn": "September 23, 2021",
   "geneCalls": [
     {
       "diplotypes": [
@@ -43,6 +43,7 @@
         }
       ],
       "phaseStatus": "Phased",
+      "unphased": false,
       "extra-position-notes": []
     },
     {
@@ -566,6 +567,7 @@
         }
       ],
       "phaseStatus": "Phased",
+      "unphased": false,
       "extra-position-notes": []
     },
     {
@@ -1067,6 +1069,7 @@
         }
       ],
       "phaseStatus": "Phased",
+      "unphased": false,
       "extra-position-notes": []
     },
     {
@@ -1088,7 +1091,6 @@
           "dbSnpId": "rs12248560",
           "call": "C|C",
           "alleles": [
-            "*1",
             "*4",
             "*17"
           ],
@@ -1103,7 +1105,6 @@
           "dbSnpId": "rs28399504",
           "call": "A|A",
           "alleles": [
-            "*1",
             "*4"
           ],
           "phased": true,
@@ -1117,7 +1118,6 @@
           "dbSnpId": "rs367543002",
           "call": "C|C",
           "alleles": [
-            "*1",
             "*34"
           ],
           "phased": true,
@@ -1131,7 +1131,6 @@
           "dbSnpId": "rs367543003",
           "call": "T|T",
           "alleles": [
-            "*1",
             "*34"
           ],
           "phased": true,
@@ -1145,7 +1144,6 @@
           "dbSnpId": "rs55752064",
           "call": "T|T",
           "alleles": [
-            "*1",
             "*14"
           ],
           "phased": true,
@@ -1159,7 +1157,6 @@
           "dbSnpId": "rs17882687",
           "call": "A|A",
           "alleles": [
-            "*1",
             "*15",
             "*28",
             "*35",
@@ -1176,7 +1173,6 @@
           "dbSnpId": "rs1564656981",
           "call": "A|A",
           "alleles": [
-            "*1",
             "*29"
           ],
           "phased": true,
@@ -1190,7 +1186,6 @@
           "dbSnpId": "rs1564657013",
           "call": "A|A",
           "alleles": [
-            "*1",
             "*19"
           ],
           "phased": true,
@@ -1204,7 +1199,6 @@
           "dbSnpId": "rs145328984",
           "call": "C|C",
           "alleles": [
-            "*1",
             "*30"
           ],
           "phased": true,
@@ -1218,7 +1212,6 @@
           "dbSnpId": "rs1564660997",
           "call": "C|C",
           "alleles": [
-            "*1",
             "*31"
           ],
           "phased": true,
@@ -1232,7 +1225,6 @@
           "dbSnpId": "rs118203756",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*23"
           ],
           "phased": true,
@@ -1246,7 +1238,6 @@
           "dbSnpId": "rs1288601658",
           "call": "A|A",
           "alleles": [
-            "*1",
             "*32"
           ],
           "phased": true,
@@ -1260,7 +1251,6 @@
           "dbSnpId": "rs12769205",
           "call": "A|A",
           "alleles": [
-            "*1",
             "*2",
             "*35"
           ],
@@ -1275,7 +1265,6 @@
           "dbSnpId": "rs41291556",
           "call": "T|T",
           "alleles": [
-            "*1",
             "*8"
           ],
           "phased": true,
@@ -1289,7 +1278,6 @@
           "dbSnpId": "rs17885179",
           "call": "A|A",
           "alleles": [
-            "*1",
             "*39"
           ],
           "phased": true,
@@ -1303,7 +1291,6 @@
           "dbSnpId": "rs72552267",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*6"
           ],
           "phased": true,
@@ -1317,7 +1304,6 @@
           "dbSnpId": "rs17884712",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*9"
           ],
           "phased": true,
@@ -1331,7 +1317,6 @@
           "dbSnpId": "rs58973490",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*2",
             "*11"
           ],
@@ -1346,7 +1331,6 @@
           "dbSnpId": "rs140278421",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*22"
           ],
           "phased": true,
@@ -1360,7 +1344,6 @@
           "dbSnpId": "rs370803989",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*33"
           ],
           "phased": true,
@@ -1374,7 +1357,6 @@
           "dbSnpId": "rs4986893",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*3"
           ],
           "phased": true,
@@ -1388,7 +1370,6 @@
           "dbSnpId": "rs6413438",
           "call": "C|C",
           "alleles": [
-            "*1",
             "*10"
           ],
           "phased": true,
@@ -1402,7 +1383,6 @@
           "dbSnpId": "rs4244285",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*2"
           ],
           "phased": true,
@@ -1416,7 +1396,6 @@
           "dbSnpId": "rs375781227",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*26"
           ],
           "phased": true,
@@ -1430,7 +1409,6 @@
           "dbSnpId": "rs72558186",
           "call": "T|T",
           "alleles": [
-            "*1",
             "*7"
           ],
           "phased": true,
@@ -1444,7 +1422,6 @@
           "dbSnpId": "rs138142612",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*18"
           ],
           "phased": true,
@@ -1458,7 +1435,6 @@
           "dbSnpId": "rs3758581",
           "call": "A|A",
           "alleles": [
-            "*1",
             "*2",
             "*3",
             "*4",
@@ -1499,7 +1475,6 @@
           "dbSnpId": "rs118203757",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*24"
           ],
           "phased": true,
@@ -1513,7 +1488,6 @@
           "dbSnpId": "rs113934938",
           "call": "G|G",
           "alleles": [
-            "*1",
             "*28"
           ],
           "phased": true,
@@ -1527,7 +1501,6 @@
           "dbSnpId": "rs17879685",
           "call": "C|C",
           "alleles": [
-            "*1",
             "*13"
           ],
           "phased": true,
@@ -1541,7 +1514,6 @@
           "dbSnpId": "rs56337013",
           "call": "C|C",
           "alleles": [
-            "*1",
             "*5"
           ],
           "phased": true,
@@ -1555,7 +1527,6 @@
           "dbSnpId": "rs192154563",
           "call": "C|C",
           "alleles": [
-            "*1",
             "*16"
           ],
           "phased": true,
@@ -1569,7 +1540,6 @@
           "dbSnpId": "rs118203759",
           "call": "C|C",
           "alleles": [
-            "*1",
             "*25"
           ],
           "phased": true,
@@ -1583,7 +1553,6 @@
           "dbSnpId": "rs55640102",
           "call": "A|A",
           "alleles": [
-            "*1",
             "*12"
           ],
           "phased": true,
@@ -1592,6 +1561,7 @@
         }
       ],
       "phaseStatus": "Phased",
+      "unphased": false,
       "extra-position-notes": []
     },
     {
@@ -2487,6 +2457,7 @@
         }
       ],
       "phaseStatus": "Phased",
+      "unphased": false,
       "extra-position-notes": []
     },
     {
@@ -2494,33 +2465,32 @@
         "*1/*3"
       ],
       "gene": "CYP2D6",
-      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": true,
       "warnings": [
         "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to \u003ca href\u003d\"https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles\"\u003ethe PharmCAT wiki\u003c/a\u003e for more information."
       ],
       "variantsUnspecified": true,
-      "messages": [
-        "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to \u003ca href\u003d\"https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles\"\u003ethe PharmCAT wiki\u003c/a\u003e for more information."
-      ],
       "totalMissingVariants": 0,
       "totalVariants": 0,
       "phaseStatus": "Unavailable for calls made outside PharmCAT",
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "hasUncalledHaps": false,
+      "messages": [
+        "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to \u003ca href\u003d\"https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles\"\u003ethe PharmCAT wiki\u003c/a\u003e for more information."
+      ],
+      "unphased": false
     },
     {
       "diplotypes": [
         "*1/*1"
       ],
       "gene": "CYP3A5",
-      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
       "warnings": [
         "The CYP3A5 gene is on the negative chromosomal strand, all genotype calls for CYP3A5 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
       ],
-      "messages": [],
       "totalMissingVariants": 0,
       "totalVariants": 8,
       "variants": [
@@ -2634,7 +2604,10 @@
         }
       ],
       "phaseStatus": "Phased",
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "hasUncalledHaps": false,
+      "messages": [],
+      "unphased": false
     },
     {
       "diplotypes": [
@@ -2676,6 +2649,7 @@
         }
       ],
       "phaseStatus": "Phased",
+      "unphased": false,
       "extra-position-notes": []
     },
     {
@@ -2683,13 +2657,11 @@
         "Reference/Reference"
       ],
       "gene": "DPYD",
-      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
       "warnings": [
         "The DPYD gene is on the negative chromosomal strand, all genotype calls for DPYD in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
       ],
-      "messages": [],
       "totalMissingVariants": 0,
       "totalVariants": 83,
       "variants": [
@@ -3774,7 +3746,10 @@
         }
       ],
       "phaseStatus": "Phased",
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "hasUncalledHaps": false,
+      "messages": [],
+      "unphased": false
     },
     {
       "diplotypes": [
@@ -3789,6 +3764,7 @@
       "totalMissingVariants": 0,
       "totalVariants": 0,
       "phaseStatus": "Unavailable for calls made outside PharmCAT",
+      "unphased": false,
       "extra-position-notes": []
     },
     {
@@ -3796,13 +3772,11 @@
         "rs12979860 reference (C)/rs12979860 reference (C)"
       ],
       "gene": "IFNL3/4",
-      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
       "warnings": [
         "The IFNL3 gene is on the negative chromosomal strand, all genotype calls for IFNL3 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
       ],
-      "messages": [],
       "totalMissingVariants": 0,
       "totalVariants": 1,
       "variants": [
@@ -3821,7 +3795,10 @@
         }
       ],
       "phaseStatus": "Phased",
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "hasUncalledHaps": false,
+      "messages": [],
+      "unphased": false
     },
     {
       "diplotypes": [
@@ -3836,6 +3813,7 @@
       "totalMissingVariants": 0,
       "totalVariants": 0,
       "phaseStatus": "Unavailable for calls made outside PharmCAT",
+      "unphased": false,
       "extra-position-notes": []
     },
     {
@@ -4101,6 +4079,7 @@
         }
       ],
       "phaseStatus": "Phased",
+      "unphased": false,
       "extra-position-notes": []
     },
     {
@@ -4693,6 +4672,7 @@
         }
       ],
       "phaseStatus": "Phased",
+      "unphased": false,
       "extra-position-notes": []
     },
     {
@@ -5127,6 +5107,7 @@
         }
       ],
       "phaseStatus": "Phased",
+      "unphased": false,
       "extra-position-notes": []
     },
     {
@@ -5134,13 +5115,11 @@
         "*1/*1"
       ],
       "gene": "TPMT",
-      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
       "warnings": [
         "The TPMT gene is on the negative chromosomal strand, all genotype calls for TPMT in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
       ],
-      "messages": [],
       "totalMissingVariants": 0,
       "totalVariants": 43,
       "variants": [
@@ -5709,20 +5688,21 @@
         }
       ],
       "phaseStatus": "Phased",
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "hasUncalledHaps": false,
+      "messages": [],
+      "unphased": false
     },
     {
       "diplotypes": [
         "*1/*1"
       ],
       "gene": "UGT1A1",
-      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
       "warnings": [
         "Some alleles in UGT1A1 are distinguished by a repeat sequence; some genotyping technologies may not accurately call the repeat."
       ],
-      "messages": [],
       "totalMissingVariants": 0,
       "totalVariants": 4,
       "variants": [
@@ -5786,21 +5766,22 @@
         }
       ],
       "phaseStatus": "Phased",
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "hasUncalledHaps": false,
+      "messages": [],
+      "unphased": false
     },
     {
       "diplotypes": [
         "rs9923231 reference (C)/rs9923231 reference (C)"
       ],
       "gene": "VKORC1",
-      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
       "warnings": [
         "CPIC recommendations for warfarin use only rs9923231; however, other variants in VKORC1 may have functional consequences and may be more common in some populations.",
         "The VKORC1 gene is on the negative chromosomal strand, all genotype calls for VKORC1 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
       ],
-      "messages": [],
       "totalMissingVariants": 0,
       "totalVariants": 1,
       "variants": [
@@ -5819,7 +5800,10 @@
         }
       ],
       "phaseStatus": "Phased",
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "hasUncalledHaps": false,
+      "messages": [],
+      "unphased": false
     }
   ],
   "calledGenes": 18,
@@ -5869,6 +5853,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": false
     },
     {
@@ -5891,6 +5876,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": false
     },
     {
@@ -5913,6 +5899,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": false
     },
     {
@@ -5987,6 +5974,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": false
     },
     {
@@ -6037,6 +6025,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": false
     },
     {
@@ -6119,6 +6108,7 @@
       ],
       "missingVariants": "N/A",
       "outsideCall": true,
+      "unphased": false,
       "hasMessages": true
     },
     {
@@ -6141,6 +6131,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": true
     },
     {
@@ -6163,6 +6154,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": false
     },
     {
@@ -6189,6 +6181,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": true
     },
     {
@@ -6211,6 +6204,7 @@
       ],
       "missingVariants": "N/A",
       "outsideCall": true,
+      "unphased": false,
       "hasMessages": false
     },
     {
@@ -6237,6 +6231,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": true
     },
     {
@@ -6283,6 +6278,7 @@
       ],
       "missingVariants": "N/A",
       "outsideCall": true,
+      "unphased": false,
       "hasMessages": false
     },
     {
@@ -6313,6 +6309,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": false
     },
     {
@@ -6359,6 +6356,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": false
     },
     {
@@ -6381,6 +6379,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": false
     },
     {
@@ -6411,6 +6410,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": true
     },
     {
@@ -6433,6 +6433,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": true
     },
     {
@@ -6455,6 +6456,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "unphased": false,
       "hasMessages": true
     }
   ],
