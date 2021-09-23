@@ -18,6 +18,7 @@ import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.definition.MessageList;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
@@ -27,7 +28,6 @@ import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
-import org.pharmgkb.pharmcat.util.MessageMatcher;
 
 
 /**
@@ -54,7 +54,7 @@ public class ReportContext {
    * @param geneReports {@link GeneReport} objects, non-null but can be empty
    */
   public ReportContext(Collection<GeneReport> geneReports) throws Exception {
-    MessageMatcher messageMatcher = new MessageMatcher();
+    MessageList messageList = new MessageList();
 
     // add all existing gene data
     f_geneReports.addAll(geneReports);
@@ -88,7 +88,7 @@ public class ReportContext {
       for (String gene : drugReport.getRelatedGeneSymbols()) {
         getGeneReport(gene).addRelatedDrugs(drugReport);
       }
-      messageMatcher.match(drugReport, this);
+      messageList.match(drugReport, this);
 
       // add message to drug when a related gene has a *1 allele
       boolean hasStarOne = drugReport.getRelatedGeneSymbols().stream()

@@ -138,6 +138,8 @@ class PharmCATTest {
         .orElseThrow(() -> new RuntimeException("Variant missing from test data"));
     assertTrue(vr.isHetCall());
 
+    // ambiguity message will not apply in this case because all variants are available for CYP2C19, but one message
+    // should appear for the *1 call
     assertEquals(1, cyp2c19report.getMessages().stream()
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
         .count());
@@ -168,15 +170,18 @@ class PharmCATTest {
 
     GeneReport cyp2c19report = s_pharmcatTopMatch.getContext().getGeneReport("CYP2C19");
 
+    // make sure the variant in question is not a het call
     VariantReport vr = cyp2c19report.findVariantReport("rs58973490")
         .orElseThrow(() -> new RuntimeException("Variant missing from test data"));
     assertFalse(vr.isHetCall());
 
+    // the variant is hom so ambiguity message should not apply and, thus, no matching messages
     assertEquals(0, cyp2c19report.getMessages().stream()
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
         .count());
 
     DrugReport amiReport = s_pharmcatTopMatch.getContext().getDrugReport("amitriptyline");
+    // should only get the *1 message, the variant is hom so ambiguity message should not match
     assertEquals(1, amiReport.getMessages().size());
   }
 
@@ -247,6 +252,34 @@ class PharmCATTest {
     s_pharmcatTopMatch.testPrintCalls("CYP2C19", "*4/*17");
 
     assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("CYP2D6").isOutsideCall());
+  }
+
+  @Test
+  void testCyp2c19s4s17missingSome() throws Exception {
+    s_pharmcatTopMatch.execute("test.cyp2c19.s4s17missingS1", new String[]{
+        "cyp2c19/s4s17missingS1.vcf"
+        },
+        s_outsideCallFilePath);
+
+    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19", "CYP2D6");
+
+    s_pharmcatTopMatch.testPrintCalls("CYP2D6", "*1/*4");
+    s_pharmcatTopMatch.testPrintCalls("CYP2C19",  "*1/*4", "*4/*38");
+
+    assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("CYP2D6").isOutsideCall());
+    GeneReport cyp2c19report = s_pharmcatTopMatch.getContext().getGeneReport("CYP2C19");
+    assertEquals("Yes", cyp2c19report.isMissingVariants());
+
+    assertFalse(cyp2c19report.isPhased());
+    assertTrue(cyp2c19report.findVariantReport("rs12248560").map(VariantReport::isHetCall).orElse(false));
+
+    // message is for *1/*4 being ambiuguous with unphased data
+    assertEquals(1, cyp2c19report.getMessages().stream()
+        .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY))
+        .count());
+
+    DrugReport amiReport = s_pharmcatTopMatch.getContext().getDrugReport("amitriptyline");
+    assertEquals(3, amiReport.getMessages().size());
   }
 
   @Test
@@ -526,9 +559,9 @@ class PharmCATTest {
     s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*80+*28");
     s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80+*28");
 
-    // the guideline should have matching messages
+    // the guideline should have a matching message for the *1 call but no ambiguity call
     DrugReport atazanavirReporrt = s_pharmcatTopMatch.getContext().getDrugReport("atazanavir");
-    assertEquals(2, atazanavirReporrt.getMessages().size());
+    assertEquals(1, atazanavirReporrt.getMessages().size());
 
     assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }

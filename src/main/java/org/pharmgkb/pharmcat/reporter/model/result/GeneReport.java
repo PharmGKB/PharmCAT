@@ -369,6 +369,17 @@ public class GeneReport implements Comparable<GeneReport> {
     return StringUtils.isNotBlank(gene) && SINGLE_PLOIDY.contains(gene);
   }
 
+  /**
+   * This will test whether this has a called haplotype at the reporter level, so this will not be just matched
+   * haplotypes but also outside call haplotypes and inferred haplotypes
+   * @param haplotype a haplotype name to test for
+   * @return true if the haplotype has been called at least once (het or hom) for this gene
+   */
+  public boolean hasHaplotype(String haplotype) {
+    return m_reporterDiplotypes.stream()
+        .anyMatch((d) -> d.hasAllele(haplotype));
+  }
+
   public List<Diplotype> getMatcherDiplotypes() {
     return m_matcherDiplotypes;
   }
