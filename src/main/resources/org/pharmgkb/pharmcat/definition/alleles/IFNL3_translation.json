@@ -1,43 +1,41 @@
 {
-  "formatVersion": "1",
-  "cpicVersion": "v1.8-1-g64906f3",
-  "modificationDate": "Aug 18, 2021 04:53:20 PM",
+  "formatVersion": "2",
+  "cpicVersion": "v1.9-2-gef7e4f8",
+  "modificationDate": "Sep 24, 2021 09:30:23 AM",
   "gene": "IFNL3",
   "orientation": null,
   "chromosome": "chr19",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000019.10",
-  "refSeqGeneId": "NG_042193.1",
-  "refSeqProteinId": "NP_000101.2",
-  "notes": [
-    "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
-    "All variants are annotated to the positive DNA strand."
-  ],
-  "populations": null,
   "variants": [
     {
       "chromosome": "chr19",
       "position": 39248147,
+      "cpicPosition": 39248147,
       "rsid": "rs12979860",
       "chromosomeHgvsName": "g.39248147C>T",
-      "geneHgvsName": "g.1825G>A",
-      "proteinNote": "unknown (upstream)",
-      "resourceNote": "-1595G>A",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     }
-  ],
-  "variantAlleles": [
-    [
-      "C",
-      "T"
-    ]
   ],
   "namedAlleles": [
     {
       "name": "rs12979860 reference (C)",
       "id": "779041",
       "alleles": [
+        "C"
+      ],
+      "cpicAlleles": [
         "C"
       ],
       "populationFrequency": null,
@@ -47,6 +45,9 @@
       "name": "rs12979860 variant (T)",
       "id": "779043",
       "alleles": [
+        "T"
+      ],
+      "cpicAlleles": [
         "T"
       ],
       "populationFrequency": null,

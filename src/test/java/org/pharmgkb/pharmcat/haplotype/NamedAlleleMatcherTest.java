@@ -148,10 +148,6 @@ class NamedAlleleMatcherTest {
 
     Path vcfFile  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/haplotyper.vcf");
     Path jsonFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/haplotyper.json");
-    Set<String> permutations = Sets.newHashSet(
-        "1:C;2:del;3:C;",
-        "1:T;2:insA;3:delC;"
-    );
     String gene = "CYP3A5";
 
     DefinitionReader definitionReader = new DefinitionReader();
@@ -170,6 +166,10 @@ class NamedAlleleMatcherTest {
     assertEquals(2, data.getHaplotypes().size());
 
     // get all permutations of sample at positions of interest
+    Set<String> permutations = Sets.newHashSet(
+        "1:C;2:C;4:TG;",
+        "1:T;2:CT;4:T;"
+    );
     data.generateSamplePermutations();
     assertThat(data.getPermutations(), equalTo(permutations));
 

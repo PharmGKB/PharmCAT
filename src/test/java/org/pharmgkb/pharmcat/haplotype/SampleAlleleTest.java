@@ -3,10 +3,7 @@ package org.pharmgkb.pharmcat.haplotype;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.jupiter.api.Test;
-import org.pharmgkb.pharmcat.definition.model.VariantLocus;
-import org.pharmgkb.pharmcat.definition.model.VariantType;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 
@@ -35,53 +32,5 @@ class SampleAlleleTest {
     assertSame(Sets.newTreeSet(Sets.newHashSet(sa1, sa4)).first(), sa1);
     assertSame(Sets.newTreeSet(Sets.newHashSet(sa4, sa5)).first(), sa4);
     assertSame(Sets.newTreeSet(Sets.newHashSet(sa5, sa4)).first(), sa4);
-  }
-
-  @Test
-  void testForVariant() {
-
-    VariantLocus insVariant = new VariantLocus("chr1", 1, "g.1A>AT");
-
-    // inserts
-    insVariant.setType(VariantType.INS);
-
-    SampleAllele sa = new SampleAllele("chr1", 1, "TC", "TCA", true, Lists.newArrayList("TC", "TCA"));
-    SampleAllele rez = sa.forVariant(insVariant);
-    assertEquals("del", rez.getAllele1());
-    assertEquals("insA", rez.getAllele2());
-
-    sa = new SampleAllele("chr1", 1, "TC", "TCATA", true, Lists.newArrayList("TC", "TCATA"));
-    rez = sa.forVariant(insVariant);
-    assertEquals("del", rez.getAllele1());
-    assertEquals("insATA", rez.getAllele2());
-
-    // deletes
-    insVariant.setType(VariantType.DEL);
-
-    sa = new SampleAllele("chr1", 1, "TC", "T", true, Lists.newArrayList("TC", "T"));
-    rez = sa.forVariant(insVariant);
-    assertEquals("C", rez.getAllele1());
-    assertEquals("delC", rez.getAllele2());
-
-    sa = new SampleAllele("chr1", 1, "TCAT", "T", true, Lists.newArrayList("TCAT", "T"));
-    rez = sa.forVariant(insVariant);
-    assertEquals("CAT", rez.getAllele1());
-    assertEquals("delCAT", rez.getAllele2());
-
-
-    // repeats
-    insVariant.setType(VariantType.REPEAT);
-    insVariant.setReferenceRepeat("A(TA)6TAA");
-
-    sa = new SampleAllele("chr1", 1, "ATATAA", "ATATATATATATAA", true, Lists.newArrayList("ATATAA", "ATATATATATATAA"));
-    rez = sa.forVariant(insVariant);
-    assertEquals("A(TA)1TAA", rez.getAllele1());
-    assertEquals("A(TA)5TAA", rez.getAllele2());
-
-    sa = new SampleAllele("chr1", 1, "ATATATATATATATATAA", "ATATATATATATAA", true,
-        Lists.newArrayList("ATATATATATATATATAA", "ATATATATATATAA"));
-    rez = sa.forVariant(insVariant);
-    assertEquals("A(TA)7TAA", rez.getAllele1());
-    assertEquals("A(TA)5TAA", rez.getAllele2());
   }
 }

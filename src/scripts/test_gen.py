@@ -41,12 +41,13 @@ CYP3A5_s3_s7_wobble1.vcf, CYP3A5_s3_s7_wobble2.vcf, ... CYP3A5_s3_s7_wobble16.vc
 #      over subsequent variants in the definition; how is this handled?
 #      will PharmCAT parse the '*' symbol correctly in that context?
 
+import collections
 import datetime
+import itertools
 import json
 import os
-import itertools
-import collections
 import sys
+
 import test_gen_utilities as util
 
 
@@ -75,8 +76,6 @@ vcfreference = util.parseVCF(vcfPath)
 util.updateVarAlleles(definition,vcfreference)
 
 
-if len(definition['variants']) != len(definition['variantAlleles']):
-    sys.exit("ERROR: variants / variantAlleles length mismatch")
 print(f"done: {len(definition['variants'])} variants, {len(definition['namedAlleles'])} named alleles\n")
 
 # scan named alleles and identify the referent named allele

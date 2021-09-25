@@ -1,615 +1,801 @@
 {
-  "formatVersion": "1",
-  "cpicVersion": "v1.8-1-g64906f3",
-  "modificationDate": "Aug 18, 2021 04:53:19 PM",
+  "formatVersion": "2",
+  "cpicVersion": "v1.9-2-gef7e4f8",
+  "modificationDate": "Sep 24, 2021 09:30:00 AM",
   "gene": "CFTR",
   "orientation": null,
   "chromosome": "chr7",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000007.14",
-  "refSeqGeneId": "NG_016465.3",
-  "refSeqProteinId": "NP_000483.3",
-  "notes": [
-    "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
-    "All variants are annotated to the positive chromosomal strand.",
-    "Class is defined in PMID: 20932301.",
-    "Table includes variants listed as ivacaftor responsive on FDA-approved ivacaftor (Kalydeco) label (see change log for updates); indicated based on clinical data"
-  ],
-  "populations": null,
   "variants": [
     {
       "chromosome": "chr7",
       "position": 117509035,
+      "cpicPosition": 117509035,
       "rsid": "rs397508256",
       "chromosomeHgvsName": "g.117509035G>A",
-      "geneHgvsName": "g.48252G>A",
-      "proteinNote": "E56K",
-      "resourceNote": "E56K",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117509069,
+      "cpicPosition": 117509069,
       "rsid": "rs368505753",
       "chromosomeHgvsName": "g.117509069C>T",
-      "geneHgvsName": "g.48286C>T",
-      "proteinNote": "P67L",
-      "resourceNote": "P67L",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117509089,
+      "cpicPosition": 117509089,
       "rsid": "rs115545701",
       "chromosomeHgvsName": "g.117509089C>T",
-      "geneHgvsName": "g.48306C>T",
-      "proteinNote": "R74W",
-      "resourceNote": "R74W",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117530953,
+      "cpicPosition": 117530953,
       "rsid": "rs113993958",
       "chromosomeHgvsName": "g.117530953G>C",
-      "geneHgvsName": "g.70170G>C",
-      "proteinNote": "D110H",
-      "resourceNote": "D110H",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "C"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117530955,
+      "cpicPosition": 117530955,
       "rsid": "rs397508537",
       "chromosomeHgvsName": "g.117530955C>A",
-      "geneHgvsName": "g.70172C>A",
-      "proteinNote": "D110E",
-      "resourceNote": "D110E",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "C"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "C": "C"
+      },
+      "ref": "C",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117530974,
+      "cpicPosition": 117530974,
       "rsid": "rs77834169",
       "chromosomeHgvsName": "g.117530974C>T",
-      "geneHgvsName": "g.70191C>T",
-      "proteinNote": "R117C",
-      "resourceNote": "R117C",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117530975,
+      "cpicPosition": 117530975,
       "rsid": "rs78655421",
       "chromosomeHgvsName": "g.117530975G>A",
-      "geneHgvsName": "g.70192G>A",
-      "proteinNote": "R117H",
-      "resourceNote": "R117H/ Class: IV",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117534318,
+      "cpicPosition": 117534318,
       "rsid": "rs80282562",
       "chromosomeHgvsName": "g.117534318G>A",
-      "geneHgvsName": "g.73535G>A",
-      "proteinNote": "G178R",
-      "resourceNote": "G178R",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117534363,
+      "cpicPosition": 117534363,
       "rsid": "rs397508759",
       "chromosomeHgvsName": "g.117534363G>A",
-      "geneHgvsName": "g.73580G>A",
-      "proteinNote": "E193K",
-      "resourceNote": "E193K",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117534368,
+      "cpicPosition": 117534368,
       "rsid": "rs397508761",
       "chromosomeHgvsName": "g.117534368A>G",
-      "geneHgvsName": "g.73585A>G",
-      "proteinNote": "intron",
-      "resourceNote": "711+3A->G",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "A",
+      "alts": [
+        "G"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117535285,
+      "cpicPosition": 117535285,
       "rsid": "rs121908752",
       "chromosomeHgvsName": "g.117535285T>G",
-      "geneHgvsName": "g.74502T>G",
-      "proteinNote": "L206W",
-      "resourceNote": "L206W",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "G",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "T": "T",
+        "G": "G"
+      },
+      "ref": "T",
+      "alts": [
+        "G"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117540270,
+      "cpicPosition": 117540270,
       "rsid": "rs77932196",
       "chromosomeHgvsName": "g.117540270G>A",
-      "geneHgvsName": "g.79487G>A",
-      "proteinNote": "R347H",
-      "resourceNote": "R347H/ Class: IV",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117540285,
+      "cpicPosition": 117540285,
       "rsid": "rs121908753",
       "chromosomeHgvsName": "g.117540285G>A",
-      "geneHgvsName": "g.79502G>A",
-      "proteinNote": "R352Q",
-      "resourceNote": "R352Q",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117548795,
+      "cpicPosition": 117548795,
       "rsid": "rs74551128",
       "chromosomeHgvsName": "g.117548795C>A",
-      "geneHgvsName": "g.88012C>A",
-      "proteinNote": "A455E",
-      "resourceNote": "A455E/ Class: V",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "C"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "C": "C"
+      },
+      "ref": "C",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117587799,
+      "cpicPosition": 117587799,
       "rsid": "rs121908757",
       "chromosomeHgvsName": "g.117587799A>C",
-      "geneHgvsName": "g.127016A>C",
-      "proteinNote": "S549R",
-      "resourceNote": "S549R",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "C"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "C": "C"
+      },
+      "ref": "A",
+      "alts": [
+        "C"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117587800,
+      "cpicPosition": 117587800,
       "rsid": "rs121908755",
       "chromosomeHgvsName": "g.117587800G>A",
-      "geneHgvsName": "g.127017G>A",
-      "proteinNote": "S549N",
-      "resourceNote": "S549N",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117587801,
+      "cpicPosition": 117587801,
       "rsid": "rs121909005",
       "chromosomeHgvsName": "g.117587801T>G",
-      "geneHgvsName": "g.127018T>G",
-      "proteinNote": "S549R",
-      "resourceNote": "S549R",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "G",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "T": "T",
+        "G": "G"
+      },
+      "ref": "T",
+      "alts": [
+        "G"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117587805,
+      "cpicPosition": 117587805,
       "rsid": "rs121909013",
       "chromosomeHgvsName": "g.117587805G>A",
-      "geneHgvsName": "g.127022G>A",
-      "proteinNote": "G551S",
-      "resourceNote": "G551S",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117587806,
+      "cpicPosition": 117587806,
       "rsid": "rs75527207",
       "chromosomeHgvsName": "g.117587806G>A",
-      "geneHgvsName": "g.127023G>A",
-      "proteinNote": "G551D",
-      "resourceNote": "G551D/Class: III",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117590409,
+      "cpicPosition": 117590409,
       "rsid": "rs397508288",
       "chromosomeHgvsName": "g.117590409A>G",
-      "geneHgvsName": "g.129626A>G",
-      "proteinNote": "D579G",
-      "resourceNote": "D579G",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "A",
+      "alts": [
+        "G"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117594930,
+      "cpicPosition": 117594930,
       "rsid": "rs397508387",
       "chromosomeHgvsName": "g.117594930G>T",
-      "geneHgvsName": "g.134147G>T",
-      "proteinNote": "E831X",
-      "resourceNote": "E831X",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "G",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "T": "T",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117602868,
+      "cpicPosition": 117602868,
       "rsid": "rs80224560",
       "chromosomeHgvsName": "g.117602868G>A",
-      "geneHgvsName": "g.142085G>A",
-      "proteinNote": "intron",
-      "resourceNote": "2789+5G->A/ Class: V",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117603708,
+      "cpicPosition": 117603708,
       "rsid": "rs397508442",
       "chromosomeHgvsName": "g.117603708C>T",
-      "geneHgvsName": "g.142925C>T",
-      "proteinNote": "S945L",
-      "resourceNote": "S945L",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117606695,
+      "cpicPosition": 117606695,
       "rsid": "rs141033578",
       "chromosomeHgvsName": "g.117606695C>T",
-      "geneHgvsName": "g.145912C>T",
-      "proteinNote": "S977F",
-      "resourceNote": "S977F",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117611555,
+      "cpicPosition": 117611555,
       "rsid": "rs76151804",
       "chromosomeHgvsName": "g.117611555A>G",
-      "geneHgvsName": "g.150772A>G",
-      "proteinNote": "intron",
-      "resourceNote": "3272-26A->G",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "A",
+      "alts": [
+        "G"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117611595,
+      "cpicPosition": 117611595,
       "rsid": "rs150212784",
       "chromosomeHgvsName": "g.117611595T>G",
-      "geneHgvsName": "g.150812T>G",
-      "proteinNote": "F1052V",
-      "resourceNote": "F1052V",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "G",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "T": "T",
+        "G": "G"
+      },
+      "ref": "T",
+      "alts": [
+        "G"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117611620,
+      "cpicPosition": 117611620,
       "rsid": "rs397508513",
       "chromosomeHgvsName": "g.117611620A>C",
-      "geneHgvsName": "g.150837A>C",
-      "proteinNote": "K1060T",
-      "resourceNote": "K1060T",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "C"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "C": "C"
+      },
+      "ref": "A",
+      "alts": [
+        "C"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117611640,
+      "cpicPosition": 117611640,
       "rsid": "rs121909020",
       "chromosomeHgvsName": "g.117611640G>A",
-      "geneHgvsName": "g.150857G>A",
-      "proteinNote": "A1067T",
-      "resourceNote": "A1067T",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117611646,
+      "cpicPosition": 117611646,
       "rsid": "rs200321110",
       "chromosomeHgvsName": "g.117611646G>A",
-      "geneHgvsName": "g.150863G>A",
-      "proteinNote": "G1069R",
-      "resourceNote": "G1069R",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117611649,
+      "cpicPosition": 117611649,
       "rsid": "rs202179988",
       "chromosomeHgvsName": "g.117611649C>T",
-      "geneHgvsName": "g.150866C>T",
-      "proteinNote": "R1070W",
-      "resourceNote": "R1070W",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117611650,
+      "cpicPosition": 117611650,
       "rsid": "rs78769542",
       "chromosomeHgvsName": "g.117611650G>A",
-      "geneHgvsName": "g.150867G>A",
-      "proteinNote": "R1070Q",
-      "resourceNote": "R1070Q",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117611663,
+      "cpicPosition": 117611663,
       "rsid": "rs186045772",
       "chromosomeHgvsName": "g.117611663T>A",
-      "geneHgvsName": "g.150880T>A",
-      "proteinNote": "F1074L",
-      "resourceNote": "F1074L",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "T": "T"
+      },
+      "ref": "T",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117614699,
+      "cpicPosition": 117614699,
       "rsid": "rs75541969",
       "chromosomeHgvsName": "g.117614699G>C",
-      "geneHgvsName": "g.153916G>C",
-      "proteinNote": "D1152H",
-      "resourceNote": "D1152H",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "C"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117639961,
+      "cpicPosition": 117639961,
       "rsid": "rs75039782",
       "chromosomeHgvsName": "g.117639961C>T",
-      "geneHgvsName": "g.179178C>T",
-      "proteinNote": "intron",
-      "resourceNote": "3849+10kbC- >T/ Class: V",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117642451,
+      "cpicPosition": 117642451,
       "rsid": "rs267606723",
       "chromosomeHgvsName": "g.117642451G>A",
-      "geneHgvsName": "g.181668G>A",
-      "proteinNote": "G1244E",
-      "resourceNote": "G1244E",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117642472,
+      "cpicPosition": 117642472,
       "rsid": "rs74503330",
       "chromosomeHgvsName": "g.117642472G>A",
-      "geneHgvsName": "g.181689G>A",
-      "proteinNote": "S1251N",
-      "resourceNote": "S1251N",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117642483,
+      "cpicPosition": 117642483,
       "rsid": "rs121909041",
       "chromosomeHgvsName": "g.117642483T>C",
-      "geneHgvsName": "g.181700T>C",
-      "proteinNote": "S1255P",
-      "resourceNote": "S1255P",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "T",
+      "alts": [
+        "C"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117642528,
+      "cpicPosition": 117642528,
       "rsid": "rs11971167",
       "chromosomeHgvsName": "g.117642528G>A",
-      "geneHgvsName": "g.181745G>A",
-      "proteinNote": "D1270N",
-      "resourceNote": "D1270N",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 117664770,
+      "cpicPosition": 117664770,
       "rsid": "rs193922525",
       "chromosomeHgvsName": "g.117664770G>A",
-      "geneHgvsName": "g.203987G>A",
-      "proteinNote": "G1349D",
-      "resourceNote": "G1349D",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     }
-  ],
-  "variantAlleles": [
-    [
-      "A",
-      "G"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "C",
-      "G"
-    ],
-    [
-      "A",
-      "C"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "G",
-      "T"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "C"
-    ],
-    [
-      "A",
-      "C"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "G",
-      "T"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "G",
-      "T"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "G",
-      "T"
-    ],
-    [
-      "A",
-      "C"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "T"
-    ],
-    [
-      "C",
-      "G"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "A",
-      "G"
-    ],
-    [
-      "A",
-      "G"
-    ]
   ],
   "namedAlleles": [
     {
       "name": "ivacaftor non-responsive CFTR sequence",
       "id": "777307",
       "alleles": [
+        "G",
+        "C",
+        "C",
+        "G",
+        "C",
+        "C",
+        "G",
+        "G",
+        "G",
+        "A",
+        "T",
+        "G",
+        "G",
+        "C",
+        "A",
+        "G",
+        "T",
+        "G",
+        "G",
+        "A",
+        "G",
+        "G",
+        "C",
+        "C",
+        "A",
+        "T",
+        "A",
+        "G",
+        "G",
+        "C",
+        "G",
+        "T",
+        "G",
+        "C",
+        "G",
+        "G",
+        "T",
+        "G",
+        "G"
+      ],
+      "cpicAlleles": [
         "G",
         "C",
         "C",
@@ -697,6 +883,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "G",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -704,6 +931,47 @@
       "name": "2789+5G->A",
       "id": "777309",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -791,6 +1059,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "G",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -798,6 +1107,47 @@
       "name": "3849+10kbC->T",
       "id": "777313",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -885,6 +1235,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -892,6 +1283,47 @@
       "name": "A1067T",
       "id": "777317",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -979,6 +1411,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -986,6 +1459,47 @@
       "name": "D110H",
       "id": "777323",
       "alleles": [
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -1073,6 +1587,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "G",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -1080,6 +1635,47 @@
       "name": "D1152H",
       "id": "777325",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -1167,6 +1763,47 @@
         "A",
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -1174,6 +1811,47 @@
       "name": "E56K",
       "id": "777333",
       "alleles": [
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         "A",
         null,
         null,
@@ -1261,6 +1939,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -1268,6 +1987,47 @@
       "name": "E831X",
       "id": "777335",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -1355,6 +2115,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "G",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -1362,6 +2163,47 @@
       "name": "F1074L",
       "id": "777339",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -1449,6 +2291,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -1456,6 +2339,47 @@
       "name": "G551D",
       "id": "777349",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -1543,6 +2467,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -1550,6 +2515,47 @@
       "name": "G1069R",
       "id": "777341",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -1637,6 +2643,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -1644,6 +2691,47 @@
       "name": "G1349D",
       "id": "777345",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A"
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -1731,6 +2819,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -1738,6 +2867,47 @@
       "name": "L206W",
       "id": "777355",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "G",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -1825,6 +2995,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -1832,6 +3043,47 @@
       "name": "R74W",
       "id": "777371",
       "alleles": [
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         "T",
@@ -1919,6 +3171,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -1926,6 +3219,47 @@
       "name": "R117H",
       "id": "777365",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -2013,6 +3347,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -2020,6 +3395,47 @@
       "name": "R352Q",
       "id": "777369",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -2107,6 +3523,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -2114,6 +3571,47 @@
       "name": "R1070W",
       "id": "777361",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -2201,6 +3699,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -2208,6 +3747,47 @@
       "name": "S549R(A>C)",
       "id": "777379",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -2295,6 +3875,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "G",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -2302,6 +3923,47 @@
       "name": "S945L",
       "id": "777383",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -2389,6 +4051,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -2436,6 +4139,47 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -2443,6 +4187,47 @@
       "name": "S1255P",
       "id": "777375",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,

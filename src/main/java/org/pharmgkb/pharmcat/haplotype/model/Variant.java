@@ -17,7 +17,7 @@ public class Variant implements Comparable<Variant>  {
 
   @Expose
   @SerializedName("position")
-  private int m_position;
+  private long m_position;
   @Expose
   @SerializedName("rsid")
   private String m_rsid;
@@ -25,10 +25,12 @@ public class Variant implements Comparable<Variant>  {
   @SerializedName("vcfCall")
   private String m_vcfCall;
   private boolean m_isPhased;
-  private long m_vcfPosition;
   private String m_vcfAlleles;
 
 
+  /**
+   * Primary constructor.
+   */
   public Variant(VariantLocus variant, SampleAllele allele) {
     String call;
     String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
@@ -37,28 +39,28 @@ public class Variant implements Comparable<Variant>  {
     } else {
       call = allele.getAllele1() + "/" + allele.getAllele2();
     }
-    initialize(variant.getPosition(), variant.getRsid(), call, variant.getVcfPosition(), vcfAlleles);
+    initialize(variant.getPosition(), variant.getRsid(), call, vcfAlleles);
   }
 
-
-  public Variant(int pos, @Nullable String rsids, @Nullable String call, long vcfPosition, @Nullable String vcfAlleles) {
-    initialize(pos, rsids, call, vcfPosition, vcfAlleles);
+  /**
+   * Constructor for creating faux-{@link Variant}s for extra positions and tests.
+   */
+  public Variant(long pos, @Nullable String rsids, @Nullable String call, @Nullable String vcfAlleles) {
+    initialize(pos, rsids, call, vcfAlleles);
   }
 
-  private void initialize(int pos, @Nullable String rsids, @Nullable String call, long vcfPosition,
-      @Nullable String vcfAlleles) {
+  private void initialize(long pos, @Nullable String rsids, @Nullable String call, @Nullable String vcfAlleles) {
     m_position = pos;
     m_rsid = rsids;
     m_vcfCall = call;
     if (call != null) {
       m_isPhased = call.contains("|");
     }
-    m_vcfPosition = vcfPosition;
     m_vcfAlleles = vcfAlleles;
   }
 
 
-  public int getPosition() {
+  public long getPosition() {
     return m_position;
   }
 
@@ -74,10 +76,6 @@ public class Variant implements Comparable<Variant>  {
     return m_isPhased;
   }
 
-  public long getVcfPosition() {
-    return m_vcfPosition;
-  }
-
   public @Nullable String getVcfAlleles() {
     return m_vcfAlleles;
   }
@@ -85,11 +83,7 @@ public class Variant implements Comparable<Variant>  {
   @Override
   public int compareTo(Variant o) {
 
-    int rez = Integer.compare(m_position, o.getPosition());
-    if (rez != 0) {
-      return rez;
-    }
-    rez = Long.compare(m_vcfPosition, o.getVcfPosition());
+    int rez = Long.compare(m_position, o.getPosition());
     if (rez != 0) {
       return rez;
     }

@@ -138,7 +138,7 @@ public class ResultSerializer {
       builder.append("<th>VCF Position</th>");
       for (Variant v : call.getVariants()) {
         builder.append("<th>")
-            .append(v.getVcfPosition())
+            .append(v.getPosition())
             .append("</th>");
       }
       builder.append("</tr>");
@@ -193,7 +193,7 @@ public class ResultSerializer {
             .append("<ul>");
         for (VariantLocus variant : matchData.getMissingPositions()) {
           builder.append("<li>")
-              .append(variant.getVcfPosition())
+              .append(variant.getPosition())
               .append(" (")
               .append(variant.getChromosomeHgvsName())
               .append(")</li>");
@@ -253,7 +253,7 @@ public class ResultSerializer {
         a = "";
       }
       int vcfPosition = Integer.parseInt(parts[0]);
-      variants.add(new Variant(-1, null, a, vcfPosition, ""));
+      variants.add(new Variant(vcfPosition, null, a, ""));
     }
 
     builder.append("<tr");

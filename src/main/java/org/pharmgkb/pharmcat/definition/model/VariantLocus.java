@@ -1,7 +1,10 @@
 package org.pharmgkb.pharmcat.definition.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
-import java.util.regex.Pattern;
+import java.util.SortedSet;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -15,104 +18,107 @@ import org.pharmgkb.common.comparator.ChromosomeNameComparator;
  * @author Ryan Whaley
  */
 public class VariantLocus implements Comparable<VariantLocus> {
-  public static final Pattern REPEAT_PATTERN = Pattern.compile("([ACGT]+)\\(([ACGT]+)\\)(\\d+)([ACGT]+)");
   @Expose
   @SerializedName("chromosome")
   private final String m_chromosome;
+  /**
+   * Position as mapped for VCF.
+   */
   @Expose
   @SerializedName("position")
-  private final int m_position;
+  private long m_position;
+  /**
+   * Position as defined in CPIC.
+   */
+  @Expose
+  @SerializedName("cpicPosition")
+  private final long m_cpicPosition;
   @Expose
   @SerializedName("rsid")
   private String m_rsid;
   @Expose
   @SerializedName("chromosomeHgvsName")
   private final String m_chromosomeHgvsName;
+  /**
+   * Alleles as defined in CPIC.
+   */
   @Expose
-  @SerializedName("geneHgvsName")
-  private String m_geneHgvsName;
+  @SerializedName("cpicAlleles")
+  private SortedSet<String> m_cpicAlleles;
+  /**
+   * Map of CPIC to VCF alleles.
+   */
   @Expose
-  @SerializedName("proteinNote")
-  private String m_proteinNote;
+  @SerializedName("cpicToVcfAlleleMap")
+  private Map<String, String> m_cpicToVcfAlleleMap;
+
+  /**
+   * VCF ref allele.
+   */
   @Expose
-  @SerializedName("resourceNote")
-  private String m_resourceNote;
+  @SerializedName("ref")
+  private String m_ref;
+  /**
+   * VCF alt alleles.
+   */
   @Expose
-  @SerializedName("type")
-  private VariantType m_type = VariantType.SNP;
-  @Expose
-  @SerializedName("referenceRepeat")
-  private String m_referenceRepeat;
+  @SerializedName("alts")
+  private List<String> m_alts;
 
 
-  public VariantLocus(String chromosome, int position, String chromosomeHgvsName) {
+  public VariantLocus(String chromosome, long position, String chromosomeHgvsName) {
     Preconditions.checkNotNull(chromosome);
     Preconditions.checkNotNull(chromosomeHgvsName);
     m_chromosome = chromosome;
     m_position = position;
+    m_cpicPosition = position;
     m_chromosomeHgvsName = chromosomeHgvsName;
   }
 
+
+  /**
+   * Gets the name of the chromosome (e.g. "chr12").
+   */
   public String getChromosome() {
     return m_chromosome;
   }
 
 
   /**
-   * Gets the chromosome and VCF position for this variant.
+   * Gets the chromosome and VCF position for this variant (e.g. "chr12:234948").
    */
   public String getVcfChrPosition() {
-    return m_chromosome + ":" + getVcfPosition();
+    return m_chromosome + ":" + m_position;
   }
 
+
   /**
-   * Gets the VCF position for this variant.
+   * Gets the (start) position on the chromosomal sequence as mapped for VCF.
    */
-  public long getVcfPosition() {
-    if (m_type == VariantType.DEL) {
-      return m_position - 1;
-    }
+  public long getPosition() {
     return m_position;
   }
 
-
-  /**
-   * The (start) position on the chromosomal sequence.
-   */
-  public int getPosition() {
-    return m_position;
+  public void setPosition(long position) {
+    m_position = position;
   }
 
 
   /**
-   * The name use for this location on the chromosomal sequence, should be relative to plus strand
+   * Gets the (start) position on the chromosomal sequence as defined by CPIC.
+   */
+  public long getCpicPosition() {
+    return m_cpicPosition;
+  }
+
+
+  /**
+   * The HGVS name use for this location on the chromosomal sequence (NC_).
    */
   public String getChromosomeHgvsName() {
     return m_chromosomeHgvsName;
   }
 
-
-  /**
-   * The name used for this location on the gene sequence, relative to the strand the gene is on
-   */
-  public String getGeneHgvsName() {
-    return m_geneHgvsName;
-  }
-
-  public void setGeneHgvsName(String geneHgvsName) {
-    m_geneHgvsName = geneHgvsName;
-  }
-
-  /**
-   * The name use for this location on the protein sequence
-   */
-  public String getProteinNote() {
-    return m_proteinNote;
-  }
-
-  public void setProteinNote(String proteinNote) {
-    m_proteinNote = proteinNote;
-  }
 
   /**
    * The identifier use for this location from dbSNP
@@ -127,39 +133,64 @@ public class VariantLocus implements Comparable<VariantLocus> {
 
 
   /**
-   * A common name for this variant, usually specified by some specialized resource
+   * Gets the alleles as defined in CPIC.
    */
-  public String getResourceNote() {
-    return m_resourceNote;
+  public SortedSet<String> getCpicAlleles() {
+    return m_cpicAlleles;
   }
 
-  public void setResourceNote(String resourceNote) {
-    m_resourceNote = resourceNote;
+  public void setCpicAlleles(SortedSet<String> cpicAlleles) {
+    m_cpicAlleles = cpicAlleles;
   }
 
 
   /**
-   * Gets the type of variant.
+   * Gets the map of CPIC to VCF alleles.
    */
-  public VariantType getType() {
-    return m_type;
+  public Map<String, String> getCpicToVcfAlleleMap() {
+    return m_cpicToVcfAlleleMap;
   }
 
-  public void setType(VariantType type) {
-    m_type = type;
+  public void setCpicToVcfAlleleMap(Map<String, String> cpicToVcfAlleleMap) {
+    m_cpicToVcfAlleleMap = cpicToVcfAlleleMap;
+  }
+
+  /**
+   * Checks if specified {@code allele} is a ref or alt allele.
+   */
+  public boolean hasVcfAllele(String allele) {
+    return m_cpicToVcfAlleleMap.containsValue(allele);
   }
 
 
   /**
-   * Gets the reference repeat, if this is a {@link VariantType#REPEAT}.
+   * Gets the VCF ref allele.
    */
-  public String getReferenceRepeat() {
-    return m_referenceRepeat;
+  public String getRef() {
+    return m_ref;
   }
 
-  public void setReferenceRepeat(String referenceRepeat) {
-    Preconditions.checkArgument(REPEAT_PATTERN.matcher(referenceRepeat).matches());
-    m_referenceRepeat = referenceRepeat;
+  public void setRef(String ref) {
+    Preconditions.checkNotNull(ref);
+    m_ref = ref;
+  }
+
+  /**
+   * Gets the VCF alt alleles.
+   */
+  public List<String> getAlts() {
+    return m_alts;
+  }
+
+  public void setAlts(List<String> alts) {
+    m_alts = alts;
+  }
+
+  public void addAlt(String alt) {
+    if (m_alts == null) {
+      m_alts = new ArrayList<>();
+    }
+    m_alts.add(alt);
   }
 
 
@@ -172,18 +203,16 @@ public class VariantLocus implements Comparable<VariantLocus> {
       return false;
     }
     VariantLocus that = (VariantLocus)o;
-    return m_position == that.getPosition() &&
-        m_type == that.getType() &&
+    // don't compare using position or alleles because that can change
+    return m_cpicPosition == that.getCpicPosition() &&
         Objects.equals(m_chromosomeHgvsName, that.getChromosomeHgvsName()) &&
-        Objects.equals(m_geneHgvsName, that.getGeneHgvsName()) &&
-        Objects.equals(m_proteinNote, that.getProteinNote()) &&
-        Objects.equals(m_rsid, that.getRsid()) &&
-        Objects.equals(m_resourceNote, that.getResourceNote());
+        Objects.equals(m_rsid, that.getRsid());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(m_position, m_chromosomeHgvsName, m_geneHgvsName, m_proteinNote, m_rsid, m_resourceNote);
+    // don't compare using position or alleles because that can change
+    return Objects.hash(m_cpicPosition, m_chromosomeHgvsName, m_rsid);
   }
 
 
@@ -194,7 +223,8 @@ public class VariantLocus implements Comparable<VariantLocus> {
     if (rez != 0) {
       return rez;
     }
-    rez = Integer.compare(m_position, o.getPosition());
+    // don't compare using position or alleles because that can change
+    rez = Long.compare(m_cpicPosition, o.getCpicPosition());
     if (rez != 0) {
       return rez;
     }
@@ -206,7 +236,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
     return String.format(
         "%s:%d%s",
         m_chromosome,
-        m_position,
+        m_cpicPosition,
         StringUtils.isBlank(m_rsid) ? "" : String.format(" (%s)", m_rsid));
   }
 }

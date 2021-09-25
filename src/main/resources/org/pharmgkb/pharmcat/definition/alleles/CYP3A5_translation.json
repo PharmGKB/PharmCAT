@@ -1,150 +1,169 @@
 {
-  "formatVersion": "1",
-  "cpicVersion": "v1.8-1-g64906f3",
-  "modificationDate": "Aug 18, 2021 04:53:20 PM",
+  "formatVersion": "2",
+  "cpicVersion": "v1.9-2-gef7e4f8",
+  "modificationDate": "Sep 24, 2021 09:30:13 AM",
   "gene": "CYP3A5",
   "orientation": null,
   "chromosome": "chr7",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000007.14",
-  "refSeqGeneId": "NG_007938.1",
-  "refSeqProteinId": "NP_000768.1",
-  "notes": [
-    "The variants included are based on the PharmVar core alleles (for core alleles only see https://www.pharmvar.org/gene/CYP3a5). In addition, variants that present in the core allele for one star allele but also present in some but not allsuballeles of another star allele are included in the other star allele as ambiguous changes using the IUPAC nucleotide code (https://www.bioinformatics.org/sms/iupac.html), e.g. the *3 consensus allele includes a \"Y\" being either C or T at the 14660A>G position since this variant is part of the *4 core allele but is not part of the *3 core allele at PharmVar since it is not present in all *3 suballeles (only in *3.009). These postions are represented in grey in the Comparative Allele ViewEr (CAVE) tool at PharmVar.",
-    "See PharmVar website (http://www.pharmvar.org) for comprehensive haplotype definitions of CYP3A5 variant alleles, including sub-alleles, and updated allele information.",
-    "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
-    "All variants are annotated to the positive DNA strand.",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a \"wild- type\" status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of- function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as \"wild-type\"",
-    "Citations for assignment of function can be found at https://www.pharmgkb.org/page/cyp3a5RefMaterials"
-  ],
-  "populations": null,
   "variants": [
     {
       "chromosome": "chr7",
       "position": 99652613,
+      "cpicPosition": 99652613,
       "rsid": "rs28365083",
       "chromosomeHgvsName": "g.99652613G>T",
-      "geneHgvsName": "g.32386C>A",
-      "proteinNote": "T398N",
-      "resourceNote": "27284C>A",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "G",
+        "K",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "T": "T",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 99652770,
+      "cpicPosition": 99652771,
       "rsid": "rs41303343",
-      "chromosomeHgvsName": "g.99652770_99652771insA",
-      "geneHgvsName": "g.32228_32229insT",
-      "proteinNote": "346Frameshift",
-      "resourceNote": "27126_27127insT",
-      "type": "INS",
-      "referenceRepeat": null
+      "chromosomeHgvsName": "g.99652771dup",
+      "cpicAlleles": [
+        "A",
+        "AA"
+      ],
+      "cpicToVcfAlleleMap": {
+        "AA": "TA",
+        "A": "T"
+      },
+      "ref": "T",
+      "alts": [
+        "TA"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 99660516,
+      "cpicPosition": 99660516,
       "rsid": "rs28383479",
       "chromosomeHgvsName": "g.99660516C>T",
-      "geneHgvsName": "g.24483G>A",
-      "proteinNote": "A337T",
-      "resourceNote": "19381G>A",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T",
+        "Y"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 99665212,
+      "cpicPosition": 99665212,
       "rsid": "rs10264272",
       "chromosomeHgvsName": "g.99665212C>T",
-      "geneHgvsName": "g.19787G>A",
-      "proteinNote": "Splicing defect",
-      "resourceNote": "14685G>A",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 99665237,
+      "cpicPosition": 99665237,
       "rsid": "rs56411402",
       "chromosomeHgvsName": "g.99665237T>C",
-      "geneHgvsName": "g.19762A>G",
-      "proteinNote": "Q200R",
-      "resourceNote": "14660A>G",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T",
+        "Y"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "T",
+      "alts": [
+        "C"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 99666950,
+      "cpicPosition": 99666950,
       "rsid": "rs55965422",
       "chromosomeHgvsName": "g.99666950A>G",
-      "geneHgvsName": "g.18049T>C",
-      "proteinNote": "Splicing defect",
-      "resourceNote": "12947T>C",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G",
+        "R"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "A",
+      "alts": [
+        "G"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 99672916,
+      "cpicPosition": 99672916,
       "rsid": "rs776746",
       "chromosomeHgvsName": "g.99672916T>C",
-      "geneHgvsName": "g.12083A>G",
-      "proteinNote": "Splicing defect",
-      "resourceNote": "6981A>G",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "T",
+      "alts": [
+        "C"
+      ]
     },
     {
       "chromosome": "chr7",
       "position": 99676198,
+      "cpicPosition": 99676198,
       "rsid": "rs55817950",
       "chromosomeHgvsName": "g.99676198G>A",
-      "geneHgvsName": "g.8801C>T",
-      "proteinNote": "R28C",
-      "resourceNote": "3699C>T",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     }
-  ],
-  "variantAlleles": [
-    [
-      "G",
-      "K",
-      "T"
-    ],
-    [
-      "del",
-      "insA"
-    ],
-    [
-      "C",
-      "T",
-      "Y"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "C",
-      "T",
-      "Y"
-    ],
-    [
-      "A",
-      "G",
-      "R"
-    ],
-    [
-      "C",
-      "T"
-    ],
-    [
-      "A",
-      "G"
-    ]
   ],
   "namedAlleles": [
     {
@@ -152,7 +171,17 @@
       "id": "778218",
       "alleles": [
         "G",
-        "del",
+        "T",
+        "C",
+        "C",
+        "T",
+        "A",
+        "T",
+        "G"
+      ],
+      "cpicAlleles": [
+        "G",
+        "A",
         "C",
         "C",
         "T",
@@ -167,6 +196,16 @@
       "name": "*2",
       "id": "778220",
       "alleles": [
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         "T",
         null,
         null,
@@ -192,6 +231,16 @@
         "C",
         null
       ],
+      "cpicAlleles": [
+        "K",
+        null,
+        "Y",
+        null,
+        "Y",
+        "R",
+        "C",
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -199,6 +248,16 @@
       "name": "*4",
       "id": "778224",
       "alleles": [
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -224,6 +283,16 @@
         null,
         null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        "G",
+        null,
+        null
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -231,6 +300,16 @@
       "name": "*6",
       "id": "778228",
       "alleles": [
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         null,
@@ -248,7 +327,17 @@
       "id": "778230",
       "alleles": [
         null,
-        "insA",
+        "TA",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        null,
+        "AA",
         null,
         null,
         null,
@@ -272,6 +361,16 @@
         null,
         "A"
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A"
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -279,6 +378,16 @@
       "name": "*9",
       "id": "778234",
       "alleles": [
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
         null,
         null,
         "T",

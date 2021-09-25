@@ -24,7 +24,6 @@ import org.pharmgkb.parser.vcf.model.VcfPosition;
 import org.pharmgkb.parser.vcf.model.VcfSample;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
-import org.pharmgkb.pharmcat.definition.model.VariantType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -224,7 +223,9 @@ public class VcfReader implements VcfLineParser {
     }
 
     // genotype divided by "|" if phased and "/" if unphased
+    // however, we'll treat homozygous as phased
     boolean isPhased = true;
+    //noinspection RedundantIfStatement
     if (gt.contains("/") && a2 != null && !a1.equalsIgnoreCase(a2)) {
       isPhased = false;
     }
@@ -233,13 +234,8 @@ public class VcfReader implements VcfLineParser {
     vcfAlleles.add(position.getRef());
     vcfAlleles.addAll(position.getAltBases());
 
-    SampleAllele sampleAllele = new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased, vcfAlleles);
-    if (varLoc != null && varLoc.getType() == VariantType.DEL && !sampleAllele.isVcfAlleleADeletion()) {
-      // must be deletion if expecting deletion because deletions require anchor bases and -1 in position
-      addWarning(chrPos, "Ignoring: expecting deletion but alleles do not appear to be in expected format (got " +
-          String.join("/", sampleAllele.getVcfAlleles()) + ")");
-      return;
-    }
+    SampleAllele sampleAllele = new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased,
+        vcfAlleles);
     m_alleleMap.put(chrPos, sampleAllele);
   }
 

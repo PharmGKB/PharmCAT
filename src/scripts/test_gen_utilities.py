@@ -2,10 +2,11 @@
 __author__ = 'ScottDudek'
 
 import collections
-import re
 import csv
 import itertools
+import re
 import sys
+
 
 # set options
 optNumAlleleExpansions = 128
@@ -67,18 +68,14 @@ def parseVCF(vcf):
 def updateVarAlleles(jsondef, vcfref):
     """
     Takes JSON dict and dict from parsed VCF
-    Updates JSON dict with corrected indel information obtained from the VCF dict
     """
     gene=jsondef['gene']
     if gene not in vcfref:
         sys.exit("ERROR: %s is not present in VCF file" % gene)
-    if len(vcfref[gene]) != len(jsondef["variantAlleles"]):
-        sys.exit("ERROR: number of rows ({0}) for {1} in VCF file doesn't match number of variantAlleles ({2}) in JSON file".format(
-        len(vcfref[gene]), gene, len(jsondef["variantAlleles"])))
+    if len(vcfref[gene]) != len(jsondef["variants"]):
+        sys.exit("ERROR: number of rows ({0}) for {1} in VCF file doesn't match number of variants ({2}) in JSON file".format(
+        len(vcfref[gene]), gene, len(jsondef["variants"])))
 
-    allpattern = re.compile('ins|del')
-    delpattern = re.compile('del')
-    inspattern = re.compile('ins')
     for i,variant in enumerate(jsondef["variants"]):
         variant['_jsonidx'] = i
 
@@ -86,27 +83,6 @@ def updateVarAlleles(jsondef, vcfref):
        variant['_vcfidx'] = i
        if variant['rsid'] is not None and variant['rsid'] != vcfref[gene][i]["ID"]:
            sys.exit("ERROR: '%s' doesn't match any ID in VCF" % variant['rsid'])
-
-       # look for ins/del and update from VCF reference
-       if any(allpattern.match(allele) for allele in jsondef["variantAlleles"][variant['_jsonidx']]):
-           variant["position"] = vcfref[gene][i]["POS"]
-           vmap={}
-           prebase=vcfref[gene][i]["REF"][0]
-           # update indels with base before event (from VCF reference)
-           for j,allele in enumerate(jsondef["variantAlleles"][variant['_jsonidx']]):
-               if delpattern.match(allele):
-                   vmap[allele] = prebase
-               elif inspattern.match(allele):
-                   vmap[allele] = prebase + allele[3:]
-               else:
-                   vmap[allele] = prebase+allele
-               jsondef['variantAlleles'][variant['_jsonidx']][j] = vmap[allele]
-           # for j, allele
-           for na in jsondef['namedAlleles']:
-               if na["alleles"][variant['_jsonidx']]:
-                       na["alleles"][variant['_jsonidx']] = vmap[na["alleles"][variant['_jsonidx']]]
-           # for na
-       # isindel?
     # for i, variant
 # updateVarAlleles()
 
@@ -118,7 +94,7 @@ def checkRefNamedAllele(jsondef, vcfref, refna):
     gene=jsondef['gene']
     for variant in jsondef["variants"]:
         if refna['alleles'][variant['_jsonidx']] != vcfref[gene][variant['_vcfidx']]['REF']:
-            jsondef['variantAlleles'][variant['_jsonidx']] = [vcfref[gene][variant['_vcfidx']]["REF"] if v == refna['alleles'][variant['_jsonidx']] else v for v in jsondef['variantAlleles'][variant['_jsonidx']]]
+            variant['alleles'] = [vcfref[gene][variant['_vcfidx']]["REF"] if v == refna['alleles'][variant['_jsonidx']] else v for v in variant['alleles']]
             refna['alleles'][variant['_jsonidx']] = vcfref[gene][variant['_vcfidx']]['REF']
             refna['_maxdef'][variant['_jsonidx']] = vcfref[gene][variant['_vcfidx']]['REF']
     # for variant

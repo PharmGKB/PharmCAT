@@ -16,7 +16,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
-import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -75,8 +74,7 @@ public class MatchData {
         continue;
       }
       positions.add(variant);
-      allele = allele.forVariant(variant);
-      m_sampleMap.put(variant.getVcfPosition(), allele);
+      m_sampleMap.put(variant.getPosition(), allele);
     }
     m_positions = positions.toArray(new VariantLocus[0]);
     if (extraPositions != null) {
@@ -85,21 +83,20 @@ public class MatchData {
         if (allele != null) {
           m_extraPositions.add(new Variant(vl, allele));
         } else {
-          m_extraPositions.add(new Variant(vl.getPosition(), vl.getRsid(), null, vl.getVcfPosition(), null));
+          m_extraPositions.add(new Variant(vl.getPosition(), vl.getRsid(), null, null));
         }
       }
     }
   }
 
 
-  void checkAlleles(DefinitionFile definitionFile) {
+  void checkAlleles() {
 
     for (VariantLocus variantLocus : m_positions) {
-      SampleAllele sampleAllele = m_sampleMap.get(variantLocus.getVcfPosition());
+      SampleAllele sampleAllele = m_sampleMap.get(variantLocus.getPosition());
       if (sampleAllele != null) {
-        Set<String> alleles = definitionFile.getVariantAlleles(variantLocus);
-        if (!alleles.contains(sampleAllele.getAllele1()) ||
-            (sampleAllele.getAllele2() != null && !alleles.contains(sampleAllele.getAllele2()))) {
+        if (!variantLocus.hasVcfAllele(sampleAllele.getAllele1()) ||
+            (sampleAllele.getAllele2() != null && !variantLocus.hasVcfAllele(sampleAllele.getAllele2()))) {
           m_mismatchedAlleles.add(variantLocus);
         }
       }
@@ -122,15 +119,18 @@ public class MatchData {
       for (NamedAllele hap : allHaplotypes) {
         // get alleles for positions we have data on
         String[] availableAlleles = new String[m_positions.length];
+        String[] cpicAlleles = new String[m_positions.length];
         for (int x = 0; x < m_positions.length; x += 1) {
           availableAlleles[x] = hap.getAllele(m_positions[x]);
+          cpicAlleles[x] = hap.getCpicAllele(m_positions[x]);
         }
 
         SortedSet<VariantLocus> missingPositions = m_missingPositions.stream()
             .filter(l -> hap.getAllele(l) != null)
             .collect(Collectors.toCollection(TreeSet::new));
 
-        NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles, missingPositions, hap.isReference());
+        NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles, cpicAlleles,
+            missingPositions, hap.isReference());
         newHap.setPopFreqMap(hap.getPopFreqMap());
         newHap.initialize(m_positions);
         if (newHap.getScore() > 0) {
@@ -160,15 +160,19 @@ public class MatchData {
       Preconditions.checkState(refAlleles.length == curAlleles.length);
 
       String[] newAlleles = new String[refAlleles.length];
+      String[] cpicAlleles = new String[refAlleles.length];
       for (int x = 0; x < refAlleles.length; x += 1) {
         if (curAlleles[x] == null) {
           newAlleles[x] = refAlleles[x];
+          cpicAlleles[x] = referenceHaplotype.getCpicAlleles()[x];
         } else {
           newAlleles[x] = curAlleles[x];
+          cpicAlleles[x] = hap.getCpicAlleles()[x];
         }
       }
 
-      NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles, hap.getMissingPositions(), hap.isReference());
+      NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles, cpicAlleles,
+          hap.getMissingPositions(), hap.isReference());
       fixedHap.setPopFreqMap(hap.getPopFreqMap());
       fixedHap.initialize(m_positions, hap.getScore());
       updatedHaplotypes.add(fixedHap);

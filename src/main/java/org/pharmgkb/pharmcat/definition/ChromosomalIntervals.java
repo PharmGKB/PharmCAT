@@ -66,12 +66,12 @@ public class ChromosomalIntervals {
       DefinitionFile defFile = definitionReader.getDefinitionFile(geneSymbol);
 
       long min = Arrays.stream(defFile.getVariants())
-          .map(VariantLocus::getVcfPosition)
+          .map(VariantLocus::getPosition)
           .min(Long::compareTo)
           .orElseThrow(() -> new RuntimeException("No minimum for " + geneSymbol + " interval"));
 
       long max = Arrays.stream(defFile.getVariants())
-          .map(VariantLocus::getVcfPosition)
+          .map(VariantLocus::getPosition)
           .max(Long::compareTo)
           .orElseThrow(() -> new RuntimeException("No maximum for " + geneSymbol + " interval"));
 

@@ -42,14 +42,14 @@ CYP3A5_s3_s5_wobble8_m0.5.vcf
 """
 
 import datetime
-import json
-import os
 import itertools
-import collections
-import sys
-import test_gen_utilities as util
+import json
 import operator as op
+import os
+import sys
 from functools import reduce
+
+import test_gen_utilities as util
 
 
 # TODO: a proper argparse handler!
@@ -116,8 +116,6 @@ vcfreference = util.parseVCF(vcfPath)
 util.updateVarAlleles(definition,vcfreference)
 
 
-if len(definition['variants']) != len(definition['variantAlleles']):
-    sys.exit("ERROR: variants / variantAlleles length mismatch")
 print(f"done: {len(definition['variants'])} variants, {len(definition['namedAlleles'])} named alleles\n")
 
 # scan named alleles and identify the referent named allele

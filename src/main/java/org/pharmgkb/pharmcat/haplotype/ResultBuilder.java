@@ -96,7 +96,7 @@ public class ResultBuilder {
 
     // get position info
     for (VariantLocus variant : matchData.getPositions()) {
-      geneCall.add(new Variant(variant, matchData.getSampleAllele(variant.getVcfPosition())));
+      geneCall.add(new Variant(variant, matchData.getSampleAllele(variant.getPosition())));
     }
 
     m_result.addDiplotypeCall(geneCall);

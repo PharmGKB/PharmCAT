@@ -81,36 +81,43 @@ public class DataSerializer {
     Preconditions.checkArgument(tsvFile.toString().endsWith(".tsv"), "Invalid format: %s does not end with .tsv", tsvFile);
     Preconditions.checkArgument(Files.isRegularFile(tsvFile), "%s is not a file", tsvFile);
 
-    return Files.lines(tsvFile)
-        .skip(1) // skip the header
-        .map(line -> {
-          String[] data = line.split("\t");
-          String gene = data[0];
-          final SortedSet<VariantLocus> ignoreLoci = new TreeSet<>();
-          if (data.length > 1) {
-            SortedSet<String> ignoredPositions = Sets.newTreeSet(sf_commaSplitter.splitToList(data[1]));
-            ignoredPositions.stream().map(EnsemblUtils::download).forEach(ignoreLoci::add);
+    SortedSet<DefinitionExemption> exemptions = new TreeSet<>();
+    try (VcfHelper vcfHelper = new VcfHelper();
+         BufferedReader reader = Files.newBufferedReader(tsvFile)) {
+      // skip the header
+      reader.readLine();
+      String line;
+      while ((line  = reader.readLine()) != null) {
+        String[] data = line.split("\t");
+        String gene = data[0];
+        final SortedSet<VariantLocus> ignoreLoci = new TreeSet<>();
+        if (data.length > 1) {
+          for (String rsid : sf_commaSplitter.splitToList(data[1])) {
+            ignoreLoci.add(vcfHelper.rsidToVariantLocus(rsid));
           }
-          final SortedSet<VariantLocus> extraLoci = new TreeSet<>();
-          if (data.length > 2) {
-            SortedSet<String> extraPositions = Sets.newTreeSet(sf_commaSplitter.splitToList(data[2]));
-            extraPositions.stream().map(EnsemblUtils::download).forEach(extraLoci::add);
+        }
+        final SortedSet<VariantLocus> extraLoci = new TreeSet<>();
+        if (data.length > 2) {
+          for (String rsid : sf_commaSplitter.splitToList(data[2])) {
+            extraLoci.add(vcfHelper.rsidToVariantLocus(rsid));
           }
-          SortedSet<String> ignoreAlleles = null;
-          if (data.length > 3) {
-            ignoreAlleles = Sets.newTreeSet(sf_commaSplitter.splitToList(data[3]));
-          }
-          Boolean allHits = null;
-          if (data.length > 4 && StringUtils.stripToNull(data[4]) != null) {
-            allHits = Boolean.parseBoolean(data[4]);
-          }
-          Boolean assumeReference = null;
-          if (data.length > 5 && StringUtils.stripToNull(data[5]) != null) {
-            assumeReference = Boolean.parseBoolean(data[5]);
-          }
-          return new DefinitionExemption(gene, ignoreLoci, extraLoci, ignoreAlleles, allHits, assumeReference);
-        })
-        .collect(Collectors.toCollection(TreeSet::new));
+        }
+        SortedSet<String> ignoreAlleles = null;
+        if (data.length > 3) {
+          ignoreAlleles = Sets.newTreeSet(sf_commaSplitter.splitToList(data[3]));
+        }
+        Boolean allHits = null;
+        if (data.length > 4 && StringUtils.stripToNull(data[4]) != null) {
+          allHits = Boolean.parseBoolean(data[4]);
+        }
+        Boolean assumeReference = null;
+        if (data.length > 5 && StringUtils.stripToNull(data[5]) != null) {
+          assumeReference = Boolean.parseBoolean(data[5]);
+        }
+        exemptions.add(new DefinitionExemption(gene, ignoreLoci, extraLoci, ignoreAlleles, allHits, assumeReference));
+      }
+    }
+    return exemptions;
   }
 
 

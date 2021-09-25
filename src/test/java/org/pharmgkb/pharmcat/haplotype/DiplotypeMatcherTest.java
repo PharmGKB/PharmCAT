@@ -51,16 +51,20 @@ class DiplotypeMatcherTest {
     s_positions = new VariantLocus[] { var1, var2, var3 };
 
     // initialize test haplotypes
-    NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "A", "C", "C" }, true);
+    String[] alleles = new String[] { "A", "C", "C" };
+    NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true);
     hap1.initialize(s_positions);
 
-    NamedAllele hap2 = new NamedAllele("*4a", "*4a", new String[] { "G", null, null }, false);
+    alleles = new String[] { "G", null, null };
+    NamedAllele hap2 = new NamedAllele("*4a", "*4a", alleles, alleles, false);
     hap2.initialize(s_positions);
 
-    NamedAllele hap3 = new NamedAllele("*4b", "*4b", new String[] { "G", "T", "T" }, false);
+    alleles = new String[] { "G", "T", "T" };
+    NamedAllele hap3 = new NamedAllele("*4b", "*4b", alleles, alleles, false);
     hap3.initialize(s_positions);
 
-    NamedAllele hap4 = new NamedAllele("*17", "*17", new String[] { null, "T", "T" }, false);
+    alleles = new String[] { null, "T", "T" };
+    NamedAllele hap4 = new NamedAllele("*17", "*17", alleles, alleles, false);
     hap4.initialize(s_positions);
 
     s_haplotypes.add(hap1);
@@ -194,13 +198,16 @@ class DiplotypeMatcherTest {
     VariantLocus var4 = new VariantLocus("chr1", 4, "g.3T>A");
     VariantLocus[] variants = new VariantLocus[] { var1, var2, var3, var4 };
 
-    NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "T", "A", "C", "C" }, true);
+    String[] alleles = new String[] { "T", "A", "C", "C" };
+    NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true);
     hap1.initialize(variants);
 
-    NamedAllele hap2 = new NamedAllele("*2", "*2", new String[] { null, "T", "C", null }, false);
+    alleles = new String[] { null, "T", "C", null };
+    NamedAllele hap2 = new NamedAllele("*2", "*2", alleles, alleles, false);
     hap2.initialize(variants);
 
-    NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { null, null, "GG", null }, false);
+    alleles = new String[] { null, null, "GG", null };
+    NamedAllele hap3 = new NamedAllele("*3", "*3", alleles, alleles, false);
     hap3.initialize(variants);
 
     Set<String> permutations = Sets.newHashSet(

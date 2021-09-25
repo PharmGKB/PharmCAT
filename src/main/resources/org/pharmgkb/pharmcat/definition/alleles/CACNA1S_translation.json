@@ -1,55 +1,61 @@
 {
-  "formatVersion": "1",
-  "cpicVersion": "v1.8-1-g64906f3",
-  "modificationDate": "Aug 18, 2021 04:53:19 PM",
+  "formatVersion": "2",
+  "cpicVersion": "v1.9-2-gef7e4f8",
+  "modificationDate": "Sep 24, 2021 09:29:56 AM",
   "gene": "CACNA1S",
   "orientation": null,
   "chromosome": "chr1",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000001.11",
-  "refSeqGeneId": "NG_009816.1",
-  "refSeqProteinId": "NP_000060.2",
-  "notes": null,
-  "populations": null,
   "variants": [
     {
       "chromosome": "chr1",
       "position": 201060815,
+      "cpicPosition": 201060815,
       "rsid": "rs1800559",
       "chromosomeHgvsName": "g.201060815C>T",
-      "geneHgvsName": "g.56752G>A",
-      "proteinNote": "R1086H",
-      "resourceNote": "c.3257G>A",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr1",
       "position": 201091993,
+      "cpicPosition": 201091993,
       "rsid": "rs772226819",
       "chromosomeHgvsName": "g.201091993G>A",
-      "geneHgvsName": "g.25574C>T",
-      "proteinNote": "R174W",
-      "resourceNote": "c.520C>T",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
     }
-  ],
-  "variantAlleles": [
-    [
-      "C",
-      "T"
-    ],
-    [
-      "A",
-      "G"
-    ]
   ],
   "namedAlleles": [
     {
       "name": "Reference",
       "id": "777262",
       "alleles": [
+        "C",
+        "G"
+      ],
+      "cpicAlleles": [
         "C",
         "G"
       ],
@@ -63,6 +69,10 @@
         null,
         "A"
       ],
+      "cpicAlleles": [
+        null,
+        "A"
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -70,6 +80,10 @@
       "name": "c.3257G>A",
       "id": "777266",
       "alleles": [
+        "T",
+        null
+      ],
+      "cpicAlleles": [
         "T",
         null
       ],

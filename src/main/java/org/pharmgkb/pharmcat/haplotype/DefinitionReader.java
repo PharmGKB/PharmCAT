@@ -110,7 +110,6 @@ public class DefinitionReader {
     Preconditions.checkNotNull(file);
     Preconditions.checkArgument(Files.isRegularFile(file), "%s is not a file", file);
     DefinitionFile definitionFile = m_definitionSerializer.deserializeDefinitionsFromJson(file);
-    definitionFile.generateVariantAlleles();
 
     String gene = definitionFile.getGeneSymbol();
     m_definitionFiles.put(gene, definitionFile);

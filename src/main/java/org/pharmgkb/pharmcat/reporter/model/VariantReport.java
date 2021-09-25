@@ -37,7 +37,7 @@ public class VariantReport implements Comparable<VariantReport> {
   private String m_chr;
   @Expose
   @SerializedName("position")
-  private int m_position;
+  private long m_position;
   @Expose
   @SerializedName("dbSnpId")
   private String m_dbSnpId;
@@ -87,11 +87,11 @@ public class VariantReport implements Comparable<VariantReport> {
     m_chr = chr;
   }
 
-  public int getPosition() {
+  public long getPosition() {
     return m_position;
   }
 
-  public void setPosition(int position) {
+  public void setPosition(long position) {
     m_position = position;
   }
 

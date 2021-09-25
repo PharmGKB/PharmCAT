@@ -1,11 +1,14 @@
 package org.pharmgkb.pharmcat.definition.model;
 
-import java.util.*;
-import java.util.stream.Collectors;
-import com.google.common.base.Preconditions;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.util.DataManager;
 
 
@@ -41,30 +44,13 @@ public class DefinitionFile {
   @Expose
   @SerializedName("refSeqChromosomeId")
   private String m_refSeqChromosome;
-  @Expose
-  @SerializedName("refSeqGeneId")
-  private String m_refSeqGene;
-  @Expose
-  @SerializedName("refSeqProteinId")
-  private String m_refSeqProtein;
-  @Expose
-  @SerializedName("notes")
-  private List<String> m_notes;
-  @Expose
-  @SerializedName("populations")
-  private SortedSet<String> m_populations;
   // definitions
   @Expose
   @SerializedName("variants")
   private VariantLocus[] m_variants;
   @Expose
-  @SerializedName("variantAlleles")
-  private List<Set<String>> m_variantAlleles;
-  private Map<VariantLocus, Set<String>> m_variantAllelesMap;
-  @Expose
   @SerializedName("namedAlleles")
   private SortedSet<NamedAllele> m_namedAlleles;
-  private final SortedMap<String, VariantLocus> m_rsidMap = new TreeMap<>();
 
 
   /**
@@ -156,66 +142,6 @@ public class DefinitionFile {
     m_refSeqChromosome = refSeqChromosome;
   }
 
-  /**
-   * The RefSeq identifier for the gene in this translation
-   */
-  public String getRefSeqGene() {
-    return m_refSeqGene;
-  }
-
-  public void setRefSeqGene(String refSeqGene) {
-    m_refSeqGene = refSeqGene;
-  }
-
-  /**
-   * The RefSeq identifier for the protein the gene translates to
-   */
-  public String getRefSeqProtein() {
-    return m_refSeqProtein;
-  }
-
-  public void setRefSeqProtein(String refSeqProtein) {
-    m_refSeqProtein = refSeqProtein;
-  }
-
-
-  /**
-   * The general notes that are relevant to this translation
-   */
-  public List<String> getNotes() {
-    return m_notes;
-  }
-
-  public void setNotes(List<String> notes) {
-    m_notes = notes;
-  }
-
-  public void addNote(String note) {
-    if (m_notes == null) {
-      m_notes = new ArrayList<>();
-    }
-    m_notes.add(note);
-  }
-
-
-  /**
-   * The different populations used for variant frequencies in this translation.
-   */
-  public SortedSet<String> getPopulations() {
-    return m_populations;
-  }
-
-  public void setPopulations(SortedSet<String> populations) {
-    m_populations = populations;
-  }
-
-  public void addPopulation(String population) {
-    if (m_populations == null) {
-      m_populations = new TreeSet<>();
-    }
-    m_populations.add(population);
-  }
-
 
   /**
    * The {@link VariantLocus} objects used to define {@link NamedAllele}s in this translation
@@ -226,60 +152,6 @@ public class DefinitionFile {
 
   public void setVariants(VariantLocus[] variants) {
     m_variants = variants;
-    m_rsidMap.clear();
-    for (VariantLocus varLoc : variants) {
-      if (varLoc.getRsid() != null) {
-        m_rsidMap.put(varLoc.getRsid(), varLoc);
-      }
-    }
-  }
-
-  public @Nullable VariantLocus getVariantByRsid(String rsid) {
-    Preconditions.checkNotNull(rsid);
-    Preconditions.checkArgument(rsid.startsWith("rs"));
-    return m_rsidMap.get(rsid);
-  }
-
-
-  public List<Set<String>> getVariantAlleles() {
-    return m_variantAlleles;
-  }
-
-  /**
-   * The expected alleles for {@link VariantLocus}'s used to define {@link NamedAllele}s in this translation.
-   *
-   * @throws IllegalStateException if m_variantAlleles have not been generated (using {@link #generateVariantAlleles()}
-   */
-  public Set<String> getVariantAlleles(VariantLocus vl) {
-    if (m_variantAllelesMap == null) {
-      if (m_variantAlleles == null) {
-        throw new IllegalStateException("Variant alleles have not been generated yet.");
-      }
-      if (m_variantAlleles.size() < m_variants.length) {
-        throw new IllegalStateException("More variants than there are alleles.");
-      }
-      m_variantAllelesMap = new HashMap<>();
-      for (int x = 0; x < m_variants.length; x += 1) {
-        m_variantAllelesMap.put(m_variants[x], m_variantAlleles.get(x));
-      }
-    }
-    return m_variantAllelesMap.get(vl);
-  }
-
-  /**
-   * Generates variant alleles.  Must be called before using {@link #getVariantAlleles()}.
-   */
-  public void generateVariantAlleles() {
-
-    m_variantAlleles = new ArrayList<>();
-    for (VariantLocus varLoc : m_variants) {
-      m_variantAlleles.add(
-          m_namedAlleles.stream()
-              .map(na -> na.getAllele(varLoc))
-              .filter(Objects::nonNull)
-              .collect(Collectors.toSet())
-      );
-    }
   }
 
 
@@ -320,20 +192,14 @@ public class DefinitionFile {
         Objects.equals(m_chromosome, that.getChromosome()) &&
         Objects.equals(m_genomeBuild, that.getGenomeBuild()) &&
         Objects.equals(m_refSeqChromosome, that.getRefSeqChromosome()) &&
-        Objects.equals(m_refSeqGene, that.getRefSeqGene()) &&
-        Objects.equals(m_refSeqProtein, that.getRefSeqProtein()) &&
-        Objects.equals(m_notes, that.getNotes()) &&
-        Objects.equals(m_populations, that.getPopulations()) &&
         Arrays.equals(m_variants, that.getVariants()) &&
-        Objects.equals(m_variantAlleles, that.getVariantAlleles()) &&
         Objects.equals(m_namedAlleles, that.getNamedAlleles());
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(m_formatVersion, m_modificationDate, m_geneSymbol, m_orientation,
-        m_chromosome, m_genomeBuild, m_refSeqChromosome, m_refSeqGene, m_refSeqProtein, m_notes, m_populations,
-        m_variants, m_namedAlleles);
+        m_chromosome, m_genomeBuild, m_refSeqChromosome, Arrays.hashCode(m_variants), m_namedAlleles);
   }
 
 
@@ -356,14 +222,6 @@ public class DefinitionFile {
 
     // remove ignored positions
     VariantLocus[] newPositions = new VariantLocus[m_variants.length - ignoredPositions.size()];
-    List<Set<String>> newVariantAlleles = new ArrayList<>();
-    for (int x = 0, y = 0; x < m_variants.length; x += 1) {
-      if (!ignoredPositions.contains(x)) {
-        newPositions[y] = m_variants[x];
-        newVariantAlleles.add(m_variantAlleles.get(x));
-        y += 1;
-      }
-    }
     if (newPositions.length != m_variants.length - ignoredPositions.size()) {
       throw new IllegalStateException("Should have " + (m_variants.length - ignoredPositions.size()) +
           " positions, but ended up with " + newPositions.length);
@@ -371,11 +229,11 @@ public class DefinitionFile {
 
     // update variants
     setVariants(newPositions);
-    m_variantAlleles = newVariantAlleles;
 
     SortedSet<NamedAllele> updatedNamedAlleles = new TreeSet<>();
     for (NamedAllele namedAllele : m_namedAlleles) {
       String[] alleles = new String[namedAllele.getAlleles().length - ignoredPositions.size()];
+      String[] cpicAlleles = new String[namedAllele.getAlleles().length - ignoredPositions.size()];
       if (newPositions.length != alleles.length) {
         throw new IllegalStateException("Number of variants (" + newPositions.length + ") and number of alleles (" +
             alleles.length + ") don't match up for " + namedAllele.getName());
@@ -383,12 +241,14 @@ public class DefinitionFile {
       for (int x = 0, y = 0; x < namedAllele.getAlleles().length; x += 1) {
         if (!ignoredPositions.contains(x)) {
           alleles[y] = namedAllele.getAlleles()[x];
+          cpicAlleles[y] = namedAllele.getCpicAlleles()[x];
           y += 1;
         }
       }
       // if there's nothing left that differs from reference allele then don't include the allele in output
       if (!Arrays.stream(alleles).allMatch(Objects::isNull)) {
-        updatedNamedAlleles.add(new NamedAllele(namedAllele.getId(), namedAllele.getName(), alleles, namedAllele.isReference()));
+        updatedNamedAlleles.add(new NamedAllele(namedAllele.getId(), namedAllele.getName(), alleles, cpicAlleles,
+            namedAllele.isReference()));
       }
     }
     setNamedAlleles(updatedNamedAlleles);

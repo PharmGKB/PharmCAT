@@ -182,6 +182,7 @@ public class NamedAlleleMatcher {
       if (data.getNumSampleAlleles() > 0) {
         boolean topCandidateOnly = m_topCandidateOnly;
         if (exemption != null && exemption.isAllHits() != null) {
+          //noinspection ConstantConditions
           topCandidateOnly = !exemption.isAllHits();
         }
         matches = callDiplotypes(data, topCandidateOnly);
@@ -212,7 +213,7 @@ public class NamedAlleleMatcher {
 
     // grab SampleAlleles for all positions related to current gene
     MatchData data = new MatchData(alleleMap, allPositions, extraPositions, unusedPositions);
-    data.checkAlleles(m_definitionReader.getDefinitionFile(gene));
+    data.checkAlleles();
     if (data.getNumSampleAlleles() == 0) {
       return data;
     }
@@ -227,6 +228,7 @@ public class NamedAlleleMatcher {
 
     boolean assumeReference = m_assumeReferenceInDefinitions;
     if (exemption != null && exemption.isAssumeReference() != null) {
+      //noinspection ConstantConditions
       assumeReference = exemption.isAssumeReference();
     }
     if (assumeReference) {

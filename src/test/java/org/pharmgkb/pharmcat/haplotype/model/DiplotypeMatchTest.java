@@ -28,12 +28,16 @@ class DiplotypeMatchTest {
     VariantLocus var3 = new VariantLocus("chr1", 3, "g.3T>A");
     VariantLocus[] variants = new VariantLocus[] { var1, var2, var3 };
 
-
-    NamedAllele hap1 = new NamedAllele("*1", "*1", new String[] { "T", "T", "T" }, true);
+    String[] alleles = new String[] { "T", "T", "T" };
+    NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true);
     hap1.initialize(variants);
-    NamedAllele hap2 = new NamedAllele("*4", "*4", new String[] { "A", "A", "A" }, false);
+
+    alleles = new String[] { "A", "A", "A" };
+    NamedAllele hap2 = new NamedAllele("*4", "*4", alleles, alleles, false);
     hap2.initialize(variants);
-    NamedAllele hap3 = new NamedAllele("*3", "*3", new String[] { "T", "A", null }, false);
+
+    alleles = new String[] { "T", "A", null };
+    NamedAllele hap3 = new NamedAllele("*3", "*3", alleles, alleles, false);
     hap3.initialize(variants);
 
     HaplotypeMatch hm1 = new HaplotypeMatch(hap1);

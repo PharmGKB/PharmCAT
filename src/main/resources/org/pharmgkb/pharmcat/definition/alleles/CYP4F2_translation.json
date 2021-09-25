@@ -1,60 +1,61 @@
 {
-  "formatVersion": "1",
-  "cpicVersion": "v1.8-1-g64906f3",
-  "modificationDate": "Aug 18, 2021 04:53:20 PM",
+  "formatVersion": "2",
+  "cpicVersion": "v1.9-2-gef7e4f8",
+  "modificationDate": "Sep 24, 2021 09:30:14 AM",
   "gene": "CYP4F2",
   "orientation": null,
   "chromosome": "chr19",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000019.10",
-  "refSeqGeneId": "NG_007938.1",
-  "refSeqProteinId": "NP_001073.3",
-  "notes": [
-    "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
-    "All variants are annotated to the positive DNA strand.",
-    "See PharmVar website (http://pharmvar.org) for comprehensive haplotype definitions of CYP4F2 variant alleles and updated allele information.",
-    "An important caveat for all genotyping tests is that the decision to assign an allele a \"wild-type\" status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as \"wild-type.\""
-  ],
-  "populations": null,
   "variants": [
     {
       "chromosome": "chr19",
       "position": 15879621,
+      "cpicPosition": 15879621,
       "rsid": "rs2108622",
       "chromosomeHgvsName": "g.15879621C>T",
-      "geneHgvsName": "g.23454G>A",
-      "proteinNote": "V433M",
-      "resourceNote": "1297G>A",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     },
     {
       "chromosome": "chr19",
       "position": 15897578,
+      "cpicPosition": 15897578,
       "rsid": "rs3093105",
       "chromosomeHgvsName": "g.15897578A>C",
-      "geneHgvsName": "g.5497T>G",
-      "proteinNote": "W12G",
-      "resourceNote": "34T>G",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "A",
+        "C"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "C": "C"
+      },
+      "ref": "A",
+      "alts": [
+        "C"
+      ]
     }
-  ],
-  "variantAlleles": [
-    [
-      "C",
-      "T"
-    ],
-    [
-      "A",
-      "C"
-    ]
   ],
   "namedAlleles": [
     {
       "name": "*1",
       "id": "778238",
       "alleles": [
+        "C",
+        "A"
+      ],
+      "cpicAlleles": [
         "C",
         "A"
       ],
@@ -68,6 +69,10 @@
         null,
         "C"
       ],
+      "cpicAlleles": [
+        null,
+        "C"
+      ],
       "populationFrequency": null,
       "reference": false
     },
@@ -75,6 +80,10 @@
       "name": "*3",
       "id": "778242",
       "alleles": [
+        "T",
+        null
+      ],
+      "cpicAlleles": [
         "T",
         null
       ],

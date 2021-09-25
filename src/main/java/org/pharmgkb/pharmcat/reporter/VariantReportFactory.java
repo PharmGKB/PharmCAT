@@ -29,13 +29,13 @@ import org.pharmgkb.pharmcat.util.DataManager;
  */
 public class VariantReportFactory {
 
-  private String m_gene;
-  private String m_chr;
-  private Multimap<Integer,String> m_variantAlleleMap = TreeMultimap.create(
+  private final String m_gene;
+  private final String m_chr;
+  private final Multimap<Long, String> m_variantAlleleMap = TreeMultimap.create(
       Comparator.naturalOrder(),
       HaplotypeNameComparator.getComparator()
   );
-  private Map<Integer, String> m_wildAlleleMap = new TreeMap<>();
+  private final Map<Long, String> m_wildAlleleMap = new TreeMap<>();
 
   /**
    * Create a new factory for the specified <code>gene</code> (HGNC symbol). This will gather all necessary information

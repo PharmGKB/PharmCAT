@@ -71,17 +71,18 @@ class CombinationUtilTest {
   void testGeneratePerfectPairs() {
 
     SortedSet<NamedAllele> haplotypes = new TreeSet<>();
+    String[] alleles = new String[1];
 
-    NamedAllele hap = new NamedAllele("*1", "*1", new String[1], true);
+    NamedAllele hap = new NamedAllele("*1", "*1", alleles, alleles, true);
     haplotypes.add(hap);
 
-    hap = new NamedAllele("*4", "*4", new String[1], false);
+    hap = new NamedAllele("*4", "*4", alleles, alleles, false);
     haplotypes.add(hap);
 
-    hap = new NamedAllele("*3", "*3", new String[1], false);
+    hap = new NamedAllele("*3", "*3", alleles, alleles, false);
     haplotypes.add(hap);
 
-    hap = new NamedAllele("*2", "*2", new String[1], false);
+    hap = new NamedAllele("*2", "*2", alleles, alleles, false);
     haplotypes.add(hap);
 
     assertEquals(4, haplotypes.size());

@@ -1,43 +1,41 @@
 {
-  "formatVersion": "1",
-  "cpicVersion": "v1.8-1-g64906f3",
-  "modificationDate": "Aug 18, 2021 04:53:20 PM",
+  "formatVersion": "2",
+  "cpicVersion": "v1.9-2-gef7e4f8",
+  "modificationDate": "Sep 24, 2021 09:30:39 AM",
   "gene": "VKORC1",
   "orientation": null,
   "chromosome": "chr16",
   "genomeBuild": "b38",
   "refSeqChromosomeId": "NC_000016.10",
-  "refSeqGeneId": "NG_011564.1",
-  "refSeqProteinId": "NP_076869.1",
-  "notes": [
-    "rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)",
-    "All variants are annotated to the positive DNA strand."
-  ],
-  "populations": null,
   "variants": [
     {
       "chromosome": "chr16",
       "position": 31096368,
+      "cpicPosition": 31096368,
       "rsid": "rs9923231",
       "chromosomeHgvsName": "g.31096368C>T",
-      "geneHgvsName": "g.3588G>A",
-      "proteinNote": "5' region",
-      "resourceNote": "-1639G>A",
-      "type": "SNP",
-      "referenceRepeat": null
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
     }
-  ],
-  "variantAlleles": [
-    [
-      "C",
-      "T"
-    ]
   ],
   "namedAlleles": [
     {
       "name": "rs9923231 reference (C)",
       "id": "779507",
       "alleles": [
+        "C"
+      ],
+      "cpicAlleles": [
         "C"
       ],
       "populationFrequency": null,
@@ -47,6 +45,9 @@
       "name": "rs9923231 variant (T)",
       "id": "779509",
       "alleles": [
+        "T"
+      ],
+      "cpicAlleles": [
         "T"
       ],
       "populationFrequency": null,

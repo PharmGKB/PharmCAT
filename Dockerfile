@@ -11,8 +11,8 @@ RUN apt-get update && \
     apt-get -y install bzip2 build-essential wget
 
 
-ENV BCFTOOLS_VERSION 1.12
-ENV HTSLIB_VERSION 1.12
+ENV BCFTOOLS_VERSION 1.13
+ENV HTSLIB_VERSION 1.13
 
 # download the suite of tools
 WORKDIR /usr/local/bin/

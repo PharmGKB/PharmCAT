@@ -85,6 +85,3 @@ updateData:
 	${GRADLE_CMD} updateData
 	${GRADLE_CMD} extractPositionsForDocs
 	cp ${dataDir}/pharmcat_positions.vcf PharmCAT.wiki/pharmcat.example.vcf
-	if [ -f "${dataDir}/positions_reference.tsv" ]; then \
-	  cp ${dataDir}/positions_reference.tsv src/main/resources/org/pharmgkb/pharmcat/definition; \
-	fi
