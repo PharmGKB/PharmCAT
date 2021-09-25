@@ -17,6 +17,11 @@ else
 endif
 
 
+.PHONY: docker
+docker:
+	docker build -t pcat .
+
+
 .PHONY: vcfTests
 vcfTests:
 	${GRADLE_CMD} clean
