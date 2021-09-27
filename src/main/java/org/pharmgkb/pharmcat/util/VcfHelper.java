@@ -21,6 +21,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -46,24 +47,26 @@ public class VcfHelper implements AutoCloseable {
   private static final String sf_extraPositionUrl = "https://api.pharmgkb.org/v1/pharmcat/extraPosition/%s";
   private static final String sf_vcfCacheFile   = "vcfQueryCache.json";
   private static final String sf_defaultAssembly = "GRCh38";
+  private static final Gson sf_gson = new GsonBuilder()
+      .setPrettyPrinting()
+      .create();
 
   private final CloseableHttpClient m_httpclient;
-  private final Gson m_gson = new Gson();
-  private final Map<String, Map<String, Object>> m_queryCache;
+  private Map<String, Map<String, Object>> m_queryCache;
   private boolean m_queryCacheUpdated;
 
 
   public VcfHelper() throws IOException {
     m_httpclient = HttpClients.createDefault();
 
-    /*
     // load cached data
     try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(getClass(), sf_vcfCacheFile))) {
       //noinspection unchecked
-      m_queryCache = m_gson.fromJson(reader, Map.class);
+      m_queryCache = sf_gson.fromJson(reader, Map.class);
+      if (m_queryCache == null) {
+        m_queryCache = new HashMap<>();
+      }
     }
-    */
-    m_queryCache = new HashMap<>();
   }
 
 
@@ -76,7 +79,7 @@ public class VcfHelper implements AutoCloseable {
       System.out.println("Query cache updated!  Saving cache file to " + cacheFile);
       System.out.println("Don't forget to save this file!");
       try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(cacheFile))) {
-        m_gson.toJson(m_queryCache, writer);
+        sf_gson.toJson(m_queryCache, writer);
       } catch (Exception ex) {
         throw new IOException("Error writing new " + sf_vcfCacheFile, ex);
       }
@@ -135,7 +138,7 @@ public class VcfHelper implements AutoCloseable {
       }
       try (InputStreamReader reader = new InputStreamReader(entity.getContent())) {
         //noinspection unchecked
-        Map<String, Object> data = (Map<String, Object>)m_gson.fromJson(reader, Map.class).get("data");
+        Map<String, Object> data = (Map<String, Object>)sf_gson.fromJson(reader, Map.class).get("data");
         m_queryCache.put(url, data);
         m_queryCacheUpdated = true;
         return data;

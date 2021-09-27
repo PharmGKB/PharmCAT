@@ -214,13 +214,15 @@ public class DataManager {
     String json = FileUtils.readFileToString(definitionsFile.toFile(), Charsets.UTF_8);
     Gson gson = new Gson();
     Map<String, DefinitionFile> definitionFileMap = new HashMap<>();
-    for (DefinitionFile df : gson.fromJson(json, DefinitionFile[].class)) {
-      // TODO: remove after v1 is released
-      if (df.getGeneSymbol().equals("MT-RNR1")) {
-        continue;
+    try (VcfHelper vcfHelper = new VcfHelper()) {
+      for (DefinitionFile df : gson.fromJson(json, DefinitionFile[].class)) {
+        // TODO: remove after v1 is released
+        if (df.getGeneSymbol().equals("MT-RNR1")) {
+          continue;
+        }
+        doVcfTranslation(df, vcfHelper);
+        definitionFileMap.put(df.getGeneSymbol(), df);
       }
-      doVcfTranslation(df, true);
-      definitionFileMap.put(df.getGeneSymbol(), df);
     }
 
     System.out.println("Saving allele definitions in " + definitionsDir.toString());
@@ -263,12 +265,11 @@ public class DataManager {
   }
 
 
-  private static final Pattern sf_hgvsSnpPattern = Pattern.compile("g\\.\\d+[ACGT]>([ACGT])$");
   private static final Pattern sf_hgvsRepeatPattern = Pattern.compile("g\\.[\\d_]+([ACGT]+\\[\\d+])$");
   private static final Pattern sf_hgvsInsPattern = Pattern.compile("g\\.[\\d_]+(del[ACGT]*)?(ins[ACGT]+)$");
   private static final Pattern sf_hgvsDelPattern = Pattern.compile("g\\.[\\d_]+del[ACGT]*$");
 
-  private void doVcfTranslation(DefinitionFile df, boolean strict) throws IOException {
+  private void doVcfTranslation(DefinitionFile df, VcfHelper vcfHelper) throws IOException {
 
     NamedAllele referenceNamedAllele = df.getNamedAlleles().stream()
         .filter(NamedAllele::isReference)
@@ -276,7 +277,6 @@ public class DataManager {
         .orElseThrow(() -> new IllegalStateException(df.getGeneSymbol() + " does not have reference named allele"));
     referenceNamedAllele.initializeCpicData(df.getVariants());
 
-    VcfHelper vcfHelper = new VcfHelper();
     for (int x = 0; x < df.getVariants().length; x += 1) {
       VariantLocus vl = df.getVariants()[x];
       String errorLocation = df.getGeneSymbol() + " @ " + vl.getCpicPosition();
@@ -326,16 +326,7 @@ public class DataManager {
       if (isSnp) {
         for (String h : hgvsNames) {
           String hgvs = df.getRefSeqChromosome() + ":" + h;
-          VcfHelper.VcfData vcf;
-          if (strict) {
-            vcf = vcfHelper.hgvsToVcf(hgvs);
-          } else {
-            Matcher m = sf_hgvsSnpPattern.matcher(h);
-            if (!m.matches()) {
-              throw new IllegalStateException(errorLocation + ": Invalid substitution HGVS - " + h);
-            }
-            vcf = new VcfHelper.VcfData(vl.getCpicPosition(), refAllele, m.group(1));
-          }
+          VcfHelper.VcfData vcf = vcfHelper.hgvsToVcf(hgvs);
 
           if (vcfPosition == -1) {
             vcfPosition = vcf.pos;
