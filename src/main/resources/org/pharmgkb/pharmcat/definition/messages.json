@@ -1,220 +1,5 @@
 [
   {
-    "rule_name": "CYP2C19 *17 check for *4B",
-    "version": "1",
-    "matches": {
-      "gene": "CYP2C19",
-      "hapsCalled": [
-        "*17"
-      ],
-      "hapsMissing": [],
-      "variantsMissing": [
-        "rs28399504"
-      ],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "ambiguity",
-    "message": "Warning! Haplotype matches *17 (increased function allele); however, the existence of *4 (no function allele) cannot be ruled out due to lack of coverage in the provided VCF file for this allele (missing rs28399504)."
-  },
-  {
-    "rule_name": "CYP2C19 *17 missing",
-    "version": "1",
-    "matches": {
-      "gene": "CYP2C19",
-      "hapsCalled": [],
-      "hapsMissing": [
-        "*17"
-      ],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "gene-specific warnings",
-    "message": "CYP2C19*17, a common variant found in some populations and an increased function allele, is defined by a variant (rs12248560) in the CYP2C19 promoter region. Due to missing information on rs12248560 in the VCF file, the presence of this allele cannot be ruled out, and further testing may be warranted."
-  },
-  {
-    "rule_name": "TPMT *1/*3A warning",
-    "version": "1",
-    "matches": {
-      "gene": "TPMT",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [
-        "*1/*3A"
-      ],
-      "drugs": [
-        "azathioprine",
-        "mercaptopurine",
-        "thioguanine"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*3A; however, *3B/*3C cannot be ruled out without phased data."
-  },
-  {
-    "rule_name": "TPMT reverse complement footnote",
-    "version": "1",
-    "matches": {
-      "gene": "TPMT",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "footnote",
-    "message": "The TPMT gene is on the negative chromosomal strand, all genotype calls for TPMT in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
-  },
-  {
-    "rule_name": "VKORC1",
-    "version": "1",
-    "matches": {
-      "gene": "VKORC1",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "footnote",
-    "message": "CPIC recommendations for warfarin use only rs9923231; however, other variants in VKORC1 may have functional consequences and may be more common in some populations."
-  },
-  {
-    "rule_name": "UGT1A1 repeat warning",
-    "version": "1",
-    "matches": {
-      "gene": "UGT1A1",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "footnote",
-    "message": "Some alleles in UGT1A1 are distinguished by a repeat sequence; some genotyping technologies may not accurately call the repeat."
-  },
-  {
-    "rule_name": "CYP3A5 *3 missing",
-    "version": "1",
-    "matches": {
-      "gene": "CYP3A5",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [
-        "rs776746"
-      ],
-      "variant": "",
-      "dips": [],
-      "drugs": [
-        "tacrolimus"
-      ]
-    },
-    "exception_type": "gene-specific warnings",
-    "message": "CYP3A5*3 is a common variant found in some populations. Due to missing information on rs776746 in the VCF file, the presence of the *3 allele cannot be ruled out, and further testing may be warranted."
-  },
-  {
-    "rule_name": "CYP3A5 reverse complement footnote",
-    "version": "1",
-    "matches": {
-      "gene": "CYP3A5",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "footnote",
-    "message": "The CYP3A5 gene is on the negative chromosomal strand, all genotype calls for CYP3A5 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
-  },
-  {
-    "rule_name": "Warfarin warning",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": [
-        "warfarin"
-      ]
-    },
-    "exception_type": "footnote",
-    "message": "The CPIC warfarin guideline only considers a single SNV in VKORC1 (rs9923231), which is found in the highest frequency in Caucasians and extremely low frequency in those of African descent. While other functional variants in VKORC1 have been observed in much higher frequencies in some populations, there are currently no CPIC recommendations for how to use these other variants in warfarin dosing. An alternate name for rs9923231 is -1639G>A (note that VKORC1 is on the negative chromosomal strand, so displayed alleles are complemented). "
-  },
-  {
-    "rule_name": "VKORC1 reverse complement footnote",
-    "version": "1",
-    "matches": {
-      "gene": "VKORC1",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "footnote",
-    "message": "The VKORC1 gene is on the negative chromosomal strand, all genotype calls for VKORC1 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
-  },
-  {
-    "rule_name": "DPYD reverse complement footnote",
-    "version": "1",
-    "matches": {
-      "gene": "DPYD",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "footnote",
-    "message": "The DPYD gene is on the negative chromosomal strand, all genotype calls for DPYD in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
-  },
-  {
-    "rule_name": "IFNL3 reverse complement footnote",
-    "version": "1",
-    "matches": {
-      "gene": "IFNL3",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "footnote",
-    "message": "The IFNL3 gene is on the negative chromosomal strand, all genotype calls for IFNL3 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
-  },
-  {
-    "rule_name": "Phenytoin_HLA-B warning",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": [
-        "phenytoin"
-      ]
-    },
-    "exception_type": "note",
-    "message": "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin."
-  },
-  {
     "rule_name": "clopidogrel table footnote",
     "version": "1",
     "matches": {
@@ -232,220 +17,61 @@
     "message": "Antiplatelet therapy recommendations are based on CYP2C19 status when considering clopidogrel for acute coronary syndrome (ACS patients undergoing percutaneous coronary intervention (PCI)). "
   },
   {
-    "rule_name": "CYP2D6 warning",
+    "rule_name": "CYP2B6 *1/*13 warning",
     "version": "1",
     "matches": {
-      "gene": "CYP2D6",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "note",
-    "message": "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to <a href=\"https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles\">the PharmCAT wiki</a> for more information."
-  },
-  {
-    "rule_name": "SLCO1B1-simvastatin text",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": [
-        "simvastatin"
-      ]
-    },
-    "exception_type": "note",
-    "message": "SLCO1B1 star allele nomenclature represents various SNPs alone or in combination. The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.<br><br>In case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 is contained in SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles, and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles. A number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as 'possible decreased function' alleles. These alleles are not accounted for in the recommendation based on the rs4149056 genotype. Carriage of additional variants is possible."
-  },
-  {
-    "rule_name": "warfarin figure 2 note",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": [
-        "warfarin"
-      ]
-    },
-    "exception_type": "note",
-    "message": "Please follow the flow chart in figure 2 of the <a href=\"https://www.pharmgkb.org/guideline/PA166104949\">CPIC warfarin guideline</a> to determine the appropriate dosing recommendation."
-  },
-  {
-    "rule_name": "Show rs12777823 for warfarin",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "rs12777823",
-      "dips": [],
-      "drugs": [
-        "warfarin"
-      ]
-    },
-    "exception_type": "report-genotype",
-    "message": ""
-  },
-  {
-    "rule_name": "CYP2C19 *1/*4 warning",
-    "version": "1",
-    "matches": {
-      "gene": "CYP2C19",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "rs12248560",
-      "dips": [
-        "*1/*4"
-      ],
-      "drugs": [
-        "amitriptyline",
-        "clomipramine",
-        "imipramine",
-        "trimipramine",
-        "doxepin",
-        "sertraline",
-        "clopidogrel",
-        "escitalopram",
-        "citalopram",
-        "voriconazole",
-        "pantoprazole",
-        "omeprazole",
-        "lansoprazole",
-        "dexlansoprazole"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*4; however, *4/*17 cannot be ruled out without phased data."
-  },
-  {
-    "rule_name": "Show rs4149056 for SLCO1B1",
-    "version": "1",
-    "matches": {
-      "gene": "SLCO1B1",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "rs4149056",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "report-genotype",
-    "message": ""
-  },
-  {
-    "rule_name": "UGT1A1*80 without *28 or *37 warning",
-    "version": "1",
-    "matches": {
-      "gene": "UGT1A1",
-      "hapsCalled": [
-        "*80; *80+*28; *80+*37"
-      ],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "note",
-    "message": "UGT1A1*80 (rs887829) is in very high linkage disequilibrium with *28 and *37 (TA repeat variation in the UGT1A1 promoter). In case *80 (rs887829) is detected and input at position 233760233 (*28/*37) is MISSING from the VCF, the allele options are presented as *80+*28 and *80+*37 based on a partial match for *80, and *80 is used to infer metabolizer status.<br><br>In case *80 is detected with position 233760233 (*28/*37) detected as reference (shown as reference in row 233760233 in the table Calls at Position), not enough clinical data exists to predict metabolizer status with certainty and provide recommendations. "
-  },
-  {
-    "rule_name": "UGT1A1 *1/*80+*28 warning",
-    "version": "1",
-    "matches": {
-      "gene": "UGT1A1",
+      "gene": "CYP2B6",
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
       "variant": "",
       "dips": [
-        "*1/*80+*28"
+        "*1/*13"
       ],
       "drugs": [
-        "atazanavir"
+        "efavirenz"
       ]
     },
     "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*80+*28; however, *28/*80 cannot be ruled out without phased data."
+    "message": "The assigned genotype is *1/*13; however, *6/*8 cannot be ruled out without phased data."
   },
   {
-    "rule_name": "UGT1A1 *1/*80+*37 warning",
+    "rule_name": "CYP2B6 *1/*18 warning",
     "version": "1",
     "matches": {
-      "gene": "UGT1A1",
+      "gene": "CYP2B6",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "rs2279343",
+      "dips": [
+        "*1/*18"
+      ],
+      "drugs": [
+        "efavirenz"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*18; however, *4/*18 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "CYP2B6 *1/*34 warning",
+    "version": "1",
+    "matches": {
+      "gene": "CYP2B6",
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
       "variant": "",
       "dips": [
-        "*1/*80+*37"
+        "*1/*34"
       ],
       "drugs": [
-        "atazanavir"
+        "efavirenz"
       ]
     },
     "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*80+*37; however, *37/*80 cannot be ruled out without phased data."
-  },
-  {
-    "rule_name": "NUDT15 *1/*2 warning",
-    "version": "1",
-    "matches": {
-      "gene": "NUDT15",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [
-        "*1/*2"
-      ],
-      "drugs": [
-        "azathioprine",
-        "mercaptopurine",
-        "thioguanine"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*2; however, *3/*6 cannot be ruled out without phased data."
-  },
-  {
-    "rule_name": "CYP2C9 *1/*71 warning",
-    "version": "1",
-    "matches": {
-      "gene": "CYP2C9",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [
-        "*1/*71"
-      ],
-      "drugs": [
-        "fosphenytoin",
-        "phenytoin",
-        "celecoxib",
-        "flurbiprofen",
-        "ibuprofen",
-        "lornoxicam",
-        "meloxicam",
-        "piroxicam",
-        "tenoxicam"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*71; however, *10/*20 cannot be ruled out without phased data."
+    "message": "The assigned genotype is *1/*34; however, *33/*36 cannot be ruled out without phased data."
   },
   {
     "rule_name": "CYP2B6 *1/*36 warning",
@@ -486,25 +112,6 @@
     "message": "The assigned genotype is *1/*6; however, *4/*9 cannot be ruled out without phased data."
   },
   {
-    "rule_name": "CYP2B6 *1/*34 warning",
-    "version": "1",
-    "matches": {
-      "gene": "CYP2B6",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [
-        "*1/*34"
-      ],
-      "drugs": [
-        "efavirenz"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*34; however, *33/*36 cannot be ruled out without phased data."
-  },
-  {
     "rule_name": "CYP2B6 *1/*7 warning",
     "version": "1",
     "matches": {
@@ -524,23 +131,23 @@
     "message": "The assigned genotype is *1/*7; however, *5/*6 cannot be ruled out without phased data."
   },
   {
-    "rule_name": "CYP2B6 *1/*13 warning",
+    "rule_name": "CYP2C19 *1 missing",
     "version": "1",
     "matches": {
-      "gene": "CYP2B6",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [
-        "*1/*13"
+      "gene": "CYP2C19",
+      "hapsCalled": [
+        "*38"
       ],
-      "drugs": [
-        "efavirenz"
-      ]
+      "hapsMissing": [],
+      "variantsMissing": [
+        "rs3758581"
+      ],
+      "variant": "",
+      "dips": [],
+      "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*13; however, *6/*8 cannot be ruled out without phased data."
+    "message": "Information for rs3758581 is missing. CYP2C19*1 (former *1B) is defined by rs3758581 G, while CYP2C19*38 (former *1A) by rs3758581 A."
   },
   {
     "rule_name": "CYP2C19 *1/*2 warning",
@@ -605,6 +212,116 @@
     },
     "exception_type": "ambiguity",
     "message": "The assigned genotype is *1/*35; however, *15/*35 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "CYP2C19 *1/*4 warning",
+    "version": "1",
+    "matches": {
+      "gene": "CYP2C19",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "rs12248560",
+      "dips": [
+        "*1/*4"
+      ],
+      "drugs": [
+        "amitriptyline",
+        "clomipramine",
+        "imipramine",
+        "trimipramine",
+        "doxepin",
+        "sertraline",
+        "clopidogrel",
+        "escitalopram",
+        "citalopram",
+        "voriconazole",
+        "pantoprazole",
+        "omeprazole",
+        "lansoprazole",
+        "dexlansoprazole"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*4; however, *4/*17 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "CYP2C19 *17 check for *4B",
+    "version": "1",
+    "matches": {
+      "gene": "CYP2C19",
+      "hapsCalled": [
+        "*17"
+      ],
+      "hapsMissing": [],
+      "variantsMissing": [
+        "rs28399504"
+      ],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "ambiguity",
+    "message": "Warning! Haplotype matches *17 (increased function allele); however, the existence of *4 (no function allele) cannot be ruled out due to lack of coverage in the provided VCF file for this allele (missing rs28399504)."
+  },
+  {
+    "rule_name": "CYP2C19 *17 missing",
+    "version": "1",
+    "matches": {
+      "gene": "CYP2C19",
+      "hapsCalled": [],
+      "hapsMissing": [
+        "*17"
+      ],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "gene-specific warnings",
+    "message": "CYP2C19*17, a common variant found in some populations and an increased function allele, is defined by a variant (rs12248560) in the CYP2C19 promoter region. Due to missing information on rs12248560 in the VCF file, the presence of this allele cannot be ruled out, and further testing may be warranted."
+  },
+  {
+    "rule_name": "CYP2C9 *1/*71 warning",
+    "version": "1",
+    "matches": {
+      "gene": "CYP2C9",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1/*71"
+      ],
+      "drugs": [
+        "fosphenytoin",
+        "phenytoin",
+        "celecoxib",
+        "flurbiprofen",
+        "ibuprofen",
+        "lornoxicam",
+        "meloxicam",
+        "piroxicam",
+        "tenoxicam"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*71; however, *10/*20 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "CYP2D6 warning",
+    "version": "1",
+    "matches": {
+      "gene": "CYP2D6",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "note",
+    "message": "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to <a href=\"https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles\">the PharmCAT wiki</a> for more information."
   },
   {
     "rule_name": "CYP3A5 *1/*3 warning",
@@ -683,42 +400,138 @@
     "message": "The assigned genotype is *1/*3; however, *3/*9 cannot be ruled out without phased data."
   },
   {
-    "rule_name": "CYP2B6 *1/*18 warning",
+    "rule_name": "CYP3A5 *3 missing",
     "version": "1",
     "matches": {
-      "gene": "CYP2B6",
+      "gene": "CYP3A5",
       "hapsCalled": [],
       "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "rs2279343",
-      "dips": [
-        "*1/*18"
+      "variantsMissing": [
+        "rs776746"
       ],
+      "variant": "",
+      "dips": [],
       "drugs": [
-        "efavirenz"
+        "tacrolimus"
       ]
     },
     "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*18; however, *4/*18 cannot be ruled out without phased data."
+    "message": "CYP3A5*3 is a common variant found in some populations. Due to missing information on rs776746 in the VCF file, the presence of the *3 allele cannot be ruled out, and further testing may be warranted."
   },
   {
-    "rule_name": "CYP2C19 *1 missing",
+    "rule_name": "CYP3A5 reverse complement footnote",
     "version": "1",
     "matches": {
-      "gene": "CYP2C19",
-      "hapsCalled": [
-        "*38"
-      ],
+      "gene": "CYP3A5",
+      "hapsCalled": [],
       "hapsMissing": [],
-      "variantsMissing": [
-        "rs3758581"
-      ],
+      "variantsMissing": [],
       "variant": "",
       "dips": [],
       "drugs": []
     },
+    "exception_type": "footnote",
+    "message": "The CYP3A5 gene is on the negative chromosomal strand, all genotype calls for CYP3A5 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+  },
+  {
+    "rule_name": "DPYD reverse complement footnote",
+    "version": "1",
+    "matches": {
+      "gene": "DPYD",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "footnote",
+    "message": "The DPYD gene is on the negative chromosomal strand, all genotype calls for DPYD in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+  },
+  {
+    "rule_name": "IFNL3 reverse complement footnote",
+    "version": "1",
+    "matches": {
+      "gene": "IFNL3",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "footnote",
+    "message": "The IFNL3 gene is on the negative chromosomal strand, all genotype calls for IFNL3 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+  },
+  {
+    "rule_name": "NUDT15 *1/*2 warning",
+    "version": "1",
+    "matches": {
+      "gene": "NUDT15",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1/*2"
+      ],
+      "drugs": [
+        "azathioprine",
+        "mercaptopurine",
+        "thioguanine"
+      ]
+    },
     "exception_type": "ambiguity",
-    "message": "Information for rs3758581 is missing. CYP2C19*1 (former *1B) is defined by rs3758581 G, while CYP2C19*38 (former *1A) by rs3758581 A."
+    "message": "The assigned genotype is *1/*2; however, *3/*6 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "Phenytoin_HLA-B warning",
+    "version": "1",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": [
+        "phenytoin"
+      ]
+    },
+    "exception_type": "note",
+    "message": "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin."
+  },
+  {
+    "rule_name": "Show rs12777823 for warfarin",
+    "version": "1",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "rs12777823",
+      "dips": [],
+      "drugs": [
+        "warfarin"
+      ]
+    },
+    "exception_type": "report-genotype",
+    "message": ""
+  },
+  {
+    "rule_name": "Show rs4149056 for SLCO1B1",
+    "version": "1",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "rs4149056",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "report-genotype",
+    "message": ""
   },
   {
     "rule_name": "SLCO1B1 *1A/*12 warning",
@@ -871,5 +684,192 @@
     },
     "exception_type": "ambiguity",
     "message": "The assigned genotype is *1A/*35; however, *1B/*22 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "SLCO1B1-simvastatin text",
+    "version": "1",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": [
+        "simvastatin"
+      ]
+    },
+    "exception_type": "note",
+    "message": "SLCO1B1 star allele nomenclature represents various SNPs alone or in combination. The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.<br><br>In case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 defines SLCO1B1*5."
+  },
+  {
+    "rule_name": "TPMT *1/*3A warning",
+    "version": "1",
+    "matches": {
+      "gene": "TPMT",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1/*3A"
+      ],
+      "drugs": [
+        "azathioprine",
+        "mercaptopurine",
+        "thioguanine"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*3A; however, *3B/*3C cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "TPMT reverse complement footnote",
+    "version": "1",
+    "matches": {
+      "gene": "TPMT",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "footnote",
+    "message": "The TPMT gene is on the negative chromosomal strand, all genotype calls for TPMT in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+  },
+  {
+    "rule_name": "UGT1A1 *1/*80+*28 warning",
+    "version": "1",
+    "matches": {
+      "gene": "UGT1A1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1/*80+*28"
+      ],
+      "drugs": [
+        "atazanavir"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*80+*28; however, *28/*80 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "UGT1A1 *1/*80+*37 warning",
+    "version": "1",
+    "matches": {
+      "gene": "UGT1A1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [
+        "*1/*80+*37"
+      ],
+      "drugs": [
+        "atazanavir"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*80+*37; however, *37/*80 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "UGT1A1 repeat warning",
+    "version": "1",
+    "matches": {
+      "gene": "UGT1A1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "footnote",
+    "message": "Some alleles in UGT1A1 are distinguished by a repeat sequence; some genotyping technologies may not accurately call the repeat."
+  },
+  {
+    "rule_name": "UGT1A1*80 without *28 or *37 warning",
+    "version": "1",
+    "matches": {
+      "gene": "UGT1A1",
+      "hapsCalled": [
+        "*80; *80+*28; *80+*37"
+      ],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "note",
+    "message": "UGT1A1*80 (rs887829) is in very high linkage disequilibrium with *28 and *37 (TA repeat variation in the UGT1A1 promoter). In case *80 (rs887829) is detected and input at position 233760233 (*28/*37) is MISSING from the VCF, the allele options are presented as *80+*28 and *80+*37 based on a partial match for *80, and *80 is used to infer metabolizer status.<br><br>In case *80 is detected with position 233760233 (*28/*37) detected as reference (shown as reference in row 233760233 in the table Calls at Position), not enough clinical data exists to predict metabolizer status with certainty and provide recommendations. "
+  },
+  {
+    "rule_name": "VKORC1",
+    "version": "1",
+    "matches": {
+      "gene": "VKORC1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "footnote",
+    "message": "CPIC recommendations for warfarin use only rs9923231; however, other variants in VKORC1 may have functional consequences and may be more common in some populations."
+  },
+  {
+    "rule_name": "VKORC1 reverse complement footnote",
+    "version": "1",
+    "matches": {
+      "gene": "VKORC1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "footnote",
+    "message": "The VKORC1 gene is on the negative chromosomal strand, all genotype calls for VKORC1 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
+  },
+  {
+    "rule_name": "warfarin figure 2 note",
+    "version": "1",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": [
+        "warfarin"
+      ]
+    },
+    "exception_type": "note",
+    "message": "Please follow the flow chart in figure 2 of the <a href=\"https://www.pharmgkb.org/guideline/PA166104949\">CPIC warfarin guideline</a> to determine the appropriate dosing recommendation."
+  },
+  {
+    "rule_name": "Warfarin warning",
+    "version": "1",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": [
+        "warfarin"
+      ]
+    },
+    "exception_type": "footnote",
+    "message": "The CPIC warfarin guideline only considers a single SNV in VKORC1 (rs9923231), which is found in the highest frequency in Caucasians and extremely low frequency in those of African descent. While other functional variants in VKORC1 have been observed in much higher frequencies in some populations, there are currently no CPIC recommendations for how to use these other variants in warfarin dosing. An alternate name for rs9923231 is -1639G>A (note that VKORC1 is on the negative chromosomal strand, so displayed alleles are complemented). "
   }
 ]
