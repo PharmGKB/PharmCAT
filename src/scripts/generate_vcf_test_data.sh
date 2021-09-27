@@ -38,7 +38,6 @@ else
 fi
 
 DEFINITION_DIR="../main/resources/org/pharmgkb/pharmcat/definition/alleles"
-VCF_FILE="${DEFINITION_DIR}/pharmcat_positions.vcf"
 OUTPUT_DIR="${dataDir}/testVcf"
 
 for file in "$DEFINITION_DIR"/*; do
@@ -50,9 +49,9 @@ for file in "$DEFINITION_DIR"/*; do
       echo "$gene"
       mkdir -p ${OUTPUT_DIR}/${gene}
       if [[ $MISSING == "false" ]]; then
-        ./test_gen.py $file ${VCF_FILE} ${OUTPUT_DIR}/${gene}
+        ./test_gen.py $file ${OUTPUT_DIR}/${gene}
       else
-        ./test_gen_missing.py $file ${VCF_FILE} ${OUTPUT_DIR}/${gene}
+        ./test_gen_missing.py $file ${OUTPUT_DIR}/${gene}
       fi
       echo ""
       echo ""

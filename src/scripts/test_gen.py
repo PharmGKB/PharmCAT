@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Usage: test_gen.py <definition.json> <positions.vcf> <vcfOutputDir>
+Usage: test_gen.py <definition.json> <vcfOutputDir>
 Authors Alex Frase, Scott Dudek
 
 This tool generates test cases for PharmCAT by reading a single gene definition JSON file
