@@ -1813,10 +1813,7 @@
     "chr": "chr10",
     "phased": true,
     "callSource": "MATCHER",
-    "uncalledHaplotypes": [
-      "*6",
-      "*25"
-    ],
+    "uncalledHaplotypes": [],
     "messages": [],
     "relatedDrugs": [
       {
@@ -2036,6 +2033,19 @@
         ],
         "phased": true,
         "wildtypeAllele": "T",
+        "mismatch": false
+      },
+      {
+        "gene": "CYP2C9",
+        "chromosome": "chr10",
+        "position": 94942205,
+        "dbSnpId": "rs1304490498",
+        "call": "CAATGGAAAGA|CAATGGAAAGA",
+        "alleles": [
+          "*25"
+        ],
+        "phased": true,
+        "wildtypeAllele": "CAATGGAAAGA",
         "mismatch": false
       },
       {
@@ -2328,6 +2338,19 @@
         ],
         "phased": true,
         "wildtypeAllele": "A",
+        "mismatch": false
+      },
+      {
+        "gene": "CYP2C9",
+        "chromosome": "chr10",
+        "position": 94949281,
+        "dbSnpId": "rs9332131",
+        "call": "GA|GA",
+        "alleles": [
+          "*6"
+        ],
+        "phased": true,
+        "wildtypeAllele": "GA",
         "mismatch": false
       },
       {
@@ -2734,32 +2757,6 @@
         ],
         "phased": true,
         "wildtypeAllele": "G",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2C9",
-        "chromosome": "chr10",
-        "position": 94942205,
-        "dbSnpId": "rs1304490498",
-        "call": null,
-        "alleles": [
-          "*25"
-        ],
-        "phased": false,
-        "wildtypeAllele": "CAATGGAAAGA",
-        "mismatch": false
-      },
-      {
-        "gene": "CYP2C9",
-        "chromosome": "chr10",
-        "position": 94949281,
-        "dbSnpId": "rs9332131",
-        "call": null,
-        "alleles": [
-          "*6"
-        ],
-        "phased": false,
-        "wildtypeAllele": "GA",
         "mismatch": false
       }
     ],
@@ -3188,9 +3185,7 @@
     "chr": "chr1",
     "phased": true,
     "callSource": "MATCHER",
-    "uncalledHaplotypes": [
-      "c.1898delC (*3)"
-    ],
+    "uncalledHaplotypes": [],
     "messages": [
       {
         "rule_name": "DPYD reverse complement footnote",
@@ -3636,6 +3631,19 @@
         ],
         "phased": true,
         "wildtypeAllele": "G",
+        "mismatch": false
+      },
+      {
+        "gene": "DPYD",
+        "chromosome": "chr1",
+        "position": 97450065,
+        "dbSnpId": "rs72549303",
+        "call": "TG|TG",
+        "alleles": [
+          "c.1898delC (*3)"
+        ],
+        "phased": true,
+        "wildtypeAllele": "TG",
         "mismatch": false
       },
       {
@@ -4326,19 +4334,6 @@
         "phased": true,
         "wildtypeAllele": "G",
         "mismatch": false
-      },
-      {
-        "gene": "DPYD",
-        "chromosome": "chr1",
-        "position": 97450065,
-        "dbSnpId": "rs72549303",
-        "call": null,
-        "alleles": [
-          "c.1898delC (*3)"
-        ],
-        "phased": false,
-        "wildtypeAllele": "TG",
-        "mismatch": false
       }
     ],
     "variantsOfInterest": [],
@@ -4574,12 +4569,7 @@
     "chr": "chr13",
     "phased": true,
     "callSource": "MATCHER",
-    "uncalledHaplotypes": [
-      "*6",
-      "*9",
-      "*14",
-      "*18"
-    ],
+    "uncalledHaplotypes": [],
     "messages": [],
     "relatedDrugs": [
       {
@@ -4667,6 +4657,21 @@
       {
         "gene": "NUDT15",
         "chromosome": "chr13",
+        "position": 48037782,
+        "dbSnpId": "rs746071566",
+        "call": "AGGAGTC|AGGAGTC",
+        "alleles": [
+          "*2",
+          "*6",
+          "*9"
+        ],
+        "phased": true,
+        "wildtypeAllele": "AGGAGTC",
+        "mismatch": false
+      },
+      {
+        "gene": "NUDT15",
+        "chromosome": "chr13",
         "position": 48037798,
         "dbSnpId": "rs186364861",
         "call": "G|G",
@@ -4675,6 +4680,19 @@
         ],
         "phased": true,
         "wildtypeAllele": "G",
+        "mismatch": false
+      },
+      {
+        "gene": "NUDT15",
+        "chromosome": "chr13",
+        "position": 48037825,
+        "dbSnpId": "rs777311140",
+        "call": "C|C",
+        "alleles": [
+          "*14"
+        ],
+        "phased": true,
+        "wildtypeAllele": "C",
         "mismatch": false
       },
       {
@@ -4740,6 +4758,19 @@
         ],
         "phased": true,
         "wildtypeAllele": "C",
+        "mismatch": false
+      },
+      {
+        "gene": "NUDT15",
+        "chromosome": "chr13",
+        "position": 48040977,
+        "dbSnpId": "rs1457579126",
+        "call": "GA|GA",
+        "alleles": [
+          "*18"
+        ],
+        "phased": true,
+        "wildtypeAllele": "GA",
         "mismatch": false
       },
       {
@@ -4820,47 +4851,6 @@
         "phased": true,
         "wildtypeAllele": "T",
         "mismatch": false
-      },
-      {
-        "gene": "NUDT15",
-        "chromosome": "chr13",
-        "position": 48037782,
-        "dbSnpId": "rs746071566",
-        "call": null,
-        "alleles": [
-          "*2",
-          "*6",
-          "*9"
-        ],
-        "phased": false,
-        "wildtypeAllele": "AGGAGTC",
-        "mismatch": false
-      },
-      {
-        "gene": "NUDT15",
-        "chromosome": "chr13",
-        "position": 48037825,
-        "dbSnpId": "rs777311140",
-        "call": null,
-        "alleles": [
-          "*14"
-        ],
-        "phased": false,
-        "wildtypeAllele": "C",
-        "mismatch": false
-      },
-      {
-        "gene": "NUDT15",
-        "chromosome": "chr13",
-        "position": 48040977,
-        "dbSnpId": "rs1457579126",
-        "call": null,
-        "alleles": [
-          "*18"
-        ],
-        "phased": false,
-        "wildtypeAllele": "GA",
-        "mismatch": false
       }
     ],
     "variantsOfInterest": [],
@@ -4871,9 +4861,7 @@
     "chr": "chr19",
     "phased": true,
     "callSource": "MATCHER",
-    "uncalledHaplotypes": [
-      "c.7042_7044delGAG"
-    ],
+    "uncalledHaplotypes": [],
     "messages": [],
     "relatedDrugs": [
       {
@@ -5227,6 +5215,19 @@
       {
         "gene": "RYR1",
         "chromosome": "chr19",
+        "position": 38499644,
+        "dbSnpId": "rs121918596",
+        "call": "TGGA|TGGA",
+        "alleles": [
+          "c.7042_7044delGAG"
+        ],
+        "phased": true,
+        "wildtypeAllele": "TGGA",
+        "mismatch": false
+      },
+      {
+        "gene": "RYR1",
+        "chromosome": "chr19",
         "position": 38499655,
         "dbSnpId": "rs193922802",
         "call": "G|G",
@@ -5509,19 +5510,6 @@
         ],
         "phased": true,
         "wildtypeAllele": "T",
-        "mismatch": false
-      },
-      {
-        "gene": "RYR1",
-        "chromosome": "chr19",
-        "position": 38499644,
-        "dbSnpId": "rs121918596",
-        "call": null,
-        "alleles": [
-          "c.7042_7044delGAG"
-        ],
-        "phased": false,
-        "wildtypeAllele": "TGGA",
         "mismatch": false
       }
     ],
