@@ -9,11 +9,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import org.apache.commons.io.FileUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.common.io.util.CliHelper;
+import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
@@ -193,7 +192,6 @@ public class PharmCAT {
    * @param outputFile the optional output file name to use
    * @return a file name to use without extension
    */
-  @Nonnull
   private String makeFileRoot(Path inputFile, @Nullable String outputFile) {
     String fileRoot;
     if (outputFile != null) {

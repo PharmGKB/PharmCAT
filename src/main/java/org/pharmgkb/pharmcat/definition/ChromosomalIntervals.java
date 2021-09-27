@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.common.base.Charsets;
-import org.pharmgkb.common.io.util.CliHelper;
+import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
