@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.invoke.MethodHandles;
 import java.net.URL;
@@ -45,6 +46,8 @@ public class DataManager {
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   private static final String PHENOTYPES_JSON_FILE_NAME = "gene_phenotypes.json";
   private static final String SUMMARY_REPORT = "summary.md";
+  private static final String POSITIONS_VCF = "pharmcat_positions.vcf";
+  private static final String INTERVALS_TXT = "pharmcat_intervals.txt";
   private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "G6PD", "MT-RNR1");
   private static final Splitter sf_semicolonSplitter = Splitter.on(";").trimResults().omitEmptyStrings();
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
@@ -213,7 +216,7 @@ public class DataManager {
     }
     String json = FileUtils.readFileToString(definitionsFile.toFile(), Charsets.UTF_8);
     Gson gson = new Gson();
-    Map<String, DefinitionFile> definitionFileMap = new HashMap<>();
+    SortedMap<String, DefinitionFile> definitionFileMap = new TreeMap<>();
     try (VcfHelper vcfHelper = new VcfHelper()) {
       for (DefinitionFile df : gson.fromJson(json, DefinitionFile[].class)) {
         // TODO: remove after v1 is released
@@ -259,6 +262,8 @@ public class DataManager {
         System.out.println("New gene: " + gene);
       }
     }
+
+    exportVcfData(definitionsDir);
 
     deleteObsoleteFiles(definitionsDir, currentFiles);
     return geneAlleleCountMap;
@@ -505,6 +510,39 @@ public class DataManager {
   }
 
 
+  private void exportVcfData(Path definitionsDir) throws IOException {
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionsDir);
+
+    List<String> genes = definitionReader.getGeneAlleleCount().keySet().stream()
+        .filter(g -> !PREFER_OUTSIDE_CALL.contains(g))
+        .collect(Collectors.toList());
+
+    Path positionsFile = definitionsDir.resolve(POSITIONS_VCF);
+    VcfHelper.extractPositions(genes, definitionReader, positionsFile);
+
+    Path intervalsFile = definitionsDir.resolve(INTERVALS_TXT);
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(intervalsFile))) {
+      for (String gene : genes) {
+        DefinitionFile defFile = definitionReader.getDefinitionFile(gene);
+
+        long min = Arrays.stream(defFile.getVariants())
+            .map(VariantLocus::getPosition)
+            .min(Long::compareTo)
+            .orElseThrow(() -> new RuntimeException("No minimum for " + gene + " interval"));
+
+        long max = Arrays.stream(defFile.getVariants())
+            .map(VariantLocus::getPosition)
+            .max(Long::compareTo)
+            .orElseThrow(() -> new RuntimeException("No maximum for " + gene + " interval"));
+
+        writer.println(String.format("%s: %d-%d", defFile.getChromosome(), min, max));
+      }
+    }
+  }
+
+
   private Map<String, DefinitionExemption> transformExemptions(Path tsvFile, Path jsonFile) throws IOException {
     System.out.println("Saving exemptions to " + jsonFile.toString());
     Set<DefinitionExemption> exemptions = m_dataSerializer.deserializeExemptionsFromTsv(tsvFile);
@@ -530,7 +568,7 @@ public class DataManager {
     }
   }
 
-  private void writeSummary(Path documenationDir, Map<String,Integer> geneAlleleCount, DrugCollection drugs, PhenotypeMap phenotypeMap) throws IOException {
+  private void writeSummary(Path documentationDir, Map<String,Integer> geneAlleleCount, DrugCollection drugs, PhenotypeMap phenotypeMap) throws IOException {
     try (
         InputStream mdStream = getClass().getResourceAsStream("summary.md");
         StringWriter templateWriter = new StringWriter()
@@ -541,7 +579,7 @@ public class DataManager {
       IOUtils.copy(mdStream, templateWriter, Charset.defaultCharset());
       String mdTemplate = templateWriter.toString();
 
-      File summaryFile = documenationDir.resolve(SUMMARY_REPORT).toFile();
+      File summaryFile = documentationDir.resolve(SUMMARY_REPORT).toFile();
       try (FileWriter fw = new FileWriter(summaryFile)) {
         String matcherGeneList = geneAlleleCount.keySet().stream()
             .filter(g -> !PREFER_OUTSIDE_CALL.contains(g))
