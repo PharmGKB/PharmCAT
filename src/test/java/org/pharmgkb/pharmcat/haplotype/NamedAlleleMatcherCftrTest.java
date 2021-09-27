@@ -1,12 +1,8 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.nio.file.Path;
-import java.util.List;
-import com.google.common.collect.Lists;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.util.DataManager;
 
 import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.assertDiplotypePairs;
@@ -14,59 +10,28 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
 
 
 /**
- * JUnit test for {@link NamedAlleleMatcher#callDiplotypes(MatchData, boolean)}.
+ * CFTR-specific tests for {@link NamedAlleleMatcher}.
  *
- * @author Lester Carter
+ * @author Mark Woon
  */
 class NamedAlleleMatcherCftrTest {
-  private Path m_definitionFile;
-
-  @BeforeEach
-  void before() {
-    m_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("CFTR_translation.json");
-  }
+  private static final Path sf_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("CFTR_translation.json");
 
 
   @Test
   void cftrReferenceReference() throws Exception {
-    // Test reference
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/refref.vcf");
-    List<String> expectedMatches = Lists.newArrayList("ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
-
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
-  }
-
-
-  @Test
-  void cftrF508delF508del() throws Exception {
-    // Test F508del(TCT)/F508del(TCT)
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/F508delF508del.vcf");
-    List<String> expectedMatches = Lists.newArrayList("ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
-
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
+    assertDiplotypePairs("ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence",
+        testMatchNamedAlleles(sf_definitionFile, new TestVcfBuilder("ref/ref")
+            .reference("CFTR")
+            .generate()));
   }
 
 
   @Test
   void G1244Eref() throws Exception {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/G1244Eref.vcf");
-    List<String> expectedMatches = Lists.newArrayList("G1244E/ivacaftor non-responsive CFTR sequence");
-
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
+    assertDiplotypePairs("G1244E/ivacaftor non-responsive CFTR sequence",
+        testMatchNamedAlleles(sf_definitionFile, new TestVcfBuilder("G1244E/ref")
+            .variation("CFTR", "rs267606723", "G", "A")
+            .generate()));
   }
-
-
-  @Test
-  void G1244EF508del() throws Exception {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cftr/G1244EF508del.vcf");
-    List<String> expectedMatches = Lists.newArrayList("G1244E/ivacaftor non-responsive CFTR sequence");
-
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
-  }
-
-
 }

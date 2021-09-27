@@ -20,8 +20,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import com.google.gson.Gson;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
@@ -29,7 +27,9 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -37,24 +37,50 @@ import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 
 
 /**
+ * Helper utils for working VCF.
+ *
  * @author Mark Woon
  */
 public class VcfHelper implements AutoCloseable {
   private static final String sf_vcfUrl = "https://api.pharmgkb.org/v1/pharmcat/hgvs/%s/vcf";
   private static final String sf_extraPositionUrl = "https://api.pharmgkb.org/v1/pharmcat/extraPosition/%s";
+  private static final String sf_vcfCacheFile   = "vcfQueryCache.json";
+  private static final String sf_defaultAssembly = "GRCh38";
 
   private final CloseableHttpClient m_httpclient;
   private final Gson m_gson = new Gson();
+  private final Map<String, Map<String, Object>> m_queryCache;
+  private boolean m_queryCacheUpdated;
 
 
-  public VcfHelper() {
+  public VcfHelper() throws IOException {
     m_httpclient = HttpClients.createDefault();
+
+    /*
+    // load cached data
+    try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(getClass(), sf_vcfCacheFile))) {
+      //noinspection unchecked
+      m_queryCache = m_gson.fromJson(reader, Map.class);
+    }
+    */
+    m_queryCache = new HashMap<>();
   }
 
 
   @Override
   public void close() throws IOException {
     m_httpclient.close();
+
+    if (m_queryCacheUpdated) {
+      Path cacheFile = PathUtils.getPathToResource(getClass(), sf_vcfCacheFile);
+      System.out.println("Query cache updated!  Saving cache file to " + cacheFile);
+      System.out.println("Don't forget to save this file!");
+      try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(cacheFile))) {
+        m_gson.toJson(m_queryCache, writer);
+      } catch (Exception ex) {
+        throw new IOException("Error writing new " + sf_vcfCacheFile, ex);
+      }
+    }
   }
 
 
@@ -94,13 +120,25 @@ public class VcfHelper implements AutoCloseable {
 
   private Map<String, Object> runQuery(String url) throws IOException {
 
+    if (m_queryCache.containsKey(url)) {
+      return m_queryCache.get(url);
+    }
+
     HttpGet httpGet = new HttpGet(url);
     httpGet.setHeader(HttpHeaders.ACCEPT, "application/json");
     try (CloseableHttpResponse response = m_httpclient.execute(httpGet)) {
       HttpEntity entity = response.getEntity();
+      if (response.getStatusLine().getStatusCode() != 200) {
+        String error = EntityUtils.toString(response.getEntity());
+        EntityUtils.consume(response.getEntity());
+        throw new IOException(response.getStatusLine().getReasonPhrase() + " querying " + url + ": " + error);
+      }
       try (InputStreamReader reader = new InputStreamReader(entity.getContent())) {
         //noinspection unchecked
-        return (Map<String, Object>)m_gson.fromJson(reader, Map.class).get("data");
+        Map<String, Object> data = (Map<String, Object>)m_gson.fromJson(reader, Map.class).get("data");
+        m_queryCache.put(url, data);
+        m_queryCacheUpdated = true;
+        return data;
       }
     }
   }
@@ -116,12 +154,11 @@ public class VcfHelper implements AutoCloseable {
     Path outFile = Files.createTempFile(null, ".vcf");
     try {
       try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(inFile))) {
-        writer.println("##fileformat=VCFv4.2");
-        writer.println("##contig=<ID=" + chr + ",assembly=hg38,species=\"Homo sapiens\">");
-        writer.println("##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">");
-        writer.println("#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tsample");
+        HashMap<String, String> contigs = new HashMap<>();
+        contigs.put(chr, sf_defaultAssembly);
+        printVcfHeaders(writer, "PharmCAT", contigs);
         for (VcfData vcf : data) {
-          printVcfLine(writer, chr, vcf.pos, null, vcf.ref, vcf.alt, null);
+          printVcfLine(writer, chr, vcf.pos, null, vcf.ref, vcf.alt, null, "0/0");
         }
       }
 
@@ -153,14 +190,45 @@ public class VcfHelper implements AutoCloseable {
       throws IOException {
 
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(file))) {
-      writer.println("##fileformat=VCFv4.2");
-      writer.println("##source=PharmCAT allele definitions");
-      writer.println("##fileDate=" + DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now()));
-      HashMap<String, String> contigs = new HashMap<>();
+      printVcfHeaders(writer, "PharmCAT allele definitions", getContigs(genes, definitionReader));
+
       for (String gene : genes) {
         DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
-        contigs.put(definitionFile.getChromosome(), definitionFile.getGenomeBuild().replace("b", "hg"));
+        for (VariantLocus vl : definitionFile.getVariants()) {
+          printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
+              String.join(",", vl.getAlts()), "PX=" + gene, "0/0");
+        }
+
+        DefinitionExemption exemption = definitionReader.getExemption(gene);
+        if (exemption != null) {
+          for (VariantLocus vl : exemption.getExtraPositions()) {
+            printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
+                String.join(",", vl.getAlts()), "POI", "0/0");
+          }
+        }
       }
+    }
+  }
+
+
+  /**
+   * Gets a contig map containing chromosome name to assembly.
+   */
+  public static HashMap<String, String> getContigs(Collection<String> genes, DefinitionReader definitionReader) {
+    HashMap<String, String> contigs = new HashMap<>();
+    for (String gene : genes) {
+      DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
+      contigs.put(definitionFile.getChromosome(), definitionFile.getGenomeBuild());
+    }
+    return contigs;
+  }
+
+  public static void printVcfHeaders(PrintWriter writer, String source, @Nullable HashMap<String, String> contigs) {
+    writer.println("##fileformat=VCFv4.2");
+    writer.println("##source=" + source);
+    writer.println("##fileDate=" + DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now()));
+
+    if (contigs != null) {
       Set<String> assemblies = new HashSet<>(contigs.values());
       if (assemblies.size() > 1) {
         throw new IllegalStateException("Multiple assemblies found: " + assemblies);
@@ -169,94 +237,35 @@ public class VcfHelper implements AutoCloseable {
       for (String chr : contigs.keySet()) {
         writer.println("##contig=<ID=" + chr + ",assembly=" + assembly + ",species=\"Homo sapiens\">");
       }
-
-      writer.println("##FILTER=<ID=PASS,Description=\"All filters passed\">");
-      writer.println("##INFO=<ID=PX,Number=.,Type=String,Description=\"Gene\">");
-      writer.println("##INFO=<ID=POI,Number=0,Type=Flag,Description=\"Position of Interest but not part of an allele definition\">");
-      writer.println("##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">");
-      writer.println("#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tPharmCAT");
-
-      for (String gene : genes) {
-        DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
-        for (VariantLocus vl : definitionFile.getVariants()) {
-          printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
-              String.join(",", vl.getAlts()), "PX=" + gene);
-        }
-
-        DefinitionExemption exemption = definitionReader.getExemption(gene);
-        if (exemption != null) {
-          for (VariantLocus vl : exemption.getExtraPositions()) {
-            printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
-                String.join(",", vl.getAlts()), "POI");
-          }
-        }
-      }
     }
+
+    writer.println("##FILTER=<ID=PASS,Description=\"All filters passed\">");
+    writer.println("##INFO=<ID=PX,Number=.,Type=String,Description=\"Gene\">");
+    writer.println("##INFO=<ID=POI,Number=0,Type=Flag,Description=\"Position of Interest but not part of an allele definition\">");
+    writer.println("##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">");
+    writer.println("#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tPharmCAT");
   }
 
 
-  private static void printVcfLine(PrintWriter writer, String chr, long pos, String rsid, String ref, String alt,
-      @Nullable String info) {
+  public static void printVcfLine(PrintWriter writer, String chr, long pos, @Nullable String rsid, String ref,
+      String alt, @Nullable String info, String sample) {
 
     writer.print(chr);
     writer.print("\t");
     writer.print(pos);
     writer.print("\t");
-    if (rsid != null) {
-      writer.print(rsid);
-    } else {
-      writer.print(".");
-    }
+    writer.print(Objects.requireNonNullElse(rsid, "."));
     writer.print("\t");
     writer.print(ref);
     writer.print("\t");
     writer.print(alt);
-    writer.print("\t." +   // qual
-        "\tPASS\t");       // filter
-    if (info != null) {
-      writer.print(info);
-    } else {
-      writer.print(".");
-    }
-    writer.println("\tGT" +// format
-        "\t0/0");          // sample
+    writer.print("\t." +    // qual
+        "\tPASS\t");        // filter
+    writer.print(Objects.requireNonNullElse(info, "."));
+    writer.print("\tGT\t"); // format
+    writer.println(sample);
   }
 
-
-
-
-  private static final Pattern sf_repeatPattern = Pattern.compile("^([ACGT]+)\\((\\d+)\\)$");
-
-  public static String translateRepeat(String allele) {
-    if (!allele.contains("[") && !allele.contains("]") && !allele.contains("(") && !allele.contains(")")) {
-      return allele;
-    }
-
-    Matcher m = sf_repeatPattern.matcher(allele);
-    if (m.matches()) {
-      String repeatSeq = m.group(1);
-      int numRepeats = Integer.parseInt(m.group(2));
-      StringBuilder expandedAlelle = new StringBuilder();
-      for (int x = 0; x < numRepeats; x += 1) {
-        expandedAlelle.append(repeatSeq);
-      }
-      return expandedAlelle.toString();
-    }
-    throw new IllegalArgumentException("Unsupported repeat format: " + allele);
-  }
-
-
-  public static void main(String[] args) {
-
-    try {
-      VcfHelper vcfHelper = new VcfHelper();
-      VcfData vcf = vcfHelper.hgvsToVcf("NC_000001.11:g.201060815C>T");
-      System.out.println(vcf);
-
-    } catch (Exception ex) {
-      ex.printStackTrace();
-    }
-  }
 
 
   public static class VcfData {

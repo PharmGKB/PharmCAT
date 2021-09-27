@@ -80,34 +80,6 @@ class SyntheticBatchTest {
         "cyp2c19/s1s1.vcf"
     }, null);
 
-    makeReport("cftr.reg_reg", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/F508delF508del.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("cftr.ref_reg", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refF508del.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
-    }, sf_outsideCYP2D6File);
-
 
 
     makeReport("slco1b1.17.21", new String[]{
@@ -228,7 +200,6 @@ class SyntheticBatchTest {
         "UGT1A1/s1s60s80phased.vcf",
         "TPMT/s1s1.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/F508delF508del.vcf",
         "cyp2c19/s2s2.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -242,7 +213,6 @@ class SyntheticBatchTest {
         "UGT1A1/s1s60s80unphased.vcf",
         "TPMT/s1s1.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/F508delF508del.vcf",
         "cyp2c19/s2s2.vcf",
         "CYP2C9/s2s3.vcf",
         "SLCO1B1/s5s15.vcf",
@@ -255,7 +225,6 @@ class SyntheticBatchTest {
         "DPYD/novariant.vcf",
         "TPMT/s1s1.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/F508delF508del.vcf",
         "cyp2c19/s2s2.vcf",
         "SLCO1B1/s5s15.vcf",
         "VKORC1/-1639A-1639A.vcf",
@@ -267,7 +236,6 @@ class SyntheticBatchTest {
         "DPYD/novariant.vcf",
         "TPMT/s1s1.vcf",
         "CYP3A5/s1s7.vcf",
-        "CFTR/F508delF508del.vcf",
         "cyp2c19/s1s35.vcf",
         "SLCO1B1/s5s15.vcf",
         "VKORC1/-1639A-1639A.vcf",
@@ -535,10 +503,6 @@ class SyntheticBatchTest {
         "cftr/G1244Eref.vcf"
     }, sf_outsideCYP2D6File);
 
-    makeReport("cftr.G1244EF508del", new String[]{
-        "cftr/G1244EF508del.vcf"
-    }, sf_outsideCYP2D6File);
-
     makeReport("cftr.ref_vwithrecom", new String[]{
         "cftr/ref_vwithrecom.vcf"
     }, sf_outsideCYP2D6File);
@@ -557,22 +521,6 @@ class SyntheticBatchTest {
 
     makeReport("cftr.refI507missing", new String[]{
         "cftr/refI507missing.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("cftr.F508delfirstsecondmis", new String[]{
-        "cftr/F508delfirstsecondmis.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("cftr.F508delfirstsecondref", new String[]{
-        "cftr/F508delfirstsecondref.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("cftr.F508delsecondreffirst", new String[]{
-        "cftr/F508delsecondreffirst.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("cftr.F508delsecondfirstmissing", new String[]{
-        "cftr/F508delsecondfirstmissing.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("cyp2c9.s2s24only", new String[]{

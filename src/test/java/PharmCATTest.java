@@ -329,46 +329,6 @@ class PharmCATTest {
   }
 
   @Test
-  void testCftrF508() throws Exception {
-    s_pharmcatTopMatch.execute("test.cftr.refF508del", new String[]{
-            "cftr/refF508del.vcf"
-        },
-        null);
-
-    s_pharmcatTopMatch.testCalledByMatcher("CFTR");
-    s_pharmcatTopMatch.testPrintCalls("CFTR", "No CPIC variants found");
-    s_pharmcatTopMatch.testLookup("CFTR", "ivacaftor non-responsive CFTR sequence");
-  }
-
-  @Test
-  void testCftrF508HomCTT() throws Exception {
-    s_pharmcatTopMatch.execute("test.cftr.F508delHom_CTT", new String[]{
-            "cftr/F508delF508del.vcf"
-        },
-        null);
-
-    s_pharmcatTopMatch.testCalledByMatcher("CFTR");
-    s_pharmcatTopMatch.testPrintCalls("CFTR", "No CPIC variants found");
-    s_pharmcatTopMatch.testLookup("CFTR", "ivacaftor non-responsive CFTR sequence");
-  }
-
-  /**
-   * This is the same test case as {@link PharmCATTest#testCftrF508()} but the position lines have been sorted
-   * lexigraphically. This should not affect the calling and should lead to same diplotype output.
-   */
-  @Test
-  void testCftrF508Sorted() throws Exception {
-    s_pharmcatTopMatch.execute("test.cftr.refF508del_sorted", new String[]{
-            "cftr/refF508del_sorted.vcf"
-        },
-        null);
-
-    s_pharmcatTopMatch.testCalledByMatcher("CFTR");
-    s_pharmcatTopMatch.testPrintCalls("CFTR", "No CPIC variants found");
-    s_pharmcatTopMatch.testLookup("CFTR", "ivacaftor non-responsive CFTR sequence");
-  }
-
-  @Test
   void testSlco1b1Test1() throws Exception {
     s_pharmcatTopMatch.execute("test.slco1b1.17.21", new String[]{
             "SLCO1B1/s17s21.vcf"

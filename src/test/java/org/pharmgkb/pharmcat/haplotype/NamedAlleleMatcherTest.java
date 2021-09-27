@@ -4,9 +4,9 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import javax.annotation.Nonnull;
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
@@ -39,11 +39,12 @@ class NamedAlleleMatcherTest {
    * </ul>
    *
    */
-  static Result testMatchNamedAlleles(@Nonnull Path tsvFile, @Nonnull Path vcfFile) throws Exception {
+  static Result testMatchNamedAlleles(Path tsvFile, Path vcfFile) throws Exception {
     return testMatchNamedAlleles(tsvFile, vcfFile, false);
   }
 
-  static Result testMatchNamedAlleles(@Nonnull Path tsvFile, @Nonnull Path vcfFile, boolean topCandidateOnly) throws Exception {
+  static Result testMatchNamedAlleles(Path tsvFile, Path vcfFile, boolean topCandidateOnly)
+      throws Exception {
     return testMatchNamedAlleles(tsvFile, vcfFile, true, topCandidateOnly, true, true);
   }
 
@@ -51,8 +52,8 @@ class NamedAlleleMatcherTest {
    * Helper method for running {@link NamedAlleleMatcher}.
    * This is used by the more specific gene tests.
    */
-  static Result testMatchNamedAlleles(@Nonnull Path definitionFile, @Nonnull Path vcfFile,
-      boolean assumeReference, boolean topCandidateOnly, boolean showUnmatched, boolean withExemptions) throws Exception {
+  static Result testMatchNamedAlleles(Path definitionFile, Path vcfFile, boolean assumeReference,
+      boolean topCandidateOnly, boolean showUnmatched, boolean withExemptions) throws Exception {
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionFile);
@@ -76,11 +77,20 @@ class NamedAlleleMatcherTest {
   /**
    * Checks that the list of diplotype matches are what we expect.
    *
+   * @param expectedPair the expected diplotype in "*1/*2" format
+   * @param result the {@link NamedAlleleMatcher} results
+ 0  */
+  static void assertDiplotypePairs(String expectedPair, Result result) {
+    assertDiplotypePairs(Lists.newArrayList(expectedPair), result);
+  }
+
+  /**
+   * Checks that the list of diplotype matches are what we expect.
+   *
    * @param expectedPairs the set of expected diplotypes in "*1/*2" format
    * @param result the {@link NamedAlleleMatcher} results
    */
-  static void assertDiplotypePairs(@Nonnull List<String> expectedPairs,
-      @Nonnull Result result) {
+  static void assertDiplotypePairs(List<String> expectedPairs, Result result) {
 
     Preconditions.checkNotNull(expectedPairs);
     Preconditions.checkNotNull(result);
@@ -101,12 +111,12 @@ class NamedAlleleMatcherTest {
     if (expectedPairs.size() != pairs.size() || !expectedPairs.equals(pairs)) {
       System.out.println("Expected: [" + Joiner.on(", ").join(expectedPairs) + "]");
       System.out.println("Got:      " + pairs);
-      System.out.println("Scores:   " + builder.toString());
+      System.out.println("Scores:   " + builder);
       fail("Did not get expected matches");
     }
   }
 
-  static void assertPhasedOutput(@Nonnull String expected, @Nonnull Result result) {
+  static void assertPhasedOutput(String expected, Result result) {
     List<String> pairs = new ArrayList<>();
     GeneCall geneCall = result.getGeneCalls().get(0);
 
