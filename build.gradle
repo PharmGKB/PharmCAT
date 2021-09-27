@@ -131,45 +131,12 @@ task sourcesJar(type: Jar) {
 task updateData(type: JavaExec, dependsOn: 'classes') {
   mainClass = 'org.pharmgkb.pharmcat.util.DataManager'
   classpath = sourceSets.main.runtimeClasspath
-  def argList = ['-a', file('src/main/resources/org/pharmgkb/pharmcat/definition/alleles'),
-                 '-m', file('src/main/resources/org/pharmgkb/pharmcat/definition'),
-                 '-g', file('src/main/resources/org/pharmgkb/pharmcat/reporter')]
-  args argList
-}
-
-// NOTE: update .github/workflows/release.yml if changing filename
-task extractPositions(type: JavaExec, dependsOn: 'classes') {
-  mainClass = 'org.pharmgkb.pharmcat.definition.ExtractPositions'
-  classpath = sourceSets.main.runtimeClasspath
-  def argList = ['-o', new File(dataDir as File, 'pharmcat_positions_' + version + '.vcf')]
-  args argList
-}
-
-// NOTE: update .github/workflows/release.yml if changing filename
-task extractIntervals(type: JavaExec, dependsOn: 'classes') {
-  mainClass = 'org.pharmgkb.pharmcat.definition.ChromosomalIntervals'
-  classpath = sourceSets.main.runtimeClasspath
-  def argList = ['-o', new File(dataDir as File, 'pharmcat_intervals_' + version + '.vcf')]
-  args argList
-}
-
-// extracts pharmcat_positions.vcf without version number
-task extractPositionsForDocs(type: JavaExec, dependsOn: 'classes') {
-  mainClass = 'org.pharmgkb.pharmcat.definition.ExtractPositions'
-  classpath = sourceSets.main.runtimeClasspath
   def argList = [
-      '-o', new File(dataDir as File, 'pharmcat_positions.vcf'),
-  ]
-  args argList
-}
-
-// extracts ALL pharmcat_positions.vcf without version number
-task extractPositionsForTest(type: JavaExec, dependsOn: 'classes') {
-  mainClass = 'org.pharmgkb.pharmcat.definition.ExtractPositions'
-  classpath = sourceSets.main.runtimeClasspath
-  def argList = [
-      '-o', new File(dataDir as File, 'pharmcat_positions.vcf'),
-      '-a'
+      '-a', file('src/main/resources/org/pharmgkb/pharmcat/definition/alleles'),
+      '-m', file('src/main/resources/org/pharmgkb/pharmcat/definition'),
+      '-g', file('src/main/resources/org/pharmgkb/pharmcat/reporter'),
+      '-d', file('docs'),
+      '-p', file('src/main/resources/org/pharmgkb/pharmcat/definition')
   ]
   args argList
 }

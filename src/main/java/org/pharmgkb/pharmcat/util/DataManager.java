@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.invoke.MethodHandles;
 import java.net.URL;
@@ -36,7 +35,7 @@ import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 
 
 /**
- * This class manages external resources (e.g. allele definition files, dosing guideline annotations)
+ * This class manages external resources (e.g. allele definition files, dosing guideline annotations).
  *
  * @author Mark Woon
  */
@@ -47,7 +46,6 @@ public class DataManager {
   private static final String PHENOTYPES_JSON_FILE_NAME = "gene_phenotypes.json";
   private static final String SUMMARY_REPORT = "summary.md";
   private static final String POSITIONS_VCF = "pharmcat_positions.vcf";
-  private static final String INTERVALS_TXT = "pharmcat_intervals.txt";
   private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "G6PD", "MT-RNR1");
   private static final Splitter sf_semicolonSplitter = Splitter.on(";").trimResults().omitEmptyStrings();
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
@@ -68,7 +66,7 @@ public class DataManager {
           .addOption("a", "alleles-dir", "directory to save generated allele definition files", true, "a")
           .addOption("m", "messages-dir", "directory to write messages to", true, "m")
           .addOption("g", "drugs-dir", "directory to save drug data to", false, "g")
-          .addOption("d", "documenation-dir", "directory to save documentation to", false, "documentation-path")
+          .addOption("d", "documentation-dir", "directory to save documentation to", false, "documentation-path")
           .addOption("p", "phenotypes-dir", "directory to save phenotypes to", false, "phenotypes-dir-path")
           .addOption("sd", "skip-download", "skip downloading")
           .addOption("sa", "skip-alleles", "skip alleles")
@@ -521,25 +519,6 @@ public class DataManager {
 
     Path positionsFile = definitionsDir.resolve(POSITIONS_VCF);
     VcfHelper.extractPositions(genes, definitionReader, positionsFile);
-
-    Path intervalsFile = definitionsDir.resolve(INTERVALS_TXT);
-    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(intervalsFile))) {
-      for (String gene : genes) {
-        DefinitionFile defFile = definitionReader.getDefinitionFile(gene);
-
-        long min = Arrays.stream(defFile.getVariants())
-            .map(VariantLocus::getPosition)
-            .min(Long::compareTo)
-            .orElseThrow(() -> new RuntimeException("No minimum for " + gene + " interval"));
-
-        long max = Arrays.stream(defFile.getVariants())
-            .map(VariantLocus::getPosition)
-            .max(Long::compareTo)
-            .orElseThrow(() -> new RuntimeException("No maximum for " + gene + " interval"));
-
-        writer.println(String.format("%s: %d-%d", defFile.getChromosome(), min, max));
-      }
-    }
   }
 
 

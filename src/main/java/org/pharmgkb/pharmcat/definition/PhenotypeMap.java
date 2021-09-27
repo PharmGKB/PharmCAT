@@ -7,13 +7,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import com.google.gson.Gson;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 
 
 /**
- * This class loads and manages the data from the gene phenotypes file
+ * This class loads and manages the data from the gene phenotypes file.
  *
  * @author Ryan Whaley
  */
@@ -26,7 +27,8 @@ public class PhenotypeMap {
    * public constructor, loads the data from a local file
    */
   public PhenotypeMap() {
-    try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(FILE_NAME)))) {
+    try (BufferedReader reader = new BufferedReader(new InputStreamReader(
+        Objects.requireNonNull(getClass().getResourceAsStream(FILE_NAME))))) {
       Gson gson = new Gson();
       m_genes = Arrays.asList(gson.fromJson(reader, GenePhenotype[].class));
     } catch (IOException e) {

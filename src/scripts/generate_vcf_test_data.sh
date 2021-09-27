@@ -38,7 +38,7 @@ else
 fi
 
 DEFINITION_DIR="../main/resources/org/pharmgkb/pharmcat/definition/alleles"
-VCF_FILE="${dataDir}/pharmcat_positions.vcf"
+VCF_FILE="${DEFINITION_DIR}/pharmcat_positions.vcf"
 OUTPUT_DIR="${dataDir}/testVcf"
 
 for file in "$DEFINITION_DIR"/*; do
