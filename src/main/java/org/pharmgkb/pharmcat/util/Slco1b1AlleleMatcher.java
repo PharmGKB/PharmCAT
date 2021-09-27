@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import org.apache.commons.lang3.StringUtils;
@@ -44,7 +43,6 @@ public class Slco1b1AlleleMatcher {
    * @param diplotypeFactory The factory class responsible for constructing diplotypes
    * @return an Optional Diplotype result, can be empty if the necessary position is missing
    */
-  @Nonnull
   public static Optional<Diplotype> makeLookupCalls(GeneReport report, DiplotypeFactory diplotypeFactory) {
     Preconditions.checkNotNull(report);
     Preconditions.checkArgument(report.getGene().equals(SLCO1B1), "Can only be used on SLCO1B1");

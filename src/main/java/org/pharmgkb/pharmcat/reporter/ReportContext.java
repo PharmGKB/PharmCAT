@@ -15,7 +15,6 @@ import java.util.TreeSet;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import javax.annotation.Nonnull;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.MessageList;
@@ -140,7 +139,6 @@ public class ReportContext {
    * @return a GeneReport object
    * @throws RuntimeException if the desired gene report does not exist
    */
-  @Nonnull
   public GeneReport getGeneReport(String geneSymbol) {
     return findGeneReport(geneSymbol)
         .orElseThrow(() -> new RuntimeException("No gene exists for " + geneSymbol));

@@ -2,7 +2,6 @@ package org.pharmgkb.pharmcat.reporter.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -35,7 +34,6 @@ public class MatchLogic {
   private final List<String> m_drugs = new ArrayList<>();
 
 
-  @Nonnull
   public String getGene() {
     return m_gene;
   }
@@ -44,7 +42,6 @@ public class MatchLogic {
     m_gene = gene;
   }
 
-  @Nonnull
   public List<String> getHapsCalled() {
     return m_hapsCalled;
   }
@@ -53,7 +50,6 @@ public class MatchLogic {
     m_hapsCalled.addAll(haps);
   }
 
-  @Nonnull
   public List<String> getDips() {
     return m_dips;
   }
@@ -62,7 +58,6 @@ public class MatchLogic {
     m_dips.addAll(dips);
   }
 
-  @Nonnull
   public List<String> getDrugs() {
     return m_drugs;
   }

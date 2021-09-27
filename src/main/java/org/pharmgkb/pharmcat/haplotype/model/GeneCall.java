@@ -5,7 +5,6 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -95,7 +94,6 @@ public class GeneCall {
   }
 
 
-  @Nonnull
   public LinkedHashSet<DiplotypeMatch> getDiplotypes() {
     return m_diplotypes;
   }
@@ -107,13 +105,11 @@ public class GeneCall {
   }
 
 
-  @Nonnull
   public Set<HaplotypeMatch> getHaplotypes() {
     return m_haplotypes;
   }
 
 
-  @Nonnull
   public SortedSet<Variant> getVariants() {
     return m_variants;
   }
@@ -131,7 +127,6 @@ public class GeneCall {
   }
 
 
-  @Nonnull
   public SortedSet<Variant> getVariantsOfInterest() {
     return m_variantsOfInterest;
   }

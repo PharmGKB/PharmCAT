@@ -11,7 +11,6 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
@@ -103,7 +102,6 @@ public class Diplotype implements Comparable<Diplotype> {
    * @param dips a {@link Collection} of diplotype strings in the form "a/b", "a/c", etc... 
    * @return a single String combining the diplotypes, e.g. "a/b+c"
    */
-  @Nonnull
   public static String reducePhasedDiplotypes(@Nullable Collection<String> dips) {
     if (dips == null || dips.size() == 0) return "";
     

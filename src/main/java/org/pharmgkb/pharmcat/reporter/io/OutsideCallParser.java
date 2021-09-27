@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
@@ -31,7 +30,6 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 public class OutsideCallParser {
   private static final Predicate<String> sf_nonCommentLine = (l) -> !l.startsWith("#");
 
-  @Nonnull
   public static List<OutsideCall> parse(Path filePath) throws IOException {
     Preconditions.checkNotNull(filePath);
 
@@ -41,7 +39,6 @@ public class OutsideCallParser {
         .collect(Collectors.toList());
   }
 
-  @Nonnull
   public static List<OutsideCall> parse(String outsideCallData) {
     return Arrays.stream(StringUtils.stripToEmpty(outsideCallData).split("\n"))
         .filter(sf_nonCommentLine)

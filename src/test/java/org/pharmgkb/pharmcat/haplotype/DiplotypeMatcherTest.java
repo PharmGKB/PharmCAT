@@ -11,7 +11,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
@@ -171,7 +170,7 @@ class DiplotypeMatcherTest {
 
 
 
-  private void assertDiplotypePairs(@Nonnull List<String> expectedPairs, @Nonnull List<DiplotypeMatch> matches) {
+  private void assertDiplotypePairs(List<String> expectedPairs, List<DiplotypeMatch> matches) {
 
     Preconditions.checkNotNull(expectedPairs);
     Preconditions.checkNotNull(matches);
