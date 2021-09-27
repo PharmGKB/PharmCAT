@@ -52,14 +52,11 @@ import test_gen_utilities as util
 
 
 # TODO: a proper argparse handler!
-if len(sys.argv) != 4:
-    sys.exit("ERROR: Expecting 3 arguments\n")
+if len(sys.argv) != 3:
+    sys.exit("ERROR: Expecting 2 arguments\n")
 
 if not os.path.isfile(sys.argv[1]):
     sys.exit(f"ERROR: Cannot find JSON file '{sys.argv[1]}'\n")
-
-if not os.path.isfile(sys.argv[2]):
-    sys.exit(f"ERROR: Cannot find VCF file '{sys.argv[2]}'\n")
 
 # load the named allele definitions
 defPath = sys.argv[1]
@@ -68,13 +65,6 @@ print(f"Loading '{defPath}'...")
 with open(defPath, 'r') as defFile:
     definition = json.load(defFile)
 # with defFile
-
-# update indel variants with information from positions VCF
-vcfPath = sys.argv[2]
-print(f"Loading '{vcfPath}'...")
-vcfreference = util.parseVCF(vcfPath)
-util.updateVarAlleles(definition,vcfreference)
-
 
 print(f"done: {len(definition['variants'])} variants, {len(definition['namedAlleles'])} named alleles\n")
 
@@ -139,6 +129,7 @@ for namedallele in namedalleles:
     # for i,a in _mindef
 # for namedallele
 
+
 # generate tests
 print("Generating test cases...")
 for namedallele in namedalleles:
@@ -154,10 +145,10 @@ for namedallele in namedalleles:
     # for alleles
 # for namedallele
 
-# check referent allele against VCF positions file and correct where needed for ambiguous
-util.checkRefNamedAllele(definition, vcfreference, refNamedallele)
+# check referent allele against defined reference in json and correct where needed for ambiguous
+util.checkRefNamedAllele(definition, refNamedallele)
 
-basepath = sys.argv[3]
+basepath = sys.argv[2]
 if not os.path.exists(basepath):
     os.makedirs(basepath)
 print("Writing files...")
@@ -206,7 +197,6 @@ for i,na1 in enumerate(namedalleles):
                 # based on the spec there should be no need to define this explicitly
                 # outFile.write("##FILTER=<ID=PASS,Description=\"All filters passed\">\n")
 
-
                 row = ["#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO", "FORMAT","TEST" + str(numTest)]
                 outFile.write("\t".join(row) + "\n")
                 for v, variant in enumerate(definition['variants']):
@@ -220,8 +210,8 @@ for i,na1 in enumerate(namedalleles):
                         if alt and (alt not in varalleles):
                             varalleles.append(alt)
                     # for alleles
-                    if(len(varalleles)==1 and "ALT" in vcfreference[definition["gene"]][variant['_vcfidx']]):
-                        varalleles.append(vcfreference[definition["gene"]][variant['_vcfidx']]["ALT"])
+                    if(len(varalleles)==1 and definition['variants'][v]['alts']):
+                        varalleles.extend(definition['variants'][v]['alts'])
                     row = [
                         str(variant.get('chromosome') or "."),
                         str(variant.get('position') or "."),

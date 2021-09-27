@@ -53,14 +53,11 @@ import test_gen_utilities as util
 
 
 # TODO: a proper argparse handler!
-if len(sys.argv) != 4:
-    sys.exit("ERROR: Expecting 3 arguments\n")
+if len(sys.argv) != 3:
+    sys.exit("ERROR: Expecting 2 arguments\n")
 
 if not os.path.isfile(sys.argv[1]):
     sys.exit(f"ERROR: Cannot find JSON file '{sys.argv[1]}'\n")
-
-if not os.path.isfile(sys.argv[2]):
-    sys.exit(f"ERROR: Cannot find VCF file '{sys.argv[2]}'\n")
 
 # maximum missing combination size used in producing test files
 comboLimit = 16
@@ -108,13 +105,6 @@ print(f"Loading '{defPath}'...")
 with open(defPath, 'r') as defFile:
     definition = json.load(defFile)
 # with defFile
-
-# update indel variants with information from positions VCF
-vcfPath = sys.argv[2]
-print(f"Loading '{vcfPath}'...")
-vcfreference = util.parseVCF(vcfPath)
-util.updateVarAlleles(definition,vcfreference)
-
 
 print(f"done: {len(definition['variants'])} variants, {len(definition['namedAlleles'])} named alleles\n")
 
@@ -196,8 +186,8 @@ for namedallele in namedalleles:
     # for alleles
 # for namedallele
 
-# check referent allele against VCF positions file and correct where needed for ambiguous
-util.checkRefNamedAllele(definition, vcfreference, refNamedallele)
+# check referent allele against defined reference in json and correct where needed for ambiguous
+util.checkRefNamedAllele(definition, refNamedallele)
 
 # select maximum combination size within limits
 # will always use at least single missing position for tests (as for CYP2D6)
@@ -212,7 +202,7 @@ numFiles = 0
 numMultiPos = 0
 testtype = "t"
 
-basepath = sys.argv[3]
+basepath = sys.argv[2]
 if not os.path.exists(basepath):
     os.makedirs(basepath)
 print("Writing files...")
@@ -283,8 +273,8 @@ for i,na1 in enumerate(namedalleles):
                                 if alt and (alt not in varalleles):
                                     varalleles.append(alt)
                             # for alleles
-                            if(len(varalleles)==1 and "ALT" in vcfreference[definition["gene"]][variant['_vcfidx']]):
-                                varalleles.append(vcfreference[definition["gene"]][variant['_vcfidx']]["ALT"])
+                            if(len(varalleles)==1 and definition['variants'][v]['alts']):
+                                varalleles.extend(definition['variants'][v]['alts'])
                             row = [
                                 str(variant.get('chromosome') or "."),
                                 str(variant.get('position') or "."),

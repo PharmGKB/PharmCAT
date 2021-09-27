@@ -86,19 +86,20 @@ def updateVarAlleles(jsondef, vcfref):
     # for i, variant
 # updateVarAlleles()
 
-def checkRefNamedAllele(jsondef, vcfref, refna):
+
+def checkRefNamedAllele(jsondef, refna):
     """
-    Takes JSON dict, dict from parsed VCF and reference named allele
-    Updates alleles in reference to match VCF where different
+    Takes JSON dict, reference named allele
+    Updates alleles in reference to match defined json ref where different
     """
-    gene=jsondef['gene']
-    for variant in jsondef["variants"]:
-        if refna['alleles'][variant['_jsonidx']] != vcfref[gene][variant['_vcfidx']]['REF']:
-            variant['alleles'] = [vcfref[gene][variant['_vcfidx']]["REF"] if v == refna['alleles'][variant['_jsonidx']] else v for v in variant['alleles']]
-            refna['alleles'][variant['_jsonidx']] = vcfref[gene][variant['_vcfidx']]['REF']
-            refna['_maxdef'][variant['_jsonidx']] = vcfref[gene][variant['_vcfidx']]['REF']
+    for v,variant in enumerate(jsondef["variants"]):
+        if refna['alleles'][v] != jsondef['variants'][v]['ref']:
+            refna['allelles'][v] = jsondef['variants'][v]['ref']
+            refna['_maxdef'][v] = jsondef['variants'][v]['ref']
     # for variant
 # checkRefNamedAllele()
+
+
 
 # define helper functions
 
