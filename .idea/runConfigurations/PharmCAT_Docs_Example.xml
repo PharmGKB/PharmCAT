@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PharmCAT Docs Example" type="Application" factoryName="Application">
+    <log_file alias="Log" path="$PROJECT_DIR$/pharmcat.log" />
+    <option name="MAIN_CLASS_NAME" value="org.pharmgkb.pharmcat.PharmCAT" />
+    <module name="PharmCAT.main" />
+    <option name="PROGRAM_PARAMETERS" value="-vcf $PROJECT_DIR$/docs/examples/pharmcat.example.vcf -o $PROJECT_DIR$/docs/examples -a $PROJECT_DIR$/docs/examples/pharmcat.example.outsideCall.tsv -j -k -pj" />
+    <option name="VM_PARAMETERS" value="-Xmx1g" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,7 +1,7 @@
 {
   "totalGenes": 18,
-  "pharmcatVersion": "v0.8.0-211-g1c0b4f4\n",
-  "generatedOn": "September 23, 2021",
+  "pharmcatVersion": "v0.8.0-229-g8ffe495\n",
+  "generatedOn": "September 27, 2021",
   "geneCalls": [
     {
       "diplotypes": [
@@ -1569,7 +1569,6 @@
         "*1/*1"
       ],
       "gene": "CYP2C9",
-      "hasUncalledHaps": false,
       "outsideCall": false,
       "variantsOfInterest": [
         {
@@ -1584,8 +1583,7 @@
           "mismatch": false
         }
       ],
-      "messages": [],
-      "totalMissingVariants": 0,
+      "totalMissingVariants": 2,
       "totalVariants": 66,
       "variants": [
         {
@@ -1631,7 +1629,7 @@
           "gene": "CYP2C9",
           "chromosome": "chr10",
           "position": 94938803,
-          "dbSnpId": null,
+          "dbSnpId": "rs2031308986",
           "call": "A|A",
           "alleles": [
             "*22"
@@ -1729,19 +1727,6 @@
           ],
           "phased": true,
           "wildtypeAllele": "T",
-          "mismatch": false
-        },
-        {
-          "gene": "CYP2C9",
-          "chromosome": "chr10",
-          "position": 94942213,
-          "dbSnpId": "rs1304490498",
-          "call": "AGAAATGGAA|AGAAATGGAA",
-          "alleles": [
-            "*25"
-          ],
-          "phased": true,
-          "wildtypeAllele": "AGAAATGGAA",
           "mismatch": false
         },
         {
@@ -1974,7 +1959,7 @@
           "gene": "CYP2C9",
           "chromosome": "chr10",
           "position": 94947938,
-          "dbSnpId": null,
+          "dbSnpId": "rs2031531005",
           "call": "A|A",
           "alleles": [
             "*28"
@@ -2031,19 +2016,6 @@
           "alleles": [
             "*10",
             "*71"
-          ],
-          "phased": true,
-          "wildtypeAllele": "A",
-          "mismatch": false
-        },
-        {
-          "gene": "CYP2C9",
-          "chromosome": "chr10",
-          "position": 94949283,
-          "dbSnpId": "rs9332131",
-          "call": "A|A",
-          "alleles": [
-            "*6"
           ],
           "phased": true,
           "wildtypeAllele": "A",
@@ -2454,11 +2426,40 @@
           "phased": true,
           "wildtypeAllele": "G",
           "mismatch": false
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94942205,
+          "dbSnpId": "rs1304490498",
+          "call": null,
+          "alleles": [
+            "*25"
+          ],
+          "phased": false,
+          "wildtypeAllele": "CAATGGAAAGA",
+          "mismatch": false
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94949281,
+          "dbSnpId": "rs9332131",
+          "call": null,
+          "alleles": [
+            "*6"
+          ],
+          "phased": false,
+          "wildtypeAllele": "GA",
+          "mismatch": false
         }
       ],
       "phaseStatus": "Phased",
-      "unphased": false,
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "uncalledHaps": "*6, *25",
+      "hasUncalledHaps": true,
+      "messages": [],
+      "unphased": false
     },
     {
       "diplotypes": [
@@ -2513,12 +2514,12 @@
           "chromosome": "chr7",
           "position": 99652770,
           "dbSnpId": "rs41303343",
-          "call": "del|del",
+          "call": "T|T",
           "alleles": [
             "*7"
           ],
           "phased": true,
-          "wildtypeAllele": "del",
+          "wildtypeAllele": "T",
           "mismatch": false
         },
         {
@@ -2662,7 +2663,7 @@
       "warnings": [
         "The DPYD gene is on the negative chromosomal strand, all genotype calls for DPYD in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
       ],
-      "totalMissingVariants": 0,
+      "totalMissingVariants": 1,
       "totalVariants": 83,
       "variants": [
         {
@@ -3037,19 +3038,6 @@
           "call": "G|G",
           "alleles": [
             "c.1905C\u003eG"
-          ],
-          "phased": true,
-          "wildtypeAllele": "G",
-          "mismatch": false
-        },
-        {
-          "gene": "DPYD",
-          "chromosome": "chr1",
-          "position": 97450067,
-          "dbSnpId": "rs72549303",
-          "call": "G|G",
-          "alleles": [
-            "c.1898delC (*3)"
           ],
           "phased": true,
           "wildtypeAllele": "G",
@@ -3682,14 +3670,14 @@
         {
           "gene": "DPYD",
           "chromosome": "chr1",
-          "position": 97740411,
+          "position": 97740410,
           "dbSnpId": "rs72549309",
-          "call": "ATGA|ATGA",
+          "call": "GATGA|GATGA",
           "alleles": [
             "c.295_298delTCAT (*7)"
           ],
           "phased": true,
-          "wildtypeAllele": "ATGA",
+          "wildtypeAllele": "GATGA",
           "mismatch": false
         },
         {
@@ -3743,11 +3731,25 @@
           "phased": true,
           "wildtypeAllele": "G",
           "mismatch": false
+        },
+        {
+          "gene": "DPYD",
+          "chromosome": "chr1",
+          "position": 97450065,
+          "dbSnpId": "rs72549303",
+          "call": null,
+          "alleles": [
+            "c.1898delC (*3)"
+          ],
+          "phased": false,
+          "wildtypeAllele": "TG",
+          "mismatch": false
         }
       ],
       "phaseStatus": "Phased",
       "extra-position-notes": [],
-      "hasUncalledHaps": false,
+      "uncalledHaps": "c.1898delC (*3)",
+      "hasUncalledHaps": true,
       "messages": [],
       "unphased": false
     },
@@ -3821,12 +3823,10 @@
         "*1/*1"
       ],
       "gene": "NUDT15",
-      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
-      "messages": [],
-      "totalMissingVariants": 0,
-      "totalVariants": 19,
+      "totalMissingVariants": 3,
+      "totalVariants": 17,
       "variants": [
         {
           "gene": "NUDT15",
@@ -3857,19 +3857,6 @@
         {
           "gene": "NUDT15",
           "chromosome": "chr13",
-          "position": 48037796,
-          "dbSnpId": "rs746071566",
-          "call": "GAGTCG|GAGTCG",
-          "alleles": [
-            "*9"
-          ],
-          "phased": true,
-          "wildtypeAllele": "GAGTCG",
-          "mismatch": false
-        },
-        {
-          "gene": "NUDT15",
-          "chromosome": "chr13",
           "position": 48037798,
           "dbSnpId": "rs186364861",
           "call": "G|G",
@@ -3883,35 +3870,8 @@
         {
           "gene": "NUDT15",
           "chromosome": "chr13",
-          "position": 48037801,
-          "dbSnpId": "rs746071566",
-          "call": "del|del",
-          "alleles": [
-            "*2",
-            "*6"
-          ],
-          "phased": true,
-          "wildtypeAllele": "del",
-          "mismatch": false
-        },
-        {
-          "gene": "NUDT15",
-          "chromosome": "chr13",
-          "position": 48037826,
-          "dbSnpId": "rs777311140",
-          "call": "del|del",
-          "alleles": [
-            "*14"
-          ],
-          "phased": true,
-          "wildtypeAllele": "del",
-          "mismatch": false
-        },
-        {
-          "gene": "NUDT15",
-          "chromosome": "chr13",
           "position": 48037834,
-          "dbSnpId": null,
+          "dbSnpId": "rs1202487323",
           "call": "C|C",
           "alleles": [
             "*16"
@@ -3950,7 +3910,7 @@
           "gene": "NUDT15",
           "chromosome": "chr13",
           "position": 48037885,
-          "dbSnpId": null,
+          "dbSnpId": "rs1950545307",
           "call": "G|G",
           "alleles": [
             "*11"
@@ -3975,27 +3935,14 @@
         {
           "gene": "NUDT15",
           "chromosome": "chr13",
-          "position": 48040982,
-          "dbSnpId": "rs1457579126",
-          "call": "A|A",
-          "alleles": [
-            "*18"
-          ],
-          "phased": true,
-          "wildtypeAllele": "A",
-          "mismatch": false
-        },
-        {
-          "gene": "NUDT15",
-          "chromosome": "chr13",
           "position": 48041103,
           "dbSnpId": "rs761191455",
-          "call": "del|del",
+          "call": "T|T",
           "alleles": [
             "*13"
           ],
           "phased": true,
-          "wildtypeAllele": "del",
+          "wildtypeAllele": "T",
           "mismatch": false
         },
         {
@@ -4067,31 +4014,60 @@
         {
           "gene": "NUDT15",
           "chromosome": "chr13",
-          "position": 48045806,
-          "dbSnpId": "rs61973267",
-          "call": "G|G",
+          "position": 48037782,
+          "dbSnpId": "rs746071566",
+          "call": null,
           "alleles": [
-            "*20"
+            "*2",
+            "*6",
+            "*9"
           ],
-          "phased": true,
-          "wildtypeAllele": "G",
+          "phased": false,
+          "wildtypeAllele": "AGGAGTC",
+          "mismatch": false
+        },
+        {
+          "gene": "NUDT15",
+          "chromosome": "chr13",
+          "position": 48037825,
+          "dbSnpId": "rs777311140",
+          "call": null,
+          "alleles": [
+            "*14"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false
+        },
+        {
+          "gene": "NUDT15",
+          "chromosome": "chr13",
+          "position": 48040977,
+          "dbSnpId": "rs1457579126",
+          "call": null,
+          "alleles": [
+            "*18"
+          ],
+          "phased": false,
+          "wildtypeAllele": "GA",
           "mismatch": false
         }
       ],
       "phaseStatus": "Phased",
-      "unphased": false,
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "uncalledHaps": "*6, *9, *14, *18",
+      "hasUncalledHaps": true,
+      "messages": [],
+      "unphased": false
     },
     {
       "diplotypes": [
         "Reference/Reference"
       ],
       "gene": "RYR1",
-      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
-      "messages": [],
-      "totalMissingVariants": 0,
+      "totalMissingVariants": 1,
       "totalVariants": 44,
       "variants": [
         {
@@ -4368,19 +4344,6 @@
           ],
           "phased": true,
           "wildtypeAllele": "G",
-          "mismatch": false
-        },
-        {
-          "gene": "RYR1",
-          "chromosome": "chr19",
-          "position": 38499646,
-          "dbSnpId": "rs121918596",
-          "call": "GAG|GAG",
-          "alleles": [
-            "c.7042_7044delGAG"
-          ],
-          "phased": true,
-          "wildtypeAllele": "GAG",
           "mismatch": false
         },
         {
@@ -4669,11 +4632,27 @@
           "phased": true,
           "wildtypeAllele": "T",
           "mismatch": false
+        },
+        {
+          "gene": "RYR1",
+          "chromosome": "chr19",
+          "position": 38499644,
+          "dbSnpId": "rs121918596",
+          "call": null,
+          "alleles": [
+            "c.7042_7044delGAG"
+          ],
+          "phased": false,
+          "wildtypeAllele": "TGGA",
+          "mismatch": false
         }
       ],
       "phaseStatus": "Phased",
-      "unphased": false,
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "uncalledHaps": "c.7042_7044delGAG",
+      "hasUncalledHaps": true,
+      "messages": [],
+      "unphased": false
     },
     {
       "diplotypes": [
@@ -5639,12 +5618,12 @@
           "chromosome": "chr6",
           "position": 18149032,
           "dbSnpId": "rs759836180",
-          "call": "del|del",
+          "call": "C|C",
           "alleles": [
             "*42"
           ],
           "phased": true,
-          "wildtypeAllele": "del",
+          "wildtypeAllele": "C",
           "mismatch": false
         },
         {
@@ -5725,7 +5704,7 @@
           "gene": "UGT1A1",
           "chromosome": "chr2",
           "position": 233760233,
-          "dbSnpId": null,
+          "dbSnpId": "rs3064744",
           "call": "CAT|CAT",
           "alleles": [
             "*28",
@@ -6023,7 +6002,7 @@
       "calls": [
         "*1/*1"
       ],
-      "missingVariants": "No",
+      "missingVariants": "Yes",
       "outsideCall": false,
       "unphased": false,
       "hasMessages": false
@@ -6179,7 +6158,7 @@
       "calls": [
         "Reference/Reference"
       ],
-      "missingVariants": "No",
+      "missingVariants": "Yes",
       "outsideCall": false,
       "unphased": false,
       "hasMessages": true
@@ -6307,7 +6286,7 @@
       "calls": [
         "*1/*1"
       ],
-      "missingVariants": "No",
+      "missingVariants": "Yes",
       "outsideCall": false,
       "unphased": false,
       "hasMessages": false
@@ -6354,7 +6333,7 @@
       "calls": [
         "Reference/Reference"
       ],
-      "missingVariants": "No",
+      "missingVariants": "Yes",
       "outsideCall": false,
       "unphased": false,
       "hasMessages": false
@@ -6771,42 +6750,6 @@
         {
           "annotations": [
             {
-              "annotation": "pediatrics",
-              "term": "Population"
-            },
-            {
-              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate with a dose of 0.5 mg/kg/day and increase to 1.2 mg/kg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c 200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "adults",
               "term": "Population"
             },
@@ -6836,6 +6779,42 @@
             },
             {
               "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "pediatrics",
+              "term": "Population"
+            },
+            {
+              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate with a dose of 0.5 mg/kg/day and increase to 1.2 mg/kg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c 200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.",
               "term": "Comments"
             }
           ]
@@ -7016,7 +6995,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define NUDT15 alleles is missing which may change the matched genotype. See the gene section for NUDT15 for more information."
       ],
       "matched": true,
       "id": "RxNorm:1256",
@@ -7115,7 +7095,9 @@
           "year": 2017
         }
       ],
-      "messages": [],
+      "messages": [
+        "Some position data used to define DPYD alleles is missing which may change the matched genotype. See the gene section for DPYD for more information."
+      ],
       "matched": true,
       "id": "RxNorm:194000",
       "lastModified": "not available",
@@ -7194,7 +7176,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:140587",
@@ -7730,7 +7713,9 @@
           "year": 2018
         }
       ],
-      "messages": [],
+      "messages": [
+        "Some position data used to define RYR1 alleles is missing which may change the matched genotype. See the gene section for RYR1 for more information."
+      ],
       "matched": true,
       "id": "RxNorm:27340",
       "lastModified": "not available",
@@ -8235,7 +8220,9 @@
           "year": 2018
         }
       ],
-      "messages": [],
+      "messages": [
+        "Some position data used to define RYR1 alleles is missing which may change the matched genotype. See the gene section for RYR1 for more information."
+      ],
       "matched": true,
       "id": "RxNorm:3920",
       "lastModified": "not available",
@@ -8414,7 +8401,9 @@
           "year": 2017
         }
       ],
-      "messages": [],
+      "messages": [
+        "Some position data used to define DPYD alleles is missing which may change the matched genotype. See the gene section for DPYD for more information."
+      ],
       "matched": true,
       "id": "RxNorm:4492",
       "lastModified": "not available",
@@ -8493,7 +8482,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:4502",
@@ -8758,7 +8748,9 @@
           "year": 2018
         }
       ],
-      "messages": [],
+      "messages": [
+        "Some position data used to define RYR1 alleles is missing which may change the matched genotype. See the gene section for RYR1 for more information."
+      ],
       "matched": true,
       "id": "RxNorm:5095",
       "lastModified": "not available",
@@ -8972,7 +8964,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:5640",
@@ -9195,7 +9188,9 @@
           "year": 2018
         }
       ],
-      "messages": [],
+      "messages": [
+        "Some position data used to define RYR1 alleles is missing which may change the matched genotype. See the gene section for RYR1 for more information."
+      ],
       "matched": true,
       "id": "RxNorm:6026",
       "lastModified": "not available",
@@ -9513,7 +9508,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:20890",
@@ -9593,7 +9589,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:41493",
@@ -9739,7 +9736,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define NUDT15 alleles is missing which may change the matched genotype. See the gene section for NUDT15 for more information."
       ],
       "matched": true,
       "id": "RxNorm:103",
@@ -9836,7 +9834,9 @@
           "year": 2018
         }
       ],
-      "messages": [],
+      "messages": [
+        "Some position data used to define RYR1 alleles is missing which may change the matched genotype. See the gene section for RYR1 for more information."
+      ],
       "matched": true,
       "id": "RxNorm:6857",
       "lastModified": "not available",
@@ -10537,7 +10537,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:8356",
@@ -10873,7 +10874,9 @@
           "year": 2018
         }
       ],
-      "messages": [],
+      "messages": [
+        "Some position data used to define RYR1 alleles is missing which may change the matched genotype. See the gene section for RYR1 for more information."
+      ],
       "matched": true,
       "id": "RxNorm:36453",
       "lastModified": "not available",
@@ -11164,7 +11167,9 @@
           "year": 2018
         }
       ],
-      "messages": [],
+      "messages": [
+        "Some position data used to define RYR1 alleles is missing which may change the matched genotype. See the gene section for RYR1 for more information."
+      ],
       "matched": true,
       "id": "RxNorm:10154",
       "lastModified": "not available",
@@ -11416,7 +11421,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:37790",
@@ -11562,7 +11568,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define NUDT15 alleles is missing which may change the matched genotype. See the gene section for NUDT15 for more information."
       ],
       "matched": true,
       "id": "RxNorm:10485",
@@ -12014,7 +12021,7 @@
         {
           "annotations": [
             {
-              "annotation": "pediatrics",
+              "annotation": "adults",
               "term": "Population"
             },
             {
@@ -12046,7 +12053,7 @@
         {
           "annotations": [
             {
-              "annotation": "adults",
+              "annotation": "pediatrics",
               "term": "Population"
             },
             {
@@ -12208,7 +12215,8 @@
       ],
       "messages": [
         "Please follow the flow chart in figure 2 of the \u003ca href\u003d\"https://www.pharmgkb.org/guideline/PA166104949\"\u003eCPIC warfarin guideline\u003c/a\u003e to determine the appropriate dosing recommendation.",
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:11289",
