@@ -1,11 +1,11 @@
 {
   "formatVersion": "2",
-  "cpicVersion": "v1.9-2-gef7e4f8",
-  "modificationDate": "Sep 24, 2021 09:30:31 AM",
+  "cpicVersion": "v1.9-4-g6222503",
+  "modificationDate": "Sep 26, 2021 03:19:05 PM",
   "gene": "RYR1",
   "orientation": null,
   "chromosome": "chr19",
-  "genomeBuild": "b38",
+  "genomeBuild": "GRCh38.p13",
   "refSeqChromosomeId": "NC_000019.10",
   "variants": [
     {
