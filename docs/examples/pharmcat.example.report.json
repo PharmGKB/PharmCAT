@@ -1,6 +1,6 @@
 {
   "totalGenes": 18,
-  "pharmcatVersion": "v0.8.0-230-gd8085f2\n",
+  "pharmcatVersion": "v0.8.0-233-g7387960\n",
   "generatedOn": "September 27, 2021",
   "geneCalls": [
     {
@@ -10961,7 +10961,7 @@
         }
       ],
       "messages": [
-        "SLCO1B1 star allele nomenclature represents various SNPs alone or in combination. The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.\u003cbr\u003e\u003cbr\u003eIn case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 is contained in SLCO1B1*5 (rs4149056 alone) as well as the *15 and *17 alleles, and is associated with lower plasma clearance of simvastatin. The magnitude of this effect is similar for *5, *15, and *17 alleles. A number of SLCO1B1 alleles (*2, *3, *6, *9, *10, *23, *31) are classified by CPIC as \u0027possible decreased function\u0027 alleles. These alleles are not accounted for in the recommendation based on the rs4149056 genotype. Carriage of additional variants is possible."
+        "SLCO1B1 star allele nomenclature represents various SNPs alone or in combination. The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.\u003cbr\u003e\u003cbr\u003eIn case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 defines SLCO1B1*5."
       ],
       "matched": true,
       "id": "RxNorm:36567",
