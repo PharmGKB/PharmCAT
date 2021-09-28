@@ -123,10 +123,6 @@ public class PharmCAT {
 
     sf_logger.info("Using alleles: {}", definitionsDir);
     sf_logger.info("Writing to: {}", outputDir);
-
-    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-    System.out.println(">>> WARNING: This is pre-release software, not for production use <<<");
-    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
   }
 
   /**
