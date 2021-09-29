@@ -48,93 +48,20 @@ class SyntheticBatchTest {
 
   private void execute() throws Exception {
 
-    makeReport("cftr.ref_ref", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("example", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s1.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s1s1.vcf",
-        "CYP2C9/s1s1.vcf",
-        "SLCO1B1/s1as1a.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
-    }, sf_outsideCYP2D6File);
-
     makeReport("example.CYP2C19_noCYP2D6", new String[]{
         "cyp2c19/s1s1.vcf"
     }, null);
 
-
-
     makeReport("slco1b1.17.21", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s17s21.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "SLCO1B1/s17s21.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("slco1b1.5.15", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("slco1b1.missing", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "SLCO1B1/s5s15.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("slco1b1.multi", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/multi.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "SLCO1B1/multi.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("slco1b1.no_match", new String[]{
@@ -146,45 +73,15 @@ class SyntheticBatchTest {
     }, sf_outsideCYP2D6File);
 
     makeReport("cyp2c19.onlyRs12769205", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/rs12769205only.vcf",
-        "CYP2C9/s1s1.vcf",
-        "SLCO1B1/s1as1a.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "cyp2c19/rs12769205only.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("cyp2c19.refRs12769205", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/rs12769205ref.vcf",
-        "CYP2C9/s1s1.vcf",
-        "SLCO1B1/s1as1a.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "cyp2c19/rs12769205ref.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("cyp2c19.s2s3", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s3.vcf",
-        "CYP2C9/s1s1.vcf",
-        "SLCO1B1/s1as1a.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "cyp2c19/s2s3.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("cyp2c19.s4s17missingS1", new String[]{
@@ -233,84 +130,27 @@ class SyntheticBatchTest {
     }, sf_outsideCYP2D6File);
 
     makeReport("cyp2c19.nonnormal", new String[]{
-        "DPYD/novariant.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s7.vcf",
-        "cyp2c19/s1s35.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "cyp2c19/s1s35.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("tpmt.star1s", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1ss1ss3.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "TPMT/s1ss1ss3.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("tpmt.s1s1s", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1s.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "TPMT/s1s1s.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("tpmt.hom1s_het3a", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/hom1s_het3a.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "TPMT/hom1s_het3a.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("tpmt.het3a", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/het3a.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "TPMT/het3a.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("tpmt.s15offdata", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s15offdata.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "TPMT/s15offdata.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("tpmt.unexpected.allele", new String[]{
@@ -322,32 +162,12 @@ class SyntheticBatchTest {
     }, sf_outsideCYP2D6File);
 
     makeReport("cyp2c19.rs28399504missing", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1ss1ss3.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s4bs17rs28399504missing.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "cyp2c19/s4bs17rs28399504missing.vcf"
     }, sf_outsideCYP2D6File);
 
 
     makeReport("dpyd.stars12b", new String[]{
-        "DPYD/s1s2b.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1ss1ss3.vcf",
-        "CYP3A5/s1s7.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s2s2.vcf",
-        "CYP2C9/s2s3.vcf",
-        "SLCO1B1/s5s15.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "DPYD/s1s2b.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("cyp2c19.rxPossible", new String[]{
@@ -499,28 +319,8 @@ class SyntheticBatchTest {
         "cyp3a5/s1s3rs776746rs28383479het.vcf"
     }, sf_outsideCYP2D6File);
 
-    makeReport("cftr.G1244Eref", new String[]{
-        "cftr/G1244Eref.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("cftr.ref_vwithrecom", new String[]{
-        "cftr/ref_vwithrecom.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("cftr.v_vwithrecom", new String[]{
-        "cftr/v_vwithrecom.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("cftr.v_vwithrecom1", new String[]{
-        "cftr/v_vwithrecom1.vcf"
-    }, sf_outsideCYP2D6File);
-
     makeReport("cyp2c9.s2s24", new String[]{
         "cyp2c9/s2s24.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("cftr.refI507missing", new String[]{
-        "cftr/refI507missing.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("cyp2c9.s2s24only", new String[]{
@@ -576,17 +376,7 @@ class SyntheticBatchTest {
     }, sf_outsideCYP2D6File);
 
     makeReport("g6pd.homB", new String[]{
-        "DPYD/novariant.vcf",
-        "UGT1A1/s1s1.vcf",
-        "TPMT/s1s1.vcf",
-        "CYP3A5/s1s1.vcf",
-        "CFTR/refref.vcf",
-        "cyp2c19/s1s1.vcf",
-        "CYP2C9/s1s1.vcf",
-        "SLCO1B1/s1as1a.vcf",
-        "VKORC1/-1639A-1639A.vcf",
-        "cyp4f2/s1s1.vcf",
-        "IFNL3/rs12979860CC.vcf"
+        "CYP2C9/s1s1.vcf"
     }, sf_outsideCYP2D6G6PDFile);
 
     makeReport("cyp2b6.s1s1", new String[]{

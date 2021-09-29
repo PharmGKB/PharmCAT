@@ -1,8 +1,8 @@
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.PharmCAT;
+import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.VcfTestUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -61,9 +62,8 @@ class PharmCATTest {
       fw.write(sf_mtrnr1OutsideCalls);
     }
 
-    Path tempDirPath = Files.createTempDirectory(MethodHandles.lookup().lookupClass().getName());
-    s_pharmcatTopMatch = new PharmCATTestWrapper(tempDirPath, false);
-    s_pharmcatAllMatches = new PharmCATTestWrapper(tempDirPath, true);
+    s_pharmcatTopMatch = new PharmCATTestWrapper("top", false);
+    s_pharmcatAllMatches = new PharmCATTestWrapper("all", true);
   }
 
   /**
@@ -82,35 +82,19 @@ class PharmCATTest {
    * able to come up with a matched group
    */
   @Test
-  void testCyp2c19_1() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp2c19.singleGeneMatch", new String[]{
-            "cyp2c19/s1s1.vcf"
-        },
-        s_otherOutsideCallFilePath);
+  void testCyp2c19() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.singleGeneMatch", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs3758581", "G", "G");
+    testWrapper.execute(s_otherOutsideCallFilePath);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19");
-    s_pharmcatTopMatch.testPrintCalls( "CYP2C19", "*1/*1");
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testPrintCalls( "CYP2C19", "*1/*1");
 
-    s_pharmcatTopMatch.testMatchedGroups("amitriptyline", 1);
-    s_pharmcatTopMatch.testMatchedGroups("citalopram", 1);
-    s_pharmcatTopMatch.testMatchedGroups("ivacaftor", 0);
-  }
-
-  @Test
-  void testCyp2c19_noCyp2d6() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp2c19.singleGeneMatch", new String[]{
-            "cyp2c19/s1s1.vcf"
-        },
-        null);
-
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19");
-    s_pharmcatTopMatch.testPrintCalls( "CYP2C19", "*1/*1");
-
-    s_pharmcatTopMatch.testNotCalledByMatcher("CYP2D6");
-
-    s_pharmcatTopMatch.testMatchedGroups("amitriptyline", 1);
-    s_pharmcatTopMatch.testMatchedGroups("citalopram", 1);
-    s_pharmcatTopMatch.testMatchedGroups("ivacaftor", 0);
+    testWrapper.testMatchedGroups("amitriptyline", 1);
+    testWrapper.testMatchedGroups("citalopram", 1);
+    testWrapper.testMatchedGroups("ivacaftor", 0);
   }
 
   /**
@@ -119,20 +103,24 @@ class PharmCATTest {
    */
   @Test
   void testCyp2c19_s1s2rs58973490het() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp2c19.singleGeneMatch", new String[]{
-            "cyp2c19/s1s2rs58973490het.vcf"
-        },
-        s_otherOutsideCallFilePath);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s1s2rs58973490het", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs12769205", "A", "G")
+        .variation("CYP2C19", "rs58973490", "G", "A")
+        .variation("CYP2C19", "rs4244285", "G", "A")
+        .variation("CYP2C19", "rs3758581", "G", "G");
+    testWrapper.execute(s_otherOutsideCallFilePath);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19");
-    s_pharmcatTopMatch.testPrintCalls( "CYP2C19", "*1/*2");
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testPrintCalls( "CYP2C19", "*1/*2");
 
-    s_pharmcatTopMatch.testMatchedGroups("amitriptyline", 1);
-    s_pharmcatTopMatch.testMatchedGroups("citalopram", 1);
-    s_pharmcatTopMatch.testMatchedGroups("clomipramine", 1);
-    s_pharmcatTopMatch.testMatchedGroups("ivacaftor", 0);
+    testWrapper.testMatchedGroups("amitriptyline", 1);
+    testWrapper.testMatchedGroups("citalopram", 1);
+    testWrapper.testMatchedGroups("clomipramine", 1);
+    testWrapper.testMatchedGroups("ivacaftor", 0);
 
-    GeneReport cyp2c19report = s_pharmcatTopMatch.getContext().getGeneReport("CYP2C19");
+    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport("CYP2C19");
 
     VariantReport vr = cyp2c19report.findVariantReport("rs58973490")
         .orElseThrow(() -> new RuntimeException("Variant missing from test data"));
@@ -144,7 +132,7 @@ class PharmCATTest {
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
         .count());
 
-    DrugReport amiReport = s_pharmcatTopMatch.getContext().getDrugReport("amitriptyline");
+    DrugReport amiReport = testWrapper.getContext().getDrugReport("amitriptyline");
     assertTrue(amiReport.getMessages().stream().anyMatch((m) -> m.getExceptionType().equals("ambiguity")));
     assertEquals(2, amiReport.getMessages().size());
   }
@@ -155,20 +143,23 @@ class PharmCATTest {
    */
   @Test
   void testCyp2c19_s1s2() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp2c19.singleGeneMatch", new String[]{
-            "cyp2c19/s1s2.vcf"
-        },
-        s_otherOutsideCallFilePath);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s1s2", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs12769205", "A", "G")
+        .variation("CYP2C19", "rs4244285", "G", "A")
+        .variation("CYP2C19", "rs3758581", "G", "G");
+    testWrapper.execute(s_otherOutsideCallFilePath);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19");
-    s_pharmcatTopMatch.testPrintCalls( "CYP2C19", "*1/*2");
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testPrintCalls( "CYP2C19", "*1/*2");
 
-    s_pharmcatTopMatch.testMatchedGroups("amitriptyline", 1);
-    s_pharmcatTopMatch.testMatchedGroups("citalopram", 1);
-    s_pharmcatTopMatch.testMatchedGroups("clomipramine", 1);
-    s_pharmcatTopMatch.testMatchedGroups("ivacaftor", 0);
+    testWrapper.testMatchedGroups("amitriptyline", 1);
+    testWrapper.testMatchedGroups("citalopram", 1);
+    testWrapper.testMatchedGroups("clomipramine", 1);
+    testWrapper.testMatchedGroups("ivacaftor", 0);
 
-    GeneReport cyp2c19report = s_pharmcatTopMatch.getContext().getGeneReport("CYP2C19");
+    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport("CYP2C19");
 
     // make sure the variant in question is not a het call
     VariantReport vr = cyp2c19report.findVariantReport("rs58973490")
@@ -180,94 +171,106 @@ class PharmCATTest {
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
         .count());
 
-    DrugReport amiReport = s_pharmcatTopMatch.getContext().getDrugReport("amitriptyline");
+    DrugReport amiReport = testWrapper.getContext().getDrugReport("amitriptyline");
     // should only get the *1 message, the variant is hom so ambiguity message should not match
     assertEquals(1, amiReport.getMessages().size());
   }
 
   @Test
   void testClomipramineCall() throws Exception {
-    s_pharmcatTopMatch.execute("test.clomipramine", new String[]{
-            "cyp2c19/s2s2.vcf"
-        },
-        s_outsideCallFilePath);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.clomipramine", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs12769205", "G", "G")
+        .variation("CYP2C19", "rs4244285", "A", "A")
+        .variation("CYP2C19", "rs3758581", "G", "G");
+    testWrapper.execute(s_otherOutsideCallFilePath);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19");
-    s_pharmcatTopMatch.testPrintCalls( "CYP2C19", "*2/*2");
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testPrintCalls( "CYP2C19", "*2/*2");
 
-    s_pharmcatTopMatch.testMatchedGroups("amitriptyline", 1);
-    s_pharmcatTopMatch.testMatchedGroups("clomipramine", 1);
-    s_pharmcatTopMatch.testMatchedGroups("desipramine", 1);
-    s_pharmcatTopMatch.testMatchedGroups("doxepin", 1);
-    s_pharmcatTopMatch.testMatchedGroups("imipramine", 1);
-    s_pharmcatTopMatch.testMatchedGroups("nortriptyline", 1);
-    s_pharmcatTopMatch.testMatchedGroups("trimipramine", 1);
+    testWrapper.testMatchedGroups("amitriptyline", 1);
+    testWrapper.testMatchedGroups("clomipramine", 1);
+    testWrapper.testMatchedGroups("desipramine", 1);
+    testWrapper.testMatchedGroups("doxepin", 1);
+    testWrapper.testMatchedGroups("imipramine", 1);
+    testWrapper.testMatchedGroups("nortriptyline", 1);
+    testWrapper.testMatchedGroups("trimipramine", 1);
 
-    s_pharmcatTopMatch.testMatchedGroups("clopidogrel", 1);
+    testWrapper.testMatchedGroups("clopidogrel", 1);
 
-    s_pharmcatTopMatch.testMatchedGroups("lansoprazole", 1);
+    testWrapper.testMatchedGroups("lansoprazole", 1);
 
     // voriconazole has 2 populations with recommendations so should have 2 matching groups
-    s_pharmcatTopMatch.testMatchedGroups("voriconazole", 2);
+    testWrapper.testMatchedGroups("voriconazole", 2);
   }
 
   @Test
   void testCyp2c19noCall() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp2c19.noCall", new String[]{
-            "cyp2c19/noCall.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.noCall", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs12769205", "A", "G")
+        .variation("CYP2C19", "rs4244285", "A", "A");
+    testWrapper.execute(s_otherOutsideCallFilePath);
 
+    testWrapper.testNotCalledByMatcher("CYP2C19");
 
-    s_pharmcatTopMatch.testNotCalledByMatcher("CYP2C19");
-
-    s_pharmcatTopMatch.testMatchedGroups("citalopram", 0);
-    s_pharmcatTopMatch.testMatchedGroups("ivacaftor", 0);
+    testWrapper.testMatchedGroups("citalopram", 0);
+    testWrapper.testMatchedGroups("ivacaftor", 0);
   }
 
   @Test
-  void testMultipleCallsOnOneGene() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp2c19.rs28399504missing", new String[]{
-            "cyp2c19/s4bs17rs28399504missing.vcf"
-        },
-        null);
+  void testCyp2c19s4bs17rs28399504missing() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s4bs17rs28399504missing", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs12248560", "T", "T")
+        .missing("CYP2C19", "rs28399504")
+        .variation("CYP2C19", "rs3758581", "G", "G");
+    testWrapper.execute(null);
 
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testPrintCalls("CYP2C19", "*4/*4", "*4/*17", "*17/*17");
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19");
-    s_pharmcatTopMatch.testPrintCalls("CYP2C19", "*4/*4", "*4/*17", "*17/*17");
-
-    s_pharmcatTopMatch.testMatchedGroups("citalopram", 3);
+    testWrapper.testMatchedGroups("citalopram", 3);
   }
 
   @Test
-  void testCyp2c19_with_outsideCall() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp2c19.s1s4b", new String[]{
-        "cyp2c19/s4s17het.vcf"
-        },
-        s_outsideCallFilePath);
+  void testCyp2c19s1s4het() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s1s4het", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs12248560", "T", "T")
+        .variation("CYP2C19", "rs28399504", "A", "G")
+        .variation("CYP2C19", "rs3758581", "G", "G");
+    testWrapper.execute(s_outsideCallFilePath);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19", "CYP2D6");
+    testWrapper.testCalledByMatcher("CYP2C19", "CYP2D6");
 
-    s_pharmcatTopMatch.testPrintCalls("CYP2D6", "*1/*4");
-    s_pharmcatTopMatch.testPrintCalls("CYP2C19", "*4/*17");
+    testWrapper.testPrintCalls("CYP2D6", "*1/*4");
+    testWrapper.testPrintCalls("CYP2C19", "*4/*17");
 
-    assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("CYP2D6").isOutsideCall());
+    assertTrue(testWrapper.getContext().getGeneReport("CYP2D6").isOutsideCall());
   }
 
   @Test
-  void testCyp2c19s4s17missingSome() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp2c19.s4s17missingS1", new String[]{
-        "cyp2c19/s4s17missingS1.vcf"
-        },
-        s_outsideCallFilePath);
+  void testCyp2c19s1s4missingS1() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s1s4missingS1", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs12248560", "C", "T")
+        .variation("CYP2C19", "rs28399504", "A", "G")
+        .missing("CYP2C19", "rs3758581");
+    testWrapper.execute(s_outsideCallFilePath);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19", "CYP2D6");
+    testWrapper.testCalledByMatcher("CYP2C19", "CYP2D6");
 
-    s_pharmcatTopMatch.testPrintCalls("CYP2D6", "*1/*4");
-    s_pharmcatTopMatch.testPrintCalls("CYP2C19",  "*1/*4", "*4/*38");
+    testWrapper.testPrintCalls("CYP2D6", "*1/*4");
+    testWrapper.testPrintCalls("CYP2C19",  "*1/*4", "*4/*38");
 
-    assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("CYP2D6").isOutsideCall());
-    GeneReport cyp2c19report = s_pharmcatTopMatch.getContext().getGeneReport("CYP2C19");
+    assertTrue(testWrapper.getContext().getGeneReport("CYP2D6").isOutsideCall());
+    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport("CYP2C19");
     assertEquals("Yes", cyp2c19report.isMissingVariants());
 
     assertFalse(cyp2c19report.isPhased());
@@ -281,63 +284,102 @@ class PharmCATTest {
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY))
         .count());
 
-    DrugReport amiReport = s_pharmcatTopMatch.getContext().getDrugReport("amitriptyline");
+    DrugReport amiReport = testWrapper.getContext().getDrugReport("amitriptyline");
     assertEquals(3, amiReport.getMessages().size());
   }
 
   @Test
   void testCyp2c19s4s17() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp2c19s4s17", new String[]{
-        "cyp2c19/s1s4s17.vcf"
-        },
-        s_outsideCallFilePath);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s1s4missingS1", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs12248560", "C", "T")
+        .variation("CYP2C19", "rs28399504", "A", "G")
+        .variation("CYP2C19", "rs3758581", "G", "G");
+    testWrapper.execute(s_outsideCallFilePath);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19", "CYP2D6");
+    testWrapper.testCalledByMatcher("CYP2C19", "CYP2D6");
 
-    s_pharmcatTopMatch.testPrintCalls("CYP2D6", "*1/*4");
-    s_pharmcatTopMatch.testPrintCalls("CYP2C19", "*1/*4");
+    testWrapper.testPrintCalls("CYP2D6", "*1/*4");
+    testWrapper.testPrintCalls("CYP2C19", "*1/*4");
 
-    assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("CYP2D6").isOutsideCall());
+    assertTrue(testWrapper.getContext().getGeneReport("CYP2D6").isOutsideCall());
   }
 
   @Test
   void testCftrRefRef() throws Exception {
-    s_pharmcatTopMatch.execute("test.cftr.ref_ref", new String[]{
-            "cftr/refref.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cftr.ref_ref", false);
+    testWrapper.getVcfBuilder()
+        .reference("CFTR");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CFTR");
-    s_pharmcatTopMatch.testPrintCalls("CFTR", "No CPIC variants found");
-    s_pharmcatTopMatch.testLookup("CFTR", "ivacaftor non-responsive CFTR sequence");
+    testWrapper.testCalledByMatcher("CFTR");
+    testWrapper.testPrintCalls("CFTR", "No CPIC variants found");
+    testWrapper.testLookup("CFTR", "ivacaftor non-responsive CFTR sequence");
 
-    s_pharmcatTopMatch.testMatchedGroups("ivacaftor", 1);
+    testWrapper.testMatchedGroups("ivacaftor", 1);
   }
 
   @Test
-  void testCyp2c19NoCall() throws Exception {
-    s_pharmcatTopMatch.execute("test.cftr.ref_ref", new String[]{
-            "DPYD/c1679c1156.vcf"
-        },
-        s_outsideCallFilePath);
+  void testCftrD1270NHet() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cftr.ref_D1270N", false);
+    testWrapper.getVcfBuilder()
+        .reference("CFTR")
+        .variation("CFTR", "rs11971167", "G", "A");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2D6");
-    s_pharmcatTopMatch.testPrintCalls("CYP2D6", "*1/*4");
-    s_pharmcatTopMatch.testLookup("CYP2D6", "*1", "*4");
+    testWrapper.testCalledByMatcher("CFTR");
+    testWrapper.testPrintCalls("CFTR", "D1270N (heterozygous)");
+    testWrapper.testLookup("CFTR", "ivacaftor non-responsive CFTR sequence", "D1270N");
 
-    s_pharmcatTopMatch.testMatchedGroups("amitriptyline", 1);
+    testWrapper.testMatchedGroups("ivacaftor", 1);
+  }
+
+  @Test
+  void testCftrD1270NG551D() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cftr.ref_D1270NG551D", false);
+    testWrapper.getVcfBuilder()
+        .reference("CFTR")
+        .variation("CFTR", "rs11971167", "G", "A")
+        .variation("CFTR", "rs75527207", "G", "A");
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("CFTR");
+    testWrapper.testPrintCalls("CFTR", "D1270N/G551D");
+    testWrapper.testLookup("CFTR", "G551D", "D1270N");
+
+    testWrapper.testMatchedGroups("ivacaftor", 1);
+  }
+
+  @Test
+  void testAmitryptylineCallWoCyp2c19() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.AmitryptylineCallWoCyp2c19", false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD");
+    testWrapper.execute(s_outsideCallFilePath);
+
+    testWrapper.testCalledByMatcher("CYP2D6");
+    testWrapper.testPrintCalls("CYP2D6", "*1/*4");
+    testWrapper.testLookup("CYP2D6", "*1", "*4");
+
+    testWrapper.testMatchedGroups("amitriptyline", 1);
   }
 
   @Test
   void testSlco1b1Test1() throws Exception {
-    s_pharmcatTopMatch.execute("test.slco1b1.17.21", new String[]{
-            "SLCO1B1/s17s21.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("slco1b1.s17s21", false);
+    testWrapper.getVcfBuilder()
+        .reference("SLCO1B1")
+        .variation("SLCO1B1", "rs4149015", "A", "A")
+        .variation("SLCO1B1", "rs2306283", "G", "G")
+        .variation("SLCO1B1", "rs4149056", "T", "C")
+        .variation("SLCO1B1", "rs2291075", "C", "T");
+    testWrapper.execute(s_outsideCallFilePath);
 
-    s_pharmcatTopMatch.testCalledByMatcher("SLCO1B1");
-    s_pharmcatTopMatch.testPrintCalls("SLCO1B1", "*17/*21");
-    s_pharmcatTopMatch.testLookup("SLCO1B1", "*17", "*21");
+
+    testWrapper.testCalledByMatcher("SLCO1B1");
+    testWrapper.testPrintCalls("SLCO1B1", "*17/*21");
+    testWrapper.testLookup("SLCO1B1", "*17", "*21");
   }
 
   @Test
@@ -1076,33 +1118,6 @@ class PharmCATTest {
   }
 
 
-  @Test
-  void testCombined() throws Exception {
-    s_pharmcatTopMatch.execute("test.combined", new String[]{
-            "DPYD/novariant.vcf",
-            "UGT1A1/s1s1.vcf",
-            "TPMT/s1s1.vcf",
-            "cyp3a5/s1s7.vcf",
-            "cftr/refref.vcf",
-            "cyp2c19/s2s2.vcf",
-            "cyp2c9/s2s3.vcf",
-            "SLCO1B1/s1as1a.vcf",
-            "VKORC1/-1639A-1639A.vcf",
-            "cyp4f2/s1s1.vcf",
-            "IFNL3/rs12979860CC.vcf"
-        },
-        s_outsideCallFilePath);
-
-    s_pharmcatTopMatch.testCalledByMatcher("DPYD", "UGT1A1", "TPMT", "CYP3A5", "CFTR", "CYP2C19",
-        "CYP2C9", "SLCO1B1", "VKORC1", "CYP4F2", "IFNL3", "CYP2D6");
-    s_pharmcatTopMatch.testPrintCalls("TPMT", "*1/*1");
-    s_pharmcatTopMatch.testPrintCalls("DPYD", "Reference/Reference");
-    s_pharmcatTopMatch.testPrintCalls("CYP2C19", "*2/*2");
-    s_pharmcatTopMatch.testLookup("TPMT", "*1", "*1");
-    s_pharmcatTopMatch.testPrintCalls("CYP2D6", "*1/*4");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*1");
-  }
-
   /**
    * This tests the case when an outside call file contains two references to the same gene
    * supplied. This should result in an error
@@ -1185,9 +1200,21 @@ class PharmCATTest {
   
   private static class PharmCATTestWrapper {
     private final PharmCAT f_pharmCat;
+    private final Path f_outputPath;
+    private final TestVcfBuilder f_vcfBuilder;
 
-    PharmCATTestWrapper(Path dirPath, boolean allMatches) throws IOException {
-      f_pharmCat = new PharmCAT(dirPath, null);
+    PharmCATTestWrapper(String testKey, boolean allMatches) throws IOException {
+      f_outputPath = Paths.get("out", "reports", testKey);
+      if (!f_outputPath.toFile().exists() && !f_outputPath.toFile().mkdirs()) {
+        throw new RuntimeException("Could not create output directory");
+      }
+
+      f_vcfBuilder = new TestVcfBuilder(testKey).saveFile();
+
+      f_pharmCat = new PharmCAT(f_outputPath, null)
+          .keepMatcherOutput()
+          .writeJson(true)
+          .writePhenotyperJson(true);
       if (allMatches) {
         f_pharmCat.showAllMatches();
       }
@@ -1195,7 +1222,9 @@ class PharmCATTest {
 
     /**
      * Runs the PharmCAT tool for the given example gene call data
+     * @deprecated switch to using TestVcfBuilder instead
      */
+    @Deprecated
     void execute(String name, String[] geneCalls, Path outsideCallPath) throws Exception {
       Path tempVcfPath = Files.createTempFile(name, ".vcf");
       try (FileWriter fw = new FileWriter(tempVcfPath.toFile())) {
@@ -1204,15 +1233,19 @@ class PharmCATTest {
         ex.printStackTrace();
         throw ex;
       }
-      execute(tempVcfPath, outsideCallPath);
+      f_pharmCat.execute(tempVcfPath, outsideCallPath, null);
     }
     
     ReportContext getContext() {
       return f_pharmCat.getReporter().getContext();
     }
-    
-    void execute(Path vcfPath, Path outsidePath) throws Exception {
-      f_pharmCat.execute(vcfPath, outsidePath, null);
+
+    TestVcfBuilder getVcfBuilder() {
+      return f_vcfBuilder;
+    }
+
+    void execute(Path outsidePath) throws Exception {
+      f_pharmCat.execute(f_vcfBuilder.generate(f_outputPath), outsidePath, null);
     }
 
     /**
