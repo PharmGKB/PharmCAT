@@ -276,7 +276,7 @@ def extract_regions_from_multiple_files(bcftools_executable_path, tabix_executab
                     print("Warning: Skip %s because the file does not exist." % line)
         file.close()
 
-        # concatenate files, requiring input file list to be sorted
+        # concatenate files, requiring input file list
         with tempfile.NamedTemporaryFile(mode = 'w+', dir = output_dir) as temp_concat:
             with tempfile.NamedTemporaryFile(mode = 'w+', dir = output_dir) as temp_file_list:
                 for j in range(len(preprocessed_file_list)):
@@ -287,13 +287,13 @@ def extract_regions_from_multiple_files(bcftools_executable_path, tabix_executab
                 bcftools_command = [bcftools_executable_path, 'concat', '-a', '-f', temp_file_list.name, '-Oz', '-o', temp_concat.name]
                 running_bcftools(bcftools_command,
                                  show_msg='Concatenating chromosome VCFs.')
-                # sort
+                # normalize concatenated vcf
                 bcftools_command = [bcftools_executable_path, 'norm', '-m+', '-c', 'ws', '-Oz', '-o',
                                     path_output, '-f', path_to_ref_seq, temp_concat.name]
                 running_bcftools(bcftools_command,
                                  show_msg='Normalizing chromosome VCFs.')
 
-    # index the concatenated, sorted VCF
+    # index the concatenated VCF
     tabix_index_vcf(tabix_executable_path, path_output)
     return path_output
 
@@ -334,7 +334,7 @@ def filter_pgx_variants(bcftools_executable_path, tabix_executable_path, input_v
 
     with tempfile.TemporaryDirectory(suffix='temp_extract_variants', dir=output_dir) as temp_dir:
         # convert reference PGx variants to the uniallelic format
-        ref_pgx_uniallelic = os.path.join(temp_dir, 'temp_reference_pgx_variants_uniallelic.vcf.gz')
+        ref_pgx_uniallelic = os.path.join(temp_dir, 'temp_reference_pgx_variants_sorted_uniallelic.vcf.gz')
         bcftools_command = [bcftools_executable_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', path_to_ref_seq,
                             '-Oz', '-o', ref_pgx_uniallelic, input_ref_pgx_vcf]
         running_bcftools(bcftools_command, show_msg='Preparing the reference PGx VCF')

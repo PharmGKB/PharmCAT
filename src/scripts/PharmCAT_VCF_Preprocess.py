@@ -30,7 +30,6 @@ def run(args):
     except:
         print('Error: %s not found or not executable' % bcftools_executable_path)
         sys.exit(1)
-
     # validate tabix
     tabix_executable_path = args.path_to_tabix if args.path_to_tabix else 'tabix'
     try:
@@ -128,7 +127,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # to be removed at the PharmCAT v1.0
-    print("Warning: For PharmCAT v0.8.0, please use the \'pharmcat_positions_0.8.0_updated_06222021.vcf.gz\' under "
+    print("Warning: For PharmCAT v1.0.0, please use the \'pharmcat_positions_1.0.0_sorted.vcf.gz\' under "
           "\'src/scripts/test/pharmcat_pgx_vcf/\'")
 
     # normalize variant representations and reconstruct multi-allelic variants in the input VCF
