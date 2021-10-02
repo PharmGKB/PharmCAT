@@ -346,20 +346,28 @@ def filter_pgx_variants(bcftools_executable_path, tabix_executable_path, input_v
         bcftools_command = [bcftools_executable_path, 'isec', '--no-version', '-c', 'none', '-n=2', '-w2',
                             '-Oz', '-o', input_pgx_variants_only,
                             ref_pgx_uniallelic, input_vcf]
-        running_bcftools(bcftools_command, show_msg='Retaining only PGx positions in the normalized VCF')
+        running_bcftools(bcftools_command, show_msg='Retaining only PGx positions')
         tabix_index_vcf(tabix_executable_path, input_pgx_variants_only)
 
-        # merging the filtered input with the reference PGx VCF to enforce the output to comply with PharmCAT format
+        # merging the filtered input with the reference PGx positions for the next step
         merge_vcf = os.path.join(temp_dir, 'temp_merged.vcf.gz')
         bcftools_command = [bcftools_executable_path, 'merge', '--no-version', '-m', 'both',
-                            '-Oz', '-o', merge_vcf, input_pgx_variants_only, input_ref_pgx_vcf]
+                            '-Oz', '-o', merge_vcf, input_pgx_variants_only, ref_pgx_uniallelic]
         running_bcftools(bcftools_command,
-                         show_msg='Enforcing the same variant representation as that in the reference PGx variant file')
+                         show_msg='Trimming file')
         tabix_index_vcf(tabix_executable_path, merge_vcf)
+
+        # enforce the output to comply with PharmCAT format
+        multiallelic_vcf = os.path.join(temp_dir, 'temp_multiallelic.vcf.gz')
+        bcftools_command = [bcftools_executable_path, 'norm', '--no-version', '-m+', '-N',
+                            '-Oz', '-o', multiallelic_vcf, merge_vcf]
+        running_bcftools(bcftools_command,
+                         show_msg='Enforcing the variant representation per PharmCAT')
+        tabix_index_vcf(tabix_executable_path, multiallelic_vcf)
 
         # remove the artificial PharmCAT sample
         bcftools_command = [bcftools_executable_path, 'view', '-s', '^PharmCAT',
-                            '-Oz', '-o', path_output, merge_vcf]
+                            '-Oz', '-o', path_output, multiallelic_vcf]
         running_bcftools(bcftools_command, show_msg='Trimming file')
         tabix_index_vcf(tabix_executable_path, path_output)
 
