@@ -8,10 +8,12 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -29,6 +31,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
@@ -160,6 +163,8 @@ public class VcfHelper implements AutoCloseable {
         HashMap<String, String> contigs = new HashMap<>();
         contigs.put(chr, sf_defaultAssembly);
         printVcfHeaders(writer, "PharmCAT", contigs);
+
+        // don't bother sorting, bcftools will deal with it
         for (VcfData vcf : data) {
           printVcfLine(writer, chr, vcf.pos, null, vcf.ref, vcf.alt, null, "0/0");
         }
@@ -189,26 +194,33 @@ public class VcfHelper implements AutoCloseable {
   }
 
 
-  public static void extractPositions(Collection<String> genes, DefinitionReader definitionReader, Path file)
+  public static void extractPositions(SortedSet<String> genes, DefinitionReader definitionReader, Path file)
       throws IOException {
 
-    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(file))) {
-      printVcfHeaders(writer, "PharmCAT allele definitions", getContigs(genes, definitionReader));
+    Date date = definitionReader.getDefinitionFile(genes.first()).getModificationDate();
+    ZonedDateTime timestamp = date.toInstant().atZone(ZoneId.systemDefault());
 
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(file))) {
+      printVcfHeaders(writer, "PharmCAT allele definitions", getContigs(genes, definitionReader), timestamp);
+
+      SortedSet<VcfLine> lines = new TreeSet<>();
       for (String gene : genes) {
         DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
         for (VariantLocus vl : definitionFile.getVariants()) {
-          printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
-              String.join(",", vl.getAlts()), "PX=" + gene, "0/0");
+          lines.add(new VcfLine(definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
+              String.join(",", vl.getAlts()), "PX=" + gene, "0/0"));
         }
 
         DefinitionExemption exemption = definitionReader.getExemption(gene);
         if (exemption != null) {
           for (VariantLocus vl : exemption.getExtraPositions()) {
-            printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
-                String.join(",", vl.getAlts()), "POI", "0/0");
+            lines.add(new VcfLine(definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
+                String.join(",", vl.getAlts()), "POI", "0/0"));
           }
         }
+      }
+      for (VcfLine line : lines) {
+        writer.println(line.toString());
       }
     }
   }
@@ -227,9 +239,14 @@ public class VcfHelper implements AutoCloseable {
   }
 
   public static void printVcfHeaders(PrintWriter writer, String source, @Nullable HashMap<String, String> contigs) {
+    printVcfHeaders(writer, source, contigs, ZonedDateTime.now());
+  }
+
+  public static void printVcfHeaders(PrintWriter writer, String source, @Nullable HashMap<String, String> contigs,
+      ZonedDateTime timestamp) {
     writer.println("##fileformat=VCFv4.2");
     writer.println("##source=" + source);
-    writer.println("##fileDate=" + DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now()));
+    writer.println("##fileDate=" + DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(timestamp));
 
     if (contigs != null) {
       Set<String> assemblies = new HashSet<>(contigs.values());
@@ -237,7 +254,9 @@ public class VcfHelper implements AutoCloseable {
         throw new IllegalStateException("Multiple assemblies found: " + assemblies);
       }
       String assembly = assemblies.iterator().next();
-      for (String chr : contigs.keySet()) {
+      SortedSet<String> sortedChr = new TreeSet<>(new ChrNameComparator());
+      sortedChr.addAll(contigs.keySet());
+      for (String chr : sortedChr) {
         writer.println("##contig=<ID=" + chr + ",assembly=" + assembly + ",species=\"Homo sapiens\">");
       }
     }
@@ -271,6 +290,54 @@ public class VcfHelper implements AutoCloseable {
 
 
 
+  private static class VcfLine implements Comparable<VcfLine> {
+    String chrom;
+    long pos;
+    String id;
+    String ref;
+    String alt;
+    String info;
+    String sample;
+
+    VcfLine(String chr, long pos, @Nullable String rsid, String ref,
+        String alt, @Nullable String info, String sample) {
+      chrom = chr;
+      this.pos = pos;
+      id = rsid;
+      this.ref = ref;
+      this.alt = alt;
+      this.info = info;
+      this.sample = sample;
+    }
+
+
+    @Override
+    public int compareTo(@NonNull VcfLine o) {
+      if (this == o) {
+        return 0;
+      }
+      int rez = ChrNameComparator.INSTANCE.compare(chrom, o.chrom);
+      if (rez != 0) {
+        return rez;
+      }
+      if (pos == o.pos) {
+        throw new IllegalArgumentException("2 entries at same position:\n" + this + "\n" + o);
+      }
+      return Long.compare(pos, o.pos);
+    }
+
+
+    @Override
+    public String toString() {
+      return chrom + "\t" + pos + "\t" + Objects.requireNonNullElse(id, ".") + "\t" +
+          ref + "\t" + alt + "\t" +
+          ".\tPASS\t" + // qual, filter
+          Objects.requireNonNullElse(info, ".") +
+          "\tGT\t" + // format
+          sample;
+    }
+  }
+
   public static class VcfData {
     public String hgvs;
     public String chrom;
@@ -278,6 +345,9 @@ public class VcfHelper implements AutoCloseable {
     public final String ref;
     public final String alt;
 
+    /**
+     * Parses response from API.
+     */
     VcfData(Map<String, Object> data) {
       hgvs = (String)data.get("hgvs");
       chrom = (String)data.get("chrom");
@@ -291,15 +361,10 @@ public class VcfHelper implements AutoCloseable {
      */
     VcfData(String vcfLine) {
       String[] data = vcfLine.split("\t");
+      chrom = data[0];
       pos = Long.parseLong(data[1]);
       ref = data[3];
       alt = data[4];
-    }
-
-    VcfData(long pos, String ref, String alt) {
-      this.pos = pos;
-      this.ref = ref;
-      this.alt = alt;
     }
 
 
@@ -312,7 +377,8 @@ public class VcfHelper implements AutoCloseable {
         return false;
       }
       VcfData o = (VcfData)obj;
-      return Objects.equals(pos, o.pos) &&
+      return Objects.equals(chrom, o.chrom) &&
+          Objects.equals(pos, o.pos) &&
           Objects.equals(ref, o.ref) &&
           Objects.equals(alt, o.alt);
     }

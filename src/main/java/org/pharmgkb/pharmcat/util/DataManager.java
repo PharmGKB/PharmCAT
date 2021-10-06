@@ -513,12 +513,16 @@ public class DataManager {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionsDir);
 
-    List<String> genes = definitionReader.getGeneAlleleCount().keySet().stream()
+    SortedSet<String> genes = definitionReader.getGeneAlleleCount().keySet().stream()
         .filter(g -> !PREFER_OUTSIDE_CALL.contains(g))
-        .collect(Collectors.toList());
+        .collect(Collectors.toCollection(TreeSet::new));
 
     Path positionsFile = definitionsDir.resolve(POSITIONS_VCF);
+    System.out.println("Saving positions VCF to " + positionsFile);
     VcfHelper.extractPositions(genes, definitionReader, positionsFile);
+    Path bgzFile = DockerRunner.bgzip(positionsFile);
+    System.out.println("Saved bgzip'd positions VCF to " + bgzFile);
+    DockerRunner.tabix(bgzFile);
   }
 
 
