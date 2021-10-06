@@ -77,5 +77,6 @@ fuzzyVcfMissingTests:
 updateData:
 	${GRADLE_CMD} clean
 	${GRADLE_CMD} updateData
-	cp src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.vcf PharmCAT.wiki/pharmcat.example.vcf
-	cp src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.vcf docs/examples/pharmcat.example.vcf
+	mv src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.* .
+	cp ./pharmcat_positions.vcf PharmCAT.wiki/pharmcat.example.vcf
+	cp ./pharmcat_positions.vcf docs/examples/pharmcat.example.vcf

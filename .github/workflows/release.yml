@@ -59,8 +59,26 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref }}
-          file: src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.vcf
+          file: pharmcat_positions.vcf
           asset_name: pharmcat_positions_${{steps.appVersion.outputs.substring}}.vcf
+          overwrite: true
+
+      - name: Upload positions.vcf.bgz to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          file: pharmcat_positions.vcf.bgz
+          asset_name: pharmcat_positions_${{steps.appVersion.outputs.substring}}.vcf.bgz
+          overwrite: true
+
+      - name: Upload positions.vcf.bgz.tbi to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          file: pharmcat_positions.vcf.bgz.tbi
+          asset_name: pharmcat_positions_${{steps.appVersion.outputs.substring}}.vcf.bgz.tbi
           overwrite: true
 
       - name: Send Slack notification on failure
