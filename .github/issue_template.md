@@ -1,5 +1,7 @@
 <!--
 This system is for bugs and feature requests. If you have general questions please contact pharmcat@pharmgkb.org
+
+If you are providing VCF data, please make sure the data is annonymized.
 -->
 
 * **Do you want to request a *feature* or report a *bug*?**
@@ -29,4 +31,4 @@ This system is for bugs and feature requests. If you have general questions plea
   - Environment: [ Windows | macOS | Linux distro | etc ]
 
 
-* **Other information** (e.g. detailed explanation, stacktraces, related issues, suggestions how to fix, links for us to have context, eg. stackoverflow, gitter, etc)
+* **Other information** (e.g. detailed explanation, stacktraces, related issues, suggestions how to fix, links for us to have context, e.g. stackoverflow, gitter, etc.)
