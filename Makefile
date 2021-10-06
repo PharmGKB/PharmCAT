@@ -78,5 +78,9 @@ updateData:
 	${GRADLE_CMD} clean
 	${GRADLE_CMD} updateData
 	mv src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.* .
-	cp ./pharmcat_positions.vcf PharmCAT.wiki/pharmcat.example.vcf
-	cp ./pharmcat_positions.vcf docs/examples/pharmcat.example.vcf
+	${GRADLE_CMD} updateExample
+	mv docs/examples/pharmcat_positions.matcher.html    docs/examples/pharmcat.example.matcher.html
+	mv docs/examples/pharmcat_positions.matcher.json    docs/examples/pharmcat.example.matcher.json
+	mv docs/examples/pharmcat_positions.phenotyper.json docs/examples/pharmcat.example.phenotyper.json
+	mv docs/examples/pharmcat_positions.report.html     docs/examples/pharmcat.example.report.html
+	mv docs/examples/pharmcat_positions.report.json     docs/examples/pharmcat.example.report.json

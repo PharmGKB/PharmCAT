@@ -2,8 +2,8 @@
   "metadata": {
     "namedAlleleMatcherVersion": "1.0.0",
     "genomeBuild": "GRCh38.p13",
-    "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "Sep 27, 2021, 1:45:56 PM"
+    "inputFilename": "pharmcat_positions.vcf",
+    "timestamp": "Oct 6, 2021, 10:22:20 AM"
   },
   "results": [
     {

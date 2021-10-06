@@ -13,7 +13,7 @@ inforamtion about running PharmCAT, read the [documentation](https://github.com/
 
 First, a properly formatted single-sample VCF file with all positions specified.
 
-- [example input VCF](pharmcat.example.vcf)
+- [example input VCF](https://raw.githubusercontent.com/PharmGKB/PharmCAT/main/pharmcat_positions.vcf)
 
 This is an example of an optional file of outside diplotype calls. This one specifies a CYP2D6 call.
 
