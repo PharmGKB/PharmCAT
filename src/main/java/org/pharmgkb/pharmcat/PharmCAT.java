@@ -7,9 +7,11 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.google.common.base.Preconditions;
+import com.google.common.base.Stopwatch;
 import org.apache.commons.io.FileUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
@@ -44,9 +46,10 @@ public class PharmCAT {
   private boolean m_showAllMatches = false;
 
   public static void main(String[] args) {
+    Stopwatch stopwatch = Stopwatch.createStarted();
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("vcf", "sample-file", "input call file (VCF)", true, "vcf")
-        .addOption("o", "output-dir", "directory to output to", true, "o")
+        .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "o")
         .addOption("f", "output-file", "the base name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "f")
         .addOption("a", "outside-call-file", "path to an outside call file (TSV)", false, "a")
         // optional data
@@ -62,7 +65,12 @@ public class PharmCAT {
       }
 
       Path vcfFile = cliHelper.getValidFile("vcf", true);
-      Path outputDir = cliHelper.getValidDirectory("o", true);
+      Path outputDir;
+      if (cliHelper.hasOption("o")) {
+        outputDir = cliHelper.getValidDirectory("o", true);
+      } else {
+        outputDir = vcfFile.getParent();
+      }
       Path outsideCallPath = null;
       if (cliHelper.hasOption("a")) {
         outsideCallPath = cliHelper.getPath("a");
@@ -90,6 +98,8 @@ public class PharmCAT {
 
     } catch (Exception e) {
       e.printStackTrace();
+    } finally {
+      sf_logger.info("Finished, took " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms");
     }
   }
 
@@ -121,7 +131,7 @@ public class PharmCAT {
     f_reporter = new Reporter();
     setOutputDir(outputDir);
 
-    sf_logger.info("Using alleles: {}", definitionsDir);
+    sf_logger.info("Using alleles: {}", f_definitionsDir);
     sf_logger.info("Writing to: {}", outputDir);
   }
 
