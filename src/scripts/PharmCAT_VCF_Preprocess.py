@@ -20,9 +20,6 @@ def run(args):
         print("Invalid input file(s). Provide either [--input_vcf] or [--input_list].")
         sys.exit(1)
 
-    # organize args
-    current_working_dir = os.getcwd()
-
     # validate bcftools
     bcftools_executable_path = args.path_to_bcftools if args.path_to_bcftools else 'bcftools'
     try:
@@ -38,14 +35,26 @@ def run(args):
         print('Error: %s not found or not executable' % tabix_executable_path)
         sys.exit(1)
 
-    # create the output folder
-    Path(args.output_folder).mkdir(parents=True, exist_ok=True)
 
     # list of files to be deleted
     tmp_files_to_be_removed = []
+    # define working directory, default the directory of the first input VCF
+    if args.output_folder:
+        output_dir = args.output_folder
+    elif args.input_vcf:
+        output_dir = os.path.split(args.input_vcf)[0]
+    else:
+        with open(args.input_list, 'r') as file:
+            for line in file:
+                if os.path.isfile(line):
+                    output_dir = os.path.split(line)[0]
+                    break
+        file.close()
+    # create the output folder
+    Path(output_dir).mkdir(parents=True, exist_ok=True)
 
     # download the human reference sequence if not provided
-    path_to_ref_seq = util.download_grch38_ref_fasta_and_index(current_working_dir) if not args.ref_seq else args.ref_seq
+    path_to_ref_seq = util.download_grch38_ref_fasta_and_index(output_dir) if not args.ref_seq else args.ref_seq
 
     # index ref_pgx_vcf if not indexed
     if not os.path.exists(args.ref_pgx_vcf + '.tbi'):
@@ -62,15 +71,10 @@ def run(args):
     elif args.input_vcf:
         sample_list = util.obtain_vcf_sample_list(bcftools_executable_path, args.input_vcf)
     else:
-        first_valid_file = False
         with open(args.input_list, 'r') as file:
             for line in file:
-                if not first_valid_file:
-                    line = line.strip()
-                    if os.path.isfile(line):
-                        sample_list = util.obtain_vcf_sample_list(bcftools_executable_path, line)
-                        first_valid_file = True
-                else:
+                if os.path.isfile(line):
+                    sample_list = util.obtain_vcf_sample_list(bcftools_executable_path, line)
                     break
         file.close()
 
@@ -78,10 +82,10 @@ def run(args):
     # modify input VCF chromosomes naming format to <chr##>
     if args.input_list:
         vcf_pgx_regions = util.extract_regions_from_multiple_files(bcftools_executable_path, tabix_executable_path,
-                                                                                args.input_list, path_to_ref_seq, args.ref_pgx_vcf, args.output_folder, args.output_prefix, sample_list)
+                                                                                args.input_list, path_to_ref_seq, args.ref_pgx_vcf, output_dir, args.output_prefix, sample_list)
     else:
         vcf_pgx_regions = util.extract_regions_from_single_file(bcftools_executable_path, tabix_executable_path,
-                                                                             args.input_vcf, args.ref_pgx_vcf, args.output_folder, args.output_prefix, sample_list)
+                                                                             args.input_vcf, args.ref_pgx_vcf, output_dir, args.output_prefix, sample_list)
     tmp_files_to_be_removed.append(vcf_pgx_regions)
 
     # normalize the input VCF
@@ -90,12 +94,12 @@ def run(args):
 
     # extract the specific PGx genetic variants in the reference PGx VCF
     # this step also generates a report of missing PGx positions in the input VCF
-    vcf_normalized_pgxOnly = util.filter_pgx_variants(bcftools_executable_path, tabix_executable_path, vcf_normalized, path_to_ref_seq, args.ref_pgx_vcf, args.output_folder, args.output_prefix)
+    vcf_normalized_pgxOnly = util.filter_pgx_variants(bcftools_executable_path, tabix_executable_path, vcf_normalized, path_to_ref_seq, args.ref_pgx_vcf, output_dir, args.output_prefix)
     tmp_files_to_be_removed.append(vcf_normalized_pgxOnly)
 
     # output PharmCAT-ready single-sample VCF
     # retain only the PharmCAT allele defining positions in the output VCF file
-    util.output_pharmcat_ready_vcf(bcftools_executable_path, vcf_normalized_pgxOnly, args.output_folder, args.output_prefix, sample_list)
+    util.output_pharmcat_ready_vcf(bcftools_executable_path, vcf_normalized_pgxOnly, output_dir, args.output_prefix, sample_list)
 
     # remove intermediate files
     if not args.keep_intermediate_files:
@@ -119,7 +123,7 @@ if __name__ == "__main__":
     parser.add_argument("--sample_file", help="A file of samples to be prepared for the PharmCAT, one sample at a line.")
     parser.add_argument("--path_to_bcftools", help="Load an alternative path to the executable bcftools.")
     parser.add_argument("--path_to_tabix", help="Load an alternative path to the executable tabix.")
-    parser.add_argument("--output_folder", default = os.getcwd(), type = str, help="Directory of the output VCF, by default, current working directory.")
+    parser.add_argument("--output_folder", type = str, help="Directory of the output VCF, by default, the directory of the first input VCF.")
     parser.add_argument("--output_prefix", default = 'pharmcat_ready_vcf', type = str, help="Prefix of the output VCF")
     parser.add_argument("--keep_intermediate_files", action='store_true', help="Keep intermediate files, false by default.")
 
