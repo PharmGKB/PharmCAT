@@ -37,7 +37,7 @@ RUN rm -rf /usr/local/bin/htslib-${HTSLIB_VERSION}
 # add pharmcat scritps
 RUN mkdir /pharmcat
 WORKDIR /pharmcat
-COPY src/scripts/* ./
+COPY src/scripts/preprocessor/* ./
 RUN pip3 install -r PharmCAT_VCF_Preprocess_py3_requirements.txt
 RUN python -c 'import vcf_preprocess_utilities as utils; utils.download_grch38_ref_fasta_and_index("/pharmcat", "/pharmcat/reference.fasta")'
 RUN rm *.fna.gz

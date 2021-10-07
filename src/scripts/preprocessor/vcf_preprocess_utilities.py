@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 __author__ = 'BinglanLi'
 
+import allel
 import gzip
 import os
 import re
@@ -11,7 +12,6 @@ import tempfile
 import traceback
 import urllib.parse
 import urllib.request
-import allel
 
 import vcf_preprocess_exceptions as Exceptions
 

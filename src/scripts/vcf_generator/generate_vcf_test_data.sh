@@ -31,13 +31,13 @@ shift "$(($OPTIND -1))"
 cd $(dirname $0)
 
 if [ -z ${PHARMCAT_DATA_DIR+x} ]; then
-  dataDir="../../build"
+  dataDir="../../../build"
 else
   # expect PHARMCAT_DATA_DIR to be a relative directory
-  dataDir="../../${PHARMCAT_DATA_DIR}"
+  dataDir="../../../${PHARMCAT_DATA_DIR}"
 fi
 
-DEFINITION_DIR="../main/resources/org/pharmgkb/pharmcat/definition/alleles"
+DEFINITION_DIR="../../main/resources/org/pharmgkb/pharmcat/definition/alleles"
 OUTPUT_DIR="${dataDir}/testVcf"
 
 for file in "$DEFINITION_DIR"/*; do
