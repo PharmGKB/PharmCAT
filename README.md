@@ -6,11 +6,10 @@
 A tool to extract all [CPIC](https://cpicpgx.org) guideline gene variants from a genetic dataset (represented as a [VCF file](https://github.com/samtools/hts-specs#variant-calling-data-files)), interpret the variant alleles, and generate a report.
 
 For more details:
-<ol>
-    <li>Go to <a href="https://pharmcat.org">PharmCAT.org</a></li>
-    <li>Read the [PharmGKB blog post about PharmCAT](http://pharmgkb.blogspot.com/2016/04/pharmacogenomics-clinical-annotation.html)</li>
-    <li>Read the [article on GenomeWeb](https://www.genomeweb.com/molecular-diagnostics/researchers-hope-pharmcat-tool-will-help-improve-clinical-implementation)</li>
-</ol>
+
+1. Go to [PharmCAT website](https://pharmcat.org)
+2. Read the [PharmGKB blog post about PharmCAT](http://pharmgkb.blogspot.com/2016/04/pharmacogenomics-clinical-annotation.html)
+3. Read the [article on GenomeWeb](https://www.genomeweb.com/molecular-diagnostics/researchers-hope-pharmcat-tool-will-help-improve-clinical-implementation)
 
 ## Status
 
