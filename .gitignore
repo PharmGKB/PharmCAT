@@ -43,4 +43,4 @@ pharmcat.log
 hs_err_pid*
 
 # python directory or files
-/src/scripts/__pycache__/
+__pycache__/
