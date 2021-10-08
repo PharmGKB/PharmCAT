@@ -6,9 +6,21 @@ FROM python:3
 
 # apt-utils line due to https://github.com/phusion/baseimage-docker/issues/319
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends apt-utils && \
+    apt-get install -y --no-install-recommends apt-utils apt-transport-https gnupg && \
     apt-get -y upgrade && \
     apt-get -y install bzip2 build-essential wget
+
+# install java
+RUN wget https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public
+RUN gpg --no-default-keyring --keyring ./adoptopenjdk-keyring.gpg --import public
+RUN gpg --no-default-keyring --keyring ./adoptopenjdk-keyring.gpg --export --output adoptopenjdk-archive-keyring.gpg
+RUN rm adoptopenjdk-keyring.gpg
+RUN mv adoptopenjdk-archive-keyring.gpg /usr/share/keyrings && \
+    chown root:root /usr/share/keyrings/adoptopenjdk-archive-keyring.gpg
+RUN echo "deb [signed-by=/usr/share/keyrings/adoptopenjdk-archive-keyring.gpg] https://adoptopenjdk.jfrog.io/adoptopenjdk/deb bullseye main" \
+    | tee /etc/apt/sources.list.d/adoptopenjdk.list
+RUN apt-get update && \
+    apt-get -y install --no-install-recommends adoptopenjdk-16-hotspot
 
 
 ENV BCFTOOLS_VERSION 1.13
@@ -41,3 +53,7 @@ COPY src/scripts/preprocessor/* ./
 RUN pip3 install -r PharmCAT_VCF_Preprocess_py3_requirements.txt
 RUN python -c 'import vcf_preprocess_utilities as utils; utils.download_grch38_ref_fasta_and_index("/pharmcat", "/pharmcat/reference.fasta")'
 RUN rm *.fna.gz
+
+COPY pharmcat_positions.vcf* ./
+COPY build/pharmcat.jar ./
+COPY src/scripts/pharmcat.sh ./
