@@ -37,14 +37,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Run tests
-        run: ./gradlew test
-
       - name: Package app
         run: ./gradlew shadowJar
 
-      - name: Compile
-        run: ./gradlew classes
+      - name: Package preprocessor
+        run: make scriptPkg
 
       - name: Upload jar to release
         uses: svenstaro/upload-release-action@v2
@@ -52,6 +49,15 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref }}
           file: build/libs/pharmcat-${{steps.appVersion.outputs.substring}}-all.jar
+          overwrite: true
+
+      - name: Upload preprocessor to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          file: build/preprocessor.tar.gz
+          asset_name: pharmcat-preprocessor-${{steps.appVersion.outputs.substring}}.tar.gz
           overwrite: true
 
       - name: Upload positions.vcf to release

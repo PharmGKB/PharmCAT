@@ -36,6 +36,18 @@ docker:
 	docker build -t pcat .
 
 
+.PHONY: scriptPkg
+scriptPkg:
+	rm -rf build/preprocessor
+	mkdir -p build/preprocessor
+	cp src/scripts/preprocessor/*.txt build/preprocessor
+	cp src/scripts/preprocessor/*.py build/preprocessor
+	cp pharmcat_positions.vcf* build/preprocessor
+	cp PharmCAT.wiki/Preprocessing-VCF-Files-for-PharmCAT.md build/preprocessor/README.md
+	cd build; tar -czvf preprocessor.tar.gz preprocessor
+
+
+
 .PHONY: vcfTests
 vcfTests:
 	${GRADLE_CMD} clean
