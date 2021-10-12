@@ -4,21 +4,16 @@ There are two types of files in this directory. One is the test files; and the o
 
 ## Explanation of files
 
-### 1. Test files for bcftools and the preprocessing script - Basic
-1. test_biallelic_nonparsimonious_notLeftAligned.vcf.gz
-2. test_biallelic_nonparsimonious_notLeftAligned.vcf.gz.tbi
-3. reference_biallelic_nonparsimonious_notLeftAligned.vcf
-4. reference_biallelic_nonparsimonious_notLeftAligned.missing_pgx_var.gz
+### 1. Test files for bcftools and the preprocessing scripts
+1. test.vcf.gz
+2. reference.Sample_1.vcf
+3. reference.Sample_2.vcf
+4. reference.missing_pgx_var.vcf.gz
 
-    These two files are for tests on bcftools version. They can also be used to test the basic normalizatoin functions of the PharmCAT_VCF_Preprocess.py.
 
-### 2. Test files for bcftools and the preprocessing script - Advanced INDEL normalization
-1. test_indels_format.vcf
-2. reference_indels_format.vcf
+_"test.vcf.gz"_ are designed for tests on bcftools version as well as the PharmCAT VCF preprocessor. The output from the VCF preprocessor should match the content in *reference.Sample_1.vcf*, *reference.Sample_2.vcf*, and *reference.missing_pgx_var.vcf.gz*.
 
-    These two files are for advanced testing of bcftools' capability to prepare INDELs.
-
-### 3. Test files for the VCF proprocessing script - Performance
+### 2. Test files for the VCF proprocessing script - Performance
 
 I tested the performance of the VCF preprocessing script, including run time, multi-sample VCF processing, etc. 
 

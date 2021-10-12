@@ -38,12 +38,17 @@ def run(args):
         print('Error: %s not found or not executable' % tabix_path)
         sys.exit(1)
 
+    # validate the reference vcf of PharmCAT PGx positions
+    pgx_vcf = args.ref_pgx_vcf
+    if not os.path.exists(pgx_vcf):
+        print('Error: VCF of the reference PGx positions was not found at: %s' % pgx_vcf)
+        sys.exit(1)
+
     """
-    organize arguments
+    organize the rest of the arguments
     """
     input_list = args.input_list
     input_vcf = args.input_vcf
-    pgx_vcf = args.ref_pgx_vcf
     sample_file = args.sample_file
     output_prefix = args.output_prefix
     keep_intermediate_files = args.keep_intermediate_files
@@ -135,8 +140,10 @@ if __name__ == "__main__":
     parser.add_argument("--input_vcf", type=str, help="Load a compressed VCF file.")
     parser.add_argument("--input_list", type=str,
                         help="A sorted list of by-chromosome, compressed VCF file names.")
-    parser.add_argument("--ref_pgx_vcf", required=True, type=str,
-                        help="(Optional) a sorted VCF of PGx variants.")
+    parser.add_argument("--ref_pgx_vcf", type=str,
+                        default=os.path.join(os.getcwd(), "pharmcat_positions.vcf.bgz"),
+                        help="A sorted VCF of PharmCAT PGx variants, gzipped with preprocessor scripts. Default = "
+                             "\'pharmcat_positions.vcf.bgz\' in the current working directory")
     parser.add_argument("--ref_seq",
                         help="(Optional) the Human Reference Genome GRCh38/hg38 in the fasta format.")
     parser.add_argument("--sample_file",

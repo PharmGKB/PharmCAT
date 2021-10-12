@@ -239,8 +239,9 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
             sys.exit(1)
 
         # extract pgx regions and modify chromosome names if necessary
-        bcftools_command = [bcftools_path, 'annotate', '-S', file_sample_list, '--rename-chrs', file_chr_rename,
-                            '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
+        bcftools_command = [bcftools_path, 'annotate', '--no-version', '-S', file_sample_list,
+                            '--rename-chrs', file_chr_rename, '-r', ref_pgx_regions,
+                            '-Oz', '-o', path_output, input_vcf]
         run_bcftools(bcftools_command,
                      show_msg='Extracting PGx regions and modifying chromosome names for %s.' % input_vcf)
 
@@ -259,6 +260,7 @@ def extract_regions_from_multiple_files(bcftools_path, tabix_path, input_list, r
     path_output = os.path.join(output_dir, 'PharmCAT_preprocess_' + output_prefix + '.pgx_regions.vcf.gz')
 
     with tempfile.TemporaryDirectory(suffix='concat_input_vcfs', dir=output_dir) as temp_dir:
+        # process the vcfs in the input list one by one
         preprocessed_file_list = []
         i = 1
         with open(input_list, 'r') as file:
@@ -273,23 +275,15 @@ def extract_regions_from_multiple_files(bcftools_path, tabix_path, input_list, r
                 else:
                     print("Warning: Skip %s because the file does not exist." % line)
 
-        # concatenate files, requiring input file list
-        with tempfile.NamedTemporaryFile(mode='w+', dir=output_dir) as temp_concat:
-            with tempfile.NamedTemporaryFile(mode='w+', dir=output_dir) as temp_file_list:
-                for j in range(len(preprocessed_file_list)):
-                    temp_file_list.write(preprocessed_file_list[j] + "\n")
-                temp_file_list.seek(0)
+        # generate a temporary list of files to be concatenated
+        temp_file_list = os.path.join(temp_dir, "temp_file_list.txt")
+        with open(temp_file_list, 'w+') as f:
+            for j in range(len(preprocessed_file_list)):
+                f.write(preprocessed_file_list[j] + "\n")
 
-                # concatenate vcfs
-                bcftools_command = [bcftools_path, 'concat', '-a', '-f', temp_file_list.name,
-                                    '-Oz', '-o', temp_concat.name]
-                run_bcftools(bcftools_command,
-                             show_msg='Concatenating chromosome VCFs.')
-                # normalize concatenated vcf
-                bcftools_command = [bcftools_path, 'norm', '-m+', '-c', 'ws', '-Oz', '-o',
-                                    path_output, '-f', ref_seq, temp_concat.name]
-                run_bcftools(bcftools_command,
-                             show_msg='Normalizing chromosome VCFs.')
+        # concatenate vcfs
+        bcftools_command = [bcftools_path, 'concat', '--no-version', '-a', '-f', temp_file_list, '-Oz', '-o', path_output]
+        run_bcftools(bcftools_command, show_msg='Concatenating chromosome VCFs.')
 
     # index the concatenated VCF
     tabix_index_vcf(tabix_path, path_output)
@@ -366,7 +360,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf, 
         tabix_index_vcf(tabix_path, multiallelic_vcf)
 
         # remove the artificial PharmCAT sample
-        bcftools_command = [bcftools_path, 'view', '-s', '^PharmCAT',
+        bcftools_command = [bcftools_path, 'view', '--no-version', '-s', '^PharmCAT',
                             '-Oz', '-o', path_output, multiallelic_vcf]
         run_bcftools(bcftools_command, show_msg='Trimming file')
         tabix_index_vcf(tabix_path, path_output)

@@ -1,0 +1,27 @@
+##fileformat=VCFv4.1
+##FILTER=<ID=PASS,Description="All filters passed">
+##source=PharmCAT allele definitions
+##reference=hg38
+##contig=<ID=chr1,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr2,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr7,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr10,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr13,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr19,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr22,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chrM,assembly=hg38,species="Homo sapiens">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##fileDate=2021-09-27T11:27:29-07:00
+##contig=<ID=chr6,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr12,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr16,assembly=GRCh38.p13,species="Homo sapiens">
+##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
+##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not part of an allele definition">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
+chr1	97740410	rs72549309	GATGA	G	.	PASS	PX=DPYD;AC=1;AN=2	GT	1/0
+chr2	233760233	rs3064744	CAT	C,CATATAT,CATAT	.	PASS	PX=UGT1A1;AC=0,1,1;AN=2	GT	3/2
+chr10	94942205	rs1304490498	CAATGGAAAGA	C	.	PASS	PX=CYP2C9;AC=1;AN=2	GT	1/0
+chr13	48037825	rs777311140	C	CGCGG	.	PASS	PX=NUDT15;AC=1;AN=2	GT	1/0
+chr19	38499644	rs121918596	TGGA	T	.	PASS	PX=RYR1;AC=1;AN=2	GT	1/0
