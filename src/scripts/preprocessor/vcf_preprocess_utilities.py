@@ -15,8 +15,22 @@ import urllib.request
 import vcf_preprocess_exceptions as Exceptions
 
 
+# reference GRCh38
 _GRCH38_FASTA_FTP_DIR = '/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/'
 _GRCH38_FASTA_FILE = 'GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
+# chromosome names
+_chr_invalid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
+                "18", "19", "20", "21", "22", "X", "Y", "M", "MT", "chrMT"]
+_chr_valid = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
+              "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21",
+              "chr22", "chrX", "chrY", "chrM", "chrM", "chrM"]
+_chr_valid_sorter = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
+                     "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21",
+                     "chr22", "chrX", "chrY", "chrM"]
+# check if two chr arrays are of the same length
+if len(_chr_invalid) != len(_chr_valid):
+    print("Error in internal chromosome mapping arrays")
+    sys.exit()
 
 
 def byte_decoder(a):
@@ -98,7 +112,7 @@ def tabix_index_vcf(tabix_path, vcf_path):
         sys.exit(1)
 
 
-def running_bcftools(list_bcftools_command, show_msg=None):
+def run_bcftools(list_bcftools_command, show_msg=None):
     """
     run the bcftools following the commands stored in the list_bcftools_command
 
@@ -148,7 +162,8 @@ def _get_vcf_pos_min_max(positions, flanking_bp=100):
     return '-'.join([str(min(positions) - flanking_bp), str(max(positions) + flanking_bp)])
 
 
-def _has_chr_string(input_vcf):
+def _is_valid_chr(input_vcf):
+    chr_status = 'none'
     with gzip.open(input_vcf) as f:
         for line in f:
             try:
@@ -157,14 +172,19 @@ def _has_chr_string(input_vcf):
                 line = line
             if line[0] != '#':
                 fields = line.rstrip().split()
-                has_string = 'true' if 'chr' in fields[0] else 'false'
-                break
-
-    return has_string
+                if fields[0] in _chr_valid:
+                    chr_status = 'true'
+                    break
+                elif fields[0] in _chr_invalid:
+                    chr_status = 'false'
+                    break
+                else:
+                    break
+    return chr_status
 
 
 def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_vcf,
-                                     output_dir, output_prefix, sample_list):
+        output_dir, output_prefix, sample_list):
     """
     Rename chromosomes in input vcf according to a chr-renaming mapping file.
     Extract pgx regions from input_vcf based on the pgx_vcf.
@@ -181,63 +201,48 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
         tabix_index_vcf(tabix_path, input_vcf)
 
     # obtain PGx regions to be extracted
-    input_ref_pgx_pos_pandas = allel.vcf_to_dataframe(pgx_vcf)
-    input_ref_pgx_pos_pandas['CHROM'] = input_ref_pgx_pos_pandas['CHROM'].replace({'chr': ''}, regex=True).astype(
-        str).astype(int)
-    ref_pgx_regions = input_ref_pgx_pos_pandas.groupby(['CHROM'])['POS'].agg(_get_vcf_pos_min_max).reset_index()
+    df_ref_pgx_pos = allel.vcf_to_dataframe(pgx_vcf)
+    df_ref_pgx_pos['CHROM'] = df_ref_pgx_pos['CHROM'].astype("category")
+    df_ref_pgx_pos['CHROM'].cat.set_categories(_chr_valid_sorter, inplace=True)
+    ref_pgx_regions = df_ref_pgx_pos.groupby(['CHROM'])['POS'].agg(_get_vcf_pos_min_max).reset_index()
+    ref_pgx_regions.dropna(axis=0, subset=['POS'], how='any', inplace=True)
+    # add a special case for 'chrMT'
+    idx_chrM = ref_pgx_regions.index[ref_pgx_regions['CHROM'] == 'chrM']
+    ref_pgx_regions = ref_pgx_regions.append(
+        ref_pgx_regions.loc[idx_chrM].assign(**{'CHROM': 'chrMT'}), ignore_index=True)
 
-    # define the regions to be extracted
-    if _has_chr_string(input_vcf) == "true":
-        # add chromosome name with leading 'chr' to the VCF header
-        ref_pgx_regions = ",".join(
-            ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1).replace({'^': 'chr'},
-                                                                                                regex=True))
-
-        # run bcftools
-        with tempfile.NamedTemporaryFile(mode="w", dir=output_dir) as file_sample_list:
+    # generate a temp dir to extract pgx regions and rename chr if necessary
+    with tempfile.TemporaryDirectory(suffix='extract_pgx_regions', dir=output_dir) as temp_dir:
+        # generate temp file of sample list
+        file_sample_list = os.path.join(temp_dir, 'sample_list.txt')
+        with open(file_sample_list, 'w+') as f:
             for single_sample in sample_list:
-                file_sample_list.write("%s\n" % single_sample)
-            file_sample_list.seek(0)
-
-            bcftools_command = [bcftools_path, 'view', '-S', file_sample_list.name,
-                                '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
-            running_bcftools(bcftools_command,
-                             show_msg='Extracting PGx regions for %s.' % input_vcf)
-    elif _has_chr_string(input_vcf) == "false":
-        # chromosome names
-        chr_names_wo_strings = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
-                                "17", "18", "19", "20", "21", "22", "X", "Y", "M", "MT", "chrMT"]
-        chr_names_w_strings = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
-                               "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21",
-                               "chr22", "chrX", "chrY", "chrM", "chrM", "chrM"]
-        # check if two chr arrays are of the same length
-        if len(chr_names_wo_strings) != len(chr_names_w_strings):
-            print("Error in internal chromosome mapping arrays")
-            sys.exit()
+                f.write("%s\n" % single_sample)
 
         # create a temporary chromosome mapping file
-        with tempfile.NamedTemporaryFile(mode="w+", dir=output_dir) as file_rename_chrs:
-            for i in range(len(chr_names_wo_strings)):
-                file_rename_chrs.write(chr_names_wo_strings[i] + "\t" + chr_names_w_strings[i] + "\n")
-            file_rename_chrs.seek(0)
+        file_chr_rename = os.path.join(temp_dir, 'rename_chr.txt')
+        with open(file_chr_rename, 'w+') as f:
+            for i in range(len(_chr_invalid)):
+                f.write(_chr_invalid[i] + "\t" + _chr_valid[i] + "\n")
 
-            # extract pgx regions and rename chromosomes
+        # validate chromosome formats
+        if _is_valid_chr(input_vcf) == 'true':
+            # format the pgx regions to be extracted
             ref_pgx_regions = ",".join(ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1))
+        elif _is_valid_chr(input_vcf) == 'false':
+            # format pgx regions
+            ref_pgx_regions = ",".join(
+                ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1).replace({'chr': ''},
+                                                                                                    regex=True))
+        else:
+            print("The CHROM column does not comply with either 'chr##' or '##' format.")
+            sys.exit(1)
 
-            # generate a temporary file of sample names
-            with tempfile.NamedTemporaryFile(mode="w", dir=output_dir) as file_sample_list:
-                for single_sample in sample_list:
-                    file_sample_list.write("%s\n" % single_sample)
-                file_sample_list.seek(0)
-
-                # run bcftools
-                bcftools_command = [bcftools_path, 'annotate', '-S',
-                                    file_sample_list.name, '--rename-chrs', file_rename_chrs.name,
-                                    '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
-                running_bcftools(bcftools_command,
-                                 show_msg='Extracting PGx regions and modifying chromosome names for %s.' % input_vcf)
-    else:
-        print("The CHROM column does not comply with either 'chr##' or '##' format.")
+        # extract pgx regions and modify chromosome names if necessary
+        bcftools_command = [bcftools_path, 'annotate', '-S', file_sample_list, '--rename-chrs', file_chr_rename,
+                            '-r', ref_pgx_regions, '-Oz', '-o', path_output, input_vcf]
+        run_bcftools(bcftools_command,
+                     show_msg='Extracting PGx regions and modifying chromosome names for %s.' % input_vcf)
 
     # index the output PGx file
     tabix_index_vcf(tabix_path, path_output)
@@ -246,14 +251,14 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
 
 
 def extract_regions_from_multiple_files(bcftools_path, tabix_path, input_list, ref_seq, pgx_vcf,
-                                        output_dir, output_prefix, sample_list):
+        output_dir, output_prefix, sample_list):
     """
     iterarte through the list of input files
     """
 
     path_output = os.path.join(output_dir, 'PharmCAT_preprocess_' + output_prefix + '.pgx_regions.vcf.gz')
 
-    with tempfile.TemporaryDirectory(dir=output_dir) as temp_dir:
+    with tempfile.TemporaryDirectory(suffix='concat_input_vcfs', dir=output_dir) as temp_dir:
         preprocessed_file_list = []
         i = 1
         with open(input_list, 'r') as file:
@@ -267,7 +272,6 @@ def extract_regions_from_multiple_files(bcftools_path, tabix_path, input_list, r
                     i += 1
                 else:
                     print("Warning: Skip %s because the file does not exist." % line)
-        file.close()
 
         # concatenate files, requiring input file list
         with tempfile.NamedTemporaryFile(mode='w+', dir=output_dir) as temp_concat:
@@ -279,13 +283,13 @@ def extract_regions_from_multiple_files(bcftools_path, tabix_path, input_list, r
                 # concatenate vcfs
                 bcftools_command = [bcftools_path, 'concat', '-a', '-f', temp_file_list.name,
                                     '-Oz', '-o', temp_concat.name]
-                running_bcftools(bcftools_command,
-                                 show_msg='Concatenating chromosome VCFs.')
+                run_bcftools(bcftools_command,
+                             show_msg='Concatenating chromosome VCFs.')
                 # normalize concatenated vcf
                 bcftools_command = [bcftools_path, 'norm', '-m+', '-c', 'ws', '-Oz', '-o',
                                     path_output, '-f', ref_seq, temp_concat.name]
-                running_bcftools(bcftools_command,
-                                 show_msg='Normalizing chromosome VCFs.')
+                run_bcftools(bcftools_command,
+                             show_msg='Normalizing chromosome VCFs.')
 
     # index the concatenated VCF
     tabix_index_vcf(tabix_path, path_output)
@@ -308,7 +312,7 @@ def normalize_vcf(bcftools_path, tabix_path, input_vcf, ref_seq):
 
     bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-Oz', '-o',
                         path_output, '-f', ref_seq, input_vcf]
-    running_bcftools(bcftools_command, show_msg='Normalizing VCF')
+    run_bcftools(bcftools_command, show_msg='Normalizing VCF')
     tabix_index_vcf(tabix_path, path_output)
 
     return path_output
@@ -328,12 +332,12 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf, 
 
     path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.multiallelic.vcf.gz'
 
-    with tempfile.TemporaryDirectory(suffix='temp_extract_variants', dir=output_dir) as temp_dir:
+    with tempfile.TemporaryDirectory(suffix='extract_pgx_variants', dir=output_dir) as temp_dir:
         # convert reference PGx variants to the uniallelic format
         ref_pgx_uniallelic = os.path.join(temp_dir, 'temp_reference_pgx_variants_sorted_uniallelic.vcf.gz')
         bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', ref_seq,
                             '-Oz', '-o', ref_pgx_uniallelic, pgx_vcf]
-        running_bcftools(bcftools_command, show_msg='Preparing the reference PGx VCF')
+        run_bcftools(bcftools_command, show_msg='Preparing the reference PGx VCF')
         tabix_index_vcf(tabix_path, ref_pgx_uniallelic)
 
         # extract only the required PGx positions
@@ -342,37 +346,37 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf, 
         bcftools_command = [bcftools_path, 'isec', '--no-version', '-c', 'none', '-n=2', '-w2',
                             '-Oz', '-o', input_pgx_variants_only,
                             ref_pgx_uniallelic, input_vcf]
-        running_bcftools(bcftools_command, show_msg='Retaining only PGx positions')
+        run_bcftools(bcftools_command, show_msg='Retaining only PGx positions')
         tabix_index_vcf(tabix_path, input_pgx_variants_only)
 
         # merging the filtered input with the reference PGx positions for the next step
         merge_vcf = os.path.join(temp_dir, 'temp_merged.vcf.gz')
         bcftools_command = [bcftools_path, 'merge', '--no-version', '-m', 'both',
                             '-Oz', '-o', merge_vcf, input_pgx_variants_only, ref_pgx_uniallelic]
-        running_bcftools(bcftools_command,
-                         show_msg='Trimming file')
+        run_bcftools(bcftools_command,
+                     show_msg='Trimming file')
         tabix_index_vcf(tabix_path, merge_vcf)
 
         # enforce the output to comply with PharmCAT format
         multiallelic_vcf = os.path.join(temp_dir, 'temp_multiallelic.vcf.gz')
         bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-N',
                             '-Oz', '-o', multiallelic_vcf, merge_vcf]
-        running_bcftools(bcftools_command,
-                         show_msg='Enforcing the variant representation per PharmCAT')
+        run_bcftools(bcftools_command,
+                     show_msg='Enforcing the variant representation per PharmCAT')
         tabix_index_vcf(tabix_path, multiallelic_vcf)
 
         # remove the artificial PharmCAT sample
         bcftools_command = [bcftools_path, 'view', '-s', '^PharmCAT',
                             '-Oz', '-o', path_output, multiallelic_vcf]
-        running_bcftools(bcftools_command, show_msg='Trimming file')
+        run_bcftools(bcftools_command, show_msg='Trimming file')
         tabix_index_vcf(tabix_path, path_output)
 
         # report missing positions in the input VCF
         report_missing_variants = os.path.join(output_dir, output_prefix + '.missing_pgx_var.vcf.gz')
         bcftools_command = [bcftools_path, 'isec', '--no-version', '-c', 'none', '-w1',
                             '-Oz', '-o', report_missing_variants, '-C', ref_pgx_uniallelic, input_vcf]
-        running_bcftools(bcftools_command,
-                         show_msg='Generating a report of missing PGx allele defining positions')
+        run_bcftools(bcftools_command,
+                     show_msg='Generating a report of missing PGx allele defining positions')
 
     return path_output
 
@@ -389,5 +393,5 @@ def output_pharmcat_ready_vcf(bcftools_path, input_vcf, output_dir, output_prefi
         output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf')
         bcftools_command = [bcftools_path, 'view', '--no-version', '-U', '-Ov',
                             '-o', output_file_name, '-s', single_sample, input_vcf]
-        running_bcftools(bcftools_command,
-                         show_msg='Generating a PharmCAT-ready VCF for ' + single_sample)
+        run_bcftools(bcftools_command,
+                     show_msg='Generating a PharmCAT-ready VCF for ' + single_sample)
