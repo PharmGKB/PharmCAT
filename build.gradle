@@ -60,8 +60,8 @@ dependencies {
       [group: 'org.apache.commons', name: 'commons-text', version: '1.9'],
       [group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'],
       [group: 'org.checkerframework', name: 'checker-qual', version: '3.18.0'],
-      [group: 'org.pharmgkb', name: 'pgkb-common', version: '0.4.0'],
-      [group: 'org.pharmgkb', name: 'vcf-parser', version: '0.2.2'],
+      [group: 'org.pharmgkb', name: 'pgkb-common', version: '0.5.0'],
+      [group: 'org.pharmgkb', name: 'vcf-parser', version: '0.2.3'],
       [group: 'org.slf4j', name: 'slf4j-api', version: '1.7.32'],
       [group: 'com.github.jknack', name: 'handlebars', version: '4.2.0'],
   )
