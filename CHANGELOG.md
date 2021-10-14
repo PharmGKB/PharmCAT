@@ -1,3 +1,23 @@
+## [1.1.0](https://github.com/PharmGKB/PharmCAT/compare/v1.0.0...v1.1.0) (2021-10-14)
+
+
+### Features
+
+* default '--ref_pgx_vcf' to 'pharmcat_positions.vcf.bgz' in the current working directory ([eb34576](https://github.com/PharmGKB/PharmCAT/commit/eb3457642abd6a74ba1e2596624398cfb23abf2e))
+* make output directory optional ([55c244b](https://github.com/PharmGKB/PharmCAT/commit/55c244b62564fffb01ca9d4da53862bd744f364b)), closes [#68](https://github.com/PharmGKB/PharmCAT/issues/68)
+* normalize "chrMT" to "chrM" ([509c010](https://github.com/PharmGKB/PharmCAT/commit/509c010bf8381d46cda1e614f1cff4feda3e67e6))
+* output dir of preprocessor now defaults to the dir of input VCF ([c677e61](https://github.com/PharmGKB/PharmCAT/commit/c677e6175e7e4aaa1847cd0f7334d24dc849869a))
+
+
+### Bug Fixes
+
+* display version with --version flag ([f7f6bbe](https://github.com/PharmGKB/PharmCAT/commit/f7f6bbe9fe3f7808dba8e6a9863fe6c56d395ac4))
+* include URL to docs when multisample VCF is found ([6105bcb](https://github.com/PharmGKB/PharmCAT/commit/6105bcb836124aabd9d52cd5a50cb57816da4551))
+* normalize "chrom" field to chrM for mitochondria ([da2a456](https://github.com/PharmGKB/PharmCAT/commit/da2a456cd2b7707f55b3c91af99698ccca3c9676))
+* remove pre-release note in PharmCAT runtime ([81e9233](https://github.com/PharmGKB/PharmCAT/commit/81e9233b821baebbcd619f04c2b21f7e3b6b1fe7))
+* sort pharmcat_positions.vcf, add support for .bgz and .tbi of pharmcat_positions.vcf ([2434f56](https://github.com/PharmGKB/PharmCAT/commit/2434f5634cb1ed1d45484e720e103a254024f248))
+* update processor details to v1.0.0 ([ac3d001](https://github.com/PharmGKB/PharmCAT/commit/ac3d001fe35b6fa01064a0877e92ed4bc9b1f385))
+
 ## [1.0.0](https://github.com/PharmGKB/PharmCAT/compare/v0.8.0...v1.0.0) (2021-09-27)
 
 
