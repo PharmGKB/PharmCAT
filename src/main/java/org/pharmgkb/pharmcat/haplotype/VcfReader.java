@@ -149,7 +149,7 @@ public class VcfReader implements VcfLineParser {
       return;
     }
 
-    VariantLocus varLoc = null;
+    VariantLocus varLoc;
     if (m_locationsOfInterest != null) {
       varLoc = m_locationsOfInterest.get(chrPos);
       if (varLoc == null) {
@@ -206,6 +206,7 @@ public class VcfReader implements VcfLineParser {
       }
     }
 
+    // already filtered out no-calls, guaranteed to have at least 1 GT here
     int[] alleleIdxs = sf_gtDelimiter.splitAsStream(gt)
         .filter(a -> !a.equals("."))
         .mapToInt(Integer::parseInt)
@@ -214,13 +215,21 @@ public class VcfReader implements VcfLineParser {
     String a2 = ".";
     if (alleleIdxs.length > 1) {
       a2 = alleles.get(alleleIdxs[1]);
-    } else {
+      if (alleleIdxs.length > 2) {
+        addWarning(chrPos, alleleIdxs.length + " genotypes found.  Only using first 2 genotypes.");
+      }
+    } else if (!position.getChromosome().equals("chrM") &&
+        !position.getChromosome().equals("chrY")) {
+      // TODO(markwoon): need to figure out how to deal with chrX
       if (alleleIdxs[0] == 0) {
-        addWarning(chrPos, "Ignoring: only a single allele found.  Since it's reference, treating this as a missing position.");
+        // treating "./0" like any other missing position
+        addWarning(chrPos, "Ignoring: only a single genotype found.  " +
+            "Since it's reference, treating this as a missing position.");
         return;
       }
-      // missing allele is guaranteed to produce a no-call if assumeReferenceInDefinitions is true
-      addWarning(chrPos, "Only a single allele found.");
+      // going to accept "./1" because there's a variation and we want to pass this on to the reporter
+      // BUT: missing genotype is guaranteed to produce a no-call if assumeReferenceInDefinitions is true
+      addWarning(chrPos, "Only a single genotype found.");
     }
 
     // genotype divided by "|" if phased and "/" if unphased
@@ -309,7 +318,7 @@ public class VcfReader implements VcfLineParser {
     }
 
     if (problems.length() > 0) {
-      throw new ParseException("Problem at " + chrPos + ":" + System.lineSeparator() + problems.toString());
+      throw new ParseException("Problem at " + chrPos + ":" + System.lineSeparator() + problems);
     }
   }
 }
