@@ -53,18 +53,29 @@ and that they are using PharmCAT at their own risk.__
 
 Table 1: Cases for which there is an overlap in the allele definitions.
 
-| Gene   | Genotype (Higher Score) | Metabolizer phenotype | Genotype (Lower Score) | Metabolizer phenotype           |
-| ------ | ----------------------- | ----------------------| ---------------------- | ------------------------------- |
-| UGT1A1 | \*1/\*80+\*28           | Intermediate          | \*28/\*80              | Indeterminate                   |
-| UGT1A1 | \*1/\*80+\*37           | Intermediate          | \*37/\*80              | Indeterminate                   |
-| TPMT   | \*1/\*3A                | Intermediate          | \*3B/\*3C              | Poor                            |
-| NUDT15 | \*1/\*2                 | Intermediate          | \*3/\*6                | Possible Intermediate           |
-| CYP2C9 | \*1/\*71                | N/A                   | \*10/\*22              | Indeterminate                   |
-| CYP2B6 | \*1/\*36                | Intermediate          | \*6/\*22               | Intermediate                    |
-| CYP2B6 | \*1/\*34                | Intermediate          | \*33/\*36              | Indeterminate                   |
-| CYP2B6 | \*1/\*6                 | Intermediate          | \*4/\*9                | Intermediate                    |
-| CYP2B6 | \*1/\*7                 | Intermediate          | \*5/\*6                | Intermediate                    |
-| CYP2B6 | \*1/\*13                | Intermediate          | \*6/\*8                | Intermediate                    |
+| Gene    | Genotype (Higher Score) | Metabolizer phenotype | Genotype (Lower Score) | Metabolizer phenotype           |
+| ------  | ----------------------- | ----------------------| ---------------------- | ------------------------------- |
+| UGT1A1  | \*1/\*80+\*28           | Intermediate          | \*28/\*80              | Indeterminate                   |
+| UGT1A1  | \*1/\*80+\*37           | Intermediate          | \*37/\*80              | Indeterminate                   |
+| TPMT    | \*1/\*3A                | Intermediate          | \*3B/\*3C              | Poor                            |
+| NUDT15  | \*1/\*2                 | Intermediate          | \*3/\*6                | Possible Intermediate           |
+| CYP2C9  | \*1/\*71                | N/A                   | \*10/\*22              | Indeterminate                   |
+| CYP2B6  | \*1/\*36                | Intermediate          | \*6/\*22               | Intermediate                    |
+| CYP2B6  | \*1/\*34                | Intermediate          | \*33/\*36              | Indeterminate                   |
+| CYP2B6  | \*1/\*6                 | Intermediate          | \*4/\*9                | Intermediate                    |
+| CYP2B6  | \*1/\*7                 | Intermediate          | \*5/\*6                | Intermediate                    |
+| CYP2B6  | \*1/\*13                | Intermediate          | \*6/\*8                | Intermediate                    |
+| SLCO1B1 | \*1/\*46                | Decreased function    | \*15/\*45              | Indeterminate                   |
+| SLCO1B1 | \*1/\*20                | Normal Function       | \*19/\*37              | Indeterminate                   |
+| SLCO1B1 | \*1/\*12                | Indeterminate         | \*2/\*10               | Indeterminate                   |
+| SLCO1B1 | \*1/\*13                | Indeterminate         | \*3/\*11               | Indeterminate                   |
+| SLCO1B1 | \*1/\*14                | Normal Function       | \*4/\*37               | Indeterminate                   |
+| SLCO1B1 | \*1/\*15                | Decreased function    | \*5/\*37               | Decreased function              |
+| SLCO1B1 | \*1/\*25                | Indeterminate         | \*4/\*28               | Indeterminate                   |
+| SLCO1B1 | \*1/\*31                | Decreased function    | \*9/\*37               | Indeterminate                   |
+| SLCO1B1 | \*1/\*32                | Indeterminate         | \*4/\*24               | Indeterminate                   |
+| SLCO1B1 | \*1/\*40                | Indeterminate         | \*5/\*19               | Indeterminate                   |
+| SLCO1B1 | \*1/\*43                | Indeterminate         | \*4/\*44               | Indeterminate                   |
 
 Table 2: Cases for which there is an overlap in the allele definitions because the definition of the non-\*1 allele in
 the genotype with the higher score allows for reference or variant at the position that defines the first allele listed
