@@ -37,6 +37,8 @@ def run(args):
     except:
         print('Error: %s not found or not executable' % tabix_path)
         sys.exit(1)
+    # validate bgzip
+    bgzip_path = args.path_to_bgzip if args.path_to_bgzip else 'bgzip'
 
     # validate the reference vcf of PharmCAT PGx positions
     pgx_vcf = args.ref_pgx_vcf
@@ -57,6 +59,10 @@ def run(args):
         output_dir = args.output_folder
     elif input_vcf:
         output_dir = os.path.split(input_vcf)[0]
+        if not os.path.exists(input_vcf):
+            print("Cannot find", input_vcf)
+            sys.exit(1)
+        input_vcf = util.bgzipped_vcf(bgzip_path, input_vcf)
     else:
         with open(input_list, 'r') as file:
             for line in file:
@@ -67,7 +73,19 @@ def run(args):
     # create the output folder
     Path(output_dir).mkdir(parents=True, exist_ok=True)
     # download the human reference sequence if not provided
-    ref_seq = util.download_grch38_ref_fasta_and_index(output_dir) if not args.ref_seq else args.ref_seq
+    if args.ref_seq:
+        ref_seq = args.ref_seq
+    else:
+        if os.path.exists(os.path.join(output_dir, 'reference.fasta.bgz')):
+            ref_seq = os.path.join(output_dir, 'reference.fasta.bgz')
+            print("Using default FASTA reference at ", ref_seq)
+        elif os.path.exists(os.path.join(os.getcwd(), 'reference.fasta.bgz')):
+            ref_seq = os.path.join(os.getcwd(), 'reference.fasta.bgz')
+            print("Using default FASTA reference at ", ref_seq)
+        else:
+            ref_seq = util.get_default_grch38_ref_fasta_and_index(output_dir)
+            print("Downloaded to %s" % ref_seq)
+
 
     # index ref_pgx_vcf if not indexed
     if not os.path.exists(pgx_vcf + '.tbi'):
@@ -100,7 +118,7 @@ def run(args):
     # shrink input VCF down to PGx allele defining regions and selected samples
     # modify input VCF chromosomes naming format to <chr##>
     if input_list:
-        vcf_pgx_regions = util.extract_regions_from_multiple_files(bcftools_path, tabix_path, input_list, ref_seq,
+        vcf_pgx_regions = util.extract_regions_from_multiple_files(bcftools_path, tabix_path, bgzip_path, input_list,
                                                                    pgx_vcf, output_dir, output_prefix, sample_list)
     else:
         vcf_pgx_regions = util.extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf,
@@ -137,9 +155,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Prepare an input VCF for the PharmCAT')
 
     # list arguments
-    parser.add_argument("--input_vcf", type=str, help="Load a compressed VCF file.")
+    parser.add_argument("--input_vcf", type=str, help="Path to a VCF file.")
     parser.add_argument("--input_list", type=str,
-                        help="A sorted list of by-chromosome, compressed VCF file names.")
+                        help="A file containing paths to VCF files (one file per line)")
     parser.add_argument("--ref_pgx_vcf", type=str,
                         default=os.path.join(os.getcwd(), "pharmcat_positions.vcf.bgz"),
                         help="A sorted VCF of PharmCAT PGx variants, gzipped with preprocessor scripts. Default = "
@@ -152,6 +170,8 @@ if __name__ == "__main__":
                         help="(Optional) an alternative path to the executable bcftools.")
     parser.add_argument("--path_to_tabix",
                         help="(Optional) an alternative path to the executable tabix.")
+    parser.add_argument("--path_to_bgzip",
+                        help="(Optional) an alternative path to the executable bgzip.")
     parser.add_argument("--output_folder", type=str,
                         help="(Optional) directory for outputs, by default, directory of the first input VCF.")
     parser.add_argument("--output_prefix", default='pharmcat_ready_vcf', type=str,
