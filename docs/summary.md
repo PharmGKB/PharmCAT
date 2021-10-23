@@ -24,7 +24,7 @@ The `NamedAlleleMatcher` will search the given sample file for locations associa
 - IFNL3 (2 alleles)
 - NUDT15 (20 alleles)
 - RYR1 (49 alleles)
-- SLCO1B1 (37 alleles)
+- SLCO1B1 (42 alleles)
 - TPMT (46 alleles)
 - UGT1A1 (9 alleles)
 - VKORC1 (2 alleles)

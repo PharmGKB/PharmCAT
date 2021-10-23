@@ -3,11 +3,11 @@
     "namedAlleleMatcherVersion": "1.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat_positions.vcf",
-    "timestamp": "Oct 6, 2021, 10:22:20 AM"
+    "timestamp": "Oct 23, 2021, 12:02:00 AM"
   },
   "results": [
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr1",
       "gene": "CACNA1S",
       "diplotypes": [
@@ -58,7 +58,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr7",
       "gene": "CFTR",
       "diplotypes": [
@@ -294,7 +294,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr19",
       "gene": "CYP2B6",
       "diplotypes": [
@@ -510,7 +510,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
@@ -721,7 +721,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr10",
       "gene": "CYP2C9",
       "diplotypes": [
@@ -1098,7 +1098,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr7",
       "gene": "CYP3A5",
       "diplotypes": [
@@ -1179,7 +1179,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr19",
       "gene": "CYP4F2",
       "diplotypes": [
@@ -1230,7 +1230,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr1",
       "gene": "DPYD",
       "diplotypes": [
@@ -1686,7 +1686,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr19",
       "gene": "IFNL3",
       "diplotypes": [
@@ -1732,7 +1732,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr13",
       "gene": "NUDT15",
       "diplotypes": [
@@ -1858,7 +1858,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr19",
       "gene": "RYR1",
       "diplotypes": [
@@ -2119,42 +2119,37 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr12",
       "gene": "SLCO1B1",
       "diplotypes": [
         {
-          "name": "*1A/*1A",
+          "name": "*1/*1",
           "haplotype1": {
-            "name": "*1A",
+            "name": "*1",
             "sequences": [
-              "21130388:G;21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176827:G;21176868:A;21176879:C;21176883:A;21178615:T;21178665:T;21178672:T;21178691:C;21178957:A;21196951:A;21196976:G;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
+              "21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176868:A;21176871:G;21176879:C;21176883:A;21176898:G;21178612:A;21178615:T;21178957:A;21196951:A;21196975:C;21196976:G;21200544:C;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21206031:A;21222355:C;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
             ]
           },
           "haplotype2": {
-            "name": "*1A",
+            "name": "*1",
             "sequences": [
-              "21130388:G;21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176827:G;21176868:A;21176879:C;21176883:A;21178615:T;21178665:T;21178672:T;21178691:C;21178957:A;21196951:A;21196976:G;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
+              "21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176868:A;21176871:G;21176879:C;21176883:A;21176898:G;21178612:A;21178615:T;21178957:A;21196951:A;21196975:C;21196976:G;21200544:C;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21206031:A;21222355:C;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
             ]
           },
-          "score": 58
+          "score": 62
         }
       ],
       "haplotypes": [
         {
-          "name": "*1A",
+          "name": "*1",
           "sequences": [
-            "21130388:G;21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176827:G;21176868:A;21176879:C;21176883:A;21178615:T;21178665:T;21178672:T;21178691:C;21178957:A;21196951:A;21196976:G;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
+            "21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176868:A;21176871:G;21176879:C;21176883:A;21176898:G;21178612:A;21178615:T;21178957:A;21196951:A;21196975:C;21196976:G;21200544:C;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21206031:A;21222355:C;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
           ]
         }
       ],
       "phased": true,
       "variants": [
-        {
-          "position": 21130388,
-          "rsid": "rs4149015",
-          "vcfCall": "G|G"
-        },
         {
           "position": 21172734,
           "rsid": "rs139257324",
@@ -2181,14 +2176,14 @@
           "vcfCall": "A|A"
         },
         {
-          "position": 21176827,
-          "rsid": "rs11045818",
-          "vcfCall": "G|G"
-        },
-        {
           "position": 21176868,
           "rsid": "rs2306282",
           "vcfCall": "A|A"
+        },
+        {
+          "position": 21176871,
+          "rsid": null,
+          "vcfCall": "G|G"
         },
         {
           "position": 21176879,
@@ -2201,24 +2196,19 @@
           "vcfCall": "A|A"
         },
         {
+          "position": 21176898,
+          "rsid": "rs77271279",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 21178612,
+          "rsid": "rs141467543",
+          "vcfCall": "A|A"
+        },
+        {
           "position": 21178615,
           "rsid": "rs4149056",
           "vcfCall": "T|T"
-        },
-        {
-          "position": 21178665,
-          "rsid": "rs4149057",
-          "vcfCall": "T|T"
-        },
-        {
-          "position": 21178672,
-          "rsid": "rs72559746",
-          "vcfCall": "T|T"
-        },
-        {
-          "position": 21178691,
-          "rsid": "rs2291075",
-          "vcfCall": "C|C"
         },
         {
           "position": 21178957,
@@ -2231,9 +2221,19 @@
           "vcfCall": "A|A"
         },
         {
+          "position": 21196975,
+          "rsid": "rs183501729",
+          "vcfCall": "C|C"
+        },
+        {
           "position": 21196976,
           "rsid": "rs11045853",
           "vcfCall": "G|G"
+        },
+        {
+          "position": 21200544,
+          "rsid": "rs72559747",
+          "vcfCall": "C|C"
         },
         {
           "position": 21200595,
@@ -2242,7 +2242,7 @@
         },
         {
           "position": 21202553,
-          "rsid": null,
+          "rsid": "rs1228465562",
           "vcfCall": "T|T"
         },
         {
@@ -2269,6 +2269,16 @@
           "position": 21205999,
           "rsid": "rs59502379",
           "vcfCall": "G|G"
+        },
+        {
+          "position": 21206031,
+          "rsid": "rs74064213",
+          "vcfCall": "A|A"
+        },
+        {
+          "position": 21222355,
+          "rsid": "rs71581941",
+          "vcfCall": "C|C"
         },
         {
           "position": 21239042,
@@ -2305,7 +2315,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr6",
       "gene": "TPMT",
       "diplotypes": [
@@ -2561,7 +2571,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr2",
       "gene": "UGT1A1",
       "diplotypes": [
@@ -2622,7 +2632,7 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/27/21",
+      "alleleDefinitionVersion": "10/22/21",
       "chromosome": "chr16",
       "gene": "VKORC1",
       "diplotypes": [

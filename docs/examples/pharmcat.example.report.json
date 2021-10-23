@@ -1,7 +1,7 @@
 {
   "totalGenes": 18,
-  "pharmcatVersion": "v1.0.0-7-g5fcb0a7\n",
-  "generatedOn": "October 06, 2021",
+  "pharmcatVersion": "v1.1.0-5-g15e5977\n",
+  "generatedOn": "October 23, 2021",
   "geneCalls": [
     {
       "diplotypes": [
@@ -4652,7 +4652,7 @@
     },
     {
       "diplotypes": [
-        "*1A/*1A",
+        "*1/*1",
         "rs4149056T/rs4149056T"
       ],
       "gene": "SLCO1B1",
@@ -4661,22 +4661,8 @@
       "outsideCall": false,
       "messages": [],
       "totalMissingVariants": 0,
-      "totalVariants": 29,
+      "totalVariants": 31,
       "variants": [
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21130388,
-          "dbSnpId": "rs4149015",
-          "call": "G|G",
-          "alleles": [
-            "*17",
-            "*21"
-          ],
-          "phased": true,
-          "wildtypeAllele": "G",
-          "mismatch": false
-        },
         {
           "gene": "SLCO1B1",
           "chromosome": "chr12",
@@ -4738,13 +4724,9 @@
           "dbSnpId": "rs2306283",
           "call": "A|A",
           "alleles": [
-            "*1B",
             "*14",
             "*15",
-            "*17",
-            "*18",
             "*20",
-            "*21",
             "*24",
             "*25",
             "*27",
@@ -4754,23 +4736,16 @@
             "*31",
             "*32",
             "*33",
-            "*35"
+            "*37",
+            "*39",
+            "*42",
+            "*43",
+            "*44",
+            "*46",
+            "*47"
           ],
           "phased": true,
           "wildtypeAllele": "A",
-          "mismatch": false
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21176827,
-          "dbSnpId": "rs11045818",
-          "call": "G|G",
-          "alleles": [
-            "*18"
-          ],
-          "phased": true,
-          "wildtypeAllele": "G",
           "mismatch": false
         },
         {
@@ -4789,15 +4764,28 @@
         {
           "gene": "SLCO1B1",
           "chromosome": "chr12",
+          "position": 21176871,
+          "dbSnpId": null,
+          "call": "G|G",
+          "alleles": [
+            "*38"
+          ],
+          "phased": true,
+          "wildtypeAllele": "G",
+          "mismatch": false
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
           "position": 21176879,
           "dbSnpId": "rs11045819",
           "call": "C|C",
           "alleles": [
             "*4",
             "*14",
-            "*18",
             "*25",
-            "*32"
+            "*32",
+            "*43"
           ],
           "phased": true,
           "wildtypeAllele": "C",
@@ -4820,57 +4808,44 @@
         {
           "gene": "SLCO1B1",
           "chromosome": "chr12",
+          "position": 21176898,
+          "dbSnpId": "rs77271279",
+          "call": "G|G",
+          "alleles": [
+            "*41"
+          ],
+          "phased": true,
+          "wildtypeAllele": "G",
+          "mismatch": false
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21178612,
+          "dbSnpId": "rs141467543",
+          "call": "A|A",
+          "alleles": [
+            "*42"
+          ],
+          "phased": true,
+          "wildtypeAllele": "A",
+          "mismatch": false
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
           "position": 21178615,
           "dbSnpId": "rs4149056",
           "call": "T|T",
           "alleles": [
             "*5",
             "*15",
-            "*17"
+            "*40",
+            "*46",
+            "*47"
           ],
           "phased": true,
           "wildtypeAllele": "T",
-          "mismatch": false
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21178665,
-          "dbSnpId": "rs4149057",
-          "call": "T|T",
-          "alleles": [
-            "*18",
-            "*19"
-          ],
-          "phased": true,
-          "wildtypeAllele": "T",
-          "mismatch": false
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21178672,
-          "dbSnpId": "rs72559746",
-          "call": "T|T",
-          "alleles": [
-            "*18"
-          ],
-          "phased": true,
-          "wildtypeAllele": "T",
-          "mismatch": false
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21178691,
-          "dbSnpId": "rs2291075",
-          "call": "C|C",
-          "alleles": [
-            "*20",
-            "*21"
-          ],
-          "phased": true,
-          "wildtypeAllele": "C",
           "mismatch": false
         },
         {
@@ -4897,10 +4872,25 @@
             "*25",
             "*28",
             "*32",
-            "*33"
+            "*33",
+            "*43",
+            "*44"
           ],
           "phased": true,
           "wildtypeAllele": "A",
+          "mismatch": false
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21196975,
+          "dbSnpId": "rs183501729",
+          "call": "C|C",
+          "alleles": [
+            "*39"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
           "mismatch": false
         },
         {
@@ -4921,6 +4911,19 @@
         {
           "gene": "SLCO1B1",
           "chromosome": "chr12",
+          "position": 21200544,
+          "dbSnpId": "rs72559747",
+          "call": "C|C",
+          "alleles": [
+            "*47"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
+          "mismatch": false
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
           "position": 21200595,
           "dbSnpId": "rs55901008",
           "call": "T|T",
@@ -4935,7 +4938,7 @@
           "gene": "SLCO1B1",
           "chromosome": "chr12",
           "position": 21202553,
-          "dbSnpId": null,
+          "dbSnpId": "rs1228465562",
           "call": "T|T",
           "alleles": [
             "*36"
@@ -5013,14 +5016,41 @@
         {
           "gene": "SLCO1B1",
           "chromosome": "chr12",
+          "position": 21206031,
+          "dbSnpId": "rs74064213",
+          "call": "A|A",
+          "alleles": [
+            "*43",
+            "*44"
+          ],
+          "phased": true,
+          "wildtypeAllele": "A",
+          "mismatch": false
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21222355,
+          "dbSnpId": "rs71581941",
+          "call": "C|C",
+          "alleles": [
+            "*45",
+            "*46"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
+          "mismatch": false
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
           "position": 21239042,
           "dbSnpId": "rs34671512",
           "call": "A|A",
           "alleles": [
             "*19",
             "*20",
-            "*22",
-            "*35"
+            "*40"
           ],
           "phased": true,
           "wildtypeAllele": "A",
@@ -5782,7 +5812,7 @@
     }
   ],
   "calledGenes": 18,
-  "cpicVersion": "v1.9-6-g51757b9",
+  "cpicVersion": "v1.10",
   "genotypes": [
     {
       "phenotype": [
@@ -6336,7 +6366,7 @@
     },
     {
       "phenotype": [
-        "Normal Function"
+        "Normal function"
       ],
       "called": true,
       "functions": [
@@ -6350,7 +6380,7 @@
         }
       ],
       "calls": [
-        "*1A/*1A"
+        "*1/*1"
       ],
       "missingVariants": "No",
       "outsideCall": false,
@@ -6746,42 +6776,6 @@
         {
           "annotations": [
             {
-              "annotation": "adults",
-              "term": "Population"
-            },
-            {
-              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "pediatrics",
               "term": "Population"
             },
@@ -6811,6 +6805,42 @@
             },
             {
               "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "adults",
+              "term": "Population"
+            },
+            {
+              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
               "term": "Comments"
             }
           ]
@@ -10859,7 +10889,7 @@
       "geneCalls": [
         {
           "gene": "SLCO1B1",
-          "diplotypes": "*1A/*1A",
+          "diplotypes": "*1/*1",
           "showHighlights": true,
           "highlightedVariants": [
             "rs4149056T/rs4149056T"
@@ -10881,11 +10911,11 @@
               "term": "Implication for SLCO1B1"
             },
             {
-              "annotation": "SLCO1B1:*1A/*1A",
+              "annotation": "SLCO1B1:*1/*1",
               "term": "Matched Diplotypes"
             },
             {
-              "annotation": "Normal Function",
+              "annotation": "Normal function",
               "term": "Phenotype for SLCO1B1"
             },
             {
@@ -10961,7 +10991,8 @@
         }
       ],
       "messages": [
-        "SLCO1B1 star allele nomenclature represents various SNPs alone or in combination. The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.\u003cbr\u003e\u003cbr\u003eIn case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 defines SLCO1B1*5."
+        "SLCO1B1 star allele nomenclature represents various SNPs alone or in combination. The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.\u003cbr\u003e\u003cbr\u003eIn case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 defines SLCO1B1*5.",
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:36567",

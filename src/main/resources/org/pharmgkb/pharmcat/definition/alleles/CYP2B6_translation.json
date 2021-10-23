@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
-  "cpicVersion": "v1.9-6-g51757b9",
-  "modificationDate": "Sep 27, 2021 11:27:29 AM",
+  "cpicVersion": "v1.10",
+  "modificationDate": "Oct 22, 2021 03:33:56 PM",
   "gene": "CYP2B6",
   "orientation": null,
   "chromosome": "chr19",
@@ -660,7 +660,7 @@
       "position": 41016810,
       "cpicPosition": 41016810,
       "rsid": "rs3211371",
-      "chromosomeHgvsName": "g.41016810C>T; g.41016810C>A",
+      "chromosomeHgvsName": "g.41016810C>A; g.41016810C>T",
       "cpicAlleles": [
         "A",
         "C",
