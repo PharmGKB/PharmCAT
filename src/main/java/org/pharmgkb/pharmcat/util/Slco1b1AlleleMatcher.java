@@ -67,19 +67,19 @@ public class Slco1b1AlleleMatcher {
   /**
    * Make a diplotype string based off of the calls for the given variant
    * @param variant a {@link VariantReport} for rs4149056
-   * @return a String diplotype in the form "*1A/*5"
+   * @return a String diplotype in the form "*1/*5"
    */
   private static String makeDiplotype(VariantReport variant) {
     String[] alleles = variant.getCall().split(sf_vcfCallSplitter);
 
     if (Arrays.equals(alleles, new String[]{"T","T"})) {
-      return "*1A/*1A";
+      return "*1/*1";
     }
     else if (Arrays.equals(alleles, new String[]{"C","C"})) {
       return "*5/*5";
     }
     else if ((Arrays.equals(alleles, new String[]{"T","C"})) || (Arrays.equals(alleles, new String[]{"C","T"}))) {
-      return "*1A/*5";
+      return "*1/*5";
     }
     else {
       throw new ParseException("Unexpected genotype for " + variant);

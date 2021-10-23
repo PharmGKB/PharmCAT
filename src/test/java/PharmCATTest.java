@@ -366,23 +366,6 @@ class PharmCATTest {
   }
 
   @Test
-  void testSlco1b1Test1() throws Exception {
-    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("slco1b1.s17s21", false);
-    testWrapper.getVcfBuilder()
-        .reference("SLCO1B1")
-        .variation("SLCO1B1", "rs4149015", "A", "A")
-        .variation("SLCO1B1", "rs2306283", "G", "G")
-        .variation("SLCO1B1", "rs4149056", "T", "C")
-        .variation("SLCO1B1", "rs2291075", "C", "T");
-    testWrapper.execute(s_outsideCallFilePath);
-
-
-    testWrapper.testCalledByMatcher("SLCO1B1");
-    testWrapper.testPrintCalls("SLCO1B1", "*17/*21");
-    testWrapper.testLookup("SLCO1B1", "*17", "*21");
-  }
-
-  @Test
   void testSlco1b1HomWild() throws Exception {
     s_pharmcatTopMatch.execute("test.slco1b1.hom.wild", new String[]{
             "SLCO1B1/s1as1a.vcf"
@@ -390,8 +373,8 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("SLCO1B1");
-    s_pharmcatTopMatch.testPrintCalls("SLCO1B1", "*1A/*1A");
-    s_pharmcatTopMatch.testLookup("SLCO1B1", "*1A");
+    s_pharmcatTopMatch.testPrintCalls("SLCO1B1", "*1/*1");
+    s_pharmcatTopMatch.testLookup("SLCO1B1", "*1");
 
     GeneReport slco1b1Report = s_pharmcatTopMatch.getContext().getGeneReport("SLCO1B1");
     assertTrue(slco1b1Report.getHighlightedVariants().contains("rs4149056T/rs4149056T"));
@@ -417,8 +400,8 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("SLCO1B1");
-    s_pharmcatTopMatch.testPrintCalls("SLCO1B1", "*1A/*15");
-    s_pharmcatTopMatch.testLookup("SLCO1B1", "*1A", "*15");
+    s_pharmcatTopMatch.testPrintCalls("SLCO1B1", "*1/*15");
+    s_pharmcatTopMatch.testLookup("SLCO1B1", "*1", "*15");
   }
 
   @Test
@@ -492,7 +475,7 @@ class PharmCATTest {
 
     s_pharmcatTopMatch.testNotCalledByMatcher("SLCO1B1");
     s_pharmcatTopMatch.testPrintCalls("SLCO1B1", "rs4149056T/rs4149056C");
-    s_pharmcatTopMatch.testLookup("SLCO1B1", "*1A", "*5");
+    s_pharmcatTopMatch.testLookup("SLCO1B1", "*1", "*5");
 
     s_pharmcatTopMatch.testMatchedGroups("simvastatin", 1);
   }

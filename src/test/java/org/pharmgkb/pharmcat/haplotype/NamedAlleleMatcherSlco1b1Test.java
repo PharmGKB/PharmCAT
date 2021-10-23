@@ -31,7 +31,7 @@ class NamedAlleleMatcherSlco1b1Test {
     // Test *1/*1
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as1a.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1A/*1A");
+    List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -53,7 +53,7 @@ class NamedAlleleMatcherSlco1b1Test {
     // Test *1a/*15. Except we can't distinguish *1B/*5.
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5");
+    List<String> expectedMatches = Lists.newArrayList("*1/*15","*5/*37");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -61,7 +61,7 @@ class NamedAlleleMatcherSlco1b1Test {
 
   @Test
   void slco1b1s1as15s1bs5Missing() throws Exception {
-    /* Test *1a/*15. Except we can't distinguish *1B/*5.
+    /* Test *1/*15. Except we can't distinguish *5/*37.
 
     However in this case we are missing the final position in the file:
     chr12	21239158	rs140790673	C	T	.	PASS	assume-default	GT	0/0
@@ -73,7 +73,7 @@ class NamedAlleleMatcherSlco1b1Test {
      */
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5missing.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5", "*5/*29");
+    List<String> expectedMatches = Lists.newArrayList("*1/*15", "*5/*29", "*5/*37");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
@@ -86,41 +86,14 @@ class NamedAlleleMatcherSlco1b1Test {
       chr12	21239158	rs140790673	C	T	.	PASS	second-star-29	GT	0/0
 
 
-    *1a/*15. Except we can't distinguish *1B/*5. *5/*29 Matches as well,
-     because the first position matches.  However this shows difference from
+    *1/*15. Except we can't distinguish *5/*37. *5/*29 Matches as well,
+     because the first position matches.  However, this shows difference from
      single missing position. This time *34 should be reported as 'can't call'
      while *29 should be reported as ony partially called.
-
-     TODO: test passes, but we need to make sure the output makes this distinction clear
      */
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5twomissing.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5", "*5/*29");
-
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
-  }
-
-
-  @Test
-  void s1as15s1bs5NotCalled() throws Exception {
-    // Test *1a/*15. Except we can't distinguish *1B/*5 or *5/*29, because final position is ./.
-
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5notcalled.vcf");
-    // same as above, but using ./. to signify missing snp.
-    List<String> expectedMatches = Lists.newArrayList("*1A/*15","*1B/*5", "*5/*29");
-
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
-  }
-
-
-  @Test
-  void slco1b17s1bs21() throws Exception {
-    // Test *17/*21
-
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s17s21.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*17/*21");
+    List<String> expectedMatches = Lists.newArrayList("*1/*15", "*5/*29", "*5/*37");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
