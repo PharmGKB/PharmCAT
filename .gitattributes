@@ -59,6 +59,11 @@ gradlew          text eol=lf
 *.yml            text
 
 #
+# PharmCAT specific
+#
+src/scripts/pharmcat    text eol=lf
+
+#
 # Binary files should be left alone (binary is a macro for -text -diff)
 #
 *.ai      binary

@@ -23,37 +23,48 @@ RUN apt-get update && \
     apt-get -y install --no-install-recommends adoptopenjdk-16-hotspot
 
 
-ENV BCFTOOLS_VERSION 1.13
-ENV HTSLIB_VERSION 1.13
+ENV BCFTOOLS_VERSION 1.14
+ENV HTSLIB_VERSION 1.14
+ENV SAMTOOLS_VERSION 1.14
 
 # download the suite of tools
 WORKDIR /usr/local/bin/
-RUN wget https://github.com/samtools/bcftools/releases/download/${BCFTOOLS_VERSION}/bcftools-${BCFTOOLS_VERSION}.tar.bz2
 RUN wget https://github.com/samtools/htslib/releases/download/${HTSLIB_VERSION}/htslib-${HTSLIB_VERSION}.tar.bz2
+RUN wget https://github.com/samtools/bcftools/releases/download/${BCFTOOLS_VERSION}/bcftools-${BCFTOOLS_VERSION}.tar.bz2
+RUN wget https://github.com/samtools/samtools/releases/download/${SAMTOOLS_VERSION}/samtools-${SAMTOOLS_VERSION}.tar.bz2
 
 # extract files for the suite of tools
-RUN tar -xjf /usr/local/bin/bcftools-${BCFTOOLS_VERSION}.tar.bz2 -C /usr/local/bin/
 RUN tar -xjf /usr/local/bin/htslib-${HTSLIB_VERSION}.tar.bz2 -C /usr/local/bin/
+RUN tar -xjf /usr/local/bin/bcftools-${BCFTOOLS_VERSION}.tar.bz2 -C /usr/local/bin/
+RUN tar -xjf /usr/local/bin/samtools-${SAMTOOLS_VERSION}.tar.bz2 -C /usr/local/bin/
 
 # compile tools
 RUN cd /usr/local/bin/htslib-${HTSLIB_VERSION}/ && ./configure
 RUN cd /usr/local/bin/htslib-${HTSLIB_VERSION}/ && make && make install
+RUN cd /usr/local/bin/bcftools-${BCFTOOLS_VERSION}/ && ./configure
 RUN cd /usr/local/bin/bcftools-${BCFTOOLS_VERSION}/ && make && make install
+RUN cd /usr/local/bin/samtools-${SAMTOOLS_VERSION}/ && ./configure
+RUN cd /usr/local/bin/samtools-${SAMTOOLS_VERSION}/ && make && make install
 
 # cleanup
-RUN rm -f /usr/local/bin/bcftools-${BCFTOOLS_VERSION}.tar.bz2
+RUN rm  -f /usr/local/bin/bcftools-${BCFTOOLS_VERSION}.tar.bz2
 RUN rm -rf /usr/local/bin/bcftools-${BCFTOOLS_VERSION}
-RUN rm -f /usr/local/bin/htslib-${HTSLIB_VERSION}.tar.bz2
+RUN rm  -f /usr/local/bin/htslib-${HTSLIB_VERSION}.tar.bz2
 RUN rm -rf /usr/local/bin/htslib-${HTSLIB_VERSION}
+RUN rm  -f /usr/local/bin/samtools-${SAMTOOLS_VERSION}.tar.bz2
+RUN rm -rf /usr/local/bin/samtools-${SAMTOOLS_VERSION}
 
-# add pharmcat scritps
 RUN mkdir /pharmcat
 WORKDIR /pharmcat
-COPY src/scripts/preprocessor/* ./
+# setup python env
+COPY src/scripts/preprocessor/PharmCAT_VCF_Preprocess_py3_requirements.txt ./
 RUN pip3 install -r PharmCAT_VCF_Preprocess_py3_requirements.txt
-RUN python -c 'import vcf_preprocess_utilities as utils; utils.download_grch38_ref_fasta_and_index("/pharmcat", "/pharmcat/reference.fasta")'
-RUN rm *.fna.gz
+# download fasta files
+RUN wget https://zenodo.org/record/5572839/files/GRCh38_reference_fasta.tar
+RUN tar -xf GRCh38_reference_fasta.tar
 
+# add pharmcat scripts
+COPY src/scripts/preprocessor/*.py ./
+COPY src/scripts/pharmcat ./
 COPY pharmcat_positions.vcf* ./
 COPY build/pharmcat.jar ./
-COPY src/scripts/pharmcat.sh ./
