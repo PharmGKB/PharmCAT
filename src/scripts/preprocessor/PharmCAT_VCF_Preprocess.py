@@ -157,7 +157,7 @@ if __name__ == "__main__":
     # list arguments
     parser.add_argument("--input_vcf", type=str, help="Path to a VCF file.")
     parser.add_argument("--input_list", type=str,
-                        help="A file containing paths to VCF files (one file per line)")
+                        help="A file containing paths to VCF files (one file per line), sorted by chromosome")
     parser.add_argument("--ref_pgx_vcf", type=str,
                         default=os.path.join(os.getcwd(), "pharmcat_positions.vcf.bgz"),
                         help="A sorted VCF of PharmCAT PGx variants, gzipped with preprocessor scripts. Default = "
