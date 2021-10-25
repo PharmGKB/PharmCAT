@@ -27,7 +27,7 @@ _chr_valid_sorter = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "ch
 # check if two chr arrays are of the same length
 if len(_chr_invalid) != len(_chr_valid):
     print("Error in internal chromosome mapping arrays")
-    sys.exit()
+    sys.exit(1)
 
 
 def is_gz_file(filepath):
@@ -45,7 +45,8 @@ def bgzip_file(bgzip_path, vcf_path):
         subprocess.run([bgzip_path, '-f', vcf_path], check=True)
     except Exception as e:
         print('Failed to bgzip %s' % vcf_path)
-        # traceback.print_exception(type(e), e, e.__traceback__)
+        # comment off this traceback function as subprocess(check = true) shoudl report detailed errors
+        #traceback.print_exception(type(e), e, e.__traceback__)
         sys.exit(1)
 
 
@@ -120,11 +121,12 @@ def tabix_index_vcf(tabix_path, vcf_path):
     """
 
     try:
-        print("Generating index (" + vcf_path + '.tbi)')
+        print('Generating index (' + vcf_path + '.tbi)')
         subprocess.run([tabix_path, '-p', 'vcf', vcf_path], check=True)
     except Exception as e:
         print('Failed to index %s' % vcf_path)
-        # traceback.print_exception(type(e), e, e.__traceback__)
+        # comment off this traceback function as subprocess(check = true) shoudl report detailed errors
+        #traceback.print_exception(type(e), e, e.__traceback__)
         sys.exit(1)
 
 
@@ -228,7 +230,7 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
     ref_pgx_regions = ref_pgx_regions.append(
         ref_pgx_regions.loc[idx_chrM].assign(**{'CHROM': 'chrMT'}), ignore_index=True)
 
-    # generate a temp dir to extract pgx regions and rename chr if necessary
+    # generate a temp dir to extract pgx regions and, if necessary, rename chr
     with tempfile.TemporaryDirectory(suffix='extract_pgx_regions', dir=output_dir) as temp_dir:
         # generate temp file of sample list
         file_sample_list = os.path.join(temp_dir, 'sample_list.txt')

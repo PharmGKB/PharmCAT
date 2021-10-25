@@ -18,11 +18,6 @@ def run(args):
     """
     validate arguments
     """
-    # validate input
-    if bool(args.input_vcf) == bool(args.input_list):
-        print("Invalid input file(s). Provide either [--input_vcf] or [--input_list].")
-        sys.exit(1)
-
     # validate bcftools
     bcftools_path = args.path_to_bcftools if args.path_to_bcftools else 'bcftools'
     try:
@@ -39,6 +34,31 @@ def run(args):
         sys.exit(1)
     # validate bgzip
     bgzip_path = args.path_to_bgzip if args.path_to_bgzip else 'bgzip'
+    try:
+        subprocess.run([bgzip_path, '-h'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except:
+        print('Error: %s not found or not executable' % bgzip_path)
+        sys.exit(1)
+
+    # validate input
+    input_list = args.input_list
+    input_vcf = args.input_vcf
+    # check input arguments. can only take one of the two input options
+    if bool(input_vcf) == bool(input_list):
+        print("Invalid input file(s). Provide either [--input_vcf] or [--input_list].")
+        sys.exit(1)
+    # if single input vcf, validate and bgzip
+    if input_vcf:
+        if not os.path.exists(input_vcf):
+            print("Cannot find", input_vcf)
+            sys.exit(1)
+        # compress if the input vcf is not bgzipped
+        input_vcf = util.bgzipped_vcf(bgzip_path, input_vcf)
+    # if a list of vcfs, validate the list file; and bgzip later
+    if input_list:
+        if not os.path.exists(input_list):
+            print("Cannot find", input_list)
+            sys.exit(1)
 
     # validate the reference vcf of PharmCAT PGx positions
     pgx_vcf = args.ref_pgx_vcf
@@ -49,8 +69,6 @@ def run(args):
     """
     organize the rest of the arguments
     """
-    input_list = args.input_list
-    input_vcf = args.input_vcf
     sample_file = args.sample_file
     output_prefix = args.output_prefix
     keep_intermediate_files = args.keep_intermediate_files
@@ -59,10 +77,6 @@ def run(args):
         output_dir = args.output_folder
     elif input_vcf:
         output_dir = os.path.split(input_vcf)[0]
-        if not os.path.exists(input_vcf):
-            print("Cannot find", input_vcf)
-            sys.exit(1)
-        input_vcf = util.bgzipped_vcf(bgzip_path, input_vcf)
     else:
         with open(input_list, 'r') as file:
             for line in file:
@@ -72,6 +86,7 @@ def run(args):
         file.close()
     # create the output folder
     Path(output_dir).mkdir(parents=True, exist_ok=True)
+
     # download the human reference sequence if not provided
     if args.ref_seq:
         ref_seq = args.ref_seq
@@ -86,8 +101,7 @@ def run(args):
             ref_seq = util.get_default_grch38_ref_fasta_and_index(output_dir)
             print("Downloaded to %s" % ref_seq)
 
-
-    # index ref_pgx_vcf if not indexed
+    # index pgx_vcf if not already so
     if not os.path.exists(pgx_vcf + '.tbi'):
         util.tabix_index_vcf(tabix_path, pgx_vcf)
 
@@ -157,7 +171,7 @@ if __name__ == "__main__":
     # list arguments
     parser.add_argument("--input_vcf", type=str, help="Path to a VCF file.")
     parser.add_argument("--input_list", type=str,
-                        help="A file containing paths to VCF files (one file per line), sorted by chromosome")
+                        help="A file containing paths to VCF files (one file per line), sorted by chromosome position.")
     parser.add_argument("--ref_pgx_vcf", type=str,
                         default=os.path.join(os.getcwd(), "pharmcat_positions.vcf.bgz"),
                         help="A sorted VCF of PharmCAT PGx variants, gzipped with preprocessor scripts. Default = "
