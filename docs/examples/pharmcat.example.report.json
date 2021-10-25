@@ -1,7 +1,7 @@
 {
   "totalGenes": 18,
-  "pharmcatVersion": "v1.1.0-5-g15e5977\n",
-  "generatedOn": "October 23, 2021",
+  "pharmcatVersion": "v1.1.0-11-gfef2722\n",
+  "generatedOn": "October 25, 2021",
   "geneCalls": [
     {
       "diplotypes": [
@@ -10991,7 +10991,7 @@
         }
       ],
       "messages": [
-        "SLCO1B1 star allele nomenclature represents various SNPs alone or in combination. The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.\u003cbr\u003e\u003cbr\u003eIn case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 defines SLCO1B1*5.",
+        "The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.\u003cbr\u003e\u003cbr\u003eIn case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 defines SLCO1B1*5.",
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
