@@ -75,17 +75,13 @@ def run(args):
     # define working directory, default the directory of the first input VCF
     if args.output_folder:
         output_dir = args.output_folder
+        # create the output folder
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
     elif input_vcf:
         output_dir = os.path.split(input_vcf)[0]
     else:
-        with open(input_list, 'r') as file:
-            for line in file:
-                if os.path.isfile(line):
-                    output_dir = os.path.split(line)[0]
-                    break
-        file.close()
-    # create the output folder
-    Path(output_dir).mkdir(parents=True, exist_ok=True)
+        output_dir = os.path.split(input_list)[0]
+    print("Saving output to", output_dir)
 
     # download the human reference sequence if not provided
     if args.ref_seq:

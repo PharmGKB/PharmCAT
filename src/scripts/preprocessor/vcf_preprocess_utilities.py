@@ -45,8 +45,8 @@ def bgzip_file(bgzip_path, vcf_path):
         subprocess.run([bgzip_path, '-f', vcf_path], check=True)
     except Exception as e:
         print('Failed to bgzip %s' % vcf_path)
-        # comment off this traceback function as subprocess(check = true) shoudl report detailed errors
-        #traceback.print_exception(type(e), e, e.__traceback__)
+        # comment out this traceback function as subprocess(check = true) should report detailed errors
+        # traceback.print_exception(type(e), e, e.__traceback__)
         sys.exit(1)
 
 
@@ -125,8 +125,8 @@ def tabix_index_vcf(tabix_path, vcf_path):
         subprocess.run([tabix_path, '-p', 'vcf', vcf_path], check=True)
     except Exception as e:
         print('Failed to index %s' % vcf_path)
-        # comment off this traceback function as subprocess(check = true) shoudl report detailed errors
-        #traceback.print_exception(type(e), e, e.__traceback__)
+        # comment out this traceback function as subprocess(check = true) should report detailed errors
+        # traceback.print_exception(type(e), e, e.__traceback__)
         sys.exit(1)
 
 
