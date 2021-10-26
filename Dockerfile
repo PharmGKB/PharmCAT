@@ -23,6 +23,13 @@ RUN apt-get update && \
     apt-get -y install --no-install-recommends adoptopenjdk-16-hotspot
 
 
+RUN mkdir /pharmcat
+WORKDIR /pharmcat
+# download fasta files
+RUN wget https://zenodo.org/record/5572839/files/GRCh38_reference_fasta.tar
+RUN tar -xf GRCh38_reference_fasta.tar
+
+
 ENV BCFTOOLS_VERSION 1.14
 ENV HTSLIB_VERSION 1.14
 ENV SAMTOOLS_VERSION 1.14
@@ -54,14 +61,11 @@ RUN rm -rf /usr/local/bin/htslib-${HTSLIB_VERSION}
 RUN rm  -f /usr/local/bin/samtools-${SAMTOOLS_VERSION}.tar.bz2
 RUN rm -rf /usr/local/bin/samtools-${SAMTOOLS_VERSION}
 
-RUN mkdir /pharmcat
+
 WORKDIR /pharmcat
 # setup python env
 COPY src/scripts/preprocessor/PharmCAT_VCF_Preprocess_py3_requirements.txt ./
 RUN pip3 install -r PharmCAT_VCF_Preprocess_py3_requirements.txt
-# download fasta files
-RUN wget https://zenodo.org/record/5572839/files/GRCh38_reference_fasta.tar
-RUN tar -xf GRCh38_reference_fasta.tar
 
 # add pharmcat scripts
 COPY src/scripts/preprocessor/*.py ./

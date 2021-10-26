@@ -47,6 +47,15 @@ scriptPkg:
 	cd build; tar -czvf preprocessor.tar.gz preprocessor
 
 
+.PHONY: dockerRelease
+.ONESHELL:
+dockerRelease: docker
+	version=`git describe --tags | sed -r s/^v//`
+	docker tag pcat pgkb/pharmcat:$${version}
+	docker push pgkb/pharmcat:$${version}
+	docker tag pcat pgkb/pharmcat:latest
+	docker push pgkb/pharmcat:latest
+
 .PHONE: updateDataFromScratch
 updateDataFromScratch: docker updateData
 

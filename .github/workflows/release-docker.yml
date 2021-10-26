@@ -1,0 +1,79 @@
+name: Upload Docker image to Docker Hub
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    name: Upload Docker image to Docker Hub
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set appVersion
+        uses: bhowell2/github-substring-action@v1
+        id: appVersion
+        with:
+          value: ${{github.ref}}
+          index_of_str: "refs/tags/v"
+
+      - run: echo "Version = ${{steps.appVersion.outputs.substring}}"
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 14
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Package app
+        run: |
+          ./gradlew shadowJar
+          mv build/libs/pharmcat-${{github.ref}}-all.jar build/pharmcat.jar
+
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: pgkb/pharmcat:latest,pgkb/pharmcat:${{github.ref}}
+
+
+      - name: Send Slack notification on failure
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: dev
+          status: FAILED
+          color: danger
+
+      - name: Cleanup Gradle Cache
+        # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
+        # Restoring these files from a GitHub Actions cache might cause problems for future builds.
+        run: |
+          rm -f ~/.gradle/caches/modules-2/modules-2.lock
+          rm -f ~/.gradle/caches/modules-2/gc.properties
