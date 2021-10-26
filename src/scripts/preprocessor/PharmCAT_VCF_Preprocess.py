@@ -72,6 +72,7 @@ def run(args):
     sample_file = args.sample_file
     output_prefix = args.output_prefix
     keep_intermediate_files = args.keep_intermediate_files
+    missing_to_ref = args.missing_to_ref
     # define working directory, default the directory of the first input VCF
     if args.output_folder:
         output_dir = args.output_folder
@@ -142,7 +143,7 @@ def run(args):
     # extract the specific PGx genetic variants in the reference PGx VCF
     # this step also generates a report of missing PGx positions in the input VCF
     vcf_normalized_pgx_only = util.filter_pgx_variants(bcftools_path, tabix_path, vcf_normalized, ref_seq, pgx_vcf,
-                                                       output_dir, output_prefix)
+                                                       missing_to_ref, output_dir, output_prefix)
     tmp_files_to_be_removed.append(vcf_normalized_pgx_only)
 
     # output PharmCAT-ready single-sample VCF
@@ -188,9 +189,21 @@ if __name__ == "__main__":
                         help="(Optional) prefix of the output VCF, default = \'pharmcat_ready_vcf\'")
     parser.add_argument("--keep_intermediate_files", action='store_true',
                         help="(Optional) keep intermediate files, false by default.")
+    parser.add_argument("-0", "--missing_to_ref", action='store_true',
+                        help="(Optional) assume genotypes at missing PGx sites are 0/0.")
 
     # parse arguments
     args = parser.parse_args()
+
+    # print warnings here
+    # alternatively, could use the "warnings" module
+    if args.missing_to_ref:
+        print('=============================================\n')
+        print('!!! Warning: Argument \'--missing_to_ref\' is supplied.\n'
+              'All missing PGx sites will now be assumed as reference.\n'
+              'Note that this will work on positions where all genotypes are missing.\n'
+              'Turn the function off if this is not intended.\n')
+        print('=============================================\n')
 
     # normalize variant representations and reconstruct multi-allelic variants in the input VCF
     run(args)

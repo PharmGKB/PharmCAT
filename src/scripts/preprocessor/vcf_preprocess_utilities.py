@@ -339,7 +339,8 @@ def normalize_vcf(bcftools_path, tabix_path, input_vcf, ref_seq):
     return path_output
 
 
-def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf, output_dir, output_prefix):
+def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf,
+                        missing_to_ref, output_dir, output_prefix):
     """
     Extract specific pgx positions that are present in the reference PGx VCF
     Generate a report of PGx positions that are missing in the input VCF
@@ -372,8 +373,12 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf, 
 
         # merging the filtered input with the reference PGx positions for the next step
         merge_vcf = os.path.join(temp_dir, 'temp_merged.vcf.gz')
-        bcftools_command = [bcftools_path, 'merge', '--no-version', '-m', 'both',
-                            '-Oz', '-o', merge_vcf, input_pgx_variants_only, ref_pgx_uniallelic]
+        if missing_to_ref:
+            bcftools_command = [bcftools_path, 'merge', '--no-version', '-m', 'both', '-0',
+                                '-Oz', '-o', merge_vcf, input_pgx_variants_only, ref_pgx_uniallelic]
+        else:
+            bcftools_command = [bcftools_path, 'merge', '--no-version', '-m', 'both',
+                                '-Oz', '-o', merge_vcf, input_pgx_variants_only, ref_pgx_uniallelic]
         run_bcftools(bcftools_command,
                      show_msg='Trimming file')
         tabix_index_vcf(tabix_path, merge_vcf)
