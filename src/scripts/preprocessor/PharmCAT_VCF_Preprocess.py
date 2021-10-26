@@ -198,12 +198,13 @@ if __name__ == "__main__":
     # print warnings here
     # alternatively, could use the "warnings" module
     if args.missing_to_ref:
-        print('=============================================\n')
-        print('!!! Warning: Argument \'--missing_to_ref\' is supplied.\n'
-              'All missing PGx sites will now be assumed as reference.\n'
-              'Note that this will work on positions where all genotypes are missing.\n'
-              'Turn the function off if this is not intended.\n')
-        print('=============================================\n')
+        print('=============================================\n'
+              '=============================================\n\n'
+              '!!! Warning: Argument \'--missing_to_ref\' is supplied.\n'
+              'Note that this will turn positions (whose genotypes are all missing) to reference.\n'
+              'Turn the function off if this is not intended.\n\n'
+              '=============================================\n'
+              '=============================================\n')
 
     # normalize variant representations and reconstruct multi-allelic variants in the input VCF
     run(args)

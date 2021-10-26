@@ -379,14 +379,53 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf,
         else:
             bcftools_command = [bcftools_path, 'merge', '--no-version', '-m', 'both',
                                 '-Oz', '-o', merge_vcf, input_pgx_variants_only, ref_pgx_uniallelic]
-        run_bcftools(bcftools_command,
-                     show_msg='Trimming file')
+        run_bcftools(bcftools_command, show_msg='Trimming file')
         tabix_index_vcf(tabix_path, merge_vcf)
+
+        # extract headers from reference pgx position vcf
+        pgx_vcf_header = os.path.join(temp_dir, 'temp_ref_pgx_vcf_header.txt')
+        with open(pgx_vcf_header, 'w') as output_f:
+            # get header, especially contigs, from reference pgx position vcf
+            with gzip.open(ref_pgx_uniallelic) as in_f:
+                for line in in_f:
+                    try:
+                        line = byte_decoder(line)
+                    except:
+                        line = line
+                    if line[0:2] == '##':
+                        output_f.write(line)
+                    else:
+                        break
+            # get header of samples from merged vcf
+            with gzip.open(merge_vcf) as in_f:
+                for line in in_f:
+                    try:
+                        line = byte_decoder(line)
+                    except:
+                        line = line
+                    if line[0:2] == '##':
+                        continue
+                    elif line[0:6] == '#CHROM':
+                        output_f.write(line)
+                    else:
+                        break
+
+        # update headers of vcf
+        reheaded_vcf = os.path.join(temp_dir, 'temp_header_updated.vcf.gz')
+        bcftools_command = [bcftools_path, 'reheader', '-h', pgx_vcf_header, '-o', reheaded_vcf, merge_vcf]
+        run_bcftools(bcftools_command, show_msg='Updating headers')
+        tabix_index_vcf(tabix_path, reheaded_vcf)
+
+        # sort vcf
+        sorted_vcf = os.path.join(temp_dir, 'temp_header_updated_sorted.vcf.gz')
+        bcftools_command = [bcftools_path, 'sort', '-Oz', '-o', sorted_vcf, reheaded_vcf]
+        run_bcftools(bcftools_command, show_msg='Sorting file')
+        tabix_index_vcf(tabix_path, sorted_vcf)
 
         # enforce the output to comply with PharmCAT format
         multiallelic_vcf = os.path.join(temp_dir, 'temp_multiallelic.vcf.gz')
-        bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-N',
-                            '-Oz', '-o', multiallelic_vcf, merge_vcf]
+        bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', ref_seq,
+                            '-Oz', '-o', multiallelic_vcf, sorted_vcf]
         run_bcftools(bcftools_command,
                      show_msg='Enforcing the variant representation per PharmCAT')
         tabix_index_vcf(tabix_path, multiallelic_vcf)
@@ -412,12 +451,13 @@ def output_pharmcat_ready_vcf(bcftools_path, input_vcf, output_dir, output_prefi
     iteratively write to a PharmCAT-ready VCF for each sample
 
     "bcftools view <options> <input_vcf>". For bcftools common options, see running_bcftools().
-    "-U" exclude sites without a called genotype, i.e., GT = './.'
+    "-U" exclude sites without any called genotype, i.e., all GT = './.'
+    "--force-samples" only warn about unknown subset samples
     """
 
     for single_sample in sample_list:
         output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf')
-        bcftools_command = [bcftools_path, 'view', '--no-version', '-U', '-Ov',
+        bcftools_command = [bcftools_path, 'view', '--no-version', '--force-samples', '-U', '-Ov',
                             '-o', output_file_name, '-s', single_sample, input_vcf]
         run_bcftools(bcftools_command,
                      show_msg='Generating a PharmCAT-ready VCF for ' + single_sample)
