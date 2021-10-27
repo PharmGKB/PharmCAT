@@ -202,7 +202,7 @@ if __name__ == "__main__":
               'Warning: Argument "-0"/"--missing_to_ref" supplied\n'
               '\n'
               'THIS SHOULD ONLY BE USED IF: you sure your data is reference\n'
-              'at the missing positions instead unreadable/uncallable at\n'
+              'at the missing positions instead of unreadable/uncallable at\n'
               'those positions\n'
               '\n'
               'Running PharmCAT with positions as missing vs reference can\n'
