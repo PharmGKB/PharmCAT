@@ -1,3 +1,25 @@
+## [1.2.0](https://github.com/PharmGKB/PharmCAT/compare/v1.1.0...v1.2.0) (2021-10-27)
+
+
+### Features
+
+* set missing positions to ref ([d80e8a7](https://github.com/PharmGKB/PharmCAT/commit/d80e8a7c0be39c5ccc83b5d9b85f4e004ea52d39))
+* **data:** update to CPIC v1.10 ([0547340](https://github.com/PharmGKB/PharmCAT/commit/05473404505229ce76493552a56615ff5d3a017a))
+
+
+### Bug Fixes
+
+* remove UGT1A1 special handling and add more SLCO1B1 examples ([74c9ae8](https://github.com/PharmGKB/PharmCAT/commit/74c9ae8004ff20c6153ec3d170c373ccc43864ff))
+* update vcf header and properly sort vcf after normalization ([e512bc3](https://github.com/PharmGKB/PharmCAT/commit/e512bc321c86ae14596f4475bf5423f757bb5e24))
+* validate bgzip ([78ccd71](https://github.com/PharmGKB/PharmCAT/commit/78ccd7187f12cd7c875a358da84e1efe8b525bf1))
+* **data:** update SLC01B1 data ([47b572a](https://github.com/PharmGKB/PharmCAT/commit/47b572a3ebdb4e2bb80e0a23d145a6a1d064d33c))
+* **docker:** update docker to use bgzipped reference FASTA ([15e5977](https://github.com/PharmGKB/PharmCAT/commit/15e597796cfc115f7681de2c8124890c79855ac3))
+* **docker:** update docker to use bgzipped reference FASTA ([9b594f6](https://github.com/PharmGKB/PharmCAT/commit/9b594f6b6b3e1ecd3d13df88c70986851a51e1fc))
+* **NamedAlleleMatcher:** improve warning message when GT in VCF doesn't have 2 alleles ([890ae92](https://github.com/PharmGKB/PharmCAT/commit/890ae9206d25a527844d7a65f55e19ca1c9d4043))
+* **preprocessor:** if output_folder is not specified, use parent directory of input ([fef2722](https://github.com/PharmGKB/PharmCAT/commit/fef2722260ee5a15151a2345b1a44e1b4c6f039f))
+* **preprocessor:** improve how reference FASTA is obtained ([9860ce2](https://github.com/PharmGKB/PharmCAT/commit/9860ce28df9844058a20bcad9bf21d2a3c9d4fbb))
+* **preprocessor:** update usage docs ([0faf08e](https://github.com/PharmGKB/PharmCAT/commit/0faf08ea8126b414e8995a2c3da2e90f4cc2628c))
+
 ## [1.1.0](https://github.com/PharmGKB/PharmCAT/compare/v1.0.0...v1.1.0) (2021-10-14)
 
 
