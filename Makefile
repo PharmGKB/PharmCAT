@@ -47,15 +47,6 @@ scriptPkg:
 	cd build; tar -czvf preprocessor.tar.gz preprocessor
 
 
-.PHONY: dockerRelease
-.ONESHELL:
-dockerRelease: docker
-	version=`git describe --tags | sed -r s/^v//`
-	docker tag pcat pgkb/pharmcat:$${version}
-	docker push pgkb/pharmcat:$${version}
-	docker tag pcat pgkb/pharmcat:latest
-	docker push pgkb/pharmcat:latest
-
 .PHONE: updateDataFromScratch
 updateDataFromScratch: docker updateData
 
@@ -112,3 +103,26 @@ fuzzyVcfMissingTests: clean
 .PHONY: clean
 clean:
 	${GRADLE_CMD} clean
+
+
+.PHONY: release
+release:
+	yarn release
+	@echo "Updating main branch..."
+	git checkout main
+	git pull
+	git rebase origin/development
+	git push
+	# switching back to development
+	git checkout development
+	@echo "\nDone."
+
+
+.PHONY: dockerRelease
+.ONESHELL:
+dockerRelease: docker
+	version=`git describe --tags | sed -r s/^v//`
+	docker tag pcat pgkb/pharmcat:$${version}
+	docker push pgkb/pharmcat:$${version}
+	docker tag pcat pgkb/pharmcat:latest
+	docker push pgkb/pharmcat:latest
