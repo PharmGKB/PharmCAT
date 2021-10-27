@@ -190,7 +190,7 @@ if __name__ == "__main__":
     parser.add_argument("--keep_intermediate_files", action='store_true',
                         help="(Optional) keep intermediate files, false by default.")
     parser.add_argument("-0", "--missing_to_ref", action='store_true',
-                        help="(Optional) assume genotypes at missing PGx sites are 0/0.")
+                        help="(Optional) assume genotypes at missing PGx sites are 0/0.  DANGEROUS!")
 
     # parse arguments
     args = parser.parse_args()
@@ -198,13 +198,15 @@ if __name__ == "__main__":
     # print warnings here
     # alternatively, could use the "warnings" module
     if args.missing_to_ref:
-        print('=============================================\n'
-              '=============================================\n\n'
-              '!!! Warning: Argument \'--missing_to_ref\' is supplied.\n'
-              'Note that this will turn positions (whose genotypes are all missing) to reference.\n'
-              'Turn the function off if this is not intended.\n\n'
-              '=============================================\n'
-              '=============================================\n')
+        print('=============================================================\n'
+              'Warning: Argument "-0"/"--missing_to_ref" supplied\n'
+              '\n'
+              'THIS SHOULD ONLY BE USED IF YOU KNOW WHAT YOU ARE DOING!\n'
+              '\n'
+              'Are you sure your data is reference at the missing positions\n'
+              'instead unreadable/uncallable at those positions?\n'
+              'If not, this can lead to incorrect results from PharmCAT.\n'
+              '=============================================================\n')
 
     # normalize variant representations and reconstruct multi-allelic variants in the input VCF
     run(args)
