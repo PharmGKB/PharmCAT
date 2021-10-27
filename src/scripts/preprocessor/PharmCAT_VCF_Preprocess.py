@@ -201,11 +201,12 @@ if __name__ == "__main__":
         print('=============================================================\n'
               'Warning: Argument "-0"/"--missing_to_ref" supplied\n'
               '\n'
-              'THIS SHOULD ONLY BE USED IF YOU KNOW WHAT YOU ARE DOING!\n'
+              'THIS SHOULD ONLY BE USED IF: you sure your data is reference\n'
+              'at the missing positions instead unreadable/uncallable at\n'
+              'those positions\n'
               '\n'
-              'Are you sure your data is reference at the missing positions\n'
-              'instead unreadable/uncallable at those positions?\n'
-              'If not, this can lead to incorrect results from PharmCAT.\n'
+              'Running PharmCAT with positions as missing vs reference can\n'
+              'lead to different results.\n'
               '=============================================================\n')
 
     # normalize variant representations and reconstruct multi-allelic variants in the input VCF
