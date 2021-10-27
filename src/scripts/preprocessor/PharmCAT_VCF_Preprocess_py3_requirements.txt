@@ -1,5 +1,5 @@
 cloudpickle==1.6.0
-dask==2021.6.2
+dask==2021.10.0
 fsspec==2021.6.1
 locket==0.2.1
 numpy==1.21.0
