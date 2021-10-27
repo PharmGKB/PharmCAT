@@ -25,7 +25,6 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.util.Slco1b1AlleleMatcher;
-import org.pharmgkb.pharmcat.util.Ugt1a1AlleleMatcher;
 
 
 /**
@@ -120,12 +119,7 @@ public class GeneReport implements Comparable<GeneReport> {
   public void setDiplotypes(DiplotypeFactory diplotypeFactory, GeneCall geneCall) {
     m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
 
-    // for UGT1A1 we need to calculate diplotypes slightly differently
-    if (Ugt1a1AlleleMatcher.shouldBeUsedOn(this)) {
-      Set<String> diplotypes = Ugt1a1AlleleMatcher.makeLookupCalls(this);
-      m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(diplotypes));
-    } 
-    else if (Slco1b1AlleleMatcher.shouldBeUsedOn(this)) {
+    if (Slco1b1AlleleMatcher.shouldBeUsedOn(this)) {
       Slco1b1AlleleMatcher
           .makeLookupCalls(this, diplotypeFactory)
           .ifPresent(m_reporterDiplotypes::add);
@@ -245,7 +239,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
   /**
    * True if there is a diplotype for this gene that the reporter can use, false otherwise. The reporter may be able to 
-   * use diplotype calls not made by the matcher (e.g. UGT1A1 or SLCO1B1)
+   * use diplotype calls not made by the matcher (e.g. SLCO1B1)
    */
   public boolean isReportable() {
     return m_reporterDiplotypes.size() > 0;
@@ -303,12 +297,6 @@ public class GeneReport implements Comparable<GeneReport> {
         return m_reporterDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
       }
       return ImmutableList.of(UNCALLED);
-    }
-    else if (f_gene.equals("UGT1A1") && !isPhased()) {
-      return m_matcherDiplotypes.stream()
-          .flatMap(Diplotype::streamAllelesByZygosity)
-          .distinct()
-          .collect(Collectors.toList());
     }
 
     return m_matcherDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());

@@ -27,10 +27,10 @@ class NamedAlleleMatcherSlco1b1Test {
   }
 
   @Test
-  void slco1b1s1as1a() throws Exception {
+  void slco1b1s1s1() throws Exception {
     // Test *1/*1
 
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as1a.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1s1.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
@@ -49,10 +49,10 @@ class NamedAlleleMatcherSlco1b1Test {
   }
 
   @Test
-  void slco1b1s1as15() throws Exception {
-    // Test *1a/*15. Except we can't distinguish *1B/*5.
+  void slco1b1s1s15() throws Exception {
+    // Test *1/*15. Except we can't distinguish *1B/*5.
 
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1s15.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*15","*5/*37");
 
     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
@@ -63,7 +63,7 @@ class NamedAlleleMatcherSlco1b1Test {
   void slco1b1s1as15s1bs5Missing() throws Exception {
     /* Test *1/*15. Except we can't distinguish *5/*37.
 
-    However in this case we are missing the final position in the file:
+    However, in this case we are missing the final position in the file:
     chr12	21239158	rs140790673	C	T	.	PASS	assume-default	GT	0/0
 
     which forms part of the *29 definition, so we also get:

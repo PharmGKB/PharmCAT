@@ -368,7 +368,7 @@ class PharmCATTest {
   @Test
   void testSlco1b1HomWild() throws Exception {
     s_pharmcatTopMatch.execute("test.slco1b1.hom.wild", new String[]{
-            "SLCO1B1/s1as1a.vcf"
+            "SLCO1B1/s1s1.vcf"
         },
         null);
 
@@ -395,7 +395,7 @@ class PharmCATTest {
   @Test
   void testSlco1b1Test3() throws Exception {
     s_pharmcatTopMatch.execute("test.slco1b1.1a.15", new String[]{
-            "SLCO1B1/s1as15.vcf"
+            "SLCO1B1/s1s15.vcf"
         },
         null);
 
@@ -496,16 +496,30 @@ class PharmCATTest {
 
   @Test
   void testUgt1a1UnphasedMulti() throws Exception {
-    s_pharmcatTopMatch.execute("test.ugt1a1.unphased.multi", new String[]{
+    s_pharmcatTopMatch.execute("test.ugt1a1.s1s80unphased", new String[]{
             "UGT1A1/s1s60s80unphased.vcf"
         },
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*80 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*1");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*80");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
+  }
+
+  @Test
+  void testUgt1a1s1s1() throws Exception {
+    s_pharmcatTopMatch.execute("test.ugt1a1.s1s1", new String[]{
+            "UGT1A1/s1s1.vcf"
+        },
+        null);
+
+    s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*1");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*1");
+
+    assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }
 
   @Test
@@ -516,8 +530,8 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*80+*28 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*80+*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80+*28");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }
@@ -530,8 +544,8 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*28 (heterozygous)", "*37 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*80", "*80");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*28/*37");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*28", "*37");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }
@@ -576,8 +590,8 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*6 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*80", "*80");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*6/*80+*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*6", "*80+*28");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }
@@ -590,8 +604,8 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*80+*28 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*80+*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80+*28");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }
@@ -619,7 +633,9 @@ class PharmCATTest {
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
     s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*6/*80", "*6/*80+*28", "*6/*80+*37");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*80", "*80");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*6", "*80");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*6", "*80+*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*6", "*80+*37");
 
     assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }
@@ -632,8 +648,10 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*6 (heterozygous)","*80 (heterozygous)","*80+*28 (heterozygous)","*80+*37 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*80", "*80");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*6/*80","*6/*80+*28","*6/*80+*37");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*6", "*80");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*6", "*80+*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*6", "*80+*37");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }
@@ -646,7 +664,7 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*80 (heterozygous)", "*80+*28 (heterozygous)", "*80+*37 (heterozygous)");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*80", "*1/*80+*28", "*1/*80+*37");
     s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
@@ -660,8 +678,8 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*80 (heterozygous)", "*80+*28 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*80/*80+*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*80", "*80+*28");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }
@@ -674,8 +692,8 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*80 (heterozygous)", "*80+*28 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*80/*80+*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*80", "*80+*28");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }
@@ -688,8 +706,8 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*80+*28 (heterozygous)", "*80 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*80/*80+*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*80", "*80+*28");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }
@@ -703,7 +721,9 @@ class PharmCATTest {
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
     s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*28/*28", "*28/*80+*28", "*80+*28/*80+*28");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*80", "*80");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*28", "*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*28", "*80+*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*80+*28", "*80+*28");
 
     // sample is effectively phased since all positions homozygous
     assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
@@ -717,8 +737,8 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*28 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*28");
 
     // sample is effectively phased since all positions homozygous
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
@@ -732,8 +752,9 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*27 (heterozygous)", "*28 (heterozygous)", "*80+*28 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*80", "*80");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*27/*28", "*27/*80+*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*27", "*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*27", "*80+*28");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }
@@ -746,8 +767,9 @@ class PharmCATTest {
         null);
 
     s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*28 (heterozygous)", "*80+*28 (heterozygous)");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80");
+    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*28", "*1/*80+*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*28");
+    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80+*28");
 
     assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
   }

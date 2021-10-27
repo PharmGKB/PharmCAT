@@ -56,16 +56,48 @@ class SyntheticBatchTest {
         "SLCO1B1/s5s15.vcf"
     }, sf_outsideCYP2D6File);
 
+    makeReport("slco1b1.s1s1", new String[]{
+        "SLCO1B1/s1s1.vcf"
+    }, sf_outsideCYP2D6File);
+
+    makeReport("slco1b1.s2s2", new String[]{
+        "SLCO1B1/s2s2.vcf"
+    }, sf_outsideCYP2D6File);
+
+    makeReport("slco1b1.s14_s19_t1", new String[]{
+        "SLCO1B1/SLCO1B1_s14_s19_t1.vcf"
+    }, null);
+
+    makeReport("slco1b1.s15_s45_t1", new String[]{
+        "SLCO1B1/SLCO1B1_s15_s45_t1.vcf"
+    }, null);
+
+    makeReport("slco1b1.s19_s37_t1", new String[]{
+        "SLCO1B1/SLCO1B1_s19_s37_t1.vcf"
+    }, null);
+
+    makeReport("slco1b1.s1_s14_t1", new String[]{
+        "SLCO1B1/SLCO1B1_s1_s14_t1.vcf"
+    }, null);
+
+    makeReport("slco1b1.s1_s15_t1", new String[]{
+        "SLCO1B1/SLCO1B1_s1_s15_t1.vcf"
+    }, null);
+
+    makeReport("slco1b1.s1_s25_t1", new String[]{
+        "SLCO1B1/SLCO1B1_s1_s25_t1.vcf"
+    }, null);
+
+    makeReport("slco1b1.s37_s40_t1", new String[]{
+        "SLCO1B1/SLCO1B1_s37_s40_t1.vcf"
+    }, null);
+
+    makeReport("slco1b1.s5_s14_t1", new String[]{
+        "SLCO1B1/SLCO1B1_s5_s14_t1.vcf"
+    }, null);
+
     makeReport("slco1b1.multi", new String[]{
         "SLCO1B1/multi.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("slco1b1.no_match", new String[]{
-        "SLCO1B1/multi.vcf"
-    }, sf_outsideCYP2D6File);
-
-    makeReport("slco1b1.match_1", new String[]{
-        "SLCO1B1/s5s15.vcf"
     }, sf_outsideCYP2D6File);
 
     makeReport("cyp2c19.onlyRs12769205", new String[]{
