@@ -40,7 +40,7 @@ jobs:
       - name: Package app
         run: |
           ./gradlew shadowJar
-          mv build/libs/pharmcat-${{github.ref}}-all.jar build/pharmcat.jar
+          mv build/libs/pharmcat-${{steps.appVersion.outputs.substring}}-all.jar build/pharmcat.jar
 
 
       - name: Set up Docker Buildx
