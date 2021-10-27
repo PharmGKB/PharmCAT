@@ -23,7 +23,7 @@ class GeneReportTest {
 
   private static final String GENE_SYMBOL2 = "UGT1A1";
   private static final String OUTSIDE_CALL_DATA2 = "UGT1A1\t*1/*6";
-  private static final String PRINT_DIPLOTYPE2 = "*6 (heterozygous)";
+  private static final String PRINT_DIPLOTYPE2 = "*1/*6";
   private static final String DIPLOTYPE_STRING2 = "UGT1A1:*1/*6";
   @Test
   void testOutsideGene() {

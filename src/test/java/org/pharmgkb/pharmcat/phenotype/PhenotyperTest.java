@@ -87,7 +87,7 @@ class PhenotyperTest {
 
     assertCalledByMatcher(phenotyper, "UGT1A1");
 
-    assertDiplotypeDisplay(phenotyper, "UGT1A1", "*80 (heterozygous)");
+    assertDiplotypeDisplay(phenotyper, "UGT1A1", "*1/*80");
     assertLookup(phenotyper, "UGT1A1", "*1", "*80");
     assertFalse(phenotyper.findGeneReport("UGT1A1").orElseThrow(unfoundGene).isPhased());
   }
