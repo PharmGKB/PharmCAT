@@ -367,98 +367,94 @@ class PharmCATTest {
 
   @Test
   void testSlco1b1HomWild() throws Exception {
-    s_pharmcatTopMatch.execute("test.slco1b1.hom.wild", new String[]{
-            "SLCO1B1/s1s1.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.slco1b1.s1s1", false);
+    testWrapper.getVcfBuilder()
+        .reference("SLCO1B1");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("SLCO1B1");
-    s_pharmcatTopMatch.testPrintCalls("SLCO1B1", "*1/*1");
-    s_pharmcatTopMatch.testLookup("SLCO1B1", "*1");
+    testWrapper.testCalledByMatcher("SLCO1B1");
+    testWrapper.testPrintCalls("SLCO1B1", "*1/*1");
+    testWrapper.testLookup("SLCO1B1", "*1");
 
-    GeneReport slco1b1Report = s_pharmcatTopMatch.getContext().getGeneReport("SLCO1B1");
+    GeneReport slco1b1Report = testWrapper.getContext().getGeneReport("SLCO1B1");
     assertTrue(slco1b1Report.getHighlightedVariants().contains("rs4149056T/rs4149056T"));
   }
 
   @Test
   void testSlco1b1HomVar() throws Exception {
-    s_pharmcatTopMatch.execute("test.slco1b1.hom.var", new String[]{
-            "SLCO1B1/s5s15.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.slco1b1.s5s15", false);
+    testWrapper.getVcfBuilder()
+        .reference("SLCO1B1")
+        .variation("SLCO1B1", "rs2306283", "A", "G")
+        .variation("SLCO1B1", "rs4149056", "C", "C");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("SLCO1B1");
-    s_pharmcatTopMatch.testPrintCalls("SLCO1B1", "*5/*15");
-    s_pharmcatTopMatch.testLookup("SLCO1B1", "*5", "*15");
+    testWrapper.testCalledByMatcher("SLCO1B1");
+    testWrapper.testPrintCalls("SLCO1B1", "*5/*15");
+    testWrapper.testLookup("SLCO1B1", "*5", "*15");
   }
 
   @Test
   void testSlco1b1Test3() throws Exception {
-    s_pharmcatTopMatch.execute("test.slco1b1.1a.15", new String[]{
-            "SLCO1B1/s1s15.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.slco1b1.s1s15", false);
+    testWrapper.getVcfBuilder()
+        .reference("SLCO1B1")
+        .variation("SLCO1B1", "rs2306283", "A", "G")
+        .variation("SLCO1B1", "rs4149056", "T", "C");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("SLCO1B1");
-    s_pharmcatTopMatch.testPrintCalls("SLCO1B1", "*1/*15");
-    s_pharmcatTopMatch.testLookup("SLCO1B1", "*1", "*15");
-  }
-
-  @Test
-  void testSlco1b1TestMissing() throws Exception {
-    s_pharmcatTopMatch.execute("test.slco1b1.missing", new String[]{
-            "DPYD/novariant.vcf",
-            "TPMT/s1s1.vcf"
-        },
-        null);
-
-    s_pharmcatTopMatch.testCalledByMatcher("DPYD", "TPMT");
-    s_pharmcatTopMatch.testNotCalledByMatcher("SLCO1B1");
+    testWrapper.testCalledByMatcher("SLCO1B1");
+    testWrapper.testPrintCalls("SLCO1B1", "*1/*15");
+    testWrapper.testLookup("SLCO1B1", "*1", "*15");
   }
 
   @Test
   void testDpydS1S2B() throws Exception {
-    s_pharmcatTopMatch.execute("test.slco1b1.missing", new String[]{
-            "DPYD/s1s2b.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.dpyd.s1s2b", false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+        .variation("DPYD", "rs3918290", "C", "T")
+        .variation("DPYD", "rs1801159", "T", "C");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("DPYD");
-    s_pharmcatTopMatch.testPrintCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
-    s_pharmcatTopMatch.testLookup("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testPrintCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
+    testWrapper.testLookup("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
 
-    s_pharmcatTopMatch.testMatchedGroups("fluorouracil", 1);
-    s_pharmcatTopMatch.testMatchedGroups("capecitabine", 1);
+    testWrapper.testMatchedGroups("fluorouracil", 1);
+    testWrapper.testMatchedGroups("capecitabine", 1);
   }
 
   @Test
   void testDpydC2846het() throws Exception {
-    s_pharmcatTopMatch.execute("test.dpyd.c2846het", new String[]{
-            "DPYD/c2846het.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.dpyd.c2846het", false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+        .variation("DPYD", "rs67376798", "T", "A");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("DPYD");
-    s_pharmcatTopMatch.testPrintCalls("DPYD", "Reference/c.2846A>T");
-    s_pharmcatTopMatch.testLookup("DPYD", "Reference", "c.2846A>T");
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testPrintCalls("DPYD", "Reference/c.2846A>T");
+    testWrapper.testLookup("DPYD", "Reference", "c.2846A>T");
 
-    s_pharmcatTopMatch.testMatchedGroups("fluorouracil", 1);
-    s_pharmcatTopMatch.testMatchedGroups("capecitabine", 1);
+    testWrapper.testMatchedGroups("fluorouracil", 1);
+    testWrapper.testMatchedGroups("capecitabine", 1);
   }
 
   @Test
   void testDpydS12het() throws Exception {
-    s_pharmcatTopMatch.execute("test.dpyd.c1156het", new String[]{
-            "DPYD/c1156het.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.dpyd.c1156het", false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+        .variation("DPYD", "rs78060119", "C", "A");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("DPYD");
-    s_pharmcatTopMatch.testPrintCalls("DPYD", "Reference/c.1156G>T (*12)");
-    s_pharmcatTopMatch.testLookup("DPYD", "Reference", "c.1156G>T (*12)");
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testPrintCalls("DPYD", "Reference/c.1156G>T (*12)");
+    testWrapper.testLookup("DPYD", "Reference", "c.1156G>T (*12)");
 
-    s_pharmcatTopMatch.testMatchedGroups("fluorouracil", 1);
-    s_pharmcatTopMatch.testMatchedGroups("capecitabine", 1);
+    testWrapper.testMatchedGroups("fluorouracil", 1);
+    testWrapper.testMatchedGroups("capecitabine", 1);
   }
 
   /**
@@ -468,16 +464,20 @@ class PharmCATTest {
    */
   @Test
   void testSlco1b1TestMulti() throws Exception {
-    s_pharmcatTopMatch.execute("test.slco1b1.multi", new String[]{
-            "SLCO1B1/multi.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.slco1b1.multi", false);
+    testWrapper.getVcfBuilder()
+        .reference("SLCO1B1")
+        .variation("SLCO1B1", "rs2306283", "G", "G")
+        .variation("SLCO1B1", "rs4149056", "T", "C")
+        .variation("SLCO1B1", "rs11045853", "A", "A")
+        .variation("SLCO1B1", "rs72559748", "G", "G");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testNotCalledByMatcher("SLCO1B1");
-    s_pharmcatTopMatch.testPrintCalls("SLCO1B1", "rs4149056T/rs4149056C");
-    s_pharmcatTopMatch.testLookup("SLCO1B1", "*1", "*5");
+    testWrapper.testNotCalledByMatcher("SLCO1B1");
+    testWrapper.testPrintCalls("SLCO1B1", "rs4149056T/rs4149056C");
+    testWrapper.testLookup("SLCO1B1", "*1", "*5");
 
-    s_pharmcatTopMatch.testMatchedGroups("simvastatin", 1);
+    testWrapper.testMatchedGroups("simvastatin", 1);
   }
 
   @Test
