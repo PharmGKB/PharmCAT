@@ -291,7 +291,8 @@ public class DataManager {
       }
       SortedSet<String> altAlleles = new TreeSet<>();
       boolean isSnp = true;
-      int numRepeats = 0;
+      List<String> repeats = new ArrayList<>();
+      List<String> nonRepeats = new ArrayList<>();
       for (String allele : vl.getCpicAlleles()) {
         if (allele.length() > 1) {
           isSnp = false;
@@ -300,7 +301,9 @@ public class DataManager {
           if (!allele.contains("(") || !allele.contains(")")) {
             throw new IllegalStateException(errorLocation + ": allele has mismatched parentheses - " + allele);
           }
-          numRepeats += 1;
+          repeats.add(allele);
+        } else {
+          nonRepeats.add(allele);
         }
         if (allele.contains("[") || allele.contains("]")) {
           throw new IllegalStateException(errorLocation + ": allele uses square brackets - " + allele);
@@ -309,14 +312,22 @@ public class DataManager {
           altAlleles.add(allele);
         }
       }
-      if (numRepeats > 0 && numRepeats != vl.getCpicAlleles().size()) {
-        throw new IllegalStateException(errorLocation + ": has " + numRepeats + " repeat alleles but " +
-            vl.getCpicAlleles().size() + " total alleles (" + vl.getCpicAlleles() + ")");
+      if (repeats.size() > 0 && repeats.size() != vl.getCpicAlleles().size()) {
+        boolean haveSingle = false;
+        if (nonRepeats.size() == 1) {
+          String repeatedSequence = repeats.get(0);
+          repeatedSequence = repeatedSequence.substring(0, repeatedSequence.indexOf("("));
+          haveSingle = nonRepeats.get(0).equals(repeatedSequence);
+        }
+        if (!haveSingle) {
+          throw new IllegalStateException(errorLocation + ": has " + repeats.size() + " repeat alleles but " +
+              vl.getCpicAlleles().size() + " total alleles (" + vl.getCpicAlleles() + ")");
+        }
       }
 
       List<String> hgvsNames = sf_semicolonSplitter.splitToList(vl.getChromosomeHgvsName());
 
-      if (!isSnp && numRepeats == 0 && altAlleles.size() != 1) {
+      if (!isSnp && repeats.size() == 0 && altAlleles.size() != 1) {
         // in/dels - must have HGVS to represent each change
         throw new IllegalStateException(errorLocation + ": has " + altAlleles.size() + " alt alleles; max is 1");
       }
@@ -356,14 +367,22 @@ public class DataManager {
               " vs. " + vcfPosition);
         }
 
-      } else if (numRepeats > 0) {
+      } else if (repeats.size() > 0) {
         Map<String, VcfHelper.VcfData> firstPass = new HashMap<>();
         for (String h : hgvsNames) {
-          Matcher m = sf_hgvsRepeatPattern.matcher(h);
-          if (!m.matches()) {
-            throw new IllegalStateException(errorLocation + ": Invalid HGVS repeat (" + h + ")");
+          String repeatAlt = null;
+          // treat dups as a form of repeat
+          if (h.endsWith("dup")) {
+            String repeatedSequence = repeats.get(0);
+            repeatedSequence = repeatedSequence.substring(0, repeatedSequence.indexOf("("));
+            repeatAlt = repeatedSequence + "(2)";
+          } else {
+            Matcher m = sf_hgvsRepeatPattern.matcher(h);
+            if (!m.matches()) {
+              throw new IllegalStateException(errorLocation + ": Invalid HGVS repeat (" + h + ")");
+            }
+            repeatAlt = m.group(1).replaceAll("\\[", "(").replaceAll("]", ")");
           }
-          String repeatAlt = m.group(1).replaceAll("\\[", "(").replaceAll("]", ")");
           if (repeatAlt.equals(refAllele)) {
             continue;
           }
