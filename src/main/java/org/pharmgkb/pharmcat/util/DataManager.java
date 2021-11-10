@@ -286,8 +286,11 @@ public class DataManager {
 
       String refAllele = Objects.requireNonNull(referenceNamedAllele.getCpicAllele(vl));
       if (isWobble(refAllele)) {
-        throw new IllegalStateException(df.getGeneSymbol() + " reference (" + referenceNamedAllele.getName() +
-            ") @ " + vl.getCpicPosition() + " is ambiguous: " + refAllele);
+        String hgvs = sf_semicolonSplitter.splitToList(vl.getChromosomeHgvsName()).get(0);
+        VcfHelper.VcfData vcf = vcfHelper.hgvsToVcf(df.getRefSeqChromosome() + ":" + hgvs);
+        System.out.println("CPIC's " + df.getGeneSymbol() + " reference (" + referenceNamedAllele.getName() +
+            ") @ " + vl.getCpicPosition() + " is ambiguous (" + refAllele + "):  using " + vcf.ref + " for VCF");
+        refAllele = vcf.ref;
       }
       SortedSet<String> altAlleles = new TreeSet<>();
       boolean isSnp = true;
@@ -350,8 +353,8 @@ public class DataManager {
           }
 
           if (!refAllele.equals(vcf.ref)) {
-            throw new IllegalStateException(errorLocation + ": VCF's reference allele does not match (" + vcfPosition +
-                " vs. " + vcf.pos + " for " + hgvs + ")");
+            throw new IllegalStateException(errorLocation + ": VCF's reference allele does not match (" +
+                refAllele + " vs. " + vcf.ref + " for " + hgvs + ")");
           }
           if (!missingAlts.remove(vcf.alt)) {
             throw new IllegalStateException(errorLocation + ": VCF's alt allele does not match (expecting " +
