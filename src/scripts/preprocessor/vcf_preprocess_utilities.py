@@ -385,27 +385,21 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf,
         # extract headers from reference pgx position vcf
         pgx_vcf_header = os.path.join(temp_dir, 'temp_ref_pgx_vcf_header.txt')
         with open(pgx_vcf_header, 'w') as output_f:
-            # get header, especially contigs, from reference pgx position vcf
-            with gzip.open(ref_pgx_uniallelic) as in_f:
-                for line in in_f:
-                    try:
-                        line = byte_decoder(line)
-                    except:
-                        line = line
-                    if line[0:2] == '##':
-                        output_f.write(line)
-                    else:
-                        break
-            # get header of samples from merged vcf
+            # get header of samples from merged vcf, add in new contig info
             with gzip.open(merge_vcf) as in_f:
                 for line in in_f:
                     try:
                         line = byte_decoder(line)
                     except:
                         line = line
-                    if line[0:2] == '##':
+                    if line[0:8] == '##contig':
                         continue
+                    elif line[0:2] == '##':
+                        output_f.write(line)
                     elif line[0:6] == '#CHROM':
+                        for single_chr in _chr_valid_sorter:
+                            output_f.write('##contig=<ID=' + single_chr + ',assembly=GRCh38.p13,species="Homo '
+                                                                          'sapiens">\n')
                         output_f.write(line)
                     else:
                         break
