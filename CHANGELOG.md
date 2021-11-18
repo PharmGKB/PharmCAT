@@ -1,3 +1,13 @@
+### [1.2.1](https://github.com/PharmGKB/PharmCAT/compare/v1.2.0...v1.2.1) (2021-11-18)
+
+
+### Bug Fixes
+
+* **data:** fix bad genotype in a CYP2C19 test case ([0a77c77](https://github.com/PharmGKB/PharmCAT/commit/0a77c7715ee86a81bbccebd202ae488ec83e31a2))
+* **DataManager:** support wobble code in reference allele ([ada5a3a](https://github.com/PharmGKB/PharmCAT/commit/ada5a3a67e091ba53a309966144722c2f520c995))
+* **DataManager:** treat HGVS dup as a form of repeat [2] ([81135db](https://github.com/PharmGKB/PharmCAT/commit/81135db70719a0f1e71e62e86e9687f0c550c7ca))
+* **preprocessor:** fix vcf header parsing error ([b5c9814](https://github.com/PharmGKB/PharmCAT/commit/b5c981425d12856c15bf6ea39145e276f5a73ca5))
+
 ## [1.2.0](https://github.com/PharmGKB/PharmCAT/compare/v1.1.0...v1.2.0) (2021-10-27)
 
 
