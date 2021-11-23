@@ -204,7 +204,7 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
                                      sample_list):
     """
     Rename chromosomes in input vcf according to a chr-renaming mapping file.
-    Extract pgx regions from input_vcf based on the pgx_vcf.
+    Extract pgx regions from input_vcf based on the ref_pgx.
 
     "bcftools annotate <options> <input_vcf>". For bcftools common options, see running_bcftools().
     "--rename-chrs" renames chromosomes according to the map in file_rename_chrs.
@@ -254,12 +254,12 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
                 ref_pgx_regions.apply(lambda row: ':'.join(row.values.astype(str)), axis=1).replace({'chr': ''},
                                                                                                     regex=True))
         else:
-            print("The CHROM column does not comply with either 'chr##' or '##' format.")
+            print("The CHROM column does not conform with either 'chr##' or '##' format.")
             sys.exit(1)
 
         # extract pgx regions and modify chromosome names if necessary
         bcftools_command = [bcftools_path, 'annotate', '--no-version', '-S', file_sample_list,
-                            '--rename-chrs', file_chr_rename, '-r', ref_pgx_regions,
+                            '--rename-chrs', file_chr_rename, '-r', ref_pgx_regions, '-i', 'ALT="."', '-k',
                             '-Oz', '-o', path_output, input_vcf]
         run_bcftools(bcftools_command,
                      show_msg='Extracting PGx regions and modifying chromosome names for %s.' % input_vcf)
@@ -270,7 +270,7 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
     return path_output
 
 
-def extract_regions_from_multiple_files(bcftools_path, tabix_path, bgzip_path, input_list, pgx_vcf,
+def extract_regions_from_multiple_files(bcftools_path, tabix_path, bgzip_path, input_list, ref_pgx,
         output_dir, output_prefix, sample_list):
     """
     iterate through the list of input files
@@ -294,7 +294,7 @@ def extract_regions_from_multiple_files(bcftools_path, tabix_path, bgzip_path, i
                     line = bgzipped_vcf(bgzip_path, line)
 
                     temp_output_prefix = output_prefix + '_' + i
-                    single_file = extract_regions_from_single_file(bcftools_path, tabix_path, line, pgx_vcf,
+                    single_file = extract_regions_from_single_file(bcftools_path, tabix_path, line, ref_pgx,
                                                                    temp_dir, temp_output_prefix, sample_list)
                     preprocessed_file_list.append(single_file)
                     i += 1
@@ -339,7 +339,7 @@ def normalize_vcf(bcftools_path, tabix_path, input_vcf, ref_seq):
     return path_output
 
 
-def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf,
+def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, ref_pgx,
                         missing_to_ref, output_dir, output_prefix):
     """
     Extract specific pgx positions that are present in the reference PGx VCF
@@ -356,35 +356,50 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf,
 
     with tempfile.TemporaryDirectory(suffix='extract_pgx_variants', dir=output_dir) as temp_dir:
         # convert reference PGx variants to the uniallelic format
-        ref_pgx_uniallelic = os.path.join(temp_dir, 'temp_reference_pgx_variants_sorted_uniallelic.vcf.gz')
+        # needed for extracting exact PGx positions and generating an accurate missing report
+        ref_pgx_uniallelic = os.path.join(temp_dir, 'temp_ref_pgx_uniallelic.vcf.gz')
         bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', ref_seq,
-                            '-Oz', '-o', ref_pgx_uniallelic, pgx_vcf]
+                            '-Oz', '-o', ref_pgx_uniallelic, ref_pgx]
         run_bcftools(bcftools_command, show_msg='Preparing the reference PGx VCF')
         tabix_index_vcf(tabix_path, ref_pgx_uniallelic)
 
-        # extract only the required PGx positions
-        input_pgx_variants_only = os.path.join(temp_dir, 'temp_input_pgx_variants_only.vcf.gz')
-        # output the exact matching variants (both position and alleles) in the second input file
+        # extract only the PGx positions required by PharmCAT
+        # first, extract positions with matching REF and ALT
+        input_pgx_only_matching_alt = os.path.join(temp_dir, 'temp_input_pgx_only_matching_alt.vcf.gz')
         bcftools_command = [bcftools_path, 'isec', '--no-version', '-c', 'none', '-n=2', '-w2',
-                            '-Oz', '-o', input_pgx_variants_only,
+                            '-Oz', '-o', input_pgx_only_matching_alt,
                             ref_pgx_uniallelic, input_vcf]
-        run_bcftools(bcftools_command, show_msg='Retaining only PGx positions')
-        tabix_index_vcf(tabix_path, input_pgx_variants_only)
+        run_bcftools(bcftools_command, show_msg='Retaining PGx positions with matching REF and ALT')
+        tabix_index_vcf(tabix_path, input_pgx_only_matching_alt)
+        # additionally, extract hom ref positions where "ALT=."
+        input_pgx_only_hom_ref = os.path.join(temp_dir, 'temp_input_pgx_only_hom_ref.vcf.gz')
+        bcftools_command = [bcftools_path, 'view', '--no-version', '-i', 'ALT="."',
+                            '-Oz', '-o', input_pgx_only_hom_ref,
+                            input_vcf]
+        run_bcftools(bcftools_command, show_msg='Retaining homozygous reference PGx positions')
+        tabix_index_vcf(tabix_path, input_pgx_only_hom_ref)
+        # merge exact matching positions and homozygous reference positions
+        input_pgx_only = os.path.join(temp_dir, 'temp_input_pgx_variants_only.vcf.gz')
+        bcftools_command = [bcftools_path, 'concat', '--no-version', '-a',
+                            '-Oz', '-o', input_pgx_only,
+                            input_pgx_only_hom_ref, input_pgx_only_matching_alt]
+        run_bcftools(bcftools_command, show_msg='Combining exact matches with homozygous reference positions')
+        tabix_index_vcf(tabix_path, input_pgx_only)
 
         # merging the filtered input with the reference PGx positions for the next step
         merge_vcf = os.path.join(temp_dir, 'temp_merged.vcf.gz')
         if missing_to_ref:
             bcftools_command = [bcftools_path, 'merge', '--no-version', '-m', 'both', '-0',
-                                '-Oz', '-o', merge_vcf, input_pgx_variants_only, ref_pgx_uniallelic]
+                                '-Oz', '-o', merge_vcf, input_pgx_only, ref_pgx_uniallelic]
         else:
             bcftools_command = [bcftools_path, 'merge', '--no-version', '-m', 'both',
-                                '-Oz', '-o', merge_vcf, input_pgx_variants_only, ref_pgx_uniallelic]
-        run_bcftools(bcftools_command, show_msg='Trimming file')
+                                '-Oz', '-o', merge_vcf, input_pgx_only, ref_pgx]
+        run_bcftools(bcftools_command, show_msg='Trimming file, converting missing genotypes to reference')
         tabix_index_vcf(tabix_path, merge_vcf)
 
         # extract headers from reference pgx position vcf
-        pgx_vcf_header = os.path.join(temp_dir, 'temp_ref_pgx_vcf_header.txt')
-        with open(pgx_vcf_header, 'w') as output_f:
+        new_vcf_header = os.path.join(temp_dir, 'temp_new_vcf_header.txt')
+        with open(new_vcf_header, 'w') as output_f:
             # get header of samples from merged vcf, add in new contig info
             with gzip.open(merge_vcf) as in_f:
                 for line in in_f:
@@ -406,7 +421,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf,
 
         # update headers of vcf
         reheaded_vcf = os.path.join(temp_dir, 'temp_header_updated.vcf.gz')
-        bcftools_command = [bcftools_path, 'reheader', '-h', pgx_vcf_header, '-o', reheaded_vcf, merge_vcf]
+        bcftools_command = [bcftools_path, 'reheader', '-h', new_vcf_header, '-o', reheaded_vcf, merge_vcf]
         run_bcftools(bcftools_command, show_msg='Updating headers')
         tabix_index_vcf(tabix_path, reheaded_vcf)
 
@@ -416,7 +431,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf,
         run_bcftools(bcftools_command, show_msg='Sorting file')
         tabix_index_vcf(tabix_path, sorted_vcf)
 
-        # enforce the output to comply with PharmCAT format
+        # This normalization enforces the output to comply with PharmCAT format
         multiallelic_vcf = os.path.join(temp_dir, 'temp_multiallelic.vcf.gz')
         bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', ref_seq,
                             '-Oz', '-o', multiallelic_vcf, sorted_vcf]
@@ -431,9 +446,18 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, pgx_vcf,
         tabix_index_vcf(tabix_path, path_output)
 
         # report missing positions in the input VCF
+        # run this step after previous steps to avoid erroneous reporting of homozygous reference postiions
+        # first, convert normalized, multiallelic vcf to the uniallelic format
+        input_vcf_normed_uniallelic = os.path.join(output_dir, output_prefix + '.temp_normed_uniallelic.vcf.gz')
+        bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', ref_seq,
+                            '-Oz', '-o', input_vcf_normed_uniallelic, path_output]
+        run_bcftools(bcftools_command, show_msg='Preparing file for missing report')
+        tabix_index_vcf(tabix_path, input_vcf_normed_uniallelic)
+        # second, generate missing report
         report_missing_variants = os.path.join(output_dir, output_prefix + '.missing_pgx_var.vcf.gz')
-        bcftools_command = [bcftools_path, 'isec', '--no-version', '-c', 'none', '-w1',
-                            '-Oz', '-o', report_missing_variants, '-C', ref_pgx_uniallelic, input_vcf]
+        bcftools_command = [bcftools_path, 'isec', '--no-version', '-C', '-c', 'none', '-w1',
+                            '-e-', '-e', 'GT="mis"', '-Oz', '-o', report_missing_variants,
+                            ref_pgx_uniallelic, input_vcf_normed_uniallelic]
         run_bcftools(bcftools_command,
                      show_msg='Generating a report of missing PGx allele defining positions')
 

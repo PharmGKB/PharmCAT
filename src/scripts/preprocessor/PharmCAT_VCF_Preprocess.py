@@ -61,9 +61,9 @@ def run(args):
             sys.exit(1)
 
     # validate the reference vcf of PharmCAT PGx positions
-    pgx_vcf = args.ref_pgx_vcf
-    if not os.path.exists(pgx_vcf):
-        print('Error: VCF of the reference PGx positions was not found at: %s' % pgx_vcf)
+    ref_pgx = args.ref_pgx_vcf
+    if not os.path.exists(ref_pgx):
+        print('Error: VCF of the reference PGx positions was not found at: %s' % ref_pgx)
         sys.exit(1)
 
     """
@@ -98,9 +98,9 @@ def run(args):
             ref_seq = util.get_default_grch38_ref_fasta_and_index(output_dir)
             print("Downloaded to %s" % ref_seq)
 
-    # index pgx_vcf if not already so
-    if not os.path.exists(pgx_vcf + '.tbi'):
-        util.tabix_index_vcf(tabix_path, pgx_vcf)
+    # index ref_pgx if not already so
+    if not os.path.exists(ref_pgx + '.tbi'):
+        util.tabix_index_vcf(tabix_path, ref_pgx)
 
     # read the sample list
     sample_list = []
@@ -130,10 +130,10 @@ def run(args):
     # modify input VCF chromosomes naming format to <chr##>
     if input_list:
         vcf_pgx_regions = util.extract_regions_from_multiple_files(bcftools_path, tabix_path, bgzip_path, input_list,
-                                                                   pgx_vcf, output_dir, output_prefix, sample_list)
+                                                                   ref_pgx, output_dir, output_prefix, sample_list)
     else:
         vcf_pgx_regions = util.extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf,
-                                                                pgx_vcf, output_dir, output_prefix, sample_list)
+                                                                ref_pgx, output_dir, output_prefix, sample_list)
     tmp_files_to_be_removed.append(vcf_pgx_regions)
 
     # normalize the input VCF
@@ -142,7 +142,7 @@ def run(args):
 
     # extract the specific PGx genetic variants in the reference PGx VCF
     # this step also generates a report of missing PGx positions in the input VCF
-    vcf_normalized_pgx_only = util.filter_pgx_variants(bcftools_path, tabix_path, vcf_normalized, ref_seq, pgx_vcf,
+    vcf_normalized_pgx_only = util.filter_pgx_variants(bcftools_path, tabix_path, vcf_normalized, ref_seq, ref_pgx,
                                                        missing_to_ref, output_dir, output_prefix)
     tmp_files_to_be_removed.append(vcf_normalized_pgx_only)
 
