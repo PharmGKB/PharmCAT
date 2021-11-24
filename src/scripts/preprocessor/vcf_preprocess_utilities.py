@@ -448,7 +448,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, ref_pgx,
         # report missing positions in the input VCF
         # run this step after previous steps to avoid erroneous reporting of homozygous reference postiions
         # first, convert normalized, multiallelic vcf to the uniallelic format
-        input_vcf_normed_uniallelic = os.path.join(output_dir, output_prefix + '.temp_normed_uniallelic.vcf.gz')
+        input_vcf_normed_uniallelic = os.path.join(temp_dir, output_prefix + '.temp_normed_uniallelic.vcf.gz')
         bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', ref_seq,
                             '-Oz', '-o', input_vcf_normed_uniallelic, path_output]
         run_bcftools(bcftools_command, show_msg='Preparing file for missing report')
