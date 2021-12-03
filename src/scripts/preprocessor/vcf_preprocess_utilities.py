@@ -55,7 +55,7 @@ def bgzipped_vcf(bgzip_path, file):
     make sure file is bgzipped
     """
     if not is_gz_file(file):
-        print("VCF file is not bgzipped!")
+        print("Bgzipping VCF!")
         bgzip_file(bgzip_path, file)
         file = file + '.gz'
         if os.path.exists(file + '.tbi'):
@@ -149,6 +149,7 @@ def run_bcftools(list_bcftools_command, show_msg=None):
         print(p.stderr.decode("utf-8"))
         sys.exit(1)
 
+
 def obtain_vcf_sample_list(bcftools_path, path_to_vcf):
     """
     obtain a list of samples from the input VCF
@@ -201,7 +202,7 @@ def _is_valid_chr(input_vcf):
 
 
 def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_vcf, output_dir, output_prefix,
-                                     sample_list):
+        sample_list):
     """
     Rename chromosomes in input vcf according to a chr-renaming mapping file.
     Extract pgx regions from input_vcf based on the ref_pgx.
@@ -339,8 +340,8 @@ def normalize_vcf(bcftools_path, tabix_path, input_vcf, ref_seq):
     return path_output
 
 
-def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, ref_pgx,
-                        missing_to_ref, output_dir, output_prefix):
+def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
+        phased, missing_to_ref, output_dir, output_prefix):
     """
     Extract specific pgx positions that are present in the reference PGx VCF
     Generate a report of PGx positions that are missing in the input VCF
@@ -363,104 +364,183 @@ def filter_pgx_variants(bcftools_path, tabix_path, input_vcf, ref_seq, ref_pgx,
         run_bcftools(bcftools_command, show_msg='Preparing the reference PGx VCF')
         tabix_index_vcf(tabix_path, ref_pgx_uniallelic)
 
-        # extract only the PGx positions required by PharmCAT
-        # first, extract positions with matching REF and ALT
-        input_pgx_only_matching_alt = os.path.join(temp_dir, 'temp_input_pgx_only_matching_alt.vcf.gz')
-        bcftools_command = [bcftools_path, 'isec', '--no-version', '-c', 'none', '-n=2', '-w2',
-                            '-Oz', '-o', input_pgx_only_matching_alt,
-                            ref_pgx_uniallelic, input_vcf]
-        run_bcftools(bcftools_command, show_msg='Retaining PGx positions with matching REF and ALT')
-        tabix_index_vcf(tabix_path, input_pgx_only_matching_alt)
-        # additionally, extract hom ref positions where "ALT=."
-        input_pgx_only_hom_ref = os.path.join(temp_dir, 'temp_input_pgx_only_hom_ref.vcf.gz')
-        bcftools_command = [bcftools_path, 'view', '--no-version', '-i', 'ALT="."',
-                            '-Oz', '-o', input_pgx_only_hom_ref,
-                            input_vcf]
-        run_bcftools(bcftools_command, show_msg='Retaining homozygous reference PGx positions')
-        tabix_index_vcf(tabix_path, input_pgx_only_hom_ref)
-        # merge exact matching positions and homozygous reference positions
-        input_pgx_only = os.path.join(temp_dir, 'temp_input_pgx_variants_only.vcf.gz')
-        bcftools_command = [bcftools_path, 'concat', '--no-version', '-a',
-                            '-Oz', '-o', input_pgx_only,
-                            input_pgx_only_hom_ref, input_pgx_only_matching_alt]
-        run_bcftools(bcftools_command, show_msg='Combining exact matches with homozygous reference positions')
-        tabix_index_vcf(tabix_path, input_pgx_only)
+        # create a dictionary of PharmCAT reference PGx positions
+        # the ref_pos (dict) will be used to remain only PGx pos in the input
+        ref_pos = {}
+        with gzip.open(ref_pgx_uniallelic, 'r') as in_f:
+            for line in in_f:
+                try:
+                    line = byte_decoder(line)
+                except:
+                    line = line
+                # skip headers
+                if line[0] == '#':
+                    continue
+                # read file
+                line = line.rstrip('\n')
+                fields = line.split('\t')
+                # ref_pos: a nested dictionary where ref_pos [(chr,pos)] [(ref, alt)] = all fields except GT
+                # initiate the dictionary if the first key doesn't exist yet
+                if (fields[0], fields[1]) not in ref_pos.keys():
+                    ref_pos[(fields[0], fields[1])] = {}
+                ref_pos[(fields[0], fields[1])][(fields[3], fields[4])] = fields[0:9]
 
-        # merging the filtered input with the reference PGx positions for the next step
-        merge_vcf = os.path.join(temp_dir, 'temp_merged.vcf.gz')
-        if missing_to_ref:
-            bcftools_command = [bcftools_path, 'merge', '--no-version', '-m', 'both', '-0',
-                                '-Oz', '-o', merge_vcf, input_pgx_only, ref_pgx_uniallelic]
-        else:
-            bcftools_command = [bcftools_path, 'merge', '--no-version', '-m', 'both',
-                                '-Oz', '-o', merge_vcf, input_pgx_only, ref_pgx]
-        run_bcftools(bcftools_command, show_msg='Trimming file, converting missing genotypes to reference')
-        tabix_index_vcf(tabix_path, merge_vcf)
-
-        # extract headers from reference pgx position vcf
-        new_vcf_header = os.path.join(temp_dir, 'temp_new_vcf_header.txt')
-        with open(new_vcf_header, 'w') as output_f:
+        # retain only PharmCAT PGx positions, including those with matching ALTs and homozygous reference (ALT='.')
+        # use input_pos to record PGx positions in the input VCF
+        input_pos = []
+        vcf_pgx_only = os.path.join(output_dir, 'temp_pgx_variants_only.vcf')
+        with open(vcf_pgx_only, 'w') as out_f:
             # get header of samples from merged vcf, add in new contig info
-            with gzip.open(merge_vcf) as in_f:
+            print('Retaining PGx positions with matching ALT and homozygous reference PGx positions')
+            with gzip.open(input_vcf) as in_f:
                 for line in in_f:
                     try:
                         line = byte_decoder(line)
                     except:
                         line = line
+                    # process header lines, skip contig
                     if line[0:8] == '##contig':
-                        continue
+                        continue  # skip contig info in the original vcf
+                    # process header lines, except lines about contig
                     elif line[0:2] == '##':
-                        output_f.write(line)
+                        out_f.write(line)
+                    # process the sample line, add PGx-related lines
                     elif line[0:6] == '#CHROM':
                         for single_chr in _chr_valid_sorter:
-                            output_f.write('##contig=<ID=' + single_chr + ',assembly=GRCh38.p13,species="Homo '
-                                                                          'sapiens">\n')
-                        output_f.write(line)
+                            out_f.write('##contig=<ID=' + single_chr + ',assembly=GRCh38.p13,species="Homo '
+                                                                       'sapiens">\n')
+                        out_f.write('##INFO=<ID=PX,Number=.,Type=String,Description="Gene">\n')
+                        out_f.write('##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not '
+                                    'part of an allele definition">\n')
+                        out_f.write(line)
+                        # get the number of samples
+                        line = line.rstrip('\n')
+                        fields = line.split('\t')
+                        n_sample = len(fields) - 9
+                    # process the genotype data
                     else:
-                        break
+                        line = line.rstrip('\n')
+                        fields = line.split('\t')
+                        # identify matching positions
+                        key_chr_pos = (fields[0], fields[1])
+                        if key_chr_pos in ref_pos:
+                            # record input PGx positions in a list
+                            # use this to handle multiallelic loci later
+                            if key_chr_pos not in input_pos:
+                                input_pos.append(key_chr_pos)
 
-        # update headers of vcf
-        reheaded_vcf = os.path.join(temp_dir, 'temp_header_updated.vcf.gz')
-        bcftools_command = [bcftools_path, 'reheader', '-h', new_vcf_header, '-o', reheaded_vcf, merge_vcf]
-        run_bcftools(bcftools_command, show_msg='Updating headers')
-        tabix_index_vcf(tabix_path, reheaded_vcf)
+                            key_ref_alt = (fields[3], fields[4])
+                            # filter for PGx positions with matching ALT or hom ref (ALT='.')
+                            if key_ref_alt in ref_pos[key_chr_pos]:
+                                # update ID col
+                                if ref_pos[key_chr_pos][key_ref_alt][2] not in fields[2]:
+                                    fields[2] = ref_pos[key_chr_pos][key_ref_alt][2] + ',' + fields[2]
+                                # update INFO field
+                                if fields[7] == '.':
+                                    fields[7] = ref_pos[key_chr_pos][key_ref_alt][7]
+                                else:
+                                    fields[7] = ref_pos[key_chr_pos][key_ref_alt][7] + ';' + fields[7]
+                                # concat and write to output file
+                                line = '\t'.join(fields)
+                                out_f.write(line + '\n')
+
+                                #  positions in the input
+                                # backward eliminattion: remove the dictionary item so that it won't be used again
+                                ref_pos[key_chr_pos].pop(key_ref_alt)
+                                # remove a position if all of its alts are present in the input
+                                if ref_pos[key_chr_pos] == {}:
+                                    del ref_pos[key_chr_pos]
+                            elif fields[4] == '.':
+                                # check if all GT are indeed hom ref
+                                set_hom_ref = {'0|0', '0/0'}
+                                if not set(fields[9:]).issubset(set_hom_ref):
+                                    print('Error: %s %s are not homozygous reference as suggested by ALT'
+                                          % (fields[0], fields[1]))
+                                    sys.exit(1)
+
+                                # validate the record by cross-referencing the ref allele
+                                ref_alleles = [x[0] for x in ref_pos[key_chr_pos].keys()]
+                                if fields[3] in ref_alleles:
+                                    # update id when the id is not in the input
+                                    input_id = fields[2].split(';')
+                                    ref_id = list(set([x[2] for x in ref_pos[key_chr_pos].values()]))
+                                    fields[2] = ';'.join(set(ref_id + input_id))
+
+                                    # update info
+                                    info_col = ';'.join(set([x[7] for x in ref_pos[key_chr_pos].values()]))
+                                    fields[7] = ';'.join([info_col, fields[7]]) if fields[7] != '.' else info_col
+
+                                    alt_alleles = [x[1] for x in ref_pos[key_chr_pos].keys()]
+                                    for i in range(len(alt_alleles)):
+                                        # update contents, concatenate cols from input and from the ref PGx VCF
+                                        fields[3] = ref_alleles[i]
+                                        fields[4] = alt_alleles[i]
+                                        # concat and write to output file
+                                        line = '\t'.join(fields)
+                                        out_f.write(line + '\n')
+                                    # remove the dictionary item from ref_pgx so that it won't be used again
+                                    del ref_pos[key_chr_pos]
+
+                                # output the original line
+                                out_f.write(line+ '\n')
+                            else:  # skip if it's not a PGx pos
+                                continue
+            # if missing_to_ref is true, output all missing positions
+            if missing_to_ref:
+                for key_ref_alt in ref_pos.values():
+                    for val in key_ref_alt.values():
+                        line = '\t'.join(val + ['0|0' if phased else '0/0'] * n_sample)
+                        out_f.write(line + '\n')
+            # otherwise, only complete lines for multiallelic loci
+            else:
+                for single_pos in input_pos:
+                    if single_pos in ref_pos:
+                        for val in ref_pos[single_pos].values():
+                            line = '\t'.join(val + ['0|0' if phased else '0/0'] * n_sample)
+                            out_f.write(line + '\n')
 
         # sort vcf
-        sorted_vcf = os.path.join(temp_dir, 'temp_header_updated_sorted.vcf.gz')
-        bcftools_command = [bcftools_path, 'sort', '-Oz', '-o', sorted_vcf, reheaded_vcf]
+        sorted_vcf = os.path.join(temp_dir, 'temp_sorted.vcf.gz')
+        bcftools_command = [bcftools_path, 'sort', '-Oz', '-o', sorted_vcf, vcf_pgx_only]
         run_bcftools(bcftools_command, show_msg='Sorting file')
         tabix_index_vcf(tabix_path, sorted_vcf)
 
         # This normalization enforces the output to comply with PharmCAT format
-        multiallelic_vcf = os.path.join(temp_dir, 'temp_multiallelic.vcf.gz')
         bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', ref_seq,
-                            '-Oz', '-o', multiallelic_vcf, sorted_vcf]
+                            '-Oz', '-o', path_output, sorted_vcf]
         run_bcftools(bcftools_command,
                      show_msg='Enforcing the variant representation per PharmCAT')
-        tabix_index_vcf(tabix_path, multiallelic_vcf)
-
-        # remove the artificial PharmCAT sample
-        bcftools_command = [bcftools_path, 'view', '--no-version', '-s', '^PharmCAT',
-                            '-Oz', '-o', path_output, multiallelic_vcf]
-        run_bcftools(bcftools_command, show_msg='Trimming file')
         tabix_index_vcf(tabix_path, path_output)
 
         # report missing positions in the input VCF
-        # run this step after previous steps to avoid erroneous reporting of homozygous reference postiions
-        # first, convert normalized, multiallelic vcf to the uniallelic format
-        input_vcf_normed_uniallelic = os.path.join(temp_dir, output_prefix + '.temp_normed_uniallelic.vcf.gz')
-        bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', ref_seq,
-                            '-Oz', '-o', input_vcf_normed_uniallelic, path_output]
-        run_bcftools(bcftools_command, show_msg='Preparing file for missing report')
-        tabix_index_vcf(tabix_path, input_vcf_normed_uniallelic)
-        # second, generate missing report
-        report_missing_variants = os.path.join(output_dir, output_prefix + '.missing_pgx_var.vcf.gz')
-        bcftools_command = [bcftools_path, 'isec', '--no-version', '-C', '-c', 'none', '-w1',
-                            '-e-', '-e', 'GT="mis"', '-Oz', '-o', report_missing_variants,
-                            ref_pgx_uniallelic, input_vcf_normed_uniallelic]
-        run_bcftools(bcftools_command,
-                     show_msg='Generating a report of missing PGx allele defining positions')
-
+        missing_report = os.path.join(output_dir, output_prefix + '.missing_pgx_var.vcf')
+        with open(missing_report, 'w') as out_f:
+            print('Generating a report of missing PGx allele defining positions')
+            # get VCF header from the reference PGx VCF
+            with gzip.open(ref_pgx, 'r') as in_f:
+                for line in in_f:
+                    try:
+                        line = byte_decoder(line)
+                    except:
+                        line = line
+                    # process header lines
+                    if line[0:2] == '##':
+                        out_f.write(line)
+                    # process the sample line, add PGx-related lines
+                    elif line[0:6] == '#CHROM':
+                        line = line.rstrip('\n')
+                        fields = line.split('\t')
+                        fields[-1] = 'Missing'
+                        out_f.write('\t'.join(fields))
+                    else:
+                        break
+            # output positions that were not detected in the input VCF
+            for key_ref_alt in ref_pos.values():
+                for val in key_ref_alt.values():
+                    line = '\t'.join(val + ['0|0' if phased else '0/0'])
+                    out_f.write(line + '\n')
+        # bgzip the missing report
+        bgzipped_vcf(bgzip_path, missing_report)
     return path_output
 
 

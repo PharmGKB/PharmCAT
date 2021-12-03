@@ -73,6 +73,7 @@ def run(args):
     output_prefix = args.output_prefix
     keep_intermediate_files = args.keep_intermediate_files
     missing_to_ref = args.missing_to_ref
+    phased = args.phased
     # define working directory, default the directory of the first input VCF
     if args.output_folder:
         output_dir = args.output_folder
@@ -142,8 +143,8 @@ def run(args):
 
     # extract the specific PGx genetic variants in the reference PGx VCF
     # this step also generates a report of missing PGx positions in the input VCF
-    vcf_normalized_pgx_only = util.filter_pgx_variants(bcftools_path, tabix_path, vcf_normalized, ref_seq, ref_pgx,
-                                                       missing_to_ref, output_dir, output_prefix)
+    vcf_normalized_pgx_only = util.filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, vcf_normalized, ref_seq,
+                                                       ref_pgx, phased, missing_to_ref, output_dir, output_prefix)
     tmp_files_to_be_removed.append(vcf_normalized_pgx_only)
 
     # output PharmCAT-ready single-sample VCF
@@ -166,16 +167,17 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Prepare an input VCF for the PharmCAT')
 
     # list arguments
-    parser.add_argument("--input_vcf", type=str, help="Path to a VCF file.")
+    parser.add_argument("-i", "--input_vcf", type=str, help="Path to a VCF file.")
     parser.add_argument("--input_list", type=str,
                         help="A file containing paths to VCF files (one file per line), sorted by chromosome position.")
-    parser.add_argument("--ref_pgx_vcf", type=str,
+    parser.add_argument("-pgx", "--ref_pgx_vcf", type=str,
                         default=os.path.join(os.getcwd(), "pharmcat_positions.vcf.bgz"),
                         help="A sorted VCF of PharmCAT PGx variants, gzipped with preprocessor scripts. Default = "
-                             "\'pharmcat_positions.vcf.bgz\' in the current working directory")
-    parser.add_argument("--ref_seq",
+                             "\'pharmcat_positions.vcf.bgz\' in the current working directory.")
+    parser.add_argument("-p", "--phased", action='store_true', help="Phasing status. Default = False (unphased).")
+    parser.add_argument("-g", "--ref_seq",
                         help="(Optional) the Human Reference Genome GRCh38/hg38 in the fasta format.")
-    parser.add_argument("--sample_file",
+    parser.add_argument("-S", "--sample_file",
                         help="(Optional) a file of samples to be prepared for the PharmCAT, one sample at a line.")
     parser.add_argument("--path_to_bcftools",
                         help="(Optional) an alternative path to the executable bcftools.")
@@ -186,11 +188,11 @@ if __name__ == "__main__":
     parser.add_argument("--output_folder", type=str,
                         help="(Optional) directory for outputs, by default, directory of the first input VCF.")
     parser.add_argument("--output_prefix", default='pharmcat_ready_vcf', type=str,
-                        help="(Optional) prefix of the output VCF, default = \'pharmcat_ready_vcf\'")
+                        help="(Optional) prefix of the output VCF, default = \'pharmcat_ready_vcf\'.")
     parser.add_argument("--keep_intermediate_files", action='store_true',
                         help="(Optional) keep intermediate files, false by default.")
     parser.add_argument("-0", "--missing_to_ref", action='store_true',
-                        help="(Optional) assume genotypes at missing PGx sites are 0/0.  DANGEROUS!")
+                        help="(Optional) assume genotypes at missing PGx sites are 0/0.  DANGEROUS!.")
 
     # parse arguments
     args = parser.parse_args()
@@ -207,6 +209,14 @@ if __name__ == "__main__":
               '\n'
               'Running PharmCAT with positions as missing vs reference can\n'
               'lead to different results.\n'
+              '=============================================================\n')
+    if args.phased:
+        print('=============================================================\n'
+              'Warning: Processing phased data.\n'
+              '=============================================================\n')
+    else:
+        print('=============================================================\n'
+              'Warning: Processing unphased data.\n'
               '=============================================================\n')
 
     # normalize variant representations and reconstruct multi-allelic variants in the input VCF
