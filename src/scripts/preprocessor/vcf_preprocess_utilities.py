@@ -202,7 +202,7 @@ def _is_valid_chr(input_vcf):
 
 
 def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_vcf, output_dir, output_prefix,
-        sample_list):
+                                     sample_list):
     """
     Rename chromosomes in input vcf according to a chr-renaming mapping file.
     Extract pgx regions from input_vcf based on the ref_pgx.
@@ -219,6 +219,22 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
     # create index if not already existed
     if not os.path.exists(input_vcf + '.tbi'):
         tabix_index_vcf(tabix_path, input_vcf)
+
+    # check whether input if a gVCF
+    with gzip.open(input_vcf, 'r') as in_f:
+        for line in in_f:
+            try:
+                line = byte_decoder(line)
+            except:
+                line = line
+            if line[0:2] == '##':
+                if ('ALT' in line) and ('ID=NON_REF' in line):
+                    print('=============================================================\n'
+                          'Proprocessor currently does not support gVCF.\n'
+                          '=============================================================\n')
+                    sys.exit(1)
+            else:
+                break
 
     # obtain PGx regions to be extracted
     df_ref_pgx_pos = allel.vcf_to_dataframe(pgx_vcf)

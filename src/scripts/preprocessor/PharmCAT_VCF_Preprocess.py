@@ -203,7 +203,7 @@ if __name__ == "__main__":
               '\n'
               'THIS SHOULD ONLY BE USED IF: you sure your data is reference\n'
               'at the missing positions instead of unreadable/uncallable at\n'
-              'those positions\n'
+              'those positions.\n'
               '\n'
               'Running PharmCAT with positions as missing vs reference can\n'
               'lead to different results.\n'
