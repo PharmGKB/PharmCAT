@@ -341,7 +341,7 @@ def normalize_vcf(bcftools_path, tabix_path, input_vcf, ref_seq):
 
 
 def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
-        phased, missing_to_ref, output_dir, output_prefix):
+                        missing_to_ref, output_dir, output_prefix):
     """
     Extract specific pgx positions that are present in the reference PGx VCF
     Generate a report of PGx positions that are missing in the input VCF
@@ -364,6 +364,12 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
         run_bcftools(bcftools_command, show_msg='Preparing the reference PGx VCF')
         tabix_index_vcf(tabix_path, ref_pgx_uniallelic)
 
+
+        '''
+        merge VCF
+        add in variants (missing positions or missing multiallelic variants) as '0|0'
+        bcftools will take care of the rest
+        '''
         # create a dictionary of PharmCAT reference PGx positions
         # the ref_pos (dict) will be used to remain only PGx pos in the input
         ref_pos = {}
@@ -388,7 +394,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
         # retain only PharmCAT PGx positions, including those with matching ALTs and homozygous reference (ALT='.')
         # use input_pos to record PGx positions in the input VCF
         input_pos = []
-        vcf_pgx_only = os.path.join(output_dir, 'temp_pgx_variants_only.vcf')
+        vcf_pgx_only = os.path.join(temp_dir, 'temp_pgx_variants_only.vcf')
         with open(vcf_pgx_only, 'w') as out_f:
             # get header of samples from merged vcf, add in new contig info
             print('Retaining PGx positions with matching ALT and homozygous reference PGx positions')
@@ -417,7 +423,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                         line = line.rstrip('\n')
                         fields = line.split('\t')
                         n_sample = len(fields) - 9
-                    # process the genotype data
+                    # scan the genotype data
                     else:
                         line = line.rstrip('\n')
                         fields = line.split('\t')
@@ -434,7 +440,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                             if key_ref_alt in ref_pos[key_chr_pos]:
                                 # update ID col
                                 if ref_pos[key_chr_pos][key_ref_alt][2] not in fields[2]:
-                                    fields[2] = ref_pos[key_chr_pos][key_ref_alt][2] + ',' + fields[2]
+                                    fields[2] = ref_pos[key_chr_pos][key_ref_alt][2] + ';' + fields[2]
                                 # update INFO field
                                 if fields[7] == '.':
                                     fields[7] = ref_pos[key_chr_pos][key_ref_alt][7]
@@ -444,8 +450,8 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                 line = '\t'.join(fields)
                                 out_f.write(line + '\n')
 
-                                #  positions in the input
-                                # backward eliminattion: remove the dictionary item so that it won't be used again
+                                # positions in the input
+                                # eliminattion: remove the dictionary item so that it won't be used again
                                 ref_pos[key_chr_pos].pop(key_ref_alt)
                                 # remove a position if all of its alts are present in the input
                                 if ref_pos[key_chr_pos] == {}:
@@ -482,21 +488,21 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                     del ref_pos[key_chr_pos]
 
                                 # output the original line
-                                out_f.write(line+ '\n')
+                                out_f.write(line + '\n')
                             else:  # skip if it's not a PGx pos
                                 continue
             # if missing_to_ref is true, output all missing positions
             if missing_to_ref:
                 for key_ref_alt in ref_pos.values():
                     for val in key_ref_alt.values():
-                        line = '\t'.join(val + ['0|0' if phased else '0/0'] * n_sample)
+                        line = '\t'.join(val + ['0|0'] * n_sample)
                         out_f.write(line + '\n')
             # otherwise, only complete lines for multiallelic loci
             else:
                 for single_pos in input_pos:
                     if single_pos in ref_pos:
                         for val in ref_pos[single_pos].values():
-                            line = '\t'.join(val + ['0|0' if phased else '0/0'] * n_sample)
+                            line = '\t'.join(val + ['0|0'] * n_sample)
                             out_f.write(line + '\n')
 
         # sort vcf
@@ -537,7 +543,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
             # output positions that were not detected in the input VCF
             for key_ref_alt in ref_pos.values():
                 for val in key_ref_alt.values():
-                    line = '\t'.join(val + ['0|0' if phased else '0/0'])
+                    line = '\t'.join(val + ['0|0'])
                     out_f.write(line + '\n')
         # bgzip the missing report
         bgzipped_vcf(bgzip_path, missing_report)
