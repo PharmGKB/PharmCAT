@@ -409,6 +409,22 @@ class PharmCATTest {
   }
 
   @Test
+  void testSlco1b1Test4() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.slco1b1.s5s45", false);
+    testWrapper.getVcfBuilder()
+        .reference("SLCO1B1")
+        .variation("SLCO1B1", "rs4149056", "T", "C")
+        .variation("SLCO1B1", "rs71581941", "C", "T");
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("SLCO1B1");
+    testWrapper.testPrintCalls("SLCO1B1", "*5/*45");
+    testWrapper.testLookup("SLCO1B1", "*5", "*45");
+
+    testWrapper.testMatchedGroups("simvastatin", 1);
+  }
+
+  @Test
   void testDpydS1S2B() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.dpyd.s1s2b", false);
     testWrapper.getVcfBuilder()

@@ -72,6 +72,10 @@ class SyntheticBatchTest {
         "SLCO1B1/SLCO1B1_s15_s45_t1.vcf"
     }, null);
 
+    makeReport("slco1b1.s5s45", new String[]{
+        "SLCO1B1/s5s45.vcf"
+    }, null);
+
     makeReport("slco1b1.s19_s37_t1", new String[]{
         "SLCO1B1/SLCO1B1_s19_s37_t1.vcf"
     }, null);
