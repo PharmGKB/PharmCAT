@@ -1,3 +1,19 @@
+## [1.3.0](https://github.com/PharmGKB/PharmCAT/compare/v1.2.1...v1.3.0) (2021-12-09)
+
+
+### Features
+
+* **preprocessor:** improve support for phased data ("--phased") ([52f6ed0](https://github.com/PharmGKB/PharmCAT/commit/52f6ed0113445c9aef16e1972a71db85c92dc812)), closes [#75](https://github.com/PharmGKB/PharmCAT/issues/75) [#78](https://github.com/PharmGKB/PharmCAT/issues/78)
+
+
+### Bug Fixes
+
+* **data:** CPIC update ([e741c7f](https://github.com/PharmGKB/PharmCAT/commit/e741c7f991cbe0fda35839ceeef5340fc2112ceb))
+* **preprocessor:** add missing multiallelic variants/positions as phased and bcftools determines phasing by GT delimiter accordingly ([f7762ad](https://github.com/PharmGKB/PharmCAT/commit/f7762adb6cb77b764dd2544183b7cb3b33e04f71)), closes [#78](https://github.com/PharmGKB/PharmCAT/issues/78)
+* **preprocessor:** fix for PGx positions with missing ALT ([e2592b2](https://github.com/PharmGKB/PharmCAT/commit/e2592b2e3f12a44566140753aac51a8d8bcc9240)), closes [#77](https://github.com/PharmGKB/PharmCAT/issues/77)
+* **preprocessor:** fix output dir of a temp ([f726303](https://github.com/PharmGKB/PharmCAT/commit/f72630345db80920a8869127564e6cf87b628f98))
+* **preprocessor:** interrupt and print a warning message if a gVCF input is detected ([441a384](https://github.com/PharmGKB/PharmCAT/commit/441a38474b60e1918e4a7ce0ca9d7198b5408b02))
+
 ### [1.2.1](https://github.com/PharmGKB/PharmCAT/compare/v1.2.0...v1.2.1) (2021-11-18)
 
 
