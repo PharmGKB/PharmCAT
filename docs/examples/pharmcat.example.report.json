@@ -1,7 +1,7 @@
 {
   "totalGenes": 18,
-  "pharmcatVersion": "v1.2.1-7-g441a384\n",
-  "generatedOn": "December 08, 2021",
+  "pharmcatVersion": "v1.3.0-3-gd10e6c4\n",
+  "generatedOn": "January 13, 2022",
   "geneCalls": [
     {
       "diplotypes": [
@@ -1586,7 +1586,7 @@
       ],
       "messages": [],
       "totalMissingVariants": 0,
-      "totalVariants": 66,
+      "totalVariants": 70,
       "variants": [
         {
           "gene": "CYP2C9",
@@ -1894,12 +1894,51 @@
         {
           "gene": "CYP2C9",
           "chromosome": "chr10",
+          "position": 94942306,
+          "dbSnpId": "rs1289704600",
+          "call": "C|C",
+          "alleles": [
+            "*72"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
+          "mismatch": false
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94942308,
+          "dbSnpId": "rs17847037",
+          "call": "C|C",
+          "alleles": [
+            "*73"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
+          "mismatch": false
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
           "position": 94942309,
           "dbSnpId": "rs7900194",
           "call": "G|G",
           "alleles": [
             "*8",
             "*27"
+          ],
+          "phased": true,
+          "wildtypeAllele": "G",
+          "mismatch": false
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94947439,
+          "dbSnpId": null,
+          "call": "G|G",
+          "alleles": [
+            "*74"
           ],
           "phased": true,
           "wildtypeAllele": "G",
@@ -2332,6 +2371,19 @@
           "call": "A|A",
           "alleles": [
             "*18"
+          ],
+          "phased": true,
+          "wildtypeAllele": "A",
+          "mismatch": false
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94986136,
+          "dbSnpId": "rs1254213342",
+          "call": "A|A",
+          "alleles": [
+            "*75"
           ],
           "phased": true,
           "wildtypeAllele": "A",
@@ -5812,7 +5864,7 @@
     }
   ],
   "calledGenes": 18,
-  "cpicVersion": "v1.11",
+  "cpicVersion": "v1.12",
   "genotypes": [
     {
       "phenotype": [
@@ -6776,42 +6828,6 @@
         {
           "annotations": [
             {
-              "annotation": "adults",
-              "term": "Population"
-            },
-            {
-              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "pediatrics",
               "term": "Population"
             },
@@ -6841,6 +6857,42 @@
             },
             {
               "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "adults",
+              "term": "Population"
+            },
+            {
+              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
               "term": "Comments"
             }
           ]
@@ -12020,7 +12072,7 @@
         {
           "annotations": [
             {
-              "annotation": "adults",
+              "annotation": "pediatrics",
               "term": "Population"
             },
             {
@@ -12052,7 +12104,7 @@
         {
           "annotations": [
             {
-              "annotation": "pediatrics",
+              "annotation": "adults",
               "term": "Population"
             },
             {

@@ -17,7 +17,7 @@ The `NamedAlleleMatcher` will search the given sample file for locations associa
 - CFTR (40 alleles)
 - CYP2B6 (35 alleles)
 - CYP2C19 (34 alleles)
-- CYP2C9 (71 alleles)
+- CYP2C9 (75 alleles)
 - CYP3A5 (9 alleles)
 - CYP4F2 (3 alleles)
 - DPYD (83 alleles)

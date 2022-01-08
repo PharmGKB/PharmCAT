@@ -2198,12 +2198,51 @@
       {
         "gene": "CYP2C9",
         "chromosome": "chr10",
+        "position": 94942306,
+        "dbSnpId": "rs1289704600",
+        "call": "C|C",
+        "alleles": [
+          "*72"
+        ],
+        "phased": true,
+        "wildtypeAllele": "C",
+        "mismatch": false
+      },
+      {
+        "gene": "CYP2C9",
+        "chromosome": "chr10",
+        "position": 94942308,
+        "dbSnpId": "rs17847037",
+        "call": "C|C",
+        "alleles": [
+          "*73"
+        ],
+        "phased": true,
+        "wildtypeAllele": "C",
+        "mismatch": false
+      },
+      {
+        "gene": "CYP2C9",
+        "chromosome": "chr10",
         "position": 94942309,
         "dbSnpId": "rs7900194",
         "call": "G|G",
         "alleles": [
           "*8",
           "*27"
+        ],
+        "phased": true,
+        "wildtypeAllele": "G",
+        "mismatch": false
+      },
+      {
+        "gene": "CYP2C9",
+        "chromosome": "chr10",
+        "position": 94947439,
+        "dbSnpId": null,
+        "call": "G|G",
+        "alleles": [
+          "*74"
         ],
         "phased": true,
         "wildtypeAllele": "G",
@@ -2636,6 +2675,19 @@
         "call": "A|A",
         "alleles": [
           "*18"
+        ],
+        "phased": true,
+        "wildtypeAllele": "A",
+        "mismatch": false
+      },
+      {
+        "gene": "CYP2C9",
+        "chromosome": "chr10",
+        "position": 94986136,
+        "dbSnpId": "rs1254213342",
+        "call": "A|A",
+        "alleles": [
+          "*75"
         ],
         "phased": true,
         "wildtypeAllele": "A",
