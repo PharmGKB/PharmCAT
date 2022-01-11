@@ -60,6 +60,10 @@ class SyntheticBatchTest {
         "SLCO1B1/s1s1.vcf"
     }, sf_outsideCYP2D6File);
 
+    makeReport("slco1b1.s1s44", new String[]{
+        "SLCO1B1/s1s44.vcf"
+    }, sf_outsideCYP2D6File);
+
     makeReport("slco1b1.s2s2", new String[]{
         "SLCO1B1/s2s2.vcf"
     }, sf_outsideCYP2D6File);

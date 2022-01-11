@@ -395,6 +395,21 @@ class PharmCATTest {
   }
 
   @Test
+  void testSlco1b1Test5() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.slco1b1.s1s44", false);
+    testWrapper.getVcfBuilder()
+        .reference("SLCO1B1")
+        .variation("SLCO1B1", "rs2306283", "A", "G")
+        .variation("SLCO1B1", "rs11045852", "A", "G")
+        .variation("SLCO1B1", "rs74064213", "A", "G");
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("SLCO1B1");
+    testWrapper.testPrintCalls("SLCO1B1", "*1/*44");
+    testWrapper.testLookup("SLCO1B1", "*1", "*44");
+  }
+
+  @Test
   void testSlco1b1Test3() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.slco1b1.s1s15", false);
     testWrapper.getVcfBuilder()
