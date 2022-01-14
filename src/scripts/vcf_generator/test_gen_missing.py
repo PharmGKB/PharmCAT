@@ -101,15 +101,20 @@ def calcFileTotal(nas, ref, totalTests, maxcombo):
 # load the named allele definitions
 defPath = sys.argv[1]
 
-print(f"Loading '{defPath}'...")
+quietMode = os.environ.get('PHARMCAT_TEST_QUIET') == "true"
+
+if not quietMode:
+    print(f"Loading '{defPath}'...")
 with open(defPath, 'r') as defFile:
     definition = json.load(defFile)
 # with defFile
 
-print(f"done: {len(definition['variants'])} variants, {len(definition['namedAlleles'])} named alleles\n")
+if not quietMode:
+    print(f"done: {len(definition['variants'])} variants, {len(definition['namedAlleles'])} named alleles\n")
 
 # scan named alleles and identify the referent named allele
-print("Scanning named alleles...")
+if not quietMode:
+    print("Scanning named alleles...")
 namedalleles = list()
 refNamedallele = None
 for namedallele in definition['namedAlleles']:
@@ -129,11 +134,13 @@ for namedallele in definition['namedAlleles']:
         refNamedallele = namedallele
     # if ref?
 # for namedallele
-print("done\n")
+if not quietMode:
+    print("done\n")
 
 
 # validate referent allele
-print("Checking nucleic code notations...")
+if not quietMode:
+    print("Checking nucleic code notations...")
 for i, a in refNamedallele['_mindef'].items():
     if a.startswith('del'):
         if a != 'del':
@@ -171,7 +178,8 @@ for namedallele in namedalleles:
 
 # generate tests
 totalTests = 0
-print("Generating test cases...")
+if not quietMode:
+    print("Generating test cases...")
 for namedallele in namedalleles:
     namedallele['_tests'] = list()
     # generate tests for each namedallele with every position defined and referent used
@@ -205,7 +213,8 @@ testtype = "t"
 basepath = sys.argv[2]
 if not os.path.exists(basepath):
     os.makedirs(basepath)
-print("Writing files...")
+if not quietMode:
+    print("Writing files...")
 
 for i,na1 in enumerate(namedalleles):
     # if a namedallele has defining positions > 1, then it will have output files
@@ -303,6 +312,8 @@ for i,na1 in enumerate(namedalleles):
 #for i,na1
 
 
-print(f"Alleles defined by multiple positions: {numMultiPos}")
-print(f"Done: {numFiles} files")
+if not quietMode:
+    print(f"Alleles defined by multiple positions: {numMultiPos}")
+if not quietMode:
+    print(f"Done: {numFiles} files")
 

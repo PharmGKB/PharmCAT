@@ -53,8 +53,10 @@ for file in "$DEFINITION_DIR"/*; do
       else
         ./test_gen_missing.py $file ${OUTPUT_DIR}/${gene}
       fi
-      echo ""
-      echo ""
+      if [ "$PHARMCAT_TEST_QUIET" != "true" ]; then
+        echo ""
+        echo ""
+      fi
     fi
   fi
 done
