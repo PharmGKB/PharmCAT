@@ -1,3 +1,10 @@
+### [1.3.1](https://github.com/PharmGKB/PharmCAT/compare/v1.3.0...v1.3.1) (2022-01-14)
+
+
+### Bug Fixes
+
+* **data:** CPIC update ([097b275](https://github.com/PharmGKB/PharmCAT/commit/097b27597b2cb04aa83d1d0f58567c7eb0992845))
+
 ## [1.3.0](https://github.com/PharmGKB/PharmCAT/compare/v1.2.1...v1.3.0) (2021-12-09)
 
 
