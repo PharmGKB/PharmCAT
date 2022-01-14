@@ -140,7 +140,7 @@ public class VcfHelper implements AutoCloseable {
         throw new IOException(response.getStatusLine().getReasonPhrase() + " querying " + url + ": " + error);
       }
       try (InputStreamReader reader = new InputStreamReader(entity.getContent())) {
-        //noinspection unchecked
+        @SuppressWarnings("unchecked")
         Map<String, Object> data = (Map<String, Object>)sf_gson.fromJson(reader, Map.class).get("data");
         m_queryCache.put(url, data);
         m_queryCacheUpdated = true;
