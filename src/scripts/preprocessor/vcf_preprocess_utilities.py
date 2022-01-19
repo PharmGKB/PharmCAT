@@ -577,7 +577,7 @@ def output_pharmcat_ready_vcf(bcftools_path, input_vcf, output_dir, output_prefi
 
     for single_sample in sample_list:
         output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.vcf')
-        bcftools_command = [bcftools_path, 'view', '--no-version', '--force-samples', '-U', '-Ov',
-                            '-o', output_file_name, '-s', single_sample, input_vcf]
+        bcftools_command = [bcftools_path, 'view', '--no-version', '--force-samples', '-U', '-s', single_sample,
+                            '-Ov', '-o', output_file_name, input_vcf]
         run_bcftools(bcftools_command,
                      show_msg='Generating a PharmCAT-ready VCF for ' + single_sample)

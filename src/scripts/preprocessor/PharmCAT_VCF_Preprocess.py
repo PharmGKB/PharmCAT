@@ -119,6 +119,10 @@ def run(args):
                     sample_list = util.obtain_vcf_sample_list(bcftools_path, line)
                     break
         file.close()
+    # check if sample name violates bcftools sample name convention
+    if any(',' in sample_name for sample_name in sample_list):
+        print('Please remove comma \',\' from sample names, which violates bcftools sample name convention')
+        sys.exit(1)
 
     # list of files to be deleted
     tmp_files_to_be_removed = []
