@@ -133,7 +133,7 @@ public class DataManager {
           phenotypeMap = new PhenotypeMap();
         }
 
-        if (cliHelper.hasOption("d")) {
+        if (cliHelper.hasOption("d") && !skipAlleles) {
           Path docsDir = cliHelper.getValidDirectory("d", true);
           manager.writeSummary(docsDir, geneAlleleCountMap, drugs, phenotypeMap);
         }
