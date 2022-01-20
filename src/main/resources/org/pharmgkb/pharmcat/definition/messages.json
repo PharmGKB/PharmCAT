@@ -1,22 +1,5 @@
 [
   {
-    "rule_name": "clopidogrel table footnote",
-    "version": "1",
-    "matches": {
-      "gene": "",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": [
-        "clopidogrel"
-      ]
-    },
-    "exception_type": "footnote",
-    "message": "Antiplatelet therapy recommendations are based on CYP2C19 status when considering clopidogrel for acute coronary syndrome (ACS patients undergoing percutaneous coronary intervention (PCI)). "
-  },
-  {
     "rule_name": "CYP2B6 *1/*13 warning",
     "version": "1",
     "matches": {

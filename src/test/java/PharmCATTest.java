@@ -197,7 +197,7 @@ class PharmCATTest {
     testWrapper.testMatchedGroups("nortriptyline", 1);
     testWrapper.testMatchedGroups("trimipramine", 1);
 
-    testWrapper.testMatchedGroups("clopidogrel", 1);
+    testWrapper.testMatchedGroups("clopidogrel", 3);
 
     testWrapper.testMatchedGroups("lansoprazole", 1);
 
