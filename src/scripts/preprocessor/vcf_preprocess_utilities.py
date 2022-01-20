@@ -455,13 +455,15 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                             # filter for PGx positions with matching ALT or hom ref (ALT='.')
                             if key_ref_alt in ref_pos[key_chr_pos]:
                                 # update ID col
-                                if ref_pos[key_chr_pos][key_ref_alt][2] not in fields[2]:
-                                    fields[2] = ref_pos[key_chr_pos][key_ref_alt][2] + ';' + fields[2]
+                                if fields[2] == '.':
+                                    fields[2] = ref_pos[key_chr_pos][key_ref_alt][2]
+                                elif ref_pos[key_chr_pos][key_ref_alt][2] not in fields[2]:
+                                    fields[2] = fields[2] + ';' + ref_pos[key_chr_pos][key_ref_alt][2]
                                 # update INFO field
                                 if fields[7] == '.':
                                     fields[7] = ref_pos[key_chr_pos][key_ref_alt][7]
                                 else:
-                                    fields[7] = ref_pos[key_chr_pos][key_ref_alt][7] + ';' + fields[7]
+                                    fields[7] = fields[7] + ';' + ref_pos[key_chr_pos][key_ref_alt][7]
                                 # concat and write to output file
                                 line = '\t'.join(fields)
                                 out_f.write(line + '\n')
@@ -477,9 +479,12 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                 ref_alleles = [x[0] for x in ref_pos[key_chr_pos].keys()]
                                 if fields[3] in ref_alleles:
                                     # update id when the id is not in the input
-                                    input_id = fields[2].split(';')
                                     ref_id = list(set([x[2] for x in ref_pos[key_chr_pos].values()]))
-                                    fields[2] = ';'.join(set(ref_id + input_id))
+                                    if fields[2] == '.':
+                                        fields[2] = ';'.join(ref_id)
+                                    else:
+                                        input_id = fields[2].split(';')
+                                        fields[2] = ';'.join(set(ref_id + input_id))
 
                                     # update info
                                     info_col = ';'.join(set([x[7] for x in ref_pos[key_chr_pos].values()]))
