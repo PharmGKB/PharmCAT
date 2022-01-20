@@ -473,13 +473,6 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                 if ref_pos[key_chr_pos] == {}:
                                     del ref_pos[key_chr_pos]
                             elif fields[4] == '.':
-                                # check if all GT are indeed hom ref
-                                set_hom_ref = {'0|0', '0/0'}
-                                if not set(fields[9:]).issubset(set_hom_ref):
-                                    print('Error: %s %s are not homozygous reference as suggested by ALT'
-                                          % (fields[0], fields[1]))
-                                    sys.exit(1)
-
                                 # validate the record by cross-referencing the ref allele
                                 ref_alleles = [x[0] for x in ref_pos[key_chr_pos].keys()]
                                 if fields[3] in ref_alleles:
