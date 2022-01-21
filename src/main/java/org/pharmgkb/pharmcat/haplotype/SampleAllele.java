@@ -9,7 +9,7 @@ import org.pharmgkb.common.comparator.ChromosomeNameComparator;
 /**
  * This class represents a sample's allele at a specific location.
  * <p>
- * It's comparator only takes it's chromosomal position into account.
+ * Its comparator only takes its chromosomal position into account.
  *
  * @author Mark Woon
  */
