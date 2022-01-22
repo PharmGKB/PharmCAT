@@ -1,0 +1,98 @@
+##fileformat=VCFv4.2
+##DRAGENCommandLine=<ID=HashTableBuild,Version="SW: 01.003.044.3.5.3-38-gefdaeaff, HashTableVersion: 8",CommandLineOptions="/opt/edico/bin/dragen --lic-instance-id-location /root/.edico --build-hash-table true --ht-reference /data/input/appresults/217813746/hs37d5.fa --ht-build-rna-hashtable true --enable-cnv true --ht-alt-aware-validate true --output-directory /data/scratch/hs37d5">
+##DRAGENCommandLine=<ID=dragen,Version="SW: 05.021.602.3.8.4, HW: 05.021.602",Date="Thu Jun 24 06:34:07 UTC 2021",CommandLineOptions="--lic-server https://XXXXXXXXXXXX:YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY@license.edicogenome.com --lic-instance-id-location /root/.edico --output_status_file /data/scratch/progress.log --enable-duplicate-marking true --enable-map-align true --enable-map-align-output true --output-format BAM --enable-cnv true --cnv-enable-self-normalization true --cnv-segmentation-mode slm --cnv-enable-ref-calls true --auto-detect-sample-sex true --enable-bam-indexing true --enable-metrics-json true --json-dataset-type /staging/files/dataset-types/dragen_complete_v031.json --enable-variant-caller true --enable-vcf-compression true --vc-emit-ref-confidence GVCF --vc-enable-vcf-output true --vc-enable-bqd true --output-directory /data/output/appresults/201930731/NA12878 --intermediate-results-dir /data/scratch/intermediate --output-file-prefix NA12878 --fastq-list /data/scratch/fastq_sheet.csv --ref-dir /data/scratch/hs37d5-cnv-anchor.v8 --enable-sv true --qc-cross-cont-vcf /opt/edico/config/sample_cross_contamination_resource_GRCh37.vcf.gz --repeat-genotype-enable true --repeat-genotype-specs /opt/edico/repeat-specs/experimental/smn-catalog.grch37.json --cnv-filter-length 1000 --bin_memory 30000000000">
+##FILTER=<ID=DRAGENIndelHardQUAL,Description="Set if true:QUAL < 7.83">
+##FILTER=<ID=DRAGENSnpHardQUAL,Description="Set if true:QUAL < 10.41">
+##FILTER=<ID=LowDepth,Description="Set if true:DP <= 1">
+##FILTER=<ID=LowGQ,Description="Set if true:GQ = 0">
+##FILTER=<ID=PASS,Description="All filters passed">
+##FILTER=<ID=PloidyConflict,Description="Genotype call from variant caller not consistent with chromosome ploidy">
+##FILTER=<ID=RMxNRepeatRegion,Description="Site filtered because all or part of the variant allele is a repeat of the reference">
+##FILTER=<ID=base_quality,Description="Site filtered because median base quality of alt reads at this locus does not meet threshold">
+##FILTER=<ID=lod_fstar,Description="Variant does not meet likelihood threshold (default threshold is 6.3)">
+##FILTER=<ID=long_indel,Description="Site filtered because the indel length is too long">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths (counting only informative reads out of the total reads) for the ref and alt alleles in the order listed">
+##FORMAT=<ID=AF,Number=A,Type=Float,Description="Allele fractions for alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=F1R2,Number=R,Type=Integer,Description="Count of reads in F1R2 pair orientation supporting each allele">
+##FORMAT=<ID=F2R1,Number=R,Type=Integer,Description="Count of reads in F2R1 pair orientation supporting each allele">
+##FORMAT=<ID=GP,Number=G,Type=Float,Description="Phred-scaled posterior probabilities for genotypes as defined in the VCF specification">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=ICNT,Number=2,Type=Integer,Description="Counts of INDEL informative reads based on the reference confidence model">
+##FORMAT=<ID=MB,Number=4,Type=Integer,Description="Per-sample component statistics to detect mate bias">
+##FORMAT=<ID=MIN_DP,Number=1,Type=Integer,Description="Minimum DP observed within the GVCF block">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Normalized, Phred-scaled likelihoods for genotypes as defined in the VCF specification">
+##FORMAT=<ID=PRI,Number=G,Type=Float,Description="Phred-scaled prior probabilities for genotypes">
+##FORMAT=<ID=PS,Number=1,Type=Integer,Description="Physical phasing ID information, where each unique ID within a given sample (but not across samples) connects records within a phasing group">
+##FORMAT=<ID=SB,Number=4,Type=Integer,Description="Per-sample component statistics which comprise the Fisher's Exact Test to detect strand bias">
+##FORMAT=<ID=SPL,Number=.,Type=Integer,Description="Normalized, Phred-scaled likelihoods for SNPs based on the reference confidence model">
+##FORMAT=<ID=SQ,Number=A,Type=Float,Description="Somatic quality">
+##reference=file:/data/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	NA12878
+chr10	94938683	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:49,0:49:99:37:0,99,1485:0,103,255:40,0
+chr10	94938737	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:49,0:49:99:37:0,99,1485:0,103,255:40,0
+chr10	94938771	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:49,0:49:99:37:0,99,1485:0,103,255:40,0
+chr10	94938803	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:49,0:49:99:37:0,99,1485:0,103,255:40,0
+chr10	94938828	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:49,0:49:99:37:0,99,1485:0,103,255:40,0
+chr10	94941897	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:91:44:0,91,1742:0,91,255:40,0
+chr10	94941915	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:91:44:0,91,1742:0,91,255:40,0
+chr10	94941958	.	T	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:91:44:0,91,1742:0,91,255:40,0
+chr10	94941976	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:91:44:0,91,1742:0,91,255:40,0
+chr10	94941982	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:91:44:0,91,1742:0,91,255:40,0
+chr10	94942018	.	T	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:91:44:0,91,1742:0,91,255:40,0
+chr10	94942205	BUG1	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:47,0:47:90:40:0,90,1665:0,90,255:40,0
+chr10	94942216	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:47,0:47:90:40:0,90,1665:0,90,255:40,0
+chr10	94942230	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:47,0:47:90:40:0,90,1665:0,90,255:40,0
+chr10	94942231	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:47,0:47:90:40:0,90,1665:0,90,255:40,0
+chr10	94942233	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:47,0:47:90:40:0,90,1665:0,90,255:40,0
+chr10	94942234	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:47,0:47:90:40:0,90,1665:0,90,255:40,0
+chr10	94942249	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:47,0:47:90:40:0,90,1665:0,90,255:40,0
+chr10	94942254	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:99:42:0,110,1750:0,110,255:40,0
+chr10	94942255	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:99:42:0,110,1750:0,110,255:40,0
+chr10	94942290	.	C	T	39.45	PASS	DP=42;FractionInformativeReads=1;MQ=140.33;MQRankSum=-0.814;R2_5P_bias=0;ReadPosRankSum=5.216	GT:AD:AF:DP:F1R2:F2R1:GQ:PL:SPL:ICNT:GP:PRI:SB:MB	0/1:28,14,0:0.333,0:42:19,6,0:9,8,0:39:74,0,50,543,1042,1584:255,0,255:27,0:39.447,0.00051516,53.001,450,450,450:0,34.77,37.77,34.77,69.54,37.77:15,13,7,7:14,14,9,5
+chr10	94942291	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:45,0:45:99:43:0,112,1722:0,112,255:40,0
+chr10	94942305	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:45,0:45:99:43:0,112,1722:0,112,255:40,0
+chr10	94942309	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:45,0:45:99:43:0,112,1722:0,112,255:40,0
+chr10	94947782	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:45,0:45:81:30:0,81,1215:0,90,255:40,0
+chr10	94947785	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:45,0:45:81:30:0,81,1215:0,90,255:40,0
+chr10	94947869	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:45,0:45:81:30:0,81,1215:0,90,255:40,0
+chr10	94947907	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:45,0:45:81:30:0,81,1215:0,90,255:40,0
+chr10	94947917	.	T	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:45,0:45:81:30:0,81,1215:0,90,255:40,0
+chr10	94947938	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:45,0:45:81:30:0,81,1215:0,90,255:40,0
+chr10	94949129	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:38,0:38:82:34:0,82,1305:0,82,255:40,0
+chr10	94949144	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:38,0:38:82:34:0,82,1305:0,82,255:40,0
+chr10	94949217	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:38,0:38:82:34:0,82,1305:0,82,255:40,0
+chr10	94949280	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:38,0:38:82:34:0,82,1305:0,82,255:40,0
+chr10	94949281	BUG2	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:38,0:38:82:34:0,82,1305:0,82,255:40,0
+chr10	94972119	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:46,0:46:94:42:0,94,1710:0,94,255:40,0
+chr10	94972123	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:46,0:46:94:42:0,94,1710:0,94,255:40,0
+chr10	94972134	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:46,0:46:94:42:0,94,1710:0,94,255:40,0
+chr10	94972179	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:46,0:46:94:42:0,94,1710:0,94,255:40,0
+chr10	94972180	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:46,0:46:94:42:0,94,1710:0,94,255:40,0
+chr10	94972233	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:46,0:46:94:42:0,94,1710:0,94,255:40,0
+chr10	94981199	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981201	.	T	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981224	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981225	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981230	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981250	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981281	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981296	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981297	.	T	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981301	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981302	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981305	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981365	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94981371	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:48,0:48:81:31:0,81,1215:0,85,255:40,0
+chr10	94986042	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:47,2:49:81:38:0,81,1575:0,81,255:40,0
+chr10	94986073	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:47,2:49:81:38:0,81,1575:0,81,255:40,0
+chr10	94988852	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:99:44:0,120,1800:0,132,255:40,0
+chr10	94988855	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:99:44:0,120,1800:0,132,255:40,0
+chr10	94988880	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:99:44:0,120,1800:0,132,255:40,0
+chr10	94988917	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:99:44:0,120,1800:0,132,255:40,0
+chr10	94988925	.	A	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:99:44:0,120,1800:0,132,255:40,0
+chr10	94988955	.	T	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:99:44:0,120,1800:0,132,255:40,0
+chr10	94988984	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:99:44:0,120,1800:0,132,255:40,0
+chr10	94989020	.	C	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:99:44:0,120,1800:0,132,255:40,0
+chr10	94989023	.	G	.	.	PASS	.	GT:AD:DP:GQ:MIN_DP:PL:SPL:ICNT	0/0:54,0:54:99:44:0,120,1800:0,132,255:40,0

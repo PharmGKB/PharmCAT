@@ -188,4 +188,35 @@ class NamedAlleleMatcherTest {
     assertEquals(1, pairs.size());
     assertEquals("*1/*2", pairs.get(0).getName());
   }
+
+
+  @Test
+  void testMismatchedRefAlleleWarnings() throws Exception {
+
+    DefinitionReader definitionReader = new DefinitionReader();
+
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-mismatchedRefAllele.json");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-mismatchedRefAllele.vcf");
+    definitionReader.read(definitionFile);
+
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    assertNotNull(result.getVcfWarnings());
+    assertEquals(2, result.getVcfWarnings().size());
+
+    for (String key : result.getVcfWarnings().keySet()) {
+      System.out.println(key);
+      System.out.println(result.getVcfWarnings().get(key));
+    }
+
+    assertNotNull(          result.getVcfWarnings().get("chr10:94942205"));
+    assertEquals(1, result.getVcfWarnings().get("chr10:94942205").size());
+    assertTrue(result.getVcfWarnings().get("chr10:94942205").iterator().next()
+        .contains("does not match expected reference"));
+
+    assertNotNull(          result.getVcfWarnings().get("chr10:94949281"));
+    assertEquals(1, result.getVcfWarnings().get("chr10:94949281").size());
+    assertTrue(result.getVcfWarnings().get("chr10:94949281").iterator().next()
+        .contains("does not match expected reference"));
+  }
 }

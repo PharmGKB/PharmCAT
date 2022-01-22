@@ -156,6 +156,11 @@ public class VcfReader implements VcfLineParser {
         sf_logger.warn("Ignoring {}", chrPos);
         return;
       }
+      if (!position.getRef().equals(varLoc.getRef())) {
+        addWarning(chrPos, "Ignoring: REF in VCF (" + position.getRef() + ") does not match expected reference (" +
+            varLoc.getRef() + ")");
+        return;
+      }
     }
     if (m_alleleMap.containsKey(chrPos)) {
       addWarning(chrPos, "Duplicate entry: first valid position wins");
