@@ -174,7 +174,7 @@ public class PharmCAT {
       outsideCalls = OutsideCallParser.parse(outsideCallPath);
     }
 
-    Phenotyper phenotyper = new Phenotyper(result.getGeneCalls(), outsideCalls);
+    Phenotyper phenotyper = new Phenotyper(result.getGeneCalls(), outsideCalls, result.getVcfWarnings());
 
     f_reporter.analyze(phenotyper.getGeneReports());
 

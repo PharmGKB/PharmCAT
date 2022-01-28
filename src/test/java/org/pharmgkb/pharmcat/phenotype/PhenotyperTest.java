@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
+import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -27,9 +28,13 @@ class PhenotyperTest {
 
   @Test
   void testCyp2C19Het() throws Exception {
+    Map<String, Collection<String>> warnings = new HashMap<>();
+    warnings.put("chr10:94775453", ImmutableList.of("Test warning message"));
+    warnings.put("chr10:94852914", ImmutableList.of("Test other message"));
+
     Phenotyper phenotyper = new Phenotyper(
         readMatchData("Cyp2C19Het_call.json"),
-        OutsideCallParser.parse("CYP2D6\t*1/*3"));
+        OutsideCallParser.parse("CYP2D6\t*1/*3"), warnings);
 
     assertCalledByMatcher(phenotyper, "CYP2C19", "CYP2D6");
     assertNotCalledByMatcher(phenotyper, "CYP2C9");
@@ -39,13 +44,16 @@ class PhenotyperTest {
 
     assertDiplotypeDisplay(phenotyper, "CYP2D6", "*1/*3");
     assertLookup(phenotyper, "CYP2D6", "*1", "*3");
+
+    assertWarning(phenotyper, "rs72552267", "Test warning message");
+    assertWarning(phenotyper, "rs55640102", "Test other message");
   }
 
   @Test
   void testCyp2D6Only() {
     Phenotyper phenotyper = new Phenotyper(
         new ArrayList<>(),
-        OutsideCallParser.parse("CYP2D6\t*1/*3"));
+        OutsideCallParser.parse("CYP2D6\t*1/*3"), null);
 
     assertCalledByMatcher(phenotyper, "CYP2D6");
 
@@ -59,7 +67,7 @@ class PhenotyperTest {
   void testCyp2C19Hom() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
         readMatchData("Cyp2C19s2s2_call.json"),
-        new ArrayList<>());
+        new ArrayList<>(), null);
 
     assertCalledByMatcher(phenotyper, "CYP2C19");
 
@@ -70,7 +78,7 @@ class PhenotyperTest {
   void testUGT1A1Phased() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
         readMatchData("UGT1A1s1s60s80phased_call.json"),
-        new ArrayList<>());
+        new ArrayList<>(), null);
 
     assertCalledByMatcher(phenotyper, "UGT1A1");
 
@@ -83,7 +91,7 @@ class PhenotyperTest {
   void testUGT1A1Unphased() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
         readMatchData("UGT1A1s1s60s80unphased_call.json"),
-        new ArrayList<>());
+        new ArrayList<>(), null);
 
     assertCalledByMatcher(phenotyper, "UGT1A1");
 
@@ -96,7 +104,7 @@ class PhenotyperTest {
   void testNUDT15() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
         readMatchData("NUDT15ref_call.json"),
-        new ArrayList<>());
+        new ArrayList<>(), null);
 
     assertCalledByMatcher(phenotyper, "NUDT15");
 
@@ -108,7 +116,7 @@ class PhenotyperTest {
   void testNUDT15star3() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
         readMatchData("NUDT15s3_call.json"),
-        new ArrayList<>());
+        new ArrayList<>(), null);
 
     assertCalledByMatcher(phenotyper, "NUDT15");
 
@@ -156,6 +164,12 @@ class PhenotyperTest {
         "Expected " + gene + " call count (" + calls.length + ") doesn't match actual call count (" +
             dips.size() + "): " + String.join(", ", dips));
     Arrays.stream(calls).forEach(c -> assertTrue(dips.contains(c), c + " not in " + gene + ":" + dips));
+  }
+
+  private void assertWarning(Phenotyper phenotyper, String rsid, String warning) {
+    GeneReport geneReport = phenotyper.findGeneReport("CYP2C19").orElseThrow(unfoundGene);
+    assertTrue(geneReport.getVariantReports().stream()
+        .anyMatch(v -> v.getDbSnpId() != null && v.getDbSnpId().equals(rsid) && v.getWarnings().contains(warning)));
   }
 
   /**

@@ -9,10 +9,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -65,6 +69,7 @@ public class Phenotyper {
       Preconditions.checkArgument(vcfFile == null || Files.isRegularFile(vcfFile), "Sample VCF file does not exist or is not a regular file");
 
       List<GeneCall> calls;
+      Map<String,Collection<String>> variantWarnings = new HashMap<>();
       if (callFile != null) {
         calls = new ResultSerializer().fromJson(callFile).getGeneCalls();
       } else {
@@ -73,6 +78,7 @@ public class Phenotyper {
         NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
         Result result = namedAlleleMatcher.call(vcfFile);
         calls = result.getGeneCalls();
+        variantWarnings = result.getVcfWarnings();
       }
 
       //Load the outside calls if it's available
@@ -83,7 +89,7 @@ public class Phenotyper {
         outsideCalls = OutsideCallParser.parse(outsideCallPath);
       }
 
-      Phenotyper phenotyper = new Phenotyper(calls, outsideCalls);
+      Phenotyper phenotyper = new Phenotyper(calls, outsideCalls,variantWarnings);
       phenotyper.write(outputFile);
     } catch (IOException e) {
       e.printStackTrace();
@@ -97,7 +103,7 @@ public class Phenotyper {
    * @param geneCalls a List of {@link GeneCall} objects
    * @param outsideCalls a List of {@link OutsideCall} objects
    */
-  public Phenotyper(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls) {
+  public Phenotyper(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls, @Nullable Map<String, Collection<String>> variantWarnings) {
     ReferenceAlleleMap referenceAlleleMap = new ReferenceAlleleMap();
     PhenotypeMap phenotypeMap = new PhenotypeMap();
 
@@ -128,6 +134,8 @@ public class Phenotyper {
 
       f_geneReports.add(geneReport);
     }
+
+    f_geneReports.forEach(r -> r.addVariantWarningMessages(variantWarnings));
 
     try {
       MessageList messageList = new MessageList();

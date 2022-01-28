@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -198,7 +199,21 @@ public class GeneReport implements Comparable<GeneReport> {
         m_messages.add(ma);
       }
     });
+  }
 
+  /**
+   * This will add the applicable variant warnings to the {@link VariantReport} objects in this {@link GeneReport}
+   * @param variantWarnings a Map of all variant warnings by "chr:position" strings
+   */
+  public void addVariantWarningMessages(Map<String, Collection<String>> variantWarnings) {
+    if (variantWarnings != null && variantWarnings.size() > 0) {
+      for (VariantReport variantReport : m_variantReports) {
+        Collection<String> warnings = variantWarnings.get(variantReport.toChrPosition());
+        if (warnings != null && warnings.size() > 0) {
+          variantReport.setWarnings(warnings);
+        }
+      }
+    }
   }
 
   public List<VariantReport> getVariantReports() {

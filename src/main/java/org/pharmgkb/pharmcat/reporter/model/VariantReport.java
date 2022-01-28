@@ -56,6 +56,9 @@ public class VariantReport implements Comparable<VariantReport> {
   @Expose
   @SerializedName("mismatch")
   private boolean m_mismatch;
+  @Expose
+  @SerializedName("warnings")
+  private Set<String> m_warnings = new TreeSet<>();
 
   public VariantReport(String gene, Variant variant) {
     setGene(gene);
@@ -156,6 +159,19 @@ public class VariantReport implements Comparable<VariantReport> {
     m_mismatch = mismatch;
   }
 
+  public Set<String> getWarnings() {
+    return m_warnings;
+  }
+
+  public void setWarnings(Collection<String> warnings) {
+    m_warnings.clear();
+    m_warnings.addAll(warnings);
+  }
+
+  public void addWarning(String warning) {
+    m_warnings.add(warning);
+  }
+
   public boolean isNonwildtype() {
     return !(isMissing() || m_wildtypeAllele == null)
         && Arrays.stream(getCall().split("[|/]")).anyMatch(c -> !c.equals(getWildtypeAllele()));
@@ -177,6 +193,14 @@ public class VariantReport implements Comparable<VariantReport> {
       return m_dbSnpId;
     }
     return m_gene + ":" + m_position;
+  }
+
+  public String toChrPosition() {
+    if (m_chr != null) {
+      return m_chr + ":" + m_position;
+    } else {
+      return String.valueOf(m_position);
+    }
   }
 
   @Override

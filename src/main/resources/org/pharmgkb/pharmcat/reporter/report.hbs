@@ -248,12 +248,13 @@
             <th>Call in VCF</th>
             <th>Reference</th>
             <th>Related Alleles</th>
+            <th>Warnings</th>
           </tr>
           </thead>
           <tbody>
           {{#each variants}}
             <tr>
-              <td id="{{position}}">{{chr}}:{{position}}</td>
+              <td id="{{chr}}_{{position}}">{{chr}}:{{position}}</td>
               <td id="{{dbSnpId}}">{{dbSnpId}}</td>
               {{#if missing}}
                 <td class="missingVariant"><div class="callMessage">Missing</div></td>
@@ -266,6 +267,11 @@
               </td>
               <td>
                 {{#each alleles}}{{this}} {{/each}}
+              </td>
+              <td>
+                <ul class="warningList">
+                {{#each warnings}}<li>{{this}}</li>{{/each}}
+                </ul>
               </td>
             </tr>
           {{/each}}
