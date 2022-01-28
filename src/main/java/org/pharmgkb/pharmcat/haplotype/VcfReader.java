@@ -157,8 +157,8 @@ public class VcfReader implements VcfLineParser {
         return;
       }
       if (!position.getRef().equals(varLoc.getRef())) {
-        addWarning(chrPos, "Ignoring: REF in VCF (" + position.getRef() + ") does not match expected reference (" +
-            varLoc.getRef() + ")");
+        addWarning(chrPos, "Discarded genotype at this position because REF in VCF (" + position.getRef() +
+            ") does not match expected reference (" + varLoc.getRef() + ")");
         return;
       }
     }
