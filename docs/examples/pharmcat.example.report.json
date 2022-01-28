@@ -1,7 +1,7 @@
 {
   "totalGenes": 18,
-  "pharmcatVersion": "v1.3.0-3-gd10e6c4\n",
-  "generatedOn": "January 13, 2022",
+  "pharmcatVersion": "v1.3.1-10-gffa8db61\n",
+  "generatedOn": "January 27, 2022",
   "geneCalls": [
     {
       "diplotypes": [
@@ -6672,13 +6672,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -6706,7 +6706,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -6758,7 +6758,7 @@
               "term": "Phenotype for UGT1A1"
             },
             {
-              "annotation": "There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patientâ€™s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
+              "annotation": "There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient’s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
               "term": "Recommendation"
             },
             {
@@ -6828,42 +6828,6 @@
         {
           "annotations": [
             {
-              "annotation": "pediatrics",
-              "term": "Population"
-            },
-            {
-              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate with a dose of 0.5 mg/kg/day and increase to 1.2 mg/kg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c 200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "adults",
               "term": "Population"
             },
@@ -6893,6 +6857,42 @@
             },
             {
               "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "pediatrics",
+              "term": "Population"
+            },
+            {
+              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate with a dose of 0.5 mg/kg/day and increase to 1.2 mg/kg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c 200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.",
               "term": "Comments"
             }
           ]
@@ -6963,7 +6963,7 @@
               "term": "Population"
             },
             {
-              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the â€˜normalâ€™ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
               "term": "Implication for TPMT"
             },
             {
@@ -7240,7 +7240,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -7312,13 +7312,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena AdriÃ¡n",
+            "LLerena Adrián",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -7412,13 +7412,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -7446,7 +7446,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -7482,11 +7482,11 @@
         {
           "annotations": [
             {
-              "annotation": "general",
+              "annotation": "CVI ACS PCI ",
               "term": "Population"
             },
             {
-              "annotation": "Normal platelet inhibition; normal residual platelet aggregation",
+              "annotation": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity",
               "term": "Implication for CYP2C19"
             },
             {
@@ -7498,19 +7498,87 @@
               "term": "Phenotype for CYP2C19"
             },
             {
-              "annotation": "Clopidogrel: label-recommended dosage and administration",
+              "annotation": "If considering clopidogrel, use at standard dose (75 mg/day)",
               "term": "Recommendation"
             },
             {
               "annotation": "Strong",
               "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "CVI non-ACS non-PCI",
+              "term": "Population"
+            },
+            {
+              "annotation": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity",
+              "term": "Implication for CYP2C19"
+            },
+            {
+              "annotation": "CYP2C19:*38/*38",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C19"
+            },
+            {
+              "annotation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "NVI",
+              "term": "Population"
+            },
+            {
+              "annotation": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity",
+              "term": "Implication for CYP2C19"
+            },
+            {
+              "annotation": "CYP2C19:*38/*38",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C19"
+            },
+            {
+              "annotation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
+              "term": "Comments"
             }
           ]
         }
       ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-clopidogrel-and-cyp2c19/",
-      "mutliMatch": false,
+      "mutliMatch": true,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -7539,7 +7607,7 @@
             "Scott Stuart A",
             "Sangkuhl Katrin",
             "Stein C Michael",
-            "Hulot Jean-SÃ©bastien",
+            "Hulot Jean-Sébastien",
             "Mega Jessica L",
             "Roden Dan M",
             "Klein Teri E",
@@ -7558,9 +7626,7 @@
       "matched": true,
       "id": "RxNorm:32968",
       "lastModified": "not available",
-      "footnotes": [
-        "Antiplatelet therapy recommendations are based on CYP2C19 status when considering clopidogrel for acute coronary syndrome (ACS patients undergoing percutaneous coronary intervention (PCI)). "
-      ]
+      "footnotes": []
     },
     {
       "uncalledGenes": "",
@@ -7676,7 +7742,7 @@
             "Ruano Gualberto",
             "Sangkuhl Katrin",
             "Cavallari Larisa H",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Prows Cynthia A",
             "Nagy Mohamed",
             "Somogyi Andrew A",
@@ -7850,13 +7916,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -7884,7 +7950,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -8061,13 +8127,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -8095,7 +8161,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -8155,7 +8221,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "The ENCORE study showed that in treatment-naÃ¯ve patients randomized to initiate efavirenz-based regimens (combined with tenofovir and emtricitabine), 400 mg/day was non-inferior to 600 mg/day regardless of CYP2B6 genotype (PMID 24522178).",
+              "annotation": "The ENCORE study showed that in treatment-naïve patients randomized to initiate efavirenz-based regimens (combined with tenofovir and emtricitabine), 400 mg/day was non-inferior to 600 mg/day regardless of CYP2B6 genotype (PMID 24522178).",
               "term": "Comments"
             }
           ]
@@ -8352,13 +8418,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena AdriÃ¡n",
+            "LLerena Adrián",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -8539,7 +8605,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -8615,13 +8681,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena AdriÃ¡n",
+            "LLerena Adrián",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -8935,7 +9001,7 @@
             "Ruano Gualberto",
             "Sangkuhl Katrin",
             "Cavallari Larisa H",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Prows Cynthia A",
             "Nagy Mohamed",
             "Somogyi Andrew A",
@@ -9018,7 +9084,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -9109,13 +9175,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -9143,7 +9209,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -9559,7 +9625,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -9639,7 +9705,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -9686,7 +9752,7 @@
               "term": "Population"
             },
             {
-              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the â€˜normalâ€™ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
               "term": "Implication for TPMT"
             },
             {
@@ -9956,13 +10022,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -9990,7 +10056,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -10404,13 +10470,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena AdriÃ¡n",
+            "LLerena Adrián",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -10583,7 +10649,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -10813,13 +10879,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena AdriÃ¡n",
+            "LLerena Adrián",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -11269,7 +11335,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function). Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patientâ€™s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose, and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.",
+              "annotation": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function). Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patient’s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose, and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.",
               "term": "Comments"
             }
           ]
@@ -11463,7 +11529,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -11822,7 +11888,7 @@
             "Ruano Gualberto",
             "Sangkuhl Katrin",
             "Cavallari Larisa H",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Prows Cynthia A",
             "Nagy Mohamed",
             "Somogyi Andrew A",
@@ -11916,13 +11982,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -11950,7 +12016,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -12072,7 +12138,7 @@
         {
           "annotations": [
             {
-              "annotation": "pediatrics",
+              "annotation": "adults",
               "term": "Population"
             },
             {
@@ -12104,7 +12170,7 @@
         {
           "annotations": [
             {
-              "annotation": "adults",
+              "annotation": "pediatrics",
               "term": "Population"
             },
             {
@@ -12140,7 +12206,7 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium (CPICÂ®) Guideline for CYP2C19 and Voriconazole Therapy",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC®) Guideline for CYP2C19 and Voriconazole Therapy",
           "authors": [
             "Moriyama Brad",
             "Obeng Aniwaa Owusu",
@@ -12148,7 +12214,7 @@
             "Penzak Scott R",
             "Henning Stacey A",
             "Scott Stuart A",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Wingard John R",
             "McLeod Howard L",
             "Klein Teri E",
