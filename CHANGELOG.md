@@ -1,3 +1,21 @@
+## [1.4.0](https://github.com/PharmGKB/PharmCAT/compare/v1.3.1...v1.4.0) (2022-01-28)
+
+
+### Features
+
+* **data:** update data for clopidogrel guideline update ([b80a2ab](https://github.com/PharmGKB/PharmCAT/commit/b80a2ab745c9669a3939452f7a5f698f4b92e48d))
+* **data:** update position data ([fad0485](https://github.com/PharmGKB/PharmCAT/commit/fad0485ee6218e57da143a2ebccc911b32ee979e))
+
+
+### Bug Fixes
+
+* **datamanager:** do not update docs if allele information not loaded ([e5ca7ac](https://github.com/PharmGKB/PharmCAT/commit/e5ca7accf7ee23677d5884a657712227bed34b64))
+* **namedAlleleMatcher:** warn if ref in definition does not match ref in VCF ([e188e41](https://github.com/PharmGKB/PharmCAT/commit/e188e416bf8983558330402bcdc82e5c2b541419))
+* **preprocessor:** detect VCF samples that contains ',' which violates the VCF convention ([59abc8a](https://github.com/PharmGKB/PharmCAT/commit/59abc8aa344e85703e7c7e7bfe1411479f029ef8))
+* **preprocessor:** homozygous reference at a single-nucleotide locus will not infer the genotype status of the INDELs at the same genomic position ([261531b](https://github.com/PharmGKB/PharmCAT/commit/261531b24844df0eca7871644548be77a222c1f7))
+* **preprocessor:** improve annotations of ID and info columns ([e0b8ba8](https://github.com/PharmGKB/PharmCAT/commit/e0b8ba87d8425e0a007e09b1c93e3defcc238040))
+* **preprocessor:** remove redundant homozygous reference check ([bd8ba92](https://github.com/PharmGKB/PharmCAT/commit/bd8ba921140e9813a74febc86ef8eaa332e81aa0))
+
 ### [1.3.1](https://github.com/PharmGKB/PharmCAT/compare/v1.3.0...v1.3.1) (2022-01-14)
 
 
