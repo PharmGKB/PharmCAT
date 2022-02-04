@@ -7,9 +7,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.SortedSetMultimap;
@@ -159,6 +161,15 @@ public class VcfReader implements VcfLineParser {
       if (!position.getRef().equals(varLoc.getRef())) {
         addWarning(chrPos, "Discarded genotype at this position because REF in VCF (" + position.getRef() +
             ") does not match expected reference (" + varLoc.getRef() + ")");
+        return;
+      }
+      Set<String> novel = position.getAltBases().stream()
+          .filter((a) -> !varLoc.getAlts().contains(a))
+          .collect(Collectors.toSet());
+      if (novel.size() > 0) {
+        addWarning(chrPos, "Genotype at this position because has novel bases (expected " +
+            String.join("/", varLoc.getAlts()) + ", found " +
+            String.join("/", novel) + " in VCF)");
         return;
       }
     }
