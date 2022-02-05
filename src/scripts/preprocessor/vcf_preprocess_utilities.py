@@ -11,6 +11,7 @@ import tarfile
 import tempfile
 import urllib.parse
 import urllib.request
+import copy
 
 import vcf_preprocess_exceptions as Exceptions
 
@@ -383,27 +384,13 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
         tabix_index_vcf(tabix_path, ref_pgx_uniallelic)
 
         '''
-        extracg PGx positions from input using "bcftools isec"
+        extracg PGx positions from input using "bcftools view"
         '''
-        # first, extract positions with matching REF and ALT
-        input_pgx_matching_ref_alt = os.path.join(temp_dir, 'temp_input_extract_matching_pgx.vcf.gz')
-        bcftools_command = [bcftools_path, 'isec', '--no-version', '-c', 'none', '-n=2', '-w2',
-                            '-Oz', '-o', input_pgx_matching_ref_alt,
-                            ref_pgx_uniallelic, input_vcf]
-        run_bcftools(bcftools_command, show_msg='Retaining PGx positions with matching REF and ALT from the input VCF')
-        tabix_index_vcf(tabix_path, input_pgx_matching_ref_alt)
-        # additionally, extract hom ref positions where "ALT=."
-        input_pgx_hom_ref_snp = os.path.join(temp_dir, 'temp_input_extract_hom_ref_snp.vcf.gz')
-        bcftools_command = [bcftools_path, 'view', '--no-version', '-i', 'TYPE="ref"', '-T', ref_pgx_uniallelic,
-                            '-Oz', '-o', input_pgx_hom_ref_snp, input_vcf]
-        run_bcftools(bcftools_command, show_msg='Retaining homozygous reference PGx SNPs')
-        tabix_index_vcf(tabix_path, input_pgx_hom_ref_snp)
-        # merge exact matching positions and homozygous reference positions
+        # extract any variants with matching positions
         input_pgx_only = os.path.join(temp_dir, 'temp_input_pgx_variants_only.vcf.gz')
-        bcftools_command = [bcftools_path, 'concat', '--no-version', '-a',
-                            '-Oz', '-o', input_pgx_only,
-                            input_pgx_hom_ref_snp, input_pgx_matching_ref_alt]
-        run_bcftools(bcftools_command, show_msg='Merging PGx positions identified in the input VCF')
+        bcftools_command = [bcftools_path, 'view', '--no-version', '-T', ref_pgx_uniallelic,
+                            '-Oz', '-o', input_pgx_only, input_vcf]
+        run_bcftools(bcftools_command, show_msg='Retaining PGx positions, regardless of alleles')
         tabix_index_vcf(tabix_path, input_pgx_only)
 
         '''
@@ -412,8 +399,9 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
         bcftools will take care of the rest (sorting, normalization, etc.)
         '''
         # create a dictionary of PharmCAT reference PGx positions
-        # the ref_pos (dict) will be used to remain only PGx pos in the input
-        ref_pos = {}
+        # the ref_pos_static (dict) will be used to static dictionary of reference PGx positions
+        # the ref_pos_dynamic (dict) will be used to remain only PGx pos in the input
+        ref_pos_dynamic = {}
         with gzip.open(ref_pgx_uniallelic, 'r') as in_f:
             for line in in_f:
                 try:
@@ -426,14 +414,18 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                 # read file
                 line = line.rstrip('\n')
                 fields = line.split('\t')
-                # ref_pos: a nested dictionary where ref_pos [(chr,pos)] [(ref, alt)] = all fields except GT
+                # ref_pos_dynamic: a nested dictionary
+                # ref_pos_dynamic[(chr,pos)][(ref, alt)] = all fields except GT
                 # initiate the dictionary if the first key pair doesn't exist yet
-                if (fields[0], fields[1]) not in ref_pos.keys():
-                    ref_pos[(fields[0], fields[1])] = {}
-                ref_pos[(fields[0], fields[1])][(fields[3], fields[4])] = fields[0:9]
+                if (fields[0], fields[1]) not in ref_pos_dynamic.keys():
+                    ref_pos_dynamic[(fields[0], fields[1])] = {}
+                ref_pos_dynamic[(fields[0], fields[1])][(fields[3], fields[4])] = fields[0:9]
+        ref_pos_static = copy.deepcopy(ref_pos_dynamic)
 
         # use input_pos to record PGx positions that are present in the input VCF
         input_pos = []
+        # this list saves genetic variants concurrent at PGx positions
+        non_pgx_records = []
         vcf_pgx_only = os.path.join(temp_dir, 'temp_update_pgx_variants_annotations.vcf')
         with open(vcf_pgx_only, 'w') as out_f:
             # get header of samples from merged vcf, add in new contig info
@@ -456,8 +448,12 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                             out_f.write('##contig=<ID=' + single_chr + ',assembly=GRCh38.p13,species="Homo '
                                                                        'sapiens">\n')
                         out_f.write('##INFO=<ID=PX,Number=.,Type=String,Description="Gene">\n')
-                        out_f.write('##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not '
-                                    'part of an allele definition">\n')
+                        out_f.write('##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not'
+                                    ' part of an allele definition">\n')
+                        out_f.write('##FILTER=<ID=PCATxREF,Description="Position not matching PharmCAT PGx reference'
+                                    ' alleles">\n')
+                        out_f.write('##FILTER=<ID=PCATxALT,Description="Position not matching PharmCAT PGx alternative'
+                                    ' alleles">\n')
                         out_f.write(line)
                         # get the number of samples
                         line = line.rstrip('\n')
@@ -470,7 +466,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                         key_chr_pos = (fields[0], fields[1])
 
                         # match chromosome positions
-                        if key_chr_pos in ref_pos:
+                        if key_chr_pos in ref_pos_static:
                             '''
                             match REF and ALT alleles
                             
@@ -480,16 +476,16 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                             2.1. PGx SNP: update rsID and gene name in FORMAT; bcftools will normalize
                             '''
                             # list out REF alleles at a position
-                            ref_alleles = [x[0] for x in ref_pos[key_chr_pos].keys()]
-                            alt_alleles = [x[1] for x in ref_pos[key_chr_pos].keys()]
-                            # check if the position is a SNP
-                            len_ref = sum( map(len, ref_alleles) )
-                            len_alt = sum( map(len, alt_alleles) )
+                            ref_alleles = [x[0] for x in ref_pos_static[key_chr_pos].keys()]
+                            alt_alleles = [x[1] for x in ref_pos_static[key_chr_pos].keys()]
+                            # check if the reference PGx variant is a SNP
+                            len_ref = sum(map(len, ref_alleles))
+                            len_alt = sum(map(len, alt_alleles))
                             is_snp = ((len_ref - len_alt) == 0)
 
                             key_ref_alt = (fields[3], fields[4])
                             # positions with matching REF and ALT
-                            if key_ref_alt in ref_pos[key_chr_pos]:
+                            if key_ref_alt in ref_pos_static[key_chr_pos]:
                                 # record input PGx positions in a list
                                 # use this to fill up multiallelic ALT later
                                 if key_chr_pos not in input_pos:
@@ -497,24 +493,24 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
 
                                 # update ID col
                                 if fields[2] == '.':
-                                    fields[2] = ref_pos[key_chr_pos][key_ref_alt][2]
-                                elif ref_pos[key_chr_pos][key_ref_alt][2] not in fields[2]:
-                                    fields[2] = fields[2] + ';' + ref_pos[key_chr_pos][key_ref_alt][2]
+                                    fields[2] = ref_pos_static[key_chr_pos][key_ref_alt][2]
+                                elif ref_pos_static[key_chr_pos][key_ref_alt][2] not in fields[2]:
+                                    fields[2] = fields[2] + ';' + ref_pos_static[key_chr_pos][key_ref_alt][2]
                                 # update INFO field
                                 if fields[7] == '.':
-                                    fields[7] = ref_pos[key_chr_pos][key_ref_alt][7]
+                                    fields[7] = ref_pos_static[key_chr_pos][key_ref_alt][7]
                                 else:
-                                    fields[7] = fields[7] + ';' + ref_pos[key_chr_pos][key_ref_alt][7]
+                                    fields[7] = ref_pos_static[key_chr_pos][key_ref_alt][7] + ';' + fields[7]
                                 # concat and write to output file
                                 line = '\t'.join(fields)
                                 out_f.write(line + '\n')
 
                                 # positions in the input
                                 # eliminattion: remove the dictionary item so that it won't be used again
-                                ref_pos[key_chr_pos].pop(key_ref_alt)
+                                ref_pos_dynamic[key_chr_pos].pop(key_ref_alt)
                                 # remove a position if all of its alts are present in the input
-                                if ref_pos[key_chr_pos] == {}:
-                                    del ref_pos[key_chr_pos]
+                                if ref_pos_dynamic[key_chr_pos] == {}:
+                                    del ref_pos_dynamic[key_chr_pos]
                             # homozygous reference SNPs with matching REF and ALT='.'
                             elif is_snp and (fields[3] in ref_alleles) and (fields[4] == '.'):
                                 # record input PGx positions in a list
@@ -523,7 +519,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                     input_pos.append(key_chr_pos)
 
                                 # update id when the id is not in the input
-                                ref_id = list(set([x[2] for x in ref_pos[key_chr_pos].values()]))
+                                ref_id = list(set([x[2] for x in ref_pos_static[key_chr_pos].values()]))
                                 if fields[2] == '.':
                                     fields[2] = ';'.join(ref_id)
                                 else:
@@ -531,10 +527,10 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                     fields[2] = ';'.join(set(ref_id + input_id))
 
                                 # update info
-                                info_col = ';'.join(set([x[7] for x in ref_pos[key_chr_pos].values()]))
-                                fields[7] = ';'.join([info_col, fields[7]]) if fields[7] != '.' else info_col
+                                info_col = ';'.join(set([x[7] for x in ref_pos_static[key_chr_pos].values()]))
+                                fields[7] = ';'.join([fields[7], info_col]) if fields[7] != '.' else info_col
 
-                                alt_alleles = [x[1] for x in ref_pos[key_chr_pos].keys()]
+                                alt_alleles = [x[1] for x in ref_pos_static[key_chr_pos].keys()]
                                 for i in range(len(alt_alleles)):
                                     # update contents, concatenate cols from input and from the ref PGx VCF
                                     fields[3] = ref_alleles[i]
@@ -542,24 +538,57 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                     # concat and write to output file
                                     line = '\t'.join(fields)
                                     out_f.write(line + '\n')
-                                # remove the dictionary item from ref_pgx so that it won't be used again
-                                del ref_pos[key_chr_pos]
-
-                                # output the original line
-                                out_f.write(line + '\n')
-                            else:  # skip if it's not a PGx pos
-                                continue
+                                    # eliminattion: remove the dictionary item so that it won't be used again
+                                    ref_pos_dynamic[key_chr_pos].pop((ref_alleles[i], alt_alleles[i]))
+                                # remove a position if all of its alts are present in the input
+                                if ref_pos_dynamic[key_chr_pos] == {}:
+                                    del ref_pos_dynamic[key_chr_pos]
+                            # flag if the variant doesn't match PharmCAT ALT
+                            elif fields[3] in ref_alleles:
+                                for i in range(len(ref_alleles)):
+                                    print('=============================================================\n\n'
+                                          'Warning: \"%s:%s REF=%s ALT=%s\" does not match PharmCAT expectation '
+                                          'of ALT at "%s:%s REF=%s ALT=%s"\n\n'
+                                          '=============================================================\n'
+                                          % (fields[0], fields[1], fields[3], fields[4],
+                                             fields[0], fields[1], ref_alleles[i], alt_alleles[i]))
+                                # update filter
+                                filter_flag = 'PCATxALT'
+                                fields[6] = ';'.join([fields[6], filter_flag]) if fields[6] != '.' else filter_flag
+                                # output the  line
+                                line = '\t'.join(fields)
+                                non_pgx_records.append(line)
+                                # out_f.write(line + '\n')
+                            # flag if the variant doesn't match PharmCAT REF nor ALT
+                            else:
+                                for i in range(len(ref_alleles)):
+                                    print('=============================================================\n\n'
+                                          'Warning: \"%s:%s REF=%s ALT=%s\" does not match PharmCAT expectation '
+                                          'of REF at "%s:%s REF=%s ALT=%s"\n\n'
+                                          '=============================================================\n'
+                                          % (fields[0], fields[1], fields[3], fields[4],
+                                             fields[0], fields[1], ref_alleles[i], alt_alleles[i]))
+                                # update filter
+                                filter_flag = 'PCATxREF'
+                                fields[6] = ';'.join([fields[6], filter_flag]) if fields[6] != '.' else filter_flag
+                                # output the  line
+                                line = '\t'.join(fields)
+                                non_pgx_records.append(line)
+                                # out_f.write(line + '\n')
+            # output genetic variants that concurred at PGx positions
+            for line in non_pgx_records:
+                out_f.write(line + '\n')
             # if missing_to_ref is true, output all missing positions
             if missing_to_ref:
-                for key_ref_alt in ref_pos.values():
+                for key_ref_alt in ref_pos_dynamic.values():
                     for val in key_ref_alt.values():
                         line = '\t'.join(val + ['0|0'] * n_sample)
                         out_f.write(line + '\n')
             # otherwise, only complete lines for multiallelic loci
             else:
                 for single_pos in input_pos:
-                    if single_pos in ref_pos:
-                        for val in ref_pos[single_pos].values():
+                    if single_pos in ref_pos_dynamic:
+                        for val in ref_pos_dynamic[single_pos].values():
                             line = '\t'.join(val + ['0|0'] * n_sample)
                             out_f.write(line + '\n')
 
@@ -599,7 +628,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                     else:
                         break
             # output positions that were not detected in the input VCF
-            for key_ref_alt in ref_pos.values():
+            for key_ref_alt in ref_pos_dynamic.values():
                 for val in key_ref_alt.values():
                     line = '\t'.join(val + ['0|0'])
                     out_f.write(line + '\n')
