@@ -130,7 +130,7 @@ public class NamedAlleleMatcher {
    *
    * @return a set of {@code <chr:position>} Strings
    */
-  private static ImmutableMap<String, VariantLocus> calculateLocationsOfInterest(DefinitionReader definitionReader) {
+  static ImmutableMap<String, VariantLocus> calculateLocationsOfInterest(DefinitionReader definitionReader) {
 
     Set<String> data = new HashSet<>();
     ImmutableMap.Builder<String, VariantLocus> mapBuilder = ImmutableMap.builder();

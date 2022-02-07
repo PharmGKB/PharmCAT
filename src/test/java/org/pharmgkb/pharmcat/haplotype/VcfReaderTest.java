@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.nio.file.Path;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
@@ -30,5 +31,83 @@ class VcfReaderTest {
         assertFalse(sa.isPhased());
       }
     }
+  }
+
+  @Test
+  void testFilters() throws Exception {
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
+    definitionReader.read(definitionFile);
+
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.vcf");
+    VcfReader reader = new VcfReader(NamedAlleleMatcher.calculateLocationsOfInterest(definitionReader), vcfFile);
+
+    assertNotNull(reader.getWarnings());
+
+    assertNotNull(reader.getWarnings().get("chr10:94938828"));
+    assertEquals(1, reader.getWarnings().get("chr10:94938828").size());
+    assertEquals("Genotype at this position has novel bases (expected G, found C/T in VCF)",
+        reader.getWarnings().get("chr10:94938828").iterator().next());
+
+    assertNotNull(reader.getWarnings().get("chr10:94938683"));
+    assertEquals(1, reader.getWarnings().get("chr10:94938683").size());
+    assertEquals("Discarded genotype at this position because REF in VCF (G) does not match expected reference (A)",
+        reader.getWarnings().get("chr10:94938683").iterator().next());
+
+    assertNotNull(reader.getWarnings().get("chr10:94941982"));
+    assertEquals(1, reader.getWarnings().get("chr10:94941982").size());
+    assertEquals("Discarded genotype at this position because REF in VCF (GA) does not match expected reference (G)",
+        reader.getWarnings().get("chr10:94941982").iterator().next());
+
+    assertNotNull(reader.getWarnings().get("chr10:94941897"));
+    assertEquals(1, reader.getWarnings().get("chr10:94941897").size());
+    assertEquals("PharmCAT preprocessor detected REF mismatch (filter PCATxREF) but this does not match " +
+            "current data.  Was the VCF preprocessed with a different version of PharmCAT?",
+        reader.getWarnings().get("chr10:94941897").iterator().next());
+
+    assertNotNull(reader.getWarnings().get("chr10:94941915"));
+    assertEquals(1, reader.getWarnings().get("chr10:94941915").size());
+    assertEquals("PharmCAT preprocessor detected ALT mismatch (filter PCATxALT) but this does not match " +
+            "current data.  Was the VCF preprocessed with a different version of PharmCAT?",
+        reader.getWarnings().get("chr10:94941915").iterator().next());
+
+    assertEquals(5, reader.getWarnings().size());
+  }
+
+  @Test
+  void testFiltersNoDefinition() throws Exception {
+
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.vcf");
+    VcfReader reader = new VcfReader(vcfFile);
+
+    assertNotNull(reader.getWarnings());
+
+    assertNotNull(reader.getWarnings().get("chr10:94938828"));
+    assertEquals(1, reader.getWarnings().get("chr10:94938828").size());
+    assertTrue(reader.getWarnings().get("chr10:94938828")
+        .contains("Genotype at this position has novel bases"));
+
+    assertNotNull(reader.getWarnings().get("chr10:94938683"));
+    assertEquals(1, reader.getWarnings().get("chr10:94938683").size());
+    assertTrue(reader.getWarnings().get("chr10:94938683")
+        .contains("Discarded genotype at this position because REF in VCF (G) does not match expected reference"));
+
+    assertNotNull(reader.getWarnings().get("chr10:94941982"));
+    assertEquals(1, reader.getWarnings().get("chr10:94941982").size());
+    assertTrue(reader.getWarnings().get("chr10:94941982")
+        .contains("Discarded genotype at this position because REF in VCF (GA) does not match expected reference"));
+
+    assertNotNull(reader.getWarnings().get("chr10:94941897"));
+    assertEquals(1, reader.getWarnings().get("chr10:94941897").size());
+    assertEquals("Discarded genotype at this position because REF in VCF (G) does not match expected reference",
+        reader.getWarnings().get("chr10:94941897").iterator().next());
+
+    assertNotNull(reader.getWarnings().get("chr10:94941915"));
+    assertEquals(1, reader.getWarnings().get("chr10:94941915").size());
+    assertEquals("Genotype at this position has novel bases",
+        reader.getWarnings().get("chr10:94941915").iterator().next());
+
+    assertEquals(5, reader.getWarnings().size());
   }
 }

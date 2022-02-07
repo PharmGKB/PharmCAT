@@ -41,6 +41,8 @@ public class VcfReader implements VcfLineParser {
   private static final Pattern sf_gtDelimiter = Pattern.compile("[|/]");
   private static final Pattern sf_noCallPattern = Pattern.compile("^[.|/]+$");
   private static final Pattern sf_allelePattern = Pattern.compile("^[AaCcGgTt]+$");
+  private static final String sf_filterCodeRef = "PCATxREF";
+  private static final String sf_filterCodeAlt = "PCATxALT";
   private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
   private VcfMetadata m_vcfMetadata;
   private String m_genomeBuild;
@@ -162,14 +164,30 @@ public class VcfReader implements VcfLineParser {
         addWarning(chrPos, "Discarded genotype at this position because REF in VCF (" + position.getRef() +
             ") does not match expected reference (" + varLoc.getRef() + ")");
         return;
+      } else if (position.getFilters().contains(sf_filterCodeRef)) {
+        addWarning(chrPos, "PharmCAT preprocessor detected REF mismatch (filter " + sf_filterCodeRef +
+            ") but this does not match current data.  Was the VCF preprocessed with a different version of PharmCAT?");
       }
       Set<String> novel = position.getAltBases().stream()
           .filter((a) -> !varLoc.getAlts().contains(a))
           .collect(Collectors.toSet());
       if (novel.size() > 0) {
-        addWarning(chrPos, "Genotype at this position because has novel bases (expected " +
+        addWarning(chrPos, "Genotype at this position has novel bases (expected " +
             String.join("/", varLoc.getAlts()) + ", found " +
             String.join("/", novel) + " in VCF)");
+        return;
+      } else if (position.getFilters().contains(sf_filterCodeAlt)) {
+        addWarning(chrPos, "PharmCAT preprocessor detected ALT mismatch (filter " + sf_filterCodeAlt +
+            ") but this does not match current data.  Was the VCF preprocessed with a different version of PharmCAT?");
+      }
+    } else {
+      if (position.getFilters().contains(sf_filterCodeRef)) {
+        addWarning(chrPos, "Discarded genotype at this position because REF in VCF (" + position.getRef() +
+            ") does not match expected reference");
+        return;
+      }
+      if (position.getFilters().contains(sf_filterCodeAlt)) {
+        addWarning(chrPos, "Genotype at this position has novel bases");
         return;
       }
     }
