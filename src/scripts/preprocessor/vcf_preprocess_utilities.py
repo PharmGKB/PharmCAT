@@ -311,7 +311,7 @@ def extract_regions_from_multiple_files(bcftools_path, tabix_path, bgzip_path, i
                         continue
                     line = bgzipped_vcf(bgzip_path, line)
 
-                    temp_output_prefix = output_prefix + '_' + i
+                    temp_output_prefix = output_prefix + '_' + str(i)
                     single_file = extract_regions_from_single_file(bcftools_path, tabix_path, line, ref_pgx,
                                                                    temp_dir, temp_output_prefix, sample_list)
                     preprocessed_file_list.append(single_file)
