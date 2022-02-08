@@ -450,10 +450,10 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                         out_f.write('##INFO=<ID=PX,Number=.,Type=String,Description="Gene">\n')
                         out_f.write('##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not'
                                     ' part of an allele definition">\n')
-                        out_f.write('##FILTER=<ID=PCATxREF,Description="Position not matching PharmCAT PGx reference'
-                                    ' alleles">\n')
-                        out_f.write('##FILTER=<ID=PCATxALT,Description="Position not matching PharmCAT PGx alternative'
-                                    ' alleles">\n')
+                        out_f.write('##FILTER=<ID=PCATxREF,Description="Reference allele does not match PharmCAT '
+                                    'reference alleles">\n')
+                        out_f.write('##FILTER=<ID=PCATxALT,Description="Alternate alleles do not match PharmCAT '
+                                    'alternate alleles">\n')
                         out_f.write(line)
                         # get the number of samples
                         line = line.rstrip('\n')
@@ -553,8 +553,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                           % (fields[0], fields[1], fields[3], fields[4],
                                              fields[0], fields[1], ref_alleles[i], alt_alleles[i]))
                                 # update filter
-                                filter_flag = 'PCATxALT'
-                                fields[6] = ';'.join([fields[6], filter_flag]) if fields[6] != '.' else filter_flag
+                                fields[6] = 'PCATxALT'
                                 # output the  line
                                 line = '\t'.join(fields)
                                 non_pgx_records.append(line)
@@ -569,8 +568,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                           % (fields[0], fields[1], fields[3], fields[4],
                                              fields[0], fields[1], ref_alleles[i], alt_alleles[i]))
                                 # update filter
-                                filter_flag = 'PCATxREF'
-                                fields[6] = ';'.join([fields[6], filter_flag]) if fields[6] != '.' else filter_flag
+                                fields[6] = 'PCATxREF'
                                 # output the  line
                                 line = '\t'.join(fields)
                                 non_pgx_records.append(line)
