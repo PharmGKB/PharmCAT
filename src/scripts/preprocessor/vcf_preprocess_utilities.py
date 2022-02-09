@@ -508,9 +508,9 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                 # eliminattion: remove the dictionary item so that it won't be used again
                                 if input_chr_pos in ref_pos_dynamic:
                                     ref_pos_dynamic[input_chr_pos].pop(input_ref_alt)
-                                # remove a position if all of its alts are present in the input
-                                if ref_pos_dynamic[input_chr_pos] == {}:
-                                    del ref_pos_dynamic[input_chr_pos]
+                                    # remove a position if all of its alts are present in the input
+                                    if ref_pos_dynamic[input_chr_pos] == {}:
+                                        del ref_pos_dynamic[input_chr_pos]
                             # homozygous reference SNPs with matching REF and ALT='.'
                             elif is_snp and (fields[3] in ref_alleles) and (fields[4] == '.'):
                                 # record input PGx positions in a list
@@ -539,10 +539,11 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                     line = '\t'.join(fields)
                                     out_f.write(line + '\n')
                                     # eliminattion: remove the dictionary item so that it won't be used again
-                                    ref_pos_dynamic[input_chr_pos].pop((ref_alleles[i], alt_alleles[i]))
-                                # remove a position if all of its alts are present in the input
-                                if ref_pos_dynamic[input_chr_pos] == {}:
-                                    del ref_pos_dynamic[input_chr_pos]
+                                    if input_chr_pos in ref_pos_dynamic:
+                                        ref_pos_dynamic[input_chr_pos].pop((ref_alleles[i], alt_alleles[i]))
+                                        # remove a position if all of its alts are present in the input
+                                        if ref_pos_dynamic[input_chr_pos] == {}:
+                                            del ref_pos_dynamic[input_chr_pos]
                             # flag if the variant doesn't match PharmCAT ALT
                             elif fields[3] in ref_alleles:
                                 for i in range(len(ref_alleles)):
