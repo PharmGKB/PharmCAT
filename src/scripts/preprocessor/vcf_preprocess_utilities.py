@@ -506,7 +506,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                 out_f.write(line + '\n')
 
                                 # eliminattion: remove the dictionary item so that it won't be used again
-                                if input_ref_alt in ref_pos_dynamic[input_chr_pos].keys():
+                                if input_chr_pos in ref_pos_dynamic:
                                     ref_pos_dynamic[input_chr_pos].pop(input_ref_alt)
                                 # remove a position if all of its alts are present in the input
                                 if ref_pos_dynamic[input_chr_pos] == {}:
@@ -539,8 +539,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                     line = '\t'.join(fields)
                                     out_f.write(line + '\n')
                                     # eliminattion: remove the dictionary item so that it won't be used again
-                                    if (ref_alleles[i], alt_alleles[i]) in ref_pos_dynamic[input_chr_pos].keys():
-                                        ref_pos_dynamic[input_chr_pos].pop((ref_alleles[i], alt_alleles[i]))
+                                    ref_pos_dynamic[input_chr_pos].pop((ref_alleles[i], alt_alleles[i]))
                                 # remove a position if all of its alts are present in the input
                                 if ref_pos_dynamic[input_chr_pos] == {}:
                                     del ref_pos_dynamic[input_chr_pos]
