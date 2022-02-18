@@ -200,7 +200,8 @@ public class ReportContext {
       }
 
       // skip any uncalled genes
-      if (!geneReport.isCalled() && geneReport.getReporterDiplotypes().isEmpty()) {
+      boolean isCompletelyUnknown = geneReport.getVariantReports().stream().allMatch(VariantReport::isMissing);
+      if (!geneReport.isCalled() && (geneReport.getReporterDiplotypes().isEmpty() || isCompletelyUnknown)) {
         continue;
       }
 
