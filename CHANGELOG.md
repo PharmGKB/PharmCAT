@@ -1,3 +1,23 @@
+## [1.5.0](https://github.com/PharmGKB/PharmCAT/compare/v1.4.0...v1.5.0) (2022-02-19)
+
+
+### Features
+
+* **reporter:** show Matcher variant warnings in the final report ([c247c99](https://github.com/PharmGKB/PharmCAT/commit/c247c99254427e22df4530ccdd656b49a1f4120b))
+* **preprocessor:** flag non-PGx variants at PGx positions ([908f6d9](https://github.com/PharmGKB/PharmCAT/commit/908f6d9d83f867e7a496af0c25b73ce9f3cf29fb)), closes [#87](https://github.com/PharmGKB/PharmCAT/issues/87)
+
+
+### Bug Fixes
+
+* **data:** update to CPIC 1.14 ([e5ec432](https://github.com/PharmGKB/PharmCAT/commit/e5ec4324c8854e4c83817e995ac600e4b90d7e1c))
+* **namedallelematcher:** add novel ALT warning ([0ed4462](https://github.com/PharmGKB/PharmCAT/commit/0ed44629527ad67dc0001791ac468ecceb453f8e))
+* **namedallelematcher:** add support for PCATxALT and PCATxREF filters from preprocessor ([a81e35c](https://github.com/PharmGKB/PharmCAT/commit/a81e35c7e4ac5d5338a1f829c9ba1a9a67867c96))
+* **preprocessor:** reading of input file list and sample list ([99d472c](https://github.com/PharmGKB/PharmCAT/commit/99d472c62c58fd92d1a065f8dee604bc2ceac9f7)), closes [#88](https://github.com/PharmGKB/PharmCAT/issues/88)
+* **preprocessor:** remove key of chromosome positions only if the key is present in the dictionary ([ebf5ac2](https://github.com/PharmGKB/PharmCAT/commit/ebf5ac2d8d74d3472fe7c7530a4d045811fa6918))
+* **preprocessor:** remove key of chromosome positions only if the key is present in the dictionary ([0177a38](https://github.com/PharmGKB/PharmCAT/commit/0177a384287a4ada2bbd97687b6453cd3124a0e6))
+* **preprocessor:** remove key only if the key is present in the dictionary ([2f29fd1](https://github.com/PharmGKB/PharmCAT/commit/2f29fd1c31c4a54801a4681041242e08c2c47607))
+* **preprocessor:** remove PASS if the position is flagged for PharmCAT; update FILTER flag descriptions ([f06c8c0](https://github.com/PharmGKB/PharmCAT/commit/f06c8c0900cbb84823da58f9f9ba513aea92268f))
+
 ## [1.4.0](https://github.com/PharmGKB/PharmCAT/compare/v1.3.1...v1.4.0) (2022-01-28)
 
 
