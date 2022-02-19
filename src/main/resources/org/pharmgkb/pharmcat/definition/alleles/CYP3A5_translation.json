@@ -1,33 +1,13 @@
 {
   "formatVersion": "2",
-  "cpicVersion": "v1.12",
-  "modificationDate": "Jan 19, 2022 01:31:26 PM",
+  "cpicVersion": "v1.14",
+  "modificationDate": "Feb 18, 2022 02:39:31 PM",
   "gene": "CYP3A5",
   "orientation": null,
   "chromosome": "chr7",
   "genomeBuild": "GRCh38.p13",
   "refSeqChromosomeId": "NC_000007.14",
   "variants": [
-    {
-      "chromosome": "chr7",
-      "position": 99652613,
-      "cpicPosition": 99652613,
-      "rsid": "rs28365083",
-      "chromosomeHgvsName": "g.99652613G>T",
-      "cpicAlleles": [
-        "G",
-        "K",
-        "T"
-      ],
-      "cpicToVcfAlleleMap": {
-        "T": "T",
-        "G": "G"
-      },
-      "ref": "G",
-      "alts": [
-        "T"
-      ]
-    },
     {
       "chromosome": "chr7",
       "position": 99652770,
@@ -55,8 +35,7 @@
       "chromosomeHgvsName": "g.99660516C>T",
       "cpicAlleles": [
         "C",
-        "T",
-        "Y"
+        "T"
       ],
       "cpicToVcfAlleleMap": {
         "C": "C",
@@ -84,46 +63,6 @@
       "ref": "C",
       "alts": [
         "T"
-      ]
-    },
-    {
-      "chromosome": "chr7",
-      "position": 99665237,
-      "cpicPosition": 99665237,
-      "rsid": "rs56411402",
-      "chromosomeHgvsName": "g.99665237T>C",
-      "cpicAlleles": [
-        "C",
-        "T",
-        "Y"
-      ],
-      "cpicToVcfAlleleMap": {
-        "C": "C",
-        "T": "T"
-      },
-      "ref": "T",
-      "alts": [
-        "C"
-      ]
-    },
-    {
-      "chromosome": "chr7",
-      "position": 99666950,
-      "cpicPosition": 99666950,
-      "rsid": "rs55965422",
-      "chromosomeHgvsName": "g.99666950A>G",
-      "cpicAlleles": [
-        "A",
-        "G",
-        "R"
-      ],
-      "cpicToVcfAlleleMap": {
-        "A": "A",
-        "G": "G"
-      },
-      "ref": "A",
-      "alts": [
-        "G"
       ]
     },
     {
@@ -170,22 +109,16 @@
       "name": "*1",
       "id": "778218",
       "alleles": [
-        "G",
         "T",
         "C",
         "C",
-        "T",
-        "A",
         "T",
         "G"
       ],
       "cpicAlleles": [
-        "G",
         "A",
         "C",
         "C",
-        "T",
-        "A",
         "T",
         "G"
       ],
@@ -193,104 +126,20 @@
       "reference": true
     },
     {
-      "name": "*2",
-      "id": "778220",
-      "alleles": [
-        "T",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "cpicAlleles": [
-        "T",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "populationFrequency": null,
-      "reference": false
-    },
-    {
       "name": "*3",
       "id": "778222",
       "alleles": [
-        "K",
-        null,
-        "Y",
-        null,
-        "Y",
-        "R",
-        "C",
-        null
-      ],
-      "cpicAlleles": [
-        "K",
-        null,
-        "Y",
-        null,
-        "Y",
-        "R",
-        "C",
-        null
-      ],
-      "populationFrequency": null,
-      "reference": false
-    },
-    {
-      "name": "*4",
-      "id": "778224",
-      "alleles": [
-        null,
         null,
         null,
         null,
         "C",
-        null,
-        null,
         null
       ],
       "cpicAlleles": [
         null,
         null,
         null,
-        null,
         "C",
-        null,
-        null,
-        null
-      ],
-      "populationFrequency": null,
-      "reference": false
-    },
-    {
-      "name": "*5",
-      "id": "778226",
-      "alleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        "G",
-        null,
-        null
-      ],
-      "cpicAlleles": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        "G",
-        null,
         null
       ],
       "populationFrequency": null,
@@ -302,20 +151,14 @@
       "alleles": [
         null,
         null,
-        null,
         "T",
-        null,
-        null,
         null,
         null
       ],
       "cpicAlleles": [
         null,
         null,
-        null,
         "T",
-        null,
-        null,
         null,
         null
       ],
@@ -326,20 +169,14 @@
       "name": "*7",
       "id": "778230",
       "alleles": [
-        null,
         "TA",
-        null,
-        null,
         null,
         null,
         null,
         null
       ],
       "cpicAlleles": [
-        null,
         "AA",
-        null,
-        null,
         null,
         null,
         null,
@@ -356,15 +193,9 @@
         null,
         null,
         null,
-        null,
-        null,
-        null,
         "A"
       ],
       "cpicAlleles": [
-        null,
-        null,
-        null,
         null,
         null,
         null,
@@ -379,20 +210,14 @@
       "id": "778234",
       "alleles": [
         null,
-        null,
         "T",
-        null,
-        null,
         null,
         null,
         null
       ],
       "cpicAlleles": [
         null,
-        null,
         "T",
-        null,
-        null,
         null,
         null,
         null

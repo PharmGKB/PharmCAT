@@ -67,7 +67,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -177,7 +177,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -260,7 +260,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -398,7 +398,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -5188,7 +5188,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -5313,7 +5313,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -6154,6 +6154,240 @@
     ]
   },
   {
+    "drugid": "RxNorm:83367",
+    "drugname": "atorvastatin",
+    "guidelinename": "SLCO1B1, ABCG2, CYP2C9, and Statins",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
+    "guidelinepharmgkbids": [
+      "PA166105005",
+      "PA166262221",
+      "PA166262241",
+      "PA166262261",
+      "PA166262281",
+      "PA166262321",
+      "PA166262341"
+    ],
+    "genes": [
+      "SLCO1B1"
+    ],
+    "citations": [
+      {
+        "id": 110021,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenomics Implementation Consortium: Guideline for SLCO1B1 and Simvastatin-Induced Myopathy",
+        "authors": [
+          "Wilke R A",
+          "Ramsey L B",
+          "Johnson S G",
+          "Maxwell W D",
+          "McLeod H L",
+          "Voora D",
+          "Krauss R M",
+          "Roden D M",
+          "Feng Q",
+          "Cooper-Dehoff R M",
+          "Gong L",
+          "Klein T E",
+          "Wadelius M",
+          "Niemi M"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": "",
+        "volume": "",
+        "year": 2012,
+        "pmid": "22617227",
+        "pmcid": "PMC3384438",
+        "doi": "10.1038/clpt.2012.57",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
+      },
+      {
+        "id": 110022,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update",
+        "authors": [
+          "Ramsey Laura B",
+          "Johnson Samuel G",
+          "Caudle Kelly E",
+          "Haidar Cyrine E",
+          "Voora Deepak",
+          "Wilke Russell A",
+          "Maxwell Whitney D",
+          "McLeod Howard L",
+          "Krauss Ronald M",
+          "Roden Dan M",
+          "Feng Qiping",
+          "Cooper-DeHoff Rhonda M",
+          "Gong Li",
+          "Klein Teri E",
+          "Wadelius Mia",
+          "Niemi Mikko"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 6,
+        "page": "",
+        "volume": "",
+        "year": 2014,
+        "pmid": "24918167",
+        "pmcid": "PMC4169720",
+        "doi": "10.1038/clpt.2014.125",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
+      },
+      {
+        "id": 1508721,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1, ABCG2, and CYP2C9 and statin-associated musculoskeletal symptoms.",
+        "authors": [
+          "Cooper-DeHoff Rhonda M",
+          "Niemi Mikko",
+          "Ramsey Laura B",
+          "Luzum Jasmine A",
+          "Tarkiainen E Katriina",
+          "Straka Robert J",
+          "Gong Li",
+          "Tuteja Sony",
+          "Wilke Russell A",
+          "Wadelius Mia",
+          "Larson Eric A",
+          "Roden Dan M",
+          "Klein Teri E",
+          "Yee Sook Wah",
+          "Krauss Ronald M",
+          "Turner Richard M",
+          "Palaniappan Latha",
+          "Gaedigk Andrea",
+          "Giacomini Kathleen M",
+          "Caudle Kelly E",
+          "Voora Deepak"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 2,
+        "page": null,
+        "volume": null,
+        "year": 2022,
+        "pmid": "35152405",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2557",
+        "url": null,
+        "version": 4,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.14",
+    "recommendations": [
+      {
+        "implications": {
+          "SLCO1B1": "Increased atorvastatin exposure as compared to normal function which may translate to increased myopathy risk"
+        },
+        "drugrecommendation": "Prescribe ≤40mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose. If dose >40mg needed for desired efficacy, consider combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "No recommendation",
+        "classification": "No Recommendation",
+        "phenotypes": {
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "n/a",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Increased atorvastatin exposure as compared to normal and decreased function which may translate to increased myopathy risk."
+        },
+        "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. If dose >20mg is needed for desired efficacy, consider rosuvastatin or combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Increased atorvastatin exposure as compared to normal function which may translate to increased myopathy risk"
+        },
+        "drugrecommendation": "Prescribe ≤40mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose. If dose >40mg needed for desired efficacy, consider combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:1256",
     "drugname": "azathioprine",
     "guidelinename": "TPMT, NUDT15 and Thiopurines",
@@ -6264,7 +6498,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -7145,7 +7379,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -7322,7 +7556,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -7389,8 +7623,8 @@
           "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
           "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
-        "classification": "Strong",
+        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
+        "classification": "Optional",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
@@ -7401,8 +7635,8 @@
           "HLA-A": "*31:01 negative",
           "HLA-B": "*15:02 positive"
         },
-        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-        "population": "CBZ naive"
+        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+        "population": "CBZ use >3mos "
       },
       {
         "implications": {
@@ -7429,8 +7663,8 @@
           "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
           "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
-        "classification": "Optional",
+        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+        "classification": "Strong",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
@@ -7441,8 +7675,8 @@
           "HLA-A": "*31:01 negative",
           "HLA-B": "*15:02 positive"
         },
-        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-        "population": "CBZ use >3mos "
+        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+        "population": "CBZ naive"
       },
       {
         "implications": {
@@ -7569,26 +7803,6 @@
           "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
           "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
-        "classification": "Optional",
-        "phenotypes": {},
-        "activityscore": {},
-        "allelestatus": {
-          "HLA-A": "HLA-A*31:01 positive",
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-A": "*31:01 positive",
-          "HLA-B": "*15:02 positive"
-        },
-        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-        "population": "CBZ use >3mos "
-      },
-      {
-        "implications": {
-          "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
-        },
         "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
         "classification": "Strong",
         "phenotypes": {},
@@ -7627,21 +7841,21 @@
       {
         "implications": {
           "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-          "HLA-B": "n/a"
+          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within three months of regular dosing. Therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine.",
+        "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
         "classification": "Optional",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
           "HLA-A": "HLA-A*31:01 positive",
-          "HLA-B": "No HLA-B*15:02 Result"
+          "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
           "HLA-A": "*31:01 positive",
-          "HLA-B": "No *15:02 Result"
+          "HLA-B": "*15:02 positive"
         },
-        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
         "population": "CBZ use >3mos "
       },
       {
@@ -7686,6 +7900,46 @@
       },
       {
         "implications": {
+          "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+          "HLA-B": "n/a"
+        },
+        "drugrecommendation": "The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within three months of regular dosing. Therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine.",
+        "classification": "Optional",
+        "phenotypes": {},
+        "activityscore": {},
+        "allelestatus": {
+          "HLA-A": "HLA-A*31:01 positive",
+          "HLA-B": "No HLA-B*15:02 Result"
+        },
+        "lookupkey": {
+          "HLA-A": "*31:01 positive",
+          "HLA-B": "No *15:02 Result"
+        },
+        "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+        "population": "CBZ use >3mos "
+      },
+      {
+        "implications": {
+          "HLA-A": "n/a",
+          "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+        },
+        "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+        "classification": "Strong",
+        "phenotypes": {},
+        "activityscore": {},
+        "allelestatus": {
+          "HLA-A": "No HLA-A*31:01 Result",
+          "HLA-B": "HLA-B*15:02 negative"
+        },
+        "lookupkey": {
+          "HLA-A": "No *31:01 Result",
+          "HLA-B": "*15:02 negative"
+        },
+        "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+        "population": "CBZ naive"
+      },
+      {
+        "implications": {
           "HLA-A": "n/a",
           "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
         },
@@ -7727,22 +7981,22 @@
       {
         "implications": {
           "HLA-A": "n/a",
-          "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
         },
-        "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
         "classification": "Strong",
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
           "HLA-A": "No HLA-A*31:01 Result",
-          "HLA-B": "HLA-B*15:02 negative"
+          "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
           "HLA-A": "No *31:01 Result",
-          "HLA-B": "*15:02 negative"
+          "HLA-B": "*15:02 positive"
         },
-        "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-        "population": "CBZ naive"
+        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+        "population": "CBZ-no alternatives"
       },
       {
         "implications": {
@@ -7783,26 +8037,6 @@
         },
         "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
         "population": "CBZ use >3mos "
-      },
-      {
-        "implications": {
-          "HLA-A": "n/a",
-          "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
-        },
-        "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
-        "classification": "Strong",
-        "phenotypes": {},
-        "activityscore": {},
-        "allelestatus": {
-          "HLA-A": "No HLA-A*31:01 Result",
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-A": "No *31:01 Result",
-          "HLA-B": "*15:02 positive"
-        },
-        "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-        "population": "CBZ-no alternatives"
       }
     ]
   },
@@ -7848,7 +8082,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -8018,7 +8252,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -8257,7 +8491,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -13067,10 +13301,46 @@
         "version": 3,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/clopidogrel/2013/23698643.pdf"
+      },
+      {
+        "id": 1608551,
+        "guidelineid": 100411,
+        "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2C19 Genotype and Clopidogrel Therapy: 2022 Update.",
+        "authors": [
+          "Lee Craig R",
+          "Luzum Jasmine A",
+          "Sangkuhl Katrin",
+          "Gammal Roseann S",
+          "Sabatine Marc S",
+          "Stein C Michael",
+          "Kisor David F",
+          "Limdi Nita A",
+          "Lee Yee Ming",
+          "Scott Stuart A",
+          "Hulot Jean-Sébastien",
+          "Roden Dan M",
+          "Gaedigk Andrea",
+          "Caudle Kelly E",
+          "Klein Teri E",
+          "Johnson Julie A",
+          "Shuldiner Alan R"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 1,
+        "page": null,
+        "volume": null,
+        "year": 2022,
+        "pmid": "35034351",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2526",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/clopidogrel/2022/35034351.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -13595,7 +13865,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -14066,7 +14336,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -14221,7 +14491,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -14697,7 +14967,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -14936,7 +15206,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -19728,7 +19998,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -19895,7 +20165,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -20020,7 +20290,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -20248,7 +20518,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -20389,7 +20659,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -20508,6 +20778,1217 @@
     ]
   },
   {
+    "drugid": "RxNorm:41127",
+    "drugname": "fluvastatin",
+    "guidelinename": "SLCO1B1, ABCG2, CYP2C9, and Statins",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
+    "guidelinepharmgkbids": [
+      "PA166105005",
+      "PA166262221",
+      "PA166262241",
+      "PA166262261",
+      "PA166262281",
+      "PA166262321",
+      "PA166262341"
+    ],
+    "genes": [
+      "CYP2C9",
+      "SLCO1B1"
+    ],
+    "citations": [
+      {
+        "id": 110021,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenomics Implementation Consortium: Guideline for SLCO1B1 and Simvastatin-Induced Myopathy",
+        "authors": [
+          "Wilke R A",
+          "Ramsey L B",
+          "Johnson S G",
+          "Maxwell W D",
+          "McLeod H L",
+          "Voora D",
+          "Krauss R M",
+          "Roden D M",
+          "Feng Q",
+          "Cooper-Dehoff R M",
+          "Gong L",
+          "Klein T E",
+          "Wadelius M",
+          "Niemi M"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": "",
+        "volume": "",
+        "year": 2012,
+        "pmid": "22617227",
+        "pmcid": "PMC3384438",
+        "doi": "10.1038/clpt.2012.57",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
+      },
+      {
+        "id": 110022,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update",
+        "authors": [
+          "Ramsey Laura B",
+          "Johnson Samuel G",
+          "Caudle Kelly E",
+          "Haidar Cyrine E",
+          "Voora Deepak",
+          "Wilke Russell A",
+          "Maxwell Whitney D",
+          "McLeod Howard L",
+          "Krauss Ronald M",
+          "Roden Dan M",
+          "Feng Qiping",
+          "Cooper-DeHoff Rhonda M",
+          "Gong Li",
+          "Klein Teri E",
+          "Wadelius Mia",
+          "Niemi Mikko"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 6,
+        "page": "",
+        "volume": "",
+        "year": 2014,
+        "pmid": "24918167",
+        "pmcid": "PMC4169720",
+        "doi": "10.1038/clpt.2014.125",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
+      },
+      {
+        "id": 1508721,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1, ABCG2, and CYP2C9 and statin-associated musculoskeletal symptoms.",
+        "authors": [
+          "Cooper-DeHoff Rhonda M",
+          "Niemi Mikko",
+          "Ramsey Laura B",
+          "Luzum Jasmine A",
+          "Tarkiainen E Katriina",
+          "Straka Robert J",
+          "Gong Li",
+          "Tuteja Sony",
+          "Wilke Russell A",
+          "Wadelius Mia",
+          "Larson Eric A",
+          "Roden Dan M",
+          "Klein Teri E",
+          "Yee Sook Wah",
+          "Krauss Ronald M",
+          "Turner Richard M",
+          "Palaniappan Latha",
+          "Gaedigk Andrea",
+          "Giacomini Kathleen M",
+          "Caudle Kelly E",
+          "Voora Deepak"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 2,
+        "page": null,
+        "volume": null,
+        "year": 2022,
+        "pmid": "35152405",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2557",
+        "url": null,
+        "version": 4,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.14",
+    "recommendations": [
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0",
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0",
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on CYP2C9 status, prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 phenotype could not be assigned based on genotyping.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0",
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on CYP2C9 status, prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0",
+          "SLCO1B1": "No Result"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0",
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0",
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0.5",
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0.5",
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on CYP2C9 status, prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 phenotype could not be assigned based on genotyping.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0.5",
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on CYP2C9 status, prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0.5",
+          "SLCO1B1": "No Result"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0.5",
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0.5",
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "0.5",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1",
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1",
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on CYP2C9 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 phenotype could not be assigned based on genotyping.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1",
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on CYP2C9 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1",
+          "SLCO1B1": "No Result"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1",
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency. (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1",
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "1.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1.5",
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "1.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1.5",
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on CYP2C9 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 phenotype could not be assigned based on genotyping.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "1.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1.5",
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on CYP2C9 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "1.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1.5",
+          "SLCO1B1": "No Result"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {
+          "CYP2C9": "1.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1.5",
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency. (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {
+          "CYP2C9": "1.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1.5",
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "1.5"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "1.5",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Normal exposure.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer",
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "2",
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Normal exposure.",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer",
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "2",
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Normal exposure.",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on CYP2C9 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. SLCO1B1 phenotype could not be assigned based on genotyping.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer",
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "2",
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Normal exposure.",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on CYP2C9 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. SLCO1B1 genotype result is not available.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer",
+          "SLCO1B1": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "2",
+          "SLCO1B1": "No Result"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Normal exposure.",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer",
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "2",
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Normal exposure.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If patient is tolerating 40mg per day but higher potency is needed, a higher dose (>40mg) or an alternative statin or combination therapy (i.e. fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391) could be considered. Prescriber should be aware of possible increased risk for myopathy with fluvastatin especially with doses >40mg per day.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer",
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "2",
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "Normal exposure.",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "2",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day. CYP2C9 phenotype could not be assigned based on genotyping.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate",
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 phenotype could not be assigned based on genotyping.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate",
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "n/a",
+        "classification": "n/a",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate",
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "n/a",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "n/a",
+        "classification": "n/a",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate",
+          "SLCO1B1": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "No Result"
+        },
+        "comments": "n/a",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 phenotype could not be assigned based on genotyping.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate",
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If patient is tolerating 40mg per day but higher potency is needed, a higher dose (>40mg) or an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. fluvastatin plus non-statin guideline directed medical therapy)(PMID: 30423391) could be considered. Prescriber should be aware of possible increased risk for myopathy with fluvastatin especially with doses >40mg per day. CYP2C9 phenotype could not be assigned based on genotyping.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate",
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day. CYP2C9 phenotype could not be assigned based on genotyping.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "Indeterminate",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "n/a"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day. CYP2C9 genotype result is not available.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 genotype result is not available.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "n/a",
+        "classification": "n/a",
+        "phenotypes": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "n/a",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "n/a",
+        "classification": "n/a",
+        "phenotypes": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "No Result"
+        },
+        "comments": "n/a",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Typical myopathy risk and statin exposure."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 genotype result is not available.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If patient is tolerating 40mg per day but higher potency is needed, a higher dose (>40mg) or an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391) could be considered. Prescriber should be aware of possible increased risk for myopathy with fluvastatin especially with doses >40mg per day. CYP2C9 genotype result is not available.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "CYP2C9": "n/a",
+          "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day. CYP2C9 genotype result is not available.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C9": "No Result",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:42355",
     "drugname": "fluvoxamine",
     "guidelinename": "CYP2D6, CYP2C19 and Selective Serotonin Reuptake Inhibitors",
@@ -20559,7 +22040,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -21057,7 +22538,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -21172,7 +22653,7 @@
           "CYP2C9": "1"
         },
         "comments": "n/a",
-        "population": "PHT naive"
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -21195,7 +22676,7 @@
           "CYP2C9": "1"
         },
         "comments": "n/a",
-        "population": "PHT use >3mos"
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -21310,7 +22791,7 @@
           "CYP2C9": "n/a"
         },
         "comments": "n/a",
-        "population": "PHT use >3mos"
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -21333,7 +22814,7 @@
           "CYP2C9": "n/a"
         },
         "comments": "n/a",
-        "population": "PHT naive"
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -21379,6 +22860,29 @@
           "CYP2C9": "No Result"
         },
         "comments": "n/a",
+        "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.0"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "0"
+        },
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
         "population": "PHT naive"
       },
       {
@@ -21409,52 +22913,6 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
         },
-        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-        "classification": "Strong",
-        "phenotypes": {
-          "CYP2C9": "Poor Metabolizer"
-        },
-        "activityscore": {
-          "CYP2C9": "0.0"
-        },
-        "allelestatus": {
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-B": "*15:02 positive",
-          "CYP2C9": "0"
-        },
-        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-        "population": "PHT naive"
-      },
-      {
-        "implications": {
-          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-        },
-        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-        "classification": "Strong",
-        "phenotypes": {
-          "CYP2C9": "Poor Metabolizer"
-        },
-        "activityscore": {
-          "CYP2C9": "0.5"
-        },
-        "allelestatus": {
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-B": "*15:02 positive",
-          "CYP2C9": "0.5"
-        },
-        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-        "population": "PHT naive"
-      },
-      {
-        "implications": {
-          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-        },
         "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
         "classification": "Optional",
         "phenotypes": {
@@ -21472,6 +22930,29 @@
         },
         "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
         "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "0.5"
+        },
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -21570,29 +23051,6 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Normal phenytoin metabolism"
         },
-        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-        "classification": "Strong",
-        "phenotypes": {
-          "CYP2C9": "Normal Metabolizer"
-        },
-        "activityscore": {
-          "CYP2C9": "2.0"
-        },
-        "allelestatus": {
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-B": "*15:02 positive",
-          "CYP2C9": "2"
-        },
-        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-        "population": "PHT naive"
-      },
-      {
-        "implications": {
-          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "Normal phenytoin metabolism"
-        },
         "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
         "classification": "Optional",
         "phenotypes": {
@@ -21610,6 +23068,29 @@
         },
         "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
         "population": "PHT use >3mos"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "Normal phenytoin metabolism"
+        },
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "2"
+        },
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -22026,7 +23507,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -22130,7 +23611,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -22316,7 +23797,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -22780,7 +24261,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -22981,7 +24462,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -27772,7 +29253,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -27886,7 +29367,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -27973,7 +29454,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -28082,7 +29563,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -28280,7 +29761,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -28399,6 +29880,240 @@
     ]
   },
   {
+    "drugid": "RxNorm:6472",
+    "drugname": "lovastatin",
+    "guidelinename": "SLCO1B1, ABCG2, CYP2C9, and Statins",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
+    "guidelinepharmgkbids": [
+      "PA166105005",
+      "PA166262221",
+      "PA166262241",
+      "PA166262261",
+      "PA166262281",
+      "PA166262321",
+      "PA166262341"
+    ],
+    "genes": [
+      "SLCO1B1"
+    ],
+    "citations": [
+      {
+        "id": 110021,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenomics Implementation Consortium: Guideline for SLCO1B1 and Simvastatin-Induced Myopathy",
+        "authors": [
+          "Wilke R A",
+          "Ramsey L B",
+          "Johnson S G",
+          "Maxwell W D",
+          "McLeod H L",
+          "Voora D",
+          "Krauss R M",
+          "Roden D M",
+          "Feng Q",
+          "Cooper-Dehoff R M",
+          "Gong L",
+          "Klein T E",
+          "Wadelius M",
+          "Niemi M"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": "",
+        "volume": "",
+        "year": 2012,
+        "pmid": "22617227",
+        "pmcid": "PMC3384438",
+        "doi": "10.1038/clpt.2012.57",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
+      },
+      {
+        "id": 110022,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update",
+        "authors": [
+          "Ramsey Laura B",
+          "Johnson Samuel G",
+          "Caudle Kelly E",
+          "Haidar Cyrine E",
+          "Voora Deepak",
+          "Wilke Russell A",
+          "Maxwell Whitney D",
+          "McLeod Howard L",
+          "Krauss Ronald M",
+          "Roden Dan M",
+          "Feng Qiping",
+          "Cooper-DeHoff Rhonda M",
+          "Gong Li",
+          "Klein Teri E",
+          "Wadelius Mia",
+          "Niemi Mikko"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 6,
+        "page": "",
+        "volume": "",
+        "year": 2014,
+        "pmid": "24918167",
+        "pmcid": "PMC4169720",
+        "doi": "10.1038/clpt.2014.125",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
+      },
+      {
+        "id": 1508721,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1, ABCG2, and CYP2C9 and statin-associated musculoskeletal symptoms.",
+        "authors": [
+          "Cooper-DeHoff Rhonda M",
+          "Niemi Mikko",
+          "Ramsey Laura B",
+          "Luzum Jasmine A",
+          "Tarkiainen E Katriina",
+          "Straka Robert J",
+          "Gong Li",
+          "Tuteja Sony",
+          "Wilke Russell A",
+          "Wadelius Mia",
+          "Larson Eric A",
+          "Roden Dan M",
+          "Klein Teri E",
+          "Yee Sook Wah",
+          "Krauss Ronald M",
+          "Turner Richard M",
+          "Palaniappan Latha",
+          "Gaedigk Andrea",
+          "Giacomini Kathleen M",
+          "Caudle Kelly E",
+          "Voora Deepak"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 2,
+        "page": null,
+        "volume": null,
+        "year": 2022,
+        "pmid": "35152405",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2557",
+        "url": null,
+        "version": 4,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.14",
+    "recommendations": [
+      {
+        "implications": {
+          "SLCO1B1": "Increased lovastatin acid exposure as compared to normal function which may translate to increased myopathy risk"
+        },
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If lovastatin therapy is warranted, limit dose to ≤20mg/day.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "No recommendation",
+        "classification": "No Recommendation",
+        "phenotypes": {
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "n/a",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Increased lovastatin acid exposure as compared to normal and decreased function which may translate to increased myopathy risk"
+        },
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Increased lovastatin acid exposure as compared to normal function which may translate to increased myopathy risk"
+        },
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If lovastatin therapy is warranted, limit dose to ≤20mg/day.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:41493",
     "drugname": "meloxicam",
     "guidelinename": "CYP2C9 and NSAIDs",
@@ -28440,7 +30155,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -28669,7 +30384,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -29527,7 +31242,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -29682,7 +31397,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -30158,7 +31873,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -30359,7 +32074,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -30858,7 +32573,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -30988,7 +32703,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -31189,7 +32904,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -31296,7 +33011,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -31759,7 +33474,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12"
+    "cpicVersion": "v1.14"
   },
   {
     "drugid": "RxNorm:253453",
@@ -31802,7 +33517,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12"
+    "cpicVersion": "v1.14"
   },
   {
     "drugid": "RxNorm:8183",
@@ -31880,7 +33595,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -32846,7 +34561,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -32965,6 +34680,240 @@
     ]
   },
   {
+    "drugid": "RxNorm:861634",
+    "drugname": "pitavastatin",
+    "guidelinename": "SLCO1B1, ABCG2, CYP2C9, and Statins",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
+    "guidelinepharmgkbids": [
+      "PA166105005",
+      "PA166262221",
+      "PA166262241",
+      "PA166262261",
+      "PA166262281",
+      "PA166262321",
+      "PA166262341"
+    ],
+    "genes": [
+      "SLCO1B1"
+    ],
+    "citations": [
+      {
+        "id": 110021,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenomics Implementation Consortium: Guideline for SLCO1B1 and Simvastatin-Induced Myopathy",
+        "authors": [
+          "Wilke R A",
+          "Ramsey L B",
+          "Johnson S G",
+          "Maxwell W D",
+          "McLeod H L",
+          "Voora D",
+          "Krauss R M",
+          "Roden D M",
+          "Feng Q",
+          "Cooper-Dehoff R M",
+          "Gong L",
+          "Klein T E",
+          "Wadelius M",
+          "Niemi M"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": "",
+        "volume": "",
+        "year": 2012,
+        "pmid": "22617227",
+        "pmcid": "PMC3384438",
+        "doi": "10.1038/clpt.2012.57",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
+      },
+      {
+        "id": 110022,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update",
+        "authors": [
+          "Ramsey Laura B",
+          "Johnson Samuel G",
+          "Caudle Kelly E",
+          "Haidar Cyrine E",
+          "Voora Deepak",
+          "Wilke Russell A",
+          "Maxwell Whitney D",
+          "McLeod Howard L",
+          "Krauss Ronald M",
+          "Roden Dan M",
+          "Feng Qiping",
+          "Cooper-DeHoff Rhonda M",
+          "Gong Li",
+          "Klein Teri E",
+          "Wadelius Mia",
+          "Niemi Mikko"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 6,
+        "page": "",
+        "volume": "",
+        "year": 2014,
+        "pmid": "24918167",
+        "pmcid": "PMC4169720",
+        "doi": "10.1038/clpt.2014.125",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
+      },
+      {
+        "id": 1508721,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1, ABCG2, and CYP2C9 and statin-associated musculoskeletal symptoms.",
+        "authors": [
+          "Cooper-DeHoff Rhonda M",
+          "Niemi Mikko",
+          "Ramsey Laura B",
+          "Luzum Jasmine A",
+          "Tarkiainen E Katriina",
+          "Straka Robert J",
+          "Gong Li",
+          "Tuteja Sony",
+          "Wilke Russell A",
+          "Wadelius Mia",
+          "Larson Eric A",
+          "Roden Dan M",
+          "Klein Teri E",
+          "Yee Sook Wah",
+          "Krauss Ronald M",
+          "Turner Richard M",
+          "Palaniappan Latha",
+          "Gaedigk Andrea",
+          "Giacomini Kathleen M",
+          "Caudle Kelly E",
+          "Voora Deepak"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 2,
+        "page": null,
+        "volume": null,
+        "year": 2022,
+        "pmid": "35152405",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2557",
+        "url": null,
+        "version": 4,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.14",
+    "recommendations": [
+      {
+        "implications": {
+          "SLCO1B1": "Increased pitavastatin exposure as compared to normal function which may translate to increased myopathy risk"
+        },
+        "drugrecommendation": "Prescribe ≤ 2mg as a starting dose and adjust doses of pitavastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >1mg. If dose >2mg needed for desired efficacy, consider an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. pitavastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "No recommendation",
+        "classification": "No Recommendation",
+        "phenotypes": {
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "n/a",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Increased pitavastatin exposure as compared to normal and decreased function which may translate to increased myopathy risk."
+        },
+        "drugrecommendation": "Prescribe ≤1mg as a starting dose and adjust doses of pitavastatin based on disease-specific guidelines. If dose >1mg needed for desired efficacy, consider an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. pitavastatin plus non-statin guideline directed medical therapy)(PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Increased pitavastatin exposure as compared to normal function which may translate to increased myopathy risk"
+        },
+        "drugrecommendation": "Prescribe ≤ 2mg as a starting dose and adjust doses of pitavastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >1mg. If dose >2mg needed for desired efficacy, consider an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. pitavastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:2049549",
     "drugname": "plazomicin",
     "guidelinename": "MT-RNR1 and Aminoglycosides",
@@ -33009,7 +34958,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -33065,6 +35014,240 @@
     ]
   },
   {
+    "drugid": "RxNorm:42463",
+    "drugname": "pravastatin",
+    "guidelinename": "SLCO1B1, ABCG2, CYP2C9, and Statins",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
+    "guidelinepharmgkbids": [
+      "PA166105005",
+      "PA166262221",
+      "PA166262241",
+      "PA166262261",
+      "PA166262281",
+      "PA166262321",
+      "PA166262341"
+    ],
+    "genes": [
+      "SLCO1B1"
+    ],
+    "citations": [
+      {
+        "id": 110021,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenomics Implementation Consortium: Guideline for SLCO1B1 and Simvastatin-Induced Myopathy",
+        "authors": [
+          "Wilke R A",
+          "Ramsey L B",
+          "Johnson S G",
+          "Maxwell W D",
+          "McLeod H L",
+          "Voora D",
+          "Krauss R M",
+          "Roden D M",
+          "Feng Q",
+          "Cooper-Dehoff R M",
+          "Gong L",
+          "Klein T E",
+          "Wadelius M",
+          "Niemi M"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": "",
+        "volume": "",
+        "year": 2012,
+        "pmid": "22617227",
+        "pmcid": "PMC3384438",
+        "doi": "10.1038/clpt.2012.57",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
+      },
+      {
+        "id": 110022,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update",
+        "authors": [
+          "Ramsey Laura B",
+          "Johnson Samuel G",
+          "Caudle Kelly E",
+          "Haidar Cyrine E",
+          "Voora Deepak",
+          "Wilke Russell A",
+          "Maxwell Whitney D",
+          "McLeod Howard L",
+          "Krauss Ronald M",
+          "Roden Dan M",
+          "Feng Qiping",
+          "Cooper-DeHoff Rhonda M",
+          "Gong Li",
+          "Klein Teri E",
+          "Wadelius Mia",
+          "Niemi Mikko"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 6,
+        "page": "",
+        "volume": "",
+        "year": 2014,
+        "pmid": "24918167",
+        "pmcid": "PMC4169720",
+        "doi": "10.1038/clpt.2014.125",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
+      },
+      {
+        "id": 1508721,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1, ABCG2, and CYP2C9 and statin-associated musculoskeletal symptoms.",
+        "authors": [
+          "Cooper-DeHoff Rhonda M",
+          "Niemi Mikko",
+          "Ramsey Laura B",
+          "Luzum Jasmine A",
+          "Tarkiainen E Katriina",
+          "Straka Robert J",
+          "Gong Li",
+          "Tuteja Sony",
+          "Wilke Russell A",
+          "Wadelius Mia",
+          "Larson Eric A",
+          "Roden Dan M",
+          "Klein Teri E",
+          "Yee Sook Wah",
+          "Krauss Ronald M",
+          "Turner Richard M",
+          "Palaniappan Latha",
+          "Gaedigk Andrea",
+          "Giacomini Kathleen M",
+          "Caudle Kelly E",
+          "Voora Deepak"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 2,
+        "page": null,
+        "volume": null,
+        "year": 2022,
+        "pmid": "35152405",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2557",
+        "url": null,
+        "version": 4,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.14",
+    "recommendations": [
+      {
+        "implications": {
+          "SLCO1B1": "Increased pravastatin exposure as compared to normal function; Typical myopathy risk with doses ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of pravastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy with pravastatin especially with doses >40mg per day.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "No recommendation",
+        "classification": "No Recommendation",
+        "phenotypes": {
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "n/a",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Increased pravastatin statin exposure as compared to normal and decreased function; Typical myopathy risk with doses ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe ≤40mg as a starting dose and adjust doses of pravastatin based on disease-specific guidelines. If patient is tolerating 40mg dose but higher potency is needed, a higher dose (>40mg) or an alternative statin (see Figure 1 of of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. pravastatin plus non-statin guideline directed medical therapy)(PMID: 30423391) could be considered. Prescriber should be aware of possible increased risk for myopathy especially with pravastatin doses >40mg.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Increased pravastatin exposure as compared to normal function; Typical myopathy risk with doses ≤40 mg."
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of pravastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy with pravastatin especially with doses >40mg per day.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "population general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:283821",
     "drugname": "rasburicase",
     "guidelinename": "G6PD and Rasburicase",
@@ -33105,7 +35288,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -33186,6 +35369,699 @@
     ]
   },
   {
+    "drugid": "RxNorm:301542",
+    "drugname": "rosuvastatin",
+    "guidelinename": "SLCO1B1, ABCG2, CYP2C9, and Statins",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
+    "guidelinepharmgkbids": [
+      "PA166105005",
+      "PA166262221",
+      "PA166262241",
+      "PA166262261",
+      "PA166262281",
+      "PA166262321",
+      "PA166262341"
+    ],
+    "genes": [
+      "ABCG2",
+      "SLCO1B1"
+    ],
+    "citations": [
+      {
+        "id": 110021,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenomics Implementation Consortium: Guideline for SLCO1B1 and Simvastatin-Induced Myopathy",
+        "authors": [
+          "Wilke R A",
+          "Ramsey L B",
+          "Johnson S G",
+          "Maxwell W D",
+          "McLeod H L",
+          "Voora D",
+          "Krauss R M",
+          "Roden D M",
+          "Feng Q",
+          "Cooper-Dehoff R M",
+          "Gong L",
+          "Klein T E",
+          "Wadelius M",
+          "Niemi M"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 5,
+        "page": "",
+        "volume": "",
+        "year": 2012,
+        "pmid": "22617227",
+        "pmcid": "PMC3384438",
+        "doi": "10.1038/clpt.2012.57",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
+      },
+      {
+        "id": 110022,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update",
+        "authors": [
+          "Ramsey Laura B",
+          "Johnson Samuel G",
+          "Caudle Kelly E",
+          "Haidar Cyrine E",
+          "Voora Deepak",
+          "Wilke Russell A",
+          "Maxwell Whitney D",
+          "McLeod Howard L",
+          "Krauss Ronald M",
+          "Roden Dan M",
+          "Feng Qiping",
+          "Cooper-DeHoff Rhonda M",
+          "Gong Li",
+          "Klein Teri E",
+          "Wadelius Mia",
+          "Niemi Mikko"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 6,
+        "page": "",
+        "volume": "",
+        "year": 2014,
+        "pmid": "24918167",
+        "pmcid": "PMC4169720",
+        "doi": "10.1038/clpt.2014.125",
+        "url": null,
+        "version": 3,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
+      },
+      {
+        "id": 1508721,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1, ABCG2, and CYP2C9 and statin-associated musculoskeletal symptoms.",
+        "authors": [
+          "Cooper-DeHoff Rhonda M",
+          "Niemi Mikko",
+          "Ramsey Laura B",
+          "Luzum Jasmine A",
+          "Tarkiainen E Katriina",
+          "Straka Robert J",
+          "Gong Li",
+          "Tuteja Sony",
+          "Wilke Russell A",
+          "Wadelius Mia",
+          "Larson Eric A",
+          "Roden Dan M",
+          "Klein Teri E",
+          "Yee Sook Wah",
+          "Krauss Ronald M",
+          "Turner Richard M",
+          "Palaniappan Latha",
+          "Gaedigk Andrea",
+          "Giacomini Kathleen M",
+          "Caudle Kelly E",
+          "Voora Deepak"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 2,
+        "page": null,
+        "volume": null,
+        "year": 2022,
+        "pmid": "35152405",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2557",
+        "url": null,
+        "version": 4,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
+      }
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.14",
+    "recommendations": [
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on ABCG2 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific guidelines and specific population guidelines. SLCO1B1 phenotype could not be assigned based on genotyping.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on ABCG2 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific guidelines and specific population guidelines. SLCO1B1 genotype result is not available.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "No Result"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "No Result"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Decreased Function",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "n/a",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg. ABCG2 genotype result is not available.",
+        "classification": "Strong",
+        "phenotypes": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "n/a",
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. ABCG2 genotype result is not available.",
+        "classification": "Strong",
+        "phenotypes": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "n/a",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "n/a",
+        "classification": "n/a",
+        "phenotypes": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "n/a",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "n/a",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "n/a",
+        "classification": "n/a",
+        "phenotypes": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "No Result"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "No Result"
+        },
+        "comments": "n/a",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "n/a",
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. ABCG2 genotype result is not available.",
+        "classification": "Strong",
+        "phenotypes": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "n/a",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines If dose >20mg needed for desired efficacy, consider combination therapy (i.e. rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). ABCG2 genotype result is not available.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "n/a",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg. ABCG2 genotype result is not available.",
+        "classification": "Strong",
+        "phenotypes": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "No Result",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+        "classification": "Strong",
+        "phenotypes": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on ABCG2 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. SLCO1B1 phenotype could not be assigned based on genotyping.",
+        "classification": "Strong",
+        "phenotypes": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on ABCG2 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. SLCO1B1 genotype result is not available.",
+        "classification": "Strong",
+        "phenotypes": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "No Result"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "No Result"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose > 20mg needed for desired efficacy, consider combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Moderate",
+        "phenotypes": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+        "classification": "Strong",
+        "phenotypes": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Normal Function",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Prescribe ≤10mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >10mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Optional",
+        "phenotypes": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Optional",
+        "phenotypes": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on ABCG2 status, prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 phenotype could not be assigned based on genotyping.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Indeterminate"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+          "SLCO1B1": "n/a"
+        },
+        "drugrecommendation": "Based on ABCG2 status, prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "No Result"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "No Result"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Optional",
+        "phenotypes": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Normal Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Normal Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Prescribe ≤10mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >10mg needed for desired efficacy, consider combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Optional",
+        "phenotypes": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Poor Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Poor Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+          "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+        },
+        "drugrecommendation": "Prescribe ≤10mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >10mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+        "classification": "Optional",
+        "phenotypes": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "ABCG2": "Poor Function",
+          "SLCO1B1": "Possible Decreased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:36437",
     "drugname": "sertraline",
     "guidelinename": "CYP2D6, CYP2C19 and Selective Serotonin Reuptake Inhibitors",
@@ -33237,7 +36113,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -33442,7 +36318,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -33518,10 +36394,16 @@
   {
     "drugid": "RxNorm:36567",
     "drugname": "simvastatin",
-    "guidelinename": "SLCO1B1 and Simvastatin",
-    "url": "https://cpicpgx.org/guidelines/guideline-for-simvastatin-and-slco1b1/",
+    "guidelinename": "SLCO1B1, ABCG2, CYP2C9, and Statins",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
     "guidelinepharmgkbids": [
-      "PA166105005"
+      "PA166105005",
+      "PA166262221",
+      "PA166262241",
+      "PA166262261",
+      "PA166262281",
+      "PA166262321",
+      "PA166262341"
     ],
     "genes": [
       "SLCO1B1"
@@ -33594,28 +36476,83 @@
         "version": 3,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
+      },
+      {
+        "id": 1508721,
+        "guidelineid": 100426,
+        "title": "The Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for SLCO1B1, ABCG2, and CYP2C9 and statin-associated musculoskeletal symptoms.",
+        "authors": [
+          "Cooper-DeHoff Rhonda M",
+          "Niemi Mikko",
+          "Ramsey Laura B",
+          "Luzum Jasmine A",
+          "Tarkiainen E Katriina",
+          "Straka Robert J",
+          "Gong Li",
+          "Tuteja Sony",
+          "Wilke Russell A",
+          "Wadelius Mia",
+          "Larson Eric A",
+          "Roden Dan M",
+          "Klein Teri E",
+          "Yee Sook Wah",
+          "Krauss Ronald M",
+          "Turner Richard M",
+          "Palaniappan Latha",
+          "Gaedigk Andrea",
+          "Giacomini Kathleen M",
+          "Caudle Kelly E",
+          "Voora Deepak"
+        ],
+        "journal": "Clinical pharmacology and therapeutics",
+        "month": 2,
+        "page": null,
+        "volume": null,
+        "year": 2022,
+        "pmid": "35152405",
+        "pmcid": null,
+        "doi": "10.1002/cpt.2557",
+        "url": null,
+        "version": 4,
+        "highlightedonsite": false,
+        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
-          "SLCO1B1": "Intermediate myopathy risk"
+          "SLCO1B1": "Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy"
         },
-        "drugrecommendation": "Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase surveillance.",
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to <20mg/day.",
         "classification": "Strong",
         "phenotypes": {
-          "SLCO1B1": "Decreased function"
+          "SLCO1B1": "Decreased Function"
         },
-        "activityscore": {
-          "SLCO1B1": "n/a"
-        },
+        "activityscore": {},
         "allelestatus": {},
         "lookupkey": {
-          "SLCO1B1": "Decreased function"
+          "SLCO1B1": "Decreased Function"
         },
-        "comments": "In all cases, the potential for drug-drug interactions should be evaluated prior to initiating a prescription.",
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
+        },
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+        "classification": "Strong",
+        "phenotypes": {
+          "SLCO1B1": "Increased Function"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "SLCO1B1": "Increased Function"
+        },
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
         "population": "general"
       },
       {
@@ -33627,9 +36564,7 @@
         "phenotypes": {
           "SLCO1B1": "Indeterminate"
         },
-        "activityscore": {
-          "SLCO1B1": "n/a"
-        },
+        "activityscore": {},
         "allelestatus": {},
         "lookupkey": {
           "SLCO1B1": "Indeterminate"
@@ -33639,97 +36574,53 @@
       },
       {
         "implications": {
-          "SLCO1B1": "Normal myopathy risk"
+          "SLCO1B1": "Typical myopathy risk and statin exposure"
         },
-        "drugrecommendation": "Prescribe desired starting dose and adjust doses of simvastatin based on disease-specific guidelines",
+        "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
         "classification": "Strong",
         "phenotypes": {
-          "SLCO1B1": "Normal function"
+          "SLCO1B1": "Normal Function"
         },
-        "activityscore": {
-          "SLCO1B1": "n/a"
-        },
+        "activityscore": {},
         "allelestatus": {},
         "lookupkey": {
-          "SLCO1B1": "Normal function"
+          "SLCO1B1": "Normal Function"
         },
-        "comments": "In all cases, the potential for drug-drug interactions should be evaluated before initiating a prescription. The US Food and Drug Administration recommends against 80 mg (unless already tolerated for 12 months).",
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
         "population": "general"
       },
       {
         "implications": {
-          "SLCO1B1": "High myopathy risk"
+          "SLCO1B1": "Increased simvastatin acid exposure compared to normal and decreased function; highly increased myopathy risk"
         },
-        "drugrecommendation": "Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase surveillance.",
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
         "classification": "Strong",
         "phenotypes": {
-          "SLCO1B1": "Poor function"
+          "SLCO1B1": "Poor Function"
         },
-        "activityscore": {
-          "SLCO1B1": "n/a"
-        },
+        "activityscore": {},
         "allelestatus": {},
         "lookupkey": {
-          "SLCO1B1": "Poor function"
+          "SLCO1B1": "Poor Function"
         },
-        "comments": "In all cases, the potential for drug-drug interactions should be evaluated prior to initiating a prescription.",
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
         "population": "general"
       },
       {
         "implications": {
-          "SLCO1B1": "Intermediate myopathy risk"
+          "SLCO1B1": "Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy"
         },
-        "drugrecommendation": "Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase surveillance.",
+        "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to <20mg/day.",
         "classification": "Strong",
         "phenotypes": {
-          "SLCO1B1": "possible decreased function"
+          "SLCO1B1": "Possible Decreased Function"
         },
-        "activityscore": {
-          "SLCO1B1": "n/a"
-        },
+        "activityscore": {},
         "allelestatus": {},
         "lookupkey": {
-          "SLCO1B1": "possible decreased function"
+          "SLCO1B1": "Possible Decreased Function"
         },
-        "comments": "In all cases, the potential for drug-drug interactions should be evaluated prior to initiating a prescription.",
-        "population": "general"
-      },
-      {
-        "implications": {
-          "SLCO1B1": "n/a"
-        },
-        "drugrecommendation": "No recommendation",
-        "classification": "No Recommendation",
-        "phenotypes": {
-          "SLCO1B1": "possible increased function"
-        },
-        "activityscore": {
-          "SLCO1B1": "n/a"
-        },
-        "allelestatus": {},
-        "lookupkey": {
-          "SLCO1B1": "possible increased function"
-        },
-        "comments": "n/a",
-        "population": "general"
-      },
-      {
-        "implications": {
-          "SLCO1B1": "High myopathy risk"
-        },
-        "drugrecommendation": "Prescribe a lower dose or consider an alternative statin (e.g., pravastatin or rosuvastatin); consider routine creatine kinase surveillance.",
-        "classification": "Strong",
-        "phenotypes": {
-          "SLCO1B1": "possible poor function"
-        },
-        "activityscore": {
-          "SLCO1B1": "n/a"
-        },
-        "allelestatus": {},
-        "lookupkey": {
-          "SLCO1B1": "possible poor function"
-        },
-        "comments": "In all cases, the potential for drug-drug interactions should be evaluated prior to initiating a prescription.",
+        "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
         "population": "general"
       }
     ]
@@ -33779,7 +36670,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -33883,7 +36774,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -34005,7 +36896,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -34152,7 +37043,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -34616,7 +37507,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -34845,7 +37736,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -35699,7 +38590,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -35867,7 +38758,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -36372,7 +39263,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -41159,7 +44050,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -41627,7 +44518,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.12",
+    "cpicVersion": "v1.14",
     "recommendations": [
       {
         "implications": {
@@ -41644,7 +44535,7 @@
           "CYP2C19": "Indeterminate"
         },
         "comments": "n/a",
-        "population": "pediatrics"
+        "population": "adults"
       },
       {
         "implications": {
@@ -41661,24 +44552,7 @@
           "CYP2C19": "Indeterminate"
         },
         "comments": "n/a",
-        "population": "adults"
-      },
-      {
-        "implications": {
-          "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
-        },
-        "drugrecommendation": "Initiate therapy with recommended standard of care dosing",
-        "classification": "Moderate",
-        "phenotypes": {
-          "CYP2C19": "Intermediate Metabolizer"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C19": "Intermediate Metabolizer"
-        },
-        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
-        "population": "adults"
+        "population": "pediatrics"
       },
       {
         "implications": {
@@ -41696,6 +44570,23 @@
         },
         "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
         "population": "pediatrics"
+      },
+      {
+        "implications": {
+          "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
+        },
+        "drugrecommendation": "Initiate therapy with recommended standard of care dosing",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C19": "Intermediate Metabolizer"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C19": "Intermediate Metabolizer"
+        },
+        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
+        "population": "adults"
       },
       {
         "implications": {
@@ -41986,6 +44877,6 @@
       }
     ],
     "notesonusage": "Warfarin recommendation does not follow simple diplotype to phenotype translation. Read the guideline text and follow the recommendation diagram found at http://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png",
-    "cpicVersion": "v1.12"
+    "cpicVersion": "v1.14"
   }
 ]

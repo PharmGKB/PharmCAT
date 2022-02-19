@@ -13,12 +13,13 @@ The following genes are used by PharmCAT to find drug recommendation data.
 
 The `NamedAlleleMatcher` will search the given sample file for locations associated with these genes and attempt to match them to known allele definitions. Each of these genes will appear in the "Genotype Summary" section of the final output report.
 
+- ABCG2 (2 alleles)
 - CACNA1S (3 alleles)
 - CFTR (40 alleles)
 - CYP2B6 (35 alleles)
 - CYP2C19 (34 alleles)
 - CYP2C9 (75 alleles)
-- CYP3A5 (9 alleles)
+- CYP3A5 (6 alleles)
 - CYP4F2 (3 alleles)
 - DPYD (83 alleles)
 - IFNL3 (2 alleles)
@@ -46,6 +47,7 @@ The following drugs have been read from CPIC and will have "recommendation" sect
 - amitriptyline
 - atazanavir
 - atomoxetine
+- atorvastatin
 - azathioprine
 - capecitabine
 - celecoxib
@@ -62,6 +64,7 @@ The following drugs have been read from CPIC and will have "recommendation" sect
 - escitalopram
 - fluorouracil
 - flurbiprofen
+- fluvastatin
 - fluvoxamine
 - gentamicin
 - halothane
@@ -73,6 +76,7 @@ The following drugs have been read from CPIC and will have "recommendation" sect
 - kanamycin
 - lansoprazole
 - lornoxicam
+- lovastatin
 - meloxicam
 - mercaptopurine
 - methoxyflurane
@@ -85,8 +89,11 @@ The following drugs have been read from CPIC and will have "recommendation" sect
 - peginterferon alfa-2a
 - peginterferon alfa-2b
 - piroxicam
+- pitavastatin
 - plazomicin
+- pravastatin
 - rasburicase
+- rosuvastatin
 - sertraline
 - sevoflurane
 - simvastatin
