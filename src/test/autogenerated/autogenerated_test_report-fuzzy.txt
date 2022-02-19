@@ -1,6 +1,6 @@
 
-# tests    = 12,384
-# passed   = 12,384
+# tests    = 12,108
+# passed   = 12,108
 # warnings = 0
 # failed   = 0
 # no alts & no match   = 0
