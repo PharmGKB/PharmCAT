@@ -352,6 +352,22 @@ class PharmCATTest {
   }
 
   @Test
+  void testRosuvastatin() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("rosuvastatin", false);
+    testWrapper.getVcfBuilder()
+        .reference("ABCG2")
+        .reference("SLCO1B1")
+        .variation("ABCG2", "rs2231142", "G", "T")
+        .variation("SLCO1B1", "rs56101265", "T", "C");
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("ABCG2", "SLCO1B1");
+    testWrapper.testPrintCalls("SLCO1B1", "*1/*2");
+
+    testWrapper.testMatchedGroups("rosuvastatin", 1);
+  }
+
+  @Test
   void testAmitryptylineCallWoCyp2c19() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.AmitryptylineCallWoCyp2c19", false);
     testWrapper.getVcfBuilder()
