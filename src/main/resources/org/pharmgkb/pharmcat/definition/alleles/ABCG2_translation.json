@@ -1,0 +1,57 @@
+{
+  "formatVersion": "2",
+  "cpicVersion": "v1.14",
+  "modificationDate": "Feb 18, 2022 02:39:30 PM",
+  "gene": "ABCG2",
+  "orientation": null,
+  "chromosome": "chr4",
+  "genomeBuild": "GRCh38.p13",
+  "refSeqChromosomeId": "NC_000004.12",
+  "variants": [
+    {
+      "chromosome": "chr4",
+      "position": 88131171,
+      "cpicPosition": 88131171,
+      "rsid": "rs2231142",
+      "chromosomeHgvsName": "g.88131171G>T",
+      "cpicAlleles": [
+        "G",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "T": "T",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "T"
+      ]
+    }
+  ],
+  "namedAlleles": [
+    {
+      "name": "rs2231142 reference (G)",
+      "id": "1508724",
+      "alleles": [
+        "G"
+      ],
+      "cpicAlleles": [
+        "G"
+      ],
+      "populationFrequency": null,
+      "reference": true
+    },
+    {
+      "name": "rs2231142 variant (T)",
+      "id": "1508726",
+      "alleles": [
+        "T"
+      ],
+      "cpicAlleles": [
+        "T"
+      ],
+      "populationFrequency": null,
+      "reference": false
+    }
+  ]
+}
