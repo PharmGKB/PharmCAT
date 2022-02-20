@@ -73,8 +73,8 @@ class PharmCATTest {
    */
   @Test
   void testCounts() {
-    assertEquals(18, s_pharmcatTopMatch.getContext().getGeneReports().size());
-    assertEquals(60, s_pharmcatTopMatch.getContext().getDrugReports().size());
+    assertEquals(19, s_pharmcatTopMatch.getContext().getGeneReports().size());
+    assertEquals(66, s_pharmcatTopMatch.getContext().getDrugReports().size());
   }
 
   /**
@@ -937,46 +937,60 @@ class PharmCATTest {
 
   @Test
   void testCyp3a5v2() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp3a5.s1s3rs776746rs55965422rs28383479het", new String[]{
-            "cyp3a5/s1s3rs776746rs55965422rs28383479het.vcf"
-        },
-        null);
-    
-    s_pharmcatTopMatch.testCalledByMatcher("CYP3A5");
-    s_pharmcatTopMatch.testPrintCalls("CYP3A5", "*1/*3");
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.cyp3a5.v2", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP3A5")
+        .variation("CYP3A5", "rs28383479", "C", "T")
+        .variation("CYP3A5", "rs776746", "C", "T")
+    ;
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("CYP3A5");
+    testWrapper.testPrintCalls("CYP3A5", "*3/*9");
+    testWrapper.testLookup("CYP3A5", "*3", "*9");
   }
 
   @Test
   void testCyp3a5v3() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp3a5.s3s3rs55965422het", new String[]{
-            "cyp3a5/s3s3rs55965422het.vcf"
-        },
-        null);
-    
-    s_pharmcatTopMatch.testCalledByMatcher("CYP3A5");
-    s_pharmcatTopMatch.testPrintCalls("CYP3A5", "*3/*3");
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.cyp3a5.v3", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP3A5")
+        .variation("CYP3A5", "rs776746", "C", "C")
+    ;
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("CYP3A5");
+    testWrapper.testPrintCalls("CYP3A5", "*3/*3");
+    testWrapper.testLookup("CYP3A5", "*3", "*3");
   }
 
   @Test
   void testCyp3a5v4() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp3a5.s3s5-homozygous", new String[]{
-            "cyp3a5/s3s5-homozygous.vcf"
-        },
-        null);
-    
-    s_pharmcatTopMatch.testCalledByMatcher("CYP3A5");
-    s_pharmcatTopMatch.testPrintCalls("CYP3A5", "*3/*5");
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.cyp3a5.v4", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP3A5")
+        .variation("CYP3A5", "rs776746", "T", "C")
+    ;
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("CYP3A5");
+    testWrapper.testPrintCalls("CYP3A5", "*1/*3");
+    testWrapper.testLookup("CYP3A5", "*1", "*3");
   }
 
   @Test
   void testCyp3a5v5() throws Exception {
-    s_pharmcatTopMatch.execute("test.cyp3a5.s1s3rs776746rs28383479het", new String[]{
-            "cyp3a5/s1s3rs776746rs28383479het.vcf"
-        },
-        null);
-    
-    s_pharmcatTopMatch.testCalledByMatcher("CYP3A5");
-    s_pharmcatTopMatch.testPrintCalls("CYP3A5", "*1/*3");
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.cyp3a5.v4", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP3A5")
+        .variation("CYP3A5", "rs28383479", "T", "C")
+        .variation("CYP3A5", "rs776746", "T", "C")
+    ;
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("CYP3A5");
+    testWrapper.testPrintCalls("CYP3A5", "*3/*9");
+    testWrapper.testLookup("CYP3A5", "*3", "*9");
   }
 
   @Test
