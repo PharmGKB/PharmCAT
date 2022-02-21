@@ -1,5 +1,6 @@
 ---
-title: Disclaimers and Other Information permalink: disclaimers/
+title: Disclaimers and Other Information
+permalink: disclaimers/
 ---
 
 ## Disclaimers and Other Information
