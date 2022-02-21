@@ -38,6 +38,8 @@ pharmcat*.log
 # temp files for testing the Jekyll site
 /docs/_site
 /docs/Gemfile.lock
+/docs/.bundle
+/docs/vendor
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
