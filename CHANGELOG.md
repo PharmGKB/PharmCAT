@@ -1,3 +1,11 @@
+### [1.5.1](https://github.com/PharmGKB/PharmCAT/compare/v1.5.0...v1.5.1) (2022-02-22)
+
+
+### Bug Fixes
+
+* **data:** add ABCG2 ([92083db](https://github.com/PharmGKB/PharmCAT/commit/92083dbbe4bfdf20b32aa312960224b7de0cfda4))
+* **reporter:** hide gene in the genotype summary table if no data present ([9db9de1](https://github.com/PharmGKB/PharmCAT/commit/9db9de16d72885b155616d85b09b731ac62f10bc))
+
 ## [1.5.0](https://github.com/PharmGKB/PharmCAT/compare/v1.4.0...v1.5.0) (2022-02-19)
 
 
