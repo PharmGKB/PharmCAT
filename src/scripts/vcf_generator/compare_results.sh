@@ -51,19 +51,17 @@ OLD=`grep "# failed" ${oldFile}`
 NEW=`grep "# failed" ${newFile}`
 
 
+echo ""
+echo ""
 if [[ $OLD != $NEW ]]; then
-  echo ""
-  echo "Test result mismatch!"
+  echo "***** TEST RESULTS MISMATCH! *****"
   echo "OLD: $OLD"
   echo "NEW: $NEW"
-  echo ""
-  exit 1
+  echo "***** TEST RESULTS MISMATCH! *****"
 else
-  echo ""
-  echo ""
   echo "=====> NO CHANGE TO RESULTS <====="
-  echo ""
-  echo ""
-  rm $oldFile
-  grep -v Elapsed $newFile > $oldFile
 fi
+echo ""
+echo ""
+rm $oldFile
+grep -v Elapsed $newFile > $oldFile
