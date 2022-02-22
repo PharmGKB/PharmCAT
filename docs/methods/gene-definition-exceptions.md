@@ -1,6 +1,7 @@
 ---
 title: Gene Definition Exceptions
 permalink: methods/gene-definition-exceptions/
+parent: Methods
 ---
 
 # Gene Definition Exceptions

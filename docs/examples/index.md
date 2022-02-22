@@ -1,12 +1,13 @@
 ---
 title: Example Reports
 prermalink: examples/
+nav_order: 6
 ---
 
 # Example Report
 
 This is a collection of example files that demonstrate input and output files from a single run of PharmCAT. For more 
-inforamtion about running PharmCAT, read the [documentation](https://github.com/PharmGKB/PharmCAT/wiki/Running-PharmCAT).
+inforamtion about running PharmCAT, read the [documentation](technical-docs/Running-PharmCAT).
 
 
 ## Input

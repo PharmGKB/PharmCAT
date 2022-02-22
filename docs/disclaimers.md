@@ -1,15 +1,15 @@
 ---
 title: Disclaimers and Other Information
 permalink: disclaimers/
+nav_order: 8
 ---
-
-## Disclaimers and Other Information
+# Disclaimers and Other Information
 
 __Liability: PhamCAT assumes no responsibility for any injury to person or damage to persons or property arising out of,
 or related to any use of PharmCAT, or for any errors or omissions. The user recognizes that PharmCAT is a research tool
 and that they are using PharmCAT at their own risk.__
 
-### A. Allele and Genotype Determination
+## A. Allele and Genotype Determination
 
 1. PharmCAT uses gene allele definitions included in the CPIC database, with exceptions as noted
    in [Gene Definition Exceptions document](https://pharmcat.org/methods/gene-definition-exceptions/). For allele
@@ -91,18 +91,18 @@ that define the non-\*1 allele in the genotype with the higher score.
 | CYP2C19 | \*1/\*35                | Intermediate          | \*15/\*35             | Intermediate          |
 | CYP2B6  | \*1/\*18                | Intermediate          | \*4/\*18              | Indeterminate         |
 
-### B. CPIC Allele Function, Phenotype and Recommendation
+## B. CPIC Allele Function, Phenotype and Recommendation
 
 1. All content is sourced from the [CPIC database](https://github.com/cpicpgx/cpic-data).
 
-### C. PharmCAT Exceptions to the CPIC Guideline Gene List
+## C. PharmCAT Exceptions to the CPIC Guideline Gene List
 
 1. PharmCAT does not determine CYP2D6, G6PD, MT-RNR1, or HLA genotypes from the vcf file, but genotypes for CYP2D6,
    G6PD, and MT-RNR1 can be provided to PharmCAT from an outside source and the corresponding phenotype and prescribing
    recommendations will be included in the generated report.
 2. HLAs are currently not included in PharmCAT.
 
-### D. CPIC Guideline Disclaimers and Caveats
+## D. CPIC Guideline Disclaimers and Caveats
 
 1. A version of the following quoted disclaimer is part of each CPIC guideline and applies to the CPIC recommendations
    as used in PharmCAT. For the full description of potential benefits and risks, additional considerations (general and
@@ -132,6 +132,6 @@ that define the non-\*1 allele in the genotype with the higher score.
    extensive allele definitions might exist by the representative gene nomenclatures for various genes.
 3. CPIC is a registered service mark of the U.S. Department of Health & Human Services (HHS).
 
-### E. PharmGKB Disclaimers and Caveats
+## E. PharmGKB Disclaimers and Caveats
 
 1. PharmGKB is a registered service mark of the U.S. Department of Health & Human Services (HHS).

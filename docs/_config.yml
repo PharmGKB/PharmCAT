@@ -1,4 +1,5 @@
-theme: jekyll-theme-minimal
+remote_theme: pmarsceill/just-the-docs
 title: PharmCAT
 logo: https://s3.pgkb.org/attachment/pharmcat_logo.png
 show_downloads: true
+color_scheme: pharmcat

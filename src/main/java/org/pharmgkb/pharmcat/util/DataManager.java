@@ -44,7 +44,7 @@ public class DataManager {
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   private static final String PHENOTYPES_JSON_FILE_NAME = "gene_phenotypes.json";
-  private static final String SUMMARY_REPORT = "summary.md";
+  private static final String SUMMARY_REPORT = "Genes-and-Drugs.md";
   private static final String POSITIONS_VCF = "pharmcat_positions.vcf";
   private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "G6PD", "MT-RNR1");
   private static final Splitter sf_semicolonSplitter = Splitter.on(";").trimResults().omitEmptyStrings();
