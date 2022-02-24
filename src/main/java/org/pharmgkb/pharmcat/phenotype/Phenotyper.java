@@ -54,7 +54,7 @@ public class Phenotyper {
         .addOption("vcf", "sample-file", "input sample file (VCF)", false, "vcf")
         .addOption("c", "call-file", "named allele call JSON file", false, "call-file-path")
         .addOption("o", "outside-call-file", "optional, outside call TSV file", false, "outside-file-path")
-        .addOption("f", "output-file", "file path to write JSON data to", true, "vcf-file-path");
+        .addOption("f", "output-file", "file path to write JSON data to", true, "output-file-path");
     try {
       if (!cliHelper.parse(args)) {
         System.exit(1);
