@@ -162,7 +162,7 @@ public class TestVcfBuilder {
           }
           String vcfAllele = vl.getCpicToVcfAlleleMap().get(cpicAllele);
           if (vcfAllele == null) {
-            throw new IllegalStateException(edit.id + ": cannot determine VCF allele for " + cpicAllele);
+            throw new IllegalStateException(edit.id + ": cannot determine VCF allele for " + cpicAllele + ", expected one of " + vl.getCpicToVcfAlleleMap().keySet());
           }
           if (vcfAllele.equals(vl.getRef())) {
             builder.append("0");
