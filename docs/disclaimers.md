@@ -66,16 +66,16 @@ Table 1: Cases for which there is an overlap in the allele definitions.
 | CYP2B6  | \*1/\*6                 | Intermediate          | \*4/\*9                | Intermediate                    |
 | CYP2B6  | \*1/\*7                 | Intermediate          | \*5/\*6                | Intermediate                    |
 | CYP2B6  | \*1/\*13                | Intermediate          | \*6/\*8                | Intermediate                    |
-| SLCO1B1 | \*1/\*46                | Decreased function    | \*15/\*45              | Indeterminate                   |
+| SLCO1B1 | \*1/\*46                | Decreased function    | \*15/\*45              | Possible Decreased Function     |
 | SLCO1B1 | \*1/\*20                | Normal Function       | \*19/\*37              | Indeterminate                   |
 | SLCO1B1 | \*1/\*12                | Indeterminate         | \*2/\*10               | Indeterminate                   |
 | SLCO1B1 | \*1/\*13                | Indeterminate         | \*3/\*11               | Indeterminate                   |
 | SLCO1B1 | \*1/\*14                | Normal Function       | \*4/\*37               | Indeterminate                   |
 | SLCO1B1 | \*1/\*15                | Decreased function    | \*5/\*37               | Decreased function              |
 | SLCO1B1 | \*1/\*25                | Indeterminate         | \*4/\*28               | Indeterminate                   |
-| SLCO1B1 | \*1/\*31                | Decreased function    | \*9/\*37               | Indeterminate                   |
+| SLCO1B1 | \*1/\*31                | Decreased function    | \*9/\*37               | Decreased Function              |
 | SLCO1B1 | \*1/\*32                | Indeterminate         | \*4/\*24               | Indeterminate                   |
-| SLCO1B1 | \*1/\*40                | Indeterminate         | \*5/\*19               | Indeterminate                   |
+| SLCO1B1 | \*1/\*40                | Indeterminate         | \*5/\*19               | Possible Decreased Function     |
 | SLCO1B1 | \*1/\*43                | Indeterminate         | \*4/\*44               | Indeterminate                   |
 
 Table 2: Cases for which there is an overlap in the allele definitions because the definition of the non-\*1 allele in
@@ -89,10 +89,6 @@ that define the non-\*1 allele in the genotype with the higher score.
 | CYP2C19 | \*1/\*4                 | Intermediate          | \*17/\*4              | Intermediate          |
 | CYP2C19 | \*1/\*2                 | Intermediate          | \*11/\*2              | Intermediate          |
 | CYP2C19 | \*1/\*35                | Intermediate          | \*15/\*35             | Intermediate          |
-| CYP3A5  | \*1/\*3                 | Intermediate          | \*2/\*3               | Indeterminate         |
-| CYP3A5  | \*1/\*3                 | Intermediate          | \*4/\*3               | Indeterminate         |
-| CYP3A5  | \*1/\*3                 | Intermediate          | \*5/\*3               | Indeterminate         |
-| CYP3A5  | \*1/\*3                 | Intermediate          | \*9/\*3               | Indeterminate         |
 | CYP2B6  | \*1/\*18                | Intermediate          | \*4/\*18              | Indeterminate         |
 
 ### B. CPIC Allele Function, Phenotype and Recommendation
