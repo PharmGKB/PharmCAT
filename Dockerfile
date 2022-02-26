@@ -70,5 +70,7 @@ RUN pip3 install -r PharmCAT_VCF_Preprocess_py3_requirements.txt
 # add pharmcat scripts
 COPY src/scripts/preprocessor/*.py ./
 COPY src/scripts/pharmcat ./
+RUN chmod 755 *.py
+RUN chmod 755 pharmcat
 COPY pharmcat_positions.vcf* ./
 COPY build/pharmcat.jar ./
