@@ -1017,10 +1017,9 @@ class PharmCATTest {
         },
         null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("TPMT");
-    s_pharmcatTopMatch.testPrintCalls("TPMT", "*1/*1");
+    s_pharmcatTopMatch.testNotCalledByMatcher("TPMT");
     GeneReport report = s_pharmcatTopMatch.getContext().getGeneReport("TPMT");
-    assertTrue(report.getVariantReports().stream().filter(r -> r.getPosition() == 18133890).allMatch(VariantReport::isMissing));
+    assertTrue(report.getVariantReports().stream().filter(r -> r.getPosition() == 18133890).allMatch(VariantReport::isMismatch));
   }
 
 
