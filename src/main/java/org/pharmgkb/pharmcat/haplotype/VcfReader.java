@@ -6,7 +6,10 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -198,10 +201,6 @@ public class VcfReader implements VcfLineParser {
       addWarning(chrPos, "Multiple samples found, only using first entry.  " +
           "See https://github.com/PharmGKB/PharmCAT/wiki/VCF-Requirements");
     }
-    if (sampleData.get(0).getProperty("AD") != null) {
-      addWarning(chrPos, "Discarding genotype at this position because allele depth (AD) field not supported");
-      return;
-    }
 
     String gt = sampleData.get(0).getProperty("GT");
     if (gt == null) {
@@ -247,6 +246,32 @@ public class VcfReader implements VcfLineParser {
         .filter(a -> !a.equals("."))
         .mapToInt(Integer::parseInt)
         .toArray();
+
+
+    String allelicDepth = sampleData.get(0).getProperty("AD");
+    if (allelicDepth != null) {
+      // try to catch reference overlap style VCF where
+      // VCF always specifies heterozygous GT and uses AD field to determine actual alleles
+      // see https://github.com/PharmGKB/PharmCAT/issues/90 for example
+      try {
+        List<Integer> depths = Arrays.stream(allelicDepth.split(","))
+            .map(Integer::parseInt)
+            .collect(Collectors.toList());
+        Map<Integer, Integer> genotype = new HashMap<>();
+        Arrays.stream(alleleIdxs)
+            .forEach(g -> genotype.merge(g, 1, Integer::sum));
+        // GT is het, but AD is not
+        if (genotype.size() != 1 && depths.stream().filter(d -> d > 0).count() == 1) {
+          addWarning(chrPos, "Discarding genotype at this position because GT field indicates heterozygous (" +
+              gt + ") but AD field indicates homozygous (" + allelicDepth + ")");
+          return;
+        }
+      } catch (NumberFormatException ex) {
+        addWarning(chrPos, "Invalid allelic depth (AD) field: " + allelicDepth);
+      }
+    }
+
+
     String a1 = alleles.get(alleleIdxs[0]);
     String a2 = ".";
     if (alleleIdxs.length > 1) {

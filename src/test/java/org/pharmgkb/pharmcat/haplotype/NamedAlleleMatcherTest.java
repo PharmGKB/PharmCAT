@@ -202,12 +202,13 @@ class NamedAlleleMatcherTest {
     NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, false);
     Result result = namedAlleleMatcher.call(vcfFile);
     assertNotNull(result.getVcfWarnings());
-    assertEquals(2, result.getVcfWarnings().size());
 
     for (String key : result.getVcfWarnings().keySet()) {
       System.out.println(key);
-      System.out.println(result.getVcfWarnings().get(key));
+      System.out.println("\t" + result.getVcfWarnings().get(key));
     }
+
+    assertEquals(2, result.getVcfWarnings().size());
 
     assertNotNull(          result.getVcfWarnings().get("chr10:94942205"));
     assertEquals(1, result.getVcfWarnings().get("chr10:94942205").size());

@@ -87,15 +87,22 @@ class VcfReaderTest {
 
     assertNotNull(reader.getWarnings());
 
-    assertNotNull(reader.getWarnings().get("chr10:94942230"));
-    assertEquals(1, reader.getWarnings().get("chr10:94942230").size());
-    assertEquals("Discarding genotype at this position because allele depth (AD) field not supported",
-        reader.getWarnings().get("chr10:94942230").iterator().next());
+    for (String key : reader.getWarnings().keySet()) {
+      System.out.println(key);
+      System.out.println("\t" + reader.getWarnings().get(key));
+    }
 
-    assertNotNull(reader.getWarnings().get("chr10:94942231"));
-    assertEquals(1, reader.getWarnings().get("chr10:94942231").size());
-    assertEquals("Discarding genotype at this position because allele depth (AD) field not supported",
-        reader.getWarnings().get("chr10:94942231").iterator().next());
+    String pos = "chr10:94942254";
+    assertNotNull(reader.getWarnings().get(pos));
+    assertEquals(1, reader.getWarnings().get(pos).size());
+    assertEquals("Discarding genotype at this position because GT field indicates heterozygous (0/1) but AD field indicates homozygous (91,0)",
+        reader.getWarnings().get(pos).iterator().next());
+
+    pos = "chr10:94942255";
+    assertNotNull(reader.getWarnings().get(pos));
+    assertEquals(1, reader.getWarnings().get(pos).size());
+    assertEquals("Discarding genotype at this position because GT field indicates heterozygous (0/1) but AD field indicates homozygous (0,91)",
+        reader.getWarnings().get(pos).iterator().next());
 
     assertEquals(2, reader.getWarnings().size());
   }
