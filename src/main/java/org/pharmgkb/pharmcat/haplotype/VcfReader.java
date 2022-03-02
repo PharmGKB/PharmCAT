@@ -198,6 +198,10 @@ public class VcfReader implements VcfLineParser {
       addWarning(chrPos, "Multiple samples found, only using first entry.  " +
           "See https://github.com/PharmGKB/PharmCAT/wiki/VCF-Requirements");
     }
+    if (sampleData.get(0).getProperty("AD") != null) {
+      addWarning(chrPos, "Discarding genotype at this position because allele depth (AD) field not supported");
+      return;
+    }
 
     String gt = sampleData.get(0).getProperty("GT");
     if (gt == null) {

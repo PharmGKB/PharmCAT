@@ -76,6 +76,31 @@ class VcfReaderTest {
   }
 
   @Test
+  void testAdField() throws Exception {
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
+    definitionReader.read(definitionFile);
+
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-AD.vcf");
+    VcfReader reader = new VcfReader(NamedAlleleMatcher.calculateLocationsOfInterest(definitionReader), vcfFile);
+
+    assertNotNull(reader.getWarnings());
+
+    assertNotNull(reader.getWarnings().get("chr10:94942230"));
+    assertEquals(1, reader.getWarnings().get("chr10:94942230").size());
+    assertEquals("Discarding genotype at this position because allele depth (AD) field not supported",
+        reader.getWarnings().get("chr10:94942230").iterator().next());
+
+    assertNotNull(reader.getWarnings().get("chr10:94942231"));
+    assertEquals(1, reader.getWarnings().get("chr10:94942231").size());
+    assertEquals("Discarding genotype at this position because allele depth (AD) field not supported",
+        reader.getWarnings().get("chr10:94942231").iterator().next());
+
+    assertEquals(2, reader.getWarnings().size());
+  }
+
+  @Test
   void testFiltersNoDefinition() throws Exception {
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.vcf");
