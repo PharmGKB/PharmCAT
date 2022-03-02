@@ -175,7 +175,6 @@ public class VcfReader implements VcfLineParser {
         addWarning(chrPos, "Genotype at this position has novel bases (expected " +
             String.join("/", varLoc.getAlts()) + ", found " +
             String.join("/", novel) + " in VCF)");
-        return;
       } else if (position.getFilters().contains(sf_filterCodeAlt)) {
         addWarning(chrPos, "PharmCAT preprocessor detected ALT mismatch (filter " + sf_filterCodeAlt +
             ") but this does not match current data.  Was the VCF preprocessed with a different version of PharmCAT?");
@@ -188,7 +187,6 @@ public class VcfReader implements VcfLineParser {
       }
       if (position.getFilters().contains(sf_filterCodeAlt)) {
         addWarning(chrPos, "Genotype at this position has novel bases");
-        return;
       }
     }
     if (m_alleleMap.containsKey(chrPos)) {
