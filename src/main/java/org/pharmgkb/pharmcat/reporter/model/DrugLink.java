@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  *
  * @author Ryan Whaley
  */
-public class DrugLink {
+public class DrugLink implements Comparable<DrugLink> {
 
   @Expose
   @SerializedName("name")
@@ -30,5 +30,18 @@ public class DrugLink {
 
   public String getGuidelineId() {
     return m_guidelineId;
+  }
+
+  public int compareTo(DrugLink o) {
+    if (o == null) {
+      return -1;
+    }
+    int rez = m_name.compareTo(o.getName());
+
+    if (rez != 0) {
+      return rez;
+    } else {
+      return m_guidelineId.compareTo(o.getGuidelineId());
+    }
   }
 }
