@@ -177,7 +177,12 @@
       </section>
 
       <section>
-        <p>For more information read the <a href="{{url}}">guideline on cpicpgx.org</a>.</p>
+        <p>For more information see:</p>
+        <ul>
+          {{#each urls}}
+            <li><a href="{{this}}">{{this}}</a></li>
+          {{/each}}
+        </ul>
         {{#if citations}}
           <p>Citations:</p>
           <ul>

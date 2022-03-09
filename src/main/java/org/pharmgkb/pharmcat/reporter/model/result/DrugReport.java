@@ -6,14 +6,16 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.function.Predicate;
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
@@ -30,22 +32,48 @@ public class DrugReport implements Comparable<DrugReport> {
   // NOTE: This is so the "No Recommendations" section doesn't show in the warfarin guideline
   private static final List<String> sf_notApplicableMatches = ImmutableList.of("RxNorm:11289"); // ID for warfarin
 
-  private final Drug m_drug;
+  private final String f_name;
+  private String m_cpicId;
+  private String m_pgkbId;
+  private String m_cpicVersion;
   private boolean m_reportable = false;
+  private final Set<String> f_relatedGenes = new TreeSet<>();
+  private final List<Recommendation> f_allRecommendations = new ArrayList<>();
   private final Set<Recommendation> m_matchingRecommendations = new HashSet<>();
   private final Set<String> m_uncalledGenes = new TreeSet<>();
   private final List<MessageAnnotation> m_messages = new ArrayList<>();
   private final List<String> m_reportVariants = new ArrayList<>();
+  private final List<String> f_urls = new ArrayList<>();
+  private final List<Publication> f_publications = new ArrayList<>();
 
-  public DrugReport(Drug drug) {
-    m_drug = drug;
+  public DrugReport(String name) {
+    f_name = name;
+  }
+
+  public void addDrugData(Drug drug) {
+    if (drug.getSource() == DataSource.CPIC) {
+      m_cpicVersion = drug.getCpicVersion();
+      m_cpicId = drug.getDrugId();
+    }
+    if (drug.getSource() == DataSource.DPWG) {
+      m_pgkbId = drug.getDrugId();
+    }
+    Preconditions.checkArgument(f_name.equalsIgnoreCase(drug.getDrugName()));
+    if (drug.getRecommendations() != null) {
+      f_allRecommendations.addAll(drug.getRecommendations());
+    }
+    f_relatedGenes.addAll(drug.getGenes());
+    f_urls.add(drug.getUrl());
+    if (drug.getPublications() != null) {
+      f_publications.addAll(drug.getPublications());
+    }
   }
 
   /**
    * Gets the name of the guideline, a pass-through to the stored guideline.
    */
   public String getName() {
-    return m_drug.getGuidelineName();
+    return f_name;
   }
 
   /**
@@ -53,37 +81,48 @@ public class DrugReport implements Comparable<DrugReport> {
    * @return a String describing the CPIC version
    */
   public String getCpicVersion() {
-    return m_drug.getCpicVersion();
+    return m_cpicVersion;
   }
 
   /**
-   * Gets the ID of the guideline
+   * Gets the CPIC or the PGKB ID, whichever is specified, in that order
+   * @return an ID for this drug
    */
   public String getId() {
-    return m_drug.getDrugId();
+    return MoreObjects.firstNonNull(getCpicId(), getPgkbId());
+  }
+
+  /**
+   * Gets the CPIC ID of the drug
+   */
+  public String getCpicId() {
+    return m_cpicId;
+  }
+
+  /**
+   * Gets the PharmGKB ID of the drug
+   */
+  public String getPgkbId() {
+    return m_pgkbId;
   }
 
   /**
    * Gets just the symbols of the related genes of the guideline. Calculated from data in the original guideline.
    */
-  public List<String> getRelatedGeneSymbols() {
-    return m_drug.getGenes();
+  public Collection<String> getRelatedGeneSymbols() {
+    return f_relatedGenes;
   }
 
   public Set<String> getRelatedDrugs() {
-    return ImmutableSet.of(m_drug.getDrugName());
+    return ImmutableSet.of(f_name);
   }
 
   public List<Recommendation> getRecommendations() {
-    if (m_drug == null || m_drug.getRecommendations() == null) {
-      return new ArrayList<>();
-    } else {
-      return m_drug.getRecommendations();
-    }
+    return f_allRecommendations;
   }
 
   public boolean isMatched() {
-    return sf_notApplicableMatches.contains(getId()) || m_matchingRecommendations.size()>0;
+    return sf_notApplicableMatches.contains(getCpicId()) || m_matchingRecommendations.size()>0;
   }
 
   /**
@@ -93,7 +132,7 @@ public class DrugReport implements Comparable<DrugReport> {
    * @return true if the drug report will not be included
    */
   public boolean isIgnored() {
-    return m_drug.getGenes().stream().anyMatch(GeneReport::isIgnored);
+    return f_relatedGenes.stream().anyMatch(GeneReport::isIgnored);
   }
 
   public boolean hasMultipleMatches() {
@@ -112,15 +151,15 @@ public class DrugReport implements Comparable<DrugReport> {
   /**
    * Gets the URL for the whole annotation
    */
-  public String getUrl() {
-    return m_drug.getUrl();
+  public List<String> getUrls() {
+    return f_urls;
   }
 
   /**
    * True if each of the genes in this guideline has at least one called diplotype
    */
   public boolean isReportable() {
-    return sf_notApplicableMatches.contains(getId()) || m_reportable;
+    return sf_notApplicableMatches.contains(getCpicId()) || m_reportable;
   }
 
   public void setReportable(boolean reportable) {
@@ -129,11 +168,11 @@ public class DrugReport implements Comparable<DrugReport> {
 
   @Override
   public int compareTo(DrugReport o) {
-    int rez = Boolean.compare(isReportable(), o.isReportable());
+    int rez = toString().compareToIgnoreCase(o.toString());
     if (rez != 0) {
-      return rez * -1;
+      return rez;
     }
-    rez = Objects.compare(getName(), o.getName(), String.CASE_INSENSITIVE_ORDER);
+    rez = Boolean.compare(isReportable(), o.isReportable());
     return rez;
   }
 
@@ -154,8 +193,10 @@ public class DrugReport implements Comparable<DrugReport> {
     Preconditions.checkNotNull(phenotypeKey);
     Preconditions.checkArgument(!phenotypeKey.isEmpty());
 
+    Predicate<Recommendation> matches = r -> (r.getSource() == DataSource.CPIC && r.getLookupKey().equals(phenotypeKey)) || (r.getSource() == DataSource.DPWG && r.matchesGenotype(diplotypes));
+
     getRecommendations().stream()
-        .filter(r -> r.getLookupKey().equals(phenotypeKey))
+        .filter(matches)
         .forEach(r -> {
           addMatchingRecommendation(r);
           r.addMatchedDiplotype(String.join(", ", diplotypes));
@@ -191,14 +232,14 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   public String toString() {
-    return String.join(", ", getRelatedDrugs());
+    return String.join(", ", getName());
   }
 
   /**
    * Gets the literature objects that are used for citation of this Guideline
    */
   public List<Publication> getCitations() {
-    return m_drug.getPublications();
+    return f_publications;
   }
 
   /**

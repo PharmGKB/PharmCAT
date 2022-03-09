@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.Spliterator;
+import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -18,6 +19,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.apache.commons.lang3.StringUtils;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
@@ -26,27 +28,33 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
  * This class will read the drugs.json file and serve the data as {@link Drug} objects.
  */
 public class DrugCollection implements Iterable<Drug> {
-  private static final String FILE_NAME = "drugs.json";
+  private static final String CPIC_FILE_NAME = "drugs.json";
+  private static final String DPWG_FILE_NAME = "drugsDpwg.json";
   private static final Type DRUG_LIST_TYPE = new TypeToken<ArrayList<Drug>>(){}.getType();
   private static final Gson GSON = new GsonBuilder()
       .serializeNulls()
       .excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
 
-  private final List<Drug> m_drugList = new ArrayList<>();
+  private final Set<Drug> m_drugList = new TreeSet<>();
 
   /**
    * Default constructor. Will use the drugs.json file defined in the codebase
    * @throws IOException when the drugs.json file cannot be read
    */
   public DrugCollection() throws IOException {
-    InputStream inputStream = getClass().getResourceAsStream(FILE_NAME);
-    if (inputStream == null) {
-      throw new RuntimeException("Drug definition file not found");
+    try (InputStream inputStream = getClass().getResourceAsStream(CPIC_FILE_NAME)) {
+      if (inputStream == null) {
+        throw new RuntimeException("Drug definition file not found");
+      }
+      addDrugsFromStream(inputStream, DataSource.CPIC);
     }
 
-    try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
-      m_drugList.addAll(GSON.fromJson(br, DRUG_LIST_TYPE));
+    try (InputStream inputStream = getClass().getResourceAsStream(DPWG_FILE_NAME)) {
+      if (inputStream == null) {
+        throw new RuntimeException("DPWG Drug definition file not found");
+      }
+      addDrugsFromStream(inputStream, DataSource.DPWG);
     }
   }
 
@@ -56,14 +64,22 @@ public class DrugCollection implements Iterable<Drug> {
    * @param inputStream an InputStream of serialized Drug JSON data
    * @throws IOException when the input stream cannot be read
    */
-  public DrugCollection(InputStream inputStream) throws IOException {
+  public DrugCollection(InputStream inputStream, DataSource source) throws IOException {
+    addDrugsFromStream(inputStream, source);
+  }
+
+  private void addDrugsFromStream(InputStream inputStream, DataSource source) throws IOException {
     try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
-      m_drugList.addAll(GSON.fromJson(br, DRUG_LIST_TYPE));
+      List<Drug> drugs = GSON.fromJson(br, DRUG_LIST_TYPE);
+      drugs.forEach(d -> d.setSource(source));
+      m_drugList.addAll(drugs);
     }
   }
 
   // A drug is ignored if it associated with ANY ignored gene.
   private static final Predicate<Drug> sf_filterIgnoredGenes = (drug) -> drug.getGenes().stream().noneMatch(GeneReport::isIgnored);
+  public static final Predicate<Drug> ONLY_CPIC = (drug) -> drug.getSource() == DataSource.CPIC;
+  public static final Predicate<Drug> ONLY_DPWG = (drug) -> drug.getSource() == DataSource.DPWG;
 
   public int size() {
     return m_drugList.size();
@@ -73,7 +89,7 @@ public class DrugCollection implements Iterable<Drug> {
    * Get all CPIC {@link Drug} objects
    * @return a List of CPIC {@link Drug} objects
    */
-  public List<Drug> list() {
+  public Set<Drug> list() {
     return m_drugList;
   }
 

@@ -12,9 +12,12 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import javax.annotation.Nonnull;
+import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.MessageList;
@@ -45,7 +48,7 @@ public class ReportContext {
   private static final Predicate<String> hasValue = (value) -> StringUtils.isNotBlank(value) && !value.equalsIgnoreCase("n/a");
 
   private final SortedSet<GeneReport> f_geneReports = new TreeSet<>();
-  private final List<DrugReport> m_drugReports = new ArrayList<>();
+  private final SortedSet<DrugReport> m_drugReports = new TreeSet<>();
 
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
@@ -63,7 +66,8 @@ public class ReportContext {
         .forEach(this::addGeneReport);
 
     for (Drug drug : drugCollection.listReportable()) {
-      DrugReport drugReport = new DrugReport(drug);
+      DrugReport drugReport = createOrFindDrugReport(drug);
+      drugReport.addDrugData(drug);
       // set if this drug can be shown in the report
       drugReport.setReportable(drugReport.getRelatedGeneSymbols().stream().anyMatch(this::isReportable));
 
@@ -86,6 +90,10 @@ public class ReportContext {
       for (String gene : drugReport.getRelatedGeneSymbols()) {
         getGeneReport(gene).addRelatedDrugs(drugReport);
       }
+    }
+
+    // now that all reports are generated, apply the applicable messages
+    for (DrugReport drugReport : getDrugReports()) {
       messageList.match(drugReport, this);
 
       // add message to drug when a related gene has a *1 allele
@@ -115,12 +123,20 @@ public class ReportContext {
         .orElse(false);
   }
 
-  public List<DrugReport> getDrugReports() {
+  public SortedSet<DrugReport> getDrugReports() {
     return m_drugReports;
   }
 
   public Collection<GeneReport> getGeneReports() {
     return f_geneReports;
+  }
+
+  private DrugReport createOrFindDrugReport(@Nonnull Drug drug) {
+    Preconditions.checkNotNull(drug);
+    return getDrugReports().stream()
+        .filter(r -> r.getName().equalsIgnoreCase(drug.getDrugName()))
+        .findFirst()
+        .orElse(new DrugReport(drug.getDrugName()));
   }
 
   /**
@@ -243,7 +259,7 @@ public class ReportContext {
 
       String drugs = String.join(", ", drugReport.getRelatedDrugs());
       guidelineMap.put("drugs", drugs);
-      guidelineMap.put("url", drugReport.getUrl());
+      guidelineMap.put("urls", drugReport.getUrls());
       guidelineMap.put("id", drugReport.getId());
       String lastModified = drugReport.getLastModified() != null
           ? new SimpleDateFormat("yyyy.MM.dd").format(drugReport.getLastModified())
@@ -297,7 +313,7 @@ public class ReportContext {
           .map(MessageAnnotation::getMessage)
           .collect(Collectors.toList()));
 
-      if (drugReport.getCitations().size()>0) {
+      if (drugReport.getCitations() != null && drugReport.getCitations().size()>0) {
         guidelineMap.put("citations", drugReport.getCitations());
       }
 
@@ -310,40 +326,10 @@ public class ReportContext {
       }
 
       if (drugReport.getMatchingRecommendations() != null) {
-        List<Map<String, Object>> groupList = new ArrayList<>();
-        for (Recommendation recommendation : drugReport.getMatchingRecommendations()) {
-          Map<String, Object> groupData = new HashMap<>();
-
-          List<Map<String, String>> annotationList = new ArrayList<>();
-          annotationList.add(makeAnnotation("Population", recommendation.getPopulation()));
-          for (String geneSymbol : recommendation.getImplications().keySet()) {
-            annotationList.add(makeAnnotation("Implication for " + geneSymbol, recommendation.getImplications().get(geneSymbol)));
-          }
-          annotationList.add(makeAnnotation("Matched Diplotypes", String.join("; ", recommendation.getMatchedDiplotypes())));
-          for (String geneSymbol : recommendation.getPhenotypes().keySet()) {
-            annotationList.add(makeAnnotation("Phenotype for " + geneSymbol, recommendation.getPhenotypes().get(geneSymbol)));
-          }
-          for (String geneSymbol : recommendation.getActivityScore().keySet()) {
-            String score = recommendation.getActivityScore().get(geneSymbol);
-            if (hasValue.test(score)) {
-              annotationList.add(makeAnnotation("Activity Score for " + geneSymbol, score));
-            }
-          }
-          for (String geneSymbol : recommendation.getAlleleStatus().keySet()) {
-            String status = recommendation.getAlleleStatus().get(geneSymbol);
-            if (hasValue.test(status)) {
-              annotationList.add(makeAnnotation("Allele Status for " + geneSymbol, status));
-            }
-          }
-          annotationList.add(makeAnnotation("Recommendation", recommendation.getDrugRecommendation()));
-          annotationList.add(makeAnnotation("Classification of Recommendation", recommendation.getClassification()));
-          if (hasValue.test(recommendation.getComments())) {
-            annotationList.add(makeAnnotation("Comments", recommendation.getComments()));
-          }
-          groupData.put("annotations", annotationList);
-          groupList.add(groupData);
-        }
-        guidelineMap.put("groups", groupList);
+        guidelineMap.put(
+            "groups",
+            drugReport.getMatchingRecommendations().stream().map(sf_recommendationMapper).collect(Collectors.toList())
+        );
       }
 
       drugReports.add(guidelineMap);
@@ -495,4 +481,45 @@ public class ReportContext {
     newKey.put(gene, lookupKey);
     return newKey;
   }
+
+  private static final Function<Recommendation, Map<String, Object>> sf_recommendationMapper = (recommendation) -> {
+    Map<String, Object> groupData = new HashMap<>();
+
+    List<Map<String, String>> annotationList = new ArrayList<>();
+    annotationList.add(makeAnnotation("Population", recommendation.getPopulation()));
+    for (String geneSymbol : recommendation.getImplications().keySet()) {
+      annotationList.add(makeAnnotation("Implication for " + geneSymbol, recommendation.getImplications().get(geneSymbol)));
+    }
+    annotationList.add(makeAnnotation("Matched Diplotypes", String.join("; ", recommendation.getMatchedDiplotypes())));
+    if (recommendation.getPhenotypes() != null) {
+      for (String geneSymbol : recommendation.getPhenotypes().keySet()) {
+        annotationList.add(makeAnnotation("Phenotype for " + geneSymbol, recommendation.getPhenotypes().get(geneSymbol)));
+      }
+    }
+    if (recommendation.getActivityScore() != null) {
+      for (String geneSymbol : recommendation.getActivityScore().keySet()) {
+        String score = recommendation.getActivityScore().get(geneSymbol);
+        if (hasValue.test(score)) {
+          annotationList.add(makeAnnotation("Activity Score for " + geneSymbol, score));
+        }
+      }
+    }
+    if (recommendation.getAlleleStatus() != null) {
+      for (String geneSymbol : recommendation.getAlleleStatus().keySet()) {
+        String status = recommendation.getAlleleStatus().get(geneSymbol);
+        if (hasValue.test(status)) {
+          annotationList.add(makeAnnotation("Allele Status for " + geneSymbol, status));
+        }
+      }
+    }
+    annotationList.add(makeAnnotation("Recommendation", recommendation.getDrugRecommendation()));
+    annotationList.add(makeAnnotation("Classification of Recommendation", recommendation.getClassification()));
+    if (hasValue.test(recommendation.getComments())) {
+      annotationList.add(makeAnnotation("Comments", recommendation.getComments()));
+    }
+    annotationList.add(makeAnnotation("Source", recommendation.getSource().toString()));
+    groupData.put("annotations", annotationList);
+
+    return groupData;
+  };
 }

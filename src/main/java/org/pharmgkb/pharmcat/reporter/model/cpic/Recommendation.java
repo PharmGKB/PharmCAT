@@ -1,10 +1,15 @@
 package org.pharmgkb.pharmcat.reporter.model.cpic;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 
 /**
@@ -39,6 +44,12 @@ public class Recommendation {
   @Expose
   @SerializedName("population")
   private String m_population;
+  @Expose
+  @SerializedName("genotypes")
+  private List<Map<String,String>> m_genotypes;
+  @Expose
+  @SerializedName("source")
+  private DataSource m_source;
 
   private final Set<String> m_matchedDiplotypes = new TreeSet<>();
 
@@ -120,5 +131,37 @@ public class Recommendation {
 
   public void setPopulation(String population) {
     m_population = population;
+  }
+
+  public List<Map<String,String>> getGenotypes() {
+    return m_genotypes;
+  }
+
+  public DataSource getSource() {
+    return m_source;
+  }
+
+  public void setSource(DataSource source) {
+    m_source = source;
+  }
+
+  /**
+   * Whether the given diplotypes match this Recommendation
+   * @param diplotypes a collection of "GENE:*1/*4" diplotype strings, one per gene
+   * @return true if a match
+   */
+  public boolean matchesGenotype(Collection<String> diplotypes) {
+    if (diplotypes == null || diplotypes.size() == 0) {
+      return false;
+    }
+    Map<String,String> parsedInput = new TreeMap<>();
+    diplotypes.stream()
+        .map(d -> d.split(":"))
+        .forEach(tokens -> parsedInput.put(tokens[0], tokens[1]));
+
+    return getGenotypes().stream()
+        .anyMatch(g -> (parsedInput.keySet().containsAll(g.keySet())) && (
+            g.keySet().stream().allMatch(key -> Objects.equals(g.get(key), parsedInput.get(key)))
+            ));
   }
 }

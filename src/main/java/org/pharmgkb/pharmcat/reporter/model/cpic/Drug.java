@@ -3,10 +3,12 @@ package org.pharmgkb.pharmcat.reporter.model.cpic;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang3.ObjectUtils;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 
 /**
- * A CPIC Drug with related information sourced from the CPIC database.
+ * A drug record from an outside data source with related information.
  *
  * This includes:
  * <ul>
@@ -16,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
  *   <li>related genes</li>
  * </ul>
  */
-public class Drug {
+public class Drug implements Comparable<Drug> {
   @Expose
   @SerializedName("drugid")
   private String m_drugId;
@@ -47,9 +49,12 @@ public class Drug {
   @Expose
   @SerializedName("cpicVersion")
   private String m_cpicVersion;
+  @Expose
+  @SerializedName("source")
+  private DataSource m_source;
 
   public String toString() {
-    return m_drugName;
+    return String.format("%s [%s]", m_drugName, m_source);
   }
 
   public String getDrugId() {
@@ -130,5 +135,30 @@ public class Drug {
 
   public void setCpicVersion(String cpicVersion) {
     m_cpicVersion = cpicVersion;
+  }
+
+  public DataSource getSource() {
+    return m_source;
+  }
+
+  public void setSource(DataSource source) {
+    m_source = source;
+
+    if (m_recommendations != null) {
+      m_recommendations.forEach(r -> r.setSource(source));
+    }
+  }
+
+  @Override
+  public int compareTo(Drug other) {
+    int rez = m_drugName.compareToIgnoreCase(other.getDrugName());
+    if (rez != 0) {
+      return rez;
+    }
+    rez = ObjectUtils.compare(m_source, other.getSource());
+    if (rez != 0) {
+      return rez;
+    }
+    return m_drugId.compareToIgnoreCase(other.getDrugId());
   }
 }

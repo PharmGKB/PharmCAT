@@ -32,6 +32,7 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 
 
@@ -185,7 +186,7 @@ public class DataManager {
     Set<String> existingDrugNames = existingDrugs.list().stream()
         .map(Drug::getDrugName).collect(Collectors.toSet());
     try (InputStream is = Files.newInputStream(drugsPath)) {
-      DrugCollection newDrugs = new DrugCollection(is);
+      DrugCollection newDrugs = new DrugCollection(is, DataSource.CPIC);
       Set<String> newDrugNames = newDrugs.list().stream()
           .map(Drug::getDrugName).collect(Collectors.toSet());
 

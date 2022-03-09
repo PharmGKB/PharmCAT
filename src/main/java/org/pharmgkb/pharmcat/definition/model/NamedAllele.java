@@ -84,7 +84,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
    */
   public void updatePositions(VariantLocus[] oldPositions, VariantLocus[] newPositions) {
 
-    List<VariantLocus> oldPos = Arrays.stream(oldPositions).collect(Collectors.toList());
+    List<VariantLocus> oldPos = Arrays.stream(oldPositions).toList();
     // resort alleles, cpicAlleles,
     String[] alleles = new String[newPositions.length];
     String[] cpicAlleles = new String[newPositions.length];

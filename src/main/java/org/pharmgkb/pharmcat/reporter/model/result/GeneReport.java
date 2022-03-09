@@ -290,13 +290,13 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Adds the drugs in the given <code>guideline</code> to this report as {@link DrugLink} objects
-   * @param guideline a GuidelineReport with relatedDrugs
+   * Adds the drugs in the given <code>drugReport</code> to this report as {@link DrugLink} objects
+   * @param drugReport a {@link DrugLink} with relatedDrugs
    */
-  public void addRelatedDrugs(DrugReport guideline) {
+  public void addRelatedDrugs(DrugReport drugReport) {
 
-    guideline.getRelatedDrugs().stream()
-        .map(d -> new DrugLink(d, guideline.getId()))
+    drugReport.getRelatedDrugs().stream()
+        .map(d -> new DrugLink(d, drugReport.getId()))
         .forEach(this::addRelatedDrug);
   }
 
