@@ -372,8 +372,6 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
         "-w1" extracts and writes records only present in the first file (the reference PGx positions).
     """
 
-    path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.multiallelic.vcf.gz'
-
     with tempfile.TemporaryDirectory(suffix='extract_pgx_variants', dir=output_dir) as temp_dir:
         # convert reference PGx variants to the uniallelic format
         # needed for extracting exact PGx positions and generating an accurate missing report
@@ -400,7 +398,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
         '''
         # create a dictionary of PharmCAT reference PGx positions
         # the ref_pos_static (dict) will be used to static dictionary of reference PGx positions
-        # the ref_pos_dynamic (dict) will be used to remain only PGx pos in the input
+        # the ref_pos_dynamic (dict) will be used to retain only PGx pos in the input
         ref_pos_dynamic = {}
         with gzip.open(ref_pgx_uniallelic, 'r') as in_f:
             for line in in_f:
@@ -558,7 +556,6 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                 # output the  line
                                 line = '\t'.join(fields)
                                 non_pgx_records.append(line)
-                                # out_f.write(line + '\n')
                             # flag if the variant doesn't match PharmCAT REF nor ALT
                             else:
                                 for i in range(len(ref_alleles)):
@@ -573,11 +570,6 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                 # output the  line
                                 line = '\t'.join(fields)
                                 non_pgx_records.append(line)
-                                # out_f.write(line + '\n')
-            # output genetic variants that concurred at PGx positions
-            for line in non_pgx_records:
-                out_f.write(line + '\n')
-            # if missing_to_ref is true, output all missing positions
             if missing_to_ref:
                 for input_ref_alt in ref_pos_dynamic.values():
                     for val in input_ref_alt.values():
@@ -597,12 +589,62 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
         run_bcftools(bcftools_command, show_msg='Sorting file')
         tabix_index_vcf(tabix_path, sorted_vcf)
 
-        # This normalization enforces the output to comply with PharmCAT format
-        bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', ref_seq,
-                            '-Oz', '-o', path_output, sorted_vcf]
-        run_bcftools(bcftools_command,
-                     show_msg='Enforcing the variant representation per PharmCAT')
-        tabix_index_vcf(tabix_path, path_output)
+        # if there was non-PGx variant at PGx positions, need to put back the non-PGx variants into VCF
+        path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.multiallelic.vcf.gz'
+        if len(non_pgx_records) >= 1:
+            # enforces the output to comply with the multi-allelic format
+            normed_vcf = os.path.join(temp_dir, 'temp_normed.vcf.gz')
+            bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', ref_seq,
+                                '-Oz', '-o', normed_vcf, sorted_vcf]
+            run_bcftools(bcftools_command,
+                         show_msg='Enforcing the multi-allelic variant representation per PharmCAT')
+            tabix_index_vcf(tabix_path, normed_vcf)
+
+            # insert lines of concurrent non-PGx variants after the PGx positions
+            path_output_noncompressed = os.path.splitext(path_output)[0]
+            with open(path_output_noncompressed, 'w') as out_f:
+                print('Adding back non-PGx variants at PGx positions')
+                print(len(non_pgx_records))
+                with gzip.open(normed_vcf) as in_f:
+                    for line in in_f:
+                        try:
+                            line = byte_decoder(line)
+                        except:
+                            line = line
+                        # print all header lines
+                        if line[0] == '#':
+                            out_f.write(line)
+                        # print the rest if all non-PGx variants have been put back
+                        elif len(non_pgx_records) == 0:
+                            out_f.write(line)
+                        # scan the genotype data
+                        else:
+                            # put back non-PGx variants before the next PGx position
+                            line = line.rstrip('\n')
+                            fields = line.split('\t')
+                            while len(non_pgx_records):
+                                non_pgx_fields = non_pgx_records[0].split('\t')
+                                if _chr_valid_sorter.index(fields[0]) > _chr_valid_sorter.index(non_pgx_fields[0]):
+                                    out_f.write(non_pgx_records[0] + '\n')
+                                    non_pgx_records.pop(0)
+                                elif _chr_valid_sorter.index(fields[0]) == _chr_valid_sorter.index(non_pgx_fields[0])\
+                                        and int(fields[1]) > int(non_pgx_fields[1]):
+                                    out_f.write(non_pgx_records[0] + '\n')
+                                    non_pgx_records.pop(0)
+                                else:
+                                    break
+                            # output original line
+                            out_f.write(line + '\n')
+            # bgzip and index file
+            bgzipped_vcf(bgzip_path, path_output_noncompressed)
+            tabix_index_vcf(tabix_path, path_output)
+        else:
+            # enforces the output to comply with the multi-allelic format
+            bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', ref_seq,
+                                '-Oz', '-o', path_output, sorted_vcf]
+            run_bcftools(bcftools_command,
+                         show_msg='Enforcing the multi-allelic variant representation per PharmCAT')
+            tabix_index_vcf(tabix_path, path_output)
 
         # report missing positions in the input VCF
         missing_report = os.path.join(output_dir, output_prefix + '.missing_pgx_var.vcf')
