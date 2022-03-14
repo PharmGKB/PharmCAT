@@ -18,7 +18,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
  * @author Ryan Whaley
  */
 public class GenePhenotype {
-  private static final String NO_RESULT = "No Result";
+  public static final String NO_RESULT = "No Result";
 
   @SerializedName("gene")
   @Expose
@@ -63,6 +63,9 @@ public class GenePhenotype {
 
   public Optional<String> findHaplotypeFunction(String haplotype) {
     if (StringUtils.isBlank(haplotype)) {
+      return Optional.empty();
+    }
+    if (m_haplotypes == null) {
       return Optional.empty();
     }
     return Optional.ofNullable(m_haplotypes.get(haplotype));

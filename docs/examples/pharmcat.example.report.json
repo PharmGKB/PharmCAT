@@ -1,18 +1,16 @@
 {
-  "totalGenes": 19,
-  "pharmcatVersion": "v1.5.1-24-gb57a6e2b\n",
-  "generatedOn": "March 29, 2022",
+  "totalGenes": 20,
+  "pharmcatVersion": "v1.5.1-29-gb3d1bbd9\n",
+  "generatedOn": "March 24, 2022",
   "geneCalls": [
     {
       "diplotypes": [
-        "rs2231142 reference (G)/rs2231142 reference (G)"
+        "not called"
       ],
       "gene": "ABCG2",
-      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
-      "messages": [],
-      "totalMissingVariants": 0,
+      "totalMissingVariants": 1,
       "totalVariants": 1,
       "variants": [
         {
@@ -20,19 +18,22 @@
           "chromosome": "chr4",
           "position": 88131171,
           "dbSnpId": "rs2231142",
-          "call": "G|G",
+          "call": null,
           "alleles": [
             "rs2231142 variant (T)"
           ],
-          "phased": true,
+          "phased": false,
           "wildtypeAllele": "G",
           "mismatch": false,
           "warnings": []
         }
       ],
       "phaseStatus": "Phased",
-      "unphased": false,
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "uncalledHaps": "rs2231142 reference (G), rs2231142 variant (T)",
+      "hasUncalledHaps": true,
+      "messages": [],
+      "unphased": false
     },
     {
       "diplotypes": [
@@ -1710,7 +1711,6 @@
         "*1/*1"
       ],
       "gene": "CYP2C9",
-      "hasUncalledHaps": false,
       "outsideCall": false,
       "variantsOfInterest": [
         {
@@ -1726,8 +1726,7 @@
           "warnings": []
         }
       ],
-      "messages": [],
-      "totalMissingVariants": 0,
+      "totalMissingVariants": 4,
       "totalVariants": 70,
       "variants": [
         {
@@ -2059,54 +2058,12 @@
         {
           "gene": "CYP2C9",
           "chromosome": "chr10",
-          "position": 94942306,
-          "dbSnpId": "rs1289704600",
-          "call": "C|C",
-          "alleles": [
-            "*72"
-          ],
-          "phased": true,
-          "wildtypeAllele": "C",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "CYP2C9",
-          "chromosome": "chr10",
-          "position": 94942308,
-          "dbSnpId": "rs17847037",
-          "call": "C|C",
-          "alleles": [
-            "*73"
-          ],
-          "phased": true,
-          "wildtypeAllele": "C",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "CYP2C9",
-          "chromosome": "chr10",
           "position": 94942309,
           "dbSnpId": "rs7900194",
           "call": "G|G",
           "alleles": [
             "*8",
             "*27"
-          ],
-          "phased": true,
-          "wildtypeAllele": "G",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "CYP2C9",
-          "chromosome": "chr10",
-          "position": 94947439,
-          "dbSnpId": null,
-          "call": "G|G",
-          "alleles": [
-            "*74"
           ],
           "phased": true,
           "wildtypeAllele": "G",
@@ -2581,20 +2538,6 @@
         {
           "gene": "CYP2C9",
           "chromosome": "chr10",
-          "position": 94986136,
-          "dbSnpId": "rs1254213342",
-          "call": "A|A",
-          "alleles": [
-            "*75"
-          ],
-          "phased": true,
-          "wildtypeAllele": "A",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "CYP2C9",
-          "chromosome": "chr10",
           "position": 94988852,
           "dbSnpId": "rs776908257",
           "call": "C|C",
@@ -2718,32 +2661,86 @@
           "wildtypeAllele": "G",
           "mismatch": false,
           "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94942306,
+          "dbSnpId": "rs1289704600",
+          "call": null,
+          "alleles": [
+            "*72"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94942308,
+          "dbSnpId": "rs17847037",
+          "call": null,
+          "alleles": [
+            "*73"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94947439,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*74"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94986136,
+          "dbSnpId": "rs1254213342",
+          "call": null,
+          "alleles": [
+            "*75"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
         }
       ],
       "phaseStatus": "Phased",
-      "unphased": false,
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "uncalledHaps": "*72, *73, *74, *75",
+      "hasUncalledHaps": true,
+      "messages": [],
+      "unphased": false
     },
     {
       "diplotypes": [
         "*1/*3"
       ],
       "gene": "CYP2D6",
+      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": true,
-      "warnings": [
-        "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to \u003ca href\u003d\"https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles\"\u003ethe PharmCAT wiki\u003c/a\u003e for more information."
-      ],
       "variantsUnspecified": true,
+      "messages": [],
       "totalMissingVariants": 0,
       "totalVariants": 0,
       "phaseStatus": "Unavailable for calls made outside PharmCAT",
-      "extra-position-notes": [],
-      "hasUncalledHaps": false,
-      "messages": [
-        "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to \u003ca href\u003d\"https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles\"\u003ethe PharmCAT wiki\u003c/a\u003e for more information."
-      ],
-      "unphased": false
+      "unphased": false,
+      "extra-position-notes": []
     },
     {
       "diplotypes": [
@@ -4080,6 +4077,38 @@
     },
     {
       "diplotypes": [
+        "not called"
+      ],
+      "gene": "HLA-A",
+      "hasUncalledHaps": false,
+      "variantsOfInterestUnspecified": true,
+      "outsideCall": false,
+      "variantsUnspecified": true,
+      "messages": [],
+      "totalMissingVariants": 0,
+      "totalVariants": 0,
+      "phaseStatus": "Unphased",
+      "unphased": true,
+      "extra-position-notes": []
+    },
+    {
+      "diplotypes": [
+        "*15:02/*57:01"
+      ],
+      "gene": "HLA-B",
+      "hasUncalledHaps": false,
+      "variantsOfInterestUnspecified": true,
+      "outsideCall": true,
+      "variantsUnspecified": true,
+      "messages": [],
+      "totalMissingVariants": 0,
+      "totalVariants": 0,
+      "phaseStatus": "Unavailable for calls made outside PharmCAT",
+      "unphased": false,
+      "extra-position-notes": []
+    },
+    {
+      "diplotypes": [
         "rs12979860 reference (C)/rs12979860 reference (C)"
       ],
       "gene": "IFNL3/4",
@@ -5029,11 +5058,9 @@
         "rs4149056T/rs4149056T"
       ],
       "gene": "SLCO1B1",
-      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
-      "messages": [],
-      "totalMissingVariants": 0,
+      "totalMissingVariants": 7,
       "totalVariants": 31,
       "variants": [
         {
@@ -5143,20 +5170,6 @@
         {
           "gene": "SLCO1B1",
           "chromosome": "chr12",
-          "position": 21176871,
-          "dbSnpId": null,
-          "call": "G|G",
-          "alleles": [
-            "*38"
-          ],
-          "phased": true,
-          "wildtypeAllele": "G",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
           "position": 21176879,
           "dbSnpId": "rs11045819",
           "call": "C|C",
@@ -5181,34 +5194,6 @@
           "alleles": [
             "*3",
             "*13"
-          ],
-          "phased": true,
-          "wildtypeAllele": "A",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21176898,
-          "dbSnpId": "rs77271279",
-          "call": "G|G",
-          "alleles": [
-            "*41"
-          ],
-          "phased": true,
-          "wildtypeAllele": "G",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21178612,
-          "dbSnpId": "rs141467543",
-          "call": "A|A",
-          "alleles": [
-            "*42"
           ],
           "phased": true,
           "wildtypeAllele": "A",
@@ -5270,20 +5255,6 @@
         {
           "gene": "SLCO1B1",
           "chromosome": "chr12",
-          "position": 21196975,
-          "dbSnpId": "rs183501729",
-          "call": "C|C",
-          "alleles": [
-            "*39"
-          ],
-          "phased": true,
-          "wildtypeAllele": "C",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
           "position": 21196976,
           "dbSnpId": "rs11045853",
           "call": "G|G",
@@ -5294,20 +5265,6 @@
           ],
           "phased": true,
           "wildtypeAllele": "G",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21200544,
-          "dbSnpId": "rs72559747",
-          "call": "C|C",
-          "alleles": [
-            "*47"
-          ],
-          "phased": true,
-          "wildtypeAllele": "C",
           "mismatch": false,
           "warnings": []
         },
@@ -5413,36 +5370,6 @@
         {
           "gene": "SLCO1B1",
           "chromosome": "chr12",
-          "position": 21206031,
-          "dbSnpId": "rs74064213",
-          "call": "A|A",
-          "alleles": [
-            "*43",
-            "*44"
-          ],
-          "phased": true,
-          "wildtypeAllele": "A",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21222355,
-          "dbSnpId": "rs71581941",
-          "call": "C|C",
-          "alleles": [
-            "*45",
-            "*46"
-          ],
-          "phased": true,
-          "wildtypeAllele": "C",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
           "position": 21239042,
           "dbSnpId": "rs34671512",
           "call": "A|A",
@@ -5513,11 +5440,114 @@
           "wildtypeAllele": "C",
           "mismatch": false,
           "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21176871,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*38"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21176898,
+          "dbSnpId": "rs77271279",
+          "call": null,
+          "alleles": [
+            "*41"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21178612,
+          "dbSnpId": "rs141467543",
+          "call": null,
+          "alleles": [
+            "*42"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21196975,
+          "dbSnpId": "rs183501729",
+          "call": null,
+          "alleles": [
+            "*39"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21200544,
+          "dbSnpId": "rs72559747",
+          "call": null,
+          "alleles": [
+            "*47"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21206031,
+          "dbSnpId": "rs74064213",
+          "call": null,
+          "alleles": [
+            "*43",
+            "*44"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21222355,
+          "dbSnpId": "rs71581941",
+          "call": null,
+          "alleles": [
+            "*45",
+            "*46"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
         }
       ],
       "phaseStatus": "Phased",
-      "unphased": false,
-      "extra-position-notes": []
+      "extra-position-notes": [],
+      "uncalledHaps": "*38, *41, *45",
+      "hasUncalledHaps": true,
+      "messages": [],
+      "unphased": false
     },
     {
       "diplotypes": [
@@ -6264,15 +6294,15 @@
     }
   ],
   "calledGenes": 19,
-  "cpicVersion": "v1.16",
+  "cpicVersion": "v1.14",
   "genotypes": [
     {
       "phenotype": [
-        "Normal Function"
+        "N/A"
       ],
-      "called": true,
+      "called": false,
       "functions": [
-        "Two normal function alleles"
+        "N/A"
       ],
       "gene": "ABCG2",
       "drugs": [
@@ -6282,9 +6312,9 @@
         }
       ],
       "calls": [
-        "rs2231142 reference (G)/rs2231142 reference (G)"
+        "not called"
       ],
-      "missingVariants": "No",
+      "missingVariants": "Yes",
       "outsideCall": false,
       "unphased": false,
       "hasMessages": false
@@ -6480,6 +6510,10 @@
           "guidelineId": "RxNorm:41127"
         },
         {
+          "name": "fosphenytoin",
+          "guidelineId": "RxNorm:72236"
+        },
+        {
           "name": "ibuprofen",
           "guidelineId": "RxNorm:5640"
         },
@@ -6490,6 +6524,10 @@
         {
           "name": "meloxicam",
           "guidelineId": "RxNorm:41493"
+        },
+        {
+          "name": "phenytoin",
+          "guidelineId": "RxNorm:8183"
         },
         {
           "name": "piroxicam",
@@ -6507,7 +6545,7 @@
       "calls": [
         "*1/*1"
       ],
-      "missingVariants": "No",
+      "missingVariants": "Yes",
       "outsideCall": false,
       "unphased": false,
       "hasMessages": false
@@ -6593,7 +6631,7 @@
       "missingVariants": "N/A",
       "outsideCall": true,
       "unphased": false,
-      "hasMessages": true
+      "hasMessages": false
     },
     {
       "phenotype": [
@@ -6685,6 +6723,49 @@
       ],
       "calls": [
         "B (wildtype)/B (wildtype)"
+      ],
+      "missingVariants": "N/A",
+      "outsideCall": true,
+      "unphased": false,
+      "hasMessages": false
+    },
+    {
+      "phenotype": [
+        "*15:02 positive; *57:01 positive; *58:01 negative"
+      ],
+      "called": true,
+      "functions": [
+        "N/A"
+      ],
+      "gene": "HLA-B",
+      "drugs": [
+        {
+          "name": "abacavir",
+          "guidelineId": "RxNorm:190521"
+        },
+        {
+          "name": "allopurinol",
+          "guidelineId": "RxNorm:519"
+        },
+        {
+          "name": "carbamazepine",
+          "guidelineId": "RxNorm:2002"
+        },
+        {
+          "name": "fosphenytoin",
+          "guidelineId": "RxNorm:72236"
+        },
+        {
+          "name": "oxcarbazepine",
+          "guidelineId": "RxNorm:32624"
+        },
+        {
+          "name": "phenytoin",
+          "guidelineId": "RxNorm:8183"
+        }
+      ],
+      "calls": [
+        "*15:02/*57:01"
       ],
       "missingVariants": "N/A",
       "outsideCall": true,
@@ -6885,7 +6966,7 @@
       "calls": [
         "*1/*1"
       ],
-      "missingVariants": "No",
+      "missingVariants": "Yes",
       "outsideCall": false,
       "unphased": false,
       "hasMessages": false
@@ -6969,6 +7050,194 @@
     }
   ],
   "guidelines": [
+    {
+      "uncalledGenes": "",
+      "geneCalls": [
+        {
+          "gene": "HLA-B",
+          "diplotypes": "*15:02/*57:01",
+          "showHighlights": false,
+          "highlightedVariants": [],
+          "functions": "N/A",
+          "outsideCall": true
+        }
+      ],
+      "drugs": "abacavir",
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Significantly increased risk of abacavir hypersensitivity",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "HLA-B*57:01 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "Abacavir is not recommended",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
+      "url": "https://cpicpgx.org/guidelines/guideline-for-abacavir-and-hla-b/",
+      "mutliMatch": false,
+      "citations": [
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for HLA-B Genotype and Abacavir Dosing",
+          "authors": [
+            "Martin M A",
+            "Klein T E",
+            "Dong B J",
+            "Pirmohamed M",
+            "Haas D W",
+            "Kroetz D L"
+          ],
+          "pmid": "22378157",
+          "pmcid": "PMC3374459",
+          "doi": "10.1038/clpt.2011.355",
+          "month": 2,
+          "year": 2012
+        },
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Abacavir Dosing: 2014 update",
+          "authors": [
+            "Martin Michael A",
+            "Hoffman James M",
+            "Freimuth Robert R",
+            "Klein Teri E",
+            "Dong Betty J",
+            "Pirmohamed Munir",
+            "Hicks J Kevin",
+            "Wilkinson Mark R",
+            "Haas David W",
+            "Kroetz Deanna L"
+          ],
+          "pmid": "24561393",
+          "pmcid": "PMC3994233",
+          "doi": "10.1038/clpt.2014.38",
+          "month": 2,
+          "year": 2014
+        }
+      ],
+      "messages": [],
+      "matched": true,
+      "id": "RxNorm:190521",
+      "lastModified": "not available",
+      "footnotes": []
+    },
+    {
+      "uncalledGenes": "",
+      "geneCalls": [
+        {
+          "gene": "HLA-B",
+          "diplotypes": "*15:02/*57:01",
+          "showHighlights": false,
+          "highlightedVariants": [],
+          "functions": "N/A",
+          "outsideCall": true
+        }
+      ],
+      "drugs": "allopurinol",
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Low or reduced risk of allopurinol-induced SCAR",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "HLA-B*58:01 negative",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "Use allopurinol per standard dosing guidelines",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
+      "url": "https://cpicpgx.org/guidelines/guideline-for-allopurinol-and-hla-b/",
+      "mutliMatch": false,
+      "citations": [
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for human leukocyte antigen B (HLA-B) genotype and allopurinol dosing: 2015 update",
+          "authors": [
+            "Saito Y",
+            "Stamp L K",
+            "Caudle K E",
+            "Hershfield M S",
+            "McDonagh E M",
+            "Callaghan J T",
+            "Tassaneeyakul W",
+            "Mushiroda T",
+            "Kamatani N",
+            "Goldspiel B R",
+            "Phillips E J",
+            "Klein T E",
+            "Lee Mtm"
+          ],
+          "pmid": "26094938",
+          "pmcid": "PMC4675696",
+          "doi": "10.1002/cpt.161",
+          "month": 6,
+          "year": 2015
+        },
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for Human Leukocyte Antigen-B Genotype and Allopurinol Dosing",
+          "authors": [
+            "Hershfield M S",
+            "Callaghan J T",
+            "Tassaneeyakul W",
+            "Mushiroda T",
+            "Thorn C F",
+            "Klein T E",
+            "Lee M T M"
+          ],
+          "pmid": "23232549",
+          "pmcid": "PMC3564416",
+          "doi": "10.1038/clpt.2012.209",
+          "month": 10,
+          "year": 2012
+        }
+      ],
+      "messages": [],
+      "matched": true,
+      "id": "RxNorm:519",
+      "lastModified": "not available",
+      "footnotes": []
+    },
     {
       "uncalledGenes": "",
       "geneCalls": [
@@ -7279,42 +7548,6 @@
         {
           "annotations": [
             {
-              "annotation": "adults",
-              "term": "Population"
-            },
-            {
-              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "pediatrics",
               "term": "Population"
             },
@@ -7344,6 +7577,42 @@
             },
             {
               "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "adults",
+              "term": "Population"
+            },
+            {
+              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
               "term": "Comments"
             }
           ]
@@ -7524,7 +7793,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
       ],
       "matched": true,
       "id": "RxNorm:83367",
@@ -7776,6 +8046,85 @@
       "footnotes": []
     },
     {
+      "uncalledGenes": "HLA-A",
+      "geneCalls": [
+        {
+          "gene": "HLA-A",
+          "diplotypes": "not called",
+          "showHighlights": false,
+          "highlightedVariants": [],
+          "functions": null,
+          "outsideCall": false
+        },
+        {
+          "gene": "HLA-B",
+          "diplotypes": "*15:02/*57:01",
+          "showHighlights": false,
+          "highlightedVariants": [],
+          "functions": "N/A",
+          "outsideCall": true
+        }
+      ],
+      "drugs": "carbamazepine",
+      "groups": [],
+      "reportable": true,
+      "url": "https://cpicpgx.org/guidelines/guideline-for-carbamazepine-and-hla-b/",
+      "mutliMatch": false,
+      "citations": [
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Carbamazepine Dosing",
+          "authors": [
+            "Leckband Susan G",
+            "Kelsoe John R",
+            "Dunnenberger H Mark",
+            "George Alfred L",
+            "Tran Eric",
+            "Berger Reisel",
+            "Müller Daniel J",
+            "Whirl-Carrillo Michelle",
+            "Caudle Kelly E",
+            "Pirmohamed Munir"
+          ],
+          "pmid": "23695185",
+          "pmcid": "PMC3748365",
+          "doi": "10.1038/clpt.2013.103",
+          "month": 5,
+          "year": 2013
+        },
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for HLA Genotype and Use of Carbamazepine and Oxcarbazepine: 2017 Update.",
+          "authors": [
+            "Phillips Elizabeth J",
+            "Sukasem Chonlaphat",
+            "Whirl-Carrillo Michelle",
+            "Müller Daniel J",
+            "Dunnenberger Henry M",
+            "Chantratita Wasun",
+            "Goldspiel Barry",
+            "Chen Yuan-Tsong",
+            "Carleton Bruce C",
+            "George Alfred L",
+            "Mushiroda Taisei",
+            "Klein Teri",
+            "Gammal Roseann S",
+            "Pirmohamed Munir"
+          ],
+          "pmid": "29392710",
+          "pmcid": "PMC5847474",
+          "doi": "10.1002/cpt.1004",
+          "month": 4,
+          "year": 2018
+        }
+      ],
+      "messages": [],
+      "matched": false,
+      "id": "RxNorm:2002",
+      "lastModified": "not available",
+      "footnotes": []
+    },
+    {
       "uncalledGenes": "",
       "geneCalls": [
         {
@@ -7848,7 +8197,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:140587",
@@ -8079,38 +8429,6 @@
         {
           "annotations": [
             {
-              "annotation": "NVI",
-              "term": "Population"
-            },
-            {
-              "annotation": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity",
-              "term": "Implication for CYP2C19"
-            },
-            {
-              "annotation": "CYP2C19:*38/*38",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C19"
-            },
-            {
-              "annotation": "If considering clopidogrel, use at standard dose (75 mg/day)",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "CVI ACS PCI ",
               "term": "Population"
             },
@@ -8136,6 +8454,38 @@
             },
             {
               "annotation": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "NVI",
+              "term": "Population"
+            },
+            {
+              "annotation": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity",
+              "term": "Implication for CYP2C19"
+            },
+            {
+              "annotation": "CYP2C19:*38/*38",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C19"
+            },
+            {
+              "annotation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
               "term": "Comments"
             }
           ]
@@ -9241,7 +9591,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:4502",
@@ -9407,7 +9758,9 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.",
+        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
       ],
       "matched": true,
       "id": "RxNorm:41127",
@@ -9498,6 +9851,176 @@
       ],
       "matched": true,
       "id": "RxNorm:42355",
+      "lastModified": "not available",
+      "footnotes": []
+    },
+    {
+      "uncalledGenes": "",
+      "geneCalls": [
+        {
+          "gene": "CYP2C9",
+          "diplotypes": "*1/*1",
+          "showHighlights": false,
+          "highlightedVariants": [],
+          "functions": "Two normal function alleles",
+          "outsideCall": false
+        },
+        {
+          "gene": "HLA-B",
+          "diplotypes": "*15:02/*57:01",
+          "showHighlights": false,
+          "highlightedVariants": [],
+          "functions": "N/A",
+          "outsideCall": true
+        }
+      ],
+      "drugs": "fosphenytoin",
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "PHT naive",
+              "term": "Population"
+            },
+            {
+              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "Normal phenytoin metabolism",
+              "term": "Implication for CYP2C9"
+            },
+            {
+              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C9"
+            },
+            {
+              "annotation": "2.0",
+              "term": "Activity Score for CYP2C9"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "PHT use \u003e3mos",
+              "term": "Population"
+            },
+            {
+              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "Normal phenytoin metabolism",
+              "term": "Implication for CYP2C9"
+            },
+            {
+              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C9"
+            },
+            {
+              "annotation": "2.0",
+              "term": "Activity Score for CYP2C9"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+              "term": "Comments"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
+      "url": "https://cpicpgx.org/guidelines/guideline-for-phenytoin-and-cyp2c9-and-hla-b/",
+      "mutliMatch": true,
+      "citations": [
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP2C9 and HLA-B Genotype and Phenytoin Dosing",
+          "authors": [
+            "Caudle Kelly E",
+            "Rettie Allan E",
+            "Whirl-Carrillo Michelle",
+            "Smith Lisa H",
+            "Mintzer Scott E",
+            "Lee Ming Ta Michael",
+            "Klein Teri E",
+            "Callaghan J Thomas"
+          ],
+          "pmid": "25099164",
+          "pmcid": "PMC4206662",
+          "doi": "10.1038/clpt.2014.159",
+          "month": 8,
+          "year": 2014
+        },
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C9 and HLA-B Genotypes and Phenytoin Dosing: 2020 Update.",
+          "authors": [
+            "Karnes Jason H",
+            "Rettie Allan E",
+            "Somogyi Andrew A",
+            "Huddart Rachel",
+            "Fohner Alison E",
+            "Formea Christine M",
+            "Lee Ming Ta Michael",
+            "Llerena Adrian",
+            "Whirl-Carrillo Michelle",
+            "Klein Teri E",
+            "Phillips Elizabeth J",
+            "Mintzer Scott",
+            "Gaedigk Andrea",
+            "Caudle Kelly E",
+            "Callaghan John T"
+          ],
+          "pmid": "32779747",
+          "pmcid": null,
+          "doi": null,
+          "month": 8,
+          "year": 2020
+        }
+      ],
+      "messages": [
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+      ],
+      "matched": true,
+      "id": "RxNorm:72236",
       "lastModified": "not available",
       "footnotes": []
     },
@@ -9886,7 +10409,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:5640",
@@ -10427,7 +10951,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:20890",
@@ -10573,7 +11098,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
       ],
       "matched": true,
       "id": "RxNorm:6472",
@@ -10653,7 +11179,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:41493",
@@ -11187,6 +11714,142 @@
       "uncalledGenes": "",
       "geneCalls": [
         {
+          "gene": "HLA-B",
+          "diplotypes": "*15:02/*57:01",
+          "showHighlights": false,
+          "highlightedVariants": [],
+          "functions": "N/A",
+          "outsideCall": true
+        }
+      ],
+      "drugs": "oxcarbazepine",
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "OXC use \u003e3 mos",
+              "term": "Population"
+            },
+            {
+              "annotation": "Greater risk of oxcarbazepine-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used oxcarbazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of oxcarbazepine in the future.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "OXC naive",
+              "term": "Population"
+            },
+            {
+              "annotation": "Greater risk of oxcarbazepine-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If patient is oxcarbazepine-naïve, do not use oxcarbazepine.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+              "term": "Comments"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
+      "url": "https://cpicpgx.org/guidelines/guideline-for-carbamazepine-and-hla-b/",
+      "mutliMatch": true,
+      "citations": [
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Carbamazepine Dosing",
+          "authors": [
+            "Leckband Susan G",
+            "Kelsoe John R",
+            "Dunnenberger H Mark",
+            "George Alfred L",
+            "Tran Eric",
+            "Berger Reisel",
+            "Müller Daniel J",
+            "Whirl-Carrillo Michelle",
+            "Caudle Kelly E",
+            "Pirmohamed Munir"
+          ],
+          "pmid": "23695185",
+          "pmcid": "PMC3748365",
+          "doi": "10.1038/clpt.2013.103",
+          "month": 5,
+          "year": 2013
+        },
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for HLA Genotype and Use of Carbamazepine and Oxcarbazepine: 2017 Update.",
+          "authors": [
+            "Phillips Elizabeth J",
+            "Sukasem Chonlaphat",
+            "Whirl-Carrillo Michelle",
+            "Müller Daniel J",
+            "Dunnenberger Henry M",
+            "Chantratita Wasun",
+            "Goldspiel Barry",
+            "Chen Yuan-Tsong",
+            "Carleton Bruce C",
+            "George Alfred L",
+            "Mushiroda Taisei",
+            "Klein Teri",
+            "Gammal Roseann S",
+            "Pirmohamed Munir"
+          ],
+          "pmid": "29392710",
+          "pmcid": "PMC5847474",
+          "doi": "10.1002/cpt.1004",
+          "month": 4,
+          "year": 2018
+        }
+      ],
+      "messages": [],
+      "matched": true,
+      "id": "RxNorm:32624",
+      "lastModified": "not available",
+      "footnotes": []
+    },
+    {
+      "uncalledGenes": "",
+      "geneCalls": [
+        {
           "gene": "CYP2C19",
           "diplotypes": "*38/*38",
           "showHighlights": false,
@@ -11534,6 +12197,177 @@
           "highlightedVariants": [],
           "functions": "Two normal function alleles",
           "outsideCall": false
+        },
+        {
+          "gene": "HLA-B",
+          "diplotypes": "*15:02/*57:01",
+          "showHighlights": false,
+          "highlightedVariants": [],
+          "functions": "N/A",
+          "outsideCall": true
+        }
+      ],
+      "drugs": "phenytoin",
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "PHT naive",
+              "term": "Population"
+            },
+            {
+              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "Normal phenytoin metabolism",
+              "term": "Implication for CYP2C9"
+            },
+            {
+              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C9"
+            },
+            {
+              "annotation": "2.0",
+              "term": "Activity Score for CYP2C9"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "PHT use \u003e3mos",
+              "term": "Population"
+            },
+            {
+              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "Normal phenytoin metabolism",
+              "term": "Implication for CYP2C9"
+            },
+            {
+              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C9"
+            },
+            {
+              "annotation": "2.0",
+              "term": "Activity Score for CYP2C9"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+              "term": "Comments"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
+      "url": "https://cpicpgx.org/guidelines/guideline-for-phenytoin-and-cyp2c9-and-hla-b/",
+      "mutliMatch": true,
+      "citations": [
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP2C9 and HLA-B Genotype and Phenytoin Dosing",
+          "authors": [
+            "Caudle Kelly E",
+            "Rettie Allan E",
+            "Whirl-Carrillo Michelle",
+            "Smith Lisa H",
+            "Mintzer Scott E",
+            "Lee Ming Ta Michael",
+            "Klein Teri E",
+            "Callaghan J Thomas"
+          ],
+          "pmid": "25099164",
+          "pmcid": "PMC4206662",
+          "doi": "10.1038/clpt.2014.159",
+          "month": 8,
+          "year": 2014
+        },
+        {
+          "journal": "Clinical pharmacology and therapeutics",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C9 and HLA-B Genotypes and Phenytoin Dosing: 2020 Update.",
+          "authors": [
+            "Karnes Jason H",
+            "Rettie Allan E",
+            "Somogyi Andrew A",
+            "Huddart Rachel",
+            "Fohner Alison E",
+            "Formea Christine M",
+            "Lee Ming Ta Michael",
+            "Llerena Adrian",
+            "Whirl-Carrillo Michelle",
+            "Klein Teri E",
+            "Phillips Elizabeth J",
+            "Mintzer Scott",
+            "Gaedigk Andrea",
+            "Caudle Kelly E",
+            "Callaghan John T"
+          ],
+          "pmid": "32779747",
+          "pmcid": null,
+          "doi": null,
+          "month": 8,
+          "year": 2020
+        }
+      ],
+      "messages": [
+        "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin.",
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+      ],
+      "matched": true,
+      "id": "RxNorm:8183",
+      "lastModified": "not available",
+      "footnotes": []
+    },
+    {
+      "uncalledGenes": "",
+      "geneCalls": [
+        {
+          "gene": "CYP2C9",
+          "diplotypes": "*1/*1",
+          "showHighlights": false,
+          "highlightedVariants": [],
+          "functions": "Two normal function alleles",
+          "outsideCall": false
         }
       ],
       "drugs": "piroxicam",
@@ -11597,7 +12431,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:8356",
@@ -11743,7 +12578,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
       ],
       "matched": true,
       "id": "RxNorm:861634",
@@ -11970,7 +12806,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
       ],
       "matched": true,
       "id": "RxNorm:42463",
@@ -12055,14 +12892,14 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "ABCG2",
       "geneCalls": [
         {
           "gene": "ABCG2",
-          "diplotypes": "rs2231142 reference (G)/rs2231142 reference (G)",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "Two normal function alleles",
+          "functions": null,
           "outsideCall": false
         },
         {
@@ -12085,7 +12922,7 @@
               "term": "Population"
             },
             {
-              "annotation": "Typical myopathy risk and rosuvastatin exposure",
+              "annotation": "n/a",
               "term": "Implication for ABCG2"
             },
             {
@@ -12093,11 +12930,11 @@
               "term": "Implication for SLCO1B1"
             },
             {
-              "annotation": "ABCG2:rs2231142 reference (G)/rs2231142 reference (G), SLCO1B1:*1/*1",
+              "annotation": "ABCG2:Unknown/Unknown, SLCO1B1:*1/*1",
               "term": "Matched Diplotypes"
             },
             {
-              "annotation": "Normal Function",
+              "annotation": "No Result",
               "term": "Phenotype for ABCG2"
             },
             {
@@ -12105,7 +12942,7 @@
               "term": "Phenotype for SLCO1B1"
             },
             {
-              "annotation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+              "annotation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. ABCG2 genotype result is not available.",
               "term": "Recommendation"
             },
             {
@@ -12113,7 +12950,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
+              "annotation": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
               "term": "Comments"
             }
           ]
@@ -12209,7 +13046,9 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define ABCG2 alleles is missing which may change the matched genotype. See the gene section for ABCG2 for more information.",
+        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
       ],
       "matched": true,
       "id": "RxNorm:301542",
@@ -12533,7 +13372,8 @@
       ],
       "messages": [
         "The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.\u003cbr\u003e\u003cbr\u003eIn case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 defines SLCO1B1*5.",
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
       ],
       "matched": true,
       "id": "RxNorm:36567",
@@ -12963,7 +13803,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:37790",
@@ -13755,7 +14596,8 @@
       ],
       "messages": [
         "Please follow the flow chart in figure 2 of the \u003ca href\u003d\"https://www.pharmgkb.org/guideline/PA166104949\"\u003eCPIC warfarin guideline\u003c/a\u003e to determine the appropriate dosing recommendation.",
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
       ],
       "matched": true,
       "id": "RxNorm:11289",
@@ -13765,5 +14607,5 @@
       ]
     }
   ],
-  "title": "pharmcat_positions"
+  "title": "pharmcat.example"
 }

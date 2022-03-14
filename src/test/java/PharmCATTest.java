@@ -34,7 +34,7 @@ class PharmCATTest {
 
   private static final String sf_outsideCalls = "##Test Outside Call Data\n" +
       "#Gene\tDiplotype\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\tspecial case\tnomenclature version\n" +
-      "CYP2D6\tCYP2D6*1/CYP2D6*4\t?/?\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
+      "CYP2D6\tCYP2D6*1/CYP2D6*4\t\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
   private static final String sf_otherOutsideCalls = "CYP2D6\t*3/*4\nG6PD\tB (wildtype)/B (wildtype)\n";
   private static final String sf_mtrnr1OutsideCalls = "CYP2D6\t*3/*4\nG6PD\tB (wildtype)/B (wildtype)\nMT-RNR1\t1555A>G\n";
   private static final String sf_diplotypesTemplate = "\nmatcher: %s\nreporter: %s\nprint (displayCalls): %s";
@@ -73,8 +73,8 @@ class PharmCATTest {
    */
   @Test
   void testCounts() {
-    assertEquals(19, s_pharmcatTopMatch.getContext().getGeneReports().size());
-    assertEquals(66, s_pharmcatTopMatch.getContext().getDrugReports().size());
+    assertEquals(21, s_pharmcatTopMatch.getContext().getGeneReports().size());
+    assertEquals(72, s_pharmcatTopMatch.getContext().getDrugReports().size());
   }
 
   /**
@@ -246,7 +246,8 @@ class PharmCATTest {
         .variation("CYP2C19", "rs3758581", "G", "G");
     testWrapper.execute(s_outsideCallFilePath);
 
-    testWrapper.testCalledByMatcher("CYP2C19", "CYP2D6");
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testReportable("CYP2D6");
 
     testWrapper.testPrintCalls("CYP2D6", "*1/*4");
     testWrapper.testPrintCalls("CYP2C19", "*4/*17");
@@ -264,7 +265,8 @@ class PharmCATTest {
         .missing("CYP2C19", "rs3758581");
     testWrapper.execute(s_outsideCallFilePath);
 
-    testWrapper.testCalledByMatcher("CYP2C19", "CYP2D6");
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testReportable("CYP2D6");
 
     testWrapper.testPrintCalls("CYP2D6", "*1/*4");
     testWrapper.testPrintCalls("CYP2C19",  "*1/*4", "*4/*38");
@@ -298,7 +300,8 @@ class PharmCATTest {
         .variation("CYP2C19", "rs3758581", "G", "G");
     testWrapper.execute(s_outsideCallFilePath);
 
-    testWrapper.testCalledByMatcher("CYP2C19", "CYP2D6");
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testReportable("CYP2D6");
 
     testWrapper.testPrintCalls("CYP2D6", "*1/*4");
     testWrapper.testPrintCalls("CYP2C19", "*1/*4");
@@ -374,7 +377,7 @@ class PharmCATTest {
         .reference("DPYD");
     testWrapper.execute(s_outsideCallFilePath);
 
-    testWrapper.testCalledByMatcher("CYP2D6");
+    testWrapper.testReportable("CYP2D6");
     testWrapper.testPrintCalls("CYP2D6", "*1/*4");
     testWrapper.testLookup("CYP2D6", "*1", "*4");
 
@@ -1106,7 +1109,7 @@ class PharmCATTest {
 
     s_pharmcatTopMatch.testCalledByMatcher("CYP2C19");
     s_pharmcatTopMatch.testCalledByMatcher("CYP2C9");
-    s_pharmcatTopMatch.testCalledByMatcher("MT-RNR1");
+    s_pharmcatTopMatch.testReportable("MT-RNR1");
 
     s_pharmcatTopMatch.testMatchedGroups("amikacin", 1);
   }
@@ -1131,14 +1134,14 @@ class PharmCATTest {
 
 
   /**
-   * This tests the case when an outside call file contains two references to the same gene
-   * supplied. This should result in an error
+   * This tests the case when an outside call file contains an entry with both a diplotype and a phenotype which is an
+   * error.
    */
   @Test
   void testBadOutsideData() throws Exception {
     Path badOutsideDataPath = Files.createTempFile("outsideCall", ".tsv");
     try (FileWriter fw = new FileWriter(badOutsideDataPath.toFile())) {
-      fw.write("CYP2D6\t*1/*2\nCYP2D6\t*3/*4");
+      fw.write("CYP2D6\t*1/*2\tfoo\nCYP2D6\t*3/*4");
     }
 
     try {
@@ -1311,6 +1314,12 @@ class PharmCATTest {
 
       Arrays.stream(genes)
           .forEach(g -> assertTrue(getContext().getGeneReport(g).isCalled(), g + " is not called"));
+    }
+
+    private void testReportable(String... genes) {
+      assertTrue(genes != null && genes.length > 0);
+      Arrays.stream(genes)
+          .forEach(g -> assertTrue(getContext().getGeneReport(g).isReportable(), g + " is not reportable"));
     }
 
     /**

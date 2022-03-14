@@ -170,7 +170,7 @@ public class ReportContext {
    * @param geneSymbol the gene symbol
    */
   private void addGeneReport(String geneSymbol) {
-    if (!findGeneReport(geneSymbol).isPresent()) {
+    if (findGeneReport(geneSymbol).isEmpty()) {
       f_geneReports.add(new GeneReport(geneSymbol));
     }
   }
@@ -202,8 +202,8 @@ public class ReportContext {
       totalGenes += 1;
 
       // skip any uncalled genes
-      boolean isCompletelyUnknown = geneReport.getVariantReports().stream().allMatch(VariantReport::isMissing);
-      if (!geneReport.isCalled() && (geneReport.getReporterDiplotypes().isEmpty() || isCompletelyUnknown)) {
+      boolean allVariantsMissing = geneReport.getVariantReports().stream().allMatch(VariantReport::isMissing);
+      if ((!geneReport.isCalled() || allVariantsMissing) && (geneReport.getReporterDiplotypes().isEmpty())) {
         continue;
       }
 
@@ -213,7 +213,7 @@ public class ReportContext {
 
       Map<String,Object> genotype = new HashMap<>();
       genotype.put("gene", geneReport.getGeneDisplay());
-      genotype.put("called", geneReport.isCalled());
+      genotype.put("called", geneReport.isReportable());
       genotype.put("drugs", geneReport.getRelatedDrugs());
       genotype.put("calls", geneReport.printDisplayCalls());
       genotype.put("functions", geneReport.printDisplayFunctions());
@@ -225,7 +225,7 @@ public class ReportContext {
 
       genotypes.add(genotype);
 
-      if (geneReport.isCalled()) {
+      if (geneReport.isReportable()) {
         calledGenes += 1;
       }
     }
@@ -253,7 +253,7 @@ public class ReportContext {
       List<Map<String,Object>> geneCallList = new ArrayList<>();
       for (String gene : drugReport.getRelatedGeneSymbols()) {
         findGeneReport(gene).ifPresent((geneReport) -> {
-          String functions = geneReport.isCalled() ? String.join("; ", geneReport.printDisplayFunctions()) : null;
+          String functions = geneReport.isReportable() ? String.join("; ", geneReport.printDisplayFunctions()) : null;
           Map<String,Object> geneCall = new LinkedHashMap<>();
           geneCall.put("gene", geneReport.getGeneDisplay());
           geneCall.put("diplotypes", String.join(", ", geneReport.printDisplayCalls()));
@@ -462,7 +462,7 @@ public class ReportContext {
     if (geneReportOpt.isPresent()) {
       GeneReport geneReport = geneReportOpt.get();
       if (geneReport.getReporterDiplotypes().size() > 0) {
-        return geneReport.getReporterDiplotypes().stream().map(Diplotype::getLookupKey);
+        return geneReport.getReporterDiplotypes().stream().flatMap((d) -> d.getLookupKeys().stream());
       }
     }
     return Stream.of("No Result");
@@ -478,7 +478,7 @@ public class ReportContext {
     SortedSet<String> diplotypes = new TreeSet<>();
     for (String gene : phenotypeKey.keySet()) {
       findGeneReport(gene).ifPresent((r) -> r.getReporterDiplotypes().stream()
-          .filter((d) -> d.getLookupKey() != null && d.getLookupKey().equals(phenotypeKey.get(gene)))
+          .filter((d) -> d.getLookupKeys() != null && d.getLookupKeys().contains(phenotypeKey.get(gene)))
           .forEach((d) -> diplotypes.add(gene + ":" + d.printDisplay())));
     }
     return diplotypes;

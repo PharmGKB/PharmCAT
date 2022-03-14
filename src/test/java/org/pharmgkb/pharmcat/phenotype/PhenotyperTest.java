@@ -36,7 +36,8 @@ class PhenotyperTest {
         readMatchData("Cyp2C19Het_call.json"),
         OutsideCallParser.parse("CYP2D6\t*1/*3"), warnings);
 
-    assertCalledByMatcher(phenotyper, "CYP2C19", "CYP2D6");
+    assertCalledByMatcher(phenotyper, "CYP2C19");
+    assertReportable(phenotyper, "CYP2D6");
     assertNotCalledByMatcher(phenotyper, "CYP2C9");
 
     assertDiplotypeDisplay(phenotyper, "CYP2C19", "*1/*4");
@@ -55,7 +56,7 @@ class PhenotyperTest {
         new ArrayList<>(),
         OutsideCallParser.parse("CYP2D6\t*1/*3"), null);
 
-    assertCalledByMatcher(phenotyper, "CYP2D6");
+    assertReportable(phenotyper, "CYP2D6");
 
     assertFalse(phenotyper.findGeneReport("CYP2C9").isPresent(),
         "CYP2C9 report should not be present since the NamedAlleleMatcher was never called");
@@ -141,6 +142,11 @@ class PhenotyperTest {
   private void assertCalledByMatcher(Phenotyper phenotyper, String... genes) {
     Arrays.stream(genes)
         .forEach(g -> assertTrue(phenotyper.findGeneReport(g).orElseThrow(unfoundGene).isCalled(), g + " is not called"));
+  }
+
+  private void assertReportable(Phenotyper phenotyper, String... genes) {
+    Arrays.stream(genes)
+        .forEach(g -> assertTrue(phenotyper.findGeneReport(g).orElseThrow(unfoundGene).isReportable(), g + " is not reportable"));
   }
 
   /**

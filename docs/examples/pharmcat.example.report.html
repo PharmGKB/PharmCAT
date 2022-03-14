@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>
-    PharmCAT Report [pharmcat_positions]
+    PharmCAT Report [pharmcat.example]
   </title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -211,11 +211,11 @@
 <h1>PharmCAT Report</h1>
 
 <table class="table-small">
-  <tr><th>Title</th><td>pharmcat_positions</td></tr>
-  <tr><th>Date created</th><td>March 29, 2022</td></tr>
-  <tr><th>PharmCAT Version</th><td>v1.5.1-24-gb57a6e2b
+  <tr><th>Title</th><td>pharmcat.example</td></tr>
+  <tr><th>Date created</th><td>March 24, 2022</td></tr>
+  <tr><th>PharmCAT Version</th><td>v1.5.1-29-gb3d1bbd9
 </td></tr>
-  <tr><th>CPIC Version</th><td>v1.16</td></tr>
+  <tr><th>CPIC Version</th><td>v1.14</td></tr>
 </table>
 
 <div class="alert alert-info">
@@ -238,7 +238,7 @@
 <section id="genotypes">
   <h2>Genotype Summary</h2>
 
-  <p>Genotypes called: 19 / 19 </p>
+  <p>Genotypes called: 19 / 20 </p>
 
   <table>
     <thead>
@@ -264,7 +264,7 @@
           <div style="display: flex;">
             <div>
               
-                <div>rs2231142 reference (G)/rs2231142 reference (G)</div>
+                <div>not called</div>
               
             </div>
             
@@ -272,16 +272,16 @@
         </td>
         <td>
           
-            <div>Two normal function alleles</div>
+            <div>N/A</div>
           
         </td>
         <td>
           
-            <div>Normal Function</div>
+            <div>N/A</div>
           
         </td>
         <td>
-          No
+          Yes
         </td>
       </tr>
     
@@ -459,11 +459,15 @@
         
           <div class="drugName"><a href="#RxNorm:41127">fluvastatin</a></div>
         
+          <div class="drugName"><a href="#RxNorm:72236">fosphenytoin</a></div>
+        
           <div class="drugName"><a href="#RxNorm:5640">ibuprofen</a></div>
         
           <div class="drugName"><a href="#RxNorm:20890">lornoxicam</a></div>
         
           <div class="drugName"><a href="#RxNorm:41493">meloxicam</a></div>
+        
+          <div class="drugName"><a href="#RxNorm:8183">phenytoin</a></div>
         
           <div class="drugName"><a href="#RxNorm:8356">piroxicam</a></div>
         
@@ -495,7 +499,7 @@
           
         </td>
         <td>
-          No
+          Yes
         </td>
       </tr>
     
@@ -534,7 +538,7 @@
           <div class="drugName"><a href="#RxNorm:27392">tropisetron</a></div>
         </td>
         <td>
-          <a href="#CYP2D6">CYP2D6</a><sup><a href="#genotypes-dagger">&dagger;</a></sup>
+          <a href="#CYP2D6">CYP2D6</a>
         </td>
         <td>
           <div style="display: flex;">
@@ -684,6 +688,48 @@
         <td>
           
             <div>Normal</div>
+          
+        </td>
+        <td>
+          N/A
+        </td>
+      </tr>
+    
+      <tr>
+        <td>
+          <div class="drugName"><a href="#RxNorm:190521">abacavir</a></div>
+        
+          <div class="drugName"><a href="#RxNorm:519">allopurinol</a></div>
+        
+          <div class="drugName"><a href="#RxNorm:2002">carbamazepine</a></div>
+        
+          <div class="drugName"><a href="#RxNorm:72236">fosphenytoin</a></div>
+        
+          <div class="drugName"><a href="#RxNorm:32624">oxcarbazepine</a></div>
+        
+          <div class="drugName"><a href="#RxNorm:8183">phenytoin</a></div>
+        </td>
+        <td>
+          <a href="#HLA-B">HLA-B</a>
+        </td>
+        <td>
+          <div style="display: flex;">
+            <div>
+              
+                <div>*15:02/*57:01</div>
+              
+            </div>
+            
+          </div>
+        </td>
+        <td>
+          
+            <div>N/A</div>
+          
+        </td>
+        <td>
+          
+            <div>*15:02 positive; *57:01 positive; *58:01 negative</div>
           
         </td>
         <td>
@@ -889,7 +935,7 @@
           
         </td>
         <td>
-          No
+          Yes
         </td>
       </tr>
     
@@ -1013,6 +1059,148 @@
 <section id="guidelines">
   <h2>CPIC Recommendations</h2>
 
+  
+    <section class="guideline">
+      <h3 id="RxNorm:190521">abacavir</h3>
+
+      <section>
+        
+          <div class="geneCall">
+            <a href="#HLA-B">HLA-B: *15:02/*57:01</a>
+            <span>N/A</span>
+             (from Outside Call)
+          </div>
+          
+        
+      </section>
+
+      
+
+      <section>
+        
+      </section>
+
+      
+      
+        
+      
+
+      
+
+      
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>general</td></tr>
+            
+              <tr><td>Implication for HLA-B</td><td>Significantly increased risk of abacavir hypersensitivity</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>HLA-B:*15:02/*57:01</td></tr>
+            
+              <tr><td>Allele Status for HLA-B</td><td>HLA-B*57:01 positive</td></tr>
+            
+              <tr><td>Recommendation</td><td>Abacavir is not recommended</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+            </tbody>
+          </table>
+        
+      
+
+      <section>
+        
+      </section>
+
+      <section>
+        <p>For more information read the <a href="https://cpicpgx.org/guidelines/guideline-for-abacavir-and-hla-b/">guideline on cpicpgx.org</a>.</p>
+        
+          <p>Citations:</p>
+          <ul>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/22378157">Clinical Pharmacogenetics Implementation Consortium Guidelines for HLA-B Genotype and Abacavir Dosing</a> [PMID:22378157] <em>Clinical pharmacology and therapeutics</em>. 2012.</li>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/24561393">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Abacavir Dosing: 2014 update</a> [PMID:24561393] <em>Clinical pharmacology and therapeutics</em>. 2014.</li>
+            
+          </ul>
+        
+      </section>
+    </section>
+  
+    <section class="guideline">
+      <h3 id="RxNorm:519">allopurinol</h3>
+
+      <section>
+        
+          <div class="geneCall">
+            <a href="#HLA-B">HLA-B: *15:02/*57:01</a>
+            <span>N/A</span>
+             (from Outside Call)
+          </div>
+          
+        
+      </section>
+
+      
+
+      <section>
+        
+      </section>
+
+      
+      
+        
+      
+
+      
+
+      
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>general</td></tr>
+            
+              <tr><td>Implication for HLA-B</td><td>Low or reduced risk of allopurinol-induced SCAR</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>HLA-B:*15:02/*57:01</td></tr>
+            
+              <tr><td>Allele Status for HLA-B</td><td>HLA-B*58:01 negative</td></tr>
+            
+              <tr><td>Recommendation</td><td>Use allopurinol per standard dosing guidelines</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+            </tbody>
+          </table>
+        
+      
+
+      <section>
+        
+      </section>
+
+      <section>
+        <p>For more information read the <a href="https://cpicpgx.org/guidelines/guideline-for-allopurinol-and-hla-b/">guideline on cpicpgx.org</a>.</p>
+        
+          <p>Citations:</p>
+          <ul>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/26094938">Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for human leukocyte antigen B (HLA-B) genotype and allopurinol dosing: 2015 update</a> [PMID:26094938] <em>Clinical pharmacology and therapeutics</em>. 2015.</li>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23232549">Clinical Pharmacogenetics Implementation Consortium Guidelines for Human Leukocyte Antigen-B Genotype and Allopurinol Dosing</a> [PMID:23232549] <em>Clinical pharmacology and therapeutics</em>. 2012.</li>
+            
+          </ul>
+        
+      </section>
+    </section>
   
     <section class="guideline">
       <h3 id="RxNorm:641">amikacin</h3>
@@ -1283,31 +1471,6 @@
             </thead>
             <tbody>
             
-              <tr><td>Population</td><td>adults</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1.0</td></tr>
-            
-              <tr><td>Recommendation</td><td>Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If <200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Moderate</td></tr>
-            
-              <tr><td>Comments</td><td>Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.</td></tr>
-            
-            </tbody>
-          </table>
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
               <tr><td>Population</td><td>pediatrics</td></tr>
             
               <tr><td>Implication for CYP2D6</td><td>Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.</td></tr>
@@ -1323,6 +1486,31 @@
               <tr><td>Classification of Recommendation</td><td>Moderate</td></tr>
             
               <tr><td>Comments</td><td>Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.</td></tr>
+            
+            </tbody>
+          </table>
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>adults</td></tr>
+            
+              <tr><td>Implication for CYP2D6</td><td>Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
+            
+              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2D6</td><td>1.0</td></tr>
+            
+              <tr><td>Recommendation</td><td>Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If <200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Moderate</td></tr>
+            
+              <tr><td>Comments</td><td>Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.</td></tr>
             
             </tbody>
           </table>
@@ -1367,6 +1555,8 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
         
       </section>
 
@@ -1587,6 +1777,63 @@
     </section>
   
     <section class="guideline">
+      <h3 id="RxNorm:2002">carbamazepine</h3>
+
+      <section>
+        
+          <div class="geneCall">
+            <a href="#HLA-A">HLA-A: not called</a>
+            <span></span>
+            
+          </div>
+          
+        
+          <div class="geneCall">
+            <a href="#HLA-B">HLA-B: *15:02/*57:01</a>
+            <span>N/A</span>
+             (from Outside Call)
+          </div>
+          
+        
+      </section>
+
+      
+
+      <section>
+        
+      </section>
+
+      
+      
+        
+          <div class="alert alert-warning">No CPIC recommendation for this allele combination.</div>
+        
+      
+
+      
+
+      
+
+      <section>
+        
+      </section>
+
+      <section>
+        <p>For more information read the <a href="https://cpicpgx.org/guidelines/guideline-for-carbamazepine-and-hla-b/">guideline on cpicpgx.org</a>.</p>
+        
+          <p>Citations:</p>
+          <ul>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23695185">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Carbamazepine Dosing</a> [PMID:23695185] <em>Clinical pharmacology and therapeutics</em>. 2013.</li>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/29392710">Clinical Pharmacogenetics Implementation Consortium Guideline for HLA Genotype and Use of Carbamazepine and Oxcarbazepine: 2017 Update.</a> [PMID:29392710] <em>Clinical pharmacology and therapeutics</em>. 2018.</li>
+            
+          </ul>
+        
+      </section>
+    </section>
+  
+    <section class="guideline">
       <h3 id="RxNorm:140587">celecoxib</h3>
 
       <section>
@@ -1605,6 +1852,8 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
         
       </section>
 
@@ -1851,29 +2100,6 @@
             </thead>
             <tbody>
             
-              <tr><td>Population</td><td>NVI</td></tr>
-            
-              <tr><td>Implication for CYP2C19</td><td>Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2C19:*38/*38</td></tr>
-            
-              <tr><td>Phenotype for CYP2C19</td><td>Normal Metabolizer</td></tr>
-            
-              <tr><td>Recommendation</td><td>If considering clopidogrel, use at standard dose (75 mg/day)</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
-            
-              <tr><td>Comments</td><td>For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.</td></tr>
-            
-            </tbody>
-          </table>
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
               <tr><td>Population</td><td>CVI ACS PCI </td></tr>
             
               <tr><td>Implication for CYP2C19</td><td>Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity</td></tr>
@@ -1887,6 +2113,29 @@
               <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
             
               <tr><td>Comments</td><td>For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.</td></tr>
+            
+            </tbody>
+          </table>
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>NVI</td></tr>
+            
+              <tr><td>Implication for CYP2C19</td><td>Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C19:*38/*38</td></tr>
+            
+              <tr><td>Phenotype for CYP2C19</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Recommendation</td><td>If considering clopidogrel, use at standard dose (75 mg/day)</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.</td></tr>
             
             </tbody>
           </table>
@@ -2643,6 +2892,8 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
+        
       </section>
 
       
@@ -2724,6 +2975,10 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
+        
+          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
         
       </section>
 
@@ -2855,6 +3110,125 @@
           <ul>
             
               <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/25974703">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors</a> [PMID:25974703] <em>Clinical pharmacology and therapeutics</em>. 2015.</li>
+            
+          </ul>
+        
+      </section>
+    </section>
+  
+    <section class="guideline">
+      <h3 id="RxNorm:72236">fosphenytoin</h3>
+
+      <section>
+        
+          <div class="geneCall">
+            <a href="#CYP2C9">CYP2C9: *1/*1</a>
+            <span>Two normal function alleles</span>
+            
+          </div>
+          
+        
+          <div class="geneCall">
+            <a href="#HLA-B">HLA-B: *15:02/*57:01</a>
+            <span>N/A</span>
+             (from Outside Call)
+          </div>
+          
+        
+      </section>
+
+      
+
+      <section>
+        
+          <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
+        
+      </section>
+
+      
+      
+        
+      
+
+      
+
+      
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>PHT naive</td></tr>
+            
+              <tr><td>Implication for HLA-B</td><td>Increased risk of phenytoin-induced SJS/TEN</td></tr>
+            
+              <tr><td>Implication for CYP2C9</td><td>Normal phenytoin metabolism</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C9:*1/*1, HLA-B:*15:02/*57:01</td></tr>
+            
+              <tr><td>Phenotype for CYP2C9</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2C9</td><td>2.0</td></tr>
+            
+              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
+            
+              <tr><td>Recommendation</td><td>If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.</td></tr>
+            
+            </tbody>
+          </table>
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>PHT use >3mos</td></tr>
+            
+              <tr><td>Implication for HLA-B</td><td>Increased risk of phenytoin-induced SJS/TEN</td></tr>
+            
+              <tr><td>Implication for CYP2C9</td><td>Normal phenytoin metabolism</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C9:*1/*1, HLA-B:*15:02/*57:01</td></tr>
+            
+              <tr><td>Phenotype for CYP2C9</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2C9</td><td>2.0</td></tr>
+            
+              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
+            
+              <tr><td>Recommendation</td><td>If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
+            
+              <tr><td>Comments</td><td>Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.</td></tr>
+            
+            </tbody>
+          </table>
+        
+      
+
+      <section>
+        
+      </section>
+
+      <section>
+        <p>For more information read the <a href="https://cpicpgx.org/guidelines/guideline-for-phenytoin-and-cyp2c9-and-hla-b/">guideline on cpicpgx.org</a>.</p>
+        
+          <p>Citations:</p>
+          <ul>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/25099164">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP2C9 and HLA-B Genotype and Phenytoin Dosing</a> [PMID:25099164] <em>Clinical pharmacology and therapeutics</em>. 2014.</li>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/32779747">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C9 and HLA-B Genotypes and Phenytoin Dosing: 2020 Update.</a> [PMID:32779747] <em>Clinical pharmacology and therapeutics</em>. 2020.</li>
             
           </ul>
         
@@ -3108,6 +3482,8 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
         
       </section>
 
@@ -3559,6 +3935,8 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
+        
       </section>
 
       
@@ -3633,6 +4011,8 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
         
       </section>
 
@@ -3710,6 +4090,8 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
         
       </section>
 
@@ -4154,6 +4536,102 @@
     </section>
   
     <section class="guideline">
+      <h3 id="RxNorm:32624">oxcarbazepine</h3>
+
+      <section>
+        
+          <div class="geneCall">
+            <a href="#HLA-B">HLA-B: *15:02/*57:01</a>
+            <span>N/A</span>
+             (from Outside Call)
+          </div>
+          
+        
+      </section>
+
+      
+
+      <section>
+        
+      </section>
+
+      
+      
+        
+      
+
+      
+
+      
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>OXC use >3 mos</td></tr>
+            
+              <tr><td>Implication for HLA-B</td><td>Greater risk of oxcarbazepine-induced SJS/TEN</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>HLA-B:*15:02/*57:01</td></tr>
+            
+              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
+            
+              <tr><td>Recommendation</td><td>The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used oxcarbazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of oxcarbazepine in the future.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
+            
+              <tr><td>Comments</td><td>Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.</td></tr>
+            
+            </tbody>
+          </table>
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>OXC naive</td></tr>
+            
+              <tr><td>Implication for HLA-B</td><td>Greater risk of oxcarbazepine-induced SJS/TEN</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>HLA-B:*15:02/*57:01</td></tr>
+            
+              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
+            
+              <tr><td>Recommendation</td><td>If patient is oxcarbazepine-naïve, do not use oxcarbazepine.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.</td></tr>
+            
+            </tbody>
+          </table>
+        
+      
+
+      <section>
+        
+      </section>
+
+      <section>
+        <p>For more information read the <a href="https://cpicpgx.org/guidelines/guideline-for-carbamazepine-and-hla-b/">guideline on cpicpgx.org</a>.</p>
+        
+          <p>Citations:</p>
+          <ul>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23695185">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Carbamazepine Dosing</a> [PMID:23695185] <em>Clinical pharmacology and therapeutics</em>. 2013.</li>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/29392710">Clinical Pharmacogenetics Implementation Consortium Guideline for HLA Genotype and Use of Carbamazepine and Oxcarbazepine: 2017 Update.</a> [PMID:29392710] <em>Clinical pharmacology and therapeutics</em>. 2018.</li>
+            
+          </ul>
+        
+      </section>
+    </section>
+  
+    <section class="guideline">
       <h3 id="RxNorm:40790">pantoprazole</h3>
 
       <section>
@@ -4463,6 +4941,127 @@
     </section>
   
     <section class="guideline">
+      <h3 id="RxNorm:8183">phenytoin</h3>
+
+      <section>
+        
+          <div class="geneCall">
+            <a href="#CYP2C9">CYP2C9: *1/*1</a>
+            <span>Two normal function alleles</span>
+            
+          </div>
+          
+        
+          <div class="geneCall">
+            <a href="#HLA-B">HLA-B: *15:02/*57:01</a>
+            <span>N/A</span>
+             (from Outside Call)
+          </div>
+          
+        
+      </section>
+
+      
+
+      <section>
+        
+          <div class="alert alert-info">The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele ("HLA-B*15:02-positive") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin.</div>
+        
+          <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
+        
+      </section>
+
+      
+      
+        
+      
+
+      
+
+      
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>PHT naive</td></tr>
+            
+              <tr><td>Implication for HLA-B</td><td>Increased risk of phenytoin-induced SJS/TEN</td></tr>
+            
+              <tr><td>Implication for CYP2C9</td><td>Normal phenytoin metabolism</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C9:*1/*1, HLA-B:*15:02/*57:01</td></tr>
+            
+              <tr><td>Phenotype for CYP2C9</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2C9</td><td>2.0</td></tr>
+            
+              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
+            
+              <tr><td>Recommendation</td><td>If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.</td></tr>
+            
+            </tbody>
+          </table>
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>PHT use >3mos</td></tr>
+            
+              <tr><td>Implication for HLA-B</td><td>Increased risk of phenytoin-induced SJS/TEN</td></tr>
+            
+              <tr><td>Implication for CYP2C9</td><td>Normal phenytoin metabolism</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C9:*1/*1, HLA-B:*15:02/*57:01</td></tr>
+            
+              <tr><td>Phenotype for CYP2C9</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2C9</td><td>2.0</td></tr>
+            
+              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
+            
+              <tr><td>Recommendation</td><td>If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
+            
+              <tr><td>Comments</td><td>Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.</td></tr>
+            
+            </tbody>
+          </table>
+        
+      
+
+      <section>
+        
+      </section>
+
+      <section>
+        <p>For more information read the <a href="https://cpicpgx.org/guidelines/guideline-for-phenytoin-and-cyp2c9-and-hla-b/">guideline on cpicpgx.org</a>.</p>
+        
+          <p>Citations:</p>
+          <ul>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/25099164">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP2C9 and HLA-B Genotype and Phenytoin Dosing</a> [PMID:25099164] <em>Clinical pharmacology and therapeutics</em>. 2014.</li>
+            
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/32779747">Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C9 and HLA-B Genotypes and Phenytoin Dosing: 2020 Update.</a> [PMID:32779747] <em>Clinical pharmacology and therapeutics</em>. 2020.</li>
+            
+          </ul>
+        
+      </section>
+    </section>
+  
+    <section class="guideline">
       <h3 id="RxNorm:8356">piroxicam</h3>
 
       <section>
@@ -4481,6 +5080,8 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
         
       </section>
 
@@ -4556,6 +5157,8 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
         
       </section>
 
@@ -4707,6 +5310,8 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
+        
       </section>
 
       
@@ -4841,8 +5446,8 @@
       <section>
         
           <div class="geneCall">
-            <a href="#ABCG2">ABCG2: rs2231142 reference (G)/rs2231142 reference (G)</a>
-            <span>Two normal function alleles</span>
+            <a href="#ABCG2">ABCG2: not called</a>
+            <span></span>
             
           </div>
           
@@ -4864,6 +5469,10 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define ABCG2 alleles is missing which may change the matched genotype. See the gene section for ABCG2 for more information.</div>
+        
+          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
+        
       </section>
 
       
@@ -4883,21 +5492,21 @@
             
               <tr><td>Population</td><td>general</td></tr>
             
-              <tr><td>Implication for ABCG2</td><td>Typical myopathy risk and rosuvastatin exposure</td></tr>
+              <tr><td>Implication for ABCG2</td><td>n/a</td></tr>
             
               <tr><td>Implication for SLCO1B1</td><td>Typical myopathy risk and statin exposure</td></tr>
             
-              <tr><td>Matched Diplotypes</td><td>ABCG2:rs2231142 reference (G)/rs2231142 reference (G), SLCO1B1:*1/*1</td></tr>
+              <tr><td>Matched Diplotypes</td><td>ABCG2:Unknown/Unknown, SLCO1B1:*1/*1</td></tr>
             
-              <tr><td>Phenotype for ABCG2</td><td>Normal Function</td></tr>
+              <tr><td>Phenotype for ABCG2</td><td>No Result</td></tr>
             
               <tr><td>Phenotype for SLCO1B1</td><td>Normal Function</td></tr>
             
-              <tr><td>Recommendation</td><td>Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.</td></tr>
+              <tr><td>Recommendation</td><td>Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. ABCG2 genotype result is not available.</td></tr>
             
               <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
             
-              <tr><td>Comments</td><td>The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.</td></tr>
+              <tr><td>Comments</td><td>The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.</td></tr>
             
             </tbody>
           </table>
@@ -5097,6 +5706,8 @@
           <div class="alert alert-info">The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.<br><br>In case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 defines SLCO1B1*5.</div>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
         
       </section>
 
@@ -5471,6 +6082,8 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
         
       </section>
 
@@ -6061,6 +6674,8 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
+        
       </section>
 
       
@@ -6127,6 +6742,10 @@
   
     <li><a href="#G6PD">G6PD allele match data</a></li>
   
+    <li><a href="#HLA-A">HLA-A allele match data</a></li>
+  
+    <li><a href="#HLA-B">HLA-B allele match data</a></li>
+  
     <li><a href="#IFNL3/4">IFNL3/4 allele match data</a></li>
   
     <li><a href="#MT-RNR1">MT-RNR1 allele match data</a></li>
@@ -6153,7 +6772,7 @@
       <h4>Genotype matched</h4>
       <ul>
         
-          <li>rs2231142 reference (G)/rs2231142 reference (G)</li>
+          <li>not called</li>
         
       </ul>
 
@@ -6161,6 +6780,10 @@
 
       
 
+      
+        <h4>Alleles Not Considered</h4>
+        <p>The following alleles are not considered due to 1 missing positions of the total 1 positions: rs2231142 reference (G), rs2231142 variant (T)</p>
+        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
       
 
       
@@ -6188,8 +6811,8 @@
               <td id="chr4_88131171">chr4:88131171</td>
               <td id="rs2231142">rs2231142</td>
               
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
-                <td class="">G|G</td>
               
               <td>
                 G
@@ -8602,6 +9225,10 @@
       
 
       
+        <h4>Alleles Not Considered</h4>
+        <p>The following alleles are not considered due to 4 missing positions of the total 70 positions: *72, *73, *74, *75</p>
+        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
+      
 
       
 
@@ -9085,46 +9712,6 @@
             </tr>
           
             <tr>
-              <td id="chr10_94942306">chr10:94942306</td>
-              <td id="rs1289704600">rs1289704600</td>
-              
-              
-                <td class="">C|C</td>
-              
-              <td>
-                C
-              </td>
-              <td>
-                *72 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94942308">chr10:94942308</td>
-              <td id="rs17847037">rs17847037</td>
-              
-              
-                <td class="">C|C</td>
-              
-              <td>
-                C
-              </td>
-              <td>
-                *73 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
               <td id="chr10_94942309">chr10:94942309</td>
               <td id="rs7900194">rs7900194</td>
               
@@ -9136,26 +9723,6 @@
               </td>
               <td>
                 *8 *27 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94947439">chr10:94947439</td>
-              <td id=""></td>
-              
-              
-                <td class="">G|G</td>
-              
-              <td>
-                G
-              </td>
-              <td>
-                *74 
               </td>
               <td>
                 <ul class="warningList">
@@ -9825,26 +10392,6 @@
             </tr>
           
             <tr>
-              <td id="chr10_94986136">chr10:94986136</td>
-              <td id="rs1254213342">rs1254213342</td>
-              
-              
-                <td class="">A|A</td>
-              
-              <td>
-                A
-              </td>
-              <td>
-                *75 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
               <td id="chr10_94988852">chr10:94988852</td>
               <td id="rs776908257">rs776908257</td>
               
@@ -10024,6 +10571,86 @@
               </td>
             </tr>
           
+            <tr>
+              <td id="chr10_94942306">chr10:94942306</td>
+              <td id="rs1289704600">rs1289704600</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *72 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94942308">chr10:94942308</td>
+              <td id="rs17847037">rs17847037</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *73 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94947439">chr10:94947439</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *74 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94986136">chr10:94986136</td>
+              <td id="rs1254213342">rs1254213342</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *75 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
           </tbody>
         </table>
       
@@ -10082,8 +10709,6 @@
         <div class="alert alert-info">No variant data available.</div>
       
 
-      
-        <div class="alert alert-warning">CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to <a href="https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles">the PharmCAT wiki</a> for more information.</div>
       
 
       
@@ -12058,6 +12683,71 @@
     </section>
   
     <section class="gene">
+      <h3 id="HLA-A">HLA-A allele match data</h3>
+
+      <h4>Genotype matched</h4>
+      <ul>
+        
+          <li>not called</li>
+        
+      </ul>
+
+      <p><strong>Phasing status:</strong> Unphased</p>
+
+      
+        <p>PharmCAT reports the genotype(s) that receive the highest score during the matcher process. In case of unphased data, additional genotypes might be possible and cannot be ruled out.</p>
+      
+
+      
+
+      
+
+      
+        <div class="alert alert-info">No variant data available.</div>
+      
+
+      
+
+      
+
+      
+    </section>
+  
+    <section class="gene">
+      <h3 id="HLA-B">HLA-B allele match data</h3>
+
+      <h4>Genotype reported</h4>
+      <ul>
+        
+          <li>*15:02/*57:01</li>
+        
+      </ul>
+
+      <p><strong>Phasing status:</strong> Unavailable for calls made outside PharmCAT</p>
+
+      
+
+      
+
+      
+        <div class="alert alert-info">
+          The call for HLA-B comes from an outside data source which does not supply position-level detail. For specific
+          disclaimers and limitations, see the original genotyping source.
+        </div>
+      
+
+      
+        <div class="alert alert-info">No variant data available.</div>
+      
+
+      
+
+      
+
+      
+    </section>
+  
+    <section class="gene">
       <h3 id="IFNL3/4">IFNL3/4 allele match data</h3>
 
       <h4>Genotype matched</h4>
@@ -13480,6 +14170,10 @@
       
 
       
+        <h4>Alleles Not Considered</h4>
+        <p>The following alleles are not considered due to 7 missing positions of the total 31 positions: *38, *41, *45</p>
+        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
+      
 
       
 
@@ -13623,26 +14317,6 @@
             </tr>
           
             <tr>
-              <td id="chr12_21176871">chr12:21176871</td>
-              <td id=""></td>
-              
-              
-                <td class="">G|G</td>
-              
-              <td>
-                G
-              </td>
-              <td>
-                *38 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
               <td id="chr12_21176879">chr12:21176879</td>
               <td id="rs11045819">rs11045819</td>
               
@@ -13674,46 +14348,6 @@
               </td>
               <td>
                 *3 *13 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21176898">chr12:21176898</td>
-              <td id="rs77271279">rs77271279</td>
-              
-              
-                <td class="">G|G</td>
-              
-              <td>
-                G
-              </td>
-              <td>
-                *41 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21178612">chr12:21178612</td>
-              <td id="rs141467543">rs141467543</td>
-              
-              
-                <td class="">A|A</td>
-              
-              <td>
-                A
-              </td>
-              <td>
-                *42 
               </td>
               <td>
                 <ul class="warningList">
@@ -13783,26 +14417,6 @@
             </tr>
           
             <tr>
-              <td id="chr12_21196975">chr12:21196975</td>
-              <td id="rs183501729">rs183501729</td>
-              
-              
-                <td class="">C|C</td>
-              
-              <td>
-                C
-              </td>
-              <td>
-                *39 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
               <td id="chr12_21196976">chr12:21196976</td>
               <td id="rs11045853">rs11045853</td>
               
@@ -13814,26 +14428,6 @@
               </td>
               <td>
                 *25 *28 *33 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21200544">chr12:21200544</td>
-              <td id="rs72559747">rs72559747</td>
-              
-              
-                <td class="">C|C</td>
-              
-              <td>
-                C
-              </td>
-              <td>
-                *47 
               </td>
               <td>
                 <ul class="warningList">
@@ -13983,46 +14577,6 @@
             </tr>
           
             <tr>
-              <td id="chr12_21206031">chr12:21206031</td>
-              <td id="rs74064213">rs74064213</td>
-              
-              
-                <td class="">A|A</td>
-              
-              <td>
-                A
-              </td>
-              <td>
-                *43 *44 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21222355">chr12:21222355</td>
-              <td id="rs71581941">rs71581941</td>
-              
-              
-                <td class="">C|C</td>
-              
-              <td>
-                C
-              </td>
-              <td>
-                *45 *46 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
               <td id="chr12_21239042">chr12:21239042</td>
               <td id="rs34671512">rs34671512</td>
               
@@ -14114,6 +14668,146 @@
               </td>
               <td>
                 *29 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21176871">chr12:21176871</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *38 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21176898">chr12:21176898</td>
+              <td id="rs77271279">rs77271279</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *41 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21178612">chr12:21178612</td>
+              <td id="rs141467543">rs141467543</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *42 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21196975">chr12:21196975</td>
+              <td id="rs183501729">rs183501729</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *39 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21200544">chr12:21200544</td>
+              <td id="rs72559747">rs72559747</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *47 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21206031">chr12:21206031</td>
+              <td id="rs74064213">rs74064213</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *43 *44 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21222355">chr12:21222355</td>
+              <td id="rs71581941">rs71581941</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *45 *46 
               </td>
               <td>
                 <ul class="warningList">

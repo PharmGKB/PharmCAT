@@ -42,7 +42,7 @@ class ReporterTest {
     DrugReport warfarinReport = reporter.getContext().getDrugReports().stream()
         .filter(d -> d.getRelatedDrugs().contains("warfarin")).findFirst()
         .orElseThrow(() -> new RuntimeException("No warfarin drug report found"));
-    assertEquals(3, warfarinReport.getMessages().size());
+    assertEquals(4, warfarinReport.getMessages().size());
 
     // test that recommendations were matched
     DrugReport desfluraneReport = reporter.getContext().getDrugReports().stream()

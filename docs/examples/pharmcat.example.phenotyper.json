@@ -4,7 +4,10 @@
     "chr": "chr4",
     "phased": true,
     "callSource": "MATCHER",
-    "uncalledHaplotypes": [],
+    "uncalledHaplotypes": [
+      "rs2231142 reference (G)",
+      "rs2231142 variant (T)"
+    ],
     "messages": [],
     "relatedDrugs": [
       {
@@ -16,42 +19,50 @@
       {
         "allele1": {
           "gene": "ABCG2",
-          "name": "rs2231142 reference (G)",
-          "function": "Normal function",
-          "reference": true
+          "name": "Unknown",
+          "function": "Unassigned function",
+          "reference": false
         },
         "allele2": {
           "gene": "ABCG2",
-          "name": "rs2231142 reference (G)",
-          "function": "Normal function",
-          "reference": true
+          "name": "Unknown",
+          "function": "Unassigned function",
+          "reference": false
         },
         "gene": "ABCG2",
-        "phenotype": "Normal Function",
+        "phenotypes": [
+          "No Result"
+        ],
         "variant": null,
-        "lookupKey": "Normal Function",
-        "label": "rs2231142 reference (G)/rs2231142 reference (G)"
+        "lookupKey": [
+          "No Result"
+        ],
+        "label": "Unknown/Unknown"
       }
     ],
     "diplotypes": [
       {
         "allele1": {
           "gene": "ABCG2",
-          "name": "rs2231142 reference (G)",
-          "function": "Normal function",
-          "reference": true
+          "name": "Unknown",
+          "function": "Unassigned function",
+          "reference": false
         },
         "allele2": {
           "gene": "ABCG2",
-          "name": "rs2231142 reference (G)",
-          "function": "Normal function",
-          "reference": true
+          "name": "Unknown",
+          "function": "Unassigned function",
+          "reference": false
         },
         "gene": "ABCG2",
-        "phenotype": "Normal Function",
+        "phenotypes": [
+          "No Result"
+        ],
         "variant": null,
-        "lookupKey": "Normal Function",
-        "label": "rs2231142 reference (G)/rs2231142 reference (G)"
+        "lookupKey": [
+          "No Result"
+        ],
+        "label": "Unknown/Unknown"
       }
     ],
     "variants": [
@@ -60,11 +71,11 @@
         "chromosome": "chr4",
         "position": 88131171,
         "dbSnpId": "rs2231142",
-        "call": "G|G",
+        "call": null,
         "alleles": [
           "rs2231142 variant (T)"
         ],
-        "phased": true,
+        "phased": false,
         "wildtypeAllele": "G",
         "mismatch": false,
         "warnings": []
@@ -125,9 +136,13 @@
           "reference": true
         },
         "gene": "CACNA1S",
-        "phenotype": "Uncertain Susceptibility",
+        "phenotypes": [
+          "Uncertain Susceptibility"
+        ],
         "variant": null,
-        "lookupKey": "Uncertain Susceptibility",
+        "lookupKey": [
+          "Uncertain Susceptibility"
+        ],
         "label": "Reference/Reference"
       }
     ],
@@ -146,9 +161,13 @@
           "reference": true
         },
         "gene": "CACNA1S",
-        "phenotype": "Uncertain Susceptibility",
+        "phenotypes": [
+          "Uncertain Susceptibility"
+        ],
         "variant": null,
-        "lookupKey": "Uncertain Susceptibility",
+        "lookupKey": [
+          "Uncertain Susceptibility"
+        ],
         "label": "Reference/Reference"
       }
     ],
@@ -213,9 +232,13 @@
           "reference": true
         },
         "gene": "CFTR",
-        "phenotype": "ivacaftor non-responsive in CF patients",
+        "phenotypes": [
+          "ivacaftor non-responsive in CF patients"
+        ],
         "variant": null,
-        "lookupKey": "ivacaftor non-responsive in CF patients",
+        "lookupKey": [
+          "ivacaftor non-responsive in CF patients"
+        ],
         "label": "No CPIC variants found"
       }
     ],
@@ -234,9 +257,13 @@
           "reference": true
         },
         "gene": "CFTR",
-        "phenotype": "ivacaftor non-responsive in CF patients",
+        "phenotypes": [
+          "ivacaftor non-responsive in CF patients"
+        ],
         "variant": null,
-        "lookupKey": "ivacaftor non-responsive in CF patients",
+        "lookupKey": [
+          "ivacaftor non-responsive in CF patients"
+        ],
         "label": "No CPIC variants found"
       }
     ],
@@ -819,9 +846,13 @@
           "reference": true
         },
         "gene": "CYP2B6",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -840,9 +871,13 @@
           "reference": true
         },
         "gene": "CYP2B6",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -1451,9 +1486,13 @@
           "reference": true
         },
         "gene": "CYP2C19",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*38/*38"
       }
     ],
@@ -1472,9 +1511,13 @@
           "reference": true
         },
         "gene": "CYP2C19",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*38/*38"
       }
     ],
@@ -1997,7 +2040,12 @@
     "chr": "chr10",
     "phased": true,
     "callSource": "MATCHER",
-    "uncalledHaplotypes": [],
+    "uncalledHaplotypes": [
+      "*72",
+      "*73",
+      "*74",
+      "*75"
+    ],
     "messages": [],
     "relatedDrugs": [
       {
@@ -2013,6 +2061,10 @@
         "guidelineId": "RxNorm:41127"
       },
       {
+        "name": "fosphenytoin",
+        "guidelineId": "RxNorm:72236"
+      },
+      {
         "name": "ibuprofen",
         "guidelineId": "RxNorm:5640"
       },
@@ -2023,6 +2075,10 @@
       {
         "name": "meloxicam",
         "guidelineId": "RxNorm:41493"
+      },
+      {
+        "name": "phenytoin",
+        "guidelineId": "RxNorm:8183"
       },
       {
         "name": "piroxicam",
@@ -2052,9 +2108,13 @@
           "reference": true
         },
         "gene": "CYP2C9",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "2",
+        "lookupKey": [
+          "2"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -2073,9 +2133,13 @@
           "reference": true
         },
         "gene": "CYP2C9",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "2",
+        "lookupKey": [
+          "2"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -2409,54 +2473,12 @@
       {
         "gene": "CYP2C9",
         "chromosome": "chr10",
-        "position": 94942306,
-        "dbSnpId": "rs1289704600",
-        "call": "C|C",
-        "alleles": [
-          "*72"
-        ],
-        "phased": true,
-        "wildtypeAllele": "C",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "CYP2C9",
-        "chromosome": "chr10",
-        "position": 94942308,
-        "dbSnpId": "rs17847037",
-        "call": "C|C",
-        "alleles": [
-          "*73"
-        ],
-        "phased": true,
-        "wildtypeAllele": "C",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "CYP2C9",
-        "chromosome": "chr10",
         "position": 94942309,
         "dbSnpId": "rs7900194",
         "call": "G|G",
         "alleles": [
           "*8",
           "*27"
-        ],
-        "phased": true,
-        "wildtypeAllele": "G",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "CYP2C9",
-        "chromosome": "chr10",
-        "position": 94947439,
-        "dbSnpId": null,
-        "call": "G|G",
-        "alleles": [
-          "*74"
         ],
         "phased": true,
         "wildtypeAllele": "G",
@@ -2931,20 +2953,6 @@
       {
         "gene": "CYP2C9",
         "chromosome": "chr10",
-        "position": 94986136,
-        "dbSnpId": "rs1254213342",
-        "call": "A|A",
-        "alleles": [
-          "*75"
-        ],
-        "phased": true,
-        "wildtypeAllele": "A",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "CYP2C9",
-        "chromosome": "chr10",
         "position": 94988852,
         "dbSnpId": "rs776908257",
         "call": "C|C",
@@ -3068,6 +3076,62 @@
         "wildtypeAllele": "G",
         "mismatch": false,
         "warnings": []
+      },
+      {
+        "gene": "CYP2C9",
+        "chromosome": "chr10",
+        "position": 94942306,
+        "dbSnpId": "rs1289704600",
+        "call": null,
+        "alleles": [
+          "*72"
+        ],
+        "phased": false,
+        "wildtypeAllele": "C",
+        "mismatch": false,
+        "warnings": []
+      },
+      {
+        "gene": "CYP2C9",
+        "chromosome": "chr10",
+        "position": 94942308,
+        "dbSnpId": "rs17847037",
+        "call": null,
+        "alleles": [
+          "*73"
+        ],
+        "phased": false,
+        "wildtypeAllele": "C",
+        "mismatch": false,
+        "warnings": []
+      },
+      {
+        "gene": "CYP2C9",
+        "chromosome": "chr10",
+        "position": 94947439,
+        "dbSnpId": null,
+        "call": null,
+        "alleles": [
+          "*74"
+        ],
+        "phased": false,
+        "wildtypeAllele": "G",
+        "mismatch": false,
+        "warnings": []
+      },
+      {
+        "gene": "CYP2C9",
+        "chromosome": "chr10",
+        "position": 94986136,
+        "dbSnpId": "rs1254213342",
+        "call": null,
+        "alleles": [
+          "*75"
+        ],
+        "phased": false,
+        "wildtypeAllele": "A",
+        "mismatch": false,
+        "warnings": []
       }
     ],
     "variantsOfInterest": [
@@ -3092,23 +3156,7 @@
     "phased": false,
     "callSource": "OUTSIDE",
     "uncalledHaplotypes": [],
-    "messages": [
-      {
-        "rule_name": "CYP2D6 warning",
-        "version": "1",
-        "matches": {
-          "gene": "CYP2D6",
-          "hapsCalled": [],
-          "hapsMissing": [],
-          "variantsMissing": [],
-          "variant": "",
-          "dips": [],
-          "drugs": []
-        },
-        "exception_type": "note",
-        "message": "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to \u003ca href\u003d\"https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles\"\u003ethe PharmCAT wiki\u003c/a\u003e for more information."
-      }
-    ],
+    "messages": [],
     "relatedDrugs": [
       {
         "name": "amitriptyline",
@@ -3175,27 +3223,7 @@
         "guidelineId": "RxNorm:27392"
       }
     ],
-    "matcherDiplotypes": [
-      {
-        "allele1": {
-          "gene": "CYP2D6",
-          "name": "*1",
-          "function": "Normal function",
-          "reference": true
-        },
-        "allele2": {
-          "gene": "CYP2D6",
-          "name": "*3",
-          "function": "No function",
-          "reference": false
-        },
-        "gene": "CYP2D6",
-        "phenotype": "Intermediate Metabolizer",
-        "variant": null,
-        "lookupKey": "1",
-        "label": "*1/*3"
-      }
-    ],
+    "matcherDiplotypes": [],
     "diplotypes": [
       {
         "allele1": {
@@ -3211,9 +3239,13 @@
           "reference": false
         },
         "gene": "CYP2D6",
-        "phenotype": "Intermediate Metabolizer",
+        "phenotypes": [
+          "Intermediate Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "1",
+        "lookupKey": [
+          "1"
+        ],
         "label": "*1/*3"
       }
     ],
@@ -3265,9 +3297,13 @@
           "reference": true
         },
         "gene": "CYP3A5",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -3286,9 +3322,13 @@
           "reference": true
         },
         "gene": "CYP3A5",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -3395,9 +3435,9 @@
           "reference": true
         },
         "gene": "CYP4F2",
-        "phenotype": null,
+        "phenotypes": [],
         "variant": null,
-        "lookupKey": null,
+        "lookupKey": [],
         "label": "*1/*1"
       }
     ],
@@ -3416,9 +3456,9 @@
           "reference": true
         },
         "gene": "CYP4F2",
-        "phenotype": null,
+        "phenotypes": [],
         "variant": null,
-        "lookupKey": null,
+        "lookupKey": [],
         "label": "*1/*1"
       }
     ],
@@ -3503,9 +3543,13 @@
           "reference": true
         },
         "gene": "DPYD",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "2",
+        "lookupKey": [
+          "2"
+        ],
         "label": "Reference/Reference"
       }
     ],
@@ -3524,9 +3568,13 @@
           "reference": true
         },
         "gene": "DPYD",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "2",
+        "lookupKey": [
+          "2"
+        ],
         "label": "Reference/Reference"
       }
     ],
@@ -4710,27 +4758,7 @@
         "guidelineId": "RxNorm:283821"
       }
     ],
-    "matcherDiplotypes": [
-      {
-        "allele1": {
-          "gene": "G6PD",
-          "name": "B (wildtype)",
-          "function": "Normal function",
-          "reference": true
-        },
-        "allele2": {
-          "gene": "G6PD",
-          "name": "B (wildtype)",
-          "function": "Normal function",
-          "reference": true
-        },
-        "gene": "G6PD",
-        "phenotype": "Normal",
-        "variant": null,
-        "lookupKey": "Normal",
-        "label": "B (wildtype)/B (wildtype)"
-      }
-    ],
+    "matcherDiplotypes": [],
     "diplotypes": [
       {
         "allele1": {
@@ -4746,10 +4774,81 @@
           "reference": true
         },
         "gene": "G6PD",
-        "phenotype": "Normal",
+        "phenotypes": [
+          "Normal"
+        ],
         "variant": null,
-        "lookupKey": "Normal",
+        "lookupKey": [
+          "Normal"
+        ],
         "label": "B (wildtype)/B (wildtype)"
+      }
+    ],
+    "variants": [],
+    "variantsOfInterest": [],
+    "highlightedVariants": []
+  },
+  {
+    "geneSymbol": "HLA-B",
+    "chr": null,
+    "phased": false,
+    "callSource": "OUTSIDE",
+    "uncalledHaplotypes": [],
+    "messages": [],
+    "relatedDrugs": [
+      {
+        "name": "abacavir",
+        "guidelineId": "RxNorm:190521"
+      },
+      {
+        "name": "allopurinol",
+        "guidelineId": "RxNorm:519"
+      },
+      {
+        "name": "carbamazepine",
+        "guidelineId": "RxNorm:2002"
+      },
+      {
+        "name": "fosphenytoin",
+        "guidelineId": "RxNorm:72236"
+      },
+      {
+        "name": "oxcarbazepine",
+        "guidelineId": "RxNorm:32624"
+      },
+      {
+        "name": "phenytoin",
+        "guidelineId": "RxNorm:8183"
+      }
+    ],
+    "matcherDiplotypes": [],
+    "diplotypes": [
+      {
+        "allele1": {
+          "gene": "HLA-B",
+          "name": "*15:02",
+          "function": "Unassigned function",
+          "reference": false
+        },
+        "allele2": {
+          "gene": "HLA-B",
+          "name": "*57:01",
+          "function": "Unassigned function",
+          "reference": false
+        },
+        "gene": "HLA-B",
+        "phenotypes": [
+          "*15:02 positive",
+          "*57:01 positive",
+          "*58:01 negative"
+        ],
+        "variant": null,
+        "lookupKey": [
+          "*15:02 positive",
+          "*57:01 positive",
+          "*58:01 negative"
+        ],
+        "label": "*15:02/*57:01"
       }
     ],
     "variants": [],
@@ -4804,9 +4903,9 @@
           "reference": true
         },
         "gene": "IFNL3",
-        "phenotype": null,
+        "phenotypes": [],
         "variant": null,
-        "lookupKey": null,
+        "lookupKey": [],
         "label": "rs12979860 reference (C)/rs12979860 reference (C)"
       }
     ],
@@ -4825,9 +4924,9 @@
           "reference": true
         },
         "gene": "IFNL3",
-        "phenotype": null,
+        "phenotypes": [],
         "variant": null,
-        "lookupKey": null,
+        "lookupKey": [],
         "label": "rs12979860 reference (C)/rs12979860 reference (C)"
       }
     ],
@@ -4887,22 +4986,7 @@
         "guidelineId": "RxNorm:10627"
       }
     ],
-    "matcherDiplotypes": [
-      {
-        "allele1": {
-          "gene": "MT-RNR1",
-          "name": "1555A\u003eG",
-          "function": "increased risk of aminoglycoside-induced hearing loss",
-          "reference": false
-        },
-        "allele2": null,
-        "gene": "MT-RNR1",
-        "phenotype": "increased risk of aminoglycoside-induced hearing loss",
-        "variant": null,
-        "lookupKey": "increased risk of aminoglycoside-induced hearing loss",
-        "label": "1555A\u003eG"
-      }
-    ],
+    "matcherDiplotypes": [],
     "diplotypes": [
       {
         "allele1": {
@@ -4913,9 +4997,13 @@
         },
         "allele2": null,
         "gene": "MT-RNR1",
-        "phenotype": "increased risk of aminoglycoside-induced hearing loss",
+        "phenotypes": [
+          "increased risk of aminoglycoside-induced hearing loss"
+        ],
         "variant": null,
-        "lookupKey": "increased risk of aminoglycoside-induced hearing loss",
+        "lookupKey": [
+          "increased risk of aminoglycoside-induced hearing loss"
+        ],
         "label": "1555A\u003eG"
       }
     ],
@@ -4959,9 +5047,13 @@
           "reference": true
         },
         "gene": "NUDT15",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -4980,9 +5072,13 @@
           "reference": true
         },
         "gene": "NUDT15",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -5284,9 +5380,13 @@
           "reference": true
         },
         "gene": "RYR1",
-        "phenotype": "Uncertain Susceptibility",
+        "phenotypes": [
+          "Uncertain Susceptibility"
+        ],
         "variant": null,
-        "lookupKey": "Uncertain Susceptibility",
+        "lookupKey": [
+          "Uncertain Susceptibility"
+        ],
         "label": "Reference/Reference"
       }
     ],
@@ -5305,9 +5405,13 @@
           "reference": true
         },
         "gene": "RYR1",
-        "phenotype": "Uncertain Susceptibility",
+        "phenotypes": [
+          "Uncertain Susceptibility"
+        ],
         "variant": null,
-        "lookupKey": "Uncertain Susceptibility",
+        "lookupKey": [
+          "Uncertain Susceptibility"
+        ],
         "label": "Reference/Reference"
       }
     ],
@@ -5941,7 +6045,11 @@
     "chr": "chr12",
     "phased": true,
     "callSource": "MATCHER",
-    "uncalledHaplotypes": [],
+    "uncalledHaplotypes": [
+      "*38",
+      "*41",
+      "*45"
+    ],
     "messages": [],
     "relatedDrugs": [
       {
@@ -5988,9 +6096,13 @@
           "reference": true
         },
         "gene": "SLCO1B1",
-        "phenotype": "Normal Function",
+        "phenotypes": [
+          "Normal Function"
+        ],
         "variant": null,
-        "lookupKey": "Normal Function",
+        "lookupKey": [
+          "Normal Function"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -6009,9 +6121,13 @@
           "reference": true
         },
         "gene": "SLCO1B1",
-        "phenotype": "Normal Function",
+        "phenotypes": [
+          "Normal Function"
+        ],
         "variant": null,
-        "lookupKey": "Normal Function",
+        "lookupKey": [
+          "Normal Function"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -6123,20 +6239,6 @@
       {
         "gene": "SLCO1B1",
         "chromosome": "chr12",
-        "position": 21176871,
-        "dbSnpId": null,
-        "call": "G|G",
-        "alleles": [
-          "*38"
-        ],
-        "phased": true,
-        "wildtypeAllele": "G",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "SLCO1B1",
-        "chromosome": "chr12",
         "position": 21176879,
         "dbSnpId": "rs11045819",
         "call": "C|C",
@@ -6161,34 +6263,6 @@
         "alleles": [
           "*3",
           "*13"
-        ],
-        "phased": true,
-        "wildtypeAllele": "A",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "SLCO1B1",
-        "chromosome": "chr12",
-        "position": 21176898,
-        "dbSnpId": "rs77271279",
-        "call": "G|G",
-        "alleles": [
-          "*41"
-        ],
-        "phased": true,
-        "wildtypeAllele": "G",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "SLCO1B1",
-        "chromosome": "chr12",
-        "position": 21178612,
-        "dbSnpId": "rs141467543",
-        "call": "A|A",
-        "alleles": [
-          "*42"
         ],
         "phased": true,
         "wildtypeAllele": "A",
@@ -6250,20 +6324,6 @@
       {
         "gene": "SLCO1B1",
         "chromosome": "chr12",
-        "position": 21196975,
-        "dbSnpId": "rs183501729",
-        "call": "C|C",
-        "alleles": [
-          "*39"
-        ],
-        "phased": true,
-        "wildtypeAllele": "C",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "SLCO1B1",
-        "chromosome": "chr12",
         "position": 21196976,
         "dbSnpId": "rs11045853",
         "call": "G|G",
@@ -6274,20 +6334,6 @@
         ],
         "phased": true,
         "wildtypeAllele": "G",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "SLCO1B1",
-        "chromosome": "chr12",
-        "position": 21200544,
-        "dbSnpId": "rs72559747",
-        "call": "C|C",
-        "alleles": [
-          "*47"
-        ],
-        "phased": true,
-        "wildtypeAllele": "C",
         "mismatch": false,
         "warnings": []
       },
@@ -6393,36 +6439,6 @@
       {
         "gene": "SLCO1B1",
         "chromosome": "chr12",
-        "position": 21206031,
-        "dbSnpId": "rs74064213",
-        "call": "A|A",
-        "alleles": [
-          "*43",
-          "*44"
-        ],
-        "phased": true,
-        "wildtypeAllele": "A",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "SLCO1B1",
-        "chromosome": "chr12",
-        "position": 21222355,
-        "dbSnpId": "rs71581941",
-        "call": "C|C",
-        "alleles": [
-          "*45",
-          "*46"
-        ],
-        "phased": true,
-        "wildtypeAllele": "C",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "SLCO1B1",
-        "chromosome": "chr12",
         "position": 21239042,
         "dbSnpId": "rs34671512",
         "call": "A|A",
@@ -6493,6 +6509,106 @@
         "wildtypeAllele": "C",
         "mismatch": false,
         "warnings": []
+      },
+      {
+        "gene": "SLCO1B1",
+        "chromosome": "chr12",
+        "position": 21176871,
+        "dbSnpId": null,
+        "call": null,
+        "alleles": [
+          "*38"
+        ],
+        "phased": false,
+        "wildtypeAllele": "G",
+        "mismatch": false,
+        "warnings": []
+      },
+      {
+        "gene": "SLCO1B1",
+        "chromosome": "chr12",
+        "position": 21176898,
+        "dbSnpId": "rs77271279",
+        "call": null,
+        "alleles": [
+          "*41"
+        ],
+        "phased": false,
+        "wildtypeAllele": "G",
+        "mismatch": false,
+        "warnings": []
+      },
+      {
+        "gene": "SLCO1B1",
+        "chromosome": "chr12",
+        "position": 21178612,
+        "dbSnpId": "rs141467543",
+        "call": null,
+        "alleles": [
+          "*42"
+        ],
+        "phased": false,
+        "wildtypeAllele": "A",
+        "mismatch": false,
+        "warnings": []
+      },
+      {
+        "gene": "SLCO1B1",
+        "chromosome": "chr12",
+        "position": 21196975,
+        "dbSnpId": "rs183501729",
+        "call": null,
+        "alleles": [
+          "*39"
+        ],
+        "phased": false,
+        "wildtypeAllele": "C",
+        "mismatch": false,
+        "warnings": []
+      },
+      {
+        "gene": "SLCO1B1",
+        "chromosome": "chr12",
+        "position": 21200544,
+        "dbSnpId": "rs72559747",
+        "call": null,
+        "alleles": [
+          "*47"
+        ],
+        "phased": false,
+        "wildtypeAllele": "C",
+        "mismatch": false,
+        "warnings": []
+      },
+      {
+        "gene": "SLCO1B1",
+        "chromosome": "chr12",
+        "position": 21206031,
+        "dbSnpId": "rs74064213",
+        "call": null,
+        "alleles": [
+          "*43",
+          "*44"
+        ],
+        "phased": false,
+        "wildtypeAllele": "A",
+        "mismatch": false,
+        "warnings": []
+      },
+      {
+        "gene": "SLCO1B1",
+        "chromosome": "chr12",
+        "position": 21222355,
+        "dbSnpId": "rs71581941",
+        "call": null,
+        "alleles": [
+          "*45",
+          "*46"
+        ],
+        "phased": false,
+        "wildtypeAllele": "C",
+        "mismatch": false,
+        "warnings": []
       }
     ],
     "variantsOfInterest": [],
@@ -6552,9 +6668,13 @@
           "reference": true
         },
         "gene": "TPMT",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -6573,9 +6693,13 @@
           "reference": true
         },
         "gene": "TPMT",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -7234,9 +7358,13 @@
           "reference": true
         },
         "gene": "UGT1A1",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -7255,9 +7383,13 @@
           "reference": true
         },
         "gene": "UGT1A1",
-        "phenotype": "Normal Metabolizer",
+        "phenotypes": [
+          "Normal Metabolizer"
+        ],
         "variant": null,
-        "lookupKey": "Normal Metabolizer",
+        "lookupKey": [
+          "Normal Metabolizer"
+        ],
         "label": "*1/*1"
       }
     ],
@@ -7387,9 +7519,9 @@
           "reference": true
         },
         "gene": "VKORC1",
-        "phenotype": null,
+        "phenotypes": [],
         "variant": null,
-        "lookupKey": null,
+        "lookupKey": [],
         "label": "rs9923231 reference (C)/rs9923231 reference (C)"
       }
     ],
@@ -7408,9 +7540,9 @@
           "reference": true
         },
         "gene": "VKORC1",
-        "phenotype": null,
+        "phenotypes": [],
         "variant": null,
-        "lookupKey": null,
+        "lookupKey": [],
         "label": "rs9923231 reference (C)/rs9923231 reference (C)"
       }
     ],

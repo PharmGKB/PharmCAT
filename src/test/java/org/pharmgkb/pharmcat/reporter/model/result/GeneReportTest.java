@@ -38,7 +38,6 @@ class GeneReportTest {
     geneReport.setDiplotypes(diplotypeFactory, outsideCall);
 
     assertEquals(GENE_SYMBOL2, geneReport.getGene());
-    assertTrue(geneReport.isCalled());
     assertTrue(geneReport.isReportable());
     assertEquals(1, geneReport.getReporterDiplotypes().size());
     assertEquals(1, geneReport.printDisplayCalls().size());
@@ -65,7 +64,6 @@ class GeneReportTest {
     geneReport.setDiplotypes(diplotypeFactory, outsideCall);
 
     assertEquals(GENE_SYMBOL3, geneReport.getGene());
-    assertTrue(geneReport.isCalled());
     assertTrue(geneReport.isReportable());
     assertEquals(1, geneReport.getReporterDiplotypes().size());
     assertEquals(1, geneReport.printDisplayCalls().size());
@@ -85,7 +83,6 @@ class GeneReportTest {
     geneReport.setDiplotypes(diplotypeFactory, outsideCall);
 
     assertEquals("CYP2D6", geneReport.getGene());
-    assertTrue(geneReport.isCalled());
     assertTrue(geneReport.isReportable());
     assertEquals(1, geneReport.getReporterDiplotypes().size());
     assertEquals(1, geneReport.printDisplayCalls().size());

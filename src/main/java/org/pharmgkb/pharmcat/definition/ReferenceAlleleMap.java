@@ -31,11 +31,6 @@ public class ReferenceAlleleMap {
 
   public String get(String geneSymbol) {
     Preconditions.checkArgument(StringUtils.isNotBlank(geneSymbol), "Must supply a gene symbol");
-
-    if (f_refAlleleForGene.containsKey(geneSymbol)) {
-      return f_refAlleleForGene.get(geneSymbol);
-    } else {
-      throw new RuntimeException("No reference allele for gene [" + geneSymbol + "]");
-    }
+    return f_refAlleleForGene.get(geneSymbol);
   }
 }

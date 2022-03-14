@@ -33,10 +33,11 @@ import org.pharmgkb.pharmcat.util.Slco1b1AlleleMatcher;
  */
 public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
-  private static final Set<String> IGNORED_GENES       = ImmutableSet.of("HLA-A", "HLA-B", "IFNL4");
+  private static final Set<String> IGNORED_GENES       = ImmutableSet.of("IFNL4");
   private static final Set<String> OVERRIDE_DIPLOTYPES = ImmutableSet.of("SLCO1B1");
   private static final Set<String> SINGLE_PLOIDY       = ImmutableSet.of("G6PD", "MT-RNR1");
   private static final Set<String> CHROMO_X            = ImmutableSet.of("G6PD");
+  private static final Set<String> ALLELE_PRESENCE     = ImmutableSet.of("HLA-A", "HLA-B");
   private static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
   public static  final String YES = "Yes";
@@ -132,10 +133,7 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   public void setDiplotypes(DiplotypeFactory diplotypeFactory, OutsideCall outsideCall) {
-    diplotypeFactory.makeDiplotypes(outsideCall).forEach(d -> {
-      m_matcherDiplotypes.add(d);
-      m_reporterDiplotypes.add(d);
-    });
+    m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(outsideCall));
   }
 
   /**
@@ -187,7 +185,7 @@ public class GeneReport implements Comparable<GeneReport> {
             .map(VariantReport::getCall)
             .reduce((a,b) -> {throw new RuntimeException();});
         String genotype;
-        if (!call.isPresent() || StringUtils.isBlank(call.get())) {
+        if (call.isEmpty() || StringUtils.isBlank(call.get())) {
           genotype = "missing";
         }
         else {
@@ -258,7 +256,16 @@ public class GeneReport implements Comparable<GeneReport> {
    * use diplotype calls not made by the matcher (e.g. SLCO1B1)
    */
   public boolean isReportable() {
-    return m_reporterDiplotypes.size() > 0;
+    return m_reporterDiplotypes.size() > 0 && m_reporterDiplotypes.stream().noneMatch(Diplotype::isUnknown);
+  }
+
+  /**
+   * True if this gene does not use allele function to assign phenotype but instead relies on the presence or absense of
+   * alleles for its phenotypes (e.g. HLA's)
+   * @return true if this gene assigns phenotype based on allele presence
+   */
+  public boolean isAllelePresenceType() {
+    return ALLELE_PRESENCE.contains(f_gene);
   }
 
   @Override
@@ -308,14 +315,14 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return a Collection of diplotype Strings (e.g. *2/*3, *4 (heterozygote))
    */
   public Collection<String> printDisplayCalls() {
-    if (!isCalled()) {
+    if (!isReportable()) {
       if (OVERRIDE_DIPLOTYPES.contains(getGene()) && !m_reporterDiplotypes.isEmpty()) {
         return m_reporterDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
       }
       return ImmutableList.of(UNCALLED);
     }
 
-    return m_matcherDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
+    return m_reporterDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
   }
 
   /**
@@ -323,7 +330,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return a Collection of function Strings (e.g. Two no function alleles)
    */
   public Collection<String> printDisplayFunctions() {
-    if (!isCalled()) {
+    if (!isReportable() || isAllelePresenceType()) {
       return ImmutableList.of(NA);
     }
     return m_reporterDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).collect(Collectors.toList());
@@ -334,10 +341,10 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return a Collection of phenotype Strings (e.g. Poor Metabolizer)
    */
   public Collection<String> printDisplayPhenotypes() {
-    if (!isCalled()) {
+    if (!isReportable()) {
       return ImmutableList.of(NA);
     }
-    return m_reporterDiplotypes.stream().sorted().map(Diplotype::getPhenotype).collect(Collectors.toList());
+    return m_reporterDiplotypes.stream().sorted().map(Diplotype::printPhenotypes).collect(Collectors.toList());
   }
 
   /**

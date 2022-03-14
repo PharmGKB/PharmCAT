@@ -19,7 +19,7 @@ class OutsideCallParserTest {
     String sf_astrolabeOutput = "##Test Astrolabe output\n" +
         "#ROI_label\tdiplotype labels\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\t" +
         "special case\tnomenclature version\n" +
-        "CYP2D6\tCYP2D6*1/CYP2D6*4\t?/?\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
+        "CYP2D6\tCYP2D6*1/CYP2D6*4\t\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
 
     Path tempAstroPath = Files.createTempFile("astrolabe", ".tsv");
     try (FileWriter fw = new FileWriter(tempAstroPath.toFile())) {
@@ -39,7 +39,7 @@ class OutsideCallParserTest {
     String sf_astrolabeOutput = "##Test Astrolabe output\n" +
         "#ROI_label\tdiplotype labels\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\t" +
         "special case\tnomenclature version\n" +
-        "CYP2D6\tCYP2D6*1/CYP2D6*4 or *2/*3\t?/?\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
+        "CYP2D6\tCYP2D6*1/CYP2D6*4 or *2/*3\t\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
 
     Path tempAstroPath = Files.createTempFile("astrolabe", ".tsv");
     try (FileWriter fw = new FileWriter(tempAstroPath.toFile())) {

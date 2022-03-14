@@ -1,8 +1,10 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -11,6 +13,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
@@ -18,6 +21,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+
+import static org.pharmgkb.pharmcat.definition.model.GenePhenotype.NO_RESULT;
 
 
 /**
@@ -31,6 +36,7 @@ public class Diplotype implements Comparable<Diplotype> {
   private static final String NA = "N/A";
   private static final String sf_toStringPattern = "%s:%s";
   private static final String sf_delimiter = "/";
+  private static final String sf_termDelimiter = "; ";
   private static final String sf_homTemplate = "Two %s alleles";
   private static final String sf_hetTemplate = "One %s allele and one %s allele";
   private static final String sf_hetSuffix = " (heterozygous)";
@@ -46,14 +52,14 @@ public class Diplotype implements Comparable<Diplotype> {
   @SerializedName("gene")
   private final String m_gene;
   @Expose
-  @SerializedName("phenotype")
-  private String m_phenotype;
+  @SerializedName("phenotypes")
+  private List<String> m_phenotypes = new ArrayList<>();
   @Expose
   @SerializedName("variant")
   private VariantReport m_variant;
   @Expose
   @SerializedName("lookupKey")
-  private String m_lookupKey;
+  private List<String> m_lookupKeys = new ArrayList<>();
   @Expose
   @SerializedName("label")
   private final String f_label;
@@ -155,6 +161,15 @@ public class Diplotype implements Comparable<Diplotype> {
     f_label = printBare();
   }
 
+  public Diplotype(String gene, String phenotype) {
+    m_allele1 = null;
+    m_allele2 = null;
+    m_gene = gene;
+    f_label = phenotype;
+    m_phenotypes.add(phenotype);
+    m_lookupKeys.add(phenotype);
+  }
+
   /**
    * Gets the gene this diplotype is for
    * @return a HGNC gene symbol
@@ -183,7 +198,7 @@ public class Diplotype implements Comparable<Diplotype> {
    *
    * @return true if this Diplotype is single ploidy
    */
-  public boolean isSinglePloidy() {
+  private boolean isSinglePloidy() {
     return m_allele2 == null;
   }
 
@@ -197,8 +212,24 @@ public class Diplotype implements Comparable<Diplotype> {
         || (m_allele2 != null && m_allele2.getName().equals(alleleName));
   }
 
+  private boolean isUnknownPhenotype() {
+    return m_phenotypes.size() == 0 || m_phenotypes.contains(NO_RESULT);
+  }
+
+  private boolean isUnknownAllele1() {
+    return m_allele1 == null || m_allele1.isUnknown();
+  }
+
+  private boolean isUnknownAllele2() {
+    return m_allele2 == null || m_allele2.isUnknown();
+  }
+
+  private boolean isUnknownAlleles() {
+    return isUnknownAllele1() && isUnknownAllele2();
+  }
+
   public boolean isUnknown() {
-    return m_allele1.isUnknown() && m_allele2.isUnknown();
+    return isUnknownPhenotype() && isUnknownAlleles();
   }
 
   /**
@@ -206,12 +237,17 @@ public class Diplotype implements Comparable<Diplotype> {
    */
   public String printBare() {
     return printOverride().orElseGet(() -> {
-      if (m_allele2 != null) {
+      if (m_phenotypes != null && m_allele1 == null && m_allele2 == null) {
+        return String.join(sf_delimiter, m_phenotypes);
+      }
+      if (m_allele1 != null && m_allele2 != null) {
         String[] alleles = new String[]{ m_allele1.getName(), m_allele2.getName() };
         Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
         return String.join(sf_delimiter, alleles);
-      } else {
+      } else if (m_allele1 != null) {
         return m_allele1.getName();
+      } else {
+        return NA;
       }
     });
   }
@@ -271,14 +307,26 @@ public class Diplotype implements Comparable<Diplotype> {
    *
    * Will print a default N/A String if no phenotype exists
    *
-   * <strong>Use only for display purposes, not for matchign recommendations</strong>
+   * <strong>Use only for display purposes, not for matching recommendations</strong>
    */
-  public String getPhenotype() {
-    return m_phenotype == null ? NA : m_phenotype;
+  public List<String> getPhenotypes() {
+    return m_phenotypes == null ? ImmutableList.of(NA) : m_phenotypes;
   }
 
-  public void setPhenotype(String phenotype) {
-    m_phenotype = phenotype;
+  public void setPhenotypes(List<String> phenotypes) {
+    m_phenotypes = phenotypes;
+  }
+
+  public void addPhenotype(String phenotype) {
+    m_phenotypes.add(phenotype);
+  }
+
+  public String printPhenotypes() {
+    if (m_phenotypes.size() == 0) {
+      return NA;
+    } else {
+      return String.join(sf_termDelimiter, m_phenotypes);
+    }
   }
 
   /**
@@ -286,8 +334,8 @@ public class Diplotype implements Comparable<Diplotype> {
    * @return Optional diplotype string to override whatever the actual string would be
    */
   private Optional<String> printOverride() {
-    boolean refAllele1 = getAllele1().isReference();
-    boolean refAllele2 = !isSinglePloidy() && getAllele2().isReference();
+    boolean refAllele1 = getAllele1() != null && getAllele1().isReference();
+    boolean refAllele2 = !isSinglePloidy() && getAllele2() != null && getAllele2().isReference();
 
     if (m_gene.equals("CFTR")) {
       if (refAllele1 && refAllele2) {
@@ -352,26 +400,49 @@ public class Diplotype implements Comparable<Diplotype> {
     return ObjectUtils.compare(getAllele2(), o.getAllele2());
   }
 
-  public String getLookupKey() {
-    return m_lookupKey;
+  public List<String> getLookupKeys() {
+    return m_lookupKeys;
   }
 
-  public void setLookupKey(String lookupKey) {
-    m_lookupKey = lookupKey;
+  public void setLookupKeys(List<String> lookupKeys) {
+    m_lookupKeys = lookupKeys;
+  }
+
+  public void addLookupKey(String key) {
+    m_lookupKeys.add(key);
+  }
+
+  public String printLookupKeys() {
+    return String.join(sf_termDelimiter, m_lookupKeys);
   }
 
   public Map<String,Integer> makeLookupMap() {
     Map<String,Integer> lookupMap = new HashMap<>();
-    if (m_allele2 != null) {
+
+    if (m_phenotypes != null && m_phenotypes.size() == 1 && m_allele1 == null && m_allele2 == null) {
+      lookupMap.put(m_phenotypes.get(0), 1);
+      return lookupMap;
+    }
+
+    if (m_allele1 != null && m_allele2 != null) {
       if (m_allele1.equals(m_allele2)) {
         lookupMap.put(m_allele1.getName(), 2);
       } else {
         lookupMap.put(m_allele1.getName(), 1);
         lookupMap.put(m_allele2.getName(), 1);
       }
-    } else {
+    } else if (m_allele1 != null) {
       lookupMap.put(m_allele1.getName(), 1);
     }
     return lookupMap;
+  }
+
+  public String containsAllele(String allele) {
+    if ((m_allele1 != null && m_allele1.getName().contains(allele))
+        || (m_allele2 != null && m_allele2.getName().contains(allele))) {
+      return allele + " positive";
+    } else {
+      return allele + " negative";
+    }
   }
 }

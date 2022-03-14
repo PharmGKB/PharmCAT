@@ -34,6 +34,7 @@ import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.Reporter;
 import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
+import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.DataManager;
 import org.slf4j.Logger;
@@ -89,7 +90,7 @@ public class Phenotyper {
         outsideCalls = OutsideCallParser.parse(outsideCallPath);
       }
 
-      Phenotyper phenotyper = new Phenotyper(calls, outsideCalls,variantWarnings);
+      Phenotyper phenotyper = new Phenotyper(calls, outsideCalls, variantWarnings);
       phenotyper.write(outputFile);
     } catch (IOException e) {
       e.printStackTrace();
@@ -119,13 +120,23 @@ public class Phenotyper {
     }
 
     for (OutsideCall outsideCall : outsideCalls) {
-      findGeneReport(outsideCall.getGene()).filter(GeneReport::isCalled).ifPresent((r) -> {
-        throw new ParseException("Cannot specify outside call for " + r.getGene() + ", it is already called in sample data");
-      });
-      // a gene report may still exist if there are allele definitions but no sample data so remove it before adding new
-      removeGeneReport(outsideCall.getGene());
+      GeneReport geneReport = findGeneReport(outsideCall.getGene())
+          .orElse(null);
 
-      GeneReport geneReport = new GeneReport(outsideCall);
+      if (geneReport != null) {
+        // DO NOT allow both a report from the matcher/caller and from an outside source
+        if (geneReport.getCallSource() == CallSource.MATCHER && geneReport.isCalled()) {
+          throw new ParseException("Cannot specify outside call for " + geneReport.getGene() + ", it is already called in sample data");
+        } else {
+          // if the caller already made a report but it's uncalled let's remove it so we can replace it
+          removeGeneReport(outsideCall.getGene());
+        }
+      }
+      if (geneReport == null) {
+        geneReport = new GeneReport(outsideCall);
+        f_geneReports.add(geneReport);
+      }
+
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
           geneReport.getGene(),
           phenotypeMap.lookup(geneReport.getGene()).orElse(null),

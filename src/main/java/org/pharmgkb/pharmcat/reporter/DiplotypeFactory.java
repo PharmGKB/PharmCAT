@@ -5,9 +5,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
@@ -28,6 +30,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
  * @author Ryan Whaley
  */
 public class DiplotypeFactory {
+  private static final Set<String> PHENOTYPE_ONLY = ImmutableSet.of("HLA-A", "HLA-B");
   private static final String UNASSIGNED_FUNCTION = "Unassigned function";
 
   private final String f_gene;
@@ -44,7 +47,7 @@ public class DiplotypeFactory {
    * @param genePhenotype a {@link GenePhenotype} object that maps haplotypes and functions to phenotypes
    * @param referenceAlleleName the name of the reference allele
    */
-  public DiplotypeFactory(String gene, GenePhenotype genePhenotype, String referenceAlleleName) {
+  public DiplotypeFactory(String gene, GenePhenotype genePhenotype, @Nullable String referenceAlleleName) {
     f_gene = gene;
     f_genePhenotype = genePhenotype;
     f_referenceAlleleName = referenceAlleleName;
@@ -75,7 +78,11 @@ public class DiplotypeFactory {
     Preconditions.checkNotNull(outsideCall);
     Preconditions.checkArgument(outsideCall.getGene().equals(f_gene));
 
-    return makeDiplotypes(outsideCall.getDiplotypes());
+    if (outsideCall.getDiplotypes().size() > 0) {
+      return makeDiplotypes(outsideCall.getDiplotypes());
+    } else {
+      return makeDiplotypesFromPhenotype(outsideCall.getPhenotype());
+    }
   }
 
   /**
@@ -88,6 +95,12 @@ public class DiplotypeFactory {
       return new ArrayList<>();
     }
     return dipNames.stream().map(this::makeDiplotype).collect(Collectors.toList());
+  }
+
+  public List<Diplotype> makeDiplotypesFromPhenotype(String phenotype) {
+    Diplotype diplotype = new Diplotype(f_gene, phenotype);
+
+    return ImmutableList.of(diplotype);
   }
 
   /**
@@ -120,7 +133,7 @@ public class DiplotypeFactory {
       String[] alleles = diplotypeText.split("/");
       diplotype = new Diplotype(f_gene, makeHaplotype(alleles[0]), makeHaplotype(alleles[1]));
     } else {
-      if (!GeneReport.isSinglePloidy(f_gene)) {
+      if (!GeneReport.isSinglePloidy(f_gene) && !isPhenotypeOnly()) {
         throw new RuntimeException("Expected two genotypes separated by a '/' but saw [" + diplotypeText + "] for " + f_gene);
       }
       diplotype = new Diplotype(f_gene, makeHaplotype(diplotypeText));
@@ -130,14 +143,22 @@ public class DiplotypeFactory {
     return diplotype;
   }
 
+  private boolean isPhenotypeOnly() {
+    return PHENOTYPE_ONLY.contains(f_gene);
+  }
+
   private Diplotype makeUnknownDiplotype() {
     return makeDiplotype(Diplotype.UNKNOWN);
   }
 
   private void fillDiplotype(Diplotype diplotype) {
-    if (f_genePhenotype != null) {
-      diplotype.setPhenotype(f_genePhenotype.getPhenotypeForDiplotype(diplotype));
-      diplotype.setLookupKey(f_genePhenotype.getLookupKeyForDiplotype(diplotype));
+    if (f_genePhenotype != null && !f_gene.startsWith("HLA")) {
+      diplotype.addPhenotype(f_genePhenotype.getPhenotypeForDiplotype(diplotype));
+      diplotype.addLookupKey(f_genePhenotype.getLookupKeyForDiplotype(diplotype));
+    }
+    if (f_gene.startsWith("HLA")) {
+      diplotype.setPhenotypes(makeHlaPhenotype(diplotype));
+      diplotype.setLookupKeys(makeHlaPhenotype(diplotype));
     }
   }
 
@@ -165,5 +186,23 @@ public class DiplotypeFactory {
 
   private Haplotype makeHaplotype(HaplotypeMatch haplotypeMatch) {
     return makeHaplotype(haplotypeMatch.getName());
+  }
+
+  private List<String> makeHlaPhenotype(Diplotype diplotype) {
+    if (!f_gene.equals("HLA-A") && !f_gene.equals("HLA-B")) {
+      throw new RuntimeException("Gene not supported for HLA phenotype calling: " + f_gene);
+    }
+    if (diplotype.isUnknown()) {
+      return new ArrayList<>();
+    }
+    if (f_gene.equals("HLA-A")) {
+      return ImmutableList.of(diplotype.containsAllele("*31:01"));
+    } else {
+      List<String> phenotypes = new ArrayList<>();
+      phenotypes.add(diplotype.containsAllele("*15:02"));
+      phenotypes.add(diplotype.containsAllele("*57:01"));
+      phenotypes.add(diplotype.containsAllele("*58:01"));
+      return phenotypes;
+    }
   }
 }
