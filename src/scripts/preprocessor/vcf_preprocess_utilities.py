@@ -231,7 +231,7 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
             if line[0:2] == '##':
                 if ('ALT' in line) and ('ID=NON_REF' in line):
                     print('=============================================================\n'
-                          'Proprocessor currently does not support gVCF.\n'
+                          'Preprocessor currently does not support gVCF.\n'
                           '=============================================================\n')
                     sys.exit(1)
             else:
