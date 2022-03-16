@@ -665,7 +665,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                         line = line.rstrip('\n')
                         fields = line.split('\t')
                         fields[-1] = 'Missing'
-                        out_f.write('\t'.join(fields))
+                        out_f.write('\t'.join(fields) + '\n')
                     else:
                         break
             # output positions that were not detected in the input VCF
