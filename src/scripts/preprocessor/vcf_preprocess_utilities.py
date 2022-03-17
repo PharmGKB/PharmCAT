@@ -604,7 +604,6 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
             path_output_noncompressed = os.path.splitext(path_output)[0]
             with open(path_output_noncompressed, 'w') as out_f:
                 print('Adding back non-PGx variants at PGx positions')
-                print(len(non_pgx_records))
                 with gzip.open(normed_vcf) as in_f:
                     for line in in_f:
                         try:
