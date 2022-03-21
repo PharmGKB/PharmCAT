@@ -1,10 +1,10 @@
 ---
-title: Example Reports
+title: Examples
 prermalink: examples/
 nav_order: 6
 ---
 
-# Example Report
+# Examples
 
 This is a collection of example files that demonstrate input and output files from a single run of PharmCAT. For more 
 inforamtion about running PharmCAT, read the [documentation](technical-docs/Running-PharmCAT).
@@ -12,11 +12,11 @@ inforamtion about running PharmCAT, read the [documentation](technical-docs/Runn
 
 ## Input
 
-First, a properly formatted single-sample VCF file with all positions specified.
+First, a properly formatted [single-sample VCF file](/specifications/VCF-Requirements/) with all positions specified.
 
 - [example input VCF](https://raw.githubusercontent.com/PharmGKB/PharmCAT/main/pharmcat_positions.vcf)
 
-This is an example of an optional file of outside diplotype calls. This one specifies a CYP2D6 call.
+This is an example of an optional file of [outside diplotype calls](/specifications/outside-call-format/). This one specifies a CYP2D6 call.
 
 - [example outside calls](pharmcat.example.outsideCall.tsv)
 
