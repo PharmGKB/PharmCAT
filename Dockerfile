@@ -2,7 +2,7 @@
 #
 # Base Dockerfile for PharmCAT
 #
-FROM python:3
+FROM python:3.9
 
 # apt-utils line due to https://github.com/phusion/baseimage-docker/issues/319
 RUN apt-get update && \
