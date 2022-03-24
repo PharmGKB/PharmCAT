@@ -171,16 +171,31 @@ public class VcfReader implements VcfLineParser {
         addWarning(chrPos, "PharmCAT preprocessor detected REF mismatch (filter " + sf_filterCodeRef +
             ") but this does not match current data.  Was the VCF preprocessed with a different version of PharmCAT?");
       }
-      Set<String> novel = position.getAltBases().stream()
-          .filter((a) -> !varLoc.getAlts().contains(a))
-          .collect(Collectors.toSet());
-      if (novel.size() > 0) {
-        addWarning(chrPos, "Genotype at this position has novel bases (expected " +
-            String.join("/", varLoc.getAlts()) + ", found " +
-            String.join("/", novel) + " in VCF)");
-      } else if (position.getFilters().contains(sf_filterCodeAlt)) {
-        addWarning(chrPos, "PharmCAT preprocessor detected ALT mismatch (filter " + sf_filterCodeAlt +
-            ") but this does not match current data.  Was the VCF preprocessed with a different version of PharmCAT?");
+      boolean expectMultibase = varLoc.getAlts().stream().anyMatch(a -> a.length() > 1);
+      boolean hasMultibase = position.getAltBases().stream().anyMatch(a -> a.length() > 1);
+      if (expectMultibase && !hasMultibase) {
+        if (position.getAltBases().size() == 0) {
+          addWarning(chrPos, "Genotype at this position has no ALT allele and an indel or repeat is expected. " +
+              "PharmCAT cannot validate this position");
+        } else {
+          addWarning(chrPos, "Genotype at this position has SNPs ( " +
+              String.join("/", position.getAltBases()) + ") but PharmCAT expects indel or repeat (" +
+              String.join("/", varLoc.getAlts()) + ")");
+        }
+      } else {
+        Set<String> novel = position.getAltBases().stream()
+            .filter((a) -> !varLoc.getAlts().contains(a))
+            .collect(Collectors.toSet());
+        if (novel.size() > 0) {
+          addWarning(chrPos, "Genotype at this position has novel bases (expected " +
+              String.join("/", varLoc.getAlts()) + ", found " +
+              String.join("/", novel) + " in VCF)");
+        } else if (position.getFilters().contains(sf_filterCodeAlt)) {
+          addWarning(chrPos, "PharmCAT preprocessor detected ALT mismatch (filter " + sf_filterCodeAlt +
+              ") but this does not match current data (expected " + String.join("/", varLoc.getAlts()) +
+              " and got " + String.join("/", position.getAltBases()) +
+              ").  Was the VCF preprocessed with a different version of PharmCAT?");
+        }
       }
     } else {
       if (position.getFilters().contains(sf_filterCodeRef)) {
@@ -256,7 +271,7 @@ public class VcfReader implements VcfLineParser {
       try {
         List<Integer> depths = Arrays.stream(allelicDepth.split(","))
             .map(Integer::parseInt)
-            .collect(Collectors.toList());
+            .toList();
         Map<Integer, Integer> genotype = new HashMap<>();
         Arrays.stream(alleleIdxs)
             .forEach(g -> genotype.merge(g, 1, Integer::sum));

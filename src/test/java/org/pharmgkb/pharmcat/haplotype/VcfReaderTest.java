@@ -69,7 +69,7 @@ class VcfReaderTest {
     assertNotNull(reader.getWarnings().get("chr10:94941915"));
     assertEquals(1, reader.getWarnings().get("chr10:94941915").size());
     assertEquals("PharmCAT preprocessor detected ALT mismatch (filter PCATxALT) but this does not match " +
-            "current data.  Was the VCF preprocessed with a different version of PharmCAT?",
+            "current data (expected A and got A).  Was the VCF preprocessed with a different version of PharmCAT?",
         reader.getWarnings().get("chr10:94941915").iterator().next());
 
     assertEquals(5, reader.getWarnings().size());
