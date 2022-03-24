@@ -10,17 +10,12 @@ RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get -y install bzip2 build-essential wget
 
-# install java
-RUN wget https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public
-RUN gpg --no-default-keyring --keyring ./adoptopenjdk-keyring.gpg --import public
-RUN gpg --no-default-keyring --keyring ./adoptopenjdk-keyring.gpg --export --output adoptopenjdk-archive-keyring.gpg
-RUN rm adoptopenjdk-keyring.gpg
-RUN mv adoptopenjdk-archive-keyring.gpg /usr/share/keyrings && \
-    chown root:root /usr/share/keyrings/adoptopenjdk-archive-keyring.gpg
-RUN echo "deb [signed-by=/usr/share/keyrings/adoptopenjdk-archive-keyring.gpg] https://adoptopenjdk.jfrog.io/adoptopenjdk/deb bullseye main" \
-    | tee /etc/apt/sources.list.d/adoptopenjdk.list
+# install java (https://blog.adoptium.net/2021/12/eclipse-temurin-linux-installers-available/)
+RUN wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | apt-key add -
+RUN echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" \
+    | tee /etc/apt/sources.list.d/adoptium.list
 RUN apt-get update && \
-    apt-get -y install --no-install-recommends adoptopenjdk-16-hotspot
+    apt-get -y install --no-install-recommends temurin-17-jdk
 
 
 RUN mkdir /pharmcat
