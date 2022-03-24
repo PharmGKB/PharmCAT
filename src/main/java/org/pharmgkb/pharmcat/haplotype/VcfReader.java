@@ -249,7 +249,7 @@ public class VcfReader implements VcfLineParser {
 
 
     String allelicDepth = sampleData.get(0).getProperty("AD");
-    if (allelicDepth != null) {
+    if (allelicDepth != null && !".".equals(allelicDepth)) {
       // try to catch reference overlap style VCF where
       // VCF always specifies heterozygous GT and uses AD field to determine actual alleles
       // see https://github.com/PharmGKB/PharmCAT/issues/90 for example
