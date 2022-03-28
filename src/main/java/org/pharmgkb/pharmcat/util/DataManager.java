@@ -118,7 +118,9 @@ public class DataManager {
           geneAlleleCountMap = manager.transformAlleleDefinitions(downloadDir, allelesDir, exemptionsMap);
         } else {
           // if we're skipping new gene data, then use the existing list of genes
-          geneAlleleCountMap = new DefinitionReader().getGeneAlleleCount();
+          DefinitionReader definitionReader = new DefinitionReader();
+          definitionReader.read(allelesDir);
+          geneAlleleCountMap = definitionReader.getGeneAlleleCount();
         }
 
         if (!cliHelper.hasOption("sm")) {
@@ -208,6 +210,7 @@ public class DataManager {
   private Map<String,Integer> transformAlleleDefinitions(Path downloadDir, Path definitionsDir,
       Map<String, DefinitionExemption> exemptionsMap) throws Exception {
 
+    System.out.println("Generating allele definitions...");
     Path definitionsFile = downloadDir.resolve("allele_definitions.json");
     if (!Files.exists(definitionsFile)) {
       throw new IOException("Cannot find alleles definitions (" + definitionsFile + ")");
@@ -226,13 +229,8 @@ public class DataManager {
       }
     }
 
-    System.out.println("Saving allele definitions in " + definitionsDir.toString());
-    Set<String> currentFiles = Files.list(definitionsDir)
-        .map(PathUtils::getFilename)
-        .filter(f -> f.endsWith("_translation.json"))
-        .collect(Collectors.toSet());
-
     // transform data as necessary
+    System.out.println("Incorporating exemptions...");
     for (String gene : exemptionsMap.keySet()) {
       DefinitionExemption exemption = exemptionsMap.get(gene);
       if (exemption.getIgnoredPositions().size() > 0) {
@@ -246,11 +244,17 @@ public class DataManager {
     }
     fixCyp2c19(definitionFileMap.get("CYP2C19"));
 
+    System.out.println("Saving allele definitions in " + definitionsDir.toString());
+    Set<String> currentFiles = Files.list(definitionsDir)
+        .map(PathUtils::getFilename)
+        .filter(f -> f.endsWith("_translation.json"))
+        .collect(Collectors.toSet());
+
     Map<String,Integer> geneAlleleCountMap = new TreeMap<>();
-    // output file
     for (String gene : definitionFileMap.keySet()) {
       DefinitionFile definitionFile = definitionFileMap.get(gene);
       geneAlleleCountMap.put(gene, definitionFile.getNamedAlleles().size());
+      // output file
       Path jsonFile = definitionsDir.resolve(gene + "_translation.json");
       m_dataSerializer.serializeToJson(definitionFile, jsonFile);
       if (m_verbose) {
