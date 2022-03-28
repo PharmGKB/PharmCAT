@@ -12,6 +12,7 @@ import tempfile
 import urllib.parse
 import urllib.request
 import copy
+import re
 
 import vcf_preprocess_exceptions as Exceptions
 
@@ -220,22 +221,6 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
     # create index if not already existed
     if not os.path.exists(input_vcf + '.tbi'):
         tabix_index_vcf(tabix_path, input_vcf)
-
-    # check whether input if a gVCF
-    with gzip.open(input_vcf, 'r') as in_f:
-        for line in in_f:
-            try:
-                line = byte_decoder(line)
-            except:
-                line = line
-            if line[0:2] == '##':
-                if ('ALT' in line) and ('ID=NON_REF' in line):
-                    print('=============================================================\n'
-                          'Preprocessor currently does not support gVCF.\n'
-                          '=============================================================\n')
-                    sys.exit(1)
-            else:
-                break
 
     # obtain PGx regions to be extracted
     df_ref_pgx_pos = allel.vcf_to_dataframe(pgx_vcf)
@@ -463,6 +448,13 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                         fields = line.split('\t')
                         input_chr_pos = (fields[0], fields[1])
 
+                        # check whether input is a block gVCF, which will be supported in the future
+                        if re.search('END', fields[7]):
+                            print('=============================================================\n'
+                                  'The PharmCAT VCF Preprocessor will support block gVCF in the future.\n'
+                                  '=============================================================\n')
+                            sys.exit(1)
+
                         # match chromosome positions
                         if input_chr_pos in ref_pos_static:
                             '''
@@ -613,7 +605,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                         # print all header lines
                         if line[0] == '#':
                             out_f.write(line)
-                        # print the rest if all non-PGx variants have been put back
+                        # print the rest if there is no more non-PGx variants
                         elif len(non_pgx_records) == 0:
                             out_f.write(line)
                         # scan the genotype data
@@ -634,6 +626,10 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                     break
                             # output original line
                             out_f.write(line + '\n')
+                    # print the rest of the non-PGx variants
+                    while len(non_pgx_records):
+                        out_f.write(non_pgx_records[0] + '\n')
+                        non_pgx_records.pop(0)
             # bgzip and index file
             bgzipped_vcf(bgzip_path, path_output_noncompressed)
             tabix_index_vcf(tabix_path, path_output)
