@@ -95,7 +95,7 @@ public class DiplotypeMatcher {
 
 
   /**
-   * Determine possible diplotypes given a set of {@link HaplotypeMatch}'s when sample is heterozygous at at least one
+   * Determine possible diplotypes given a set of {@link HaplotypeMatch}'s when sample is heterozygous at (at least) one
    * position.
    *
    * @param haplotypeMatches the matches that were found via {@link #comparePermutations()}
