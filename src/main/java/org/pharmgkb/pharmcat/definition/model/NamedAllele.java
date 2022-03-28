@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedSet;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
@@ -262,10 +261,9 @@ public class NamedAllele implements Comparable<NamedAllele> {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof NamedAllele)) {
+    if (!(o instanceof NamedAllele that)) {
       return false;
     }
-    NamedAllele that = (NamedAllele)o;
     return Objects.equal(m_name, that.getName()) &&
         Objects.equal(m_id, that.getId()) &&
         Arrays.equals(m_alleles, that.getAlleles()) &&
@@ -288,7 +286,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
 
   private void calculatePermutations(VariantLocus[] refVariants) {
 
-    List<VariantLocus> sortedRefVariants = Arrays.stream(refVariants).sorted().collect(Collectors.toList());
+    List<VariantLocus> sortedRefVariants = Arrays.stream(refVariants).sorted().toList();
     StringBuilder builder = new StringBuilder();
     for (VariantLocus variant : sortedRefVariants) {
       builder.append(variant.getPosition())

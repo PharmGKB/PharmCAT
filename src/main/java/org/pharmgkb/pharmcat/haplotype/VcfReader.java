@@ -120,22 +120,23 @@ public class VcfReader implements VcfLineParser {
     // <chr:position, allele>
     try (BufferedReader reader = Files.newBufferedReader(vcfFile)) {
       // read VCF file
-      VcfParser vcfParser = new VcfParser.Builder()
+      try (VcfParser vcfParser = new VcfParser.Builder()
           .fromReader(reader)
           .parseWith(this)
-          .build();
-      m_vcfMetadata = vcfParser.parseMetadata();
-      for (ContigMetadata cm : m_vcfMetadata.getContigs().values()) {
-        if (cm.getAssembly() != null) {
-          if (m_genomeBuild == null) {
-            m_genomeBuild = cm.getAssembly();
-          } else if (!m_genomeBuild.equals(cm.getAssembly())) {
-            throw new IllegalStateException("VCF file uses different assemblies (" + m_genomeBuild + " vs " +
-                cm.getAssembly() + " for contig)");
+          .build()) {
+        m_vcfMetadata = vcfParser.parseMetadata();
+        for (ContigMetadata cm : m_vcfMetadata.getContigs().values()) {
+          if (cm.getAssembly() != null) {
+            if (m_genomeBuild == null) {
+              m_genomeBuild = cm.getAssembly();
+            } else if (!m_genomeBuild.equals(cm.getAssembly())) {
+              throw new IllegalStateException("VCF file uses different assemblies (" + m_genomeBuild + " vs " +
+                  cm.getAssembly() + " for contig)");
+            }
           }
         }
+        vcfParser.parse();
       }
-      vcfParser.parse();
     }
   }
 
@@ -173,7 +174,7 @@ public class VcfReader implements VcfLineParser {
       // strip out structural alts (e.g. <*>)
       List<String> altBases = position.getAltBases().stream()
           .filter(a -> !a.startsWith("<"))
-          .collect(Collectors.toList());
+          .toList();
       boolean expectMultibase = varLoc.getAlts().stream().anyMatch(a -> a.length() > 1);
       boolean hasMultibase = altBases.stream().anyMatch(a -> a.length() > 1);
       if (expectMultibase && !hasMultibase) {
@@ -248,7 +249,7 @@ public class VcfReader implements VcfLineParser {
 
     } else {
       String gt1 = position.getAllele(0);
-      List<Integer> selected = Arrays.stream(alleleIdxs).boxed().collect(Collectors.toList());
+      List<Integer> selected = Arrays.stream(alleleIdxs).boxed().toList();
       for (int x = 1; x <= position.getAltBases().size(); x += 1) {
         String gt2 = position.getAllele(x);
         boolean isSelected = selected.contains(x);
@@ -280,7 +281,7 @@ public class VcfReader implements VcfLineParser {
       try {
         List<Integer> depths = Arrays.stream(allelicDepth.split(","))
             .map(Integer::parseInt)
-            .collect(Collectors.toList());
+            .toList();
         Map<Integer, Integer> genotype = new HashMap<>();
         Arrays.stream(alleleIdxs)
             .forEach(g -> genotype.merge(g, 1, Integer::sum));
@@ -320,7 +321,6 @@ public class VcfReader implements VcfLineParser {
     // genotype divided by "|" if phased and "/" if unphased
     // however, we'll treat homozygous as phased
     boolean isPhased = true;
-    //noinspection RedundantIfStatement
     if (gt.contains("/") && a2 != null && !a1.equalsIgnoreCase(a2)) {
       isPhased = false;
     }

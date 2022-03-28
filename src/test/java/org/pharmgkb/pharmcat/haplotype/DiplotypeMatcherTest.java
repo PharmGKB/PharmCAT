@@ -177,7 +177,7 @@ class DiplotypeMatcherTest {
 
     List<String> pairs = matches.stream()
         .map(DiplotypeMatch::getName)
-        .collect(Collectors.toList());
+        .toList();
     assertEquals(matches.size(), new HashSet<>(pairs).size(), "Incoming matches has non-unique pairs");
 
     if (expectedPairs.size() != pairs.size() || !expectedPairs.equals(pairs)) {

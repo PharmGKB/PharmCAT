@@ -219,7 +219,7 @@ public class MatchData {
     m_permutations = CombinationUtil.generatePermutations(
         m_sampleMap.values().stream()
             .sorted()
-            .collect(Collectors.toList())
+            .toList()
     );
   }
 

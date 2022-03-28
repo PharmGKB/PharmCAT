@@ -182,9 +182,12 @@ public class DefinitionFile {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof DefinitionFile)) return false;
-    DefinitionFile that = (DefinitionFile)o;
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof DefinitionFile that)) {
+      return false;
+    }
     return Objects.equals(m_formatVersion, that.getFormatVersion()) &&
         Objects.equals(m_modificationDate, that.getModificationDate()) &&
         Objects.equals(m_geneSymbol, that.getGeneSymbol()) &&
