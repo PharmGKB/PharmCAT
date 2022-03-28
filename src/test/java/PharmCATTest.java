@@ -943,6 +943,27 @@ class PharmCATTest {
   }
 
   @Test
+  void testHlab() throws Exception {
+    Path outsideCallPath = Files.createTempFile("noFunction", ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("HLA-B\t*15:02/*57:01");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.hlab", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9");
+    testWrapper.execute(outsideCallPath);
+
+    testWrapper.testCalledByMatcher("CYP2C9");
+    testWrapper.testNotCalledByMatcher("HLA-B");
+    testWrapper.testReportable("CYP2C9");
+    testWrapper.testReportable("HLA-B");
+    testWrapper.testMatchedGroups("abacavir", 1);
+    testWrapper.testMatchedGroups("allopurinol", 1);
+    testWrapper.testMatchedGroups("phenytoin", 2);
+  }
+
+  @Test
   void testTpmtStar1s() throws Exception {
     s_pharmcatTopMatch.execute("test.tpmt.star1s", new String[]{
             "TPMT/s1ss1ss3.vcf"
