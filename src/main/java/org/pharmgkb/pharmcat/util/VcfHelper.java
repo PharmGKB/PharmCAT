@@ -103,25 +103,29 @@ public class VcfHelper implements AutoCloseable {
    */
   public VariantLocus rsidToVariantLocus(String rsid) throws IOException {
     String url = String.format(sf_extraPositionUrl, URLEncoder.encode(rsid, StandardCharsets.UTF_8.name()));
-    VcfData vcfData = new VcfData(runQuery(url));
+    try {
+      VcfData vcfData = new VcfData(runQuery(url));
 
-    VariantLocus vl = new VariantLocus(vcfData.chrom, vcfData.pos,
-        vcfData.hgvs.substring(0, vcfData.hgvs.indexOf(":") + 1));
-    vl.setRsid(rsid);
-    vl.setRef(vcfData.ref);
-    vl.addAlt(vcfData.alt);
+      VariantLocus vl = new VariantLocus(vcfData.chrom, vcfData.pos,
+          vcfData.hgvs.substring(0, vcfData.hgvs.indexOf(":") + 1));
+      vl.setRsid(rsid);
+      vl.setRef(vcfData.ref);
+      vl.addAlt(vcfData.alt);
 
-    SortedSet<String> cpicAlleles = new TreeSet<>();
-    cpicAlleles.add(vcfData.ref);
-    cpicAlleles.add(vcfData.alt);
-    vl.setCpicAlleles(cpicAlleles);
+      SortedSet<String> cpicAlleles = new TreeSet<>();
+      cpicAlleles.add(vcfData.ref);
+      cpicAlleles.add(vcfData.alt);
+      vl.setCpicAlleles(cpicAlleles);
 
-    Map<String, String> vcfMap = new HashMap<>();
-    vcfMap.put(vcfData.ref, vcfData.ref);
-    vcfMap.put(vcfData.alt, vcfData.alt);
-    vl.setCpicToVcfAlleleMap(vcfMap);
+      Map<String, String> vcfMap = new HashMap<>();
+      vcfMap.put(vcfData.ref, vcfData.ref);
+      vcfMap.put(vcfData.alt, vcfData.alt);
+      vl.setCpicToVcfAlleleMap(vcfMap);
 
-    return vl;
+      return vl;
+    } catch (IOException ex) {
+      throw new IOException("Error looking up " + rsid, ex);
+    }
   }
 
   private Map<String, Object> runQuery(String url) throws IOException {
@@ -137,7 +141,7 @@ public class VcfHelper implements AutoCloseable {
       if (response.getStatusLine().getStatusCode() != 200) {
         String error = EntityUtils.toString(response.getEntity());
         EntityUtils.consume(response.getEntity());
-        throw new IOException(response.getStatusLine().getReasonPhrase() + " querying " + url + ": " + error);
+        throw new IOException(response.getStatusLine().getStatusCode() + " error querying " + url + ": " + error);
       }
       try (InputStreamReader reader = new InputStreamReader(entity.getContent())) {
         @SuppressWarnings("unchecked")
