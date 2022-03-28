@@ -23,7 +23,6 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
-import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
@@ -149,7 +148,7 @@ public class ReportContext {
    * @param drugName the name of the drug to find a report for
    * @return an Optional {@link DrugReport}
    */
-  public Optional<DrugReport> findDrugReport(String drugName) {
+  private Optional<DrugReport> findDrugReport(String drugName) {
     return m_drugReports.stream()
         .filter(r -> r.getRelatedDrugs().contains(drugName))
         .findFirst();
@@ -213,7 +212,8 @@ public class ReportContext {
 
       Map<String,Object> genotype = new HashMap<>();
       genotype.put("gene", geneReport.getGeneDisplay());
-      genotype.put("called", geneReport.isReportable());
+      genotype.put("called", geneReport.isCalled());
+      genotype.put("reportable", geneReport.isReportable());
       genotype.put("drugs", geneReport.getRelatedDrugs());
       genotype.put("calls", geneReport.printDisplayCalls());
       genotype.put("functions", geneReport.printDisplayFunctions());

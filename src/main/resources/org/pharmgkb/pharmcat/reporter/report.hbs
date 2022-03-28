@@ -61,6 +61,7 @@
     </thead>
     <tbody>
     {{#each genotypes}}
+      {{#if reportable}}
       <tr>
         <td>{{#each drugs}}
           {{{drug this}}}
@@ -92,6 +93,7 @@
           {{missingVariants}}
         </td>
       </tr>
+      {{/if}}
     {{/each}}
     </tbody>
   </table>
