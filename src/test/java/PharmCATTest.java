@@ -964,6 +964,29 @@ class PharmCATTest {
   }
 
   @Test
+  void testHlabPhenotype() throws Exception {
+    Path outsideCallPath = Files.createTempFile("noFunction", ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("HLA-B\t\t*57:01 positive");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.hlab.phenotype", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9");
+    testWrapper.execute(outsideCallPath);
+
+    testWrapper.testCalledByMatcher("CYP2C9");
+    testWrapper.testNotCalledByMatcher("HLA-B");
+    testWrapper.testReportable("CYP2C9");
+    testWrapper.testReportable("HLA-B");
+    testWrapper.testMatchedGroups("abacavir", 1);
+    // allopurinol relies on a different allele for recs so no matches
+    testWrapper.testMatchedGroups("allopurinol", 0);
+    // phenytoin also relies on a different allele
+    testWrapper.testMatchedGroups("phenytoin", 0);
+  }
+
+  @Test
   void testTpmtStar1s() throws Exception {
     s_pharmcatTopMatch.execute("test.tpmt.star1s", new String[]{
             "TPMT/s1ss1ss3.vcf"
