@@ -528,91 +528,88 @@ class PharmCATTest {
   }
 
   @Test
-  void testUgt1a1PhasedMulti() throws Exception {
-    s_pharmcatTopMatch.execute("test.ugt1a1.phased.multi", new String[]{
-            "UGT1A1/s1s60s80phased.vcf"
-        },
-        null);
+  void testUgt1a1Phased() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.ugt1a1.s1s80.phased", false);
+    testWrapper.getVcfBuilder()
+        .reference("UGT1A1")
+        .phased()
+        .variation("UGT1A1", "rs887829", "C", "T");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*80");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80");
-
-    assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
+    testWrapper.testCalledByMatcher("UGT1A1");
+    testWrapper.testPrintCalls("UGT1A1", "*1/*80");
+    testWrapper.testLookup("UGT1A1", "*1", "*80");
   }
 
   @Test
-  void testUgt1a1UnphasedMulti() throws Exception {
-    s_pharmcatTopMatch.execute("test.ugt1a1.s1s80unphased", new String[]{
-            "UGT1A1/s1s60s80unphased.vcf"
-        },
-        null);
+  void testUgt1a1Unphased() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.ugt1a1.s1s80.unphased", false);
+    testWrapper.getVcfBuilder()
+        .reference("UGT1A1")
+        .phased()
+        .variation("UGT1A1", "rs887829", "C", "T");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*80");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80");
-
-    assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
+    testWrapper.testCalledByMatcher("UGT1A1");
+    testWrapper.testPrintCalls("UGT1A1", "*1/*80");
+    testWrapper.testLookup("UGT1A1", "*1", "*80");
   }
 
   @Test
   void testUgt1a1s1s1() throws Exception {
-    s_pharmcatTopMatch.execute("test.ugt1a1.s1s1", new String[]{
-            "UGT1A1/s1s1.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.ugt1a1.s1s1", false);
+    testWrapper.getVcfBuilder()
+        .reference("UGT1A1");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*1");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*1");
-
-    assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
+    testWrapper.testCalledByMatcher("UGT1A1");
+    testWrapper.testPrintCalls("UGT1A1", "*1/*1");
+    testWrapper.testLookup("UGT1A1", "*1", "*1");
   }
 
   @Test
-  void testUgt1a1S1S28S60S80() throws Exception {
-    s_pharmcatTopMatch.execute("test.ugt1a1.s1s28s60s80unphased", new String[]{
-            "UGT1A1/s1s28s60s80unphased.vcf"
-        },
-        null);
+  void testUgt1a1S1S80S28() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.ugt1a1.s1s80s28unphased", false);
+    testWrapper.getVcfBuilder()
+        .reference("UGT1A1")
+        .variation("UGT1A1", "rs887829", "C", "T")
+        .variation("UGT1A1", "rs3064744", "TA(7)", "TA(8)");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*80+*28");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80+*28");
-
-    assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
+    testWrapper.testCalledByMatcher("UGT1A1");
+    testWrapper.testPrintCalls("UGT1A1", "*1/*80+*28");
+    testWrapper.testLookup("UGT1A1", "*1", "*80+*28");
   }
 
   @Test
   void testUgt1a1S28S37() throws Exception {
-    s_pharmcatTopMatch.execute("test.ugt1a1.s28s37", new String[]{
-            "UGT1A1/s28s37.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.ugt1a1.s28s37", false);
+    testWrapper.getVcfBuilder()
+        .reference("UGT1A1")
+        .variation("UGT1A1", "rs3064744", "TA(8)", "TA(9)");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*28/*37");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*28", "*37");
-
-    assertFalse(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
+    testWrapper.testCalledByMatcher("UGT1A1");
+    testWrapper.testPrintCalls("UGT1A1", "*28/*37");
+    testWrapper.testLookup("UGT1A1", "*37", "*28");
   }
 
   @Test
   void testUgt1a1s28s80phased() throws Exception {
-    s_pharmcatTopMatch.execute("test.ugt1a1.s28s80phased", new String[]{
-            "UGT1A1/s28s80phased.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("test.ugt1a1.s1s80s28phased", false);
+    testWrapper.getVcfBuilder()
+        .reference("UGT1A1")
+        .phased()
+        .variation("UGT1A1", "rs887829", "C", "T")
+        .variation("UGT1A1", "rs3064744", "TA(7)", "TA(8)");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*80+*28");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80+*28");
+    testWrapper.testCalledByMatcher("UGT1A1");
+    testWrapper.testPrintCalls("UGT1A1", "*1/*80+*28");
+    testWrapper.testLookup("UGT1A1", "*1", "*80+*28");
 
     // the guideline should have a matching message for the *1 call but no ambiguity call
-    DrugReport atazanavirReporrt = s_pharmcatTopMatch.getContext().getDrugReport("atazanavir");
-    assertEquals(1, atazanavirReporrt.getMessages().size());
-
-    assertTrue(s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1").isPhased());
+    testWrapper.testMatchedGroups("atazanavir", 1);
   }
 
   @Test
