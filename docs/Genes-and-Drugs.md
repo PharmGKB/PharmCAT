@@ -35,7 +35,7 @@ The `NamedAlleleMatcher` will search the given sample file for locations associa
 
 These genes will not get allele matches from PharmCAT. However, you can use an outside caller like [Astrolabe](https://www.childrensmercy.org/childrens-mercy-research-institute/research-areas/genomic-medicine-center/data-and-software-resources/) or [Stargazer](https://stargazer.gs.washington.edu/stargazerweb/index.html) to get diplotype calls and then supply that to PharmCAT for use in matching recommendation data.
 
-- CYP2D6 (148 alleles)
+- CYP2D6 (149 alleles)
 - G6PD (187 alleles)
 - MT-RNR1 (25 alleles)
 

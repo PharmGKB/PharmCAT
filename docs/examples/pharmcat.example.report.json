@@ -1,7 +1,7 @@
 {
   "totalGenes": 19,
-  "pharmcatVersion": "v1.4.0-13-gebf5ac2\n",
-  "generatedOn": "February 18, 2022",
+  "pharmcatVersion": "v1.5.1-24-gb57a6e2b\n",
+  "generatedOn": "March 29, 2022",
   "geneCalls": [
     {
       "diplotypes": [
@@ -6264,7 +6264,7 @@
     }
   ],
   "calledGenes": 19,
-  "cpicVersion": "v1.14",
+  "cpicVersion": "v1.16",
   "genotypes": [
     {
       "phenotype": [
@@ -7123,13 +7123,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -7157,7 +7157,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -7209,7 +7209,7 @@
               "term": "Phenotype for UGT1A1"
             },
             {
-              "annotation": "There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patientâ€™s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
+              "annotation": "There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient’s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
               "term": "Recommendation"
             },
             {
@@ -7560,7 +7560,7 @@
               "term": "Population"
             },
             {
-              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the â€˜normalâ€™ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
               "term": "Implication for TPMT"
             },
             {
@@ -7837,7 +7837,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -7909,13 +7909,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena AdriÃ¡n",
+            "LLerena Adrián",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -8009,13 +8009,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -8043,7 +8043,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -8079,7 +8079,7 @@
         {
           "annotations": [
             {
-              "annotation": "CVI non-ACS non-PCI",
+              "annotation": "NVI",
               "term": "Population"
             },
             {
@@ -8103,7 +8103,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
+              "annotation": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
               "term": "Comments"
             }
           ]
@@ -8143,7 +8143,7 @@
         {
           "annotations": [
             {
-              "annotation": "NVI",
+              "annotation": "CVI non-ACS non-PCI",
               "term": "Population"
             },
             {
@@ -8167,7 +8167,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
+              "annotation": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
               "term": "Comments"
             }
           ]
@@ -8204,7 +8204,7 @@
             "Scott Stuart A",
             "Sangkuhl Katrin",
             "Stein C Michael",
-            "Hulot Jean-SÃ©bastien",
+            "Hulot Jean-Sébastien",
             "Mega Jessica L",
             "Roden Dan M",
             "Klein Teri E",
@@ -8232,7 +8232,7 @@
             "Limdi Nita A",
             "Lee Yee Ming",
             "Scott Stuart A",
-            "Hulot Jean-SÃ©bastien",
+            "Hulot Jean-Sébastien",
             "Roden Dan M",
             "Gaedigk Andrea",
             "Caudle Kelly E",
@@ -8367,7 +8367,7 @@
             "Ruano Gualberto",
             "Sangkuhl Katrin",
             "Cavallari Larisa H",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Prows Cynthia A",
             "Nagy Mohamed",
             "Somogyi Andrew A",
@@ -8541,13 +8541,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -8575,7 +8575,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -8752,13 +8752,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -8786,7 +8786,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -8846,7 +8846,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "The ENCORE study showed that in treatment-naÃ¯ve patients randomized to initiate efavirenz-based regimens (combined with tenofovir and emtricitabine), 400 mg/day was non-inferior to 600 mg/day regardless of CYP2B6 genotype (PMID 24522178).",
+              "annotation": "The ENCORE study showed that in treatment-naïve patients randomized to initiate efavirenz-based regimens (combined with tenofovir and emtricitabine), 400 mg/day was non-inferior to 600 mg/day regardless of CYP2B6 genotype (PMID 24522178).",
               "term": "Comments"
             }
           ]
@@ -9043,13 +9043,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena AdriÃ¡n",
+            "LLerena Adrián",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -9230,7 +9230,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -9472,13 +9472,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena AdriÃ¡n",
+            "LLerena Adrián",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -9792,7 +9792,7 @@
             "Ruano Gualberto",
             "Sangkuhl Katrin",
             "Cavallari Larisa H",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Prows Cynthia A",
             "Nagy Mohamed",
             "Somogyi Andrew A",
@@ -9875,7 +9875,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -9966,13 +9966,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -10000,7 +10000,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -10416,7 +10416,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -10642,7 +10642,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -10689,7 +10689,7 @@
               "term": "Population"
             },
             {
-              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the â€˜normalâ€™ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
               "term": "Implication for TPMT"
             },
             {
@@ -10959,13 +10959,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -10993,7 +10993,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -11407,13 +11407,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena AdriÃ¡n",
+            "LLerena Adrián",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -11586,7 +11586,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -12270,13 +12270,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena AdriÃ¡n",
+            "LLerena Adrián",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -12758,7 +12758,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function). Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patientâ€™s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose, and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.",
+              "annotation": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function). Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patient’s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose, and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.",
               "term": "Comments"
             }
           ]
@@ -12952,7 +12952,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -13311,7 +13311,7 @@
             "Ruano Gualberto",
             "Sangkuhl Katrin",
             "Cavallari Larisa H",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Prows Cynthia A",
             "Nagy Mohamed",
             "Somogyi Andrew A",
@@ -13405,13 +13405,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "MÃ¼ller Daniel J",
+            "Müller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -13439,7 +13439,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "MÃ¼ller D J",
+            "Müller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -13629,7 +13629,7 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium (CPICÂ®) Guideline for CYP2C19 and Voriconazole Therapy",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC®) Guideline for CYP2C19 and Voriconazole Therapy",
           "authors": [
             "Moriyama Brad",
             "Obeng Aniwaa Owusu",
@@ -13637,7 +13637,7 @@
             "Penzak Scott R",
             "Henning Stacey A",
             "Scott Stuart A",
-            "AgÃºndez JosÃ© A G",
+            "Agúndez José A G",
             "Wingard John R",
             "McLeod Howard L",
             "Klein Teri E",

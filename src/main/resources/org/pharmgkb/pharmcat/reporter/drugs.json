@@ -67,7 +67,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -177,7 +177,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -260,7 +260,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -398,7 +398,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -5188,7 +5188,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -5313,7 +5313,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -6281,7 +6281,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -6498,7 +6498,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -7379,7 +7379,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -7556,7 +7556,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -7689,11 +7689,11 @@
         "activityscore": {},
         "allelestatus": {
           "HLA-A": "HLA-A*31:01 negative",
-          "HLA-B": "No HLA-B*15:02 Result"
+          "HLA-B": "No HLA-B Result"
         },
         "lookupkey": {
           "HLA-A": "*31:01 negative",
-          "HLA-B": "No *15:02 Result"
+          "HLA-B": "No Result"
         },
         "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
         "population": "CBZ-no alternatives"
@@ -7709,11 +7709,11 @@
         "activityscore": {},
         "allelestatus": {
           "HLA-A": "HLA-A*31:01 negative",
-          "HLA-B": "No HLA-B*15:02 Result"
+          "HLA-B": "No HLA-B Result"
         },
         "lookupkey": {
           "HLA-A": "*31:01 negative",
-          "HLA-B": "No *15:02 Result"
+          "HLA-B": "No Result"
         },
         "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
         "population": "CBZ naive"
@@ -7729,11 +7729,11 @@
         "activityscore": {},
         "allelestatus": {
           "HLA-A": "HLA-A*31:01 negative",
-          "HLA-B": "No HLA-B*15:02 Result"
+          "HLA-B": "No HLA-B Result"
         },
         "lookupkey": {
           "HLA-A": "*31:01 negative",
-          "HLA-B": "No *15:02 Result"
+          "HLA-B": "No Result"
         },
         "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
         "population": "CBZ use >3mos "
@@ -7869,11 +7869,11 @@
         "activityscore": {},
         "allelestatus": {
           "HLA-A": "HLA-A*31:01 positive",
-          "HLA-B": "No HLA-B*15:02 Result"
+          "HLA-B": "No HLA-B Result"
         },
         "lookupkey": {
           "HLA-A": "*31:01 positive",
-          "HLA-B": "No *15:02 Result"
+          "HLA-B": "No Result"
         },
         "comments": "Other aromatic anticonvulsants have very limited evidence, if any, linking SJS/TEN, DRESS, and/or MPE with the HLA-A*31:01 allele, and thus no recommendation can be made with respect to choosing another aromatic anticonvulsant as an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants.",
         "population": "CBZ naive"
@@ -7889,11 +7889,11 @@
         "activityscore": {},
         "allelestatus": {
           "HLA-A": "HLA-A*31:01 positive",
-          "HLA-B": "No HLA-B*15:02 Result"
+          "HLA-B": "No HLA-B Result"
         },
         "lookupkey": {
           "HLA-A": "*31:01 positive",
-          "HLA-B": "No *15:02 Result"
+          "HLA-B": "No Result"
         },
         "comments": "n/a",
         "population": "CBZ-no alternatives"
@@ -7909,11 +7909,11 @@
         "activityscore": {},
         "allelestatus": {
           "HLA-A": "HLA-A*31:01 positive",
-          "HLA-B": "No HLA-B*15:02 Result"
+          "HLA-B": "No HLA-B Result"
         },
         "lookupkey": {
           "HLA-A": "*31:01 positive",
-          "HLA-B": "No *15:02 Result"
+          "HLA-B": "No Result"
         },
         "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
         "population": "CBZ use >3mos "
@@ -7928,11 +7928,11 @@
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
-          "HLA-A": "No HLA-A*31:01 Result",
+          "HLA-A": "No HLA-A Result",
           "HLA-B": "HLA-B*15:02 negative"
         },
         "lookupkey": {
-          "HLA-A": "No *31:01 Result",
+          "HLA-A": "No Result",
           "HLA-B": "*15:02 negative"
         },
         "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
@@ -7948,11 +7948,11 @@
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
-          "HLA-A": "No HLA-A*31:01 Result",
+          "HLA-A": "No HLA-A Result",
           "HLA-B": "HLA-B*15:02 negative"
         },
         "lookupkey": {
-          "HLA-A": "No *31:01 Result",
+          "HLA-A": "No Result",
           "HLA-B": "*15:02 negative"
         },
         "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
@@ -7968,11 +7968,11 @@
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
-          "HLA-A": "No HLA-A*31:01 Result",
+          "HLA-A": "No HLA-A Result",
           "HLA-B": "HLA-B*15:02 negative"
         },
         "lookupkey": {
-          "HLA-A": "No *31:01 Result",
+          "HLA-A": "No Result",
           "HLA-B": "*15:02 negative"
         },
         "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
@@ -7988,11 +7988,11 @@
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
-          "HLA-A": "No HLA-A*31:01 Result",
+          "HLA-A": "No HLA-A Result",
           "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
-          "HLA-A": "No *31:01 Result",
+          "HLA-A": "No Result",
           "HLA-B": "*15:02 positive"
         },
         "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
@@ -8008,11 +8008,11 @@
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
-          "HLA-A": "No HLA-A*31:01 Result",
+          "HLA-A": "No HLA-A Result",
           "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
-          "HLA-A": "No *31:01 Result",
+          "HLA-A": "No Result",
           "HLA-B": "*15:02 positive"
         },
         "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
@@ -8028,11 +8028,11 @@
         "phenotypes": {},
         "activityscore": {},
         "allelestatus": {
-          "HLA-A": "No HLA-A*31:01 Result",
+          "HLA-A": "No HLA-A Result",
           "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
-          "HLA-A": "No *31:01 Result",
+          "HLA-A": "No Result",
           "HLA-B": "*15:02 positive"
         },
         "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
@@ -8082,7 +8082,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -8252,7 +8252,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -8491,7 +8491,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -13340,25 +13340,8 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
-      {
-        "implications": {
-          "CYP2C19": "n/a"
-        },
-        "drugrecommendation": "No recommendation",
-        "classification": "No Recommendation",
-        "phenotypes": {
-          "CYP2C19": "Indeterminate"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C19": "Indeterminate"
-        },
-        "comments": "n/a",
-        "population": "CVI non-ACS non-PCI"
-      },
       {
         "implications": {
           "CYP2C19": "n/a"
@@ -13392,6 +13375,23 @@
         },
         "comments": "n/a",
         "population": "NVI"
+      },
+      {
+        "implications": {
+          "CYP2C19": "n/a"
+        },
+        "drugrecommendation": "No recommendation",
+        "classification": "No Recommendation",
+        "phenotypes": {
+          "CYP2C19": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C19": "Indeterminate"
+        },
+        "comments": "n/a",
+        "population": "CVI non-ACS non-PCI"
       },
       {
         "implications": {
@@ -13465,23 +13465,6 @@
         "implications": {
           "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
         },
-        "drugrecommendation": "Avoid standard dose clopidogrel (75 mg) if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
-        "classification": "Strong",
-        "phenotypes": {
-          "CYP2C19": "Likely Intermediate Metabolizer"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C19": "Likely Intermediate Metabolizer"
-        },
-        "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
-        "population": "CVI ACS PCI "
-      },
-      {
-        "implications": {
-          "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
-        },
         "drugrecommendation": "No recommendation",
         "classification": "No Recommendation",
         "phenotypes": {
@@ -13497,34 +13480,17 @@
       },
       {
         "implications": {
-          "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+          "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
         },
-        "drugrecommendation": "Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
-        "classification": "Moderate",
-        "phenotypes": {
-          "CYP2C19": "Likely Poor Metabolizer"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C19": "Likely Poor Metabolizer"
-        },
-        "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
-        "population": "CVI non-ACS non-PCI"
-      },
-      {
-        "implications": {
-          "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
-        },
-        "drugrecommendation": "Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+        "drugrecommendation": "Avoid standard dose clopidogrel (75 mg) if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
         "classification": "Strong",
         "phenotypes": {
-          "CYP2C19": "Likely Poor Metabolizer"
+          "CYP2C19": "Likely Intermediate Metabolizer"
         },
         "activityscore": {},
         "allelestatus": {},
         "lookupkey": {
-          "CYP2C19": "Likely Poor Metabolizer"
+          "CYP2C19": "Likely Intermediate Metabolizer"
         },
         "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
         "population": "CVI ACS PCI "
@@ -13548,19 +13514,36 @@
       },
       {
         "implications": {
-          "CYP2C19": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity"
+          "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
         },
-        "drugrecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
-        "classification": "Strong",
+        "drugrecommendation": "Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+        "classification": "Moderate",
         "phenotypes": {
-          "CYP2C19": "Normal Metabolizer"
+          "CYP2C19": "Likely Poor Metabolizer"
         },
         "activityscore": {},
         "allelestatus": {},
         "lookupkey": {
-          "CYP2C19": "Normal Metabolizer"
+          "CYP2C19": "Likely Poor Metabolizer"
         },
-        "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+        "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
+        "population": "CVI non-ACS non-PCI"
+      },
+      {
+        "implications": {
+          "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+        },
+        "drugrecommendation": "Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C19": "Likely Poor Metabolizer"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C19": "Likely Poor Metabolizer"
+        },
+        "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
         "population": "CVI ACS PCI "
       },
       {
@@ -13594,8 +13577,42 @@
         "lookupkey": {
           "CYP2C19": "Normal Metabolizer"
         },
+        "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+        "population": "CVI ACS PCI "
+      },
+      {
+        "implications": {
+          "CYP2C19": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity"
+        },
+        "drugrecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C19": "Normal Metabolizer"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C19": "Normal Metabolizer"
+        },
         "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
         "population": "NVI"
+      },
+      {
+        "implications": {
+          "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+        },
+        "drugrecommendation": "Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+        "classification": "Strong",
+        "phenotypes": {
+          "CYP2C19": "Poor Metabolizer"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C19": "Poor Metabolizer"
+        },
+        "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+        "population": "CVI ACS PCI "
       },
       {
         "implications": {
@@ -13630,23 +13647,6 @@
         },
         "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms. Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. Given limited outcomes data for genotype-guided anti-platelet therapy for neurovascular indications, selection of therapy should depend on individual patient treatment goals and risks for adverse events.",
         "population": "NVI"
-      },
-      {
-        "implications": {
-          "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
-        },
-        "drugrecommendation": "Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
-        "classification": "Strong",
-        "phenotypes": {
-          "CYP2C19": "Poor Metabolizer"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C19": "Poor Metabolizer"
-        },
-        "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
-        "population": "CVI ACS PCI "
       },
       {
         "implications": {
@@ -13701,6 +13701,23 @@
       },
       {
         "implications": {
+          "CYP2C19": "Increased clopidogrel active metabolite formation; lower on-treatment platelet reactivity"
+        },
+        "drugrecommendation": "No recommendation",
+        "classification": "No Recommendation",
+        "phenotypes": {
+          "CYP2C19": "Ultrarapid Metabolizer"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C19": "Ultrarapid Metabolizer"
+        },
+        "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
+        "population": "NVI"
+      },
+      {
+        "implications": {
           "CYP2C19": "Increased clopidogrel active metabolite formation; lower on-treatment platelet reactivity; no association with higher bleeding risk"
         },
         "drugrecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
@@ -13732,23 +13749,6 @@
         },
         "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
         "population": "CVI non-ACS non-PCI"
-      },
-      {
-        "implications": {
-          "CYP2C19": "Increased clopidogrel active metabolite formation; lower on-treatment platelet reactivity"
-        },
-        "drugrecommendation": "No recommendation",
-        "classification": "No Recommendation",
-        "phenotypes": {
-          "CYP2C19": "Ultrarapid Metabolizer"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C19": "Ultrarapid Metabolizer"
-        },
-        "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
-        "population": "NVI"
       }
     ]
   },
@@ -13865,7 +13865,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -14336,7 +14336,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -14491,7 +14491,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -14967,7 +14967,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -15206,7 +15206,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -19998,7 +19998,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -20165,7 +20165,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -20290,7 +20290,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -20518,7 +20518,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -20659,7 +20659,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -20906,7 +20906,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -22040,7 +22040,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -22538,7 +22538,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -22653,7 +22653,7 @@
           "CYP2C9": "1"
         },
         "comments": "n/a",
-        "population": "PHT use >3mos"
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -22676,7 +22676,7 @@
           "CYP2C9": "1"
         },
         "comments": "n/a",
-        "population": "PHT naive"
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -22791,7 +22791,7 @@
           "CYP2C9": "n/a"
         },
         "comments": "n/a",
-        "population": "PHT naive"
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -22814,7 +22814,7 @@
           "CYP2C9": "n/a"
         },
         "comments": "n/a",
-        "population": "PHT use >3mos"
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -22867,29 +22867,6 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
         },
-        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-        "classification": "Strong",
-        "phenotypes": {
-          "CYP2C9": "Poor Metabolizer"
-        },
-        "activityscore": {
-          "CYP2C9": "0.0"
-        },
-        "allelestatus": {
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-B": "*15:02 positive",
-          "CYP2C9": "0"
-        },
-        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-        "population": "PHT naive"
-      },
-      {
-        "implications": {
-          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-        },
         "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
         "classification": "Optional",
         "phenotypes": {
@@ -22913,23 +22890,23 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
         },
-        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-        "classification": "Optional",
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
         "phenotypes": {
           "CYP2C9": "Poor Metabolizer"
         },
         "activityscore": {
-          "CYP2C9": "0.5"
+          "CYP2C9": "0.0"
         },
         "allelestatus": {
           "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
           "HLA-B": "*15:02 positive",
-          "CYP2C9": "0.5"
+          "CYP2C9": "0"
         },
-        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-        "population": "PHT use >3mos"
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -22953,6 +22930,29 @@
         },
         "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
         "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Poor Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "0.5"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "0.5"
+        },
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -23051,29 +23051,6 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Normal phenytoin metabolism"
         },
-        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-        "classification": "Optional",
-        "phenotypes": {
-          "CYP2C9": "Normal Metabolizer"
-        },
-        "activityscore": {
-          "CYP2C9": "2.0"
-        },
-        "allelestatus": {
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-B": "*15:02 positive",
-          "CYP2C9": "2"
-        },
-        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-        "population": "PHT use >3mos"
-      },
-      {
-        "implications": {
-          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "Normal phenytoin metabolism"
-        },
         "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
         "classification": "Strong",
         "phenotypes": {
@@ -23091,6 +23068,29 @@
         },
         "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
         "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "Normal phenytoin metabolism"
+        },
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Normal Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "2.0"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "2"
+        },
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -23507,7 +23507,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -23611,7 +23611,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -23797,7 +23797,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -24261,7 +24261,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -24462,7 +24462,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -29253,7 +29253,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -29367,7 +29367,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -29454,7 +29454,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -29563,7 +29563,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -29761,7 +29761,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -30007,7 +30007,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -30155,7 +30155,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -30384,7 +30384,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -31242,7 +31242,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -31397,7 +31397,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -31873,7 +31873,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -32074,7 +32074,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -32573,7 +32573,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -32703,7 +32703,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -32904,7 +32904,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -33011,7 +33011,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -33474,7 +33474,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14"
+    "cpicVersion": "v1.16"
   },
   {
     "drugid": "RxNorm:253453",
@@ -33517,7 +33517,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14"
+    "cpicVersion": "v1.16"
   },
   {
     "drugid": "RxNorm:8183",
@@ -33595,7 +33595,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -34561,7 +34561,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -34807,7 +34807,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -34958,7 +34958,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -35141,7 +35141,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -35288,7 +35288,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -35497,7 +35497,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -36113,7 +36113,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -36318,7 +36318,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -36519,7 +36519,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -36670,7 +36670,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -36774,7 +36774,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -36896,7 +36896,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -37043,7 +37043,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -37507,7 +37507,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -37736,7 +37736,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -38590,7 +38590,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -38758,7 +38758,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -39263,7 +39263,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -44050,7 +44050,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -44518,7 +44518,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.14",
+    "cpicVersion": "v1.16",
     "recommendations": [
       {
         "implications": {
@@ -44535,7 +44535,7 @@
           "CYP2C19": "Indeterminate"
         },
         "comments": "n/a",
-        "population": "adults"
+        "population": "pediatrics"
       },
       {
         "implications": {
@@ -44552,24 +44552,7 @@
           "CYP2C19": "Indeterminate"
         },
         "comments": "n/a",
-        "population": "pediatrics"
-      },
-      {
-        "implications": {
-          "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
-        },
-        "drugrecommendation": "Initiate therapy with recommended standard of care dosing",
-        "classification": "Moderate",
-        "phenotypes": {
-          "CYP2C19": "Intermediate Metabolizer"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C19": "Intermediate Metabolizer"
-        },
-        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
-        "population": "pediatrics"
+        "population": "adults"
       },
       {
         "implications": {
@@ -44587,6 +44570,23 @@
         },
         "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
         "population": "adults"
+      },
+      {
+        "implications": {
+          "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
+        },
+        "drugrecommendation": "Initiate therapy with recommended standard of care dosing",
+        "classification": "Moderate",
+        "phenotypes": {
+          "CYP2C19": "Intermediate Metabolizer"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "CYP2C19": "Intermediate Metabolizer"
+        },
+        "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
+        "population": "pediatrics"
       },
       {
         "implications": {
@@ -44877,6 +44877,6 @@
       }
     ],
     "notesonusage": "Warfarin recommendation does not follow simple diplotype to phenotype translation. Read the guideline text and follow the recommendation diagram found at http://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png",
-    "cpicVersion": "v1.14"
+    "cpicVersion": "v1.16"
   }
 ]
