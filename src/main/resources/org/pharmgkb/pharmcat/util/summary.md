@@ -1,9 +1,10 @@
 ---
-title: PharmCAT Data Summary
-permalink: summary/
+title: Genes & Drugs
+permalink: genes-drugs/
+nav_order: 5
 ---
 
-# PharmCAT Data Summary
+# PharmCAT Genes & Drugs
 
 ## Genes
 
