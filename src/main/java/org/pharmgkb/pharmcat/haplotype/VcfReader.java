@@ -271,7 +271,7 @@ public class VcfReader implements VcfLineParser {
       try {
         List<Integer> depths = Arrays.stream(allelicDepth.split(","))
             .map(Integer::parseInt)
-            .toList();
+            .collect(Collectors.toList());
         Map<Integer, Integer> genotype = new HashMap<>();
         Arrays.stream(alleleIdxs)
             .forEach(g -> genotype.merge(g, 1, Integer::sum));
