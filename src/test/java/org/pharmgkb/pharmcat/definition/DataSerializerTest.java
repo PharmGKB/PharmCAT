@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.definition;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
@@ -8,6 +9,7 @@ import com.google.common.base.Charsets;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.util.DataSerializer;
 
@@ -58,7 +60,10 @@ class DataSerializerTest {
       // compare with expected
       FileUtils.contentEqualsIgnoreEOL(refJsonFile.toFile(), jsonFile.toFile(), Charsets.UTF_8.displayName());
 
-
+    } catch (IOException ex) {
+      if (!TestUtils.isContinuousIntegration() || TestUtils.isIgnorableExternalServiceException(ex.getCause())) {
+        throw ex;
+      }
     } finally {
       Files.deleteIfExists(jsonFile);
     }
@@ -103,7 +108,7 @@ class DataSerializerTest {
       assertEquals(0, cyp3a5.get().getIgnoredPositions().size());
       assertEquals(0, cyp3a5.get().getExtraPositions().size());
       assertEquals(0, cyp3a5.get().getIgnoredAlleles().size());
-      assertTrue(cyp3a5.get().isAllHits());
+      assertEquals(Boolean.TRUE, cyp3a5.get().isAllHits());
       assertFalse(cyp3a5.get().isAssumeReference());
 
       // write it out
@@ -111,7 +116,10 @@ class DataSerializerTest {
       // compare with expected
       FileUtils.contentEqualsIgnoreEOL(refJsonFile.toFile(), jsonFile.toFile(), Charsets.UTF_8.displayName());
 
-
+    } catch (IOException ex) {
+      if (!TestUtils.isContinuousIntegration() || TestUtils.isIgnorableExternalServiceException(ex.getCause())) {
+        throw ex;
+      }
     } finally {
       Files.deleteIfExists(jsonFile);
     }
