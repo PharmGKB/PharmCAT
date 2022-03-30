@@ -314,7 +314,6 @@ public class VcfReader implements VcfLineParser {
         return;
       }
       // going to accept "./1" because there's a variation and we want to pass this on to the reporter
-      // BUT: missing genotype is guaranteed to produce a no-call if assumeReferenceInDefinitions is true
       addWarning(chrPos, "Only a single genotype found.");
     }
 

@@ -81,7 +81,7 @@ public class Phenotyper {
         DefinitionReader definitionReader = new DefinitionReader();
         definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
         boolean callCyp2d6 = cliHelper.hasOption("r") && cliHelper.hasOption("cyp2d6");
-        NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, false, callCyp2d6);
+        NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, callCyp2d6);
         Result result = namedAlleleMatcher.call(vcfFile);
         calls = result.getGeneCalls();
         variantWarnings = result.getVcfWarnings();

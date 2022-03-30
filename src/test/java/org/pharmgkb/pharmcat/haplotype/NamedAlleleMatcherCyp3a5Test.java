@@ -74,12 +74,13 @@ class NamedAlleleMatcherCyp3a5Test {
     assertDiplotypePairs(expectedMatches, result);
 
     // All matches
-    Result result2 = testMatchNamedAlleles(m_definitionFile, vcfFile,false, false, false, false);
+    // TODO(markwoon): this one does NOT assume default
+    Result result2 = testMatchNamedAlleles(m_definitionFile, vcfFile, false, false, false);
     List<String> expectedMatches2 = Lists.newArrayList("*1/*1");
     assertDiplotypePairs(expectedMatches2, result2);
 
     // Don't presume reference and take all hits
-    Result result3 = testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, false, false);
+    Result result3 = testMatchNamedAlleles(m_definitionFile, vcfFile, false, false, false);
     List<String> expectedMatches3 = Lists.newArrayList("*1/*1");
     assertDiplotypePairs(expectedMatches3, result3);
 
@@ -89,7 +90,8 @@ class NamedAlleleMatcherCyp3a5Test {
   void s1s1rs776746missing() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s1s1rs776746missing.vcf");
 
-    Result result2 = testMatchNamedAlleles(m_definitionFile, vcfFile,false, true, false, false);
+    // TODO(markwoon): this one does NOT assume default
+    Result result2 = testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, false);
     List<String> expectedMatches2 = Lists.newArrayList("*1/*1");
     assertDiplotypePairs(expectedMatches2, result2);
   }

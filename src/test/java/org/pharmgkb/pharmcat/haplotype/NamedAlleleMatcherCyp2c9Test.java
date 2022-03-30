@@ -90,7 +90,7 @@ class NamedAlleleMatcherCyp2c9Test {
         .variation("CYP2C9", "rs749060448", "A", "A")
         .generate();
 
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile, true, false, true, true);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile, false, true, true);
     GeneCall call = result.getGeneCalls().stream()
         .filter(c -> c.getGene().equals("CYP2C9")).findFirst()
         .orElseThrow(() -> new RuntimeException("No gene call found"));
@@ -111,7 +111,7 @@ class NamedAlleleMatcherCyp2c9Test {
     definitionReader.read(sf_definitionFile);
     definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, false, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, true);
     Result result = namedAlleleMatcher.call(vcfFile);
     SortedSet<Variant> extraPositions = result.getGeneCalls().get(0).getVariantsOfInterest();
     assertEquals(1, extraPositions.size());

@@ -32,7 +32,6 @@ public class NamedAlleleMatcher {
   public static final String VERSION = "1.0.0";
   private final DefinitionReader m_definitionReader;
   private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
-  private final boolean m_assumeReferenceInDefinitions;
   private final boolean m_topCandidateOnly;
   private final boolean m_callCyp2d6;
   private boolean m_printWarnings;
@@ -43,23 +42,20 @@ public class NamedAlleleMatcher {
    * This will only call the top candidate(s) and assume reference.  Will not call CYP2D6.
    */
   public NamedAlleleMatcher(DefinitionReader definitionReader) {
-    this(definitionReader, true, false, false);
+    this(definitionReader, false, false);
   }
 
   /**
    * Constructor.
    *
    * @param topCandidateOnly true if only top candidate(s) should be called, false to call all possible candidates
-   * @param assumeReference true if missing alleles in definitions should be treated as reference, false otherwise
    * @param callCyp2d6 true if CYP2D6 should be called
    */
-  public NamedAlleleMatcher(DefinitionReader definitionReader, boolean assumeReference, boolean topCandidateOnly,
-      boolean callCyp2d6) {
+  public NamedAlleleMatcher(DefinitionReader definitionReader, boolean topCandidateOnly, boolean callCyp2d6) {
 
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
     m_locationsOfInterest = calculateLocationsOfInterest(m_definitionReader);
-    m_assumeReferenceInDefinitions = assumeReference;
     m_topCandidateOnly = topCandidateOnly;
     m_callCyp2d6 = callCyp2d6;
   }
@@ -107,7 +103,7 @@ public class NamedAlleleMatcher {
       boolean topCandidateOnly = !cliHelper.hasOption("a");
       boolean callCyp2d6 = cliHelper.hasOption("r") && cliHelper.hasOption("cyp2d6");
       NamedAlleleMatcher namedAlleleMatcher =
-          new NamedAlleleMatcher(definitionReader, true, topCandidateOnly, callCyp2d6)
+          new NamedAlleleMatcher(definitionReader, topCandidateOnly, callCyp2d6)
               .printWarnings();
       Result result = namedAlleleMatcher.call(vcfFile);
 
@@ -237,6 +233,9 @@ public class NamedAlleleMatcher {
     // handle missing positions (if any)
     data.marshallHaplotypes(alleles);
 
+    // TODO(markwoon): FIX THIS !!!
+    data.defaultMissingAllelesToReference();
+    /*
     boolean assumeReference = m_assumeReferenceInDefinitions;
     if (exemption != null && exemption.isAssumeReference() != null) {
       //noinspection ConstantConditions
@@ -245,6 +244,7 @@ public class NamedAlleleMatcher {
     if (assumeReference) {
       data.defaultMissingAllelesToReference();
     }
+    */
 
     data.generateSamplePermutations();
     return data;

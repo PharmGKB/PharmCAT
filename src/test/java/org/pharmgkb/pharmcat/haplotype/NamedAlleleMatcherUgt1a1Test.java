@@ -134,7 +134,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80unphased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*80+*28");
 
-     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true, true, true, true);
+     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true, true, true);
     assertDiplotypePairs(expectedMatches, result);
   }
 

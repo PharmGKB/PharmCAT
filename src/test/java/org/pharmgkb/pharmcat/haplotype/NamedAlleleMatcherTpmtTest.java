@@ -44,13 +44,13 @@ class NamedAlleleMatcherTpmtTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s1s1s.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
-    Result result = NamedAlleleMatcherTest.testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, true, false);
+    Result result = NamedAlleleMatcherTest.testMatchNamedAlleles(m_definitionFile, vcfFile, false, true, false);
     assertDiplotypePairs(expectedMatches, result);
 
     // with exemptions
     expectedMatches = Lists.newArrayList("*1/*1");
 
-    result = NamedAlleleMatcherTest.testMatchNamedAlleles(m_definitionFile, vcfFile, true, false, true, true);
+    result = NamedAlleleMatcherTest.testMatchNamedAlleles(m_definitionFile, vcfFile, false, true, true);
     assertDiplotypePairs(expectedMatches, result);
   }
 

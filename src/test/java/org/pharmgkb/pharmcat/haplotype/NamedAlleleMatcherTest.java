@@ -32,7 +32,6 @@ class NamedAlleleMatcherTest {
   /**
    * Helper method for running {@link NamedAlleleMatcher} using:
    * <ul>
-   *   <li>{@code assumeReference} = true</li>
    *   <li>{@code topCandidateOnly} = false</li>
    *   <li>{@code showUnmatched} = true</li>
    *   <li>{@code withExemptions} = true</li>
@@ -45,15 +44,15 @@ class NamedAlleleMatcherTest {
 
   static Result testMatchNamedAlleles(Path tsvFile, Path vcfFile, boolean topCandidateOnly)
       throws Exception {
-    return testMatchNamedAlleles(tsvFile, vcfFile, true, topCandidateOnly, true, true);
+    return testMatchNamedAlleles(tsvFile, vcfFile, topCandidateOnly, true, true);
   }
 
   /**
    * Helper method for running {@link NamedAlleleMatcher}.
    * This is used by the more specific gene tests.
    */
-  static Result testMatchNamedAlleles(Path definitionFile, Path vcfFile, boolean assumeReference,
-      boolean topCandidateOnly, boolean showUnmatched, boolean withExemptions) throws Exception {
+  static Result testMatchNamedAlleles(Path definitionFile, Path vcfFile, boolean topCandidateOnly,
+      boolean showUnmatched, boolean withExemptions) throws Exception {
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionFile);
@@ -61,8 +60,7 @@ class NamedAlleleMatcherTest {
       definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
     }
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, assumeReference, topCandidateOnly,
-        true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, topCandidateOnly, true);
     Result result = namedAlleleMatcher.call(vcfFile);
 
     // print
@@ -200,7 +198,7 @@ class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-mismatchedRefAllele.vcf");
     definitionReader.read(definitionFile);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, false, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, true);
     Result result = namedAlleleMatcher.call(vcfFile);
     assertNotNull(result.getVcfWarnings());
 
@@ -232,12 +230,12 @@ class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-cyp2d6.vcf");
     definitionReader.read(definitionFile);
 
-    NamedAlleleMatcher naNoCyp2d6 = new NamedAlleleMatcher(definitionReader, true, false, false);
+    NamedAlleleMatcher naNoCyp2d6 = new NamedAlleleMatcher(definitionReader, false, false);
     Result result = naNoCyp2d6.call(vcfFile);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(0, result.getGeneCalls().size());
 
-    NamedAlleleMatcher naWithCyp2d6 = new NamedAlleleMatcher(definitionReader, true, false, true);
+    NamedAlleleMatcher naWithCyp2d6 = new NamedAlleleMatcher(definitionReader, false, true);
     result = naWithCyp2d6.call(vcfFile);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());

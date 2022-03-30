@@ -43,7 +43,6 @@ class DataSerializerTest {
       assertEquals(1, cyp2c9.get().getExtraPositions().size());
       assertEquals(0, cyp2c9.get().getIgnoredAlleles().size());
       assertNull(cyp2c9.get().isAllHits());
-      assertNull(cyp2c9.get().isAssumeReference());
 
       Optional<DefinitionExemption> cyp2c19 = definitionExemptions.stream()
           .filter((de) -> de.getGene().equals("CYP2C19"))
@@ -53,7 +52,6 @@ class DataSerializerTest {
       assertEquals(0, cyp2c19.get().getExtraPositions().size());
       assertEquals(0, cyp2c19.get().getIgnoredAlleles().size());
       assertNull(cyp2c19.get().isAllHits());
-      assertNull(cyp2c19.get().isAssumeReference());
 
       // write it out
       dataSerializer.serializeToJson(definitionExemptions, jsonFile);
@@ -89,7 +87,6 @@ class DataSerializerTest {
       assertEquals(1, cyp2c9.get().getExtraPositions().size());
       assertEquals(0, cyp2c9.get().getIgnoredAlleles().size());
       assertNull(cyp2c9.get().isAllHits());
-      assertNull(cyp2c9.get().isAssumeReference());
 
       Optional<DefinitionExemption> cyp2c19 = definitionExemptions.stream()
           .filter((de) -> de.getGene().equals("CYP2C19"))
@@ -99,7 +96,6 @@ class DataSerializerTest {
       assertEquals(0, cyp2c19.get().getExtraPositions().size());
       assertEquals(0, cyp2c19.get().getIgnoredAlleles().size());
       assertNull(cyp2c19.get().isAllHits());
-      assertNull(cyp2c19.get().isAssumeReference());
 
       Optional<DefinitionExemption> cyp3a5 = definitionExemptions.stream()
           .filter((de) -> de.getGene().equals("CYP3A5"))
@@ -109,7 +105,6 @@ class DataSerializerTest {
       assertEquals(0, cyp3a5.get().getExtraPositions().size());
       assertEquals(0, cyp3a5.get().getIgnoredAlleles().size());
       assertEquals(Boolean.TRUE, cyp3a5.get().isAllHits());
-      assertFalse(cyp3a5.get().isAssumeReference());
 
       // write it out
       dataSerializer.serializeToJson(definitionExemptions, jsonFile);

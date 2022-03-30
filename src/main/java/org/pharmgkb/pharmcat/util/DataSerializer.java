@@ -111,11 +111,7 @@ public class DataSerializer {
         if (data.length > 4 && StringUtils.stripToNull(data[4]) != null) {
           allHits = Boolean.parseBoolean(data[4]);
         }
-        Boolean assumeReference = null;
-        if (data.length > 5 && StringUtils.stripToNull(data[5]) != null) {
-          assumeReference = Boolean.parseBoolean(data[5]);
-        }
-        exemptions.add(new DefinitionExemption(gene, ignoreLoci, extraLoci, ignoreAlleles, allHits, assumeReference));
+        exemptions.add(new DefinitionExemption(gene, ignoreLoci, extraLoci, ignoreAlleles, allHits));
       }
     }
     return exemptions;

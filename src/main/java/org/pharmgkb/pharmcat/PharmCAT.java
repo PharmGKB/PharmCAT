@@ -168,8 +168,7 @@ public class PharmCAT {
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(f_definitionsDir);
-    NamedAlleleMatcher namedAlleleMatcher =
-        new NamedAlleleMatcher(definitionReader, true, !m_showAllMatches, m_callCyp2d6)
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, !m_showAllMatches, m_callCyp2d6)
         .printWarnings();
     Result result = namedAlleleMatcher.call(vcfFile);
     ResultSerializer resultSerializer = new ResultSerializer();

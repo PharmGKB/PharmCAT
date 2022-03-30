@@ -35,14 +35,10 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
   @Expose
   @SerializedName("allHits")
   private final Boolean m_allHits;
-  @Expose
-  @SerializedName("assumeReference")
-  private final Boolean m_assumeReference;
 
 
   public DefinitionExemption(String gene, @Nullable SortedSet<VariantLocus> ignoredPositions,
-      @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<String> ignoredAlleles, Boolean allHits,
-      Boolean assumeReference) {
+      @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<String> ignoredAlleles, Boolean allHits) {
     m_gene = gene;
 
     if (ignoredPositions == null) {
@@ -63,7 +59,6 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
       m_ignoredAllelesLc = ignoredAlleles.stream().map(String::toLowerCase).collect(Collectors.toCollection(TreeSet::new));
     }
     m_allHits = allHits;
-    m_assumeReference = assumeReference;
   }
 
 
@@ -117,14 +112,6 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
    */
   public @Nullable Boolean isAllHits() {
     return m_allHits;
-  }
-
-
-  /**
-   * Gets if missing positions should be assumed to be reference.
-   */
-  public @Nullable Boolean isAssumeReference() {
-    return m_assumeReference;
   }
 
 
