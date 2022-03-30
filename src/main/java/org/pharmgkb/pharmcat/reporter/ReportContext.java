@@ -193,11 +193,13 @@ public class ReportContext {
     // Genotypes section
     List<Map<String,Object>> genotypes = new ArrayList<>();
     int calledGenes = 0;
+    int totalGenes = 0;
     for (GeneReport geneReport : getGeneReports()) {
       // skip any genes on the blacklist
       if (geneReport.isIgnored()) {
         continue;
       }
+      totalGenes += 1;
 
       // skip any uncalled genes
       boolean isCompletelyUnknown = geneReport.getVariantReports().stream().allMatch(VariantReport::isMissing);
@@ -228,7 +230,7 @@ public class ReportContext {
       }
     }
     result.put("genotypes", genotypes);
-    result.put("totalGenes", genotypes.size());
+    result.put("totalGenes", totalGenes);
     result.put("calledGenes", calledGenes);
 
     // Drugs section
