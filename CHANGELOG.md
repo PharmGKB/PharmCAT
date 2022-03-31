@@ -1,3 +1,40 @@
+## [1.6.0](https://github.com/PharmGKB/PharmCAT/compare/v1.5.1...v1.6.0) (2022-03-31)
+
+
+### Features
+
+* pharmcat.org website redesign and new content ([48cd154](https://github.com/PharmGKB/PharmCAT/commit/48cd15486bd342c96473e633f19ce1a735eb647b))
+* **website:** tweak the website styling and layout ([b52b7d6](https://github.com/PharmGKB/PharmCAT/commit/b52b7d6f2bdd820cf506aa774c4ccd7beb5c1da3))
+
+
+### Bug Fixes
+
+* add more clarifying info to TestVcfBuilder alt allele mismatch message ([63d0dfd](https://github.com/PharmGKB/PharmCAT/commit/63d0dfd707d52317540d1a4b9095a8d190f3b69f))
+* fix bundle call for running local jekyll ([a1034a7](https://github.com/PharmGKB/PharmCAT/commit/a1034a7c61494e2ba946775e3f0fdce37e0da1b2))
+* fix CLI arg description for Phenotyper ([f31085c](https://github.com/PharmGKB/PharmCAT/commit/f31085c279c4ed163c665b6af0ebee438076bbc7))
+* fix jekyll front matter on disclaimers page ([a2ecb79](https://github.com/PharmGKB/PharmCAT/commit/a2ecb790559b871d60767e15e9e40cd64f41f525))
+* fix permissions on VCF scripts ([3d5cb34](https://github.com/PharmGKB/PharmCAT/commit/3d5cb3403f3755096bd4d0020d24077233093b65)), closes [#89](https://github.com/PharmGKB/PharmCAT/issues/89)
+* **data:** update to CPIC 1.16 ([5ee8d37](https://github.com/PharmGKB/PharmCAT/commit/5ee8d37e7b4560c6db1c74eb97f2855634c553ce))
+* **datamanager:** correctly loading definitions in dataManager when skipping alleles ([2687635](https://github.com/PharmGKB/PharmCAT/commit/26876359a58944a299be618e4e2760c85e3f6b53))
+* **datamanager:** improve error when encounter external service error ([93de324](https://github.com/PharmGKB/PharmCAT/commit/93de324bcbccf5f45ebb7eabf2afdef2bee91a38))
+* **docker:** make sure scripts are executable ([dfc080f](https://github.com/PharmGKB/PharmCAT/commit/dfc080f305da4a8e7e26ff78b38ee180ccefd3c0)), closes [#89](https://github.com/PharmGKB/PharmCAT/issues/89)
+* **docker:** use docker 3.9 to work around numpy incompatibility ([44cf6d1](https://github.com/PharmGKB/PharmCAT/commit/44cf6d16552132c156bf44f4aed72dc3778af3fc))
+* **namedallelematcher:** discard position with AD field ([6b717db](https://github.com/PharmGKB/PharmCAT/commit/6b717db24f9e64ab06f943958665dab7c3b71be7))
+* **namedallelematcher:** do not discard position if novel ALT allele is found ([ba48472](https://github.com/PharmGKB/PharmCAT/commit/ba48472e4f3d44281f6efecaf0587f7acefe7972))
+* **namedallelematcher:** handle `.` AD value ([2591ae9](https://github.com/PharmGKB/PharmCAT/commit/2591ae94fdcda24fdd88ec9bd9a4061c0def46a9))
+* **namedallelematcher:** improve AD field handling (only catch reference overlap) ([cb152c6](https://github.com/PharmGKB/PharmCAT/commit/cb152c64399299bad9ecf2edd98abbefef2fe559))
+* **namedallelematcher:** improve checking for unexpected ALT ([f74b309](https://github.com/PharmGKB/PharmCAT/commit/f74b309202affb07f0c0d7c35ff18f5a4b801346))
+* **preprocessor:** improved way to identify block gVCF ([b57a6e2](https://github.com/PharmGKB/PharmCAT/commit/b57a6e2b1bb31cbaa42e5e08a5e883e83d35c0cc)), closes [#79](https://github.com/PharmGKB/PharmCAT/issues/79)
+* **preprocessor:** sort VCF in a way that the non-PGx variants that occur at the PGx positions will appear after the line of the PGx variants ([3a2be37](https://github.com/PharmGKB/PharmCAT/commit/3a2be374a4973708aaa50dafae95371e7b0c1400)), closes [#95](https://github.com/PharmGKB/PharmCAT/issues/95)
+* **reporter:** fix total gene count in report genotypes table ([02fd57d](https://github.com/PharmGKB/PharmCAT/commit/02fd57d4d3a30388c07847d22bc87669c0329d9a))
+* **reporter:** make DrugLinks comparable to sort properly in final output ([501db22](https://github.com/PharmGKB/PharmCAT/commit/501db222b196b01100bb16c7cf8367d4c1ef0bab))
+* **reporter:** update more PharmCATTest tests to new wrapper ([89e5354](https://github.com/PharmGKB/PharmCAT/commit/89e53548584f5ba8c7bedf2ec876954fdfb1aab0))
+
+
+### Reverts
+
+* update TPMT test for new calling rules ([63f4775](https://github.com/PharmGKB/PharmCAT/commit/63f4775e20cea117fa8ea8e61ea9dc3f31e8a644))
+
 ### [1.5.1](https://github.com/PharmGKB/PharmCAT/compare/v1.5.0...v1.5.1) (2022-02-22)
 
 
