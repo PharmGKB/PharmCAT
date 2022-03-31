@@ -15,7 +15,7 @@ For more details:
 
 PharmCAT is available for general use, but it is still under _active development_. New features, data updates, and bug fixes will be released. Watch this repo or check the [releases](../../releases) page for new releases.
 
-All technical requirements and documentation are available in the [wiki](../../wiki).
+All technical requirements and documentation are available on [PharmCAT.org](https://pharmcat.org).
 
 PharmCAT is managed at Stanford University & University of Pennsylvania (NHGRI U24HG010862)
 
