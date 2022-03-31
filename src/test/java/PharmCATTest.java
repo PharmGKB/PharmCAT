@@ -1227,6 +1227,7 @@ class PharmCATTest {
           .keepMatcherOutput()
           .writeJson(true)
           .writePhenotyperJson(true);
+      f_pharmCat.getReporter().setTestMode(true);
       if (allMatches) {
         f_pharmCat.showAllMatches();
       }

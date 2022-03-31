@@ -3,12 +3,18 @@ package org.pharmgkb.pharmcat.reporter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.PharmCAT;
 import org.pharmgkb.pharmcat.VcfTestUtils;
+import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
+import org.pharmgkb.pharmcat.util.CliUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -438,9 +444,17 @@ class SyntheticBatchTest {
   private SyntheticBatchTest(Path outputDir) throws IOException {
     f_outputDir = outputDir;
     f_pharmcat = new PharmCAT(outputDir, null).keepMatcherOutput();
+    f_pharmcat.getReporter().setTestMode(true);
     f_pharmcat
         .writeJson(true)
         .writePhenotyperJson(true);
+
+    String readmeContent = String.format(
+        "# PharmCAT Example Reports\n\nGenerated on: %s  \nPharmCAT Version: %s",
+        new SimpleDateFormat("MMMMM dd, yyyy").format(new Date()),
+        CliUtils.getVersion()
+    );
+    Files.writeString(outputDir.resolve("README.md"), readmeContent);
   }
 
   private void makeReport(String key, String[] testVcfs, Path outsideCallPath) throws Exception {

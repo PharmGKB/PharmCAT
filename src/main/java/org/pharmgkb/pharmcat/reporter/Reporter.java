@@ -35,10 +35,11 @@ public class Reporter {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final String FINAL_REPORT      = "report";
   private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
-
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
+
   private ReportContext m_reportContext = null;
+  private boolean m_testMode = false;
 
   /**
    * Main CLI
@@ -95,6 +96,11 @@ public class Reporter {
   public void printHtml(Path reportFile, @Nullable String title, @Nullable Path jsonFile) throws IOException {
 
     Map<String,Object> reportData = m_reportContext.compile(title);
+    if (isTestMode()) {
+      reportData.remove("pharmcatVersion");
+      reportData.remove("generatedOn");
+      reportData.remove("cpicVersion");
+    }
 
     Handlebars handlebars = new Handlebars(new ClassPathTemplateLoader(sf_templatePrefix));
     StringHelpers.register(handlebars);
@@ -114,5 +120,18 @@ public class Reporter {
 
   public ReportContext getContext() {
     return m_reportContext;
+  }
+
+  /**
+   * Run the reporter in "test" mode. This means certain metadata (version numbers and dates) will be left out of
+   * output data. This makes diffing comparisons between test runs easier.
+   * @return true if this reporter is running on test data.
+   */
+  public boolean isTestMode() {
+    return m_testMode;
+  }
+
+  public void setTestMode(boolean testMode) {
+    m_testMode = testMode;
   }
 }
