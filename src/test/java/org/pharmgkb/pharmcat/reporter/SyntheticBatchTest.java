@@ -417,6 +417,10 @@ class SyntheticBatchTest {
         "NUDT15/s3ref.vcf"
     }, sf_outsideCYP2D6File);
 
+    makeReportWithOutputString("g6pd.singleB", new String[]{
+        "CYP2C9/s1s1.vcf"
+    }, "G6PD\tB (wildtype)");
+
     makeReport("g6pd.homB", new String[]{
         "CYP2C9/s1s1.vcf"
     }, sf_outsideCYP2D6G6PDFile);

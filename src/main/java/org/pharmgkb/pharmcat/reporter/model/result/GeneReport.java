@@ -35,7 +35,8 @@ public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
   private static final Set<String> IGNORED_GENES       = ImmutableSet.of("HLA-A", "HLA-B", "IFNL4");
   private static final Set<String> OVERRIDE_DIPLOTYPES = ImmutableSet.of("SLCO1B1");
-  private static final Set<String> SINGLE_PLOIDY       = ImmutableSet.of("MT-RNR1");
+  private static final Set<String> SINGLE_PLOIDY       = ImmutableSet.of("G6PD", "MT-RNR1");
+  private static final Set<String> CHROMO_X            = ImmutableSet.of("G6PD");
   private static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
   public static  final String YES = "Yes";
@@ -370,6 +371,10 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public static boolean isSinglePloidy(String gene) {
     return StringUtils.isNotBlank(gene) && SINGLE_PLOIDY.contains(gene);
+  }
+
+  public static boolean isXChromo(String gene) {
+    return StringUtils.isNotBlank(gene) && CHROMO_X.contains(gene);
   }
 
   /**

@@ -113,7 +113,7 @@ public class DiplotypeFactory {
 
     Diplotype diplotype;
     if (diplotypeText.contains("/")) {
-      if (GeneReport.isSinglePloidy(f_gene)) {
+      if (GeneReport.isSinglePloidy(f_gene) && !GeneReport.isXChromo(f_gene)) {
         throw new RuntimeException("Cannot specify two genotypes [" + diplotypeText + "] for single chromosome gene " + f_gene);
       }
 
