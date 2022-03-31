@@ -14,7 +14,7 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.*;
 
 
 /**
- * JUnit test for {@link NamedAlleleMatcher#callDiplotypes(MatchData, boolean)}.
+ * Test calling for UGT1A1.
  *
  * @author Lester Carter
  */

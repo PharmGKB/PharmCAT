@@ -14,7 +14,7 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
 
 
 /**
- * JUnit test for {@link NamedAlleleMatcher#callDiplotypes(MatchData, boolean)}.
+ * Test calling for VKORC1.
  *
  * @author Lester Carter
  */
