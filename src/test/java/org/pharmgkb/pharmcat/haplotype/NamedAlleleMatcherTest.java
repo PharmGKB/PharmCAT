@@ -96,15 +96,17 @@ class NamedAlleleMatcherTest {
 
     List<String> pairs = new ArrayList<>();
     StringBuilder builder = new StringBuilder();
-    for (DiplotypeMatch dm : result.getGeneCalls().get(0).getDiplotypes()) {
-      pairs.add(dm.getName());
-      if (builder.length() > 0) {
-        builder.append(", ");
+    if (result.getGeneCalls().size() > 0) {
+      for (DiplotypeMatch dm : result.getGeneCalls().get(0).getDiplotypes()) {
+        pairs.add(dm.getName());
+        if (builder.length() > 0) {
+          builder.append(", ");
+        }
+        builder.append(dm.getName())
+            .append(" (")
+            .append(dm.getScore())
+            .append(")");
       }
-      builder.append(dm.getName())
-          .append(" (")
-          .append(dm.getScore())
-          .append(")");
     }
 
     if (expectedPairs.size() != pairs.size() || !expectedPairs.equals(pairs)) {
