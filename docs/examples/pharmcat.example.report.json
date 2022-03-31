@@ -1,7 +1,7 @@
 {
-  "totalGenes": 20,
-  "pharmcatVersion": "v1.5.1-29-gb3d1bbd9\n",
-  "generatedOn": "March 24, 2022",
+  "totalGenes": 21,
+  "pharmcatVersion": "v1.5.1-41-g2d4489b0\n",
+  "generatedOn": "March 31, 2022",
   "geneCalls": [
     {
       "diplotypes": [
@@ -6294,7 +6294,7 @@
     }
   ],
   "calledGenes": 19,
-  "cpicVersion": "v1.14",
+  "cpicVersion": "v1.16",
   "genotypes": [
     {
       "phenotype": [
@@ -6316,6 +6316,7 @@
       ],
       "missingVariants": "Yes",
       "outsideCall": false,
+      "reportable": false,
       "unphased": false,
       "hasMessages": false
     },
@@ -6363,6 +6364,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6386,6 +6388,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6409,6 +6412,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6484,6 +6488,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6547,6 +6552,7 @@
       ],
       "missingVariants": "Yes",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6554,7 +6560,7 @@
       "phenotype": [
         "Intermediate Metabolizer"
       ],
-      "called": true,
+      "called": false,
       "functions": [
         "One no function allele and one normal function allele"
       ],
@@ -6630,6 +6636,7 @@
       ],
       "missingVariants": "N/A",
       "outsideCall": true,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6653,6 +6660,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": true
     },
@@ -6676,6 +6684,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6703,6 +6712,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": true
     },
@@ -6710,7 +6720,7 @@
       "phenotype": [
         "Normal"
       ],
-      "called": true,
+      "called": false,
       "functions": [
         "Two normal function alleles"
       ],
@@ -6726,6 +6736,7 @@
       ],
       "missingVariants": "N/A",
       "outsideCall": true,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6733,7 +6744,7 @@
       "phenotype": [
         "*15:02 positive; *57:01 positive; *58:01 negative"
       ],
-      "called": true,
+      "called": false,
       "functions": [
         "N/A"
       ],
@@ -6769,6 +6780,7 @@
       ],
       "missingVariants": "N/A",
       "outsideCall": true,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6796,6 +6808,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": true
     },
@@ -6803,7 +6816,7 @@
       "phenotype": [
         "increased risk of aminoglycoside-induced hearing loss"
       ],
-      "called": true,
+      "called": false,
       "functions": [
         "increased risk of aminoglycoside-induced hearing loss"
       ],
@@ -6843,6 +6856,7 @@
       ],
       "missingVariants": "N/A",
       "outsideCall": true,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6874,6 +6888,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6921,6 +6936,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6968,6 +6984,7 @@
       ],
       "missingVariants": "Yes",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6999,6 +7016,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": true
     },
@@ -7022,6 +7040,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": true
     },
@@ -7045,6 +7064,7 @@
       ],
       "missingVariants": "No",
       "outsideCall": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": true
     }
@@ -7548,42 +7568,6 @@
         {
           "annotations": [
             {
-              "annotation": "pediatrics",
-              "term": "Population"
-            },
-            {
-              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate with a dose of 0.5 mg/kg/day and increase to 1.2 mg/kg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c 200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "adults",
               "term": "Population"
             },
@@ -7613,6 +7597,42 @@
             },
             {
               "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "pediatrics",
+              "term": "Population"
+            },
+            {
+              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate with a dose of 0.5 mg/kg/day and increase to 1.2 mg/kg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c 200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.",
               "term": "Comments"
             }
           ]
@@ -8066,10 +8086,131 @@
         }
       ],
       "drugs": "carbamazepine",
-      "groups": [],
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "CBZ use \u003e3mos ",
+              "term": "Population"
+            },
+            {
+              "annotation": "n/a",
+              "term": "Implication for HLA-A"
+            },
+            {
+              "annotation": "Greater risk of carbamazepine-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "No HLA-A Result",
+              "term": "Allele Status for HLA-A"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "CBZ naive",
+              "term": "Population"
+            },
+            {
+              "annotation": "n/a",
+              "term": "Implication for HLA-A"
+            },
+            {
+              "annotation": "Greater risk of carbamazepine-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "No HLA-A Result",
+              "term": "Allele Status for HLA-A"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "CBZ-no alternatives",
+              "term": "Population"
+            },
+            {
+              "annotation": "n/a",
+              "term": "Implication for HLA-A"
+            },
+            {
+              "annotation": "Greater risk of carbamazepine-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "No HLA-A Result",
+              "term": "Allele Status for HLA-A"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+              "term": "Comments"
+            }
+          ]
+        }
+      ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-carbamazepine-and-hla-b/",
-      "mutliMatch": false,
+      "mutliMatch": true,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -8119,7 +8260,7 @@
         }
       ],
       "messages": [],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:2002",
       "lastModified": "not available",
       "footnotes": []
@@ -8429,38 +8570,6 @@
         {
           "annotations": [
             {
-              "annotation": "CVI ACS PCI ",
-              "term": "Population"
-            },
-            {
-              "annotation": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity",
-              "term": "Implication for CYP2C19"
-            },
-            {
-              "annotation": "CYP2C19:*38/*38",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C19"
-            },
-            {
-              "annotation": "If considering clopidogrel, use at standard dose (75 mg/day)",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "NVI",
               "term": "Population"
             },
@@ -8518,6 +8627,38 @@
             },
             {
               "annotation": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "CVI ACS PCI ",
+              "term": "Population"
+            },
+            {
+              "annotation": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity",
+              "term": "Implication for CYP2C19"
+            },
+            {
+              "annotation": "CYP2C19:*38/*38",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C19"
+            },
+            {
+              "annotation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
               "term": "Comments"
             }
           ]
@@ -9879,50 +10020,6 @@
         {
           "annotations": [
             {
-              "annotation": "PHT naive",
-              "term": "Population"
-            },
-            {
-              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
-              "term": "Implication for HLA-B"
-            },
-            {
-              "annotation": "Normal phenytoin metabolism",
-              "term": "Implication for CYP2C9"
-            },
-            {
-              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C9"
-            },
-            {
-              "annotation": "2.0",
-              "term": "Activity Score for CYP2C9"
-            },
-            {
-              "annotation": "HLA-B*15:02 positive",
-              "term": "Allele Status for HLA-B"
-            },
-            {
-              "annotation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "PHT use \u003e3mos",
               "term": "Population"
             },
@@ -9960,6 +10057,50 @@
             },
             {
               "annotation": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "PHT naive",
+              "term": "Population"
+            },
+            {
+              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "Normal phenytoin metabolism",
+              "term": "Implication for CYP2C9"
+            },
+            {
+              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C9"
+            },
+            {
+              "annotation": "2.0",
+              "term": "Activity Score for CYP2C9"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
               "term": "Comments"
             }
           ]
@@ -11727,38 +11868,6 @@
         {
           "annotations": [
             {
-              "annotation": "OXC use \u003e3 mos",
-              "term": "Population"
-            },
-            {
-              "annotation": "Greater risk of oxcarbazepine-induced SJS/TEN",
-              "term": "Implication for HLA-B"
-            },
-            {
-              "annotation": "HLA-B:*15:02/*57:01",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "HLA-B*15:02 positive",
-              "term": "Allele Status for HLA-B"
-            },
-            {
-              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used oxcarbazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of oxcarbazepine in the future.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Optional",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "OXC naive",
               "term": "Population"
             },
@@ -11784,6 +11893,38 @@
             },
             {
               "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "OXC use \u003e3 mos",
+              "term": "Population"
+            },
+            {
+              "annotation": "Greater risk of oxcarbazepine-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used oxcarbazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of oxcarbazepine in the future.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
               "term": "Comments"
             }
           ]
@@ -14402,7 +14543,7 @@
         {
           "annotations": [
             {
-              "annotation": "adults",
+              "annotation": "pediatrics",
               "term": "Population"
             },
             {
@@ -14434,7 +14575,7 @@
         {
           "annotations": [
             {
-              "annotation": "pediatrics",
+              "annotation": "adults",
               "term": "Population"
             },
             {
