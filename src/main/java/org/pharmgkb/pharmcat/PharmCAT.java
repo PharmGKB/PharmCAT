@@ -44,6 +44,7 @@ public class PharmCAT {
   private boolean m_keepMatcherOutput = false;
   private boolean m_writeJsonReport = false;
   private boolean m_writeJsonPheno = false;
+  private boolean m_findCombinations = false;
   private boolean m_showAllMatches = false;
   private boolean m_callCyp2d6 = false;
 
@@ -54,12 +55,16 @@ public class PharmCAT {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addVersion("PharmCAT " + CliUtils.getVersion())
-          .addOption("vcf", "sample-file", "input call file (VCF)", true, "vcf-file-path")
-          .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "directory-path")
-          .addOption("f", "output-file", "the base name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "file-name")
-          .addOption("a", "outside-call-file", "path to an outside call file (TSV)", false, "tsv-file-path")
+          // named allele args
+          .addOption("vcf", "sample-vcf", "input VCF file", true, "vcf")
+          .addOption("fc", "find-combinations", "find combinations")
+          .addOption("ar", "all-results", "return all possible diplotypes, not just top hits")
           // optional data
-          .addOption("na", "alleles-dir", "directory of named allele definitions (JSON files)", false, "directory-path")
+          .addOption("na", "named-alleles-dir", "directory of named allele definitions (JSON files)", false, "na")
+          .addOption("a", "outside-call-file", "path to an outside call file (TSV)", false, "a")
+          // outputs
+          .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "o")
+          .addOption("f", "output-file", "the base name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "f")
           // controls
           .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files")
           .addOption("j", "write-reporter-json", "flag to write a JSON file of the data used to populate the final report")
@@ -95,6 +100,12 @@ public class PharmCAT {
       }
 
       PharmCAT pharmcat = new PharmCAT(outputDir, definitionsDir);
+      if (cliHelper.hasOption("fc")) {
+        pharmcat.findCombinations();
+      }
+      if (cliHelper.hasOption("ar")) {
+        pharmcat.showAllMatches();
+      }
       if (cliHelper.hasOption("k")) {
         pharmcat.keepMatcherOutput();
       }
@@ -168,8 +179,9 @@ public class PharmCAT {
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(f_definitionsDir);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, !m_showAllMatches, m_callCyp2d6)
-        .printWarnings();
+    NamedAlleleMatcher namedAlleleMatcher =
+        new NamedAlleleMatcher(definitionReader, m_findCombinations, !m_showAllMatches, m_callCyp2d6)
+            .printWarnings();
     Result result = namedAlleleMatcher.call(vcfFile);
     ResultSerializer resultSerializer = new ResultSerializer();
     resultSerializer.toJson(result, callFile);
@@ -229,6 +241,11 @@ public class PharmCAT {
 
   public PharmCAT keepMatcherOutput() {
     m_keepMatcherOutput = true;
+    return this;
+  }
+
+  public PharmCAT findCombinations() {
+    m_findCombinations = true;
     return this;
   }
 

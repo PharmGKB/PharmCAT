@@ -25,9 +25,9 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 
@@ -163,7 +163,7 @@ public class ResultSerializer {
 
       Set<String> matchedHaplotypeNames = new HashSet<>();
       if (call.getHaplotypes().size() > 0) {
-        for (HaplotypeMatch hm : call.getHaplotypes()) {
+        for (BaseMatch hm : call.getHaplotypes()) {
           matchedHaplotypeNames.add(hm.getHaplotype().getName());
           printAllele(builder, hm.getHaplotype().getName(), hm.getHaplotype().getPermutations().pattern(), "info");
           for (String seq : hm.getSequences()) {
@@ -214,7 +214,7 @@ public class ResultSerializer {
         if (call.getHaplotypes().size() > 0) {
           builder.append("<p>The following haplotypes were called even though tag positions were missing:</p>")
               .append("<ul>");
-          for (HaplotypeMatch hm : call.getHaplotypes()) {
+          for (BaseMatch hm : call.getHaplotypes()) {
             if (hm.getHaplotype().getMissingPositions().size() > 0) {
               builder.append("<li>Called ")
                   .append(hm.getName())

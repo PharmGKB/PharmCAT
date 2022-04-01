@@ -29,9 +29,10 @@ import org.pharmgkb.pharmcat.util.DataManager;
  * @author Mark Woon
  */
 public class NamedAlleleMatcher {
-  public static final String VERSION = "1.0.0";
+  public static final String VERSION = "2.0.0";
   private final DefinitionReader m_definitionReader;
   private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
+  private final boolean m_findCombinations;
   private final boolean m_topCandidateOnly;
   private final boolean m_callCyp2d6;
   private boolean m_printWarnings;
@@ -39,10 +40,10 @@ public class NamedAlleleMatcher {
 
   /**
    * Default constructor.
-   * This will only call the top candidate(s) and assume reference.  Will not call CYP2D6.
+   * This will only call the top candidate(s).  Will not find combinations or call CYP2D6.
    */
   public NamedAlleleMatcher(DefinitionReader definitionReader) {
-    this(definitionReader, false, false);
+    this(definitionReader, false, false, false);
   }
 
   /**
@@ -51,11 +52,13 @@ public class NamedAlleleMatcher {
    * @param topCandidateOnly true if only top candidate(s) should be called, false to call all possible candidates
    * @param callCyp2d6 true if CYP2D6 should be called
    */
-  public NamedAlleleMatcher(DefinitionReader definitionReader, boolean topCandidateOnly, boolean callCyp2d6) {
+  public NamedAlleleMatcher(DefinitionReader definitionReader, boolean findCombinations, boolean topCandidateOnly,
+      boolean callCyp2d6) {
 
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
     m_locationsOfInterest = calculateLocationsOfInterest(m_definitionReader);
+    m_findCombinations = findCombinations;
     m_topCandidateOnly = topCandidateOnly;
     m_callCyp2d6 = callCyp2d6;
   }
@@ -71,11 +74,14 @@ public class NamedAlleleMatcher {
 
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-          .addOption("vcf", "vcf-in", "VCF file", true, "vcf")
+          .addOption("vcf", "sample-vcf", "input VCF file", true, "vcf")
+          .addOption("fc", "find-combinations", "find combinations")
+          .addOption("ar", "all-results", "return all possible diplotypes, not just top hits")
+          // optional data
+          .addOption("na", "named-alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
+          // outputs
           .addOption("json", "json-out", "file to save results to (in JSON format)", false, "json")
           .addOption("html", "html-out", "file to save results to (in HTML format)", false, "html")
-          .addOption("d", "definition-dir", "directory of allele definition files", false, "d")
-          .addOption("a", "all-results", "return all possible results, not just top hits")
           // research
           .addOption("r", "research-mode", "enable research mode")
           .addOption("cyp2d6", "research-cyp2d6", "call CYP2D6 (must also use research mode)")
@@ -100,10 +106,11 @@ public class NamedAlleleMatcher {
         System.exit(1);
       }
 
-      boolean topCandidateOnly = !cliHelper.hasOption("a");
+      boolean findCombinations = cliHelper.hasOption("fc");
+      boolean topCandidateOnly = !cliHelper.hasOption("ar");
       boolean callCyp2d6 = cliHelper.hasOption("r") && cliHelper.hasOption("cyp2d6");
       NamedAlleleMatcher namedAlleleMatcher =
-          new NamedAlleleMatcher(definitionReader, topCandidateOnly, callCyp2d6)
+          new NamedAlleleMatcher(definitionReader, findCombinations, topCandidateOnly, callCyp2d6)
               .printWarnings();
       Result result = namedAlleleMatcher.call(vcfFile);
 
@@ -167,7 +174,7 @@ public class NamedAlleleMatcher {
   public Result call(Path vcfFile) throws IOException {
 
     VcfReader vcfReader = buildVcfReader(vcfFile);
-    SortedMap<String, SampleAllele> alleles = vcfReader.getAlleleMap();
+    SortedMap<String, SampleAllele> alleleMap = vcfReader.getAlleleMap();
     ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader)
         .forFile(vcfFile, vcfReader.getWarnings().asMap());
     if (m_printWarnings) {
@@ -183,21 +190,52 @@ public class NamedAlleleMatcher {
       if (!m_callCyp2d6 && gene.equals("CYP2D6")) {
         continue;
       }
-      DefinitionExemption exemption = m_definitionReader.getExemption(gene);
-      MatchData data = initializeCallData(alleles, gene);
-      List<DiplotypeMatch> matches = null;
-      if (data.getNumSampleAlleles() > 0) {
-        boolean topCandidateOnly = m_topCandidateOnly;
-        if (exemption != null && exemption.isAllHits() != null) {
-          //noinspection ConstantConditions
-          topCandidateOnly = !exemption.isAllHits();
-        }
-        matches = callDiplotypes(data, topCandidateOnly);
-      }
-
-      resultBuilder.gene(gene, data, matches);
+      callAssumingReference(alleleMap, gene, resultBuilder);
     }
     return resultBuilder.build();
+  }
+
+  private void callAssumingReference(SortedMap<String, SampleAllele> alleleMap, String gene,
+      ResultBuilder resultBuilder) {
+
+    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+    MatchData data = initializeCallData(alleleMap, gene, true, false);
+    List<DiplotypeMatch> matches = null;
+    if (data.getNumSampleAlleles() > 0) {
+      boolean topCandidateOnly = m_topCandidateOnly;
+      if (exemption != null && exemption.isAllHits() != null) {
+        //noinspection ConstantConditions
+        topCandidateOnly = !exemption.isAllHits();
+      }
+      matches = new DiplotypeMatcher(data)
+          .compute(false, topCandidateOnly);
+      if (matches.isEmpty()) {
+        if (!m_findCombinations) {
+          resultBuilder.gene(gene, data, matches);
+        } else {
+          callCombination(alleleMap, gene, resultBuilder);
+        }
+        return;
+      }
+    }
+    resultBuilder.gene(gene, data, matches);
+  }
+
+  private void callCombination(SortedMap<String, SampleAllele> alleleMap, String gene, ResultBuilder resultBuilder) {
+
+    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+    MatchData data = initializeCallData(alleleMap, gene, false, true);
+    List<DiplotypeMatch> matches = null;
+    if (data.getNumSampleAlleles() > 0) {
+      boolean topCandidateOnly = m_topCandidateOnly;
+      if (exemption != null && exemption.isAllHits() != null) {
+        //noinspection ConstantConditions
+        topCandidateOnly = !exemption.isAllHits();
+      }
+      matches = new DiplotypeMatcher(data)
+          .compute(true, topCandidateOnly);
+    }
+    resultBuilder.gene(gene, data, matches);
   }
 
 
@@ -206,7 +244,8 @@ public class NamedAlleleMatcher {
    *
    * @param alleleMap map of {@link SampleAllele}s from VCF
    */
-  private MatchData initializeCallData(SortedMap<String, SampleAllele> alleleMap, String gene) {
+  private MatchData initializeCallData(SortedMap<String, SampleAllele> alleleMap, String gene,
+      boolean assumeReference, boolean findCombinations) {
 
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     SortedSet<VariantLocus> extraPositions = null;
@@ -231,20 +270,11 @@ public class NamedAlleleMatcher {
           .collect(Collectors.toCollection(TreeSet::new));
     }
     // handle missing positions (if any)
-    data.marshallHaplotypes(alleles);
+    data.marshallHaplotypes(gene, alleles, findCombinations);
 
-    // TODO(markwoon): FIX THIS !!!
-    data.defaultMissingAllelesToReference();
-    /*
-    boolean assumeReference = m_assumeReferenceInDefinitions;
-    if (exemption != null && exemption.isAssumeReference() != null) {
-      //noinspection ConstantConditions
-      assumeReference = exemption.isAssumeReference();
-    }
     if (assumeReference) {
       data.defaultMissingAllelesToReference();
     }
-    */
 
     data.generateSamplePermutations();
     return data;
@@ -301,24 +331,5 @@ public class NamedAlleleMatcher {
       x += 1;
     }
     return ignorablePositions;
-  }
-
-
-  /**
-   * Calls the possible diplotypes for a single gene.
-   *
-   */
-  protected List<DiplotypeMatch> callDiplotypes(MatchData data, boolean topCandidateOnly) {
-
-    // find matched pairs
-    List<DiplotypeMatch> pairs = new DiplotypeMatcher(data)
-        .compute();
-    if (topCandidateOnly && pairs.size() > 1) {
-      int topScore = pairs.get(0).getScore();
-      pairs = pairs.stream()
-          .filter(dm -> dm.getScore() == topScore)
-          .collect(Collectors.toList());
-    }
-    return pairs;
   }
 }

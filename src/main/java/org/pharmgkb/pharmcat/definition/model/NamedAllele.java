@@ -40,6 +40,9 @@ public class NamedAllele implements Comparable<NamedAllele> {
   @Expose
   @SerializedName("reference")
   private final boolean m_isReference;
+  @Expose
+  @SerializedName("isCombinationOrPartial")
+  private boolean m_combinationOrPartial;
   //-- variables after this point are used by NamedAlleleMatcher --//
   /** The set of positions that are missing from this copy of the NamedAllele **/
   private SortedSet<VariantLocus> m_missingPositions;
@@ -174,6 +177,15 @@ public class NamedAllele implements Comparable<NamedAllele> {
   }
 
 
+  public boolean isCombinationOrPartial() {
+    return m_combinationOrPartial;
+  }
+
+  public void setCombinationOrPartial(boolean combinationOrPartial) {
+    m_combinationOrPartial = combinationOrPartial;
+  }
+
+
   /**
    * The array of alleles that define this allele.
    *
@@ -209,6 +221,13 @@ public class NamedAllele implements Comparable<NamedAllele> {
    */
   public int getScore() {
     return m_score;
+  }
+
+  /**
+   * Modifies score because this is a combination haplotype with no partials.
+   */
+  public void setCombinationScore(int score) {
+    m_score = score;
   }
 
 

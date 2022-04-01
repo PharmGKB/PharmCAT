@@ -1358,13 +1358,17 @@ class PharmCATTest {
     );
   }
 
-  
+
   private static class PharmCATTestWrapper {
     private final PharmCAT f_pharmCat;
     private final Path f_outputPath;
     private final TestVcfBuilder f_vcfBuilder;
 
     PharmCATTestWrapper(String testKey, boolean allMatches) throws IOException {
+      this(testKey, false, allMatches);
+    }
+
+    PharmCATTestWrapper(String testKey, boolean findCombinations, boolean allMatches) throws IOException {
       f_outputPath = TestUtils.TEST_OUTPUT_DIR.resolve("reports").resolve(testKey);
       if (!Files.isDirectory(f_outputPath)) {
         Files.createDirectories(f_outputPath);
@@ -1377,6 +1381,9 @@ class PharmCATTest {
           .writeJson(true)
           .writePhenotyperJson(true);
       f_pharmCat.getReporter().setTestMode(true);
+      if (findCombinations) {
+        f_pharmCat.findCombinations();
+      }
       if (allMatches) {
         f_pharmCat.showAllMatches();
       }
@@ -1397,7 +1404,7 @@ class PharmCATTest {
       }
       f_pharmCat.execute(tempVcfPath, outsideCallPath, null);
     }
-    
+
     ReportContext getContext() {
       return f_pharmCat.getReporter().getContext();
     }
@@ -1432,7 +1439,7 @@ class PharmCATTest {
      * @param haplotypes the expected haplotypes names used for calling, specifying one will assume homozygous, otherwise specify two haplotype names
      */
     private void testLookup(String gene, String... haplotypes) {
-      Map<String,Integer> lookup = new HashMap<>();
+      Map<String, Integer> lookup = new HashMap<>();
       if (haplotypes.length == 1) {
         lookup.put(haplotypes[0], 2);
       } else if (haplotypes.length == 2) {
@@ -1486,7 +1493,8 @@ class PharmCATTest {
     private void testMatchedGroups(String drugName, int expectedCount) {
       DrugReport guideline = getContext().getDrugReport(drugName);
       assertEquals(expectedCount, guideline.getMatchingRecommendations().size(),
-          drugName + " does not have matching recommendation count of " + expectedCount);
+          drugName + " does not have matching recommendation count of " + expectedCount + " (found " +
+              guideline.getMatchingRecommendations() + ")");
     }
 
     private void testAnyMatchFromSource(String drugName, DataSource source) {

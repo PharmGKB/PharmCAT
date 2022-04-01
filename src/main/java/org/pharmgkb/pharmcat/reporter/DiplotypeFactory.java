@@ -13,9 +13,9 @@ import com.google.common.collect.ImmutableSet;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
+import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -107,8 +107,8 @@ public class DiplotypeFactory {
    * Make a Diplotype object based on a DiplotypeMatch, this will also populate function information from the match
    */
   private Diplotype makeDiplotype(DiplotypeMatch diplotypeMatch) {
-    HaplotypeMatch h1 = diplotypeMatch.getHaplotype1();
-    HaplotypeMatch h2 = diplotypeMatch.getHaplotype2();
+    BaseMatch h1 = diplotypeMatch.getHaplotype1();
+    BaseMatch h2 = diplotypeMatch.getHaplotype2();
 
     Diplotype diplotype = new Diplotype(f_gene, makeHaplotype(h1), makeHaplotype(h2));
     fillDiplotype(diplotype);
@@ -184,7 +184,7 @@ public class DiplotypeFactory {
     return haplotype;
   }
 
-  private Haplotype makeHaplotype(HaplotypeMatch haplotypeMatch) {
+  private Haplotype makeHaplotype(BaseMatch haplotypeMatch) {
     return makeHaplotype(haplotypeMatch.getName());
   }
 

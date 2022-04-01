@@ -162,10 +162,10 @@ class DiplotypeMatcherTest {
         Function.identity(), new NoDuplicateMergeFunction<>(), TreeMap::new));
 
     MatchData dataset = new MatchData(sampleAlleleMap, s_positions, null, null);
-    dataset.marshallHaplotypes(s_haplotypes);
+    dataset.marshallHaplotypes("TEST", s_haplotypes, false);
     dataset.generateSamplePermutations();
 
-    return new DiplotypeMatcher(dataset).compute();
+    return new DiplotypeMatcher(dataset).compute(false);
   }
 
 
@@ -222,7 +222,7 @@ class DiplotypeMatcherTest {
     sampleAlleleMap.put("chr1:4", new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C")));
 
     MatchData dataset = new MatchData(sampleAlleleMap, variants, null, null);
-    dataset.marshallHaplotypes(new TreeSet<>(Lists.newArrayList(hap1, hap2, hap3)));
+    dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap1, hap2, hap3)), false);
     dataset.generateSamplePermutations();
     assertThat(dataset.getPermutations(), equalTo(permutations));
 

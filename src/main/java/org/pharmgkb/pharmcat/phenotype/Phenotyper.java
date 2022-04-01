@@ -52,7 +52,7 @@ public class Phenotyper {
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        .addOption("vcf", "sample-file", "input sample file (VCF)", false, "vcf")
+        .addOption("vcf", "sample-vcf", "input sample file (VCF)", false, "vcf")
         .addOption("c", "call-file", "named allele call JSON file", false, "call-file-path")
         .addOption("o", "outside-call-file", "optional, outside call TSV file", false, "outside-file-path")
         .addOption("f", "output-file", "file path to write JSON data to", true, "output-file-path")
@@ -81,7 +81,7 @@ public class Phenotyper {
         DefinitionReader definitionReader = new DefinitionReader();
         definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
         boolean callCyp2d6 = cliHelper.hasOption("r") && cliHelper.hasOption("cyp2d6");
-        NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, callCyp2d6);
+        NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, false, callCyp2d6);
         Result result = namedAlleleMatcher.call(vcfFile);
         calls = result.getGeneCalls();
         variantWarnings = result.getVcfWarnings();

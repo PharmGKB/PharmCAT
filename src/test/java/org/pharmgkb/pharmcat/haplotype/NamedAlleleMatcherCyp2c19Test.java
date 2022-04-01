@@ -58,7 +58,7 @@ class NamedAlleleMatcherCyp2c19Test {
   @Test
   void cyp2c19s1s17s1s4bMissingCalls() throws Exception {
     // Test *1/*4 - but with 94762706	rs28399504	A	G	.	PASS	star-4a-4b	GT	./. to test partial call
-    assertDiplotypePairs(Lists.newArrayList("*1/*17", "*1/*4"), testMatchNamedAlleles(sf_definitionFile,
+    assertDiplotypePairs(Lists.newArrayList("*1/*4", "*1/*17"), testMatchNamedAlleles(sf_definitionFile,
         new TestVcfBuilder("*1/*4 and *1/*17")
             .variation("CYP2C19", "rs12248560", "C", "T")
             .variation("CYP2C19", "rs3758581", "G", "G")
@@ -74,7 +74,7 @@ class NamedAlleleMatcherCyp2c19Test {
     // TODO: returned results are correct.  In the html report *4 A and *15 are reported as excluded.
     //  However as far as I can tell all positions for *28 are also excluded, so why doesn't this make the list?
     //  Presume this is becuase it's multi position, so similar to *1, but may be worth discussing.
-    assertDiplotypePairs(Lists.newArrayList("*1/*17", "*1/*4"), testMatchNamedAlleles(sf_definitionFile,
+    assertDiplotypePairs(Lists.newArrayList("*1/*4", "*1/*17"), testMatchNamedAlleles(sf_definitionFile,
         new TestVcfBuilder("*1/*4 and *1/*17")
             .variation("CYP2C19", "rs12248560", "C", "T")
             .variation("CYP2C19", "rs3758581", "G", "G")
@@ -221,7 +221,7 @@ class NamedAlleleMatcherCyp2c19Test {
             .generate()));
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp2c19/s4bs17rs28399504missing.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*17/*17", "*4/*17", "*4/*4");
+    List<String> expectedMatches = Lists.newArrayList("*4/*4", "*4/*17", "*17/*17");
 
     Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);

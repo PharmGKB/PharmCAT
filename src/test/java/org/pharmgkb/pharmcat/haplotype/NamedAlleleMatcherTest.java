@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,12 +40,17 @@ class NamedAlleleMatcherTest {
    *
    */
   static Result testMatchNamedAlleles(Path tsvFile, Path vcfFile) throws Exception {
-    return testMatchNamedAlleles(tsvFile, vcfFile, false);
+    return testMatchNamedAlleles(tsvFile, vcfFile, false, false, true, true);
   }
 
   static Result testMatchNamedAlleles(Path tsvFile, Path vcfFile, boolean topCandidateOnly)
       throws Exception {
-    return testMatchNamedAlleles(tsvFile, vcfFile, topCandidateOnly, true, true);
+    return testMatchNamedAlleles(tsvFile, vcfFile, false, topCandidateOnly, true, true);
+  }
+
+  static Result testMatchNamedAlleles(Path tsvFile, Path vcfFile, boolean findCombination, boolean topCandidateOnly)
+      throws Exception {
+    return testMatchNamedAlleles(tsvFile, vcfFile, findCombination, topCandidateOnly, true, true);
   }
 
   /**
@@ -53,6 +59,12 @@ class NamedAlleleMatcherTest {
    */
   static Result testMatchNamedAlleles(Path definitionFile, Path vcfFile, boolean topCandidateOnly,
       boolean showUnmatched, boolean withExemptions) throws Exception {
+    return testMatchNamedAlleles(definitionFile, vcfFile, false, topCandidateOnly, showUnmatched,
+        withExemptions);
+  }
+
+  static Result testMatchNamedAlleles(Path definitionFile, Path vcfFile, boolean findCombinations,
+      boolean topCandidateOnly, boolean showUnmatched, boolean withExemptions) throws Exception {
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionFile);
@@ -60,7 +72,7 @@ class NamedAlleleMatcherTest {
       definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
     }
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, topCandidateOnly, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, findCombinations, topCandidateOnly, true);
     Result result = namedAlleleMatcher.call(vcfFile);
 
     // print
@@ -142,7 +154,7 @@ class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(jsonFile);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, true);
     Result result = namedAlleleMatcher.call(vcfFile);
     Set<DiplotypeMatch> pairs = result.getGeneCalls().get(0).getDiplotypes();
     assertNotNull(pairs);
@@ -164,7 +176,7 @@ class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(jsonFile);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, true);
     VcfReader vcfReader = namedAlleleMatcher.buildVcfReader(vcfFile);
 
     // grab SampleAlleles for all positions related to current gene
@@ -172,7 +184,7 @@ class NamedAlleleMatcherTest {
     assertEquals(3, data.getNumSampleAlleles());
     assertEquals(0, data.getMissingPositions().size());
     // handle missing positions of interest in sample
-    data.marshallHaplotypes(definitionReader.getHaplotypes(gene));
+    data.marshallHaplotypes("TEST", definitionReader.getHaplotypes(gene), false);
     assertEquals(3, data.getPositions().length);
     assertEquals(2, data.getHaplotypes().size());
 
@@ -184,7 +196,7 @@ class NamedAlleleMatcherTest {
     data.generateSamplePermutations();
     assertThat(data.getPermutations(), equalTo(permutations));
 
-    List<DiplotypeMatch> pairs = new DiplotypeMatcher(data).compute();
+    List<DiplotypeMatch> pairs = new DiplotypeMatcher(data).compute(false);
     assertNotNull(pairs);
     assertEquals(1, pairs.size());
     assertEquals("*1/*2", pairs.get(0).getName());
@@ -200,7 +212,7 @@ class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-mismatchedRefAllele.vcf");
     definitionReader.read(definitionFile);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, true);
     Result result = namedAlleleMatcher.call(vcfFile);
     assertNotNull(result.getVcfWarnings());
 
@@ -232,14 +244,190 @@ class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-cyp2d6.vcf");
     definitionReader.read(definitionFile);
 
-    NamedAlleleMatcher naNoCyp2d6 = new NamedAlleleMatcher(definitionReader, false, false);
+    NamedAlleleMatcher naNoCyp2d6 = new NamedAlleleMatcher(definitionReader, false, false, false);
     Result result = naNoCyp2d6.call(vcfFile);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(0, result.getGeneCalls().size());
 
-    NamedAlleleMatcher naWithCyp2d6 = new NamedAlleleMatcher(definitionReader, false, true);
+    NamedAlleleMatcher naWithCyp2d6 = new NamedAlleleMatcher(definitionReader, false, false, true);
     result = naWithCyp2d6.call(vcfFile);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
+  }
+
+
+  @Test
+  void testCombinationBaseline() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combination.json");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combinationBaseline.vcf");
+
+    System.out.println(definitionFile);
+    System.out.println(Files.exists(definitionFile));
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    assertEquals(1, geneCall.getDiplotypes().size());
+    assertEquals("*1/*1", geneCall.getDiplotypes().iterator().next().getName());
+  }
+
+  @Test
+  void testCombinationPhased() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combination.json");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combinationPhased.vcf");
+
+    System.out.println(definitionFile);
+    System.out.println(Files.exists(definitionFile));
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    for (DiplotypeMatch d : geneCall.getDiplotypes()) {
+      System.out.println(d.getName() + " (" + d.getScore() + ")");
+    }
+    assertEquals(1, geneCall.getDiplotypes().size());
+    DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
+    assertEquals("*1/*6 + *27 + *28 + *80", dm.getName());
+    assertFalse(dm.getHaplotype1().getHaplotype().isCombinationOrPartial());
+    assertTrue(dm.getHaplotype2().getHaplotype().isCombinationOrPartial());
+  }
+
+  @Test
+  void testCombinationUphased() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combination.json");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combinationUnphased.vcf");
+
+    System.out.println(definitionFile);
+    System.out.println(Files.exists(definitionFile));
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    for (DiplotypeMatch d : geneCall.getDiplotypes()) {
+      System.out.println(d.getName() + " (" + d.getScore() + ")");
+    }
+    assertEquals(8, geneCall.getDiplotypes().size());
+    DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
+    assertEquals("*1/*6 + *27 + *28 + *80", dm.getName());
+    assertFalse(dm.getHaplotype1().getHaplotype().isCombinationOrPartial());
+    assertTrue(dm.getHaplotype2().getHaplotype().isCombinationOrPartial());
+  }
+
+  @Test
+  void testPartialWithCombination() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combination.json");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partialWithCombination.vcf");
+
+    System.out.println(definitionFile);
+    System.out.println(Files.exists(definitionFile));
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    assertEquals(1, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    for (DiplotypeMatch d : geneCall.getDiplotypes()) {
+      System.out.println(d.getName() + " (" + d.getScore() + ")");
+    }
+    assertEquals(3, geneCall.getDiplotypes().size());
+    DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
+    assertEquals("*1/*6 + *28 + chr2.g.233760973C>T", dm.getName());
+    assertFalse(dm.getHaplotype1().getHaplotype().isCombinationOrPartial());
+    assertTrue(dm.getHaplotype2().getHaplotype().isCombinationOrPartial());
+  }
+
+  @Test
+  void testPartial() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combination.json");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partial.vcf");
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    assertEquals(1, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    for (DiplotypeMatch d : geneCall.getDiplotypes()) {
+      System.out.println(d.getName() + " (" + d.getScore() + ")");
+    }
+    assertEquals(1, geneCall.getDiplotypes().size());
+    DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
+    assertEquals("*6/*6 + chr2.g.233760973C>T", dm.getName());
+    assertFalse(dm.getHaplotype1().getHaplotype().isCombinationOrPartial());
+    assertTrue(dm.getHaplotype2().getHaplotype().isCombinationOrPartial());
+  }
+
+  @Test
+  void testPartial2Phased() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partial2.json");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partial2Phased.vcf");
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    // ignore novel bases
+    assertEquals(3, result.getVcfWarnings().size());
+//    for (String key : result.getVcfWarnings().keySet()) {
+//      System.out.println(key);
+//      System.out.println("\t" + result.getVcfWarnings().get(key));
+//    }
+
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    for (DiplotypeMatch d : geneCall.getDiplotypes()) {
+      System.out.println(d.getName() + " (" + d.getScore() + ")");
+    }
+    assertEquals(1, geneCall.getDiplotypes().size());
+    DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
+    assertEquals("*2/*17 + chr10.g.94781859G>A", dm.getName());
+    assertFalse(dm.getHaplotype1().getHaplotype().isCombinationOrPartial());
+    assertTrue(dm.getHaplotype2().getHaplotype().isCombinationOrPartial());
+  }
+
+  @Test
+  void testPartial3() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partial3.json");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partial3Phased.vcf");
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    // ignore novel bases
+    for (String key : result.getVcfWarnings().keySet()) {
+      System.out.println(key);
+      System.out.println("\t" + result.getVcfWarnings().get(key));
+    }
+    assertEquals(6, result.getVcfWarnings().size());
+
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    for (DiplotypeMatch d : geneCall.getDiplotypes()) {
+      System.out.println(d.getName() + " (" + d.getScore() + ")");
+    }
+    assertEquals(1, geneCall.getDiplotypes().size());
+    DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
+    assertEquals("*9 + *14/*10", dm.getName());
+    assertTrue(dm.getHaplotype1().getHaplotype().isCombinationOrPartial());
+    assertFalse(dm.getHaplotype2().getHaplotype().isCombinationOrPartial());
   }
 }

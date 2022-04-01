@@ -111,15 +111,30 @@ public class MatchData {
    * Organizes the {@link NamedAllele} data for analysis.
    * This will also reorganize haplotypes to deal with samples that have missing alleles.
    */
-  void marshallHaplotypes(SortedSet<NamedAllele> allHaplotypes) {
+  void marshallHaplotypes(String gene, SortedSet<NamedAllele> allHaplotypes, boolean findCombinations) {
 
     if (m_missingPositions.isEmpty() && m_ignoredPositions.isEmpty()) {
-      m_haplotypes = allHaplotypes;
+      if (findCombinations) {
+        m_haplotypes = new TreeSet<>();
+        for (NamedAllele hap : allHaplotypes) {
+          if (isIgnorableCombination(gene, hap)) {
+            continue;
+          }
+          m_haplotypes.add(hap);
+        }
+      } else {
+        m_haplotypes = allHaplotypes;
+      }
 
     } else {
       // handle missing positions by duplicating haplotype and eliminating missing positions
       m_haplotypes = new TreeSet<>();
       for (NamedAllele hap : allHaplotypes) {
+        if (findCombinations) {
+          if (isIgnorableCombination(gene, hap)) {
+            continue;
+          }
+        }
         // get alleles for positions we have data on
         String[] availableAlleles = new String[m_positions.length];
         String[] cpicAlleles = new String[m_positions.length];
@@ -141,6 +156,15 @@ public class MatchData {
         }
       }
     }
+  }
+
+  private boolean isIgnorableCombination(String gene, NamedAllele hap) {
+    if (gene.equalsIgnoreCase("UGT1A1")) {
+      if (hap.getName().contains("+")) {
+        return true;
+      }
+    }
+    return false;
   }
 
 

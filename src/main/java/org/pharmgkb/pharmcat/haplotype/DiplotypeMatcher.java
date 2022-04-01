@@ -10,7 +10,8 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
+import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 
@@ -25,23 +26,88 @@ public class DiplotypeMatcher {
 
 
   public DiplotypeMatcher(MatchData dataset) {
-
     m_dataset = dataset;
   }
 
 
-  public List<DiplotypeMatch> compute() {
-
-    // compare sample permutations to haplotypes
-    SortedSet<HaplotypeMatch> matches = comparePermutations();
-
-    if (m_dataset.getPermutations().size() == 1) {
-      return determineHomozygousPairs(matches);
-    }
-    // find matched pairs
-    return determineHeterozygousPairs(matches);
+  public List<DiplotypeMatch> compute(boolean findCombinations) {
+    return compute(findCombinations, false);
   }
 
+  public List<DiplotypeMatch> compute(boolean findCombinations, boolean topCandidateOnly) {
+
+    // compare sample permutations to haplotypes
+    List<HaplotypeMatch> haplotypeMatches = new ArrayList<>(comparePermutations());
+    if (haplotypeMatches.size() == 0) {
+      return Collections.emptyList();
+    }
+
+    SortedSet<BaseMatch> matches = new TreeSet<>();
+    if (findCombinations) {
+      //System.out.println("HAPLOTYPE MATCHES PRE-FINALIZE: " + haplotypeMatches);
+      List<CombinationMatch> combinationMatches = new ArrayList<>();
+      for (int x = 0; x < haplotypeMatches.size(); x += 1) {
+        HaplotypeMatch hm = haplotypeMatches.get(x);
+        for (String seq : hm.getSequences()) {
+          // to support partial matching each HaplotypeMatch can only have 1 sequence
+          HaplotypeMatch individualHapMatch = new HaplotypeMatch(hm.getHaplotype());
+          individualHapMatch.addSequence(seq);
+          individualHapMatch.finalizeHaplotype(m_dataset.getPositions());
+          matches.add(individualHapMatch);
+
+          CombinationMatch combinationMatch = new CombinationMatch(m_dataset.getPositions(), hm.getHaplotype(), seq);
+          combinationMatches.addAll(calculateCombinations(haplotypeMatches, x + 1, combinationMatch));
+        }
+      }
+      //System.out.println("HAPLOTYPE MATCHES POST-FINALIZE: " + matches);
+
+      //System.out.println("COMBINATION MATCHES PRE-FINALIZE: " + combinationMatches);
+      // check for partials
+      for (CombinationMatch combinationMatch : combinationMatches) {
+        combinationMatch.finalizeHaplotype(m_dataset.getPositions());
+        matches.add(combinationMatch);
+      }
+      //System.out.println("COMBINATION MATCHES POST-FINALIZE: " + combinationMatches);
+    } else {
+      matches.addAll(haplotypeMatches);
+    }
+
+    List<DiplotypeMatch> pairs;
+    if (m_dataset.getPermutations().size() == 1) {
+      pairs = determineHomozygousPairs(matches);
+    } else {
+      // find matched pairs
+      pairs = determineHeterozygousPairs(matches);
+    }
+    Collections.sort(pairs);
+
+    if (topCandidateOnly && pairs.size() > 1) {
+      int topScore = pairs.get(0).getScore();
+      return pairs.stream()
+          .filter(dm -> dm.getScore() == topScore)
+          .collect(Collectors.toList());
+    }
+    return pairs;
+  }
+
+
+  private List<CombinationMatch> calculateCombinations(List<HaplotypeMatch> matches, int position,
+      CombinationMatch combinationMatch) {
+
+    List<CombinationMatch> combinationMatches = new ArrayList<>();
+    for (int x = position; x < matches.size(); x += 1) {
+      HaplotypeMatch haplotypeMatch = matches.get(x);
+      for (String seq : haplotypeMatch.getSequences()) {
+        if (combinationMatch.canMerge(haplotypeMatch.getHaplotype(), seq)) {
+          CombinationMatch newCombo = new CombinationMatch(combinationMatch);
+          newCombo.merge(haplotypeMatch.getHaplotype());
+          combinationMatches.add(newCombo);
+          combinationMatches.addAll(calculateCombinations(matches, x + 1, newCombo));
+        }
+      }
+    }
+    return combinationMatches;
+  }
 
 
 
@@ -70,20 +136,20 @@ public class DiplotypeMatcher {
    *
    * @param haplotypeMatches the matches that were found via {@link #comparePermutations()}
    */
-  private List<DiplotypeMatch> determineHomozygousPairs(SortedSet<HaplotypeMatch> haplotypeMatches) {
+  private List<DiplotypeMatch> determineHomozygousPairs(SortedSet<BaseMatch> haplotypeMatches) {
 
     String seq = m_dataset.getPermutations().iterator().next();
     List<DiplotypeMatch> matches = new ArrayList<>();
     if (haplotypeMatches.size() == 1) {
       // matched a single haplotype: need to return that as a diplotype
-      HaplotypeMatch hm = haplotypeMatches.first();
+      BaseMatch hm = haplotypeMatches.first();
       DiplotypeMatch dm = new DiplotypeMatch(hm, hm, m_dataset);
       dm.addSequencePair(new String[]{ seq, seq });
       matches.add(dm);
     } else {
       // return all possible pairings of matched haplotypes
-      List<List<HaplotypeMatch>> pairs = CombinationUtil.generatePerfectPairs(haplotypeMatches);
-      for (List<HaplotypeMatch> pair : pairs) {
+      List<List<BaseMatch>> pairs = CombinationUtil.generatePerfectPairs(haplotypeMatches);
+      for (List<BaseMatch> pair : pairs) {
         DiplotypeMatch dm = new DiplotypeMatch(pair.get(0), pair.get(1), m_dataset);
         dm.addSequencePair(new String[]{ seq, seq });
         matches.add(dm);
@@ -100,30 +166,25 @@ public class DiplotypeMatcher {
    *
    * @param haplotypeMatches the matches that were found via {@link #comparePermutations()}
    */
-  private List<DiplotypeMatch> determineHeterozygousPairs(SortedSet<HaplotypeMatch> haplotypeMatches) {
+  private List<DiplotypeMatch> determineHeterozygousPairs(SortedSet<BaseMatch> haplotypeMatches) {
 
-    SortedMap<NamedAllele, HaplotypeMatch> hapMap = new TreeMap<>();
-    for (HaplotypeMatch hm : haplotypeMatches) {
-      hapMap.put(hm.getHaplotype(), hm);
+    SortedMap<String, BaseMatch> hapMap = new TreeMap<>();
+    for (BaseMatch hm : haplotypeMatches) {
+      hapMap.put(hm.getName(), hm);
     }
 
     // possible pairs from what got matched
-    List<List<NamedAllele>> pairs = CombinationUtil.generatePerfectPairs(hapMap.keySet());
+    List<List<String>> pairs = CombinationUtil.generatePerfectPairs(hapMap.keySet());
 
     List<DiplotypeMatch> matches = new ArrayList<>();
-    for (List<NamedAllele> pair : pairs) {
-      NamedAllele hap1 = pair.get(0);
-      HaplotypeMatch hm1 = hapMap.get(hap1);
-      if (hm1 == null) {
-        continue;
-      }
-      NamedAllele hap2 = pair.get(1);
-      HaplotypeMatch hm2 = hapMap.get(hap2);
-      if (hm2 == null) {
-        continue;
-      }
+    for (List<String> pair : pairs) {
+      String name1 = pair.get(0);
+      BaseMatch hm1 = hapMap.get(name1);
 
-      if (hap1 == hap2 && hm1.getSequences().size() == 1) {
+      String name2 = pair.get(1);
+      BaseMatch hm2 = hapMap.get(name2);
+
+      if (name1.equals(name2) && hm1.getSequences().size() == 1) {
         // cannot call homozygous unless more than one sequence matches
         continue;
       }
@@ -135,7 +196,6 @@ public class DiplotypeMatcher {
         matches.add(dm);
       }
     }
-    Collections.sort(matches);
     return matches;
   }
 
@@ -143,7 +203,7 @@ public class DiplotypeMatcher {
   /**
    * Finds valid complementary pairs of sample's alleles for possible diplotype match.
    */
-  private Set<String[]> findSequencePairs(HaplotypeMatch hm1, HaplotypeMatch hm2) {
+  private Set<String[]> findSequencePairs(BaseMatch hm1, BaseMatch hm2) {
 
     Set<String[]> sequencePairs = new HashSet<>();
     for (String seq1 : hm1.getSequences()) {

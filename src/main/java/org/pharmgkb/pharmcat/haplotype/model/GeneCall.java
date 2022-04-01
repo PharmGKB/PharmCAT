@@ -32,7 +32,7 @@ public class GeneCall {
   private final LinkedHashSet<DiplotypeMatch> m_diplotypes = new LinkedHashSet<>();
   @Expose
   @SerializedName("haplotypes")
-  private final SortedSet<HaplotypeMatch> m_haplotypes = new TreeSet<>();
+  private final SortedSet<BaseMatch> m_haplotypes = new TreeSet<>();
   @Expose
   @SerializedName("phased")
   private boolean m_isPhased = true;
@@ -105,7 +105,7 @@ public class GeneCall {
   }
 
 
-  public Set<HaplotypeMatch> getHaplotypes() {
+  public Set<BaseMatch> getHaplotypes() {
     return m_haplotypes;
   }
 

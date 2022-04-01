@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.SortedSet;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
@@ -90,10 +91,13 @@ class NamedAlleleMatcherCyp2c9Test {
         .variation("CYP2C9", "rs749060448", "A", "A")
         .generate();
 
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile, false, true, true);
-    GeneCall call = result.getGeneCalls().stream()
-        .filter(c -> c.getGene().equals("CYP2C9")).findFirst()
-        .orElseThrow(() -> new RuntimeException("No gene call found"));
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile, false);
+    List<GeneCall> calls = result.getGeneCalls().stream()
+        .filter(c -> c.getGene().equals("CYP2C9"))
+        .toList();
+    assertEquals(1, calls.size(), "No gene call found");
+    GeneCall call = calls.get(0);
+    System.out.println(call.getDiplotypes());
     assertEquals(0, call.getDiplotypes().size());
     assertEquals(0, call.getMatchData().getMissingPositions().size());
     assertEquals(0, call.getMatchData().getMismatchedPositions().size());
@@ -111,7 +115,7 @@ class NamedAlleleMatcherCyp2c9Test {
     definitionReader.read(sf_definitionFile);
     definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, false, true);
     Result result = namedAlleleMatcher.call(vcfFile);
     SortedSet<Variant> extraPositions = result.getGeneCalls().get(0).getVariantsOfInterest();
     assertEquals(1, extraPositions.size());

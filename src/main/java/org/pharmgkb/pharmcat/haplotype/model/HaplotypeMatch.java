@@ -1,10 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
-import java.util.SortedSet;
-import java.util.TreeSet;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
+import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 
 
@@ -13,60 +10,51 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
  *
  * @author Mark Woon
  */
-public class HaplotypeMatch implements Comparable<HaplotypeMatch> {
-  @Expose
-  @SerializedName("name")
-  private final String m_name;
-  private final NamedAllele m_haplotype;
-  @Expose
-  @SerializedName("sequences")
-  private final SortedSet<String> m_sequences = new TreeSet<>();
+public class HaplotypeMatch extends BaseMatch {
 
 
   public HaplotypeMatch(NamedAllele haplotype) {
-    m_haplotype = haplotype;
-    m_name = m_haplotype.getName();
-  }
-
-
-  public String getName() {
-    return m_name;
-  }
-
-  public NamedAllele getHaplotype() {
-    return m_haplotype;
+    setName(haplotype.getName());
+    setHaplotype(haplotype);
   }
 
 
   public boolean match(String seq) {
-    if (m_haplotype.getPermutations().matcher(seq).matches()) {
-      m_sequences.add(seq);
+    if (getHaplotype().getPermutations().matcher(seq).matches()) {
+      addSequence(seq);
       return true;
     }
     return false;
   }
 
-  public SortedSet<String> getSequences() {
-    return m_sequences;
-  }
-
 
   @Override
-  public int compareTo(HaplotypeMatch o) {
-
-    int rez = ObjectUtils.compare(m_name, o.getName());
-    if (rez != 0) {
-      return rez;
+  public int compareTo(BaseMatch o) {
+    if (this == o) {
+      return 0;
     }
-    rez = ObjectUtils.compare(m_haplotype, o.getHaplotype());
-    if (rez != 0) {
-      return rez;
+    if (o instanceof HaplotypeMatch hm) {
+      int rez = HaplotypeNameComparator.getComparator().compare(getName(), hm.getName());
+      if (rez != 0) {
+        return rez;
+      }
+      rez = ObjectUtils.compare(getHaplotype(), hm.getHaplotype());
+      if (rez != 0) {
+        return rez;
+      }
+      rez = ObjectUtils.compare(getHaplotype().getScore(), hm.getHaplotype().getScore());
+      if (rez != 0) {
+        return rez;
+      }
+      return compareSequences(hm);
     }
-    return ObjectUtils.compare(m_sequences.size(), o.getSequences().size());
-  }
-
-  @Override
-  public String toString() {
-    return m_name;
+    if (o instanceof CombinationMatch cm) {
+      int rez = ObjectUtils.compare(getHaplotype(), cm.getComponentHaplotypes().first());
+      if (rez != 0) {
+        return rez;
+      }
+      return -1;
+    }
+    throw new UnsupportedOperationException("Don't know how to compare HaplotypeMatch to " + o.getClass());
   }
 }
