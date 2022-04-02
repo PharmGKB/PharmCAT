@@ -37,9 +37,7 @@ Teri Klein (Stanford University) and Marylyn Ritchie (University of Pennsylvania
 |Houda Hachad |
 |Jonathan Haines |
 |James Hoffman |
-|Janina Jeff |
 |Stuart Scott|
-|Casey Overby Taylor |
 |Sara Van Driest |
 |Marc Williams | 
 
