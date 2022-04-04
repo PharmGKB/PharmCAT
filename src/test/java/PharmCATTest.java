@@ -6,15 +6,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.PharmCAT;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
-import org.pharmgkb.pharmcat.VcfTestUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -39,13 +36,9 @@ class PharmCATTest {
       CYP2D6\tCYP2D6*1/CYP2D6*4\t\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09
       """;
   private static final String sf_otherOutsideCalls = "CYP2D6\t*3/*4\nG6PD\tB (wildtype)/B (wildtype)\n";
-  private static final String sf_mtrnr1OutsideCalls = "CYP2D6\t*3/*4\nG6PD\tB (wildtype)/B (wildtype)\nMT-RNR1\t1555A>G\n";
   private static final String sf_diplotypesTemplate = "\nmatcher: %s\nreporter: %s\nprint (displayCalls): %s";
-  private static PharmCATTestWrapper s_pharmcatTopMatch;
-  private static PharmCATTestWrapper s_pharmcatAllMatches;
   private static Path s_outsideCallFilePath;
   private static Path s_otherOutsideCallFilePath;
-  private static Path s_mtrnr1OutsideCallFilePath;
 
 
   @BeforeAll
@@ -60,14 +53,6 @@ class PharmCATTest {
     try (FileWriter fw = new FileWriter(s_otherOutsideCallFilePath.toFile())) {
       fw.write(sf_otherOutsideCalls);
     }
-
-    s_mtrnr1OutsideCallFilePath = TestUtils.createTempFile("mtrnr1OutsideCall", ".tsv");
-    try (FileWriter fw = new FileWriter(s_mtrnr1OutsideCallFilePath.toFile())) {
-      fw.write(sf_mtrnr1OutsideCalls);
-    }
-
-    s_pharmcatTopMatch = new PharmCATTestWrapper("top", false);
-    s_pharmcatAllMatches = new PharmCATTestWrapper("all", true);
   }
 
   /**
@@ -76,9 +61,13 @@ class PharmCATTest {
    * change to the CPIC database then something may be wrong in code.
    */
   @Test
-  void testCounts() {
-    assertEquals(21, s_pharmcatTopMatch.getContext().getGeneReports().size());
-    assertEquals(88, s_pharmcatTopMatch.getContext().getDrugReports().size());
+  void testCounts() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("top", false);
+    testWrapper.getVcfBuilder()
+            .reference("CYP2C9");
+    testWrapper.execute(null);
+    assertEquals(21, testWrapper.getContext().getGeneReports().size());
+    assertEquals(88, testWrapper.getContext().getDrugReports().size());
   }
 
   /**
@@ -832,103 +821,107 @@ class PharmCATTest {
 
   @Test
   void testUgt1a1s1s80s27s60s28missingphased() throws Exception {
-    s_pharmcatTopMatch.execute("ugt1a1.s1s80s27s60s28missingphased", new String[]{
-            "UGT1A1/s1s80s27s60s28missingphased.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s80s27s60s28missingphased", false);
+    testWrapper.getVcfBuilder()
+        .reference("UGT1A1")
+        .phased()
+        .missing("UGT1A1", "rs3064744")
+        .variation("UGT1A1", "rs887829", "T", "C")
+        .variation("UGT1A1", "rs35350960", "A", "C");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testNotCalledByMatcher("UGT1A1");
-
-    GeneReport geneReport = s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1");
+    testWrapper.testNotCalledByMatcher("UGT1A1");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
   }
 
   @Test
   void testUgt1a1s1s60s80s6phased() throws Exception {
-    s_pharmcatTopMatch.execute("ugt1a1.s1s60s80s6phased", new String[]{
-            "UGT1A1/s1s60s80s6phased.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s60s80s6phased", false);
+    testWrapper.getVcfBuilder()
+        .reference("UGT1A1")
+        .phased()
+        .variation("UGT1A1", "rs887829", "T", "C")
+        .variation("UGT1A1", "rs35350960", "A", "C");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testNotCalledByMatcher("UGT1A1");
-
-    GeneReport geneReport = s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1");
+    testWrapper.testNotCalledByMatcher("UGT1A1");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
   }
 
   @Test
   void testUgt1a1s1s60s80s28s6phased() throws Exception {
-    s_pharmcatTopMatch.execute("ugt1a1.s1s60s80s28s6phased", new String[]{
-            "UGT1A1/s1s60s80s28s6phased.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s60s80s28s6phased", false);
+    testWrapper.getVcfBuilder()
+        .reference("UGT1A1")
+        .phased()
+        .variation("UGT1A1", "rs887829", "T", "C")
+        .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)")
+        .variation("UGT1A1", "rs35350960", "A", "C");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testNotCalledByMatcher("UGT1A1");
-
-    GeneReport geneReport = s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1");
+    testWrapper.testNotCalledByMatcher("UGT1A1");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
   }
 
   @Test
   void testUgt1a1s1s37s80s60phased() throws Exception {
-    s_pharmcatTopMatch.execute("ugt1a1.s1s37s80s60phased", new String[]{
-            "UGT1A1/s1s37s80s60phased.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s37s80s60phased", false);
+    testWrapper.getVcfBuilder()
+        .reference("UGT1A1")
+        .phased()
+        .variation("UGT1A1", "rs887829", "T", "C")
+        .variation("UGT1A1", "rs3064744", "TA(9)", "TA(7)");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("UGT1A1");
-    s_pharmcatTopMatch.testPrintCalls("UGT1A1", "*1/*80+*37");
-    s_pharmcatTopMatch.testLookup("UGT1A1", "*1", "*80+*37");
-
-    GeneReport geneReport = s_pharmcatTopMatch.getContext().getGeneReport("UGT1A1");
+    testWrapper.testCalledByMatcher("UGT1A1");
+    testWrapper.testReportable("UGT1A1");
+    testWrapper.testPrintCalls("UGT1A1", "*1/*80+*37");
+    testWrapper.testLookup("UGT1A1", "*1", "*80+*37");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
     assertTrue(geneReport.isPhased());
   }
 
   @Test
   void testCyp3a5Missing3Message() throws Exception {
-    String gene = "CYP3A5";
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp3a5.s3missing", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP3A5")
+        .missing("CYP3A5", "rs776746");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.execute("cyp3a5.s3missing", new String[]{
-            "cyp3a5/s1s1rs776746missing.vcf"
-        },
-        null);
+    testWrapper.testCalledByMatcher("CYP3A5");
+    testWrapper.testReportable("CYP3A5");
+    testWrapper.testPrintCalls("CYP3A5", "*1/*1");
+    testWrapper.testLookup("CYP3A5", "*1", "*1");
 
-    s_pharmcatTopMatch.testCalledByMatcher(gene);
-    s_pharmcatTopMatch.testPrintCalls(gene, "*1/*1");
-    s_pharmcatTopMatch.testLookup(gene, "*1", "*1");
-
+    GeneReport gene = testWrapper.getContext().getGeneReport("CYP3A5");
     // rs776746 should be missing from this report
-    assertNotNull(s_pharmcatTopMatch.getContext().getGeneReport(gene).getVariantReports());
-    assertTrue(s_pharmcatTopMatch.getContext().getGeneReport(gene).getVariantReports().stream().anyMatch(v -> v.isMissing() && v.getDbSnpId().equals("rs776746")));
+    assertNotNull(gene.getVariantReports());
+    assertTrue(gene.getVariantReports().stream().anyMatch(v -> v.isMissing() && v.getDbSnpId().equals("rs776746")));
 
     // the guideline should have a matching message
-    assertTrue(s_pharmcatTopMatch.getContext().getDrugReports().stream()
+    assertTrue(testWrapper.getContext().getDrugReports().stream()
         .filter(r -> r.getRelatedDrugs().contains("tacrolimus"))
         .allMatch(r -> r.getMessages().size() > 0));
 
-    assertTrue(s_pharmcatTopMatch.getContext().getGeneReport(gene).isPhased());
-  }
-
-  @Test
-  void testCyp3a5MissingRS776746() throws Exception {
-    s_pharmcatTopMatch.execute("cyp3a5.missingRs776746", new String[]{
-            "cyp3a5/s1s1rs776746missing.vcf"
-        },
-        null);
-    
-    s_pharmcatTopMatch.testCalledByMatcher("CYP3A5");
-    s_pharmcatTopMatch.testPrintCalls("CYP3A5", "*1/*1");
+    assertTrue(gene.isPhased());
   }
 
   @Test
   void testCyp3a5v1() throws Exception {
-    s_pharmcatTopMatch.execute("cyp3a5.s1s3rs776746rs55965422het", new String[]{
-            "cyp3a5/s1s3rs776746rs55965422het.vcf"
-        },
-        null);
-    
-    s_pharmcatTopMatch.testCalledByMatcher("CYP3A5");
-    s_pharmcatTopMatch.testPrintCalls("CYP3A5", "*1/*3");
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp3a5.s1s3rs776746rs55965422het", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP3A5")
+        .variation("CYP3A5", "rs776746", "T", "C");
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("CYP3A5");
+    testWrapper.testReportable("CYP3A5");
+    testWrapper.testPrintCalls("CYP3A5", "*1/*3");
+    testWrapper.testLookup("CYP3A5", "*1", "*3");
   }
 
   @Test
@@ -1086,62 +1079,50 @@ class PharmCATTest {
 
   @Test
   void testTpmtStar1s() throws Exception {
-    s_pharmcatTopMatch.execute("tpmt.star1s", new String[]{
-            "TPMT/s1ss1ss3.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("tpmt.star1s", false);
+    testWrapper.getVcfBuilder()
+        .reference("TPMT")
+        .variation("TPMT", "rs1800460", "C", "T")
+        .variation("TPMT", "rs1142345", "T", "C");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("TPMT");
-    s_pharmcatTopMatch.testPrintCalls("TPMT", "*1/*3A");
-    s_pharmcatTopMatch.testLookup("TPMT", "*1", "*3A");
+    testWrapper.testCalledByMatcher("TPMT");
+    testWrapper.testPrintCalls("TPMT", "*1/*3A");
+    testWrapper.testLookup("TPMT", "*1", "*3A");
 
-    GeneReport tpmtReport = s_pharmcatTopMatch.getContext().getGeneReport("TPMT");
+    GeneReport tpmtReport = testWrapper.getContext().getGeneReport("TPMT");
     assertEquals(43, tpmtReport.getVariantReports().size());
-
     assertEquals(0, tpmtReport.getHighlightedVariants().size());
-  }
-
-  @Test
-  void testTpmtS15OffData() throws Exception {
-    s_pharmcatTopMatch.execute("tpmt.s15offdata", new String[] {
-            "TPMT/s15offdata.vcf"
-        },
-        null);
-
-    s_pharmcatTopMatch.testNotCalledByMatcher("TPMT");
-    GeneReport report = s_pharmcatTopMatch.getContext().getGeneReport("TPMT");
-    assertTrue(report.getVariantReports().stream().filter(r -> r.getPosition() == 18133890).allMatch(VariantReport::isMismatch));
   }
 
 
   @Test
   void testCyp2c9star61() throws Exception {
-    s_pharmcatTopMatch.execute("cyp2c9.s1s61", new String[] {
-            "cyp2c9/s1s61.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c9.s1s61", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9")
+        .variation("CYP2C9", "rs1799853", "C", "T")
+        .variation("CYP2C9", "rs202201137", "A", "G");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C9");
-    s_pharmcatTopMatch.testPrintCalls("CYP2C9", "*1/*61");
-    s_pharmcatTopMatch.testLookup("CYP2C9", "*1", "*61");
-
-    s_pharmcatTopMatch.testMatchedGroups("lornoxicam", 1);
+    testWrapper.testCalledByMatcher("CYP2C9");
+    testWrapper.testPrintCalls("CYP2C9", "*1/*61");
+    testWrapper.testLookup("CYP2C9", "*1", "*61");
   }
 
   @Test
   void testCyp2c9star1Hom() throws Exception {
-    s_pharmcatTopMatch.execute("cyp2c9.s1s1", new String[] {
-            "cyp2c9/s1s1.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c9.s1s1", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C9");
-    s_pharmcatTopMatch.testPrintCalls("CYP2C9", "*1/*1");
-    s_pharmcatTopMatch.testLookup("CYP2C9", "*1", "*1");
-
-    s_pharmcatTopMatch.testMatchedGroups("celecoxib", 1);
-    s_pharmcatTopMatch.testMatchedGroups("ibuprofen", 1);
-    s_pharmcatTopMatch.testMatchedGroups("lornoxicam", 1);
+    testWrapper.testCalledByMatcher("CYP2C9");
+    testWrapper.testPrintCalls("CYP2C9", "*1/*1");
+    testWrapper.testLookup("CYP2C9", "*1", "*1");
+    testWrapper.testMatchedGroups("celecoxib", 1);
+    testWrapper.testMatchedGroups("ibuprofen", 1);
+    testWrapper.testMatchedGroups("lornoxicam", 1);
   }
 
 
@@ -1152,15 +1133,20 @@ class PharmCATTest {
    */
   @Test
   void testCyp2b6star1star34() throws Exception {
-    s_pharmcatTopMatch.execute("cyp2b6.s1s34", new String[] {
-            "CYP2B6/s1s34.vcf"
-        },
-        null);
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2B6");
-    s_pharmcatTopMatch.testPrintCalls("CYP2B6", "*1/*34");
-    s_pharmcatTopMatch.testLookup("CYP2B6", "*1", "*34");
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2b6.s1s34", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2B6")
+        .variation("CYP2B6", "rs34223104", "T", "C")
+        .variation("CYP2B6", "rs3211371", "C", "A")
+        .variation("CYP2B6", "rs3745274", "G", "T")
+        .variation("CYP2B6", "rs2279343", "A", "G")
+    ;
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testMatchedGroups("efavirenz", 1);
+    testWrapper.testCalledByMatcher("CYP2B6");
+    testWrapper.testPrintCalls("CYP2B6", "*1/*34");
+    testWrapper.testLookup("CYP2B6", "*1", "*34");
+    testWrapper.testMatchedGroups("efavirenz", 1);
   }
 
   /**
@@ -1170,112 +1156,115 @@ class PharmCATTest {
    */
   @Test
   void testCyp2b6star1star34AllMatch() throws Exception {
-    s_pharmcatAllMatches.execute("cyp2b6.s1s34.allMatch", new String[] {
-            "CYP2B6/s1s34.vcf"
-        },
-        null);
-    s_pharmcatAllMatches.testCalledByMatcher("CYP2B6");
-    s_pharmcatAllMatches.testPrintCalls("CYP2B6", "*1/*34", "*33/*36");
-    s_pharmcatAllMatches.testLookup("CYP2B6", "*1", "*34");
-    s_pharmcatAllMatches.testLookup("CYP2B6", "*33", "*36");
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2b6.s1s34.allMatches", true);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2B6")
+        .variation("CYP2B6", "rs34223104", "T", "C")
+        .variation("CYP2B6", "rs3211371", "C", "A")
+        .variation("CYP2B6", "rs3745274", "G", "T")
+        .variation("CYP2B6", "rs2279343", "A", "G")
+    ;
+    testWrapper.execute(null);
 
-    s_pharmcatAllMatches.testMatchedGroups("efavirenz", 2);
-
-    // test to make sure the two different phenotypes are present
-    DrugReport efavirenze = s_pharmcatAllMatches.getContext().getDrugReport("efavirenz");
-    Set<String> phenotypes = efavirenze.getMatchingRecommendations().stream()
-        .map((r) -> r.getPhenotypes().get("CYP2B6"))
-        .collect(Collectors.toSet());
-    assertEquals(2, phenotypes.size());
-    assertTrue(phenotypes.contains("Indeterminate"));
-    assertTrue(phenotypes.contains("Intermediate Metabolizer"));
+    testWrapper.testCalledByMatcher("CYP2B6");
+    testWrapper.testPrintCalls("CYP2B6", "*1/*34", "*33/*36");
+    testWrapper.testLookup("CYP2B6", "*1", "*34");
+    testWrapper.testLookup("CYP2B6", "*33", "*36");
+    testWrapper.testMatchedGroups("efavirenz", 2);
   }
 
 
   /* NUDT15 */
   @Test
   void testNudt15Ref() throws Exception {
-    s_pharmcatTopMatch.execute("nudt15.s1s1", new String[] {
-            "NUDT15/refref.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("nudt15.s1s1", false);
+    testWrapper.getVcfBuilder()
+        .reference("NUDT15");
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("NUDT15");
-    s_pharmcatTopMatch.testPrintCalls("NUDT15", "*1/*1");
-    s_pharmcatTopMatch.testLookup("NUDT15", "*1", "*1");
+    testWrapper.testPrintCalls("NUDT15", "*1/*1");
+    testWrapper.testLookup("NUDT15", "*1", "*1");
 
-    s_pharmcatTopMatch.testMatchedGroups("azathioprine", 1);
-    s_pharmcatTopMatch.testMatchedGroups("mercaptopurine", 2);
-    s_pharmcatTopMatch.testAnyMatchFromSource("mercaptopurine", DataSource.CPIC);
-    s_pharmcatTopMatch.testAnyMatchFromSource("mercaptopurine", DataSource.DPWG);
-    s_pharmcatTopMatch.testMatchedGroups("thioguanine", 2);
-    s_pharmcatTopMatch.testAnyMatchFromSource("thioguanine", DataSource.CPIC);
-    s_pharmcatTopMatch.testAnyMatchFromSource("thioguanine", DataSource.DPWG);
+    testWrapper.testMatchedGroups("azathioprine", 1);
+    testWrapper.testMatchedGroups("mercaptopurine", 2);
+    testWrapper.testAnyMatchFromSource("mercaptopurine", DataSource.CPIC);
+    testWrapper.testAnyMatchFromSource("mercaptopurine", DataSource.DPWG);
+    testWrapper.testMatchedGroups("thioguanine", 2);
+    testWrapper.testAnyMatchFromSource("thioguanine", DataSource.CPIC);
+    testWrapper.testAnyMatchFromSource("thioguanine", DataSource.DPWG);
   }
 
   @Test
   void testNudt15S2() throws Exception {
-    s_pharmcatTopMatch.execute("nudt15.s2ref", new String[] {
-            "NUDT15/s2ref.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("nudt15.s1s2", false);
+    testWrapper.getVcfBuilder()
+        .reference("NUDT15")
+        .variation("NUDT15", "rs746071566", "GAGTCG(3)", "GAGTCG(4)")
+        .variation("NUDT15", "rs116855232", "C", "T")
+    ;
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("NUDT15");
-    s_pharmcatTopMatch.testPrintCalls("NUDT15", "*1/*2");
-    s_pharmcatTopMatch.testLookup("NUDT15", "*1", "*2");
+    testWrapper.testCalledByMatcher("NUDT15");
+    testWrapper.testPrintCalls("NUDT15", "*1/*2");
+    testWrapper.testLookup("NUDT15", "*1", "*2");
 
-    s_pharmcatTopMatch.testMatchedGroups("azathioprine", 1);
+    testWrapper.testMatchedGroups("azathioprine", 1);
   }
 
   @Test
   void testNudt15S3() throws Exception {
-    s_pharmcatTopMatch.execute("nudt15.s3ref", new String[] {
-            "NUDT15/s3ref.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("nudt15.s1s3", false);
+    testWrapper.getVcfBuilder()
+        .reference("NUDT15")
+        .variation("NUDT15", "rs116855232", "C", "T")
+    ;
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("NUDT15");
-    s_pharmcatTopMatch.testPrintCalls("NUDT15", "*1/*3");
-    s_pharmcatTopMatch.testLookup("NUDT15", "*1", "*3");
+    testWrapper.testCalledByMatcher("NUDT15");
+    testWrapper.testPrintCalls("NUDT15", "*1/*3");
+    testWrapper.testLookup("NUDT15", "*1", "*3");
 
-    s_pharmcatTopMatch.testMatchedGroups("azathioprine", 1);
-    s_pharmcatTopMatch.testMatchedGroups("mercaptopurine", 2);
-    s_pharmcatTopMatch.testMatchedGroups("thioguanine", 2);
+    testWrapper.testMatchedGroups("azathioprine", 1);
+    testWrapper.testMatchedGroups("mercaptopurine", 2);
+    testWrapper.testMatchedGroups("thioguanine", 2);
   }
 
 
   /* MT-RNR1 */
   @Test
   void testMtrnr1() throws Exception {
-    s_pharmcatTopMatch.execute("mtrnr1", new String[] {
-            "cyp2c19/s2s2.vcf",
-            "cyp2c9/s2s3.vcf"
-        },
-        s_mtrnr1OutsideCallFilePath);
+    Path outsideCallPath = Files.createTempFile("mtrnr1", ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("MT-RNR1\t1555A>G\n");
+    }
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("mtrnr1", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .reference("CYP2C9")
+    ;
+    testWrapper.execute(outsideCallPath);
 
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C19");
-    s_pharmcatTopMatch.testCalledByMatcher("CYP2C9");
-    s_pharmcatTopMatch.testReportable("MT-RNR1");
-
-    s_pharmcatTopMatch.testMatchedGroups("amikacin", 1);
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testCalledByMatcher("CYP2C9");
+    testWrapper.testReportable("MT-RNR1");
+    testWrapper.testMatchedGroups("amikacin", 1);
   }
 
 
   /* IFNL3/4 */
   @Test
   void testIfnl3() throws Exception {
-    s_pharmcatTopMatch.execute("ifnl3", new String[] {
-            "IFNL3/rs12979860CC.vcf"
-        },
-        null);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ifnl3", false);
+    testWrapper.getVcfBuilder()
+        .reference("IFNL3")
+    ;
+    testWrapper.execute(null);
 
-    s_pharmcatTopMatch.testCalledByMatcher("IFNL3");
-    s_pharmcatTopMatch.testPrintCalls("IFNL3", "rs12979860 reference (C)/rs12979860 reference (C)");
-
-    // we expect peginterferons to get drug reports, but they intentionally will not get any matching recommendations
-    // users will need to refer to the original guideline to get information
-    s_pharmcatTopMatch.testMatchedGroups("peginterferon alfa-2a", 0);
-    s_pharmcatTopMatch.testMatchedGroups("peginterferon alfa-2b", 0);
+    testWrapper.testCalledByMatcher("IFNL3");
+    testWrapper.testReportable("IFNL3");
+    testWrapper.testPrintCalls("IFNL3", "rs12979860 reference (C)/rs12979860 reference (C)");
+    testWrapper.testMatchedGroups("peginterferon alfa-2a", 0);
+    testWrapper.testMatchedGroups("peginterferon alfa-2b", 0);
   }
 
 
@@ -1291,10 +1280,10 @@ class PharmCATTest {
     }
 
     try {
-      s_pharmcatTopMatch.execute("badOutsideData", new String[]{
-          "cyp2c19/s2s2.vcf",
-          "cyp2c9/s2s3.vcf",
-      }, badOutsideDataPath);
+      PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("bad.data", false);
+      testWrapper.getVcfBuilder()
+              .reference("CYP2C19");
+      testWrapper.execute(badOutsideDataPath);
       fail("Should have failed due to a duplicate gene definition in outside call");
     }
     catch (ParseException ex) {
@@ -1306,24 +1295,19 @@ class PharmCATTest {
   void testCyp2d6AlleleWithNoFunction() throws Exception {
     Path outsideCallPath = TestUtils.createTempFile("cyp2d6AlleleWithNoFunction",".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
-      fw.write("CYP2D6\t*1/*XXX");
+      fw.write("CYP2D6\t*1/*XXX\n");
     }
 
-    try {
-      s_pharmcatTopMatch.execute("test.badOutsideData", new String[]{
-          "cyp2c19/s2s2.vcf",
-          "cyp2c9/s2s3.vcf",
-      }, outsideCallPath);
-      s_pharmcatTopMatch.testPrintCalls("CYP2D6", "*1/*XXX");
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("bad.data", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19");
+    testWrapper.execute(outsideCallPath);
 
-      GeneReport geneReport = s_pharmcatTopMatch.getContext().getGeneReport("CYP2D6");
-      assertEquals(1, geneReport.getReporterDiplotypes().size());
-      Diplotype diplotype = geneReport.getReporterDiplotypes().get(0);
-      assertEquals("One normal function allele and one unassigned function allele", diplotype.printFunctionPhrase());
-    }
-    catch (ParseException ex) {
-      // we want this to fail so ignore handling the exception
-    }
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2D6");
+    assertNotNull(geneReport);
+    assertEquals(1, geneReport.getReporterDiplotypes().size());
+    Diplotype diplotype = geneReport.getReporterDiplotypes().get(0);
+    assertEquals("One normal function allele and one unassigned function allele", diplotype.printFunctionPhrase());
   }
 
   /**
@@ -1338,9 +1322,10 @@ class PharmCATTest {
     }
 
     try {
-      s_pharmcatTopMatch.execute("badOutsideData", new String[]{
-          "cyp2c19/s2s2.vcf",
-      }, outsidePath);
+      PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("conflict.two.data.sources", false);
+      testWrapper.getVcfBuilder()
+          .reference("CYP2C19");
+      testWrapper.execute(outsidePath);
       fail("Should have failed due to a duplicate gene definition between matcher and outside caller");
     }
     catch (ParseException ex) {
@@ -1358,7 +1343,7 @@ class PharmCATTest {
     );
   }
 
-
+  
   private static class PharmCATTestWrapper {
     private final PharmCAT f_pharmCat;
     private final Path f_outputPath;
@@ -1387,22 +1372,6 @@ class PharmCATTest {
       if (allMatches) {
         f_pharmCat.showAllMatches();
       }
-    }
-
-    /**
-     * Runs the PharmCAT tool for the given example gene call data
-     * @deprecated switch to using TestVcfBuilder instead
-     */
-    @Deprecated
-    void execute(String name, String[] geneCalls, Path outsideCallPath) throws Exception {
-      Path tempVcfPath = TestUtils.createTempFile(name, ".vcf");
-      try (FileWriter fw = new FileWriter(tempVcfPath.toFile())) {
-        fw.write(VcfTestUtils.writeVcf(geneCalls));
-      } catch (Exception ex) {
-        ex.printStackTrace();
-        throw ex;
-      }
-      f_pharmCat.execute(tempVcfPath, outsideCallPath, null);
     }
 
     ReportContext getContext() {

@@ -48,10 +48,13 @@ public class Reporter {
   public static void main(String[] args) {
 
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
+        // input
         .addOption("p", "phenotyper-file", "phenotyper output JSON file", true, "file-path")
-        .addOption("o", "output-file", "file path to write HTML report to", true, "file-path")
-        .addOption("j", "output-json", "optional, file path to write JSON data to", false, "file-path")
+        // optional data
         .addOption("t", "title", "optional, text to add to the report title", false, "title")
+        // outputs
+        .addOption("f", "output-html-file", "file path to write HTML report to", true, "file-path")
+        .addOption("j", "output-json-file", "optional, file path to write JSON data to", false, "file-path")
         ;
 
     try {
@@ -60,7 +63,7 @@ public class Reporter {
       }
 
       Path phenotyperFile = cliHelper.getValidFile("p", true);
-      Path outputFile = cliHelper.getPath("o");
+      Path outputFile = cliHelper.getPath("f");
       Path jsonPath = null;
       if (cliHelper.hasOption("j")) {
         jsonPath = cliHelper.getPath("j");

@@ -52,10 +52,13 @@ public class Phenotyper {
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
+        //
         .addOption("vcf", "sample-vcf", "input sample file (VCF)", false, "vcf")
         .addOption("c", "call-file", "named allele call JSON file", false, "call-file-path")
-        .addOption("o", "outside-call-file", "optional, outside call TSV file", false, "outside-file-path")
-        .addOption("f", "output-file", "file path to write JSON data to", true, "output-file-path")
+        // optional-data
+        .addOption("a", "outside-call-file", "optional, outside call TSV file", false, "outside-file-path")
+        // output
+        .addOption("f", "output-file", "file path to write Phenotyper JSON data to", true, "output-file-path")
         // research
         .addOption("r", "research-mode", "enable research mode")
         .addOption("cyp2d6", "research-cyp2d6", "call CYP2D6 (must also use research mode)")
@@ -66,7 +69,7 @@ public class Phenotyper {
       }
       Path vcfFile = cliHelper.hasOption("vcf") ? cliHelper.getValidFile("vcf", true) : null;
       Path callFile = cliHelper.hasOption("c") ? cliHelper.getValidFile("c", true) : null;
-      Path outsideCallPath = cliHelper.hasOption("o") ? cliHelper.getValidFile("o", true) : null;
+      Path outsideCallPath = cliHelper.hasOption("a") ? cliHelper.getValidFile("a", true) : null;
       Path outputFile = cliHelper.getPath("f");
 
       Preconditions.checkArgument(callFile != null ^ vcfFile != null, "Can use VCF file or Matcher JSON file, not both");

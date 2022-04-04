@@ -58,7 +58,7 @@ class ReporterTest {
     String[] args = new String[]{
         "-p",
         PathUtils.getPathToResource(PHENOTYPER_FILE_PATH).toAbsolutePath().toString(),
-        "-o",
+        "-f",
         outputReportPath.toString(),
         "-t",
         "example_title"
