@@ -52,12 +52,12 @@ public class PharmCAT {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addVersion("PharmCAT " + CliUtils.getVersion())
-          .addOption("vcf", "sample-file", "input call file (VCF)", true, "vcf")
-          .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "o")
-          .addOption("f", "output-file", "the base name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "f")
-          .addOption("a", "outside-call-file", "path to an outside call file (TSV)", false, "a")
+          .addOption("vcf", "sample-file", "input call file (VCF)", true, "vcf-file-path")
+          .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "directory-path")
+          .addOption("f", "output-file", "the base name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "file-name")
+          .addOption("a", "outside-call-file", "path to an outside call file (TSV)", false, "tsv-file-path")
           // optional data
-          .addOption("na", "alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
+          .addOption("na", "alleles-dir", "directory of named allele definitions (JSON files)", false, "directory-path")
           // controls
           .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files")
           .addOption("j", "write-reporter-json", "flag to write a JSON file of the data used to populate the final report")
@@ -80,7 +80,7 @@ public class PharmCAT {
 
       Path definitionsDir = null;
       if (cliHelper.hasOption("na")) {
-        definitionsDir = cliHelper.getValidDirectory("l", false);
+        definitionsDir = cliHelper.getValidDirectory("na", false);
       }
 
       String outputFile = null;
