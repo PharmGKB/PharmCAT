@@ -1038,6 +1038,52 @@ class PharmCATTest {
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.DPWG);
   }
 
+  /**
+   * An example report that shows a few different types of recommendation scenarios all in one report. The examples
+   * shown are:
+   * <ul>
+   *   <li>celecoxib = 1 CPIC recommenation</li>
+   *   <li>citalopram = 2 recommendations: 1 CPIC, 1 DPWG, 1 gene and it's called</li>
+   *   <li>clomipramine = 2 recommendations: 1 CPIC, 1 DPWG, 2 gene but only 1 called</li>
+   *   <li>carbamezepine = 3 CPIC recommendations on different populations</li>
+   *   <li>clopidogrel = 4 recommendations: 3 CPIC on different pops, 1 DPWG</li>
+   *   <li>flucloxacillin = 0 recommendations but the gene is reportable</li>
+   *   <li>fluvoxamine = 0 recommendations, no gene reportable</li>
+   *   <li>siponimod = 1 DPWG recommendation</li>
+   * </ul>
+   */
+  @Test
+  void testRecommendationExamples() throws Exception {
+    Path outsideCallPath = Files.createTempFile("noFunction", ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("HLA-A\t\t*31:01 positive\n");
+      fw.write("HLA-B\t*57:01/*58:01\t\n");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("recommendation.examples", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9")
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs12769205", "G", "G")
+        .variation("CYP2C19", "rs4244285", "A", "A")
+        .variation("CYP2C19", "rs3758581", "G", "G");
+    testWrapper.execute(outsideCallPath);
+
+    testWrapper.testReportable("CYP2C19", "CYP2C9", "HLA-A", "HLA-B");
+    testWrapper.testMatchedGroups("celecoxib", 1);
+    testWrapper.testAnyMatchFromSource("celecoxib", DataSource.CPIC);
+    testWrapper.testMatchedGroups("citalopram", 2);
+    testWrapper.testMatchedGroups("clomipramine", 2);
+    testWrapper.testMatchedGroups("carbamazepine", 3);
+    testWrapper.testMatchedGroups("clopidogrel", 4);
+    testWrapper.testNoMatchFromSource("flucloxacillin", DataSource.CPIC);
+    testWrapper.testNoMatchFromSource("flucloxacillin", DataSource.DPWG);
+    testWrapper.testNoMatchFromSource("fluvoxamine", DataSource.CPIC);
+    testWrapper.testNoMatchFromSource("fluvoxamine", DataSource.DPWG);
+    testWrapper.testMatchedGroups("siponimod", 1);
+    testWrapper.testAnyMatchFromSource("siponimod", DataSource.DPWG);
+  }
+
   @Test
   void testTpmtStar1s() throws Exception {
     s_pharmcatTopMatch.execute("tpmt.star1s", new String[]{
