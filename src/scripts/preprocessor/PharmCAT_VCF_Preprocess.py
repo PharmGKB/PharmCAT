@@ -92,7 +92,7 @@ def run(args):
             print("Downloaded to %s" % ref_seq)
 
     # index ref_pgx if not already so
-    if not os.path.exists(ref_pgx + '.tbi'):
+    if not os.path.exists(ref_pgx + '.csi'):
         util.index_vcf(bcftools_path, ref_pgx)
 
     # read the sample list

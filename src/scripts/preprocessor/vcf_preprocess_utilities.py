@@ -118,8 +118,7 @@ def index_vcf(bcftools_path, vcf_path):
     index the input vcf using bcftools, and the output index file will be written to the working directory
 
     bcftools indexing commands are exclusively "bcftools index <input_vcf>", which generates an index file (.csi)
-        for an input file (<input_file>) whose file type is specified by "-p vcf".
-    .tbi will be output to the current working directory by default.
+    .csi will be output to the current working directory by default.
     """
 
     try:
@@ -171,8 +170,8 @@ def remove_vcf_and_index(path_to_vcf):
 
     try:
         os.remove(path_to_vcf)
-        os.remove(path_to_vcf + '.tbi')
-        print("Removed intermediate files:\n\t%s\n\t%s" % (path_to_vcf, path_to_vcf + '.tbi'))
+        os.remove(path_to_vcf + '.csi')
+        print("Removed intermediate files:\n\t%s\n\t%s" % (path_to_vcf, path_to_vcf + '.csi'))
     except OSError as error_remove_tmp:
         print("Error: %s : %s" % (path_to_vcf, error_remove_tmp.strerror))
 
@@ -219,7 +218,7 @@ def extract_regions_from_single_file(bcftools_path, input_vcf, pgx_vcf, output_d
     print("")
     print("Processing", input_vcf)
     # create index if not already existed
-    if not os.path.exists(input_vcf + '.tbi'):
+    if not os.path.exists(input_vcf + '.csi'):
         index_vcf(bcftools_path, input_vcf)
 
     # obtain PGx regions to be extracted
@@ -460,10 +459,16 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                             '''
                             match REF and ALT alleles
                             
-                            1. positions with matching REF and ALT
-                            1.1. update rsID and gene name in FORMAT; bcftools will normalize
-                            2. homozygous reference SNPs with matching REF and ALT='.'
-                            2.1. PGx SNP: update rsID and gene name in FORMAT; bcftools will normalize
+                            SNPs:
+                                1. Matching REF and ALT: retain and update the rsID and FORMAT/PGx gene name
+                                2. Matching REF and ALT='.': homozygous reference SNPs, retain, 
+                                    update rsID and FORMAT/PGx gene name
+                                3. Matching REF and mismatching ALT
+                                    3.1. There is another matching ALT: retain it in the same line
+                                    3.2. There is no other matching ALT: label "FILTER/PCATxALT"
+                            INDELs        
+                                1. Matching REF and ALT: retain and update the rsID and FORMAT/PGx gene name
+                                2. Matching REF and mismatching ALT: separate and retain as another record
                             '''
                             # list out REF alleles at a position
                             ref_alleles = [x[0] for x in ref_pos_static[input_chr_pos].keys()]
@@ -480,7 +485,6 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                 # use this to fill up multiallelic ALT later
                                 if input_chr_pos not in input_pos:
                                     input_pos.append(input_chr_pos)
-
                                 # update ID col
                                 if fields[2] == '.':
                                     fields[2] = ref_pos_static[input_chr_pos][input_ref_alt][2]
@@ -494,20 +498,18 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                 # concat and write to output file
                                 line = '\t'.join(fields)
                                 out_f.write(line + '\n')
-
-                                # eliminattion: remove the dictionary item so that it won't be used again
+                                # elimination: remove the dictionary item so that the variant won't be matched again
                                 if input_chr_pos in ref_pos_dynamic:
                                     ref_pos_dynamic[input_chr_pos].pop(input_ref_alt)
                                     # remove a position if all of its alts are present in the input
                                     if ref_pos_dynamic[input_chr_pos] == {}:
                                         del ref_pos_dynamic[input_chr_pos]
-                            # homozygous reference SNPs with matching REF and ALT='.'
-                            elif is_snp and (fields[3] in ref_alleles) and (fields[4] == '.'):
+                            # SNPs with REF but 1) homozygous reference with ALT='.' or 2) mismatching ALT
+                            elif is_snp and (fields[3] in ref_alleles):
                                 # record input PGx positions in a list
                                 # use this to fill up multiallelic ALT later
                                 if input_chr_pos not in input_pos:
                                     input_pos.append(input_chr_pos)
-
                                 # update id when the id is not in the input
                                 ref_id = list(set([x[2] for x in ref_pos_static[input_chr_pos].values()]))
                                 if fields[2] == '.':
@@ -515,26 +517,31 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                 else:
                                     input_id = fields[2].split(';')
                                     fields[2] = ';'.join(set(ref_id + input_id))
-
                                 # update info
                                 info_col = ';'.join(set([x[7] for x in ref_pos_static[input_chr_pos].values()]))
                                 fields[7] = ';'.join([fields[7], info_col]) if fields[7] != '.' else info_col
-
-                                alt_alleles = [x[1] for x in ref_pos_static[input_chr_pos].keys()]
-                                for i in range(len(alt_alleles)):
-                                    # update contents, concatenate cols from input and from the ref PGx VCF
-                                    fields[3] = ref_alleles[i]
-                                    fields[4] = alt_alleles[i]
+                                # 1st: homozygous SNPs with ALT = "."
+                                if fields[4] == '.':
+                                    alt_alleles = [x[1] for x in ref_pos_static[input_chr_pos].keys()]
+                                    for i in range(len(alt_alleles)):
+                                        # update contents, concatenate cols from input and from the ref PGx VCF
+                                        fields[3] = ref_alleles[i]
+                                        fields[4] = alt_alleles[i]
+                                        # concat and write to output file
+                                        line = '\t'.join(fields)
+                                        out_f.write(line + '\n')
+                                        # for hom ref SNPs, remove the position from the dict for record
+                                        if input_chr_pos in ref_pos_dynamic:
+                                            ref_pos_dynamic[input_chr_pos].pop((ref_alleles[i], alt_alleles[i]))
+                                            # remove a position if all of its alts are present in the input
+                                            if ref_pos_dynamic[input_chr_pos] == {}:
+                                                del ref_pos_dynamic[input_chr_pos]
+                                # 2nd: SNPs with matching REF but mismatching ALT
+                                else:
                                     # concat and write to output file
                                     line = '\t'.join(fields)
                                     out_f.write(line + '\n')
-                                    # eliminattion: remove the dictionary item so that it won't be used again
-                                    if input_chr_pos in ref_pos_dynamic:
-                                        ref_pos_dynamic[input_chr_pos].pop((ref_alleles[i], alt_alleles[i]))
-                                        # remove a position if all of its alts are present in the input
-                                        if ref_pos_dynamic[input_chr_pos] == {}:
-                                            del ref_pos_dynamic[input_chr_pos]
-                            # flag if the variant doesn't match PharmCAT ALT
+                            # for INDELs, flag if the variant doesn't match PharmCAT ALT
                             elif fields[3] in ref_alleles:
                                 for i in range(len(ref_alleles)):
                                     print('=============================================================\n\n'
