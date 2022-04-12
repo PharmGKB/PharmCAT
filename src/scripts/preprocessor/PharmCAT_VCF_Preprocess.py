@@ -25,13 +25,6 @@ def run(args):
     except:
         print('Error: %s not found or not executable' % bcftools_path)
         sys.exit(1)
-    # validate tabix
-    tabix_path = args.path_to_tabix if args.path_to_tabix else 'tabix'
-    try:
-        subprocess.run([tabix_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    except:
-        print('Error: %s not found or not executable' % tabix_path)
-        sys.exit(1)
     # validate bgzip
     bgzip_path = args.path_to_bgzip if args.path_to_bgzip else 'bgzip'
     try:
@@ -100,7 +93,7 @@ def run(args):
 
     # index ref_pgx if not already so
     if not os.path.exists(ref_pgx + '.tbi'):
-        util.tabix_index_vcf(tabix_path, ref_pgx)
+        util.index_vcf(bcftools_path, ref_pgx)
 
     # read the sample list
     sample_list = []
@@ -135,20 +128,20 @@ def run(args):
     # shrink input VCF down to PGx allele defining regions and selected samples
     # modify input VCF chromosomes naming format to <chr##>
     if input_list:
-        vcf_pgx_regions = util.extract_regions_from_multiple_files(bcftools_path, tabix_path, bgzip_path, input_list,
+        vcf_pgx_regions = util.extract_regions_from_multiple_files(bcftools_path, bgzip_path, input_list,
                                                                    ref_pgx, output_dir, output_prefix, sample_list)
     else:
-        vcf_pgx_regions = util.extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf,
+        vcf_pgx_regions = util.extract_regions_from_single_file(bcftools_path, input_vcf,
                                                                 ref_pgx, output_dir, output_prefix, sample_list)
     tmp_files_to_be_removed.append(vcf_pgx_regions)
 
     # normalize the input VCF
-    vcf_normalized = util.normalize_vcf(bcftools_path, tabix_path, vcf_pgx_regions, ref_seq)
+    vcf_normalized = util.normalize_vcf(bcftools_path, vcf_pgx_regions, ref_seq)
     tmp_files_to_be_removed.append(vcf_normalized)
 
     # extract the specific PGx genetic variants in the reference PGx VCF
     # this step also generates a report of missing PGx positions in the input VCF
-    vcf_normalized_pgx_only = util.filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, vcf_normalized, ref_seq,
+    vcf_normalized_pgx_only = util.filter_pgx_variants(bcftools_path, bgzip_path, vcf_normalized, ref_seq,
                                                        ref_pgx, missing_to_ref, output_dir, output_prefix)
     tmp_files_to_be_removed.append(vcf_normalized_pgx_only)
 
@@ -185,8 +178,6 @@ if __name__ == "__main__":
                         help="(Optional) a file of samples to be prepared for the PharmCAT, one sample at a line.")
     parser.add_argument("--path_to_bcftools",
                         help="(Optional) an alternative path to the executable bcftools.")
-    parser.add_argument("--path_to_tabix",
-                        help="(Optional) an alternative path to the executable tabix.")
     parser.add_argument("--path_to_bgzip",
                         help="(Optional) an alternative path to the executable bgzip.")
     parser.add_argument("--output_folder", type=str,

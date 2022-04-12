@@ -113,18 +113,18 @@ def get_default_grch38_ref_fasta_and_index(download_to_dir, force_update=False):
     return ref_file
 
 
-def tabix_index_vcf(tabix_path, vcf_path):
+def index_vcf(bcftools_path, vcf_path):
     """
-    index the input vcf using tabix, and the output index file will be written to the working directory
+    index the input vcf using bcftools, and the output index file will be written to the working directory
 
-    tabix commands are exclusively "tabix -p vcf <input_vcf>", which generates an index file (.tbi)
+    bcftools indexing commands are exclusively "bcftools index <input_vcf>", which generates an index file (.csi)
         for an input file (<input_file>) whose file type is specified by "-p vcf".
     .tbi will be output to the current working directory by default.
     """
 
     try:
-        print('Generating index (' + vcf_path + '.tbi)')
-        subprocess.run([tabix_path, '-p', 'vcf', vcf_path], check=True)
+        print('Generating index (' + vcf_path + '.csi)')
+        subprocess.run([bcftools_path, 'index', vcf_path], check=True)
     except Exception as e:
         print('Failed to index %s' % vcf_path)
         # comment out this traceback function as subprocess(check = true) should report detailed errors
@@ -203,7 +203,7 @@ def _is_valid_chr(input_vcf):
     return chr_status
 
 
-def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_vcf, output_dir, output_prefix,
+def extract_regions_from_single_file(bcftools_path, input_vcf, pgx_vcf, output_dir, output_prefix,
                                      sample_list):
     """
     Rename chromosomes in input vcf according to a chr-renaming mapping file.
@@ -220,7 +220,7 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
     print("Processing", input_vcf)
     # create index if not already existed
     if not os.path.exists(input_vcf + '.tbi'):
-        tabix_index_vcf(tabix_path, input_vcf)
+        index_vcf(bcftools_path, input_vcf)
 
     # obtain PGx regions to be extracted
     df_ref_pgx_pos = allel.vcf_to_dataframe(pgx_vcf)
@@ -268,12 +268,12 @@ def extract_regions_from_single_file(bcftools_path, tabix_path, input_vcf, pgx_v
                      show_msg='Extracting PGx regions and modifying chromosome names for %s.' % input_vcf)
 
     # index the output PGx file
-    tabix_index_vcf(tabix_path, path_output)
+    index_vcf(bcftools_path, path_output)
 
     return path_output
 
 
-def extract_regions_from_multiple_files(bcftools_path, tabix_path, bgzip_path, input_list, ref_pgx,
+def extract_regions_from_multiple_files(bcftools_path, bgzip_path, input_list, ref_pgx,
         output_dir, output_prefix, sample_list):
     """
     iterate through the list of input files
@@ -297,7 +297,7 @@ def extract_regions_from_multiple_files(bcftools_path, tabix_path, bgzip_path, i
                     line = bgzipped_vcf(bgzip_path, line)
 
                     temp_output_prefix = output_prefix + '_' + str(i)
-                    single_file = extract_regions_from_single_file(bcftools_path, tabix_path, line, ref_pgx,
+                    single_file = extract_regions_from_single_file(bcftools_path, line, ref_pgx,
                                                                    temp_dir, temp_output_prefix, sample_list)
                     preprocessed_file_list.append(single_file)
                     i += 1
@@ -316,11 +316,11 @@ def extract_regions_from_multiple_files(bcftools_path, tabix_path, bgzip_path, i
         run_bcftools(bcftools_command, show_msg='Concatenating chromosome VCFs.')
 
     # index the concatenated VCF
-    tabix_index_vcf(tabix_path, path_output)
+    index_vcf(bcftools_path, path_output)
     return path_output
 
 
-def normalize_vcf(bcftools_path, tabix_path, input_vcf, ref_seq):
+def normalize_vcf(bcftools_path, input_vcf, ref_seq):
     """
     Normalize the input VCF against the human reference genome sequence GRCh38/hg38
 
@@ -337,12 +337,12 @@ def normalize_vcf(bcftools_path, tabix_path, input_vcf, ref_seq):
     bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-Oz', '-o',
                         path_output, '-f', ref_seq, input_vcf]
     run_bcftools(bcftools_command, show_msg='Normalizing VCF')
-    tabix_index_vcf(tabix_path, path_output)
+    index_vcf(bcftools_path, path_output)
 
     return path_output
 
 
-def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
+def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                         missing_to_ref, output_dir, output_prefix):
     """
     Extract specific pgx positions that are present in the reference PGx VCF
@@ -364,7 +364,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
         bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', ref_seq,
                             '-Oz', '-o', ref_pgx_uniallelic, ref_pgx]
         run_bcftools(bcftools_command, show_msg='Preparing the reference PGx VCF')
-        tabix_index_vcf(tabix_path, ref_pgx_uniallelic)
+        index_vcf(bcftools_path, ref_pgx_uniallelic)
 
         '''
         extracg PGx positions from input using "bcftools view"
@@ -374,7 +374,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
         bcftools_command = [bcftools_path, 'view', '--no-version', '-T', ref_pgx_uniallelic,
                             '-Oz', '-o', input_pgx_only, input_vcf]
         run_bcftools(bcftools_command, show_msg='Retaining PGx positions, regardless of alleles')
-        tabix_index_vcf(tabix_path, input_pgx_only)
+        index_vcf(bcftools_path, input_pgx_only)
 
         '''
         extract PGx positions from input VCF
@@ -579,7 +579,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
         sorted_vcf = os.path.join(temp_dir, 'temp_sorted.vcf.gz')
         bcftools_command = [bcftools_path, 'sort', '-Oz', '-o', sorted_vcf, vcf_pgx_only]
         run_bcftools(bcftools_command, show_msg='Sorting file')
-        tabix_index_vcf(tabix_path, sorted_vcf)
+        index_vcf(bcftools_path, sorted_vcf)
 
         # if there was non-PGx variant at PGx positions, need to put back the non-PGx variants into VCF
         path_output = os.path.splitext(os.path.splitext(input_vcf)[0])[0] + '.multiallelic.vcf.gz'
@@ -590,7 +590,7 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                                 '-Oz', '-o', normed_vcf, sorted_vcf]
             run_bcftools(bcftools_command,
                          show_msg='Enforcing the multi-allelic variant representation per PharmCAT')
-            tabix_index_vcf(tabix_path, normed_vcf)
+            index_vcf(bcftools_path, normed_vcf)
 
             # insert lines of concurrent non-PGx variants after the PGx positions
             path_output_noncompressed = os.path.splitext(path_output)[0]
@@ -632,14 +632,14 @@ def filter_pgx_variants(bcftools_path, tabix_path, bgzip_path, input_vcf, ref_se
                         non_pgx_records.pop(0)
             # bgzip and index file
             bgzipped_vcf(bgzip_path, path_output_noncompressed)
-            tabix_index_vcf(tabix_path, path_output)
+            index_vcf(bcftools_path, path_output)
         else:
             # enforces the output to comply with the multi-allelic format
             bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', ref_seq,
                                 '-Oz', '-o', path_output, sorted_vcf]
             run_bcftools(bcftools_command,
                          show_msg='Enforcing the multi-allelic variant representation per PharmCAT')
-            tabix_index_vcf(tabix_path, path_output)
+            index_vcf(bcftools_path, path_output)
 
         # report missing positions in the input VCF
         missing_report = os.path.join(output_dir, output_prefix + '.missing_pgx_var.vcf')
