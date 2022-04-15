@@ -181,7 +181,7 @@ $ gunzip -c test_2.vcf.gz
 ##reference=hg38
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ##FILTER=<ID=PASS,Description="All filters passed">
-#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	s1	s2
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2
 1	97740414	rs72549309	AATGA	A	.	PASS	.	GT	1/0	0/1
 2	233760233	rs3064744	C	CAT	.	PASS	.	GT	1/0	0/0
 2	233760233	rs3064744	CAT	C	.	PASS	.	GT	0/0	0/1
@@ -205,7 +205,7 @@ VCF preprocessor will return three (3) files in this test case.
 3. the third named *"pharmcat_ready_vcf.missing_pgx_var.vcf.gz"* as a report of missing PGx positions.
 
 ```
-$ cat reference.s1.vcf
+$ cat reference.Sample_1.vcf
 
 ##fileformat=VCFv4.1
 ##FILTER=<ID=PASS,Description="All filters passed">
@@ -220,7 +220,7 @@ chr10   94942205        rs1304490498    CAATGGAAAGA     C       .       PASS    
 chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT15     GT      1/0
 chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      1/0
 
-$ cat reference.s2.vcf
+$ cat reference.Sample_2.vcf
 
 ##fileformat=VCFv4.1
 ##FILTER=<ID=PASS,Description="All filters passed">
