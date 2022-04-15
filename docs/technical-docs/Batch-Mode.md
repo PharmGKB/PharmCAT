@@ -1,9 +1,8 @@
 ---
-title: Batch Processing Multiple Samples
+title: Batch Processing
 permalink: technical-docs/batch-mode/
 parent: Using PharmCAT
 nav_order: 5
-nav_exclude: true
 ---
 
 # Batch Annotating Multiple Samples
@@ -81,7 +80,7 @@ python3 PharmCAT_VCF_Preprocess.py --input_list data/input_vcf_list.txt
 
 ##  Running PharmCAT
 
-Assuming the users have run the PharmCAT VCF preprocessor to generate multiple single-sample VCFs which is named such as “pharmcat_ready_vcf.<sample_id>.vcf”. Use the following command to batch annotate multiple VCFs using PharmCAT. A full example can be found at [PharmCAT-tutorial/src/03_PharmCAT.sh](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/03_PharmCAT.sh) in the PharmCAT tutorial GitHub repository.
+Assuming the users have run the PharmCAT VCF preprocessor to generate multiple single-sample VCFs which is named such as “pharmcat_ready_vcf.\<sample_id\>.vcf”. Use the following command to batch annotate multiple VCFs using PharmCAT. A full example can be found at [PharmCAT-tutorial/src/03_PharmCAT.sh](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/03_PharmCAT.sh) in the PharmCAT tutorial GitHub repository.
 
 ```markdown
 java -jar  <path_to_the_latest_pharmcat_jar> -vcf <single_sample_vcf> -o <output_dir>
@@ -99,7 +98,7 @@ do
 done
 ```
 
-The output is a set of PGx reports in HTML format named as “pharmcat.<sample_id>.html”.
+The output is a set of PGx reports in HTML format named as “pharmcat.\<sample_id\>.html”.
 
 ## Batch outside calls
 
@@ -197,7 +196,21 @@ These commands yield Named Allele Matcher, Phenotyper, and Reporter results for 
 
 ## Extracting PharmCAT JSON content into TSV
 
-We also provide accessory R scripts that organize and extract the content from the Named Allele Matcher or Phenotyper JSON outputs into tab-separated values (TSV) files. The accessory result-organizing R scripts can be found in the [PharmCAT-tutorial/src/](https://github.com/PharmGKB/PharmCAT-tutorial/tree/main/src/). The commands are as follows:
+We also provide accessory R scripts that organize and extract the content from the Named Allele Matcher or Phenotyper JSON outputs into tab-separated values (TSV) files. Here is an example TSV that the users will obtain from the provided R scripts.
+
+|samples|gene |diplotype                                      |haplotype_1            |haplotype_2            |haplotype_1_variants|haplotype_2_variants|missing_positions|
+|-------|-----|-----------------------------------------------|-----------------------|-----------------------|--------------------|--------------------|-----------------|
+|NA18526|ABCG2|rs2231142 reference (G)/rs2231142 reference (G)|rs2231142 reference (G)|rs2231142 reference (G)|88131171_G          |88131171_G          |NULL             |
+|NA18526|CYP3A5|\*1/\*1                                          |\*1                     |\*1                     |99652770_T;99665212_C;99672916_T|99652770_T;99665212_C;99672916_T|99660516;99676198|
+|NA18526|SLCO1B1|\*1/\*15                                         |\*1                     |\*15                    |21176804_A;21176868_A;21176879_C;21176898_G;<...truncated for visual clarity...>|21176804_G;21176868_A;21176879_C;<...truncated for visual clarity...>|21172734;<...truncated...>|
+|NA18565|ABCG2|rs2231142 reference (G)/rs2231142 reference (G)|rs2231142 reference (G)|rs2231142 reference (G)|88131171_G          |88131171_G          |NULL             |
+|NA18565|CYP3A5|\*1/\*3                                          |\*1                     |\*3                     |99652770_T;99665212_C;99672916_T|99652770_T;99665212_C;99672916_C|99660516;99676198|
+|NA18565|SLCO1B1|\*1/\*1                                          |\*1                     |\*1                     |21176804_A;21176868_A;21176879_C;<...truncated for visual clarity...>|21176804_A;21176868_A;21176879_C;<...truncated for visual clarity...>|21172734;;<...truncated...>|
+|NA18861|CYP3A5|\*1/\*1                                          |\*1                     |\*1                     |99652770_T;99665212_C;99672916_T|99652770_T;99665212_C;99672916_T|99660516;99676198|
+|NA18861|SLCO1B1|\*1/\*43                                         |\*1                     |\*43                    |21176804_A;21176868_A;21176879_C;<...truncated for visual clarity...>|21176804_G;21176868_A;21176879_A;<...truncated for visual clarity...>|21172734;;<...truncated...>|
+
+
+The accessory result-organizing R scripts can be found in the [PharmCAT-tutorial/src/](https://github.com/PharmGKB/PharmCAT-tutorial/tree/main/src/). The commands are as follows:
 
 ### Extracting the PharmCAT Named Allele Matcher JSON data into a TSV file
 ```markdown
