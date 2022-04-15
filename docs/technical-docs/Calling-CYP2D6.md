@@ -7,7 +7,9 @@ nav_order: 6
 
 # Calling CYP2D6
 
-**PharmCAT does not natively support calling CYP2D6** from VCF due to the large influence of structural variation and copy number variation (CNV) on predicted phenotype, which is beyond the scope of what can be called from SNPs in a VCF. However, PharmCAT does allow input of [PharmCAT-formatted](https://github.com/PharmGKB/PharmCAT/wiki/Outside-Call-Format) data from external CYP2D6 callers. This allows the user to select their preferred CYP2D6 caller and include CYP2D6 results in their PharmCAT report. However, **we provide this functionality with some strong warnings** about using unsuited genotyping technologies for calling CYP2D6. In short, **we** ***strongly discourage*** **using whole-exome sequencing or low coverage whole-genome sequencing data to call CYP2D6.** Our reasoning is provided below.
+**PharmCAT does not natively support calling CYP2D6** from VCF due to the large influence of structural variation and copy number variation (CNV) on predicted phenotype, which is beyond the scope of what can be called from SNPs in a VCF. However, PharmCAT does allow input of [PharmCAT-formatted](https://github.com/PharmGKB/PharmCAT/wiki/Outside-Call-Format) data from external CYP2D6 callers. This allows the user to select their preferred CYP2D6 caller and include CYP2D6 results in their PharmCAT report. However, **we provide this functionality with some strong warnings** about using unsuited genotyping technologies for calling CYP2D6. In short, **we** ***strongly discourage*** **using whole-exome sequencing or low coverage whole-genome sequencing data to call CYP2D6** (our reasoning is provided below).
+
+The example of external CYP2D6 calls was based on results from the StellarPGx. Please note we are not affiliated with the StellarPGx team and offer no guarantees about its performance. Any questions or concerns on StellarPGx should be directed to the StellarPGx maintainers [twesigomwedavid@gmail.com](twesigomwedavid@gmail.com). Usage instructions for StellarPGx can be found on their [github](https://github.com/SBIMB/StellarPGx).
 
 ## Sequencing Technology Benchmark
 
@@ -43,6 +45,8 @@ CYP2D6	*1x2/*2+*6
 Column 1 is the gene name, and column 2 (delimited by a tab character) is the star-allele diplotype call. You will need to create one file for each sample/patient.
 
 ### Formatting StellarPGx output for PharmCAT
+
+We have provided the following instructions for your reference on how to use StellarPGx with PharmCAT and to illustrate how you would integrate other external callers with PharmCAT.
 
 In order to get your caller output into the PharmCAT format, you may need to process the output from the caller. This is relatively straightforward with StellarPGx. After running StellarPGx with CYP2D6 as the target gene, it should produce a `<run_name>_summary.txt` file which looks like
 
