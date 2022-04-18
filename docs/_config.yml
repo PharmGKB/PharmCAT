@@ -1,5 +1,7 @@
 remote_theme: pmarsceill/just-the-docs
 title: PharmCAT
-logo: https://s3.pgkb.org/attachment/pharmcat_logo.png
+logo: /images/pharmcat_logo.png
 show_downloads: true
 color_scheme: pharmcat
+ga_tracking: G-7ZP1HHBWTE
+ga_tracking_anonymize_ip: true
