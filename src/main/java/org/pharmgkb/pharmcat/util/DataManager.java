@@ -19,6 +19,8 @@ import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -575,6 +577,7 @@ public class DataManager {
   }
 
   private void writeSummary(Path documentationDir, Map<String,Integer> geneAlleleCount, DrugCollection drugs, PhenotypeMap phenotypeMap) throws IOException {
+    Multimap<String,DataSource> geneToUsageMap = makeGeneToUsageMap(drugs);
     try (
         InputStream mdStream = getClass().getResourceAsStream("summary.md");
         StringWriter templateWriter = new StringWriter()
@@ -589,15 +592,18 @@ public class DataManager {
       try (FileWriter fw = new FileWriter(summaryFile)) {
         String matcherGeneList = geneAlleleCount.keySet().stream()
             .filter(g -> !PREFER_OUTSIDE_CALL.contains(g))
-            .sorted().map(g -> "- " + g + " (" + geneAlleleCount.get(g) + " alleles)")
+            .sorted().map(g -> "- " + g + " (" + geneAlleleCount.get(g) + " alleles)" + makeUsageSuffix(geneToUsageMap.get(g)))
             .collect(Collectors.joining("\n"));
+
         String outsideGeneList = PREFER_OUTSIDE_CALL.stream()
             .map(phenotypeMap::lookup)
             .filter(Optional::isPresent)
             .map(Optional::get)
-            .map(g -> "- " + g.getGene() + " (" + g.getHaplotypes().size() + " alleles)")
+            .map(g -> "- " + g.getGene() + " (" + g.getHaplotypes().size() + " alleles)" + makeUsageSuffix(geneToUsageMap.get(g.getGene())))
             .collect(Collectors.joining("\n"));
-        String drugList = drugs.listReportable().stream().map(d -> "- " + d.getDrugName()).collect(Collectors.joining("\n"));
+
+        String drugList = String.join("\n", makeDrugListItems(drugs));
+
         IOUtils.write(String.format(mdTemplate, matcherGeneList, outsideGeneList, drugList), fw);
       }
       System.out.println("Saving summary file to " + summaryFile);
@@ -612,5 +618,34 @@ public class DataManager {
     );
     System.out.println("Saving phenotypes to " + outputPath);
     return outputPath;
+  }
+
+  private List<String> makeDrugListItems(DrugCollection drugCollection) {
+    Multimap<String,DataSource> drugSourceMap = TreeMultimap.create();
+    for (Drug drug : drugCollection) {
+      drugSourceMap.put(drug.getDrugName(), drug.getSource());
+    }
+
+    return drugSourceMap.keySet().stream()
+        .map(name -> "- " + name + makeUsageSuffix(drugSourceMap.get(name)))
+        .collect(Collectors.toList());
+  }
+
+  private Multimap<String,DataSource> makeGeneToUsageMap(DrugCollection drugs) {
+    Multimap<String,DataSource> geneMap = TreeMultimap.create();
+    drugs.forEach((drug) -> {
+      for (String gene : drug.getGenes()) {
+        geneMap.put(gene, drug.getSource());
+      }
+    });
+    return geneMap;
+  }
+
+  private String makeUsageSuffix(Collection<DataSource> sources) {
+    if (sources == null || sources.size() == 0) {
+      return "";
+    } else {
+      return " (" + sources.stream().map(DataSource::getDisplayName).collect(Collectors.joining(", ")) + ")";
+    }
   }
 }

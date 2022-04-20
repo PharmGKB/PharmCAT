@@ -14,105 +14,121 @@ The following genes are used by PharmCAT to find drug recommendation data.
 
 The `NamedAlleleMatcher` will search the given sample file for locations associated with these genes and attempt to match them to known allele definitions. Each of these genes will appear in the "Genotype Summary" section of the final output report.
 
-- ABCG2 (2 alleles)
-- CACNA1S (3 alleles)
-- CFTR (40 alleles)
-- CYP2B6 (35 alleles)
-- CYP2C19 (34 alleles)
-- CYP2C9 (85 alleles)
-- CYP3A5 (6 alleles)
-- CYP4F2 (3 alleles)
-- DPYD (83 alleles)
-- IFNL3 (2 alleles)
-- NUDT15 (20 alleles)
-- RYR1 (49 alleles)
-- SLCO1B1 (42 alleles)
-- TPMT (46 alleles)
-- UGT1A1 (9 alleles)
-- VKORC1 (2 alleles)
+- ABCG2 (2 alleles) (CPIC)
+- CACNA1S (3 alleles) (CPIC)
+- CFTR (40 alleles) (CPIC)
+- CYP2B6 (35 alleles) (CPIC)
+- CYP2C19 (34 alleles) (CPIC, PharmGKB-DPWG)
+- CYP2C9 (75 alleles) (CPIC, PharmGKB-DPWG)
+- CYP3A5 (6 alleles) (CPIC, PharmGKB-DPWG)
+- CYP4F2 (3 alleles) (CPIC)
+- DPYD (83 alleles) (CPIC, PharmGKB-DPWG)
+- IFNL3 (2 alleles) (CPIC)
+- NUDT15 (20 alleles) (CPIC, PharmGKB-DPWG)
+- RYR1 (49 alleles) (CPIC)
+- SLCO1B1 (42 alleles) (CPIC, PharmGKB-DPWG)
+- TPMT (46 alleles) (CPIC, PharmGKB-DPWG)
+- UGT1A1 (9 alleles) (CPIC, PharmGKB-DPWG)
+- VKORC1 (2 alleles) (CPIC)
 
 ### Genes handled by outside callers
 
 These genes will not get allele matches from PharmCAT. However, you can use an outside caller like [Astrolabe](https://www.childrensmercy.org/childrens-mercy-research-institute/research-areas/genomic-medicine-center/data-and-software-resources/) or [Stargazer](https://stargazer.gs.washington.edu/stargazerweb/index.html) to get diplotype calls and then supply that to PharmCAT for use in matching recommendation data.
 
-- CYP2D6 (149 alleles)
-- G6PD (187 alleles)
-- MT-RNR1 (25 alleles)
+- CYP2D6 (149 alleles) (CPIC, PharmGKB-DPWG)
+- G6PD (187 alleles) (CPIC)
+- MT-RNR1 (25 alleles) (CPIC)
 
 
 ## Drugs
 
-The following drugs have been read from CPIC and will have "recommendation" sections in the final output report.
+The following drugs are included in the PharmCAT report "Prescribing Recommendations" section. The sources for the drug prescribing information are in brackets after the drug name.
 
-- abacavir
-- allopurinol
-- amikacin
-- amitriptyline
-- atazanavir
-- atomoxetine
-- atorvastatin
-- azathioprine
-- capecitabine
-- carbamazepine
-- celecoxib
-- citalopram
-- clomipramine
-- clopidogrel
-- codeine
-- desflurane
-- desipramine
-- dexlansoprazole
-- doxepin
-- efavirenz
-- enflurane
-- escitalopram
-- fluorouracil
-- flurbiprofen
-- fluvastatin
-- fluvoxamine
-- fosphenytoin
-- gentamicin
-- halothane
-- hydrocodone
-- ibuprofen
-- imipramine
-- isoflurane
-- ivacaftor
-- kanamycin
-- lansoprazole
-- lornoxicam
-- lovastatin
-- meloxicam
-- mercaptopurine
-- methoxyflurane
-- nortriptyline
-- omeprazole
-- ondansetron
-- oxcarbazepine
-- pantoprazole
-- paromomycin
-- paroxetine
-- peginterferon alfa-2a
-- peginterferon alfa-2b
-- phenytoin
-- piroxicam
-- pitavastatin
-- plazomicin
-- pravastatin
-- rasburicase
-- rosuvastatin
-- sertraline
-- sevoflurane
-- simvastatin
-- streptomycin
-- succinylcholine
-- tacrolimus
-- tamoxifen
-- tenoxicam
-- thioguanine
-- tobramycin
-- tramadol
-- trimipramine
-- tropisetron
-- voriconazole
-- warfarin
+- abacavir (CPIC, PharmGKB-DPWG)
+- allopurinol (CPIC)
+- amikacin (CPIC)
+- amitriptyline (CPIC, PharmGKB-DPWG)
+- aripiprazole (PharmGKB-DPWG)
+- atazanavir (CPIC)
+- atomoxetine (CPIC, PharmGKB-DPWG)
+- atorvastatin (CPIC, PharmGKB-DPWG)
+- azathioprine (CPIC, PharmGKB-DPWG)
+- brexpiprazole (PharmGKB-DPWG)
+- capecitabine (CPIC, PharmGKB-DPWG)
+- carbamazepine (CPIC)
+- celecoxib (CPIC)
+- citalopram (CPIC, PharmGKB-DPWG)
+- clomipramine (CPIC, PharmGKB-DPWG)
+- clopidogrel (CPIC, PharmGKB-DPWG)
+- codeine (CPIC, PharmGKB-DPWG)
+- desflurane (CPIC)
+- desipramine (CPIC)
+- dexlansoprazole (CPIC)
+- doxepin (CPIC, PharmGKB-DPWG)
+- efavirenz (CPIC)
+- eliglustat (PharmGKB-DPWG)
+- enflurane (CPIC)
+- escitalopram (CPIC, PharmGKB-DPWG)
+- flecainide (PharmGKB-DPWG)
+- flucloxacillin (PharmGKB-DPWG)
+- flucytosine (PharmGKB-DPWG)
+- fluorouracil (CPIC, PharmGKB-DPWG)
+- flurbiprofen (CPIC)
+- fluvastatin (CPIC)
+- fluvoxamine (CPIC)
+- fosphenytoin (CPIC)
+- gentamicin (CPIC)
+- haloperidol (PharmGKB-DPWG)
+- halothane (CPIC)
+- hydrocodone (CPIC)
+- ibuprofen (CPIC)
+- imipramine (CPIC, PharmGKB-DPWG)
+- irinotecan (PharmGKB-DPWG)
+- isoflurane (CPIC)
+- ivacaftor (CPIC)
+- kanamycin (CPIC)
+- lansoprazole (CPIC, PharmGKB-DPWG)
+- lornoxicam (CPIC)
+- lovastatin (CPIC)
+- meloxicam (CPIC)
+- mercaptopurine (CPIC, PharmGKB-DPWG)
+- methoxyflurane (CPIC)
+- metoprolol (PharmGKB-DPWG)
+- nortriptyline (CPIC, PharmGKB-DPWG)
+- omeprazole (CPIC, PharmGKB-DPWG)
+- ondansetron (CPIC)
+- oxcarbazepine (CPIC)
+- pantoprazole (CPIC, PharmGKB-DPWG)
+- paromomycin (CPIC)
+- paroxetine (CPIC, PharmGKB-DPWG)
+- peginterferon alfa-2a (CPIC)
+- peginterferon alfa-2b (CPIC)
+- phenytoin (CPIC, PharmGKB-DPWG)
+- pimozide (PharmGKB-DPWG)
+- piroxicam (CPIC)
+- pitavastatin (CPIC)
+- plazomicin (CPIC)
+- pravastatin (CPIC)
+- propafenone (PharmGKB-DPWG)
+- rasburicase (CPIC)
+- risperidone (PharmGKB-DPWG)
+- rosuvastatin (CPIC)
+- sertraline (CPIC, PharmGKB-DPWG)
+- sevoflurane (CPIC)
+- simvastatin (CPIC, PharmGKB-DPWG)
+- siponimod (PharmGKB-DPWG)
+- streptomycin (CPIC)
+- succinylcholine (CPIC)
+- tacrolimus (CPIC, PharmGKB-DPWG)
+- tamoxifen (CPIC, PharmGKB-DPWG)
+- tegafur (PharmGKB-DPWG)
+- tenoxicam (CPIC)
+- thioguanine (CPIC, PharmGKB-DPWG)
+- tobramycin (CPIC)
+- tramadol (CPIC, PharmGKB-DPWG)
+- trimipramine (CPIC)
+- tropisetron (CPIC)
+- venlafaxine (PharmGKB-DPWG)
+- voriconazole (CPIC, PharmGKB-DPWG)
+- warfarin (CPIC, PharmGKB-DPWG)
+- zuclopenthixol (PharmGKB-DPWG)

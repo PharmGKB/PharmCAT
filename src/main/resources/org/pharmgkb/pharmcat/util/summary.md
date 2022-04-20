@@ -25,6 +25,6 @@ These genes will not get allele matches from PharmCAT. However, you can use an o
 
 ## Drugs
 
-The following drugs have been read from CPIC and will have "recommendation" sections in the final output report.
+The following drugs are included in the PharmCAT report "Prescribing Recommendations" section. The sources for the drug prescribing information are in brackets after the drug name.
 
 %s
