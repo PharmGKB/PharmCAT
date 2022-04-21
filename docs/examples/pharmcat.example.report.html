@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>
-    PharmCAT Report [pharmcat.example]
+    PharmCAT Report [pharmcat_positions]
   </title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -211,11 +211,11 @@
 <h1>PharmCAT Report</h1>
 
 <table class="table-small">
-  <tr><th>Title</th><td>pharmcat.example</td></tr>
-  <tr><th>Date created</th><td>March 31, 2022</td></tr>
-  <tr><th>PharmCAT Version</th><td>v1.5.1-41-g2d4489b0
+  <tr><th>Title</th><td>pharmcat_positions</td></tr>
+  <tr><th>Date created</th><td>April 20, 2022</td></tr>
+  <tr><th>PharmCAT Version</th><td>v1.6.0-24-g07d23cc0
 </td></tr>
-  <tr><th>CPIC Version</th><td>v1.16</td></tr>
+  <tr><th>CPIC Version</th><td>v1.17</td></tr>
 </table>
 
 <div class="alert alert-info">
@@ -253,6 +253,38 @@
     </thead>
     <tbody>
     
+      
+      <tr>
+        <td>
+          <div class="drugName"><a href="#RxNorm:301542">rosuvastatin</a></div>
+        </td>
+        <td>
+          <a href="#ABCG2">ABCG2</a>
+        </td>
+        <td>
+          <div style="display: flex;">
+            <div>
+              
+                <div>rs2231142 reference (G)/rs2231142 reference (G)</div>
+              
+            </div>
+            
+          </div>
+        </td>
+        <td>
+          
+            <div>Two normal function alleles</div>
+          
+        </td>
+        <td>
+          
+            <div>Normal Function</div>
+          
+        </td>
+        <td>
+          No
+        </td>
+      </tr>
       
     
       
@@ -478,73 +510,11 @@
           
         </td>
         <td>
-          Yes
+          No
         </td>
       </tr>
       
     
-      
-      <tr>
-        <td>
-          <div class="drugName"><a href="#RxNorm:704">amitriptyline</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:38400">atomoxetine</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:2597">clomipramine</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:2670">codeine</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:3247">desipramine</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:3638">doxepin</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:42355">fluvoxamine</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:5489">hydrocodone</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:5691">imipramine</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:7531">nortriptyline</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:26225">ondansetron</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:32937">paroxetine</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:10324">tamoxifen</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:10689">tramadol</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:10834">trimipramine</a></div>
-        
-          <div class="drugName"><a href="#RxNorm:27392">tropisetron</a></div>
-        </td>
-        <td>
-          <a href="#CYP2D6">CYP2D6</a>
-        </td>
-        <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*1/*3</div>
-              
-            </div>
-            
-          </div>
-        </td>
-        <td>
-          
-            <div>One no function allele and one normal function allele</div>
-          
-        </td>
-        <td>
-          
-            <div>Intermediate Metabolizer</div>
-          
-        </td>
-        <td>
-          N/A
-        </td>
-      </tr>
       
     
       
@@ -936,7 +906,7 @@
           
         </td>
         <td>
-          Yes
+          No
         </td>
       </tr>
       
@@ -1294,9 +1264,9 @@
           
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -1308,6 +1278,8 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
@@ -1318,6 +1290,35 @@
       
 
       
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>general</td></tr>
+            
+              <tr><td>Implication for CYP2D6</td><td>n/a</td></tr>
+            
+              <tr><td>Implication for CYP2C19</td><td>Normal metabolism of tertiary amines</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C19:*38/*38, CYP2D6:Unknown/Unknown</td></tr>
+            
+              <tr><td>Phenotype for CYP2D6</td><td>No Result</td></tr>
+            
+              <tr><td>Phenotype for CYP2C19</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2D6</td><td>No result</td></tr>
+            
+              <tr><td>Recommendation</td><td>Initiate therapy with recommended starting dose.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.</td></tr>
+            
+            </tbody>
+          </table>
         
           <table>
             <thead>
@@ -1448,9 +1449,9 @@
       <section>
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -1462,67 +1463,17 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
+        <div class="alert alert-info">No genotypes matched for CYP2D6 so annotations cannot be shown.</div>
       
-        
-      
-
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>adults</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1.0</td></tr>
-            
-              <tr><td>Recommendation</td><td>Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If <200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Moderate</td></tr>
-            
-              <tr><td>Comments</td><td>Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.</td></tr>
-            
-            </tbody>
-          </table>
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>pediatrics</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1.0</td></tr>
-            
-              <tr><td>Recommendation</td><td>Initiate with a dose of 0.5 mg/kg/day and increase to 1.2 mg/kg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If < 200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Moderate</td></tr>
-            
-              <tr><td>Comments</td><td>Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.</td></tr>
-            
-            </tbody>
-          </table>
-        
+
       
 
       <section>
@@ -1563,8 +1514,6 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
-        
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
         
       </section>
 
@@ -1826,7 +1775,7 @@
             </thead>
             <tbody>
             
-              <tr><td>Population</td><td>CBZ use >3mos </td></tr>
+              <tr><td>Population</td><td>CBZ-no alternatives</td></tr>
             
               <tr><td>Implication for HLA-A</td><td>n/a</td></tr>
             
@@ -1838,11 +1787,11 @@
             
               <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
             
-              <tr><td>Recommendation</td><td>The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.</td></tr>
+              <tr><td>Recommendation</td><td>If patient is carbamazepine-naïve, do not use carbamazepine.</td></tr>
             
-              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
             
-              <tr><td>Comments</td><td>Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.</td></tr>
+              <tr><td>Comments</td><td>Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.</td></tr>
             
             </tbody>
           </table>
@@ -1880,7 +1829,7 @@
             </thead>
             <tbody>
             
-              <tr><td>Population</td><td>CBZ-no alternatives</td></tr>
+              <tr><td>Population</td><td>CBZ use >3mos </td></tr>
             
               <tr><td>Implication for HLA-A</td><td>n/a</td></tr>
             
@@ -1892,11 +1841,11 @@
             
               <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
             
-              <tr><td>Recommendation</td><td>If patient is carbamazepine-naïve, do not use carbamazepine.</td></tr>
+              <tr><td>Recommendation</td><td>The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.</td></tr>
             
-              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
             
-              <tr><td>Comments</td><td>Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.</td></tr>
+              <tr><td>Comments</td><td>Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.</td></tr>
             
             </tbody>
           </table>
@@ -1941,8 +1890,6 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
-        
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
         
       </section>
 
@@ -2079,9 +2026,9 @@
           
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -2092,6 +2039,8 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
         
       </section>
 
@@ -2129,6 +2078,35 @@
               <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
             
               <tr><td>Comments</td><td>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain.</td></tr>
+            
+            </tbody>
+          </table>
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>general</td></tr>
+            
+              <tr><td>Implication for CYP2D6</td><td>n/a</td></tr>
+            
+              <tr><td>Implication for CYP2C19</td><td>Normal metabolism of tertiary amines</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C19:*38/*38, CYP2D6:Unknown/Unknown</td></tr>
+            
+              <tr><td>Phenotype for CYP2D6</td><td>No Result</td></tr>
+            
+              <tr><td>Phenotype for CYP2C19</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2D6</td><td>No result</td></tr>
+            
+              <tr><td>Recommendation</td><td>Initiate therapy with recommended starting dose.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.</td></tr>
             
             </tbody>
           </table>
@@ -2212,29 +2190,6 @@
             </thead>
             <tbody>
             
-              <tr><td>Population</td><td>CVI non-ACS non-PCI</td></tr>
-            
-              <tr><td>Implication for CYP2C19</td><td>Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2C19:*38/*38</td></tr>
-            
-              <tr><td>Phenotype for CYP2C19</td><td>Normal Metabolizer</td></tr>
-            
-              <tr><td>Recommendation</td><td>If considering clopidogrel, use at standard dose (75 mg/day)</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
-            
-              <tr><td>Comments</td><td>For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.</td></tr>
-            
-            </tbody>
-          </table>
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
               <tr><td>Population</td><td>CVI ACS PCI </td></tr>
             
               <tr><td>Implication for CYP2C19</td><td>Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity</td></tr>
@@ -2248,6 +2203,29 @@
               <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
             
               <tr><td>Comments</td><td>For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.</td></tr>
+            
+            </tbody>
+          </table>
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>CVI non-ACS non-PCI</td></tr>
+            
+              <tr><td>Implication for CYP2C19</td><td>Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C19:*38/*38</td></tr>
+            
+              <tr><td>Phenotype for CYP2C19</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Recommendation</td><td>If considering clopidogrel, use at standard dose (75 mg/day)</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.</td></tr>
             
             </tbody>
           </table>
@@ -2281,9 +2259,9 @@
       <section>
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -2295,40 +2273,17 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
+        <div class="alert alert-info">No genotypes matched for CYP2D6 so annotations cannot be shown.</div>
       
-        
-      
-
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>general</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Reduced morphine formation</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1</td></tr>
-            
-              <tr><td>Recommendation</td><td>Use codeine label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider a non-tramadol opioid.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Moderate</td></tr>
-            
-            </tbody>
-          </table>
-        
+
       
 
       <section>
@@ -2438,9 +2393,9 @@
       <section>
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -2452,42 +2407,17 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
+        <div class="alert alert-info">No genotypes matched for CYP2D6 so annotations cannot be shown.</div>
       
-        
-      
-
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>general</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1.0</td></tr>
-            
-              <tr><td>Recommendation</td><td>Consider a 25% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
-            
-              <tr><td>Comments</td><td>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain.</td></tr>
-            
-            </tbody>
-          </table>
-        
+
       
 
       <section>
@@ -2591,9 +2521,9 @@
           
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -2604,6 +2534,8 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
+        
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
         
       </section>
 
@@ -2641,6 +2573,35 @@
               <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
             
               <tr><td>Comments</td><td>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain.</td></tr>
+            
+            </tbody>
+          </table>
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>general</td></tr>
+            
+              <tr><td>Implication for CYP2D6</td><td>n/a</td></tr>
+            
+              <tr><td>Implication for CYP2C19</td><td>Normal metabolism of tertiary amines</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C19:*38/*38, CYP2D6:Unknown/Unknown</td></tr>
+            
+              <tr><td>Phenotype for CYP2D6</td><td>No Result</td></tr>
+            
+              <tr><td>Phenotype for CYP2C19</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2D6</td><td>No result</td></tr>
+            
+              <tr><td>Recommendation</td><td>Initiate therapy with recommended starting dose.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.</td></tr>
             
             </tbody>
           </table>
@@ -2981,8 +2942,6 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -3065,10 +3024,6 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
-        
       </section>
 
       
@@ -3138,9 +3093,9 @@
       <section>
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -3152,40 +3107,17 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
+        <div class="alert alert-info">No genotypes matched for CYP2D6 so annotations cannot be shown.</div>
       
-        
-      
-
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>general</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1.0</td></tr>
-            
-              <tr><td>Recommendation</td><td>Initiate therapy with recommended starting dose.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Moderate</td></tr>
-            
-            </tbody>
-          </table>
-        
+
       
 
       <section>
@@ -3232,8 +3164,6 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -3244,35 +3174,6 @@
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>PHT use >3mos</td></tr>
-            
-              <tr><td>Implication for HLA-B</td><td>Increased risk of phenytoin-induced SJS/TEN</td></tr>
-            
-              <tr><td>Implication for CYP2C9</td><td>Normal phenytoin metabolism</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2C9:*1/*1, HLA-B:*15:02/*57:01</td></tr>
-            
-              <tr><td>Phenotype for CYP2C9</td><td>Normal Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2C9</td><td>2.0</td></tr>
-            
-              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
-            
-              <tr><td>Recommendation</td><td>If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
-            
-              <tr><td>Comments</td><td>Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.</td></tr>
-            
-            </tbody>
-          </table>
         
           <table>
             <thead>
@@ -3299,6 +3200,35 @@
               <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
             
               <tr><td>Comments</td><td>Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.</td></tr>
+            
+            </tbody>
+          </table>
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>PHT use >3mos</td></tr>
+            
+              <tr><td>Implication for HLA-B</td><td>Increased risk of phenytoin-induced SJS/TEN</td></tr>
+            
+              <tr><td>Implication for CYP2C9</td><td>Normal phenytoin metabolism</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C9:*1/*1, HLA-B:*15:02/*57:01</td></tr>
+            
+              <tr><td>Phenotype for CYP2C9</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2C9</td><td>2.0</td></tr>
+            
+              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
+            
+              <tr><td>Recommendation</td><td>If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
+            
+              <tr><td>Comments</td><td>Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.</td></tr>
             
             </tbody>
           </table>
@@ -3481,9 +3411,9 @@
       <section>
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -3495,40 +3425,17 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
+        <div class="alert alert-info">No genotypes matched for CYP2D6 so annotations cannot be shown.</div>
       
-        
-      
-
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>general</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Minimal evidence for pharmacokinetic or clinical effect.</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1</td></tr>
-            
-              <tr><td>Recommendation</td><td>Use hydrocodone label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider non-codeine or non-tramadol opioid.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
-            
-            </tbody>
-          </table>
-        
+
       
 
       <section>
@@ -3571,8 +3478,6 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
-        
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
         
       </section>
 
@@ -3640,9 +3545,9 @@
           
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -3654,6 +3559,8 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
@@ -3664,6 +3571,35 @@
       
 
       
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>general</td></tr>
+            
+              <tr><td>Implication for CYP2D6</td><td>n/a</td></tr>
+            
+              <tr><td>Implication for CYP2C19</td><td>Normal metabolism of tertiary amines</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C19:*38/*38, CYP2D6:Unknown/Unknown</td></tr>
+            
+              <tr><td>Phenotype for CYP2D6</td><td>No Result</td></tr>
+            
+              <tr><td>Phenotype for CYP2C19</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2D6</td><td>No result</td></tr>
+            
+              <tr><td>Recommendation</td><td>Initiate therapy with recommended starting dose.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.</td></tr>
+            
+            </tbody>
+          </table>
         
           <table>
             <thead>
@@ -4024,8 +3960,6 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -4100,8 +4034,6 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
-        
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
         
       </section>
 
@@ -4179,8 +4111,6 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
-        
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
         
       </section>
 
@@ -4409,9 +4339,9 @@
       <section>
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -4423,42 +4353,17 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
+        <div class="alert alert-info">No genotypes matched for CYP2D6 so annotations cannot be shown.</div>
       
-        
-      
-
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>general</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Reduced metabolism of tricyclic antidepressants to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1.0</td></tr>
-            
-              <tr><td>Recommendation</td><td>Consider a 25% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
-            
-              <tr><td>Comments</td><td>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of tricyclic antidepressants for treatment of conditions such as depression. See other considerations for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain.</td></tr>
-            
-            </tbody>
-          </table>
-        
+
       
 
       <section>
@@ -4555,9 +4460,9 @@
       <section>
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -4569,42 +4474,17 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
+        <div class="alert alert-info">No genotypes matched for CYP2D6 so annotations cannot be shown.</div>
       
-        
-      
-
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>general</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Very limited data available for CYP2D6 intermediate metabolizers</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1.0</td></tr>
-            
-              <tr><td>Recommendation</td><td>Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>No Recommendation</td></tr>
-            
-              <tr><td>Comments</td><td>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</td></tr>
-            
-            </tbody>
-          </table>
-        
+
       
 
       <section>
@@ -4659,29 +4539,6 @@
             </thead>
             <tbody>
             
-              <tr><td>Population</td><td>OXC naive</td></tr>
-            
-              <tr><td>Implication for HLA-B</td><td>Greater risk of oxcarbazepine-induced SJS/TEN</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>HLA-B:*15:02/*57:01</td></tr>
-            
-              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
-            
-              <tr><td>Recommendation</td><td>If patient is oxcarbazepine-naïve, do not use oxcarbazepine.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
-            
-              <tr><td>Comments</td><td>Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.</td></tr>
-            
-            </tbody>
-          </table>
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
               <tr><td>Population</td><td>OXC use >3 mos</td></tr>
             
               <tr><td>Implication for HLA-B</td><td>Greater risk of oxcarbazepine-induced SJS/TEN</td></tr>
@@ -4695,6 +4552,29 @@
               <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
             
               <tr><td>Comments</td><td>Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.</td></tr>
+            
+            </tbody>
+          </table>
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>OXC naive</td></tr>
+            
+              <tr><td>Implication for HLA-B</td><td>Greater risk of oxcarbazepine-induced SJS/TEN</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>HLA-B:*15:02/*57:01</td></tr>
+            
+              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
+            
+              <tr><td>Recommendation</td><td>If patient is oxcarbazepine-naïve, do not use oxcarbazepine.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.</td></tr>
             
             </tbody>
           </table>
@@ -4866,9 +4746,9 @@
       <section>
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -4880,40 +4760,17 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
+        <div class="alert alert-info">No genotypes matched for CYP2D6 so annotations cannot be shown.</div>
       
-        
-      
-
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>general</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1.0</td></tr>
-            
-              <tr><td>Recommendation</td><td>Initiate therapy with recommended starting dose</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Moderate</td></tr>
-            
-            </tbody>
-          </table>
-        
+
       
 
       <section>
@@ -5058,8 +4915,6 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -5070,35 +4925,6 @@
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>PHT naive</td></tr>
-            
-              <tr><td>Implication for HLA-B</td><td>Increased risk of phenytoin-induced SJS/TEN</td></tr>
-            
-              <tr><td>Implication for CYP2C9</td><td>Normal phenytoin metabolism</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2C9:*1/*1, HLA-B:*15:02/*57:01</td></tr>
-            
-              <tr><td>Phenotype for CYP2C9</td><td>Normal Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2C9</td><td>2.0</td></tr>
-            
-              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
-            
-              <tr><td>Recommendation</td><td>If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
-            
-              <tr><td>Comments</td><td>Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.</td></tr>
-            
-            </tbody>
-          </table>
         
           <table>
             <thead>
@@ -5125,6 +4951,35 @@
               <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
             
               <tr><td>Comments</td><td>Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.</td></tr>
+            
+            </tbody>
+          </table>
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>PHT naive</td></tr>
+            
+              <tr><td>Implication for HLA-B</td><td>Increased risk of phenytoin-induced SJS/TEN</td></tr>
+            
+              <tr><td>Implication for CYP2C9</td><td>Normal phenytoin metabolism</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C9:*1/*1, HLA-B:*15:02/*57:01</td></tr>
+            
+              <tr><td>Phenotype for CYP2C9</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2C9</td><td>2.0</td></tr>
+            
+              <tr><td>Allele Status for HLA-B</td><td>HLA-B*15:02 positive</td></tr>
+            
+              <tr><td>Recommendation</td><td>If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.</td></tr>
             
             </tbody>
           </table>
@@ -5169,8 +5024,6 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
-        
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
         
       </section>
 
@@ -5246,8 +5099,6 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
-        
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
         
       </section>
 
@@ -5399,8 +5250,6 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
-        
       </section>
 
       
@@ -5535,8 +5384,8 @@
       <section>
         
           <div class="geneCall">
-            <a href="#ABCG2">ABCG2: not called</a>
-            <span></span>
+            <a href="#ABCG2">ABCG2: rs2231142 reference (G)/rs2231142 reference (G)</a>
+            <span>Two normal function alleles</span>
             
           </div>
           
@@ -5558,10 +5407,6 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define ABCG2 alleles is missing which may change the matched genotype. See the gene section for ABCG2 for more information.</div>
-        
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
-        
       </section>
 
       
@@ -5581,21 +5426,21 @@
             
               <tr><td>Population</td><td>general</td></tr>
             
-              <tr><td>Implication for ABCG2</td><td>n/a</td></tr>
+              <tr><td>Implication for ABCG2</td><td>Typical myopathy risk and rosuvastatin exposure</td></tr>
             
               <tr><td>Implication for SLCO1B1</td><td>Typical myopathy risk and statin exposure</td></tr>
             
-              <tr><td>Matched Diplotypes</td><td>ABCG2:Unknown/Unknown, SLCO1B1:*1/*1</td></tr>
+              <tr><td>Matched Diplotypes</td><td>ABCG2:rs2231142 reference (G)/rs2231142 reference (G), SLCO1B1:*1/*1</td></tr>
             
-              <tr><td>Phenotype for ABCG2</td><td>No Result</td></tr>
+              <tr><td>Phenotype for ABCG2</td><td>Normal Function</td></tr>
             
               <tr><td>Phenotype for SLCO1B1</td><td>Normal Function</td></tr>
             
-              <tr><td>Recommendation</td><td>Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. ABCG2 genotype result is not available.</td></tr>
+              <tr><td>Recommendation</td><td>Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.</td></tr>
             
               <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
             
-              <tr><td>Comments</td><td>The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.</td></tr>
+              <tr><td>Comments</td><td>The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.</td></tr>
             
             </tbody>
           </table>
@@ -5795,8 +5640,6 @@
           <div class="alert alert-info">The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.<br><br>In case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 defines SLCO1B1*5.</div>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
-        
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
         
       </section>
 
@@ -6085,9 +5928,9 @@
       <section>
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -6099,40 +5942,17 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
+        <div class="alert alert-info">No genotypes matched for CYP2D6 so annotations cannot be shown.</div>
       
-        
-      
-
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>general</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Lower endoxifen concentrations compared to normal metabolizers; higher risk of breast cancer recurrence, event-free and recurrence-free survival compared to normal metabolizers.</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1.0</td></tr>
-            
-              <tr><td>Recommendation</td><td>Consider hormonal therapy such as an aromatase inhibitor for postmenopausal women or aromatase inhibitor along with ovarian function suppression in premenopausal women, given that these approaches are superior to tamoxifen regardless of CYP2D6 genotype (PMID 26211827). If aromatase inhibitor use is contraindicated, consideration should be given to use a higher but FDA approved tamoxifen dose (40 mg/day)(PMID 27226358). Avoid CYP2D6 strong to weak inhibitors.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
-            
-            </tbody>
-          </table>
-        
+
       
 
       <section>
@@ -6171,8 +5991,6 @@
       <section>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
-        
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
         
       </section>
 
@@ -6392,9 +6210,9 @@
       <section>
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -6406,40 +6224,17 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
+        <div class="alert alert-info">No genotypes matched for CYP2D6 so annotations cannot be shown.</div>
       
-        
-      
-
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>general</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Reduced O-desmethyltramadol (active metabolite) formation</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1</td></tr>
-            
-              <tr><td>Recommendation</td><td>Use tramadol label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider non-codeine opioid.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>Optional</td></tr>
-            
-            </tbody>
-          </table>
-        
+
       
 
       <section>
@@ -6476,9 +6271,9 @@
           
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -6490,6 +6285,8 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
@@ -6500,6 +6297,35 @@
       
 
       
+        
+          <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr><td>Population</td><td>general</td></tr>
+            
+              <tr><td>Implication for CYP2D6</td><td>n/a</td></tr>
+            
+              <tr><td>Implication for CYP2C19</td><td>Normal metabolism of tertiary amines</td></tr>
+            
+              <tr><td>Matched Diplotypes</td><td>CYP2C19:*38/*38, CYP2D6:Unknown/Unknown</td></tr>
+            
+              <tr><td>Phenotype for CYP2D6</td><td>No Result</td></tr>
+            
+              <tr><td>Phenotype for CYP2C19</td><td>Normal Metabolizer</td></tr>
+            
+              <tr><td>Activity Score for CYP2D6</td><td>No result</td></tr>
+            
+              <tr><td>Recommendation</td><td>Initiate therapy with recommended starting dose.</td></tr>
+            
+              <tr><td>Classification of Recommendation</td><td>Strong</td></tr>
+            
+              <tr><td>Comments</td><td>Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.</td></tr>
+            
+            </tbody>
+          </table>
         
           <table>
             <thead>
@@ -6557,9 +6383,9 @@
       <section>
         
           <div class="geneCall">
-            <a href="#CYP2D6">CYP2D6: *1/*3</a>
-            <span>One no function allele and one normal function allele</span>
-             (from Outside Call)
+            <a href="#CYP2D6">CYP2D6: not called</a>
+            <span></span>
+            
           </div>
           
         
@@ -6571,42 +6397,17 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
+          <div class="alert alert-info">Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information.</div>
+        
       </section>
 
       
+        <div class="alert alert-info">No genotypes matched for CYP2D6 so annotations cannot be shown.</div>
       
-        
-      
-
       
 
       
-        
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            
-              <tr><td>Population</td><td>general</td></tr>
-            
-              <tr><td>Implication for CYP2D6</td><td>Very limited data available for CYP2D6 intermediate metabolizers</td></tr>
-            
-              <tr><td>Matched Diplotypes</td><td>CYP2D6:*1/*3</td></tr>
-            
-              <tr><td>Phenotype for CYP2D6</td><td>Intermediate Metabolizer</td></tr>
-            
-              <tr><td>Activity Score for CYP2D6</td><td>1.0</td></tr>
-            
-              <tr><td>Recommendation</td><td>Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.</td></tr>
-            
-              <tr><td>Classification of Recommendation</td><td>No Recommendation</td></tr>
-            
-              <tr><td>Comments</td><td>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</td></tr>
-            
-            </tbody>
-          </table>
-        
+
       
 
       <section>
@@ -6763,8 +6564,6 @@
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -6861,7 +6660,7 @@
       <h4>Genotype matched</h4>
       <ul>
         
-          <li>not called</li>
+          <li>rs2231142 reference (G)/rs2231142 reference (G)</li>
         
       </ul>
 
@@ -6869,10 +6668,6 @@
 
       
 
-      
-        <h4>Alleles Not Considered</h4>
-        <p>The following alleles are not considered due to 1 missing positions of the total 1 positions: rs2231142 reference (G), rs2231142 variant (T)</p>
-        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
       
 
       
@@ -6900,8 +6695,8 @@
               <td id="chr4_88131171">chr4:88131171</td>
               <td id="rs2231142">rs2231142</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G|G</td>
               
               <td>
                 G
@@ -9314,10 +9109,6 @@
       
 
       
-        <h4>Alleles Not Considered</h4>
-        <p>The following alleles are not considered due to 4 missing positions of the total 70 positions: *72, *73, *74, *75</p>
-        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
-      
 
       
 
@@ -9361,6 +9152,26 @@
             </tr>
           
             <tr>
+              <td id="chr10_94938719">chr10:94938719</td>
+              <td id=""></td>
+              
+              
+                <td class="">T|T</td>
+              
+              <td>
+                T
+              </td>
+              <td>
+                *80 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr10_94938737">chr10:94938737</td>
               <td id="rs67807361">rs67807361</td>
               
@@ -9392,6 +9203,46 @@
               </td>
               <td>
                 *21 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94938788">chr10:94938788</td>
+              <td id=""></td>
+              
+              
+                <td class="">C|C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *83 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94938800">chr10:94938800</td>
+              <td id="rs1364419386">rs1364419386</td>
+              
+              
+                <td class="">G|G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *76 
               </td>
               <td>
                 <ul class="warningList">
@@ -9492,6 +9343,26 @@
               </td>
               <td>
                 *13 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94941975">chr10:94941975</td>
+              <td id=""></td>
+              
+              
+                <td class="">G|G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *77 
               </td>
               <td>
                 <ul class="warningList">
@@ -9681,6 +9552,26 @@
             </tr>
           
             <tr>
+              <td id="chr10_94942243">chr10:94942243</td>
+              <td id="rs1375956433">rs1375956433</td>
+              
+              
+                <td class="">T|T</td>
+              
+              <td>
+                T
+              </td>
+              <td>
+                *78 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr10_94942249">chr10:94942249</td>
               <td id="rs200965026">rs200965026</td>
               
@@ -9801,6 +9692,46 @@
             </tr>
           
             <tr>
+              <td id="chr10_94942306">chr10:94942306</td>
+              <td id="rs1289704600">rs1289704600</td>
+              
+              
+                <td class="">C|C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *72 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94942308">chr10:94942308</td>
+              <td id="rs17847037">rs17847037</td>
+              
+              
+                <td class="">C|C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *73 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr10_94942309">chr10:94942309</td>
               <td id="rs7900194">rs7900194</td>
               
@@ -9812,6 +9743,26 @@
               </td>
               <td>
                 *8 *27 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94947439">chr10:94947439</td>
+              <td id=""></td>
+              
+              
+                <td class="">G|G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *74 
               </td>
               <td>
                 <ul class="warningList">
@@ -9981,6 +9932,46 @@
             </tr>
           
             <tr>
+              <td id="chr10_94949145">chr10:94949145</td>
+              <td id="rs772782449">rs772782449</td>
+              
+              
+                <td class="">C|C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *82 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94949161">chr10:94949161</td>
+              <td id=""></td>
+              
+              
+                <td class="">AT|AT</td>
+              
+              <td>
+                AT
+              </td>
+              <td>
+                *85 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr10_94949217">chr10:94949217</td>
               <td id="rs2256871">rs2256871</td>
               
@@ -10141,6 +10132,26 @@
             </tr>
           
             <tr>
+              <td id="chr10_94972183">chr10:94972183</td>
+              <td id=""></td>
+              
+              
+                <td class="">A|A</td>
+              
+              <td>
+                A
+              </td>
+              <td>
+                *81 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr10_94972233">chr10:94972233</td>
               <td id="rs1237225311">rs1237225311</td>
               
@@ -10272,6 +10283,26 @@
               </td>
               <td>
                 *54 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94981258">chr10:94981258</td>
+              <td id="rs1297714792">rs1297714792</td>
+              
+              
+                <td class="">C|C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *79 
               </td>
               <td>
                 <ul class="warningList">
@@ -10481,6 +10512,46 @@
             </tr>
           
             <tr>
+              <td id="chr10_94986136">chr10:94986136</td>
+              <td id="rs1254213342">rs1254213342</td>
+              
+              
+                <td class="">A|A</td>
+              
+              <td>
+                A
+              </td>
+              <td>
+                *75 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94986174">chr10:94986174</td>
+              <td id="rs1441296358">rs1441296358</td>
+              
+              
+                <td class="">G|G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *84 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr10_94988852">chr10:94988852</td>
               <td id="rs776908257">rs776908257</td>
               
@@ -10660,86 +10731,6 @@
               </td>
             </tr>
           
-            <tr>
-              <td id="chr10_94942306">chr10:94942306</td>
-              <td id="rs1289704600">rs1289704600</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *72 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94942308">chr10:94942308</td>
-              <td id="rs17847037">rs17847037</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *73 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94947439">chr10:94947439</td>
-              <td id=""></td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                G
-              </td>
-              <td>
-                *74 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94986136">chr10:94986136</td>
-              <td id="rs1254213342">rs1254213342</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                A
-              </td>
-              <td>
-                *75 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
           </tbody>
         </table>
       
@@ -10774,32 +10765,2606 @@
     <section class="gene">
       <h3 id="CYP2D6">CYP2D6 allele match data</h3>
 
-      <h4>Genotype reported</h4>
+      <h4>Genotype matched</h4>
       <ul>
         
-          <li>*1/*3</li>
+          <li>not called</li>
         
       </ul>
 
-      <p><strong>Phasing status:</strong> Unavailable for calls made outside PharmCAT</p>
+      <p><strong>Phasing status:</strong> Phased</p>
+
+      
+
+      
+        <h4>Alleles Not Considered</h4>
+        <p>The following alleles are not considered due to 128 missing positions of the total 128 positions: *1, *2, *3, *4, *6, *7, *8, *9, *10, *11, *12, *14, *15, *17, *18, *19, *20, *21, *22, *23, *24, *25, *26, *27, *28, *29, *30, *31, *32, *33, *34, *35, *36, *37, *38, *39, *40, *41, *42, *43, *44, *45, *46, *47, *48, *49, *50, *51, *52, *53, *54, *55, *56, *57, *58, *59, *60, *62, *64, *65, *69, *70, *71, *72, *73, *74, *75, *81, *82, *83, *84, *85, *86, *87, *88, *89, *90, *91, *92, *93, *94, *95, *96, *97, *98, *99, *100, *101, *102, *103, *104, *105, *106, *107, *108, *109, *110, *111, *112, *113, *114, *115, *116, *117, *118, *119, *120, *121, *122, *123, *124, *125, *126, *127, *128, *129, *130, *131, *132, *133, *134, *135, *136, *137, *138, *139, *140, *141, *142, *143, *144, *145, *146, *147, *148, *149</p>
+        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
+      
 
       
 
       
 
       
-        <div class="alert alert-info">
-          The call for CYP2D6 comes from an outside data source which does not supply position-level detail. For specific
-          disclaimers and limitations, see the original genotyping source.
-        </div>
-      
 
       
-        <div class="alert alert-info">No variant data available.</div>
-      
-
-      
-
+        <h4>Calls at Positions</h4>
+        <table>
+          <thead>
+          <tr>
+            <th>Position in VCF</th>
+            <th>RSID</th>
+            <th>Call in VCF</th>
+            <th>Reference</th>
+            <th>Related Alleles</th>
+            <th>Warnings</th>
+          </tr>
+          </thead>
+          <tbody>
+          
+            <tr>
+              <td id="chr22_42126578">chr22:42126578</td>
+              <td id="rs1440526469">rs1440526469</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *137 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126605">chr22:42126605</td>
+              <td id="rs568495591">rs568495591</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *112 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126611">chr22:42126611</td>
+              <td id="rs1135840">rs1135840</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *2 *4 *6 *8 *10 *11 *12 *14 *17 *19 *20 *21 *28 *29 *30 *31 *32 *35 *36 *37 *39 *40 *41 *42 *45 *46 *47 *49 *51 *52 *54 *55 *56 *57 *58 *59 *64 *65 *69 *70 *72 *73 *83 *84 *85 *87 *88 *94 *95 *98 *99 *100 *101 *102 *103 *104 *105 *111 *114 *117 *121 *123 *125 *126 *128 *129 *132 *133 *135 *136 *138 *141 *142 *146 *147 *148 *149 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126623">chr22:42126623</td>
+              <td id="rs75467367">rs75467367</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *4 *36 *57 *83 *141 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126624">chr22:42126624</td>
+              <td id="rs74478221">rs74478221</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *4 *36 *57 *83 *141 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126627">chr22:42126627</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *4 *36 *57 *83 *141 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126633">chr22:42126633</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *4 *36 *57 *83 *141 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126634">chr22:42126634</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *85 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126635">chr22:42126635</td>
+              <td id="rs766507177">rs766507177</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *4 *36 *57 *83 *141 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126636">chr22:42126636</td>
+              <td id="rs28371735">rs28371735</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *4 *36 *57 *83 *141 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126647">chr22:42126647</td>
+              <td id="rs141756339">rs141756339</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *138 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126656">chr22:42126656</td>
+              <td id="rs765776661">rs765776661</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *18 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126660">chr22:42126660</td>
+              <td id="rs1135835">rs1135835</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *4 *36 *57 *83 *141 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126663">chr22:42126663</td>
+              <td id="rs1135833">rs1135833</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *4 *36 *57 *83 *141 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126681">chr22:42126681</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *98 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126697">chr22:42126697</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *97 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126719">chr22:42126719</td>
+              <td id="rs369177208">rs369177208</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *125 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126735">chr22:42126735</td>
+              <td id="rs751092905">rs751092905</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *110 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126746">chr22:42126746</td>
+              <td id="rs532668079">rs532668079</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *75 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126747">chr22:42126747</td>
+              <td id="rs730882251">rs730882251</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *62 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126749">chr22:42126749</td>
+              <td id="rs267608319">rs267608319</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *31 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126752">chr22:42126752</td>
+              <td id="rs569439709">rs569439709</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *113 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126877">chr22:42126877</td>
+              <td id="rs3021084">rs3021084</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *136 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126896">chr22:42126896</td>
+              <td id="rs763964554">rs763964554</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *96 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126914">chr22:42126914</td>
+              <td id="rs28371733">rs28371733</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *52 *106 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126926">chr22:42126926</td>
+              <td id="rs747089665">rs747089665</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *135 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126938">chr22:42126938</td>
+              <td id="rs769157652">rs769157652</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *27 *32 *141 *148 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126956">chr22:42126956</td>
+              <td id="rs1931013246">rs1931013246</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *55 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42126980">chr22:42126980</td>
+              <td id="rs757396767">rs757396767</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                TGA
+              </td>
+              <td>
+                *124 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127457">chr22:42127457</td>
+              <td id="rs77312092">rs77312092</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *95 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127473">chr22:42127473</td>
+              <td id="rs75386357">rs75386357</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *72 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127512">chr22:42127512</td>
+              <td id="rs61745683">rs61745683</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *122 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127514">chr22:42127514</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *26 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127523">chr22:42127523</td>
+              <td id="rs1555888910">rs1555888910</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *105 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127526">chr22:42127526</td>
+              <td id="rs1058172">rs1058172</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *4 *127 *139 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127531">chr22:42127531</td>
+              <td id="rs72549346">rs72549346</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                CAC
+              </td>
+              <td>
+                *42 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127556">chr22:42127556</td>
+              <td id="rs202102799">rs202102799</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *108 *127 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127565">chr22:42127565</td>
+              <td id="rs61736517">rs61736517</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *108 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127589">chr22:42127589</td>
+              <td id="rs76088846">rs76088846</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *134 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127590">chr22:42127590</td>
+              <td id="rs72549347">rs72549347</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *56 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127593">chr22:42127593</td>
+              <td id="rs267608295">rs267608295</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *25 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127602">chr22:42127602</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *133 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127608">chr22:42127608</td>
+              <td id="rs59421388">rs59421388</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *29 *70 *109 *149 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127610">chr22:42127610</td>
+              <td id="rs748712690">rs748712690</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *94 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127611">chr22:42127611</td>
+              <td id="rs78209835">rs78209835</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *117 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127619">chr22:42127619</td>
+              <td id="rs72549348">rs72549348</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *51 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127631">chr22:42127631</td>
+              <td id="rs141009491">rs141009491</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *116 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127803">chr22:42127803</td>
+              <td id="rs28371725">rs28371725</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *32 *41 *69 *91 *119 *123 *138 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127841">chr22:42127841</td>
+              <td id="rs72549349">rs72549349</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *44 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127845">chr22:42127845</td>
+              <td id="rs730882170">rs730882170</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                GCACATCCGGATGTAGGATC
+              </td>
+              <td>
+                *101 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127852">chr22:42127852</td>
+              <td id="rs79292917">rs79292917</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *59 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127856">chr22:42127856</td>
+              <td id="rs5030867">rs5030867</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *7 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127899">chr22:42127899</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *118 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127922">chr22:42127922</td>
+              <td id="rs1406719554">rs1406719554</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *123 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127938">chr22:42127938</td>
+              <td id="rs949717872">rs949717872</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *24 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127941">chr22:42127941</td>
+              <td id="rs16947">rs16947</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *2 *4 *8 *11 *12 *14 *17 *19 *20 *21 *28 *29 *30 *31 *32 *34 *35 *40 *41 *42 *45 *46 *51 *55 *56 *58 *59 *65 *69 *73 *84 *85 *91 *98 *102 *103 *104 *105 *111 *114 *117 *121 *123 *125 *126 *128 *129 *133 *135 *136 *138 *141 *146 *148 *149 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127962">chr22:42127962</td>
+              <td id="rs267608279">rs267608279</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                TG
+              </td>
+              <td>
+                *100 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42127973">chr22:42127973</td>
+              <td id="rs1135829">rs1135829</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *115 *132 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128173">chr22:42128173</td>
+              <td id="rs5030656">rs5030656</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                CCTT
+              </td>
+              <td>
+                *9 *109 *115 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128181">chr22:42128181</td>
+              <td id="rs1135828">rs1135828</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *81 *86 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128185">chr22:42128185</td>
+              <td id="rs77913725">rs77913725</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *81 *86 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128198">chr22:42128198</td>
+              <td id="rs72549351">rs72549351</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                CTCAG
+              </td>
+              <td>
+                *38 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128211">chr22:42128211</td>
+              <td id="rs72549352">rs72549352</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *21 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128212">chr22:42128212</td>
+              <td id="rs367543000">rs367543000</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *81 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128217">chr22:42128217</td>
+              <td id="rs148769737">rs148769737</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *84 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128235">chr22:42128235</td>
+              <td id="rs267608297">rs267608297</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *54 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128241">chr22:42128241</td>
+              <td id="rs35742686">rs35742686</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                CT
+              </td>
+              <td>
+                *3 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128248">chr22:42128248</td>
+              <td id="rs72549353">rs72549353</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                CAGTT
+              </td>
+              <td>
+                *19 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128272">chr22:42128272</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *93 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128308">chr22:42128308</td>
+              <td id="rs28371717">rs28371717</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *33 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128325">chr22:42128325</td>
+              <td id="rs17002853">rs17002853</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *131 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128329">chr22:42128329</td>
+              <td id="rs373813287">rs373813287</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *140 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128351">chr22:42128351</td>
+              <td id="rs377725912">rs377725912</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *144 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128795">chr22:42128795</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                AG
+              </td>
+              <td>
+                *92 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128812">chr22:42128812</td>
+              <td id="rs199535154">rs199535154</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *20 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128813">chr22:42128813</td>
+              <td id="rs150163869">rs150163869</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                R
+              </td>
+              <td>
+                *20 *124 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128814">chr22:42128814</td>
+              <td id="rs72549354">rs72549354</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *20 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128848">chr22:42128848</td>
+              <td id="rs745365204">rs745365204</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *37 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128878">chr22:42128878</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *130 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128879">chr22:42128879</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *130 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128904">chr22:42128904</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                CACG
+              </td>
+              <td>
+                *60 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128927">chr22:42128927</td>
+              <td id="rs72549356">rs72549356</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *30 *40 *58 *145 *147 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42128945">chr22:42128945</td>
+              <td id="rs3892097">rs3892097</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *4 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129033">chr22:42129033</td>
+              <td id="rs5030865">rs5030865</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *8 *14 *114 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129036">chr22:42129036</td>
+              <td id="rs1135826">rs1135826</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *121 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129037">chr22:42129037</td>
+              <td id="rs1135825">rs1135825</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *121 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129042">chr22:42129042</td>
+              <td id="rs1135824">rs1135824</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *3 *103 *121 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129056">chr22:42129056</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *91 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129071">chr22:42129071</td>
+              <td id="rs267608302">rs267608302</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *50 *104 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129075">chr22:42129075</td>
+              <td id="rs28371710">rs28371710</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *12 *45 *46 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129083">chr22:42129083</td>
+              <td id="rs5030655">rs5030655</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                CA
+              </td>
+              <td>
+                *6 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129087">chr22:42129087</td>
+              <td id="rs78482768">rs78482768</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *28 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129098">chr22:42129098</td>
+              <td id="rs569229126">rs569229126</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *90 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129113">chr22:42129113</td>
+              <td id="rs375135093">rs375135093</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *89 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129130">chr22:42129130</td>
+              <td id="rs1058164">rs1058164</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                S
+              </td>
+              <td>
+                *2 *4 *8 *10 *11 *12 *14 *17 *19 *20 *21 *28 *29 *30 *31 *32 *35 *36 *37 *39 *40 *41 *42 *45 *46 *47 *49 *51 *52 *54 *55 *56 *57 *58 *59 *64 *65 *69 *70 *72 *73 *84 *85 *87 *88 *94 *95 *98 *99 *100 *101 *102 *103 *104 *105 *111 *117 *121 *123 *125 *126 *128 *129 *132 *133 *135 *136 *138 *141 *142 *147 *148 *149 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129132">chr22:42129132</td>
+              <td id="rs61736512">rs61736512</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *29 *70 *107 *149 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129134">chr22:42129134</td>
+              <td id="rs781457579">rs781457579</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *126 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129155">chr22:42129155</td>
+              <td id="rs1180015037">rs1180015037</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *129 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129166">chr22:42129166</td>
+              <td id="rs766391487">rs766391487</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *143 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129174">chr22:42129174</td>
+              <td id="rs1135823">rs1135823</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *36 *53 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129180">chr22:42129180</td>
+              <td id="rs1135822">rs1135822</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *36 *49 *53 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129183">chr22:42129183</td>
+              <td id="rs374616348">rs374616348</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *70 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129759">chr22:42129759</td>
+              <td id="rs535642512">rs535642512</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *111 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129765">chr22:42129765</td>
+              <td id="rs78459009">rs78459009</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *82 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129770">chr22:42129770</td>
+              <td id="rs28371706">rs28371706</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *17 *40 *58 *64 *82 *141 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129771">chr22:42129771</td>
+              <td id="rs74802369">rs74802369</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *82 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129779">chr22:42129779</td>
+              <td id="rs76187628">rs76187628</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *82 *88 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129780">chr22:42129780</td>
+              <td id="rs267608308">rs267608308</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *73 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129799">chr22:42129799</td>
+              <td id="rs76802407">rs76802407</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *149 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129809">chr22:42129809</td>
+              <td id="rs28371704">rs28371704</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                T
+              </td>
+              <td>
+                *4 *82 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129819">chr22:42129819</td>
+              <td id="rs28371703">rs28371703</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *4 *74 *82 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129821">chr22:42129821</td>
+              <td id="rs267608309">rs267608309</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *48 *102 *103 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129827">chr22:42129827</td>
+              <td id="rs267608276">rs267608276</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *99 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129836">chr22:42129836</td>
+              <td id="rs267608310">rs267608310</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *23 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129887">chr22:42129887</td>
+              <td id="rs1456026511">rs1456026511</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                A
+              </td>
+              <td>
+                *128 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129906">chr22:42129906</td>
+              <td id="rs267608311">rs267608311</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *57 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42129910">chr22:42129910</td>
+              <td id="rs201377835">rs201377835</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *11 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42130654">chr22:42130654</td>
+              <td id="rs774671100">rs774671100</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *15 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42130667">chr22:42130667</td>
+              <td id="rs118203758">rs118203758</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *71 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42130668">chr22:42130668</td>
+              <td id="rs5030862">rs5030862</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *12 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42130692">chr22:42130692</td>
+              <td id="rs1065852">rs1065852</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *4 *10 *36 *37 *47 *49 *52 *54 *56 *57 *64 *65 *69 *72 *87 *94 *95 *99 *100 *101 *114 *132 *142 *147 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42130710">chr22:42130710</td>
+              <td id="rs138100349">rs138100349</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *22 *44 *142 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42130715">chr22:42130715</td>
+              <td id="rs28371696">rs28371696</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *15 *43 *46 *146 *148 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42130719">chr22:42130719</td>
+              <td id="rs267608313">rs267608313</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *47 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42130727">chr22:42130727</td>
+              <td id=""></td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                AG
+              </td>
+              <td>
+                *120 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42130761">chr22:42130761</td>
+              <td id="rs769258">rs769258</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *35 *143 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42130773">chr22:42130773</td>
+              <td id="rs72549358">rs72549358</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                C
+              </td>
+              <td>
+                *28 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr22_42130778">chr22:42130778</td>
+              <td id="rs773790593">rs773790593</td>
+              
+                <td class="missingVariant"><div class="callMessage">Missing</div></td>
+              
+              
+              <td>
+                G
+              </td>
+              <td>
+                *87 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+          </tbody>
+        </table>
       
 
       
@@ -14259,10 +16824,6 @@
       
 
       
-        <h4>Alleles Not Considered</h4>
-        <p>The following alleles are not considered due to 7 missing positions of the total 31 positions: *38, *41, *45</p>
-        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
-      
 
       
 
@@ -14406,6 +16967,26 @@
             </tr>
           
             <tr>
+              <td id="chr12_21176871">chr12:21176871</td>
+              <td id=""></td>
+              
+              
+                <td class="">G|G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *38 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr12_21176879">chr12:21176879</td>
               <td id="rs11045819">rs11045819</td>
               
@@ -14437,6 +17018,46 @@
               </td>
               <td>
                 *3 *13 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21176898">chr12:21176898</td>
+              <td id="rs77271279">rs77271279</td>
+              
+              
+                <td class="">G|G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *41 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21178612">chr12:21178612</td>
+              <td id="rs141467543">rs141467543</td>
+              
+              
+                <td class="">A|A</td>
+              
+              <td>
+                A
+              </td>
+              <td>
+                *42 
               </td>
               <td>
                 <ul class="warningList">
@@ -14506,6 +17127,26 @@
             </tr>
           
             <tr>
+              <td id="chr12_21196975">chr12:21196975</td>
+              <td id="rs183501729">rs183501729</td>
+              
+              
+                <td class="">C|C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *39 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr12_21196976">chr12:21196976</td>
               <td id="rs11045853">rs11045853</td>
               
@@ -14517,6 +17158,26 @@
               </td>
               <td>
                 *25 *28 *33 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21200544">chr12:21200544</td>
+              <td id="rs72559747">rs72559747</td>
+              
+              
+                <td class="">C|C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *47 
               </td>
               <td>
                 <ul class="warningList">
@@ -14666,6 +17327,46 @@
             </tr>
           
             <tr>
+              <td id="chr12_21206031">chr12:21206031</td>
+              <td id="rs74064213">rs74064213</td>
+              
+              
+                <td class="">A|A</td>
+              
+              <td>
+                A
+              </td>
+              <td>
+                *43 *44 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21222355">chr12:21222355</td>
+              <td id="rs71581941">rs71581941</td>
+              
+              
+                <td class="">C|C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *45 *46 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr12_21239042">chr12:21239042</td>
               <td id="rs34671512">rs34671512</td>
               
@@ -14757,146 +17458,6 @@
               </td>
               <td>
                 *29 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21176871">chr12:21176871</td>
-              <td id=""></td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                G
-              </td>
-              <td>
-                *38 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21176898">chr12:21176898</td>
-              <td id="rs77271279">rs77271279</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                G
-              </td>
-              <td>
-                *41 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21178612">chr12:21178612</td>
-              <td id="rs141467543">rs141467543</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                A
-              </td>
-              <td>
-                *42 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21196975">chr12:21196975</td>
-              <td id="rs183501729">rs183501729</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *39 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21200544">chr12:21200544</td>
-              <td id="rs72559747">rs72559747</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *47 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21206031">chr12:21206031</td>
-              <td id="rs74064213">rs74064213</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                A
-              </td>
-              <td>
-                *43 *44 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21222355">chr12:21222355</td>
-              <td id="rs71581941">rs71581941</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *45 *46 
               </td>
               <td>
                 <ul class="warningList">

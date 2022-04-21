@@ -67,7 +67,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -177,7 +177,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -260,7 +260,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -398,7 +398,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -5188,7 +5188,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -5313,7 +5313,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -6281,7 +6281,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -6498,7 +6498,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -7379,7 +7379,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -7556,7 +7556,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -8082,7 +8082,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -8252,7 +8252,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -8491,7 +8491,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -13340,7 +13340,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -13865,7 +13865,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -14336,7 +14336,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -14491,7 +14491,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -14967,7 +14967,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -15206,7 +15206,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -19998,7 +19998,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -20165,7 +20165,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -20290,7 +20290,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -20518,7 +20518,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -20659,7 +20659,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -20906,7 +20906,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -21901,28 +21901,6 @@
       {
         "implications": {
           "CYP2C9": "n/a",
-          "SLCO1B1": "n/a"
-        },
-        "drugrecommendation": "n/a",
-        "classification": "n/a",
-        "phenotypes": {
-          "CYP2C9": "No Result",
-          "SLCO1B1": "No Result"
-        },
-        "activityscore": {
-          "CYP2C9": "No Result"
-        },
-        "allelestatus": {},
-        "lookupkey": {
-          "CYP2C9": "No Result",
-          "SLCO1B1": "No Result"
-        },
-        "comments": "n/a",
-        "population": "general"
-      },
-      {
-        "implications": {
-          "CYP2C9": "n/a",
           "SLCO1B1": "Typical myopathy risk and statin exposure."
         },
         "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 genotype result is not available.",
@@ -22040,7 +22018,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -22538,7 +22516,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -23507,7 +23485,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -23611,7 +23589,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -23797,7 +23775,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -24261,7 +24239,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -24462,7 +24440,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -29253,7 +29231,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -29367,7 +29345,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -29454,7 +29432,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -29563,7 +29541,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -29761,7 +29739,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -30007,7 +29985,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -30155,7 +30133,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -30384,7 +30362,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -31242,7 +31220,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -31397,7 +31375,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -31873,7 +31851,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -32074,7 +32052,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -32573,7 +32551,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -32703,7 +32681,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -32904,7 +32882,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -33011,7 +32989,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -33474,7 +33452,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16"
+    "cpicVersion": "v1.17"
   },
   {
     "drugid": "RxNorm:253453",
@@ -33517,7 +33495,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16"
+    "cpicVersion": "v1.17"
   },
   {
     "drugid": "RxNorm:8183",
@@ -33595,7 +33573,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -34561,7 +34539,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -34807,7 +34785,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -34958,7 +34936,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -35141,7 +35119,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -35288,7 +35266,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -35497,7 +35475,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -35695,26 +35673,6 @@
         "lookupkey": {
           "ABCG2": "No Result",
           "SLCO1B1": "Indeterminate"
-        },
-        "comments": "n/a",
-        "population": "general"
-      },
-      {
-        "implications": {
-          "ABCG2": "n/a",
-          "SLCO1B1": "n/a"
-        },
-        "drugrecommendation": "n/a",
-        "classification": "n/a",
-        "phenotypes": {
-          "ABCG2": "No Result",
-          "SLCO1B1": "No Result"
-        },
-        "activityscore": {},
-        "allelestatus": {},
-        "lookupkey": {
-          "ABCG2": "No Result",
-          "SLCO1B1": "No Result"
         },
         "comments": "n/a",
         "population": "general"
@@ -36113,7 +36071,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -36318,7 +36276,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -36519,7 +36477,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -36670,7 +36628,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -36774,7 +36732,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -36896,7 +36854,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -37043,7 +37001,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -37507,7 +37465,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -37736,7 +37694,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -38590,7 +38548,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -38758,7 +38716,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -39263,7 +39221,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -44050,7 +44008,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -44518,7 +44476,7 @@
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.16",
+    "cpicVersion": "v1.17",
     "recommendations": [
       {
         "implications": {
@@ -44877,6 +44835,6 @@
       }
     ],
     "notesonusage": "Warfarin recommendation does not follow simple diplotype to phenotype translation. Read the guideline text and follow the recommendation diagram found at http://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png",
-    "cpicVersion": "v1.16"
+    "cpicVersion": "v1.17"
   }
 ]

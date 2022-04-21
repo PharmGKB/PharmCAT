@@ -19,7 +19,7 @@ The `NamedAlleleMatcher` will search the given sample file for locations associa
 - CFTR (40 alleles)
 - CYP2B6 (35 alleles)
 - CYP2C19 (34 alleles)
-- CYP2C9 (75 alleles)
+- CYP2C9 (85 alleles)
 - CYP3A5 (6 alleles)
 - CYP4F2 (3 alleles)
 - DPYD (83 alleles)
@@ -44,6 +44,8 @@ These genes will not get allele matches from PharmCAT. However, you can use an o
 
 The following drugs have been read from CPIC and will have "recommendation" sections in the final output report.
 
+- abacavir
+- allopurinol
 - amikacin
 - amitriptyline
 - atazanavir
@@ -51,6 +53,7 @@ The following drugs have been read from CPIC and will have "recommendation" sect
 - atorvastatin
 - azathioprine
 - capecitabine
+- carbamazepine
 - celecoxib
 - citalopram
 - clomipramine
@@ -67,6 +70,7 @@ The following drugs have been read from CPIC and will have "recommendation" sect
 - flurbiprofen
 - fluvastatin
 - fluvoxamine
+- fosphenytoin
 - gentamicin
 - halothane
 - hydrocodone
@@ -84,11 +88,13 @@ The following drugs have been read from CPIC and will have "recommendation" sect
 - nortriptyline
 - omeprazole
 - ondansetron
+- oxcarbazepine
 - pantoprazole
 - paromomycin
 - paroxetine
 - peginterferon alfa-2a
 - peginterferon alfa-2b
+- phenytoin
 - piroxicam
 - pitavastatin
 - plazomicin

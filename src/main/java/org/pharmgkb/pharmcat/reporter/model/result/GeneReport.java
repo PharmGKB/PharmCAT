@@ -133,6 +133,7 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   public void setDiplotypes(DiplotypeFactory diplotypeFactory, OutsideCall outsideCall) {
+    m_reporterDiplotypes.removeIf(Diplotype::isUnknown);
     m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(outsideCall));
   }
 

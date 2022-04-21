@@ -1,16 +1,18 @@
 {
   "totalGenes": 21,
-  "pharmcatVersion": "v1.5.1-41-g2d4489b0\n",
-  "generatedOn": "March 31, 2022",
+  "pharmcatVersion": "v1.6.0-24-g07d23cc0\n",
+  "generatedOn": "April 20, 2022",
   "geneCalls": [
     {
       "diplotypes": [
-        "not called"
+        "rs2231142 reference (G)/rs2231142 reference (G)"
       ],
       "gene": "ABCG2",
+      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
-      "totalMissingVariants": 1,
+      "messages": [],
+      "totalMissingVariants": 0,
       "totalVariants": 1,
       "variants": [
         {
@@ -18,22 +20,19 @@
           "chromosome": "chr4",
           "position": 88131171,
           "dbSnpId": "rs2231142",
-          "call": null,
+          "call": "G|G",
           "alleles": [
             "rs2231142 variant (T)"
           ],
-          "phased": false,
+          "phased": true,
           "wildtypeAllele": "G",
           "mismatch": false,
           "warnings": []
         }
       ],
       "phaseStatus": "Phased",
-      "extra-position-notes": [],
-      "uncalledHaps": "rs2231142 reference (G), rs2231142 variant (T)",
-      "hasUncalledHaps": true,
-      "messages": [],
-      "unphased": false
+      "unphased": false,
+      "extra-position-notes": []
     },
     {
       "diplotypes": [
@@ -1711,6 +1710,7 @@
         "*1/*1"
       ],
       "gene": "CYP2C9",
+      "hasUncalledHaps": false,
       "outsideCall": false,
       "variantsOfInterest": [
         {
@@ -1726,8 +1726,9 @@
           "warnings": []
         }
       ],
-      "totalMissingVariants": 4,
-      "totalVariants": 70,
+      "messages": [],
+      "totalMissingVariants": 0,
+      "totalVariants": 80,
       "variants": [
         {
           "gene": "CYP2C9",
@@ -1740,6 +1741,20 @@
           ],
           "phased": true,
           "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94938719,
+          "dbSnpId": null,
+          "call": "T|T",
+          "alleles": [
+            "*80"
+          ],
+          "phased": true,
+          "wildtypeAllele": "T",
           "mismatch": false,
           "warnings": []
         },
@@ -1768,6 +1783,34 @@
           ],
           "phased": true,
           "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94938788,
+          "dbSnpId": null,
+          "call": "C|C",
+          "alleles": [
+            "*83"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94938800,
+          "dbSnpId": "rs1364419386",
+          "call": "G|G",
+          "alleles": [
+            "*76"
+          ],
+          "phased": true,
+          "wildtypeAllele": "G",
           "mismatch": false,
           "warnings": []
         },
@@ -1838,6 +1881,20 @@
           ],
           "phased": true,
           "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94941975,
+          "dbSnpId": null,
+          "call": "G|G",
+          "alleles": [
+            "*77"
+          ],
+          "phased": true,
+          "wildtypeAllele": "G",
           "mismatch": false,
           "warnings": []
         },
@@ -1971,6 +2028,20 @@
         {
           "gene": "CYP2C9",
           "chromosome": "chr10",
+          "position": 94942243,
+          "dbSnpId": "rs1375956433",
+          "call": "T|T",
+          "alleles": [
+            "*78"
+          ],
+          "phased": true,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
           "position": 94942249,
           "dbSnpId": "rs200965026",
           "call": "C|C",
@@ -2058,12 +2129,54 @@
         {
           "gene": "CYP2C9",
           "chromosome": "chr10",
+          "position": 94942306,
+          "dbSnpId": "rs1289704600",
+          "call": "C|C",
+          "alleles": [
+            "*72"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94942308,
+          "dbSnpId": "rs17847037",
+          "call": "C|C",
+          "alleles": [
+            "*73"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
           "position": 94942309,
           "dbSnpId": "rs7900194",
           "call": "G|G",
           "alleles": [
             "*8",
             "*27"
+          ],
+          "phased": true,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94947439,
+          "dbSnpId": null,
+          "call": "G|G",
+          "alleles": [
+            "*74"
           ],
           "phased": true,
           "wildtypeAllele": "G",
@@ -2185,6 +2298,34 @@
         {
           "gene": "CYP2C9",
           "chromosome": "chr10",
+          "position": 94949145,
+          "dbSnpId": "rs772782449",
+          "call": "C|C",
+          "alleles": [
+            "*82"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94949161,
+          "dbSnpId": null,
+          "call": "AT|AT",
+          "alleles": [
+            "*85"
+          ],
+          "phased": true,
+          "wildtypeAllele": "AT",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
           "position": 94949217,
           "dbSnpId": "rs2256871",
           "call": "A|A",
@@ -2298,6 +2439,20 @@
         {
           "gene": "CYP2C9",
           "chromosome": "chr10",
+          "position": 94972183,
+          "dbSnpId": null,
+          "call": "A|A",
+          "alleles": [
+            "*81"
+          ],
+          "phased": true,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
           "position": 94972233,
           "dbSnpId": "rs1237225311",
           "call": "C|C",
@@ -2387,6 +2542,20 @@
           "call": "C|C",
           "alleles": [
             "*54"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94981258,
+          "dbSnpId": "rs1297714792",
+          "call": "C|C",
+          "alleles": [
+            "*79"
           ],
           "phased": true,
           "wildtypeAllele": "C",
@@ -2538,6 +2707,34 @@
         {
           "gene": "CYP2C9",
           "chromosome": "chr10",
+          "position": 94986136,
+          "dbSnpId": "rs1254213342",
+          "call": "A|A",
+          "alleles": [
+            "*75"
+          ],
+          "phased": true,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94986174,
+          "dbSnpId": "rs1441296358",
+          "call": "G|G",
+          "alleles": [
+            "*84"
+          ],
+          "phased": true,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
           "position": 94988852,
           "dbSnpId": "rs776908257",
           "call": "C|C",
@@ -2661,12 +2858,559 @@
           "wildtypeAllele": "G",
           "mismatch": false,
           "warnings": []
+        }
+      ],
+      "phaseStatus": "Phased",
+      "unphased": false,
+      "extra-position-notes": []
+    },
+    {
+      "diplotypes": [
+        "not called"
+      ],
+      "gene": "CYP2D6",
+      "variantsOfInterestUnspecified": true,
+      "outsideCall": false,
+      "totalMissingVariants": 128,
+      "totalVariants": 128,
+      "variants": [
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126578,
+          "dbSnpId": "rs1440526469",
+          "call": null,
+          "alleles": [
+            "*137"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
         },
         {
-          "gene": "CYP2C9",
-          "chromosome": "chr10",
-          "position": 94942306,
-          "dbSnpId": "rs1289704600",
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126605,
+          "dbSnpId": "rs568495591",
+          "call": null,
+          "alleles": [
+            "*112"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126611,
+          "dbSnpId": "rs1135840",
+          "call": null,
+          "alleles": [
+            "*2",
+            "*4",
+            "*6",
+            "*8",
+            "*10",
+            "*11",
+            "*12",
+            "*14",
+            "*17",
+            "*19",
+            "*20",
+            "*21",
+            "*28",
+            "*29",
+            "*30",
+            "*31",
+            "*32",
+            "*35",
+            "*36",
+            "*37",
+            "*39",
+            "*40",
+            "*41",
+            "*42",
+            "*45",
+            "*46",
+            "*47",
+            "*49",
+            "*51",
+            "*52",
+            "*54",
+            "*55",
+            "*56",
+            "*57",
+            "*58",
+            "*59",
+            "*64",
+            "*65",
+            "*69",
+            "*70",
+            "*72",
+            "*73",
+            "*83",
+            "*84",
+            "*85",
+            "*87",
+            "*88",
+            "*94",
+            "*95",
+            "*98",
+            "*99",
+            "*100",
+            "*101",
+            "*102",
+            "*103",
+            "*104",
+            "*105",
+            "*111",
+            "*114",
+            "*117",
+            "*121",
+            "*123",
+            "*125",
+            "*126",
+            "*128",
+            "*129",
+            "*132",
+            "*133",
+            "*135",
+            "*136",
+            "*138",
+            "*141",
+            "*142",
+            "*146",
+            "*147",
+            "*148",
+            "*149"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126623,
+          "dbSnpId": "rs75467367",
+          "call": null,
+          "alleles": [
+            "*4",
+            "*36",
+            "*57",
+            "*83",
+            "*141"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126624,
+          "dbSnpId": "rs74478221",
+          "call": null,
+          "alleles": [
+            "*4",
+            "*36",
+            "*57",
+            "*83",
+            "*141"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126627,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*4",
+            "*36",
+            "*57",
+            "*83",
+            "*141"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126633,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*4",
+            "*36",
+            "*57",
+            "*83",
+            "*141"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126634,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*85"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126635,
+          "dbSnpId": "rs766507177",
+          "call": null,
+          "alleles": [
+            "*4",
+            "*36",
+            "*57",
+            "*83",
+            "*141"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126636,
+          "dbSnpId": "rs28371735",
+          "call": null,
+          "alleles": [
+            "*4",
+            "*36",
+            "*57",
+            "*83",
+            "*141"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126647,
+          "dbSnpId": "rs141756339",
+          "call": null,
+          "alleles": [
+            "*138"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126656,
+          "dbSnpId": "rs765776661",
+          "call": null,
+          "alleles": [
+            "*18"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126660,
+          "dbSnpId": "rs1135835",
+          "call": null,
+          "alleles": [
+            "*4",
+            "*36",
+            "*57",
+            "*83",
+            "*141"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126663,
+          "dbSnpId": "rs1135833",
+          "call": null,
+          "alleles": [
+            "*4",
+            "*36",
+            "*57",
+            "*83",
+            "*141"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126681,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*98"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126697,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*97"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126719,
+          "dbSnpId": "rs369177208",
+          "call": null,
+          "alleles": [
+            "*125"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126735,
+          "dbSnpId": "rs751092905",
+          "call": null,
+          "alleles": [
+            "*110"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126746,
+          "dbSnpId": "rs532668079",
+          "call": null,
+          "alleles": [
+            "*75"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126747,
+          "dbSnpId": "rs730882251",
+          "call": null,
+          "alleles": [
+            "*62"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126749,
+          "dbSnpId": "rs267608319",
+          "call": null,
+          "alleles": [
+            "*31"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126752,
+          "dbSnpId": "rs569439709",
+          "call": null,
+          "alleles": [
+            "*113"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126877,
+          "dbSnpId": "rs3021084",
+          "call": null,
+          "alleles": [
+            "*136"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126896,
+          "dbSnpId": "rs763964554",
+          "call": null,
+          "alleles": [
+            "*96"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126914,
+          "dbSnpId": "rs28371733",
+          "call": null,
+          "alleles": [
+            "*52",
+            "*106"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126926,
+          "dbSnpId": "rs747089665",
+          "call": null,
+          "alleles": [
+            "*135"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126938,
+          "dbSnpId": "rs769157652",
+          "call": null,
+          "alleles": [
+            "*27",
+            "*32",
+            "*141",
+            "*148"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126956,
+          "dbSnpId": "rs1931013246",
+          "call": null,
+          "alleles": [
+            "*55"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42126980,
+          "dbSnpId": "rs757396767",
+          "call": null,
+          "alleles": [
+            "*124"
+          ],
+          "phased": false,
+          "wildtypeAllele": "TGA",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127457,
+          "dbSnpId": "rs77312092",
+          "call": null,
+          "alleles": [
+            "*95"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127473,
+          "dbSnpId": "rs75386357",
           "call": null,
           "alleles": [
             "*72"
@@ -2677,10 +3421,1241 @@
           "warnings": []
         },
         {
-          "gene": "CYP2C9",
-          "chromosome": "chr10",
-          "position": 94942308,
-          "dbSnpId": "rs17847037",
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127512,
+          "dbSnpId": "rs61745683",
+          "call": null,
+          "alleles": [
+            "*122"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127514,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*26"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127523,
+          "dbSnpId": "rs1555888910",
+          "call": null,
+          "alleles": [
+            "*105"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127526,
+          "dbSnpId": "rs1058172",
+          "call": null,
+          "alleles": [
+            "*4",
+            "*127",
+            "*139"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127531,
+          "dbSnpId": "rs72549346",
+          "call": null,
+          "alleles": [
+            "*42"
+          ],
+          "phased": false,
+          "wildtypeAllele": "CAC",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127556,
+          "dbSnpId": "rs202102799",
+          "call": null,
+          "alleles": [
+            "*108",
+            "*127"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127565,
+          "dbSnpId": "rs61736517",
+          "call": null,
+          "alleles": [
+            "*108"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127589,
+          "dbSnpId": "rs76088846",
+          "call": null,
+          "alleles": [
+            "*134"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127590,
+          "dbSnpId": "rs72549347",
+          "call": null,
+          "alleles": [
+            "*56"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127593,
+          "dbSnpId": "rs267608295",
+          "call": null,
+          "alleles": [
+            "*25"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127602,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*133"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127608,
+          "dbSnpId": "rs59421388",
+          "call": null,
+          "alleles": [
+            "*29",
+            "*70",
+            "*109",
+            "*149"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127610,
+          "dbSnpId": "rs748712690",
+          "call": null,
+          "alleles": [
+            "*94"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127611,
+          "dbSnpId": "rs78209835",
+          "call": null,
+          "alleles": [
+            "*117"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127619,
+          "dbSnpId": "rs72549348",
+          "call": null,
+          "alleles": [
+            "*51"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127631,
+          "dbSnpId": "rs141009491",
+          "call": null,
+          "alleles": [
+            "*116"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127803,
+          "dbSnpId": "rs28371725",
+          "call": null,
+          "alleles": [
+            "*32",
+            "*41",
+            "*69",
+            "*91",
+            "*119",
+            "*123",
+            "*138"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127841,
+          "dbSnpId": "rs72549349",
+          "call": null,
+          "alleles": [
+            "*44"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127845,
+          "dbSnpId": "rs730882170",
+          "call": null,
+          "alleles": [
+            "*101"
+          ],
+          "phased": false,
+          "wildtypeAllele": "GCACATCCGGATGTAGGATC",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127852,
+          "dbSnpId": "rs79292917",
+          "call": null,
+          "alleles": [
+            "*59"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127856,
+          "dbSnpId": "rs5030867",
+          "call": null,
+          "alleles": [
+            "*7"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127899,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*118"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127922,
+          "dbSnpId": "rs1406719554",
+          "call": null,
+          "alleles": [
+            "*123"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127938,
+          "dbSnpId": "rs949717872",
+          "call": null,
+          "alleles": [
+            "*24"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127941,
+          "dbSnpId": "rs16947",
+          "call": null,
+          "alleles": [
+            "*2",
+            "*4",
+            "*8",
+            "*11",
+            "*12",
+            "*14",
+            "*17",
+            "*19",
+            "*20",
+            "*21",
+            "*28",
+            "*29",
+            "*30",
+            "*31",
+            "*32",
+            "*34",
+            "*35",
+            "*40",
+            "*41",
+            "*42",
+            "*45",
+            "*46",
+            "*51",
+            "*55",
+            "*56",
+            "*58",
+            "*59",
+            "*65",
+            "*69",
+            "*73",
+            "*84",
+            "*85",
+            "*91",
+            "*98",
+            "*102",
+            "*103",
+            "*104",
+            "*105",
+            "*111",
+            "*114",
+            "*117",
+            "*121",
+            "*123",
+            "*125",
+            "*126",
+            "*128",
+            "*129",
+            "*133",
+            "*135",
+            "*136",
+            "*138",
+            "*141",
+            "*146",
+            "*148",
+            "*149"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127962,
+          "dbSnpId": "rs267608279",
+          "call": null,
+          "alleles": [
+            "*100"
+          ],
+          "phased": false,
+          "wildtypeAllele": "TG",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42127973,
+          "dbSnpId": "rs1135829",
+          "call": null,
+          "alleles": [
+            "*115",
+            "*132"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128173,
+          "dbSnpId": "rs5030656",
+          "call": null,
+          "alleles": [
+            "*9",
+            "*109",
+            "*115"
+          ],
+          "phased": false,
+          "wildtypeAllele": "CCTT",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128181,
+          "dbSnpId": "rs1135828",
+          "call": null,
+          "alleles": [
+            "*81",
+            "*86"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128185,
+          "dbSnpId": "rs77913725",
+          "call": null,
+          "alleles": [
+            "*81",
+            "*86"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128198,
+          "dbSnpId": "rs72549351",
+          "call": null,
+          "alleles": [
+            "*38"
+          ],
+          "phased": false,
+          "wildtypeAllele": "CTCAG",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128211,
+          "dbSnpId": "rs72549352",
+          "call": null,
+          "alleles": [
+            "*21"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128212,
+          "dbSnpId": "rs367543000",
+          "call": null,
+          "alleles": [
+            "*81"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128217,
+          "dbSnpId": "rs148769737",
+          "call": null,
+          "alleles": [
+            "*84"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128235,
+          "dbSnpId": "rs267608297",
+          "call": null,
+          "alleles": [
+            "*54"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128241,
+          "dbSnpId": "rs35742686",
+          "call": null,
+          "alleles": [
+            "*3"
+          ],
+          "phased": false,
+          "wildtypeAllele": "CT",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128248,
+          "dbSnpId": "rs72549353",
+          "call": null,
+          "alleles": [
+            "*19"
+          ],
+          "phased": false,
+          "wildtypeAllele": "CAGTT",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128272,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*93"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128308,
+          "dbSnpId": "rs28371717",
+          "call": null,
+          "alleles": [
+            "*33"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128325,
+          "dbSnpId": "rs17002853",
+          "call": null,
+          "alleles": [
+            "*131"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128329,
+          "dbSnpId": "rs373813287",
+          "call": null,
+          "alleles": [
+            "*140"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128351,
+          "dbSnpId": "rs377725912",
+          "call": null,
+          "alleles": [
+            "*144"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128795,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*92"
+          ],
+          "phased": false,
+          "wildtypeAllele": "AG",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128812,
+          "dbSnpId": "rs199535154",
+          "call": null,
+          "alleles": [
+            "*20"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128813,
+          "dbSnpId": "rs150163869",
+          "call": null,
+          "alleles": [
+            "*20",
+            "*124"
+          ],
+          "phased": false,
+          "wildtypeAllele": "R",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128814,
+          "dbSnpId": "rs72549354",
+          "call": null,
+          "alleles": [
+            "*20"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128848,
+          "dbSnpId": "rs745365204",
+          "call": null,
+          "alleles": [
+            "*37"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128878,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*130"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128879,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*130"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128904,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*60"
+          ],
+          "phased": false,
+          "wildtypeAllele": "CACG",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128927,
+          "dbSnpId": "rs72549356",
+          "call": null,
+          "alleles": [
+            "*30",
+            "*40",
+            "*58",
+            "*145",
+            "*147"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42128945,
+          "dbSnpId": "rs3892097",
+          "call": null,
+          "alleles": [
+            "*4"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129033,
+          "dbSnpId": "rs5030865",
+          "call": null,
+          "alleles": [
+            "*8",
+            "*14",
+            "*114"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129036,
+          "dbSnpId": "rs1135826",
+          "call": null,
+          "alleles": [
+            "*121"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129037,
+          "dbSnpId": "rs1135825",
+          "call": null,
+          "alleles": [
+            "*121"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129042,
+          "dbSnpId": "rs1135824",
+          "call": null,
+          "alleles": [
+            "*3",
+            "*103",
+            "*121"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129056,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*91"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129071,
+          "dbSnpId": "rs267608302",
+          "call": null,
+          "alleles": [
+            "*50",
+            "*104"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129075,
+          "dbSnpId": "rs28371710",
+          "call": null,
+          "alleles": [
+            "*12",
+            "*45",
+            "*46"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129083,
+          "dbSnpId": "rs5030655",
+          "call": null,
+          "alleles": [
+            "*6"
+          ],
+          "phased": false,
+          "wildtypeAllele": "CA",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129087,
+          "dbSnpId": "rs78482768",
+          "call": null,
+          "alleles": [
+            "*28"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129098,
+          "dbSnpId": "rs569229126",
+          "call": null,
+          "alleles": [
+            "*90"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129113,
+          "dbSnpId": "rs375135093",
+          "call": null,
+          "alleles": [
+            "*89"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129130,
+          "dbSnpId": "rs1058164",
+          "call": null,
+          "alleles": [
+            "*2",
+            "*4",
+            "*8",
+            "*10",
+            "*11",
+            "*12",
+            "*14",
+            "*17",
+            "*19",
+            "*20",
+            "*21",
+            "*28",
+            "*29",
+            "*30",
+            "*31",
+            "*32",
+            "*35",
+            "*36",
+            "*37",
+            "*39",
+            "*40",
+            "*41",
+            "*42",
+            "*45",
+            "*46",
+            "*47",
+            "*49",
+            "*51",
+            "*52",
+            "*54",
+            "*55",
+            "*56",
+            "*57",
+            "*58",
+            "*59",
+            "*64",
+            "*65",
+            "*69",
+            "*70",
+            "*72",
+            "*73",
+            "*84",
+            "*85",
+            "*87",
+            "*88",
+            "*94",
+            "*95",
+            "*98",
+            "*99",
+            "*100",
+            "*101",
+            "*102",
+            "*103",
+            "*104",
+            "*105",
+            "*111",
+            "*117",
+            "*121",
+            "*123",
+            "*125",
+            "*126",
+            "*128",
+            "*129",
+            "*132",
+            "*133",
+            "*135",
+            "*136",
+            "*138",
+            "*141",
+            "*142",
+            "*147",
+            "*148",
+            "*149"
+          ],
+          "phased": false,
+          "wildtypeAllele": "S",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129132,
+          "dbSnpId": "rs61736512",
+          "call": null,
+          "alleles": [
+            "*29",
+            "*70",
+            "*107",
+            "*149"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129134,
+          "dbSnpId": "rs781457579",
+          "call": null,
+          "alleles": [
+            "*126"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129155,
+          "dbSnpId": "rs1180015037",
+          "call": null,
+          "alleles": [
+            "*129"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129166,
+          "dbSnpId": "rs766391487",
+          "call": null,
+          "alleles": [
+            "*143"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129174,
+          "dbSnpId": "rs1135823",
+          "call": null,
+          "alleles": [
+            "*36",
+            "*53"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129180,
+          "dbSnpId": "rs1135822",
+          "call": null,
+          "alleles": [
+            "*36",
+            "*49",
+            "*53"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129183,
+          "dbSnpId": "rs374616348",
+          "call": null,
+          "alleles": [
+            "*70"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129759,
+          "dbSnpId": "rs535642512",
+          "call": null,
+          "alleles": [
+            "*111"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129765,
+          "dbSnpId": "rs78459009",
+          "call": null,
+          "alleles": [
+            "*82"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129770,
+          "dbSnpId": "rs28371706",
+          "call": null,
+          "alleles": [
+            "*17",
+            "*40",
+            "*58",
+            "*64",
+            "*82",
+            "*141"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129771,
+          "dbSnpId": "rs74802369",
+          "call": null,
+          "alleles": [
+            "*82"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129779,
+          "dbSnpId": "rs76187628",
+          "call": null,
+          "alleles": [
+            "*82",
+            "*88"
+          ],
+          "phased": false,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129780,
+          "dbSnpId": "rs267608308",
           "call": null,
           "alleles": [
             "*73"
@@ -2691,13 +4666,13 @@
           "warnings": []
         },
         {
-          "gene": "CYP2C9",
-          "chromosome": "chr10",
-          "position": 94947439,
-          "dbSnpId": null,
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129799,
+          "dbSnpId": "rs76802407",
           "call": null,
           "alleles": [
-            "*74"
+            "*149"
           ],
           "phased": false,
           "wildtypeAllele": "G",
@@ -2705,42 +4680,313 @@
           "warnings": []
         },
         {
-          "gene": "CYP2C9",
-          "chromosome": "chr10",
-          "position": 94986136,
-          "dbSnpId": "rs1254213342",
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129809,
+          "dbSnpId": "rs28371704",
           "call": null,
           "alleles": [
-            "*75"
+            "*4",
+            "*82"
+          ],
+          "phased": false,
+          "wildtypeAllele": "T",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129819,
+          "dbSnpId": "rs28371703",
+          "call": null,
+          "alleles": [
+            "*4",
+            "*74",
+            "*82"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129821,
+          "dbSnpId": "rs267608309",
+          "call": null,
+          "alleles": [
+            "*48",
+            "*102",
+            "*103"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129827,
+          "dbSnpId": "rs267608276",
+          "call": null,
+          "alleles": [
+            "*99"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129836,
+          "dbSnpId": "rs267608310",
+          "call": null,
+          "alleles": [
+            "*23"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129887,
+          "dbSnpId": "rs1456026511",
+          "call": null,
+          "alleles": [
+            "*128"
           ],
           "phased": false,
           "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129906,
+          "dbSnpId": "rs267608311",
+          "call": null,
+          "alleles": [
+            "*57"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42129910,
+          "dbSnpId": "rs201377835",
+          "call": null,
+          "alleles": [
+            "*11"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42130654,
+          "dbSnpId": "rs774671100",
+          "call": null,
+          "alleles": [
+            "*15"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42130667,
+          "dbSnpId": "rs118203758",
+          "call": null,
+          "alleles": [
+            "*71"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42130668,
+          "dbSnpId": "rs5030862",
+          "call": null,
+          "alleles": [
+            "*12"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42130692,
+          "dbSnpId": "rs1065852",
+          "call": null,
+          "alleles": [
+            "*4",
+            "*10",
+            "*36",
+            "*37",
+            "*47",
+            "*49",
+            "*52",
+            "*54",
+            "*56",
+            "*57",
+            "*64",
+            "*65",
+            "*69",
+            "*72",
+            "*87",
+            "*94",
+            "*95",
+            "*99",
+            "*100",
+            "*101",
+            "*114",
+            "*132",
+            "*142",
+            "*147"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42130710,
+          "dbSnpId": "rs138100349",
+          "call": null,
+          "alleles": [
+            "*22",
+            "*44",
+            "*142"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42130715,
+          "dbSnpId": "rs28371696",
+          "call": null,
+          "alleles": [
+            "*15",
+            "*43",
+            "*46",
+            "*146",
+            "*148"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42130719,
+          "dbSnpId": "rs267608313",
+          "call": null,
+          "alleles": [
+            "*47"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42130727,
+          "dbSnpId": null,
+          "call": null,
+          "alleles": [
+            "*120"
+          ],
+          "phased": false,
+          "wildtypeAllele": "AG",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42130761,
+          "dbSnpId": "rs769258",
+          "call": null,
+          "alleles": [
+            "*35",
+            "*143"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42130773,
+          "dbSnpId": "rs72549358",
+          "call": null,
+          "alleles": [
+            "*28"
+          ],
+          "phased": false,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2D6",
+          "chromosome": "chr22",
+          "position": 42130778,
+          "dbSnpId": "rs773790593",
+          "call": null,
+          "alleles": [
+            "*87"
+          ],
+          "phased": false,
+          "wildtypeAllele": "G",
           "mismatch": false,
           "warnings": []
         }
       ],
       "phaseStatus": "Phased",
       "extra-position-notes": [],
-      "uncalledHaps": "*72, *73, *74, *75",
+      "uncalledHaps": "*1, *2, *3, *4, *6, *7, *8, *9, *10, *11, *12, *14, *15, *17, *18, *19, *20, *21, *22, *23, *24, *25, *26, *27, *28, *29, *30, *31, *32, *33, *34, *35, *36, *37, *38, *39, *40, *41, *42, *43, *44, *45, *46, *47, *48, *49, *50, *51, *52, *53, *54, *55, *56, *57, *58, *59, *60, *62, *64, *65, *69, *70, *71, *72, *73, *74, *75, *81, *82, *83, *84, *85, *86, *87, *88, *89, *90, *91, *92, *93, *94, *95, *96, *97, *98, *99, *100, *101, *102, *103, *104, *105, *106, *107, *108, *109, *110, *111, *112, *113, *114, *115, *116, *117, *118, *119, *120, *121, *122, *123, *124, *125, *126, *127, *128, *129, *130, *131, *132, *133, *134, *135, *136, *137, *138, *139, *140, *141, *142, *143, *144, *145, *146, *147, *148, *149",
       "hasUncalledHaps": true,
       "messages": [],
       "unphased": false
-    },
-    {
-      "diplotypes": [
-        "*1/*3"
-      ],
-      "gene": "CYP2D6",
-      "hasUncalledHaps": false,
-      "variantsOfInterestUnspecified": true,
-      "outsideCall": true,
-      "variantsUnspecified": true,
-      "messages": [],
-      "totalMissingVariants": 0,
-      "totalVariants": 0,
-      "phaseStatus": "Unavailable for calls made outside PharmCAT",
-      "unphased": false,
-      "extra-position-notes": []
     },
     {
       "diplotypes": [
@@ -5058,9 +7304,11 @@
         "rs4149056T/rs4149056T"
       ],
       "gene": "SLCO1B1",
+      "hasUncalledHaps": false,
       "variantsOfInterestUnspecified": true,
       "outsideCall": false,
-      "totalMissingVariants": 7,
+      "messages": [],
+      "totalMissingVariants": 0,
       "totalVariants": 31,
       "variants": [
         {
@@ -5170,6 +7418,20 @@
         {
           "gene": "SLCO1B1",
           "chromosome": "chr12",
+          "position": 21176871,
+          "dbSnpId": null,
+          "call": "G|G",
+          "alleles": [
+            "*38"
+          ],
+          "phased": true,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
           "position": 21176879,
           "dbSnpId": "rs11045819",
           "call": "C|C",
@@ -5194,6 +7456,34 @@
           "alleles": [
             "*3",
             "*13"
+          ],
+          "phased": true,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21176898,
+          "dbSnpId": "rs77271279",
+          "call": "G|G",
+          "alleles": [
+            "*41"
+          ],
+          "phased": true,
+          "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21178612,
+          "dbSnpId": "rs141467543",
+          "call": "A|A",
+          "alleles": [
+            "*42"
           ],
           "phased": true,
           "wildtypeAllele": "A",
@@ -5255,6 +7545,20 @@
         {
           "gene": "SLCO1B1",
           "chromosome": "chr12",
+          "position": 21196975,
+          "dbSnpId": "rs183501729",
+          "call": "C|C",
+          "alleles": [
+            "*39"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
           "position": 21196976,
           "dbSnpId": "rs11045853",
           "call": "G|G",
@@ -5265,6 +7569,20 @@
           ],
           "phased": true,
           "wildtypeAllele": "G",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21200544,
+          "dbSnpId": "rs72559747",
+          "call": "C|C",
+          "alleles": [
+            "*47"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
           "mismatch": false,
           "warnings": []
         },
@@ -5370,6 +7688,36 @@
         {
           "gene": "SLCO1B1",
           "chromosome": "chr12",
+          "position": 21206031,
+          "dbSnpId": "rs74064213",
+          "call": "A|A",
+          "alleles": [
+            "*43",
+            "*44"
+          ],
+          "phased": true,
+          "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
+          "position": 21222355,
+          "dbSnpId": "rs71581941",
+          "call": "C|C",
+          "alleles": [
+            "*45",
+            "*46"
+          ],
+          "phased": true,
+          "wildtypeAllele": "C",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "chromosome": "chr12",
           "position": 21239042,
           "dbSnpId": "rs34671512",
           "call": "A|A",
@@ -5440,114 +7788,11 @@
           "wildtypeAllele": "C",
           "mismatch": false,
           "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21176871,
-          "dbSnpId": null,
-          "call": null,
-          "alleles": [
-            "*38"
-          ],
-          "phased": false,
-          "wildtypeAllele": "G",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21176898,
-          "dbSnpId": "rs77271279",
-          "call": null,
-          "alleles": [
-            "*41"
-          ],
-          "phased": false,
-          "wildtypeAllele": "G",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21178612,
-          "dbSnpId": "rs141467543",
-          "call": null,
-          "alleles": [
-            "*42"
-          ],
-          "phased": false,
-          "wildtypeAllele": "A",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21196975,
-          "dbSnpId": "rs183501729",
-          "call": null,
-          "alleles": [
-            "*39"
-          ],
-          "phased": false,
-          "wildtypeAllele": "C",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21200544,
-          "dbSnpId": "rs72559747",
-          "call": null,
-          "alleles": [
-            "*47"
-          ],
-          "phased": false,
-          "wildtypeAllele": "C",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21206031,
-          "dbSnpId": "rs74064213",
-          "call": null,
-          "alleles": [
-            "*43",
-            "*44"
-          ],
-          "phased": false,
-          "wildtypeAllele": "A",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "SLCO1B1",
-          "chromosome": "chr12",
-          "position": 21222355,
-          "dbSnpId": "rs71581941",
-          "call": null,
-          "alleles": [
-            "*45",
-            "*46"
-          ],
-          "phased": false,
-          "wildtypeAllele": "C",
-          "mismatch": false,
-          "warnings": []
         }
       ],
       "phaseStatus": "Phased",
-      "extra-position-notes": [],
-      "uncalledHaps": "*38, *41, *45",
-      "hasUncalledHaps": true,
-      "messages": [],
-      "unphased": false
+      "unphased": false,
+      "extra-position-notes": []
     },
     {
       "diplotypes": [
@@ -6294,15 +8539,15 @@
     }
   ],
   "calledGenes": 19,
-  "cpicVersion": "v1.16",
+  "cpicVersion": "v1.17",
   "genotypes": [
     {
       "phenotype": [
-        "N/A"
+        "Normal Function"
       ],
-      "called": false,
+      "called": true,
       "functions": [
-        "N/A"
+        "Two normal function alleles"
       ],
       "gene": "ABCG2",
       "drugs": [
@@ -6312,11 +8557,11 @@
         }
       ],
       "calls": [
-        "not called"
+        "rs2231142 reference (G)/rs2231142 reference (G)"
       ],
-      "missingVariants": "Yes",
+      "missingVariants": "No",
       "outsideCall": false,
-      "reportable": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -6550,7 +8795,7 @@
       "calls": [
         "*1/*1"
       ],
-      "missingVariants": "Yes",
+      "missingVariants": "No",
       "outsideCall": false,
       "reportable": true,
       "unphased": false,
@@ -6558,11 +8803,11 @@
     },
     {
       "phenotype": [
-        "Intermediate Metabolizer"
+        "N/A"
       ],
       "called": false,
       "functions": [
-        "One no function allele and one normal function allele"
+        "N/A"
       ],
       "gene": "CYP2D6",
       "drugs": [
@@ -6632,11 +8877,11 @@
         }
       ],
       "calls": [
-        "*1/*3"
+        "not called"
       ],
-      "missingVariants": "N/A",
-      "outsideCall": true,
-      "reportable": true,
+      "missingVariants": "Yes",
+      "outsideCall": false,
+      "reportable": false,
       "unphased": false,
       "hasMessages": false
     },
@@ -6982,7 +9227,7 @@
       "calls": [
         "*1/*1"
       ],
-      "missingVariants": "Yes",
+      "missingVariants": "No",
       "outsideCall": false,
       "reportable": true,
       "unphased": false,
@@ -7340,7 +9585,7 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2C19",
@@ -7352,15 +9597,59 @@
         },
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "amitriptyline",
       "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "n/a",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "Normal metabolism of tertiary amines",
+              "term": "Implication for CYP2C19"
+            },
+            {
+              "annotation": "CYP2C19:*38/*38, CYP2D6:Unknown/Unknown",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "No Result",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C19"
+            },
+            {
+              "annotation": "No result",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate therapy with recommended starting dose.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.",
+              "term": "Comments"
+            }
+          ]
+        },
         {
           "annotations": [
             {
@@ -7408,7 +9697,7 @@
       ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
-      "mutliMatch": false,
+      "mutliMatch": true,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -7458,7 +9747,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
       "matched": true,
       "id": "RxNorm:704",
@@ -7552,95 +9842,22 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "atomoxetine",
-      "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "adults",
-              "term": "Population"
-            },
-            {
-              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
-              "annotation": "pediatrics",
-              "term": "Population"
-            },
-            {
-              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate with a dose of 0.5 mg/kg/day and increase to 1.2 mg/kg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c 200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.",
-              "term": "Comments"
-            }
-          ]
-        }
-      ],
-      "reportable": true,
+      "groups": [],
+      "reportable": false,
       "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-atomoxetine-based-on-cyp2d6-genotype/",
-      "mutliMatch": true,
+      "mutliMatch": false,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -7667,9 +9884,10 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": true,
+      "matched": false,
       "id": "RxNorm:38400",
       "lastModified": "not available",
       "footnotes": []
@@ -7813,8 +10031,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:83367",
@@ -8090,7 +10307,7 @@
         {
           "annotations": [
             {
-              "annotation": "CBZ use \u003e3mos ",
+              "annotation": "CBZ-no alternatives",
               "term": "Population"
             },
             {
@@ -8114,15 +10331,15 @@
               "term": "Allele Status for HLA-B"
             },
             {
-              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
+              "annotation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
               "term": "Recommendation"
             },
             {
-              "annotation": "Optional",
+              "annotation": "Strong",
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+              "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
               "term": "Comments"
             }
           ]
@@ -8170,7 +10387,7 @@
         {
           "annotations": [
             {
-              "annotation": "CBZ-no alternatives",
+              "annotation": "CBZ use \u003e3mos ",
               "term": "Population"
             },
             {
@@ -8194,15 +10411,15 @@
               "term": "Allele Status for HLA-B"
             },
             {
-              "annotation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
               "term": "Recommendation"
             },
             {
-              "annotation": "Strong",
+              "annotation": "Optional",
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+              "annotation": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
               "term": "Comments"
             }
           ]
@@ -8338,8 +10555,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:140587",
@@ -8428,7 +10644,7 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2C19",
@@ -8440,11 +10656,11 @@
         },
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "clomipramine",
@@ -8492,11 +10708,55 @@
               "term": "Comments"
             }
           ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "n/a",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "Normal metabolism of tertiary amines",
+              "term": "Implication for CYP2C19"
+            },
+            {
+              "annotation": "CYP2C19:*38/*38, CYP2D6:Unknown/Unknown",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "No Result",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C19"
+            },
+            {
+              "annotation": "No result",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate therapy with recommended starting dose.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.",
+              "term": "Comments"
+            }
+          ]
         }
       ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
-      "mutliMatch": false,
+      "mutliMatch": true,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -8546,7 +10806,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
       "matched": true,
       "id": "RxNorm:2597",
@@ -8602,38 +10863,6 @@
         {
           "annotations": [
             {
-              "annotation": "CVI non-ACS non-PCI",
-              "term": "Population"
-            },
-            {
-              "annotation": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity",
-              "term": "Implication for CYP2C19"
-            },
-            {
-              "annotation": "CYP2C19:*38/*38",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C19"
-            },
-            {
-              "annotation": "If considering clopidogrel, use at standard dose (75 mg/day)",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "CVI ACS PCI ",
               "term": "Population"
             },
@@ -8659,6 +10888,38 @@
             },
             {
               "annotation": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "CVI non-ACS non-PCI",
+              "term": "Population"
+            },
+            {
+              "annotation": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity",
+              "term": "Implication for CYP2C19"
+            },
+            {
+              "annotation": "CYP2C19:*38/*38",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C19"
+            },
+            {
+              "annotation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
               "term": "Comments"
             }
           ]
@@ -8745,53 +11006,20 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "codeine",
-      "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "Reduced morphine formation",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Use codeine label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider a non-tramadol opioid.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            }
-          ]
-        }
-      ],
-      "reportable": true,
+      "groups": [],
+      "reportable": false,
       "url": "https://cpicpgx.org/guidelines/guideline-for-codeine-and-cyp2d6/",
       "mutliMatch": false,
       "citations": [
@@ -8872,9 +11100,10 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": true,
+      "matched": false,
       "id": "RxNorm:2670",
       "lastModified": "not available",
       "footnotes": []
@@ -8976,57 +11205,20 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "desipramine",
-      "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Consider a 25% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Optional",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain.",
-              "term": "Comments"
-            }
-          ]
-        }
-      ],
-      "reportable": true,
+      "groups": [],
+      "reportable": false,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
       "mutliMatch": false,
       "citations": [
@@ -9078,9 +11270,10 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": true,
+      "matched": false,
       "id": "RxNorm:3247",
       "lastModified": "not available",
       "footnotes": []
@@ -9171,7 +11364,7 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2C19",
@@ -9183,11 +11376,11 @@
         },
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "doxepin",
@@ -9235,11 +11428,55 @@
               "term": "Comments"
             }
           ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "n/a",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "Normal metabolism of tertiary amines",
+              "term": "Implication for CYP2C19"
+            },
+            {
+              "annotation": "CYP2C19:*38/*38, CYP2D6:Unknown/Unknown",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "No Result",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C19"
+            },
+            {
+              "annotation": "No result",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate therapy with recommended starting dose.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.",
+              "term": "Comments"
+            }
+          ]
         }
       ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
-      "mutliMatch": false,
+      "mutliMatch": true,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -9289,7 +11526,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
       "matched": true,
       "id": "RxNorm:3638",
@@ -9732,8 +11970,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:4502",
@@ -9899,9 +12136,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.",
-        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:41127",
@@ -9909,53 +12144,20 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "fluvoxamine",
-      "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate therapy with recommended starting dose.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            }
-          ]
-        }
-      ],
-      "reportable": true,
+      "groups": [],
+      "reportable": false,
       "url": "https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/",
       "mutliMatch": false,
       "citations": [
@@ -9988,9 +12190,10 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": true,
+      "matched": false,
       "id": "RxNorm:42355",
       "lastModified": "not available",
       "footnotes": []
@@ -10017,50 +12220,6 @@
       ],
       "drugs": "fosphenytoin",
       "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "PHT use \u003e3mos",
-              "term": "Population"
-            },
-            {
-              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
-              "term": "Implication for HLA-B"
-            },
-            {
-              "annotation": "Normal phenytoin metabolism",
-              "term": "Implication for CYP2C9"
-            },
-            {
-              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C9"
-            },
-            {
-              "annotation": "2.0",
-              "term": "Activity Score for CYP2C9"
-            },
-            {
-              "annotation": "HLA-B*15:02 positive",
-              "term": "Allele Status for HLA-B"
-            },
-            {
-              "annotation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Optional",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-              "term": "Comments"
-            }
-          ]
-        },
         {
           "annotations": [
             {
@@ -10101,6 +12260,50 @@
             },
             {
               "annotation": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "PHT use \u003e3mos",
+              "term": "Population"
+            },
+            {
+              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "Normal phenytoin metabolism",
+              "term": "Implication for CYP2C9"
+            },
+            {
+              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C9"
+            },
+            {
+              "annotation": "2.0",
+              "term": "Activity Score for CYP2C9"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
               "term": "Comments"
             }
           ]
@@ -10157,8 +12360,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:72236",
@@ -10343,53 +12545,20 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "hydrocodone",
-      "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "Minimal evidence for pharmacokinetic or clinical effect.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Use hydrocodone label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider non-codeine or non-tramadol opioid.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Optional",
-              "term": "Classification of Recommendation"
-            }
-          ]
-        }
-      ],
-      "reportable": true,
+      "groups": [],
+      "reportable": false,
       "url": "https://cpicpgx.org/guidelines/guideline-for-codeine-and-cyp2d6/",
       "mutliMatch": false,
       "citations": [
@@ -10470,9 +12639,10 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": true,
+      "matched": false,
       "id": "RxNorm:5489",
       "lastModified": "not available",
       "footnotes": []
@@ -10550,8 +12720,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:5640",
@@ -10559,7 +12728,7 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2C19",
@@ -10571,15 +12740,59 @@
         },
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "imipramine",
       "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "n/a",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "Normal metabolism of tertiary amines",
+              "term": "Implication for CYP2C19"
+            },
+            {
+              "annotation": "CYP2C19:*38/*38, CYP2D6:Unknown/Unknown",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "No Result",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C19"
+            },
+            {
+              "annotation": "No result",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate therapy with recommended starting dose.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.",
+              "term": "Comments"
+            }
+          ]
+        },
         {
           "annotations": [
             {
@@ -10627,7 +12840,7 @@
       ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
-      "mutliMatch": false,
+      "mutliMatch": true,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -10677,7 +12890,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
       "matched": true,
       "id": "RxNorm:5691",
@@ -11092,8 +13306,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:20890",
@@ -11239,8 +13452,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:6472",
@@ -11320,8 +13532,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:41493",
@@ -11571,57 +13782,20 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "nortriptyline",
-      "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "Reduced metabolism of tricyclic antidepressants to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Consider a 25% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Optional",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of tricyclic antidepressants for treatment of conditions such as depression. See other considerations for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain.",
-              "term": "Comments"
-            }
-          ]
-        }
-      ],
-      "reportable": true,
+      "groups": [],
+      "reportable": false,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
       "mutliMatch": false,
       "citations": [
@@ -11673,9 +13847,10 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": true,
+      "matched": false,
       "id": "RxNorm:7531",
       "lastModified": "not available",
       "footnotes": []
@@ -11766,57 +13941,20 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "ondansetron",
-      "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "Very limited data available for CYP2D6 intermediate metabolizers",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "No Recommendation",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
-              "term": "Comments"
-            }
-          ]
-        }
-      ],
-      "reportable": true,
+      "groups": [],
+      "reportable": false,
       "url": "https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/",
       "mutliMatch": false,
       "citations": [
@@ -11844,9 +13982,10 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": true,
+      "matched": false,
       "id": "RxNorm:26225",
       "lastModified": "not available",
       "footnotes": []
@@ -11865,38 +14004,6 @@
       ],
       "drugs": "oxcarbazepine",
       "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "OXC naive",
-              "term": "Population"
-            },
-            {
-              "annotation": "Greater risk of oxcarbazepine-induced SJS/TEN",
-              "term": "Implication for HLA-B"
-            },
-            {
-              "annotation": "HLA-B:*15:02/*57:01",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "HLA-B*15:02 positive",
-              "term": "Allele Status for HLA-B"
-            },
-            {
-              "annotation": "If patient is oxcarbazepine-naïve, do not use oxcarbazepine.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
-              "term": "Comments"
-            }
-          ]
-        },
         {
           "annotations": [
             {
@@ -11925,6 +14032,38 @@
             },
             {
               "annotation": "Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "OXC naive",
+              "term": "Population"
+            },
+            {
+              "annotation": "Greater risk of oxcarbazepine-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If patient is oxcarbazepine-naïve, do not use oxcarbazepine.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
               "term": "Comments"
             }
           ]
@@ -12154,53 +14293,20 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "paroxetine",
-      "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate therapy with recommended starting dose",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Moderate",
-              "term": "Classification of Recommendation"
-            }
-          ]
-        }
-      ],
-      "reportable": true,
+      "groups": [],
+      "reportable": false,
       "url": "https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/",
       "mutliMatch": false,
       "citations": [
@@ -12233,9 +14339,10 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": true,
+      "matched": false,
       "id": "RxNorm:32937",
       "lastModified": "not available",
       "footnotes": []
@@ -12353,50 +14460,6 @@
         {
           "annotations": [
             {
-              "annotation": "PHT naive",
-              "term": "Population"
-            },
-            {
-              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
-              "term": "Implication for HLA-B"
-            },
-            {
-              "annotation": "Normal phenytoin metabolism",
-              "term": "Implication for CYP2C9"
-            },
-            {
-              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C9"
-            },
-            {
-              "annotation": "2.0",
-              "term": "Activity Score for CYP2C9"
-            },
-            {
-              "annotation": "HLA-B*15:02 positive",
-              "term": "Allele Status for HLA-B"
-            },
-            {
-              "annotation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "PHT use \u003e3mos",
               "term": "Population"
             },
@@ -12434,6 +14497,50 @@
             },
             {
               "annotation": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "PHT naive",
+              "term": "Population"
+            },
+            {
+              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "Normal phenytoin metabolism",
+              "term": "Implication for CYP2C9"
+            },
+            {
+              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C9"
+            },
+            {
+              "annotation": "2.0",
+              "term": "Activity Score for CYP2C9"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
               "term": "Comments"
             }
           ]
@@ -12491,8 +14598,7 @@
       ],
       "messages": [
         "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin.",
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:8183",
@@ -12572,8 +14678,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:8356",
@@ -12719,8 +14824,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:861634",
@@ -12947,8 +15051,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:42463",
@@ -13033,14 +15136,14 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "ABCG2",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "ABCG2",
-          "diplotypes": "not called",
+          "diplotypes": "rs2231142 reference (G)/rs2231142 reference (G)",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "Two normal function alleles",
           "outsideCall": false
         },
         {
@@ -13063,7 +15166,7 @@
               "term": "Population"
             },
             {
-              "annotation": "n/a",
+              "annotation": "Typical myopathy risk and rosuvastatin exposure",
               "term": "Implication for ABCG2"
             },
             {
@@ -13071,11 +15174,11 @@
               "term": "Implication for SLCO1B1"
             },
             {
-              "annotation": "ABCG2:Unknown/Unknown, SLCO1B1:*1/*1",
+              "annotation": "ABCG2:rs2231142 reference (G)/rs2231142 reference (G), SLCO1B1:*1/*1",
               "term": "Matched Diplotypes"
             },
             {
-              "annotation": "No Result",
+              "annotation": "Normal Function",
               "term": "Phenotype for ABCG2"
             },
             {
@@ -13083,7 +15186,7 @@
               "term": "Phenotype for SLCO1B1"
             },
             {
-              "annotation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. ABCG2 genotype result is not available.",
+              "annotation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
               "term": "Recommendation"
             },
             {
@@ -13091,7 +15194,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+              "annotation": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
               "term": "Comments"
             }
           ]
@@ -13187,9 +15290,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define ABCG2 alleles is missing which may change the matched genotype. See the gene section for ABCG2 for more information.",
-        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:301542",
@@ -13513,8 +15614,7 @@
       ],
       "messages": [
         "The SLCO1B1 genotype (star nomenclature) will be displayed if determinable with the provided VCF based on the SLCO1B1 star allele definition published by CPIC and recommendations are provided based on the genotype.\u003cbr\u003e\u003cbr\u003eIn case no genotype can be determined, recommendations are based on the rs4149056 genotype alone as per guideline. The minor C allele at rs4149056 defines SLCO1B1*5.",
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:36567",
@@ -13786,53 +15886,20 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "tamoxifen",
-      "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "Lower endoxifen concentrations compared to normal metabolizers; higher risk of breast cancer recurrence, event-free and recurrence-free survival compared to normal metabolizers.",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Consider hormonal therapy such as an aromatase inhibitor for postmenopausal women or aromatase inhibitor along with ovarian function suppression in premenopausal women, given that these approaches are superior to tamoxifen regardless of CYP2D6 genotype (PMID 26211827). If aromatase inhibitor use is contraindicated, consideration should be given to use a higher but FDA approved tamoxifen dose (40 mg/day)(PMID 27226358). Avoid CYP2D6 strong to weak inhibitors.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Optional",
-              "term": "Classification of Recommendation"
-            }
-          ]
-        }
-      ],
-      "reportable": true,
+      "groups": [],
+      "reportable": false,
       "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-tamoxifen-based-on-cyp2d6-genotype/",
       "mutliMatch": false,
       "citations": [
@@ -13864,9 +15931,10 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": true,
+      "matched": false,
       "id": "RxNorm:10324",
       "lastModified": "not available",
       "footnotes": []
@@ -13944,8 +16012,7 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:37790",
@@ -14180,53 +16247,20 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "tramadol",
-      "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "Reduced O-desmethyltramadol (active metabolite) formation",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Use tramadol label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider non-codeine opioid.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Optional",
-              "term": "Classification of Recommendation"
-            }
-          ]
-        }
-      ],
-      "reportable": true,
+      "groups": [],
+      "reportable": false,
       "url": "https://cpicpgx.org/guidelines/guideline-for-codeine-and-cyp2d6/",
       "mutliMatch": false,
       "citations": [
@@ -14307,15 +16341,16 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": true,
+      "matched": false,
       "id": "RxNorm:10689",
       "lastModified": "not available",
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2C19",
@@ -14327,15 +16362,59 @@
         },
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "trimipramine",
       "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "n/a",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "Normal metabolism of tertiary amines",
+              "term": "Implication for CYP2C19"
+            },
+            {
+              "annotation": "CYP2C19:*38/*38, CYP2D6:Unknown/Unknown",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "No Result",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C19"
+            },
+            {
+              "annotation": "No result",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate therapy with recommended starting dose.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.",
+              "term": "Comments"
+            }
+          ]
+        },
         {
           "annotations": [
             {
@@ -14383,7 +16462,7 @@
       ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
-      "mutliMatch": false,
+      "mutliMatch": true,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -14433,7 +16512,8 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
       "matched": true,
       "id": "RxNorm:10834",
@@ -14441,57 +16521,20 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "",
+      "uncalledGenes": "CYP2D6",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "*1/*3",
+          "diplotypes": "not called",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": "One no function allele and one normal function allele",
-          "outsideCall": true
+          "functions": null,
+          "outsideCall": false
         }
       ],
       "drugs": "tropisetron",
-      "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "Very limited data available for CYP2D6 intermediate metabolizers",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "CYP2D6:*1/*3",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Intermediate Metabolizer",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "1.0",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "No Recommendation",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
-              "term": "Comments"
-            }
-          ]
-        }
-      ],
-      "reportable": true,
+      "groups": [],
+      "reportable": false,
       "url": "https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/",
       "mutliMatch": false,
       "citations": [
@@ -14519,9 +16562,10 @@
         }
       ],
       "messages": [
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
+        "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": true,
+      "matched": false,
       "id": "RxNorm:27392",
       "lastModified": "not available",
       "footnotes": []
@@ -14737,8 +16781,7 @@
       ],
       "messages": [
         "Please follow the flow chart in figure 2 of the \u003ca href\u003d\"https://www.pharmgkb.org/guideline/PA166104949\"\u003eCPIC warfarin guideline\u003c/a\u003e to determine the appropriate dosing recommendation.",
-        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
-        "Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information."
+        "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing."
       ],
       "matched": true,
       "id": "RxNorm:11289",
@@ -14748,5 +16791,5 @@
       ]
     }
   ],
-  "title": "pharmcat.example"
+  "title": "pharmcat_positions"
 }

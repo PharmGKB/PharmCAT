@@ -5,8 +5,7 @@ import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -22,7 +21,10 @@ class PhenotypeMapTest {
 
     assertNotNull(phenotypeMap);
 
-    assertEquals(18, phenotypeMap.getGenes().size());
+    assertEquals(16, phenotypeMap.getGenes().size());
+
+    // HLA's are not part of the Phenotype map, they use allele status instead
+    assertTrue(phenotypeMap.getGenes().stream().noneMatch((gene) -> gene.getGene().startsWith("HLA")));
 
     assertEquals(
         "No function",
