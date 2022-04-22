@@ -39,3 +39,8 @@ The PharmCAT project is managed in GitHub which has many features for people who
 First, [sign up for a free GitHub account](https://github.com/).
 
 Second, go to the [PharmCAT repository](https://github.com/PharmGKB/PharmCAT), click the watch button, and [configure notifications in a way that works for you](https://docs.github.com/en/enterprise-cloud@latest/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
+
+
+## When does PharmCAT release new versions?
+
+PharmCAT releases new versions when substantial updates are ready to be released and not on a time-based schedule. For more information see the [Versioning documentation](methods/versioning).
