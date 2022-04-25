@@ -121,12 +121,7 @@ VCF files should be bgzip compressed, and if not, they will be automatically bgz
 Imagine we have a VCF named *"test_1.vcf.gz"* to be used in PharmCAT.
 ```
 $ gunzip -c test_1.vcf.gz
-
-##fileformat=VCFv4.1
-##source=PharmCAT allele definitions
-##reference=hg38
-##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
-##FILTER=<ID=PASS,Description="All filters passed">
+<...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
 2	233760233	rs3064744	C	CAT	.	PASS	.	GT	1/0
 2	233760233	rs3064744	CAT	C	.	PASS	.	GT	0/0
@@ -147,23 +142,13 @@ To be noted, the chr7 variant is not used in PharmCAT and as such, was according
 
 ```
 $ cat reference.Sample_1.vcf
-
-##fileformat=VCFv4.1
-##FILTER=<ID=PASS,Description="All filters passed">
-##source=PharmCAT allele definitions
-##reference=hg38
-##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
-##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
+<...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
 chr2	233760233	rs3064744	CAT	C,CATATAT,CATAT	.	PASS	PX=UGT1A1	3/2
 
 
 $ gunzip -c reference.missing_pgx_var.vcf.gz
-
-##fileformat=VCFv4.1
-##FILTER=<ID=PASS,Description="All filters passed">
-##source=PharmCAT allele definitions
-##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+<...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PharmCAT
 chr1	97078987	rs114096998	G	T	.	PASS	PX=DPYD	GT	0/0
 chr1	97078993	rs148799944	C	G	.	PASS	PX=DPYD	GT	0/0
@@ -174,13 +159,9 @@ chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	0/0
 ### Case 2 - multi-sample VCF
 Imagine we have a VCF named *"test_2.vcf.gz"* that has two samples with different sample names from the case 1.
 ```
-$ gunzip -c test_2.vcf.gz
-
-##fileformat=VCFv4.1
-##source=PharmCAT allele definitions
-##reference=hg38
-##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
-##FILTER=<ID=PASS,Description="All filters passed">
+# Intput: *vcf, *vcf.gz, or a list of VCFs with non-overlapping genetic blocks
+$ gunzip -c example.vcf.gz
+<...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2
 1	97740414	rs72549309	AATGA	A	.	PASS	.	GT	1/0	0/1
 2	233760233	rs3064744	C	CAT	.	PASS	.	GT	1/0	0/0
@@ -206,13 +187,7 @@ VCF preprocessor will return three (3) files in this test case.
 
 ```
 $ cat reference.Sample_1.vcf
-
-##fileformat=VCFv4.1
-##FILTER=<ID=PASS,Description="All filters passed">
-##source=PharmCAT allele definitions
-##reference=hg38
-##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
-##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
+<...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
 chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      1/0
 chr2    233760233       rs3064744       CAT     C,CATATAT,CATAT .       PASS    PX=UGT1A1 GT      3/2
@@ -221,13 +196,7 @@ chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT1
 chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      1/0
 
 $ cat reference.Sample_2.vcf
-
-##fileformat=VCFv4.1
-##FILTER=<ID=PASS,Description="All filters passed">
-##source=PharmCAT allele definitions
-##reference=hg38
-##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
-##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
+<...header truncated...>
 #CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  Sample_2
 chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      0/1
 chr2    233760233       rs3064744       CAT     C,CATATAT,CATAT .       PASS    PX=UGT1A1 GT      2/1
@@ -237,11 +206,7 @@ chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1 
 
 
 $ gunzip -c reference.missing_pgx_var.vcf.gz
-
-##fileformat=VCFv4.1
-##FILTER=<ID=PASS,Description="All filters passed">
-##source=PharmCAT allele definitions
-##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+<...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PharmCAT
 chr1	97078987	rs114096998	G	T	.	PASS	PX=DPYD	GT	0/0
 chr1	97078993	rs148799944	C	G	.	PASS	PX=DPYD	GT	0/0
