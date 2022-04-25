@@ -81,7 +81,7 @@ for entry in entries: # for each sample in the StellarPGx file
     if not os.path.exists(output_dir): # create the output directory if it doesn't exist yet
         os.makedir(output_dir)
 
-    with open("%s/%s_cyp2d6.txt" % (output_dir,sample), "w") as outfile: 
+    with open("%s/%s_cyp2d6.txt" % (output_dir,sample), "w") as outfile:
         # write the sample to a text file in the specified output directory
         outfile.write("CYP2D6\t%s" % call)
 ```

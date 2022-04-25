@@ -274,13 +274,13 @@ Verify that this contains all the samples by taking the line count (`wc -l pharm
 Then you need to use a for-loop to run PharmCAT repeatedly on each input file. The `-j` flag ensures that PharmCAT outputs JSON files for each sample containing the calls.
 
 ```shell
-BASE_DIR="~/project/preprocess_out"  # the output directory from the preprocessor 
-OUT_DIR="pharmcat_out/"  # where to put the PharmCAT output  
+BASE_DIR="~/project/preprocess_out"  # the output directory from the preprocessor
+OUT_DIR="pharmcat_out/"  # where to put the PharmCAT output
 for i in $(cat pharmcat_inputs.txt) # a file with the filenames of your preprocessed VCFs
-do 
+do
     SAMPLE=`echo  $i | cut -d "." -f 2` # the sample name is in the preprocessor output filename
     # always use the latest version of PharmCAT
-    java -jar pharmcat-X.X.X-all.jar-vcf ${BASE_DIR}/${i} -f ${SAMPLE} -j -o ${OUT_DIR}  
+    java -jar pharmcat-X.X.X-all.jar-vcf ${BASE_DIR}/${i} -f ${SAMPLE} -j -o ${OUT_DIR}
 done
 ```
 
@@ -301,9 +301,9 @@ Below is Python3 code for converting the JSON files from PharmCAT Named Allele M
 # Need to give a list of sample IDs
 sample_list = [x.strip() for x in open("sample_ids.txt", "r").readlines()]
 # PharmCAT output directory
-base_dir = "~/project/pharmcat_out/" 
+base_dir = "~/project/pharmcat_out/"
 
-# The following list specifies which genes should be pulled from the PharmCAT output. Be sure to include any new genes that get added to PharmCAT if they are relevant to you. 
+# The following list specifies which genes should be pulled from the PharmCAT output. Be sure to include any new genes that get added to PharmCAT if they are relevant to you.
 genelist = ["CACNA1S","CFTR","CYP2B6","CYP2C19","rs12777823","CYP2C9","CYP3A5","CYP4F2","DPYD","IFNL3/4","NUDT15","RYR1","TPMT","UGT1A1","VKORC1","SLCO1B1"]
 columns = ["PID"] + genelist
 
@@ -313,9 +313,9 @@ for pid in sample_list:
     # Load in the JSON
     sample_file = "{0}/{1}.report.json".format(base_dir, pid.strip())
     sample_json = json.load(open(sample_file, "r"))
-    
+
     # Build a dictionary that stores the genotype and phenotype for each gene from the JSON
-    gene2genotype = dict([(key, "NA") for key in genelist]) 
+    gene2genotype = dict([(key, "NA") for key in genelist])
     gene2phenotype = dict([(key, "NA") for key in genelist])
     for genotype in sample_json["genotypes"]:
         gene = genotype["gene"]
@@ -332,7 +332,7 @@ for pid in sample_list:
                     if gene2genotype["rs12777823"] is None:
                         gene2genotype["rs12777823"] = "NA"
                     gene2genotype["rs12777823"] = gene2genotype["rs12777823"].replace("|", "/")
-    
+
     # Convert the dictionaries into DataFrames
 	genotypes = pd.DataFrame(columns=columns)
 	phenotypes = pd.DataFrame(columns=columns)
@@ -343,7 +343,7 @@ for pid in sample_list:
     ## Add each row to the DataFrames
     genotypes = genotypes.append(pd.Series(geno_row, index=genotypes.columns), ignore_index=True)
     phenotypes = phenotypes.append(pd.Series(pheno_row, index=phenotypes.columns), ignore_index=True)
-    
+
     # Optional section: re-encode phenotypes from Warfarin-related genes
     phenotypes["CYP4F2"] = genotypes["CYP4F2"].apply(lambda x: "*3" in x).replace({False:"not actionable", True:"actionable"})
     phenotypes["VKORC1"] = genotypes["VKORC1"].apply(lambda x: "variant" in x).replace({False:"not actionable", True:"actionable"})
