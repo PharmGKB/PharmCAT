@@ -469,6 +469,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                             INDELs        
                                 1. Matching REF and ALT: retain and update the rsID and FORMAT/PGx gene name
                                 2. Matching REF and mismatching ALT: separate and retain as another record
+                                3. Matching REF and ALT=<*>: uncertain nucleotide changes, warn and ignore
                             '''
                             # list out REF alleles at a position
                             ref_alleles = [x[0] for x in ref_pos_static[input_chr_pos].keys()]
@@ -520,9 +521,9 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                 # update info
                                 info_col = ';'.join(set([x[7] for x in ref_pos_static[input_chr_pos].values()]))
                                 fields[7] = ';'.join([fields[7], info_col]) if fields[7] != '.' else info_col
-                                # 1st: homozygous SNPs with ALT = "."
-                                if fields[4] == '.':
-                                    alt_alleles = [x[1] for x in ref_pos_static[input_chr_pos].keys()]
+                                # 1st: homozygous SNPs with ALT = "." or "<*>"
+                                if fields[4] in ['.', '<*>']:
+                                    alt_alleles = [x[1] for x in ref_pos_dynamic[input_chr_pos].keys()]
                                     for i in range(len(alt_alleles)):
                                         # update contents, concatenate cols from input and from the ref PGx VCF
                                         fields[3] = ref_alleles[i]
@@ -541,7 +542,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                     # concat and write to output file
                                     line = '\t'.join(fields)
                                     out_f.write(line + '\n')
-                            # for INDELs, flag if the variant doesn't match PharmCAT ALT
+                            # INDELs: flag if the variant doesn't match PharmCAT ALT
                             elif fields[3] in ref_alleles:
                                 for i in range(len(ref_alleles)):
                                     print('=============================================================\n\n'
