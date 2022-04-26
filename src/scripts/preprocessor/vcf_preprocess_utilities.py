@@ -521,8 +521,8 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                 # update info
                                 info_col = ';'.join(set([x[7] for x in ref_pos_static[input_chr_pos].values()]))
                                 fields[7] = ';'.join([fields[7], info_col]) if fields[7] != '.' else info_col
-                                # 1st: homozygous SNPs with ALT = "." or "<*>"
-                                if fields[4] in ['.', '<*>']:
+                                # 1st: homozygous SNPs with ALT = "."
+                                if fields[4] == '.':
                                     alt_alleles = [x[1] for x in ref_pos_dynamic[input_chr_pos].keys()]
                                     for i in range(len(alt_alleles)):
                                         # update contents, concatenate cols from input and from the ref PGx VCF
@@ -537,11 +537,24 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                             # remove a position if all of its alts are present in the input
                                             if ref_pos_dynamic[input_chr_pos] == {}:
                                                 del ref_pos_dynamic[input_chr_pos]
-                                # 2nd: SNPs with matching REF but mismatching ALT
+                                # 2nd: SNPs with matching REF but unspecified ALT
+                                elif fields[4] == '<*>':
+                                    fields[4] = fields[3]
+                                    # concat and write to output file
+                                    line = '\t'.join(fields)
+                                    out_f.write(line + '\n')
+                                # 3rd: SNPs with matching REF but mismatching ALT
                                 else:
                                     # concat and write to output file
                                     line = '\t'.join(fields)
                                     out_f.write(line + '\n')
+                            # INDELs with a unspecified allele, ALT="<*>"
+                            elif (fields[3] in ref_alleles) and (fields[4] in ['.', '<*>']):
+                                print('=============================================================\n\n'
+                                      'Warning: ignore \"%s:%s REF=%s ALT=%s\" which is not a valid GT format '
+                                      'for INDELs\n\n'
+                                      '=============================================================\n'
+                                      % (fields[0], fields[1], fields[3], fields[4]))
                             # INDELs: flag if the variant doesn't match PharmCAT ALT
                             elif fields[3] in ref_alleles:
                                 for i in range(len(ref_alleles)):
