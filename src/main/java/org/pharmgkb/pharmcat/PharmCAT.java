@@ -204,6 +204,7 @@ public class PharmCAT {
     Path reportPath = m_outputDir.resolve(fileRoot + ".report.html");
     Path jsonPath = m_writeJsonReport ? m_outputDir.resolve(fileRoot + ".report.json") : null;
     f_reporter.printHtml(reportPath, fileRoot, jsonPath);
+    System.out.println("Report saved as " + reportPath);
 
     if (m_writeJsonPheno) {
       phenotyper.write(m_outputDir.resolve(fileRoot + ".phenotyper.json"));
