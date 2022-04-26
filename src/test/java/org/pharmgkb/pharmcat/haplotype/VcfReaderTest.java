@@ -33,6 +33,43 @@ class VcfReaderTest {
     }
   }
 
+
+  private void printWarnings(VcfReader reader) {
+    for (String key : reader.getWarnings().keySet()) {
+      System.out.println(key);
+      System.out.println("\t" + reader.getWarnings().get(key));
+    }
+  }
+
+
+  @Test
+  void testGvcfAlt() throws Exception {
+
+    VcfReader reader = new VcfReader(PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-structuralAlt.vcf"));
+    assertNotNull(reader.getWarnings());
+    printWarnings(reader);
+
+    assertEquals(6, reader.getWarnings().size());
+    assertEquals(1, reader.getWarnings().get("chr1:1").size());
+    assertFalse((reader.getWarnings().get("chr1:1")).iterator().next().contains("Discarded"));
+    assertEquals(1, reader.getWarnings().get("chr1:2").size());
+    assertFalse((reader.getWarnings().get("chr1:2")).iterator().next().contains("Discarded"));
+    assertEquals(1, reader.getWarnings().get("chr1:3").size());
+    assertFalse((reader.getWarnings().get("chr1:3")).iterator().next().contains("Discarded"));
+    assertEquals(1, reader.getWarnings().get("chr1:4").size());
+    assertTrue((reader.getWarnings().get("chr1:4")).iterator().next().contains("Discarded"));
+    assertEquals(1, reader.getWarnings().get("chr1:5").size());
+    assertTrue((reader.getWarnings().get("chr1:5")).iterator().next().contains("Discarded"));
+    assertEquals(1, reader.getWarnings().get("chr1:6").size());
+    assertTrue((reader.getWarnings().get("chr1:6")).iterator().next().contains("Discarded"));
+
+    Map<String, SampleAllele> alleleMap = reader.getAlleleMap();
+    assertEquals(3, alleleMap.size());
+    assertNotNull(alleleMap.get("chr1:1"));
+    assertNotNull(alleleMap.get("chr1:2"));
+    assertNotNull(alleleMap.get("chr1:3"));
+  }
+
   @Test
   void testFilters() throws Exception {
 
@@ -44,6 +81,7 @@ class VcfReaderTest {
     VcfReader reader = new VcfReader(NamedAlleleMatcher.calculateLocationsOfInterest(definitionReader), vcfFile);
 
     assertNotNull(reader.getWarnings());
+    printWarnings(reader);
 
     assertNotNull(reader.getWarnings().get("chr10:94938828"));
     assertEquals(1, reader.getWarnings().get("chr10:94938828").size());
@@ -72,7 +110,12 @@ class VcfReaderTest {
             "current data (expected A and got A).  Was the VCF preprocessed with a different version of PharmCAT?",
         reader.getWarnings().get("chr10:94941915").iterator().next());
 
-    assertEquals(5, reader.getWarnings().size());
+    assertNotNull(reader.getWarnings().get("chr10:94949281"));
+    assertEquals(1, reader.getWarnings().get("chr10:94949281").size());
+    assertEquals("ALT uses structural variant '<*>'",
+        reader.getWarnings().get("chr10:94949281").iterator().next());
+
+    assertEquals(6, reader.getWarnings().size());
   }
 
   @Test
@@ -86,11 +129,7 @@ class VcfReaderTest {
     VcfReader reader = new VcfReader(NamedAlleleMatcher.calculateLocationsOfInterest(definitionReader), vcfFile);
 
     assertNotNull(reader.getWarnings());
-
-    for (String key : reader.getWarnings().keySet()) {
-      System.out.println(key);
-      System.out.println("\t" + reader.getWarnings().get(key));
-    }
+    printWarnings(reader);
 
     String pos = "chr10:94942254";
     assertNotNull(reader.getWarnings().get(pos));
@@ -140,6 +179,11 @@ class VcfReaderTest {
     assertEquals("Genotype at this position has novel bases",
         reader.getWarnings().get("chr10:94941915").iterator().next());
 
-    assertEquals(5, reader.getWarnings().size());
+    assertNotNull(reader.getWarnings().get("chr10:94949281"));
+    assertEquals(1, reader.getWarnings().get("chr10:94949281").size());
+    assertEquals("ALT uses structural variant '<*>'",
+        reader.getWarnings().get("chr10:94949281").iterator().next());
+
+    assertEquals(6, reader.getWarnings().size());
   }
 }

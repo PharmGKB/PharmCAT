@@ -27,7 +27,6 @@ import org.pharmgkb.parser.vcf.model.ContigMetadata;
 import org.pharmgkb.parser.vcf.model.VcfMetadata;
 import org.pharmgkb.parser.vcf.model.VcfPosition;
 import org.pharmgkb.parser.vcf.model.VcfSample;
-import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -171,10 +170,14 @@ public class VcfReader implements VcfLineParser {
         addWarning(chrPos, "PharmCAT preprocessor detected REF mismatch (filter " + sf_filterCodeRef +
             ") but this does not match current data.  Was the VCF preprocessed with a different version of PharmCAT?");
       }
+      // strip out structural alts (e.g. <*>)
+      List<String> altBases = position.getAltBases().stream()
+          .filter(a -> !a.startsWith("<"))
+          .collect(Collectors.toList());
       boolean expectMultibase = varLoc.getAlts().stream().anyMatch(a -> a.length() > 1);
-      boolean hasMultibase = position.getAltBases().stream().anyMatch(a -> a.length() > 1);
+      boolean hasMultibase = altBases.stream().anyMatch(a -> a.length() > 1);
       if (expectMultibase && !hasMultibase) {
-        if (position.getAltBases().size() == 0) {
+        if (altBases.size() == 0) {
           addWarning(chrPos, "Genotype at this position has no ALT allele and an indel or repeat is expected. " +
               "PharmCAT cannot validate this position");
         } else {
@@ -183,7 +186,7 @@ public class VcfReader implements VcfLineParser {
               String.join("/", varLoc.getAlts()) + ")");
         }
       } else {
-        Set<String> novel = position.getAltBases().stream()
+        Set<String> novel = altBases.stream()
             .filter((a) -> !varLoc.getAlts().contains(a))
             .collect(Collectors.toSet());
         if (novel.size() > 0) {
@@ -226,20 +229,32 @@ public class VcfReader implements VcfLineParser {
       addWarning(chrPos, "Ignoring: no call (" + gt + ")");
       return;
     }
+    // already filtered out no-calls, guaranteed to have at least 1 GT here
+    int[] alleleIdxs = sf_gtDelimiter.splitAsStream(gt)
+        .filter(a -> !a.equals("."))
+        .mapToInt(Integer::parseInt)
+        .toArray();
 
     // normalize alleles to use same syntax as haplotype definition
     List<String> alleles = new ArrayList<>();
     if (position.getAltBases().size() == 0) {
       String gt1 = position.getAllele(0);
-      validateAlleles(chrPos, gt1, null);
+      if (!validateAlleles(chrPos, gt1, null, false)) {
+        return;
+      }
 
       String[] g = normalizeAlleles(gt1, null);
       alleles.add(g[0]);
 
     } else {
-      for (String gt2 : position.getAltBases()) {
-        String gt1 = position.getAllele(0);
-        validateAlleles(chrPos, gt1, gt2);
+      String gt1 = position.getAllele(0);
+      List<Integer> selected = Arrays.stream(alleleIdxs).boxed().collect(Collectors.toList());
+      for (int x = 1; x <= position.getAltBases().size(); x += 1) {
+        String gt2 = position.getAllele(x);
+        boolean isSelected = selected.contains(x);
+        if (!validateAlleles(chrPos, gt1, gt2, isSelected)) {
+          return;
+        }
 
         String[] g = normalizeAlleles(gt1, gt2);
         String g1 = g[0];
@@ -255,12 +270,6 @@ public class VcfReader implements VcfLineParser {
         }
       }
     }
-
-    // already filtered out no-calls, guaranteed to have at least 1 GT here
-    int[] alleleIdxs = sf_gtDelimiter.splitAsStream(gt)
-        .filter(a -> !a.equals("."))
-        .mapToInt(Integer::parseInt)
-        .toArray();
 
 
     String allelicDepth = sampleData.get(0).getProperty("AD");
@@ -346,55 +355,46 @@ public class VcfReader implements VcfLineParser {
   /**
    * Validate GT input per VCF 4.2 specification.
    */
-  private static void validateAlleles(String chrPos, String gt1, @Nullable String gt2) {
+  private boolean validateAlleles(String chrPos, String gt1, @Nullable String gt2, boolean isG2Selected) {
 
-    StringBuilder problems = new StringBuilder();
+    boolean isValid = true;
     if (gt1.startsWith("<")) {
-      problems.append("Don't know how to handle ref structural variant '")
-          .append(gt1)
-          .append("'");
+      addWarning(chrPos, "Discarded genotype at this position because REF uses structural variation '" + gt1 + "'");
+      isValid = false;
     } else if (gt1.toUpperCase().contains("N")) {
-      problems.append("Don't know how to handle ambiguous allele in ref '")
-          .append(gt1)
-          .append("'");
+      addWarning(chrPos, "Discarded genotype at this position because REF uses ambiguous allele in '" + gt1 + "'");
+      isValid = false;
     } else if (!sf_allelePattern.matcher(gt1).matches()) {
-      problems.append("Unsupported bases in ref '")
-          .append(gt1)
-          .append("'");
+      addWarning(chrPos, "Discarded genotype at this position because REF uses unknown base in '" + gt1 + "'");
+      isValid = false;
     }
 
     if (gt2 != null) {
+      String prefix = isG2Selected ? "Discarded genotype at this position because " : "";
       if (gt2.startsWith("<")) {
-        if (problems.length() > 0) {
-          problems.append(System.lineSeparator());
+        if (isG2Selected) {
+          isValid = false;
         }
-        problems.append("Don't know how to handle alt structural variant '")
-            .append(gt2)
-            .append("'");
-      } else {
-        if (!sf_allelePattern.matcher(gt1).matches()) {
-          if (problems.length() > 0) {
-            problems.append(System.lineSeparator());
-          }
-          if (gt2.toUpperCase().contains("N")) {
-            problems.append("Don't know how to handle ambiguous allele in alt '")
-                .append(gt2)
-                .append("'");
-          } else if (gt2.contains("*")) {
-            problems.append("Don't know how to handle missing allele in alt '")
-                .append(gt2)
-                .append("'");
-          } else {
-            problems.append("Unsupported bases in alt '")
-                .append(gt1)
-                .append("'");
-          }
+        addWarning(chrPos, prefix + "ALT uses structural variation '" + gt2 + "'");
+      } else if (gt2.toUpperCase().contains("N")) {
+        if (isG2Selected) {
+          isValid = false;
         }
+        addWarning(chrPos, prefix + "ALT uses ambiguous allele in '" + gt2 + "'");
+
+      } else if (gt2.contains("*")) {
+        if (isG2Selected) {
+          isValid = false;
+        }
+        addWarning(chrPos, prefix + "ALT uses missing allele in '" + gt2 + "'");
+      } else if (!sf_allelePattern.matcher(gt2).matches()) {
+        if (isG2Selected) {
+          isValid = false;
+        }
+        addWarning(chrPos, prefix + "ALT uses unknown base in '" + gt2 + "'");
       }
     }
 
-    if (problems.length() > 0) {
-      throw new ParseException("Problem at " + chrPos + ":" + System.lineSeparator() + problems);
-    }
+    return isValid;
   }
 }

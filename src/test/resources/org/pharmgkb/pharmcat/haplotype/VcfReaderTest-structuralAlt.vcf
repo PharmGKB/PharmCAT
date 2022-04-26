@@ -3,7 +3,7 @@
 ##source=PharmCAT allele definitions
 ##reference=hg38
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
-##contig=<ID=chr10,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr1,assembly=GRCh38.p13,species="Homo sapiens">
 ##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
 ##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not part of an allele definition">
 ##FILTER=<ID=PCATxREF,Description="Position not matching PharmCAT PGx reference alleles">
@@ -11,9 +11,9 @@
 ##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes">
 ##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
-chr10	94941982	.	GA	G	.	PCATxREF	AC=0;AN=2	GT	0/0
-chr10	94938683	.	G	.	.	PCATxREF	AN=2	GT	0/0
-chr10	94938828	rs564813580	A	C,T	.	PCATxALT	AC=0,1;AN=2	GT	2/0
-chr10	94941897	.	G	C	.	PCATxREF	AC=0,1;AN=2	GT	0/0
-chr10	94941915	.	G	A	.	PCATxALT	AC=0,1;AN=2	GT	0/0
-chr10	94949281	.	GA	G,<*>	.	.	AN=2	GT	0/1
+chr1	1	rs1	TG	T,<*>	.	PASS	.	GT	0/0
+chr1	2	rs2	TG	T,<*>	.	PASS	.	GT	1/1
+chr1	3	rs3	TG	T,<*>	.	PASS	.	GT	0/1
+chr1	4	rs4	TG	T,<*>	.	PASS	.	GT	2/1
+chr1	5	rs5	TG	T,<*>	.	PASS	.	GT	0/2
+chr1	6	rs6	TG	T,<*>	.	PASS	.	GT	2/2
