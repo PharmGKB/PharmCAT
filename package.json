@@ -30,6 +30,12 @@
               "perf",
               "fix"
             ],
+            "types": [
+              { "type": "feat", "section": "Features" },
+              { "type": "feature", "section": "Features" },
+              { "type": "fix", "section": "Improvements" },
+              { "type": "perf", "section": "Improvements" }
+            ],
             "commitsSort": "header"
           }
         }
