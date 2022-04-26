@@ -61,7 +61,8 @@ class NamedAlleleMatcherCyp3a5Test {
 
   /**
    * Test example analogous to second scoring example in
-   * https://github.com/PharmGKB/PharmCAT/wiki/NamedAlleleMatcher-101 but with *5 (in this case *7 for cyp3a5 missing).
+   * <a href="https://pharmcat.org/methods/NamedAlleleMatcher-101">https://pharmcat.org/methods/NamedAlleleMatcher-101/</a>
+   * but with *5 (in this case *7 for cyp3a5 missing).
    */
   @Test
   void s1s7missing() throws Exception {
