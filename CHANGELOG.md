@@ -1,3 +1,27 @@
+## [1.7.0](https://github.com/PharmGKB/PharmCAT/compare/v1.6.0...v1.7.0) (2022-04-26)
+
+
+### Features
+
+* add a tracking event to the download button ([04f2062](https://github.com/PharmGKB/PharmCAT/commit/04f206211171eb68ef7e25efd10e5aff0d1da02c))
+* add umami analytics to the pharmcat.org site ([82d8cd8](https://github.com/PharmGKB/PharmCAT/commit/82d8cd8215db45b21d4d38cab09b7958b365d324))
+* CYP2D6 code and documentation for StellarPGx ([0b400ac](https://github.com/PharmGKB/PharmCAT/commit/0b400ac09832eabe8c229f6982542a57ee946665))
+* update to v1.17 of CPIC and v5.1.12 of PharmVar ([0dcf2c9](https://github.com/PharmGKB/PharmCAT/commit/0dcf2c93d71cb5112fbbe20a46642da2024b7ff5))
+* **preprocessor:** handle alt=<*> for INDELs ([776f32a](https://github.com/PharmGKB/PharmCAT/commit/776f32abea5bbb6489f552a48cae75a4743bd568))
+* **reporter:** add a "test mode" to the Reporter ([7799d91](https://github.com/PharmGKB/PharmCAT/commit/7799d9118a6ea11dad398353382226525a287e01))
+* **reporter:** add outside phenotype calls and support allele status genes ([d528d7a](https://github.com/PharmGKB/PharmCAT/commit/d528d7a92343ea20a8808aef4cd64729b97dac87))
+
+
+### Bug Fixes
+
+* fix command line arg for supplying your own named alleles ([4a8c84f](https://github.com/PharmGKB/PharmCAT/commit/4a8c84fa077d869b619e8e603509a7f2dd73fe6a))
+* update site config ([07d23cc](https://github.com/PharmGKB/PharmCAT/commit/07d23cc0dea146a22db26d79f6f73ba52b185758))
+* **namedallelematcher:** improve warnings about structural variations ([63903df](https://github.com/PharmGKB/PharmCAT/commit/63903df00f8c1fc744920a0571d3e35ad416f0bc))
+* **preprocessor:** handle alt=<*> (unspecific alleles) for SNPs ([9c70001](https://github.com/PharmGKB/PharmCAT/commit/9c70001b6c8b393c46a977952fcf53358e92dd3e))
+* **reporter:** fix handling of G6PD ([cbcfb05](https://github.com/PharmGKB/PharmCAT/commit/cbcfb050ac15269a319af1cb23025b278c7cbbdf))
+* **reporter:** fix test outside call files for new syntax ([39ed203](https://github.com/PharmGKB/PharmCAT/commit/39ed20328a2ab6efd083aa5ee8cd80eddc5f251a))
+* **reporter:** hide genes that are not reportable in the genotype table of the report ([51a1bf7](https://github.com/PharmGKB/PharmCAT/commit/51a1bf7ffc4e51451ebe7b3909a2e45fbaf6e82f))
+
 ## [1.6.0](https://github.com/PharmGKB/PharmCAT/compare/v1.5.1...v1.6.0) (2022-03-31)
 
 
