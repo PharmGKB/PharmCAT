@@ -1,13 +1,8 @@
 package org.pharmgkb.pharmcat.util;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
 import java.lang.invoke.MethodHandles;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -19,11 +14,8 @@ import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
 import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
@@ -34,8 +26,8 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
-import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -44,11 +36,11 @@ import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
  * @author Mark Woon
  */
 public class DataManager {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   public static final Path DEFAULT_DEFINITION_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   private static final String PHENOTYPES_JSON_FILE_NAME = "gene_phenotypes.json";
-  private static final String SUMMARY_REPORT = "Genes-and-Drugs.md";
   private static final String POSITIONS_VCF = "pharmcat_positions.vcf";
   private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "G6PD", "HLA-A", "HLA-B", "MT-RNR1");
   private static final Splitter sf_semicolonSplitter = Splitter.on(";").trimResults().omitEmptyStrings();
@@ -113,7 +105,7 @@ public class DataManager {
           manager.download(downloadDir, exemptionsTsv, messagesTsv);
         }
 
-        DrugCollection drugs = manager.saveDrugData(drugsDir, skipDrugs);
+        DrugCollection drugs = manager.saveDrugData(drugsDir, skipDrugs, skipDownload);
 
         Map<String,Integer> geneAlleleCountMap;
         if (!skipAlleles) {
@@ -126,6 +118,15 @@ public class DataManager {
           definitionReader.read(allelesDir);
           geneAlleleCountMap = definitionReader.getGeneAlleleCount();
         }
+
+        List<String> genesUsedInDrugRecommendations = new ArrayList<>(drugs.list().stream()
+            .flatMap(drug -> drug.getGenes().stream())
+            .sorted().distinct().toList());
+        genesUsedInDrugRecommendations.removeAll(geneAlleleCountMap.keySet());
+        genesUsedInDrugRecommendations.stream()
+            .filter(g -> !g.startsWith("HLA"))
+            .map(g -> "WARN: Gene used in drug recommendation has no allele mapping: " + g)
+            .forEach(System.out::println);
 
         if (!cliHelper.hasOption("sm")) {
           manager.transformMessages(messagesTsv, messagesJson);
@@ -141,7 +142,7 @@ public class DataManager {
 
         if (cliHelper.hasOption("d") && !skipAlleles) {
           Path docsDir = cliHelper.getValidDirectory("d", true);
-          manager.writeSummary(docsDir, geneAlleleCountMap, drugs, phenotypeMap);
+          new GeneDrugSummary().write(docsDir, geneAlleleCountMap, drugs, phenotypeMap);
         }
 
       } finally {
@@ -175,34 +176,15 @@ public class DataManager {
         messagesFile.toFile());
   }
 
-  private DrugCollection saveDrugData(Path drugsDir, boolean skip) throws Exception {
+  private DrugCollection saveDrugData(Path drugsDir, boolean skip, boolean skipDownload) throws Exception {
     DrugCollection existingDrugs = new DrugCollection();
     if (drugsDir == null || skip) return existingDrugs;
 
-    Path drugsPath = drugsDir.resolve("drugs.json");
-    FileUtils.copyURLToFile(
-        new URL("https://files.cpicpgx.org/data/report/current/drugs.json"),
-        drugsPath.toFile());
-    System.out.println("Saving drugs to " + drugsPath);
-
-    Set<String> existingDrugNames = existingDrugs.list().stream()
-        .map(Drug::getDrugName).collect(Collectors.toSet());
-    try (InputStream is = Files.newInputStream(drugsPath)) {
-      DrugCollection newDrugs = new DrugCollection(is, DataSource.CPIC);
-      Set<String> newDrugNames = newDrugs.list().stream()
-          .map(Drug::getDrugName).collect(Collectors.toSet());
-
-      Set<String> removedDrugs = new HashSet<>(existingDrugNames);
-      removedDrugs.removeAll(newDrugNames);
-      if (removedDrugs.size() > 0) {
-        System.out.println("Removed drugs: " + String.join("; ", removedDrugs));
-      }
-
-      Set<String> addedDrugs = new HashSet<>(newDrugNames);
-      addedDrugs.removeAll(existingDrugNames);
-      if (addedDrugs.size() > 0) {
-        System.out.println("New drugs: " + String.join("; ", addedDrugs));
-      }
+    if (skipDownload) {
+      return existingDrugs;
+    } else {
+      DrugCollection newDrugs = DrugCollection.download(drugsDir);
+      existingDrugs.diff(newDrugs).forEach(sf_logger::info);
       return newDrugs;
     }
   }
@@ -384,7 +366,7 @@ public class DataManager {
       } else if (repeats.size() > 0) {
         Map<String, VcfHelper.VcfData> firstPass = new HashMap<>();
         for (String h : hgvsNames) {
-          String repeatAlt = null;
+          String repeatAlt;
           // treat dups as a form of repeat
           if (h.endsWith("dup")) {
             String repeatedSequence = repeats.get(0);
@@ -576,40 +558,6 @@ public class DataManager {
     }
   }
 
-  private void writeSummary(Path documentationDir, Map<String,Integer> geneAlleleCount, DrugCollection drugs, PhenotypeMap phenotypeMap) throws IOException {
-    Multimap<String,DataSource> geneToUsageMap = makeGeneToUsageMap(drugs);
-    try (
-        InputStream mdStream = getClass().getResourceAsStream("summary.md");
-        StringWriter templateWriter = new StringWriter()
-    ) {
-      if (mdStream == null) {
-        throw new RuntimeException("No summary report templater found");
-      }
-      IOUtils.copy(mdStream, templateWriter, Charset.defaultCharset());
-      String mdTemplate = templateWriter.toString();
-
-      File summaryFile = documentationDir.resolve(SUMMARY_REPORT).toFile();
-      try (FileWriter fw = new FileWriter(summaryFile)) {
-        String matcherGeneList = geneAlleleCount.keySet().stream()
-            .filter(g -> !PREFER_OUTSIDE_CALL.contains(g))
-            .sorted().map(g -> "- " + g + " (" + geneAlleleCount.get(g) + " alleles)" + makeUsageSuffix(geneToUsageMap.get(g)))
-            .collect(Collectors.joining("\n"));
-
-        String outsideGeneList = PREFER_OUTSIDE_CALL.stream()
-            .map(phenotypeMap::lookup)
-            .filter(Optional::isPresent)
-            .map(Optional::get)
-            .map(g -> "- " + g.getGene() + " (" + g.getHaplotypes().size() + " alleles)" + makeUsageSuffix(geneToUsageMap.get(g.getGene())))
-            .collect(Collectors.joining("\n"));
-
-        String drugList = String.join("\n", makeDrugListItems(drugs));
-
-        IOUtils.write(String.format(mdTemplate, matcherGeneList, outsideGeneList, drugList), fw);
-      }
-      System.out.println("Saving summary file to " + summaryFile);
-    }
-  }
-
   private Path writePhenotypes(Path downloadDir, Path outputDir) throws IOException {
     Path outputPath = outputDir.resolve(PHENOTYPES_JSON_FILE_NAME);
     FileUtils.copyFile(
@@ -620,32 +568,4 @@ public class DataManager {
     return outputPath;
   }
 
-  private List<String> makeDrugListItems(DrugCollection drugCollection) {
-    Multimap<String,DataSource> drugSourceMap = TreeMultimap.create();
-    for (Drug drug : drugCollection) {
-      drugSourceMap.put(drug.getDrugName(), drug.getSource());
-    }
-
-    return drugSourceMap.keySet().stream()
-        .map(name -> "- " + name + makeUsageSuffix(drugSourceMap.get(name)))
-        .collect(Collectors.toList());
-  }
-
-  private Multimap<String,DataSource> makeGeneToUsageMap(DrugCollection drugs) {
-    Multimap<String,DataSource> geneMap = TreeMultimap.create();
-    drugs.forEach((drug) -> {
-      for (String gene : drug.getGenes()) {
-        geneMap.put(gene, drug.getSource());
-      }
-    });
-    return geneMap;
-  }
-
-  private String makeUsageSuffix(Collection<DataSource> sources) {
-    if (sources == null || sources.size() == 0) {
-      return "";
-    } else {
-      return " (" + sources.stream().map(DataSource::getDisplayName).collect(Collectors.joining(", ")) + ")";
-    }
-  }
 }
