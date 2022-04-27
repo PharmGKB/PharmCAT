@@ -14,12 +14,12 @@ The following genes are used by PharmCAT to find drug recommendation data.
 
 The `NamedAlleleMatcher` will search the given sample file for locations associated with these genes and attempt to match them to known allele definitions. Each of these genes will appear in the "Genotype Summary" section of the final output report.
 
-- ABCG2 (2 alleles) (CPIC)
+- ABCG2 (2 alleles) (CPIC, PharmGKB-DPWG)
 - CACNA1S (3 alleles) (CPIC)
 - CFTR (40 alleles) (CPIC)
-- CYP2B6 (35 alleles) (CPIC)
+- CYP2B6 (35 alleles) (CPIC, PharmGKB-DPWG)
 - CYP2C19 (34 alleles) (CPIC, PharmGKB-DPWG)
-- CYP2C9 (75 alleles) (CPIC, PharmGKB-DPWG)
+- CYP2C9 (85 alleles) (CPIC, PharmGKB-DPWG)
 - CYP3A5 (6 alleles) (CPIC, PharmGKB-DPWG)
 - CYP4F2 (3 alleles) (CPIC)
 - DPYD (83 alleles) (CPIC, PharmGKB-DPWG)
@@ -29,7 +29,7 @@ The `NamedAlleleMatcher` will search the given sample file for locations associa
 - SLCO1B1 (42 alleles) (CPIC, PharmGKB-DPWG)
 - TPMT (46 alleles) (CPIC, PharmGKB-DPWG)
 - UGT1A1 (9 alleles) (CPIC, PharmGKB-DPWG)
-- VKORC1 (2 alleles) (CPIC)
+- VKORC1 (2 alleles) (CPIC, PharmGKB-DPWG)
 
 ### Genes handled by outside callers
 
@@ -37,6 +37,8 @@ These genes will not get allele matches from PharmCAT. However, you can use an o
 
 - CYP2D6 (149 alleles) (CPIC, PharmGKB-DPWG)
 - G6PD (187 alleles) (CPIC)
+- HLA-A (CPIC, PharmGKB-DPWG)
+- HLA-B (CPIC, PharmGKB-DPWG)
 - MT-RNR1 (25 alleles) (CPIC)
 
 
@@ -45,7 +47,8 @@ These genes will not get allele matches from PharmCAT. However, you can use an o
 The following drugs are included in the PharmCAT report "Prescribing Recommendations" section. The sources for the drug prescribing information are in brackets after the drug name.
 
 - abacavir (CPIC, PharmGKB-DPWG)
-- allopurinol (CPIC)
+- acenocoumarol (PharmGKB-DPWG)
+- allopurinol (CPIC, PharmGKB-DPWG)
 - amikacin (CPIC)
 - amitriptyline (CPIC, PharmGKB-DPWG)
 - aripiprazole (PharmGKB-DPWG)
@@ -55,7 +58,7 @@ The following drugs are included in the PharmCAT report "Prescribing Recommendat
 - azathioprine (CPIC, PharmGKB-DPWG)
 - brexpiprazole (PharmGKB-DPWG)
 - capecitabine (CPIC, PharmGKB-DPWG)
-- carbamazepine (CPIC)
+- carbamazepine (CPIC, PharmGKB-DPWG)
 - celecoxib (CPIC)
 - citalopram (CPIC, PharmGKB-DPWG)
 - clomipramine (CPIC, PharmGKB-DPWG)
@@ -65,10 +68,11 @@ The following drugs are included in the PharmCAT report "Prescribing Recommendat
 - desipramine (CPIC)
 - dexlansoprazole (CPIC)
 - doxepin (CPIC, PharmGKB-DPWG)
-- efavirenz (CPIC)
+- efavirenz (CPIC, PharmGKB-DPWG)
 - eliglustat (PharmGKB-DPWG)
 - enflurane (CPIC)
 - escitalopram (CPIC, PharmGKB-DPWG)
+- esomeprazole (PharmGKB-DPWG)
 - flecainide (PharmGKB-DPWG)
 - flucloxacillin (PharmGKB-DPWG)
 - flucytosine (PharmGKB-DPWG)
@@ -80,6 +84,7 @@ The following drugs are included in the PharmCAT report "Prescribing Recommendat
 - gentamicin (CPIC)
 - haloperidol (PharmGKB-DPWG)
 - halothane (CPIC)
+- hormonal contraceptives for systemic use (PharmGKB-DPWG)
 - hydrocodone (CPIC)
 - ibuprofen (CPIC)
 - imipramine (CPIC, PharmGKB-DPWG)
@@ -87,6 +92,7 @@ The following drugs are included in the PharmCAT report "Prescribing Recommendat
 - isoflurane (CPIC)
 - ivacaftor (CPIC)
 - kanamycin (CPIC)
+- lamotrigine (PharmGKB-DPWG)
 - lansoprazole (CPIC, PharmGKB-DPWG)
 - lornoxicam (CPIC)
 - lovastatin (CPIC)
@@ -97,12 +103,13 @@ The following drugs are included in the PharmCAT report "Prescribing Recommendat
 - nortriptyline (CPIC, PharmGKB-DPWG)
 - omeprazole (CPIC, PharmGKB-DPWG)
 - ondansetron (CPIC)
-- oxcarbazepine (CPIC)
+- oxcarbazepine (CPIC, PharmGKB-DPWG)
 - pantoprazole (CPIC, PharmGKB-DPWG)
 - paromomycin (CPIC)
 - paroxetine (CPIC, PharmGKB-DPWG)
 - peginterferon alfa-2a (CPIC)
 - peginterferon alfa-2b (CPIC)
+- phenprocoumon (PharmGKB-DPWG)
 - phenytoin (CPIC, PharmGKB-DPWG)
 - pimozide (PharmGKB-DPWG)
 - piroxicam (CPIC)
@@ -110,6 +117,7 @@ The following drugs are included in the PharmCAT report "Prescribing Recommendat
 - plazomicin (CPIC)
 - pravastatin (CPIC)
 - propafenone (PharmGKB-DPWG)
+- quetiapine (PharmGKB-DPWG)
 - rasburicase (CPIC)
 - risperidone (PharmGKB-DPWG)
 - rosuvastatin (CPIC)

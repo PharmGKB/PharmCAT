@@ -60,7 +60,8 @@
         "G"
       ],
       "populationFrequency": null,
-      "reference": true
+      "reference": true,
+      "isCombinationOrPartial": false
     },
     {
       "name": "c.520C>T",
@@ -74,7 +75,8 @@
         "A"
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "c.3257G>A",
@@ -88,7 +90,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     }
   ]
 }

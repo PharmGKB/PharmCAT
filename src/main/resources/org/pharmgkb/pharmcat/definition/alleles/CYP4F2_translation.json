@@ -60,7 +60,8 @@
         "A"
       ],
       "populationFrequency": null,
-      "reference": true
+      "reference": true,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*2",
@@ -74,7 +75,8 @@
         "C"
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*3",
@@ -88,7 +90,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     }
   ]
 }

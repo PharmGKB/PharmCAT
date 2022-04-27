@@ -927,7 +927,8 @@
         "T"
       ],
       "populationFrequency": null,
-      "reference": true
+      "reference": true,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*2",
@@ -1023,7 +1024,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*3A",
@@ -1119,7 +1121,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*3B",
@@ -1215,7 +1218,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*3C",
@@ -1311,7 +1315,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*4",
@@ -1407,7 +1412,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*5",
@@ -1503,7 +1509,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*6",
@@ -1599,7 +1606,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*7",
@@ -1695,7 +1703,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*8",
@@ -1791,7 +1800,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*9",
@@ -1887,7 +1897,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*10",
@@ -1983,7 +1994,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*11",
@@ -2079,7 +2091,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*12",
@@ -2175,7 +2188,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*13",
@@ -2271,7 +2285,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*14",
@@ -2367,7 +2382,8 @@
         "C"
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*15",
@@ -2463,7 +2479,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*16",
@@ -2559,7 +2576,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*17",
@@ -2655,7 +2673,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*18",
@@ -2751,7 +2770,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*19",
@@ -2847,7 +2867,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*20",
@@ -2943,7 +2964,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*21",
@@ -3039,7 +3061,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*22",
@@ -3135,7 +3158,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*23",
@@ -3231,7 +3255,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*24",
@@ -3327,7 +3352,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*25",
@@ -3423,7 +3449,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*26",
@@ -3519,7 +3546,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*27",
@@ -3615,7 +3643,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*28",
@@ -3711,7 +3740,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*29",
@@ -3807,7 +3837,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*30",
@@ -3903,7 +3934,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*31",
@@ -3999,7 +4031,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*32",
@@ -4095,7 +4128,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*33",
@@ -4191,7 +4225,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*34",
@@ -4287,7 +4322,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*35",
@@ -4383,7 +4419,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*36",
@@ -4479,7 +4516,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*37",
@@ -4575,7 +4613,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*38",
@@ -4671,7 +4710,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*39",
@@ -4767,7 +4807,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*40",
@@ -4863,7 +4904,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*41",
@@ -4959,7 +5001,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*42",
@@ -5055,7 +5098,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*43",
@@ -5151,7 +5195,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*44",
@@ -5247,7 +5292,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     }
   ]
 }

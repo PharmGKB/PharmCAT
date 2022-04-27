@@ -378,7 +378,8 @@
         "T"
       ],
       "populationFrequency": null,
-      "reference": true
+      "reference": true,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*2",
@@ -422,7 +423,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*3",
@@ -466,7 +468,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*4",
@@ -510,7 +513,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*5",
@@ -554,7 +558,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*6",
@@ -598,7 +603,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*7",
@@ -642,7 +648,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*8",
@@ -686,7 +693,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*9",
@@ -730,7 +738,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*10",
@@ -774,7 +783,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*11",
@@ -818,7 +828,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*12",
@@ -862,7 +873,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*13",
@@ -906,7 +918,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*14",
@@ -950,7 +963,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*15",
@@ -994,7 +1008,8 @@
         "A"
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*16",
@@ -1038,7 +1053,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*17",
@@ -1082,7 +1098,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*18",
@@ -1126,7 +1143,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*19",
@@ -1170,7 +1188,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     },
     {
       "name": "*20",
@@ -1214,7 +1233,8 @@
         null
       ],
       "populationFrequency": null,
-      "reference": false
+      "reference": false,
+      "isCombinationOrPartial": false
     }
   ]
 }

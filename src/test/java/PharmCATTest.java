@@ -66,8 +66,8 @@ class PharmCATTest {
     testWrapper.getVcfBuilder()
             .reference("CYP2C9");
     testWrapper.execute(null);
-    assertEquals(21, testWrapper.getContext().getGeneReports().size());
-    assertEquals(88, testWrapper.getContext().getDrugReports().size());
+    assertEquals(23, testWrapper.getContext().getGeneReports().size());
+    assertEquals(94, testWrapper.getContext().getDrugReports().size());
   }
 
   /**
@@ -120,7 +120,7 @@ class PharmCATTest {
     testWrapper.testMatchedGroups("citalopram", 2);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.DPWG);
-    testWrapper.testMatchedGroups("clomipramine", 2);
+    testWrapper.testMatchedGroups("clomipramine", 3);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.DPWG);
     testWrapper.testMatchedGroups("ivacaftor", 0);
@@ -163,7 +163,7 @@ class PharmCATTest {
     testWrapper.testMatchedGroups("citalopram", 2);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.DPWG);
-    testWrapper.testMatchedGroups("clomipramine", 2);
+    testWrapper.testMatchedGroups("clomipramine", 3);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.DPWG);
     testWrapper.testMatchedGroups("ivacaftor", 0);
@@ -201,7 +201,7 @@ class PharmCATTest {
     testWrapper.testMatchedGroups("amitriptyline", 2);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.DPWG);
-    testWrapper.testMatchedGroups("clomipramine", 2);
+    testWrapper.testMatchedGroups("clomipramine", 3);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.DPWG);
     testWrapper.testMatchedGroups("desipramine", 1);
@@ -209,7 +209,7 @@ class PharmCATTest {
     testWrapper.testMatchedGroups("doxepin", 2);
     testWrapper.testAnyMatchFromSource("doxepin", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("doxepin", DataSource.DPWG);
-    testWrapper.testMatchedGroups("imipramine", 2);
+    testWrapper.testMatchedGroups("imipramine", 3);
     testWrapper.testAnyMatchFromSource("imipramine", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("imipramine", DataSource.DPWG);
     testWrapper.testMatchedGroups("nortriptyline", 2);
@@ -1185,7 +1185,7 @@ class PharmCATTest {
     testWrapper.testPrintCalls("NUDT15", "*1/*1");
     testWrapper.testLookup("NUDT15", "*1", "*1");
 
-    testWrapper.testMatchedGroups("azathioprine", 1);
+    testWrapper.testMatchedGroups("azathioprine", 2);
     testWrapper.testMatchedGroups("mercaptopurine", 2);
     testWrapper.testAnyMatchFromSource("mercaptopurine", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("mercaptopurine", DataSource.DPWG);
@@ -1208,7 +1208,7 @@ class PharmCATTest {
     testWrapper.testPrintCalls("NUDT15", "*1/*2");
     testWrapper.testLookup("NUDT15", "*1", "*2");
 
-    testWrapper.testMatchedGroups("azathioprine", 1);
+    testWrapper.testMatchedGroups("azathioprine", 2);
   }
 
   @Test
@@ -1224,7 +1224,7 @@ class PharmCATTest {
     testWrapper.testPrintCalls("NUDT15", "*1/*3");
     testWrapper.testLookup("NUDT15", "*1", "*3");
 
-    testWrapper.testMatchedGroups("azathioprine", 1);
+    testWrapper.testMatchedGroups("azathioprine", 2);
     testWrapper.testMatchedGroups("mercaptopurine", 2);
     testWrapper.testMatchedGroups("thioguanine", 2);
   }
