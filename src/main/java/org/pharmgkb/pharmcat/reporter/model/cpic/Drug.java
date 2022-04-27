@@ -159,6 +159,6 @@ public class Drug implements Comparable<Drug> {
     if (rez != 0) {
       return rez;
     }
-    return m_drugId.compareToIgnoreCase(other.getDrugId());
+    return m_guidelineName.compareToIgnoreCase(other.getGuidelineName());
   }
 }
