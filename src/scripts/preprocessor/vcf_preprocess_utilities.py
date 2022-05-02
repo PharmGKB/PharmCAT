@@ -203,7 +203,7 @@ def _is_valid_chr(input_vcf):
 
 
 def extract_regions_from_single_file(bcftools_path, input_vcf, pgx_vcf, output_dir, output_prefix,
-                                     sample_list):
+        sample_list):
     """
     Rename chromosomes in input vcf according to a chr-renaming mapping file.
     Extract pgx regions from input_vcf based on the ref_pgx.
@@ -342,7 +342,7 @@ def normalize_vcf(bcftools_path, input_vcf, ref_seq):
 
 
 def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
-                        missing_to_ref, output_dir, output_prefix):
+        missing_to_ref, output_dir, output_prefix):
     """
     Extract specific pgx positions that are present in the reference PGx VCF
     Generate a report of PGx positions that are missing in the input VCF
@@ -461,7 +461,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                             
                             SNPs:
                                 1. Matching REF and ALT: retain and update the rsID and FORMAT/PGx gene name
-                                2. Matching REF and ALT='.': homozygous reference SNPs, retain, 
+                                2. Matching REF and ALT=. or <*>: homozygous reference SNPs, retain, 
                                     update rsID and FORMAT/PGx gene name
                                 3. Matching REF and mismatching ALT
                                     3.1. There is another matching ALT: retain it in the same line
@@ -479,6 +479,11 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                             len_alt = sum(map(len, alt_alleles))
                             is_snp = ((len_ref - len_alt) == 0)
 
+                            # update id when the id is not in the input
+                            ref_id = list(set([x[2] for x in ref_pos_static[input_chr_pos].values()]))
+                            input_id = fields[2].split(';')
+                            updated_id = ';'.join(set(ref_id + input_id)) if fields[2] != '.' else ';'.join(ref_id)
+
                             input_ref_alt = (fields[3], fields[4])
                             # positions with matching REF and ALT
                             if input_ref_alt in ref_pos_static[input_chr_pos]:
@@ -486,16 +491,8 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                 # use this to fill up multiallelic ALT later
                                 if input_chr_pos not in input_pos:
                                     input_pos.append(input_chr_pos)
-                                # update ID col
-                                if fields[2] == '.':
-                                    fields[2] = ref_pos_static[input_chr_pos][input_ref_alt][2]
-                                elif ref_pos_static[input_chr_pos][input_ref_alt][2] not in fields[2]:
-                                    fields[2] = fields[2] + ';' + ref_pos_static[input_chr_pos][input_ref_alt][2]
-                                # update INFO field
-                                if fields[7] == '.':
-                                    fields[7] = ref_pos_static[input_chr_pos][input_ref_alt][7]
-                                else:
-                                    fields[7] = ref_pos_static[input_chr_pos][input_ref_alt][7] + ';' + fields[7]
+                                # update id
+                                fields[2] = updated_id
                                 # concat and write to output file
                                 line = '\t'.join(fields)
                                 out_f.write(line + '\n')
@@ -505,27 +502,17 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                     # remove a position if all of its alts are present in the input
                                     if ref_pos_dynamic[input_chr_pos] == {}:
                                         del ref_pos_dynamic[input_chr_pos]
-                            # SNPs with REF but 1) homozygous reference with ALT='.' or 2) mismatching ALT
-                            elif is_snp and (fields[3] in ref_alleles):
-                                # record input PGx positions in a list
-                                # use this to fill up multiallelic ALT later
-                                if input_chr_pos not in input_pos:
-                                    input_pos.append(input_chr_pos)
-                                # update id when the id is not in the input
-                                ref_id = list(set([x[2] for x in ref_pos_static[input_chr_pos].values()]))
-                                if fields[2] == '.':
-                                    fields[2] = ';'.join(ref_id)
+                            # SNPs - homozygous reference
+                            elif is_snp and (fields[3] in ref_alleles) and (fields[4] in ['.', '<*>']):
+                                # if reference ALT alleles are exhausted, next positions
+                                if input_chr_pos not in ref_pos_dynamic:
+                                    continue
                                 else:
-                                    input_id = fields[2].split(';')
-                                    fields[2] = ';'.join(set(ref_id + input_id))
-                                # update info
-                                info_col = ';'.join(set([x[7] for x in ref_pos_static[input_chr_pos].values()]))
-                                fields[7] = ';'.join([fields[7], info_col]) if fields[7] != '.' else info_col
-                                # 1st: homozygous SNPs with ALT = "."
-                                if fields[4] == '.':
+                                    # fill up all ALT alleles info
                                     alt_alleles = [x[1] for x in ref_pos_dynamic[input_chr_pos].keys()]
                                     for i in range(len(alt_alleles)):
                                         # update contents, concatenate cols from input and from the ref PGx VCF
+                                        fields[2] = updated_id
                                         fields[3] = ref_alleles[i]
                                         fields[4] = alt_alleles[i]
                                         # concat and write to output file
@@ -537,25 +524,23 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                             # remove a position if all of its alts are present in the input
                                             if ref_pos_dynamic[input_chr_pos] == {}:
                                                 del ref_pos_dynamic[input_chr_pos]
-                                # 2nd: SNPs with matching REF but unspecified ALT
-                                elif fields[4] == '<*>':
-                                    fields[4] = fields[3]
-                                    # concat and write to output file
-                                    line = '\t'.join(fields)
-                                    out_f.write(line + '\n')
-                                # 3rd: SNPs with matching REF but mismatching ALT
-                                else:
-                                    # concat and write to output file
-                                    line = '\t'.join(fields)
-                                    out_f.write(line + '\n')
+                            # SNPs - mismatching ALT
+                            elif is_snp and (fields[3] in ref_alleles) and (len(fields[4]) == 1):
+                                # record input PGx positions in a list
+                                # use this to fill up multiallelic ALT later
+                                if input_chr_pos not in input_pos:
+                                    input_pos.append(input_chr_pos)
+                                # write to output
+                                line = '\t'.join(fields)
+                                out_f.write(line + '\n')
                             # INDELs with a unspecified allele, ALT="<*>"
-                            elif (fields[3] in ref_alleles) and (fields[4] in ['.', '<*>']):
+                            elif not is_snp and (fields[4] in ['.', '<*>']):
                                 print('=============================================================\n\n'
                                       'Warning: ignore \"%s:%s REF=%s ALT=%s\" which is not a valid GT format '
                                       'for INDELs\n\n'
                                       '=============================================================\n'
                                       % (fields[0], fields[1], fields[3], fields[4]))
-                            # INDELs: flag if the variant doesn't match PharmCAT ALT
+                            # flag if the variant doesn't match PharmCAT ALT
                             elif fields[3] in ref_alleles:
                                 for i in range(len(ref_alleles)):
                                     print('=============================================================\n\n'
@@ -569,7 +554,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                 # output the  line
                                 line = '\t'.join(fields)
                                 non_pgx_records.append(line)
-                            # flag if the variant doesn't match PharmCAT REF nor ALT
+                            # flag if the variant doesn't match PharmCAT REF
                             else:
                                 for i in range(len(ref_alleles)):
                                     print('=============================================================\n\n'
@@ -639,7 +624,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                 if _chr_valid_sorter.index(fields[0]) > _chr_valid_sorter.index(non_pgx_fields[0]):
                                     out_f.write(non_pgx_records[0] + '\n')
                                     non_pgx_records.pop(0)
-                                elif _chr_valid_sorter.index(fields[0]) == _chr_valid_sorter.index(non_pgx_fields[0])\
+                                elif _chr_valid_sorter.index(fields[0]) == _chr_valid_sorter.index(non_pgx_fields[0]) \
                                         and int(fields[1]) > int(non_pgx_fields[1]):
                                     out_f.write(non_pgx_records[0] + '\n')
                                     non_pgx_records.pop(0)
