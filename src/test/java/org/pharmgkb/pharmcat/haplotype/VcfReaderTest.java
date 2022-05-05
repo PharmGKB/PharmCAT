@@ -112,7 +112,7 @@ class VcfReaderTest {
 
     assertNotNull(reader.getWarnings().get("chr10:94949281"));
     assertEquals(1, reader.getWarnings().get("chr10:94949281").size());
-    assertEquals("ALT uses structural variant '<*>'",
+    assertEquals("ALT uses structural variation '<*>'",
         reader.getWarnings().get("chr10:94949281").iterator().next());
 
     assertEquals(6, reader.getWarnings().size());
@@ -181,7 +181,7 @@ class VcfReaderTest {
 
     assertNotNull(reader.getWarnings().get("chr10:94949281"));
     assertEquals(1, reader.getWarnings().get("chr10:94949281").size());
-    assertEquals("ALT uses structural variant '<*>'",
+    assertEquals("ALT uses structural variation '<*>'",
         reader.getWarnings().get("chr10:94949281").iterator().next());
 
     assertEquals(6, reader.getWarnings().size());
