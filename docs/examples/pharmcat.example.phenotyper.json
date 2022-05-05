@@ -2578,20 +2578,6 @@
       {
         "gene": "CYP2C9",
         "chromosome": "chr10",
-        "position": 94947439,
-        "dbSnpId": null,
-        "call": "G|G",
-        "alleles": [
-          "*74"
-        ],
-        "phased": true,
-        "wildtypeAllele": "G",
-        "mismatch": false,
-        "warnings": []
-      },
-      {
-        "gene": "CYP2C9",
-        "chromosome": "chr10",
         "position": 94947782,
         "dbSnpId": "rs72558190",
         "call": "C|C",
@@ -2670,6 +2656,20 @@
         ],
         "phased": true,
         "wildtypeAllele": "A",
+        "mismatch": false,
+        "warnings": []
+      },
+      {
+        "gene": "CYP2C9",
+        "chromosome": "chr10",
+        "position": 94947939,
+        "dbSnpId": "rs370100007",
+        "call": "G|G",
+        "alleles": [
+          "*74"
+        ],
+        "phased": true,
+        "wildtypeAllele": "G",
         "mismatch": false,
         "warnings": []
       },
@@ -3518,29 +3518,6 @@
       }
     ],
     "diplotypes": [
-      {
-        "allele1": {
-          "gene": "CYP2D6",
-          "name": "Unknown",
-          "function": "Unassigned function",
-          "reference": false
-        },
-        "allele2": {
-          "gene": "CYP2D6",
-          "name": "Unknown",
-          "function": "Unassigned function",
-          "reference": false
-        },
-        "gene": "CYP2D6",
-        "phenotypes": [
-          "No Result"
-        ],
-        "variant": null,
-        "lookupKey": [
-          "No Result"
-        ],
-        "label": "Unknown/Unknown"
-      },
       {
         "allele1": {
           "gene": "CYP2D6",

@@ -1,7 +1,7 @@
 {
   "totalGenes": 21,
-  "pharmcatVersion": "v1.6.0-24-g07d23cc0\n",
-  "generatedOn": "April 20, 2022",
+  "pharmcatVersion": "v1.7.0-2-gc9b45172\n",
+  "generatedOn": "May 05, 2022",
   "geneCalls": [
     {
       "diplotypes": [
@@ -2172,20 +2172,6 @@
         {
           "gene": "CYP2C9",
           "chromosome": "chr10",
-          "position": 94947439,
-          "dbSnpId": null,
-          "call": "G|G",
-          "alleles": [
-            "*74"
-          ],
-          "phased": true,
-          "wildtypeAllele": "G",
-          "mismatch": false,
-          "warnings": []
-        },
-        {
-          "gene": "CYP2C9",
-          "chromosome": "chr10",
           "position": 94947782,
           "dbSnpId": "rs72558190",
           "call": "C|C",
@@ -2264,6 +2250,20 @@
           ],
           "phased": true,
           "wildtypeAllele": "A",
+          "mismatch": false,
+          "warnings": []
+        },
+        {
+          "gene": "CYP2C9",
+          "chromosome": "chr10",
+          "position": 94947939,
+          "dbSnpId": "rs370100007",
+          "call": "G|G",
+          "alleles": [
+            "*74"
+          ],
+          "phased": true,
+          "wildtypeAllele": "G",
           "mismatch": false,
           "warnings": []
         },
@@ -2866,7 +2866,7 @@
     },
     {
       "diplotypes": [
-        "not called"
+        "*1/*3"
       ],
       "gene": "CYP2D6",
       "variantsOfInterestUnspecified": true,
@@ -8538,7 +8538,7 @@
       "unphased": false
     }
   ],
-  "calledGenes": 19,
+  "calledGenes": 20,
   "cpicVersion": "v1.17",
   "genotypes": [
     {
@@ -8803,11 +8803,11 @@
     },
     {
       "phenotype": [
-        "N/A"
+        "Intermediate Metabolizer"
       ],
       "called": false,
       "functions": [
-        "N/A"
+        "One no function allele and one normal function allele"
       ],
       "gene": "CYP2D6",
       "drugs": [
@@ -8877,11 +8877,11 @@
         }
       ],
       "calls": [
-        "not called"
+        "*1/*3"
       ],
       "missingVariants": "Yes",
       "outsideCall": false,
-      "reportable": false,
+      "reportable": true,
       "unphased": false,
       "hasMessages": false
     },
@@ -9585,7 +9585,7 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2C19",
@@ -9597,59 +9597,15 @@
         },
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "amitriptyline",
       "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "n/a",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "Normal metabolism of tertiary amines",
-              "term": "Implication for CYP2C19"
-            },
-            {
-              "annotation": "CYP2C19:*38/*38, CYP2D6:Unknown/Unknown",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "No Result",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C19"
-            },
-            {
-              "annotation": "No result",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate therapy with recommended starting dose.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.",
-              "term": "Comments"
-            }
-          ]
-        },
         {
           "annotations": [
             {
@@ -9697,7 +9653,7 @@
       ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
-      "mutliMatch": true,
+      "mutliMatch": false,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -9842,22 +9798,95 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "atomoxetine",
-      "groups": [],
-      "reportable": false,
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "pediatrics",
+              "term": "Population"
+            },
+            {
+              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate with a dose of 0.5 mg/kg/day and increase to 1.2 mg/kg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c 200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "adults",
+              "term": "Population"
+            },
+            {
+              "annotation": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If \u003c200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limited data are available regarding the relationship between atomoxetine plasma concentrations and clinical response. Available information suggests that clinical response is greater in poor metabolizers (PMs) compared to non-PMs and may be related to the higher plasma concentrations 1 to 1.5 hours after dosing in PMs compared to non-PMs administered a similar dose. Furthermore, modest improvement in response, defined as reduction in ADHD-rating scale, is observed at peak concentrations greater than 400 ng/mL. Doses above 120 mg/day have not been evaluated.",
+              "term": "Comments"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
       "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-atomoxetine-based-on-cyp2d6-genotype/",
-      "mutliMatch": false,
+      "mutliMatch": true,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -9887,7 +9916,7 @@
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
         "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:38400",
       "lastModified": "not available",
       "footnotes": []
@@ -10307,7 +10336,7 @@
         {
           "annotations": [
             {
-              "annotation": "CBZ-no alternatives",
+              "annotation": "CBZ use \u003e3mos ",
               "term": "Population"
             },
             {
@@ -10331,15 +10360,15 @@
               "term": "Allele Status for HLA-B"
             },
             {
-              "annotation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
               "term": "Recommendation"
             },
             {
-              "annotation": "Strong",
+              "annotation": "Optional",
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+              "annotation": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
               "term": "Comments"
             }
           ]
@@ -10387,7 +10416,7 @@
         {
           "annotations": [
             {
-              "annotation": "CBZ use \u003e3mos ",
+              "annotation": "CBZ-no alternatives",
               "term": "Population"
             },
             {
@@ -10411,15 +10440,15 @@
               "term": "Allele Status for HLA-B"
             },
             {
-              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
+              "annotation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
               "term": "Recommendation"
             },
             {
-              "annotation": "Optional",
+              "annotation": "Strong",
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+              "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
               "term": "Comments"
             }
           ]
@@ -10644,7 +10673,7 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2C19",
@@ -10656,10 +10685,10 @@
         },
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
@@ -10708,55 +10737,11 @@
               "term": "Comments"
             }
           ]
-        },
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "n/a",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "Normal metabolism of tertiary amines",
-              "term": "Implication for CYP2C19"
-            },
-            {
-              "annotation": "CYP2C19:*38/*38, CYP2D6:Unknown/Unknown",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "No Result",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C19"
-            },
-            {
-              "annotation": "No result",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate therapy with recommended starting dose.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.",
-              "term": "Comments"
-            }
-          ]
         }
       ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
-      "mutliMatch": true,
+      "mutliMatch": false,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -10831,38 +10816,6 @@
         {
           "annotations": [
             {
-              "annotation": "NVI",
-              "term": "Population"
-            },
-            {
-              "annotation": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity",
-              "term": "Implication for CYP2C19"
-            },
-            {
-              "annotation": "CYP2C19:*38/*38",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C19"
-            },
-            {
-              "annotation": "If considering clopidogrel, use at standard dose (75 mg/day)",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "CVI ACS PCI ",
               "term": "Population"
             },
@@ -10888,6 +10841,38 @@
             },
             {
               "annotation": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "NVI",
+              "term": "Population"
+            },
+            {
+              "annotation": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity",
+              "term": "Implication for CYP2C19"
+            },
+            {
+              "annotation": "CYP2C19:*38/*38",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C19"
+            },
+            {
+              "annotation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
               "term": "Comments"
             }
           ]
@@ -11006,20 +10991,53 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "codeine",
-      "groups": [],
-      "reportable": false,
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Reduced morphine formation",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Use codeine label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider a non-tramadol opioid.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-codeine-and-cyp2d6/",
       "mutliMatch": false,
       "citations": [
@@ -11103,7 +11121,7 @@
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
         "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:2670",
       "lastModified": "not available",
       "footnotes": []
@@ -11205,20 +11223,57 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "desipramine",
-      "groups": [],
-      "reportable": false,
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Consider a 25% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain.",
+              "term": "Comments"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
       "mutliMatch": false,
       "citations": [
@@ -11273,7 +11328,7 @@
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
         "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:3247",
       "lastModified": "not available",
       "footnotes": []
@@ -11364,7 +11419,7 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2C19",
@@ -11376,10 +11431,10 @@
         },
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
@@ -11428,55 +11483,11 @@
               "term": "Comments"
             }
           ]
-        },
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "n/a",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "Normal metabolism of tertiary amines",
-              "term": "Implication for CYP2C19"
-            },
-            {
-              "annotation": "CYP2C19:*38/*38, CYP2D6:Unknown/Unknown",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "No Result",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C19"
-            },
-            {
-              "annotation": "No result",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate therapy with recommended starting dose.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.",
-              "term": "Comments"
-            }
-          ]
         }
       ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
-      "mutliMatch": true,
+      "mutliMatch": false,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -12144,20 +12155,53 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "fluvoxamine",
-      "groups": [],
-      "reportable": false,
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate therapy with recommended starting dose.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/",
       "mutliMatch": false,
       "citations": [
@@ -12193,7 +12237,7 @@
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
         "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:42355",
       "lastModified": "not available",
       "footnotes": []
@@ -12220,50 +12264,6 @@
       ],
       "drugs": "fosphenytoin",
       "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "PHT naive",
-              "term": "Population"
-            },
-            {
-              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
-              "term": "Implication for HLA-B"
-            },
-            {
-              "annotation": "Normal phenytoin metabolism",
-              "term": "Implication for CYP2C9"
-            },
-            {
-              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C9"
-            },
-            {
-              "annotation": "2.0",
-              "term": "Activity Score for CYP2C9"
-            },
-            {
-              "annotation": "HLA-B*15:02 positive",
-              "term": "Allele Status for HLA-B"
-            },
-            {
-              "annotation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-              "term": "Comments"
-            }
-          ]
-        },
         {
           "annotations": [
             {
@@ -12304,6 +12304,50 @@
             },
             {
               "annotation": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "PHT naive",
+              "term": "Population"
+            },
+            {
+              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "Normal phenytoin metabolism",
+              "term": "Implication for CYP2C9"
+            },
+            {
+              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C9"
+            },
+            {
+              "annotation": "2.0",
+              "term": "Activity Score for CYP2C9"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Strong",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
               "term": "Comments"
             }
           ]
@@ -12545,20 +12589,53 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "hydrocodone",
-      "groups": [],
-      "reportable": false,
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Minimal evidence for pharmacokinetic or clinical effect.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Use hydrocodone label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider non-codeine or non-tramadol opioid.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-codeine-and-cyp2d6/",
       "mutliMatch": false,
       "citations": [
@@ -12642,7 +12719,7 @@
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
         "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:5489",
       "lastModified": "not available",
       "footnotes": []
@@ -12728,7 +12805,7 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2C19",
@@ -12740,59 +12817,15 @@
         },
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "imipramine",
       "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "n/a",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "Normal metabolism of tertiary amines",
-              "term": "Implication for CYP2C19"
-            },
-            {
-              "annotation": "CYP2C19:*38/*38, CYP2D6:Unknown/Unknown",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "No Result",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C19"
-            },
-            {
-              "annotation": "No result",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate therapy with recommended starting dose.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.",
-              "term": "Comments"
-            }
-          ]
-        },
         {
           "annotations": [
             {
@@ -12840,7 +12873,7 @@
       ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
-      "mutliMatch": true,
+      "mutliMatch": false,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -13782,20 +13815,57 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "nortriptyline",
-      "groups": [],
-      "reportable": false,
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Reduced metabolism of tricyclic antidepressants to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Consider a 25% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of tricyclic antidepressants for treatment of conditions such as depression. See other considerations for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain.",
+              "term": "Comments"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
       "mutliMatch": false,
       "citations": [
@@ -13850,7 +13920,7 @@
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
         "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:7531",
       "lastModified": "not available",
       "footnotes": []
@@ -13941,20 +14011,57 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "ondansetron",
-      "groups": [],
-      "reportable": false,
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Very limited data available for CYP2D6 intermediate metabolizers",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "No Recommendation",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
+              "term": "Comments"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/",
       "mutliMatch": false,
       "citations": [
@@ -13985,7 +14092,7 @@
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
         "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:26225",
       "lastModified": "not available",
       "footnotes": []
@@ -14004,38 +14111,6 @@
       ],
       "drugs": "oxcarbazepine",
       "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "OXC use \u003e3 mos",
-              "term": "Population"
-            },
-            {
-              "annotation": "Greater risk of oxcarbazepine-induced SJS/TEN",
-              "term": "Implication for HLA-B"
-            },
-            {
-              "annotation": "HLA-B:*15:02/*57:01",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "HLA-B*15:02 positive",
-              "term": "Allele Status for HLA-B"
-            },
-            {
-              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used oxcarbazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of oxcarbazepine in the future.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Optional",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
-              "term": "Comments"
-            }
-          ]
-        },
         {
           "annotations": [
             {
@@ -14064,6 +14139,38 @@
             },
             {
               "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "OXC use \u003e3 mos",
+              "term": "Population"
+            },
+            {
+              "annotation": "Greater risk of oxcarbazepine-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used oxcarbazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of oxcarbazepine in the future.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
               "term": "Comments"
             }
           ]
@@ -14293,20 +14400,53 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "paroxetine",
-      "groups": [],
-      "reportable": false,
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Initiate therapy with recommended starting dose",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Moderate",
+              "term": "Classification of Recommendation"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/",
       "mutliMatch": false,
       "citations": [
@@ -14342,7 +14482,7 @@
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
         "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:32937",
       "lastModified": "not available",
       "footnotes": []
@@ -14460,50 +14600,6 @@
         {
           "annotations": [
             {
-              "annotation": "PHT use \u003e3mos",
-              "term": "Population"
-            },
-            {
-              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
-              "term": "Implication for HLA-B"
-            },
-            {
-              "annotation": "Normal phenytoin metabolism",
-              "term": "Implication for CYP2C9"
-            },
-            {
-              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C9"
-            },
-            {
-              "annotation": "2.0",
-              "term": "Activity Score for CYP2C9"
-            },
-            {
-              "annotation": "HLA-B*15:02 positive",
-              "term": "Allele Status for HLA-B"
-            },
-            {
-              "annotation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Optional",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "PHT naive",
               "term": "Population"
             },
@@ -14541,6 +14637,50 @@
             },
             {
               "annotation": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "PHT use \u003e3mos",
+              "term": "Population"
+            },
+            {
+              "annotation": "Increased risk of phenytoin-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "Normal phenytoin metabolism",
+              "term": "Implication for CYP2C9"
+            },
+            {
+              "annotation": "CYP2C9:*1/*1, HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Normal Metabolizer",
+              "term": "Phenotype for CYP2C9"
+            },
+            {
+              "annotation": "2.0",
+              "term": "Activity Score for CYP2C9"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
               "term": "Comments"
             }
           ]
@@ -15886,20 +16026,53 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "tamoxifen",
-      "groups": [],
-      "reportable": false,
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Lower endoxifen concentrations compared to normal metabolizers; higher risk of breast cancer recurrence, event-free and recurrence-free survival compared to normal metabolizers.",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Consider hormonal therapy such as an aromatase inhibitor for postmenopausal women or aromatase inhibitor along with ovarian function suppression in premenopausal women, given that these approaches are superior to tamoxifen regardless of CYP2D6 genotype (PMID 26211827). If aromatase inhibitor use is contraindicated, consideration should be given to use a higher but FDA approved tamoxifen dose (40 mg/day)(PMID 27226358). Avoid CYP2D6 strong to weak inhibitors.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
       "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-tamoxifen-based-on-cyp2d6-genotype/",
       "mutliMatch": false,
       "citations": [
@@ -15934,7 +16107,7 @@
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
         "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:10324",
       "lastModified": "not available",
       "footnotes": []
@@ -16247,20 +16420,53 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "tramadol",
-      "groups": [],
-      "reportable": false,
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Reduced O-desmethyltramadol (active metabolite) formation",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Use tramadol label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider non-codeine opioid.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-codeine-and-cyp2d6/",
       "mutliMatch": false,
       "citations": [
@@ -16344,13 +16550,13 @@
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
         "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:10689",
       "lastModified": "not available",
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2C19",
@@ -16362,59 +16568,15 @@
         },
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "trimipramine",
       "groups": [
-        {
-          "annotations": [
-            {
-              "annotation": "general",
-              "term": "Population"
-            },
-            {
-              "annotation": "n/a",
-              "term": "Implication for CYP2D6"
-            },
-            {
-              "annotation": "Normal metabolism of tertiary amines",
-              "term": "Implication for CYP2C19"
-            },
-            {
-              "annotation": "CYP2C19:*38/*38, CYP2D6:Unknown/Unknown",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "No Result",
-              "term": "Phenotype for CYP2D6"
-            },
-            {
-              "annotation": "Normal Metabolizer",
-              "term": "Phenotype for CYP2C19"
-            },
-            {
-              "annotation": "No result",
-              "term": "Activity Score for CYP2D6"
-            },
-            {
-              "annotation": "Initiate therapy with recommended starting dose.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Strong",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.",
-              "term": "Comments"
-            }
-          ]
-        },
         {
           "annotations": [
             {
@@ -16462,7 +16624,7 @@
       ],
       "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
-      "mutliMatch": true,
+      "mutliMatch": false,
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
@@ -16521,20 +16683,57 @@
       "footnotes": []
     },
     {
-      "uncalledGenes": "CYP2D6",
+      "uncalledGenes": "",
       "geneCalls": [
         {
           "gene": "CYP2D6",
-          "diplotypes": "not called",
+          "diplotypes": "*1/*3",
           "showHighlights": false,
           "highlightedVariants": [],
-          "functions": null,
+          "functions": "One no function allele and one normal function allele",
           "outsideCall": false
         }
       ],
       "drugs": "tropisetron",
-      "groups": [],
-      "reportable": false,
+      "groups": [
+        {
+          "annotations": [
+            {
+              "annotation": "general",
+              "term": "Population"
+            },
+            {
+              "annotation": "Very limited data available for CYP2D6 intermediate metabolizers",
+              "term": "Implication for CYP2D6"
+            },
+            {
+              "annotation": "CYP2D6:*1/*3",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "Intermediate Metabolizer",
+              "term": "Phenotype for CYP2D6"
+            },
+            {
+              "annotation": "1.0",
+              "term": "Activity Score for CYP2D6"
+            },
+            {
+              "annotation": "Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "No Recommendation",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
+              "term": "Comments"
+            }
+          ]
+        }
+      ],
+      "reportable": true,
       "url": "https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/",
       "mutliMatch": false,
       "citations": [
@@ -16565,7 +16764,7 @@
         "The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.",
         "Some position data used to define CYP2D6 alleles is missing which may change the matched genotype. See the gene section for CYP2D6 for more information."
       ],
-      "matched": false,
+      "matched": true,
       "id": "RxNorm:27392",
       "lastModified": "not available",
       "footnotes": []
@@ -16587,7 +16786,7 @@
         {
           "annotations": [
             {
-              "annotation": "pediatrics",
+              "annotation": "adults",
               "term": "Population"
             },
             {
@@ -16619,7 +16818,7 @@
         {
           "annotations": [
             {
-              "annotation": "adults",
+              "annotation": "pediatrics",
               "term": "Population"
             },
             {
