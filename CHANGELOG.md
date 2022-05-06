@@ -1,3 +1,17 @@
+## [1.8.0](https://github.com/PharmGKB/PharmCAT/compare/v1.7.0...v1.8.0) (2022-05-06)
+
+
+### Features
+
+* update to latest PharmVar (5.1.14) data for CYP2C9 ([2d9de55](https://github.com/PharmGKB/PharmCAT/commit/2d9de55dd94274e6fd451e017526a33a5471843c))
+
+
+### Bug Fixes
+
+* fix VcfReaderTest for updated wording ([870b3b9](https://github.com/PharmGKB/PharmCAT/commit/870b3b9af9b8e95c515296cc72c49d1a7a311a59))
+* **data:** update to CPIC 1.17.1 and PharmVar 5.1.14 ([d205472](https://github.com/PharmGKB/PharmCAT/commit/d20547215f0d13a221dfc393d4f122a1ba49a35a))
+* **preprocessor:** clarify the handling of mismatched VCF entries ([b284637](https://github.com/PharmGKB/PharmCAT/commit/b284637d1928681aa993d2b02167b711a012d111))
+
 ## [1.7.0](https://github.com/PharmGKB/PharmCAT/compare/v1.6.0...v1.7.0) (2022-04-26)
 
 
