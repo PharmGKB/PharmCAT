@@ -25,6 +25,7 @@ updateData: clean
 	@${GRADLE_CMD} updateData
 	@echo "Moving pharmcat_position files..."
 	mv src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.* .
+	rm src/main/resources/org/pharmgkb/pharmcat/definition/alleles/CYP2D6_translation.json
 	@echo "Updating examples..."
 	@${GRADLE_CMD} updateExample
 	@echo "Moving example files..."
