@@ -1,6 +1,6 @@
 {
   "totalGenes": 21,
-  "pharmcatVersion": "v1.7.0-2-gc9b45172\n",
+  "pharmcatVersion": "v1.7.0-4-g2d9de55d\n",
   "generatedOn": "May 05, 2022",
   "geneCalls": [
     {
@@ -8539,7 +8539,7 @@
     }
   ],
   "calledGenes": 20,
-  "cpicVersion": "v1.17",
+  "cpicVersion": "v.1.17.1",
   "genotypes": [
     {
       "phenotype": [
@@ -9657,13 +9657,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -9691,7 +9691,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "Müller D J",
+            "MÃ¼ller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -9744,7 +9744,7 @@
               "term": "Phenotype for UGT1A1"
             },
             {
-              "annotation": "There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient’s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
+              "annotation": "There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patientâ€™s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
               "term": "Recommendation"
             },
             {
@@ -10096,7 +10096,7 @@
               "term": "Population"
             },
             {
-              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the â€˜normalâ€™ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
               "term": "Implication for TPMT"
             },
             {
@@ -10336,46 +10336,6 @@
         {
           "annotations": [
             {
-              "annotation": "CBZ use \u003e3mos ",
-              "term": "Population"
-            },
-            {
-              "annotation": "n/a",
-              "term": "Implication for HLA-A"
-            },
-            {
-              "annotation": "Greater risk of carbamazepine-induced SJS/TEN",
-              "term": "Implication for HLA-B"
-            },
-            {
-              "annotation": "HLA-B:*15:02/*57:01",
-              "term": "Matched Diplotypes"
-            },
-            {
-              "annotation": "No HLA-A Result",
-              "term": "Allele Status for HLA-A"
-            },
-            {
-              "annotation": "HLA-B*15:02 positive",
-              "term": "Allele Status for HLA-B"
-            },
-            {
-              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
-              "term": "Recommendation"
-            },
-            {
-              "annotation": "Optional",
-              "term": "Classification of Recommendation"
-            },
-            {
-              "annotation": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-              "term": "Comments"
-            }
-          ]
-        },
-        {
-          "annotations": [
-            {
               "annotation": "CBZ naive",
               "term": "Population"
             },
@@ -10400,7 +10360,7 @@
               "term": "Allele Status for HLA-B"
             },
             {
-              "annotation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+              "annotation": "If patient is carbamazepine-naÃ¯ve, do not use carbamazepine.",
               "term": "Recommendation"
             },
             {
@@ -10440,7 +10400,7 @@
               "term": "Allele Status for HLA-B"
             },
             {
-              "annotation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+              "annotation": "If patient is carbamazepine-naÃ¯ve, do not use carbamazepine.",
               "term": "Recommendation"
             },
             {
@@ -10449,6 +10409,46 @@
             },
             {
               "annotation": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+              "term": "Comments"
+            }
+          ]
+        },
+        {
+          "annotations": [
+            {
+              "annotation": "CBZ use \u003e3mos ",
+              "term": "Population"
+            },
+            {
+              "annotation": "n/a",
+              "term": "Implication for HLA-A"
+            },
+            {
+              "annotation": "Greater risk of carbamazepine-induced SJS/TEN",
+              "term": "Implication for HLA-B"
+            },
+            {
+              "annotation": "HLA-B:*15:02/*57:01",
+              "term": "Matched Diplotypes"
+            },
+            {
+              "annotation": "No HLA-A Result",
+              "term": "Allele Status for HLA-A"
+            },
+            {
+              "annotation": "HLA-B*15:02 positive",
+              "term": "Allele Status for HLA-B"
+            },
+            {
+              "annotation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
+              "term": "Recommendation"
+            },
+            {
+              "annotation": "Optional",
+              "term": "Classification of Recommendation"
+            },
+            {
+              "annotation": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
               "term": "Comments"
             }
           ]
@@ -10468,7 +10468,7 @@
             "George Alfred L",
             "Tran Eric",
             "Berger Reisel",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Whirl-Carrillo Michelle",
             "Caudle Kelly E",
             "Pirmohamed Munir"
@@ -10486,7 +10486,7 @@
             "Phillips Elizabeth J",
             "Sukasem Chonlaphat",
             "Whirl-Carrillo Michelle",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Dunnenberger Henry M",
             "Chantratita Wasun",
             "Goldspiel Barry",
@@ -10573,7 +10573,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "Agúndez José A G",
+            "AgÃºndez JosÃ© A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -10645,13 +10645,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena Adrián",
+            "LLerena AdriÃ¡n",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -10745,13 +10745,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -10779,7 +10779,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "Müller D J",
+            "MÃ¼ller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -10816,7 +10816,7 @@
         {
           "annotations": [
             {
-              "annotation": "CVI ACS PCI ",
+              "annotation": "CVI non-ACS non-PCI",
               "term": "Population"
             },
             {
@@ -10840,7 +10840,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+              "annotation": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
               "term": "Comments"
             }
           ]
@@ -10880,7 +10880,7 @@
         {
           "annotations": [
             {
-              "annotation": "CVI non-ACS non-PCI",
+              "annotation": "CVI ACS PCI ",
               "term": "Population"
             },
             {
@@ -10904,7 +10904,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
+              "annotation": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
               "term": "Comments"
             }
           ]
@@ -10941,7 +10941,7 @@
             "Scott Stuart A",
             "Sangkuhl Katrin",
             "Stein C Michael",
-            "Hulot Jean-Sébastien",
+            "Hulot Jean-SÃ©bastien",
             "Mega Jessica L",
             "Roden Dan M",
             "Klein Teri E",
@@ -10969,7 +10969,7 @@
             "Limdi Nita A",
             "Lee Yee Ming",
             "Scott Stuart A",
-            "Hulot Jean-Sébastien",
+            "Hulot Jean-SÃ©bastien",
             "Roden Dan M",
             "Gaedigk Andrea",
             "Caudle Kelly E",
@@ -11104,7 +11104,7 @@
             "Ruano Gualberto",
             "Sangkuhl Katrin",
             "Cavallari Larisa H",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Prows Cynthia A",
             "Nagy Mohamed",
             "Somogyi Andrew A",
@@ -11279,13 +11279,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -11313,7 +11313,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "Müller D J",
+            "MÃ¼ller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -11491,13 +11491,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -11525,7 +11525,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "Müller D J",
+            "MÃ¼ller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -11586,7 +11586,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "The ENCORE study showed that in treatment-naïve patients randomized to initiate efavirenz-based regimens (combined with tenofovir and emtricitabine), 400 mg/day was non-inferior to 600 mg/day regardless of CYP2B6 genotype (PMID 24522178).",
+              "annotation": "The ENCORE study showed that in treatment-naÃ¯ve patients randomized to initiate efavirenz-based regimens (combined with tenofovir and emtricitabine), 400 mg/day was non-inferior to 600 mg/day regardless of CYP2B6 genotype (PMID 24522178).",
               "term": "Comments"
             }
           ]
@@ -11783,13 +11783,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena Adrián",
+            "LLerena AdriÃ¡n",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -11970,7 +11970,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "Agúndez José A G",
+            "AgÃºndez JosÃ© A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -12212,13 +12212,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena Adrián",
+            "LLerena AdriÃ¡n",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -12702,7 +12702,7 @@
             "Ruano Gualberto",
             "Sangkuhl Katrin",
             "Cavallari Larisa H",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Prows Cynthia A",
             "Nagy Mohamed",
             "Somogyi Andrew A",
@@ -12786,7 +12786,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "Agúndez José A G",
+            "AgÃºndez JosÃ© A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -12877,13 +12877,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -12911,7 +12911,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "Müller D J",
+            "MÃ¼ller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -13328,7 +13328,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "Agúndez José A G",
+            "AgÃºndez JosÃ© A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -13554,7 +13554,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "Agúndez José A G",
+            "AgÃºndez JosÃ© A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -13601,7 +13601,7 @@
               "term": "Population"
             },
             {
-              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+              "annotation": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the â€˜normalâ€™ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
               "term": "Implication for TPMT"
             },
             {
@@ -13871,13 +13871,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -13905,7 +13905,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "Müller D J",
+            "MÃ¼ller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -14130,7 +14130,7 @@
               "term": "Allele Status for HLA-B"
             },
             {
-              "annotation": "If patient is oxcarbazepine-naïve, do not use oxcarbazepine.",
+              "annotation": "If patient is oxcarbazepine-naÃ¯ve, do not use oxcarbazepine.",
               "term": "Recommendation"
             },
             {
@@ -14190,7 +14190,7 @@
             "George Alfred L",
             "Tran Eric",
             "Berger Reisel",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Whirl-Carrillo Michelle",
             "Caudle Kelly E",
             "Pirmohamed Munir"
@@ -14208,7 +14208,7 @@
             "Phillips Elizabeth J",
             "Sukasem Chonlaphat",
             "Whirl-Carrillo Michelle",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Dunnenberger Henry M",
             "Chantratita Wasun",
             "Goldspiel Barry",
@@ -14457,13 +14457,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena Adrián",
+            "LLerena AdriÃ¡n",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -14807,7 +14807,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "Agúndez José A G",
+            "AgÃºndez JosÃ© A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -15491,13 +15491,13 @@
             "Hicks J Kevin",
             "Bishop Jeffrey R",
             "Sangkuhl Katrin",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Ji Yuan",
             "Leckband Susan G",
             "Leeder J Steven",
             "Graham Rebecca L",
             "Chiulli Dana L",
-            "LLerena Adrián",
+            "LLerena AdriÃ¡n",
             "Skaar Todd C",
             "Scott Stuart A",
             "Stingl Julia C",
@@ -15979,7 +15979,7 @@
               "term": "Classification of Recommendation"
             },
             {
-              "annotation": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function). Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patient’s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose, and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.",
+              "annotation": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function). Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patientâ€™s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose, and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.",
               "term": "Comments"
             }
           ]
@@ -16174,7 +16174,7 @@
             "Formea Christine M",
             "Gaedigk Andrea",
             "Klein Teri E",
-            "Agúndez José A G",
+            "AgÃºndez JosÃ© A G",
             "Grosser Tilo"
           ],
           "pmid": "32189324",
@@ -16533,7 +16533,7 @@
             "Ruano Gualberto",
             "Sangkuhl Katrin",
             "Cavallari Larisa H",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Prows Cynthia A",
             "Nagy Mohamed",
             "Somogyi Andrew A",
@@ -16628,13 +16628,13 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+          "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
           "authors": [
             "Kevin Hicks J",
             "Sangkuhl Katrin",
             "Swen Jesse J",
             "Ellingrod Vicki L",
-            "Müller Daniel J",
+            "MÃ¼ller Daniel J",
             "Shimoda Kazutaka",
             "Bishop Jeffrey R",
             "Kharasch Evan D",
@@ -16662,7 +16662,7 @@
             "Kharasch E D",
             "Ellingrod V L",
             "Skaar T C",
-            "Müller D J",
+            "MÃ¼ller D J",
             "Gaedigk A",
             "Stingl J C"
           ],
@@ -16854,7 +16854,7 @@
       "citations": [
         {
           "journal": "Clinical pharmacology and therapeutics",
-          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC®) Guideline for CYP2C19 and Voriconazole Therapy",
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPICÂ®) Guideline for CYP2C19 and Voriconazole Therapy",
           "authors": [
             "Moriyama Brad",
             "Obeng Aniwaa Owusu",
@@ -16862,7 +16862,7 @@
             "Penzak Scott R",
             "Henning Stacey A",
             "Scott Stuart A",
-            "Agúndez José A G",
+            "AgÃºndez JosÃ© A G",
             "Wingard John R",
             "McLeod Howard L",
             "Klein Teri E",
