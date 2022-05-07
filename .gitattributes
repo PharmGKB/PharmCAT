@@ -52,6 +52,7 @@ gradlew          text eol=lf
 *.tag            text
 *.tsv            text
 *.txt            text
+*.vcf            text
 *.vm             text
 *.xml            text
 *.xsd            text
@@ -68,6 +69,7 @@ src/scripts/pharmcat    text eol=lf
 #
 *.ai      binary
 *.bmp     binary
+*.bgz     binary
 *.class   binary
 *.dll     binary
 *.doc     binary
@@ -91,6 +93,7 @@ src/scripts/pharmcat    text eol=lf
 *.svg     binary
 *.swf     binary
 *.tar     binary
+*.tbi     binary
 *.tgz     binary
 *.ttf     binary
 *.woff    binary
