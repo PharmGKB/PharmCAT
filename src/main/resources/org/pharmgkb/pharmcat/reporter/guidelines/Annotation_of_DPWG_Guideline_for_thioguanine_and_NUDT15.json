@@ -1,0 +1,578 @@
+{
+  "annotationGroups" : [ {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244583",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166244583",
+    "name" : "Intermediate Metabolizer",
+    "genePhenotypes" : [ "NUDT15:Decreased function/Normal function", "NUDT15:No function/Normal function", "NUDT15:Normal function/Strongly decreased function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166184612",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166184612",
+      "name" : "Annotation of DPWG Guideline for thioguanine and NUDT15",
+      "version" : 5
+    },
+    "implications" : {
+      "id" : 1451448656,
+      "html" : "<p>Grade &ge;2 leukopaenia occurs in an estimated 40% of these patients with standard therapy. The genetic variation increases the concentration of the fully activated metabolite of thioguanine.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451448657,
+      "html" : "<p>Intermediate Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451448658,
+      "html" : "<p>IMMUNOSUPPRESSION: start with 75% of the standard dose. Adjustment of the initial dose should be performed based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNOTE: The percentage of 75% is based on the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15.\nNOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.</p>\n<ul>\n<li>LEUKAEMIA: start with 75% of the standard tioguanine dose or start with the standard dose and reduce to 75% if side effects necessitate a dose reduction. It is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. Adjustment of the initial dose should be performed based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNOTE: The percentage of 75% is based on the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15.\nNOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.\nNote: more stringent dose reductions are necessary if the patient is also TPMT IM.</li>\n</ul>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244582",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166244582",
+    "name" : "Poor Metabolizer",
+    "genePhenotypes" : [ "NUDT15:Decreased function/Decreased function", "NUDT15:Decreased function/No function", "NUDT15:Decreased function/Strongly decreased function", "NUDT15:No function/No function", "NUDT15:No function/Strongly decreased function", "NUDT15:Strongly decreased function/Strongly decreased function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166184612",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166184612",
+      "name" : "Annotation of DPWG Guideline for thioguanine and NUDT15",
+      "version" : 5
+    },
+    "implications" : {
+      "id" : 1451448660,
+      "html" : "<p>Grade &ge;2 leukopaenia occurs in an estimated 95% of these patients with standard therapy. The genetic variation increases the concentration of the fully activated metabolite of thioguanine.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451448661,
+      "html" : "<p>Poor Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451448662,
+      "html" : "<ul>\n<li>avoid thioguanine</li>\n<li>if it is not possible to avoid tioguanine: use 10% of the standard dose and advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) occur Any adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNOTE: The percentage of 10% is based on the analogy with azathioprine and mercaptopurine and the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15. For NUDT15 PM, a percentage of &lt; 20% was calculated for azathioprine and mercaptopurine, but there were insufficient data available to calculate the exact percentage.\nNOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.</li>\n</ul>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244601",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166244601",
+    "name" : "Normal Metabolizer",
+    "genePhenotypes" : [ "NUDT15:Normal function/Normal function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166184612",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166184612",
+      "name" : "Annotation of DPWG Guideline for thioguanine and NUDT15",
+      "version" : 5
+    },
+    "implications" : {
+      "id" : 1451448680,
+      "html" : "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on thioguanine.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451448681,
+      "html" : "<p>Normal Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451448682,
+      "html" : "<p>The guideline does not provide a recommendation for thioguanine in normal metabolizers</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  } ],
+  "citations" : [ ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166184612",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166184612",
+    "name" : "Annotation of DPWG Guideline for thioguanine and NUDT15",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ {
+      "id" : 1451448643,
+      "alleles" : [ {
+        "id" : 1451448644,
+        "_label" : "*1",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558335,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Normal function",
+          "termId" : "haplotypeTags:1445558335",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166131619",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166131619",
+          "symbol" : "NUDT15*1",
+          "name" : "*1",
+          "version" : 7
+        },
+        "version" : 0
+      }, {
+        "id" : 1451448645,
+        "_label" : "*2",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166131620",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166131620",
+          "symbol" : "NUDT15*2",
+          "name" : "*2",
+          "version" : 6
+        },
+        "version" : 0
+      }, {
+        "id" : 1451448646,
+        "_label" : "*3",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166131621",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166131621",
+          "symbol" : "NUDT15*3",
+          "name" : "*3",
+          "version" : 6
+        },
+        "version" : 0
+      }, {
+        "id" : 1451448647,
+        "_label" : "*4",
+        "allele" : "*4",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451447763",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1451447763,
+          "description" : "for extended dosing guidelines on DPWG NUDT15 guidelines",
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Strongly decreased function",
+          "termId" : "alleleFunction:1451447763",
+          "version" : 0
+        },
+        "version" : 0
+      }, {
+        "id" : 1451448648,
+        "_label" : "*5",
+        "allele" : "*5",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451447763",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1451447763,
+          "description" : "for extended dosing guidelines on DPWG NUDT15 guidelines",
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Strongly decreased function",
+          "termId" : "alleleFunction:1451447763",
+          "version" : 0
+        },
+        "version" : 0
+      }, {
+        "id" : 1451448649,
+        "_label" : "*6",
+        "allele" : "*6",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451447763",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1451447763,
+          "description" : "for extended dosing guidelines on DPWG NUDT15 guidelines",
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Strongly decreased function",
+          "termId" : "alleleFunction:1451447763",
+          "version" : 0
+        },
+        "version" : 0
+      }, {
+        "id" : 1451448650,
+        "_label" : "Arg34Thr",
+        "allele" : "Arg34Thr",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451447763",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1451447763,
+          "description" : "for extended dosing guidelines on DPWG NUDT15 guidelines",
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Strongly decreased function",
+          "termId" : "alleleFunction:1451447763",
+          "version" : 0
+        },
+        "version" : 0
+      }, {
+        "id" : 1451448651,
+        "_label" : "Gly17_Val18del",
+        "allele" : "Gly17_Val18del",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451447763",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1451447763,
+          "description" : "for extended dosing guidelines on DPWG NUDT15 guidelines",
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Strongly decreased function",
+          "termId" : "alleleFunction:1451447763",
+          "version" : 0
+        },
+        "version" : 0
+      }, {
+        "id" : 1451448652,
+        "_label" : "Lys35Glu",
+        "allele" : "Lys35Glu",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      } ],
+      "gene" : {
+        "@id" : "https://pharmgkb.org/gene/PA134963132",
+        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+        "objCls" : "Gene",
+        "id" : "PA134963132",
+        "symbol" : "NUDT15",
+        "name" : "nudix hydrolase 15",
+        "alleleFile" : "NUDT15_allele_definition_table.xlsx",
+        "altNames" : {
+          "synonym" : [ "nudix (nucleoside diphosphate linked moiety X)-type motif 15" ],
+          "symbol" : [ "FLJ10956", "MTH2" ]
+        },
+        "buildVersion" : "GRCh38",
+        "cbStart" : "q14.2",
+        "cbStop" : "q14.2",
+        "chr" : {
+          "@id" : "https://pharmgkb.org/chromosome/PA510",
+          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
+          "objCls" : "Chromosome",
+          "id" : "PA510",
+          "name" : "chr13",
+          "version" : 3
+        },
+        "chrStartPosB37" : 48611862,
+        "chrStartPosB38" : 48037726,
+        "chrStopPosB37" : 48626891,
+        "chrStopPosB38" : 48052755,
+        "cpicGene" : true,
+        "crossReferences" : [ {
+          "@id" : "https://pharmgkb.org/crossReference/alfred/LO174374A",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608068288,
+          "resource" : "ALFRED",
+          "resourceId" : "LO174374A",
+          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO174374A",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000136159",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 132264604,
+          "resource" : "Ensembl",
+          "resourceId" : "ENSG00000136159",
+          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000136159",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/geneCard/NUDT15",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 981193124,
+          "resource" : "GeneCard",
+          "resourceId" : "NUDT15",
+          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=NUDT15",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0000287",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 8675110,
+          "resource" : "GO",
+          "resourceId" : "GO:0000287",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0000287",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016787",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 35846,
+          "resource" : "GO",
+          "resourceId" : "GO:0016787",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016787",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0030145",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 8675210,
+          "resource" : "GO",
+          "resourceId" : "GO:0030145",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0030145",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:23063",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608068286,
+          "resource" : "HGNC",
+          "resourceId" : "HGNC:23063",
+          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A23063",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS13617",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608068289,
+          "resource" : "HumanCyc Gene",
+          "resourceId" : "HS13617",
+          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS13617",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/Q9NV35",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560880264,
+          "resource" : "ModBase",
+          "resourceId" : "Q9NV35",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=Q9NV35",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/entrezGene/55270",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 77847917,
+          "resource" : "NCBI Gene",
+          "resourceId" : "55270",
+          "_url" : "https://www.ncbi.nlm.nih.gov/gene/55270",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/pharmVarGene/NUDT15",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 1451669414,
+          "resource" : "PharmVar Gene",
+          "resourceId" : "NUDT15",
+          "_url" : "https://www.pharmvar.org/gene/NUDT15",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_047021.1",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 1451144184,
+          "name" : "NG_047021.1",
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NG_047021.1",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_047021.1",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_060753",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 77847918,
+          "resource" : "RefSeq Protein",
+          "resourceId" : "NP_060753",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_060753",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_018283",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 77847923,
+          "resource" : "RefSeq RNA",
+          "resourceId" : "NM_018283",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_018283",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q9NV35",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 77847915,
+          "name" : "NUD15_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "Q9NV35",
+          "_url" : "http://www.uniprot.org/uniprot/Q9NV35",
+          "version" : 1
+        } ],
+        "hasNonStandardHaplotypes" : false,
+        "hideHaplotypes" : false,
+        "pharmVarGene" : true,
+        "strand" : "plus",
+        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0000287","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495444,"_url":"http://amigo.geneontology.org/amigo/term/GO:0000287","resource":"Gene Ontology","term":"magnesium ion binding","termId":"GO:0000287"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016787","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498127,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016787","resource":"Gene Ontology","term":"hydrolase activity","termId":"GO:0016787"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0030145","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560510123,"_url":"http://amigo.geneontology.org/amigo/term/GO:0030145","resource":"Gene Ontology","term":"manganese ion binding","termId":"GO:0030145"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"} ],
+        "version" : 10
+      },
+      "version" : 0
+    } ],
+    "hasTestingGuidance" : true,
+    "history" : [ {
+      "id" : 1450821369,
+      "date" : "2019-10-08T00:00:00-07:00",
+      "description" : "August 2019 Guideline",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450963906,
+      "date" : "2020-02-11T08:03:43.510-08:00",
+      "description" : "Fixed links to 2019 guideline pdfs.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704248,
+      "date" : "2022-03-03T16:33:34.454-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451707840,
+      "date" : "2022-03-08T12:58:58.580-08:00",
+      "description" : "Added information about preemptive genotyping",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451732888,
+      "date" : "2022-03-28T09:57:48.580-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451733462,
+      "date" : "2022-03-28T15:03:49.085-07:00",
+      "description" : "Updated link to testing guidance page",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451741548,
+      "date" : "2022-04-05T11:20:28.035-07:00",
+      "description" : "Added testing guidance tag",
+      "type" : "Update",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : true,
+    "relatedAlleles" : [ ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA451663",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA451663",
+      "name" : "thioguanine",
+      "version" : 12
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA134963132",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA134963132",
+      "symbol" : "NUDT15",
+      "name" : "nudix hydrolase 15",
+      "version" : 10
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1450821366,
+      "html" : "<p>Select an alternative drug or reduce the initial dose of thioguanine for patients that are NUDT15 poor metabolizers and reduce initial dose for patients that are NUDT15 intermediate metabolizers.</p>\n",
+      "version" : 0
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1450821367,
+      "html" : "<h3 id=\"august-2019-guideline\">August 2019 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for thioguanine based on NUDT15 genotype.  They recommend reducing the initial dose for patients that are intermediate metabolizers and selecting an alternative drug or reducing the initial dose for patients that are poor metabolizers. They updated the wording for the intermediate metabolizer recommendation, reflected in the table below.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_August_2019.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_August_2019.pdf\">Dutch guidelines August 2019 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>NUDT15 IM</td>\n<td>thioguanine</td>\n<td>Grade = 2 leukopaenia occurs in an estimated 40% of these patients with standard therapy. The genetic variation increases the concentration of the fully activated metabolite of thioguanine.</td>\n<td>- IMMUNOSUPPRESSION: start with 75% of the standard dose. Adjustment of the initial dose should be performed based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.<br/>NOTE: The percentage of 75% is based on the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15.<br/>NOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.<br/>- LEUKAEMIA: start with 75% of the standard tioguanine dose or start with the standard dose and reduce to 75% if side effects necessitate a dose reduction. It is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. Adjustment of the initial dose should be performed based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.<br/>NOTE: The percentage of 75% is based on the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15.<br/>NOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.<br/>Note: more stringent dose reductions are necessary if the patient is also TPMT IM.</td>\n</tr>\n<tr>\n<td>NUDT15 PM</td>\n<td>thioguanine</td>\n<td>Grade = 2 leukopaenia occurs in an estimated 95% of these patients with standard therapy. The genetic variation increases the concentration of the fully activated metabolite of thioguanine.</td>\n<td>- avoid thioguanine<br/>- if it is not possible to avoid tioguanine: use 10% of the standard dose and advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) occur Any adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and efficacy. Monitoring should be performed at an increased frequency.<br/>NOTE: The percentage of 10% is based on the analogy with azathioprine and mercaptopurine and the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15. For NUDT15 PM, a percentage of &lt; 20% was calculated for azathioprine and mercaptopurine, but there were insufficient data available to calculate the exact percentage.<br/>NOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.</td>\n</tr>\n</tbody>\n</table>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0007034.PDF\" target=\"_blank\">DPWG risk analysis document</a> for thioguanine and NUDT15:</p>\n<blockquote class=\"blockquote\">\n<p>The Dutch Pharmacogenetics Working Group considers genotyping before starting thioguanine to be essential for drug safety. Genotyping must be performed before drug therapy has been initiated to guide drug and dose selection.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0007033.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
+      "version" : 2
+    },
+    "userId" : "carrillo",
+    "version" : 5
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "citations" : [ ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166264901",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166264901",
+    "name" : "Annotation of DPWG Guideline for methylphenidate and COMT",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ ],
+    "hasTestingGuidance" : false,
+    "history" : [ {
+      "id" : 1451695822,
+      "date" : "2022-02-25T00:00:00-08:00",
+      "type" : "Create",
+      "version" : 1
+    }, {
+      "id" : 1451704257,
+      "date" : "2022-03-03T16:33:35.787-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451732897,
+      "date" : "2022-03-28T09:57:49.725-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    } ],
+    "literature" : [ ],
+    "pediatric" : false,
+    "recommendation" : false,
+    "relatedAlleles" : [ {
+      "@id" : "https://pharmgkb.org/variant/PA166156024",
+      "@context" : "https://api.pharmgkb.org/jsonld/variant.jsonld",
+      "objCls" : "Variant",
+      "id" : "PA166156024",
+      "symbol" : "rs4680",
+      "name" : "rs4680",
+      "version" : 4
+    } ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA450464",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA450464",
+      "name" : "methylphenidate",
+      "version" : 7
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA117",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA117",
+      "symbol" : "COMT",
+      "name" : "catechol-O-methyltransferase",
+      "version" : 5126
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1451695820,
+      "html" : "<p>There are currently no dosing recommendations for methylphenidate based on COMT genotype.</p>\n",
+      "version" : 0
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1451695821,
+      "html" : "<h3 id=\"may-2021-guideline\">May 2021 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for mehtylphenidate based on COMT Val/Met genotypes (<a href=\"/variant/PA166156024\">rs4680</a>). They conclude that this is NOT a gene-drug interaction (see <a download=\"DPWG_May_2021.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_May_2021.pdf\">Dutch guidelines May 2021 update</a>).</p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0006433.PDF\" target=\"_blank\">Read for more information about this recommendation</a></p>\n",
+      "version" : 0
+    },
+    "userId" : "rachel",
+    "version" : 3
+  }
+}

@@ -332,7 +332,7 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public Collection<String> printDisplayFunctions() {
     if (!isReportable() || isAllelePresenceType()) {
-      return ImmutableList.of(NA);
+      return new ArrayList<>();
     }
     return m_reporterDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).collect(Collectors.toList());
   }

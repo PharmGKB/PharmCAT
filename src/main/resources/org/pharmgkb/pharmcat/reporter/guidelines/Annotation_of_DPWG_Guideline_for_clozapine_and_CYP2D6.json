@@ -1,0 +1,136 @@
+{
+  "citations" : [ {
+    "@id" : "https://pharmgkb.org/literature/7283333",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 7283333,
+    "title" : "Pharmacogenetics: from bench to byte--an update of guidelines.",
+    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
+    "authors" : [ "Swen J J", "Nijenhuis M", "de Boer A", "Grandia L", "Maitland-van der Zee A H", "Mulder H", "Rongen G A P J M", "van Schaik R H N", "Schalekamp T", "Touw D J", "van der Weide J", "Wilffert B", "Deneer V H M", "Guchelaar H-J" ],
+    "crossReferences" : [ {
+      "@id" : "https://pharmgkb.org/crossReference/pubMed/21412232",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 769250885,
+      "resource" : "PubMed",
+      "resourceId" : "21412232",
+      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
+      "version" : 0
+    }, {
+      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 1449247827,
+      "resource" : "DOI",
+      "resourceId" : "10.1038/clpt.2011.34",
+      "_url" : "http://dx.doi.org/10.1038%2Fclpt.2011.34",
+      "version" : 0
+    } ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ "Animals", "Aryl Hydrocarbon Hydroxylases", "Cytochrome P-450 CYP2C9", "Drug Administration Schedule", "Drug-Related Side Effects and Adverse Reactions", "Humans", "Pharmaceutical Preparations", "Pharmacogenetics", "Practice Guidelines as Topic" ],
+    "month" : 5,
+    "nonHuman" : false,
+    "objCls" : "Literature",
+    "page" : "662-73",
+    "pediatric" : false,
+    "pgkbPublication" : false,
+    "pubDate" : "2011-05-01T00:00:00-07:00",
+    "summary" : "Currently, there are very few guidelines linking the results of pharmacogenetic tests to specific therapeutic recommendations. Therefore, the Royal Dutch Association for the Advancement of Pharmacy established the Pharmacogenetics Working Group with the objective of developing pharmacogenetics-based therapeutic (dose) recommendations. After systematic review of the literature, recommendations were developed for 53 drugs associated with genes coding for CYP2D6, CYP2C19, CYP2C9, thiopurine-S-methyltransferase (TPMT), dihydropyrimidine dehydrogenase (DPD), vitamin K epoxide reductase (VKORC1), uridine diphosphate glucuronosyltransferase 1A1 (UGT1A1), HLA-B44, HLA-B*5701, CYP3A5, and factor V Leiden (FVL).",
+    "version" : 2,
+    "volume" : "89",
+    "year" : 2011
+  } ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104935",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166104935",
+    "name" : "Annotation of DPWG Guideline for clozapine and CYP2D6",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ ],
+    "hasTestingGuidance" : false,
+    "history" : [ {
+      "id" : 1183704459,
+      "date" : "2011-08-10T00:00:00-07:00",
+      "type" : "Create",
+      "version" : 0
+    }, {
+      "id" : 1450415016,
+      "date" : "2019-05-23T14:10:57.333-07:00",
+      "description" : "Annotation current with November 2018 DPWG Guideline release",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450820787,
+      "date" : "2019-10-06T22:58:39.539-07:00",
+      "description" : "No changes based on August 2019 guideline",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450956340,
+      "date" : "2020-01-31T13:23:30.342-08:00",
+      "description" : "Updated link to 2011 DPWG methods",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450962820,
+      "date" : "2020-02-10T11:05:37.269-08:00",
+      "description" : "Fixed links to 2018 guideline pdfs.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451695620,
+      "date" : "2022-02-25T09:37:26.794-08:00",
+      "description" : "Added DPWG May 2021 update to annotation.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704188,
+      "date" : "2022-03-03T16:33:24.233-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451732828,
+      "date" : "2022-03-28T09:57:37.926-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/7283333","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":7283333,"title":"Pharmacogenetics: from bench to byte--an update of guidelines.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/21412232","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/21412232","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":769250885,"resource":"PubMed","resourceId":"21412232","_url":"https://www.ncbi.nlm.nih.gov/pubmed/21412232"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1449247827,"resource":"DOI","resourceId":"10.1038/clpt.2011.34","_url":"http://dx.doi.org/10.1038%2Fclpt.2011.34"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : false,
+    "relatedAlleles" : [ ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA449061",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA449061",
+      "name" : "clozapine",
+      "version" : 8
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA128",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA128",
+      "symbol" : "CYP2D6",
+      "name" : "cytochrome P450 family 2 subfamily D member 6",
+      "version" : 7889
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1447981852,
+      "html" : "<p>There are currently no dosing recommendations for clozapine based on CYP2D6 genotypes.</p>\n",
+      "version" : 0
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1447981851,
+      "html" : "<h3 id=\"may-2021-update\">May 2021 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has updated their guideline on clozapine and CYP2D6 UM, IM and PM phenotypes. Although variation in CYP2D6 can affect the plasma concentration of clozapine, there are no clinical consequences to this change.</p>\n<p>As a result, no action is required for the interaction between CYP2D6 and clozapine (see <a download=\"DPWG_May_2021.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_May_2021.pdf\">Dutch guidelines May 2021 update</a>).</p>\n<h3 id=\"november-2018-update\">November 2018 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for clozapine based on CYP2D6 genotypes (UM, IM and PM). They conclude that this is NOT a gene-drug interaction (see <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>).</p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0001530.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"2011-guideline\">2011 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for clozapine based on CYP2D6 genotypes [Article:<a href=\"/pmid/21412232\">21412232</a>].  They conclude that there are no recommendations at this time.</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Phenotype (Genotype)</th>\n<th>Therapeutic Dose Recommendation</th>\n<th>Level of Evidence</th>\n<th>Clinical Relevance</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>PM (two inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) alleles)</td>\n<td>No recommendations.</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (not statistically significant difference).</td>\n</tr>\n<tr>\n<td>IM (two decreased-activity (*9, *10, *17, *29, *36, *41) alleles or carrying one active (*1, *2, *33, *35) and one inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) allele, or carrying one decreased-activity (*9, *10, *17, *29, *36, *41) allele and one inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) allele)</td>\n<td>No recommendations.</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (not statistically significant difference).</td>\n</tr>\n<tr>\n<td>UM (a gene duplication in absence of inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) or decreased-activity (*9, *10, *17, *29, *36, *41) alleles)</td>\n<td>No recommendations.</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (not statistically significant difference).</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>*See <a href=\"http://www.pharmgkb.org/page/dpwg\">Methods </a> or [Article:<a href=\"/pmid/18253145\">18253145</a>] for definition of &quot;good quality.&quot;</li>\n<li>Please see attached PDF for detailed information about the evaluated studies: <a download=\"clozapine_CYP2D6_271111.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/clozapine_CYP2D6_271111.pdf\">Clozapine CYP2D6 </a></li>\n</ul>\n",
+      "version" : 13
+    },
+    "userId" : "jmbarbarino",
+    "version" : 23
+  }
+}

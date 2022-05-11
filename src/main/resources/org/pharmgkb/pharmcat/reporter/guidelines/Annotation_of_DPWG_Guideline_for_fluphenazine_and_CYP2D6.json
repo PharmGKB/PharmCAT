@@ -1,0 +1,80 @@
+{
+  "citations" : [ ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182812",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166182812",
+    "name" : "Annotation of DPWG Guideline for fluphenazine and CYP2D6",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ ],
+    "hasTestingGuidance" : false,
+    "history" : [ {
+      "id" : 1450414971,
+      "date" : "2019-05-23T10:54:51.995-07:00",
+      "description" : "Annotation current with November 2018 DPWG Guideline release",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450820631,
+      "date" : "2019-10-03T10:24:55.098-07:00",
+      "description" : "No changes based on August 2019 guideline",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1450963502,
+      "date" : "2020-02-11T05:50:46.656-08:00",
+      "description" : "Fixed links to 2018 guideline pdfs.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451708740,
+      "date" : "2022-03-09T14:11:31.682-08:00",
+      "description" : "Added retirement text",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451732883,
+      "date" : "2022-03-28T09:57:47.909-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : false,
+    "relatedAlleles" : [ ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA449676",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA449676",
+      "name" : "fluphenazine",
+      "version" : 6
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA128",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA128",
+      "symbol" : "CYP2D6",
+      "name" : "cytochrome P450 family 2 subfamily D member 6",
+      "version" : 7889
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1450414958,
+      "html" : "<p>This guideline no longer appears in the DPWG guideline document. As a result, this annotation has been retired by PharmGKB.</p>\n",
+      "version" : 1
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1450414959,
+      "html" : "<h3 id=\"march-2022\">March 2022</h3>\n<p><strong>This annotation was retired by PharmGKB as the guideline itself has been removed from the DPWG guideline document</strong></p>\n<h3 id=\"november-2018-guideline\">November 2018 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for fluphenazine based on CYP2D6 genotypes (UM, IM and PM). They conclude that this is NOT a gene-drug interaction. Despite the fact that the SmPC for fluphenazine lists CYP2D6 as the metabolising enzyme, this cannot be substantiated by the available literature.</p>\n<p>See the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0002450.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
+      "version" : 3
+    },
+    "userId" : "cfthorn",
+    "version" : 6
+  }
+}

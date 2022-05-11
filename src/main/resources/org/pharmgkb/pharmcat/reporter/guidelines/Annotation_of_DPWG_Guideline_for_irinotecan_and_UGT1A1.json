@@ -1,0 +1,1312 @@
+{
+  "annotationGroups" : [ {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166248461",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166248461",
+    "name" : "Normal metabolizer",
+    "genePhenotypes" : [ "UGT1A1:Increased function/Increased function", "UGT1A1:Increased function/Normal function", "UGT1A1:Normal function/Normal function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104951",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166104951",
+      "name" : "Annotation of DPWG Guideline for irinotecan and UGT1A1",
+      "version" : 29
+    },
+    "implications" : {
+      "id" : 1451493002,
+      "html" : "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on irinotecan.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451493003,
+      "html" : "<p>Normal Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451493004,
+      "html" : "<p>The guideline does not provide a recommendation for irinotecan in normal metabolizers</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166248503",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166248503",
+    "name" : "Poor metabolizer (other than *28/*28)",
+    "genePhenotypes" : [ "UGT1A1:Decreased function (UGT1A1*28)/No function", "UGT1A1:Decreased function/Decreased function", "UGT1A1:Decreased function/Decreased function (UGT1A1*28)", "UGT1A1:Decreased function/No function", "UGT1A1:No function/No function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104951",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166104951",
+      "name" : "Annotation of DPWG Guideline for irinotecan and UGT1A1",
+      "version" : 29
+    },
+    "implications" : {
+      "id" : 1451493129,
+      "html" : "<p>Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451493130,
+      "html" : "<p>Poor Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451493131,
+      "html" : "<p>Start with 70% of the standard dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166248481",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166248481",
+    "name" : "Intermediate metabolizer (with *28)",
+    "genePhenotypes" : [ "UGT1A1:Decreased function (UGT1A1*28)/Increased function", "UGT1A1:Decreased function (UGT1A1*28)/Normal function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104951",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166104951",
+      "name" : "Annotation of DPWG Guideline for irinotecan and UGT1A1",
+      "version" : 29
+    },
+    "implications" : {
+      "id" : 1451493160,
+      "html" : "<p>This genetic variation (*1/*28) is more common in Western populations than the wild-type (*1/*1). This means that treatment is largely geared to patients with this genetic variation. Adjustment of the treatment is therefore not useful.</p>\n<p><em>Note that DPWG considers the *36 allele to be clinically equivalent to the *1 allele.</em></p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451493161,
+      "html" : "<p>Intermediate Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451493162,
+      "html" : "<p>NO action is needed for this gene-drug interaction.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166248502",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166248502",
+    "name" : "Poor metabolizer (*28/*28)",
+    "genePhenotypes" : [ "UGT1A1:Decreased function (UGT1A1*28)/Decreased function (UGT1A1*28)" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104951",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166104951",
+      "name" : "Annotation of DPWG Guideline for irinotecan and UGT1A1",
+      "version" : 29
+    },
+    "implications" : {
+      "id" : 1451493126,
+      "html" : "<p>Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451493127,
+      "html" : "<p>Poor Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451493128,
+      "html" : "<p>Start with 70% of the standard dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166248501",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166248501",
+    "name" : "Intermediate metabolizer (no *28)",
+    "genePhenotypes" : [ "UGT1A1:Decreased function/Increased function", "UGT1A1:Decreased function/Normal function", "UGT1A1:Increased function/No function", "UGT1A1:No function/Normal function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104951",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166104951",
+      "name" : "Annotation of DPWG Guideline for irinotecan and UGT1A1",
+      "version" : 29
+    },
+    "implications" : {
+      "id" : 1451493123,
+      "html" : "<p>This genetic variation (IM) is more common in Western populations than the wild-type (*1/*1). This means that treatment is largely geared to patients with this genetic variation. Adjustment of the treatment is therefore not useful.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451493124,
+      "html" : "<p>Intermediate metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451493125,
+      "html" : "<p>NO action is needed for this gene-drug interaction.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  } ],
+  "citations" : [ {
+    "@id" : "https://pharmgkb.org/literature/7283333",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 7283333,
+    "title" : "Pharmacogenetics: from bench to byte--an update of guidelines.",
+    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
+    "authors" : [ "Swen J J", "Nijenhuis M", "de Boer A", "Grandia L", "Maitland-van der Zee A H", "Mulder H", "Rongen G A P J M", "van Schaik R H N", "Schalekamp T", "Touw D J", "van der Weide J", "Wilffert B", "Deneer V H M", "Guchelaar H-J" ],
+    "crossReferences" : [ {
+      "@id" : "https://pharmgkb.org/crossReference/pubMed/21412232",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 769250885,
+      "resource" : "PubMed",
+      "resourceId" : "21412232",
+      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
+      "version" : 0
+    }, {
+      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 1449247827,
+      "resource" : "DOI",
+      "resourceId" : "10.1038/clpt.2011.34",
+      "_url" : "http://dx.doi.org/10.1038%2Fclpt.2011.34",
+      "version" : 0
+    } ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ "Animals", "Aryl Hydrocarbon Hydroxylases", "Cytochrome P-450 CYP2C9", "Drug Administration Schedule", "Drug-Related Side Effects and Adverse Reactions", "Humans", "Pharmaceutical Preparations", "Pharmacogenetics", "Practice Guidelines as Topic" ],
+    "month" : 5,
+    "nonHuman" : false,
+    "objCls" : "Literature",
+    "page" : "662-73",
+    "pediatric" : false,
+    "pgkbPublication" : false,
+    "pubDate" : "2011-05-01T00:00:00-07:00",
+    "summary" : "Currently, there are very few guidelines linking the results of pharmacogenetic tests to specific therapeutic recommendations. Therefore, the Royal Dutch Association for the Advancement of Pharmacy established the Pharmacogenetics Working Group with the objective of developing pharmacogenetics-based therapeutic (dose) recommendations. After systematic review of the literature, recommendations were developed for 53 drugs associated with genes coding for CYP2D6, CYP2C19, CYP2C9, thiopurine-S-methyltransferase (TPMT), dihydropyrimidine dehydrogenase (DPD), vitamin K epoxide reductase (VKORC1), uridine diphosphate glucuronosyltransferase 1A1 (UGT1A1), HLA-B44, HLA-B*5701, CYP3A5, and factor V Leiden (FVL).",
+    "version" : 2,
+    "volume" : "89",
+    "year" : 2011
+  } ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104951",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166104951",
+    "name" : "Annotation of DPWG Guideline for irinotecan and UGT1A1",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ {
+      "id" : 1451493020,
+      "alleles" : [ {
+        "id" : 1451493060,
+        "_label" : "*1",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558335,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Normal function",
+          "termId" : "haplotypeTags:1445558335",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166115841",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166115841",
+          "symbol" : "UGT1A1*1",
+          "name" : "*1",
+          "version" : 14
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493032,
+        "_label" : "*2",
+        "allele" : "*2",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493033,
+        "_label" : "*3",
+        "allele" : "*3",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493062,
+        "_label" : "*4",
+        "allele" : "*4",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493042,
+        "_label" : "*5",
+        "allele" : "*5",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493023,
+        "_label" : "*6",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166115858",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166115858",
+          "symbol" : "UGT1A1*6",
+          "name" : "*6",
+          "version" : 12
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493025,
+        "_label" : "*7",
+        "allele" : "*7",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493026,
+        "_label" : "*8",
+        "allele" : "*8",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493027,
+        "_label" : "*9",
+        "allele" : "*9",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493063,
+        "_label" : "*10",
+        "allele" : "*10",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493001,
+        "_label" : "*11",
+        "allele" : "*11",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493080,
+        "_label" : "*12",
+        "allele" : "*12",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493034,
+        "_label" : "*13",
+        "allele" : "*13",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493035,
+        "_label" : "*14",
+        "allele" : "*14",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493064,
+        "_label" : "*15",
+        "allele" : "*15",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493036,
+        "_label" : "*16",
+        "allele" : "*16",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493065,
+        "_label" : "*17",
+        "allele" : "*17",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493037,
+        "_label" : "*18",
+        "allele" : "*18",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493038,
+        "_label" : "*19",
+        "allele" : "*19",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493066,
+        "_label" : "*20",
+        "allele" : "*20",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493081,
+        "_label" : "*21",
+        "allele" : "*21",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493067,
+        "_label" : "*22",
+        "allele" : "*22",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493068,
+        "_label" : "*23",
+        "allele" : "*23",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493082,
+        "_label" : "*24",
+        "allele" : "*24",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493069,
+        "_label" : "*25",
+        "allele" : "*25",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493039,
+        "_label" : "*26",
+        "allele" : "*26",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493024,
+        "_label" : "*27",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166115865",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166115865",
+          "symbol" : "UGT1A1*27",
+          "name" : "*27",
+          "version" : 11
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493040,
+        "_label" : "*28",
+        "allele" : "*28",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451493000",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1451493000,
+          "description" : "for extended dosing guidelines on DPWG UGT1A1 guideline annotations",
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function (UGT1A1*28)",
+          "termId" : "alleleFunction:1451493000",
+          "version" : 0
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493041,
+        "_label" : "*29",
+        "allele" : "*29",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493028,
+        "_label" : "*30",
+        "allele" : "*30",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493070,
+        "_label" : "*31",
+        "allele" : "*31",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493029,
+        "_label" : "*32",
+        "allele" : "*32",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493061,
+        "_label" : "*33",
+        "allele" : "*33",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493030,
+        "_label" : "*34",
+        "allele" : "*34",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493031,
+        "_label" : "*35",
+        "allele" : "*35",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493021,
+        "_label" : "*36",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558332",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558332,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Increased function",
+          "termId" : "haplotypeTags:1445558332",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166115843",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166115843",
+          "symbol" : "UGT1A1*36",
+          "name" : "*36",
+          "version" : 14
+        },
+        "version" : 0
+      }, {
+        "id" : 1451493022,
+        "_label" : "*37",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166115844",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166115844",
+          "symbol" : "UGT1A1*37",
+          "name" : "*37",
+          "version" : 14
+        },
+        "version" : 0
+      } ],
+      "gene" : {
+        "@id" : "https://pharmgkb.org/gene/PA420",
+        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+        "objCls" : "Gene",
+        "id" : "PA420",
+        "symbol" : "UGT1A1",
+        "name" : "UDP glucuronosyltransferase 1 family, polypeptide A1",
+        "alleleFile" : "UGT1A1_allele_definition_table.xlsx",
+        "altNames" : {
+          "symbol" : [ "UGT1A" ]
+        },
+        "buildVersion" : "GRCh38",
+        "cbStart" : "q37.1",
+        "cbStop" : "q37.1",
+        "chr" : {
+          "@id" : "https://pharmgkb.org/chromosome/PA523",
+          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
+          "objCls" : "Chromosome",
+          "id" : "PA523",
+          "name" : "chr2",
+          "version" : 3
+        },
+        "chrStartPosB37" : 234668916,
+        "chrStartPosB38" : 233760270,
+        "chrStopPosB37" : 234681946,
+        "chrStopPosB38" : 233773300,
+        "cpicGene" : true,
+        "crossReferences" : [ {
+          "@id" : "https://pharmgkb.org/crossReference/alfred/LO000317L",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 124544869,
+          "resource" : "ALFRED",
+          "resourceId" : "LO000317L",
+          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO000317L",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ctd/54658",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 553243129,
+          "resource" : "Comparative Toxicogenomics Database",
+          "resourceId" : "54658",
+          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=54658",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000241635",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608140457,
+          "resource" : "Ensembl",
+          "resourceId" : "ENSG00000241635",
+          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000241635",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/genAtlas/UGT1A1",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 84499,
+          "resource" : "GenAtlas",
+          "resourceId" : "UGT1A1",
+          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=UGT1A1",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/geneCard/UGT1A1",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 99427,
+          "resource" : "GeneCard",
+          "resourceId" : "UGT1A1",
+          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=UGT1A1",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005783",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34654,
+          "resource" : "GO",
+          "resourceId" : "GO:0005783",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005783",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005792",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 35016,
+          "resource" : "GO",
+          "resourceId" : "GO:0005792",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005792",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006789",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62329356,
+          "resource" : "GO",
+          "resourceId" : "GO:0006789",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006789",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0007586",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34736,
+          "resource" : "GO",
+          "resourceId" : "GO:0007586",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0007586",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0008152",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 35211,
+          "resource" : "GO",
+          "resourceId" : "GO:0008152",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0008152",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0008210",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 35218,
+          "resource" : "GO",
+          "resourceId" : "GO:0008210",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0008210",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0015020",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 36160,
+          "resource" : "GO",
+          "resourceId" : "GO:0015020",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0015020",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34795,
+          "resource" : "GO",
+          "resourceId" : "GO:0016020",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016021",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34796,
+          "resource" : "GO",
+          "resourceId" : "GO:0016021",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016021",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:12530",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608140455,
+          "resource" : "HGNC",
+          "resourceId" : "HGNC:12530",
+          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A12530",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P22309",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560883392,
+          "resource" : "ModBase",
+          "resourceId" : "P22309",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P22309",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/mutDb/UGT1A1",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 467037,
+          "resource" : "MutDB",
+          "resourceId" : "UGT1A1",
+          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=UGT1A1",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/entrezGene/54658",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 17547,
+          "resource" : "NCBI Gene",
+          "resourceId" : "54658",
+          "_url" : "https://www.ncbi.nlm.nih.gov/gene/54658",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/143500",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560530563,
+          "resource" : "OMIM",
+          "resourceId" : "143500",
+          "_url" : "http://omim.org/entry/143500",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/191740",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 2572,
+          "resource" : "OMIM",
+          "resourceId" : "191740",
+          "_url" : "http://omim.org/entry/191740",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/218800",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560530562,
+          "resource" : "OMIM",
+          "resourceId" : "218800",
+          "_url" : "http://omim.org/entry/218800",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/237900",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560530565,
+          "resource" : "OMIM",
+          "resourceId" : "237900",
+          "_url" : "http://omim.org/entry/237900",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/601816",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608140456,
+          "resource" : "OMIM",
+          "resourceId" : "601816",
+          "_url" : "http://omim.org/entry/601816",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/606785",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560530564,
+          "resource" : "OMIM",
+          "resourceId" : "606785",
+          "_url" : "http://omim.org/entry/606785",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_002601.2",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 1451154302,
+          "name" : "NG_002601.2",
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NG_002601.2",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_002601.2",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_000454",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 37628,
+          "resource" : "RefSeq Protein",
+          "resourceId" : "NP_000454",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_000454",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_000463",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 46703,
+          "resource" : "RefSeq RNA",
+          "resourceId" : "NM_000463",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_000463",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_000463",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 122020,
+          "resource" : "UCSC Genome Browser",
+          "resourceId" : "NM_000463",
+          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000463",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/P22309",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62329337,
+          "name" : "UD11_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "P22309",
+          "_url" : "http://www.uniprot.org/uniprot/P22309",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q5DT03",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608140458,
+          "name" : "Q5DT03_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "Q5DT03",
+          "_url" : "http://www.uniprot.org/uniprot/Q5DT03",
+          "version" : 1
+        } ],
+        "hasNonStandardHaplotypes" : false,
+        "hideHaplotypes" : false,
+        "pharmVarGene" : false,
+        "strand" : "plus",
+        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0001889","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496649,"_url":"http://amigo.geneontology.org/amigo/term/GO:0001889","resource":"Gene Ontology","term":"liver development","termId":"GO:0001889"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0001972","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496785,"_url":"http://amigo.geneontology.org/amigo/term/GO:0001972","resource":"Gene Ontology","term":"retinoic acid binding","termId":"GO:0001972"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004857","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499243,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004857","resource":"Gene Ontology","term":"enzyme inhibitor activity","termId":"GO:0004857"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005496","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499828,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005496","resource":"Gene Ontology","term":"steroid binding","termId":"GO:0005496"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005783","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500134,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005783","resource":"Gene Ontology","term":"endoplasmic reticulum","termId":"GO:0005783"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500141,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005789","resource":"Gene Ontology","term":"endoplasmic reticulum membrane","termId":"GO:0005789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005792","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500144,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005792","resource":"Gene Ontology","term":"microsome","termId":"GO:0005792"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501435,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006789","resource":"Gene Ontology","term":"bilirubin conjugation","termId":"GO:0006789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006805","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501453,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006805","resource":"Gene Ontology","term":"xenobiotic metabolic process","termId":"GO:0006805"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0007584","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560502337,"_url":"http://amigo.geneontology.org/amigo/term/GO:0007584","resource":"Gene Ontology","term":"response to nutrient","termId":"GO:0007584"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0007586","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560502340,"_url":"http://amigo.geneontology.org/amigo/term/GO:0007586","resource":"Gene Ontology","term":"digestion","termId":"GO:0007586"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008152","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501456,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008152","resource":"Gene Ontology","term":"metabolic process","termId":"GO:0008152"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008202","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501294,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008202","resource":"Gene Ontology","term":"steroid metabolic process","termId":"GO:0008202"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008210","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501314,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008210","resource":"Gene Ontology","term":"estrogen metabolic process","termId":"GO:0008210"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009812","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504171,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009812","resource":"Gene Ontology","term":"flavonoid metabolic process","termId":"GO:0009812"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0015020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560505797,"_url":"http://amigo.geneontology.org/amigo/term/GO:0015020","resource":"Gene Ontology","term":"glucuronosyltransferase activity","termId":"GO:0015020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016021","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016021","resource":"Gene Ontology","term":"integral to membrane","termId":"GO:0016021"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0017144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560507281,"_url":"http://amigo.geneontology.org/amigo/term/GO:0017144","resource":"Gene Ontology","term":"drug metabolic process","termId":"GO:0017144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0018879","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560508309,"_url":"http://amigo.geneontology.org/amigo/term/GO:0018879","resource":"Gene Ontology","term":"biphenyl metabolic process","termId":"GO:0018879"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019899","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496866,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019899","resource":"Gene Ontology","term":"enzyme binding","termId":"GO:0019899"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0032496","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560512358,"_url":"http://amigo.geneontology.org/amigo/term/GO:0032496","resource":"Gene Ontology","term":"response to lipopolysaccharide","termId":"GO:0032496"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042493","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515491,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042493","resource":"Gene Ontology","term":"response to drug","termId":"GO:0042493"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042573","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509788,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042573","resource":"Gene Ontology","term":"retinoic acid metabolic process","termId":"GO:0042573"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042594","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503590,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042594","resource":"Gene Ontology","term":"response to starvation","termId":"GO:0042594"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042803","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560513251,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042803","resource":"Gene Ontology","term":"protein homodimerization activity","termId":"GO:0042803"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0045471","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560517245,"_url":"http://amigo.geneontology.org/amigo/term/GO:0045471","resource":"Gene Ontology","term":"response to ethanol","termId":"GO:0045471"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0045939","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560505413,"_url":"http://amigo.geneontology.org/amigo/term/GO:0045939","resource":"Gene Ontology","term":"negative regulation of steroid metabolic process","termId":"GO:0045939"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046483","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495388,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046483","resource":"Gene Ontology","term":"heterocycle metabolic process","termId":"GO:0046483"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046982","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560518296,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046982","resource":"Gene Ontology","term":"protein heterodimerization activity","termId":"GO:0046982"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0048545","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560511834,"_url":"http://amigo.geneontology.org/amigo/term/GO:0048545","resource":"Gene Ontology","term":"response to steroid hormone stimulus","termId":"GO:0048545"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0051384","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560516196,"_url":"http://amigo.geneontology.org/amigo/term/GO:0051384","resource":"Gene Ontology","term":"response to glucocorticoid stimulus","termId":"GO:0051384"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0051552","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560513368,"_url":"http://amigo.geneontology.org/amigo/term/GO:0051552","resource":"Gene Ontology","term":"flavone metabolic process","termId":"GO:0051552"} ],
+        "version" : 6110
+      },
+      "version" : 0
+    } ],
+    "hasTestingGuidance" : true,
+    "history" : [ {
+      "id" : 1183704491,
+      "date" : "2011-08-10T00:00:00-07:00",
+      "type" : "Create",
+      "version" : 0
+    }, {
+      "id" : 1450414915,
+      "date" : "2019-05-23T06:43:59.845-07:00",
+      "description" : "Annotation current with November 2018 DPWG Guideline release",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450820671,
+      "date" : "2019-10-03T15:43:15.918-07:00",
+      "description" : "No changes based on August 2019 guideline",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1450956385,
+      "date" : "2020-01-31T13:36:54.782-08:00",
+      "description" : "Updated link to 2011 DPWG methods",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450963582,
+      "date" : "2020-02-11T06:20:47.778-08:00",
+      "description" : "Fixed links to 2018 guideline pdfs.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451493440,
+      "date" : "2021-09-09T00:00:00-07:00",
+      "description" : "Added extended dosing guideline",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451699902,
+      "date" : "2022-03-01T13:19:14.162-08:00",
+      "description" : "Updated names of IM and PM groups and added footnote and explanation.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704199,
+      "date" : "2022-03-03T16:33:26.229-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451707046,
+      "date" : "2022-03-08T08:58:07.988-08:00",
+      "description" : "Added information about preemptive genotyping",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451732839,
+      "date" : "2022-03-28T09:57:39.828-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451733340,
+      "date" : "2022-03-28T14:46:42.642-07:00",
+      "description" : "Updated link to testing guidance page",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451741476,
+      "date" : "2022-04-05T11:14:59.524-07:00",
+      "description" : "Added testing guidance tag",
+      "type" : "Update",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/7283333","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":7283333,"title":"Pharmacogenetics: from bench to byte--an update of guidelines.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/21412232","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/21412232","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":769250885,"resource":"PubMed","resourceId":"21412232","_url":"https://www.ncbi.nlm.nih.gov/pubmed/21412232"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1449247827,"resource":"DOI","resourceId":"10.1038/clpt.2011.34","_url":"http://dx.doi.org/10.1038%2Fclpt.2011.34"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : true,
+    "relatedAlleles" : [ {
+      "@id" : "https://pharmgkb.org/haplotype/PA166115842",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA166115842",
+      "symbol" : "UGT1A1*28",
+      "name" : "*28",
+      "version" : 14
+    } ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA450085",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA450085",
+      "name" : "irinotecan",
+      "version" : 15
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA420",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA420",
+      "symbol" : "UGT1A1",
+      "name" : "UDP glucuronosyltransferase 1 family, polypeptide A1",
+      "version" : 6110
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1447981882,
+      "html" : "<p>Dose reductions are recommended for irinotecan for patients who are UGT1A1 *28/*28 or UGT1A1 PM, starting with 70% of starting dose and increasing as tolerated, guided by neutrophil count.</p>\n",
+      "version" : 1
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1447981881,
+      "html" : "<h3 id=\"may-2021-update\">May 2021 update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has made some minor changes to the names of some phenotype groups in this guideline. The table below has been updated to reflect this but the recommendations themselves have not changed.</p>\n<h3 id=\"november-2018-update\">November 2018 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for irinotecan based on UGT1A1 genotype.  They recommend reducing the initial dose for patients who are poor metabolizers or homozygotes for UGT1A1*28.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>UGT1A1 *1/*28</td>\n<td>irinotecan</td>\n<td>This genetic variation (*1/*28) is more common in Western populations than the wild-type (*1/*1). This means that treatment is largely geared to patients with this genetic variation. Adjustment of the treatment is therefore not useful.</td>\n<td>NO action is needed for this gene-drug interaction</td>\n</tr>\n<tr>\n<td>UGT1A1 *28/*28</td>\n<td>irinotecan</td>\n<td>Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites.</td>\n<td>Start with 70% of the standard dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</td>\n</tr>\n<tr>\n<td>UGT1A1 IM other<sup>a</sup></td>\n<td>irinotecan</td>\n<td>This genetic variation (IM) is more common in Western populations than the wild-type (*1/*1). This means that treatment is largely geared to patients with this genetic variation. Adjustment of the treatment is therefore not useful.</td>\n<td>NO action is needed for this gene-drug interaction.</td>\n</tr>\n<tr>\n<td>UGT1A1 PM other<sup>a</sup></td>\n<td>irinotecan</td>\n<td>Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites.</td>\n<td>Start with 70% of the standard dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</td>\n</tr>\n</tbody>\n</table>\n<p><sup>a</sup> These groups are referred to in the DPWG recommendation PDF as 'IM ANDERS' and 'PM ANDERS', which use the Dutch word 'anders'. PharmGKB has translated these as 'IM other' and PM other', respectively.</p>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0001691.PDF\" target=\"_blank\">DPWG risk analysis document</a> for irinotecan and UGT1A1:</p>\n<blockquote class=\"blockquote\">\n<p>The KNMP Pharmacogenetics Working Group considers genotyping before starting irinotecan to be essential for drug safety. Genotyping must be performed before drug therapy has been initiated to guide drug and dose selection.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0001693.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"2011-guideline\">2011 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for irinotecan based on UGT1A1 genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].  They recommend reducing the dose for *28 homozygous patients receiving more than 250 mg/m<sup>2</sup>.</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Phenotype (Genotype)</th>\n<th>Therapeutic Dose Recommendation</th>\n<th>Level of Evidence</th>\n<th>Clinical Relevance</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>*1/*28</td>\n<td>None.</td>\n<td>Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints..</td>\n<td>Clinical effect (S): death; arrhythmia; unanticipated myelosuppression.</td>\n</tr>\n<tr>\n<td>*28/*28</td>\n<td>Dose &gt;250mg/m<sup>2</sup>: reduce initial dose by 30%. Increase dose in response to neutrophil count.  Dose &lt;=250mg/m<sup>2</sup>: no dose adjustment.</td>\n<td>Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): Failure of lifesaving therapy e.g. anticipated myelosuppression; prevention of breast cancer relapse; arrhythmia; neutropenia &lt; 0.5x10<sup>9</sup>/l; leucopenia &lt; 1.0x10<sup>9</sup>/l; thrombocytopenia &lt; 25x10<sup>9</sup>/l; life-threatening complications from diarrhea.</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>*See <a href=\"http://www.pharmgkb.org/page/dpwg\">Methods </a> or [Article:<a href=\"/pmid/18253145\">18253145</a>] for definition of &quot;moderate&quot; quality.</li>\n</ul>\n",
+      "version" : 16
+    },
+    "userId" : "alie",
+    "version" : 29
+  }
+}

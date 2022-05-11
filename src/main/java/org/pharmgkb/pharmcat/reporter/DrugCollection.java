@@ -42,8 +42,6 @@ public class DrugCollection implements Iterable<Drug> {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final String CPIC_FILE_NAME = "drugs.json";
   private static final String CPIC_URL = "https://files.cpicpgx.org/data/report/current/drugs.json";
-  private static final String DPWG_FILE_NAME = "drugsDpwg.json";
-  private static final String DPWG_URL = "https://api.pharmgkb.org/v1/pharmcat/guideline/dpwg";
   private static final Type DRUG_LIST_TYPE = new TypeToken<ArrayList<Drug>>(){}.getType();
   private static final Gson GSON = new GsonBuilder()
       .serializeNulls()
@@ -63,13 +61,6 @@ public class DrugCollection implements Iterable<Drug> {
       }
       addDrugsFromStream(inputStream, DataSource.CPIC);
     }
-
-    try (InputStream inputStream = getClass().getResourceAsStream(DPWG_FILE_NAME)) {
-      if (inputStream == null) {
-        throw new RuntimeException("DPWG Drug definition file not found");
-      }
-      addDrugsFromStream(inputStream, DataSource.DPWG);
-    }
   }
 
   public static DrugCollection download(Path saveDir) throws Exception {
@@ -79,20 +70,10 @@ public class DrugCollection implements Iterable<Drug> {
         cpicDrugsFilePath.toFile());
     sf_logger.info("Saving CPIC drugs to " + cpicDrugsFilePath);
 
-    Path dpwgDrugsFilePath = saveDir.resolve(DPWG_FILE_NAME);
-    FileUtils.copyURLToFile(
-        new URL(DPWG_URL),
-        dpwgDrugsFilePath.toFile());
-    sf_logger.info("Saving DPWG drugs to " + dpwgDrugsFilePath);
-
     try (
-        InputStream cpicStream = Files.newInputStream(cpicDrugsFilePath);
-        InputStream dpwgStream = Files.newInputStream(dpwgDrugsFilePath)
+        InputStream cpicStream = Files.newInputStream(cpicDrugsFilePath)
     ) {
-      DrugCollection newDrugCollection = new DrugCollection(cpicStream, DataSource.CPIC);
-      newDrugCollection.addDrugsFromStream(dpwgStream, DataSource.DPWG);
-
-      return newDrugCollection;
+      return new DrugCollection(cpicStream, DataSource.CPIC);
     }
   }
 
@@ -134,8 +115,6 @@ public class DrugCollection implements Iterable<Drug> {
 
   // A drug is ignored if it associated with ANY ignored gene.
   private static final Predicate<Drug> sf_filterIgnoredGenes = (drug) -> drug.getGenes().stream().noneMatch(GeneReport::isIgnored);
-  public static final Predicate<Drug> ONLY_CPIC = (drug) -> drug.getSource() == DataSource.CPIC;
-  public static final Predicate<Drug> ONLY_DPWG = (drug) -> drug.getSource() == DataSource.DPWG;
 
   public int size() {
     return m_drugList.size();

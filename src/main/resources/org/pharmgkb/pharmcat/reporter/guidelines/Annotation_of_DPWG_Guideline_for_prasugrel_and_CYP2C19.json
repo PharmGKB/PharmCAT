@@ -1,0 +1,82 @@
+{
+  "citations" : [ ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182820",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166182820",
+    "name" : "Annotation of DPWG Guideline for prasugrel and CYP2C19",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "descriptiveVideoId" : "",
+    "guidelineGenes" : [ ],
+    "hasTestingGuidance" : false,
+    "history" : [ {
+      "id" : 1450415045,
+      "date" : "2019-05-23T15:07:53.320-07:00",
+      "description" : "Annotation current with November 2018 DPWG Guideline release",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450821026,
+      "date" : "2019-10-07T18:20:13.348-07:00",
+      "description" : "No changes based on August 2019 guideline",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450963820,
+      "date" : "2020-02-11T07:36:09.709-08:00",
+      "description" : "Fixed links to 2018 guideline pdfs.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704178,
+      "date" : "2022-03-03T16:33:22.485-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451732818,
+      "date" : "2022-03-28T09:57:36.150-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : false,
+    "relatedAlleles" : [ ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA154410481",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA154410481",
+      "name" : "prasugrel",
+      "version" : 5
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA124",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA124",
+      "symbol" : "CYP2C19",
+      "name" : "cytochrome P450 family 2 subfamily C member 19",
+      "version" : 7209
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1450415042,
+      "html" : "<p>There are currently no dosing recommendations for prasugrel based on CYP2C19 genotypes.</p>\n",
+      "version" : 0
+    },
+    "summaryVideoId" : "",
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1450415043,
+      "html" : "<h3 id=\"november-2018-guideline\">November 2018 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for prasugrel based on CYP2C19 genotypes. They conclude that there is not a gene-drug interaction. <em>See the <a href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</em></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0002546.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
+      "version" : 2
+    },
+    "userId" : "jmbarbarino",
+    "version" : 5
+  }
+}

@@ -1,0 +1,1055 @@
+{
+  "annotationGroups" : [ {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244001",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166244001",
+    "name" : "*3/*3",
+    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*3)/Decreased function (CYP2C9*3)" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166211021",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166211021",
+      "name" : "Annotation of DPWG Guideline for siponimod and CYP2C9",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451445340,
+      "html" : "<p>Siponimod is contraindicated in patients with this genetic variation. Theoretically, the risk of adverse effects is greatly increased, as the genetic variation results in much higher plasma concentrations of siponimod.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451445341,
+      "html" : "<p>Poor Metabolizer</p>\n",
+      "version" : 0
+    },
+    "phenotype" : {
+      "id" : 1451445342,
+      "html" : "<p><em>CYP2C9*3/*3</em> genotype</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451445343,
+      "html" : "<p>Avoid siponimod.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243961",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166243961",
+    "name" : "Poor Metabolizer",
+    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*2)/No function", "CYP2C9:Decreased function (CYP2C9*3)/No function", "CYP2C9:Decreased function/Decreased function", "CYP2C9:Decreased function/Decreased function (CYP2C9*2)", "CYP2C9:Decreased function/Decreased function (CYP2C9*3)", "CYP2C9:Decreased function/No function", "CYP2C9:No function/No function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166211021",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166211021",
+      "name" : "Annotation of DPWG Guideline for siponimod and CYP2C9",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451445302,
+      "html" : "<p>Siponimod is contraindicated in patients with the comparable genetic variation *3/*3. Theoretically, the risk of adverse effects is greatly increased, as the genetic variation results in much higher plasma concentrations of siponimod.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451445303,
+      "html" : "<p>Poor Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451445304,
+      "html" : "<p>Avoid siponimod.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243963",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166243963",
+    "name" : "*1/*3",
+    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*3)/Normal function (CYP2C9*1)" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166211021",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166211021",
+      "name" : "Annotation of DPWG Guideline for siponimod and CYP2C9",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451445309,
+      "html" : "<p>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451445310,
+      "html" : "<p>Intermediate Metabolizer</p>\n",
+      "version" : 0
+    },
+    "phenotype" : {
+      "id" : 1451445311,
+      "html" : "<p><em>CYP2C9*1/*3</em> genotype</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451445312,
+      "html" : "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For this genetic variation, a moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243982",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166243982",
+    "name" : "*2/*3",
+    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*2)/Decreased function (CYP2C9*3)" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166211021",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166211021",
+      "name" : "Annotation of DPWG Guideline for siponimod and CYP2C9",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451445324,
+      "html" : "<p>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451445325,
+      "html" : "<p>Poor Metabolizer</p>\n",
+      "version" : 0
+    },
+    "phenotype" : {
+      "id" : 1451445326,
+      "html" : "<p><em>CYP2C9*2/*3</em> genotype</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451445327,
+      "html" : "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For this genetic variation, a moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243941",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166243941",
+    "name" : "Intermediate Metabolizer",
+    "genePhenotypes" : [ "CYP2C9:Decreased function/Normal function (CYP2C9*1)", "CYP2C9:No function/Normal function (CYP2C9*1)" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166211021",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166211021",
+      "name" : "Annotation of DPWG Guideline for siponimod and CYP2C9",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451445244,
+      "html" : "<p>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451445245,
+      "html" : "<p>Intermediate Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451445246,
+      "html" : "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For the comparable genetic variation *1/*3, the moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243962",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166243962",
+    "name" : "*1/*2",
+    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*2)/Normal function (CYP2C9*1)" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166211021",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166211021",
+      "name" : "Annotation of DPWG Guideline for siponimod and CYP2C9",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451445305,
+      "html" : "<p>The genetic variation can slightly increase the exposure to siponimod. However, the effect is too small to expect any impact on efficacy or adverse effects.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451445306,
+      "html" : "<p>Intermediate Metabolizer</p>\n",
+      "version" : 0
+    },
+    "phenotype" : {
+      "id" : 1451445307,
+      "html" : "<p><em>CYP2C9*1/*2</em> genotype</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451445308,
+      "html" : "<p>NO action is required for this gene-drug interaction.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243942",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166243942",
+    "name" : "Normal Metabolizer",
+    "genePhenotypes" : [ "CYP2C9:Normal function (CYP2C9*1)/Normal function (CYP2C9*1)" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166211021",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166211021",
+      "name" : "Annotation of DPWG Guideline for siponimod and CYP2C9",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451445247,
+      "html" : "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on siponimod.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451445248,
+      "html" : "<p>Normal Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451445249,
+      "html" : "<p>The guideline does not provide a recommendation for siponimod in normal metabolizers.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243981",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166243981",
+    "name" : "*2/*2",
+    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*2)/Decreased function (CYP2C9*2)" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166211021",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166211021",
+      "name" : "Annotation of DPWG Guideline for siponimod and CYP2C9",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451445320,
+      "html" : "<p>The genetic variation can slightly increase the exposure to siponimod. However, the effect is too small to expect any impact on efficacy or adverse effects.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451445321,
+      "html" : "<p>Poor Metabolizer</p>\n",
+      "version" : 0
+    },
+    "phenotype" : {
+      "id" : 1451445322,
+      "html" : "<p><em>CYP2C9*2/*2</em> genotype</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451445323,
+      "html" : "<p>NO action is required for this gene-drug interaction.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  } ],
+  "citations" : [ ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166211021",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166211021",
+    "name" : "Annotation of DPWG Guideline for siponimod and CYP2C9",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ {
+      "id" : 1451445265,
+      "alleles" : [ {
+        "id" : 1451445241,
+        "_label" : "*1",
+        "allele" : "*1",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451444660",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1451444660,
+          "description" : "for extended dosing guidelines on DPWG CYP2C9 guidelines",
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Normal function (CYP2C9*1)",
+          "termId" : "alleleFunction:1451444660",
+          "version" : 0
+        },
+        "version" : 0
+      }, {
+        "id" : 1451445242,
+        "_label" : "*2",
+        "allele" : "*2",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451444630",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1451444630,
+          "description" : "for extended dosing guidelines on DPWG CYP2C9 guidelines",
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function (CYP2C9*2)",
+          "termId" : "alleleFunction:1451444630",
+          "version" : 0
+        },
+        "version" : 0
+      }, {
+        "id" : 1451445243,
+        "_label" : "*3",
+        "allele" : "*3",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451444680",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1451444680,
+          "description" : "for extended dosing guidelines on DPWG CYP2C9 guidelines",
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function (CYP2C9*3)",
+          "termId" : "alleleFunction:1451444680",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451445266,
+        "_label" : "*4",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816545",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816545",
+          "symbol" : "CYP2C9*4",
+          "name" : "*4",
+          "version" : 21
+        },
+        "version" : 0
+      }, {
+        "id" : 1451445267,
+        "_label" : "*5",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816546",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816546",
+          "symbol" : "CYP2C9*5",
+          "name" : "*5",
+          "version" : 21
+        },
+        "version" : 0
+      }, {
+        "id" : 1451445268,
+        "_label" : "*6",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816547",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816547",
+          "symbol" : "CYP2C9*6",
+          "name" : "*6",
+          "version" : 22
+        },
+        "version" : 0
+      }, {
+        "id" : 1451445269,
+        "_label" : "*8",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816549",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816549",
+          "symbol" : "CYP2C9*8",
+          "name" : "*8",
+          "version" : 23
+        },
+        "version" : 0
+      }, {
+        "id" : 1451445270,
+        "_label" : "*11",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816552",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816552",
+          "symbol" : "CYP2C9*11",
+          "name" : "*11",
+          "version" : 21
+        },
+        "version" : 0
+      }, {
+        "id" : 1451445271,
+        "_label" : "*12",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816553",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816553",
+          "symbol" : "CYP2C9*12",
+          "name" : "*12",
+          "version" : 21
+        },
+        "version" : 0
+      }, {
+        "id" : 1451445301,
+        "_label" : "*13",
+        "allele" : "*13",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "version" : 0
+      } ],
+      "gene" : {
+        "@id" : "https://pharmgkb.org/gene/PA126",
+        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+        "objCls" : "Gene",
+        "id" : "PA126",
+        "symbol" : "CYP2C9",
+        "name" : "cytochrome P450 family 2 subfamily C member 9",
+        "alleleFile" : "CYP2C9_allele_definition_table.xlsx",
+        "altNames" : {
+          "synonym" : [ "cytochrome P450, family 2, subfamily C, polypeptide 9" ],
+          "symbol" : [ "CYP2C10", "P450IIC9" ]
+        },
+        "buildVersion" : "GRCh38.p7",
+        "cbStart" : "q23.33",
+        "cbStop" : "q23.33",
+        "chr" : {
+          "@id" : "https://pharmgkb.org/chromosome/PA504",
+          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
+          "objCls" : "Chromosome",
+          "id" : "PA504",
+          "name" : "chr10",
+          "version" : 3
+        },
+        "chrStartPosB37" : 96698350,
+        "chrStartPosB38" : 94905867,
+        "chrStopPosB37" : 96749486,
+        "chrStopPosB38" : 94989395,
+        "cpicGene" : true,
+        "crossReferences" : [ {
+          "@id" : "https://pharmgkb.org/crossReference/alfred/LO000304H",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 124544684,
+          "resource" : "ALFRED",
+          "resourceId" : "LO000304H",
+          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO000304H",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ctd/1559",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 553242511,
+          "resource" : "Comparative Toxicogenomics Database",
+          "resourceId" : "1559",
+          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=1559",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000138109",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 132256030,
+          "resource" : "Ensembl",
+          "resourceId" : "ENSG00000138109",
+          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000138109",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/genAtlas/CYP2C9",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 73374,
+          "resource" : "GenAtlas",
+          "resourceId" : "CYP2C9",
+          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=CYP2C9",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/geneCard/CYP2C9",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 88302,
+          "resource" : "GeneCard",
+          "resourceId" : "CYP2C9",
+          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=CYP2C9",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005506",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34969,
+          "resource" : "GO",
+          "resourceId" : "GO:0005506",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005506",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005783",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34654,
+          "resource" : "GO",
+          "resourceId" : "GO:0005783",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005783",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005792",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 35016,
+          "resource" : "GO",
+          "resourceId" : "GO:0005792",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005792",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006118",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 35063,
+          "resource" : "GO",
+          "resourceId" : "GO:0006118",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006118",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34795,
+          "resource" : "GO",
+          "resourceId" : "GO:0016020",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016712",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 8676615,
+          "resource" : "GO",
+          "resourceId" : "GO:0016712",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016712",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0018675",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 130200545,
+          "resource" : "GO",
+          "resourceId" : "GO:0018675",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0018675",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0018676",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62330469,
+          "resource" : "GO",
+          "resourceId" : "GO:0018676",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0018676",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0020037",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 77774616,
+          "resource" : "GO",
+          "resourceId" : "GO:0020037",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0020037",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0046872",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 746292,
+          "resource" : "GO",
+          "resourceId" : "GO:0046872",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0046872",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:2623",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608087481,
+          "resource" : "HGNC",
+          "resourceId" : "HGNC:2623",
+          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A2623",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS06458",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608087488,
+          "resource" : "HumanCyc Gene",
+          "resourceId" : "HS06458",
+          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS06458",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P11712",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560877670,
+          "resource" : "ModBase",
+          "resourceId" : "P11712",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P11712",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/mutDb/CYP2C9",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 455912,
+          "resource" : "MutDB",
+          "resourceId" : "CYP2C9",
+          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=CYP2C9",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/entrezGene/1559",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 10746,
+          "resource" : "NCBI Gene",
+          "resourceId" : "1559",
+          "_url" : "https://www.ncbi.nlm.nih.gov/gene/1559",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/122700",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560556297,
+          "resource" : "OMIM",
+          "resourceId" : "122700",
+          "_url" : "http://omim.org/entry/122700",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/601130",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 4208,
+          "resource" : "OMIM",
+          "resourceId" : "601130",
+          "_url" : "http://omim.org/entry/601130",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/pharmVarGene/CYP2C9",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 1451280330,
+          "resource" : "PharmVar Gene",
+          "resourceId" : "CYP2C9",
+          "_url" : "https://www.pharmvar.org/gene/CYP2C9",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_008385",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560556313,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NG_008385",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_008385",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_030059",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 37037,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NT_030059",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_030059",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_000762",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 37898,
+          "resource" : "RefSeq Protein",
+          "resourceId" : "NP_000762",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_000762",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_000771",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 46973,
+          "resource" : "RefSeq RNA",
+          "resourceId" : "NM_000771",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_000771",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_000771",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 122290,
+          "resource" : "UCSC Genome Browser",
+          "resourceId" : "NM_000771",
+          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000771",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/P11712",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62330450,
+          "name" : "CP2C9_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "P11712",
+          "_url" : "http://www.uniprot.org/uniprot/P11712",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q5VX92",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608087487,
+          "name" : "Q5VX92_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "Q5VX92",
+          "_url" : "http://www.uniprot.org/uniprot/Q5VX92",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/url/http://www.imm.ki.se/CYPalleles/cyp2c9.htm",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 87,
+          "resource" : "URL",
+          "resourceId" : "http://www.imm.ki.se/CYPalleles/cyp2c9.htm",
+          "_url" : "http://www.imm.ki.se/CYPalleles/cyp2c9.htm",
+          "version" : 1
+        } ],
+        "hasNonStandardHaplotypes" : false,
+        "hideHaplotypes" : false,
+        "pharmVarGene" : true,
+        "strand" : "plus",
+        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004497","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498878,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004497","resource":"Gene Ontology","term":"monooxygenase activity","termId":"GO:0004497"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005783","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500134,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005783","resource":"Gene Ontology","term":"endoplasmic reticulum","termId":"GO:0005783"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500141,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005789","resource":"Gene Ontology","term":"endoplasmic reticulum membrane","termId":"GO:0005789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005792","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500144,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005792","resource":"Gene Ontology","term":"microsome","termId":"GO:0005792"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499864,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008144","resource":"Gene Ontology","term":"drug binding","termId":"GO:0008144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008202","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501294,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008202","resource":"Gene Ontology","term":"steroid metabolic process","termId":"GO:0008202"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008395","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496176,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008395","resource":"Gene Ontology","term":"steroid hydroxylase activity","termId":"GO:0008395"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009055","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503412,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009055","resource":"Gene Ontology","term":"electron carrier activity","termId":"GO:0009055"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016098","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560506711,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016098","resource":"Gene Ontology","term":"monoterpenoid metabolic process","termId":"GO:0016098"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016491","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495264,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016491","resource":"Gene Ontology","term":"oxidoreductase activity","termId":"GO:0016491"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0017144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560507281,"_url":"http://amigo.geneontology.org/amigo/term/GO:0017144","resource":"Gene Ontology","term":"drug metabolic process","termId":"GO:0017144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0018675","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560508105,"_url":"http://amigo.geneontology.org/amigo/term/GO:0018675","resource":"Gene Ontology","term":"(S)-limonene 6-monooxygenase activity","termId":"GO:0018675"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0018676","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560508106,"_url":"http://amigo.geneontology.org/amigo/term/GO:0018676","resource":"Gene Ontology","term":"(S)-limonene 7-monooxygenase activity","termId":"GO:0018676"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019627","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495074,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019627","resource":"Gene Ontology","term":"urea metabolic process","termId":"GO:0019627"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019825","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019825","resource":"Gene Ontology","term":"oxygen binding","termId":"GO:0019825"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0020037","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509358,"_url":"http://amigo.geneontology.org/amigo/term/GO:0020037","resource":"Gene Ontology","term":"heme binding","termId":"GO:0020037"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0032787","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500462,"_url":"http://amigo.geneontology.org/amigo/term/GO:0032787","resource":"Gene Ontology","term":"monocarboxylic acid metabolic process","termId":"GO:0032787"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0033767","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560513624,"_url":"http://amigo.geneontology.org/amigo/term/GO:0033767","resource":"Gene Ontology","term":"4-hydroxyacetophenone monooxygenase activity","termId":"GO:0033767"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0034875","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560514701,"_url":"http://amigo.geneontology.org/amigo/term/GO:0034875","resource":"Gene Ontology","term":"caffeine oxidase activity","termId":"GO:0034875"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042737","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515689,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042737","resource":"Gene Ontology","term":"drug catabolic process","termId":"GO:0042737"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042738","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515690,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042738","resource":"Gene Ontology","term":"exogenous drug catabolic process","termId":"GO:0042738"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0043603","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509048,"_url":"http://amigo.geneontology.org/amigo/term/GO:0043603","resource":"Gene Ontology","term":"cellular amide metabolic process","termId":"GO:0043603"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"} ],
+        "version" : 7876
+      },
+      "version" : 0
+    } ],
+    "hasTestingGuidance" : true,
+    "history" : [ {
+      "id" : 1451153240,
+      "date" : "2020-06-01T14:23:38.807-07:00",
+      "description" : "Changes based on May 2020 guidelines",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451445823,
+      "date" : "2021-05-18T00:00:00-07:00",
+      "description" : "Added extended dosing",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451699880,
+      "date" : "2022-03-01T13:14:17.229-08:00",
+      "description" : "Updated names of IM and PM groups and added footnote and explanation.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704251,
+      "date" : "2022-03-03T16:33:34.933-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451707502,
+      "date" : "2022-03-08T10:46:23.221-08:00",
+      "description" : "Added information about preemptive genotyping",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451732891,
+      "date" : "2022-03-28T09:57:49.022-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451733456,
+      "date" : "2022-03-28T15:02:46.750-07:00",
+      "description" : "Updated link to testing guidance page",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451741543,
+      "date" : "2022-04-05T11:19:29.185-07:00",
+      "description" : "Added testing guidance tag",
+      "type" : "Update",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/15111722","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15111722,"title":"Dutch Pharmacogenetics Working Group Guidelines May 2020","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-may-2020.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-may-2020.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451152900,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-may-2020.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-may-2020.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : true,
+    "relatedAlleles" : [ {
+      "@id" : "https://pharmgkb.org/haplotype/PA165816543",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165816543",
+      "symbol" : "CYP2C9*2",
+      "name" : "*2",
+      "version" : 21
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165816544",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165816544",
+      "symbol" : "CYP2C9*3",
+      "name" : "*3",
+      "version" : 23
+    } ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA166182736",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA166182736",
+      "name" : "siponimod",
+      "version" : 5
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA126",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA126",
+      "symbol" : "CYP2C9",
+      "name" : "cytochrome P450 family 2 subfamily C member 9",
+      "version" : 7876
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1451153220,
+      "html" : "<p>The Dutch Pharmacogenetics Working Group Guideline for siponimod recommends decreasing the dose for <em>CYP2C9</em> *1/*3, *2/*3 genotypes and to avoid siponimod for the <em>CYP2C9</em> *3/*3 genotype.</p>\n",
+      "version" : 0
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1451153221,
+      "html" : "<h3 id=\"may-2021-update\">May 2021 update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has made some minor changes to the names of some phenotype groups in this guideline. The table below has been updated to reflect this but the recommendations themselves have not changed.</p>\n<h3 id=\"may-2020-update\">May 2020 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for siponimod based on CYP2C9 genotype. They recommend decreasing the dose for <em>CYP2C9</em> <em>*1/*3</em>, <em>*2/*3</em> genotypes and to avoid siponimod for the <em>CYP2C9</em> <em>*3/*3</em> genotype.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_May_2020.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_May_2020.pdf\">Dutch guidelines May 2020 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><em>CYP2C9*1/*2</em></td>\n<td>siponimod</td>\n<td>The genetic variation can slightly increase the exposure to siponimod. However, the effect is too small to expect any impact on efficacy or adverse effects.</td>\n<td>NO action is required for this gene-drug interaction.</td>\n</tr>\n<tr>\n<td><em>CYP2C9*1/*3</em></td>\n<td>siponimod</td>\n<td>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</td>\n<td>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For this genetic variation, a moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</td>\n</tr>\n<tr>\n<td><em>CYP2C9*2/*2</em></td>\n<td>siponimod</td>\n<td>The genetic variation can slightly increase the exposure to siponimod. However, the effect is too small to expect any impact on efficacy or adverse effects.</td>\n<td>NO action is required for this gene-drug interaction.</td>\n</tr>\n<tr>\n<td><em>CYP2C9*2/*3</em></td>\n<td>siponimod</td>\n<td>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</td>\n<td>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For this genetic variation, a moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</td>\n</tr>\n<tr>\n<td><em>CYP2C9*3/*3</em></td>\n<td>siponimod</td>\n<td>Siponimod is contraindicated in patients with this genetic variation. Theoretically, the risk of adverse effects is greatly increased, as the genetic variation results in much higher plasma concentrations of siponimod.</td>\n<td>Avoid siponimod.</td>\n</tr>\n<tr>\n<td>CYP2C9 IM other<sup>a</sup></td>\n<td>siponimod</td>\n<td>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</td>\n<td>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For the comparable genetic variation *1/*3, the moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</td>\n</tr>\n<tr>\n<td>CYP2C9 PM other <sup>a</sup></td>\n<td>siponimod</td>\n<td>Siponimod is contraindicated in patients with the comparable genetic variation *3/*3. Theoretically, the risk of adverse effects is greatly increased, as the genetic variation results in much higher plasma concentrations of siponimod.</td>\n<td>Avoid siponimod.</td>\n</tr>\n</tbody>\n</table>\n<p><sup>a</sup> These groups are referred to in the DPWG recommendation PDF as 'IM ANDERS' and 'PM ANDERS', which use the Dutch word 'anders'. PharmGKB has translated these as 'IM other' and PM other', respectively.</p>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0007165.PDF\" target=\"_blank\">DPWG risk analysis document</a> for siponimod and CYP2C9:</p>\n<blockquote class=\"blockquote\">\n<p>Due to the absence of clinical studies with patients with a CYP2C9 genotype leading to reduced CYP2C9 activity, and thus the absence of evidence of an increase in adverse events code ≥ D (grade ≥ 3) in these patients, the clinical implication of the gene-drug interaction scores only 2 out of the maximum of 10 points (with pre-emptive genotyping considered to be potentially beneficial for scores ranging from 0 to 2 points) [...]. However, because there is not enough evidence to reject the warnings and recommendations in the SmPC either, the KNMP decided to adopt the genotyping recommendation in the SmPC. The SmPC indicates that genotyping must be performed before starting siponimod to guide drug and dose selection. This would amount to genotyping being essential for drug safety according to the nomenclature of the KNMP Pharmacogenetics Working Group.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0007164.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
+      "version" : 2
+    },
+    "userId" : "katrin",
+    "version" : 6
+  }
+}

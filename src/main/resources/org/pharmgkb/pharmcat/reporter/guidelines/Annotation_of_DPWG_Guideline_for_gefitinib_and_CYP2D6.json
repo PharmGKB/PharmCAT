@@ -1,0 +1,82 @@
+{
+  "citations" : [ ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182809",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166182809",
+    "name" : "Annotation of DPWG Guideline for gefitinib and CYP2D6",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "descriptiveVideoId" : "",
+    "guidelineGenes" : [ ],
+    "hasTestingGuidance" : false,
+    "history" : [ {
+      "id" : 1450414931,
+      "date" : "2019-05-23T00:00:00-07:00",
+      "description" : "Annotation current with November 2018 DPWG Guideline release",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450820663,
+      "date" : "2019-10-03T14:33:59.263-07:00",
+      "description" : "No changes based on August 2019 guideline",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1450963520,
+      "date" : "2020-02-11T06:00:27.787-08:00",
+      "description" : "Fixed links to 2018 guideline pdfs.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704247,
+      "date" : "2022-03-03T16:33:34.325-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451732887,
+      "date" : "2022-03-28T09:57:48.498-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : false,
+    "relatedAlleles" : [ ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA131301952",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA131301952",
+      "name" : "gefitinib",
+      "version" : 16
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA128",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA128",
+      "symbol" : "CYP2D6",
+      "name" : "cytochrome P450 family 2 subfamily D member 6",
+      "version" : 7889
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1450414927,
+      "html" : "<p>There are currently no dosing recommendations for gefitinib based on CYP2D6 genotype.</p>\n",
+      "version" : 0
+    },
+    "summaryVideoId" : "",
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1450414928,
+      "html" : "<h3 id=\"november-2018-guideline\">November 2018 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for gefitinib based on CYP2D6 genotypes. They conclude that NO action is required for this gene-drug interaction.</p>\n<p><em>Wording in table taken from the <a href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a></em></p>\n<table class=\"table\">\n<thead>\n<tr><th>ALLELE/GENOTYPE/PHENOTYPE</th><th>DRUG</th><th>DESCRIPTION</th><th>RECOMMENDATION</th></tr>\n</thead>\n<tbody>\n<tr><td>CYP2D6 PM</td><td>gefitinib</td><td>The gefitinib plasma concentration may increase due to reduced CYP2D6 activity. However, there is no evidence to suggest that side effects increase to an extent that adjustment of therapy is needed.</td><td>NO action is needed</td></tr>\n<tr><td>CYP2D6 IM</td><td>gefitinib</td><td>Side effects can occur more frequently, as the gene variation increases the gefitinib plasma concentration. However, the side effects are reversible and manageable, to an extent that adjustment of the therapy in advance is not necessary.</td><td>NO action is needed</td></tr>\n<tr><td>CYP2D6 UM</td><td>gefitinib</td><td>The gene variation may lead to a decrease in the gefitinib plasma concentration. In practice, an alternative is only chosen if non-response to gefitinib has been proved. Moreover, dose adjustments guided by the gefitinib plasma concentration are rarely performed in clinical practice as the analytical method is not available in most hospitals.</td><td>NO action is needed</td></tr>\n</tbody>\n</table>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004872.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
+      "version" : 2
+    },
+    "userId" : "cfthorn",
+    "version" : 4
+  }
+}

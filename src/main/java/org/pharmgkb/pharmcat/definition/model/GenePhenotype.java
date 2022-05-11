@@ -29,6 +29,9 @@ public class GenePhenotype {
   @SerializedName("diplotypes")
   @Expose
   private List<DiplotypeRecord> m_diplotypes;
+  @SerializedName("drugId")
+  @Expose
+  private String m_drugId;
 
   /**
    * The HGNC gene symbol
@@ -80,6 +83,14 @@ public class GenePhenotype {
 
   public void setDiplotypes(List<DiplotypeRecord> diplotypes) {
     m_diplotypes = diplotypes;
+  }
+
+  public String getDrugId() {
+    return m_drugId;
+  }
+
+  public void setDrugId(String drugId) {
+    m_drugId = drugId;
   }
 
   /**

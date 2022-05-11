@@ -1,0 +1,179 @@
+{
+  "citations" : [ {
+    "@id" : "https://pharmgkb.org/literature/15122442",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 15122442,
+    "title" : "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6 and opioids (codeine, tramadol and oxycodone).",
+    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/34267337",
+    "authors" : [ "Matic Maja", "Nijenhuis Marga", "Soree Bianca", "de Boer-Veger Nienke J", "Buunk Anne-Marie", "Houwink Elisa J F", "Mulder Hans", "Rongen Gerard A P J M", "Weide Jan van der", "Wilffert Bob", "Swen Jesse J", "Guchelaar Henk-Jan", "Deneer Vera H M", "van Schaik Ron H N" ],
+    "crossReferences" : [ {
+      "@id" : "https://pharmgkb.org/crossReference/pubMed/34267337",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 1451489600,
+      "resource" : "PubMed",
+      "resourceId" : "34267337",
+      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/34267337",
+      "version" : 0
+    }, {
+      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/s41431-021-00920-y",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 1451489601,
+      "resource" : "DOI",
+      "resourceId" : "10.1038/s41431-021-00920-y",
+      "_url" : "http://dx.doi.org/10.1038%2Fs41431-021-00920-y",
+      "version" : 0
+    } ],
+    "hasKeyword" : true,
+    "journal" : "European journal of human genetics : EJHG",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 7,
+    "nonHuman" : false,
+    "objCls" : "Literature",
+    "pediatric" : false,
+    "pgkbPublication" : false,
+    "pubDate" : "2021-07-01T00:00:00-07:00",
+    "summary" : "The current Dutch Pharmacogenetics Working Group (DPWG) guideline, describes the gene-drug interaction between CYP2D6 and the opioids codeine, tramadol and oxycodone. CYP2D6 genotype is translated into normal metaboliser (NM), intermediate metaboliser (IM), poor metaboliser (PM) or ultra-rapid metaboliser (UM). Codeine is contraindicated in UM adults if doses >20 mg every 6 h (q6h), in children ≥12 years if doses >10 mg q6h, or with additional risk factors. In PMs, an alternative analgesic should be given which is not or to a lesser extent metabolised by CYP2D6 (not tramadol). In IMs with insufficient analgesia, a higher dose or alternative analgesic should be given. For tramadol, the recommendations for IMs and PMs are the same as the recommendation for codeine and IMs. UMs should receive an alternative drug not or to a lesser extent metabolised by CYP2D6 or the dose should be decreased to 40% of the commonly prescribed dose. Due to the absence of effect on clinical outcomes of oxycodone in PMs, IMs and UMs no action is required. DPWG classifies CYP2D6 genotyping for codeine \"beneficial\" and recommends testing prior to, or shortly after initiation of treatment in case of higher doses or additional risk factors. CYP2D6 genotyping is classified as \"potentially beneficial\" for tramadol and can be considered on an individual patient basis.",
+    "version" : 0,
+    "year" : 2021
+  }, {
+    "@id" : "https://pharmgkb.org/literature/7283333",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 7283333,
+    "title" : "Pharmacogenetics: from bench to byte--an update of guidelines.",
+    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
+    "authors" : [ "Swen J J", "Nijenhuis M", "de Boer A", "Grandia L", "Maitland-van der Zee A H", "Mulder H", "Rongen G A P J M", "van Schaik R H N", "Schalekamp T", "Touw D J", "van der Weide J", "Wilffert B", "Deneer V H M", "Guchelaar H-J" ],
+    "crossReferences" : [ {
+      "@id" : "https://pharmgkb.org/crossReference/pubMed/21412232",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 769250885,
+      "resource" : "PubMed",
+      "resourceId" : "21412232",
+      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
+      "version" : 0
+    }, {
+      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 1449247827,
+      "resource" : "DOI",
+      "resourceId" : "10.1038/clpt.2011.34",
+      "_url" : "http://dx.doi.org/10.1038%2Fclpt.2011.34",
+      "version" : 0
+    } ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ "Animals", "Aryl Hydrocarbon Hydroxylases", "Cytochrome P-450 CYP2C9", "Drug Administration Schedule", "Drug-Related Side Effects and Adverse Reactions", "Humans", "Pharmaceutical Preparations", "Pharmacogenetics", "Practice Guidelines as Topic" ],
+    "month" : 5,
+    "nonHuman" : false,
+    "objCls" : "Literature",
+    "page" : "662-73",
+    "pediatric" : false,
+    "pgkbPublication" : false,
+    "pubDate" : "2011-05-01T00:00:00-07:00",
+    "summary" : "Currently, there are very few guidelines linking the results of pharmacogenetic tests to specific therapeutic recommendations. Therefore, the Royal Dutch Association for the Advancement of Pharmacy established the Pharmacogenetics Working Group with the objective of developing pharmacogenetics-based therapeutic (dose) recommendations. After systematic review of the literature, recommendations were developed for 53 drugs associated with genes coding for CYP2D6, CYP2C19, CYP2C9, thiopurine-S-methyltransferase (TPMT), dihydropyrimidine dehydrogenase (DPD), vitamin K epoxide reductase (VKORC1), uridine diphosphate glucuronosyltransferase 1A1 (UGT1A1), HLA-B44, HLA-B*5701, CYP3A5, and factor V Leiden (FVL).",
+    "version" : 2,
+    "volume" : "89",
+    "year" : 2011
+  } ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104973",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166104973",
+    "name" : "Annotation of DPWG Guideline for oxycodone and CYP2D6",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ ],
+    "hasTestingGuidance" : false,
+    "history" : [ {
+      "id" : 1183704509,
+      "date" : "2011-08-10T00:00:00-07:00",
+      "type" : "Create",
+      "version" : 0
+    }, {
+      "id" : 1450414888,
+      "date" : "2019-05-22T17:29:12.184-07:00",
+      "description" : "Annotation current with November 2018 DPWG Guideline release",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450820987,
+      "date" : "2019-10-07T14:43:22.263-07:00",
+      "description" : "No changes based on August 2019 guideline",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450956391,
+      "date" : "2020-01-31T13:43:35.628-08:00",
+      "description" : "Updated link to 2011 DPWG methods",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450963721,
+      "date" : "2020-02-11T07:04:34.504-08:00",
+      "description" : "Fixed links to 2018 guideline pdfs.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451472560,
+      "date" : "2021-07-20T00:00:00-07:00",
+      "description" : "No changes based on 2021 opioids guideline publication (PMID: 34267337)",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451489660,
+      "date" : "2021-09-03T14:39:19.951-07:00",
+      "description" : "Added DPWG opioid guideline publication to annotation",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704235,
+      "date" : "2022-03-03T16:33:32.657-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451732875,
+      "date" : "2022-03-28T09:57:46.559-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/15122442","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15122442,"title":"Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6 and opioids (codeine, tramadol and oxycodone).","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/34267337","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/34267337","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451489600,"resource":"PubMed","resourceId":"34267337","_url":"https://www.ncbi.nlm.nih.gov/pubmed/34267337"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/s41431-021-00920-y","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451489601,"resource":"DOI","resourceId":"10.1038/s41431-021-00920-y","_url":"http://dx.doi.org/10.1038%2Fs41431-021-00920-y"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/7283333","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":7283333,"title":"Pharmacogenetics: from bench to byte--an update of guidelines.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/21412232","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/21412232","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":769250885,"resource":"PubMed","resourceId":"21412232","_url":"https://www.ncbi.nlm.nih.gov/pubmed/21412232"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1449247827,"resource":"DOI","resourceId":"10.1038/clpt.2011.34","_url":"http://dx.doi.org/10.1038%2Fclpt.2011.34"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : false,
+    "relatedAlleles" : [ ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA450741",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA450741",
+      "name" : "oxycodone",
+      "version" : 7
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA128",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA128",
+      "symbol" : "CYP2D6",
+      "name" : "cytochrome P450 family 2 subfamily D member 6",
+      "version" : 7889
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1447982012,
+      "html" : "<p>There are currently no dosing recommendations for oxycodone based on CYP2D6 genotypes.</p>\n",
+      "version" : 1
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1447982011,
+      "html" : "<h3 id=\"dutch-pharmacogenetics-working-group-dpwg-guideline-for-the-gene-drug-interaction-of-cyp2d6-and-opioids-codeine-tramadol-and-oxycodone-european-journal-of-human-genetics-2021\">Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction of CYP2D6 and opioids (codeine, tramadol and oxycodone). European journal of human genetics (2021)</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group published a paper which reiterates that no action is required for the interaction between oxycodone and <em>CYP2D6</em> [Article:<a href=\"/pmid/34267337\">34267337</a>].</p>\n<h3 id=\"november-2018-update\">November 2018 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for oxycodone based on CYP2D6 genotypes. They conclude that NO action is required for this gene-drug interaction. The reduced conversion of oxycodone to the more active metabolite oxymorphone does not result in reduced analgesia in patients and the increased conversion of oxycodone to the more active metabolite oxymorphone does not result in an increase in side effects in patients. <em>See the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</em></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0001588.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"2011-guideline\">2011 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for oxycodone based on CYP2D6 genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].  They recommend using an alternate drug for poor, intermediate and ultra metabolizer patients.</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Phenotype (Genotype)</th>\n<th>Therapeutic Dose Recommendation</th>\n<th>Level of Evidence</th>\n<th>Clinical Relevance</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>PM (2 inactive alleles)</td>\n<td>Insufficient data to allow calculation of dose adjustment.  Select alternate drug - not tramadol or codeine - or be alert to symptoms of insufficient pain relief.</td>\n<td>Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): short-lived discomfort (&lt; 48 hr) without permanent injury: e.g. reduced decrease in resting heart rate; reduction in exercise tachycardia; decreased pain relief from oxycodone; ADE resulting from increased bioavailability of atomoxetine (decreased appetite, insomnia, sleep disturbance etc); neutropenia &gt; 1.5x10<sup>9/l; leucopenia &gt; 3.0x10</sup>9/l; thrombocytopenia  &gt; 75x10^9/l; moderate diarrhea not affecting daily activities; reduced glucose increase following oral glucose tolerance test.</td>\n</tr>\n<tr>\n<td>IM (2 decreased activity alleles, or 1 active and 1 inactive allele, or 1 decreased activity and 1 inactive allele)</td>\n<td>Insufficient data to allow calculation of dose adjustment.  Select alternate drug - not tramadol or codeine - or be alert to symptoms of insufficient pain relief.</td>\n<td>Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (NS). Kinetic effect (NS).</td>\n</tr>\n<tr>\n<td>UM (gene duplication in absence of inactive or decreased activity alleles)</td>\n<td>Insufficient data to allow calculation of dose adjustment.  Select alternate drug (NOT tramadol or codeine) or be alert to ADEs (e.g., nausea, vomiting, constipation, respiratory depression, confusion, urinary retention).</td>\n<td>Published incomplete case reports. Product information.</td>\n<td>Minor clinical effect (S): QTc prolongation (&lt;450 ms men, &lt;470 ms women); INR increase &lt; 4.5. Kinetic effect (S).</td>\n</tr>\n</tbody>\n</table>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele Type</th>\n<th>Alleles</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>active</td>\n<td>*1, *2, *33, *35</td>\n</tr>\n<tr>\n<td>decreased activity</td>\n<td>*9, *10, *17, *29, *36, *41</td>\n</tr>\n<tr>\n<td>inactive</td>\n<td>*3-*8, *11-*16, *19-*21, *38, *40, *42</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>*See <a href=\"http://www.pharmgkb.org/page/dpwg\">Methods</a> or [Article:<a href=\"/pmid/18253145\">18253145</a>] for definition of &quot;moderate&quot; quality.</li>\n<li>S: statistically significant difference.</li>\n<li>NS: not statistically significant difference.</li>\n</ul>\n",
+      "version" : 13
+    },
+    "userId" : "lester",
+    "version" : 25
+  }
+}

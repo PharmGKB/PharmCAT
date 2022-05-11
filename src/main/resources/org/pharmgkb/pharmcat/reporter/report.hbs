@@ -170,6 +170,27 @@
         {{/each}}
       {{/if}}
 
+      {{#each dpwgGuidelines}}
+        <section>
+          <h4>{{name}}</h4>
+          {{#unless hasMatch}}
+            <p>No matching annotations found.</p>
+          {{/unless}}
+          {{#each groups}}
+            <table>
+            <thead>
+            <tr><th>Type</th><th>Annotation</th></tr>
+            </thead>
+            <tbody>
+            {{#each annotations}}
+              <tr><td>{{term}}</td><td>{{{annotation}}}</td></tr>
+            {{/each}}
+            </tbody>
+          </table>
+          {{/each}}
+        </section>
+      {{/each}}
+
       <section>
         {{#each footnotes}}
           <div class="footnote">{{this}}</div>

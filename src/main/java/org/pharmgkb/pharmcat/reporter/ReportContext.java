@@ -26,6 +26,9 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
+import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
@@ -65,6 +68,10 @@ public class ReportContext {
     drugCollection.getAllReportableGenes()
         .forEach(this::addGeneReport);
 
+    // add gene data for DPWG genes
+    PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection();
+    pgkbGuidelineCollection.getGenes().forEach(this::addGeneReport);
+
     for (Drug drug : drugCollection.listReportable()) {
       DrugReport drugReport = createOrFindDrugReport(drug);
       drugReport.addDrugData(drug);
@@ -90,6 +97,20 @@ public class ReportContext {
       for (String gene : drugReport.getRelatedGeneSymbols()) {
         getGeneReport(gene).addRelatedDrugs(drugReport);
       }
+    }
+
+    for (String chemicalName : pgkbGuidelineCollection.getChemicals()) {
+      pgkbGuidelineCollection.findGuidelinePackages(chemicalName).forEach(guidelinePackage -> {
+        DrugReport drugReport = createOrFindDrugReport(chemicalName);
+        // add matching groups
+        guidelinePackage.matchGroups(findDiplotypes(guidelinePackage.getGenes()));
+
+        drugReport.addDrugData(guidelinePackage);
+        m_drugReports.add(drugReport);
+        for (String gene : drugReport.getRelatedGeneSymbols()) {
+          getGeneReport(gene).addRelatedDrugs(drugReport);
+        }
+      });
     }
 
     // now that all reports are generated, apply the applicable messages
@@ -131,12 +152,23 @@ public class ReportContext {
     return f_geneReports;
   }
 
+  private List<Diplotype> findDiplotypes(Collection<String> genes) {
+    return f_geneReports.stream()
+        .filter(r -> genes.contains(r.getGene()))
+        .flatMap(r -> r.getReporterDiplotypes().stream())
+        .collect(Collectors.toList());
+  }
+
   private DrugReport createOrFindDrugReport(@Nonnull Drug drug) {
-    Preconditions.checkNotNull(drug);
+    return createOrFindDrugReport(drug.getDrugName());
+  }
+
+  private DrugReport createOrFindDrugReport(@Nonnull String drugName) {
+    Preconditions.checkNotNull(drugName);
     return getDrugReports().stream()
-        .filter(r -> r.getName().equalsIgnoreCase(drug.getDrugName()))
+        .filter(r -> r.getName().equalsIgnoreCase(drugName))
         .findFirst()
-        .orElse(new DrugReport(drug.getDrugName()));
+        .orElse(new DrugReport(drugName));
   }
 
   /**
@@ -331,6 +363,10 @@ public class ReportContext {
             drugReport.getMatchingRecommendations().stream().map(sf_recommendationMapper).collect(Collectors.toList())
         );
       }
+      guidelineMap.put(
+          "dpwgGuidelines",
+          drugReport.getDpwgGuidelinePackages().stream().map(sf_guidelinePackageMapper).collect(Collectors.toList())
+      );
 
       drugReports.add(guidelineMap);
     }
@@ -521,5 +557,29 @@ public class ReportContext {
     groupData.put("annotations", annotationList);
 
     return groupData;
+  };
+
+  private static final Function<Group,Map<String,Object>> sf_groupMapper = (group) -> {
+    List<Map<String,String>> annotationsList = new ArrayList<>();
+    if (group.getMetabolizerStatus() != null) {
+      annotationsList.add(makeAnnotation("Metabolizer Status", group.getMetabolizerStatus().getHtmlStripped()));
+    }
+    annotationsList.add(makeAnnotation("Recommendation", group.getRecommendation().getHtmlStripped()));
+    annotationsList.add(makeAnnotation("Implications", group.getImplications().getHtmlStripped()));
+    annotationsList.add(makeAnnotation("Rx Change", group.getRxChange().getTerm()));
+    annotationsList.add(makeAnnotation("Matching Diplotype", group.getMatchingDiplotypes().stream().map(Diplotype::toString).collect(Collectors.joining("; "))));
+    annotationsList.add(makeAnnotation("Function Assignment", String.join("; ", group.getMatchingFunctionKeys())));
+    Map<String,Object> payload = new HashMap<>();
+    payload.put("annotations", annotationsList);
+    return payload;
+  };
+
+  private static final Function<GuidelinePackage,Map<String,Object>> sf_guidelinePackageMapper = (guidelinePackage) -> {
+    Map<String,Object> packageData = new HashMap<>();
+    packageData.put("name", guidelinePackage.getGuideline().getName());
+    packageData.put("url", guidelinePackage.getGuideline().getUrl());
+    packageData.put("hasMatch", guidelinePackage.hasMatch());
+    packageData.put("groups", guidelinePackage.getMatchedGroups().stream().map(sf_groupMapper).collect(Collectors.toList()));
+    return packageData;
   };
 }

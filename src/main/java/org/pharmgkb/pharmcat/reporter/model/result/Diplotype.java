@@ -35,7 +35,7 @@ public class Diplotype implements Comparable<Diplotype> {
 
   private static final String NA = "N/A";
   private static final String sf_toStringPattern = "%s:%s";
-  private static final String sf_delimiter = "/";
+  public static final String DELIMITER = "/";
   private static final String sf_termDelimiter = "; ";
   private static final String sf_homTemplate = "Two %s alleles";
   private static final String sf_hetTemplate = "One %s allele and one %s allele";
@@ -78,8 +78,8 @@ public class Diplotype implements Comparable<Diplotype> {
     int left = 0;
     int right = 1;
 
-    String[] aHaps = a.split(sf_delimiter);
-    String[] bHaps = b.split(sf_delimiter);
+    String[] aHaps = a.split(DELIMITER);
+    String[] bHaps = b.split(DELIMITER);
 
     Set<String> finalLeft = new TreeSet<>(HaplotypeNameComparator.getComparator());
     Set<String> finalRight = new TreeSet<>(HaplotypeNameComparator.getComparator());
@@ -99,7 +99,7 @@ public class Diplotype implements Comparable<Diplotype> {
     String joined0 = String.join("+", finalLeft);
     String joined1 = String.join("+", finalRight);
 
-    return joined0+sf_delimiter+joined1;
+    return joined0+ DELIMITER +joined1;
   };
 
   /**
@@ -115,7 +115,7 @@ public class Diplotype implements Comparable<Diplotype> {
     final Set<String> rightBucket = new TreeSet<>(HaplotypeNameComparator.getComparator());
     
     dips.forEach(d -> {
-      String[] haps = d.split(sf_delimiter);
+      String[] haps = d.split(DELIMITER);
       if (!rightBucket.contains(haps[0])) {
         leftBucket.add(haps[0]);
         rightBucket.add(haps[1]);
@@ -130,7 +130,7 @@ public class Diplotype implements Comparable<Diplotype> {
     Function<String,String> rightMapper = rightBucket.size() > 1 ? hapNameEncloser : Function.identity();
     String right = rightBucket.stream().map(rightMapper).collect(Collectors.joining("+"));
     
-    return left + sf_delimiter + right;
+    return left + DELIMITER + right;
   }
 
   /**
@@ -181,14 +181,14 @@ public class Diplotype implements Comparable<Diplotype> {
   /**
    * Gets the first {@link Haplotype} listed in this diplotype
    */
-  private Haplotype getAllele1() {
+  public Haplotype getAllele1() {
     return m_allele1;
   }
 
   /**
    * Gets the second {@link Haplotype} listed in this diplotype
    */
-  private Haplotype getAllele2() {
+  public Haplotype getAllele2() {
     return m_allele2;
   }
 
@@ -212,7 +212,7 @@ public class Diplotype implements Comparable<Diplotype> {
         || (m_allele2 != null && m_allele2.getName().equals(alleleName));
   }
 
-  private boolean isUnknownPhenotype() {
+  public boolean isUnknownPhenotype() {
     return m_phenotypes.size() == 0 || m_phenotypes.contains(NO_RESULT);
   }
 
@@ -224,7 +224,7 @@ public class Diplotype implements Comparable<Diplotype> {
     return m_allele2 == null || m_allele2.isUnknown();
   }
 
-  private boolean isUnknownAlleles() {
+  public boolean isUnknownAlleles() {
     return isUnknownAllele1() && isUnknownAllele2();
   }
 
@@ -238,12 +238,12 @@ public class Diplotype implements Comparable<Diplotype> {
   public String printBare() {
     return printOverride().orElseGet(() -> {
       if (m_phenotypes != null && m_allele1 == null && m_allele2 == null) {
-        return String.join(sf_delimiter, m_phenotypes);
+        return String.join(DELIMITER, m_phenotypes);
       }
       if (m_allele1 != null && m_allele2 != null) {
         String[] alleles = new String[]{ m_allele1.getName(), m_allele2.getName() };
         Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
-        return String.join(sf_delimiter, alleles);
+        return String.join(DELIMITER, alleles);
       } else if (m_allele1 != null) {
         return m_allele1.getName();
       } else {

@@ -1,0 +1,938 @@
+{
+  "citations" : [ {
+    "@id" : "https://pharmgkb.org/literature/7283333",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 7283333,
+    "title" : "Pharmacogenetics: from bench to byte--an update of guidelines.",
+    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
+    "authors" : [ "Swen J J", "Nijenhuis M", "de Boer A", "Grandia L", "Maitland-van der Zee A H", "Mulder H", "Rongen G A P J M", "van Schaik R H N", "Schalekamp T", "Touw D J", "van der Weide J", "Wilffert B", "Deneer V H M", "Guchelaar H-J" ],
+    "crossReferences" : [ {
+      "@id" : "https://pharmgkb.org/crossReference/pubMed/21412232",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 769250885,
+      "resource" : "PubMed",
+      "resourceId" : "21412232",
+      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
+      "version" : 0
+    }, {
+      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 1449247827,
+      "resource" : "DOI",
+      "resourceId" : "10.1038/clpt.2011.34",
+      "_url" : "http://dx.doi.org/10.1038%2Fclpt.2011.34",
+      "version" : 0
+    } ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ "Animals", "Aryl Hydrocarbon Hydroxylases", "Cytochrome P-450 CYP2C9", "Drug Administration Schedule", "Drug-Related Side Effects and Adverse Reactions", "Humans", "Pharmaceutical Preparations", "Pharmacogenetics", "Practice Guidelines as Topic" ],
+    "month" : 5,
+    "nonHuman" : false,
+    "objCls" : "Literature",
+    "page" : "662-73",
+    "pediatric" : false,
+    "pgkbPublication" : false,
+    "pubDate" : "2011-05-01T00:00:00-07:00",
+    "summary" : "Currently, there are very few guidelines linking the results of pharmacogenetic tests to specific therapeutic recommendations. Therefore, the Royal Dutch Association for the Advancement of Pharmacy established the Pharmacogenetics Working Group with the objective of developing pharmacogenetics-based therapeutic (dose) recommendations. After systematic review of the literature, recommendations were developed for 53 drugs associated with genes coding for CYP2D6, CYP2C19, CYP2C9, thiopurine-S-methyltransferase (TPMT), dihydropyrimidine dehydrogenase (DPD), vitamin K epoxide reductase (VKORC1), uridine diphosphate glucuronosyltransferase 1A1 (UGT1A1), HLA-B44, HLA-B*5701, CYP3A5, and factor V Leiden (FVL).",
+    "version" : 2,
+    "volume" : "89",
+    "year" : 2011
+  } ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104960",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166104960",
+    "name" : "Annotation of DPWG Guideline for thioguanine and TPMT",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ {
+      "id" : 1451450505,
+      "alleles" : [ {
+        "id" : 1451450506,
+        "_label" : "*1",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558335,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Normal function",
+          "termId" : "haplotypeTags:1445558335",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165819268",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165819268",
+          "symbol" : "TPMT*1",
+          "name" : "*1",
+          "version" : 16
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450507,
+        "_label" : "*2",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165819269",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165819269",
+          "symbol" : "TPMT*2",
+          "name" : "*2",
+          "version" : 14
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450508,
+        "_label" : "*3A",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165819270",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165819270",
+          "symbol" : "TPMT*3A",
+          "name" : "*3A",
+          "version" : 15
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450509,
+        "_label" : "*3B",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165819271",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165819271",
+          "symbol" : "TPMT*3B",
+          "name" : "*3B",
+          "version" : 14
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450510,
+        "_label" : "*3C",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165819272",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165819272",
+          "symbol" : "TPMT*3C",
+          "name" : "*3C",
+          "version" : 14
+        },
+        "version" : 0
+      }, {
+        "id" : 1451701168,
+        "_label" : "*3D",
+        "allele" : "*3D",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450511,
+        "_label" : "*4",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165819274",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165819274",
+          "symbol" : "TPMT*4",
+          "name" : "*4",
+          "version" : 14
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450520,
+        "_label" : "*5",
+        "allele" : "*5",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450521,
+        "_label" : "*6",
+        "allele" : "*6",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450522,
+        "_label" : "*7",
+        "allele" : "*7",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450523,
+        "_label" : "*8",
+        "allele" : "*8",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450524,
+        "_label" : "*9",
+        "allele" : "*9",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450525,
+        "_label" : "*10",
+        "allele" : "*10",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450512,
+        "_label" : "*11",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165819281",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165819281",
+          "symbol" : "TPMT*11",
+          "name" : "*11",
+          "version" : 14
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450526,
+        "_label" : "*12",
+        "allele" : "*12",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450527,
+        "_label" : "*13",
+        "allele" : "*13",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450513,
+        "_label" : "*14",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165819284",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165819284",
+          "symbol" : "TPMT*14",
+          "name" : "*14",
+          "version" : 14
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450514,
+        "_label" : "*15",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165819285",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165819285",
+          "symbol" : "TPMT*15",
+          "name" : "*15",
+          "version" : 14
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450528,
+        "_label" : "*16",
+        "allele" : "*16",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450529,
+        "_label" : "*17",
+        "allele" : "*17",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451450540,
+        "_label" : "*18",
+        "allele" : "*18",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      } ],
+      "gene" : {
+        "@id" : "https://pharmgkb.org/gene/PA356",
+        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+        "objCls" : "Gene",
+        "id" : "PA356",
+        "symbol" : "TPMT",
+        "name" : "thiopurine S-methyltransferase",
+        "alleleFile" : "TPMT_allele_definition_table.xlsx",
+        "altNames" : { },
+        "buildVersion" : "GRCh38",
+        "cbStart" : "p22.3",
+        "cbStop" : "p22.3",
+        "chr" : {
+          "@id" : "https://pharmgkb.org/chromosome/PA532",
+          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
+          "objCls" : "Chromosome",
+          "id" : "PA532",
+          "name" : "chr6",
+          "version" : 3
+        },
+        "chrStartPosB37" : 18128542,
+        "chrStartPosB38" : 18128311,
+        "chrStopPosB37" : 18155400,
+        "chrStopPosB38" : 18155169,
+        "cpicGene" : true,
+        "crossReferences" : [ {
+          "@id" : "https://pharmgkb.org/crossReference/alfred/LO206732U",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608112634,
+          "resource" : "ALFRED",
+          "resourceId" : "LO206732U",
+          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO206732U",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ctd/7172",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 553237364,
+          "resource" : "Comparative Toxicogenomics Database",
+          "resourceId" : "7172",
+          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=7172",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000137364",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 132272227,
+          "resource" : "Ensembl",
+          "resourceId" : "ENSG00000137364",
+          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000137364",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/genAtlas/TPMT",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 83901,
+          "resource" : "GenAtlas",
+          "resourceId" : "TPMT",
+          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=TPMT",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/geneCard/TPMT",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 98829,
+          "resource" : "GeneCard",
+          "resourceId" : "TPMT",
+          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=TPMT",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005737",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34650,
+          "resource" : "GO",
+          "resourceId" : "GO:0005737",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005737",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006139",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34670,
+          "resource" : "GO",
+          "resourceId" : "GO:0006139",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006139",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0008119",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62331885,
+          "resource" : "GO",
+          "resourceId" : "GO:0008119",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0008119",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0008152",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 35211,
+          "resource" : "GO",
+          "resourceId" : "GO:0008152",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0008152",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0008168",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34749,
+          "resource" : "GO",
+          "resourceId" : "GO:0008168",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0008168",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016740",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 746237,
+          "resource" : "GO",
+          "resourceId" : "GO:0016740",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016740",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:12014",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608112626,
+          "resource" : "HGNC",
+          "resourceId" : "HGNC:12014",
+          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A12014",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS06327",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608112636,
+          "resource" : "HumanCyc Gene",
+          "resourceId" : "HS06327",
+          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS06327",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/O43213",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560935362,
+          "resource" : "ModBase",
+          "resourceId" : "O43213",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=O43213",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/mutDb/TPMT",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 466439,
+          "resource" : "MutDB",
+          "resourceId" : "TPMT",
+          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=TPMT",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/entrezGene/7172",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 20259,
+          "resource" : "NCBI Gene",
+          "resourceId" : "7172",
+          "_url" : "https://www.ncbi.nlm.nih.gov/gene/7172",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/187680",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 2403,
+          "resource" : "OMIM",
+          "resourceId" : "187680",
+          "_url" : "http://omim.org/entry/187680",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/610460",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560550106,
+          "resource" : "OMIM",
+          "resourceId" : "610460",
+          "_url" : "http://omim.org/entry/610460",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_012137.3",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 1451618680,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NG_012137.3",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_012137.3",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_000358",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 37533,
+          "resource" : "RefSeq Protein",
+          "resourceId" : "NP_000358",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_000358",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_000367",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 46608,
+          "resource" : "RefSeq RNA",
+          "resourceId" : "NM_000367",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_000367",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_000367",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 121925,
+          "resource" : "UCSC Genome Browser",
+          "resourceId" : "NM_000367",
+          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000367",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/P51580",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62331854,
+          "name" : "TPMT_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "P51580",
+          "_url" : "http://www.uniprot.org/uniprot/P51580",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q9BS45",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608112635,
+          "name" : "Q9BS45_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "Q9BS45",
+          "_url" : "http://www.uniprot.org/uniprot/Q9BS45",
+          "version" : 1
+        } ],
+        "hasNonStandardHaplotypes" : false,
+        "hideHaplotypes" : false,
+        "pharmVarGene" : false,
+        "strand" : "minus",
+        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005625","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499969,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005625","resource":"Gene Ontology","term":"soluble fraction","termId":"GO:0005625"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005737","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500078,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005737","resource":"Gene Ontology","term":"cytoplasm","termId":"GO:0005737"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005829","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500177,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005829","resource":"Gene Ontology","term":"cytosol","termId":"GO:0005829"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006139","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500558,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006139","resource":"Gene Ontology","term":"nucleobase, nucleoside, nucleotide and nucleic acid metabolic process","termId":"GO:0006139"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008119","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560502520,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008119","resource":"Gene Ontology","term":"thiopurine S-methyltransferase activity","termId":"GO:0008119"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008152","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501456,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008152","resource":"Gene Ontology","term":"metabolic process","termId":"GO:0008152"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008168","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498395,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008168","resource":"Gene Ontology","term":"methyltransferase activity","termId":"GO:0008168"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0014070","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560505035,"_url":"http://amigo.geneontology.org/amigo/term/GO:0014070","resource":"Gene Ontology","term":"response to organic cyclic substance","termId":"GO:0014070"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016740","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495039,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016740","resource":"Gene Ontology","term":"transferase activity","termId":"GO:0016740"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0033574","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560513429,"_url":"http://amigo.geneontology.org/amigo/term/GO:0033574","resource":"Gene Ontology","term":"response to testosterone stimulus","termId":"GO:0033574"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046498","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560508927,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046498","resource":"Gene Ontology","term":"S-adenosylhomocysteine metabolic process","termId":"GO:0046498"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046500","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501101,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046500","resource":"Gene Ontology","term":"S-adenosylmethionine metabolic process","termId":"GO:0046500"} ],
+        "version" : 7544
+      },
+      "version" : 1
+    } ],
+    "hasTestingGuidance" : true,
+    "history" : [ {
+      "id" : 1183704539,
+      "date" : "2011-08-10T00:00:00-07:00",
+      "type" : "Create",
+      "version" : 0
+    }, {
+      "id" : 1450414873,
+      "date" : "2019-05-22T16:39:12.063-07:00",
+      "description" : "Annotation current with November 2018 DPWG Guideline release",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450821361,
+      "date" : "2019-10-08T19:31:45.621-07:00",
+      "description" : "Changes based on August 2019 guidelines",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450956480,
+      "date" : "2020-01-31T14:20:15.750-08:00",
+      "description" : "Updated link to 2011 DPWG methods",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450963920,
+      "date" : "2020-02-11T08:08:44.012-08:00",
+      "description" : "Fixed links to 2018 and 2019 guideline pdfs.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451450660,
+      "date" : "2021-05-26T11:27:59.174-07:00",
+      "description" : "Tagged haplotypes.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451701171,
+      "date" : "2022-03-02T00:00:00-08:00",
+      "description" : "Added *3D allele to extended dosing guideline",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704212,
+      "date" : "2022-03-03T16:33:28.645-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451707841,
+      "date" : "2022-03-08T13:00:12.561-08:00",
+      "description" : "Added information about preemptive genotyping",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451732852,
+      "date" : "2022-03-28T09:57:42.392-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451733464,
+      "date" : "2022-03-28T15:04:07.799-07:00",
+      "description" : "Updated link to testing guidance page",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451741531,
+      "date" : "2022-04-05T11:20:58.952-07:00",
+      "description" : "Added testing guidance tag",
+      "type" : "Update",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/7283333","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":7283333,"title":"Pharmacogenetics: from bench to byte--an update of guidelines.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/21412232","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/21412232","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":769250885,"resource":"PubMed","resourceId":"21412232","_url":"https://www.ncbi.nlm.nih.gov/pubmed/21412232"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1449247827,"resource":"DOI","resourceId":"10.1038/clpt.2011.34","_url":"http://dx.doi.org/10.1038%2Fclpt.2011.34"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : true,
+    "relatedAlleles" : [ {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819268",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819268",
+      "symbol" : "TPMT*1",
+      "name" : "*1",
+      "version" : 16
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819280",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819280",
+      "symbol" : "TPMT*10",
+      "name" : "*10",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819281",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819281",
+      "symbol" : "TPMT*11",
+      "name" : "*11",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819282",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819282",
+      "symbol" : "TPMT*12",
+      "name" : "*12",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819283",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819283",
+      "symbol" : "TPMT*13",
+      "name" : "*13",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819284",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819284",
+      "symbol" : "TPMT*14",
+      "name" : "*14",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819285",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819285",
+      "symbol" : "TPMT*15",
+      "name" : "*15",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819286",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819286",
+      "symbol" : "TPMT*16",
+      "name" : "*16",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819287",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819287",
+      "symbol" : "TPMT*17",
+      "name" : "*17",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819288",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819288",
+      "symbol" : "TPMT*18",
+      "name" : "*18",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819269",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819269",
+      "symbol" : "TPMT*2",
+      "name" : "*2",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819270",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819270",
+      "symbol" : "TPMT*3A",
+      "name" : "*3A",
+      "version" : 15
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819271",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819271",
+      "symbol" : "TPMT*3B",
+      "name" : "*3B",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819272",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819272",
+      "symbol" : "TPMT*3C",
+      "name" : "*3C",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819274",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819274",
+      "symbol" : "TPMT*4",
+      "name" : "*4",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819275",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819275",
+      "symbol" : "TPMT*5",
+      "name" : "*5",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819276",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819276",
+      "symbol" : "TPMT*6",
+      "name" : "*6",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819277",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819277",
+      "symbol" : "TPMT*7",
+      "name" : "*7",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819278",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819278",
+      "symbol" : "TPMT*8",
+      "name" : "*8",
+      "version" : 14
+    }, {
+      "@id" : "https://pharmgkb.org/haplotype/PA165819279",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165819279",
+      "symbol" : "TPMT*9",
+      "name" : "*9",
+      "version" : 14
+    } ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA451663",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA451663",
+      "name" : "thioguanine",
+      "version" : 12
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA356",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA356",
+      "symbol" : "TPMT",
+      "name" : "thiopurine S-methyltransferase",
+      "version" : 7544
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1447981928,
+      "html" : "<p>Select an alternative drug or reduce the initial dose of thioguanine for patients that are TPMT poor metabolizers and reduce initial dose for patients that are TPMT intermediate metabolizers.</p>\n",
+      "version" : 1
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1447981927,
+      "html" : "<h3 id=\"august-2019-update\">August 2019 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for thioguanine based on TPMT genotype.  They recommend reducing the initial dose for patients that are intermediate metabolizers and selecting an alternative drug or reducing the initial dose for patients that are poor metabolizers. They updated the wording for the intermediate metabolizer recommendation, reflected in the table below.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_August_2019.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_August_2019.pdf\">Dutch guidelines August 2019 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>TPMT IM</td>\n<td>thioguanine</td>\n<td>Genetic variation reduces conversion of thioguanine to inactive metabolites. This increases the risk of serious adverse events such as myelosuppression.</td>\n<td>- IMMUNOSUPPRESSION: Start with 75% of the standard dose.  Adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and efficacy. The frequency of monitoring should be increased.<br/>- LEUKAEMIA: Start with 75% of the standard thioguanine dose, or start with the standard dose and reduce to 75% if side effects necessitate a dose reduction.  It is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity.  The initial dose should be adjusted based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.<br/>Note: more stringent dose reductions are necessary if the patient is also NUDT15 IM.</td>\n</tr>\n<tr>\n<td>TPMT PM</td>\n<td>thioguanine</td>\n<td>Genetic variation reduces conversion of thioguanine to inactive metabolites. This increases the risk of serious, life-threatening adverse events such as myelosuppression.</td>\n<td>1. Choose an alternative or start with 6-7% of the standard dose.  Any adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness. The frequency of monitoring should be increased.<br/>2. If the dose is decreased: advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) develop.</td>\n</tr>\n</tbody>\n</table>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0001907.PDF\" target=\"_blank\">DPWG risk analysis document</a> for thioguanine and TPMT:</p>\n<blockquote class=\"blockquote\">\n<p>The Dutch Pharmacogenetics Working Group considers genotyping before starting thioguanine to be essential for drug safety. Genotyping must be performed before drug therapy has been initiated to guide drug and dose selection.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0001906.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"november-2018-update\">November 2018 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for thioguanine based on TPMT genotype.  They recommend reducing the initial dose for patients that are intermediate metabolizers and selecting an alternative drug or reducing the initial dose for patients that are poor metabolizers.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>TPMT IM</td>\n<td>thioguanine</td>\n<td>Genetic variation reduces conversion of thioguanine to inactive metabolites. This increases the risk of serious adverse events such as myelosuppression.</td>\n<td>Start with 75% of the standard dose.  Adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and efficacy. The frequency of monitoring should be increased.</td>\n</tr>\n<tr>\n<td>TPMT PM</td>\n<td>thioguanine</td>\n<td>Genetic variation reduces conversion of thioguanine to inactive metabolites. This increases the risk of serious adverse events such as myelosuppression.</td>\n<td>1. Choose an alternative or start with 6-7% of the standard dose.  Any adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness. The frequency of monitoring should be increased.  2. If the dose is decreased: advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) develop.</td>\n</tr>\n</tbody>\n</table>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0001906.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"2011-guideline\">2011 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for thioguanine based on TPMT genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].  They recommend selecting an alternative drug for patients carrying inactive alleles.</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Phenotype (Genotype)</th>\n<th>Therapeutic Dose Recommendation</th>\n<th>Level of Evidence</th>\n<th>Clinical Relevance</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>IM (one inactive allele: *2, *3, *4-*18)</td>\n<td>Select alternative drug.  Insufficient data to allow calculation of dose adjustment.</td>\n<td>Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): long-standing discomfort (&gt; 168 hr), permanent symptom or invalidating injury e.g. failure of prophylaxis of atrial fibrillation; venous thromboembolism; decreased effect of clopidogrel on inhibition of platelet aggregation; ADE resulting from increased bioavailability of phenytoin; INR &gt; 6.0; neutropenia 0.5-1.0x10<sup>9</sup>/l; leucopenia 1.0-2.0x10<sup>9</sup>/l; thrombocytopenia 25-50x10<sup>9</sup>/l; severe diarrhea.</td>\n</tr>\n<tr>\n<td>PM (two inactive alleles: *2, *3, *4-*18)</td>\n<td>Select alternative drug.  Insufficient data to allow calculation of dose adjustment.</td>\n<td>Published case reports, well documented, and having relevant pharmacokinetic or clinical endpoints. Well documented case series.</td>\n<td>Clinical effect (S): death; arrhythmia; unanticipated myelosuppression.</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>*See <a href=\"http://www.pharmgkb.org/page/dpwg\">Methods </a> or [Article:<a href=\"/pmid/18253145\">18253145</a>] for definition of &quot;moderate&quot; quality.</li>\n<li>S: statistically significant difference.</li>\n</ul>\n",
+      "version" : 14
+    },
+    "userId" : "katrin",
+    "version" : 29
+  }
+}

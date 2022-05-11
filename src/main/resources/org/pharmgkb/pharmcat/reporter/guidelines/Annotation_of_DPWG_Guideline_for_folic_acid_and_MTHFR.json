@@ -1,0 +1,76 @@
+{
+  "citations" : [ ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166264981",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166264981",
+    "name" : "Annotation of DPWG Guideline for folic acid and MTHFR",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ ],
+    "hasTestingGuidance" : false,
+    "history" : [ {
+      "id" : 1451696021,
+      "date" : "2022-02-25T22:38:21.260-08:00",
+      "description" : "May 2021 guideline",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704260,
+      "date" : "2022-03-03T16:33:36.231-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451732899,
+      "date" : "2022-03-28T09:57:49.945-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    } ],
+    "literature" : [ ],
+    "pediatric" : false,
+    "recommendation" : false,
+    "relatedAlleles" : [ {
+      "@id" : "https://pharmgkb.org/variant/PA166153644",
+      "@context" : "https://api.pharmgkb.org/jsonld/variant.jsonld",
+      "objCls" : "Variant",
+      "id" : "PA166153644",
+      "symbol" : "rs1801133",
+      "name" : "rs1801133",
+      "version" : 4
+    } ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA449692",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA449692",
+      "name" : "folic acid",
+      "version" : 30
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA245",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA245",
+      "symbol" : "MTHFR",
+      "name" : "methylenetetrahydrofolate reductase",
+      "version" : 3429
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1451696020,
+      "html" : "<p>There are currently no recommendations for folic acid dosing based on MTHFR rs1801133 genotypes.</p>\n",
+      "version" : 0
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1451695980,
+      "html" : "<h3 id=\"may-2021-guideline\">May 2021 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for foliumzuur and MTHFR rs1801133 (677C&gt;T) variant. They conclude that NO action is required for this gene-drug interaction.  677CT has no effect on the treatment with folic acid and 677TT either has no effect or a positive effect on the treatment with folic acid. (see <a download=\"DPWG_May_2021.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_May_2021.pdf\">Dutch guidelines May 2021 update</a>).</p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0007205.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
+      "version" : 0
+    },
+    "userId" : "lgong",
+    "version" : 2
+  }
+}

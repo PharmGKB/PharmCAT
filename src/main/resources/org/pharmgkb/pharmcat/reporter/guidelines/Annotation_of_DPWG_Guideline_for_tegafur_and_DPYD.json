@@ -1,0 +1,911 @@
+{
+  "annotationGroups" : [ {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244281",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166244281",
+    "name" : "Activity Score 0",
+    "activityScore" : {
+      "id" : 1451447269,
+      "html" : "<p>0</p>\n",
+      "version" : 0
+    },
+    "genePhenotypes" : [ "DPYD:No function/No function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104944",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166104944",
+      "name" : "Annotation of DPWG Guideline for tegafur and DPYD",
+      "version" : 27
+    },
+    "implications" : {
+      "id" : 1451447270,
+      "html" : "<p>The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur to inactive metabolites means that the normal dose is an overdose.</p>\n",
+      "version" : 0
+    },
+    "phenotype" : {
+      "id" : 1451447271,
+      "html" : "<p>Carrier of two variants associated with fully dysfunctional DPD activity</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451447272,
+      "html" : "<ul>\n<li>avoid tegafur\n<ul>\n<li>Fluorouracil and capecitabine are not suitable alternatives, as these are also metabolised by DPD.</li>\n</ul>\n</li>\n<li>If it is not possible to avoid tegafur: start with a very low dose and adjust the initial dose based on toxicity and efficacy. A substantiated recommendation for dose reduction cannot be made based on the literature.\n<ul>\n<li>The recommendation for fluorouracil and capecitabine is to determine the residual DPD activity in mononuclear cells from peripheral blood and to adjust the initial dose accordingly. A patient with 0.5% of the normal DPD activity tolerated 0.8% of the standard capecitabine dose (150 mg every 5 days). A patient with undetectable DPD activity tolerated 0.43% of the standard capecitabine dose (150 mg every 5 days with every third dose skipped)</li>\n</ul>\n</li>\n</ul>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244323",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166244323",
+    "name" : "Activity Score 2",
+    "activityScore" : {
+      "id" : 1451447308,
+      "html" : "<p>2</p>\n",
+      "version" : 0
+    },
+    "genePhenotypes" : [ "DPYD:Normal function/Normal function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104944",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166104944",
+      "name" : "Annotation of DPWG Guideline for tegafur and DPYD",
+      "version" : 27
+    },
+    "implications" : {
+      "id" : 1451447309,
+      "html" : "<p>The guideline does not provide a description of the impact of a DPYD activity score of 2 on tegafur.</p>\n",
+      "version" : 0
+    },
+    "phenotype" : {
+      "id" : 1451447310,
+      "html" : "<p>Carrier of no variants associated with either reduced functionality or fully dysfunctional DPD activity.</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451447311,
+      "html" : "<p>The guideline does not provide a recommendation for tegafur in patients with a DPYD activity score of 2.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244301",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166244301",
+    "name" : "Activity Score PHENO",
+    "activityScore" : {
+      "id" : 1451447280,
+      "html" : "<p>DPD enzyme activity cannot be predicted correctly, an additional phenotyping test is required to determine the DPD enzyme activity.</p>\n",
+      "version" : 0
+    },
+    "genePhenotypes" : [ "DPYD:Decreased function/Decreased function", "DPYD:Decreased function/No function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104944",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166104944",
+      "name" : "Annotation of DPWG Guideline for tegafur and DPYD",
+      "version" : 27
+    },
+    "implications" : {
+      "id" : 1451447281,
+      "html" : "<p>The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur to inactive metabolites means that the normal dose is an overdose.</p>\n",
+      "version" : 0
+    },
+    "phenotype" : {
+      "id" : 1451447282,
+      "html" : "<p>Carrier of two variants associated with reduced functionality of DPD activity OR carrier of one variant associated with reduced functionality of DPD activity and one variant associated with fully dysfunctional DPD activity</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451447283,
+      "html" : "<p>Avoid tegafur or start with a low dose and adjust the initial dose based on toxicity and efficacy\nFluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD.\nIt is not possible to offer substantiated advice for dose reduction based on the literature.\nFor fluorouracil and capecitabine, it is recommended to determine the residual DPD activity in mononuclear cells from peripheral blood and adjust the initial dose based on phenotype and genotype.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244321",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166244321",
+    "name" : "Activity Score 1",
+    "activityScore" : {
+      "id" : 1451447300,
+      "html" : "<p>1</p>\n",
+      "version" : 0
+    },
+    "genePhenotypes" : [ "DPYD:No function/Normal function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104944",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166104944",
+      "name" : "Annotation of DPWG Guideline for tegafur and DPYD",
+      "version" : 27
+    },
+    "implications" : {
+      "id" : 1451447301,
+      "html" : "<p>The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur into inactive metabolites means that the normal dose is an overdose.</p>\n",
+      "version" : 0
+    },
+    "phenotype" : {
+      "id" : 1451447302,
+      "html" : "<p>Carrier of one variant associated with fully dysfunctional DPD activity.</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451447303,
+      "html" : "<p>Avoid tegafur or start with a low dose and adjust the initial dose based on toxicity and efficacy\nFluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD.\nIt is not possible to offer substantiated advice for dose reduction based on the literature.\nFor fluorouracil and capecitabine, starting with 50 % of the standard dose is recommended.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244322",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166244322",
+    "name" : "Activity Score 1.5",
+    "activityScore" : {
+      "id" : 1451447304,
+      "html" : "<p>1.5</p>\n",
+      "version" : 0
+    },
+    "genePhenotypes" : [ "DPYD:Decreased function/Normal function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104944",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166104944",
+      "name" : "Annotation of DPWG Guideline for tegafur and DPYD",
+      "version" : 27
+    },
+    "implications" : {
+      "id" : 1451447305,
+      "html" : "<p>The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur into inactive metabolites means that the normal dose is an overdose.</p>\n",
+      "version" : 0
+    },
+    "phenotype" : {
+      "id" : 1451447306,
+      "html" : "<p>Carrier of one variant associated with reduced functionality of DPD activity</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451447307,
+      "html" : "<p>Avoid tegafur or start with a low dose and adjust the initial dose based on toxicity and efficacy\nFluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD.\nIt is not possible to offer substantiated advice for dose reduction based on the literature.\nFor fluorouracil and capecitabine, starting with 50 % of the standard dose is recommended and the dose should then be adjusted based on toxicity and effectiveness.\nIn one study, the average dose of fluorouracil/capecitabine after titration was 64% of the standard dose for 17 patients with genotype *1/2846T and 74% of the standard dose for 51 patients with genotype *1/1236A</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "rachel",
+    "version" : 0
+  } ],
+  "citations" : [ {
+    "@id" : "https://pharmgkb.org/literature/15104402",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 15104402,
+    "title" : "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction of DPYD and fluoropyrimidines.",
+    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/31745289",
+    "authors" : [ "Lunenburg Carin A T C", "van der Wouden Cathelijne H", "Nijenhuis Marga", "Crommentuijn-van Rhenen Mandy H", "de Boer-Veger Nienke J", "Buunk Anne Marie", "Houwink Elisa J F", "Mulder Hans", "Rongen Gerard A", "van Schaik Ron H N", "van der Weide Jan", "Wilffert Bob", "Deneer Vera H M", "Swen Jesse J", "Guchelaar Henk-Jan" ],
+    "crossReferences" : [ {
+      "@id" : "https://pharmgkb.org/crossReference/pubMed/31745289",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 1450964680,
+      "resource" : "PubMed",
+      "resourceId" : "31745289",
+      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/31745289",
+      "version" : 0
+    }, {
+      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/s41431-019-0540-0",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 1450964681,
+      "resource" : "DOI",
+      "resourceId" : "10.1038/s41431-019-0540-0",
+      "_url" : "http://dx.doi.org/10.1038%2Fs41431-019-0540-0",
+      "version" : 0
+    } ],
+    "hasKeyword" : true,
+    "journal" : "European journal of human genetics : EJHG",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 11,
+    "nonHuman" : false,
+    "objCls" : "Literature",
+    "pediatric" : false,
+    "pgkbPublication" : false,
+    "pubDate" : "2019-11-01T00:00:00-07:00",
+    "summary" : "Despite advances in the field of pharmacogenetics (PGx), clinical acceptance has remained limited. The Dutch Pharmacogenetics Working Group (DPWG) aims to facilitate PGx implementation by developing evidence-based pharmacogenetics guidelines to optimize pharmacotherapy. This guideline describes the starting dose optimization of three anti-cancer drugs (fluoropyrimidines: 5-fluorouracil, capecitabine and tegafur) to decrease the risk of severe, potentially fatal, toxicity (such as diarrhoea, hand-foot syndrome, mucositis or myelosuppression). Dihydropyrimidine dehydrogenase (DPD, encoded by the DPYD gene) enzyme deficiency increases risk of fluoropyrimidine-induced toxicity. The DPYD-gene activity score, determined by four DPYD variants, predicts DPD activity and can be used to optimize an individual's starting dose. The gene activity score ranges from 0 (no DPD activity) to 2 (normal DPD activity). In case it is not possible to calculate the gene activity score based on DPYD genotype, we recommend to determine the DPD activity and adjust the initial dose based on available data. For patients initiating 5-fluorouracil or capecitabine: subjects with a gene activity score of 0 are recommended to avoid systemic and cutaneous 5-fluorouracil or capecitabine; subjects with a gene activity score of 1 or 1.5 are recommended to initiate therapy with 50% the standard dose of 5-fluorouracil or capecitabine. For subjects initiating tegafur: subjects with a gene activity score of 0, 1 or 1.5 are recommended to avoid tegafur. Subjects with a gene activity score of 2 (reference) should receive a standard dose. Based on the DPWG clinical implication score, DPYD genotyping is considered \"essential\", therefore directing DPYD testing prior to initiating fluoropyrimidines.",
+    "version" : 0,
+    "year" : 2019
+  }, {
+    "@id" : "https://pharmgkb.org/literature/7283333",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 7283333,
+    "title" : "Pharmacogenetics: from bench to byte--an update of guidelines.",
+    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
+    "authors" : [ "Swen J J", "Nijenhuis M", "de Boer A", "Grandia L", "Maitland-van der Zee A H", "Mulder H", "Rongen G A P J M", "van Schaik R H N", "Schalekamp T", "Touw D J", "van der Weide J", "Wilffert B", "Deneer V H M", "Guchelaar H-J" ],
+    "crossReferences" : [ {
+      "@id" : "https://pharmgkb.org/crossReference/pubMed/21412232",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 769250885,
+      "resource" : "PubMed",
+      "resourceId" : "21412232",
+      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
+      "version" : 0
+    }, {
+      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 1449247827,
+      "resource" : "DOI",
+      "resourceId" : "10.1038/clpt.2011.34",
+      "_url" : "http://dx.doi.org/10.1038%2Fclpt.2011.34",
+      "version" : 0
+    } ],
+    "hasKeyword" : true,
+    "journal" : "Clinical pharmacology and therapeutics",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ "Animals", "Aryl Hydrocarbon Hydroxylases", "Cytochrome P-450 CYP2C9", "Drug Administration Schedule", "Drug-Related Side Effects and Adverse Reactions", "Humans", "Pharmaceutical Preparations", "Pharmacogenetics", "Practice Guidelines as Topic" ],
+    "month" : 5,
+    "nonHuman" : false,
+    "objCls" : "Literature",
+    "page" : "662-73",
+    "pediatric" : false,
+    "pgkbPublication" : false,
+    "pubDate" : "2011-05-01T00:00:00-07:00",
+    "summary" : "Currently, there are very few guidelines linking the results of pharmacogenetic tests to specific therapeutic recommendations. Therefore, the Royal Dutch Association for the Advancement of Pharmacy established the Pharmacogenetics Working Group with the objective of developing pharmacogenetics-based therapeutic (dose) recommendations. After systematic review of the literature, recommendations were developed for 53 drugs associated with genes coding for CYP2D6, CYP2C19, CYP2C9, thiopurine-S-methyltransferase (TPMT), dihydropyrimidine dehydrogenase (DPD), vitamin K epoxide reductase (VKORC1), uridine diphosphate glucuronosyltransferase 1A1 (UGT1A1), HLA-B44, HLA-B*5701, CYP3A5, and factor V Leiden (FVL).",
+    "version" : 2,
+    "volume" : "89",
+    "year" : 2011
+  } ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104944",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166104944",
+    "name" : "Annotation of DPWG Guideline for tegafur and DPYD",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ {
+      "id" : 1451447260,
+      "alleles" : [ {
+        "id" : 1451447261,
+        "_label" : "Reference",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558335,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Normal function",
+          "termId" : "haplotypeTags:1445558335",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166171116",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166171116",
+          "symbol" : "DPYD Reference",
+          "name" : "Reference",
+          "version" : 10
+        },
+        "version" : 0
+      }, {
+        "id" : 1451447264,
+        "_label" : "c.1129-5923C>G, c.1236G>A (HapB3)",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166171120",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166171120",
+          "symbol" : "DPYD c.1129-5923C>G, c.1236G>A (HapB3)",
+          "name" : "c.1129-5923C>G, c.1236G>A (HapB3)",
+          "version" : 11
+        },
+        "version" : 0
+      }, {
+        "id" : 1451447262,
+        "_label" : "c.1679T>G (*13)",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166171118",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166171118",
+          "symbol" : "DPYD c.1679T>G (*13)",
+          "name" : "c.1679T>G (*13)",
+          "version" : 11
+        },
+        "version" : 0
+      }, {
+        "id" : 1451447265,
+        "_label" : "c.1905+1G>A, IVS14+1G>A (*2A)",
+        "allele" : "c.1905+1G>A, IVS14+1G>A (*2A)",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451447263,
+        "_label" : "c.2846A>T",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA166171119",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA166171119",
+          "symbol" : "DPYD c.2846A>T",
+          "name" : "c.2846A>T",
+          "version" : 10
+        },
+        "version" : 0
+      } ],
+      "gene" : {
+        "@id" : "https://pharmgkb.org/gene/PA145",
+        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+        "objCls" : "Gene",
+        "id" : "PA145",
+        "symbol" : "DPYD",
+        "name" : "dihydropyrimidine dehydrogenase",
+        "altNames" : {
+          "symbol" : [ "DPD" ]
+        },
+        "buildVersion" : "GRCh38.p7",
+        "cbStart" : "p21.3",
+        "cbStop" : "p21.3",
+        "chr" : {
+          "@id" : "https://pharmgkb.org/chromosome/PA503",
+          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
+          "objCls" : "Chromosome",
+          "id" : "PA503",
+          "name" : "chr1",
+          "version" : 3
+        },
+        "chrStartPosB37" : 97543299,
+        "chrStartPosB38" : 97077743,
+        "chrStopPosB37" : 98386615,
+        "chrStopPosB38" : 97921059,
+        "cpicGene" : true,
+        "crossReferences" : [ {
+          "@id" : "https://pharmgkb.org/crossReference/alfred/LO003560O",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560574648,
+          "resource" : "ALFRED",
+          "resourceId" : "LO003560O",
+          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO003560O",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ctd/1806",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 553241004,
+          "resource" : "Comparative Toxicogenomics Database",
+          "resourceId" : "1806",
+          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=1806",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000188641",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 132256781,
+          "resource" : "Ensembl",
+          "resourceId" : "ENSG00000188641",
+          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000188641",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/genAtlas/DPYD",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 73824,
+          "resource" : "GenAtlas",
+          "resourceId" : "DPYD",
+          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=DPYD",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/geneCard/DPYD",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 88752,
+          "resource" : "GeneCard",
+          "resourceId" : "DPYD",
+          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=DPYD",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0004152",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 36328,
+          "resource" : "GO",
+          "resourceId" : "GO:0004152",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0004152",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0004158",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 8680499,
+          "resource" : "GO",
+          "resourceId" : "GO:0004158",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0004158",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005506",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34969,
+          "resource" : "GO",
+          "resourceId" : "GO:0005506",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005506",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005737",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34650,
+          "resource" : "GO",
+          "resourceId" : "GO:0005737",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005737",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006118",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 35063,
+          "resource" : "GO",
+          "resourceId" : "GO:0006118",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006118",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006207",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 36417,
+          "resource" : "GO",
+          "resourceId" : "GO:0006207",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006207",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006212",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62330381,
+          "resource" : "GO",
+          "resourceId" : "GO:0006212",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006212",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006214",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62330391,
+          "resource" : "GO",
+          "resourceId" : "GO:0006214",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006214",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0009055",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 77819322,
+          "resource" : "GO",
+          "resourceId" : "GO:0009055",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0009055",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0015036",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 8616501,
+          "resource" : "GO",
+          "resourceId" : "GO:0015036",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0015036",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34795,
+          "resource" : "GO",
+          "resourceId" : "GO:0016020",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0017113",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62330382,
+          "resource" : "GO",
+          "resourceId" : "GO:0017113",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0017113",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0046872",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 746292,
+          "resource" : "GO",
+          "resourceId" : "GO:0046872",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0046872",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0051539",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 123071530,
+          "resource" : "GO",
+          "resourceId" : "GO:0051539",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0051539",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:3012",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608166378,
+          "resource" : "HGNC",
+          "resourceId" : "HGNC:3012",
+          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A3012",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS06975",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608166386,
+          "resource" : "HumanCyc Gene",
+          "resourceId" : "HS06975",
+          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS06975",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/Q12882",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560885045,
+          "resource" : "ModBase",
+          "resourceId" : "Q12882",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=Q12882",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/mutDb/DPYD",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 456362,
+          "resource" : "MutDB",
+          "resourceId" : "DPYD",
+          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=DPYD",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/entrezGene/1806",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 11131,
+          "resource" : "NCBI Gene",
+          "resourceId" : "1806",
+          "_url" : "https://www.ncbi.nlm.nih.gov/gene/1806",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/274270",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 2866,
+          "resource" : "OMIM",
+          "resourceId" : "274270",
+          "_url" : "http://omim.org/entry/274270",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/612779",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608166384,
+          "resource" : "OMIM",
+          "resourceId" : "612779",
+          "_url" : "http://omim.org/entry/612779",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/pharmVarGene/DPYD",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 1451280334,
+          "resource" : "PharmVar Gene",
+          "resourceId" : "DPYD",
+          "_url" : "https://www.pharmvar.org/gene/DPYD",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_008807",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560574649,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NG_008807",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_008807",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_032977",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 37071,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NT_032977",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_032977",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_000101",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 37281,
+          "resource" : "RefSeq Protein",
+          "resourceId" : "NP_000101",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_000101",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_001153773",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608166383,
+          "resource" : "RefSeq Protein",
+          "resourceId" : "NP_001153773",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_001153773",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_000110",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 46356,
+          "resource" : "RefSeq RNA",
+          "resourceId" : "NM_000110",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_000110",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_001160301",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608166382,
+          "resource" : "RefSeq RNA",
+          "resourceId" : "NM_001160301",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_001160301",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_000110",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 121673,
+          "resource" : "UCSC Genome Browser",
+          "resourceId" : "NM_000110",
+          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000110",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q12882",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62330367,
+          "name" : "DPYD_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "Q12882",
+          "_url" : "http://www.uniprot.org/uniprot/Q12882",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q96HL6",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608166385,
+          "name" : "Q96HL6_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "Q96HL6",
+          "_url" : "http://www.uniprot.org/uniprot/Q96HL6",
+          "version" : 1
+        } ],
+        "hasNonStandardHaplotypes" : false,
+        "hideHaplotypes" : true,
+        "pharmVarGene" : true,
+        "strand" : "minus",
+        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004158","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498530,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004158","resource":"Gene Ontology","term":"dihydroorotate oxidase activity","termId":"GO:0004158"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004159","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498531,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004159","resource":"Gene Ontology","term":"dihydrouracil dehydrogenase (NAD+) activity","termId":"GO:0004159"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005488","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495048,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005488","resource":"Gene Ontology","term":"binding","termId":"GO:0005488"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005506","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499841,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005506","resource":"Gene Ontology","term":"iron ion binding","termId":"GO:0005506"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005737","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500078,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005737","resource":"Gene Ontology","term":"cytoplasm","termId":"GO:0005737"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005829","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500177,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005829","resource":"Gene Ontology","term":"cytosol","termId":"GO:0005829"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006145","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500566,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006145","resource":"Gene Ontology","term":"purine base catabolic process","termId":"GO:0006145"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006207","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500682,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006207","resource":"Gene Ontology","term":"'de novo' pyrimidine base biosynthetic process","termId":"GO:0006207"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006208","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500684,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006208","resource":"Gene Ontology","term":"pyrimidine base catabolic process","termId":"GO:0006208"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006210","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500687,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006210","resource":"Gene Ontology","term":"thymine catabolic process","termId":"GO:0006210"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006212","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500691,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006212","resource":"Gene Ontology","term":"uracil catabolic process","termId":"GO:0006212"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006214","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500695,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006214","resource":"Gene Ontology","term":"thymidine catabolic process","termId":"GO:0006214"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006222","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500709,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006222","resource":"Gene Ontology","term":"UMP biosynthetic process","termId":"GO:0006222"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009055","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503412,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009055","resource":"Gene Ontology","term":"electron carrier activity","termId":"GO:0009055"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016491","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495264,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016491","resource":"Gene Ontology","term":"oxidoreductase activity","termId":"GO:0016491"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0017113","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560507384,"_url":"http://amigo.geneontology.org/amigo/term/GO:0017113","resource":"Gene Ontology","term":"dihydropyrimidine dehydrogenase (NADP+) activity","termId":"GO:0017113"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042803","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560513251,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042803","resource":"Gene Ontology","term":"protein homodimerization activity","termId":"GO:0042803"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0050660","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560520673,"_url":"http://amigo.geneontology.org/amigo/term/GO:0050660","resource":"Gene Ontology","term":"FAD binding","termId":"GO:0050660"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0050661","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560520674,"_url":"http://amigo.geneontology.org/amigo/term/GO:0050661","resource":"Gene Ontology","term":"NADP or NADPH binding","termId":"GO:0050661"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0051539","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560521260,"_url":"http://amigo.geneontology.org/amigo/term/GO:0051539","resource":"Gene Ontology","term":"4 iron, 4 sulfur cluster binding","termId":"GO:0051539"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"} ],
+        "version" : 6907
+      },
+      "version" : 0
+    } ],
+    "hasTestingGuidance" : true,
+    "history" : [ {
+      "id" : 1183704537,
+      "date" : "2011-08-10T00:00:00-07:00",
+      "type" : "Create",
+      "version" : 0
+    }, {
+      "id" : 1450415061,
+      "date" : "2019-05-23T15:37:10.335-07:00",
+      "description" : "Annotation current with November 2018 DPWG Guideline release",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450820690,
+      "date" : "2019-10-03T21:03:43.093-07:00",
+      "description" : "Changes based on August 2019 guidelines",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450956460,
+      "date" : "2020-01-31T14:19:55.353-08:00",
+      "description" : "Updated link to 2011 DPWG methods",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450965841,
+      "date" : "2020-02-13T09:58:49.261-08:00",
+      "description" : "Added text and links to DPYD guideline individual paper PMID: 31745289",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704195,
+      "date" : "2022-03-03T16:33:25.664-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451707504,
+      "date" : "2022-03-08T10:58:05.407-08:00",
+      "description" : "Added information about preemptive genotyping",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451732835,
+      "date" : "2022-03-28T09:57:39.272-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451733460,
+      "date" : "2022-03-28T15:03:31.464-07:00",
+      "description" : "Updated link to testing guidance page",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451741546,
+      "date" : "2022-04-05T11:20:14.504-07:00",
+      "description" : "Added testing guidance tag",
+      "type" : "Update",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/15104402","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15104402,"title":"Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction of DPYD and fluoropyrimidines.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/31745289","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/31745289","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450964680,"resource":"PubMed","resourceId":"31745289","_url":"https://www.ncbi.nlm.nih.gov/pubmed/31745289"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/s41431-019-0540-0","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450964681,"resource":"DOI","resourceId":"10.1038/s41431-019-0540-0","_url":"http://dx.doi.org/10.1038%2Fs41431-019-0540-0"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/7283333","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":7283333,"title":"Pharmacogenetics: from bench to byte--an update of guidelines.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/21412232","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/21412232","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":769250885,"resource":"PubMed","resourceId":"21412232","_url":"https://www.ncbi.nlm.nih.gov/pubmed/21412232"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1449247827,"resource":"DOI","resourceId":"10.1038/clpt.2011.34","_url":"http://dx.doi.org/10.1038%2Fclpt.2011.34"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : true,
+    "relatedAlleles" : [ ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA452620",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA452620",
+      "name" : "tegafur",
+      "version" : 24
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA145",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA145",
+      "symbol" : "DPYD",
+      "name" : "dihydropyrimidine dehydrogenase",
+      "version" : 6907
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1447981872,
+      "html" : "<p>Choose an alternative drug to tegafur for patients with DPYD Activity Score of 0. For patients with a DPYD Activity Score of 1 or 1.5, avoid tegafur or start with a low dose and adjust the initial dose based on toxicity and efficacy. Fluorouracil and capecitabine are not alternatives for tegafur, as these are also metabolized by DPD. The DPWG evaluated DPYD genotyping as &quot;essential&quot; and recommend DPYD testing prior to initiating fluoropyrimidines.</p>\n",
+      "version" : 4
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1447981871,
+      "html" : "<h3 id=\"dutch-pharmacogenetics-working-group-dpwg-guideline-for-the-gene-drug-interaction-of-dpyd-and-fluoropyrimidines-european-journal-of-human-genetics-2019\">Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction of DPYD and fluoropyrimidines. <em>European journal of human genetics</em> (2019)</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group published a paper with the guidelines as per the August 2019 update including more details and scoring the clinical implementation <a href=\"/literature/15104402\">PMID: 31745289</a>.</p>\n<h3 id=\"august-2019-guideline\">August 2019 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for tegafur based on DPYD genotype. An alternative drug or starting with a lower dose then adjusting the initial dose based on toxicity and efficacy is recommended.  Fluorouracil or capecitabine are not an alternatives, as these are also metabolized by DPD.</p>\n<p><em>Wording in table taken from the <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf\" target=\"_blank\">Dutch guidelines</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Activity Score 0</td>\n<td>tegafur</td>\n<td>The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur to inactive metabolites means that the normal dose is an overdose.</td>\n<td>- avoid tegafur<br/>Fluorouracil and capecitabine are not suitable alternatives, as these are also metabolised by DPD.<br/>- If it is not possible to avoid tegafur: start with a very low dose and adjust the initial dose based on toxicity and efficacy. A substantiated recommendation for dose reduction cannot be made based on the literature.</td>\n</tr>\n<tr>\n<td>FENO</td>\n<td>tegafur</td>\n<td>The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur to inactive metabolites means that the normal dose is an overdose.</td>\n<td>Avoid tegafur or start with a low dose and adjust the initial dose based on toxicity and efficacy. Fluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD. It is not possible to offer substantiated advice for dose reduction based on the literature.</td>\n</tr>\n<tr>\n<td>Activity Score 1</td>\n<td>tegafur</td>\n<td>The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur into inactive metabolites means that the normal dose is an overdose.</td>\n<td>Avoid tegafur or start with a low dose and adjust the initial dose based on toxicity and efficacy. Fluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD.  It is not possible to offer substantiated advice for dose reduction based on the literature.</td>\n</tr>\n<tr>\n<td>Activity Score 1.5</td>\n<td>tegafur</td>\n<td>The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur into inactive metabolites means that the normal dose is an overdose.</td>\n<td>Avoid tegafur or start with a low dose and adjust the initial dose based on toxicity and efficacy.  Fluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD. It is not possible to offer substantiated advice for dose reduction based on the literature.</td>\n</tr>\n</tbody>\n</table>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0002553.PDF\" target=\"_blank\">DPWG risk analysis document</a> for tegafur and DPYD:</p>\n<blockquote class=\"blockquote\">\n<p>The Dutch Pharmacogenetics Working Group considers genotyping before starting tegafur with DPD inhibitors to be essential for drug safety. Genotyping must be performed before drug therapy has been initiated to guide drug and dose selection.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0002553.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"november-2018-guideline\">November 2018 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for tegafur based on DPYD genotype. An alternative drug or starting with a lower dose then adjusting the initial dose based on toxicity and efficacy is recommended for patients with DPYD activity scores of 0, 0.5, 1 and 1.5.  Fluorouracil or capecitabine are not an alternatives, as these are also metabolized by DPD.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Activity Score 0</td>\n<td>tegafur</td>\n<td>Genetic variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur to inactive metabolites means that the normal dose is an overdose.</td>\n<td>Choose an alternative. Do not choose fluorouracil or capecitabine, as these are also metabolised by DPD. If an alternative is not possible: start with a very low dose and adjust the initial dose based on toxicity and efficacy. A substantiated recommendation for dose reduction cannot be made based on the literature. The recommendation for fluorouracil and capecitabine is to determine the residual DPD activity in mononuclear cells from peripheral blood and to adjust the initial dose accordingly. A patient with 0.5% of the normal DPD activity tolerated 0.8% of the standard capecitabine dose (150 mg every 5 days). A patient with undetectable DPD activity tolerated 0.43% of the standard capecitabine dose (150 mg every 5 days with every third dose skipped). The average Caucasian DPD activity is 9.9 nmol/hour per mg protein.<br/><em>NOTE: If a patient has two different gene variations that lead to a non-functional DPD enzyme (e.g. *2A and *13), this recommendation only applies if the variations are on a different allele. If both variations are on the same allele, this patient has gene activity score 1 and the recommendation for that gene activity score should be followed. These two situations can only be distinguished by determining the enzyme activity (phenotyping).</em></td>\n</tr>\n<tr>\n<td>Activity Score 0.5</td>\n<td>tegafur</td>\n<td>Genetic variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur to inactive metabolites means that the normal dose is an overdose.</td>\n<td>Choose an alternative or start with a low dose and adjust the initial dose based on toxicity and efficacy. Fluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD. It is not possible to offer substantiated advice for dose reduction based on the literature.<br/><em>NOTE: This recommendation only applies if the two gene variations are on a different allele. If both variations are on the same allele, this patient has gene activity score 1 and the recommendation for that gene activity score should be followed. These two situations can only be distinguished by determining the enzyme activity (phenotyping).</em></td>\n</tr>\n<tr>\n<td>Activity Score 1</td>\n<td>tegafur</td>\n<td>Genetic variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur into inactive metabolites means that the normal dose is an overdose.</td>\n<td>Choose an alternative or start with a low dose and adjust the initial dose based on toxicity and efficacy. Fluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD. It is not possible to offer substantiated advice for dose reduction based on the literature.<br/><em>NOTE: If a patient has two different gene variations that result in a partially functional DPD enzyme (e.g. 2846T and 1236A), this recommendation only applies if the variations are on a different allele. If both variations are on the same allele, the gene activity score is between 1 and 1.5, depending on whether and how the two gene variations influence each other and on other factors that influence the DPD activity. Whether a gene activity score of 1 or 1.5 needs to be assigned in the case of two different genetic variations can only be determined by measuring the enzyme activity (phenotyping).</em></td>\n</tr>\n<tr>\n<td>Activity Score 1.5</td>\n<td>tegafur</td>\n<td>Genetic variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur into inactive metabolites means that the normal dose is an overdose.</td>\n<td>Choose an alternative or start with a low dose and adjust the initial dose based on toxicity and efficacy. Fluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD. It is not possible to offer substantiated advice for dose reduction based on the literature.</td>\n</tr>\n</tbody>\n</table>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004891.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"2011-guideline\">2011 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for tegafur/uracil combination based on DPYD genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].  They recommend that an alternate drug be used for poor metabolizer patients, but do not provide a recommendation for intermediate metabolizer patients.</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Phenotype (Genotype)</th>\n<th>Therapeutic Dose Recommendation</th>\n<th>Level of Evidence</th>\n<th>Clinical Relevance</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>PM (2 inactive alleles, 2 decreased activity alleles, or one inactive and one decreased activity alleles)</td>\n<td>Select alterantive drug.  Fluorouracil or capecitabine are not suitable alternatives because both are also metabolized by DPD.</td>\n<td>Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (NS). Kinetic effect (NS).</td>\n</tr>\n<tr>\n<td>IM (1 active allele and 1 inactive or decreased activity allele)</td>\n<td>None.</td>\n<td>Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (NS). Kinetic effect (NS).</td>\n</tr>\n</tbody>\n</table>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele Type</th>\n<th>Alleles</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>active</td>\n<td>*1, *4, *5, *6, *9A</td>\n</tr>\n<tr>\n<td>decreased activity</td>\n<td>*9B, *10</td>\n</tr>\n<tr>\n<td>inactive</td>\n<td>*2A, *3, *7, *8, *11, *12, *13, 496A&gt;G, IVS10-15T&gt;C, 1156G&gt;T, 1845G&gt;T</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>*See <a href=\"http://www.pharmgkb.org/page/dpwg\">Methods </a> or [Article:<a href=\"/pmid/18253145\">18253145</a>] for definition of &quot;moderate&quot; quality.</li>\n<li>NS: not statistically significant difference.</li>\n</ul>\n",
+      "version" : 15
+    },
+    "userId" : "alie",
+    "version" : 27
+  }
+}

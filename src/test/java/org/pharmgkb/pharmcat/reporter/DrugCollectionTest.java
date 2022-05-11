@@ -25,8 +25,7 @@ class DrugCollectionTest {
   @Test
   void testLoad() throws IOException {
     DrugCollection drugCollection = new DrugCollection();
-    assertEquals(72, drugCollection.list().stream().filter(DrugCollection.ONLY_CPIC).count());
-    assertEquals(55, drugCollection.list().stream().filter(DrugCollection.ONLY_DPWG).count());
+    assertEquals(72, drugCollection.list().size());
   }
 
   /**
@@ -37,7 +36,7 @@ class DrugCollectionTest {
   @Test
   void testLoadReportable() throws IOException {
     DrugCollection drugCollection = new DrugCollection();
-    assertEquals(127, drugCollection.listReportable().size());
+    assertEquals(72, drugCollection.listReportable().size());
 
     Set<String> reportableDrugNames = drugCollection.listReportable().stream().map(Drug::getDrugName).collect(Collectors.toSet());
     Set<String> drugNames = drugCollection.list().stream().map(Drug::getDrugName).collect(Collectors.toSet());

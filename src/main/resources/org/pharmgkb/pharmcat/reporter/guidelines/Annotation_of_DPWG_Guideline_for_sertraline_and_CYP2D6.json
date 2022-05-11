@@ -1,0 +1,123 @@
+{
+  "citations" : [ {
+    "@id" : "https://pharmgkb.org/literature/15126562",
+    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
+    "id" : 15126562,
+    "title" : "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs.",
+    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/34782755",
+    "authors" : [ "Brouwer Jurriaan M J L", "Nijenhuis Marga", "Soree Bianca", "Guchelaar Henk-Jan", "Swen Jesse J", "van Schaik Ron H N", "Weide Jan van der", "Rongen Gerard A P J M", "Buunk Anne-Marie", "de Boer-Veger Nienke J", "Houwink Elisa J F", "van Westrhenen Roos", "Wilffert Bob", "Deneer Vera H M", "Mulder Hans" ],
+    "crossReferences" : [ {
+      "@id" : "https://pharmgkb.org/crossReference/pubMed/34782755",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 1451632760,
+      "resource" : "PubMed",
+      "resourceId" : "34782755",
+      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/34782755",
+      "version" : 0
+    }, {
+      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/s41431-021-01004-7",
+      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+      "id" : 1451632761,
+      "resource" : "DOI",
+      "resourceId" : "10.1038/s41431-021-01004-7",
+      "_url" : "http://dx.doi.org/10.1038%2Fs41431-021-01004-7",
+      "version" : 0
+    } ],
+    "hasKeyword" : true,
+    "journal" : "European journal of human genetics : EJHG",
+    "meshDiseases" : [ ],
+    "meshTerms" : [ ],
+    "month" : 11,
+    "nonHuman" : false,
+    "objCls" : "Literature",
+    "pediatric" : false,
+    "pgkbPublication" : false,
+    "pubDate" : "2021-11-01T00:00:00-07:00",
+    "summary" : "The Dutch Pharmacogenetics Working Group (DPWG) guideline presented here, presents the gene-drug interaction between the genes CYP2C19 and CYP2D6 and antidepressants of the selective serotonin reuptake inhibitor type (SSRIs). Both genes' genotypes are translated into predicted normal metabolizer (NM), intermediate metabolizer (IM), poor metabolizer (PM), or ultra-rapid metabolizer (UM). Evidence-based dose recommendations were obtained, based on a structured analysis of published literature. In CYP2C19 PM patients, escitalopram dose should not exceed 50% of the normal maximum dose. In CYP2C19 IM patients, this is 75% of the normal maximum dose. Escitalopram should be avoided in UM patients. In CYP2C19 PM patients, citalopram dose should not exceed 50% of the normal maximum dose. In CYP2C19 IM patients, this is 70% (65-75%) of the normal maximum dose. In contrast to escitalopram, no action is needed for CYP2C19 UM patients. In CYP2C19 PM patients, sertraline dose should not exceed 37.5% of the normal maximum dose. No action is needed for CYP2C19 IM and UM patients. In CYP2D6 UM patients, paroxetine should be avoided. No action is needed for CYP2D6 PM and IM patients. In addition, no action is needed for the other gene-drug combinations. Clinical effects (increase in adverse events or decrease in efficacy) were lacking for these other gene-drug combinations. DPWG classifies CYP2C19 genotyping before the start of escitalopram, citalopram, and sertraline, and CYP2D6 genotyping before the start of paroxetine as \"potentially beneficial\" for toxicity/effectivity predictions. This indicates that genotyping prior to treatment can be considered on an individual patient basis.",
+    "version" : 0,
+    "year" : 2021
+  } ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182821",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166182821",
+    "name" : "Annotation of DPWG Guideline for sertraline and CYP2D6",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ ],
+    "hasTestingGuidance" : false,
+    "history" : [ {
+      "id" : 1450415060,
+      "date" : "2019-05-23T15:24:50.090-07:00",
+      "description" : "Annotation current with November 2018 DPWG Guideline release",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450821033,
+      "date" : "2019-10-07T18:32:08.869-07:00",
+      "description" : "No changes based on August 2019 guideline",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450963900,
+      "date" : "2020-02-11T07:48:46.397-08:00",
+      "description" : "Fixed links to 2018 guideline pdfs.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451632821,
+      "date" : "2022-01-03T15:00:33.768-08:00",
+      "description" : "Added DPWG SSRI guideline publication.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704162,
+      "date" : "2022-03-03T16:33:20.148-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451732802,
+      "date" : "2022-03-28T09:57:33.945-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/15126562","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15126562,"title":"Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/34782755","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/34782755","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451632760,"resource":"PubMed","resourceId":"34782755","_url":"https://www.ncbi.nlm.nih.gov/pubmed/34782755"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/s41431-021-01004-7","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451632761,"resource":"DOI","resourceId":"10.1038/s41431-021-01004-7","_url":"http://dx.doi.org/10.1038%2Fs41431-021-01004-7"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : false,
+    "relatedAlleles" : [ ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA451333",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA451333",
+      "name" : "sertraline",
+      "version" : 12
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA128",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA128",
+      "symbol" : "CYP2D6",
+      "name" : "cytochrome P450 family 2 subfamily D member 6",
+      "version" : 7889
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1450415056,
+      "html" : "<p>There are currently no dosing recommendations for sertraline based on CYP2D6 genotypes.</p>\n",
+      "version" : 0
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1450415057,
+      "html" : "<h3 id=\"dutch-pharmacogenetics-working-group-dpwg-guideline-for-the-gene-drug-interaction-between-cyp2c19-and-cyp2d6-and-ssris-european-journal-of-human-genetics-2021\">Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs. European journal of human genetics (2021)</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group published a paper which reiterates that no action is required for the interaction between sertraline and <em>CYP2D6</em> [Article:<a href=\"/pmid/34782755\">34782755</a>].</p>\n<h3 id=\"november-2018-guideline\">November 2018 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for sertraline based on CYP2D6 genotypes. They conclude that this is not a gene-drug interaction. <em>See the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</em></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0003513.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
+      "version" : 4
+    },
+    "userId" : "jmbarbarino",
+    "version" : 7
+  }
+}

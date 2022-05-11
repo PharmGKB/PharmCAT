@@ -1,0 +1,94 @@
+{
+  "citations" : [ ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182845",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166182845",
+    "name" : "Annotation of DPWG Guideline for fluvastatin and SLCO1B1",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ ],
+    "hasTestingGuidance" : false,
+    "history" : [ {
+      "id" : 1450415250,
+      "date" : "2019-05-27T00:00:00-07:00",
+      "description" : "Annotation current with November 2018 DPWG Guideline release",
+      "type" : "Create",
+      "version" : 0
+    }, {
+      "id" : 1450820650,
+      "date" : "2019-10-03T14:02:27.606-07:00",
+      "description" : "No changes based on August 2019 guideline",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1450963503,
+      "date" : "2020-02-11T05:55:06.690-08:00",
+      "description" : "Fixed links to 2018 guideline pdfs.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451257920,
+      "date" : "2020-08-31T17:47:06.021-07:00",
+      "description" : "updated to reflect wording in August 2020 update",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704182,
+      "date" : "2022-03-03T16:33:22.962-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451732822,
+      "date" : "2022-03-28T09:57:36.617-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15113882","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15113882,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2020","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2020.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2020.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451257580,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2020.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2020.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : false,
+    "relatedAlleles" : [ {
+      "@id" : "https://pharmgkb.org/variant/PA166154579",
+      "@context" : "https://api.pharmgkb.org/jsonld/variant.jsonld",
+      "objCls" : "Variant",
+      "id" : "PA166154579",
+      "symbol" : "rs4149056",
+      "name" : "rs4149056",
+      "version" : 5
+    } ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA449688",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA449688",
+      "name" : "fluvastatin",
+      "version" : 21
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA134865839",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA134865839",
+      "symbol" : "SLCO1B1",
+      "name" : "solute carrier organic anion transporter family member 1B1",
+      "version" : 49
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1450415248,
+      "html" : "<p>There are currently no recommendations for fluvastatin dosing based on SLCO1B1 genotypes.</p>\n",
+      "version" : 0
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1450415249,
+      "html" : "<h3 id=\"august-2020-guideline-update\">August 2020 Guideline update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group (DPWG) has evaluated therapeutic dose recommendations for fluvastatin based on SLCO1B1 genotypes. They conclude for <em>SLCO1B1</em> 521TC or 521CC and fluvastatine that no action is required for this gene-drug interaction. The gene variation increases the plasma concentration of fluvastatin, but there is insufficient evidence to prove an effect on efficacy or side effects. (See the <a download=\"DPWG_August_2020.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_August_2020.pdf\">Dutch guidelines August 2020 update</a>)</p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004060.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"november-2018-guideline\">November 2018 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group (DPWG) has evaluated therapeutic dose recommendations for fluvastatin based on SLCO1B1 genotypes. They conclude that no action is needed for this gene-drug interaction. (See the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>)</p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004060.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
+      "version" : 3
+    },
+    "userId" : "lgong",
+    "version" : 7
+  }
+}

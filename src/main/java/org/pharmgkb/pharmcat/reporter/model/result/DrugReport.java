@@ -20,6 +20,7 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 
 
 /**
@@ -45,19 +46,16 @@ public class DrugReport implements Comparable<DrugReport> {
   private final List<String> m_reportVariants = new ArrayList<>();
   private final List<String> f_urls = new ArrayList<>();
   private final List<Publication> f_publications = new ArrayList<>();
+  private DataSource m_source;
+  private List<GuidelinePackage> f_dpwgGuidelinePackages = new ArrayList<>();
 
   public DrugReport(String name) {
     f_name = name;
   }
 
   public void addDrugData(Drug drug) {
-    if (drug.getSource() == DataSource.CPIC) {
-      m_cpicVersion = drug.getCpicVersion();
-      m_cpicId = drug.getDrugId();
-    }
-    if (drug.getSource() == DataSource.DPWG) {
-      m_pgkbId = drug.getDrugId();
-    }
+    m_cpicVersion = drug.getCpicVersion();
+    m_cpicId = drug.getDrugId();
     Preconditions.checkArgument(f_name.equalsIgnoreCase(drug.getDrugName()));
     if (drug.getRecommendations() != null) {
       f_allRecommendations.addAll(drug.getRecommendations());
@@ -67,6 +65,17 @@ public class DrugReport implements Comparable<DrugReport> {
     if (drug.getPublications() != null) {
       f_publications.addAll(drug.getPublications());
     }
+    m_source = DataSource.CPIC;
+  }
+
+  public void addDrugData(GuidelinePackage guidelinePackage) {
+    addDpwgGuidelinePackage(guidelinePackage);
+    m_pgkbId = guidelinePackage.getGuideline().getId();
+    guidelinePackage.getGuideline().getGuidelineGenes().stream()
+        .map(gg -> gg.getGene().getSymbol())
+        .forEach(f_relatedGenes::add);
+    f_urls.add(guidelinePackage.getGuideline().getUrl());
+    m_source = DataSource.DPWG;
   }
 
   /**
@@ -122,7 +131,9 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   public boolean isMatched() {
-    return sf_notApplicableMatches.contains(getCpicId()) || m_matchingRecommendations.size()>0;
+    return sf_notApplicableMatches.contains(getCpicId())
+        || m_matchingRecommendations.size()>0
+        || f_dpwgGuidelinePackages.stream().anyMatch(GuidelinePackage::hasMatch);
   }
 
   /**
@@ -251,5 +262,33 @@ public class DrugReport implements Comparable<DrugReport> {
    */
   public Date getLastModified() {
     return null;
+  }
+
+  public DataSource getSource() {
+    return m_source;
+  }
+
+  public void setSource(DataSource source) {
+    m_source = source;
+  }
+
+  public List<GuidelinePackage> getDpwgGuidelinePackages() {
+    return f_dpwgGuidelinePackages;
+  }
+
+  public void setDpwgGuidelinePackages(List<GuidelinePackage> f_dpwgGuidelinePackages) {
+    this.f_dpwgGuidelinePackages = f_dpwgGuidelinePackages;
+  }
+
+  public void addDpwgGuidelinePackage(GuidelinePackage guidelinePackage) {
+    f_dpwgGuidelinePackages.add(guidelinePackage);
+  }
+
+  public boolean isCpic() {
+    return m_cpicId != null;
+  }
+
+  public boolean isDpwg() {
+    return m_pgkbId != null;
   }
 }

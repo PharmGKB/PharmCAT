@@ -1,0 +1,619 @@
+{
+  "citations" : [ ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265161",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166265161",
+    "name" : "Annotation of DPWG Guideline for carbamazepine and HLA-A",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ {
+      "id" : 1451698849,
+      "alleles" : [ {
+        "id" : 1451698850,
+        "_label" : "*31:01:02",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558333",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558333,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Presence",
+          "termId" : "haplotypeTags:1445558333",
+          "version" : 0
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165954030",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165954030",
+          "symbol" : "HLA-A*31:01:02",
+          "name" : "*31:01:02",
+          "version" : 3
+        },
+        "version" : 0
+      }, {
+        "id" : 1451698851,
+        "_label" : "Other",
+        "allele" : "Other",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558334",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558334,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Absence",
+          "termId" : "haplotypeTags:1445558334",
+          "version" : 0
+        },
+        "version" : 0
+      } ],
+      "gene" : {
+        "@id" : "https://pharmgkb.org/gene/PA35055",
+        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+        "objCls" : "Gene",
+        "id" : "PA35055",
+        "symbol" : "HLA-A",
+        "name" : "major histocompatibility complex, class I, A",
+        "altNames" : { },
+        "buildVersion" : "GRCh38.p7",
+        "cbStart" : "p22.1",
+        "cbStop" : "p22.1",
+        "chr" : {
+          "@id" : "https://pharmgkb.org/chromosome/PA532",
+          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
+          "objCls" : "Chromosome",
+          "id" : "PA532",
+          "name" : "chr6",
+          "version" : 3
+        },
+        "chrStartPosB37" : 29910247,
+        "chrStartPosB38" : 29942470,
+        "chrStopPosB37" : 29913661,
+        "chrStopPosB38" : 29945884,
+        "cpicGene" : true,
+        "crossReferences" : [ {
+          "@id" : "https://pharmgkb.org/crossReference/alfred/LO207226T",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608121113,
+          "resource" : "ALFRED",
+          "resourceId" : "LO207226T",
+          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO207226T",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ctd/3105",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 553240540,
+          "resource" : "Comparative Toxicogenomics Database",
+          "resourceId" : "3105",
+          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=3105",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000206503",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608121114,
+          "resource" : "Ensembl",
+          "resourceId" : "ENSG00000206503",
+          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000206503",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/genAtlas/HLA-A",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 75779,
+          "resource" : "GenAtlas",
+          "resourceId" : "HLA-A",
+          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=HLA-A",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/geneCard/HLA-A",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 90707,
+          "resource" : "GeneCard",
+          "resourceId" : "HLA-A",
+          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=HLA-A",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005515",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34635,
+          "resource" : "GO",
+          "resourceId" : "GO:0005515",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005515",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005887",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34662,
+          "resource" : "GO",
+          "resourceId" : "GO:0005887",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005887",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34795,
+          "resource" : "GO",
+          "resourceId" : "GO:0016020",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016021",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34796,
+          "resource" : "GO",
+          "resourceId" : "GO:0016021",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016021",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0019882",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 123096829,
+          "resource" : "GO",
+          "resourceId" : "GO:0019882",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0019882",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0019883",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 8674921,
+          "resource" : "GO",
+          "resourceId" : "GO:0019883",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0019883",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0019885",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 8674922,
+          "resource" : "GO",
+          "resourceId" : "GO:0019885",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0019885",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0030106",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 8616346,
+          "resource" : "GO",
+          "resourceId" : "GO:0030106",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0030106",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0042612",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 123096830,
+          "resource" : "GO",
+          "resourceId" : "GO:0042612",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0042612",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:4931",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608121112,
+          "resource" : "HGNC",
+          "resourceId" : "HGNC:4931",
+          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A4931",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS06330",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608121118,
+          "resource" : "HumanCyc Gene",
+          "resourceId" : "HS06330",
+          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS06330",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS11577",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608121117,
+          "resource" : "HumanCyc Gene",
+          "resourceId" : "HS11577",
+          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS11577",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P05534",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560882192,
+          "resource" : "ModBase",
+          "resourceId" : "P05534",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P05534",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P10314",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560879671,
+          "resource" : "ModBase",
+          "resourceId" : "P10314",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P10314",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P10315",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560936036,
+          "resource" : "ModBase",
+          "resourceId" : "P10315",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P10315",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P16188",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560879109,
+          "resource" : "ModBase",
+          "resourceId" : "P16188",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P16188",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P16190",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560879119,
+          "resource" : "ModBase",
+          "resourceId" : "P16190",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P16190",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P18462",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560884477,
+          "resource" : "ModBase",
+          "resourceId" : "P18462",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P18462",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P30443",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560873733,
+          "resource" : "ModBase",
+          "resourceId" : "P30443",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P30443",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P30447",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560873730,
+          "resource" : "ModBase",
+          "resourceId" : "P30447",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P30447",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P30453",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560874344,
+          "resource" : "ModBase",
+          "resourceId" : "P30453",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P30453",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P30455",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560874342,
+          "resource" : "ModBase",
+          "resourceId" : "P30455",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P30455",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P30456",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560874337,
+          "resource" : "ModBase",
+          "resourceId" : "P30456",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P30456",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P30457",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560874339,
+          "resource" : "ModBase",
+          "resourceId" : "P30457",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P30457",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P30459",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560874336,
+          "resource" : "ModBase",
+          "resourceId" : "P30459",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P30459",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P30512",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560874249,
+          "resource" : "ModBase",
+          "resourceId" : "P30512",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P30512",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/Q09160",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560882131,
+          "resource" : "ModBase",
+          "resourceId" : "Q09160",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=Q09160",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/Q9BD19",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560936613,
+          "resource" : "ModBase",
+          "resourceId" : "Q9BD19",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=Q9BD19",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/Q9MYG4",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560936570,
+          "resource" : "ModBase",
+          "resourceId" : "Q9MYG4",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=Q9MYG4",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/Q9TQH5",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560936753,
+          "resource" : "ModBase",
+          "resourceId" : "Q9TQH5",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=Q9TQH5",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/Q9TQP6",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560936786,
+          "resource" : "ModBase",
+          "resourceId" : "Q9TQP6",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=Q9TQP6",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/Q9UQU7",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560936713,
+          "resource" : "ModBase",
+          "resourceId" : "Q9UQU7",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=Q9UQU7",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/mutDb/HLA-A",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 458317,
+          "resource" : "MutDB",
+          "resourceId" : "HLA-A",
+          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=HLA-A",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/entrezGene/3105",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 14511,
+          "resource" : "NCBI Gene",
+          "resourceId" : "3105",
+          "_url" : "https://www.ncbi.nlm.nih.gov/gene/3105",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/106300",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 236,
+          "resource" : "OMIM",
+          "resourceId" : "106300",
+          "_url" : "http://omim.org/entry/106300",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/142800",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 1185,
+          "resource" : "OMIM",
+          "resourceId" : "142800",
+          "_url" : "http://omim.org/entry/142800",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/608579",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560528823,
+          "resource" : "OMIM",
+          "resourceId" : "608579",
+          "_url" : "http://omim.org/entry/608579",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_002398",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 123300739,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NG_002398",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_002398",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_007592",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 36716,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NT_007592",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_007592",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_113891",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 124576757,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NT_113891",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_113891",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_167244",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608105120,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NT_167244",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_167244",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_167245",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608105121,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NT_167245",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_167245",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_167246",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608105122,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NT_167246",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_167246",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_167247",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608105117,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NT_167247",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_167247",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_167248",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608105118,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NT_167248",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_167248",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_167249",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608105119,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NT_167249",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_167249",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_001229687",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 978632982,
+          "resource" : "RefSeq Protein",
+          "resourceId" : "NP_001229687",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_001229687",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_002107",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 39142,
+          "resource" : "RefSeq Protein",
+          "resourceId" : "NP_002107",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_002107",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_001242758",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 978632981,
+          "resource" : "RefSeq RNA",
+          "resourceId" : "NM_001242758",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_001242758",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_002116",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 48221,
+          "resource" : "RefSeq RNA",
+          "resourceId" : "NM_002116",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_002116",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_002116",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 123538,
+          "resource" : "UCSC Genome Browser",
+          "resourceId" : "NM_002116",
+          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_002116",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/B1PKY1",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608121115,
+          "name" : "B1PKY1_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "B1PKY1",
+          "_url" : "http://www.uniprot.org/uniprot/B1PKY1",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/B2R7U3",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608121116,
+          "name" : "B2R7U3_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "B2R7U3",
+          "_url" : "http://www.uniprot.org/uniprot/B2R7U3",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/P04439",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 124583183,
+          "name" : "1A03_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "P04439",
+          "_url" : "http://www.uniprot.org/uniprot/P04439",
+          "version" : 1
+        } ],
+        "hasNonStandardHaplotypes" : true,
+        "hideHaplotypes" : true,
+        "pharmVarGene" : false,
+        "strand" : "plus",
+        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0000139","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495211,"_url":"http://amigo.geneontology.org/amigo/term/GO:0000139","resource":"Gene Ontology","term":"Golgi membrane","termId":"GO:0000139"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0002474","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560497373,"_url":"http://amigo.geneontology.org/amigo/term/GO:0002474","resource":"Gene Ontology","term":"antigen processing and presentation of peptide antigen via MHC class I","termId":"GO:0002474"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005515","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495229,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005515","resource":"Gene Ontology","term":"protein binding","termId":"GO:0005515"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005887","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500225,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005887","resource":"Gene Ontology","term":"integral to plasma membrane","termId":"GO:0005887"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006955","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560497106,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006955","resource":"Gene Ontology","term":"immune response","termId":"GO:0006955"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016021","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016021","resource":"Gene Ontology","term":"integral to membrane","termId":"GO:0016021"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019882","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560497350,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019882","resource":"Gene Ontology","term":"antigen processing and presentation","termId":"GO:0019882"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0031901","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560511774,"_url":"http://amigo.geneontology.org/amigo/term/GO:0031901","resource":"Gene Ontology","term":"early endosome membrane","termId":"GO:0031901"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0032393","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560512256,"_url":"http://amigo.geneontology.org/amigo/term/GO:0032393","resource":"Gene Ontology","term":"MHC class I receptor activity","termId":"GO:0032393"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042612","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515583,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042612","resource":"Gene Ontology","term":"MHC class I protein complex","termId":"GO:0042612"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0044419","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560516834,"_url":"http://amigo.geneontology.org/amigo/term/GO:0044419","resource":"Gene Ontology","term":"interspecies interaction between organisms","termId":"GO:0044419"} ],
+        "version" : 42
+      },
+      "version" : 0
+    } ],
+    "hasTestingGuidance" : false,
+    "history" : [ {
+      "id" : 1451704263,
+      "date" : "2022-03-03T16:33:36.667-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451732902,
+      "date" : "2022-03-28T09:57:50.318-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    } ],
+    "literature" : [ ],
+    "pediatric" : false,
+    "recommendation" : true,
+    "relatedAlleles" : [ {
+      "@id" : "https://pharmgkb.org/haplotype/PA165954030",
+      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+      "objCls" : "Haplotype",
+      "id" : "PA165954030",
+      "symbol" : "HLA-A*31:01:02",
+      "name" : "*31:01:02",
+      "version" : 3
+    } ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA448785",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA448785",
+      "name" : "carbamazepine",
+      "version" : 13
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA35055",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA35055",
+      "symbol" : "HLA-A",
+      "name" : "major histocompatibility complex, class I, A",
+      "version" : 42
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1451697740,
+      "html" : "<p>Consider an alternative drug to carbamazepine in patients with the HLA-A*3101 allele.</p>\n",
+      "version" : 0
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1451697741,
+      "html" : "<h3 id=\"may-2021-guideline\">May 2021 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group (DPWG) has evaluated recommendations for carbamazepine based on the presence of the HLA-A*3101 allele.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_May_2021.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_May_2021.pdf\">Dutch guidelines May 2021 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>HLA-A*3101</td>\n<td>carbamazepine</td>\n<td>Patients with this genetic variation have an increased risk of experiencing the life-threatening cutaneous adverse events DRESS and Stevens-Johnson syndrome/toxic epidermal necrolysis (SJS/TEN). The risk of carbamazepine-induced DRESS in these patients is 0.89%.</td>\n<td>1. carefully weigh the risk of DRESS and SJS/TEN against the benefits 2. if an alternative is an option, choose an alternative</td>\n</tr>\n</tbody>\n</table>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0007256.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
+      "version" : 1
+    },
+    "userId" : "cfthorn",
+    "version" : 3
+  }
+}

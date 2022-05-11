@@ -1,0 +1,862 @@
+{
+  "annotationGroups" : [ {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166240381",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166240381",
+    "name" : "PM",
+    "genePhenotypes" : [ "CYP2C19:Decreased function/Decreased function", "CYP2C19:Decreased function/No function", "CYP2C19:No function/No function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166184528",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166184528",
+      "name" : "Annotation of DPWG Guideline for clomipramine and CYP2C19",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451417280,
+      "html" : "<p>The guideline does not provide a description of the impact of a poor metabolizer phenotype on citaolpram.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451417281,
+      "html" : "<p>Poor Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451417282,
+      "html" : "<p>NO action is required for this gene-drug interaction. The gene variation increases the plasma concentration of clomipramine. However, there is insufficient evidence to substantiate an increase of the plasma concentration of clomipramine+desmethylclomipramine to such an extent that it increases the risk of side effects. The increase in the plasma concentration of clomipramine is favourable for the efficacy in anxiety and obsessive compulsive disorder.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "cfthorn",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166240361",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166240361",
+    "name" : "NM",
+    "genePhenotypes" : [ "CYP2C19:Increased function/Normal function", "CYP2C19:Normal function/Normal function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166184528",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166184528",
+      "name" : "Annotation of DPWG Guideline for clomipramine and CYP2C19",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451417260,
+      "html" : "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on clomipramine.</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451417261,
+      "html" : "<p>The guideline does not provide a recommendation for clomipramine in normal metabolizers.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "cfthorn",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166240321",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166240321",
+    "name" : "UM",
+    "genePhenotypes" : [ "CYP2C19:Increased function/Increased function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166184528",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166184528",
+      "name" : "Annotation of DPWG Guideline for clomipramine and CYP2C19",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451417212,
+      "html" : "<p>The gene variation increases the risk of ineffectiveness for obsessive compulsive disorder and anxiety disorders by reducing the plasma concentration of clomipramine. The gene variation has little to no effect on the plasma concentration of clomipramine+desmethylclomipramine, which determines the efficacy for depression and side effects.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451417213,
+      "html" : "<p>Ultrarapid Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451417214,
+      "html" : "<p>Indication OBSESSIVE COMPULSIVE DISORDER or ANXIETY DISORDERS: avoid clomipramine. Antidepressants that are not metabolised by CYP2C19 - or to a lesser extent - include, for example, fluoxetine, fluvoxamine and paroxetine. If it is not possible to avoid clomipramine: monitor the effect and side effects or the plasma concentrations of clomipramine and desmethylclomipramine. For obsessive compulsive disorder, the therapeutic plasma concentration of clomipramine is greater than 200 ng/mL in combination with a plasma concentration of desmethylclomipramine that is as low as possible. For anxiety disorders, the therapeutic plasma concentration of clomipramine is approximately 100 ng/mL in combination with a plasma concentration of desmethylclomipramine lower than 200 ng/mL. A sum of the plasma concentrations of clomipramine and desmethylclomipramine exceeding 600 ng/mL is considered toxic. Add a low dose of fluvoxamine if necessary, to inhibit CYP2C19 and CYP1A2 and thereby inhibit the conversion of clomipramine to desmethylclomipramine. Indication DEPRESSION: no action required</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602497,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Yes",
+      "termId" : "rxChange:1448602497",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "cfthorn",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166240341",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166240341",
+    "name" : "IM",
+    "genePhenotypes" : [ "CYP2C19:Decreased function/Increased function", "CYP2C19:Decreased function/Normal function", "CYP2C19:Increased function/No function", "CYP2C19:No function/Normal function" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166184528",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166184528",
+      "name" : "Annotation of DPWG Guideline for clomipramine and CYP2C19",
+      "version" : 6
+    },
+    "implications" : {
+      "id" : 1451417240,
+      "html" : "<p>The guideline does not provide a description of the impact of an intermediate metabolizer phenotype on clomipramine.</p>\n",
+      "version" : 0
+    },
+    "metabolizerStatus" : {
+      "id" : 1451417241,
+      "html" : "<p>Intermediate Metabolizer</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451417242,
+      "html" : "<p>NO action is required for this gene-drug interaction. The gene variation does increase clomipramine plasma concentrations, but not clomipramine+desmethylclomipramine plasma concentrations, which determines side effects and efficacy in depression. The increase in the plasma concentration of clomipramine is favourable for the efficacy in anxiety and obsessive compulsive disorder.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "cfthorn",
+    "version" : 0
+  } ],
+  "citations" : [ ],
+  "guideline" : {
+    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166184528",
+    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+    "objCls" : "Guideline Annotation",
+    "id" : "PA166184528",
+    "name" : "Annotation of DPWG Guideline for clomipramine and CYP2C19",
+    "cancerGenome" : false,
+    "crossReferences" : [ ],
+    "guidelineGenes" : [ {
+      "id" : 1451417200,
+      "alleles" : [ {
+        "id" : 1451417201,
+        "_label" : "*1",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558335,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Normal function",
+          "termId" : "haplotypeTags:1445558335",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165980634",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165980634",
+          "symbol" : "CYP2C19*1",
+          "name" : "*1",
+          "version" : 24
+        },
+        "version" : 0
+      }, {
+        "id" : 1451417202,
+        "_label" : "*2",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165980635",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165980635",
+          "symbol" : "CYP2C19*2",
+          "name" : "*2",
+          "version" : 24
+        },
+        "version" : 0
+      }, {
+        "id" : 1451417203,
+        "_label" : "*3",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165980636",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165980636",
+          "symbol" : "CYP2C19*3",
+          "name" : "*3",
+          "version" : 24
+        },
+        "version" : 0
+      }, {
+        "id" : 1451417204,
+        "_label" : "*4",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165980637",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165980637",
+          "symbol" : "CYP2C19*4",
+          "name" : "*4",
+          "version" : 24
+        },
+        "version" : 0
+      }, {
+        "id" : 1451417205,
+        "_label" : "*5",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165980638",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165980638",
+          "symbol" : "CYP2C19*5",
+          "name" : "*5",
+          "version" : 24
+        },
+        "version" : 0
+      }, {
+        "id" : 1451417206,
+        "_label" : "*6",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816522",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816522",
+          "symbol" : "CYP2C19*6",
+          "name" : "*6",
+          "version" : 26
+        },
+        "version" : 0
+      }, {
+        "id" : 1451417207,
+        "_label" : "*7",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816523",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816523",
+          "symbol" : "CYP2C19*7",
+          "name" : "*7",
+          "version" : 26
+        },
+        "version" : 0
+      }, {
+        "id" : 1451417208,
+        "_label" : "*8",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558515,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "No function",
+          "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816524",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816524",
+          "symbol" : "CYP2C19*8",
+          "name" : "*8",
+          "version" : 26
+        },
+        "version" : 0
+      }, {
+        "id" : 1451417209,
+        "_label" : "*9",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816525",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816525",
+          "symbol" : "CYP2C19*9",
+          "name" : "*9",
+          "version" : 26
+        },
+        "version" : 0
+      }, {
+        "id" : 1451417210,
+        "_label" : "*10",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558331,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Decreased function",
+          "termId" : "haplotypeTags:1445558331",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816526",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816526",
+          "symbol" : "CYP2C19*10",
+          "name" : "*10",
+          "version" : 26
+        },
+        "version" : 0
+      }, {
+        "id" : 1451417211,
+        "_label" : "*17",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558332",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558332,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Increased function",
+          "termId" : "haplotypeTags:1445558332",
+          "version" : 1
+        },
+        "haplotype" : {
+          "@id" : "https://pharmgkb.org/haplotype/PA165816533",
+          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
+          "objCls" : "Haplotype",
+          "id" : "PA165816533",
+          "symbol" : "CYP2C19*17",
+          "name" : "*17",
+          "version" : 28
+        },
+        "version" : 0
+      } ],
+      "gene" : {
+        "@id" : "https://pharmgkb.org/gene/PA124",
+        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+        "objCls" : "Gene",
+        "id" : "PA124",
+        "symbol" : "CYP2C19",
+        "name" : "cytochrome P450 family 2 subfamily C member 19",
+        "alleleFile" : "CYP2C19_allele_definition_table.xlsx",
+        "altNames" : {
+          "synonym" : [ "cytochrome P450, family 2, subfamily C, polypeptide 19" ],
+          "symbol" : [ "CPCJ", "CYP2C", "P450IIC19" ]
+        },
+        "buildVersion" : "GRCh38.p7",
+        "cbStart" : "q23.33",
+        "cbStop" : "q23.33",
+        "chr" : {
+          "@id" : "https://pharmgkb.org/chromosome/PA504",
+          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
+          "objCls" : "Chromosome",
+          "id" : "PA504",
+          "name" : "chr10",
+          "version" : 3
+        },
+        "chrStartPosB37" : 96522463,
+        "chrStartPosB38" : 94762681,
+        "chrStopPosB37" : 96612671,
+        "chrStopPosB38" : 94853205,
+        "cpicGene" : true,
+        "crossReferences" : [ {
+          "@id" : "https://pharmgkb.org/crossReference/alfred/LO008778E",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560556304,
+          "resource" : "ALFRED",
+          "resourceId" : "LO008778E",
+          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO008778E",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ctd/1557",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 553242512,
+          "resource" : "Comparative Toxicogenomics Database",
+          "resourceId" : "1557",
+          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=1557",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000165841",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 132256028,
+          "resource" : "Ensembl",
+          "resourceId" : "ENSG00000165841",
+          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000165841",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/genAtlas/CYP2C19",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 73372,
+          "resource" : "GenAtlas",
+          "resourceId" : "CYP2C19",
+          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=CYP2C19",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/geneCard/CYP2C19",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 88300,
+          "resource" : "GeneCard",
+          "resourceId" : "CYP2C19",
+          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=CYP2C19",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0004497",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34580,
+          "resource" : "GO",
+          "resourceId" : "GO:0004497",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0004497",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005506",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34969,
+          "resource" : "GO",
+          "resourceId" : "GO:0005506",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005506",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005783",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34654,
+          "resource" : "GO",
+          "resourceId" : "GO:0005783",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005783",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005792",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 35016,
+          "resource" : "GO",
+          "resourceId" : "GO:0005792",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005792",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006118",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 35063,
+          "resource" : "GO",
+          "resourceId" : "GO:0006118",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006118",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 34795,
+          "resource" : "GO",
+          "resourceId" : "GO:0016020",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016712",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 8676615,
+          "resource" : "GO",
+          "resourceId" : "GO:0016712",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016712",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0018675",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 130200545,
+          "resource" : "GO",
+          "resourceId" : "GO:0018675",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0018675",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0018676",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62330469,
+          "resource" : "GO",
+          "resourceId" : "GO:0018676",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0018676",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0019825",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62329726,
+          "resource" : "GO",
+          "resourceId" : "GO:0019825",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0019825",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0020037",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 77774616,
+          "resource" : "GO",
+          "resourceId" : "GO:0020037",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0020037",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/go/GO:0046872",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 746292,
+          "resource" : "GO",
+          "resourceId" : "GO:0046872",
+          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0046872",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:2621",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608081307,
+          "resource" : "HGNC",
+          "resourceId" : "HGNC:2621",
+          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A2621",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS09293",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 608081309,
+          "resource" : "HumanCyc Gene",
+          "resourceId" : "HS09293",
+          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS09293",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/modBase/P33261",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560874113,
+          "resource" : "ModBase",
+          "resourceId" : "P33261",
+          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P33261",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/mutDb/CYP2C19",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 455910,
+          "resource" : "MutDB",
+          "resourceId" : "CYP2C19",
+          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=CYP2C19",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/entrezGene/1557",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 10744,
+          "resource" : "NCBI Gene",
+          "resourceId" : "1557",
+          "_url" : "https://www.ncbi.nlm.nih.gov/gene/1557",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/124020",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 716,
+          "resource" : "OMIM",
+          "resourceId" : "124020",
+          "_url" : "http://omim.org/entry/124020",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/omim/609535",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560556306,
+          "resource" : "OMIM",
+          "resourceId" : "609535",
+          "_url" : "http://omim.org/entry/609535",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/pharmVarGene/CYP2C19",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 1451280335,
+          "resource" : "PharmVar Gene",
+          "resourceId" : "CYP2C19",
+          "_url" : "https://www.pharmvar.org/gene/CYP2C19",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_008384",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 560556305,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NG_008384",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_008384",
+          "version" : 0
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_030059",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 37037,
+          "resource" : "RefSeq DNA",
+          "resourceId" : "NT_030059",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_030059",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_000760",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 37896,
+          "resource" : "RefSeq Protein",
+          "resourceId" : "NP_000760",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_000760",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_000769",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 46971,
+          "resource" : "RefSeq RNA",
+          "resourceId" : "NM_000769",
+          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_000769",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_000769",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 122288,
+          "resource" : "UCSC Genome Browser",
+          "resourceId" : "NM_000769",
+          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000769",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/P33261",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 62333091,
+          "name" : "CP2CJ_HUMAN",
+          "resource" : "UniProtKB",
+          "resourceId" : "P33261",
+          "_url" : "http://www.uniprot.org/uniprot/P33261",
+          "version" : 1
+        }, {
+          "@id" : "https://pharmgkb.org/crossReference/url/http://www.imm.ki.se/CYPalleles/cyp2c19.htm",
+          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
+          "id" : 88,
+          "resource" : "URL",
+          "resourceId" : "http://www.imm.ki.se/CYPalleles/cyp2c19.htm",
+          "_url" : "http://www.imm.ki.se/CYPalleles/cyp2c19.htm",
+          "version" : 1
+        } ],
+        "hasNonStandardHaplotypes" : false,
+        "hideHaplotypes" : false,
+        "pharmVarGene" : true,
+        "strand" : "plus",
+        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004497","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498878,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004497","resource":"Gene Ontology","term":"monooxygenase activity","termId":"GO:0004497"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005783","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500134,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005783","resource":"Gene Ontology","term":"endoplasmic reticulum","termId":"GO:0005783"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500141,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005789","resource":"Gene Ontology","term":"endoplasmic reticulum membrane","termId":"GO:0005789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005792","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500144,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005792","resource":"Gene Ontology","term":"microsome","termId":"GO:0005792"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008202","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501294,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008202","resource":"Gene Ontology","term":"steroid metabolic process","termId":"GO:0008202"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008395","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496176,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008395","resource":"Gene Ontology","term":"steroid hydroxylase activity","termId":"GO:0008395"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009055","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503412,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009055","resource":"Gene Ontology","term":"electron carrier activity","termId":"GO:0009055"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016098","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560506711,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016098","resource":"Gene Ontology","term":"monoterpenoid metabolic process","termId":"GO:0016098"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016491","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495264,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016491","resource":"Gene Ontology","term":"oxidoreductase activity","termId":"GO:0016491"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0017144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560507281,"_url":"http://amigo.geneontology.org/amigo/term/GO:0017144","resource":"Gene Ontology","term":"drug metabolic process","termId":"GO:0017144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0018675","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560508105,"_url":"http://amigo.geneontology.org/amigo/term/GO:0018675","resource":"Gene Ontology","term":"(S)-limonene 6-monooxygenase activity","termId":"GO:0018675"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0018676","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560508106,"_url":"http://amigo.geneontology.org/amigo/term/GO:0018676","resource":"Gene Ontology","term":"(S)-limonene 7-monooxygenase activity","termId":"GO:0018676"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019825","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019825","resource":"Gene Ontology","term":"oxygen binding","termId":"GO:0019825"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019899","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496866,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019899","resource":"Gene Ontology","term":"enzyme binding","termId":"GO:0019899"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0020037","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509358,"_url":"http://amigo.geneontology.org/amigo/term/GO:0020037","resource":"Gene Ontology","term":"heme binding","termId":"GO:0020037"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0033767","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560513624,"_url":"http://amigo.geneontology.org/amigo/term/GO:0033767","resource":"Gene Ontology","term":"4-hydroxyacetophenone monooxygenase activity","termId":"GO:0033767"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042738","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515690,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042738","resource":"Gene Ontology","term":"exogenous drug catabolic process","termId":"GO:0042738"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046483","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495388,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046483","resource":"Gene Ontology","term":"heterocycle metabolic process","termId":"GO:0046483"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"} ],
+        "version" : 7209
+      },
+      "version" : 0
+    } ],
+    "hasTestingGuidance" : true,
+    "history" : [ {
+      "id" : 1450820783,
+      "date" : "2019-10-06T22:47:26.963-07:00",
+      "description" : "August 2019 Guidelines",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1450962783,
+      "date" : "2020-02-10T10:46:35.951-08:00",
+      "description" : "Fixed links to 2019 guideline pdfs.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451109100,
+      "date" : "2020-04-14T09:23:29.135-07:00",
+      "description" : "Corrected mentions of CYP2D6 in summary and annotation text to CYP2C19.",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451417283,
+      "date" : "2021-04-22T00:00:00-07:00",
+      "description" : "Added extended dosing",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451704244,
+      "date" : "2022-03-03T16:33:33.946-08:00",
+      "description" : "Annotation current with May 2021 DPWG Guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451706240,
+      "date" : "2022-03-07T15:53:18.463-08:00",
+      "description" : "Added information about preemptive genotyping",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451732884,
+      "date" : "2022-03-28T09:57:48.009-07:00",
+      "description" : "Annotation current with February 2022 DPWG guideline release",
+      "type" : "Note",
+      "version" : 0
+    }, {
+      "id" : 1451733300,
+      "date" : "2022-03-28T14:35:25.666-07:00",
+      "description" : "Updated link to testing guidance page",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451741489,
+      "date" : "2022-04-05T11:11:50.685-07:00",
+      "description" : "Added testing guidance tag",
+      "type" : "Update",
+      "version" : 0
+    } ],
+    "literature" : [ {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"} ],
+    "pediatric" : false,
+    "recommendation" : true,
+    "relatedAlleles" : [ ],
+    "relatedChemicals" : [ {
+      "@id" : "https://pharmgkb.org/chemical/PA449048",
+      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
+      "objCls" : "Chemical",
+      "id" : "PA449048",
+      "name" : "clomipramine",
+      "version" : 5
+    } ],
+    "relatedGenes" : [ {
+      "@id" : "https://pharmgkb.org/gene/PA124",
+      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
+      "objCls" : "Gene",
+      "id" : "PA124",
+      "symbol" : "CYP2C19",
+      "name" : "cytochrome P450 family 2 subfamily C member 19",
+      "version" : 7209
+    } ],
+    "source" : "DPWG",
+    "summaryMarkdown" : {
+      "id" : 1450820780,
+      "html" : "<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group (DPWG) recommends to avoid clomipramine in CYP2C19 ultrarapid metabolizer (UM) for Indication OBSESSIVE COMPULSIVE DISORDER or ANXIETY DISORDERS.</p>\n",
+      "version" : 1
+    },
+    "terms" : [ ],
+    "textMarkdown" : {
+      "id" : 1450820781,
+      "html" : "<h3 id=\"august-2019-guideline\">August 2019 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for clomipramine based on CYP2C19 genotype. They recommend to avoid clomipramine for CYP2C19 ultrarapid metabolizer (UM) with regards to Indication OBSESSIVE COMPULSIVE DISORDER or ANXIETY DISORDERS.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_August_2019.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_August_2019.pdf\">Dutch guidelines August 2019 update</a></em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP2C19 UM</td>\n<td>clomipramine</td>\n<td>The gene variation increases the risk of ineffectiveness for obsessive compulsive disorder and anxiety disorders by reducing the plasma concentration of clomipramine. The gene variation has little to no effect on the plasma concentration of clomipramine+desmethylclomipramine, which determines the efficacy for depression and side effects.</td>\n<td>Indication OBSESSIVE COMPULSIVE DISORDER or ANXIETY DISORDERS: avoid clomipramine. Antidepressants that are not metabolised by CYP2C19 - or to a lesser extent - include, for example, fluoxetine, fluvoxamine and paroxetine. If it is not possible to avoid clomipramine: monitor the effect and side effects or the plasma concentrations of clomipramine and desmethylclomipramine. For obsessive compulsive disorder, the therapeutic plasma concentration of clomipramine is greater than 200 ng/mL in combination with a plasma concentration of desmethylclomipramine that is as low as possible. For anxiety disorders, the therapeutic plasma concentration of clomipramine is approximately 100 ng/mL in combination with a plasma concentration of desmethylclomipramine lower than 200 ng/mL. A sum of the plasma concentrations of clomipramine and desmethylclomipramine exceeding 600 ng/mL is considered toxic. Add a low dose of fluvoxamine if necessary, to inhibit CYP2C19 and CYP1A2 and thereby inhibit the conversion of clomipramine to desmethylclomipramine. Indication DEPRESSION: no action required</td>\n</tr>\n<tr>\n<td>CYP2C19 IM</td>\n<td>clomipramine</td>\n<td>-</td>\n<td>NO action is required for this gene-drug interaction. The gene variation does increase clomipramine plasma concentrations, but not clomipramine+desmethylclomipramine plasma concentrations, which determines side effects and efficacy in depression. The increase in the plasma concentration of clomipramine is favourable for the efficacy in anxiety and obsessive compulsive disorder.</td>\n</tr>\n<tr>\n<td>CYP2C19 PM</td>\n<td>clomipramine</td>\n<td>-</td>\n<td>NO action is required for this gene-drug interaction. The gene variation increases the plasma concentration of clomipramine. However, there is insufficient evidence to substantiate an increase of the plasma concentration of clomipramine+desmethylclomipramine to such an extent that it increases the risk of side effects. The increase in the plasma concentration of clomipramine is favourable for the efficacy in anxiety and obsessive compulsive disorder.</td>\n</tr>\n</tbody>\n</table>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0007029.PDF\" target=\"_blank\">DPWG risk analysis document</a> for clomipramine and CYP2C19:</p>\n<blockquote class=\"blockquote\">\n<p>The KNMP Pharmacogenetics Working Group considers genotyping before starting clomipramine to be potentially beneficial in patients with anxiety disorders and obsessive compulsive disorder. Genotyping can be considered on an individual patient basis. If, however, the genotype is available, the KNMP Pharmacogenetics Working Group recommends adhering to the gene-drug guideline.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0007028.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
+      "version" : 3
+    },
+    "userId" : "katrin",
+    "version" : 6
+  }
+}
