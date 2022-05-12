@@ -1,15 +1,18 @@
 package org.pharmgkb.pharmcat.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.zip.ZipFile;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
@@ -26,6 +29,7 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,9 +42,11 @@ import org.slf4j.LoggerFactory;
 public class DataManager {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   public static final Path DEFAULT_DEFINITION_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
+  private static final Path DEFAULT_GUIDELINES_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines");
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   private static final String PHENOTYPES_JSON_FILE_NAME = "gene_phenotypes.json";
+  private static final String PGKB_GUIDELINE_ZIP_FILE_NAME = "guidelineAnnotations.extended.json.zip";
   private static final String POSITIONS_VCF = "pharmcat_positions.vcf";
   private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "G6PD", "HLA-A", "HLA-B", "MT-RNR1");
   private static final Splitter sf_semicolonSplitter = Splitter.on(";").trimResults().omitEmptyStrings();
@@ -106,6 +112,9 @@ public class DataManager {
         }
 
         DrugCollection drugs = manager.saveDrugData(drugsDir, skipDrugs, skipDownload);
+        if (!skipDrugs && drugsDir != null) {
+          manager.saveDpwgGuidelineData(drugsDir.resolve("guidelines"));
+        }
 
         Map<String,Integer> geneAlleleCountMap;
         if (!skipAlleles) {
@@ -168,6 +177,11 @@ public class DataManager {
         new URL("https://files.cpicpgx.org/data/report/current/gene_phenotypes.json"),
         downloadDir.resolve(PHENOTYPES_JSON_FILE_NAME).toFile());
 
+    FileUtils.copyURLToFile(
+        new URL("https://s3.pgkb.org/data/guidelineAnnotations.extended.json.zip"),
+        downloadDir.resolve(PGKB_GUIDELINE_ZIP_FILE_NAME).toFile());
+    writePgkbGuidelines(downloadDir);
+
     String urlFmt = "https://docs.google.com/spreadsheets/d/%s/export?format=tsv";
     // download exemptions and messages
     FileUtils.copyURLToFile(new URL(String.format(urlFmt, "1xHvvXQIMv3xbqNhuN7zG6WP4DB7lpQDmLvz18w-u_lk")),
@@ -186,6 +200,15 @@ public class DataManager {
       DrugCollection newDrugs = DrugCollection.download(drugsDir);
       existingDrugs.diff(newDrugs).forEach(sf_logger::info);
       return newDrugs;
+    }
+  }
+
+
+  private void saveDpwgGuidelineData(Path guidelinesDir) throws IOException {
+    for (File file : Objects.requireNonNull(DEFAULT_GUIDELINES_DIR.toFile().listFiles())) {
+      if (file.isFile() && file.getName().contains(DataSource.DPWG.name()) && file.getName().endsWith(".json")) {
+        Files.copy(file.toPath(), guidelinesDir.resolve(file.getName()), StandardCopyOption.REPLACE_EXISTING);
+      }
     }
   }
 
@@ -568,4 +591,19 @@ public class DataManager {
     return outputPath;
   }
 
+  private void writePgkbGuidelines(Path downloadDir) throws IOException {
+    try (ZipFile zipFile = new ZipFile(downloadDir.resolve(PGKB_GUIDELINE_ZIP_FILE_NAME).toFile())) {
+      zipFile.stream().forEach((zipEntry) -> {
+        try {
+          Path outputPath = DEFAULT_GUIDELINES_DIR.resolve(zipEntry.getName());
+          Files.copy(
+              zipFile.getInputStream(zipEntry),
+              outputPath,
+              StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ex) {
+          throw new RuntimeException("Error copying file");
+        }
+      });
+    }
+  }
 }
