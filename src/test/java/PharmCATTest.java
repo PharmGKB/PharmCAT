@@ -1334,6 +1334,21 @@ class PharmCATTest {
     }
   }
 
+  @Test
+  void testCyp3a4() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp3a4", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP3A4")
+        .variation("CYP3A4", "rs72552799", "T", "T")
+        .variation("CYP3A4", "rs2242480", "T", "T")
+    ;
+    testWrapper.execute(null);
+    testWrapper.testCalledByMatcher("CYP3A4");
+    testWrapper.testReportable("CYP3A4");
+    testWrapper.testPrintCalls("CYP3A4", "*8/*8");
+    testWrapper.testMatchedGroups("quetiapine", 1);
+  }
+
 
   private static String printDiagnostic(GeneReport geneReport) {
     return String.format(

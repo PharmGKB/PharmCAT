@@ -21,8 +21,10 @@ import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
+import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,7 +61,8 @@ public class GeneDrugSummary {
   }
 
   public void write(Path documentationDir, Map<String,Integer> geneAlleleCount, DrugCollection drugs, PhenotypeMap phenotypeMap) throws IOException {
-    Multimap<String, DataSource> geneToUsageMap = makeGeneToUsageMap(drugs);
+    PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection();
+    Multimap<String, DataSource> geneToUsageMap = makeGeneToUsageMap(drugs, pgkbGuidelineCollection);
     try (
         InputStream mdStream = getClass().getResourceAsStream(TEMPLATE_FILE_NAME);
         StringWriter templateWriter = new StringWriter()
@@ -85,7 +88,7 @@ public class GeneDrugSummary {
             )
             .collect(Collectors.joining("\n"));
 
-        String drugList = String.join("\n", makeDrugListItems(drugs));
+        String drugList = String.join("\n", makeDrugListItems(drugs, pgkbGuidelineCollection));
 
         IOUtils.write(String.format(mdTemplate, matcherGeneList, outsideGeneList, drugList), fw);
       }
@@ -93,20 +96,27 @@ public class GeneDrugSummary {
     }
   }
 
-  private Multimap<String,DataSource> makeGeneToUsageMap(DrugCollection drugs) {
+  private Multimap<String,DataSource> makeGeneToUsageMap(DrugCollection drugs, PgkbGuidelineCollection pgkbGuidelineCollection) {
     Multimap<String,DataSource> geneMap = TreeMultimap.create();
     drugs.forEach((drug) -> {
       for (String gene : drug.getGenes()) {
         geneMap.put(gene, drug.getSource());
       }
     });
+    pgkbGuidelineCollection.getGenes().forEach(g -> geneMap.put(g, DataSource.DPWG));
     return geneMap;
   }
 
-  private List<String> makeDrugListItems(DrugCollection drugCollection) {
+  private List<String> makeDrugListItems(DrugCollection drugCollection, PgkbGuidelineCollection pgkbGuidelineCollection) {
     Multimap<String,DataSource> drugSourceMap = TreeMultimap.create();
     for (Drug drug : drugCollection) {
       drugSourceMap.put(drug.getDrugName(), drug.getSource());
+    }
+
+    for (GuidelinePackage guidelinePackage : pgkbGuidelineCollection.getGuidelinePackages()) {
+      for (String drugName : guidelinePackage.getDrugs()) {
+        drugSourceMap.put(drugName, DataSource.DPWG);
+      }
     }
 
     return drugSourceMap.keySet().stream()

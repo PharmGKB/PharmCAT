@@ -65,7 +65,13 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
         .collect(Collectors.toSet());
   }
 
-  
+  public Set<String> getDrugs() {
+    return guideline.getRelatedChemicals().stream()
+        .map(AccessionObject::getName)
+        .collect(Collectors.toSet());
+  }
+
+
   @Override
   public String toString() {
     if (guideline != null) {

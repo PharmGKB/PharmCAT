@@ -48,6 +48,8 @@ public class DataManager {
   private static final String PHENOTYPES_JSON_FILE_NAME = "gene_phenotypes.json";
   private static final String PGKB_GUIDELINE_ZIP_FILE_NAME = "guidelineAnnotations.extended.json.zip";
   private static final String POSITIONS_VCF = "pharmcat_positions.vcf";
+  private static final String DPWG_ALLELES_FILE_NAME = "dpwg_allele_translations.json";
+  private static final String CPIC_ALLELES_FILE_NAME = "allele_definitions.json";
   private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "G6PD", "HLA-A", "HLA-B", "MT-RNR1");
   private static final Splitter sf_semicolonSplitter = Splitter.on(";").trimResults().omitEmptyStrings();
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
@@ -171,7 +173,10 @@ public class DataManager {
     // download allele definitions
     FileUtils.copyURLToFile(
         new URL("https://files.cpicpgx.org/data/report/current/allele_definitions.json"),
-        downloadDir.resolve("allele_definitions.json").toFile());
+        downloadDir.resolve(CPIC_ALLELES_FILE_NAME).toFile());
+    FileUtils.copyURLToFile(
+        new URL("https://s3.pgkb.org/data/dpwg_allele_translations.json"),
+        downloadDir.resolve(DPWG_ALLELES_FILE_NAME).toFile());
 
     FileUtils.copyURLToFile(
         new URL("https://files.cpicpgx.org/data/report/current/gene_phenotypes.json"),
@@ -213,6 +218,17 @@ public class DataManager {
   }
 
 
+  private DefinitionFile[] parseDefinitionFiles(Path downloadDir, String fileName) throws IOException {
+    Gson gson = new Gson();
+    Path definitionsFile = downloadDir.resolve(fileName);
+    if (!Files.exists(definitionsFile)) {
+      throw new IOException("Cannot find alleles definitions (" + definitionsFile + ")");
+    }
+    String json = FileUtils.readFileToString(definitionsFile.toFile(), Charsets.UTF_8);
+    return gson.fromJson(json, DefinitionFile[].class);
+  }
+
+
   /**
    * Does the work for stepping through the files and applying the format.
    */
@@ -220,15 +236,13 @@ public class DataManager {
       Map<String, DefinitionExemption> exemptionsMap) throws Exception {
 
     System.out.println("Generating allele definitions...");
-    Path definitionsFile = downloadDir.resolve("allele_definitions.json");
-    if (!Files.exists(definitionsFile)) {
-      throw new IOException("Cannot find alleles definitions (" + definitionsFile + ")");
-    }
-    String json = FileUtils.readFileToString(definitionsFile.toFile(), Charsets.UTF_8);
-    Gson gson = new Gson();
+    List<DefinitionFile> definitionFiles = new ArrayList<>();
+    definitionFiles.addAll(Arrays.asList(parseDefinitionFiles(downloadDir, CPIC_ALLELES_FILE_NAME)));
+    definitionFiles.addAll(Arrays.asList(parseDefinitionFiles(downloadDir, DPWG_ALLELES_FILE_NAME)));
+
     SortedMap<String, DefinitionFile> definitionFileMap = new TreeMap<>();
     try (VcfHelper vcfHelper = new VcfHelper()) {
-      for (DefinitionFile df : gson.fromJson(json, DefinitionFile[].class)) {
+      for (DefinitionFile df : definitionFiles) {
         // TODO: remove after v1 is released
         if (df.getGeneSymbol().equals("MT-RNR1")) {
           continue;
