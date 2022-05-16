@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.reporter.model.cpic;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -7,9 +8,11 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.function.Predicate;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
 
 /**
@@ -52,6 +55,7 @@ public class Recommendation {
   private DataSource m_source;
 
   private final Set<String> m_matchedDiplotypes = new TreeSet<>();
+  private final List<Genotype> f_matchedGenotypes = new ArrayList<>();
 
   public Map<String, String> getImplications() {
     return m_implications;
@@ -137,6 +141,10 @@ public class Recommendation {
     return m_genotypes;
   }
 
+  protected void setGenotypes(List<Map<String,String>> genotypes) {
+    m_genotypes = genotypes;
+  }
+
   public DataSource getSource() {
     return m_source;
   }
@@ -163,5 +171,25 @@ public class Recommendation {
         .anyMatch(g -> (parsedInput.keySet().containsAll(g.keySet())) && (
             g.keySet().stream().allMatch(key -> Objects.equals(g.get(key), parsedInput.get(key)))
             ));
+  }
+
+  public boolean matchesGenotype(Genotype genotype) {
+    List<Map<String,String>> keys = genotype.toLookupKeys();
+    return keys.stream()
+        .anyMatch(matchesLookupKey);
+  }
+
+  protected final Predicate<Map<String,String>> matchesLookupKey = (lookupKey) -> getGenotypes() != null
+      && getGenotypes().stream()
+      .anyMatch(g -> (lookupKey.keySet().containsAll(g.keySet())) && (
+          g.keySet().stream().allMatch(key -> Objects.equals(g.get(key), lookupKey.get(key)))
+      ));
+
+  public List<Genotype> getMatchedGenotypes() {
+    return f_matchedGenotypes;
+  }
+
+  public void addMatchedGenotype(Genotype genotype) {
+    f_matchedGenotypes.add(genotype);
   }
 }

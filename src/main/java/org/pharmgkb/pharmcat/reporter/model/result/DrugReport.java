@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.function.Predicate;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
@@ -48,12 +47,13 @@ public class DrugReport implements Comparable<DrugReport> {
   private final List<Publication> f_publications = new ArrayList<>();
   private DataSource m_source;
   private List<GuidelinePackage> f_dpwgGuidelinePackages = new ArrayList<>();
+  private final List<GuidelineReport> f_guidelines = new ArrayList<>();
 
   public DrugReport(String name) {
     f_name = name;
   }
 
-  public void addDrugData(Drug drug) {
+  public GuidelineReport addDrugData(Drug drug) {
     m_cpicVersion = drug.getCpicVersion();
     m_cpicId = drug.getDrugId();
     Preconditions.checkArgument(f_name.equalsIgnoreCase(drug.getDrugName()));
@@ -66,9 +66,13 @@ public class DrugReport implements Comparable<DrugReport> {
       f_publications.addAll(drug.getPublications());
     }
     m_source = DataSource.CPIC;
+
+    GuidelineReport guidelineReport = new GuidelineReport(drug);
+    addGuideline(guidelineReport);
+    return guidelineReport;
   }
 
-  public void addDrugData(GuidelinePackage guidelinePackage) {
+  public GuidelineReport addDrugData(GuidelinePackage guidelinePackage) {
     addDpwgGuidelinePackage(guidelinePackage);
     m_pgkbId = guidelinePackage.getGuideline().getId();
     guidelinePackage.getGuideline().getGuidelineGenes().stream()
@@ -76,6 +80,12 @@ public class DrugReport implements Comparable<DrugReport> {
         .forEach(f_relatedGenes::add);
     f_urls.add(guidelinePackage.getGuideline().getUrl());
     m_source = DataSource.DPWG;
+
+    GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage);
+    guidelinePackage.getMatchedGroups()
+        .forEach((group) -> guidelineReport.addAnnotationGroup(new AnnotationGroup(group, guidelinePackage.getGenes().iterator().next())));
+    addGuideline(guidelineReport);
+    return guidelineReport;
   }
 
   /**
@@ -199,18 +209,40 @@ public class DrugReport implements Comparable<DrugReport> {
    * Finds the matching {@link Recommendation} objects for the given <code>phenotypeKey</code>, adds it to the group,
    * and then marks it as a match.
    * @param phenotypeKey a Map of gene symbol to phenotype String
+   * @param diplotypes a Set of diplotypes strings
    */
   public void addReportGenotype(Map<String,String> phenotypeKey, SortedSet<String> diplotypes) {
     Preconditions.checkNotNull(phenotypeKey);
     Preconditions.checkArgument(!phenotypeKey.isEmpty());
 
-    Predicate<Recommendation> matches = r -> (r.getSource() == DataSource.CPIC && r.getLookupKey().equals(phenotypeKey)) || (r.getSource() == DataSource.DPWG && r.matchesGenotype(diplotypes));
-
     getRecommendations().stream()
-        .filter(matches)
-        .forEach(r -> {
+        .filter((r) -> r.getLookupKey().equals(phenotypeKey))
+        .forEach((r) -> {
           addMatchingRecommendation(r);
           r.addMatchedDiplotype(String.join(", ", diplotypes));
+          f_guidelines.stream()
+              .filter((g) -> g.getSource() == DataSource.CPIC)
+              .forEach((g) -> {
+                g.addAnnotationGroup(new AnnotationGroup(r));
+              });
+        });
+  }
+
+  /**
+   * Experimental new genotype matcher
+   * @param genotype
+   */
+  public void matchAnnotationsToGenotype(Genotype genotype) {
+    getRecommendations().stream()
+        .filter((r) -> r.matchesGenotype(genotype))
+        .forEach((r) -> {
+          addMatchingRecommendation(r);
+          r.addMatchedGenotype(genotype);
+          f_guidelines.stream()
+              .filter((g) -> g.getSource() == DataSource.CPIC)
+              .forEach((g) -> {
+                g.addAnnotationGroup(new AnnotationGroup(r));
+              });
         });
   }
 
@@ -290,5 +322,13 @@ public class DrugReport implements Comparable<DrugReport> {
 
   public boolean isDpwg() {
     return m_pgkbId != null;
+  }
+
+  public List<GuidelineReport> getGuidelines() {
+    return f_guidelines;
+  }
+
+  public void addGuideline(GuidelineReport guidelineReport) {
+    f_guidelines.add(guidelineReport);
   }
 }

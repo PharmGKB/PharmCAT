@@ -54,6 +54,9 @@ public class DosingGuideline {
   @SerializedName("@id")
   @Expose
   private String url;
+  @SerializedName("version")
+  @Expose
+  private Integer m_version;
 
   /**
    *
@@ -239,5 +242,9 @@ public class DosingGuideline {
       functionKeys.add(diplotype.getGene() + ":" + String.join(DELIMITER, functions));
     });
     return functionKeys;
+  }
+
+  public Integer getVersion() {
+    return m_version;
   }
 }

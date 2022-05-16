@@ -115,4 +115,8 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   public boolean hasMatch() {
     return matchedGroups.size() > 0;
   }
+
+  public Integer getVersion() {
+    return guideline.getVersion();
+  }
 }

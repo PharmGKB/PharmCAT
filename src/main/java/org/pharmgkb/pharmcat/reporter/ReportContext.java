@@ -31,6 +31,8 @@ import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
+import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
 
 
@@ -74,11 +76,12 @@ public class ReportContext {
 
     for (Drug drug : drugCollection.listReportable()) {
       DrugReport drugReport = createOrFindDrugReport(drug);
-      drugReport.addDrugData(drug);
+      GuidelineReport guidelineReport = drugReport.addDrugData(drug);
       // set if this drug can be shown in the report
-      drugReport.setReportable(drugReport.getRelatedGeneSymbols().stream().anyMatch(this::isReportable));
+      drugReport.setReportable(drugReport.getRelatedGeneSymbols().stream().anyMatch(this::isReportable)); //TODO: delete
+      guidelineReport.getRelatedGenes().stream().filter((g) -> !isReportable(g)).forEach(guidelineReport::addUncalledGene);
 
-      // determine which genes don't have calls for this drug
+      // determine which genes don't have calls for this drug TODO: delete
       drugReport.getRelatedGeneSymbols().stream()
           .filter(g -> !isReportable(g))
           .forEach(drugReport::addUncalledGene);
@@ -89,6 +92,11 @@ public class ReportContext {
         for (Map<String,String> phenoKey : phenoKeys) {
           SortedSet<String> diplotypes = findMatchingDiplotypesForPhenotypeKey(phenoKey);
           drugReport.addReportGenotype(phenoKey, diplotypes);
+        }
+
+        List<Genotype> possibleGenotypes = makePossibleGenotypes(drugReport.getRelatedGeneSymbols());
+        for (Genotype genotype : possibleGenotypes) {
+          drugReport.matchAnnotationsToGenotype(genotype);
         }
       }
       m_drugReports.add(drugReport);
@@ -105,7 +113,8 @@ public class ReportContext {
         // add matching groups
         guidelinePackage.matchGroups(findDiplotypes(guidelinePackage.getGenes()));
 
-        drugReport.addDrugData(guidelinePackage);
+        GuidelineReport guidelineReport = drugReport.addDrugData(guidelinePackage);
+        guidelineReport.getRelatedGenes().stream().filter((g) -> !isReportable(g)).forEach(guidelineReport::addUncalledGene);
         m_drugReports.add(drugReport);
         for (String gene : drugReport.getRelatedGeneSymbols()) {
           getGeneReport(gene).addRelatedDrugs(drugReport);
@@ -463,6 +472,33 @@ public class ReportContext {
       keys = makePhenotypeKeys(geneSymbol, keys);
     }
     return keys;
+  }
+
+  private List<Genotype> makePossibleGenotypes(Collection<String> geneSymbols) {
+    List<Genotype> possibleGenotypes = new ArrayList<>();
+    for (String geneSymbol : geneSymbols) {
+      addToGenotypes(possibleGenotypes, geneSymbol);
+    }
+    return possibleGenotypes;
+  }
+
+  private void addToGenotypes(List<Genotype> genotypes, String geneSymbol) {
+    if (genotypes.size() == 0) {
+      findGeneReport(geneSymbol).ifPresent((geneReport) -> {
+        for (Diplotype diplotype : geneReport.getReporterDiplotypes()) {
+          Genotype genotype = new Genotype(diplotype);
+          genotypes.add(genotype);
+        }
+      });
+    } else {
+      for (Genotype genotype : genotypes) {
+        findGeneReport(geneSymbol).ifPresent((geneReport) -> {
+          for (Diplotype diplotype : geneReport.getReporterDiplotypes()) {
+            genotype.addDiplotype(diplotype);
+          }
+        });
+      }
+    }
   }
 
   private List<Map<String,String>> makePhenotypeKeys(String geneSymbol, List<Map<String,String>> existingList) {

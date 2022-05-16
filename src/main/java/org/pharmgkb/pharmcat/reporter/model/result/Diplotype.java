@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -63,6 +64,9 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("label")
   private final String f_label;
+  @Expose
+  @SerializedName("geneResult")
+  private String m_geneResult;
 
   /**
    * This Function can be used in reduce() calls
@@ -444,5 +448,13 @@ public class Diplotype implements Comparable<Diplotype> {
     } else {
       return allele + " negative";
     }
+  }
+
+  public String getGeneResult() {
+    return m_geneResult;
+  }
+
+  public void setGeneResult(String geneResult) {
+    m_geneResult = geneResult;
   }
 }
