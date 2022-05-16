@@ -20,6 +20,7 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
 
 
@@ -80,8 +81,9 @@ public class NamedAlleleMatcher {
           // optional data
           .addOption("na", "named-alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
           // outputs
+          .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "o")
           .addOption("json", "json-out", "file to save results to (in JSON format)", false, "json")
-          .addOption("html", "html-out", "file to save results to (in HTML format)", false, "html")
+          .addOption("html", "html-out", "file to save results to (in HTML format)", false, "html", 1, false)
           // research
           .addOption("r", "research-mode", "enable research mode")
           .addOption("cyp2d6", "research-cyp2d6", "call CYP2D6 (must also use research mode)")
@@ -114,12 +116,14 @@ public class NamedAlleleMatcher {
               .printWarnings();
       Result result = namedAlleleMatcher.call(vcfFile);
 
+      Path jsonFile = CliUtils.getOutputFile(cliHelper, vcfFile, "json", ".matcher.json");
       ResultSerializer resultSerializer = new ResultSerializer();
-      if (cliHelper.hasOption("json")) {
-        resultSerializer.toJson(result, cliHelper.getPath("json"));
-      }
+      resultSerializer.toJson(result, jsonFile);
+      System.out.println("Saved JSON results to " + jsonFile);
       if (cliHelper.hasOption("html")) {
-        resultSerializer.toHtml(result, cliHelper.getPath("html"));
+        Path htmlFile = CliUtils.getOutputFile(cliHelper, vcfFile, "html", ".matcher.html");
+        resultSerializer.toHtml(result, htmlFile);
+        System.out.println("Saved HTML results to " + htmlFile);
       }
 
     } catch (Exception ex) {

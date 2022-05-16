@@ -36,6 +36,7 @@ import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,7 +59,8 @@ public class Phenotyper {
         // optional-data
         .addOption("a", "outside-call-file", "optional, outside call TSV file", false, "outside-file-path")
         // output
-        .addOption("f", "output-file", "file path to write Phenotyper JSON data to", true, "output-file-path")
+        .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "o")
+        .addOption("f", "output-file", "file path to write Phenotyper JSON data to", false, "output-file-path", 1, false)
         // research
         .addOption("r", "research-mode", "enable research mode")
         .addOption("cyp2d6", "research-cyp2d6", "call CYP2D6 (must also use research mode)")
@@ -70,11 +72,13 @@ public class Phenotyper {
       Path vcfFile = cliHelper.hasOption("vcf") ? cliHelper.getValidFile("vcf", true) : null;
       Path callFile = cliHelper.hasOption("c") ? cliHelper.getValidFile("c", true) : null;
       Path outsideCallPath = cliHelper.hasOption("a") ? cliHelper.getValidFile("a", true) : null;
-      Path outputFile = cliHelper.getPath("f");
 
       Preconditions.checkArgument(callFile != null ^ vcfFile != null, "Can use VCF file or Matcher JSON file, not both");
       Preconditions.checkArgument(callFile == null || Files.isRegularFile(callFile), "Call file does not exist or is not a regular file");
       Preconditions.checkArgument(vcfFile == null || Files.isRegularFile(vcfFile), "Sample VCF file does not exist or is not a regular file");
+
+      Path inputFile = vcfFile == null ? callFile : vcfFile;
+      Path jsonFile = CliUtils.getOutputFile(cliHelper, inputFile, "f", ".phenotyper.json");
 
       List<GeneCall> calls;
       Map<String,Collection<String>> variantWarnings = new HashMap<>();
@@ -99,7 +103,7 @@ public class Phenotyper {
       }
 
       Phenotyper phenotyper = new Phenotyper(calls, outsideCalls, variantWarnings);
-      phenotyper.write(outputFile);
+      phenotyper.write(jsonFile);
     } catch (IOException e) {
       e.printStackTrace();
       System.exit(1);

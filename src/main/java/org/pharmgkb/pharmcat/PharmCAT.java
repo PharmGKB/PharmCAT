@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Stopwatch;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
@@ -64,7 +64,7 @@ public class PharmCAT {
           .addOption("a", "outside-call-file", "path to an outside call file (TSV)", false, "a")
           // outputs
           .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "o")
-          .addOption("f", "output-file", "the base name used for ouput file names (will add file extensions), will default to same value as call-file if not specified", false, "f")
+          .addOption("f", "output-file", "the base name used for output file names (will add file extensions), will default to same value as call-file if not specified", false, "f")
           // controls
           .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files")
           .addOption("j", "write-reporter-json", "flag to write a JSON file of the data used to populate the final report")
@@ -78,12 +78,7 @@ public class PharmCAT {
       }
 
       Path vcfFile = cliHelper.getValidFile("vcf", true);
-      Path outputDir;
-      if (cliHelper.hasOption("o")) {
-        outputDir = cliHelper.getValidDirectory("o", true);
-      } else {
-        outputDir = vcfFile.getParent();
-      }
+      Path outputDir = CliUtils.getOutputDir(cliHelper, vcfFile);
       Path outsideCallPath = null;
       if (cliHelper.hasOption("a")) {
         outsideCallPath = cliHelper.getPath("a");
@@ -163,14 +158,17 @@ public class PharmCAT {
    * Executes the {@link NamedAlleleMatcher} then the {@link Reporter} on the given sample data
    * @param vcfFile the input sample VCF file
    * @param outsideCallPath the optional input outside call TSV file
-   * @param outputFile the optional name to write the output to
+   * @param baseFilename the optional base file name to write the output to
    * @throws Exception can occur from file I/O or unexpected state
    */
-  public void execute(Path vcfFile, @Nullable Path outsideCallPath, @Nullable String outputFile) throws Exception {
+  public void execute(Path vcfFile, @Nullable Path outsideCallPath, @Nullable String baseFilename) throws Exception {
     Preconditions.checkArgument(Files.isRegularFile(vcfFile), "Not a file: %s", vcfFile);
 
     sf_logger.info("Run time: " + new Date());
-    String fileRoot = makeFileRoot(vcfFile, outputFile);
+    String fileRoot = baseFilename;
+    if (fileRoot == null) {
+      fileRoot = FilenameUtils.getBaseName(vcfFile.getFileName().toString());
+    }
 
     Path callFile = m_outputDir.resolve(fileRoot + ".matcher.json");
     if (!m_keepMatcherOutput) {
@@ -216,28 +214,6 @@ public class PharmCAT {
     }
 
     sf_logger.info("Completed");
-  }
-
-  /**
-   * Determines what to call the output file depending on user input parameters
-   * @param inputFile the input VCF file path
-   * @param outputFile the optional output file name to use
-   * @return a file name to use without extension
-   */
-  private String makeFileRoot(Path inputFile, @Nullable String outputFile) {
-    String fileRoot;
-    if (outputFile != null) {
-      fileRoot = outputFile;
-    } else {
-      Matcher m = sf_inputNamePattern.matcher(inputFile.getFileName().toString());
-      if (m.matches()) {
-        fileRoot = m.group(1);
-      }
-      else {
-        fileRoot = inputFile.getFileName().toString();
-      }
-    }
-    return fileRoot;
   }
 
   public PharmCAT keepMatcherOutput() {

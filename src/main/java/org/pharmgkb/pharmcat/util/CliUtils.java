@@ -5,11 +5,15 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.file.Path;
 import java.util.Optional;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.PharmCAT;
 
 
@@ -19,6 +23,12 @@ import org.pharmgkb.pharmcat.PharmCAT;
  * @author Mark Woon
  */
 public class CliUtils {
+
+  /**
+   * Private constructor for utility class.
+   */
+  private CliUtils() {
+  }
 
 
   /**
@@ -55,5 +65,39 @@ public class CliUtils {
       Attributes attr = manifest.getMainAttributes();
       return attr.getValue("Implementation-Version");
     }
+  }
+
+
+  public static Path getOutputDir(CliHelper cliHelper, Path inputFile) throws IOException {
+    if (cliHelper.hasOption("o")) {
+      return cliHelper.getValidDirectory("o", true);
+    } else {
+      return inputFile.getParent();
+    }
+  }
+
+  public static Path getOutputFile(CliHelper cliHelper, Path inputFile, @Nullable String preferredFileArg,
+      String defaultSuffix) throws IOException {
+
+    Path preferredFile = null;
+    if (preferredFileArg != null && cliHelper.getValue(preferredFileArg) != null) {
+      preferredFile = cliHelper.getPath(preferredFileArg);
+    }
+    return getOutputFile(getOutputDir(cliHelper, inputFile), inputFile, preferredFile, defaultSuffix);
+  }
+
+
+  public static Path getOutputFile(Path outputDir, Path inputFile, @Nullable Path preferredFile,
+      String defaultSuffix) {
+
+    if (preferredFile != null) {
+      if (preferredFile.isAbsolute()) {
+        return preferredFile;
+      }
+      return outputDir.resolve(preferredFile);
+    }
+
+    String baseFilename = FilenameUtils.getBaseName(inputFile.getFileName().toString());
+    return outputDir.resolve(baseFilename + defaultSuffix);
   }
 }
