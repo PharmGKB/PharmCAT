@@ -43,20 +43,16 @@ OUTPUT_DIR="${dataDir}/testVcf"
 for file in "$DEFINITION_DIR"/*; do
   if [[ $file == *_translation.json ]]; then
     gene=$(echo $(basename $file) | cut -d "_" -f1)
-    # TODO: remove after v1 is released
-    # not performing testing on CYP2D6 for now
-    if [[ $gene != "CYP2D6" ]]; then
-      echo "$gene"
-      mkdir -p ${OUTPUT_DIR}/${gene}
-      if [[ $MISSING == "false" ]]; then
-        ./test_gen.py $file ${OUTPUT_DIR}/${gene}
-      else
-        ./test_gen_missing.py $file ${OUTPUT_DIR}/${gene}
-      fi
-      if [ "$PHARMCAT_TEST_QUIET" != "true" ]; then
-        echo ""
-        echo ""
-      fi
+    echo "$gene"
+    mkdir -p ${OUTPUT_DIR}/${gene}
+    if [[ $MISSING == "false" ]]; then
+      ./test_gen.py $file ${OUTPUT_DIR}/${gene}
+    else
+      ./test_gen_missing.py $file ${OUTPUT_DIR}/${gene}
+    fi
+    if [ "${PHARMCAT_TEST_QUIET-defined}" != "true" ]; then
+      echo ""
+      echo ""
     fi
   fi
 done
