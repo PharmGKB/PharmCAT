@@ -174,16 +174,13 @@ public class Recommendation {
   }
 
   public boolean matchesGenotype(Genotype genotype) {
-    List<Map<String,String>> keys = genotype.toLookupKeys();
-    return keys.stream()
+    return genotype.toLookupKeys().stream()
         .anyMatch(matchesLookupKey);
   }
 
-  protected final Predicate<Map<String,String>> matchesLookupKey = (lookupKey) -> getGenotypes() != null
-      && getGenotypes().stream()
-      .anyMatch(g -> (lookupKey.keySet().containsAll(g.keySet())) && (
-          g.keySet().stream().allMatch(key -> Objects.equals(g.get(key), lookupKey.get(key)))
-      ));
+  protected final Predicate<Map<String,String>> matchesLookupKey = (lookupKey) -> getLookupKey() != null
+      && lookupKey.keySet().containsAll(getLookupKey().keySet())
+      && getLookupKey().keySet().stream().allMatch(key -> Objects.equals(getLookupKey().get(key), lookupKey.get(key)));
 
   public List<Genotype> getMatchedGenotypes() {
     return f_matchedGenotypes;

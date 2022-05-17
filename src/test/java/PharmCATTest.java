@@ -16,10 +16,10 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
-import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -1063,6 +1063,9 @@ class PharmCATTest {
         .variation("CYP2C19", "rs3758581", "G", "G");
     testWrapper.execute(outsideCallPath);
 
+    testWrapper.testLookup("CYP2C19", "*2", "*2");
+    testWrapper.testPrintCalls("CYP2C19", "*2/*2");
+
     testWrapper.testReportable("CYP2C19", "CYP2C9", "HLA-A", "HLA-B");
     testWrapper.testMatchedGroups("celecoxib", 1);
     testWrapper.testAnyMatchFromSource("celecoxib", DataSource.CPIC);
@@ -1476,31 +1479,21 @@ class PharmCATTest {
      * @param expectedCount the number of matching recommendations you expect
      */
     private void testMatchedGroups(String drugName, int expectedCount) {
-      DrugReport guideline = getContext().getDrugReport(drugName);
-      int cpicMatchCount = guideline.getMatchingRecommendations().size();
-      int dpwgMatchCount = guideline.getDpwgGuidelinePackages().stream()
-          .map(p -> p.getMatchedGroups().size())
-          .reduce(Integer::sum)
-          .orElse(0);
-      assertEquals(expectedCount, cpicMatchCount + dpwgMatchCount,
+      DrugReport drugReport = getContext().getDrugReport(drugName);
+      assertEquals(expectedCount, drugReport.getMatchedGuidelineCount(),
           drugName + " does not have matching recommendation count of " + expectedCount + " (found " +
-              guideline.getMatchingRecommendations() + ")");
+              drugReport.getMatchedGuidelineCount() + ")");
     }
 
     private void testAnyMatchFromSource(String drugName, DataSource source) {
-      DrugReport guideline = getContext().getDrugReport(drugName);
-      if (source == DataSource.CPIC) {
-        assertTrue(guideline.getMatchingRecommendations().stream().anyMatch(r -> r.getSource() == source),
-            drugName + " does not have matching recommendation from " + source);
-      } else if (source == DataSource.DPWG) {
-        assertTrue(guideline.getDpwgGuidelinePackages().stream().anyMatch(GuidelinePackage::hasMatch),
-            drugName + " does not have matching recommendation from " + source);
-      }
+      DrugReport drugReport = getContext().getDrugReport(drugName);
+      assertTrue(drugReport.getGuidelines().stream().anyMatch((g) -> g.getSource() == source && g.isMatched()),
+          drugName + " does not have matching recommendation from " + source);
     }
 
     private void testNoMatchFromSource(String drugName, DataSource source) {
-      DrugReport guideline = getContext().getDrugReport(drugName);
-      assertTrue(guideline.getMatchingRecommendations().stream().noneMatch(r -> r.getSource() == source),
+      DrugReport drugReport = getContext().getDrugReport(drugName);
+      assertTrue(drugReport.getGuidelines().stream().noneMatch(r -> r.getSource() == source && r.isMatched()),
           drugName + " has a matching recommendation from " + source + " and expected none");
     }
 

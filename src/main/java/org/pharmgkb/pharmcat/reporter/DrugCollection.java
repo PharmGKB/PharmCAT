@@ -129,7 +129,7 @@ public class DrugCollection implements Iterable<Drug> {
   }
 
   /**
-   * Get only the "reportable" drugs that do note use "ignored" genes. A reportable drug cannot use _ANY_ ignored gene.
+   * Get only the "reportable" drugs that do not use "ignored" genes. A reportable drug cannot use _ANY_ ignored gene.
    * @return a List of {@link Drug} that can be reported on
    */
   public List<Drug> listReportable() {

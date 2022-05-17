@@ -32,7 +32,7 @@ import static org.pharmgkb.pharmcat.definition.model.GenePhenotype.NO_RESULT;
  * @author Ryan Whaley
  */
 public class Diplotype implements Comparable<Diplotype> {
-  public static final String UNKNOWN = "Unknown/Unknown";
+  public static final String UNKNOWN = Haplotype.UNKNOWN + "/" + Haplotype.UNKNOWN;
 
   private static final String NA = "N/A";
   private static final String sf_toStringPattern = "%s:%s";

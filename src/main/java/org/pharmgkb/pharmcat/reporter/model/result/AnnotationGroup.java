@@ -16,7 +16,7 @@ public class AnnotationGroup {
   private final Map<String,String> phenotypes;
   private final Map<String,String> activityScore;
   private final String population;
-  private final List<Map<String,String>> genotypes;
+  private final List<Genotype> genotypes = new ArrayList<>();
 
   public AnnotationGroup(Recommendation recommendation) {
     implications = new HashMap<>();
@@ -34,10 +34,6 @@ public class AnnotationGroup {
       activityScore.putAll(recommendation.getActivityScore());
     }
     population = recommendation.getPopulation();
-    genotypes = new ArrayList<>();
-    if (recommendation.getGenotypes() != null) {
-      genotypes.addAll(recommendation.getGenotypes());
-    }
   }
 
   public AnnotationGroup(Group group, String gene) {
@@ -61,10 +57,9 @@ public class AnnotationGroup {
     }
     population = "";
     phenotypes = new HashMap<>(); //TODO: fill this in?
+  }
 
-    genotypes = new ArrayList<>();
-    Map<String,String> genotype = new HashMap<>();
-    genotype.put(gene, String.join("; ", group.getGenePhenotypes()));
+  public void addGenotype(Genotype genotype) {
     genotypes.add(genotype);
   }
 }

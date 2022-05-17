@@ -11,9 +11,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.annotation.Nullable;
@@ -31,10 +33,13 @@ import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
+import org.pharmgkb.pharmcat.reporter.DrugCollection;
+import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.Reporter;
 import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
+import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -156,6 +161,14 @@ public class Phenotyper {
       f_geneReports.add(geneReport);
     }
 
+    Set<String> unspecifiedGenes = listUnspecifiedGenes();
+    for (String geneSymbol : unspecifiedGenes) {
+      GeneReport geneReport = new GeneReport(geneSymbol);
+      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(geneSymbol, phenotypeMap.lookup(geneSymbol).orElse(null), null);
+      geneReport.setUnknownDiplotype(diplotypeFactory);
+      f_geneReports.add(geneReport);
+    }
+
     f_geneReports.forEach(r -> r.addVariantWarningMessages(variantWarnings));
 
     try {
@@ -213,6 +226,23 @@ public class Phenotyper {
     Gson gson = new GsonBuilder().create();
     try (BufferedReader reader = Files.newBufferedReader(filePath)) {
       return Arrays.asList(gson.fromJson(reader, GeneReport[].class));
+    }
+  }
+
+  public Set<String> listUnspecifiedGenes() {
+    try {
+      DrugCollection cpicDrugs = new DrugCollection();
+      PgkbGuidelineCollection dpwgDrugs = new PgkbGuidelineCollection();
+
+      Set<String> unspecifiedGenes = new HashSet<>();
+      unspecifiedGenes.addAll(cpicDrugs.getAllReportableGenes());
+      unspecifiedGenes.addAll(dpwgDrugs.getGenes());
+      f_geneReports.stream()
+          .map(GeneReport::getGene)
+          .forEach(unspecifiedGenes::remove);
+      return unspecifiedGenes;
+    } catch (IOException ex) {
+      throw new RuntimeException("Error reading drug data", ex);
     }
   }
 }

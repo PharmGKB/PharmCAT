@@ -9,6 +9,7 @@ import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -49,7 +50,7 @@ class ReporterTest {
     DrugReport desfluraneReport = reporter.getContext().getDrugReports().stream()
         .filter(d -> d.getRelatedDrugs().contains("desflurane")).findFirst()
         .orElseThrow(() -> new RuntimeException("No desflurane drug report found"));
-    assertEquals(1, desfluraneReport.getMatchingRecommendations().size());
+    assertEquals(1, desfluraneReport.getGuidelines().stream().filter(GuidelineReport::isMatched).count());
   }
   
   @Test

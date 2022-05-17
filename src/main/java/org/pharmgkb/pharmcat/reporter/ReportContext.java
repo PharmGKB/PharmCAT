@@ -12,8 +12,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
@@ -25,14 +23,10 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
-import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
-import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
-import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
-import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
 
 
@@ -50,9 +44,7 @@ import org.pharmgkb.pharmcat.util.CliUtils;
  * @author Ryan Whaley
  */
 public class ReportContext {
-  private static final Predicate<String> hasValue = (value) -> StringUtils.isNotBlank(value) && !value.equalsIgnoreCase("n/a");
-
-  private final SortedSet<GeneReport> f_geneReports = new TreeSet<>();
+  private final SortedSet<GeneReport> f_geneReports;
   private final SortedSet<DrugReport> m_drugReports = new TreeSet<>();
 
   /**
@@ -62,42 +54,23 @@ public class ReportContext {
   public ReportContext(Collection<GeneReport> geneReports) throws Exception {
     MessageList messageList = new MessageList();
 
-    // add all existing gene data
-    f_geneReports.addAll(geneReports);
+    // add GeneReports from the Phenotyper
+    f_geneReports = new TreeSet<>(geneReports);
 
-    // add gene data for genes that have no sample data or outside calls
+    // get CPIC drug data
     DrugCollection drugCollection = new DrugCollection();
-    drugCollection.getAllReportableGenes()
-        .forEach(this::addGeneReport);
-
-    // add gene data for DPWG genes
+    // get DPWG/PharmGKB drug data
     PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection();
-    pgkbGuidelineCollection.getGenes().forEach(this::addGeneReport);
 
+    // go through all CPIC drugs
     for (Drug drug : drugCollection.listReportable()) {
       DrugReport drugReport = createOrFindDrugReport(drug);
-      GuidelineReport guidelineReport = drugReport.addDrugData(drug);
-      // set if this drug can be shown in the report
-      drugReport.setReportable(drugReport.getRelatedGeneSymbols().stream().anyMatch(this::isReportable)); //TODO: delete
-      guidelineReport.getRelatedGenes().stream().filter((g) -> !isReportable(g)).forEach(guidelineReport::addUncalledGene);
+      drugReport.addDrugData(drug, this);
 
-      // determine which genes don't have calls for this drug TODO: delete
-      drugReport.getRelatedGeneSymbols().stream()
-          .filter(g -> !isReportable(g))
-          .forEach(drugReport::addUncalledGene);
-
-      // add matching recommendations if this drug is reportable
-      if (drugReport.isReportable()) {
-        List<Map<String,String>> phenoKeys = makePhenotypeKeys(drugReport.getRelatedGeneSymbols());
-        for (Map<String,String> phenoKey : phenoKeys) {
-          SortedSet<String> diplotypes = findMatchingDiplotypesForPhenotypeKey(phenoKey);
-          drugReport.addReportGenotype(phenoKey, diplotypes);
-        }
-
-        List<Genotype> possibleGenotypes = makePossibleGenotypes(drugReport.getRelatedGeneSymbols());
-        for (Genotype genotype : possibleGenotypes) {
-          drugReport.matchAnnotationsToGenotype(genotype);
-        }
+      // add matching recommendations
+      List<Genotype> possibleGenotypes = makePossibleGenotypes(drugReport.getRelatedGeneSymbols());
+      for (Genotype genotype : possibleGenotypes) {
+        drugReport.matchAnnotationsToGenotype(genotype, drug);
       }
       m_drugReports.add(drugReport);
 
@@ -107,14 +80,14 @@ public class ReportContext {
       }
     }
 
-    for (String chemicalName : pgkbGuidelineCollection.getChemicals()) {
-      pgkbGuidelineCollection.findGuidelinePackages(chemicalName).forEach(guidelinePackage -> {
-        DrugReport drugReport = createOrFindDrugReport(chemicalName);
+    // go through all DPWG-PharmGKB drugs, we iterate this way because one guideline may have multiple chemicals/drugs
+    for (String drugName : pgkbGuidelineCollection.getChemicals()) {
+      pgkbGuidelineCollection.findGuidelinePackages(drugName).forEach(guidelinePackage -> {
+        DrugReport drugReport = createOrFindDrugReport(drugName);
         // add matching groups
         guidelinePackage.matchGroups(findDiplotypes(guidelinePackage.getGenes()));
 
-        GuidelineReport guidelineReport = drugReport.addDrugData(guidelinePackage);
-        guidelineReport.getRelatedGenes().stream().filter((g) -> !isReportable(g)).forEach(guidelineReport::addUncalledGene);
+        drugReport.addDrugData(guidelinePackage, this);
         m_drugReports.add(drugReport);
         for (String gene : drugReport.getRelatedGeneSymbols()) {
           getGeneReport(gene).addRelatedDrugs(drugReport);
@@ -145,12 +118,6 @@ public class ReportContext {
               "genotype. See the gene section for " + s + " for more information.")
           .forEach((m) -> drugReport.addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, m)));
     }
-  }
-
-  private boolean isReportable(String gene) {
-    return findGeneReport(gene)
-        .map(GeneReport::isReportable)
-        .orElse(false);
   }
 
   public SortedSet<DrugReport> getDrugReports() {
@@ -222,16 +189,6 @@ public class ReportContext {
   }
 
   /**
-   * Add a "blank" {@link GeneReport} object just based on the gene symbol if a {@link GeneReport} doesn't already exist
-   * @param geneSymbol the gene symbol
-   */
-  private void addGeneReport(String geneSymbol) {
-    if (findGeneReport(geneSymbol).isEmpty()) {
-      f_geneReports.add(new GeneReport(geneSymbol));
-    }
-  }
-
-  /**
    * Make a Map of data that will be used in the final report. This map will be serialized and then applied to the
    * handlebars template.
    * @return a Map of data to serialize into JSON
@@ -293,19 +250,11 @@ public class ReportContext {
     // Drugs section
     List<Map<String,Object>> drugReports = new ArrayList<>();
     for (DrugReport drugReport : getDrugReports()) {
-      if (!result.containsKey("cpicVersion")) {
-        result.put("cpicVersion", drugReport.getCpicVersion());
-      }
-      Map<String,Object> guidelineMap = new HashMap<>();
+      Map<String,Object> drugMap = new HashMap<>();
 
-      String drugs = String.join(", ", drugReport.getRelatedDrugs());
-      guidelineMap.put("drugs", drugs);
-      guidelineMap.put("urls", drugReport.getUrls());
-      guidelineMap.put("id", drugReport.getId());
-      String lastModified = drugReport.getLastModified() != null
-          ? new SimpleDateFormat("yyyy.MM.dd").format(drugReport.getLastModified())
-          : "not available";
-      guidelineMap.put("lastModified", lastModified);
+      drugMap.put("urls", drugReport.getUrls());
+      drugMap.put("id", drugReport.getId());
+      drugMap.put("name", drugReport.getName());
 
       List<Map<String,Object>> geneCallList = new ArrayList<>();
       for (String gene : drugReport.getRelatedGeneSymbols()) {
@@ -334,28 +283,23 @@ public class ReportContext {
         geneCallList.add(geneCall);
       }
       if (geneCallList.size() > 0) {
-        guidelineMap.put("geneCalls", geneCallList);
+        drugMap.put("geneCalls", geneCallList);
       }
 
-      guidelineMap.put("reportable", drugReport.isReportable());
-      guidelineMap.put("uncalledGenes",
-          String.join(", ", drugReport.getUncalledGenes()));
+      drugMap.put("matched", drugReport.isMatched());
 
-      guidelineMap.put("matched", drugReport.isMatched());
-      guidelineMap.put("mutliMatch", drugReport.hasMultipleMatches());
-
-      guidelineMap.put("messages", drugReport.getMessages().stream()
+      drugMap.put("messages", drugReport.getMessages().stream()
           .filter(MessageAnnotation.isMessage)
           .map(MessageAnnotation::getMessage)
           .collect(Collectors.toList()));
 
-      guidelineMap.put("footnotes", drugReport.getMessages().stream()
+      drugMap.put("footnotes", drugReport.getMessages().stream()
           .filter(MessageAnnotation.isFootnote)
           .map(MessageAnnotation::getMessage)
           .collect(Collectors.toList()));
 
       if (drugReport.getCitations() != null && drugReport.getCitations().size()>0) {
-        guidelineMap.put("citations", drugReport.getCitations());
+        drugMap.put("citations", drugReport.getCitations());
       }
 
       // special case the display for warfarin recommendation since it's an image
@@ -363,21 +307,12 @@ public class ReportContext {
         Map<String,String> imageData = new LinkedHashMap<>();
         imageData.put("url", "https://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png");
         imageData.put("altText", "Figure 2 from the CPIC guideline for warfarin");
-        guidelineMap.put("image", imageData);
+        drugMap.put("image", imageData);
       }
 
-      if (drugReport.getMatchingRecommendations() != null) {
-        guidelineMap.put(
-            "groups",
-            drugReport.getMatchingRecommendations().stream().map(sf_recommendationMapper).collect(Collectors.toList())
-        );
-      }
-      guidelineMap.put(
-          "dpwgGuidelines",
-          drugReport.getDpwgGuidelinePackages().stream().map(sf_guidelinePackageMapper).collect(Collectors.toList())
-      );
+      drugMap.put("guidelines", drugReport.getGuidelines());
 
-      drugReports.add(guidelineMap);
+      drugReports.add(drugMap);
     }
     result.put("guidelines", drugReports);
 
@@ -453,27 +388,6 @@ public class ReportContext {
     return result;
   }
 
-  private static Map<String, String> makeAnnotation(String type, String text) {
-    Map<String, String> annotationMap = new HashMap<>();
-    annotationMap.put("term", type);
-    annotationMap.put("annotation", text.replaceAll("[\\n\\r]", " "));
-    return annotationMap;
-  }
-
-  /**
-   * Makes a List of all possible gene combinations for a given set of genes. For example, if GENEA has 2 calls and
-   * GENEB has 1 call then the returned List will contain 2 elements.
-   * @param geneSymbols genes to make phenotype keys for
-   * @return a List of all possible phenotype keys
-   */
-  private List<Map<String,String>> makePhenotypeKeys(Collection<String> geneSymbols) {
-    List<Map<String,String>> keys = new ArrayList<>();
-    for (String geneSymbol : geneSymbols) {
-      keys = makePhenotypeKeys(geneSymbol, keys);
-    }
-    return keys;
-  }
-
   private List<Genotype> makePossibleGenotypes(Collection<String> geneSymbols) {
     List<Genotype> possibleGenotypes = new ArrayList<>();
     for (String geneSymbol : geneSymbols) {
@@ -500,122 +414,4 @@ public class ReportContext {
       }
     }
   }
-
-  private List<Map<String,String>> makePhenotypeKeys(String geneSymbol, List<Map<String,String>> existingList) {
-    if (existingList.isEmpty()) {
-      streamGeneLookupKeys(geneSymbol).forEach((k) -> existingList.add(makeGeneLookupMap(geneSymbol, k)));
-      return existingList;
-    }
-    else {
-      List<Map<String,String>> newList = new ArrayList<>();
-      for (Map<String,String> existingKey : existingList) {
-        streamGeneLookupKeys(geneSymbol).forEach((k) -> newList.add(copyGeneLookupMap(existingKey, geneSymbol, k)));
-      }
-      return newList;
-    }
-  }
-
-  private Stream<String> streamGeneLookupKeys(String gene) {
-    Optional<GeneReport> geneReportOpt = findGeneReport(gene);
-    if (geneReportOpt.isPresent()) {
-      GeneReport geneReport = geneReportOpt.get();
-      if (geneReport.getReporterDiplotypes().size() > 0) {
-        return geneReport.getReporterDiplotypes().stream().flatMap((d) -> d.getLookupKeys().stream());
-      }
-    }
-    return Stream.of("No Result");
-  }
-
-  /**
-   * Given a map of Gene-&gt;LookupKey values (e.g. CYP2C19 Normal Metabolizer), find the corresponding diplotypes
-   * (e.g. CYP2C19:*1/*2) and return them in a set.
-   * @param phenotypeKey a Gene-&gt;LookupKey map from the list of diplotypes
-   * @return a SortedSet of each gene:diplotype strings corresponding to the lookup keys in the phenotype key
-   */
-  private SortedSet<String> findMatchingDiplotypesForPhenotypeKey(Map<String,String> phenotypeKey) {
-    SortedSet<String> diplotypes = new TreeSet<>();
-    for (String gene : phenotypeKey.keySet()) {
-      findGeneReport(gene).ifPresent((r) -> r.getReporterDiplotypes().stream()
-          .filter((d) -> d.getLookupKeys() != null && d.getLookupKeys().contains(phenotypeKey.get(gene)))
-          .forEach((d) -> diplotypes.add(gene + ":" + d.printDisplay())));
-    }
-    return diplotypes;
-  }
-
-  private Map<String,String> makeGeneLookupMap(String gene, String lookupKey) {
-    Map<String,String> newKey = new HashMap<>();
-    newKey.put(gene, lookupKey);
-    return newKey;
-  }
-
-  private Map<String,String> copyGeneLookupMap(Map<String,String> lookupMap, String gene, String lookupKey) {
-    Map<String, String> newKey = new HashMap<>(lookupMap);
-    newKey.put(gene, lookupKey);
-    return newKey;
-  }
-
-  private static final Function<Recommendation, Map<String, Object>> sf_recommendationMapper = (recommendation) -> {
-    Map<String, Object> groupData = new HashMap<>();
-
-    List<Map<String, String>> annotationList = new ArrayList<>();
-    annotationList.add(makeAnnotation("Population", recommendation.getPopulation()));
-    for (String geneSymbol : recommendation.getImplications().keySet()) {
-      annotationList.add(makeAnnotation("Implication for " + geneSymbol, recommendation.getImplications().get(geneSymbol)));
-    }
-    annotationList.add(makeAnnotation("Matched Diplotypes", String.join("; ", recommendation.getMatchedDiplotypes())));
-    if (recommendation.getPhenotypes() != null) {
-      for (String geneSymbol : recommendation.getPhenotypes().keySet()) {
-        annotationList.add(makeAnnotation("Phenotype for " + geneSymbol, recommendation.getPhenotypes().get(geneSymbol)));
-      }
-    }
-    if (recommendation.getActivityScore() != null) {
-      for (String geneSymbol : recommendation.getActivityScore().keySet()) {
-        String score = recommendation.getActivityScore().get(geneSymbol);
-        if (hasValue.test(score)) {
-          annotationList.add(makeAnnotation("Activity Score for " + geneSymbol, score));
-        }
-      }
-    }
-    if (recommendation.getAlleleStatus() != null) {
-      for (String geneSymbol : recommendation.getAlleleStatus().keySet()) {
-        String status = recommendation.getAlleleStatus().get(geneSymbol);
-        if (hasValue.test(status)) {
-          annotationList.add(makeAnnotation("Allele Status for " + geneSymbol, status));
-        }
-      }
-    }
-    annotationList.add(makeAnnotation("Recommendation", recommendation.getDrugRecommendation()));
-    annotationList.add(makeAnnotation("Classification of Recommendation", recommendation.getClassification()));
-    if (hasValue.test(recommendation.getComments())) {
-      annotationList.add(makeAnnotation("Comments", recommendation.getComments()));
-    }
-    annotationList.add(makeAnnotation("Source", recommendation.getSource().toString()));
-    groupData.put("annotations", annotationList);
-
-    return groupData;
-  };
-
-  private static final Function<Group,Map<String,Object>> sf_groupMapper = (group) -> {
-    List<Map<String,String>> annotationsList = new ArrayList<>();
-    if (group.getMetabolizerStatus() != null) {
-      annotationsList.add(makeAnnotation("Metabolizer Status", group.getMetabolizerStatus().getHtmlStripped()));
-    }
-    annotationsList.add(makeAnnotation("Recommendation", group.getRecommendation().getHtmlStripped()));
-    annotationsList.add(makeAnnotation("Implications", group.getImplications().getHtmlStripped()));
-    annotationsList.add(makeAnnotation("Rx Change", group.getRxChange().getTerm()));
-    annotationsList.add(makeAnnotation("Matching Diplotype", group.getMatchingDiplotypes().stream().map(Diplotype::toString).collect(Collectors.joining("; "))));
-    annotationsList.add(makeAnnotation("Function Assignment", String.join("; ", group.getMatchingFunctionKeys())));
-    Map<String,Object> payload = new HashMap<>();
-    payload.put("annotations", annotationsList);
-    return payload;
-  };
-
-  private static final Function<GuidelinePackage,Map<String,Object>> sf_guidelinePackageMapper = (guidelinePackage) -> {
-    Map<String,Object> packageData = new HashMap<>();
-    packageData.put("name", guidelinePackage.getGuideline().getName());
-    packageData.put("url", guidelinePackage.getGuideline().getUrl());
-    packageData.put("hasMatch", guidelinePackage.hasMatch());
-    packageData.put("groups", guidelinePackage.getMatchedGroups().stream().map(sf_groupMapper).collect(Collectors.toList()));
-    return packageData;
-  };
 }

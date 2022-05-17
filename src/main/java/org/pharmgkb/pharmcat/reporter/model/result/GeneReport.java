@@ -138,6 +138,15 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
+   * Adds a diplotype record indicating this gene is unknown so it can be used in subsequent modules.
+   * @param diplotypeFactory a {@link DiplotypeFactory} for this gene
+   */
+  public void setUnknownDiplotype(DiplotypeFactory diplotypeFactory) {
+    String unknownText = isSinglePloidy(getGene()) ? Haplotype.UNKNOWN : Diplotype.UNKNOWN;
+    m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(ImmutableList.of(unknownText)));
+  }
+
+  /**
    * The gene symbol for this gene
    */
   public String getGene(){

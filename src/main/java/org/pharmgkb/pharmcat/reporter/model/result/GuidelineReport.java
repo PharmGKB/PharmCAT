@@ -1,10 +1,11 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
@@ -18,8 +19,7 @@ public class GuidelineReport {
   private String version;
   private String url;
   private List<AnnotationGroup> annotationGroups = new ArrayList<>();
-  private final SortedSet<String> relatedGenes = new TreeSet<>();
-  private final SortedSet<String> uncalledGenes = new TreeSet<>();
+  private transient final SortedSet<GeneReport> relatedGeneReports = new TreeSet<>();
 
   public GuidelineReport(Drug cpicDrug) {
     setVersion(cpicDrug.getCpicVersion());
@@ -27,7 +27,6 @@ public class GuidelineReport {
     setName(cpicDrug.getGuidelineName());
     setSource(DataSource.CPIC);
     setUrl(cpicDrug.getUrl());
-    relatedGenes.addAll(cpicDrug.getGenes());
   }
 
   public GuidelineReport(GuidelinePackage guidelinePackage) {
@@ -36,7 +35,6 @@ public class GuidelineReport {
     setName(guidelinePackage.getGuideline().getName());
     setSource(DataSource.DPWG);
     setUrl(guidelinePackage.getGuideline().getUrl());
-    relatedGenes.addAll(guidelinePackage.getGenes());
   }
 
   public String getName() {
@@ -91,19 +89,21 @@ public class GuidelineReport {
     annotationGroups.add(annotationGroup);
   }
 
-  public SortedSet<String> getRelatedGenes() {
-    return relatedGenes;
+  public boolean isMatched() {
+    return annotationGroups.size() > 0;
   }
 
-  public boolean isReportable() {
-    return this.uncalledGenes.isEmpty();
+  public Set<String> getRelatedGenes() {
+    return getRelatedGeneReports().stream().map(GeneReport::getGene).collect(Collectors.toSet());
   }
 
-  public SortedSet<String> getUncalledGenes() {
-    return this.uncalledGenes;
+  public SortedSet<GeneReport> getRelatedGeneReports() {
+    return relatedGeneReports;
   }
 
-  public void addUncalledGene(String uncalledGene) {
-    this.uncalledGenes.add(uncalledGene);
+  public void addRelatedGeneReport(GeneReport geneReport) {
+    if (geneReport != null) {
+      relatedGeneReports.add(geneReport);
+    }
   }
 }
