@@ -132,10 +132,8 @@ public class Phenotyper {
           removeGeneReport(outsideCall.getGene());
         }
       }
-      if (geneReport == null) {
-        geneReport = new GeneReport(outsideCall);
-        f_geneReports.add(geneReport);
-      }
+      geneReport = new GeneReport(outsideCall);
+      f_geneReports.add(geneReport);
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
           geneReport.getGene(),

@@ -43,6 +43,7 @@
     "data": {},
     "namedAlleleMatcher": {},
     "pharmcat": {},
+    "phenotyper": {},
     "preprocessor": {},
     "reporter": {},
     "website": {}

@@ -114,6 +114,8 @@ class PharmCATTest {
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCalls( "CYP2C19", "*1/*2");
+    testWrapper.testNotCalledByMatcher("CYP2D6");
+    testWrapper.testPrintCalls( "CYP2D6", "*3/*4");
 
     testWrapper.testMatchedGroups("amitriptyline", 1);
     testWrapper.testMatchedGroups("citalopram", 1);
