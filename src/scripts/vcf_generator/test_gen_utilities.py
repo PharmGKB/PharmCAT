@@ -92,9 +92,10 @@ def checkRefNamedAllele(jsondef, refna):
     Takes JSON dict, reference named allele
     Updates alleles in reference to match defined json ref where different
     """
+    alleles = refna['alleles']
     for v,variant in enumerate(jsondef["variants"]):
-        if refna['alleles'][v] != jsondef['variants'][v]['ref']:
-            refna['allelles'][v] = jsondef['variants'][v]['ref']
+        if alleles[v] != jsondef['variants'][v]['ref']:
+            alleles[v] = jsondef['variants'][v]['ref']
             refna['_maxdef'][v] = jsondef['variants'][v]['ref']
     # for variant
 # checkRefNamedAllele()
