@@ -73,6 +73,15 @@ dependencies {
 }
 
 
+task cleanTestOutput(type:Delete) {
+  delete "${rootDir}/out/reports"
+  delete "${rootDir}/out/pharmcat*"
+}
+
+clean.dependsOn(tasks.cleanTestOutput)
+
+test.dependsOn(tasks.cleanTestOutput)
+
 test {
   useJUnitPlatform()
   testLogging {

@@ -27,7 +27,7 @@ class DataSerializerTest {
   void testExemptions() throws Exception {
 
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.tsv");
-    Path jsonFile = Files.createTempFile("transformExemptions", ".json");
+    Path jsonFile = TestUtils.createTempFile("transformExemptions", ".json");
     Path refJsonFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.json");
 
     try {
@@ -73,7 +73,7 @@ class DataSerializerTest {
   void testValuedBooleanExemptions() throws Exception {
 
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.tsv");
-    Path jsonFile = Files.createTempFile("transformExemptions", ".json");
+    Path jsonFile = TestUtils.createTempFile("transformExemptions", ".json");
     Path refJsonFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.json");
 
     try {

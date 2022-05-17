@@ -2,11 +2,11 @@ package org.pharmgkb.pharmcat.reporter.io;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.ParseException;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,7 +21,7 @@ class OutsideCallParserTest {
         "special case\tnomenclature version\n" +
         "CYP2D6\tCYP2D6*1/CYP2D6*4\t\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
 
-    Path tempAstroPath = Files.createTempFile("astrolabe", ".tsv");
+    Path tempAstroPath = TestUtils.createTempFile("astrolabe", ".tsv");
     try (FileWriter fw = new FileWriter(tempAstroPath.toFile())) {
       fw.write(sf_astrolabeOutput);
     }
@@ -41,7 +41,7 @@ class OutsideCallParserTest {
         "special case\tnomenclature version\n" +
         "CYP2D6\tCYP2D6*1/CYP2D6*4 or *2/*3\t\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
 
-    Path tempAstroPath = Files.createTempFile("astrolabe", ".tsv");
+    Path tempAstroPath = TestUtils.createTempFile("astrolabe", ".tsv");
     try (FileWriter fw = new FileWriter(tempAstroPath.toFile())) {
       fw.write(sf_astrolabeOutput);
     }
@@ -59,7 +59,7 @@ class OutsideCallParserTest {
   void testMinimalInput() throws IOException {
     String sf_astrolabeOutput = "CYP2C9\t*1/*2";
 
-    Path tempAstroPath = Files.createTempFile("astrolabe", ".tsv");
+    Path tempAstroPath = TestUtils.createTempFile("astrolabe", ".tsv");
     try (FileWriter fw = new FileWriter(tempAstroPath.toFile())) {
       fw.write(sf_astrolabeOutput);
     }
@@ -76,7 +76,7 @@ class OutsideCallParserTest {
   void testTwoGenes() throws IOException {
     String sf_astrolabeOutput = "CYP2C9\t*1/*2\nCYP2C19\t*3/*4";
 
-    Path tempAstroPath = Files.createTempFile("astrolabe", ".tsv");
+    Path tempAstroPath = TestUtils.createTempFile("astrolabe", ".tsv");
     try (FileWriter fw = new FileWriter(tempAstroPath.toFile())) {
       fw.write(sf_astrolabeOutput);
     }
@@ -97,7 +97,7 @@ class OutsideCallParserTest {
   void testBadFormat() throws IOException {
     String sf_astrolabeOutput = "CYP2C9\t*1/*2\nCYP2C19\t*3/*4/*2";
 
-    Path tempAstroPath = Files.createTempFile("astrolabe", ".tsv");
+    Path tempAstroPath = TestUtils.createTempFile("astrolabe", ".tsv");
     try (FileWriter fw = new FileWriter(tempAstroPath.toFile())) {
       fw.write(sf_astrolabeOutput);
     }

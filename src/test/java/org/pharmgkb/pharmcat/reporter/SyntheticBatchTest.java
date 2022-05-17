@@ -3,8 +3,6 @@ package org.pharmgkb.pharmcat.reporter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
@@ -12,8 +10,8 @@ import java.util.Date;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.PharmCAT;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.VcfTestUtils;
-import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -475,7 +473,7 @@ class SyntheticBatchTest {
   }
 
   private void makeReportWithOutputString(String key, String[] testVcfs, String outsideCalls) throws Exception {
-    Path outsideCallPath = Files.createTempFile("outsideCall", ".tsv");
+    Path outsideCallPath = TestUtils.createTempFile("outsideCall", ".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write(outsideCalls);
     }

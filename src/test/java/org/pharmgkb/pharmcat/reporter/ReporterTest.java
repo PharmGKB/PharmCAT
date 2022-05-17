@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -53,7 +54,7 @@ class ReporterTest {
   
   @Test
   void testMain() throws Exception {
-    Path outputReportPath = Files.createTempFile("ReporterTest", ".html");
+    Path outputReportPath = TestUtils.createTempFile("ReporterTest", ".html");
     String[] args = new String[]{
         "-p",
         PathUtils.getPathToResource(PHENOTYPER_FILE_PATH).toAbsolutePath().toString(),

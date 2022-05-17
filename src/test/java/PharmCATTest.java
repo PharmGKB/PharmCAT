@@ -2,7 +2,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -13,6 +12,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.PharmCAT;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.VcfTestUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
@@ -31,7 +31,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Ryan Whaley
  */
 class PharmCATTest {
-
   private static final String sf_outsideCalls = "##Test Outside Call Data\n" +
       "#Gene\tDiplotype\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\tspecial case\tnomenclature version\n" +
       "CYP2D6\tCYP2D6*1/CYP2D6*4\t\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09\n";
@@ -44,20 +43,21 @@ class PharmCATTest {
   private static Path s_otherOutsideCallFilePath;
   private static Path s_mtrnr1OutsideCallFilePath;
 
+
   @BeforeAll
   static void prepare() throws IOException {
 
-    s_outsideCallFilePath = Files.createTempFile("outsideCall", ".tsv");
+    s_outsideCallFilePath = TestUtils.createTempFile("outsideCall", ".tsv");
     try (FileWriter fw = new FileWriter(s_outsideCallFilePath.toFile())) {
       fw.write(sf_outsideCalls);
     }
 
-    s_otherOutsideCallFilePath = Files.createTempFile("otherOutsideCall", ".tsv");
+    s_otherOutsideCallFilePath = TestUtils.createTempFile("otherOutsideCall", ".tsv");
     try (FileWriter fw = new FileWriter(s_otherOutsideCallFilePath.toFile())) {
       fw.write(sf_otherOutsideCalls);
     }
 
-    s_mtrnr1OutsideCallFilePath = Files.createTempFile("mtrnr1OutsideCall", ".tsv");
+    s_mtrnr1OutsideCallFilePath = TestUtils.createTempFile("mtrnr1OutsideCall", ".tsv");
     try (FileWriter fw = new FileWriter(s_mtrnr1OutsideCallFilePath.toFile())) {
       fw.write(sf_mtrnr1OutsideCalls);
     }
@@ -946,7 +946,7 @@ class PharmCATTest {
 
   @Test
   void testHlab() throws Exception {
-    Path outsideCallPath = Files.createTempFile("noFunction", ".tsv");
+    Path outsideCallPath = TestUtils.createTempFile("hlab", ".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write("HLA-B\t*15:02/*57:01");
     }
@@ -967,7 +967,7 @@ class PharmCATTest {
 
   @Test
   void testHlabPhenotype() throws Exception {
-    Path outsideCallPath = Files.createTempFile("noFunction", ".tsv");
+    Path outsideCallPath = TestUtils.createTempFile("hlabPhenotype", ".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write("HLA-B\t\t*57:01 positive");
     }
@@ -1185,7 +1185,7 @@ class PharmCATTest {
    */
   @Test
   void testBadOutsideData() throws Exception {
-    Path badOutsideDataPath = Files.createTempFile("outsideCall", ".tsv");
+    Path badOutsideDataPath = TestUtils.createTempFile("badOutsideData", ".tsv");
     try (FileWriter fw = new FileWriter(badOutsideDataPath.toFile())) {
       fw.write("CYP2D6\t*1/*2\tfoo\nCYP2D6\t*3/*4");
     }
@@ -1204,7 +1204,7 @@ class PharmCATTest {
 
   @Test
   void testCyp2d6AlleleWithNoFunction() throws Exception {
-    Path outsideCallPath = Files.createTempFile("noFunction", ".tsv");
+    Path outsideCallPath = TestUtils.createTempFile("cyp2d6AlleleWithNoFunction",".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write("CYP2D6\t*1/*XXX");
     }
@@ -1232,7 +1232,7 @@ class PharmCATTest {
    */
   @Test
   void testCallerCollision() throws Exception {
-    Path outsidePath = Files.createTempFile("outsideCall", ".tsv");
+    Path outsidePath = TestUtils.createTempFile("callerCollision", ".tsv");
     try (FileWriter fw = new FileWriter(outsidePath.toFile())) {
       fw.write("CYP2C19\t*2/*2");
     }
@@ -1265,9 +1265,9 @@ class PharmCATTest {
     private final TestVcfBuilder f_vcfBuilder;
 
     PharmCATTestWrapper(String testKey, boolean allMatches) throws IOException {
-      f_outputPath = Paths.get("out", "reports", testKey);
-      if (!f_outputPath.toFile().exists() && !f_outputPath.toFile().mkdirs()) {
-        throw new RuntimeException("Could not create output directory");
+      f_outputPath = TestUtils.TEST_OUTPUT_DIR.resolve("reports").resolve(testKey);
+      if (!Files.isDirectory(f_outputPath)) {
+        Files.createDirectories(f_outputPath);
       }
 
       f_vcfBuilder = new TestVcfBuilder(testKey).saveFile();
@@ -1288,7 +1288,7 @@ class PharmCATTest {
      */
     @Deprecated
     void execute(String name, String[] geneCalls, Path outsideCallPath) throws Exception {
-      Path tempVcfPath = Files.createTempFile(name, ".vcf");
+      Path tempVcfPath = TestUtils.createTempFile(name, ".vcf");
       try (FileWriter fw = new FileWriter(tempVcfPath.toFile())) {
         fw.write(VcfTestUtils.writeVcf(geneCalls));
       } catch (Exception ex) {

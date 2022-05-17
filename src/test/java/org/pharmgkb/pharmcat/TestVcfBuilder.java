@@ -93,7 +93,7 @@ public class TestVcfBuilder {
 
 
   public Path generate() throws IOException {
-    return generate(Files.createTempDirectory("pharmcat"));
+    return generate(TestUtils.createTempDirectory("pharmcat"));
   }
 
   public Path generate(Path dir) throws IOException {
