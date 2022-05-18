@@ -90,13 +90,13 @@ def updateVarAlleles(jsondef, vcfref):
 def checkRefNamedAllele(jsondef, refna):
     """
     Takes JSON dict, reference named allele
-    Updates alleles in reference to match defined json ref where different
+    Updates alleles in reference to match defined json ref where different to remove wobble
     """
     alleles = refna['alleles']
     for v,variant in enumerate(jsondef["variants"]):
         if alleles[v] != jsondef['variants'][v]['ref']:
             alleles[v] = jsondef['variants'][v]['ref']
-            refna['_maxdef'][v] = jsondef['variants'][v]['ref']
+            refna['_mindef'][v] = jsondef['variants'][v]['ref']
     # for variant
 # checkRefNamedAllele()
 

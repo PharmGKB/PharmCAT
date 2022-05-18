@@ -176,6 +176,9 @@ for namedallele in namedalleles:
     # for i,a in _mindef
 # for namedallele
 
+# check referent allele against defined reference in json and correct where needed for ambiguous
+util.checkRefNamedAllele(definition, refNamedallele)
+
 # generate tests
 totalTests = 0
 if not quietMode:
@@ -194,8 +197,6 @@ for namedallele in namedalleles:
     # for alleles
 # for namedallele
 
-# check referent allele against defined reference in json and correct where needed for ambiguous
-util.checkRefNamedAllele(definition, refNamedallele)
 
 # select maximum combination size within limits
 # will always use at least single missing position for tests (as for CYP2D6)

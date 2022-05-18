@@ -136,6 +136,8 @@ for namedallele in namedalleles:
     # for i,a in _mindef
 # for namedallele
 
+# check referent allele against defined reference in json and correct where needed for ambiguous
+util.checkRefNamedAllele(definition, refNamedallele)
 
 # generate tests
 if not quietMode:
@@ -152,9 +154,6 @@ for namedallele in namedalleles:
         namedallele['_tests'].append(frozenset(alleles))
     # for alleles
 # for namedallele
-
-# check referent allele against defined reference in json and correct where needed for ambiguous
-util.checkRefNamedAllele(definition, refNamedallele)
 
 basepath = sys.argv[2]
 if not os.path.exists(basepath):
