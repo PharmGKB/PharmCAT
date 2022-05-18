@@ -201,7 +201,7 @@ public class DrugReport implements Comparable<DrugReport> {
     f_guidelines.add(guidelineReport);
   }
 
-  public long getMatchedGuidelineCount() {
-    return getGuidelines().stream().filter(GuidelineReport::isMatched).count();
+  public long getMatchedGroupCount() {
+    return getGuidelines().stream().mapToLong(g -> g.getAnnotationGroups().size()).sum();
   }
 }

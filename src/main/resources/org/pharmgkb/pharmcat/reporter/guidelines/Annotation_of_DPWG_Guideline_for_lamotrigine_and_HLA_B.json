@@ -4,7 +4,7 @@
     "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "Dosing Guideline Annotation Group",
     "id" : "PA166265361",
-    "name" : "Absent",
+    "name" : "*15:02 negative",
     "genePhenotypes" : [ "HLA-B:Absence/Absence" ],
     "guideline" : {
       "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265341",
@@ -15,12 +15,12 @@
       "version" : 3
     },
     "implications" : {
-      "id" : 1451698140,
+      "id" : 1451782590,
       "html" : "<p>The guideline does not provide a description of the impact of the absence of HLA-B*15:02 alleles on lamotrigine.</p>\n",
       "version" : 0
     },
     "recommendation" : {
-      "id" : 1451698141,
+      "id" : 1451782591,
       "html" : "<p>The guideline does not provide a recommendation for lamotrigine in patients with no HLA-B*15:02 alleles or negative for the HLA-B*15:02 test.</p>\n",
       "version" : 0
     },
@@ -46,13 +46,13 @@
       "version" : 1
     },
     "userId" : "katrin",
-    "version" : 0
+    "version" : 1
   }, {
     "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265381",
     "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "Dosing Guideline Annotation Group",
     "id" : "PA166265381",
-    "name" : "Present",
+    "name" : "*15:02 positive",
     "genePhenotypes" : [ "HLA-B:Absence/Presence", "HLA-B:Presence/Presence" ],
     "guideline" : {
       "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265341",
@@ -63,12 +63,12 @@
       "version" : 3
     },
     "implications" : {
-      "id" : 1451698160,
+      "id" : 1451782588,
       "html" : "<p>The life-threatening cutaneous side effect Stevens-Johnson Syndrome/Toxic Epidermal Necrolysis (SJS/TEN) occurs more often in patients with this genetic variation. Based on the estimated risk for all patients and the increase by a factor 3.6 for patients with this genetic variation, the risk of lamotrigine-induced SJS/TEN in patients with HLA-B*1502 is estimated at 0.4%.</p>\n",
       "version" : 0
     },
     "recommendation" : {
-      "id" : 1451698161,
+      "id" : 1451782589,
       "html" : "<ul>\n<li>Carefully weigh the risk of SJS/TEN against the benefits.</li>\n<li>Avoid lamotrigine if an alternative is available.\n<ul>\n<li>Carbamazepine carries a much higher risk of SJS/TEN in these patients and is therefore not an alternative.</li>\n<li>A similar risk has been reported for phenytoin as for lamotrigine.</li>\n<li>The same applies to oxcarbazepine, but the most severe forms (SJS/TEN overlap and TEN) have not been observed with oxcarbazepine.</li>\n</ul>\n</li>\n<li>If it is not possible to avoid these products, advise the patient to report any rash immediately.</li>\n</ul>\n",
       "version" : 0
     },
@@ -94,7 +94,7 @@
       "version" : 1
     },
     "userId" : "katrin",
-    "version" : 0
+    "version" : 1
   } ],
   "citations" : [ ],
   "guideline" : {

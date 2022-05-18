@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -25,7 +26,7 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   private List<Group> groups = new ArrayList<>();
   @SerializedName("matchedGroups")
   @Expose
-  private List<Group> matchedGroups = new ArrayList<>();
+  private Set<Group> matchedGroups = new TreeSet<>();
   @SerializedName("citations")
   @Expose
   private List<Literature> citations = new ArrayList<>();
@@ -49,7 +50,7 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   }
 
   
-  public List<Group> getMatchedGroups() {
+  public Set<Group> getMatchedGroups() {
     return matchedGroups;
   }
 

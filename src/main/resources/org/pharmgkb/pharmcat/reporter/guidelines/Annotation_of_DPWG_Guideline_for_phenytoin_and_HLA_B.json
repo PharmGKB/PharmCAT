@@ -4,7 +4,7 @@
     "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "Dosing Guideline Annotation Group",
     "id" : "PA166264882",
-    "name" : "Absent",
+    "name" : "*15:02 negative",
     "genePhenotypes" : [ "HLA-B:Absence/Absence" ],
     "guideline" : {
       "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166264881",
@@ -15,12 +15,12 @@
       "version" : 4
     },
     "implications" : {
-      "id" : 1451695785,
+      "id" : 1451782572,
       "html" : "<p>The guideline does not provide a description of the impact of the absence of HLA-B*15:02 alleles on phenytoin.</p>\n",
       "version" : 0
     },
     "recommendation" : {
-      "id" : 1451695786,
+      "id" : 1451782573,
       "html" : "<p>The guideline does not provide a recommendation for phenytoin in patients with no HLA-B*15:02 alleles or negative for the.HLA-B*15:02 test.</p>\n",
       "version" : 0
     },
@@ -46,13 +46,13 @@
       "version" : 1
     },
     "userId" : "rachel",
-    "version" : 0
+    "version" : 1
   }, {
     "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166264883",
     "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "Dosing Guideline Annotation Group",
     "id" : "PA166264883",
-    "name" : "Present",
+    "name" : "*15:02 positive",
     "genePhenotypes" : [ "HLA-B:Absence/Presence", "HLA-B:Presence/Presence" ],
     "guideline" : {
       "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166264881",
@@ -63,12 +63,12 @@
       "version" : 4
     },
     "implications" : {
-      "id" : 1451695787,
+      "id" : 1451782574,
       "html" : "<p>The life-threatening cutaneous side effect Stevens-Johnson syndrome/toxic epidermal necrolysis (SJS/TEN) occurs more frequently in patients with this genetic variation. The calculated risk of phenytoin-induced SJS/TEN in patients with HLA-B*1502 is 0.65%.</p>\n",
       "version" : 0
     },
     "recommendation" : {
-      "id" : 1451695788,
+      "id" : 1451782575,
       "html" : "<ul>\n<li>Carefully weigh the risk of SJS/TEN against the benefits</li>\n<li>Avoid phenytoin if an alternative is possible\n<ul>\n<li>Carbamazepine carries a 10-fold higher risk of SJS/TEN for these patients and is therefore not an alternative.</li>\n<li>A comparable risk has been reported for lamotrigine as for phenytoin. The same applies for oxcarbazepine, but the most severe forms (SJS/TEN overlap and TEN) are not observed with oxcarbazepine.</li>\n</ul>\n</li>\n<li>if it is not possible to avoid this medication, then advise the patient to report any skin rash immediately</li>\n</ul>\n",
       "version" : 0
     },
@@ -94,7 +94,7 @@
       "version" : 1
     },
     "userId" : "rachel",
-    "version" : 0
+    "version" : 1
   } ],
   "citations" : [ ],
   "guideline" : {

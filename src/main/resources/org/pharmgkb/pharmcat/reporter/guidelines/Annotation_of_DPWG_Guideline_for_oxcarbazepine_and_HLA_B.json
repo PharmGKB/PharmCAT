@@ -1,4 +1,101 @@
 {
+  "annotationGroups" : [ {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265222",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166265222",
+    "name" : "*15:02 positive",
+    "genePhenotypes" : [ "HLA-B:Absence/Presence", "HLA-B:Presence/Presence" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265201",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166265201",
+      "name" : "Annotation of DPWG Guideline for oxcarbazepine and HLA-B",
+      "version" : 3
+    },
+    "implications" : {
+      "id" : 1451782584,
+      "html" : "<p>Stevens-Johnson syndrome, the severe cutaneous side effect that can potentially result in permanent damage, occurs more often in patients with this genetic variation. The calculated risk of oxcarbazepine-induced SJS in patients with HLA-B*1502 is 0.73%.</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451782585,
+      "html" : "<ul>\n<li>Carefully weigh the risk of SJS against the benefits.</li>\n<li>Avoid oxcarbazepine if an alternative is available.\n<ul>\n<li>Carbamazepine carries a 10-fold higher risk of SJS/TEN in these patients and is therefore not an alternative.</li>\n<li>In these patients, phenytoin and lamotrigine carry a similar risk of SJS/TEN as oxcarbazepine, but more severe forms of SJS/TEN (SJS/TEN overlap and TEN) are also\nobserved with these medicines. Therefore, they are also not suitable as alternatives.</li>\n</ul>\n</li>\n<li>If it is not possible to avoid oxcarbazepine, advise the patient to report any rash immediately</li>\n</ul>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602496",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602496,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Possibly",
+      "termId" : "rxChange:1448602496",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "lgong",
+    "version" : 0
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265242",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166265242",
+    "name" : "*15:02 negative",
+    "genePhenotypes" : [ "HLA-B:Absence/Absence" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265201",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166265201",
+      "name" : "Annotation of DPWG Guideline for oxcarbazepine and HLA-B",
+      "version" : 3
+    },
+    "implications" : {
+      "id" : 1451782586,
+      "html" : "<p>The guideline does not provide a description of the impact of the absence of HLA-B*15:02 alleles on oxcarbazepine.</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451782587,
+      "html" : "<p>The guideline does not provide a recommendation for oxcarbazepine in patients with no HLA-B*15:02 alleles or negative for the.HLA-B*15:02 test.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "lgong",
+    "version" : 0
+  } ],
   "citations" : [ ],
   "guideline" : {
     "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265201",

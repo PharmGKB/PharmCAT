@@ -1,4 +1,101 @@
 {
+  "annotationGroups" : [ {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265404",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166265404",
+    "name" : "*31:01 positive",
+    "genePhenotypes" : [ "HLA-A:Absence/Presence", "HLA-A:Presence/Presence" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265161",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166265161",
+      "name" : "Annotation of DPWG Guideline for carbamazepine and HLA-A",
+      "version" : 4
+    },
+    "implications" : {
+      "id" : 1451782560,
+      "html" : "<p>Patients with this genetic variation have an increased risk of experiencing the life-threatening cutaneous adverse events DRESS and Stevens-Johnson syndrome/toxic epidermal necrolysis (SJS/TEN). The risk of carbamazepine-induced DRESS in these patients is 0.89%.</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451782561,
+      "html" : "<ul>\n<li>\n<p>Carefully weigh the risk of DRESS and SJS/TEN against the benefits</p>\n</li>\n<li>\n<p>If an alternative is an option, choose an alternative</p>\n</li>\n</ul>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602496",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602496,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "Possibly",
+      "termId" : "rxChange:1448602496",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "cfthorn",
+    "version" : 1
+  }, {
+    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265405",
+    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
+    "objCls" : "Dosing Guideline Annotation Group",
+    "id" : "PA166265405",
+    "name" : "*31:01 negative",
+    "genePhenotypes" : [ "HLA-A:Absence/Absence" ],
+    "guideline" : {
+      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265161",
+      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
+      "objCls" : "Guideline Annotation",
+      "id" : "PA166265161",
+      "name" : "Annotation of DPWG Guideline for carbamazepine and HLA-A",
+      "version" : 4
+    },
+    "implications" : {
+      "id" : 1451782562,
+      "html" : "<p>The guideline does not provide a description of the impact of the absence of HLA-A*31:01 alleles on carbamazepine.</p>\n",
+      "version" : 0
+    },
+    "recommendation" : {
+      "id" : 1451782563,
+      "html" : "<p>The guideline does not provide a provide a recommendation for carbamazepine in patients with no HLA-A*31:01 alleles or negative for the HLA-A*31:01 test.</p>\n",
+      "version" : 0
+    },
+    "rxChangeStatus" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 1448602495,
+      "parents" : [ ],
+      "resource" : "Prescribing Change",
+      "term" : "No",
+      "termId" : "rxChange:1448602495",
+      "version" : 0
+    },
+    "strength" : {
+      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
+      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+      "id" : 981501929,
+      "description" : "Not Applicable",
+      "parents" : [ ],
+      "resource" : "Guideline Strength",
+      "term" : "N/A",
+      "termId" : "guidelineStrength:981501929",
+      "version" : 1
+    },
+    "userId" : "cfthorn",
+    "version" : 1
+  } ],
   "citations" : [ ],
   "guideline" : {
     "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265161",
@@ -614,6 +711,6 @@
       "version" : 1
     },
     "userId" : "cfthorn",
-    "version" : 3
+    "version" : 4
   }
 }

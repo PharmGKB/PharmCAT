@@ -4,7 +4,7 @@
     "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "Dosing Guideline Annotation Group",
     "id" : "PA166240541",
-    "name" : "Absent",
+    "name" : "*57:01 negative",
     "genePhenotypes" : [ "HLA-B:Absence/Absence" ],
     "guideline" : {
       "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182810",
@@ -15,12 +15,12 @@
       "version" : 6
     },
     "implications" : {
-      "id" : 1451417593,
+      "id" : 1451782570,
       "html" : "<p>The guideline does not provide a description of the impact of the absence of HLA-B*57:01 alleles on flucloxacillin.</p>\n",
       "version" : 0
     },
     "recommendation" : {
-      "id" : 1451417594,
+      "id" : 1451782571,
       "html" : "<p>The guideline does not provide a recommendation for flucloxacillin in patients with no HLA-B*57:01 alleles or negative for the.HLA-B*57:01 test.</p>\n",
       "version" : 0
     },
@@ -46,13 +46,13 @@
       "version" : 1
     },
     "userId" : "rachel",
-    "version" : 0
+    "version" : 1
   }, {
     "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166240542",
     "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
     "objCls" : "Dosing Guideline Annotation Group",
     "id" : "PA166240542",
-    "name" : "Present",
+    "name" : "*57:01 positive",
     "genePhenotypes" : [ "HLA-B:Absence/Presence", "HLA-B:Presence/Presence" ],
     "guideline" : {
       "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182810",
@@ -63,12 +63,12 @@
       "version" : 6
     },
     "implications" : {
-      "id" : 1451417604,
+      "id" : 1451782568,
       "html" : "<p>HLA-B*57:01-positive patients have an 80-fold elevated risk of flucloxacillin-induced liver injury. However, the incidence is low (1-2 per 1000 individuals).</p>\n",
       "version" : 0
     },
     "recommendation" : {
-      "id" : 1451417605,
+      "id" : 1451782569,
       "html" : "<ol>\n<li>Regularly monitor the patient’s liver function</li>\n<li>Choose an alternative if liver enzymes and/or bilirubin levels are elevated</li>\n</ol>\n",
       "version" : 0
     },
@@ -94,7 +94,7 @@
       "version" : 1
     },
     "userId" : "rachel",
-    "version" : 0
+    "version" : 1
   } ],
   "citations" : [ ],
   "guideline" : {

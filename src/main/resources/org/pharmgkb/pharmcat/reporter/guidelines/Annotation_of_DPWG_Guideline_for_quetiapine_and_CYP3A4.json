@@ -12,7 +12,7 @@
       "objCls" : "Guideline Annotation",
       "id" : "PA166265421",
       "name" : "Annotation of DPWG Guideline for quetiapine and CYP3A4",
-      "version" : 5
+      "version" : 7
     },
     "implications" : {
       "id" : 1451723520,
@@ -65,7 +65,7 @@
       "objCls" : "Guideline Annotation",
       "id" : "PA166265421",
       "name" : "Annotation of DPWG Guideline for quetiapine and CYP3A4",
-      "version" : 5
+      "version" : 7
     },
     "implications" : {
       "id" : 1451723445,
@@ -118,7 +118,7 @@
       "objCls" : "Guideline Annotation",
       "id" : "PA166265421",
       "name" : "Annotation of DPWG Guideline for quetiapine and CYP3A4",
-      "version" : 5
+      "version" : 7
     },
     "implications" : {
       "id" : 1451723500,
@@ -171,39 +171,9 @@
     "guidelineGenes" : [ {
       "id" : 1451723430,
       "alleles" : [ {
-        "id" : 1451723431,
-        "_label" : "*1A",
-        "allele" : "*1A",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723432,
-        "_label" : "*1B",
-        "allele" : "*1B",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723433,
-        "_label" : "*1G",
-        "allele" : "*1G",
+        "id" : 1451778541,
+        "_label" : "*1",
+        "allele" : "*1",
         "function" : {
           "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
           "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
@@ -377,6 +347,21 @@
           "resource" : "Allele Function",
           "term" : "No function",
           "termId" : "haplotypeTags:1445558515",
+          "version" : 1
+        },
+        "version" : 0
+      }, {
+        "id" : 1451778542,
+        "_label" : "*36",
+        "allele" : "*36",
+        "function" : {
+          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
+          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
+          "id" : 1445558335,
+          "parents" : [ ],
+          "resource" : "Allele Function",
+          "term" : "Normal function",
+          "termId" : "haplotypeTags:1445558335",
           "version" : 1
         },
         "version" : 0
@@ -723,7 +708,7 @@
         "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004497","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498878,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004497","resource":"Gene Ontology","term":"monooxygenase activity","termId":"GO:0004497"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005496","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499828,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005496","resource":"Gene Ontology","term":"steroid binding","termId":"GO:0005496"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005506","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499841,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005506","resource":"Gene Ontology","term":"iron ion binding","termId":"GO:0005506"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005737","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500078,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005737","resource":"Gene Ontology","term":"cytoplasm","termId":"GO:0005737"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005783","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500134,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005783","resource":"Gene Ontology","term":"endoplasmic reticulum","termId":"GO:0005783"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500141,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005789","resource":"Gene Ontology","term":"endoplasmic reticulum membrane","termId":"GO:0005789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005792","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500144,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005792","resource":"Gene Ontology","term":"microsome","termId":"GO:0005792"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006629","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501203,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006629","resource":"Gene Ontology","term":"lipid metabolic process","termId":"GO:0006629"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006706","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501319,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006706","resource":"Gene Ontology","term":"steroid catabolic process","termId":"GO:0006706"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008202","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501294,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008202","resource":"Gene Ontology","term":"steroid metabolic process","termId":"GO:0008202"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008209","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501312,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008209","resource":"Gene Ontology","term":"androgen metabolic process","termId":"GO:0008209"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008395","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496176,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008395","resource":"Gene Ontology","term":"steroid hydroxylase activity","termId":"GO:0008395"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009055","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503412,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009055","resource":"Gene Ontology","term":"electron carrier activity","termId":"GO:0009055"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009822","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504180,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009822","resource":"Gene Ontology","term":"alkaloid catabolic process","termId":"GO:0009822"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009986","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504340,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009986","resource":"Gene Ontology","term":"cell surface","termId":"GO:0009986"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016021","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016021","resource":"Gene Ontology","term":"integral to membrane","termId":"GO:0016021"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016098","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560506711,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016098","resource":"Gene Ontology","term":"monoterpenoid metabolic process","termId":"GO:0016098"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016491","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495264,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016491","resource":"Gene Ontology","term":"oxidoreductase activity","termId":"GO:0016491"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016712","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503084,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016712","resource":"Gene Ontology","term":"oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen, reduced flavin or flavoprotein as one donor, and incorporation of one atom of oxygen","termId":"GO:0016712"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0017144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560507281,"_url":"http://amigo.geneontology.org/amigo/term/GO:0017144","resource":"Gene Ontology","term":"drug metabolic process","termId":"GO:0017144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019825","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019825","resource":"Gene Ontology","term":"oxygen binding","termId":"GO:0019825"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019899","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496866,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019899","resource":"Gene Ontology","term":"enzyme binding","termId":"GO:0019899"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0020037","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509358,"_url":"http://amigo.geneontology.org/amigo/term/GO:0020037","resource":"Gene Ontology","term":"heme binding","termId":"GO:0020037"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0030343","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560510317,"_url":"http://amigo.geneontology.org/amigo/term/GO:0030343","resource":"Gene Ontology","term":"vitamin D3 25-hydroxylase activity","termId":"GO:0030343"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0033780","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560513637,"_url":"http://amigo.geneontology.org/amigo/term/GO:0033780","resource":"Gene Ontology","term":"taurochenodeoxycholate 6alpha-hydroxylase activity","termId":"GO:0033780"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0034875","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560514701,"_url":"http://amigo.geneontology.org/amigo/term/GO:0034875","resource":"Gene Ontology","term":"caffeine oxidase activity","termId":"GO:0034875"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042359","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515403,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042359","resource":"Gene Ontology","term":"vitamin D metabolic process","termId":"GO:0042359"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042737","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515689,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042737","resource":"Gene Ontology","term":"drug catabolic process","termId":"GO:0042737"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042738","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515690,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042738","resource":"Gene Ontology","term":"exogenous drug catabolic process","termId":"GO:0042738"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046483","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495388,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046483","resource":"Gene Ontology","term":"heterocycle metabolic process","termId":"GO:0046483"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0047638","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560518941,"_url":"http://amigo.geneontology.org/amigo/term/GO:0047638","resource":"Gene Ontology","term":"albendazole monooxygenase activity","termId":"GO:0047638"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0050591","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560520605,"_url":"http://amigo.geneontology.org/amigo/term/GO:0050591","resource":"Gene Ontology","term":"quinine 3-monooxygenase activity","termId":"GO:0050591"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0050649","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560520663,"_url":"http://amigo.geneontology.org/amigo/term/GO:0050649","resource":"Gene Ontology","term":"testosterone 6-beta-hydroxylase activity","termId":"GO:0050649"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0070576","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560523229,"_url":"http://amigo.geneontology.org/amigo/term/GO:0070576","resource":"Gene Ontology","term":"vitamin D 24-hydroxylase activity","termId":"GO:0070576"} ],
         "version" : 8038
       },
-      "version" : 0
+      "version" : 1
     } ],
     "hasTestingGuidance" : true,
     "history" : [ {
@@ -754,6 +739,12 @@
       "id" : 1451741505,
       "date" : "2022-04-05T11:18:17.661-07:00",
       "description" : "Added testing guidance tag",
+      "type" : "Update",
+      "version" : 0
+    }, {
+      "id" : 1451778540,
+      "date" : "2022-05-13T12:20:17.413-07:00",
+      "description" : "Updated CYP3A4 alleles to match PharmVar",
       "type" : "Update",
       "version" : 0
     } ],
@@ -885,8 +876,8 @@
     "source" : "DPWG",
     "summaryMarkdown" : {
       "id" : 1451698940,
-      "html" : "<p>Patients who are CYP3A4 poor metabolizers and being treated for depression should be given an alternative drug. Patients being treated for other indications and who are CYP3A4 poor metabolizers should be given a reduced dose of quetiapine. No action is needed for patients who are CYP3A4 intermediate metabolizers.</p>\n",
-      "version" : 1
+      "html" : "<p>Patients who are CYP3A4 poor metabolizers and being treated for depression should be given an alternative drug. Patients being treated for other indications and who are CYP3A4 poor metabolizers should be given a reduced dose of quetiapine. No action is needed for patients who are CYP3A4 intermediate metabolizers.</p>\n<p><em><strong>PharmGKB uses CYP3A4 allele nomenclature as defined by <a rel=\"noopener noreferrer\" href=\"https://www.pharmvar.org/\" target=\"_blank\">PharmVar</a>, while the current version of this guideline issued by the DPWG uses retired allele names. Further details are given on the <a href=\"/page/dpwgMapping\">DPWG curation page</a>.</strong></em></p>\n",
+      "version" : 2
     },
     "terms" : [ ],
     "textMarkdown" : {
@@ -895,6 +886,6 @@
       "version" : 2
     },
     "userId" : "cfthorn",
-    "version" : 5
+    "version" : 7
   }
 }

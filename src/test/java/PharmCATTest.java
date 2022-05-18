@@ -19,7 +19,6 @@ import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -1071,14 +1070,18 @@ class PharmCATTest {
     testWrapper.testAnyMatchFromSource("celecoxib", DataSource.CPIC);
     testWrapper.testMatchedGroups("citalopram", 2);
     testWrapper.testMatchedGroups("clomipramine", 2);
-    testWrapper.testMatchedGroups("carbamazepine", 3);
     testWrapper.testMatchedGroups("clopidogrel", 4);
+    testWrapper.testMatchedGroups("clopidogrel", DataSource.CPIC, 3);
+    testWrapper.testMatchedGroups("clopidogrel", DataSource.DPWG, 1);
     testWrapper.testNoMatchFromSource("flucloxacillin", DataSource.CPIC);
     testWrapper.testNoMatchFromSource("flucloxacillin", DataSource.DPWG);
     testWrapper.testNoMatchFromSource("fluvoxamine", DataSource.CPIC);
     testWrapper.testNoMatchFromSource("fluvoxamine", DataSource.DPWG);
     testWrapper.testMatchedGroups("siponimod", 1);
     testWrapper.testAnyMatchFromSource("siponimod", DataSource.DPWG);
+
+    // TODO: resolve HLA-B handling in DPWG, count could be 5 when fixed
+    testWrapper.testMatchedGroups("carbamazepine", 4);
   }
 
   @Test
@@ -1480,9 +1483,18 @@ class PharmCATTest {
      */
     private void testMatchedGroups(String drugName, int expectedCount) {
       DrugReport drugReport = getContext().getDrugReport(drugName);
-      assertEquals(expectedCount, drugReport.getMatchedGuidelineCount(),
+      assertEquals(expectedCount, drugReport.getMatchedGroupCount(),
           drugName + " does not have matching recommendation count of " + expectedCount + " (found " +
-              drugReport.getMatchedGuidelineCount() + ")");
+              drugReport.getMatchedGroupCount() + ")");
+    }
+
+    private void testMatchedGroups(String drugName, DataSource source, int expectedCount) {
+      DrugReport drugReport = getContext().getDrugReport(drugName);
+      assertEquals(
+          expectedCount,
+          drugReport.getGuidelines().stream().filter(g -> g.getSource() == source).mapToLong(g -> g.getAnnotationGroups().size()).sum(),
+          drugName + " does not have matching recommendation count of " + expectedCount + " (found " +
+              drugReport.getMatchedGroupCount() + ")");
     }
 
     private void testAnyMatchFromSource(String drugName, DataSource source) {
