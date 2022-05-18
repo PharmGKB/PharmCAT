@@ -14,6 +14,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
@@ -225,6 +226,7 @@ public class DataManager {
           continue;
         }
         doVcfTranslation(df, vcfHelper);
+        df.sortPositions();
         definitionFileMap.put(df.getGeneSymbol(), df);
       }
     }
@@ -245,10 +247,12 @@ public class DataManager {
     fixCyp2c19(definitionFileMap.get("CYP2C19"));
 
     System.out.println("Saving allele definitions in " + definitionsDir.toString());
-    Set<String> currentFiles = Files.list(definitionsDir)
-        .map(PathUtils::getFilename)
-        .filter(f -> f.endsWith("_translation.json"))
-        .collect(Collectors.toSet());
+    Set<String> currentFiles = new HashSet<>();
+    try (Stream<Path> list = Files.list(definitionsDir)) {
+      list.map(PathUtils::getFilename)
+          .filter(f -> f.endsWith("_translation.json"))
+          .forEachOrdered(currentFiles::add);
+    }
 
     Map<String,Integer> geneAlleleCountMap = new TreeMap<>();
     for (String gene : definitionFileMap.keySet()) {

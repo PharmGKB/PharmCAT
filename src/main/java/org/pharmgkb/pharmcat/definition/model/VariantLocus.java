@@ -203,16 +203,15 @@ public class VariantLocus implements Comparable<VariantLocus> {
       return false;
     }
     VariantLocus that = (VariantLocus)o;
-    // don't compare using position or alleles because that can change
     return m_cpicPosition == that.getCpicPosition() &&
+        m_position == that.getPosition() &&
         Objects.equals(m_chromosomeHgvsName, that.getChromosomeHgvsName()) &&
         Objects.equals(m_rsid, that.getRsid());
   }
 
   @Override
   public int hashCode() {
-    // don't compare using position or alleles because that can change
-    return Objects.hash(m_cpicPosition, m_chromosomeHgvsName, m_rsid);
+    return Objects.hash(m_cpicPosition, m_position, m_chromosomeHgvsName, m_rsid);
   }
 
 
@@ -223,7 +222,11 @@ public class VariantLocus implements Comparable<VariantLocus> {
     if (rez != 0) {
       return rez;
     }
-    // don't compare using position or alleles because that can change
+    // WARNING: position can change (in DataManager), so any sorted collections in that code path must be careful
+    rez = Long.compare(m_position, o.getPosition());
+    if (rez != 0) {
+      return rez;
+    }
     rez = Long.compare(m_cpicPosition, o.getCpicPosition());
     if (rez != 0) {
       return rez;

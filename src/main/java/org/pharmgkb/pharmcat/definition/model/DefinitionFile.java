@@ -253,4 +253,23 @@ public class DefinitionFile {
     }
     setNamedAlleles(updatedNamedAlleles);
   }
+
+
+  /**
+   * Makes sure that variants are sorted by position.
+   */
+  public void sortPositions() {
+
+    VariantLocus[] sortedVariants = new VariantLocus[m_variants.length];
+    System.arraycopy(m_variants, 0, sortedVariants, 0, m_variants.length);
+    Arrays.sort(sortedVariants);
+    if (Arrays.equals(sortedVariants, m_variants)) {
+      return;
+    }
+    System.out.println("Sorting alleles for " + m_geneSymbol);
+    for (NamedAllele namedAllele : m_namedAlleles) {
+      namedAllele.updatePositions(m_variants, sortedVariants);
+    }
+    m_variants = sortedVariants;
+  }
 }

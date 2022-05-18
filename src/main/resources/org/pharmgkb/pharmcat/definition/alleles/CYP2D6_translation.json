@@ -1199,6 +1199,25 @@
     },
     {
       "chromosome": "chr22",
+      "position": 42128211,
+      "cpicPosition": 42128218,
+      "rsid": "rs72549352",
+      "chromosomeHgvsName": "g.42128218dup",
+      "cpicAlleles": [
+        "G",
+        "GG"
+      ],
+      "cpicToVcfAlleleMap": {
+        "GG": "CG",
+        "G": "C"
+      },
+      "ref": "C",
+      "alts": [
+        "CG"
+      ]
+    },
+    {
+      "chromosome": "chr22",
       "position": 42128212,
       "cpicPosition": 42128212,
       "rsid": "rs367543000",
@@ -1233,25 +1252,6 @@
       "ref": "G",
       "alts": [
         "T"
-      ]
-    },
-    {
-      "chromosome": "chr22",
-      "position": 42128211,
-      "cpicPosition": 42128218,
-      "rsid": "rs72549352",
-      "chromosomeHgvsName": "g.42128218dup",
-      "cpicAlleles": [
-        "G",
-        "GG"
-      ],
-      "cpicToVcfAlleleMap": {
-        "GG": "CG",
-        "G": "C"
-      },
-      "ref": "C",
-      "alts": [
-        "CG"
       ]
     },
     {
@@ -2539,9 +2539,9 @@
         "A",
         "C",
         "CTCAG",
-        "G",
-        "G",
         "C",
+        "G",
+        "G",
         "G",
         "CT",
         "CAGTT",
@@ -7061,9 +7061,9 @@
         null,
         null,
         null,
-        null,
-        null,
         "CG",
+        null,
+        null,
         null,
         null,
         null,
@@ -7191,9 +7191,9 @@
         null,
         null,
         null,
-        null,
-        null,
         "GG",
+        null,
+        null,
         null,
         null,
         null,
@@ -20361,8 +20361,8 @@
         "T",
         "T",
         null,
-        "A",
         null,
+        "A",
         null,
         null,
         null,
@@ -20491,8 +20491,8 @@
         "T",
         "T",
         null,
-        "A",
         null,
+        "A",
         null,
         null,
         null,
@@ -21160,8 +21160,8 @@
         null,
         null,
         null,
-        "T",
         null,
+        "T",
         null,
         null,
         null,
@@ -21290,8 +21290,8 @@
         null,
         null,
         null,
-        "T",
         null,
+        "T",
         null,
         null,
         null,
