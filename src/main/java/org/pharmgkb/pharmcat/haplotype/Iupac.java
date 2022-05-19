@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Pattern;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
@@ -73,5 +74,12 @@ public enum Iupac {
       return DEL;
     }
     return valueOf(value.toUpperCase());
+  }
+
+  public static boolean isWobble(String allele) {
+    if (allele.length() == 1) {
+      return Objects.requireNonNull(lookup(allele)).isAmbiguity();
+    }
+    return false;
   }
 }

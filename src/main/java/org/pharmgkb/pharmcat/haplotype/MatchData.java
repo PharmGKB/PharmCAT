@@ -163,7 +163,11 @@ public class MatchData {
       String[] cpicAlleles = new String[refAlleles.length];
       for (int x = 0; x < refAlleles.length; x += 1) {
         if (curAlleles[x] == null) {
-          newAlleles[x] = refAlleles[x];
+          if (Iupac.isWobble(refAlleles[x])) {
+            newAlleles[x] = m_positions[x].getRef();
+          } else {
+            newAlleles[x] = refAlleles[x];
+          }
           cpicAlleles[x] = referenceHaplotype.getCpicAlleles()[x];
         } else {
           newAlleles[x] = curAlleles[x];

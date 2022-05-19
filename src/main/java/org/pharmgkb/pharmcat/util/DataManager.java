@@ -67,8 +67,8 @@ public class DataManager {
           .addOption("a", "alleles-dir", "directory to save generated allele definition files", true, "a")
           .addOption("m", "messages-dir", "directory to write messages to", true, "m")
           .addOption("g", "drugs-dir", "directory to save drug data to", false, "g")
-          .addOption("d", "documentation-dir", "directory to save documentation to", false, "documentation-path")
-          .addOption("p", "phenotypes-dir", "directory to save phenotypes to", false, "phenotypes-dir-path")
+          .addOption("d", "documentation-dir", "directory to save documentation to", false, "d")
+          .addOption("p", "phenotypes-dir", "directory to save phenotypes to", false, "p")
           .addOption("sd", "skip-download", "skip downloading")
           .addOption("sa", "skip-alleles", "skip alleles")
           .addOption("sm", "skip-messages", "skip messages")
@@ -293,10 +293,10 @@ public class DataManager {
       String errorLocation = df.getGeneSymbol() + " @ " + vl.getCpicPosition();
 
       String refAllele = Objects.requireNonNull(referenceNamedAllele.getCpicAllele(vl));
-      if (isWobble(refAllele)) {
+      if (Iupac.isWobble(refAllele)) {
         String hgvs = sf_semicolonSplitter.splitToList(vl.getChromosomeHgvsName()).get(0);
         VcfHelper.VcfData vcf = vcfHelper.hgvsToVcf(df.getRefSeqChromosome() + ":" + hgvs);
-        System.out.println("CPIC's " + df.getGeneSymbol() + " reference (" + referenceNamedAllele.getName() +
+        System.out.println(df.getGeneSymbol() + " reference (" + referenceNamedAllele.getName() +
             ") @ " + vl.getCpicPosition() + " is ambiguous (" + refAllele + "):  using " + vcf.ref + " for VCF");
         refAllele = vcf.ref;
       }
@@ -319,7 +319,7 @@ public class DataManager {
         if (allele.contains("[") || allele.contains("]")) {
           throw new IllegalStateException(errorLocation + ": allele uses square brackets - " + allele);
         }
-        if (!allele.equals(refAllele) && !isWobble(allele)) {
+        if (!allele.equals(refAllele) && !Iupac.isWobble(allele)) {
           altAlleles.add(allele);
         }
       }
@@ -486,13 +486,7 @@ public class DataManager {
     }
   }
 
-  private boolean isWobble(String allele) {
-    if (allele.length() == 1) {
-      return Objects.requireNonNull(Iupac.lookup(allele)).isAmbiguity();
-    }
-    return false;
-  }
-  
+
   private long validateVcfPosition(long vcfPosition, VcfHelper.VcfData vcf, String errorLocation) {
     if (vcfPosition != -1 && vcfPosition != vcf.pos) {
       throw new IllegalStateException(errorLocation + ": VCF position mismatch (" + vcfPosition + " vs. " + vcf.pos +
