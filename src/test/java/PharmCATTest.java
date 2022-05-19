@@ -1021,7 +1021,9 @@ class PharmCATTest {
     testWrapper.testNotCalledByMatcher("HLA-B");
     testWrapper.testReportable("CYP2C9");
     testWrapper.testReportable("HLA-B");
-    testWrapper.testMatchedGroups("abacavir", 1);
+    testWrapper.testMatchedGroups("abacavir", 2);
+    testWrapper.testMatchedGroups("abacavir", DataSource.CPIC, 1);
+    testWrapper.testMatchedGroups("abacavir", DataSource.DPWG, 1);
     // allopurinol relies on a different allele for recs so no matches
     testWrapper.testMatchedGroups("allopurinol", 0);
     // phenytoin also relies on a different allele but there will be a match for DPWG since the recommendations are
