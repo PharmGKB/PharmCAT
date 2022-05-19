@@ -6,6 +6,8 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
@@ -13,11 +15,23 @@ import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 
 public class GuidelineReport {
 
+  @Expose
+  @SerializedName("name")
   private String name;
+  @Expose
+  @SerializedName("id")
   private String id;
+  @Expose
+  @SerializedName("source")
   private DataSource source;
+  @Expose
+  @SerializedName("version")
   private String version;
+  @Expose
+  @SerializedName("url")
   private String url;
+  @Expose
+  @SerializedName("annotationGroups")
   private List<AnnotationGroup> annotationGroups = new ArrayList<>();
   private transient final SortedSet<GeneReport> relatedGeneReports = new TreeSet<>();
 
@@ -105,5 +119,11 @@ public class GuidelineReport {
     if (geneReport != null) {
       relatedGeneReports.add(geneReport);
     }
+  }
+
+  public String getUncalledGenes() {
+    return relatedGeneReports.stream()
+        .map(GeneReport::getGene)
+        .collect(Collectors.joining(", "));
   }
 }

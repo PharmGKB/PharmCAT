@@ -8,10 +8,14 @@ import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 
 public class Genotype {
 
+  @Expose
+  @SerializedName("diplotypes")
   private final SortedSet<Diplotype> diplotypes = new TreeSet<>();
 
   public Genotype(Collection<Diplotype> diplotypes) {
@@ -38,7 +42,7 @@ public class Genotype {
       return "Empty Genotype";
     } else {
       return this.diplotypes.stream()
-          .map(Diplotype::getGene)
+          .map(Diplotype::toString)
           .collect(Collectors.joining("; "));
     }
   }

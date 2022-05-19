@@ -250,11 +250,11 @@ public class ReportContext {
     // Drugs section
     List<Map<String,Object>> drugReports = new ArrayList<>();
     for (DrugReport drugReport : getDrugReports()) {
-      Map<String,Object> drugMap = new HashMap<>();
+      Map<String,Object> drugMap = new LinkedHashMap<>();
 
-      drugMap.put("urls", drugReport.getUrls());
       drugMap.put("id", drugReport.getId());
       drugMap.put("name", drugReport.getName());
+      drugMap.put("urls", drugReport.getUrls());
 
       List<Map<String,Object>> geneCallList = new ArrayList<>();
       for (String gene : drugReport.getRelatedGeneSymbols()) {

@@ -117,7 +117,7 @@
 
   {{#each guidelines}}
     <section class="guideline">
-      <h3 id="{{id}}">{{drugs}}</h3>
+      <h3 id="{{id}}">{{name}}</h3>
 
       <section>
         {{#each geneCalls}}
@@ -142,9 +142,6 @@
         {{/each}}
       </section>
 
-      {{#unless reportable}}
-        <div class="alert alert-info">No genotypes matched for {{uncalledGenes}} so annotations cannot be shown.</div>
-      {{/unless}}
       {{#if reportable}}
         {{#unless matched}}
           <div class="alert alert-warning">No CPIC recommendation for this allele combination.</div>
@@ -155,40 +152,26 @@
         <div class="image"><img src="{{image/url}}" alt="{{image/altText}}"/></div>
       {{/if}}
 
-      {{#if matched}}
-        {{#each groups}}
+      {{#each guidelines}}
+        <h4>{{source}}: {{name}}</h4>
+        {{#unless matched}}
+          <div class="alert alert-info">No genotypes matched for {{uncalledGenes}} so annotations cannot be shown.</div>
+        {{/unless}}
+        {{#each annotationGroups}}
           <table>
             <thead>
             <tr><th>Type</th><th>Annotation</th></tr>
             </thead>
             <tbody>
-            {{#each annotations}}
-              <tr><td>{{term}}</td><td>{{{annotation}}}</td></tr>
-            {{/each}}
+            <tr><td>Recommendation</td><td>{{drugRecommendation}}</td></tr>
+            <tr><td>Implications</td><td>{{implications}}</td></tr>
+            <tr><td>Phenotypes</td><td>{{phenotypes}}</td></tr>
+            <tr><td>Classification</td><td>{{classification}}</td></tr>
+            <tr><td>Population</td><td>{{population}}</td></tr>
+            <tr><td>Genotypes</td><td><ul style="margin:0;padding:0;list-style-type: none;">{{#each genotypes}}<li>{{this}}</li>{{/each}}</ul></td></tr>
             </tbody>
           </table>
         {{/each}}
-      {{/if}}
-
-      {{#each dpwgGuidelines}}
-        <section>
-          <h4>{{name}}</h4>
-          {{#unless hasMatch}}
-            <p>No matching annotations found.</p>
-          {{/unless}}
-          {{#each groups}}
-            <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            {{#each annotations}}
-              <tr><td>{{term}}</td><td>{{{annotation}}}</td></tr>
-            {{/each}}
-            </tbody>
-          </table>
-          {{/each}}
-        </section>
       {{/each}}
 
       <section>
