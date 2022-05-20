@@ -132,13 +132,6 @@ public class ReportContext {
     return f_geneReports;
   }
 
-  private List<Diplotype> findDiplotypes(Collection<String> genes) {
-    return f_geneReports.stream()
-        .filter(r -> genes.contains(r.getGene()))
-        .flatMap(r -> r.getReporterDiplotypes().stream())
-        .collect(Collectors.toList());
-  }
-
   private DrugReport createOrFindDrugReport(@Nonnull Drug drug) {
     return createOrFindDrugReport(drug.getDrugName());
   }

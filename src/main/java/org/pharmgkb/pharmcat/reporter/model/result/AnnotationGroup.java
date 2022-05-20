@@ -33,6 +33,9 @@ public class AnnotationGroup {
   @Expose
   @SerializedName("genotypes")
   private final List<Genotype> genotypes = new ArrayList<>();
+  @Expose
+  @SerializedName("comments")
+  private final String comments;
 
   /**
    * Create a new group from a CPIC {@link Recommendation}
@@ -45,6 +48,7 @@ public class AnnotationGroup {
     }
     drugRecommendation = recommendation.getDrugRecommendation();
     classification = recommendation.getClassification();
+    comments = recommendation.getComments();
     phenotypes = new TreeMap<>();
     if (recommendation.getPhenotypes() != null) {
       phenotypes.putAll(recommendation.getPhenotypes());
@@ -85,6 +89,7 @@ public class AnnotationGroup {
       phenotypes.put(gene, group.getMetabolizerStatus().getHtmlStripped());
     }
     population = GeneReport.NA;
+    comments = GeneReport.NA;
   }
 
   public void addGenotype(Genotype genotype) {
@@ -117,11 +122,16 @@ public class AnnotationGroup {
 
   public String getActivityScores() {
     return activityScore.keySet().stream()
+        .filter(k -> !GeneReport.NA.equalsIgnoreCase(activityScore.get(k)))
         .map(k -> k + ": " + activityScore.get(k))
         .collect(Collectors.joining("\n"));
   }
 
   public List<Genotype> getGenotypes() {
     return genotypes;
+  }
+
+  public String getComments() {
+    return comments;
   }
 }

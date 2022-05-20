@@ -146,6 +146,7 @@
           <th>Genes</th>
           <th>Recommendation</th>
           <th>Implications</th>
+          <th>Comments</th>
           <th>Classification</th>
           <th>Population</th>
         </tr>
@@ -165,9 +166,13 @@
                 <div style="margin-top: 1rem">
                   {{phenotypes}}
                 </div>
+                <div style="margin-top: 1rem">
+                  {{activityScores}}
+                </div>
               </td>
               <td>{{drugRecommendation}}</td>
               <td>{{implications}}</td>
+              <td>{{comments}}</td>
               <td>{{classification}}</td>
               <td>{{population}}</td>
             </tr>
@@ -180,7 +185,7 @@
                    {{name}}
                 </a>
               </td>
-              <td colspan="5">No matched annotation</td>
+              <td colspan="6">No matched annotation</td>
             </tr>
           {{/unless}}
         {{/each}}
