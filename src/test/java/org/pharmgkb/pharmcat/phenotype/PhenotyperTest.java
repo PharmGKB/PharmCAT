@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
+import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -58,8 +59,14 @@ class PhenotyperTest {
 
     assertReportable(phenotyper, "CYP2D6");
 
-    assertFalse(phenotyper.findGeneReport("CYP2C9").isPresent(),
-        "CYP2C9 report should not be present since the NamedAlleleMatcher was never called");
+    assertTrue(phenotyper.findGeneReport("CYP2C9").isPresent());
+    phenotyper.findGeneReport("CYP2C9").ifPresentOrElse(
+        (geneReport) -> {
+          assertEquals(CallSource.NONE, geneReport.getCallSource());
+          assertFalse(geneReport.isCalled(), "CYP2C9 report should be present but not called");
+        },
+        () -> fail("CYP2C9 report should be present")
+    );
 
     assertDiplotypeDisplay(phenotyper, "CYP2D6", "*1/*3");
   }
