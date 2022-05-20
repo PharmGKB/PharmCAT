@@ -3,8 +3,10 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
@@ -43,6 +45,7 @@ public class MatchData {
   private final SortedSet<VariantLocus> m_mismatchedAlleles = new TreeSet<>();
   private SortedSet<NamedAllele> m_haplotypes;
   private Set<String> m_permutations;
+  private final Map<String, Map<Object, Object>> m_sequenceAlleleCache = new HashMap<>();
 
 
   /**
@@ -264,5 +267,24 @@ public class MatchData {
       throw new IllegalStateException("Not initialized - call marshallHaplotypes()");
     }
     return m_haplotypes;
+  }
+
+
+  /**
+   * Utility method to cache allele lookups in sequences.
+   */
+  public String getAllele(String sequence, int idx) {
+    Map<Object, Object> seqMap = m_sequenceAlleleCache.computeIfAbsent(sequence, s -> {
+      Map<Object, Object> m = new HashMap<>();
+      m.put("all", s.split(";"));
+      return m;
+    });
+
+    String allele = (String)seqMap.get(idx);
+    if (allele == null) {
+      allele = ((String[])seqMap.get("all"))[idx].split(":")[1];
+      seqMap.put(idx, allele);
+    }
+    return allele;
   }
 }

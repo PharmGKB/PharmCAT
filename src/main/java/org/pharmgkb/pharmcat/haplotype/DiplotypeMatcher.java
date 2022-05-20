@@ -21,7 +21,7 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
  * @author Mark Woon
  */
 public class DiplotypeMatcher {
-  private MatchData m_dataset;
+  private final MatchData m_dataset;
 
 
   public DiplotypeMatcher(MatchData dataset) {
@@ -131,7 +131,7 @@ public class DiplotypeMatcher {
       Set<String[]> sequencePairs = findSequencePairs(hm1, hm2);
       if (!sequencePairs.isEmpty()) {
         DiplotypeMatch dm = new DiplotypeMatch(hm1, hm2, m_dataset);
-        sequencePairs.stream().forEach(dm::addSequencePair);
+        sequencePairs.forEach(dm::addSequencePair);
         matches.add(dm);
       }
     }
@@ -162,21 +162,18 @@ public class DiplotypeMatcher {
    */
   private boolean isViableComplement(String sequence1, String sequence2) {
 
-    String[] seq1 = sequence1.split(";");
-    String[] seq2 = sequence2.split(";");
-
-    for (int x = 0; x < seq1.length; x += 1) {
-      String[] s1 = seq1[x].split(":");
-      String[] s2 = seq2[x].split(":");
-      SampleAllele sampleAllele = m_dataset.getSampleAllele(Integer.valueOf(s1[0]));
+    for (int x = 0; x < m_dataset.getPositions().length; x += 1) {
+      String a1 = m_dataset.getAllele(sequence1, x);
+      String a2 = m_dataset.getAllele(sequence2, x);
+      SampleAllele sampleAllele = m_dataset.getSampleAllele(m_dataset.getPositions()[x].getPosition());
       if (sampleAllele.getAllele1().equals(sampleAllele.getAllele2())) {
         // expecting homozygous
-        if (!s1[1].equals(s2[1])) {
+        if (!a1.equals(a2)) {
           return false;
         }
       } else {
         // expecting heterozygous
-        if (s1[1].equals(s2[1])) {
+        if (a1.equals(a2)) {
           return false;
         }
       }
