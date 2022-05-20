@@ -17,7 +17,7 @@ class PgkbGuidelineCollectionTest {
   @Test
   void testLoad() throws IOException {
     PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection();
-    assertEquals(58, pgkbGuidelineCollection.getGuidelinePackages().size());
+    assertEquals(62, pgkbGuidelineCollection.getGuidelinePackages().size());
   }
 
   @Test

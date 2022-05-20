@@ -15,13 +15,11 @@ class RecommendationTest {
 
   @Test
   void testMatchesLookupKey() {
-    List<Map<String,String>> genotypes = new ArrayList<>();
     Map<String,String> genotype = new HashMap<>();
     genotype.put("GENEX", "TEST");
-    genotypes.add(genotype);
 
     Recommendation recommendation = new Recommendation();
-    recommendation.setGenotypes(genotypes);
+    recommendation.setLookupKey(genotype);
 
     Map<String,String> testGenotype = new HashMap<>();
     testGenotype.put("GENEX", "TEST");
@@ -30,13 +28,11 @@ class RecommendationTest {
 
   @Test
   void testMatchesGenotype() {
-    List<Map<String,String>> genotypes = new ArrayList<>();
     Map<String,String> sourceGenotype = new HashMap<>();
     sourceGenotype.put("GENEX", "TEST");
-    genotypes.add(sourceGenotype);
 
     Recommendation recommendation = new Recommendation();
-    recommendation.setGenotypes(genotypes);
+    recommendation.setLookupKey(sourceGenotype);
 
     Diplotype diplotype = new Diplotype("GENEX", "TEST");
     Genotype genotype = new Genotype(diplotype);
