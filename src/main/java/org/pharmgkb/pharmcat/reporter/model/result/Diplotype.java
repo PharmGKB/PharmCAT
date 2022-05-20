@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
-import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
