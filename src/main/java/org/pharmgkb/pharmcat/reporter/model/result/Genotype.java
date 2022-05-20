@@ -47,6 +47,16 @@ public class Genotype {
     }
   }
 
+  public String getPhenotypes() {
+    if (this.diplotypes.size() == 0) {
+      return Haplotype.UNKNOWN;
+    } else {
+      return this.diplotypes.stream()
+          .map(Diplotype::toString)
+          .collect(Collectors.joining("; "));
+    }
+  }
+
   public List<Map<String,String>> toLookupKeys() {
     List<Map<String,String>> keys = new ArrayList<>();
     for (Diplotype diplotype : getDiplotypes()) {

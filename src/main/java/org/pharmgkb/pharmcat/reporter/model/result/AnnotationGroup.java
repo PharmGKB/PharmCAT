@@ -1,10 +1,9 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -36,17 +35,17 @@ public class AnnotationGroup {
   private final List<Genotype> genotypes = new ArrayList<>();
 
   public AnnotationGroup(Recommendation recommendation) {
-    implications = new HashMap<>();
+    implications = new TreeMap<>();
     if (recommendation.getImplications() != null) {
       implications.putAll(recommendation.getImplications());
     }
     drugRecommendation = recommendation.getDrugRecommendation();
     classification = recommendation.getClassification();
-    phenotypes = new HashMap<>();
+    phenotypes = new TreeMap<>();
     if (recommendation.getPhenotypes() != null) {
       phenotypes.putAll(recommendation.getPhenotypes());
     }
-    activityScore = new HashMap<>();
+    activityScore = new TreeMap<>();
     if (recommendation.getActivityScore() != null) {
       activityScore.putAll(recommendation.getActivityScore());
     }
@@ -54,7 +53,7 @@ public class AnnotationGroup {
   }
 
   public AnnotationGroup(Group group, String gene) {
-    implications = new HashMap<>();
+    implications = new TreeMap<>();
     if (group.getImplications() != null) {
       implications.put(gene, group.getImplications().getHtmlStripped());
     }
@@ -68,12 +67,12 @@ public class AnnotationGroup {
     } else {
       classification = null;
     }
-    activityScore = new HashMap<>();
+    activityScore = new TreeMap<>();
     if (group.getActivityScore() != null) {
       activityScore.put(gene, group.getActivityScore().getHtmlStripped());
     }
     population = "";
-    phenotypes = new HashMap<>(); //TODO: fill this in?
+    phenotypes = new TreeMap<>(); //TODO: fill this in?
   }
 
   public void addGenotype(Genotype genotype) {

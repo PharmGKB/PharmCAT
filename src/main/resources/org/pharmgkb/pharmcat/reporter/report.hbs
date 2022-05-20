@@ -119,19 +119,6 @@
     <section class="guideline">
       <h3 id="{{id}}">{{name}}</h3>
 
-      <section>
-        {{#each geneCalls}}
-          <div class="geneCall">
-            <a href="#{{gene}}">{{gene}}: {{diplotypes}}</a>
-            <span>{{functions}}</span>
-            {{#if outsideCall}} (from Outside Call){{/if}}
-          </div>
-          {{#if showHighlights}}
-            <div class="geneCall">{{#each highlightedVariants}}<div><a href="#{{gene}}">{{this}}</a></div>{{/each}}</div>
-          {{/if}}
-        {{/each}}
-      </section>
-
       {{#if multiMatch}}
         <div class="alert alert-info"><strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups could be shown</div>
       {{/if}}
@@ -152,27 +139,53 @@
         <div class="image"><img src="{{image/url}}" alt="{{image/altText}}"/></div>
       {{/if}}
 
-      {{#each guidelines}}
-        <h4>{{source}}: {{name}}</h4>
-        {{#unless matched}}
-          <div class="alert alert-info">No genotypes matched for {{uncalledGenes}} so annotations cannot be shown.</div>
-        {{/unless}}
-        {{#each annotationGroups}}
-          <table>
-            <thead>
-            <tr><th>Type</th><th>Annotation</th></tr>
-            </thead>
-            <tbody>
-            <tr><td>Recommendation</td><td>{{drugRecommendation}}</td></tr>
-            <tr><td>Implications</td><td>{{implications}}</td></tr>
-            <tr><td>Phenotypes</td><td>{{phenotypes}}</td></tr>
-            <tr><td>Classification</td><td>{{classification}}</td></tr>
-            <tr><td>Population</td><td>{{population}}</td></tr>
-            <tr><td>Genotypes</td><td><ul style="margin:0;padding:0;list-style-type: none;">{{#each genotypes}}<li>{{this}}</li>{{/each}}</ul></td></tr>
-            </tbody>
-          </table>
+      <table>
+        <thead>
+        <tr>
+          <th>Guideline</th>
+          <th>Genes</th>
+          <th>Recommendation</th>
+          <th>Implications</th>
+          <th>Classification</th>
+          <th>Population</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each guidelines}}
+          {{#each annotationGroups}}
+            <tr>
+              <td>
+                <div style="font-weight: bold">{{../source}}</div>
+                <a href="{{../url}}">{{../name}}</a>
+              </td>
+              <td>
+                <div>
+                  <ul style="margin:0;padding:0;list-style-type: none;">{{#each genotypes}}<li>{{this}}</li>{{/each}}</ul>
+                </div>
+                <div style="margin-top: 1rem">
+                  {{phenotypes}}
+                </div>
+              </td>
+              <td>{{drugRecommendation}}</td>
+              <td>{{implications}}</td>
+              <td>{{classification}}</td>
+              <td>{{population}}</td>
+            </tr>
+          {{/each}}
+          {{#unless matched}}
+            <tr>
+              <td>
+                <p style="font-weight: bold">{{source}}</p>
+                <a href="{{../url}}">
+                   {{name}}
+                </a>
+              </td>
+              <td colspan="5">No matched annotation</td>
+            </tr>
+          {{/unless}}
         {{/each}}
-      {{/each}}
+        </tbody>
+      </table>
 
       <section>
         {{#each footnotes}}
@@ -180,22 +193,16 @@
         {{/each}}
       </section>
 
-      <section>
-        <p>For more information see:</p>
-        <ul>
-          {{#each urls}}
-            <li><a href="{{this}}">{{this}}</a></li>
-          {{/each}}
-        </ul>
-        {{#if citations}}
+      {{#if citations}}
+        <section>
           <p>Citations:</p>
           <ul>
             {{#each citations}}
               <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/{{pmid}}">{{title}}</a> [PMID:{{pmid}}] <em>{{journal}}</em>. {{year}}.</li>
             {{/each}}
           </ul>
-        {{/if}}
-      </section>
+        </section>
+      {{/if}}
     </section>
   {{/each}}
 </section>
