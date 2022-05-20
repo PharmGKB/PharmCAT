@@ -61,7 +61,14 @@ public class DrugReport implements Comparable<DrugReport> {
     GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage);
     guidelinePackage.getGenes().forEach((geneSymbol) -> guidelineReport.addRelatedGeneReport(reportContext.getGeneReport(geneSymbol)));
     guidelinePackage.getMatchedGroups()
-        .forEach((group) -> guidelineReport.addAnnotationGroup(new AnnotationGroup(group, guidelinePackage.getGenes().iterator().next())));
+        .forEach((group) -> {
+          AnnotationGroup annGroup = new AnnotationGroup(group, guidelinePackage.getGenes().iterator().next());
+          group.getMatchingGenotypes().forEach((genotype) -> {
+            guidelinePackage.applyFunctions(genotype);
+            annGroup.addGenotype(genotype);
+          });
+          guidelineReport.addAnnotationGroup(annGroup);
+        });
     addGuideline(guidelineReport);
   }
 

@@ -154,25 +154,10 @@ public class Recommendation {
   }
 
   /**
-   * Whether the given diplotypes match this Recommendation
-   * @param diplotypes a collection of "GENE:*1/*4" diplotype strings, one per gene
+   * Whether the given {@link Genotype} match this Recommendation
+   * @param genotype a genotype
    * @return true if a match
    */
-  public boolean matchesGenotype(Collection<String> diplotypes) {
-    if (diplotypes == null || diplotypes.size() == 0) {
-      return false;
-    }
-    Map<String,String> parsedInput = new TreeMap<>();
-    diplotypes.stream()
-        .map(d -> d.split(":"))
-        .forEach(tokens -> parsedInput.put(tokens[0], tokens[1]));
-
-    return getGenotypes().stream()
-        .anyMatch(g -> (parsedInput.keySet().containsAll(g.keySet())) && (
-            g.keySet().stream().allMatch(key -> Objects.equals(g.get(key), parsedInput.get(key)))
-            ));
-  }
-
   public boolean matchesGenotype(Genotype genotype) {
     return genotype.toLookupKeys().stream()
         .anyMatch(matchesLookupKey);

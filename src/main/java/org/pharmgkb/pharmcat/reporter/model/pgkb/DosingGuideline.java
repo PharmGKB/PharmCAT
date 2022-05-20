@@ -9,6 +9,7 @@ import java.util.TreeSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
+import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
 import static org.pharmgkb.pharmcat.reporter.model.result.Diplotype.DELIMITER;
 
@@ -246,5 +247,22 @@ public class DosingGuideline {
 
   public Integer getVersion() {
     return m_version;
+  }
+
+  protected void applyFunctions(Genotype genotype) {
+    for (Diplotype diplotype : genotype.getDiplotypes()) {
+      findGuidelineGeneFor(diplotype.getGene()).ifPresent((guidelineGene) -> {
+        if (diplotype.getAllele1() != null) {
+          guidelineGene.findFunctionForAllele(diplotype.getAllele1().getName()).ifPresent((fnName) -> {
+            diplotype.getAllele1().setFunction(fnName);
+          });
+        }
+        if (diplotype.getAllele2() != null) {
+          guidelineGene.findFunctionForAllele(diplotype.getAllele2().getName()).ifPresent((fnName) -> {
+            diplotype.getAllele2().setFunction(fnName);
+          });
+        }
+      });
+    }
   }
 }

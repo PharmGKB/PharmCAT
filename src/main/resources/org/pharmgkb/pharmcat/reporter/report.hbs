@@ -155,7 +155,7 @@
           {{#each annotationGroups}}
             <tr>
               <td>
-                <div style="font-weight: bold">{{../source}}</div>
+                <div style="font-weight: bold">{{../source.displayName}}</div>
                 <a href="{{../url}}">{{../name}}</a>
               </td>
               <td>
@@ -175,7 +175,7 @@
           {{#unless matched}}
             <tr>
               <td>
-                <p style="font-weight: bold">{{source}}</p>
+                <p style="font-weight: bold">{{source.displayName}}</p>
                 <a href="{{../url}}">
                    {{name}}
                 </a>

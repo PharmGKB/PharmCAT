@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
+import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
 
 /**
@@ -89,13 +90,14 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   }
 
   
-  public void matchGroups(Collection<Diplotype> diplotypes) {
-    for (Diplotype diplotype : diplotypes) {
+  public void match(Genotype genotype) {
+    for (Diplotype diplotype : genotype.getDiplotypes()) {
       if (!diplotype.isUnknownPhenotype() && diplotype.isUnknownAlleles()) {
         getGroups().stream()
             .filter(group -> diplotype.getPhenotypes().stream().anyMatch(p -> group.getName().equalsIgnoreCase(p)))
             .forEach(g -> {
               g.addMatchingDiplotype(diplotype);
+              g.addMatchingGenotype(genotype);
               matchedGroups.add(g);
             });
       } else if (!diplotype.isUnknownAlleles()) {
@@ -106,11 +108,16 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
               .forEach(g -> {
                 g.addMatchingFunctionKey(functionKey);
                 g.addMatchingDiplotype(diplotype);
+                g.addMatchingGenotype(genotype);
                 matchedGroups.add(g);
               });
         }
       }
     }
+  }
+
+  public void applyFunctions(Genotype genotype) {
+    getGuideline().applyFunctions(genotype);
   }
 
   public boolean hasMatch() {

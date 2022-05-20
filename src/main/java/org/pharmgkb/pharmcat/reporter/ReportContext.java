@@ -84,8 +84,12 @@ public class ReportContext {
     for (String drugName : pgkbGuidelineCollection.getChemicals()) {
       pgkbGuidelineCollection.findGuidelinePackages(drugName).forEach(guidelinePackage -> {
         DrugReport drugReport = createOrFindDrugReport(drugName);
-        // add matching groups
-        guidelinePackage.matchGroups(findDiplotypes(guidelinePackage.getGenes()));
+
+        // add matching groups for possible genotypes
+        List<Genotype> possibleGenotypes = makePossibleGenotypes(guidelinePackage.getGenes());
+        for (Genotype genotype : possibleGenotypes) {
+          guidelinePackage.match(genotype);
+        }
 
         drugReport.addDrugData(guidelinePackage, this);
         m_drugReports.add(drugReport);

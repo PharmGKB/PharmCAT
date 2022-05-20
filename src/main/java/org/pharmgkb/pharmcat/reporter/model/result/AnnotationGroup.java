@@ -34,6 +34,10 @@ public class AnnotationGroup {
   @SerializedName("genotypes")
   private final List<Genotype> genotypes = new ArrayList<>();
 
+  /**
+   * Create a new group from a CPIC {@link Recommendation}
+   * @param recommendation a CPIC recommendation
+   */
   public AnnotationGroup(Recommendation recommendation) {
     implications = new TreeMap<>();
     if (recommendation.getImplications() != null) {
@@ -52,6 +56,11 @@ public class AnnotationGroup {
     population = recommendation.getPopulation();
   }
 
+  /**
+   * Create a new group from a DPWG/PharmGKB {@link Group}
+   * @param group a group of DPWG annotations
+   * @param gene the single gene this annotation applies to, fix for mapping certain annotations
+   */
   public AnnotationGroup(Group group, String gene) {
     implications = new TreeMap<>();
     if (group.getImplications() != null) {
@@ -71,8 +80,11 @@ public class AnnotationGroup {
     if (group.getActivityScore() != null) {
       activityScore.put(gene, group.getActivityScore().getHtmlStripped());
     }
-    population = "";
-    phenotypes = new TreeMap<>(); //TODO: fill this in?
+    phenotypes = new TreeMap<>();
+    if (group.getMetabolizerStatus() != null) {
+      phenotypes.put(gene, group.getMetabolizerStatus().getHtmlStripped());
+    }
+    population = GeneReport.NA;
   }
 
   public void addGenotype(Genotype genotype) {
