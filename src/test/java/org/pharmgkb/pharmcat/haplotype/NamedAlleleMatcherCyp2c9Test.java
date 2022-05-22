@@ -111,7 +111,7 @@ class NamedAlleleMatcherCyp2c9Test {
     definitionReader.read(sf_definitionFile);
     definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, false, true);
     Result result = namedAlleleMatcher.call(vcfFile);
     SortedSet<Variant> extraPositions = result.getGeneCalls().get(0).getVariantsOfInterest();
     assertEquals(1, extraPositions.size());

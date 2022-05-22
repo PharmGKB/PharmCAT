@@ -61,7 +61,8 @@ class NamedAlleleMatcherTest {
       definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
     }
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, assumeReference, topCandidateOnly);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, assumeReference, topCandidateOnly,
+        true);
     Result result = namedAlleleMatcher.call(vcfFile);
 
     // print
@@ -199,7 +200,7 @@ class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-mismatchedRefAllele.vcf");
     definitionReader.read(definitionFile);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, false, true);
     Result result = namedAlleleMatcher.call(vcfFile);
     assertNotNull(result.getVcfWarnings());
 
@@ -219,5 +220,26 @@ class NamedAlleleMatcherTest {
     assertEquals(1, result.getVcfWarnings().get("chr10:94949281").size());
     assertTrue(result.getVcfWarnings().get("chr10:94949281").iterator().next()
         .contains("does not match expected reference"));
+  }
+
+
+  @Test
+  void testCyp2d6() throws Exception {
+
+    DefinitionReader definitionReader = new DefinitionReader();
+
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-cyp2d6.json");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-cyp2d6.vcf");
+    definitionReader.read(definitionFile);
+
+    NamedAlleleMatcher naNoCyp2d6 = new NamedAlleleMatcher(definitionReader, true, false, false);
+    Result result = naNoCyp2d6.call(vcfFile);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(0, result.getGeneCalls().size());
+
+    NamedAlleleMatcher naWithCyp2d6 = new NamedAlleleMatcher(definitionReader, true, false, true);
+    result = naWithCyp2d6.call(vcfFile);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
   }
 }

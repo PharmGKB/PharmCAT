@@ -34,15 +34,16 @@ public class NamedAlleleMatcher {
   private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
   private final boolean m_assumeReferenceInDefinitions;
   private final boolean m_topCandidateOnly;
+  private final boolean m_callCyp2d6;
   private boolean m_printWarnings;
 
 
   /**
    * Default constructor.
-   * This will only call the top candidate(s) and assume reference.
+   * This will only call the top candidate(s) and assume reference.  Will not call CYP2D6.
    */
   public NamedAlleleMatcher(DefinitionReader definitionReader) {
-    this(definitionReader, true, false);
+    this(definitionReader, true, false, false);
   }
 
   /**
@@ -50,15 +51,17 @@ public class NamedAlleleMatcher {
    *
    * @param topCandidateOnly true if only top candidate(s) should be called, false to call all possible candidates
    * @param assumeReference true if missing alleles in definitions should be treated as reference, false otherwise
+   * @param callCyp2d6 true if CYP2D6 should be called
    */
-  public NamedAlleleMatcher(DefinitionReader definitionReader, boolean assumeReference,
-      boolean topCandidateOnly) {
+  public NamedAlleleMatcher(DefinitionReader definitionReader, boolean assumeReference, boolean topCandidateOnly,
+      boolean callCyp2d6) {
 
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
     m_locationsOfInterest = calculateLocationsOfInterest(m_definitionReader);
     m_assumeReferenceInDefinitions = assumeReference;
     m_topCandidateOnly = topCandidateOnly;
+    m_callCyp2d6 = callCyp2d6;
   }
 
 
@@ -77,6 +80,9 @@ public class NamedAlleleMatcher {
           .addOption("html", "html-out", "file to save results to (in HTML format)", false, "html")
           .addOption("d", "definition-dir", "directory of allele definition files", false, "d")
           .addOption("a", "all-results", "return all possible results, not just top hits")
+          // research
+          .addOption("r", "research-mode", "enable research mode")
+          .addOption("cyp2d6", "research-cyp2d6", "call CYP2D6 (must also use research mode)")
           ;
 
       if (!cliHelper.parse(args)) {
@@ -99,8 +105,10 @@ public class NamedAlleleMatcher {
       }
 
       boolean topCandidateOnly = !cliHelper.hasOption("a");
-      NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, topCandidateOnly)
-          .printWarnings();
+      boolean callCyp2d6 = cliHelper.hasOption("r") && cliHelper.hasOption("cyp2d6");
+      NamedAlleleMatcher namedAlleleMatcher =
+          new NamedAlleleMatcher(definitionReader, true, topCandidateOnly, callCyp2d6)
+              .printWarnings();
       Result result = namedAlleleMatcher.call(vcfFile);
 
       ResultSerializer resultSerializer = new ResultSerializer();
@@ -176,6 +184,9 @@ public class NamedAlleleMatcher {
     }
     // call haplotypes
     for (String gene : m_definitionReader.getGenes()) {
+      if (!m_callCyp2d6 && gene.equals("CYP2D6")) {
+        continue;
+      }
       DefinitionExemption exemption = m_definitionReader.getExemption(gene);
       MatchData data = initializeCallData(alleles, gene);
       List<DiplotypeMatch> matches = null;

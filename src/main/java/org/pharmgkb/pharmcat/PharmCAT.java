@@ -45,6 +45,8 @@ public class PharmCAT {
   private boolean m_writeJsonReport = false;
   private boolean m_writeJsonPheno = false;
   private boolean m_showAllMatches = false;
+  private boolean m_callCyp2d6 = false;
+
 
   public static void main(String[] args) {
     Stopwatch stopwatch = Stopwatch.createStarted();
@@ -61,7 +63,11 @@ public class PharmCAT {
           // controls
           .addOption("k", "keep-matcher-files", "flag to keep the intermediary matcher output files")
           .addOption("j", "write-reporter-json", "flag to write a JSON file of the data used to populate the final report")
-          .addOption("pj", "write-phenotyper-json", "flag to write a JSON file of the data used in the phenotyper");
+          .addOption("pj", "write-phenotyper-json", "flag to write a JSON file of the data used in the phenotyper")
+          // research
+          .addOption("r", "research-mode", "enable research mode")
+          .addOption("cyp2d6", "research-cyp2d6", "call CYP2D6 (must also use research mode)")
+          ;
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
@@ -91,6 +97,11 @@ public class PharmCAT {
       PharmCAT pharmcat = new PharmCAT(outputDir, definitionsDir);
       if (cliHelper.hasOption("k")) {
         pharmcat.keepMatcherOutput();
+      }
+      if (cliHelper.hasOption("r")) {
+        if (cliHelper.hasOption("cyp2d6")) {
+          pharmcat.callCyp2d6();
+        }
       }
 
       pharmcat
@@ -157,7 +168,8 @@ public class PharmCAT {
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(f_definitionsDir);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, !m_showAllMatches)
+    NamedAlleleMatcher namedAlleleMatcher =
+        new NamedAlleleMatcher(definitionReader, true, !m_showAllMatches, m_callCyp2d6)
         .printWarnings();
     Result result = namedAlleleMatcher.call(vcfFile);
     ResultSerializer resultSerializer = new ResultSerializer();
@@ -232,6 +244,11 @@ public class PharmCAT {
    */
   public PharmCAT writeJson(boolean doWrite) {
     m_writeJsonReport = doWrite;
+    return this;
+  }
+
+  public PharmCAT callCyp2d6() {
+    m_callCyp2d6 = true;
     return this;
   }
 

@@ -537,9 +537,7 @@ public class DataManager {
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionsDir);
 
-    SortedSet<String> genes = definitionReader.getGeneAlleleCount().keySet().stream()
-        .filter(g -> !PREFER_OUTSIDE_CALL.contains(g))
-        .collect(Collectors.toCollection(TreeSet::new));
+    SortedSet<String> genes = new TreeSet<>(definitionReader.getGeneAlleleCount().keySet());
 
     Path positionsFile = definitionsDir.resolve(POSITIONS_VCF);
     System.out.println("Saving positions VCF to " + positionsFile);
