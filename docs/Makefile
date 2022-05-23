@@ -6,3 +6,9 @@ serve:
 
 build:
 	bundle exec jekyll build
+
+clean:
+	rm -rf _site
+
+prototype: clean build
+	surge _site
