@@ -19,7 +19,7 @@ PharmCAT takes VCF files as input.
 _Note_: PharmCAT does not need a network connection during runtime. All data needed by PharmCAT is either supplied by 
 the user on the command-line or self-contained.
 
-:warning: Please make sure you have read and undertand PharmCAT's [VCF requirements](VCF-Requirements).
+:warning: Please make sure you have read and undertand PharmCAT's [VCF requirements](/specifications/VCF-Requirements).
 
 ## Building (optional)
 
@@ -31,7 +31,7 @@ Checkout the repo and from the base repo directory run:
 
 This will build a "fat" jar with bundled dependencies in `build/libs`. You can use this jar file in the following section.
 
-For more information on building PharmCAT, check [Building PharmCAT](docs/development/Building-PharmCAT.md).
+For more information on building PharmCAT, check [Building PharmCAT](https://github.com/PharmGKB/PharmCAT/wiki/Building-PharmCAT).
 
 
 ## Running
@@ -45,10 +45,10 @@ From the command line:
 Where:
 
 * __-jar__ `<path_to_jar_file>` = __required__, the compiled PharmCAT Jar file
-* __-vcf__ `<sample_file>` = __required__, sample VCF file (:warning: Please read [VCF requirements](VCF-Requirements))
+* __-vcf__ `<sample_file>` = __required__, sample VCF file (:warning: Please read [VCF requirements](/specifications/VCF-Requirements))
 * __-o__ `<output_dir>` = __required__, diretory path to write result files to
 * __-f__ `<output_name>` = _optional_, a base filename to use for output files (e.g. `<output_name>.html`)
-* __-a__ `<outside_call_file>` = _optional_, [gene call TSV file](Outside-Call-Format) from the an outside tool (like Astrolabe)
+* __-a__ `<outside_call_file>` = _optional_, [gene call TSV file](/specifications/Outside-Call-Format) from the an outside tool (like Astrolabe)
 * __-k__ = _optional_, keep the interim output files from the NamedAlleleMatcher
 * __-j__ = _optional_, flag to write reporter JSON data (will be `<output_name>.report.json`)
 * __-pj__ = _optional_, flag to write phenotyper JSON data (will be `<output_name>.phenotyper.json`)
@@ -114,7 +114,7 @@ Where:
 * __-vcf__ `<sample_file>` = sample VCF file
 * __-c__ `<call_file>` = JSON call data output from the NamedAlleleMatcher
 * __-f__ `<path_to_output_json>` = the path to an output JSON file
-* __-o__ `<path_to_outside_call>` = __optional__, [a TSV of outside caller information](Outside-Call-Format)
+* __-o__ `<path_to_outside_call>` = __optional__, [a TSV of outside caller information](/specifications/Outside-Call-Format)
 
 
 ### Running the Reporter
