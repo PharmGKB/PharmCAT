@@ -61,7 +61,8 @@
       ],
       "populationFrequency": null,
       "reference": true,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*2",
@@ -76,7 +77,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*3",
@@ -91,7 +93,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     }
   ]
 }

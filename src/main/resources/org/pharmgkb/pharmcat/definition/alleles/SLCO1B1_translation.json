@@ -670,7 +670,8 @@
       ],
       "populationFrequency": null,
       "reference": true,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*2",
@@ -743,7 +744,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*3",
@@ -816,7 +818,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*4",
@@ -889,7 +892,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*5",
@@ -962,7 +966,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*6",
@@ -1035,7 +1040,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*7",
@@ -1108,7 +1114,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*8",
@@ -1181,7 +1188,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*9",
@@ -1254,7 +1262,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*10",
@@ -1327,7 +1336,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*11",
@@ -1400,7 +1410,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*12",
@@ -1473,7 +1484,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*13",
@@ -1546,7 +1558,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*14",
@@ -1619,7 +1632,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*15",
@@ -1692,7 +1706,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*16",
@@ -1765,7 +1780,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*19",
@@ -1838,7 +1854,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*20",
@@ -1911,7 +1928,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*23",
@@ -1984,7 +2002,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*24",
@@ -2057,7 +2076,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*25",
@@ -2130,7 +2150,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*26",
@@ -2203,7 +2224,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*27",
@@ -2276,7 +2298,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*28",
@@ -2349,7 +2372,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*29",
@@ -2422,7 +2446,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*30",
@@ -2495,7 +2520,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*31",
@@ -2568,7 +2594,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*32",
@@ -2641,7 +2668,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*33",
@@ -2714,7 +2742,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*34",
@@ -2787,7 +2816,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*36",
@@ -2860,7 +2890,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*37",
@@ -2933,7 +2964,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*38",
@@ -3006,7 +3038,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*39",
@@ -3079,7 +3112,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*40",
@@ -3152,7 +3186,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*41",
@@ -3225,7 +3260,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*42",
@@ -3298,7 +3334,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*43",
@@ -3371,7 +3408,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*44",
@@ -3444,7 +3482,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*45",
@@ -3517,7 +3556,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*46",
@@ -3590,7 +3630,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*47",
@@ -3663,7 +3704,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     }
   ]
 }

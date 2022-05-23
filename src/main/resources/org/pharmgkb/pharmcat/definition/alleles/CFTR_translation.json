@@ -838,7 +838,8 @@
       ],
       "populationFrequency": null,
       "reference": true,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "711+3A->G",
@@ -927,7 +928,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "2789+5G->A",
@@ -1016,7 +1018,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "3272-26A->G",
@@ -1105,7 +1108,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "3849+10kbC->T",
@@ -1194,7 +1198,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "A455E",
@@ -1283,7 +1288,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "A1067T",
@@ -1372,7 +1378,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "D110E",
@@ -1461,7 +1468,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "D110H",
@@ -1550,7 +1558,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "D579G",
@@ -1639,7 +1648,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "D1152H",
@@ -1728,7 +1738,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "D1270N",
@@ -1817,7 +1828,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "E56K",
@@ -1906,7 +1918,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "E193K",
@@ -1995,7 +2008,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "E831X",
@@ -2084,7 +2098,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "F1052V",
@@ -2173,7 +2188,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "F1074L",
@@ -2262,7 +2278,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "G178R",
@@ -2351,7 +2368,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "G551D",
@@ -2440,7 +2458,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "G551S",
@@ -2529,7 +2548,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "G1069R",
@@ -2618,7 +2638,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "G1244E",
@@ -2707,7 +2728,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "G1349D",
@@ -2796,7 +2818,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "K1060T",
@@ -2885,7 +2908,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "L206W",
@@ -2974,7 +2998,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "P67L",
@@ -3063,7 +3088,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "R74W",
@@ -3152,7 +3178,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "R117C",
@@ -3241,7 +3268,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "R117H",
@@ -3330,7 +3358,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "R347H",
@@ -3419,7 +3448,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "R352Q",
@@ -3508,7 +3538,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "R1070Q",
@@ -3597,7 +3628,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "R1070W",
@@ -3686,7 +3718,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "S549N",
@@ -3775,7 +3808,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "S549R(A>C)",
@@ -3864,7 +3898,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "S549R(T>G)",
@@ -3953,7 +3988,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "S945L",
@@ -4042,7 +4078,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "S977F",
@@ -4131,7 +4168,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "S1251N",
@@ -4220,7 +4258,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "S1255P",
@@ -4309,7 +4348,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     }
   ]
 }

@@ -1,55 +1,48 @@
 {
   "metadata": {
-    "namedAlleleMatcherVersion": "1.0.0",
+    "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
-    "inputFilename": "pharmcat_positions.vcf",
-    "timestamp": "May 22, 2022, 2:48:40 PM"
+    "inputFilename": "pharmcat.example.vcf",
+    "timestamp": "Jun 20, 2022, 9:45:06 AM"
   },
   "results": [
     {
       "alleleDefinitionVersion": "05/05/22",
       "chromosome": "chr4",
       "gene": "ABCG2",
-      "diplotypes": [
-        {
-          "name": "rs2231142 reference (G)/rs2231142 reference (G)",
-          "haplotype1": {
-            "name": "rs2231142 reference (G)",
-            "sequences": [
-              "88131171:G;"
-            ]
-          },
-          "haplotype2": {
-            "name": "rs2231142 reference (G)",
-            "sequences": [
-              "88131171:G;"
-            ]
-          },
-          "score": 2
-        }
-      ],
-      "haplotypes": [
-        {
-          "name": "rs2231142 reference (G)",
-          "sequences": [
-            "88131171:G;"
-          ]
-        }
-      ],
-      "phased": true,
-      "variants": [
-        {
-          "position": 88131171,
-          "rsid": "rs2231142",
-          "vcfCall": "G|G"
-        }
-      ],
+      "diplotypes": [],
+      "haplotypes": [],
+      "phased": false,
+      "variants": [],
       "variantsOfInterest": [],
       "matchData": {
-        "missingPositions": [],
+        "missingPositions": [
+          {
+            "chromosome": "chr4",
+            "position": 88131171,
+            "cpicPosition": 88131171,
+            "rsid": "rs2231142",
+            "chromosomeHgvsName": "g.88131171G\u003eT",
+            "cpicAlleles": [
+              "G",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "T": "T",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "T"
+            ]
+          }
+        ],
         "mismatchedAlleles": []
       },
-      "uncallableHaplotypes": [],
+      "uncallableHaplotypes": [
+        "rs2231142 variant (T)",
+        "rs2231142 reference (G)"
+      ],
       "ignoredHaplotypes": []
     },
     {
@@ -82,17 +75,19 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 201060815,
           "rsid": "rs1800559",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 201091993,
           "rsid": "rs772226819",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -133,202 +128,241 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 117509035,
           "rsid": "rs397508256",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117509069,
           "rsid": "rs368505753",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 117509089,
           "rsid": "rs115545701",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 117530953,
           "rsid": "rs113993958",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117530955,
           "rsid": "rs397508537",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 117530974,
           "rsid": "rs77834169",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 117530975,
           "rsid": "rs78655421",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117534318,
           "rsid": "rs80282562",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117534363,
           "rsid": "rs397508759",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117534368,
           "rsid": "rs397508761",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 117535285,
           "rsid": "rs121908752",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 117540270,
           "rsid": "rs77932196",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117540285,
           "rsid": "rs121908753",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117548795,
           "rsid": "rs74551128",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 117587799,
           "rsid": "rs121908757",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 117587800,
           "rsid": "rs121908755",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117587801,
           "rsid": "rs121909005",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 117587805,
           "rsid": "rs121909013",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117587806,
           "rsid": "rs75527207",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117590409,
           "rsid": "rs397508288",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 117594930,
           "rsid": "rs397508387",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117602868,
           "rsid": "rs80224560",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117603708,
           "rsid": "rs397508442",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 117606695,
           "rsid": "rs141033578",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 117611555,
           "rsid": "rs76151804",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 117611595,
           "rsid": "rs150212784",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 117611620,
           "rsid": "rs397508513",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 117611640,
           "rsid": "rs121909020",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117611646,
           "rsid": "rs200321110",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117611649,
           "rsid": "rs202179988",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 117611650,
           "rsid": "rs78769542",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117611663,
           "rsid": "rs186045772",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 117614699,
           "rsid": "rs75541969",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117639961,
           "rsid": "rs75039782",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 117642451,
           "rsid": "rs267606723",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117642472,
           "rsid": "rs74503330",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117642483,
           "rsid": "rs121909041",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 117642528,
           "rsid": "rs11971167",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 117664770,
           "rsid": "rs193922525",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -369,182 +403,217 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 40991224,
           "rsid": "rs34223104",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 40991367,
           "rsid": "rs34883432",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 40991369,
           "rsid": "rs8192709",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 40991381,
           "rsid": "rs33973337",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 40991388,
           "rsid": "rs33980385",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 40991390,
           "rsid": "rs33926104",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 40991391,
           "rsid": "rs34284776",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 40991441,
           "rsid": "rs35303484",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 41004015,
           "rsid": "rs281864907",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 41004125,
           "rsid": "rs36060847",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 41004158,
           "rsid": "rs186335453",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 41004303,
           "rsid": "rs139801276",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 41004377,
           "rsid": "rs12721655",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 41004381,
           "rsid": "rs35773040",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 41004406,
           "rsid": "rs145884402",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 41006919,
           "rsid": "rs3826711",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 41006923,
           "rsid": "rs36056539",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 41006936,
           "rsid": "rs3745274",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 41006968,
           "rsid": "rs373489637",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 41007013,
           "rsid": "rs36079186",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 41009350,
           "rsid": "rs45482602",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 41009358,
           "rsid": "rs2279343",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 41010006,
           "rsid": "rs139029625",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 41010088,
           "rsid": "rs34698757",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 41010108,
           "rsid": "rs193922917",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 41012316,
           "rsid": "rs28399499",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 41012339,
           "rsid": "rs34826503",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 41012465,
           "rsid": "rs34097093",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 41012693,
           "rsid": "rs35979566",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 41012740,
           "rsid": "rs193922918",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 41012803,
           "rsid": "rs35010098",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 41016726,
           "rsid": "rs3211369",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 41016778,
           "rsid": "rs564083989",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 41016805,
           "rsid": null,
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 41016810,
           "rsid": "rs3211371",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -585,177 +654,211 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 94761900,
           "rsid": "rs12248560",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94762706,
           "rsid": "rs28399504",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94762712,
           "rsid": "rs367543002",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94762715,
           "rsid": "rs367543003",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 94762755,
           "rsid": "rs55752064",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 94762760,
           "rsid": "rs17882687",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94762788,
           "rsid": "rs1564656981",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94762856,
           "rsid": "rs1564657013",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94775106,
           "rsid": "rs145328984",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94775121,
           "rsid": "rs1564660997",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94775160,
           "rsid": "rs118203756",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94775185,
           "rsid": "rs1288601658",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94775367,
           "rsid": "rs12769205",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94775416,
           "rsid": "rs41291556",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 94775423,
           "rsid": "rs17885179",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94775453,
           "rsid": "rs72552267",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94775489,
           "rsid": "rs17884712",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94775507,
           "rsid": "rs58973490",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94780574,
           "rsid": "rs140278421",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94780579,
           "rsid": "rs370803989",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94780653,
           "rsid": "rs4986893",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94781858,
           "rsid": "rs6413438",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94781859,
           "rsid": "rs4244285",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94781944,
           "rsid": "rs375781227",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94781999,
           "rsid": "rs72558186",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 94842861,
           "rsid": "rs138142612",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94842866,
           "rsid": "rs3758581",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94842879,
           "rsid": "rs118203757",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94842995,
           "rsid": "rs113934938",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94849995,
           "rsid": "rs17879685",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94852738,
           "rsid": "rs56337013",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94852765,
           "rsid": "rs192154563",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94852785,
           "rsid": "rs118203759",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94852914,
           "rsid": "rs55640102",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -776,441 +879,1399 @@
           "haplotype1": {
             "name": "*1",
             "sequences": [
-              "94938683:A;94938719:T;94938737:C;94938771:C;94938788:C;94938800:G;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941975:G;94941976:G;94941982:G;94942018:T;94942205:CAATGGAAAGA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942243:T;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942306:C;94942308:C;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94947939:G;94949129:A;94949144:C;94949145:C;94949161:AT;94949217:A;94949280:A;94949281:GA;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972183:A;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981258:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94986136:A;94986174:G;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
+              "94938683:A;94938737:C;94938771:C;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941976:G;94941982:G;94942018:T;94942205:CAATGGAAAGA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94949129:A;94949144:C;94949217:A;94949280:A;94949281:GA;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
             ]
           },
           "haplotype2": {
             "name": "*1",
             "sequences": [
-              "94938683:A;94938719:T;94938737:C;94938771:C;94938788:C;94938800:G;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941975:G;94941976:G;94941982:G;94942018:T;94942205:CAATGGAAAGA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942243:T;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942306:C;94942308:C;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94947939:G;94949129:A;94949144:C;94949145:C;94949161:AT;94949217:A;94949280:A;94949281:GA;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972183:A;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981258:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94986136:A;94986174:G;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
+              "94938683:A;94938737:C;94938771:C;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941976:G;94941982:G;94942018:T;94942205:CAATGGAAAGA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94949129:A;94949144:C;94949217:A;94949280:A;94949281:GA;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
             ]
           },
-          "score": 160
+          "score": 132
         }
       ],
       "haplotypes": [
         {
           "name": "*1",
           "sequences": [
-            "94938683:A;94938719:T;94938737:C;94938771:C;94938788:C;94938800:G;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941975:G;94941976:G;94941982:G;94942018:T;94942205:CAATGGAAAGA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942243:T;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942306:C;94942308:C;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94947939:G;94949129:A;94949144:C;94949145:C;94949161:AT;94949217:A;94949280:A;94949281:GA;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972183:A;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981258:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94986136:A;94986174:G;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
+            "94938683:A;94938737:C;94938771:C;94938803:A;94938828:A;94941897:G;94941915:G;94941958:T;94941976:G;94941982:G;94942018:T;94942205:CAATGGAAAGA;94942216:A;94942230:C;94942231:G;94942233:C;94942234:G;94942249:C;94942254:C;94942255:G;94942290:C;94942291:G;94942305:G;94942309:G;94947782:C;94947785:C;94947869:A;94947907:A;94947917:T;94947938:A;94949129:A;94949144:C;94949217:A;94949280:A;94949281:GA;94972119:C;94972123:C;94972134:A;94972179:A;94972180:C;94972233:C;94981199:G;94981201:T;94981224:C;94981225:G;94981230:C;94981250:C;94981281:G;94981296:A;94981297:T;94981301:C;94981302:C;94981305:C;94981365:C;94981371:G;94986042:A;94986073:A;94988852:C;94988855:A;94988880:G;94988917:G;94988925:A;94988955:T;94988984:G;94989020:C;94989023:G;"
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 94938683,
           "rsid": "rs114071557",
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 94938719,
-          "rsid": null,
-          "vcfCall": "T|T"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94938737,
           "rsid": "rs67807361",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94938771,
           "rsid": "rs142240658",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94938788,
-          "rsid": null,
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94938800,
-          "rsid": "rs1364419386",
-          "vcfCall": "G|G"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94938803,
           "rsid": "rs2031308986",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94938828,
           "rsid": "rs564813580",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94941897,
           "rsid": "rs371055887",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94941915,
           "rsid": null,
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94941958,
           "rsid": "rs72558187",
-          "vcfCall": "T|T"
-        },
-        {
-          "position": 94941975,
-          "rsid": null,
-          "vcfCall": "G|G"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 94941976,
           "rsid": null,
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94941982,
           "rsid": "rs762239445",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94942018,
           "rsid": null,
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 94942205,
           "rsid": "rs1304490498",
-          "vcfCall": "CAATGGAAAGA|CAATGGAAAGA"
+          "vcfCall": "CAATGGAAAGA/CAATGGAAAGA",
+          "phased": false
         },
         {
           "position": 94942216,
           "rsid": "rs774607211",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94942230,
           "rsid": "rs767576260",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94942231,
           "rsid": "rs12414460",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94942233,
           "rsid": "rs375805362",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94942234,
           "rsid": "rs72558189",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94942243,
-          "rsid": "rs1375956433",
-          "vcfCall": "T|T"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94942249,
           "rsid": "rs200965026",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94942254,
           "rsid": "rs199523631",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94942255,
           "rsid": "rs200183364",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94942290,
           "rsid": "rs1799853",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94942291,
           "rsid": "rs141489852",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94942305,
           "rsid": "rs754487195",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94942306,
-          "rsid": "rs1289704600",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94942308,
-          "rsid": "rs17847037",
-          "vcfCall": "C|C"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94942309,
           "rsid": "rs7900194",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94947782,
           "rsid": "rs72558190",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94947785,
           "rsid": "rs774550549",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94947869,
           "rsid": null,
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94947907,
           "rsid": null,
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94947917,
           "rsid": "rs1326630788",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 94947938,
           "rsid": "rs2031531005",
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 94947939,
-          "rsid": "rs370100007",
-          "vcfCall": "G|G"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94949129,
           "rsid": null,
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94949144,
           "rsid": null,
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94949145,
-          "rsid": "rs772782449",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94949161,
-          "rsid": null,
-          "vcfCall": "AT|AT"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94949217,
           "rsid": "rs2256871",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94949280,
           "rsid": "rs9332130",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94949281,
           "rsid": "rs9332131",
-          "vcfCall": "GA|GA"
+          "vcfCall": "GA/GA",
+          "phased": false
         },
         {
           "position": 94972119,
           "rsid": "rs182132442",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94972123,
           "rsid": null,
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94972134,
           "rsid": null,
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94972179,
           "rsid": "rs72558192",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94972180,
           "rsid": "rs988617574",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94972183,
-          "rsid": null,
-          "vcfCall": "A|A"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94972233,
           "rsid": "rs1237225311",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94981199,
           "rsid": null,
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94981201,
           "rsid": "rs57505750",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 94981224,
           "rsid": "rs28371685",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94981225,
           "rsid": "rs367826293",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94981230,
           "rsid": "rs1274535931",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94981250,
           "rsid": "rs750820937",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94981258,
-          "rsid": "rs1297714792",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94981281,
           "rsid": "rs749060448",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94981296,
           "rsid": "rs1057910",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94981297,
           "rsid": "rs56165452",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 94981301,
           "rsid": "rs28371686",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94981302,
           "rsid": "rs1250577724",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94981305,
           "rsid": "rs578144976",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94981365,
           "rsid": null,
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94981371,
           "rsid": "rs542577750",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94986042,
           "rsid": "rs764211126",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94986073,
           "rsid": "rs72558193",
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 94986136,
-          "rsid": "rs1254213342",
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 94986174,
-          "rsid": "rs1441296358",
-          "vcfCall": "G|G"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94988852,
           "rsid": "rs776908257",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94988855,
           "rsid": null,
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94988880,
           "rsid": null,
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94988917,
           "rsid": "rs769942899",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94988925,
           "rsid": "rs202201137",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 94988955,
           "rsid": "rs767284820",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 94988984,
           "rsid": "rs781583846",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 94989020,
           "rsid": "rs9332239",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 94989023,
           "rsid": "rs868182778",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         }
       ],
       "variantsOfInterest": [
         {
           "position": 94645745,
           "rsid": "rs12777823",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         }
       ],
       "matchData": {
-        "missingPositions": [],
+        "missingPositions": [
+          {
+            "chromosome": "chr10",
+            "position": 94938719,
+            "cpicPosition": 94938719,
+            "rsid": null,
+            "chromosomeHgvsName": "g.94938719T\u003eG",
+            "cpicAlleles": [
+              "G",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "T": "T",
+              "G": "G"
+            },
+            "ref": "T",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94938788,
+            "cpicPosition": 94938788,
+            "rsid": null,
+            "chromosomeHgvsName": "g.94938788C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94938800,
+            "cpicPosition": 94938800,
+            "rsid": "rs1364419386",
+            "chromosomeHgvsName": "g.94938800G\u003eA",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94941975,
+            "cpicPosition": 94941975,
+            "rsid": null,
+            "chromosomeHgvsName": "g.94941975G\u003eA",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94942243,
+            "cpicPosition": 94942243,
+            "rsid": "rs1375956433",
+            "chromosomeHgvsName": "g.94942243T\u003eG",
+            "cpicAlleles": [
+              "G",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "T": "T",
+              "G": "G"
+            },
+            "ref": "T",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94942306,
+            "cpicPosition": 94942306,
+            "rsid": "rs1289704600",
+            "chromosomeHgvsName": "g.94942306C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94942308,
+            "cpicPosition": 94942308,
+            "rsid": "rs17847037",
+            "chromosomeHgvsName": "g.94942308C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94947939,
+            "cpicPosition": 94947939,
+            "rsid": "rs370100007",
+            "chromosomeHgvsName": "g.94947939G\u003eT",
+            "cpicAlleles": [
+              "G",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "T": "T",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94949145,
+            "cpicPosition": 94949145,
+            "rsid": "rs772782449",
+            "chromosomeHgvsName": "g.94949145C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94949161,
+            "cpicPosition": 94949163,
+            "rsid": null,
+            "chromosomeHgvsName": "g.94949163del",
+            "cpicAlleles": [
+              "T",
+              "delT"
+            ],
+            "cpicToVcfAlleleMap": {
+              "T": "AT",
+              "delT": "A"
+            },
+            "ref": "AT",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94972183,
+            "cpicPosition": 94972183,
+            "rsid": null,
+            "chromosomeHgvsName": "g.94972183A\u003eT",
+            "cpicAlleles": [
+              "A",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "T": "T"
+            },
+            "ref": "A",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94981258,
+            "cpicPosition": 94981258,
+            "rsid": "rs1297714792",
+            "chromosomeHgvsName": "g.94981258C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94986136,
+            "cpicPosition": 94986136,
+            "rsid": "rs1254213342",
+            "chromosomeHgvsName": "g.94986136A\u003eC",
+            "cpicAlleles": [
+              "A",
+              "C"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "C": "C"
+            },
+            "ref": "A",
+            "alts": [
+              "C"
+            ]
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94986174,
+            "cpicPosition": 94986174,
+            "rsid": "rs1441296358",
+            "chromosomeHgvsName": "g.94986174G\u003eC",
+            "cpicAlleles": [
+              "C",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "C"
+            ]
+          }
+        ],
         "mismatchedAlleles": []
       },
-      "uncallableHaplotypes": [],
+      "uncallableHaplotypes": [
+        "*80",
+        "*81",
+        "*82",
+        "*72",
+        "*83",
+        "*73",
+        "*84",
+        "*74",
+        "*85",
+        "*75",
+        "*76",
+        "*77",
+        "*78",
+        "*79"
+      ],
+      "ignoredHaplotypes": []
+    },
+    {
+      "alleleDefinitionVersion": "05/12/22",
+      "chromosome": "chr7",
+      "gene": "CYP3A4",
+      "diplotypes": [],
+      "haplotypes": [],
+      "phased": false,
+      "variants": [],
+      "variantsOfInterest": [],
+      "matchData": {
+        "missingPositions": [
+          {
+            "chromosome": "chr7",
+            "position": 99758183,
+            "cpicPosition": 99758188,
+            "rsid": "rs67666821",
+            "chromosomeHgvsName": "g.99758188dup",
+            "cpicAlleles": [
+              "T",
+              "TT"
+            ],
+            "cpicToVcfAlleleMap": {
+              "TT": "GT",
+              "T": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "GT"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99760836,
+            "cpicPosition": 99760836,
+            "rsid": "rs4986913",
+            "chromosomeHgvsName": "g.99760836G\u003eA",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99760901,
+            "cpicPosition": 99760901,
+            "rsid": "rs4986910",
+            "chromosomeHgvsName": "g.99760901A\u003eG",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "A",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99760956,
+            "cpicPosition": 99760956,
+            "rsid": "rs774109750",
+            "chromosomeHgvsName": "g.99760956T\u003eC",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "T",
+            "alts": [
+              "C"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99762047,
+            "cpicPosition": 99762047,
+            "rsid": "rs4986909",
+            "chromosomeHgvsName": "g.99762047G\u003eA",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99762177,
+            "cpicPosition": 99762177,
+            "rsid": "rs12721629",
+            "chromosomeHgvsName": "g.99762177G\u003eA",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99762186,
+            "cpicPosition": 99762186,
+            "rsid": "rs756833413",
+            "chromosomeHgvsName": "g.99762186C\u003eA",
+            "cpicAlleles": [
+              "A",
+              "C"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "C": "C"
+            },
+            "ref": "C",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99762206,
+            "cpicPosition": 99762206,
+            "rsid": "rs67784355",
+            "chromosomeHgvsName": "g.99762206G\u003eA",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99763843,
+            "cpicPosition": 99763843,
+            "rsid": "rs2242480",
+            "chromosomeHgvsName": "g.99763843C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99763877,
+            "cpicPosition": 99763877,
+            "rsid": "rs368296206",
+            "chromosomeHgvsName": "g.99763877A\u003eG",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "A",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99763909,
+            "cpicPosition": 99763909,
+            "rsid": "rs1303250043",
+            "chromosomeHgvsName": "g.99763909G\u003eT",
+            "cpicAlleles": [
+              "G",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "T": "T",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99763925,
+            "cpicPosition": 99763925,
+            "rsid": "rs201821708",
+            "chromosomeHgvsName": "g.99763925T\u003eC",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "T",
+            "alts": [
+              "C"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99764003,
+            "cpicPosition": 99764003,
+            "rsid": "rs28371759",
+            "chromosomeHgvsName": "g.99764003A\u003eG",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "A",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99766411,
+            "cpicPosition": 99766412,
+            "rsid": "rs4646438",
+            "chromosomeHgvsName": "g.99766412dup",
+            "cpicAlleles": [
+              "T",
+              "TT"
+            ],
+            "cpicToVcfAlleleMap": {
+              "TT": "GT",
+              "T": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "GT"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99766440,
+            "cpicPosition": 99766440,
+            "rsid": "rs138105638",
+            "chromosomeHgvsName": "g.99766440G\u003eA",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99768360,
+            "cpicPosition": 99768360,
+            "rsid": "rs55785340",
+            "chromosomeHgvsName": "g.99768360A\u003eG",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "A",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99768371,
+            "cpicPosition": 99768371,
+            "rsid": "rs55901263",
+            "chromosomeHgvsName": "g.99768371G\u003eC",
+            "cpicAlleles": [
+              "C",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "C"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99768424,
+            "cpicPosition": 99768424,
+            "rsid": "rs113667357",
+            "chromosomeHgvsName": "g.99768424T\u003eA",
+            "cpicAlleles": [
+              "A",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "T": "T"
+            },
+            "ref": "T",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99768458,
+            "cpicPosition": 99768458,
+            "rsid": "rs4987161",
+            "chromosomeHgvsName": "g.99768458A\u003eG",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "A",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99768470,
+            "cpicPosition": 99768470,
+            "rsid": "rs12721627",
+            "chromosomeHgvsName": "g.99768470G\u003eC",
+            "cpicAlleles": [
+              "C",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "C"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99768693,
+            "cpicPosition": 99768693,
+            "rsid": "rs35599367",
+            "chromosomeHgvsName": "g.99768693G\u003eA",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99769769,
+            "cpicPosition": 99769769,
+            "rsid": "rs4986908",
+            "chromosomeHgvsName": "g.99769769C\u003eG",
+            "cpicAlleles": [
+              "C",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "G": "G"
+            },
+            "ref": "C",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99769781,
+            "cpicPosition": 99769781,
+            "rsid": "rs72552798",
+            "chromosomeHgvsName": "g.99769781C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99769804,
+            "cpicPosition": 99769804,
+            "rsid": "rs4986907",
+            "chromosomeHgvsName": "g.99769804C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99769805,
+            "cpicPosition": 99769805,
+            "rsid": "rs57409622",
+            "chromosomeHgvsName": "g.99769805G\u003eA",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99770165,
+            "cpicPosition": 99770165,
+            "rsid": "rs72552799",
+            "chromosomeHgvsName": "g.99770165C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99770166,
+            "cpicPosition": 99770166,
+            "rsid": "rs778013004",
+            "chromosomeHgvsName": "g.99770166G\u003eA",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99770202,
+            "cpicPosition": 99770202,
+            "rsid": "rs55951658",
+            "chromosomeHgvsName": "g.99770202T\u003eC",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "T",
+            "alts": [
+              "C"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99770217,
+            "cpicPosition": 99770217,
+            "rsid": "rs1449865051",
+            "chromosomeHgvsName": "g.99770217A\u003eT",
+            "cpicAlleles": [
+              "A",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "T": "T"
+            },
+            "ref": "A",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99778079,
+            "cpicPosition": 99778079,
+            "rsid": "rs56324128",
+            "chromosomeHgvsName": "g.99778079C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99784018,
+            "cpicPosition": 99784018,
+            "rsid": "rs570051168",
+            "chromosomeHgvsName": "g.99784018G\u003eC",
+            "cpicAlleles": [
+              "C",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "C"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99784038,
+            "cpicPosition": 99784038,
+            "rsid": "rs12721634",
+            "chromosomeHgvsName": "g.99784038A\u003eG",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "A",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr7",
+            "position": 99784075,
+            "cpicPosition": 99784075,
+            "rsid": "rs188389063",
+            "chromosomeHgvsName": "g.99784075G\u003eC",
+            "cpicAlleles": [
+              "C",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "C"
+            ]
+          }
+        ],
+        "mismatchedAlleles": []
+      },
+      "uncallableHaplotypes": [
+        "*1",
+        "*30",
+        "*2",
+        "*31",
+        "*3",
+        "*10",
+        "*32",
+        "*4",
+        "*11",
+        "*33",
+        "*5",
+        "*12",
+        "*34",
+        "*6",
+        "*13",
+        "*35",
+        "*7",
+        "*14",
+        "*36",
+        "*8",
+        "*15",
+        "*9",
+        "*16",
+        "*17",
+        "*18",
+        "*19",
+        "*20",
+        "*21",
+        "*22",
+        "*23",
+        "*24",
+        "*26",
+        "*28",
+        "*29"
+      ],
       "ignoredHaplotypes": []
     },
     {
@@ -1243,32 +2304,37 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 99652770,
           "rsid": "rs41303343",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 99660516,
           "rsid": "rs28383479",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 99665212,
           "rsid": "rs10264272",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 99672916,
           "rsid": "rs776746",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 99676198,
           "rsid": "rs55817950",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -1309,17 +2375,19 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 15879621,
           "rsid": "rs2108622",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 15897578,
           "rsid": "rs3093105",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -1360,422 +2428,505 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 97078987,
           "rsid": "rs114096998",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97078993,
           "rsid": "rs148799944",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97079005,
           "rsid": "rs140114515",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97079071,
           "rsid": "rs1801268",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97079076,
           "rsid": "rs139459586",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 97079077,
           "rsid": "rs202144771",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97079121,
           "rsid": "rs72547601",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97079133,
           "rsid": "rs72547602",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97079139,
           "rsid": "rs145529148",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97082365,
           "rsid": "rs141044036",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97082391,
           "rsid": "rs67376798",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97098598,
           "rsid": "rs1801267",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97098599,
           "rsid": "rs147545709",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97098616,
           "rsid": "rs55674432",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97098632,
           "rsid": "rs201035051",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97193109,
           "rsid": "rs60139309",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97193209,
           "rsid": "rs200687447",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97234958,
           "rsid": "rs199634007",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97234991,
           "rsid": "rs56005131",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97305279,
           "rsid": "rs112766203",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97305363,
           "rsid": "rs60511679",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 97305364,
           "rsid": "rs1801160",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97305372,
           "rsid": "rs146529561",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97306195,
           "rsid": "rs145548112",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97373598,
           "rsid": "rs137999090",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97373629,
           "rsid": "rs138545885",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97382461,
           "rsid": "rs55971861",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97450058,
           "rsid": "rs3918290",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97450059,
           "rsid": "rs3918289",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97450065,
           "rsid": "rs72549303",
-          "vcfCall": "TG|TG"
+          "vcfCall": "TG/TG",
+          "phased": false
         },
         {
           "position": 97450068,
           "rsid": "rs17376848",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 97450168,
           "rsid": "rs147601618",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 97450187,
           "rsid": "rs145773863",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97450189,
           "rsid": "rs138616379",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97450190,
           "rsid": "rs59086055",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97515784,
           "rsid": "rs201615754",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97515787,
           "rsid": "rs55886062",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 97515839,
           "rsid": "rs1801159",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97515851,
           "rsid": "rs142619737",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97515865,
           "rsid": "rs1801158",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97515889,
           "rsid": "rs190951787",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97515923,
           "rsid": "rs148994843",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97549565,
           "rsid": "rs138391898",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97549600,
           "rsid": "rs111858276",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97549609,
           "rsid": "rs72549304",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97549681,
           "rsid": "rs199549923",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97549713,
           "rsid": "rs57918000",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97549726,
           "rsid": "rs144395748",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97549735,
           "rsid": "rs72975710",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97573785,
           "rsid": "rs186169810",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 97573805,
           "rsid": "rs142512579",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97573821,
           "rsid": "rs764666241",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97573839,
           "rsid": "rs200064537",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 97573863,
           "rsid": "rs56038477",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97573881,
           "rsid": "rs61622928",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97573918,
           "rsid": "rs143815742",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97573919,
           "rsid": "rs140602333",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97573943,
           "rsid": "rs78060119",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97579893,
           "rsid": "rs75017182",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97593238,
           "rsid": "rs72549305",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97593289,
           "rsid": "rs143154602",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97593322,
           "rsid": "rs183385770",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97593343,
           "rsid": "rs72549306",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97593379,
           "rsid": "rs201018345",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97595083,
           "rsid": "rs145112791",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97595088,
           "rsid": "rs150437414",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 97595149,
           "rsid": "rs146356975",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97679170,
           "rsid": "rs45589337",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97691776,
           "rsid": "rs1801266",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97699399,
           "rsid": "rs72549307",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97699430,
           "rsid": "rs72549308",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97699474,
           "rsid": "rs115232898",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97699506,
           "rsid": "rs6670886",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97699533,
           "rsid": "rs139834141",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97699535,
           "rsid": "rs2297595",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97721542,
           "rsid": "rs200562975",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97721650,
           "rsid": "rs141462178",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 97740400,
           "rsid": "rs150385342",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97740410,
           "rsid": "rs72549309",
-          "vcfCall": "GATGA|GATGA"
+          "vcfCall": "GATGA/GATGA",
+          "phased": false
         },
         {
           "position": 97883329,
           "rsid": "rs1801265",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 97883352,
           "rsid": "rs80081766",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 97883353,
           "rsid": "rs72549310",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 97883368,
           "rsid": "rs150036960",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -1816,12 +2967,13 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 39248147,
           "rsid": "rs12979860",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -1862,92 +3014,109 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 48037748,
           "rsid": "rs769369441",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 48037749,
           "rsid": null,
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 48037782,
           "rsid": "rs746071566",
-          "vcfCall": "AGGAGTC|AGGAGTC"
+          "vcfCall": "AGGAGTC/AGGAGTC",
+          "phased": false
         },
         {
           "position": 48037798,
           "rsid": "rs186364861",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 48037825,
           "rsid": "rs777311140",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 48037834,
           "rsid": "rs1202487323",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 48037847,
           "rsid": "rs766023281",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 48037849,
           "rsid": null,
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 48037885,
           "rsid": "rs1950545307",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 48037902,
           "rsid": "rs149436418",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 48040977,
           "rsid": "rs1457579126",
-          "vcfCall": "GA|GA"
+          "vcfCall": "GA/GA",
+          "phased": false
         },
         {
           "position": 48041103,
           "rsid": "rs761191455",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 48041113,
           "rsid": "rs1368252918",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 48045690,
           "rsid": "rs768324690",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 48045719,
           "rsid": "rs116855232",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 48045720,
           "rsid": "rs147390019",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 48045771,
           "rsid": "rs139551410",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -1988,227 +3157,271 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 38440802,
           "rsid": "rs193922747",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 38440829,
           "rsid": "rs193922748",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38444211,
           "rsid": "rs118192161",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38444212,
           "rsid": "rs193922753",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38446710,
           "rsid": "rs1801086",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38448673,
           "rsid": "rs193922762",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38448712,
           "rsid": "rs121918592",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38451842,
           "rsid": "rs193922764",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38451850,
           "rsid": "rs118192116",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38455359,
           "rsid": "rs118192162",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 38455463,
           "rsid": "rs111888148",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38455471,
           "rsid": "rs193922768",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38455472,
           "rsid": "rs144336148",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38455528,
           "rsid": "rs193922770",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38457545,
           "rsid": "rs118192172",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38457546,
           "rsid": "rs193922772",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38494564,
           "rsid": "rs118192175",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38494565,
           "rsid": "rs118192163",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38494579,
           "rsid": "rs118192176",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38496283,
           "rsid": "rs118192177",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38499223,
           "rsid": "rs112563513",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38499644,
           "rsid": "rs121918596",
-          "vcfCall": "TGGA|TGGA"
+          "vcfCall": "TGGA/TGGA",
+          "phased": false
         },
         {
           "position": 38499655,
           "rsid": "rs193922802",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38499670,
           "rsid": "rs193922803",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38499731,
           "rsid": "rs193922807",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38499975,
           "rsid": "rs193922809",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38499993,
           "rsid": "rs121918593",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38499997,
           "rsid": "rs28933396",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38500636,
           "rsid": "rs118192124",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38500642,
           "rsid": "rs193922816",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38500643,
           "rsid": "rs118192122",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38500654,
           "rsid": "rs28933397",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38500655,
           "rsid": "rs121918594",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38500898,
           "rsid": "rs118192178",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38500899,
           "rsid": "rs193922818",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38512321,
           "rsid": "rs193922832",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38543832,
           "rsid": "rs193922843",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38580004,
           "rsid": "rs118192167",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 38580094,
           "rsid": "rs121918595",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38580114,
           "rsid": "rs193922876",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38580370,
           "rsid": "rs193922878",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 38580403,
           "rsid": "rs118192168",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38580440,
           "rsid": "rs63749869",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 38584989,
           "rsid": "rs118192170",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -2229,190 +3442,317 @@
           "haplotype1": {
             "name": "*1",
             "sequences": [
-              "21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176868:A;21176871:G;21176879:C;21176883:A;21176898:G;21178612:A;21178615:T;21178957:A;21196951:A;21196975:C;21196976:G;21200544:C;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21206031:A;21222355:C;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
+              "21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176868:A;21176879:C;21176883:A;21178615:T;21178957:A;21196951:A;21196976:G;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
             ]
           },
           "haplotype2": {
             "name": "*1",
             "sequences": [
-              "21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176868:A;21176871:G;21176879:C;21176883:A;21176898:G;21178612:A;21178615:T;21178957:A;21196951:A;21196975:C;21196976:G;21200544:C;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21206031:A;21222355:C;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
+              "21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176868:A;21176879:C;21176883:A;21178615:T;21178957:A;21196951:A;21196976:G;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
             ]
           },
-          "score": 62
+          "score": 48
         }
       ],
       "haplotypes": [
         {
           "name": "*1",
           "sequences": [
-            "21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176868:A;21176871:G;21176879:C;21176883:A;21176898:G;21178612:A;21178615:T;21178957:A;21196951:A;21196975:C;21196976:G;21200544:C;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21206031:A;21222355:C;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
+            "21172734:C;21172776:G;21172782:T;21174595:T;21176804:A;21176868:A;21176879:C;21176883:A;21178615:T;21178957:A;21196951:A;21196976:G;21200595:T;21202553:T;21202555:C;21202649:A;21202664:G;21205921:A;21205999:G;21239042:A;21239077:A;21239113:A;21239145:C;21239158:C;"
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 21172734,
           "rsid": "rs139257324",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 21172776,
           "rsid": "rs373327528",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 21172782,
           "rsid": "rs56101265",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 21174595,
           "rsid": "rs56061388",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 21176804,
           "rsid": "rs2306283",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 21176868,
           "rsid": "rs2306282",
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 21176871,
-          "rsid": null,
-          "vcfCall": "G|G"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 21176879,
           "rsid": "rs11045819",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 21176883,
           "rsid": "rs72559745",
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 21176898,
-          "rsid": "rs77271279",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 21178612,
-          "rsid": "rs141467543",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 21178615,
           "rsid": "rs4149056",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 21178957,
           "rsid": "rs79135870",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 21196951,
           "rsid": "rs11045852",
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 21196975,
-          "rsid": "rs183501729",
-          "vcfCall": "C|C"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 21196976,
           "rsid": "rs11045853",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 21200544,
-          "rsid": "rs72559747",
-          "vcfCall": "C|C"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 21200595,
           "rsid": "rs55901008",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 21202553,
           "rsid": "rs1228465562",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 21202555,
           "rsid": "rs59113707",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 21202649,
           "rsid": "rs56387224",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 21202664,
           "rsid": "rs142965323",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 21205921,
           "rsid": "rs72559748",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 21205999,
           "rsid": "rs59502379",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 21206031,
-          "rsid": "rs74064213",
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 21222355,
-          "rsid": "rs71581941",
-          "vcfCall": "C|C"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 21239042,
           "rsid": "rs34671512",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 21239077,
           "rsid": "rs56199088",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 21239113,
           "rsid": "rs55737008",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 21239145,
           "rsid": "rs200995543",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 21239158,
           "rsid": "rs140790673",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
       "matchData": {
-        "missingPositions": [],
+        "missingPositions": [
+          {
+            "chromosome": "chr12",
+            "position": 21176871,
+            "cpicPosition": 21176871,
+            "rsid": null,
+            "chromosomeHgvsName": "g.21176871G\u003eA",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "A"
+            ]
+          },
+          {
+            "chromosome": "chr12",
+            "position": 21176898,
+            "cpicPosition": 21176898,
+            "rsid": "rs77271279",
+            "chromosomeHgvsName": "g.21176898G\u003eT",
+            "cpicAlleles": [
+              "G",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "T": "T",
+              "G": "G"
+            },
+            "ref": "G",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr12",
+            "position": 21178612,
+            "cpicPosition": 21178612,
+            "rsid": "rs141467543",
+            "chromosomeHgvsName": "g.21178612A\u003eG",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "A",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr12",
+            "position": 21196975,
+            "cpicPosition": 21196975,
+            "rsid": "rs183501729",
+            "chromosomeHgvsName": "g.21196975C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          },
+          {
+            "chromosome": "chr12",
+            "position": 21200544,
+            "cpicPosition": 21200544,
+            "rsid": "rs72559747",
+            "chromosomeHgvsName": "g.21200544C\u003eG",
+            "cpicAlleles": [
+              "C",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "G": "G"
+            },
+            "ref": "C",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr12",
+            "position": 21206031,
+            "cpicPosition": 21206031,
+            "rsid": "rs74064213",
+            "chromosomeHgvsName": "g.21206031A\u003eG",
+            "cpicAlleles": [
+              "A",
+              "G"
+            ],
+            "cpicToVcfAlleleMap": {
+              "A": "A",
+              "G": "G"
+            },
+            "ref": "A",
+            "alts": [
+              "G"
+            ]
+          },
+          {
+            "chromosome": "chr12",
+            "position": 21222355,
+            "cpicPosition": 21222355,
+            "rsid": "rs71581941",
+            "chromosomeHgvsName": "g.21222355C\u003eT",
+            "cpicAlleles": [
+              "C",
+              "T"
+            ],
+            "cpicToVcfAlleleMap": {
+              "C": "C",
+              "T": "T"
+            },
+            "ref": "C",
+            "alts": [
+              "T"
+            ]
+          }
+        ],
         "mismatchedAlleles": []
       },
-      "uncallableHaplotypes": [],
+      "uncallableHaplotypes": [
+        "*41",
+        "*45",
+        "*38"
+      ],
       "ignoredHaplotypes": []
     },
     {
@@ -2445,222 +3785,265 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 18130687,
           "rsid": "rs1142345",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 18130694,
           "rsid": "rs150900439",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 18130725,
           "rsid": "rs72552736",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 18130729,
           "rsid": "rs139392616",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18130758,
           "rsid": "rs398122996",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 18130762,
           "rsid": "rs56161402",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18130772,
           "rsid": "rs377085266",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 18130781,
           "rsid": "rs1800584",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18132136,
           "rsid": "rs72556347",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 18132147,
           "rsid": "rs79901429",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 18132163,
           "rsid": null,
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18133845,
           "rsid": "rs75543815",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 18133847,
           "rsid": "rs6921269",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18133870,
           "rsid": "rs772832951",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 18133884,
           "rsid": "rs74423290",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 18133887,
           "rsid": "rs201695576",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 18133890,
           "rsid": "rs9333570",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18138969,
           "rsid": "rs144041067",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18138970,
           "rsid": "rs112339338",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 18138997,
           "rsid": "rs1800460",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18139027,
           "rsid": "rs72552737",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18139689,
           "rsid": "rs72552738",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18139710,
           "rsid": "rs200220210",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 18143597,
           "rsid": null,
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 18143606,
           "rsid": "rs151149760",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 18143613,
           "rsid": null,
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18143622,
           "rsid": "rs115106679",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18143643,
           "rsid": null,
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 18143700,
           "rsid": "rs753545734",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18143718,
           "rsid": "rs111901354",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 18143724,
           "rsid": "rs1800462",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18143728,
           "rsid": "rs1256618794",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18147838,
           "rsid": "rs281874771",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 18147845,
           "rsid": "rs777686348",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18147851,
           "rsid": "rs200591577",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 18147856,
           "rsid": null,
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 18147910,
           "rsid": "rs72552740",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 18149004,
           "rsid": null,
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 18149022,
           "rsid": "rs750424422",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18149032,
           "rsid": "rs759836180",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 18149045,
           "rsid": "rs72552742",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         },
         {
           "position": 18149126,
           "rsid": "rs267607275",
-          "vcfCall": "A|A"
+          "vcfCall": "A/A",
+          "phased": false
         },
         {
           "position": 18149127,
           "rsid": "rs9333569",
-          "vcfCall": "T|T"
+          "vcfCall": "T/T",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -2701,27 +4084,31 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 233759924,
           "rsid": "rs887829",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         },
         {
           "position": 233760233,
           "rsid": "rs3064744",
-          "vcfCall": "CAT|CAT"
+          "vcfCall": "CAT/CAT",
+          "phased": false
         },
         {
           "position": 233760498,
           "rsid": "rs4148323",
-          "vcfCall": "G|G"
+          "vcfCall": "G/G",
+          "phased": false
         },
         {
           "position": 233760973,
           "rsid": "rs35350960",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],
@@ -2762,12 +4149,13 @@
           ]
         }
       ],
-      "phased": true,
+      "phased": false,
       "variants": [
         {
           "position": 31096368,
           "rsid": "rs9923231",
-          "vcfCall": "C|C"
+          "vcfCall": "C/C",
+          "phased": false
         }
       ],
       "variantsOfInterest": [],

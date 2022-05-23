@@ -379,7 +379,8 @@
       ],
       "populationFrequency": null,
       "reference": true,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*2",
@@ -424,7 +425,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*3",
@@ -469,7 +471,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*4",
@@ -514,7 +517,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*5",
@@ -559,7 +563,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*6",
@@ -604,7 +609,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*7",
@@ -649,7 +655,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*8",
@@ -694,7 +701,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*9",
@@ -739,7 +747,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*10",
@@ -784,7 +793,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*11",
@@ -829,7 +839,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*12",
@@ -874,7 +885,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*13",
@@ -919,7 +931,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*14",
@@ -964,7 +977,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*15",
@@ -1009,7 +1023,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*16",
@@ -1054,7 +1069,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*17",
@@ -1099,7 +1115,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*18",
@@ -1144,7 +1161,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*19",
@@ -1189,7 +1207,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*20",
@@ -1234,7 +1253,8 @@
       ],
       "populationFrequency": null,
       "reference": false,
-      "isCombinationOrPartial": false
+      "numCombinations": 0,
+      "numPartials": 0
     }
   ]
 }

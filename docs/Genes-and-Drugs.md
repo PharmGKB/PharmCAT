@@ -38,7 +38,7 @@ These genes will not get allele matches from PharmCAT. However, you can use an o
 
 - CYP2D6 (149 alleles) (CPIC, PharmGKB-DPWG)
 - G6PD (187 alleles) (CPIC)
-- HLA-A (CPIC)
+- HLA-A (CPIC, PharmGKB-DPWG)
 - HLA-B (CPIC, PharmGKB-DPWG)
 - MT-RNR1 (25 alleles) (CPIC)
 
@@ -59,7 +59,7 @@ The following drugs are included in the PharmCAT report "Prescribing Recommendat
 - azathioprine (CPIC, PharmGKB-DPWG)
 - brexpiprazole (PharmGKB-DPWG)
 - capecitabine (CPIC, PharmGKB-DPWG)
-- carbamazepine (CPIC)
+- carbamazepine (CPIC, PharmGKB-DPWG)
 - celecoxib (CPIC)
 - citalopram (CPIC, PharmGKB-DPWG)
 - clomipramine (CPIC, PharmGKB-DPWG)
@@ -103,7 +103,7 @@ The following drugs are included in the PharmCAT report "Prescribing Recommendat
 - nortriptyline (CPIC, PharmGKB-DPWG)
 - omeprazole (CPIC, PharmGKB-DPWG)
 - ondansetron (CPIC)
-- oxcarbazepine (CPIC)
+- oxcarbazepine (CPIC, PharmGKB-DPWG)
 - pantoprazole (CPIC, PharmGKB-DPWG)
 - paromomycin (CPIC)
 - paroxetine (CPIC, PharmGKB-DPWG)
