@@ -55,7 +55,11 @@ public class Phenotyper {
         .addOption("vcf", "sample-file", "input sample file (VCF)", false, "vcf")
         .addOption("c", "call-file", "named allele call JSON file", false, "call-file-path")
         .addOption("o", "outside-call-file", "optional, outside call TSV file", false, "outside-file-path")
-        .addOption("f", "output-file", "file path to write JSON data to", true, "output-file-path");
+        .addOption("f", "output-file", "file path to write JSON data to", true, "output-file-path")
+        // research
+        .addOption("r", "research-mode", "enable research mode")
+        .addOption("cyp2d6", "research-cyp2d6", "call CYP2D6 (must also use research mode)")
+        ;
     try {
       if (!cliHelper.parse(args)) {
         System.exit(1);
@@ -76,7 +80,8 @@ public class Phenotyper {
       } else {
         DefinitionReader definitionReader = new DefinitionReader();
         definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
-        NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader);
+        boolean callCyp2d6 = cliHelper.hasOption("r") && cliHelper.hasOption("cyp2d6");
+        NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, false, callCyp2d6);
         Result result = namedAlleleMatcher.call(vcfFile);
         calls = result.getGeneCalls();
         variantWarnings = result.getVcfWarnings();
