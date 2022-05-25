@@ -123,7 +123,13 @@ public class GuidelineReport {
 
   public String getUncalledGenes() {
     return relatedGeneReports.stream()
+        .filter(g -> !g.isCalled())
         .map(GeneReport::getGene)
         .collect(Collectors.joining(", "));
+  }
+
+  public boolean isUncallable() {
+    return relatedGeneReports.stream()
+        .noneMatch(GeneReport::isCalled);
   }
 }

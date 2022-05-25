@@ -148,17 +148,17 @@
           <th>Implications</th>
           <th>Comments</th>
           <th>Classification</th>
-          <th>Population</th>
         </tr>
         </thead>
         <tbody>
         {{#each guidelines}}
           {{#each annotationGroups}}
-            <tr>
-              <td>
-                <div style="font-weight: bold">{{../source.displayName}}</div>
-                <a href="{{../url}}">{{../name}}</a>
-              </td>
+            <tr class="top-aligned">
+              <th>
+                <div>{{../source.displayName}}</div>
+                <div style="margin-bottom: .5rem">Population: {{population}}</div>
+                <a href="{{../url}}">source</a>
+              </th>
               <td>
                 <div>
                   <ul style="margin:0;padding:0;list-style-type: none;">{{#each genotypes}}<li>{{this}}</li>{{/each}}</ul>
@@ -174,18 +174,15 @@
               <td>{{implications}}</td>
               <td>{{comments}}</td>
               <td>{{classification}}</td>
-              <td>{{population}}</td>
             </tr>
           {{/each}}
           {{#unless matched}}
             <tr>
-              <td>
+              <th>
                 <p style="font-weight: bold">{{source.displayName}}</p>
-                <a href="{{../url}}">
-                   {{name}}
-                </a>
-              </td>
-              <td colspan="6">No matched annotation</td>
+                <a href="{{url}}">source</a>
+              </th>
+              <td colspan="5">No matched annotation.{{#if uncallable}} No call data for {{uncalledGenes}}{{/if}}</td>
             </tr>
           {{/unless}}
         {{/each}}
