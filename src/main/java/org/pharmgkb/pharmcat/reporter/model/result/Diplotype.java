@@ -456,4 +456,21 @@ public class Diplotype implements Comparable<Diplotype> {
   public void setGeneResult(String geneResult) {
     m_geneResult = geneResult;
   }
+
+  /**
+   * True if this diplotype does not use allele function to assign phenotype but instead relies on the presence or absense of
+   * alleles for its phenotypes (e.g. HLA's)
+   * @return true if this diplotype assigns phenotype based on allele presence
+   */
+  public boolean isAllelePresenceType() {
+    return GeneReport.isAllelePresenceType(getGene());
+  }
+
+  /**
+   * True if this diplotype only has the phenotype available, not the individual allele(s)
+   * @return true if this diplotype only has phenotype and not individual allele(s)
+   */
+  public boolean isPhenotypeOnly() {
+    return !isUnknownPhenotype() && isUnknownAlleles();
+  }
 }

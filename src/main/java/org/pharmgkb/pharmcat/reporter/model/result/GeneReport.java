@@ -275,7 +275,17 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return true if this gene assigns phenotype based on allele presence
    */
   public boolean isAllelePresenceType() {
-    return ALLELE_PRESENCE.contains(f_gene);
+    return isAllelePresenceType(f_gene);
+  }
+
+  /**
+   * True if the gene does not use allele function to assign phenotype but instead relies on the presence or absense of
+   * alleles for its phenotypes (e.g. HLA's)
+   * @param gene the gene symbol
+   * @return true if this gene assigns phenotype based on allele presence
+   */
+  public static boolean isAllelePresenceType(String gene) {
+    return ALLELE_PRESENCE.contains(gene);
   }
 
   @Override

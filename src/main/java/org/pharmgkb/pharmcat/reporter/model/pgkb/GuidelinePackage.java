@@ -92,7 +92,7 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   
   public void match(Genotype genotype) {
     for (Diplotype diplotype : genotype.getDiplotypes()) {
-      if (!diplotype.isUnknownPhenotype() && diplotype.isUnknownAlleles()) {
+      if (diplotype.isPhenotypeOnly() || diplotype.isAllelePresenceType()) {
         getGroups().stream()
             .filter(group -> diplotype.getPhenotypes().stream().anyMatch(p -> group.getName().equalsIgnoreCase(p)))
             .forEach(g -> {

@@ -336,6 +336,61 @@ class PharmCATTest {
     assertEquals(93, testWrapper.getContext().getDrugReports().size());
   }
 
+  @Test
+  void testAll() throws Exception {
+    Path outsideCallPath = TestUtils.createTempFile("hlab", ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write(
+          "CYP2D6\t*3/*4\n" +
+          "G6PD\tB (wildtype)/B (wildtype)\n" +
+          "HLA-A\t\t*31:01 positive\n" +
+          "HLA-B\t*15:02/*57:01"
+      );
+    }
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("all", false);
+    testWrapper.getVcfBuilder()
+        .reference("ABCG2")
+        .reference("CACNA1S")
+        .reference("CFTR")
+        .reference("CYP2B6")
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs3758581", "G", "G") // to make it *1/*1
+        .reference("CYP2C9")
+        .reference("CYP3A4")
+        .reference("CYP3A5")
+        .reference("CYP4F2")
+        .reference("DPYD")
+        .reference("IFNL3")
+        .reference("NUDT15")
+        .reference("RYR1")
+        .reference("SLCO1B1")
+        .reference("TPMT")
+        .reference("UGT1A1")
+        .reference("VKORC1");
+    testWrapper.execute(outsideCallPath);
+
+    testWrapper.testCalledByMatcher(
+        "ABCG2",
+        "CACNA1S",
+        "CFTR",
+        "CYP2B6",
+        "CYP2C19",
+        "CYP2C9",
+        "CYP3A4",
+        "CYP3A5",
+        "CYP4F2",
+        "DPYD",
+        "IFNL3",
+        "NUDT15",
+        "RYR1",
+        "SLCO1B1",
+        "TPMT",
+        "UGT1A1",
+        "VKORC1"
+    );
+    testWrapper.testNotCalledByMatcher("CYP2D6", "G6PD", "HLA-A", "HLA-B");
+  }
+
   /**
    * This test illustrates when one gene in a two-gene guideline (amitriptyline) is not called that it should still be
    * able to come up with a matched group
