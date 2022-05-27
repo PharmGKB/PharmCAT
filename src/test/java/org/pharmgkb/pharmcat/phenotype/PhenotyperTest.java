@@ -52,7 +52,7 @@ class PhenotyperTest {
   }
 
   @Test
-  void testCyp2D6Only() {
+  void testCyp2D6Only() throws Exception {
     Phenotyper phenotyper = new Phenotyper(
         new ArrayList<>(),
         OutsideCallParser.parse("CYP2D6\t*1/*3"), null);

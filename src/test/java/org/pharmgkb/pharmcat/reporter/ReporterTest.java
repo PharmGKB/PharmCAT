@@ -1,11 +1,7 @@
 package org.pharmgkb.pharmcat.reporter;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -51,30 +47,5 @@ class ReporterTest {
         .filter(d -> d.getRelatedDrugs().contains("desflurane")).findFirst()
         .orElseThrow(() -> new RuntimeException("No desflurane drug report found"));
     assertEquals(1, desfluraneReport.getGuidelines().stream().filter(GuidelineReport::isMatched).count());
-  }
-  
-  @Test
-  void testMain() throws Exception {
-    Path outputReportPath = TestUtils.createTempFile("ReporterTest", ".html");
-    String[] args = new String[]{
-        "-p",
-        PathUtils.getPathToResource(PHENOTYPER_FILE_PATH).toAbsolutePath().toString(),
-        "-f",
-        outputReportPath.toString(),
-        "-t",
-        "example_title"
-    };
-    Reporter.main(args);
-
-    File outputFile = outputReportPath.toFile();
-    assertTrue(outputFile.exists());
-    assertFalse(outputFile.isDirectory());
-
-    assertEquals(
-        "<!DOCTYPE html>",
-        Files.lines(outputReportPath).findFirst().orElseThrow(() -> new RuntimeException("Report is empty"))
-    );
-    
-    outputFile.deleteOnExit();
   }
 }

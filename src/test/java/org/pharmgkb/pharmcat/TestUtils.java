@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.TestInfo;
 
 
 /**
@@ -18,9 +20,14 @@ public class TestUtils {
   }
 
 
+  public static String getTestName(TestInfo testInfo) {
+    return testInfo.getDisplayName().replace("(TestInfo)", "");
+  }
+
+
   /**
    * Checks if test is running in a continuous integration environment.
-   * This is determiend based on the `CI` envinorment variable on GH Actions:
+   * This is determined based on the `CI` envinorment variable on GH Actions:
    * https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
    */
   public static boolean isContinuousIntegration() {
@@ -54,14 +61,45 @@ public class TestUtils {
     return outputDir;
   }
 
+
+  public static Path getTestOutputDir(TestInfo testInfo, boolean deleteIfExist) throws IOException {
+    Path classOutputDir;
+    if (testInfo.getTestClass().isPresent()) {
+      classOutputDir = TEST_OUTPUT_DIR.resolve(testInfo.getTestClass().get().getSimpleName());
+    } else {
+      classOutputDir = TEST_OUTPUT_DIR;
+    }
+    Path dir = classOutputDir.resolve(getTestName(testInfo));
+    if (Files.exists(dir)) {
+      if (Files.isDirectory(dir)) {
+        if (deleteIfExist) {
+          FileUtils.deleteDirectory(dir.toFile());
+        }
+      } else {
+        throw new RuntimeException("Not a directory: " + dir);
+      }
+    }
+    return dir;
+  }
+
   public static Path createTempFile(String prefix, String suffix) throws IOException {
-    Path file = Files.createTempFile(TEST_OUTPUT_DIR, prefix, suffix);
+    return createTempFile(TEST_OUTPUT_DIR, prefix, suffix);
+  }
+
+  public static Path createTempFile(TestInfo testInfo, String suffix) throws IOException {
+    return createTempFile(getTestOutputDir(testInfo, false), getTestName(testInfo), suffix);
+  }
+
+  private static Path createTempFile(Path dir, String prefix, String suffix) throws IOException {
+    if (!Files.isDirectory(dir)) {
+      Files.createDirectories(dir);
+    }
+    Path file = Files.createTempFile(dir, prefix, suffix);
     file.toFile().deleteOnExit();
     return file;
   }
 
   public static Path createTempDirectory(String prefix) throws IOException {
-    Path dir = Files.createTempDirectory(TEST_OUTPUT_DIR, prefix);
-    return dir;
+    return Files.createTempDirectory(TEST_OUTPUT_DIR, prefix);
   }
 }

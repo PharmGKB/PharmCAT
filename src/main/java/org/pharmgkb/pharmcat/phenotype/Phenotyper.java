@@ -7,10 +7,8 @@ import java.lang.invoke.MethodHandles;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -22,27 +20,19 @@ import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.pharmgkb.common.util.CliHelper;
-import org.pharmgkb.pharmcat.ParseException;
+import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.definition.MessageList;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.ReferenceAlleleMap;
-import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
-import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.Reporter;
-import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
-import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.util.CliUtils;
-import org.pharmgkb.pharmcat.util.DataManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,64 +46,6 @@ public class Phenotyper {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private final SortedSet<GeneReport> f_geneReports = new TreeSet<>();
 
-  public static void main(String[] args) {
-    CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        //
-        .addOption("vcf", "sample-vcf", "input sample file (VCF)", false, "vcf")
-        .addOption("c", "call-file", "named allele call JSON file", false, "call-file-path")
-        // optional-data
-        .addOption("a", "outside-call-file", "optional, outside call TSV file", false, "outside-file-path")
-        // output
-        .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "o")
-        .addOption("f", "output-file", "file path to write Phenotyper JSON data to", false, "output-file-path", 1, false)
-        // research
-        .addOption("r", "research-mode", "enable research mode")
-        .addOption("cyp2d6", "research-cyp2d6", "call CYP2D6 (must also use research mode)")
-        ;
-    try {
-      if (!cliHelper.parse(args)) {
-        System.exit(1);
-      }
-      Path vcfFile = cliHelper.hasOption("vcf") ? cliHelper.getValidFile("vcf", true) : null;
-      Path callFile = cliHelper.hasOption("c") ? cliHelper.getValidFile("c", true) : null;
-      Path outsideCallPath = cliHelper.hasOption("a") ? cliHelper.getValidFile("a", true) : null;
-
-      Preconditions.checkArgument(callFile != null ^ vcfFile != null, "Can use VCF file or Matcher JSON file, not both");
-      Preconditions.checkArgument(callFile == null || Files.isRegularFile(callFile), "Call file does not exist or is not a regular file");
-      Preconditions.checkArgument(vcfFile == null || Files.isRegularFile(vcfFile), "Sample VCF file does not exist or is not a regular file");
-
-      Path inputFile = vcfFile == null ? callFile : vcfFile;
-      Path jsonFile = CliUtils.getOutputFile(cliHelper, inputFile, "f", ".phenotyper.json");
-
-      List<GeneCall> calls;
-      Map<String,Collection<String>> variantWarnings = new HashMap<>();
-      if (callFile != null) {
-        calls = new ResultSerializer().fromJson(callFile).getGeneCalls();
-      } else {
-        DefinitionReader definitionReader = new DefinitionReader();
-        definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
-        boolean callCyp2d6 = cliHelper.hasOption("r") && cliHelper.hasOption("cyp2d6");
-        NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, false, callCyp2d6);
-        Result result = namedAlleleMatcher.call(vcfFile);
-        calls = result.getGeneCalls();
-        variantWarnings = result.getVcfWarnings();
-      }
-
-      //Load the outside calls if it's available
-      List<OutsideCall> outsideCalls = new ArrayList<>();
-      if (outsideCallPath != null) {
-        Preconditions.checkArgument(Files.exists(outsideCallPath));
-        Preconditions.checkArgument(Files.isRegularFile(outsideCallPath));
-        outsideCalls = OutsideCallParser.parse(outsideCallPath);
-      }
-
-      Phenotyper phenotyper = new Phenotyper(calls, outsideCalls, variantWarnings);
-      phenotyper.write(jsonFile);
-    } catch (IOException e) {
-      e.printStackTrace();
-      System.exit(1);
-    }
-  }
 
   /**
    * Public constructor. This needs {@link GeneCall} objects from the {@link NamedAlleleMatcher} and {@link OutsideCall}
@@ -121,7 +53,8 @@ public class Phenotyper {
    * @param geneCalls a List of {@link GeneCall} objects
    * @param outsideCalls a List of {@link OutsideCall} objects
    */
-  public Phenotyper(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls, @Nullable Map<String, Collection<String>> variantWarnings) {
+  public Phenotyper(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls,
+      @Nullable Map<String, Collection<String>> variantWarnings) throws ReportableException {
     ReferenceAlleleMap referenceAlleleMap = new ReferenceAlleleMap();
     PhenotypeMap phenotypeMap = new PhenotypeMap();
 
@@ -143,7 +76,7 @@ public class Phenotyper {
       if (geneReport != null) {
         // DO NOT allow both a report from the matcher/caller and from an outside source
         if (geneReport.getCallSource() == CallSource.MATCHER && geneReport.isCalled()) {
-          throw new ParseException("Cannot specify outside call for " + geneReport.getGene() + ", it is already called in sample data");
+          throw new ReportableException("Cannot specify outside call for " + geneReport.getGene() + ", it is already called in sample data");
         } else {
           // if the caller already made a report but it's uncalled let's remove it so we can replace it
           removeGeneReport(outsideCall.getGene());

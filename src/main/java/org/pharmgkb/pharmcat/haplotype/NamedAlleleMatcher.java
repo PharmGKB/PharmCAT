@@ -14,6 +14,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -75,18 +76,17 @@ public class NamedAlleleMatcher {
 
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-          .addOption("vcf", "sample-vcf", "input VCF file", true, "vcf")
-          .addOption("fc", "find-combinations", "find combinations")
-          .addOption("ar", "all-results", "return all possible diplotypes, not just top hits")
+          .addOption("vcf", "matcher-vcf", "input VCF file", true, "vcf")
+          .addOption("a", "all-results", "return all possible diplotypes, not just top hits")
           // optional data
-          .addOption("na", "named-alleles-dir", "directory of named allele definitions (JSON files)", false, "l")
+          .addOption("d", "definitions-dir", "directory containing named allele definitions (JSON files)", false, "dir")
           // outputs
           .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "o")
-          .addOption("json", "json-out", "file to save results to (in JSON format)", false, "json")
-          .addOption("html", "html-out", "file to save results to (in HTML format)", false, "html", 1, false)
+          .addOption("html", "save-html", "save matcher results as HTML")
           // research
-          .addOption("r", "research-mode", "enable research mode")
+          .addOption("research", "research-mode", "enable research mode")
           .addOption("cyp2d6", "research-cyp2d6", "call CYP2D6 (must also use research mode)")
+          .addOption("combinations", "research-combinations", "find combinations and partial alleles (must also use research mode)")
           ;
 
       if (!cliHelper.parse(args)) {
@@ -108,26 +108,41 @@ public class NamedAlleleMatcher {
         System.exit(1);
       }
 
-      boolean findCombinations = cliHelper.hasOption("fc");
-      boolean topCandidateOnly = !cliHelper.hasOption("ar");
-      boolean callCyp2d6 = cliHelper.hasOption("r") && cliHelper.hasOption("cyp2d6");
+      boolean topCandidateOnly = !cliHelper.hasOption("a");
+      boolean callCyp2d6 = false;
+      boolean findCombinations = false;
+      if (cliHelper.hasOption("research")) {
+        callCyp2d6 = cliHelper.hasOption("cyp2d6");
+        findCombinations = cliHelper.hasOption("combinations");
+      }
       NamedAlleleMatcher namedAlleleMatcher =
           new NamedAlleleMatcher(definitionReader, findCombinations, topCandidateOnly, callCyp2d6)
               .printWarnings();
       Result result = namedAlleleMatcher.call(vcfFile);
 
-      Path jsonFile = CliUtils.getOutputFile(cliHelper, vcfFile, "json", ".matcher.json");
+      Path jsonFile = CliUtils.getOutputFile(cliHelper, vcfFile, "json", ".match.json");
       ResultSerializer resultSerializer = new ResultSerializer();
       resultSerializer.toJson(result, jsonFile);
       System.out.println("Saved JSON results to " + jsonFile);
       if (cliHelper.hasOption("html")) {
-        Path htmlFile = CliUtils.getOutputFile(cliHelper, vcfFile, "html", ".matcher.html");
+        Path htmlFile = CliUtils.getOutputFile(cliHelper, vcfFile, "html", ".match.html");
         resultSerializer.toHtml(result, htmlFile);
         System.out.println("Saved HTML results to " + htmlFile);
       }
 
     } catch (Exception ex) {
       ex.printStackTrace();
+    }
+  }
+
+
+  public void saveResults(Result result, @Nullable Path jsonFile, @Nullable Path htmlFile) throws IOException {
+    ResultSerializer resultSerializer = new ResultSerializer();
+    if (jsonFile != null) {
+      resultSerializer.toJson(result, jsonFile);
+    }
+    if (htmlFile != null) {
+      resultSerializer.toHtml(result, htmlFile);
     }
   }
 

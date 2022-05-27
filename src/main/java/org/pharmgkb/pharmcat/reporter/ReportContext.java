@@ -51,7 +51,7 @@ public class ReportContext {
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
    * @param geneReports {@link GeneReport} objects, non-null but can be empty
    */
-  public ReportContext(Collection<GeneReport> geneReports) throws Exception {
+  public ReportContext(Collection<GeneReport> geneReports) throws IOException {
     MessageList messageList = new MessageList();
 
     // add GeneReports from the Phenotyper

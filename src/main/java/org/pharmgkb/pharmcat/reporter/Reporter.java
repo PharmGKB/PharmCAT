@@ -14,8 +14,6 @@ import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.common.util.CliHelper;
-import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.slf4j.Logger;
@@ -41,52 +39,16 @@ public class Reporter {
   private ReportContext m_reportContext = null;
   private boolean m_testMode = false;
 
-  /**
-   * Main CLI
-   * @param args command line args
-   */
-  public static void main(String[] args) {
-
-    CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        // input
-        .addOption("p", "phenotyper-file", "phenotyper output JSON file", true, "file-path")
-        // optional data
-        .addOption("t", "title", "optional, text to add to the report title", false, "title")
-        // outputs
-        .addOption("f", "output-html-file", "file path to write HTML report to", true, "file-path")
-        .addOption("j", "output-json-file", "optional, file path to write JSON data to", false, "file-path")
-        ;
-
-    try {
-      if (!cliHelper.parse(args)) {
-        System.exit(1);
-      }
-
-      Path phenotyperFile = cliHelper.getValidFile("p", true);
-      Path outputFile = cliHelper.getPath("f");
-      Path jsonPath = null;
-      if (cliHelper.hasOption("j")) {
-        jsonPath = cliHelper.getPath("j");
-      }
-      String title = cliHelper.getValue("t");
-
-      new Reporter()
-          .analyze(Phenotyper.readGeneReports(phenotyperFile))
-          .printHtml(outputFile, title, jsonPath);
-
-    } catch (Exception ex) {
-      ex.printStackTrace();
-    }
-  }
 
   /**
    * Run the actual report process. Parse the input file, do the matching, and write the report files.
    *
    * @param geneReports collection of {@link GeneReport} objects that came from the Phenotyper
    */
-  public Reporter analyze(Collection<GeneReport> geneReports) throws Exception {
+  public Reporter analyze(Collection<GeneReport> geneReports) throws IOException {
 
-    //This is the primary work flow for generating the report where calls are matched to exceptions and drug gene m_guidelineFiles based on reported haplotypes
+    //This is the primary work flow for generating the report where calls are matched to exceptions and
+    // drug gene m_guidelineFiles based on reported haplotypes
     m_reportContext = new ReportContext(geneReports);
 
     return this;

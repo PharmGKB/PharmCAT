@@ -37,12 +37,13 @@ class SyntheticBatchTest {
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        .addOption("o", "output-dir", "directory to output to", true, "o");
+        .addOption("o", "output-dir", "directory to output to", false, "o");
     try {
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
-      Path outputDir = cliHelper.getValidDirectory("o", true);
+      Path outputDir = cliHelper.hasOption("o") ? cliHelper.getValidDirectory("o", true)
+          : TestUtils.TEST_OUTPUT_DIR;
       SyntheticBatchTest piplelineTest = new SyntheticBatchTest(outputDir);
       piplelineTest.execute();
     } catch (Exception e) {
@@ -445,11 +446,7 @@ class SyntheticBatchTest {
 
   private SyntheticBatchTest(Path outputDir) throws IOException {
     f_outputDir = outputDir;
-    f_pharmcat = new PharmCAT(outputDir, null).keepMatcherOutput();
-    f_pharmcat.getReporter().setTestMode(true);
-    f_pharmcat
-        .writeJson(true)
-        .writePhenotyperJson(true);
+    f_pharmcat = new PharmCAT(true);
 
     String readmeContent = String.format(
         "# PharmCAT Example Reports\n\nGenerated on: %s  \nPharmCAT Version: %s",
@@ -468,8 +465,7 @@ class SyntheticBatchTest {
     }
 
     Path sampleVcf = writeVcf(sampleDir.resolve(key + ".vcf"), testVcfs);
-    f_pharmcat.setOutputDir(sampleDir);
-    f_pharmcat.execute(sampleVcf, outsideCallPath, null);
+    f_pharmcat.execute(sampleVcf, outsideCallPath);
   }
 
   private void makeReportWithOutputString(String key, String[] testVcfs, String outsideCalls) throws Exception {

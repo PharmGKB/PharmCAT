@@ -27,14 +27,15 @@ updateData: clean
 	@${GRADLE_CMD} updateData
 	@echo "Moving pharmcat_position files..."
 	mv src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.* .
+	cp pharmcat_positions.vcf src/test/resources/reference.vcf
 	@echo "\n\nUpdating examples..."
 	@${GRADLE_CMD} updateExample
 	@echo "Moving example files..."
-	mv docs/examples/pharmcat_positions.matcher.html    docs/examples/pharmcat.example.matcher.html
-	mv docs/examples/pharmcat_positions.matcher.json    docs/examples/pharmcat.example.matcher.json
-	mv docs/examples/pharmcat_positions.phenotyper.json docs/examples/pharmcat.example.phenotyper.json
-	mv docs/examples/pharmcat_positions.report.html     docs/examples/pharmcat.example.report.html
-	mv docs/examples/pharmcat_positions.report.json     docs/examples/pharmcat.example.report.json
+	mv docs/examples/pharmcat_positions.match.html     docs/examples/pharmcat.example.match.html
+	mv docs/examples/pharmcat_positions.match.json     docs/examples/pharmcat.example.match.json
+	mv docs/examples/pharmcat_positions.phenotype.json docs/examples/pharmcat.example.phenotype.json
+	mv docs/examples/pharmcat_positions.report.html    docs/examples/pharmcat.example.report.html
+	mv docs/examples/pharmcat_positions.report.json    docs/examples/pharmcat.example.report.json
 
 
 .PHONY: docker

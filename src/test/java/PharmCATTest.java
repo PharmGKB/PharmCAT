@@ -5,13 +5,24 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.PharmCAT;
+import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
+import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
+import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -20,6 +31,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
+import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -29,7 +41,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Ryan Whaley
  */
 class PharmCATTest {
-
+  private static final Path sf_outputDir = TestUtils.TEST_OUTPUT_DIR.resolve(PharmCATTest.class.getSimpleName());
   private static final String sf_outsideCalls = """
       ##Test Outside Call Data
       #Gene\tDiplotype\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\tspecial case\tnomenclature version
@@ -54,6 +66,260 @@ class PharmCATTest {
       fw.write(sf_otherOutsideCalls);
     }
   }
+
+  @AfterAll
+  static void teardown() throws IOException {
+    FileUtils.deleteDirectory(sf_outputDir.toFile());
+  }
+
+
+  @Test
+  void cliBasic() throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("reference.vcf");
+    Path refMatcherOutput = vcfFile.getParent().resolve("reference.match.json");
+    Path refPhenotyperOutput = vcfFile.getParent().resolve("reference.phenotype.json");
+    Path refReporterOutput = vcfFile.getParent().resolve("reference.report.html");
+
+    // require VCF
+    try {
+      String systemOut = tapSystemOut(() -> {
+        PharmCAT.main(null);
+      });
+      //System.out.println(systemOut);
+      assertTrue(systemOut.contains("No input"));
+      assertTrue(systemOut.contains("-vcf"));
+    } finally {
+      Files.deleteIfExists(refMatcherOutput);
+      Files.deleteIfExists(refPhenotyperOutput);
+      Files.deleteIfExists(refReporterOutput);
+    }
+
+    // standard full run
+    try {
+      String systemOut = tapSystemOut(() -> {
+        PharmCAT.main(new String[] {"-vcf", vcfFile.toString()});
+      });
+      //System.out.println(systemOut);
+      assertTrue(systemOut.contains("Done."));
+      assertTrue(Files.exists(refMatcherOutput));
+      assertTrue(Files.exists(refPhenotyperOutput));
+      assertTrue(Files.exists(refReporterOutput));
+
+      ResultSerializer resultSerializer = new ResultSerializer();
+      Result result = resultSerializer.fromJson(refMatcherOutput);
+      Optional<GeneCall> gcOpt = result.getGeneCalls().stream()
+          .filter(gc -> gc.getGene().equals("CYP2D6"))
+          .findFirst();
+      assertTrue(gcOpt.isEmpty());
+
+      List<GeneReport> reports = Phenotyper.readGeneReports(refPhenotyperOutput);
+      Optional<GeneReport> grOpt = reports.stream()
+          .filter(gr -> gr.getGene().equals("CYP2D6"))
+          .findFirst();
+      assertTrue(grOpt.isPresent());
+      assertFalse(grOpt.get().isCalled());
+
+    } finally {
+      Files.deleteIfExists(refMatcherOutput);
+      Files.deleteIfExists(refPhenotyperOutput);
+      Files.deleteIfExists(refReporterOutput);
+    }
+  }
+
+
+  @Test
+  void cliCallCyp2d6(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("reference.vcf");
+
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+    Path refMatcherOutput = outputDir.resolve("reference.match.json");
+    Path refPhenotyperOutput = outputDir.resolve("reference.phenotype.json");
+    Path refReporterOutput = outputDir.resolve("reference.report.html");
+
+    try {
+      String systemOut = tapSystemOut(() -> {
+        PharmCAT.main(new String[]{
+            "-vcf", vcfFile.toString(),
+            "-o", outputDir.toString(),
+            "-research", "cyp2d6" });
+      });
+      //System.out.println(systemOut);
+      assertTrue(systemOut.contains("Done."));
+      assertTrue(Files.exists(refMatcherOutput));
+      assertTrue(Files.exists(refPhenotyperOutput));
+      assertTrue(Files.exists(refReporterOutput));
+
+      ResultSerializer resultSerializer = new ResultSerializer();
+      Result result = resultSerializer.fromJson(refMatcherOutput);
+      Optional<GeneCall> opt = result.getGeneCalls().stream()
+          .filter(gc -> gc.getGene().equals("CYP2D6"))
+          .findFirst();
+      assertTrue(opt.isPresent());
+      assertEquals(1, opt.get().getDiplotypes().size());
+      assertEquals("*1/*1", opt.get().getDiplotypes().iterator().next().getName());
+
+      List<GeneReport> reports = Phenotyper.readGeneReports(refPhenotyperOutput);
+      Optional<GeneReport> grOpt = reports.stream()
+          .filter(gr -> gr.getGene().equals("CYP2D6"))
+          .findFirst();
+      assertTrue(grOpt.isPresent());
+      assertTrue(grOpt.get().isCalled());
+      assertFalse(grOpt.get().isOutsideCall());
+
+    } finally {
+      Files.deleteIfExists(refMatcherOutput);
+      Files.deleteIfExists(refPhenotyperOutput);
+      Files.deleteIfExists(refReporterOutput);
+    }
+  }
+
+  @Test
+  void cliCallCyp2d6WithOverlappingOutsideCall(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("reference.vcf");
+    Path outsideCallFile = PathUtils.getPathToResource("PharmCATTest-cyp2d6.tsv");
+
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+    Path refMatcherOutput = outputDir.resolve("reference.match.json");
+    Path refPhenotyperOutput = outputDir.resolve("reference.phenotype.json");
+    Path refReporterOutput = outputDir.resolve("reference.report.html");
+
+    try {
+      String systemOut = tapSystemOut(() -> {
+        PharmCAT.main(new String[]{
+            "-vcf", vcfFile.toString(),
+            "-po", outsideCallFile.toString(),
+            "-o", outputDir.toString(),
+            "-research", "cyp2d6" });
+      });
+      System.out.println(systemOut);
+      assertTrue(systemOut.contains("Cannot specify outside call for CYP2D6, it is already called in sample data"));
+      assertTrue(Files.exists(refMatcherOutput));
+      assertFalse(Files.exists(refPhenotyperOutput));
+      assertFalse(Files.exists(refReporterOutput));
+
+    } finally {
+      Files.deleteIfExists(refMatcherOutput);
+      Files.deleteIfExists(refPhenotyperOutput);
+      Files.deleteIfExists(refReporterOutput);
+    }
+  }
+
+  @Test
+  void cliOutsideCallsOnly(TestInfo testInfo) throws Exception {
+    Path outsideCallFile = PathUtils.getPathToResource("PharmCATTest-cyp2d6.tsv");
+
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+    Path outsideMatcherOutput = outputDir.resolve("PharmCATTest-cyp2d6.match.json");
+    Path outsidePhenotyperOutput = outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json");
+    Path outsideReporterOutput = outputDir.resolve("PharmCATTest-cyp2d6.report.html");
+
+    try {
+      String systemOut = tapSystemOut(() -> {
+        PharmCAT.main(new String[] {
+            "-o", outputDir.toString(),
+            "-phenotyper",
+            "-po", outsideCallFile.toString()
+        });
+      });
+      System.out.println(systemOut);
+      assertTrue(systemOut.contains("Done."));
+      assertFalse(Files.exists(outsideMatcherOutput));
+      assertTrue(Files.exists(outsidePhenotyperOutput));
+      assertFalse(Files.exists(outsideReporterOutput));
+
+      List<GeneReport> reports = Phenotyper.readGeneReports(outsidePhenotyperOutput);
+      Optional<GeneReport> grOpt = reports.stream()
+          .filter(gr -> gr.getGene().equals("CYP2D6"))
+          .findFirst();
+      assertTrue(grOpt.isPresent());
+      assertTrue(grOpt.get().isCalled());
+      assertTrue(grOpt.get().isOutsideCall());
+
+    } finally {
+      Files.deleteIfExists(outsideMatcherOutput);
+      Files.deleteIfExists(outsidePhenotyperOutput);
+      Files.deleteIfExists(outsideReporterOutput);
+    }
+  }
+
+  /**
+   * This test is dependent on CYP2C19 definition.
+   * It may fail if CYP2C19 definition changes too much.
+   */
+  @Test
+  void cliMatchAllFlag(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("PharmCATTest-cyp2c19MissingPositions.vcf");
+
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+    String baseFilename = TestUtils.getTestName(testInfo);
+    Path matcherOutput = outputDir.resolve(baseFilename + ".match.json");
+    Path phenotyperOutput = outputDir.resolve(baseFilename + ".phenotype.json");
+    Path reporterOutput = outputDir.resolve(baseFilename + ".report.html");
+
+    // matcher only, expecting 1 CYP2C19 matches
+    try {
+      String systemOut = tapSystemOut(() -> {
+        PharmCAT.main(new String[] {
+            "-vcf", vcfFile.toString(),
+            "-matcher",
+            "-o", outputDir.toString(),
+            "-bf", baseFilename,
+        });
+      });
+      //System.out.println(systemOut);
+      assertTrue(systemOut.contains("Done."));
+      assertTrue(Files.exists(matcherOutput));
+      assertFalse(Files.exists(phenotyperOutput));
+      assertFalse(Files.exists(reporterOutput));
+
+      ResultSerializer resultSerializer = new ResultSerializer();
+      Result result = resultSerializer.fromJson(matcherOutput);
+      Optional<GeneCall> gcOpt = result.getGeneCalls().stream()
+          .filter(gc -> gc.getGene().equals("CYP2C19"))
+          .findFirst();
+      assertTrue(gcOpt.isPresent());
+      GeneCall gc = gcOpt.get();
+      assertEquals(1, gc.getDiplotypes().size());
+
+    } finally {
+      Files.deleteIfExists(matcherOutput);
+      Files.deleteIfExists(phenotyperOutput);
+      Files.deleteIfExists(reporterOutput);
+    }
+
+    // matcher only, expecting many CYP2C19 matches
+    try {
+      String systemOut = tapSystemOut(() -> {
+        PharmCAT.main(new String[] {
+            "-vcf", vcfFile.toString(),
+            "-matcher",
+            "-ma",
+            "-o", outputDir.toString(),
+            "-bf", baseFilename,
+        });
+      });
+      //System.out.println(systemOut);
+      assertTrue(systemOut.contains("Done."));
+      assertTrue(Files.exists(matcherOutput));
+      assertFalse(Files.exists(phenotyperOutput));
+      assertFalse(Files.exists(reporterOutput));
+
+      ResultSerializer resultSerializer = new ResultSerializer();
+      Result result = resultSerializer.fromJson(matcherOutput);
+      Optional<GeneCall> gcOpt = result.getGeneCalls().stream()
+          .filter(gc -> gc.getGene().equals("CYP2C19"))
+          .findFirst();
+      assertTrue(gcOpt.isPresent());
+      GeneCall gc = gcOpt.get();
+      assertTrue(gc.getDiplotypes().size() > 50);
+
+    } finally {
+      Files.deleteIfExists(matcherOutput);
+      Files.deleteIfExists(phenotyperOutput);
+      Files.deleteIfExists(reporterOutput);
+    }
+  }
+
 
   /**
    * NOTE: if these assertions fail then new data may have been added from the DataManager because of an update to the
@@ -983,8 +1249,8 @@ class PharmCATTest {
   }
 
   @Test
-  void testHlab() throws Exception {
-    Path outsideCallPath = TestUtils.createTempFile("hlab", ".tsv");
+  void testHlab(TestInfo testInfo) throws Exception {
+    Path outsideCallPath = TestUtils.createTempFile(testInfo, ".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write("HLA-B\t*15:02/*57:01");
     }
@@ -1006,8 +1272,8 @@ class PharmCATTest {
   }
 
   @Test
-  void testHlabPhenotype() throws Exception {
-    Path outsideCallPath = TestUtils.createTempFile("hlabPhenotype", ".tsv");
+  void testHlabPhenotype(TestInfo testInfo) throws Exception {
+    Path outsideCallPath = TestUtils.createTempFile(testInfo, ".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write("HLA-B\t\t*57:01 positive");
     }
@@ -1282,8 +1548,8 @@ class PharmCATTest {
    * error.
    */
   @Test
-  void testBadOutsideData() throws Exception {
-    Path badOutsideDataPath = TestUtils.createTempFile("badOutsideData", ".tsv");
+  void testBadOutsideData(TestInfo testInfo) throws Exception {
+    Path badOutsideDataPath = TestUtils.createTempFile(testInfo, ".tsv");
     try (FileWriter fw = new FileWriter(badOutsideDataPath.toFile())) {
       fw.write("CYP2D6\t*1/*2\tfoo\nCYP2D6\t*3/*4");
     }
@@ -1301,8 +1567,8 @@ class PharmCATTest {
   }
 
   @Test
-  void testCyp2d6AlleleWithNoFunction() throws Exception {
-    Path outsideCallPath = TestUtils.createTempFile("cyp2d6AlleleWithNoFunction",".tsv");
+  void testCyp2d6AlleleWithNoFunction(TestInfo testInfo) throws Exception {
+    Path outsideCallPath = TestUtils.createTempFile(testInfo,".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write("CYP2D6\t*1/*XXX\n");
     }
@@ -1324,8 +1590,8 @@ class PharmCATTest {
    * supplied. This should result in an error
    */
   @Test
-  void testCallerCollision() throws Exception {
-    Path outsidePath = TestUtils.createTempFile("callerCollision", ".tsv");
+  void testCallerCollision(TestInfo testInfo) throws Exception {
+    Path outsidePath = TestUtils.createTempFile(testInfo, ".tsv");
     try (FileWriter fw = new FileWriter(outsidePath.toFile())) {
       fw.write("CYP2C19\t*2/*2");
     }
@@ -1337,7 +1603,7 @@ class PharmCATTest {
       testWrapper.execute(outsidePath);
       fail("Should have failed due to a duplicate gene definition between matcher and outside caller");
     }
-    catch (ParseException ex) {
+    catch (ReportableException ex) {
       // we want this to fail so ignore handling the exception
     }
   }
@@ -1369,45 +1635,38 @@ class PharmCATTest {
 
   
   private static class PharmCATTestWrapper {
-    private final PharmCAT f_pharmCat;
-    private final Path f_outputPath;
-    private final TestVcfBuilder f_vcfBuilder;
+    private final PharmCAT m_pharmcat;
+    private final Path m_outputPath;
+    private final TestVcfBuilder m_vcfBuilder;
 
     PharmCATTestWrapper(String testKey, boolean allMatches) throws IOException {
       this(testKey, false, allMatches);
     }
 
     PharmCATTestWrapper(String testKey, boolean findCombinations, boolean allMatches) throws IOException {
-      f_outputPath = TestUtils.TEST_OUTPUT_DIR.resolve("reports").resolve(testKey);
-      if (!Files.isDirectory(f_outputPath)) {
-        Files.createDirectories(f_outputPath);
-      }
 
-      f_vcfBuilder = new TestVcfBuilder(testKey).saveFile();
+      m_outputPath = sf_outputDir.resolve(testKey);
+      if (!Files.isDirectory(m_outputPath)) {
+        Files.createDirectories(m_outputPath);
+      }
+      m_vcfBuilder = new TestVcfBuilder(testKey).saveFile();
 
-      f_pharmCat = new PharmCAT(f_outputPath, null)
-          .keepMatcherOutput()
-          .writeJson(true)
-          .writePhenotyperJson(true);
-      f_pharmCat.getReporter().setTestMode(true);
-      if (findCombinations) {
-        f_pharmCat.findCombinations();
-      }
-      if (allMatches) {
-        f_pharmCat.showAllMatches();
-      }
+      m_pharmcat = new PharmCAT(true)
+          .matchCombinations(findCombinations)
+          .matchTopCandidateOnly(!allMatches);
     }
 
     ReportContext getContext() {
-      return f_pharmCat.getReporter().getContext();
+      return m_pharmcat.getReportContext();
     }
 
     TestVcfBuilder getVcfBuilder() {
-      return f_vcfBuilder;
+      return m_vcfBuilder;
     }
 
-    void execute(Path outsidePath) throws Exception {
-      f_pharmCat.execute(f_vcfBuilder.generate(f_outputPath), outsidePath, null);
+    void execute(Path outsideCallPath) throws Exception {
+      Path vcfFile = m_vcfBuilder.generate(m_outputPath);
+      m_pharmcat.execute(vcfFile, outsideCallPath);
     }
 
     /**
