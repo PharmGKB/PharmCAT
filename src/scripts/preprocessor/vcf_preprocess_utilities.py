@@ -223,10 +223,8 @@ def extract_regions_from_single_file(bcftools_path, input_vcf, pgx_vcf, output_d
 
     # obtain PGx regions to be extracted
     df_ref_pgx_pos = allel.vcf_to_dataframe(pgx_vcf)
-    df_ref_pgx_pos['CHROM'] = df_ref_pgx_pos['CHROM'].astype("category")
-    df_ref_pgx_pos['CHROM'].cat.set_categories(_chr_valid_sorter, inplace=True)
-    ref_pgx_regions = df_ref_pgx_pos.groupby(['CHROM'])['POS'].agg(_get_vcf_pos_min_max).reset_index()
-    ref_pgx_regions.dropna(axis=0, subset=['POS'], how='any', inplace=True)
+    df_ref_pgx_pos['CHROM'] = df_ref_pgx_pos['CHROM'].astype("category").cat.set_categories(_chr_valid_sorter)
+    ref_pgx_regions = df_ref_pgx_pos.groupby(['CHROM'], observed=True)['POS'].agg(_get_vcf_pos_min_max).reset_index()
     # add a special case for 'chrMT'
     idx_chrM = ref_pgx_regions.index[ref_pgx_regions['CHROM'] == 'chrM']
     ref_pgx_regions = ref_pgx_regions.append(
