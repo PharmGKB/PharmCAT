@@ -13,6 +13,7 @@ import urllib.parse
 import urllib.request
 import copy
 import re
+import pandas as pd
 
 import vcf_preprocess_exceptions as Exceptions
 
@@ -227,8 +228,7 @@ def extract_regions_from_single_file(bcftools_path, input_vcf, pgx_vcf, output_d
     ref_pgx_regions = df_ref_pgx_pos.groupby(['CHROM'], observed=True)['POS'].agg(_get_vcf_pos_min_max).reset_index()
     # add a special case for 'chrMT'
     idx_chrM = ref_pgx_regions.index[ref_pgx_regions['CHROM'] == 'chrM']
-    ref_pgx_regions = ref_pgx_regions.append(
-        ref_pgx_regions.loc[idx_chrM].assign(**{'CHROM': 'chrMT'}), ignore_index=True)
+    ref_pgx_regions = pd.concat([ref_pgx_regions, ref_pgx_regions.loc[idx_chrM].assign(**{'CHROM': 'chrMT'})])
 
     # generate a temp dir to extract pgx regions and, if necessary, rename chr
     with tempfile.TemporaryDirectory(suffix='extract_pgx_regions', dir=output_dir) as temp_dir:
