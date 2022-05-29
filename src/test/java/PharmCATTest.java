@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import org.apache.commons.io.FileUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -119,6 +123,11 @@ class PharmCATTest {
       assertTrue(grOpt.isPresent());
       assertFalse(grOpt.get().isCalled());
 
+      Document document = Jsoup.parse(refReporterOutput.toFile());
+      assertNotNull(document.getElementById("genotypes"));
+      assertNotNull(document.getElementById("CYP2D6"));
+      assertNotNull(document.getElementById("PA166104937"));
+
     } finally {
       Files.deleteIfExists(refMatcherOutput);
       Files.deleteIfExists(refPhenotyperOutput);
@@ -165,6 +174,16 @@ class PharmCATTest {
       assertTrue(grOpt.isPresent());
       assertTrue(grOpt.get().isCalled());
       assertFalse(grOpt.get().isOutsideCall());
+
+      Document document = Jsoup.parse(refReporterOutput.toFile());
+      assertNotNull(document.getElementById("genotypes"));
+      Element geneTitle = document.getElementById("CYP2D6");
+      assertNotNull(geneTitle);
+      Elements diplotypes = geneTitle.parent().getElementsByTag("li");
+      for (String diplotype : diplotypes.eachText()) {
+        assertEquals("*1/*1", diplotype);
+      }
+      assertNotNull(document.getElementById("PA166104937"));
 
     } finally {
       Files.deleteIfExists(refMatcherOutput);
