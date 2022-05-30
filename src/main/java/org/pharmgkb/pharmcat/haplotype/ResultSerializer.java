@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -17,6 +18,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
+import com.google.common.base.Splitter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.io.IOUtils;
@@ -97,6 +99,9 @@ public class ResultSerializer {
     StringBuilder builder = new StringBuilder();
     for (GeneCall call : result.getGeneCalls()) {
       MatchData matchData = call.getMatchData();
+      Map<Long, String> refAlleleMap = new HashMap<>();
+      Arrays.stream(matchData.getPositions()).forEach(vl -> refAlleleMap.put(vl.getPosition(), vl.getRef()));
+      Set<Long> highlightPositions = new HashSet<>();
 
       builder.append("<h3>")
           .append(call.getGene())
@@ -155,9 +160,23 @@ public class ResultSerializer {
       builder.append("<tr class=\"success\">");
       builder.append("<th>VCF Call</th>");
       for (Variant v : call.getVariants()) {
-        builder.append("<th>")
-            .append(v.getVcfCall())
-            .append("</th>");
+        if (v.getVcfCall() != null) {
+          SortedSet<String> alleles = new TreeSet<>(Splitter.on(v.isPhased() ? "|" : "/").splitToList(v.getVcfCall()));
+          boolean isNonRef = false;
+          if (alleles.size() > 1 || !alleles.first().equals(refAlleleMap.get(v.getPosition()))) {
+            isNonRef = true;
+            highlightPositions.add(v.getPosition());
+          }
+          builder.append("<th");
+          if (isNonRef) {
+            builder.append(" class=\"text-danger\"");
+          }
+          builder.append(">")
+              .append(v.getVcfCall())
+              .append("</th>");
+        } else {
+          builder.append("<th />");
+        }
       }
       builder.append("</tr>");
 
@@ -165,16 +184,17 @@ public class ResultSerializer {
       if (call.getHaplotypes().size() > 0) {
         for (BaseMatch hm : call.getHaplotypes()) {
           matchedHaplotypeNames.add(hm.getHaplotype().getName());
-          printAllele(builder, hm.getHaplotype().getName(), hm.getHaplotype().getPermutations().pattern(), "info");
+          printAllele(builder, hm.getHaplotype().getName(), hm.getHaplotype().getPermutations().pattern(), "info",
+              highlightPositions);
           for (String seq : hm.getSequences()) {
-            printAllele(builder, null, seq, null);
+            printAllele(builder, null, seq, null, highlightPositions);
           }
         }
       }
       if (m_alwaysShowUnmatchedHaplotypes || matchedHaplotypeNames.size() == 0) {
         for (NamedAllele haplotype : matchData.getHaplotypes()) {
           if (!matchedHaplotypeNames.contains(haplotype.getName())) {
-            printAllele(builder, haplotype.getName(), haplotype.getPermutations().pattern(), "danger");
+            printAllele(builder, haplotype.getName(), haplotype.getPermutations().pattern(), "danger", highlightPositions);
           }
         }
       }
@@ -243,7 +263,7 @@ public class ResultSerializer {
 
 
   private void printAllele(StringBuilder builder, @Nullable String name, String allele,
-      @Nullable String rowClass) {
+      @Nullable String rowClass, Set<Long> highlightPositions) {
 
     SortedSet<Variant> variants = new TreeSet<>();
     for (String posAllele : allele.split(";")) {
@@ -252,7 +272,7 @@ public class ResultSerializer {
       if (a.equals(".?")) {
         a = "";
       }
-      int vcfPosition = Integer.parseInt(parts[0]);
+      long vcfPosition = Long.parseLong(parts[0]);
       variants.add(new Variant(vcfPosition, null, a, ""));
     }
 
@@ -273,8 +293,13 @@ public class ResultSerializer {
       if (vcfCall != null && vcfCall.contains("\\")) {
         vcfCall = vcfCall.replaceAll("\\\\", "");
       }
-      builder.append("<td>");
-      if (name == null) {
+      builder.append("<td");
+      boolean isAny = ".*?".equals(vcfCall);
+      if (highlightPositions.contains(variant.getPosition()) && !isAny) {
+        builder.append(" class=\"text-danger\"");
+      }
+      builder.append(">");
+      if (name == null || isAny) {
         builder.append(vcfCall);
       } else {
         builder.append("<b>")
