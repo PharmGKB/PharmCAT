@@ -12,6 +12,7 @@ import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
 
@@ -223,13 +224,6 @@ public class NamedAllele implements Comparable<NamedAllele> {
     return m_score;
   }
 
-  /**
-   * Modifies score because this is a combination haplotype with no partials.
-   */
-  public void setCombinationScore(int score) {
-    m_score = score;
-  }
-
 
   /**
    * Gets the positions that are missing from this NamedAllele.
@@ -261,7 +255,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
   }
 
   @Override
-  public int compareTo(NamedAllele o) {
+  public int compareTo(@NonNull NamedAllele o) {
     if (m_isReference && !o.isReference()) {
       return -1;
     } else if (o.isReference() && !m_isReference) {
