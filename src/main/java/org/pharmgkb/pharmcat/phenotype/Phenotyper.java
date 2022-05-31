@@ -81,9 +81,10 @@ public class Phenotyper {
           // if the caller already made a report but it's uncalled let's remove it so we can replace it
           removeGeneReport(outsideCall.getGene());
         }
+      } else {
+        geneReport = new GeneReport(outsideCall);
+        f_geneReports.add(geneReport);
       }
-      geneReport = new GeneReport(outsideCall);
-      f_geneReports.add(geneReport);
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
           geneReport.getGene(),

@@ -251,7 +251,7 @@ class PharmCATTest {
           .filter(gr -> gr.getGene().equals("CYP2D6"))
           .findFirst();
       assertTrue(grOpt.isPresent());
-      assertTrue(grOpt.get().isCalled());
+      assertFalse(grOpt.get().isCalled());
       assertTrue(grOpt.get().isOutsideCall());
 
     } finally {
@@ -601,7 +601,9 @@ class PharmCATTest {
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCalls("CYP2C19", "*4/*4", "*4/*17", "*17/*17");
 
-    testWrapper.testMatchedGroups("citalopram", 6);
+    testWrapper.testMatchedGroups("citalopram", 7);
+    testWrapper.testMatchedGroups("citalopram", DataSource.CPIC, 4);
+    testWrapper.testMatchedGroups("citalopram", DataSource.DPWG, 3);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.DPWG);
   }
@@ -1338,9 +1340,11 @@ class PharmCATTest {
     testWrapper.testNotCalledByMatcher("HLA-B");
     testWrapper.testReportable("CYP2C9");
     testWrapper.testReportable("HLA-B");
-    testWrapper.testMatchedGroups("abacavir", 1);
-    testWrapper.testMatchedGroups("allopurinol", 1);
-    testWrapper.testMatchedGroups("phenytoin", 3);
+    testWrapper.testMatchedGroups("abacavir", DataSource.CPIC, 1);
+    testWrapper.testMatchedGroups("abacavir", DataSource.DPWG, 1);
+    testWrapper.testMatchedGroups("allopurinol", DataSource.CPIC, 1);
+    testWrapper.testMatchedGroups("allopurinol", DataSource.DPWG, 1);
+    testWrapper.testMatchedGroups("phenytoin", 4);
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.DPWG);
   }
@@ -1416,14 +1420,13 @@ class PharmCATTest {
     testWrapper.testMatchedGroups("clopidogrel", DataSource.CPIC, 3);
     testWrapper.testMatchedGroups("clopidogrel", DataSource.DPWG, 1);
     testWrapper.testNoMatchFromSource("flucloxacillin", DataSource.CPIC);
-    testWrapper.testNoMatchFromSource("flucloxacillin", DataSource.DPWG);
+    testWrapper.testMatchedGroups("flucloxacillin", DataSource.DPWG, 1);
     testWrapper.testNoMatchFromSource("fluvoxamine", DataSource.CPIC);
     testWrapper.testNoMatchFromSource("fluvoxamine", DataSource.DPWG);
     testWrapper.testMatchedGroups("siponimod", 1);
     testWrapper.testAnyMatchFromSource("siponimod", DataSource.DPWG);
 
-    // TODO: resolve HLA-B handling in DPWG, count could be 5 when fixed
-    testWrapper.testMatchedGroups("carbamazepine", 4);
+    testWrapper.testMatchedGroups("carbamazepine", 5);
   }
 
   @Test
@@ -1657,6 +1660,25 @@ class PharmCATTest {
     assertEquals(1, geneReport.getReporterDiplotypes().size());
     Diplotype diplotype = geneReport.getReporterDiplotypes().get(0);
     assertEquals("One normal function allele and one unassigned function allele", diplotype.printFunctionPhrase());
+  }
+
+  @Test
+  void testCyp2d6DoubleCall(TestInfo testInfo) throws Exception {
+    Path outsideCallPath = TestUtils.createTempFile(testInfo,".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("CYP2D6\t*1/*1\nCYP2D6\t*1/*2\n");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("double.outside.call", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19");
+    testWrapper.execute(outsideCallPath);
+
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2D6");
+    assertNotNull(geneReport);
+    assertEquals(2, geneReport.getReporterDiplotypes().size());
+    Diplotype diplotype = geneReport.getReporterDiplotypes().get(0);
+    assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
   }
 
   /**

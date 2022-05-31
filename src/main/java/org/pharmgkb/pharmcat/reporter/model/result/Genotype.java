@@ -3,8 +3,10 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -82,5 +84,49 @@ public class Genotype {
       }
     }
     return newList;
+  }
+
+  /**
+   * Make a List of possible {@link Genotype} objects from different combinations of the collection of possible
+   * {@link Diplotype} objects.
+   * @param diplotypes the diplotypes to include in the possible genotypes
+   * @return a List of all possible genotypes
+   */
+  public static List<Genotype> makeGenotypes(Collection<Diplotype> diplotypes) {
+    List<Genotype> possibleGenotypes = new ArrayList<>();
+    Set<String> unprocessedGenes = new HashSet<>();
+    diplotypes.stream()
+        .map(Diplotype::getGene)
+        .forEach(unprocessedGenes::add);
+
+    for (Diplotype diplotype : diplotypes) {
+      String dipGene = diplotype.getGene();
+      if (possibleGenotypes.isEmpty()) {
+        possibleGenotypes.add(new Genotype(diplotype));
+        unprocessedGenes.remove(dipGene);
+      }
+      else {
+        if (!unprocessedGenes.contains(dipGene)) {
+          List<Genotype> genotypesToAdd = new ArrayList<>();
+          for (Genotype existingGenotype : possibleGenotypes) {
+            Genotype newGenotype = new Genotype(
+                existingGenotype.getDiplotypes().stream()
+                    .filter(d -> !d.getGene().equals(dipGene))
+                    .collect(Collectors.toSet())
+            );
+            newGenotype.addDiplotype(diplotype);
+            genotypesToAdd.add(newGenotype);
+          }
+          possibleGenotypes.addAll(genotypesToAdd);
+        } else {
+          for (Genotype possibleGenotype : possibleGenotypes) {
+            possibleGenotype.addDiplotype(diplotype);
+            unprocessedGenes.remove(dipGene);
+          }
+        }
+      }
+    }
+
+    return possibleGenotypes;
   }
 }

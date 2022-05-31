@@ -386,29 +386,11 @@ public class ReportContext {
   }
 
   private List<Genotype> makePossibleGenotypes(Collection<String> geneSymbols) {
-    List<Genotype> possibleGenotypes = new ArrayList<>();
-    for (String geneSymbol : geneSymbols) {
-      addToGenotypes(possibleGenotypes, geneSymbol);
+    List<Diplotype> relevantDiplotypes = new ArrayList<>();
+    for (String gene : geneSymbols) {
+      GeneReport geneReport = getGeneReport(gene);
+      relevantDiplotypes.addAll(geneReport.getReporterDiplotypes());
     }
-    return possibleGenotypes;
-  }
-
-  private void addToGenotypes(List<Genotype> genotypes, String geneSymbol) {
-    if (genotypes.size() == 0) {
-      findGeneReport(geneSymbol).ifPresent((geneReport) -> {
-        for (Diplotype diplotype : geneReport.getReporterDiplotypes()) {
-          Genotype genotype = new Genotype(diplotype);
-          genotypes.add(genotype);
-        }
-      });
-    } else {
-      for (Genotype genotype : genotypes) {
-        findGeneReport(geneSymbol).ifPresent((geneReport) -> {
-          for (Diplotype diplotype : geneReport.getReporterDiplotypes()) {
-            genotype.addDiplotype(diplotype);
-          }
-        });
-      }
-    }
+    return Genotype.makeGenotypes(relevantDiplotypes);
   }
 }
