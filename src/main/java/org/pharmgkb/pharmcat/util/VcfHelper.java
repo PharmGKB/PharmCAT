@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -24,6 +25,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -64,8 +66,8 @@ public class VcfHelper implements AutoCloseable {
 
     // load cached data
     try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(getClass(), sf_vcfCacheFile))) {
-      //noinspection unchecked
-      m_queryCache = sf_gson.fromJson(reader, Map.class);
+      Type mapType = new TypeToken<Map<String, Map<String, Object>>>() {}.getType();
+      m_queryCache = sf_gson.fromJson(reader, mapType);
       if (m_queryCache == null) {
         m_queryCache = new HashMap<>();
       }

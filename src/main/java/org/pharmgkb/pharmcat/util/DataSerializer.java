@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
@@ -126,9 +127,10 @@ public class DataSerializer {
     Preconditions.checkArgument(tsvFile.toString().endsWith(".tsv"), "Invalid format: %s does not end with .tsv", tsvFile);
     Preconditions.checkArgument(Files.isRegularFile(tsvFile), "%s is not a file", tsvFile);
 
-    return Files.lines(tsvFile)
-        .skip(1) // skip the header
-        .map(MessageAnnotation::new)
-        .collect(Collectors.toList());
+    try (Stream<String> lines = Files.lines(tsvFile)) {
+      return lines.skip(1) // skip the header
+          .map(MessageAnnotation::new)
+          .collect(Collectors.toList());
+    }
   }
 }
