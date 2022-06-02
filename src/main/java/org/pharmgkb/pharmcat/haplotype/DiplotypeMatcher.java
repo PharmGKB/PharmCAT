@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -38,13 +40,12 @@ public class DiplotypeMatcher {
 
     // compare sample permutations to haplotypes
     List<HaplotypeMatch> haplotypeMatches = new ArrayList<>(comparePermutations());
-    if (haplotypeMatches.size() == 0) {
+    if (haplotypeMatches.size() == 0 && !findCombinations) {
       return Collections.emptyList();
     }
 
     SortedSet<BaseMatch> matches = new TreeSet<>();
     if (findCombinations) {
-      //System.out.println("HAPLOTYPE MATCHES PRE-FINALIZE: " + haplotypeMatches);
       List<CombinationMatch> combinationMatches = new ArrayList<>();
       for (int x = 0; x < haplotypeMatches.size(); x += 1) {
         HaplotypeMatch hm = haplotypeMatches.get(x);
@@ -52,22 +53,40 @@ public class DiplotypeMatcher {
           // to support partial matching each HaplotypeMatch can only have 1 sequence
           HaplotypeMatch individualHapMatch = new HaplotypeMatch(hm.getHaplotype());
           individualHapMatch.addSequence(seq);
-          individualHapMatch.finalizeHaplotype(m_dataset.getPositions());
+          individualHapMatch.finalizeCombinationHaplotype(m_dataset);
           matches.add(individualHapMatch);
 
           CombinationMatch combinationMatch = new CombinationMatch(m_dataset.getPositions(), hm.getHaplotype(), seq);
           combinationMatches.addAll(calculateCombinations(haplotypeMatches, x + 1, combinationMatch));
         }
       }
-      //System.out.println("HAPLOTYPE MATCHES POST-FINALIZE: " + matches);
 
-      //System.out.println("COMBINATION MATCHES PRE-FINALIZE: " + combinationMatches);
       // check for partials
       for (CombinationMatch combinationMatch : combinationMatches) {
-        combinationMatch.finalizeHaplotype(m_dataset.getPositions());
+        combinationMatch.finalizeCombinationHaplotype(m_dataset);
         matches.add(combinationMatch);
       }
-      //System.out.println("COMBINATION MATCHES POST-FINALIZE: " + combinationMatches);
+
+      // add off-reference partial match
+      // this needs to come after check for partials and added matches do not need to have finalizeHaplotype called
+      if (m_dataset.getPermutations().size() <= 2) {
+        Optional<NamedAllele> opt = m_dataset.getHaplotypes().stream()
+            .filter(NamedAllele::isReference)
+            .findFirst();
+        if (opt.isPresent()) {
+          NamedAllele reference = opt.get();
+          for (String seq : m_dataset.getPermutations()) {
+            Optional<BaseMatch> match = matches.stream()
+                .filter(m -> m.getSequences().contains(seq))
+                .findAny();
+            if (match.isEmpty()) {
+              // only generate if sequence has no other match
+              matches.add(new CombinationMatch(m_dataset, reference, seq));
+            }
+          }
+        }
+      }
+
     } else {
       matches.addAll(haplotypeMatches);
     }
@@ -79,6 +98,18 @@ public class DiplotypeMatcher {
       // find matched pairs
       pairs = determineHeterozygousPairs(matches);
     }
+    if (findCombinations) {
+      // weed out shorter pairs
+      int maxCombos = 0;
+      for (DiplotypeMatch dm : pairs) {
+        maxCombos = maxComboBonus(dm.getHaplotype1(), maxCombos);
+        maxCombos = maxComboBonus(dm.getHaplotype2(), maxCombos);
+      }
+      for (DiplotypeMatch dm : pairs) {
+        dm.setScore(newComboScore(dm.getHaplotype1(), maxCombos) +
+            newComboScore(dm.getHaplotype2(), maxCombos));
+      }
+    }
     Collections.sort(pairs);
 
     if (topCandidateOnly && pairs.size() > 1) {
@@ -88,6 +119,22 @@ public class DiplotypeMatcher {
           .collect(Collectors.toList());
     }
     return pairs;
+  }
+
+  private int maxComboBonus(BaseMatch match, int curMax) {
+    if (match instanceof CombinationMatch cm) {
+      if (cm.getNumCombinations() > curMax) {
+        return cm.getNumCombinations();
+      }
+    }
+    return curMax;
+  }
+
+  private int newComboScore(BaseMatch match, int maxBonus) {
+    NamedAllele na = match.getHaplotype();
+    int score = na.getScore() - na.getNumPartials();
+    int bonus = maxBonus - match.getHaplotype().getNumCombinations();
+    return score + bonus;
   }
 
 

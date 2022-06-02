@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.SortedSet;
 import com.google.common.base.Preconditions;
+import com.google.common.base.Splitter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
@@ -18,6 +19,7 @@ import org.pharmgkb.common.comparator.ChromosomeNameComparator;
  * @author Ryan Whaley
  */
 public class VariantLocus implements Comparable<VariantLocus> {
+  private static final Splitter sf_hgvsNameSplitter = Splitter.on(";").trimResults();
   @Expose
   @SerializedName("chromosome")
   private final String m_chromosome;
@@ -39,6 +41,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
   @Expose
   @SerializedName("chromosomeHgvsName")
   private final String m_chromosomeHgvsName;
+  private List<String> m_chromosomeHgvsNameList;
   /**
    * Alleles as defined in CPIC.
    */
@@ -73,6 +76,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
     m_position = position;
     m_cpicPosition = position;
     m_chromosomeHgvsName = chromosomeHgvsName;
+    m_chromosomeHgvsNameList = sf_hgvsNameSplitter.splitToList(m_chromosomeHgvsName);
   }
 
 
@@ -194,15 +198,31 @@ public class VariantLocus implements Comparable<VariantLocus> {
   }
 
 
+  public String getHgvsForVcfAllele(String vcfAllele) {
+    Preconditions.checkNotNull(vcfAllele);
+    if (m_chromosomeHgvsNameList == null) {
+      m_chromosomeHgvsNameList = sf_hgvsNameSplitter.splitToList(m_chromosomeHgvsName);
+    }
+    if (vcfAllele.equals(m_ref)) {
+      return "g." + m_position + "=";
+    }
+    for (int x = 0; x < m_alts.size(); x += 1) {
+      if (vcfAllele.equals(m_alts.get(x))) {
+        return m_chromosomeHgvsNameList.get(x);
+      }
+    }
+    return "g." + m_position + m_ref + ">" + vcfAllele;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof VariantLocus)) {
+    if (!(o instanceof VariantLocus that)) {
       return false;
     }
-    VariantLocus that = (VariantLocus)o;
     return m_cpicPosition == that.getCpicPosition() &&
         m_position == that.getPosition() &&
         Objects.equals(m_chromosomeHgvsName, that.getChromosomeHgvsName()) &&

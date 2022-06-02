@@ -10,6 +10,7 @@ import com.google.common.base.Splitter;
 import org.apache.commons.lang3.ObjectUtils;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.haplotype.MatchData;
 
 
 /**
@@ -28,7 +29,7 @@ public class CombinationMatch extends BaseMatch {
     m_refVariants = refVariants;
     m_componentHaplotypes.add(namedAllele);
     setName(buildName());
-    setHaplotype(buildHaplotype());
+    setHaplotype(buildHaplotype(0, false));
     addSequence(sequence);
   }
 
@@ -36,10 +37,40 @@ public class CombinationMatch extends BaseMatch {
     m_refVariants = combinationMatch.getRefVariants();
     m_componentHaplotypes.addAll(combinationMatch.getComponentHaplotypes());
     setName(buildName());
-    setHaplotype(buildHaplotype());
+    setHaplotype(buildHaplotype(0, false));
     addSequence(combinationMatch.getSequences().first());
   }
 
+  /**
+   * Constructor for {@link CombinationMatch} based on off-reference partial sequence.
+   * <p>
+   * This automatically <b>sets the score to 0</b>.  So you should NOT call
+   * {@link BaseMatch#finalizeCombinationHaplotype(MatchData)} on this.
+   */
+  public CombinationMatch(MatchData matchData, NamedAllele reference, String seq) {
+    m_refVariants = matchData.getPositions();
+    m_componentHaplotypes.add(reference);
+    StringBuilder builder = new StringBuilder();
+    int numPartials = 0;
+    for (int x = 0; x < matchData.getPositions().length; x += 1) {
+      String allele = matchData.getAllele(seq, x);
+      if (!reference.getAlleles()[x].equals(allele)) {
+        VariantLocus vl = matchData.getPositions()[x];
+        if (builder.length() > 0) {
+          builder.append(" + ");
+        }
+        builder.append(vl.getHgvsForVcfAllele(allele));
+        numPartials += 1;
+      }
+    }
+    setName(builder.toString());
+    setHaplotype(buildHaplotype(numPartials, true));
+    addSequence(seq);
+  }
+
+  public int getNumCombinations() {
+    return m_componentHaplotypes.size();
+  }
 
   private String buildName() {
     return m_componentHaplotypes.stream()
@@ -47,11 +78,25 @@ public class CombinationMatch extends BaseMatch {
         .collect(Collectors.joining(COMBINATION_JOINER));
   }
 
-  private NamedAllele buildHaplotype() {
+  /**
+   * Builds a new {@link NamedAllele} based on component haplotypes.
+   *
+   * @param numPartials number of partials in this new {@link NamedAllele}
+   * @param isOffReferencePartial if true, will set score to 0
+   */
+  private NamedAllele buildHaplotype(int numPartials, boolean isOffReferencePartial) {
     if (m_componentHaplotypes.first().getAlleles().length != m_componentHaplotypes.first().getCpicAlleles().length) {
       throw new IllegalStateException(m_componentHaplotypes.first() + " has different number of alleles and cpicAlleles");
     }
-    String id = m_componentHaplotypes.stream().map(NamedAllele::getId).collect(Collectors.joining(COMBINATION_JOINER));
+    StringBuilder idBuilder = new StringBuilder();
+    SortedSet<VariantLocus> missingPositions = new TreeSet<>();
+    for (NamedAllele na : m_componentHaplotypes) {
+      if (idBuilder.length() > 0) {
+        idBuilder.append(COMBINATION_JOINER);
+      }
+      idBuilder.append(na.getId());
+      missingPositions.addAll(na.getMissingPositions());
+    }
     String[] alleles = new String[m_componentHaplotypes.first().getAlleles().length];
     String[] cpicAlleles = new String[alleles.length];
     for (int x = 0; x < alleles.length; x += 1) {
@@ -68,9 +113,13 @@ public class CombinationMatch extends BaseMatch {
         }
       }
     }
-    NamedAllele na = new NamedAllele(id, getName(), alleles, cpicAlleles, false);
-    na.initialize(m_refVariants);
-    na.setCombinationOrPartial(m_componentHaplotypes.size() > 1);
+    NamedAllele na = new NamedAllele(idBuilder.toString(), getName(), alleles, cpicAlleles, missingPositions,
+        false, m_componentHaplotypes.size(), numPartials);
+    if (isOffReferencePartial) {
+      na.initialize(m_refVariants, 0);
+    } else {
+      na.initialize(m_refVariants);
+    }
     return na;
   }
 
@@ -102,7 +151,7 @@ public class CombinationMatch extends BaseMatch {
   public void merge(NamedAllele namedAllele) {
     m_componentHaplotypes.add(namedAllele);
     setName(buildName());
-    setHaplotype(buildHaplotype());
+    setHaplotype(buildHaplotype(0, false));
   }
 
 
@@ -132,6 +181,10 @@ public class CombinationMatch extends BaseMatch {
       return compareSequences(o);
     }
     if (o instanceof HaplotypeMatch hm) {
+      if (getName().startsWith("g.")) {
+        // push off-reference partial to bottom
+        return 1;
+      }
       int rez = ObjectUtils.compare(m_componentHaplotypes.first(), hm.getHaplotype());
       if (rez != 0) {
         return rez;

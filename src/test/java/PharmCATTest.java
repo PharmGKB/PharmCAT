@@ -72,8 +72,12 @@ class PharmCATTest {
   }
 
   @AfterAll
-  static void teardown() throws IOException {
-    FileUtils.deleteDirectory(sf_outputDir.toFile());
+  static void teardown() {
+    try {
+      FileUtils.deleteDirectory(sf_outputDir.toFile());
+    } catch (IOException ex) {
+      // ignore
+    }
   }
 
 

@@ -49,6 +49,10 @@ public class HaplotypeMatch extends BaseMatch {
       return compareSequences(hm);
     }
     if (o instanceof CombinationMatch cm) {
+      if (cm.getName().startsWith("g.")) {
+        // push off-reference partial to bottom
+        return -1;
+      }
       int rez = ObjectUtils.compare(getHaplotype(), cm.getComponentHaplotypes().first());
       if (rez != 0) {
         return rez;

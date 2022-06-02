@@ -27,7 +27,7 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
   private final BaseMatch m_haplotype2;
   @Expose
   @SerializedName("score")
-  private final int m_score;
+  private int m_score;
   private final Set<String[]> m_sequences = new HashSet<>();
   private final MatchData m_dataset;
 
@@ -49,6 +49,10 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
 
   public int getScore() {
     return m_score;
+  }
+
+  public void setScore(int score) {
+    m_score = score;
   }
 
   public BaseMatch getHaplotype1() {

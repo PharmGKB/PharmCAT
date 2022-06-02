@@ -12,6 +12,7 @@ import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.haplotype.MatchData;
 
 
 /**
@@ -63,16 +64,18 @@ public class BaseMatch implements Comparable<BaseMatch> {
 
   /**
    * Checks if haplotype matches reference or has partials.
+   * Only applicaable when working with combinations and partials.
    */
-  public void finalizeHaplotype(VariantLocus[] refVariants) {
+  public void finalizeCombinationHaplotype(MatchData matchData) {
     if (getSequences().size() > 1) {
       throw new IllegalStateException("Can only finalize if there is only 1 sequence");
     }
-    String[] alleles = getSequences().first().split(";");
+
     SortedMap<Long, String> alleleMap = new TreeMap<>();
-    for (String allele : alleles){
-      String[] data = allele.split(":");
-      alleleMap.put(Long.parseLong(data[0]), data[1]);
+    VariantLocus[] refVariants = matchData.getPositions();
+    String sequence = getSequences().first();
+    for (int x = 0; x < refVariants.length; x += 1) {
+      alleleMap.put(refVariants[x].getPosition(), matchData.getAllele(sequence, x));
     }
 
     List<String> partials = new ArrayList<>();
@@ -82,7 +85,7 @@ public class BaseMatch implements Comparable<BaseMatch> {
       if (hap.getAlleles()[x] == null) {
         if (!refVariants[x].getRef().equals(alleleMap.get(pos))) {
           VariantLocus vl = refVariants[x];
-          partials.add(vl.getChromosome() + ".g." + pos + vl.getRef() + ">" + alleleMap.get(pos));
+          partials.add(vl.getHgvsForVcfAllele(alleleMap.get(pos)));
         }
       }
     }
@@ -100,19 +103,17 @@ public class BaseMatch implements Comparable<BaseMatch> {
       setName(builder.toString());
 
       NamedAllele partialHap = new NamedAllele(hap.getId(), builder.toString(), hap.getAlleles(),
-          hap.getCpicAlleles(), hap.getMissingPositions(), false);
+          hap.getCpicAlleles(), hap.getMissingPositions(), false, hap.getNumCombinations(), partials.size());
       partialHap.setPopFreqMap(hap.getPopFreqMap());
-      partialHap.initialize(refVariants, refVariants.length - partials.size());
-      partialHap.setCombinationOrPartial(true);
-      setHaplotype(partialHap);
+      partialHap.initialize(refVariants);
+      m_haplotype = partialHap;
 
     } else {
       NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), hap.getAlleles(),
-          hap.getCpicAlleles(), hap.getMissingPositions(), hap.isReference());
+          hap.getCpicAlleles(), hap.getMissingPositions(), hap.isReference(), hap.getNumCombinations(), 0);
       newHap.setPopFreqMap(hap.getPopFreqMap());
-      newHap.initialize(refVariants, refVariants.length);
-      newHap.setCombinationOrPartial(hap.isCombinationOrPartial());
-      setHaplotype(newHap);
+      newHap.initialize(refVariants);
+      m_haplotype = newHap;
     }
   }
 
