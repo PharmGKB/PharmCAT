@@ -1,7 +1,8 @@
 ---
 title: Gene Definition Exceptions
-permalink: methods/gene-definition-exceptions/
+permalink: methods/gene-definition-exceptions
 parent: Methods
+nav_order: 6
 ---
 
 # Gene Definition Exceptions

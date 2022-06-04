@@ -1,7 +1,8 @@
 ---
+parent: Methods
 title: Versioning
 permalink: methods/versioning/
-parent: Methods
+nav_order: 7
 ---
 
 # Versioning & Releases
@@ -14,7 +15,7 @@ Versions are identified by a version number (e.g. v1.6.0). The numbering follows
 what has changed since the previous release. PharmCAT uses git as its version control system so you can examine each 
 individual change by looking through the [git commit log](https://github.com/PharmGKB/PharmCAT/commits/development).
 
-We highly recommend that people use the latest available release of PharmCAT and keep an eye out for new releases. A
+We highly recommend you use the latest available release of PharmCAT and keep an eye out for new releases. A
 good way to stay up-to-date is to use the [GitHub notifications](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)
 system.
 

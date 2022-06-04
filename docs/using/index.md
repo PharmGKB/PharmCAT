@@ -1,23 +1,18 @@
 ---
 title: Using PharmCAT
+permalink: using/
 nav_order: 3
 has_children: true
-permalink: technical-docs/
+has_toc: false
 ---
-
 # Using PharmCAT
 
 * [Running PharmCAT](Running-PharmCAT)
+* [Running the VCF Preprocessor](VCF-Preprocessor)
 * [Running PharmCAT in Docker](PharmCAT-in-Docker)
-* [Running the VCF Preprocessor](Preprocessing-VCF-Files-for-PharmCAT)
-
-
-## Modules
-
-PharmCAT is a tool that is comprised of multiple modules. For an explanation of the modules and why it's organized this way, please read [the methods section](/methods).
-
-![process diagram](/images/flowchart.png)
-
+* [Multi-Sample Analysis](Multi-Sample-Analysis)
+* [Calling-CYP2D6](Calling-CYP2D6)
+ 
 
 ## Contributing
 

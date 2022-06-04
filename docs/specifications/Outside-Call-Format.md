@@ -1,6 +1,5 @@
 ---
 title: Outside Call Format
-permalink: specifications/outside-call-format/
 parent: Specifications
 nav_order: 4
 ---
@@ -9,8 +8,8 @@ nav_order: 4
 Typically, PharmCAT uses variant call data to match diplotypes used to find annotations. However, you can also give 
 diplotypes, phenotypes, or other allele calls to PharmCAT that were called by other tools.
 
-These **outside call files** can be supplied to the overall [PharmCAT](/technical-docs/Running-PharmCAT) tool using the 
-`-a` flag or to the [Phenotyper](/technical-docs/Running-PharmCAT#running-the-phenotyper) using the `-o` flag.
+These **outside call files** can be supplied to the [PharmCAT](/using/Running-PharmCAT#outside-calls) tool using the 
+`-po` flag.
 
 ## File format
 

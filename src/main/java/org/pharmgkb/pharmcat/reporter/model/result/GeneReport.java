@@ -146,6 +146,10 @@ public class GeneReport implements Comparable<GeneReport> {
     m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(ImmutableList.of(unknownText)));
   }
 
+  protected void addReporterDiplotype(Diplotype diplotype) {
+    m_reporterDiplotypes.add(diplotype);
+  }
+
   /**
    * The gene symbol for this gene
    */

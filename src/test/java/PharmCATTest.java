@@ -605,8 +605,8 @@ class PharmCATTest {
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCalls("CYP2C19", "*4/*4", "*4/*17", "*17/*17");
 
-    testWrapper.testMatchedGroups("citalopram", 7);
-    testWrapper.testMatchedGroups("citalopram", DataSource.CPIC, 4);
+    testWrapper.testMatchedGroups("citalopram", 6);
+    testWrapper.testMatchedGroups("citalopram", DataSource.CPIC, 3);
     testWrapper.testMatchedGroups("citalopram", DataSource.DPWG, 3);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.DPWG);

@@ -37,8 +37,8 @@ log.txt
 pharmcat*.log
 # temp files for testing the Jekyll site
 /docs/_site
-/docs/Gemfile.lock
 /docs/.bundle
+/docs/.jekyll-cache
 /docs/.jekyll-metadata
 /docs/vendor
 

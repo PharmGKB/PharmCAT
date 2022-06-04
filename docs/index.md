@@ -4,9 +4,11 @@ permalink: /
 nav_order: 1
 ---
 
-# PharmCAT: Pharmacogenomics Clinical Annotation Tool
+# PharmCAT:<br />Pharmacogenomics Clinical Annotation Tool
 
+<span style="float: right;">
 ![PharmCAT logo](images/pharmcat_logo.png)
+</span>
 
 [Download {{ site.github.latest_release.tag_name }}](https://github.com/PharmGKB/PharmCAT/releases/latest){: .btn .btn-blue .umami--click--download-button } [View on GitHub](https://github.com/PharmGKB/PharmCAT){: .btn }
 
@@ -32,7 +34,7 @@ Read [the Methods](methods) to learn how PharmCAT works, including how it [match
 
 ## Running PharmCAT
 
-[Learn how to run PharmCAT](technical-docs) and all the different components that make up the PharmCAT tool.  Please make sure to also read and understand PharmCAT's [VCF requirements](specifications/VCF-Requirements).
+[Learn how to run PharmCAT](using) and all the different components that make up the PharmCAT tool.  Please make sure to also read and understand PharmCAT's [VCF requirements](specifications/VCF-Requirements).
 
 ## Examples
 

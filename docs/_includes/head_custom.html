@@ -1,1 +1,36 @@
 <script async defer data-website-id="714c506c-5f1e-4ea8-af79-fa80c02911c6" src="https://metrics.cpicpgx.org/j.js"></script>
+<style>
+  h4 {
+    font-size: 14px !important;
+    font-weight: bold;
+    text-transform: none;
+  }
+  h4 code {
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+  h5 code {
+    font-size: .9em;
+  }
+  .main-content ul, .main-content ol {
+    padding-left: 2em;
+  }
+  .main-content dl {
+    grid-template-columns: 16em 1fr;
+  }
+  .main-content dt::after {
+    content: unset;
+  }
+  .altArg {
+    font-size: .8em;
+    font-weight: normal;
+  }
+  footer {
+    position: relative;
+    top: -1.5em;
+    font-size: smaller;
+  }
+</style>
+{% if page.mermaid %}
+  {% include mermaid.html %}
+{% endif %}

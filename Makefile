@@ -5,6 +5,7 @@ MAKEFLAGS = -j1
 # Determine this makefile's path.
 # Be sure to place this BEFORE `include` directives, if any.
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
+ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 ifdef PHARMCAT_DATA_DIR
   dataDir := $(PHARMCAT_DATA_DIR)
@@ -14,6 +15,9 @@ endif
 
 ifeq ($(OS),Windows_NT)
 	GRADLE_CMD := cmd /c gradlew.bat --console=plain
+	ifneq (,$(findstring cygdrive,${ROOT_DIR}))
+		ROOT_DIR := $(shell echo ${ROOT_DIR} | sed 's/\/cygdrive\///' | sed 's/./&:/1')
+	endif
 else
 	GRADLE_CMD := ./gradlew --console=plain
 endif
@@ -52,7 +56,7 @@ scriptPkg:
 	cp src/scripts/preprocessor/*.txt build/preprocessor
 	cp src/scripts/preprocessor/*.py build/preprocessor
 	cp pharmcat_positions.vcf* build/preprocessor
-	cp PharmCAT.wiki/Preprocessing-VCF-Files-for-PharmCAT.md build/preprocessor/README.md
+	cp docs/using/VCF-Preprocessor.md build/preprocessor/README.md
 	cd build; tar -czvf preprocessor.tar.gz preprocessor
 
 
@@ -211,3 +215,12 @@ dockerRelease: docker
 	docker push pgkb/pharmcat:$${version}
 	docker tag pcat pgkb/pharmcat:latest
 	docker push pgkb/pharmcat:latest
+
+
+.PHONEY: jekyllDocker
+jekyllDocker:
+	docker build -t jekyll docs/
+
+.PHONEY: jekyll
+jekyll:
+	docker run --rm -it -v ${ROOT_DIR}:/PharmCAT jekyll bash

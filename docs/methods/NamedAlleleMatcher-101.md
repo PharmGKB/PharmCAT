@@ -1,9 +1,9 @@
 ---
 title: Named Allele Matcher 101
-permalink: methods/NamedAlleleMatcher-101/
 parent: Methods
+nav_order: 4
 ---
-# NamedAlleleMatcher 101
+# Named Allele Matcher 101
 
 The basic process:
 

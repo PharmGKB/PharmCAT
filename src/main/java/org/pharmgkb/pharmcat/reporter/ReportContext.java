@@ -23,7 +23,6 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
-import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
@@ -386,11 +385,9 @@ public class ReportContext {
   }
 
   private List<Genotype> makePossibleGenotypes(Collection<String> geneSymbols) {
-    List<Diplotype> relevantDiplotypes = new ArrayList<>();
-    for (String gene : geneSymbols) {
-      GeneReport geneReport = getGeneReport(gene);
-      relevantDiplotypes.addAll(geneReport.getReporterDiplotypes());
-    }
-    return Genotype.makeGenotypes(relevantDiplotypes);
+    List<GeneReport> geneReports = getGeneReports().stream()
+        .filter(r -> geneSymbols.contains(r.getGene()))
+        .toList();
+    return Genotype.makeGenotypes(geneReports);
   }
 }

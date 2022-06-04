@@ -12,7 +12,7 @@ The following genes are used by PharmCAT to find drug recommendation data.
 
 ### Genes PharmCAT will attempt to match
 
-The `NamedAlleleMatcher` will search the given sample file for locations associated with these genes and attempt to match them to known allele definitions. Each of these genes will appear in the "Genotype Summary" section of the final output report.
+The `Named Allele Matcher` will search the given sample file for locations associated with these genes and attempt to match them to known allele definitions. Each of these genes will appear in the "Genotype Summary" section of the final output report.
 
 - ABCG2 (2 alleles) (CPIC, PharmGKB-DPWG)
 - CACNA1S (3 alleles) (CPIC)

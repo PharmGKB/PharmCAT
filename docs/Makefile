@@ -1,5 +1,6 @@
 setup:
-	bundle install --path vendor/bundle
+	bundle config set --local path 'vendor/bundle'
+	bundle install
 
 serve:
 	bundle exec jekyll serve --incremental

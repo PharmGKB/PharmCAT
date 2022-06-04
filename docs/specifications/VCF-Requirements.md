@@ -1,6 +1,5 @@
 ---
 title: VCF Requirements
-permalink: specifications/VCF-Requirements/
 parent: Specifications
 nav_order: 2
 ---
@@ -31,14 +30,14 @@ To avoid ambiguity in variant representation, PharmCAT is using a parsimonious, 
 
 PharmCAT expects deletions to be represented with an "anchoring" base at the beginning of the `REF` sequence and then the anchoring base to also appear in the `ALT` sequence. For example, the following shows a deletion of `AGAAATGGAA`:
 
-```
+```text
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
 chr10	94942212	.	AAGAAATGGAA	A	.	PASS	desired-deletion-format	GT	0/1
 ```
 
 as opposed to the unwanted format:
 
-```
+```text
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
 chr10	94942212	.	AGAAATGGAA	.	.	PASS	do-not-want	GT	0/1
 ```
@@ -49,7 +48,7 @@ If the REF is a single letter it means no variant was found, so it's safe to rep
 
 Similarly, PharmCAT expects to find insertions with a reference base `REF="A" ALT="ATCT"`. For example, here's an insertion of `A`:
 
-```
+```text
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
 chr7	99652770	rs41303343	T	TA	.	PASS	desired-insertion-format	GT	0/1
 ```
@@ -61,4 +60,4 @@ Every PharmCAT [release](https://github.com/PharmGKB/PharmCAT/releases) includes
 
 For more details about fulfilling these requirements for PharmCAT read the [Preparing VCF Files](/specifications/Preparing-VCF-Files) page.
 
-See [Preprocessing VCF Files for PharmCAT](/technical-docs/vcf-preprocessor) for a script to automate some of these steps.
+See [PharmCAT's VCF Preprocessor](/using/VCF-Preprocessor) for a script to automate some of these steps.

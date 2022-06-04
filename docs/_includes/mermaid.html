@@ -1,0 +1,38 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.min.js" integrity="sha512-7AtDHIWTEL1Km2V9clac6gs1x3F67rS6HGZMBYaUogsohvODnWrq5GkW9WRh1XjTMs4Um9hjGUNSjI+3XluoZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  function docReady(fn) {
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      setTimeout(fn, 1);
+    } else {
+      document.addEventListener("DOMContentLoaded", fn);
+    }
+  }
+  docReady(function() {
+    mermaid.initialize({
+      theme: 'base',
+      themeVariables: {
+        background: '#fff',
+        primaryColor: '#fcfcfc',
+        primaryBorderColor: '#999',
+        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+        fontSize: '14px',
+      }
+    });
+  });
+</script>
+<style>
+  .label {
+    text-transform: unset;
+    font-size: 14px !important;
+  }
+  .module > rect {
+    stroke: #f00 !important;
+    fill: #fffcfc !important;
+  }
+  .optional > rect {
+    stroke: #ccc !important;
+  }
+  .optional > polygon {
+    stroke: #ccc !important;
+  }
+</style>

@@ -1,17 +1,13 @@
 ---
 title: Calling CYP2D6
-permalink: technical-docs/calling-cyp2d6/
 parent: Using PharmCAT
 nav_order: 6
 ---
-
 # Calling CYP2D6
 
-**PharmCAT does not natively support calling CYP2D6** from VCF due to the large influence of structural variation and copy number variation (CNV) on predicted phenotype, which is beyond the scope of what can be called from SNPs in a VCF. However, PharmCAT does allow input of [PharmCAT-formatted](https://github.com/PharmGKB/PharmCAT/wiki/Outside-Call-Format) data from external CYP2D6 callers. This allows the user to select their preferred CYP2D6 caller and include CYP2D6 results in their PharmCAT report. However, **we provide this functionality with some strong warnings** about using unsuited genotyping technologies for calling CYP2D6. In short, **we** ***strongly discourage*** **using whole-exome sequencing or low coverage whole-genome sequencing data to call CYP2D6** (our reasoning is provided below).
+While PharmCAT supports CYP2D6, we **do NOT recommend calling CYP2D6 from VCF** due to the large influence of structural variation and copy number variation (CNV) on predicted phenotype, which is beyond the scope of what can be called from SNPs in a VCF.  In particular, **we** ***strongly discourage*** **using whole-exome sequencing or low coverage whole-genome sequencing data to call CYP2D6**.
 
-The example of external CYP2D6 calls was based on results from the StellarPGx. Please note we are not affiliated with the StellarPGx team and offer no guarantees about its performance. Any questions or concerns on StellarPGx should be directed to the StellarPGx maintainers [twesigomwedavid@gmail.com](twesigomwedavid@gmail.com). Usage instructions for StellarPGx can be found on their [github](https://github.com/SBIMB/StellarPGx).
-
-## Sequencing Technology Benchmark
+## Why calling CYP2D6 from VCF is a Bad Idea 
 
 For demonstration purposes, we are using [StellarPGx](https://github.com/SBIMB/StellarPGx), which supports calling CYP2D6 with structural variants and CNV from whole genome sequencing (WGS) CRAM/BAM files. StellarPGx has been benchmarked against the CDC's [GeT-RM](https://www.cdc.gov/labquality/get-rm/inherited-genetic-diseases-pharmacogenetics/pharmacogenetics.html) dataset which provides ground truth sequencing data for benchmarking variant calling tools. According to the [StellarPGx paper](https://ascpt.onlinelibrary.wiley.com/doi/full/10.1002/cpt.2173), StellarPGx produces results with a higher concordance to GeT-RM than other available CYP2D6 callers. However, this benchmark was performed using GeT-RM's short-read 30x PCR-free WGS dataset. In addition to high-coverage WGS, GeT-RM also provides access to low-coverage WGS and whole exome sequencing (WES) data for some samples. We selected 6 random Get-RM samples and ran StellarPGx on the high-coverage WGS, low-coverage WGS, and WES and compared the results to the GeT-RM ground truth calls.
 
@@ -26,29 +22,42 @@ For demonstration purposes, we are using [StellarPGx](https://github.com/SBIMB/S
 
 There is drastic variation in the calls produced by the three sequencing technologies. In many cases, the WES or low-coverage WGS input resulted in a "no call" result. Occasionally they produced improbably high copy numbers. They also produced star-allele calls which varied greatly from the GeT-RM calls. The 30x WGS produced identical or equivalent results most of the time, and when it deviated the differences were relatively minor. In conclusion, **we do not recommend the use WES or low-coverage WGS for calling CYP2D6 for both research and clinical purposes**.
 
-## Loading external CYP2D6 calls into PharmCAT
 
-### External call format and usage
+## Calling CYP2D6 Anyway
 
-If you do have high coverage WGS, you can have PharmCAT read in CYP2D6 calls from an external caller and it will incorporate those outside calls into your final PharmCAT report. To include external calls you need to use the `-a` flag in PharmCAT to specify the external calls file. For example:
+So now that you know the pitfalls, if you still want to call CYP2D6, you have 2 options:
 
-```shell
-java -jar PharmCAT.jar -vcf patient_001.vcf -a patient_001_cyp2d6.txt -o pharmcat_out
+* to [use a different tool to call CYP2D6](#using-outside-calls)
+* to run PharmCAT in [research mode](#calling-cyp2d6-with-pharmcats-research-mode)
+
+
+### Using Outside Calls
+
+PharmCAT supports pulling in results from other tools using what we call ["outside calls"](/specifications/Outside-Call-Format).  This allows you to select your preferred CYP2D6 caller and include CYP2D6 results in a PharmCAT report.
+
+To include external calls you need to use the `-po` flag in PharmCAT to specify the external calls file. For example:
+
+```commandline
+# java -jar pharmcat.jar -vcf patient_001.vcf -po patient_001_cyp2d6.txt
 ```
 
 where `patient_001_cyp2d6.txt` takes the format of:
 
 ```text
-CYP2D6	*1x2/*2+*6
+# CYP2D6	*1x2/*2+*6
 ```
 
-Column 1 is the gene name, and column 2 (delimited by a tab character) is the star-allele diplotype call. You will need to create one file for each sample/patient.
+* See [Running PharmCAT](/using/Running-PharmCAT#phenotyper) for details on the `-po` flag
+* See [Outside Call Format](/specifications/Outside-Call-Format) for details on the outside call file
 
-### Formatting StellarPGx output for PharmCAT
 
-We have provided the following instructions for your reference on how to use StellarPGx with PharmCAT and to illustrate how you would integrate other external callers with PharmCAT.
+#### Formatting StellarPGx output for PharmCAT
 
-In order to get your caller output into the PharmCAT format, you may need to process the output from the caller. This is relatively straightforward with StellarPGx. After running StellarPGx with CYP2D6 as the target gene, it should produce a `<run_name>_summary.txt` file which looks like
+As mentioned above, if you have whole genome sequencing (WGS) CRAM/BAM files, your best option is a tool like StellarPGx.  Please note we are not affiliated with the StellarPGx team and offer no guarantees about its performance. Any questions or concerns on StellarPGx should be directed to the StellarPGx maintainers [twesigomwedavid@gmail.com](twesigomwedavid@gmail.com). Usage instructions for StellarPGx can be found on their [github](https://github.com/SBIMB/StellarPGx).
+
+While this tutorial is StellarPGx specific, it should illustrate how to integrate other external callers with PharmCAT.
+
+After running StellarPGx with CYP2D6 as the target gene, it should produce a `<run_name>_summary.txt` file which looks like:
 
 ```text
 HG00436	*71/*2x2
@@ -59,9 +68,9 @@ NA18545	*36+*10/*36+*10
 NA21105	*111/*3
 ```
 
-Column 1 is the sample name and column 2 is the CYP2D6 call. In order to convert this into a PharmCAT readable format you must split this into a separate file for each sample.
+Column 1 is the sample name and column 2 is the CYP2D6 call. In order to convert this into a PharmCAT-readable format you must split this into a separate file for each sample.
 
-We have provided a simple python script that parses the StellarPGx `summary.txt` file and outputs PharmCAT-ready external calls files for use with the `-a` flag.
+The following is a simple python script that parses StellarPGx's `summary.txt` file and outputs PharmCAT-ready external calls files for use with the `-a` flag.
 
 ```python
 import sys
@@ -88,13 +97,14 @@ for entry in entries: # for each sample in the StellarPGx file
 
 Usage example:
 
-```shell
-python3 stellarPGx_to_PharmCAT.py summary.txt pharmcat_inputs
+```console
+# python3 stellarPGx_to_PharmCAT.py summary.txt pharmcat_inputs
 ```
 
-Where `summary.txt` is the StellarPGx output and `pharmcat_inputs` is the directory where I want my call files to be placed. If I ran the script on the summary file example from above, calling `ls pharmcat_inputs` to list the directory contents should show
+Where `summary.txt` is the StellarPGx output and `pharmcat_inputs` is the directory where I want my call files to be placed. If I ran the script on the summary file example from above, calling `ls pharmcat_inputs` to list the directory contents should show:
 
-```
+```console
+# ls pharmcat_inputs
 HG00436_cyp2d6.txt  HG01086_cyp2d6.txt  HG01190_cyp2d6.txt  NA07048_cyp2d6.txt  NA18545_cyp2d6.txt  NA21105_cyp2d6.txt
 ```
 
@@ -105,3 +115,17 @@ CYP2D6  *71/*2x2
 ```
 
 We urge you to manually verify that the calls in the PharmCAT-ready files correspond to the StellarPGx output.
+
+
+
+### Calling CYP2D6 with PharmCAT's research mode
+
+Once again, we **do NOT recommend calling CYP2D6 from VCF**!
+
+PharmCAT can, however, call CYP2D6 if you are willing to accept all the caveats.  This functionality is gated behind the `-research` flag.
+
+To get PharmCAT to call CYP2D6, use `-research cyp2d6`
+
+```console
+# java -jar pharmcat.jar -vcf patient_001.vcf -research cyp2d6
+```

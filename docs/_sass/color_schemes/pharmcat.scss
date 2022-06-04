@@ -1,1 +1,30 @@
 $link-color: $blue-200;
+
+// from https://github.com/just-the-docs/just-the-docs/issues/171#issuecomment-538794741
+$callouts: (
+    info: ($blue-300, rgba($blue-000, .2), 'INFO'),
+    warn: ($yellow-300, rgba($yellow-000, .2), 'WARNING'),
+    danger: ($red-300, rgba($red-000, .2), 'DANGER')
+);
+
+@each $class, $props in $callouts {
+  blockquote.#{$class} {
+    margin-left: 0;
+    margin-inline: 0;
+  }
+  .#{$class} {
+    background: nth($props, 2);
+    border-left: $border-radius solid nth($props, 1);
+    border-radius: $border-radius;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
+    padding: .5rem;
+  }
+  .#{$class}Title::before {
+    color: nth($props, 1);
+    content: nth($props, 3);
+    display: block;
+    font-weight: bold;
+    font-size: .75em;
+    padding-bottom: .125rem;
+  }
+}

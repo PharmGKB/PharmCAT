@@ -23,8 +23,13 @@ public class GenotypeTest {
 
   @Test
   void testMakeGenotypes() {
-    List<Diplotype> possibleDiplotypes = ImmutableList.of(diplotype1, diplotype2, diplotype3);
-    List<Genotype> possibleGenotypes = Genotype.makeGenotypes(possibleDiplotypes);
+    GeneReport geneReport1 = new GeneReport(gene1);
+    geneReport1.addReporterDiplotype(diplotype1);
+    geneReport1.addReporterDiplotype(diplotype2);
+    GeneReport geneReport2 = new GeneReport(gene2);
+    geneReport2.addReporterDiplotype(diplotype3);
+    List<GeneReport> geneReports = ImmutableList.of(geneReport1, geneReport2);
+    List<Genotype> possibleGenotypes = Genotype.makeGenotypes(geneReports);
 
     assertNotNull(possibleGenotypes);
     assertEquals(2, possibleGenotypes.size());
@@ -37,8 +42,10 @@ public class GenotypeTest {
 
   @Test
   void testMakeGenotypesOneDiplotype() {
-    List<Diplotype> possibleDiplotypes = ImmutableList.of(diplotype1);
-    List<Genotype> possibleGenotypes = Genotype.makeGenotypes(possibleDiplotypes);
+    GeneReport geneReport1 = new GeneReport(gene1);
+    geneReport1.addReporterDiplotype(diplotype1);
+    List<GeneReport> geneReports = ImmutableList.of(geneReport1);
+    List<Genotype> possibleGenotypes = Genotype.makeGenotypes(geneReports);
 
     assertNotNull(possibleGenotypes);
     assertEquals(1, possibleGenotypes.size());
@@ -51,8 +58,11 @@ public class GenotypeTest {
 
   @Test
   void testMakeGenotypesOneGeneTwoDiplotypes() {
-    List<Diplotype> possibleDiplotypes = ImmutableList.of(diplotype1, diplotype2);
-    List<Genotype> possibleGenotypes = Genotype.makeGenotypes(possibleDiplotypes);
+    GeneReport geneReport1 = new GeneReport(gene1);
+    geneReport1.addReporterDiplotype(diplotype1);
+    geneReport1.addReporterDiplotype(diplotype2);
+    List<GeneReport> geneReports = ImmutableList.of(geneReport1);
+    List<Genotype> possibleGenotypes = Genotype.makeGenotypes(geneReports);
 
     assertNotNull(possibleGenotypes);
     assertEquals(2, possibleGenotypes.size());
@@ -65,8 +75,12 @@ public class GenotypeTest {
 
   @Test
   void testMakeGenotypesTwoGenes() {
-    List<Diplotype> possibleDiplotypes = ImmutableList.of(diplotype1, diplotype3);
-    List<Genotype> possibleGenotypes = Genotype.makeGenotypes(possibleDiplotypes);
+    GeneReport geneReport1 = new GeneReport(gene1);
+    geneReport1.addReporterDiplotype(diplotype1);
+    GeneReport geneReport2 = new GeneReport(gene2);
+    geneReport2.addReporterDiplotype(diplotype3);
+    List<GeneReport> geneReports = ImmutableList.of(geneReport1, geneReport2);
+    List<Genotype> possibleGenotypes = Genotype.makeGenotypes(geneReports);
 
     assertNotNull(possibleGenotypes);
     assertEquals(1, possibleGenotypes.size());
