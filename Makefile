@@ -224,3 +224,22 @@ jekyllDocker:
 .PHONEY: jekyll
 jekyll:
 	docker run --rm -it -v ${ROOT_DIR}:/PharmCAT jekyll bash
+
+
+# used to build reference FASTA download for Zenodo
+.PHONEY: referenceFasta
+referenceFasta:
+	@echo "Removing old files..."
+	@rm -f GRCh38_reference_fasta.tar reference.fna.bgz reference.fna.bgz.fai reference.fna.bgz.gzi genomic.fna genomic.fna.gz chrfix.fna
+	@echo "Downloading from NCBI..."
+	@curl -#fSL https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.fna.gz -o genomic.fna.gz
+	@echo "Uncompressing..."
+	@gunzip genomic.fna.gz
+	@echo "Fixing chromosomes:"
+	@cat genomic.fna |  sed -r 's/^>(NC_0+([0-9]+)\.*)/>chr\2 \1/g' > chrfix.fna
+	@echo "Compressing with bgzip..."
+	@bgzip -c chrfix.fna > reference.fna.bgz
+	@echo "Building index..."
+	@samtools faidx reference.fna.bgz
+	@echo "Creating tarball..."
+	@tar -czvf GRCh38_reference_fasta.tar reference.fna.bgz reference.fna.bgz.fai reference.fna.bgz.gzi

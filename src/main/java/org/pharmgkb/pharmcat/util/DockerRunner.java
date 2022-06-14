@@ -33,7 +33,7 @@ public class DockerRunner {
    */
   public static void normalizeVcf(Path inFile, Path outFile) throws IOException {
     String dockerCmd = getDockerCmd(inFile.getParent());
-    String toolCmd = "bcftools norm -m+ -c ws -Oz -f reference.fasta.bgz -o data/" + PathUtils.getFilename(outFile) +
+    String toolCmd = "bcftools norm -m+ -c ws -Oz -f reference.fna.bgz -o data/" + PathUtils.getFilename(outFile) +
         " data/" + PathUtils.getFilename(inFile);
 
     runCmd(dockerCmd, toolCmd, inFile.getParent());

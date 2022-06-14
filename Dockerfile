@@ -21,8 +21,9 @@ RUN apt-get update && \
 RUN mkdir /pharmcat
 WORKDIR /pharmcat
 # download fasta files
-RUN wget https://zenodo.org/record/5572839/files/GRCh38_reference_fasta.tar
-RUN tar -xf GRCh38_reference_fasta.tar
+RUN wget https://zenodo.org/record/6640691/files/GRCh38_reference_fasta.tar && \
+    tar -xf GRCh38_reference_fasta.tar && \
+    rm -f GRCh38_reference_fasta.tar
 
 
 ENV BCFTOOLS_VERSION 1.14

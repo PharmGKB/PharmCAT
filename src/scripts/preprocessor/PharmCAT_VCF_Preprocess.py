@@ -81,11 +81,11 @@ def run(args):
     if args.ref_seq:
         ref_seq = args.ref_seq
     else:
-        if os.path.exists(os.path.join(output_dir, 'reference.fasta.bgz')):
-            ref_seq = os.path.join(output_dir, 'reference.fasta.bgz')
+        if os.path.exists(os.path.join(output_dir, 'reference.fna.bgz')):
+            ref_seq = os.path.join(output_dir, 'reference.fna.bgz')
             print("Using default FASTA reference at ", ref_seq)
-        elif os.path.exists(os.path.join(os.getcwd(), 'reference.fasta.bgz')):
-            ref_seq = os.path.join(os.getcwd(), 'reference.fasta.bgz')
+        elif os.path.exists(os.path.join(os.getcwd(), 'reference.fna.bgz')):
+            ref_seq = os.path.join(os.getcwd(), 'reference.fna.bgz')
             print("Using default FASTA reference at ", ref_seq)
         else:
             ref_seq = util.get_default_grch38_ref_fasta_and_index(output_dir)

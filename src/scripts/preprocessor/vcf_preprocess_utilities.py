@@ -2,8 +2,11 @@
 __author__ = 'BinglanLi'
 
 import allel
+import copy
 import gzip
 import os
+import pandas as pd
+import re
 import shutil
 import subprocess
 import sys
@@ -11,9 +14,6 @@ import tarfile
 import tempfile
 import urllib.parse
 import urllib.request
-import copy
-import re
-import pandas as pd
 
 import vcf_preprocess_exceptions as Exceptions
 
@@ -101,11 +101,11 @@ def download_from_url(url, download_to_dir, save_to_file=None, force_update=Fals
 def get_default_grch38_ref_fasta_and_index(download_to_dir, force_update=False):
     """download the human reference genome sequence GRCh38/hg38"""
 
-    ref_file = os.path.join(download_to_dir, 'reference.fasta.bgz')
+    ref_file = os.path.join(download_to_dir, 'reference.fna.bgz')
     if os.path.exists(ref_file) and not force_update:
         return ref_file
 
-    tar_file = download_from_url('https://zenodo.org/record/5572839/files/GRCh38_reference_fasta.tar?download=1',
+    tar_file = download_from_url('https://zenodo.org/record/6640691/files/GRCh38_reference_fasta.tar',
                                  download_to_dir, None, force_update)
     with tarfile.open(tar_file, 'r') as tar:
         tar.extractall(path=download_to_dir)

@@ -45,7 +45,6 @@ If you run `ls`, it will list the contents of the `/pharmcat` directory:
 
 ```console
 # docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ls
-GRCh38_reference_fasta.tar
 PharmCAT_VCF_Preprocess.py
 PharmCAT_VCF_Preprocess_py3_requirements.txt
 data
@@ -54,9 +53,9 @@ pharmcat.jar
 pharmcat_positions.vcf
 pharmcat_positions.vcf.bgz
 pharmcat_positions.vcf.bgz.tbi
-reference.fasta.bgz
-reference.fasta.bgz.fai
-reference.fasta.bgz.gzi
+reference.fna.bgz
+reference.fna.bgz.fai
+reference.fna.bgz.gzi
 vcf_preprocess_exceptions.py
 vcf_preprocess_utilities.py
 ```
