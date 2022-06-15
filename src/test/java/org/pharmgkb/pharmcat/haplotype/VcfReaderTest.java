@@ -26,9 +26,9 @@ class VcfReaderTest {
       assertEquals(chrPos, sa.getChrPosition());
       if (sa.getChromosome().equals("chr3")) {
         // we treat homogeneous as phased
-        assertTrue(sa.isPhased());
+        assertTrue(sa.isEffectivelyPhased());
       } else {
-        assertFalse(sa.isPhased());
+        assertFalse(sa.isEffectivelyPhased());
       }
     }
   }

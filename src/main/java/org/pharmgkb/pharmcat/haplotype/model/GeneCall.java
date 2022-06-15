@@ -114,14 +114,24 @@ public class GeneCall {
     return m_variants;
   }
 
-  public void setVariants(SortedSet<Variant> variants) {
-    m_variants = variants;
-  }
-
+  /**
+   * Adds a {@link Variant} to this {@link GeneCall}.
+   * <p>
+   * Call {@link #finalizeVariants()} when done adding.
+   */
   public void add(Variant pos) {
     Preconditions.checkNotNull(pos);
     m_variants.add(pos);
     if (!pos.isPhased()) {
+      m_isPhased = false;
+    }
+  }
+
+  /**
+   * Call this when done adding {@link Variant}s to make sure phasing is set correctly.
+   */
+  public void finalizeVariants() {
+    if (m_variants.isEmpty()) {
       m_isPhased = false;
     }
   }

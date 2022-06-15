@@ -23,7 +23,7 @@ public class CombinationUtil {
     Preconditions.checkArgument(alleles.size() > 0, "No alleles to generate permutations for");
 
     Set<String> rez = generatePermutations(alleles, 0, true, "");
-    if (alleles.get(0).isPhased()) {
+    if (alleles.get(0).isEffectivelyPhased()) {
       rez.addAll(generatePermutations(alleles, 0, false, ""));
     }
     if (rez.size() == 0) {
@@ -45,7 +45,7 @@ public class CombinationUtil {
     SampleAllele allele = sampleAlleles.get(position);
 
     Set<String> alleles = new HashSet<>();
-    if (allele.isPhased()) {
+    if (allele.isEffectivelyPhased()) {
       alleles.addAll(generatePermutations(sampleAlleles, position + 1, firstAllele, appendAllele(alleleSoFar, allele, firstAllele)));
     } else {
       alleles.addAll(generatePermutations(sampleAlleles, position + 1, firstAllele, appendAllele(alleleSoFar, allele, true)));

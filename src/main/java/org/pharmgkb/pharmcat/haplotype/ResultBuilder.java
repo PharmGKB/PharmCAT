@@ -98,6 +98,7 @@ public class ResultBuilder {
     for (VariantLocus variant : matchData.getPositions()) {
       geneCall.add(new Variant(variant, matchData.getSampleAllele(variant.getPosition())));
     }
+    geneCall.finalizeVariants();
 
     m_result.addDiplotypeCall(geneCall);
 

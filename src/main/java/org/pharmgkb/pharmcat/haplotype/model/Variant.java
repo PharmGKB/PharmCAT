@@ -24,6 +24,8 @@ public class Variant implements Comparable<Variant>  {
   @Expose
   @SerializedName("vcfCall")
   private String m_vcfCall;
+  @Expose
+  @SerializedName("phased")
   private boolean m_isPhased;
   private String m_vcfAlleles;
 

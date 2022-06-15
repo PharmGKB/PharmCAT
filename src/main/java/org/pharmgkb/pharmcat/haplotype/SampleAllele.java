@@ -19,11 +19,12 @@ public class SampleAllele implements Comparable<SampleAllele> {
   private final String m_allele1;
   private String m_allele2;
   private final boolean m_isPhased;
+  private final boolean m_isEffectivelyPhased;
   private final List<String> m_vcfAlleles;
 
 
-  public SampleAllele(String chromosome, long position, String a1, @Nullable String a2,
-      boolean isPhased, List<String> vcfAlleles) {
+  public SampleAllele(String chromosome, long position, String a1, @Nullable String a2, boolean isPhased,
+      boolean isEffectivelyPhased, List<String> vcfAlleles) {
     m_chromosome = chromosome;
     m_position = (int)position;
     m_allele1 = a1.toUpperCase();
@@ -31,7 +32,16 @@ public class SampleAllele implements Comparable<SampleAllele> {
       m_allele2 = a2.toUpperCase();
     }
     m_isPhased = isPhased;
+    m_isEffectivelyPhased = isEffectivelyPhased;
     m_vcfAlleles = vcfAlleles;
+  }
+
+  /**
+   * This constructor is primarily for use in tests only.
+   */
+  protected SampleAllele(String chromosome, long position, String a1, @Nullable String a2,
+      boolean isPhased, List<String> vcfAlleles) {
+    this(chromosome, position, a1, a2, isPhased, isPhased, vcfAlleles);
   }
 
   public String getChromosome() {
@@ -53,9 +63,19 @@ public class SampleAllele implements Comparable<SampleAllele> {
   public String getAllele2() {
     return m_allele2;
   }
-  
+
+  /**
+   * Gets whether the sample is phased at this location according to VCF.
+   */
   public boolean isPhased() {
     return m_isPhased;
+  }
+
+  /**
+   * Gets whether the sample should be treated as phased at this location (i.e. really phased or homozygous).
+   */
+  public boolean isEffectivelyPhased() {
+    return m_isEffectivelyPhased;
   }
 
   public List<String> getVcfAlleles() {

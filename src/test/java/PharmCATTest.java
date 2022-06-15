@@ -1253,7 +1253,7 @@ class PharmCATTest {
         .filter(r -> r.getRelatedDrugs().contains("tacrolimus"))
         .allMatch(r -> r.getMessages().size() > 0));
 
-    assertTrue(gene.isPhased());
+    assertFalse(gene.isPhased());
   }
 
   @Test

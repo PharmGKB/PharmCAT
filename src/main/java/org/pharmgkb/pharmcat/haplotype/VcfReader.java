@@ -318,10 +318,14 @@ public class VcfReader implements VcfLineParser {
     }
 
     // genotype divided by "|" if phased and "/" if unphased
-    // however, we'll treat homozygous as phased
     boolean isPhased = true;
-    if (gt.contains("/") && a2 != null && !a1.equalsIgnoreCase(a2)) {
+    boolean isEffectivelyPhased = true;
+    if (gt.contains("/")) {
       isPhased = false;
+      // we'll also treat homozygous as phased
+       if (a2 != null && !a1.equalsIgnoreCase(a2)) {
+         isEffectivelyPhased = false;
+       }
     }
 
     List<String> vcfAlleles = new ArrayList<>();
@@ -329,7 +333,7 @@ public class VcfReader implements VcfLineParser {
     vcfAlleles.addAll(position.getAltBases());
 
     SampleAllele sampleAllele = new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased,
-        vcfAlleles);
+        isEffectivelyPhased, vcfAlleles);
     m_alleleMap.put(chrPos, sampleAllele);
   }
 
