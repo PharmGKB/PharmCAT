@@ -312,7 +312,9 @@ public class PharmCAT {
         calls = matcherResult.getGeneCalls();
         warnings = matcherResult.getVcfWarnings();
       } else if (m_phenotyperInputFile != null) {
-        calls = new ResultSerializer().fromJson(m_phenotyperInputFile).getGeneCalls();
+        Result deserializedMatcherResult = new ResultSerializer().fromJson(m_phenotyperInputFile);
+        calls = deserializedMatcherResult.getGeneCalls();
+        warnings = deserializedMatcherResult.getVcfWarnings();
       } else {
         calls = new ArrayList<>();
       }
