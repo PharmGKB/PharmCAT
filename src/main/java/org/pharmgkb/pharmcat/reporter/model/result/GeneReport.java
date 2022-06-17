@@ -63,7 +63,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private final List<MessageAnnotation> m_messages = new ArrayList<>();
   @Expose
   @SerializedName("relatedDrugs")
-  private Set<DrugLink> m_relatedDrugs = new TreeSet<>();
+  private SortedSet<DrugLink> m_relatedDrugs = new TreeSet<>();
   @Expose
   @SerializedName("matcherDiplotypes")
   private final List<Diplotype> m_matcherDiplotypes = new ArrayList<>();
@@ -301,7 +301,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * Gets a list of {@link DrugLink} objects that are in the same guidelines as this gene
    * @return a list of {@link DrugLink} objects
    */
-  public Set<DrugLink> getRelatedDrugs() {
+  public SortedSet<DrugLink> getRelatedDrugs() {
     return m_relatedDrugs;
   }
 
