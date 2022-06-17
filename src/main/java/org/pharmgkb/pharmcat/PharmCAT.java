@@ -47,6 +47,7 @@ public class PharmCAT {
   private boolean m_callCyp2d6;
   private Path m_matcherJsonFile;
   private Path m_matcherHtmlFile;
+  private boolean m_matcherHtml = false;
 
   private boolean m_runPhenotyper = true;
   private Path m_phenotyperInputFile;
@@ -237,6 +238,11 @@ public class PharmCAT {
     m_cliMode = true;
   }
 
+  public PharmCAT includeMatcherHtml() {
+    m_matcherHtml = true;
+    return this;
+  }
+
 
   public PharmCAT matchTopCandidateOnly(boolean topCandidateOnly) {
     m_topCandidateOnly = topCandidateOnly;
@@ -264,6 +270,9 @@ public class PharmCAT {
 
     String baseFilename = FilenameUtils.getBaseName(m_vcfFile.getFileName().toString());
     m_matcherJsonFile = m_vcfFile.getParent().resolve(baseFilename + ".match.json");
+    if (m_matcherHtml) {
+      m_matcherHtmlFile = m_vcfFile.getParent().resolve(baseFilename + ".match.html");
+    }
     m_phenotyperJsonFile = m_vcfFile.getParent().resolve(baseFilename + ".phenotype.json");
     m_reporterTitle = baseFilename;
     m_reporterJsonFile = m_vcfFile.getParent().resolve(baseFilename + ".report.json");

@@ -446,7 +446,7 @@ class SyntheticBatchTest {
 
   private SyntheticBatchTest(Path outputDir) throws IOException {
     f_outputDir = outputDir;
-    f_pharmcat = new PharmCAT(true);
+    f_pharmcat = new PharmCAT(true).includeMatcherHtml();
 
     String readmeContent = String.format(
         "# PharmCAT Example Reports\n\nGenerated on: %s  \nPharmCAT Version: %s",
