@@ -345,6 +345,52 @@ class PharmCATTest {
 
 
   /**
+   * This test ensures that the output of the phenotyper is consistent regardless of whether you run the matcher first
+   * in one process then the phenotyper in a second process versus if you run the matcher and phenotyper together in
+   * one process.
+   */
+  @Test
+  void cliTestConsistentOutput() throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("reference.vcf");
+    Path singlesMatcherOutput = vcfFile.getParent().resolve("singles.match.json");
+    Path singlesPhenotyperOutput = vcfFile.getParent().resolve("singles.phenotype.json");
+    Path doublePhenotyperOutput = vcfFile.getParent().resolve("double.phenotype.json");
+
+    try {
+      String systemOut = tapSystemOut(() -> {
+        PharmCAT.main(new String[] {"-matcher", "-bf", "singles", "-vcf", vcfFile.toString()});
+      });
+      assertTrue(systemOut.contains("Done."));
+      assertTrue(Files.exists(singlesMatcherOutput));
+
+      String singlesPhenoOut = tapSystemOut(() -> {
+        PharmCAT.main(new String[]{"-phenotyper", "-pi", singlesMatcherOutput.toString(), "-bf", "singles"});
+      });
+      assertTrue(singlesPhenoOut.contains("Done."));
+      assertTrue(Files.exists(singlesPhenotyperOutput));
+
+      String doubleOut = tapSystemOut(() -> {
+        PharmCAT.main(new String[]{
+            "-matcher",
+            "-phenotyper",
+            "-vcf", vcfFile.toString(),
+            "-bf", "double"});
+      });
+      assertTrue(doubleOut.contains("Done."));
+      assertTrue(Files.exists(doublePhenotyperOutput));
+
+      assertEquals(
+          Files.readString(singlesPhenotyperOutput),
+          Files.readString(doublePhenotyperOutput));
+    } finally {
+      Files.deleteIfExists(singlesMatcherOutput);
+      Files.deleteIfExists(singlesPhenotyperOutput);
+      Files.deleteIfExists(doublePhenotyperOutput);
+    }
+  }
+
+
+  /**
    * NOTE: if these assertions fail then new data may have been added from the DataManager because of an update to the
    * CPIC database. If that's true, then update these numbers to the current count. If the count changes with no known
    * change to the CPIC database then something may be wrong in code.
