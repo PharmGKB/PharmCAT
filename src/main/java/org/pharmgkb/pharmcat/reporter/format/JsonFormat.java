@@ -10,12 +10,16 @@ import com.google.gson.GsonBuilder;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 
 
+
+/**
+ * A JSON-formatted version of {@link ReportContext} data.
+ */
 public class JsonFormat extends AbstractFormat {
   private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting().create();
 
-  public JsonFormat(Path outputPath, String title) {
-    super(outputPath, title);
+  public JsonFormat(Path outputPath) {
+    super(outputPath);
   }
 
   @Override

@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.SortedSet;
@@ -17,6 +18,7 @@ import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
+import org.pharmgkb.pharmcat.util.CliUtils;
 
 
 /**
@@ -34,6 +36,15 @@ import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
  */
 public class ReportContext {
   @Expose
+  @SerializedName("title")
+  private final String f_title;
+  @Expose
+  @SerializedName("generatedOn")
+  private final Date f_generatedOn = new Date();
+  @Expose
+  @SerializedName("pharmcatVersion")
+  private final String f_pharmcatVersion = CliUtils.getVersion();
+  @Expose
   @SerializedName("genes")
   private final SortedSet<GeneReport> f_geneReports;
   @Expose
@@ -44,7 +55,9 @@ public class ReportContext {
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
    * @param geneReports {@link GeneReport} objects, non-null but can be empty
    */
-  public ReportContext(Collection<GeneReport> geneReports) throws IOException {
+  public ReportContext(Collection<GeneReport> geneReports, String title) throws IOException {
+    f_title = title;
+
     MessageList messageList = new MessageList();
 
     // add GeneReports from the Phenotyper
@@ -183,5 +196,17 @@ public class ReportContext {
         .filter(r -> geneSymbols.contains(r.getGene()))
         .toList();
     return Genotype.makeGenotypes(geneReports);
+  }
+
+  public String getTitle() {
+    return f_title;
+  }
+
+  public Date getGeneratedOn() {
+    return f_generatedOn;
+  }
+
+  public String getPharmcatVersion() {
+    return f_pharmcatVersion;
   }
 }

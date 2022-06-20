@@ -49,7 +49,7 @@ public class CliUtils {
       try (StringWriter writer = new StringWriter()) {
         IOUtils.copy(Runtime.getRuntime().exec("git describe --tags").getInputStream(), writer,
             Charset.defaultCharset());
-        String gitVersion = writer.toString();
+        String gitVersion = StringUtils.strip(writer.toString());
         if (StringUtils.isNotBlank(gitVersion)) {
           return gitVersion;
         }

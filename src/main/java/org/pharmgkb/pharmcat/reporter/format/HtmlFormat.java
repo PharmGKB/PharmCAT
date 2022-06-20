@@ -7,7 +7,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,28 +18,35 @@ import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import org.apache.commons.lang3.StringUtils;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.util.CliUtils;
 
 
+/**
+ * An HTML-formatted version of {@link ReportContext} data.
+ */
 public class HtmlFormat extends AbstractFormat {
   private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
   private static final String FINAL_REPORT = "report";
   private final boolean f_testMode;
 
-  public HtmlFormat(Path outputPath, String title, boolean testMode) {
-    super(outputPath, title);
+  /**
+   * Constructor. Takes the path to write to and whether this output is "test mode" or not
+   * @param outputPath the path to write the data to
+   * @param testMode if true will leave out some time-related metadata that may give false-positives while diffing
+   * output
+   */
+  public HtmlFormat(Path outputPath, boolean testMode) {
+    super(outputPath);
     f_testMode = testMode;
   }
 
   public void write(ReportContext reportContext) throws IOException {
-    Map<String, Object> reportData = compile(reportContext, getTitle());
+    Map<String, Object> reportData = compile(reportContext);
 
     Handlebars handlebars = new Handlebars(new ClassPathTemplateLoader(sf_templatePrefix));
     StringHelpers.register(handlebars);
@@ -56,16 +62,16 @@ public class HtmlFormat extends AbstractFormat {
    * handlebars template.
    * @return a Map of data to serialize into JSON
    */
-  private Map<String,Object> compile(ReportContext reportContext, @Nullable String title) throws IOException {
+  private Map<String,Object> compile(ReportContext reportContext) {
 
     Map<String,Object> result = new HashMap<>();
     if (!f_testMode) {
-      result.put("generatedOn", new SimpleDateFormat("MMMMM dd, yyyy").format(new Date()));
-      result.put("pharmcatVersion", CliUtils.getVersion());
+      result.put("generatedOn", new SimpleDateFormat("MMMMM dd, yyyy").format(reportContext.getGeneratedOn()));
+      result.put("pharmcatVersion", reportContext.getPharmcatVersion());
     }
 
-    if (StringUtils.isNotBlank(title)) {
-      result.put("title", title);
+    if (StringUtils.isNotBlank(reportContext.getTitle())) {
+      result.put("title", reportContext.getTitle());
     }
 
     // Genotypes section

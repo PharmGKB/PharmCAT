@@ -338,7 +338,7 @@ public class PharmCAT {
 
     if (m_runReporter) {
       Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
-      m_reportContext = new ReportContext(Phenotyper.readGeneReports(inputFile));
+      m_reportContext = new ReportContext(Phenotyper.readGeneReports(inputFile), m_reporterTitle);
       if (m_cliMode) {
         if (!m_deleteIntermediateFiles) {
           System.out.println("Saving reporter HTML results to " + m_reporterHtmlFile);
@@ -347,9 +347,9 @@ public class PharmCAT {
           System.out.println("Saving reporter JSON results to " + m_reporterJsonFile);
         }
       }
-      new HtmlFormat(m_reporterHtmlFile, m_reporterTitle, m_testMode).write(m_reportContext);
+      new HtmlFormat(m_reporterHtmlFile, m_testMode).write(m_reportContext);
       if (m_reporterJsonFile != null) {
-        new JsonFormat(m_reporterJsonFile, m_reporterTitle).write(m_reportContext);
+        new JsonFormat(m_reporterJsonFile).write(m_reportContext);
       }
       didSomething = true;
     }

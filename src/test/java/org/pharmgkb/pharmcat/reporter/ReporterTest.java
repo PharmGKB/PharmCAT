@@ -21,7 +21,7 @@ class ReporterTest {
   @Test
   void testCypc2c9VariantPassthrough() throws Exception {
 
-    ReportContext reportContext = new ReportContext(Phenotyper.readGeneReports(PathUtils.getPathToResource(PHENOTYPER_FILE_PATH)));
+    ReportContext reportContext = new ReportContext(Phenotyper.readGeneReports(PathUtils.getPathToResource(PHENOTYPER_FILE_PATH)), null);
 
     // test the CYP2C9 data
     GeneReport geneReport = reportContext.getGeneReport("CYP2C9");

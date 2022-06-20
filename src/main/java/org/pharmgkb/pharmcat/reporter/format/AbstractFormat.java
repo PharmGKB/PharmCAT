@@ -5,22 +5,28 @@ import java.nio.file.Path;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 
 
+/**
+ * Class to extend for making report formats
+ */
 public abstract class AbstractFormat {
   private final Path f_outputPath;
-  private final String f_title;
 
-  public AbstractFormat(Path outputPath, String title) {
+  /**
+   * Constructor. Needs the path to write the output to
+   * @param outputPath the path to the file to write to
+   */
+  public AbstractFormat(Path outputPath) {
     f_outputPath = outputPath;
-    f_title = title;
   }
 
+  /**
+   * Write the {@link ReportContext} data out to the path from the constructor.
+   * @param reportContext a {@link ReportContext} object with data
+   * @throws IOException can occur from disk IO
+   */
   public abstract void write(ReportContext reportContext) throws IOException;
 
   public Path getOutputPath() {
     return f_outputPath;
-  }
-
-  public String getTitle() {
-    return f_title;
   }
 }
