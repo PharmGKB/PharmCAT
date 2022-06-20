@@ -1,6 +1,7 @@
 ---
-title: PharmCAT in Docker
 parent: Using PharmCAT
+title: PharmCAT in Docker
+permalink: using/PharmCAT-in-Docker/
 nav_order: 4
 render_with_liquid: false
 ---

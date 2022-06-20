@@ -1,6 +1,7 @@
 ---
-title: PharmCAT Modules
 parent: Methods
+title: PharmCAT Modules
+permalink: methods/PharmCAT-Modules/
 nav_order: 2
 render_with_liquid: false
 ---

@@ -1,7 +1,7 @@
 ---
-title: Determining Alleles
-permalink: methods/determining-alleles
 parent: Methods
+title: Determining Alleles
+permalink: methods/Determining-Alleles/
 nav_order: 3
 ---
 # Determining Alleles

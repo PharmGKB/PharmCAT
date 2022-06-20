@@ -1,6 +1,7 @@
 ---
-title: Running PharmCAT
 parent: Using PharmCAT
+title: Running PharmCAT
+permalink: using/Running-PharmCAT/
 nav_order: 2
 render_with_liquid: false
 mermaid: true

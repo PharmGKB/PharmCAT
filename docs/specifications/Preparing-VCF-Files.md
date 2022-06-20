@@ -1,10 +1,10 @@
 ---
-title: Preparing VCF
-permalink: specifications/preparing-vcf
 parent: Specifications
+title: Preparing VCF Files
+permalink: specifications/Preparing-VCF-Files
 nav_order: 3
 ---
-# Preparing VCF
+# Preparing VCF Files
 {: .no_toc }
 
 This document explores the reasoning behind [PharmCAT's VCF requirements](/specifications/VCF-Requirements) and some specific examples of ways to fulfill them if you plan on preparing your VCF files yourself.

@@ -1,6 +1,7 @@
 ---
-title: VCF Preprocessor
 parent: Using PharmCAT
+title: VCF Preprocessor
+permalink: using/VCF-Preprocessor/
 nav_order: 3
 render_with_liquid: false
 ---

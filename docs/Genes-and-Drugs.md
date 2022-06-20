@@ -1,6 +1,6 @@
 ---
 title: Genes & Drugs
-permalink: genes-drugs/
+permalink: Genes-Grugs/
 nav_order: 5
 ---
 

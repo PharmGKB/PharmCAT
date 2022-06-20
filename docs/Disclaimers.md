@@ -1,6 +1,6 @@
 ---
 title: Disclaimers and Other Information
-permalink: disclaimers/
+permalink: Disclaimers/
 nav_order: 8
 ---
 # Disclaimers and Other Information
@@ -12,7 +12,7 @@ and that they are using PharmCAT at their own risk.__
 ## A. Allele and Genotype Determination
 
 1. PharmCAT uses gene allele definitions included in the CPIC database, with exceptions as noted
-   in [Gene Definition Exceptions document](https://pharmcat.org/methods/gene-definition-exceptions/). For allele
+   in [Gene Definition Exceptions document](https://pharmcat.org/methods/Gene-Definition-Exceptions/). For allele
    definitions and the positions used in PharmCAT, see
    the [gene definition tables](https://github.com/PharmGKB/PharmCAT/releases).
 2. PharmCAT results are dependent on the supplied vcf calls for the queried positions (for technical information about

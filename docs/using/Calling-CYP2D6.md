@@ -1,6 +1,7 @@
 ---
-title: Calling CYP2D6
 parent: Using PharmCAT
+title: Calling CYP2D6
+permalink: using/Calling-CYP2D6/
 nav_order: 6
 ---
 # Calling CYP2D6

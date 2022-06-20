@@ -1,6 +1,6 @@
 ---
 title: About Us
-permalink: about-us/
+permalink: About-Us/
 nav_order: 9
 ---
 # About Us

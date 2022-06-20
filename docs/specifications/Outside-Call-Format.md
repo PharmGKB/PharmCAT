@@ -1,6 +1,7 @@
 ---
-title: Outside Call Format
 parent: Specifications
+title: Outside Call Format
+permalink: specifications/Outside-Call-Format/
 nav_order: 4
 ---
 # Outside Call Format

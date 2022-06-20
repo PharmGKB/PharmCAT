@@ -1,10 +1,9 @@
 ---
 parent: Methods
-title: Versioning
-permalink: methods/versioning/
+title: Versioning & Releases
+permalink: methods/Versioning/
 nav_order: 7
 ---
-
 # Versioning & Releases
 
 As our team continues to work on the PharmCAT tool we will release new versions of the tool. These versions can be

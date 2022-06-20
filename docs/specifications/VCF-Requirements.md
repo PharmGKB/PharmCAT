@@ -1,6 +1,7 @@
 ---
-title: VCF Requirements
 parent: Specifications
+title: VCF Requirements
+permalink: specifications/VCF-Requirements/
 nav_order: 2
 ---
 # PharmCAT VCF Requirements

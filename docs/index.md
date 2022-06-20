@@ -28,7 +28,7 @@ PharmCAT is under active development.
 
 ## Documentation
 
-[Summary of Genes and Drugs included in PharmCAT](/genes-drugs). There are detailed documents on how particular genes are handled by PharmCAT. See the [gene definition exceptions](methods/gene-definition-exceptions) for a rundown of exceptional circumstances when analyzing particular genes.
+[Summary of Genes and Drugs included in PharmCAT](/Genes-Drugs). There are detailed documents on how particular genes are handled by PharmCAT. See the [gene definition exceptions](methods/Gene-Definition-Exceptions) for a rundown of exceptional circumstances when analyzing particular genes.
 
 Read [the Methods](methods) to learn how PharmCAT works, including how it [matches genotype data to allele definitions](methods/NamedAlleleMatcher-101).
 

@@ -1,10 +1,9 @@
 ---
-title: Gene Definition Exceptions
-permalink: methods/gene-definition-exceptions
 parent: Methods
+title: Gene Definition Exceptions
+permalink: methods/Gene-Definition-Exceptions/
 nav_order: 6
 ---
-
 # Gene Definition Exceptions
 
 The genotype determination is based on [CPIC gene definition

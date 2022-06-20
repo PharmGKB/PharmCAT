@@ -1,9 +1,9 @@
 ---
-title: Multi-Sample Analysis
 parent: Using PharmCAT
+title: Multi-Sample Analysis
+permalink: using/Multi-Sample-Analysis/
 nav_order: 5
 ---
-
 # Multi-Sample Analysis
 {: .no_toc }
 
