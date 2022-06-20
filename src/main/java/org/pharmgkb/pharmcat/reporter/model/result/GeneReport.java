@@ -161,13 +161,10 @@ public class GeneReport implements Comparable<GeneReport> {
    * The gene symbol for display purposes, like in a report. This accounts for the IFNL3/4 problem
    */
   public String getGeneDisplay() {
-    switch (f_gene) {
-      case "IFNL3":
-      case "IFNL4":
-        return "IFNL3/4";
-      default:
-        return f_gene;
-    }
+    return switch (f_gene) {
+      case "IFNL3", "IFNL4" -> "IFNL3/4";
+      default -> f_gene;
+    };
   }
 
   /**
