@@ -53,41 +53,45 @@
     <tr>
       <th>Drugs</th>
       <th>Gene</th>
-      <th>Genotype</th>
-      <th>Allele Functionality</th>
-      <th>Phenotype</th>
-      <th>Missing Variant Input<sup><a href="#genotypes-star">*</a></sup></th>
+      <th>
+        Genotypes
+        <table class="diplotype table-small">
+          <tbody>
+          <tr>
+            <td>Genotype</td>
+            <td>Allele Functionality</td>
+            <td>Phenotype</td>
+          </tr>
+          </tbody>
+        </table>
+      </th>
+      <th>Missing Variant<br/>Input<sup><a href="#genotypes-star">*</a></sup></th>
     </tr>
     </thead>
     <tbody>
     {{#each genotypes}}
       {{#if reportable}}
-      <tr>
+      <tr class="top-aligned">
         <td>{{#each drugs}}
           {{{drug this}}}
         {{/each}}</td>
         <td>
-          <a href="#{{gene}}">{{gene}}</a>{{#if hasMessages}}<sup><a href="#genotypes-dagger">&dagger;</a></sup>{{/if}}
+          <a href="#{{gene}}">{{gene}}</a>
+          {{#if hasMessages}}<sup style="margin-left: 0.2em;"><a href="#genotypes-dagger">&dagger;</a></sup>{{/if}}
+          {{#if unphased}}<sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>{{/if}}
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              {{#each calls}}
-                <div>{{this}}</div>
-              {{/each}}
-            </div>
-            {{#if unphased}}<div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>{{/if}}
-          </div>
-        </td>
-        <td>
-          {{#each functions}}
-            <div>{{this}}</div>
-          {{/each}}
-        </td>
-        <td>
-          {{#each phenotype}}
-            <div>{{this}}</div>
-          {{/each}}
+          <table class="diplotype">
+            <tbody>
+            {{#each diplotypes}}
+              <tr class="top-aligned">
+                <td>{{call}}</td>
+                <td>{{function}}</td>
+                <td>{{phenotype}}</td>
+              </tr>
+            {{/each}}
+            </tbody>
+          </table>
         </td>
         <td>
           {{missingVariants}}

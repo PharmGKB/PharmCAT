@@ -38,7 +38,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private static final Set<String> SINGLE_PLOIDY       = ImmutableSet.of("G6PD", "MT-RNR1");
   private static final Set<String> CHROMO_X            = ImmutableSet.of("G6PD");
   private static final Set<String> ALLELE_PRESENCE     = ImmutableSet.of("HLA-A", "HLA-B");
-  private static final String UNCALLED = "not called";
+  public static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
   public static  final String YES = "Yes";
   public static  final String NO  = "No";

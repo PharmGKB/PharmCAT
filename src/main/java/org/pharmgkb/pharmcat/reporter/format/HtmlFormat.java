@@ -22,8 +22,12 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+
+import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.NA;
+import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.UNCALLED;
 
 
 /**
@@ -100,11 +104,9 @@ public class HtmlFormat extends AbstractFormat {
       genotype.put("called", geneReport.isCalled());
       genotype.put("reportable", geneReport.isReportable());
       genotype.put("drugs", geneReport.getRelatedDrugs());
-      genotype.put("calls", geneReport.printDisplayCalls());
-      genotype.put("functions", geneReport.printDisplayFunctions());
+      genotype.put("diplotypes", geneReport.getReporterDiplotypes().stream().map(HtmlDiplotype::new).collect(Collectors.toList()));
       genotype.put("missingVariants", geneReport.isMissingVariants());
       genotype.put("unphased", !geneReport.isOutsideCall() && !geneReport.isPhased());
-      genotype.put("phenotype", geneReport.printDisplayPhenotypes());
       genotype.put("hasMessages", geneReport.getMessages().size()>0);
       genotype.put("outsideCall", geneReport.isOutsideCall());
 
@@ -257,5 +259,32 @@ public class HtmlFormat extends AbstractFormat {
     result.put("geneCalls", geneCallList);
 
     return result;
+  }
+
+  private static class HtmlDiplotype {
+    private String m_call = UNCALLED;
+    private String m_function;
+    private String m_phenotype = NA;
+
+    HtmlDiplotype(Diplotype diplotype) {
+      if (diplotype == null) {
+        return;
+      }
+      m_call = diplotype.printDisplay();
+      m_function = diplotype.printFunctionPhrase();
+      m_phenotype = diplotype.printPhenotypes();
+    }
+
+    public String getCall() {
+      return m_call;
+    }
+
+    public String getFunction() {
+      return m_function;
+    }
+
+    public String getPhenotype() {
+      return m_phenotype;
+    }
   }
 }
