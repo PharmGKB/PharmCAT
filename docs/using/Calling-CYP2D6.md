@@ -5,11 +5,25 @@ nav_order: 6
 ---
 # Calling CYP2D6
 
-While PharmCAT supports CYP2D6, we **do NOT recommend calling CYP2D6 from VCF** due to the large influence of structural variation and copy number variation (CNV) on predicted phenotype, which is beyond the scope of what can be called from SNPs in a VCF.  In particular, **we** ***strongly discourage*** **using whole-exome sequencing or low coverage whole-genome sequencing data to call CYP2D6**.
+PharmCAT supports CYP2D6 data with the following options, which are discussed in more detail below:
+* use a different tool to determine CYP2D6 diplotypes and use PharmCAT to provide the translation into phenotypes and recommendations
+* run PharmCAT in research mode to call CYP2D6 from VCF files
 
-## Why calling CYP2D6 from VCF is a Bad Idea 
+## CYP2D6 Complications
+### Problems with calling CYP2D6 from VCF
 
-For demonstration purposes, we are using [StellarPGx](https://github.com/SBIMB/StellarPGx), which supports calling CYP2D6 with structural variants and CNV from whole genome sequencing (WGS) CRAM/BAM files. StellarPGx has been benchmarked against the CDC's [GeT-RM](https://www.cdc.gov/labquality/get-rm/inherited-genetic-diseases-pharmacogenetics/pharmacogenetics.html) dataset which provides ground truth sequencing data for benchmarking variant calling tools. According to the [StellarPGx paper](https://ascpt.onlinelibrary.wiley.com/doi/full/10.1002/cpt.2173), StellarPGx produces results with a higher concordance to GeT-RM than other available CYP2D6 callers. However, this benchmark was performed using GeT-RM's short-read 30x PCR-free WGS dataset. In addition to high-coverage WGS, GeT-RM also provides access to low-coverage WGS and whole exome sequencing (WES) data for some samples. We selected 6 random Get-RM samples and ran StellarPGx on the high-coverage WGS, low-coverage WGS, and WES and compared the results to the GeT-RM ground truth calls.
+While PharmCAT supports CYP2D6, we **do NOT recommend calling CYP2D6 from VCF** due to the large influence of structural variation (SV) and copy number variation (CNV) on inferring CYP2D6 phenotype, which is beyond the scope of what can be called from SNPs or INDELs in a VCF file.
+
+CYP2D6 phenotype prediction is sensitive to SV and CNV. Two or more copies of CYP2D6 on one chromosome have been reported for normal function (e.g. `*1`, `*2`), decreased function (e.g. `*10`, `*17`) and no function (e.g. `*4`, `*36`) alleles. The CYP2D6 ultrarapid metabolizer phenotype (UM, activity score >2.25) is predicted based on duplications of normal function alleles and the absence of alleles with an activity value of 0 or 0.25 (e.g. `CYP2D6*2x2/*1`, `CYP2D6*2x2/*17`) or multiplications of normal function alleles (e.g. `CYP2D6*1x3/*4`). As such, CYP2D6 UMs cannot be called using only SNPs and INDELs in a VCF file. Additionally, missing the copy number of a normal or decreased function allele can misrepresent a normal metabolizer (NM) (e.g. `*2x2/*4`, `*10/*17x2`) as an intermediate metabolizer (IM) (e.g. `*2/*4`, `*10/*17`). Moreover, SVs, such as CYP2D6 and CYP2D7 hybrid alleles (e.g. `*13`, `*68`) and the whole gene deletion (`*5`), are no function alleles. At the moment, it is still difficult to have accurate representation of these alleles defined by complex SV in a VCF. Omission or misrepresentation of these alleles, depending on other alleles, will lead to potential carrier being mistakenly reported as IM or NM.
+
+In the specific case where a sample has the whole gene deletion (`*5`) on one CYP2D6 allele and presents variants on the other CYP2D6 allele, these hemizygous variants will be falsely presented as homozygous in the VCF, e.g. `*5/*29` will be detected as `*29/*29` due to this misrepresentation in a VCF file.
+
+
+## Problems with whole-exome sequencing/low coverage whole-genome sequencing 
+
+**We strongly discourage using whole-exome sequencing or low coverage whole-genome sequencing data to call CYP2D6** based on our comparison below.
+
+For demonstration purposes, we are using [StellarPGx](https://github.com/SBIMB/StellarPGx), which supports calling CYP2D6 with structural variants and CNV from whole genome sequencing (WGS) CRAM/BAM files. StellarPGx calls have been compared against the CDC's [GeT-RM](https://www.cdc.gov/labquality/get-rm/inherited-genetic-diseases-pharmacogenetics/pharmacogenetics.html) dataset which provides consensus reference diplotypes for selected samples. According to the [StellarPGx paper](https://ascpt.onlinelibrary.wiley.com/doi/full/10.1002/cpt.2173), StellarPGx produces results with a higher concordance to GeT-RM than other available CYP2D6 callers. However, this benchmark was performed using GeT-RM's short-read 30x PCR-free WGS dataset. In addition to high-coverage WGS, GeT-RM also provides access to low-coverage WGS and whole exome sequencing (WES) data for some samples. We selected 6 random Get-RM samples and ran StellarPGx on the high-coverage WGS, low-coverage WGS, and WES and compared the results to the GeT-RM ground truth calls.
 
 | Sample | WES | Low-Cov WGS | 30x WGS | GeT-RM |
 | ------ | --- | ----------- | ------- | ------ |
@@ -20,20 +34,14 @@ For demonstration purposes, we are using [StellarPGx](https://github.com/SBIMB/S
 | [NA18545](https://www.internationalgenome.org/data-portal/sample/NA18545) | *34/*34x7 | *1/*1x5 | *36+*10/*36+*10 | *5/*36x2+*10x2 |
 | [NA21105](https://www.internationalgenome.org/data-portal/sample/NA21105) | No_call | *34/*34 | *111/*3 | *3/*111 |
 
-There is drastic variation in the calls produced by the three sequencing technologies. In many cases, the WES or low-coverage WGS input resulted in a "no call" result. Occasionally they produced improbably high copy numbers. They also produced star-allele calls which varied greatly from the GeT-RM calls. The 30x WGS produced identical or equivalent results most of the time, and when it deviated the differences were relatively minor. In conclusion, **we do not recommend the use WES or low-coverage WGS for calling CYP2D6 for both research and clinical purposes**.
+There is drastic variation in the calls produced by the three sequencing technologies. In many cases, the WES or low-coverage WGS input resulted in a "no call" result. In some samples, improbably high copy numbers and calls that varied greatly from the GeT-RM calls were produced. The 30x WGS produced identical or equivalent results most of the time, and when it deviated the differences were relatively minor. In conclusion, we do not recommend the use WES or low-coverage WGS for calling CYP2D6 for both research and clinical purposes.
 
 
-## Calling CYP2D6 Anyway
-
-So now that you know the pitfalls, if you still want to call CYP2D6, you have 2 options:
-
-* to [use a different tool to call CYP2D6](#using-outside-calls)
-* to run PharmCAT in [research mode](#calling-cyp2d6-with-pharmcats-research-mode)
-
+## Working with CYP2D6 in PharmCAT
 
 ### Using Outside Calls
 
-PharmCAT supports pulling in results from other tools using what we call ["outside calls"](/specifications/Outside-Call-Format).  This allows you to select your preferred CYP2D6 caller and include CYP2D6 results in a PharmCAT report.
+PharmCAT supports pulling in results from other tools using what we call ["outside calls"](/specifications/Outside-Call-Format).  This allows you to select your preferred CYP2D6 caller and use PharmCAT for the phenotype translation and to include CYP2D6 results in a PharmCAT report.
 
 To include external calls you need to use the `-po` flag in PharmCAT to specify the external calls file. For example:
 
@@ -47,13 +55,15 @@ where `patient_001_cyp2d6.txt` takes the format of:
 # CYP2D6	*1x2/*2+*6
 ```
 
-* See [Running PharmCAT](/using/Running-PharmCAT#phenotyper) for details on the `-po` flag
-* See [Outside Call Format](/specifications/Outside-Call-Format) for details on the outside call file
+For more information: 
+
+* see [Running PharmCAT](/using/Running-PharmCAT#phenotyper) for details on the `-po` flag
+* see [Outside Call Format](/specifications/Outside-Call-Format) for details on the outside call file
 
 
 #### Formatting StellarPGx output for PharmCAT
 
-As mentioned above, if you have whole genome sequencing (WGS) CRAM/BAM files, your best option is a tool like StellarPGx.  Please note we are not affiliated with the StellarPGx team and offer no guarantees about its performance. Any questions or concerns on StellarPGx should be directed to the StellarPGx maintainers [twesigomwedavid@gmail.com](twesigomwedavid@gmail.com). Usage instructions for StellarPGx can be found on their [github](https://github.com/SBIMB/StellarPGx).
+As mentioned above, if you have whole genome sequencing (WGS) CRAM/BAM files, your best option is a tool like StellarPGx.  Please note we are not affiliated with the StellarPGx team and offer no guarantees about its performance. Any questions or concerns on StellarPGx should be directed to the StellarPGx maintainer at [twesigomwedavid@gmail.com](twesigomwedavid@gmail.com). Usage instructions for StellarPGx can be found on their [GitHub repo](https://github.com/SBIMB/StellarPGx).
 
 While this tutorial is StellarPGx specific, it should illustrate how to integrate other external callers with PharmCAT.
 
@@ -101,7 +111,7 @@ Usage example:
 # python3 stellarPGx_to_PharmCAT.py summary.txt pharmcat_inputs
 ```
 
-Where `summary.txt` is the StellarPGx output and `pharmcat_inputs` is the directory where I want my call files to be placed. If I ran the script on the summary file example from above, calling `ls pharmcat_inputs` to list the directory contents should show:
+Where `summary.txt` is the StellarPGx output and `pharmcat_inputs` is the directory where the call files should be placed. After running this, calling `ls pharmcat_inputs` to list the directory contents should show:
 
 ```console
 # ls pharmcat_inputs
@@ -120,9 +130,9 @@ We urge you to manually verify that the calls in the PharmCAT-ready files corres
 
 ### Calling CYP2D6 with PharmCAT's research mode
 
-Once again, we **do NOT recommend calling CYP2D6 from VCF**!
+As stated above, we **do NOT recommend calling CYP2D6 from VCF** due to the large influence of SV and CNV on phenotype prediction.
 
-PharmCAT can, however, call CYP2D6 if you are willing to accept all the caveats.  This functionality is gated behind the `-research` flag.
+PharmCAT can, however, call CYP2D6 star alleles that are defined based on SNPs and/or INDELs. If you are willing to accept all these caveats, this functionality is gated behind the `-research` flag.
 
 To get PharmCAT to call CYP2D6, use `-research cyp2d6`
 
