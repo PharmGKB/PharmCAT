@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang3.builder.CompareToBuilder;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
 
@@ -49,15 +50,9 @@ public class DrugLink implements Comparable<DrugLink> {
   }
 
   public int compareTo(DrugLink o) {
-    if (o == null) {
-      return -1;
-    }
-    int rez = m_name.compareTo(o.getName());
-
-    if (rez != 0) {
-      return rez;
-    } else {
-      return m_guidelineId.compareTo(o.getGuidelineId());
-    }
+    return new CompareToBuilder()
+        .append(m_name, o.getName())
+        .append(m_guidelineId, o.getGuidelineId())
+        .toComparison();
   }
 }

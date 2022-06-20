@@ -59,6 +59,7 @@ public class PharmCAT {
   private String m_reporterTitle;
   private Path m_reporterJsonFile;
   private Path m_reporterHtmlFile;
+  private ReportContext m_reportContext;
 
   private boolean m_deleteIntermediateFiles;
   private boolean m_cliMode;
@@ -337,7 +338,7 @@ public class PharmCAT {
 
     if (m_runReporter) {
       Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
-      ReportContext reportContext = new ReportContext(Phenotyper.readGeneReports(inputFile));
+      m_reportContext = new ReportContext(Phenotyper.readGeneReports(inputFile));
       if (m_cliMode) {
         if (!m_deleteIntermediateFiles) {
           System.out.println("Saving reporter HTML results to " + m_reporterHtmlFile);
@@ -346,9 +347,9 @@ public class PharmCAT {
           System.out.println("Saving reporter JSON results to " + m_reporterJsonFile);
         }
       }
-      new HtmlFormat(m_reporterHtmlFile, m_reporterTitle, m_testMode).write(reportContext);
+      new HtmlFormat(m_reporterHtmlFile, m_reporterTitle, m_testMode).write(m_reportContext);
       if (m_reporterJsonFile != null) {
-        new JsonFormat(m_reporterJsonFile, m_reporterTitle).write(reportContext);
+        new JsonFormat(m_reporterJsonFile, m_reporterTitle).write(m_reportContext);
       }
       didSomething = true;
     }
@@ -395,5 +396,9 @@ public class PharmCAT {
       throw new ReportableException("Did not find any allele definitions at " + m_namedAlleleDefinitionDir);
     }
     return definitionReader;
+  }
+
+  public ReportContext getReportContext() {
+    return m_reportContext;
   }
 }
