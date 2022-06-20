@@ -17,7 +17,7 @@ public class DrugLink implements Comparable<DrugLink> {
   private String m_name;
 
   @Expose
-  @SerializedName("guidelineId")
+  @SerializedName("id")
   private String m_guidelineId;
 
   public DrugLink(String name, String guidelineId) {

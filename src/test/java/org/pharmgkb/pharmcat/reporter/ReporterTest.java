@@ -21,11 +21,10 @@ class ReporterTest {
   @Test
   void testCypc2c9VariantPassthrough() throws Exception {
 
-    Reporter reporter = new Reporter();
-    reporter.analyze(Phenotyper.readGeneReports(PathUtils.getPathToResource(PHENOTYPER_FILE_PATH)));
+    ReportContext reportContext = new ReportContext(Phenotyper.readGeneReports(PathUtils.getPathToResource(PHENOTYPER_FILE_PATH)));
 
     // test the CYP2C9 data
-    GeneReport geneReport = reporter.getContext().getGeneReport("CYP2C9");
+    GeneReport geneReport = reportContext.getGeneReport("CYP2C9");
     assertTrue(geneReport.isReportable());
     assertTrue(geneReport.isCalled());
     assertFalse(geneReport.isOutsideCall());
@@ -37,13 +36,13 @@ class ReporterTest {
     );
 
     // test that messages were applied for a drug
-    DrugReport warfarinReport = reporter.getContext().getDrugReports().stream()
+    DrugReport warfarinReport = reportContext.getDrugReports().stream()
         .filter(d -> d.getRelatedDrugs().contains("warfarin")).findFirst()
         .orElseThrow(() -> new RuntimeException("No warfarin drug report found"));
     assertEquals(4, warfarinReport.getMessages().size());
 
     // test that recommendations were matched
-    DrugReport desfluraneReport = reporter.getContext().getDrugReports().stream()
+    DrugReport desfluraneReport = reportContext.getDrugReports().stream()
         .filter(d -> d.getRelatedDrugs().contains("desflurane")).findFirst()
         .orElseThrow(() -> new RuntimeException("No desflurane drug report found"));
     assertEquals(1, desfluraneReport.getGuidelines().stream().filter(GuidelineReport::isMatched).count());

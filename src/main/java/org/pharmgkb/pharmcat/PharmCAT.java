@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 import com.google.common.base.Splitter;
 import com.google.common.base.Stopwatch;
 import org.apache.commons.io.FilenameUtils;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
@@ -24,7 +23,8 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
-import org.pharmgkb.pharmcat.reporter.Reporter;
+import org.pharmgkb.pharmcat.reporter.format.HtmlFormat;
+import org.pharmgkb.pharmcat.reporter.format.JsonFormat;
 import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.util.CliUtils;
@@ -63,7 +63,6 @@ public class PharmCAT {
   private boolean m_deleteIntermediateFiles;
   private boolean m_cliMode;
   private boolean m_testMode;
-  private ReportContext m_reportContext;
 
 
   public static void main(String[] args) {
@@ -120,7 +119,7 @@ public class PharmCAT {
   /**
    * Constructor for running entire PharmCAT pipeline.
    *
-   * @param isTest this value is used to set {@link Reporter#setTestMode(boolean)}
+   * @param isTest this value is used in report formats
    */
   public PharmCAT(boolean isTest) {
     m_testMode = isTest;
@@ -259,10 +258,6 @@ public class PharmCAT {
     return this;
   }
 
-  public @Nullable ReportContext getReportContext() {
-    return m_reportContext;
-  }
-
 
   public void execute(Path vcfFile, Path outsideCallsFile) throws ReportableException, IOException {
     m_vcfFile = vcfFile;
@@ -286,9 +281,8 @@ public class PharmCAT {
    *
    * @return true if some any PharmCAT module was run, false if nothing was run
    */
-  public boolean execute() throws ReportableException, IOException {
+  private boolean execute() throws ReportableException, IOException {
     boolean didSomething = false;
-    m_reportContext = null;
 
     Result matcherResult = null;
     if (m_runMatcher) {
@@ -342,13 +336,8 @@ public class PharmCAT {
     }
 
     if (m_runReporter) {
-      Reporter reporter = new Reporter();
-      if (m_testMode) {
-        reporter.setTestMode(true);
-      }
-
       Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
-      reporter.analyze(Phenotyper.readGeneReports(inputFile));
+      ReportContext reportContext = new ReportContext(Phenotyper.readGeneReports(inputFile));
       if (m_cliMode) {
         if (!m_deleteIntermediateFiles) {
           System.out.println("Saving reporter HTML results to " + m_reporterHtmlFile);
@@ -357,8 +346,10 @@ public class PharmCAT {
           System.out.println("Saving reporter JSON results to " + m_reporterJsonFile);
         }
       }
-      m_reportContext = reporter.getContext();
-      reporter.printHtml(m_reporterHtmlFile, m_reporterTitle, m_reporterJsonFile);
+      new HtmlFormat(m_reporterHtmlFile, m_reporterTitle, m_testMode).write(reportContext);
+      if (m_reporterJsonFile != null) {
+        new JsonFormat(m_reporterJsonFile, m_reporterTitle).write(reportContext);
+      }
       didSomething = true;
     }
 

@@ -29,7 +29,7 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
-import org.pharmgkb.pharmcat.reporter.Reporter;
+import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -40,7 +40,7 @@ import org.slf4j.LoggerFactory;
 /**
  * This class takes genotyping information from the {@link NamedAlleleMatcher} and from outside allele calls then
  * interprets them into phenotype assignments, diplotype calls, and other information needed for subsequent use in the
- * {@link Reporter}. The data is compiled into {@link GeneReport} objects which can then serialized
+ * {@link ReportContext}. The data is compiled into {@link GeneReport} objects which can then serialized
  */
 public class Phenotyper {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());

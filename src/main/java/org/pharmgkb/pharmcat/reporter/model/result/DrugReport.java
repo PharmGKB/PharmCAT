@@ -9,6 +9,8 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -28,13 +30,29 @@ public class DrugReport implements Comparable<DrugReport> {
   // NOTE: This is so the "No Recommendations" section doesn't show in the warfarin guideline
   private static final List<String> sf_notApplicableMatches = ImmutableList.of("RxNorm:11289"); // ID for warfarin
 
+  @Expose
+  @SerializedName("name")
   private final String f_name;
+  @Expose
+  @SerializedName("cpicId")
   private String m_cpicId;
+  @Expose
+  @SerializedName("pharmgkbId")
   private String m_pgkbId;
+  @Expose
+  @SerializedName("messages")
   private final List<MessageAnnotation> m_messages = new ArrayList<>();
+  @Expose
+  @SerializedName("variants")
   private final List<String> m_reportVariants = new ArrayList<>();
+  @Expose
+  @SerializedName("urls")
   private final List<String> f_urls = new ArrayList<>();
+  @Expose
+  @SerializedName("publications")
   private final List<Publication> f_publications = new ArrayList<>();
+  @Expose
+  @SerializedName("guidelines")
   private final List<GuidelineReport> f_guidelines = new ArrayList<>();
 
   public DrugReport(String name) {
