@@ -886,12 +886,16 @@ class PharmCATTest {
   void testDpydS1S2B() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.s1s2b", false);
     testWrapper.getVcfBuilder()
+        .phased()
         .reference("DPYD")
         .variation("DPYD", "rs3918290", "C", "T")
-        .variation("DPYD", "rs1801159", "T", "C");
+        .variation("DPYD", "rs1801159", "C", "T");
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
+
+    GeneReport dpyd = testWrapper.getContext().getGeneReport("DPYD");
+    assertEquals(2, dpyd.getMatcherAlleles().size());
     testWrapper.testPrintCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
     testWrapper.testLookup("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
 
@@ -1460,6 +1464,10 @@ class PharmCATTest {
 
     testWrapper.testLookup("CYP2C19", "*2", "*2");
     testWrapper.testPrintCalls("CYP2C19", "*2/*2");
+
+    GeneReport cyp2c9 = testWrapper.getContext().getGeneReport("CYP2C9");
+    assertEquals(1, cyp2c9.getReporterDiplotypes().size());
+    assertTrue(cyp2c9.getReporterDiplotypes().stream().allMatch(d -> d.getActivityScore().equals("2.0")));
 
     testWrapper.testReportable("CYP2C19", "CYP2C9", "HLA-A", "HLA-B");
     testWrapper.testMatchedGroups("celecoxib", 1);

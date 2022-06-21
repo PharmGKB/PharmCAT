@@ -10,6 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -17,7 +18,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
+import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
@@ -68,6 +71,9 @@ public class GeneReport implements Comparable<GeneReport> {
   @SerializedName("matcherDiplotypes")
   private final List<Diplotype> m_matcherDiplotypes = new ArrayList<>();
   @Expose
+  @SerializedName("matcherAlleles")
+  private final List<NamedAllele> f_matcherAlleles = new ArrayList<>();
+  @Expose
   @SerializedName("diplotypes")
   private final List<Diplotype> m_reporterDiplotypes = new ArrayList<>();
   @Expose
@@ -109,6 +115,11 @@ public class GeneReport implements Comparable<GeneReport> {
       call.getMatchData().getMismatchedPositions().stream()
           .flatMap(a -> m_variantReports.stream().filter(v -> v.getPosition() == a.getPosition()))
           .forEach(r -> r.setMismatch(true));
+
+      call.getHaplotypes().stream()
+          .map(BaseMatch::getHaplotype)
+          .filter(Predicate.not(Objects::isNull))
+          .forEach(f_matcherAlleles::add);
     } catch (IOException ex) {
       throw new RuntimeException("Could not start a gene report", ex);
     }
@@ -418,6 +429,10 @@ public class GeneReport implements Comparable<GeneReport> {
 
   public List<Diplotype> getMatcherDiplotypes() {
     return m_matcherDiplotypes;
+  }
+
+  public List<NamedAllele> getMatcherAlleles() {
+    return f_matcherAlleles;
   }
 
   public List<Diplotype> getReporterDiplotypes() {

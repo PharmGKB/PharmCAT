@@ -24,6 +24,8 @@ public class BaseMatch implements Comparable<BaseMatch> {
   @Expose
   @SerializedName("name")
   private String m_name;
+  @Expose
+  @SerializedName("haplotype")
   private NamedAllele m_haplotype;
   @Expose
   @SerializedName("sequences")

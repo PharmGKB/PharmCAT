@@ -1,15 +1,19 @@
 package org.pharmgkb.pharmcat.definition.model;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
+import javax.swing.text.html.Option;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
+import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 
 /**
@@ -26,6 +30,9 @@ public class GenePhenotype {
   @SerializedName("haplotypes")
   @Expose
   private Map<String,String> m_haplotypes;
+  @SerializedName("activityValues")
+  @Expose
+  private Map<String,String> m_activityValues = new HashMap<>();
   @SerializedName("diplotypes")
   @Expose
   private List<DiplotypeRecord> m_diplotypes;
@@ -53,6 +60,30 @@ public class GenePhenotype {
 
   public void setHaplotypes(Map<String, String> haplotypes) {
     m_haplotypes = haplotypes;
+  }
+
+
+  public Map<String,String> getActivityValues() {
+    return m_activityValues;
+  }
+
+  public void setActivityValues(Map<String, String> activityValues) {
+    m_activityValues = activityValues;
+  }
+
+  public Optional<String> lookupActivityValue(String name) {
+    return Optional.ofNullable(getActivityValues().get(name));
+  }
+
+  public void assignActivity(Haplotype haplotype) {
+    if (haplotype == null || haplotype.isUnknown()) {
+      return;
+    }
+    haplotype.setActivityValue(lookupActivityValue(haplotype.getName()).orElse(GeneReport.NA));
+  }
+
+  public void assignActivity(Diplotype diplotype) {
+
   }
 
 

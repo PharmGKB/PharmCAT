@@ -28,6 +28,9 @@ public class Haplotype implements Comparable<Haplotype> {
   @Expose
   @SerializedName("reference")
   private boolean m_reference = false;
+  @Expose
+  @SerializedName("activityValue")
+  private String m_activityValue;
 
   /**
    * public constructor
@@ -97,6 +100,15 @@ public class Haplotype implements Comparable<Haplotype> {
    */
   public boolean isUnknown() {
     return f_name.equals(UNKNOWN);
+  }
+
+
+  public String getActivityValue() {
+    return m_activityValue;
+  }
+
+  public void setActivityValue(String activityValue) {
+    m_activityValue = activityValue;
   }
 
   /**

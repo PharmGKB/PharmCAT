@@ -155,6 +155,9 @@ public class DiplotypeFactory {
     if (f_genePhenotype != null && !f_gene.startsWith("HLA")) {
       diplotype.addPhenotype(f_genePhenotype.getPhenotypeForDiplotype(diplotype));
       diplotype.addLookupKey(f_genePhenotype.getLookupKeyForDiplotype(diplotype));
+      f_genePhenotype.assignActivity(diplotype.getAllele1());
+      f_genePhenotype.assignActivity(diplotype.getAllele2());
+      diplotype.calculateActivityScore();
     }
     if (f_gene.startsWith("HLA")) {
       diplotype.setPhenotypes(makeHlaPhenotype(diplotype));

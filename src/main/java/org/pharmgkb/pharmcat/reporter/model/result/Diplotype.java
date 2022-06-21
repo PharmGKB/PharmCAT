@@ -66,6 +66,9 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("geneResult")
   private String m_geneResult;
+  @Expose
+  @SerializedName("activityScore")
+  private String m_activityScore;
 
   /**
    * This Function can be used in reduce() calls
@@ -472,5 +475,50 @@ public class Diplotype implements Comparable<Diplotype> {
    */
   public boolean isPhenotypeOnly() {
     return !isUnknownPhenotype() && isUnknownAlleles();
+  }
+
+  public String getActivityScore() {
+    return m_activityScore;
+  }
+
+  public void setActivityScore(String activityScore) {
+    m_activityScore = activityScore;
+  }
+
+  public void calculateActivityScore() {
+    String av1 = calculateActivityValue(getAllele1());
+    String av2 = calculateActivityValue(getAllele2());
+
+    if (isAvailable(av1) && isAvailable(av2)) {
+      try {
+        Float av1f = Float.valueOf(av1);
+        Float av2f = Float.valueOf(av2);
+
+        setActivityScore(String.valueOf(av1f + av2f));
+      } catch (NumberFormatException ex) {
+        setActivityScore(NA);
+      }
+    }
+    else if (isAvailable(av1)) {
+      setActivityScore(av1);
+    }
+    else if (isAvailable(av2)) {
+      setActivityScore(av2);
+    }
+    else {
+      setActivityScore(GeneReport.NA);
+    }
+  }
+
+  private String calculateActivityValue(Haplotype haplotype) {
+    if (haplotype == null) {
+      return NA;
+    } else {
+      return haplotype.getActivityValue();
+    }
+  }
+
+  private boolean isAvailable(String value) {
+    return value != null && !value.equals(NA);
   }
 }
