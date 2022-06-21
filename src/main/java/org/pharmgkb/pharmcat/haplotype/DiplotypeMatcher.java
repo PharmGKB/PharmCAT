@@ -39,7 +39,7 @@ public class DiplotypeMatcher {
   public List<DiplotypeMatch> compute(boolean findCombinations, boolean topCandidateOnly) {
 
     // compare sample permutations to haplotypes
-    List<HaplotypeMatch> haplotypeMatches = new ArrayList<>(comparePermutations());
+    List<HaplotypeMatch> haplotypeMatches = new ArrayList<>(m_dataset.comparePermutations());
     if (haplotypeMatches.size() == 0 && !findCombinations) {
       return Collections.emptyList();
     }
@@ -157,31 +157,10 @@ public class DiplotypeMatcher {
   }
 
 
-
-  /**
-   * Compares a sample's allele permutations to haplotype definitions and return matches.
-   */
-  protected SortedSet<HaplotypeMatch> comparePermutations() {
-
-    Set<HaplotypeMatch> haplotypeMatches = m_dataset.getHaplotypes().stream()
-        .map(HaplotypeMatch::new)
-        .collect(Collectors.toSet());
-
-    for (String p : m_dataset.getPermutations()) {
-      for (HaplotypeMatch hm : haplotypeMatches) {
-        hm.match(p);
-      }
-    }
-
-    return haplotypeMatches.stream()
-        .filter(h -> !h.getSequences().isEmpty())
-        .collect(Collectors.toCollection(TreeSet::new));
-  }
-
   /**
    * Determine possible diplotypes given a set of {@link HaplotypeMatch}'s when sample is homozygous at all positions.
    *
-   * @param haplotypeMatches the matches that were found via {@link #comparePermutations()}
+   * @param haplotypeMatches the matches that were found via {@link MatchData#comparePermutations()}
    */
   private List<DiplotypeMatch> determineHomozygousPairs(SortedSet<BaseMatch> haplotypeMatches) {
 
@@ -211,7 +190,7 @@ public class DiplotypeMatcher {
    * Determine possible diplotypes given a set of {@link HaplotypeMatch}'s when sample is heterozygous at (at least) one
    * position.
    *
-   * @param haplotypeMatches the matches that were found via {@link #comparePermutations()}
+   * @param haplotypeMatches the matches that were found via {@link MatchData#comparePermutations()}
    */
   private List<DiplotypeMatch> determineHeterozygousPairs(SortedSet<BaseMatch> haplotypeMatches) {
 

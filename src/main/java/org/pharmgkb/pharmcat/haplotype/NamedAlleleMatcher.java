@@ -20,6 +20,7 @@ import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -209,7 +210,11 @@ public class NamedAlleleMatcher {
       if (!m_callCyp2d6 && gene.equals("CYP2D6")) {
         continue;
       }
-      callAssumingReference(alleleMap, gene, resultBuilder);
+      if (gene.equals("DPYD")) {
+        callDpyd(alleleMap, resultBuilder);
+      } else {
+        callAssumingReference(alleleMap, gene, resultBuilder);
+      }
     }
     return resultBuilder.build();
   }
@@ -255,6 +260,35 @@ public class NamedAlleleMatcher {
           .compute(true, topCandidateOnly);
     }
     resultBuilder.gene(gene, data, matches);
+  }
+
+
+  /**
+   * For DPYD, only attempt exact diplotype match if phased.
+   * If there is no exact match, we only look for potential haplotypes.
+   * This tries to match all permutations to any potential haplotype (won't assume reference).
+   */
+  private void callDpyd(SortedMap<String, SampleAllele> alleleMap, ResultBuilder resultBuilder) {
+    final String gene = "DPYD";
+    MatchData data = initializeCallData(alleleMap, gene, true, false);
+    Set<HaplotypeMatch> haplotypeMatches = null;
+    if (data.getNumSampleAlleles() > 0) {
+      if (data.getPermutations().size() <= 2) {
+        // effectively phased
+        List<DiplotypeMatch> diplotypeMatches;
+        if (data.getNumSampleAlleles() > 0) {
+          diplotypeMatches = new DiplotypeMatcher(data)
+              .compute(false, false);
+          if (!diplotypeMatches.isEmpty()) {
+            resultBuilder.gene(gene, data, diplotypeMatches);
+            return;
+          }
+        }
+      }
+      data = initializeCallData(alleleMap, gene, false, true);
+      haplotypeMatches = data.comparePermutations();
+    }
+    resultBuilder.gene(gene, data, haplotypeMatches);
   }
 
 

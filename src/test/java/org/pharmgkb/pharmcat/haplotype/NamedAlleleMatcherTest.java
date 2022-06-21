@@ -12,6 +12,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.TestVcfBuilder;
+import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
@@ -566,7 +568,76 @@ class NamedAlleleMatcherTest {
   }
 
 
+  @Test
+  void testDpyd1() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
+    Path vcfFile = new TestVcfBuilder("Reference/c.62G>A]")
+        .reference("DPYD")
+        .saveFile()
+        // c.62G>A
+        .variation("DPYD", "rs80081766", "C", "T")
+        .generate();
 
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    // ignore novel bases
+    //printWarnings(result);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    printMatches(geneCall);
+    assertEquals(1, geneCall.getDiplotypes().size());
+    System.out.println(geneCall.getHaplotypes());
+    assertEquals(2, geneCall.getHaplotypes().size());
+    List<String> names = geneCall.getHaplotypes().stream()
+        .map(BaseMatch::getName)
+        .toList();
+    assertThat(names, contains("Reference", "c.62G>A"));
+  }
+
+
+  @Test
+  void testDpyd2() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
+    Path vcfFile = new TestVcfBuilder("Reference/c.62G>A]")
+        .reference("DPYD")
+        .saveFile()
+        // c.1129-5923C>G, c.1236G>A (HapB3)
+        .variation("DPYD", "rs75017182", "G", "C")
+        .variation("DPYD", "rs56038477", "C", "T")
+        // c.62G>A
+        .variation("DPYD", "rs80081766", "C", "T")
+        // c.3067C>A
+        .variation("DPYD", "rs114096998", "G", "T")
+        .phased()
+        .generate();
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    // ignore novel bases
+    //printWarnings(result);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    printMatches(geneCall);
+    assertEquals(0, geneCall.getDiplotypes().size());
+    System.out.println(geneCall.getHaplotypes());
+    assertEquals(4, geneCall.getHaplotypes().size());
+    List<String> names = geneCall.getHaplotypes().stream()
+        .map(BaseMatch::getName)
+        .toList();
+    assertThat(names, contains("Reference", "c.62G>A", "c.1129-5923C>G, c.1236G>A (HapB3)", "c.3067C>A"));
+  }
+
+
+
+  @SuppressWarnings("unused")
   private static void printWarnings(Result result) {
     for (String key : result.getVcfWarnings().keySet()) {
       System.out.println(key);

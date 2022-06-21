@@ -1,6 +1,7 @@
 
 package org.pharmgkb.pharmcat.haplotype.model;
 
+import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.SortedSet;
@@ -102,6 +103,10 @@ public class GeneCall {
     m_diplotypes.add(diplotype);
     m_haplotypes.add(diplotype.getHaplotype1());
     m_haplotypes.add(diplotype.getHaplotype2());
+  }
+
+  public void addAllHaplotypes(Collection<HaplotypeMatch> haplotypes) {
+    m_haplotypes.addAll(haplotypes);
   }
 
 

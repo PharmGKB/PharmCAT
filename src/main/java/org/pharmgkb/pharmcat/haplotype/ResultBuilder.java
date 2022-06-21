@@ -18,6 +18,7 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Metadata;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
@@ -58,12 +59,46 @@ public class ResultBuilder {
   }
 
 
+  /**
+   * Adds diplotype results for specified gene.
+   */
   protected ResultBuilder gene(String gene, MatchData matchData, List<DiplotypeMatch> matches) {
     Preconditions.checkNotNull(gene);
 
-    DefinitionFile tsvFile = m_definitionReader.getDefinitionFile(gene);
-    String definitionVersion = m_dateFormat.format(tsvFile.getModificationDate());
-    String chromosome = tsvFile.getChromosome();
+    GeneCall geneCall = initGeneCall(gene, matchData);
+    if (matches != null) {
+      // get haplotype/diplotype info
+      for (DiplotypeMatch dm : matches) {
+        geneCall.addDiplotype(dm);
+      }
+    }
+
+    m_result.addDiplotypeCall(geneCall);
+    return this;
+  }
+
+
+  /**
+   * Add haplotype results for specified gene.
+   * This should only be used for genes that we only want to get haplotype matches for (e.g. DPYD).
+   */
+  protected ResultBuilder gene(String gene, MatchData matchData, Set<HaplotypeMatch> matches) {
+    Preconditions.checkNotNull(gene);
+
+    GeneCall geneCall = initGeneCall(gene, matchData);
+    if (matches != null) {
+      geneCall.addAllHaplotypes(matches);
+    }
+
+    m_result.addDiplotypeCall(geneCall);
+    return this;
+  }
+
+
+  private GeneCall initGeneCall(String gene, MatchData matchData) {
+    DefinitionFile definitionFile = m_definitionReader.getDefinitionFile(gene);
+    String definitionVersion = m_dateFormat.format(definitionFile.getModificationDate());
+    String chromosome = definitionFile.getChromosome();
 
     Set<String> matchableHaps = matchData.getHaplotypes().stream()
         .map(NamedAllele::getName)
@@ -82,17 +117,11 @@ public class ResultBuilder {
           .map(String::toUpperCase)
           .collect(Collectors.toSet());
     } else {
-       ignoredHaplotypes = new HashSet<>();
+      ignoredHaplotypes = new HashSet<>();
     }
 
     GeneCall geneCall = new GeneCall(definitionVersion, chromosome, gene, matchData, uncallableHaplotypes,
         ignoredHaplotypes);
-    if (matches != null) {
-      // get haplotype/diplotype info
-      for (DiplotypeMatch dm : matches) {
-        geneCall.addDiplotype(dm);
-      }
-    }
 
     // get position info
     for (VariantLocus variant : matchData.getPositions()) {
@@ -100,8 +129,6 @@ public class ResultBuilder {
     }
     geneCall.finalizeVariants();
 
-    m_result.addDiplotypeCall(geneCall);
-
-    return this;
+    return geneCall;
   }
 }

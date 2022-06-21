@@ -21,6 +21,7 @@ import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -310,5 +311,23 @@ public class MatchData {
       seqMap.put(idx, allele);
     }
     return allele;
+  }
+
+
+  /**
+   * Compares a sample's allele permutations to haplotype definitions and return matches.
+   */
+  protected SortedSet<HaplotypeMatch> comparePermutations() {
+    Set<HaplotypeMatch> haplotypeMatches = getHaplotypes().stream()
+        .map(HaplotypeMatch::new)
+        .collect(Collectors.toSet());
+    for (String p : getPermutations()) {
+      for (HaplotypeMatch hm : haplotypeMatches) {
+        hm.match(p);
+      }
+    }
+    return haplotypeMatches.stream()
+        .filter(h -> !h.getSequences().isEmpty())
+        .collect(Collectors.toCollection(TreeSet::new));
   }
 }
