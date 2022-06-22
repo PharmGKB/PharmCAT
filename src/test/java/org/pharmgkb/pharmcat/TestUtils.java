@@ -15,6 +15,7 @@ import org.junit.jupiter.api.TestInfo;
  */
 public class TestUtils {
   public static final Path TEST_OUTPUT_DIR = getTestOutputDir();
+  public static final boolean SAVE_TEST_OUTPUT = "true".equals(System.getProperty("PHARMCAT_SAVE_TEST_OUTPUT"));
 
   private TestUtils() {
   }
@@ -47,15 +48,20 @@ public class TestUtils {
 
 
   private static Path getTestOutputDir() {
-    Path outputDir = Paths.get("out");
-    if (!outputDir.isAbsolute()) {
-      outputDir = Paths.get(System.getProperty("user.dir")).resolve("out");
+    Path outputDir;
+    if (System.getProperty("PHARMCAT_TEST_DIR") != null) {
+      outputDir = Paths.get(System.getProperty("PHARMCAT_TEST_DIR"));
+    } else {
+      outputDir = Paths.get("out");
+      if (!outputDir.isAbsolute()) {
+        outputDir = Paths.get(System.getProperty("user.dir")).resolve("out");
+      }
     }
     if (!Files.isDirectory(outputDir)) {
       try {
         Files.createDirectories(outputDir);
       } catch (IOException ex) {
-        throw new RuntimeException("Error creating directory: " + outputDir);
+        throw new RuntimeException("Error creating test directory: " + outputDir);
       }
     }
     return outputDir;
@@ -95,7 +101,9 @@ public class TestUtils {
       Files.createDirectories(dir);
     }
     Path file = Files.createTempFile(dir, prefix, suffix);
-    file.toFile().deleteOnExit();
+    if (!SAVE_TEST_OUTPUT) {
+      file.toFile().deleteOnExit();
+    }
     return file;
   }
 

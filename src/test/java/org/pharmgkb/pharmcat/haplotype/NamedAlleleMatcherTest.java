@@ -573,7 +573,6 @@ class NamedAlleleMatcherTest {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
     Path vcfFile = new TestVcfBuilder("Reference/c.62G>A]")
         .reference("DPYD")
-        .saveFile()
         // c.62G>A
         .variation("DPYD", "rs80081766", "C", "T")
         .generate();
@@ -604,7 +603,6 @@ class NamedAlleleMatcherTest {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
     Path vcfFile = new TestVcfBuilder("Reference/c.62G>A]")
         .reference("DPYD")
-        .saveFile()
         // c.1129-5923C>G, c.1236G>A (HapB3)
         .variation("DPYD", "rs75017182", "G", "C")
         .variation("DPYD", "rs56038477", "C", "T")

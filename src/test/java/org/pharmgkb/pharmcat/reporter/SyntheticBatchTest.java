@@ -478,7 +478,6 @@ class SyntheticBatchTest {
       fw.write(outsideCalls);
     }
     makeReport(key, testVcfs, outsideCallPath);
-    outsideCallPath.toFile().deleteOnExit();
   }
 
   private Path writeVcf(Path outputVcf, String[] filesToInclude) {
