@@ -15,7 +15,6 @@ import org.junit.jupiter.api.TestInfo;
  */
 public class TestUtils {
   public static final Path TEST_OUTPUT_DIR = getTestOutputDir();
-  public static final boolean SAVE_TEST_OUTPUT = "true".equals(System.getProperty("PHARMCAT_SAVE_TEST_OUTPUT"));
 
   private TestUtils() {
   }
@@ -101,9 +100,7 @@ public class TestUtils {
       Files.createDirectories(dir);
     }
     Path file = Files.createTempFile(dir, prefix, suffix);
-    if (!SAVE_TEST_OUTPUT) {
-      file.toFile().deleteOnExit();
-    }
+    file.toFile().deleteOnExit();
     return file;
   }
 

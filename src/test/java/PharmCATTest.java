@@ -46,6 +46,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class PharmCATTest {
   private static final Path sf_outputDir = TestUtils.TEST_OUTPUT_DIR.resolve(PharmCATTest.class.getSimpleName());
+  private static final boolean SAVE_TEST_OUTPUT = "true".equals(System.getenv("PHARMCAT_SAVE_TEST_OUTPUT"));
   private static final String sf_outsideCalls = """
       ##Test Outside Call Data
       #Gene\tDiplotype\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\tspecial case\tnomenclature version
@@ -73,10 +74,12 @@ class PharmCATTest {
 
   @AfterAll
   static void teardown() {
-    try {
-      FileUtils.deleteDirectory(sf_outputDir.toFile());
-    } catch (IOException ex) {
-      // ignore
+    if (!SAVE_TEST_OUTPUT) {
+      try {
+        FileUtils.deleteDirectory(sf_outputDir.toFile());
+      } catch (IOException ex) {
+        // ignore
+      }
     }
   }
 
@@ -898,6 +901,27 @@ class PharmCATTest {
     assertEquals(2, dpyd.getMatcherAlleles().size());
     testWrapper.testPrintCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
     testWrapper.testLookup("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
+
+    testWrapper.testMatchedGroups("fluorouracil", 1);
+    testWrapper.testMatchedGroups("capecitabine", 1);
+  }
+
+  @Test
+  void testDpydUnphased() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.s1s2b", false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+        .variation("DPYD", "rs3918290", "C", "T")
+        .variation("DPYD", "rs1801159", "C", "T");
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("DPYD");
+
+    GeneReport dpyd = testWrapper.getContext().getGeneReport("DPYD");
+    assertEquals(3, dpyd.getMatcherAlleles().size());
+    assertEquals(1, dpyd.getReporterDiplotypes().size());
+    testWrapper.testPrintCalls("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)", "Reference");
+    testWrapper.testLookupByActivity("DPYD", "1");
 
     testWrapper.testMatchedGroups("fluorouracil", 1);
     testWrapper.testMatchedGroups("capecitabine", 1);
@@ -1863,6 +1887,13 @@ class PharmCATTest {
       assertTrue(geneReport.isReportable());
       assertTrue(geneReport.getReporterDiplotypes().stream()
           .anyMatch(d -> d.makeLookupMap().equals(lookup)));
+    }
+
+    private void testLookupByActivity(String gene, String activityScore) {
+      GeneReport geneReport = getContext().getGeneReport(gene);
+      assertTrue(geneReport.isReportable());
+      assertTrue(geneReport.getReporterDiplotypes().stream()
+          .allMatch(d -> d.printLookupKeys().equals(activityScore)));
     }
 
     /**
