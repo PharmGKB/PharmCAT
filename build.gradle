@@ -156,8 +156,7 @@ task updateExample(type: JavaExec, dependsOn: 'classes') {
   mainClass = 'org.pharmgkb.pharmcat.PharmCAT'
   classpath = sourceSets.main.runtimeClasspath
   def argList = [
-      '-vcf', file('pharmcat_positions.vcf'),
-      '-o', file('docs/examples'),
+      '-vcf', file('docs/examples/pharmcat.example.vcf'),
       '-po', file('docs/examples/pharmcat.example.outsideCall.tsv'),
       '-reporterJson', '-matcherHtml'
   ]

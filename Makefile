@@ -32,14 +32,13 @@ updateData: clean
 	@echo "Moving pharmcat_position files..."
 	mv src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.* .
 	cp pharmcat_positions.vcf src/test/resources/reference.vcf
-	@echo "\n\nUpdating examples..."
+	cp  pharmcat_positions.vcf docs/examples/pharmcat.example.vcf
+	@echo ""
+	@echo "Updating examples..."
 	@${GRADLE_CMD} updateExample
-	@echo "Moving example files..."
-	mv docs/examples/pharmcat_positions.match.html     docs/examples/pharmcat.example.match.html
-	mv docs/examples/pharmcat_positions.match.json     docs/examples/pharmcat.example.match.json
-	mv docs/examples/pharmcat_positions.phenotype.json docs/examples/pharmcat.example.phenotype.json
-	mv docs/examples/pharmcat_positions.report.html    docs/examples/pharmcat.example.report.html
-	mv docs/examples/pharmcat_positions.report.json    docs/examples/pharmcat.example.report.json
+	# this reverts files with only EOL changes
+	@git stash
+	@git stash pop
 
 
 .PHONY: docker
