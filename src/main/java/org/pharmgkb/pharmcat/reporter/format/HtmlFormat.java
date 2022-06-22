@@ -104,7 +104,7 @@ public class HtmlFormat extends AbstractFormat {
       genotype.put("called", geneReport.isCalled());
       genotype.put("reportable", geneReport.isReportable());
       genotype.put("drugs", geneReport.getRelatedDrugs());
-      genotype.put("diplotypes", geneReport.getReporterDiplotypes().stream().map(HtmlDiplotype::new).collect(Collectors.toList()));
+      genotype.put("diplotypes", makeSummaryDiplotypes(geneReport));
       genotype.put("missingVariants", geneReport.isMissingVariants());
       genotype.put("unphased", !geneReport.isOutsideCall() && !geneReport.isPhased());
       genotype.put("hasMessages", geneReport.getMessages().size()>0);
@@ -259,6 +259,13 @@ public class HtmlFormat extends AbstractFormat {
     result.put("geneCalls", geneCallList);
 
     return result;
+  }
+
+  private List<HtmlDiplotype> makeSummaryDiplotypes(GeneReport geneReport) {
+    List<Diplotype> diplotypesToUse = geneReport.isLeastFunction()
+        ? geneReport.getMatcherDiplotypes()
+        : geneReport.getReporterDiplotypes();
+    return diplotypesToUse.stream().map(HtmlDiplotype::new).toList();
   }
 
   private static class HtmlDiplotype {

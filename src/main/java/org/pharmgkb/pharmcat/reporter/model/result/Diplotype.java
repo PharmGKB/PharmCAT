@@ -64,9 +64,6 @@ public class Diplotype implements Comparable<Diplotype> {
   @SerializedName("label")
   private final String f_label;
   @Expose
-  @SerializedName("geneResult")
-  private String m_geneResult;
-  @Expose
   @SerializedName("activityScore")
   private String m_activityScore;
 
@@ -218,7 +215,7 @@ public class Diplotype implements Comparable<Diplotype> {
         || (m_allele2 != null && m_allele2.getName().equals(alleleName));
   }
 
-  public boolean isUnknownPhenotype() {
+  private boolean isUnknownPhenotype() {
     return m_phenotypes.size() == 0 || m_phenotypes.contains(NO_RESULT);
   }
 
@@ -450,14 +447,6 @@ public class Diplotype implements Comparable<Diplotype> {
     } else {
       return allele + " negative";
     }
-  }
-
-  public String getGeneResult() {
-    return m_geneResult;
-  }
-
-  public void setGeneResult(String geneResult) {
-    m_geneResult = geneResult;
   }
 
   /**

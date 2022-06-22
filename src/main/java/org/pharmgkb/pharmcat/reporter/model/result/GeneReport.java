@@ -20,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
+import org.pharmgkb.pharmcat.haplotype.matcher.DpydAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
@@ -28,7 +29,7 @@ import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
-import org.pharmgkb.pharmcat.util.Slco1b1AlleleMatcher;
+import org.pharmgkb.pharmcat.haplotype.matcher.Slco1b1AlleleMatcher;
 
 
 /**
@@ -41,6 +42,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private static final Set<String> SINGLE_PLOIDY       = ImmutableSet.of("G6PD", "MT-RNR1");
   private static final Set<String> CHROMO_X            = ImmutableSet.of("G6PD");
   private static final Set<String> ALLELE_PRESENCE     = ImmutableSet.of("HLA-A", "HLA-B");
+  private static final Set<String> LEAST_FUNCTION      = ImmutableSet.of("DPYD");
   public static final String UNCALLED = "not called";
   public static  final String NA = "N/A";
   public static  final String YES = "Yes";
@@ -135,6 +137,11 @@ public class GeneReport implements Comparable<GeneReport> {
 
     if (Slco1b1AlleleMatcher.shouldBeUsedOn(this)) {
       Slco1b1AlleleMatcher
+          .makeLookupCalls(this, diplotypeFactory)
+          .ifPresent(m_reporterDiplotypes::add);
+    }
+    else if (DpydAlleleMatcher.shouldBeUsedOn(this)) {
+      DpydAlleleMatcher
           .makeLookupCalls(this, diplotypeFactory)
           .ifPresent(m_reporterDiplotypes::add);
     }
@@ -256,7 +263,7 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Gets the Set of Haplotypes the the matcher could not evaluate
+   * Gets the Set of Haplotypes the matcher could not evaluate
    */
   public Set<String> getUncalledHaplotypes() {
     return m_uncalledHaplotypes;
@@ -298,6 +305,10 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public static boolean isAllelePresenceType(String gene) {
     return ALLELE_PRESENCE.contains(gene);
+  }
+
+  public boolean isLeastFunction() {
+    return LEAST_FUNCTION.contains(f_gene);
   }
 
   @Override
@@ -354,6 +365,9 @@ public class GeneReport implements Comparable<GeneReport> {
       return ImmutableList.of(UNCALLED);
     }
 
+    if (isLeastFunction()) {
+      return m_matcherDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
+    }
     return m_reporterDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
   }
 

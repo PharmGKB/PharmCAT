@@ -908,7 +908,7 @@ class PharmCATTest {
 
   @Test
   void testDpydUnphased() throws Exception {
-    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.s1s2b", false);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.unphased", false);
     testWrapper.getVcfBuilder()
         .reference("DPYD")
         .variation("DPYD", "rs3918290", "C", "T")
@@ -928,9 +928,33 @@ class PharmCATTest {
   }
 
   @Test
+  void testDpydUnphasedMultiple() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.unphased.multiple", false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+        .variation("DPYD", "rs183385770", "C", "T")  // 0 activity value
+        .variation("DPYD", "rs186169810", "A", "C") // 0.5 activity value
+        .variation("DPYD", "rs112766203", "G", "A") // 0.5 activity value
+        .variation("DPYD", "rs144395748", "G", "C"); // 1 activity value
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("DPYD");
+
+    GeneReport dpyd = testWrapper.getContext().getGeneReport("DPYD");
+    assertEquals(5, dpyd.getMatcherAlleles().size());
+    assertEquals(1, dpyd.getReporterDiplotypes().size());
+    testWrapper.testPrintCalls("DPYD", "Reference", "c.1024G>A", "c.1314T>G", "c.1358C>G", "c.2279C>T");
+    testWrapper.testLookupByActivity("DPYD", "0.5");
+
+    testWrapper.testMatchedGroups("fluorouracil", 1);
+    testWrapper.testMatchedGroups("capecitabine", 1);
+  }
+
+  @Test
   void testDpydC2846het() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.c2846het", false);
     testWrapper.getVcfBuilder()
+        .phased()
         .reference("DPYD")
         .variation("DPYD", "rs67376798", "T", "A");
     testWrapper.execute(null);
@@ -950,6 +974,7 @@ class PharmCATTest {
   void testDpydS12het() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.c1156het", false);
     testWrapper.getVcfBuilder()
+        .phased()
         .reference("DPYD")
         .variation("DPYD", "rs78060119", "C", "A");
     testWrapper.execute(null);

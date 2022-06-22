@@ -1,9 +1,8 @@
-package org.pharmgkb.pharmcat.util;
+package org.pharmgkb.pharmcat.haplotype.matcher;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import org.apache.commons.lang3.StringUtils;

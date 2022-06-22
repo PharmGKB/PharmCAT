@@ -32,6 +32,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 public class DiplotypeFactory {
   private static final Set<String> PHENOTYPE_ONLY = ImmutableSet.of("HLA-A", "HLA-B");
   private static final String UNASSIGNED_FUNCTION = "Unassigned function";
+  private static final Set<String> LEAST_FUNCTION = ImmutableSet.of("DPYD");
 
   private final String f_gene;
   private final String f_referenceAlleleName;
@@ -65,7 +66,14 @@ public class DiplotypeFactory {
       return geneCall.getDiplotypes().stream().map(this::makeDiplotype).collect(Collectors.toList());
     }
 
-    // if not diplotypes are matched then mark it as unknown
+    // do the haplotype-based process for "least-function" genes
+    else if (isLeastFunction()) {
+      return geneCall.getHaplotypes().stream()
+          .map(this::makeDiplotype)
+          .toList();
+    }
+
+    // if no diplotypes are matched then mark it as unknown
     else {
       return ImmutableList.of(makeUnknownDiplotype());
     }
@@ -113,6 +121,12 @@ public class DiplotypeFactory {
     Diplotype diplotype = new Diplotype(f_gene, makeHaplotype(h1), makeHaplotype(h2));
     fillDiplotype(diplotype);
 
+    return diplotype;
+  }
+
+  private Diplotype makeDiplotype(BaseMatch baseMatch) {
+    Diplotype diplotype = new Diplotype(f_gene, makeHaplotype(baseMatch));
+    fillDiplotype(diplotype);
     return diplotype;
   }
 
@@ -207,5 +221,9 @@ public class DiplotypeFactory {
       phenotypes.add(diplotype.containsAllele("*58:01"));
       return phenotypes;
     }
+  }
+
+  public boolean isLeastFunction() {
+    return LEAST_FUNCTION.contains(f_gene);
   }
 }
