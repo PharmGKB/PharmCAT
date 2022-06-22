@@ -20,7 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
-import org.pharmgkb.pharmcat.haplotype.matcher.DpydAlleleMatcher;
+import org.pharmgkb.pharmcat.reporter.caller.DpydCustomCaller;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
@@ -29,7 +29,7 @@ import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
-import org.pharmgkb.pharmcat.haplotype.matcher.Slco1b1AlleleMatcher;
+import org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller;
 
 
 /**
@@ -135,13 +135,13 @@ public class GeneReport implements Comparable<GeneReport> {
   public void setDiplotypes(DiplotypeFactory diplotypeFactory, GeneCall geneCall) {
     m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
 
-    if (Slco1b1AlleleMatcher.shouldBeUsedOn(this)) {
-      Slco1b1AlleleMatcher
+    if (Slco1b1CustomCaller.shouldBeUsedOn(this)) {
+      Slco1b1CustomCaller
           .makeLookupCalls(this, diplotypeFactory)
           .ifPresent(m_reporterDiplotypes::add);
     }
-    else if (DpydAlleleMatcher.shouldBeUsedOn(this)) {
-      DpydAlleleMatcher
+    else if (DpydCustomCaller.shouldBeUsedOn(this)) {
+      DpydCustomCaller
           .makeLookupCalls(this, diplotypeFactory)
           .ifPresent(m_reporterDiplotypes::add);
     }

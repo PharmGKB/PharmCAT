@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.haplotype.matcher;
+package org.pharmgkb.pharmcat.reporter.caller;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +13,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 import org.pharmgkb.pharmcat.util.HaplotypeActivityComparator;
 
 
-public class DpydAlleleMatcher {
+public class DpydCustomCaller {
   private static final String DPYD = "DPYD";
 
   public static boolean shouldBeUsedOn(GeneReport report) {

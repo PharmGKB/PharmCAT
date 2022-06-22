@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.haplotype.matcher;
+package org.pharmgkb.pharmcat.reporter.caller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +19,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
  *
  * @author Ryan Whaley
  */
-public class Slco1b1AlleleMatcher {
+public class Slco1b1CustomCaller {
   
   private static final String SLCO1B1 = "SLCO1B1";
   private static final String sf_callPosition = "rs4149056";
