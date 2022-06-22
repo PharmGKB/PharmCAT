@@ -60,17 +60,25 @@ public class ResultBuilder {
 
 
   /**
+   * Builds result for gene when VCF has with no samples for it.
+   */
+  protected ResultBuilder gene(String gene, MatchData matchData) {
+    Preconditions.checkNotNull(gene);
+    m_result.addGeneCall(initGeneCall(gene, matchData));
+    return this;
+  }
+
+
+  /**
    * Adds diplotype results for specified gene.
    */
   protected ResultBuilder gene(String gene, MatchData matchData, List<DiplotypeMatch> matches) {
     Preconditions.checkNotNull(gene);
 
     GeneCall geneCall = initGeneCall(gene, matchData);
-    if (matches != null) {
-      // get haplotype/diplotype info
-      for (DiplotypeMatch dm : matches) {
-        geneCall.addDiplotype(dm);
-      }
+    // get haplotype/diplotype info
+    for (DiplotypeMatch dm : matches) {
+      geneCall.addDiplotype(dm);
     }
 
     m_result.addGeneCall(geneCall);

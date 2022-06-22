@@ -7,6 +7,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Splitter;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -21,6 +23,8 @@ import org.pharmgkb.pharmcat.haplotype.MatchData;
 public class CombinationMatch extends BaseMatch {
   public static final String COMBINATION_JOINER = " + ";
   public static final Splitter COMBINATION_NAME_SPLITTER = Splitter.on(COMBINATION_JOINER).trimResults();
+  @Expose
+  @SerializedName("componentHaplotypes")
   private final SortedSet<NamedAllele> m_componentHaplotypes = new TreeSet<>();
   private final VariantLocus[] m_refVariants;
 
@@ -45,7 +49,7 @@ public class CombinationMatch extends BaseMatch {
    * Constructor for {@link CombinationMatch} based on off-reference partial sequence.
    * <p>
    * This automatically <b>sets the score to 0</b>.  So you should NOT call
-   * {@link BaseMatch#finalizeCombinationHaplotype(MatchData)} on this.
+   * {@link BaseMatch#finalizeCombinationHaplotype(MatchData, boolean)} on this.
    */
   public CombinationMatch(MatchData matchData, NamedAllele reference, String seq) {
     m_refVariants = matchData.getPositions();

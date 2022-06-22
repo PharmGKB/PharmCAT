@@ -68,7 +68,7 @@ public class BaseMatch implements Comparable<BaseMatch> {
    * Checks if haplotype matches reference or has partials.
    * Only applicaable when working with combinations and partials.
    */
-  public void finalizeCombinationHaplotype(MatchData matchData) {
+  public void finalizeCombinationHaplotype(MatchData matchData, boolean findPartials) {
     if (getSequences().size() > 1) {
       throw new IllegalStateException("Can only finalize if there is only 1 sequence");
     }
@@ -82,12 +82,14 @@ public class BaseMatch implements Comparable<BaseMatch> {
 
     List<String> partials = new ArrayList<>();
     NamedAllele hap = getHaplotype();
-    for (int x = 0; x < hap.getAlleles().length; x += 1) {
-      long pos = refVariants[x].getPosition();
-      if (hap.getAlleles()[x] == null) {
-        if (!refVariants[x].getRef().equals(alleleMap.get(pos))) {
-          VariantLocus vl = refVariants[x];
-          partials.add(vl.getHgvsForVcfAllele(alleleMap.get(pos)));
+    if (findPartials) {
+      for (int x = 0; x < hap.getAlleles().length; x += 1) {
+        long pos = refVariants[x].getPosition();
+        if (hap.getAlleles()[x] == null) {
+          if (!refVariants[x].getRef().equals(alleleMap.get(pos))) {
+            VariantLocus vl = refVariants[x];
+            partials.add(vl.getHgvsForVcfAllele(alleleMap.get(pos)));
+          }
         }
       }
     }

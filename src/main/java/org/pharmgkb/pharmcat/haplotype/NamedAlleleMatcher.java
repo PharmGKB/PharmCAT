@@ -14,13 +14,15 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Sets;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
+import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
-import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -188,6 +190,16 @@ public class NamedAlleleMatcher {
   }
 
 
+  private boolean getTopCandidateOnly(String gene) {
+    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+    if (exemption != null && exemption.isAllHits() != null) {
+      //noinspection ConstantConditions
+      return !exemption.isAllHits();
+    }
+    return m_topCandidateOnly;
+  }
+
+
   /**
    * Calls diplotypes for the given VCF file for all genes for which a definition exists.
    */
@@ -222,43 +234,35 @@ public class NamedAlleleMatcher {
   private void callAssumingReference(SortedMap<String, SampleAllele> alleleMap, String gene,
       ResultBuilder resultBuilder) {
 
-    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     MatchData data = initializeCallData(alleleMap, gene, true, false);
-    List<DiplotypeMatch> matches = null;
-    if (data.getNumSampleAlleles() > 0) {
-      boolean topCandidateOnly = m_topCandidateOnly;
-      if (exemption != null && exemption.isAllHits() != null) {
-        //noinspection ConstantConditions
-        topCandidateOnly = !exemption.isAllHits();
+    if (data.getNumSampleAlleles() == 0) {
+      resultBuilder.gene(gene, data);
+      return;
+    }
+
+    List<DiplotypeMatch> matches = new DiplotypeMatcher(data)
+        .compute(false, getTopCandidateOnly(gene));
+    if (matches.isEmpty()) {
+      if (!m_findCombinations) {
+        resultBuilder.gene(gene, data, matches);
+      } else {
+        callCombination(alleleMap, gene, resultBuilder);
       }
-      matches = new DiplotypeMatcher(data)
-          .compute(false, topCandidateOnly);
-      if (matches.isEmpty()) {
-        if (!m_findCombinations) {
-          resultBuilder.gene(gene, data, matches);
-        } else {
-          callCombination(alleleMap, gene, resultBuilder);
-        }
-        return;
-      }
+      return;
     }
     resultBuilder.gene(gene, data, matches);
   }
 
   private void callCombination(SortedMap<String, SampleAllele> alleleMap, String gene, ResultBuilder resultBuilder) {
 
-    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     MatchData data = initializeCallData(alleleMap, gene, false, true);
-    List<DiplotypeMatch> matches = null;
-    if (data.getNumSampleAlleles() > 0) {
-      boolean topCandidateOnly = m_topCandidateOnly;
-      if (exemption != null && exemption.isAllHits() != null) {
-        //noinspection ConstantConditions
-        topCandidateOnly = !exemption.isAllHits();
-      }
-      matches = new DiplotypeMatcher(data)
-          .compute(true, topCandidateOnly);
+    if (data.getNumSampleAlleles() == 0) {
+      resultBuilder.gene(gene, data);
+      return;
     }
+
+    List<DiplotypeMatch> matches = new DiplotypeMatcher(data)
+        .compute(true, getTopCandidateOnly(gene));
     resultBuilder.gene(gene, data, matches);
   }
 
@@ -270,25 +274,72 @@ public class NamedAlleleMatcher {
    */
   private void callDpyd(SortedMap<String, SampleAllele> alleleMap, ResultBuilder resultBuilder) {
     final String gene = "DPYD";
-    MatchData data = initializeCallData(alleleMap, gene, true, false);
-    Set<HaplotypeMatch> haplotypeMatches = null;
-    if (data.getNumSampleAlleles() > 0) {
-      if (data.getPermutations().size() <= 2) {
-        // effectively phased
-        List<DiplotypeMatch> diplotypeMatches;
-        if (data.getNumSampleAlleles() > 0) {
-          diplotypeMatches = new DiplotypeMatcher(data)
-              .compute(false, false);
-          if (!diplotypeMatches.isEmpty()) {
-            resultBuilder.gene(gene, data, diplotypeMatches);
-            return;
-          }
-        }
-      }
-      data = initializeCallData(alleleMap, gene, false, true);
-      haplotypeMatches = data.comparePermutations();
+
+    MatchData refData = initializeCallData(alleleMap, gene, true, false);
+    if (refData.getNumSampleAlleles() == 0) {
+      resultBuilder.gene(gene, refData);
+      return;
     }
-    resultBuilder.gene(gene, data, haplotypeMatches);
+
+    MatchData comboData = null;
+    // try for diplotypes if effectively phased
+    if (refData.getPermutations().size() <= 2) {
+     // first look for exact matches (must use topCandidateOnly = false)
+      List<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(refData)
+          .compute(false, false);
+      if (diplotypeMatches.size() == 1) {
+        resultBuilder.gene(gene, refData, diplotypeMatches);
+        return;
+      }
+      // try combinations
+      comboData = initializeCallData(alleleMap, gene, false, true);
+      diplotypeMatches = new DiplotypeMatcher(comboData)
+          .compute(true, false, false, true);
+      if (!diplotypeMatches.isEmpty()) {
+
+        DiplotypeMatch[] matches = diplotypeMatches.toArray(new DiplotypeMatch[0]);
+        for (int x = 0; x < matches.length; x += 1) {
+          matches = removeSubCombos(matches, x);
+        }
+
+        resultBuilder.gene(gene, comboData, Arrays.asList(matches));
+        return;
+      }
+    }
+
+    if (comboData == null) {
+      comboData = initializeCallData(alleleMap, gene, false, true);
+    }
+    resultBuilder.gene(gene, refData, comboData.comparePermutations());
+  }
+
+  private DiplotypeMatch[] removeSubCombos(DiplotypeMatch[] diplotypeMatches, int idx) {
+
+    List<DiplotypeMatch> cleaned = new ArrayList<>(Arrays.asList(diplotypeMatches).subList(0, idx));
+    DiplotypeMatch diplotypeMatch = diplotypeMatches[idx];
+    Set<String> hap1 = getNames(diplotypeMatch.getHaplotype1());
+    Set<String> hap2 = getNames(diplotypeMatch.getHaplotype2());
+    cleaned.add(diplotypeMatch);
+    for (int x = idx + 1; x < diplotypeMatches.length; x += 1) {
+      DiplotypeMatch dm = diplotypeMatches[x];
+      Set<String> h1 = getNames(dm.getHaplotype1());
+      Set<String> h2 = getNames(dm.getHaplotype2());
+      if ((!hap1.containsAll(h1) || !hap2.containsAll(h2)) &&
+          (!hap1.containsAll(h2) || !hap2.containsAll(h1))) {
+        cleaned.add(dm);
+      }
+    }
+    return cleaned.toArray(new DiplotypeMatch[0]);
+  }
+
+  private Set<String> getNames(BaseMatch bm) {
+    if (bm instanceof CombinationMatch cm) {
+      return cm.getComponentHaplotypes().stream()
+          .map(NamedAllele::getName)
+          .collect(Collectors.toSet());
+    } else {
+      return Sets.newHashSet(bm.getName());
+    }
   }
 
 
