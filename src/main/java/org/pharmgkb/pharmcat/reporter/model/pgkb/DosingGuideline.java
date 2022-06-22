@@ -237,8 +237,8 @@ public class DosingGuideline {
     Set<String> functionKeys = new TreeSet<>();
     findGuidelineGeneFor(diplotype.getGene()).ifPresent(guidelineGene -> {
       List<String> functions = new ArrayList<>();
-      functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele1().getName()).orElse("Unknown"));
-      functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele2().getName()).orElse("Unknown"));
+      functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele1()).orElse("Unknown"));
+      functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele2()).orElse("Unknown"));
       functions.sort(Comparator.naturalOrder());
       functionKeys.add(diplotype.getGene() + ":" + String.join(DELIMITER, functions));
     });
@@ -253,12 +253,12 @@ public class DosingGuideline {
     for (Diplotype diplotype : genotype.getDiplotypes()) {
       findGuidelineGeneFor(diplotype.getGene()).ifPresent((guidelineGene) -> {
         if (diplotype.getAllele1() != null) {
-          guidelineGene.findFunctionForAllele(diplotype.getAllele1().getName()).ifPresent((fnName) -> {
+          guidelineGene.findFunctionForAllele(diplotype.getAllele1()).ifPresent((fnName) -> {
             diplotype.getAllele1().setFunction(fnName);
           });
         }
         if (diplotype.getAllele2() != null) {
-          guidelineGene.findFunctionForAllele(diplotype.getAllele2().getName()).ifPresent((fnName) -> {
+          guidelineGene.findFunctionForAllele(diplotype.getAllele2()).ifPresent((fnName) -> {
             diplotype.getAllele2().setFunction(fnName);
           });
         }

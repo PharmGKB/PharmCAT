@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 
 /**
@@ -35,10 +36,17 @@ public class GuidelineGene {
     m_gene = gene;
   }
 
-  public Optional<String> findFunctionForAllele(String alleleName) {
+  private Optional<String> findFunctionForAllele(String alleleName) {
     return getAlleles().stream()
         .filter(a -> a.getLabel().equals(alleleName))
         .findFirst()
         .map(a -> a.getFunctionTerm().getTerm());
+  }
+
+  public Optional<String> findFunctionForAllele(Haplotype haplotype) {
+    if (haplotype == null) {
+      return Optional.empty();
+    }
+    return findFunctionForAllele(haplotype.getName());
   }
 }
