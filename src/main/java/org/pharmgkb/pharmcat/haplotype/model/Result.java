@@ -38,7 +38,7 @@ public class Result {
     return m_geneCalls;
   }
 
-  public void addDiplotypeCall(GeneCall call) {
+  public void addGeneCall(GeneCall call) {
     m_geneCalls.add(call);
   }
 

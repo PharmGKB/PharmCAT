@@ -57,7 +57,7 @@ public class CombinationMatch extends BaseMatch {
       if (!reference.getAlleles()[x].equals(allele)) {
         VariantLocus vl = matchData.getPositions()[x];
         if (builder.length() > 0) {
-          builder.append(" + ");
+          builder.append(COMBINATION_JOINER);
         }
         builder.append(vl.getHgvsForVcfAllele(allele));
         numPartials += 1;
@@ -124,7 +124,7 @@ public class CombinationMatch extends BaseMatch {
   }
 
 
-  SortedSet<NamedAllele> getComponentHaplotypes() {
+  public SortedSet<NamedAllele> getComponentHaplotypes() {
     return m_componentHaplotypes;
   }
 

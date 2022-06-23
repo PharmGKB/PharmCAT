@@ -73,7 +73,7 @@ public class ResultBuilder {
       }
     }
 
-    m_result.addDiplotypeCall(geneCall);
+    m_result.addGeneCall(geneCall);
     return this;
   }
 
@@ -90,7 +90,7 @@ public class ResultBuilder {
       geneCall.addAllHaplotypes(matches);
     }
 
-    m_result.addDiplotypeCall(geneCall);
+    m_result.addGeneCall(geneCall);
     return this;
   }
 
