@@ -261,6 +261,37 @@ class NamedAlleleMatcherTest {
 
 
   @Test
+  void testWobbleScoring() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-cyp2d6.json");
+    // without wobble scoring, if wobble is reference, this will only return *1/*2
+    Path vcfFile = new TestVcfBuilder("*1/*12")
+        .reference("CYP2D6")
+        .variation("CYP2D6", "rs1135840", "C", "G")
+        .variation("CYP2D6", "rs16947", "G", "A")
+        // wobble on *12
+        .variation("CYP2D6", "rs28371710", "C", "C")
+        .variation("CYP2D6", "rs1058164", "G", "G")
+        .missing("CYP2D6", "rs5030862")
+        .phased()
+        .generate();
+
+    System.out.println(definitionFile);
+    System.out.println(Files.exists(definitionFile));
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, true, true);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    List<String> matches = printMatches(geneCall);
+    assertEquals(2, matches.size());
+    assertThat(matches, contains("*1/*2", "*1/*12"));
+  }
+
+
+  @Test
   void testCombinationBaseline() throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combination.json");
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combinationBaseline.vcf");

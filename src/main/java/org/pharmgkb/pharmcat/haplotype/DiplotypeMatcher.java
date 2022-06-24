@@ -104,6 +104,8 @@ public class DiplotypeMatcher {
       // find matched pairs
       pairs = determineHeterozygousPairs(matches, findCombinations);
     }
+
+    // final scoring
     if (findCombinations) {
       // weed out shorter pairs
       int maxCombos = 0;
@@ -114,6 +116,14 @@ public class DiplotypeMatcher {
       for (DiplotypeMatch dm : pairs) {
         dm.setScore(newComboScore(dm.getHaplotype1(), maxCombos, boostComboScores) +
             newComboScore(dm.getHaplotype2(), maxCombos, boostComboScores));
+      }
+    } else {
+      for (DiplotypeMatch dm : pairs) {
+        BaseMatch m1 = dm.getHaplotype1();
+        BaseMatch m2 = dm.getHaplotype2();
+        dm.setScore(m1.getHaplotype().scoreForSample(m_dataset, m1.getSequences()) +
+            m2.getHaplotype().scoreForSample(m_dataset, m2.getSequences())
+        );
       }
     }
     Collections.sort(pairs);
@@ -138,7 +148,7 @@ public class DiplotypeMatcher {
 
   private int newComboScore(BaseMatch match, int maxBonus, boolean boostCombos) {
     NamedAllele na = match.getHaplotype();
-    int score = na.getScore() - na.getNumPartials();
+    int score = na.scoreForSample(m_dataset, match.getSequences()) - na.getNumPartials();
     int bonus;
     if (boostCombos) {
       // prefer more combos
