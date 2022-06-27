@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.definition.model;
 
 import java.util.Collections;
+import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -41,16 +42,8 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
       @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<String> ignoredAlleles, Boolean allHits) {
     m_gene = gene;
 
-    if (ignoredPositions == null) {
-      m_ignoredPositions = Collections.emptySortedSet();
-    } else {
-      m_ignoredPositions = ignoredPositions;
-    }
-    if (extraPositions == null) {
-      m_extraPositions = Collections.emptySortedSet();
-    } else {
-      m_extraPositions = extraPositions;
-    }
+    m_ignoredPositions = Objects.requireNonNullElse(ignoredPositions, Collections.emptySortedSet());
+    m_extraPositions = Objects.requireNonNullElse(extraPositions, Collections.emptySortedSet());
     if (ignoredAlleles == null) {
       m_ignoredAlleles = Collections.emptySortedSet();
       m_ignoredAllelesLc = m_ignoredAlleles;
@@ -101,7 +94,7 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
   }
 
   /**
-   * Checks if should ignore the given named allele.
+   * Checks if the given named allele should be ignored.
    */
   public boolean shouldIgnoreAllele(String allele) {
     return m_ignoredAllelesLc.contains(allele.toLowerCase());
