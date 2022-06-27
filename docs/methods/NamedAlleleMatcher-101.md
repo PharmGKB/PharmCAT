@@ -20,7 +20,7 @@ The basic process:
 
 
 
-### Scoring
+## Scoring
 
 Each named allele is given a score based on the number of variant positions used to define the allele (non-blank cells in that row).  This means that the reference allele will always have the maximum score because all positions are defined for that allele.
 
@@ -36,14 +36,14 @@ Since the gene definition table contains 5 positions, the reference allele, _*1_
 A diplotype's score is the combined score of its component named alleles.  A _*1_/_*2_ from the example above would have a score of 8.
 
 
-### Missing Positions
+## Missing Positions
 
 If the sample data has missing positions that are required by a named allele definition, the position will be dropped from consideration.
 
 This is the only reason the score for a diplotype might be different between two samples.
 
 
-### Examples
+## Examples
 
 Using the following gene definition table:
 
@@ -117,4 +117,4 @@ __1__:  If sample data is not phased and we do not assume the reference for miss
 
 __2__: This behavior can be modified to return all potential diplotype matches.
 
-__3__: This score is the same irregardless of whether we assume the reference for missing positions.
+__3__: This score is the same regardless of whether we assume the reference for missing positions.
