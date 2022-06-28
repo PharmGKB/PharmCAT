@@ -302,7 +302,7 @@
           "id" : "PA165816576",
           "symbol" : "CYP2D6*1",
           "name" : "*1",
-          "version" : 39
+          "version" : 40
         },
         "version" : 0
       }, {
@@ -373,7 +373,7 @@
           "id" : "PA165816577",
           "symbol" : "CYP2D6*2",
           "name" : "*2",
-          "version" : 38
+          "version" : 39
         },
         "version" : 0
       }, {
@@ -444,7 +444,7 @@
           "id" : "PA165816578",
           "symbol" : "CYP2D6*3",
           "name" : "*3",
-          "version" : 38
+          "version" : 39
         },
         "version" : 0
       }, {
@@ -490,7 +490,7 @@
           "id" : "PA165816579",
           "symbol" : "CYP2D6*4",
           "name" : "*4",
-          "version" : 38
+          "version" : 39
         },
         "version" : 0
       }, {
@@ -528,7 +528,7 @@
           "id" : "PA165948092",
           "symbol" : "CYP2D6*5",
           "name" : "*5",
-          "version" : 37
+          "version" : 38
         },
         "version" : 0
       }, {
@@ -551,7 +551,7 @@
           "id" : "PA165816581",
           "symbol" : "CYP2D6*6",
           "name" : "*6",
-          "version" : 38
+          "version" : 39
         },
         "version" : 0
       }, {
@@ -597,7 +597,7 @@
           "id" : "PA165971559",
           "symbol" : "CYP2D6*7",
           "name" : "*7",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -620,7 +620,7 @@
           "id" : "PA165971560",
           "symbol" : "CYP2D6*8",
           "name" : "*8",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -643,7 +643,7 @@
           "id" : "PA165948317",
           "symbol" : "CYP2D6*9",
           "name" : "*9",
-          "version" : 37
+          "version" : 38
         },
         "version" : 0
       }, {
@@ -719,7 +719,7 @@
           "id" : "PA165971564",
           "symbol" : "CYP2D6*11",
           "name" : "*11",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -742,7 +742,7 @@
           "id" : "PA165971565",
           "symbol" : "CYP2D6*12",
           "name" : "*12",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -765,7 +765,7 @@
           "id" : "PA165988481",
           "symbol" : "CYP2D6*13",
           "name" : "*13",
-          "version" : 33
+          "version" : 34
         },
         "version" : 0
       }, {
@@ -788,7 +788,7 @@
           "id" : "PA166181185",
           "symbol" : "CYP2D6*14",
           "name" : "*14",
-          "version" : 11
+          "version" : 12
         },
         "version" : 0
       }, {
@@ -811,7 +811,7 @@
           "id" : "PA165971568",
           "symbol" : "CYP2D6*15",
           "name" : "*15",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -834,7 +834,7 @@
           "id" : "PA165816583",
           "symbol" : "CYP2D6*17",
           "name" : "*17",
-          "version" : 38
+          "version" : 39
         },
         "version" : 0
       }, {
@@ -880,7 +880,7 @@
           "id" : "PA165971569",
           "symbol" : "CYP2D6*18",
           "name" : "*18",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -903,7 +903,7 @@
           "id" : "PA165971570",
           "symbol" : "CYP2D6*19",
           "name" : "*19",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -926,7 +926,7 @@
           "id" : "PA165971571",
           "symbol" : "CYP2D6*20",
           "name" : "*20",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -949,7 +949,7 @@
           "id" : "PA165988484",
           "symbol" : "CYP2D6*21",
           "name" : "*21",
-          "version" : 34
+          "version" : 35
         },
         "version" : 0
       }, {
@@ -972,7 +972,7 @@
           "id" : "PA165948318",
           "symbol" : "CYP2D6*29",
           "name" : "*29",
-          "version" : 37
+          "version" : 38
         },
         "version" : 0
       }, {
@@ -1018,7 +1018,7 @@
           "id" : "PA165971582",
           "symbol" : "CYP2D6*31",
           "name" : "*31",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -1041,7 +1041,7 @@
           "id" : "PA165971584",
           "symbol" : "CYP2D6*33",
           "name" : "*33",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -1064,7 +1064,7 @@
           "id" : "PA165988487",
           "symbol" : "CYP2D6*35",
           "name" : "*35",
-          "version" : 34
+          "version" : 35
         },
         "version" : 0
       }, {
@@ -1111,7 +1111,7 @@
           "id" : "PA165988488",
           "symbol" : "CYP2D6*36",
           "name" : "*36",
-          "version" : 34
+          "version" : 35
         },
         "version" : 0
       }, {
@@ -1157,7 +1157,7 @@
           "id" : "PA165971592",
           "symbol" : "CYP2D6*38",
           "name" : "*38",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -1180,7 +1180,7 @@
           "id" : "PA166001447",
           "symbol" : "CYP2D6*39",
           "name" : "*39",
-          "version" : 34
+          "version" : 35
         },
         "version" : 0
       }, {
@@ -1203,7 +1203,7 @@
           "id" : "PA165971594",
           "symbol" : "CYP2D6*40",
           "name" : "*40",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -1226,7 +1226,7 @@
           "id" : "PA165816584",
           "symbol" : "CYP2D6*41",
           "name" : "*41",
-          "version" : 38
+          "version" : 39
         },
         "version" : 0
       }, {
@@ -1272,7 +1272,7 @@
           "id" : "PA165971595",
           "symbol" : "CYP2D6*42",
           "name" : "*42",
-          "version" : 35
+          "version" : 36
         },
         "version" : 0
       }, {
@@ -1295,7 +1295,7 @@
           "id" : "PA166181184",
           "symbol" : "CYP2D6*114",
           "name" : "*114",
-          "version" : 11
+          "version" : 12
         },
         "version" : 0
       } ],

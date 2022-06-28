@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
-  "cpicVersion": "v.1.17.1",
-  "modificationDate": "May 5, 2022 03:50:22 PM",
+  "cpicVersion": "v1.18.0-1-gedf3f4e",
+  "modificationDate": "Jun 10, 2022 02:50:35 PM",
   "gene": "CYP2D6",
   "orientation": null,
   "chromosome": "chr22",
@@ -685,7 +685,7 @@
     },
     {
       "chromosome": "chr22",
-      "position": 42127531,
+      "position": 42127530,
       "cpicPosition": 42127530,
       "rsid": "rs72549346",
       "chromosomeHgvsName": "g.42127530_42127531insAC",
@@ -694,12 +694,12 @@
         "insAC"
       ],
       "cpicToVcfAlleleMap": {
-        "del": "CAC",
-        "insAC": "A"
+        "del": "G",
+        "insAC": "GAC"
       },
-      "ref": "CAC",
+      "ref": "G",
       "alts": [
-        "A"
+        "GAC"
       ]
     },
     {
@@ -1541,7 +1541,7 @@
     },
     {
       "chromosome": "chr22",
-      "position": 42128904,
+      "position": 42128903,
       "cpicPosition": 42128903,
       "rsid": null,
       "chromosomeHgvsName": "g.42128903_42128904insTA",
@@ -1550,12 +1550,12 @@
         "insTA"
       ],
       "cpicToVcfAlleleMap": {
-        "insTA": "TA",
-        "del": "CACG"
+        "insTA": "TTA",
+        "del": "T"
       },
-      "ref": "CACG",
+      "ref": "T",
       "alts": [
-        "TA"
+        "TTA"
       ]
     },
     {
@@ -2512,7 +2512,7 @@
         "A",
         "A",
         "C",
-        "CAC",
+        "G",
         "T",
         "T",
         "C",
@@ -2557,7 +2557,7 @@
         "C",
         "C",
         "A",
-        "CACG",
+        "T",
         "T",
         "C",
         "C",
@@ -12696,7 +12696,7 @@
         null,
         null,
         null,
-        "A",
+        "GAC",
         null,
         null,
         null,
@@ -17565,7 +17565,7 @@
         null,
         null,
         null,
-        "TA",
+        "TTA",
         null,
         null,
         null,
@@ -38202,7 +38202,7 @@
         null,
         null,
         null,
-        "TGGGGCGAAAGGGGCGAAA",
+        "TGGGGCGAAA",
         null,
         null,
         null,
@@ -38332,7 +38332,7 @@
         null,
         null,
         null,
-        "AAAGGGGCG(3)",
+        "AAAGGGGCG(2)",
         null,
         null,
         null,

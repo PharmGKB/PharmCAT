@@ -95,7 +95,7 @@
       "objCls" : "Chemical",
       "id" : "PA451241",
       "name" : "ribavirin",
-      "version" : 6
+      "version" : 9
     } ],
     "relatedGenes" : [ {
       "@id" : "https://pharmgkb.org/gene/PA35056",

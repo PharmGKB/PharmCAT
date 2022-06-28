@@ -1,7 +1,7 @@
 
-# tests    = 15,031
-# passed   = 7,254
-# warnings = 3,409
-# failed   = 4,368
-# no alts & no match   = 0
+# tests    = 15,701
+# passed   = 7,422
+# warnings = 7,906
+# failed   = 373
+# no alts & no match   = 162
 # with alts & no match = 0

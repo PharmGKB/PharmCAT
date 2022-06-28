@@ -98,6 +98,23 @@
       font-size: .8em;
       border: 0;
     }
+    table.diplotype {
+      margin-bottom: 0;
+    }
+    table.diplotype td {
+      width: 33%;
+      padding: .2em;
+      border-width: 1px 0 0 0;
+    }
+    table.diplotype tbody tr:first-child td {
+      border-top-width: 0;
+    }
+    table.diplotype tbody tr td:first-child {
+      border-left-width: 0;
+    }
+    table.diplotype tbody tr td {
+      border-left-width: 1px;
+    }
 
     hr {
       margin-bottom: 2em;
@@ -215,9 +232,8 @@
 
 <table class="table-small">
   
-  <tr><th>Date created</th><td>June 20, 2022</td></tr>
-  <tr><th>PharmCAT Version</th><td>v1.8.0-96-g01e5bffe
-</td></tr>
+  <tr><th>Date created</th><td>July 13, 2022</td></tr>
+  <tr><th>PharmCAT Version</th><td>v1.8.0-106-g9ad1edbb</td></tr>
   <tr><th>CPIC Version</th><td></td></tr>
 </table>
 
@@ -241,25 +257,63 @@
 <section id="genotypes">
   <h2>Genotype Summary</h2>
 
-  <p>Genotypes called: 19 / 23 </p>
+  <p>Genotypes called: 21 / 23 </p>
 
   <table>
     <thead>
     <tr>
       <th>Drugs</th>
       <th>Gene</th>
-      <th>Genotype</th>
-      <th>Allele Functionality</th>
-      <th>Phenotype</th>
-      <th>Missing Variant Input<sup><a href="#genotypes-star">*</a></sup></th>
+      <th>
+        Genotypes
+        <table class="diplotype table-small">
+          <tbody>
+          <tr>
+            <td>Genotype</td>
+            <td>Allele Functionality</td>
+            <td>Phenotype</td>
+          </tr>
+          </tbody>
+        </table>
+      </th>
+      <th>Missing Variant<br/>Input<sup><a href="#genotypes-star">*</a></sup></th>
     </tr>
     </thead>
     <tbody>
     
       
+      <tr class="top-aligned">
+        <td>
+          <div class="drugName"><a href="#RxNorm:519">allopurinol</a></div>
+        
+          <div class="drugName"><a href="#RxNorm:301542">rosuvastatin</a></div>
+        </td>
+        <td>
+          <a href="#ABCG2">ABCG2</a>
+          
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
+        </td>
+        <td>
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>rs2231142 reference (G)/rs2231142 reference (G)</td>
+                <td>Two normal function alleles</td>
+                <td>Normal Function</td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </td>
+        <td>
+          No
+        </td>
+      </tr>
+      
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:27340">desflurane</a></div>
         
@@ -277,26 +331,21 @@
         </td>
         <td>
           <a href="#CACNA1S">CACNA1S</a>
+          
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>Reference/Reference</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>Two normal function alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Uncertain Susceptibility</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>Reference/Reference</td>
+                <td>Two normal function alleles</td>
+                <td>Uncertain Susceptibility</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -305,32 +354,27 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:1243041">ivacaftor</a></div>
         </td>
         <td>
           <a href="#CFTR">CFTR</a>
+          
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>No CPIC variants found</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>Two ivacaftor non-responsive alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>ivacaftor non-responsive in CF patients</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>No CPIC variants found</td>
+                <td>Two ivacaftor non-responsive alleles</td>
+                <td>ivacaftor non-responsive in CF patients</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -339,32 +383,27 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:195085">efavirenz</a></div>
         </td>
         <td>
           <a href="#CYP2B6">CYP2B6</a>
+          
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*1/*1</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>Two normal function alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Normal Metabolizer</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>*1/*1</td>
+                <td>Two normal function alleles</td>
+                <td>Normal Metabolizer</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -373,7 +412,7 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:704">amitriptyline</a></div>
         
@@ -405,26 +444,21 @@
         </td>
         <td>
           <a href="#CYP2C19">CYP2C19</a>
+          
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*38/*38</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>Two normal function alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Normal Metabolizer</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>*38/*38</td>
+                <td>Two normal function alleles</td>
+                <td>Normal Metabolizer</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -433,7 +467,7 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:140587">celecoxib</a></div>
         
@@ -461,35 +495,30 @@
         </td>
         <td>
           <a href="#CYP2C9">CYP2C9</a>
+          
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*1/*1</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>*1/*1</td>
+                <td>Two normal function (cyp2c9*1) alleles</td>
+                <td>Normal Metabolizer</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
-          
-            <div>Two normal function (cyp2c9*1) alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Normal Metabolizer</div>
-          
-        </td>
-        <td>
-          Yes
+          No
         </td>
       </tr>
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:704">amitriptyline</a></div>
         
@@ -547,26 +576,21 @@
         </td>
         <td>
           <a href="#CYP2D6">CYP2D6</a>
+          
+          
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*1/*3</div>
-              
-            </div>
+          <table class="diplotype">
+            <tbody>
             
-          </div>
-        </td>
-        <td>
-          
-            <div>One no function allele and one normal function allele</div>
-          
-        </td>
-        <td>
-          
-            <div>Intermediate Metabolizer</div>
-          
+              <tr class="top-aligned">
+                <td>*1/*3</td>
+                <td>One no function allele and one normal function allele</td>
+                <td>Intermediate Metabolizer</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           N/A
@@ -575,34 +599,27 @@
       
     
       
-    
-      
-      <tr>
+      <tr class="top-aligned">
         <td>
-          <div class="drugName"><a href="#RxNorm:42316">tacrolimus</a></div>
+          <div class="drugName"><a href="#PA166265421">quetiapine</a></div>
         </td>
         <td>
-          <a href="#CYP3A5">CYP3A5</a><sup><a href="#genotypes-dagger">&dagger;</a></sup>
+          <a href="#CYP3A4">CYP3A4</a>
+          
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*1/*1</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>Two normal function alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Normal Metabolizer</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>*1/*1</td>
+                <td>Two normal function alleles</td>
+                <td>N/A</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -611,32 +628,56 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
+        <td>
+          <div class="drugName"><a href="#RxNorm:42316">tacrolimus</a></div>
+        </td>
+        <td>
+          <a href="#CYP3A5">CYP3A5</a>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-dagger">&dagger;</a></sup>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
+        </td>
+        <td>
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>*1/*1</td>
+                <td>Two normal function alleles</td>
+                <td>Normal Metabolizer</td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </td>
+        <td>
+          No
+        </td>
+      </tr>
+      
+    
+      
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:11289">warfarin</a></div>
         </td>
         <td>
           <a href="#CYP4F2">CYP4F2</a>
+          
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*1/*1</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>N/A</div>
-          
-        </td>
-        <td>
-          
-            <div>N/A</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>*1/*1</td>
+                <td>N/A</td>
+                <td>N/A</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -645,7 +686,7 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:194000">capecitabine</a></div>
         
@@ -656,27 +697,22 @@
           <div class="drugName"><a href="#PA166104944">tegafur</a></div>
         </td>
         <td>
-          <a href="#DPYD">DPYD</a><sup><a href="#genotypes-dagger">&dagger;</a></sup>
+          <a href="#DPYD">DPYD</a>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-dagger">&dagger;</a></sup>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>Reference/Reference</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>Two normal function alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Normal Metabolizer</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>Reference/Reference</td>
+                <td>Two normal function alleles</td>
+                <td>Normal Metabolizer</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -687,32 +723,27 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:283821">rasburicase</a></div>
         </td>
         <td>
           <a href="#G6PD">G6PD</a>
+          
+          
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>B (wildtype)/B (wildtype)</div>
-              
-            </div>
+          <table class="diplotype">
+            <tbody>
             
-          </div>
-        </td>
-        <td>
-          
-            <div>Two normal function alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Normal</div>
-          
+              <tr class="top-aligned">
+                <td>B (wildtype)/B (wildtype)</td>
+                <td>Two normal function alleles</td>
+                <td>Normal</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           N/A
@@ -723,7 +754,7 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:190521">abacavir</a></div>
         
@@ -743,24 +774,21 @@
         </td>
         <td>
           <a href="#HLA-B">HLA-B</a>
+          
+          
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*15:02/*57:01</div>
-              
-            </div>
+          <table class="diplotype">
+            <tbody>
             
-          </div>
-        </td>
-        <td>
-          
-        </td>
-        <td>
-          
-            <div>*15:02 positive; *57:01 positive; *58:01 negative</div>
-          
+              <tr class="top-aligned">
+                <td>*15:02/*57:01</td>
+                <td>N/A</td>
+                <td>*15:02 positive; *57:01 positive; *58:01 negative</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           N/A
@@ -769,34 +797,29 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:120608">peginterferon alfa-2a</a></div>
         
           <div class="drugName"><a href="#RxNorm:253453">peginterferon alfa-2b</a></div>
         </td>
         <td>
-          <a href="#IFNL3/4">IFNL3/4</a><sup><a href="#genotypes-dagger">&dagger;</a></sup>
+          <a href="#IFNL3/4">IFNL3/4</a>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-dagger">&dagger;</a></sup>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>rs12979860 reference (C)/rs12979860 reference (C)</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>N/A</div>
-          
-        </td>
-        <td>
-          
-            <div>N/A</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>rs12979860 reference (C)/rs12979860 reference (C)</td>
+                <td>N/A</td>
+                <td>N/A</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -805,7 +828,7 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:641">amikacin</a></div>
         
@@ -823,26 +846,21 @@
         </td>
         <td>
           <a href="#MT-RNR1">MT-RNR1</a>
+          
+          
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>1555A&gt;G</div>
-              
-            </div>
+          <table class="diplotype">
+            <tbody>
             
-          </div>
-        </td>
-        <td>
-          
-            <div>increased risk of aminoglycoside-induced hearing loss</div>
-          
-        </td>
-        <td>
-          
-            <div>increased risk of aminoglycoside-induced hearing loss</div>
-          
+              <tr class="top-aligned">
+                <td>1555A&gt;G</td>
+                <td>increased risk of aminoglycoside-induced hearing loss</td>
+                <td>increased risk of aminoglycoside-induced hearing loss</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           N/A
@@ -851,7 +869,7 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:1256">azathioprine</a></div>
         
@@ -861,26 +879,21 @@
         </td>
         <td>
           <a href="#NUDT15">NUDT15</a>
+          
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*1/*1</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>Two normal function alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Normal Metabolizer</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>*1/*1</td>
+                <td>Two normal function alleles</td>
+                <td>Normal Metabolizer</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -889,7 +902,7 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:27340">desflurane</a></div>
         
@@ -907,26 +920,21 @@
         </td>
         <td>
           <a href="#RYR1">RYR1</a>
+          
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>Reference/Reference</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>Two normal function alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Uncertain Susceptibility</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>Reference/Reference</td>
+                <td>Two normal function alleles</td>
+                <td>Uncertain Susceptibility</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -935,7 +943,7 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:83367">atorvastatin</a></div>
         
@@ -953,35 +961,30 @@
         </td>
         <td>
           <a href="#SLCO1B1">SLCO1B1</a>
+          
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*1/*1</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>*1/*1</td>
+                <td>Two normal function alleles</td>
+                <td>Normal Function</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
-          
-            <div>Two normal function alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Normal Function</div>
-          
-        </td>
-        <td>
-          Yes
+          No
         </td>
       </tr>
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:1256">azathioprine</a></div>
         
@@ -990,27 +993,22 @@
           <div class="drugName"><a href="#RxNorm:10485">thioguanine</a></div>
         </td>
         <td>
-          <a href="#TPMT">TPMT</a><sup><a href="#genotypes-dagger">&dagger;</a></sup>
+          <a href="#TPMT">TPMT</a>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-dagger">&dagger;</a></sup>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*1/*1</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>Two normal function alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Normal Metabolizer</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>*1/*1</td>
+                <td>Two normal function alleles</td>
+                <td>Normal Metabolizer</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -1019,34 +1017,29 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#RxNorm:343047">atazanavir</a></div>
         
           <div class="drugName"><a href="#PA166104951">irinotecan</a></div>
         </td>
         <td>
-          <a href="#UGT1A1">UGT1A1</a><sup><a href="#genotypes-dagger">&dagger;</a></sup>
+          <a href="#UGT1A1">UGT1A1</a>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-dagger">&dagger;</a></sup>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>*1/*1</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>Two normal function alleles</div>
-          
-        </td>
-        <td>
-          
-            <div>Normal Metabolizer</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>*1/*1</td>
+                <td>Two normal function alleles</td>
+                <td>Normal Metabolizer</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -1055,7 +1048,7 @@
       
     
       
-      <tr>
+      <tr class="top-aligned">
         <td>
           <div class="drugName"><a href="#PA166104938">acenocoumarol</a></div>
         
@@ -1064,27 +1057,22 @@
           <div class="drugName"><a href="#RxNorm:11289">warfarin</a></div>
         </td>
         <td>
-          <a href="#VKORC1">VKORC1</a><sup><a href="#genotypes-dagger">&dagger;</a></sup>
+          <a href="#VKORC1">VKORC1</a>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-dagger">&dagger;</a></sup>
+          <sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>
         </td>
         <td>
-          <div style="display: flex;">
-            <div>
-              
-                <div>rs9923231 reference (C)/rs9923231 reference (C)</div>
-              
-            </div>
-            <div style="margin-left: 0.2em;"><sup><a href="#genotypes-ddagger">&ddagger;</a></sup></div>
-          </div>
-        </td>
-        <td>
-          
-            <div>N/A</div>
-          
-        </td>
-        <td>
-          
-            <div>N/A</div>
-          
+          <table class="diplotype">
+            <tbody>
+            
+              <tr class="top-aligned">
+                <td>rs9923231 reference (C)/rs9923231 reference (C)</td>
+                <td>N/A</td>
+                <td>N/A</td>
+              </tr>
+            
+            </tbody>
+          </table>
         </td>
         <td>
           No
@@ -1148,7 +1136,14 @@
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -1174,7 +1169,14 @@
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -1269,8 +1271,6 @@
 
       <section>
         
-          <div class="alert alert-info">Some position data used to define ABCG2 alleles is missing which may change the matched genotype. See the gene section for ABCG2 for more information.</div>
-        
       </section>
 
       
@@ -1299,7 +1299,14 @@
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -1323,7 +1330,7 @@
                 <p style="font-weight: bold">PharmGKB-DPWG</p>
                 <a href="https://pharmgkb.org/guidelineAnnotation/PA166264961">source</a>
               </th>
-              <td colspan="5">No matched annotation. No call data for ABCG2</td>
+              <td colspan="5">No matched annotation.</td>
             </tr>
           
         
@@ -1336,7 +1343,14 @@
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -1409,7 +1423,14 @@
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>MT-RNR1:1555A&gt;G</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        MT-RNR1:1555A&gt;G
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   MT-RNR1: increased risk of aminoglycoside-induced hearing loss
@@ -1482,7 +1503,14 @@
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38; CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38; CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -1510,7 +1538,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -1539,7 +1574,7 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
           <p>Citations:</p>
           <ul>
             
-              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
             
               <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23486447">Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants</a> [PMID:23486447] <em>Clinical pharmacology and therapeutics</em>. 2013.</li>
             
@@ -1585,7 +1620,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -1649,7 +1691,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>UGT1A1:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        UGT1A1:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   UGT1A1: Normal Metabolizer
@@ -1658,7 +1707,7 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
                   
                 </div>
               </td>
-              <td>There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient’s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).</td>
+              <td>There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patientâ€™s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).</td>
               <td>UGT1A1: Reference UGT1A1 activity; very low likelihood of bilirubin-related discontinuation of atazanavir.</td>
               <td>All studies correlating UGT1A1 genotypes with atazanavir adverse events have involved ritonavir boosting. However, concentration-time profiles are equivalent when boosted with either cobicistat or ritonavir (PMID 23532097), and bilirubin-related adverse events including discontinuation of atazanavir occur in a similar percentage of patients prescribed atazanavir with cobicistat or ritonavir (PMID 23532097). Associations between UGT1A1 genotype, bilirubin elevations, and atazanavir/r discontinuation therefore almost certainly translate to atazanavir/cobicistat. &quot;reference&quot; function refers to the UGT1A1 allele to which other alleles are compared.</td>
               <td>Strong</td>
@@ -1722,7 +1771,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -1745,7 +1801,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -1771,7 +1834,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -1818,8 +1888,6 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
-        
       </section>
 
       
@@ -1848,7 +1916,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>SLCO1B1:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        SLCO1B1:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   SLCO1B1: Normal Function
@@ -1936,7 +2011,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>NUDT15:*1/*1; TPMT:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        NUDT15:*1/*1; TPMT:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   NUDT15: Normal Metabolizer
@@ -1948,7 +2030,7 @@ TPMT: Normal Metabolizer
               </td>
               <td>Start with normal starting dose (e.g., 2-3 mg/kg/day) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506).</td>
               <td>NUDT15: Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression
-TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.</td>
+TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the â€˜normalâ€™ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.</td>
               <td>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</td>
               <td>Strong</td>
             </tr>
@@ -1964,7 +2046,14 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>NUDT15:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        NUDT15:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   NUDT15: Normal Metabolizer
@@ -1990,7 +2079,14 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>TPMT:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        TPMT:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   TPMT: Normal Metabolizer
@@ -2067,7 +2163,14 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -2129,7 +2232,16 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>DPYD:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        DPYD:Reference/Reference
+                        
+                          <div style="margin-left: .5rem; font-style: italic">Inferred Genotype used to look up Phenotype</div>
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   DPYD: Normal Metabolizer
@@ -2155,7 +2267,16 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>DPYD:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        DPYD:Reference/Reference
+                        
+                          <div style="margin-left: .5rem; font-style: italic">Inferred Genotype used to look up Phenotype</div>
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -2250,7 +2371,14 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -2299,8 +2427,6 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -2329,7 +2455,14 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -2400,7 +2533,14 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -2484,7 +2624,14 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38; CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38; CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -2523,7 +2670,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -2552,7 +2706,7 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
           <p>Citations:</p>
           <ul>
             
-              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
             
               <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23486447">Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants</a> [PMID:23486447] <em>Clinical pharmacology and therapeutics</em>. 2013.</li>
             
@@ -2596,7 +2750,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -2619,7 +2780,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -2642,7 +2810,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -2730,7 +2905,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -2756,7 +2938,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -2842,7 +3031,14 @@ Do not select tramadol, as this is also metabolised by CYP2D6. Morphine is not m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CACNA1S:Reference/Reference; RYR1:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CACNA1S:Reference/Reference; RYR1:Reference/Reference
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CACNA1S: Uncertain Susceptibility
@@ -2917,7 +3113,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -2946,7 +3149,7 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
           <p>Citations:</p>
           <ul>
             
-              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
             
               <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23486447">Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants</a> [PMID:23486447] <em>Clinical pharmacology and therapeutics</em>. 2013.</li>
             
@@ -2990,7 +3193,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -3064,7 +3274,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38; CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38; CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -3092,7 +3309,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -3121,7 +3345,7 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
           <p>Citations:</p>
           <ul>
             
-              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
             
               <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23486447">Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants</a> [PMID:23486447] <em>Clinical pharmacology and therapeutics</em>. 2013.</li>
             
@@ -3167,7 +3391,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2B6:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2B6:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2B6: Normal Metabolizer
@@ -3178,7 +3409,7 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </td>
               <td>Initiate efavirenz with standard dosing (600 mg/day)</td>
               <td>CYP2B6: Normal efavirenz metabolism</td>
-              <td>The ENCORE study showed that in treatment-naïve patients randomized to initiate efavirenz-based regimens (combined with tenofovir and emtricitabine), 400 mg/day was non-inferior to 600 mg/day regardless of CYP2B6 genotype (PMID 24522178).</td>
+              <td>The ENCORE study showed that in treatment-naÃ¯ve patients randomized to initiate efavirenz-based regimens (combined with tenofovir and emtricitabine), 400 mg/day was non-inferior to 600 mg/day regardless of CYP2B6 genotype (PMID 24522178).</td>
               <td>Strong</td>
             </tr>
           
@@ -3193,7 +3424,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2B6:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2B6:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2B6: Normal Metabolizer
@@ -3266,7 +3504,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -3373,7 +3618,14 @@ Strong CYP2D6 inhibitor: for example paroxetine, fluoxetine, quinidine, bupropio
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CACNA1S:Reference/Reference; RYR1:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CACNA1S:Reference/Reference; RYR1:Reference/Reference
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CACNA1S: Uncertain Susceptibility
@@ -3446,7 +3698,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -3530,7 +3789,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -3594,7 +3860,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -3659,7 +3932,16 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>DPYD:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        DPYD:Reference/Reference
+                        
+                          <div style="margin-left: .5rem; font-style: italic">Inferred Genotype used to look up Phenotype</div>
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -3721,7 +4003,16 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>DPYD:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        DPYD:Reference/Reference
+                        
+                          <div style="margin-left: .5rem; font-style: italic">Inferred Genotype used to look up Phenotype</div>
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   DPYD: Normal Metabolizer
@@ -3747,7 +4038,16 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>DPYD:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        DPYD:Reference/Reference
+                        
+                          <div style="margin-left: .5rem; font-style: italic">Inferred Genotype used to look up Phenotype</div>
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -3794,8 +4094,6 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -3824,7 +4122,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -3869,10 +4174,6 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
-        
       </section>
 
       
@@ -3901,7 +4202,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1; SLCO1B1:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1; SLCO1B1:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -3980,7 +4288,14 @@ SLCO1B1: Typical myopathy risk and statin exposure.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -4025,8 +4340,6 @@ SLCO1B1: Typical myopathy risk and statin exposure.</td>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -4055,7 +4368,14 @@ SLCO1B1: Typical myopathy risk and statin exposure.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1; HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1; HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -4079,7 +4399,14 @@ HLA-B: Increased risk of phenytoin-induced SJS/TEN</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1; HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1; HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -4153,7 +4480,14 @@ HLA-B: Increased risk of phenytoin-induced SJS/TEN</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>MT-RNR1:1555A&gt;G</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        MT-RNR1:1555A&gt;G
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   MT-RNR1: increased risk of aminoglycoside-induced hearing loss
@@ -4226,7 +4560,14 @@ HLA-B: Increased risk of phenytoin-induced SJS/TEN</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -4288,7 +4629,14 @@ HLA-B: Increased risk of phenytoin-induced SJS/TEN</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CACNA1S:Reference/Reference; RYR1:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CACNA1S:Reference/Reference; RYR1:Reference/Reference
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CACNA1S: Uncertain Susceptibility
@@ -4410,7 +4758,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -4459,8 +4814,6 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -4489,7 +4842,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -4562,7 +4922,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38; CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38; CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -4601,7 +4968,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -4630,7 +5004,7 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
           <p>Citations:</p>
           <ul>
             
-              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
             
               <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23486447">Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants</a> [PMID:23486447] <em>Clinical pharmacology and therapeutics</em>. 2013.</li>
             
@@ -4676,7 +5050,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>UGT1A1:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        UGT1A1:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   UGT1A1: Normal Metabolizer
@@ -4738,7 +5119,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CACNA1S:Reference/Reference; RYR1:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CACNA1S:Reference/Reference; RYR1:Reference/Reference
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CACNA1S: Uncertain Susceptibility
@@ -4811,7 +5199,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CFTR:No CPIC variants found</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CFTR:No CPIC variants found
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CFTR: ivacaftor non-responsive in CF patients
@@ -4882,7 +5277,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>MT-RNR1:1555A&gt;G</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        MT-RNR1:1555A&gt;G
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   MT-RNR1: increased risk of aminoglycoside-induced hearing loss
@@ -4953,7 +5355,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -5025,7 +5434,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -5082,8 +5498,6 @@ Monitor for efficacy.</td>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -5112,7 +5526,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -5157,8 +5578,6 @@ Monitor for efficacy.</td>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
-        
       </section>
 
       
@@ -5187,7 +5606,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>SLCO1B1:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        SLCO1B1:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   SLCO1B1: Normal Function
@@ -5236,8 +5662,6 @@ Monitor for efficacy.</td>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -5266,7 +5690,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -5339,7 +5770,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>NUDT15:*1/*1; TPMT:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        NUDT15:*1/*1; TPMT:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   NUDT15: Normal Metabolizer
@@ -5351,7 +5789,7 @@ TPMT: Normal Metabolizer
               </td>
               <td>Start with normal starting dose (e.g., 75 mg/m2/day or 1.5 mg/kg/day) and adjust doses of mercaptopurine (and of any other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow at least 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 16401827, 11302950).</td>
               <td>NUDT15: Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression
-TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.</td>
+TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the â€˜normalâ€™ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.</td>
               <td>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</td>
               <td>Strong</td>
             </tr>
@@ -5367,7 +5805,14 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>NUDT15:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        NUDT15:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   NUDT15: Normal Metabolizer
@@ -5393,7 +5838,14 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>TPMT:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        TPMT:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   TPMT: Normal Metabolizer
@@ -5468,7 +5920,14 @@ TPMT: Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘nor
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CACNA1S:Reference/Reference; RYR1:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CACNA1S:Reference/Reference; RYR1:Reference/Reference
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CACNA1S: Uncertain Susceptibility
@@ -5543,7 +6002,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -5607,7 +6073,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -5633,7 +6106,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -5663,7 +6143,7 @@ The therapeutic range of nortriptyline is 50-150 ng/mL. Values exceeding 250 ng/
           <p>Citations:</p>
           <ul>
             
-              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
             
               <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23486447">Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants</a> [PMID:23486447] <em>Clinical pharmacology and therapeutics</em>. 2013.</li>
             
@@ -5707,7 +6187,14 @@ The therapeutic range of nortriptyline is 50-150 ng/mL. Values exceeding 250 ng/
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -5792,7 +6279,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -5863,7 +6357,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -5872,7 +6373,7 @@ Monitor for efficacy.</td>
                   
                 </div>
               </td>
-              <td>If patient is oxcarbazepine-naïve, do not use oxcarbazepine.</td>
+              <td>If patient is oxcarbazepine-naÃ¯ve, do not use oxcarbazepine.</td>
               <td>HLA-B: Greater risk of oxcarbazepine-induced SJS/TEN</td>
               <td>Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.</td>
               <td>Strong</td>
@@ -5886,7 +6387,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -5912,7 +6420,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -5995,7 +6510,14 @@ observed with these medicines. Therefore, they are also not suitable as alternat
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -6078,7 +6600,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>MT-RNR1:1555A&gt;G</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        MT-RNR1:1555A&gt;G
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   MT-RNR1: increased risk of aminoglycoside-induced hearing loss
@@ -6151,7 +6680,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -6177,7 +6713,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -6383,8 +6926,6 @@ Monitor for efficacy.</td>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -6413,7 +6954,14 @@ Monitor for efficacy.</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1; HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1; HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -6437,7 +6985,14 @@ HLA-B: Increased risk of phenytoin-induced SJS/TEN</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1; HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1; HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -6464,7 +7019,14 @@ HLA-B: Increased risk of phenytoin-induced SJS/TEN</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -6490,7 +7052,14 @@ HLA-B: Increased risk of phenytoin-induced SJS/TEN</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>HLA-B:*15:02/*57:01</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        HLA-B:*15:02/*57:01
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -6574,7 +7143,14 @@ HLA-B: Increased risk of phenytoin-induced SJS/TEN</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -6612,8 +7188,6 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -6642,7 +7216,14 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -6687,8 +7268,6 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
-        
       </section>
 
       
@@ -6717,7 +7296,14 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>SLCO1B1:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        SLCO1B1:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   SLCO1B1: Normal Function
@@ -6792,7 +7378,14 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>MT-RNR1:1555A&gt;G</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        MT-RNR1:1555A&gt;G
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   MT-RNR1: increased risk of aminoglycoside-induced hearing loss
@@ -6837,8 +7430,6 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
-        
       </section>
 
       
@@ -6867,7 +7458,14 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>SLCO1B1:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        SLCO1B1:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   SLCO1B1: Normal Function
@@ -6944,7 +7542,14 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -6982,7 +7587,7 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
 
       <section>
         
-          <div class="alert alert-info">Some position data used to define CYP3A4 alleles is missing which may change the matched genotype. See the gene section for CYP3A4 for more information.</div>
+          <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
       </section>
 
@@ -7004,14 +7609,36 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
         <tbody>
         
           
-          
-            <tr>
+            <tr class="top-aligned">
               <th>
-                <p style="font-weight: bold">PharmGKB-DPWG</p>
-                <a href="https://pharmgkb.org/guidelineAnnotation/PA166265421">source</a>
+                <div>PharmGKB-DPWG</div>
+                <div style="margin-top: .5rem; font-weight: normal;">Population: N/A</div>
+                <div style="margin-top: .5rem; font-weight: normal;"><a href="https://pharmgkb.org/guidelineAnnotation/PA166265421">source</a></div>
               </th>
-              <td colspan="5">No matched annotation. No call data for CYP3A4</td>
+              <td>
+                <div>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP3A4:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
+                </div>
+                <div style="margin-top: 1rem">
+                  CYP3A4: Normal metabolizer
+                </div>
+                <div style="margin-top: 1rem">
+                  
+                </div>
+              </td>
+              <td>The guideline does not provide a recommendation for quetiapine in normal metabolizers.</td>
+              <td>CYP3A4: The guideline does not provide a description of the impact of a normal metabolizer phenotype on quetiapine.</td>
+              <td>N/A</td>
+              <td>N/A</td>
             </tr>
+          
           
         
         </tbody>
@@ -7059,7 +7686,14 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>G6PD:B (wildtype)/B (wildtype)</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        G6PD:B (wildtype)/B (wildtype)
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   G6PD: Normal
@@ -7132,7 +7766,14 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -7168,10 +7809,6 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define ABCG2 alleles is missing which may change the matched genotype. See the gene section for ABCG2 for more information.</div>
-        
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
-        
       </section>
 
       
@@ -7200,20 +7837,27 @@ younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>ABCG2:Unknown/Unknown; SLCO1B1:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        ABCG2:rs2231142 reference (G)/rs2231142 reference (G); SLCO1B1:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
-                  ABCG2: No Result
+                  ABCG2: Normal Function
 SLCO1B1: Normal Function
                 </div>
                 <div style="margin-top: 1rem">
                   
                 </div>
               </td>
-              <td>Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. ABCG2 genotype result is not available.</td>
-              <td>ABCG2: n/a
+              <td>Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.</td>
+              <td>ABCG2: Typical myopathy risk and rosuvastatin exposure
 SLCO1B1: Typical myopathy risk and statin exposure</td>
-              <td>The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.</td>
+              <td>The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.</td>
               <td>Strong</td>
             </tr>
           
@@ -7277,7 +7921,14 @@ SLCO1B1: Typical myopathy risk and statin exposure</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -7359,7 +8010,14 @@ SLCO1B1: Typical myopathy risk and statin exposure</td>
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CACNA1S:Reference/Reference; RYR1:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CACNA1S:Reference/Reference; RYR1:Reference/Reference
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CACNA1S: Uncertain Susceptibility
@@ -7408,8 +8066,6 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define SLCO1B1 alleles is missing which may change the matched genotype. See the gene section for SLCO1B1 for more information.</div>
-        
       </section>
 
       
@@ -7438,7 +8094,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>SLCO1B1:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        SLCO1B1:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   SLCO1B1: Normal Function
@@ -7498,8 +8161,6 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -7528,7 +8189,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -7590,7 +8258,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>MT-RNR1:1555A&gt;G</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        MT-RNR1:1555A&gt;G
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   MT-RNR1: increased risk of aminoglycoside-induced hearing loss
@@ -7661,7 +8336,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CACNA1S:Reference/Reference; RYR1:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CACNA1S:Reference/Reference; RYR1:Reference/Reference
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CACNA1S: Uncertain Susceptibility
@@ -7736,7 +8418,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP3A5:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP3A5:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP3A5: Normal Metabolizer
@@ -7747,7 +8436,7 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </td>
               <td>Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3 mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.</td>
               <td>CYP3A5: Lower dose-adjusted trough concentrations of tacrolimus and decreased chance of achieving target tacrolimus concentrations.</td>
-              <td>This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function). Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patient’s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose, and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.</td>
+              <td>This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function). Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patientâ€™s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose, and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.</td>
               <td>Strong</td>
             </tr>
           
@@ -7762,7 +8451,14 @@ RYR1: These results do not eliminate the chance that this patient is susceptible
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP3A5:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP3A5:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -7840,7 +8536,14 @@ Use 2.5 times the initial dose that would yield the desired result in non-expres
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -7866,7 +8569,14 @@ Use 2.5 times the initial dose that would yield the desired result in non-expres
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -7940,7 +8650,16 @@ Use 2.5 times the initial dose that would yield the desired result in non-expres
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>DPYD:Reference/Reference</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        DPYD:Reference/Reference
+                        
+                          <div style="margin-left: .5rem; font-style: italic">Inferred Genotype used to look up Phenotype</div>
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   
@@ -7976,8 +8695,6 @@ Use 2.5 times the initial dose that would yield the desired result in non-expres
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
         
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
-        
       </section>
 
       
@@ -8006,7 +8723,14 @@ Use 2.5 times the initial dose that would yield the desired result in non-expres
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -8079,7 +8803,14 @@ Use 2.5 times the initial dose that would yield the desired result in non-expres
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>NUDT15:*1/*1; TPMT:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        NUDT15:*1/*1; TPMT:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   NUDT15: Normal Metabolizer
@@ -8107,7 +8838,14 @@ TPMT: Lower concentrations of TGN metabolites, but note that TGN after thioguani
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>NUDT15:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        NUDT15:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   NUDT15: Normal Metabolizer
@@ -8182,7 +8920,14 @@ TPMT: Lower concentrations of TGN metabolites, but note that TGN after thioguani
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>MT-RNR1:1555A&gt;G</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        MT-RNR1:1555A&gt;G
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   MT-RNR1: increased risk of aminoglycoside-induced hearing loss
@@ -8255,7 +9000,14 @@ TPMT: Lower concentrations of TGN metabolites, but note that TGN after thioguani
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -8281,7 +9033,14 @@ TPMT: Lower concentrations of TGN metabolites, but note that TGN after thioguani
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -8365,7 +9124,14 @@ b. if this does not work: choose an alternative. Do not select codeine, as this 
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38; CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38; CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -8396,7 +9162,7 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
           <p>Citations:</p>
           <ul>
             
-              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27997040">Clinical Pharmacogenetics Implementation Consortium Guideline (CPICÂ®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update</a> [PMID:27997040] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
             
               <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23486447">Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants</a> [PMID:23486447] <em>Clinical pharmacology and therapeutics</em>. 2013.</li>
             
@@ -8442,7 +9208,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -8515,7 +9288,14 @@ CYP2D6: Reduced metabolism of TCAs to less active compounds compared to normal m
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -8586,7 +9366,14 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -8609,7 +9396,14 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C19:*38/*38</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C19:*38/*38
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C19: Normal Metabolizer
@@ -8649,7 +9443,7 @@ It is not known whether it is possible to reduce the dose to such an extent that
           <p>Citations:</p>
           <ul>
             
-              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27981572">Clinical Pharmacogenetics Implementation Consortium (CPIC®) Guideline for CYP2C19 and Voriconazole Therapy</a> [PMID:27981572] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
+              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/27981572">Clinical Pharmacogenetics Implementation Consortium (CPICÂ®) Guideline for CYP2C19 and Voriconazole Therapy</a> [PMID:27981572] <em>Clinical pharmacology and therapeutics</em>. 2016.</li>
             
           </ul>
         </section>
@@ -8666,8 +9460,6 @@ It is not known whether it is possible to reduce the dose to such an extent that
           <div class="alert alert-info">Please follow the flow chart in figure 2 of the <a href="https://www.pharmgkb.org/guideline/PA166104949">CPIC warfarin guideline</a> to determine the appropriate dosing recommendation.</div>
         
           <div class="alert alert-info">The *1 allele assignment is characterized by the absence of variants that are included in the underlying allele definitions by either position being reference or missing.</div>
-        
-          <div class="alert alert-info">Some position data used to define CYP2C9 alleles is missing which may change the matched genotype. See the gene section for CYP2C9 for more information.</div>
         
       </section>
 
@@ -8710,7 +9502,14 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2C9:*1/*1</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2C9:*1/*1
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2C9: Normal Metabolizer
@@ -8798,7 +9597,14 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;"><li>CYP2D6:*1/*3</li></ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    
+                      <li>
+                        CYP2D6:*1/*3
+                        
+                      </li>
+                    
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   CYP2D6: Intermediate Metabolizer
@@ -8889,7 +9695,7 @@ It is not known whether it is possible to reduce the dose to such an extent that
       <h4>Genotype matched</h4>
       <ul>
         
-          <li>not called</li>
+          <li>rs2231142 reference (G)/rs2231142 reference (G)</li>
         
       </ul>
 
@@ -8899,10 +9705,6 @@ It is not known whether it is possible to reduce the dose to such an extent that
         <p>PharmCAT reports the genotype(s) that receive the highest score during the matcher process. In case of unphased data, additional genotypes might be possible and cannot be ruled out.</p>
       
 
-      
-        <h4>Alleles Not Considered</h4>
-        <p>The following alleles are not considered due to 1 missing positions of the total 1 positions: rs2231142 reference (G), rs2231142 variant (T)</p>
-        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
       
 
       
@@ -8930,8 +9732,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr4_88131171">chr4:88131171</td>
               <td id="rs2231142">rs2231142</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -11354,10 +12156,6 @@ It is not known whether it is possible to reduce the dose to such an extent that
       
 
       
-        <h4>Alleles Not Considered</h4>
-        <p>The following alleles are not considered due to 14 missing positions of the total 80 positions: *72, *73, *74, *75, *76, *77, *78, *79, *80, *81, *82, *83, *84, *85</p>
-        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
-      
 
       
 
@@ -11401,6 +12199,26 @@ It is not known whether it is possible to reduce the dose to such an extent that
             </tr>
           
             <tr>
+              <td id="chr10_94938719">chr10:94938719</td>
+              <td id=""></td>
+              
+              
+                <td class="">T/T</td>
+              
+              <td>
+                T
+              </td>
+              <td>
+                *80 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr10_94938737">chr10:94938737</td>
               <td id="rs67807361">rs67807361</td>
               
@@ -11432,6 +12250,46 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </td>
               <td>
                 *21 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94938788">chr10:94938788</td>
+              <td id=""></td>
+              
+              
+                <td class="">C/C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *83 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94938800">chr10:94938800</td>
+              <td id="rs1364419386">rs1364419386</td>
+              
+              
+                <td class="">G/G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *76 
               </td>
               <td>
                 <ul class="warningList">
@@ -11532,6 +12390,26 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </td>
               <td>
                 *13 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94941975">chr10:94941975</td>
+              <td id=""></td>
+              
+              
+                <td class="">G/G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *77 
               </td>
               <td>
                 <ul class="warningList">
@@ -11721,6 +12599,26 @@ It is not known whether it is possible to reduce the dose to such an extent that
             </tr>
           
             <tr>
+              <td id="chr10_94942243">chr10:94942243</td>
+              <td id="rs1375956433">rs1375956433</td>
+              
+              
+                <td class="">T/T</td>
+              
+              <td>
+                T
+              </td>
+              <td>
+                *78 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr10_94942249">chr10:94942249</td>
               <td id="rs200965026">rs200965026</td>
               
@@ -11832,6 +12730,46 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </td>
               <td>
                 *46 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94942306">chr10:94942306</td>
+              <td id="rs1289704600">rs1289704600</td>
+              
+              
+                <td class="">C/C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *72 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94942308">chr10:94942308</td>
+              <td id="rs17847037">rs17847037</td>
+              
+              
+                <td class="">C/C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *73 
               </td>
               <td>
                 <ul class="warningList">
@@ -11981,6 +12919,26 @@ It is not known whether it is possible to reduce the dose to such an extent that
             </tr>
           
             <tr>
+              <td id="chr10_94947939">chr10:94947939</td>
+              <td id="rs370100007">rs370100007</td>
+              
+              
+                <td class="">G/G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *74 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr10_94949129">chr10:94949129</td>
               <td id=""></td>
               
@@ -12012,6 +12970,46 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </td>
               <td>
                 *50 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94949145">chr10:94949145</td>
+              <td id="rs772782449">rs772782449</td>
+              
+              
+                <td class="">C/C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *82 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94949161">chr10:94949161</td>
+              <td id=""></td>
+              
+              
+                <td class="">AT/AT</td>
+              
+              <td>
+                AT
+              </td>
+              <td>
+                *85 
               </td>
               <td>
                 <ul class="warningList">
@@ -12181,6 +13179,26 @@ It is not known whether it is possible to reduce the dose to such an extent that
             </tr>
           
             <tr>
+              <td id="chr10_94972183">chr10:94972183</td>
+              <td id=""></td>
+              
+              
+                <td class="">A/A</td>
+              
+              <td>
+                A
+              </td>
+              <td>
+                *81 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr10_94972233">chr10:94972233</td>
               <td id="rs1237225311">rs1237225311</td>
               
@@ -12312,6 +13330,26 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </td>
               <td>
                 *54 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94981258">chr10:94981258</td>
+              <td id="rs1297714792">rs1297714792</td>
+              
+              
+                <td class="">C/C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *79 
               </td>
               <td>
                 <ul class="warningList">
@@ -12521,6 +13559,46 @@ It is not known whether it is possible to reduce the dose to such an extent that
             </tr>
           
             <tr>
+              <td id="chr10_94986136">chr10:94986136</td>
+              <td id="rs1254213342">rs1254213342</td>
+              
+              
+                <td class="">A/A</td>
+              
+              <td>
+                A
+              </td>
+              <td>
+                *75 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr10_94986174">chr10:94986174</td>
+              <td id="rs1441296358">rs1441296358</td>
+              
+              
+                <td class="">G/G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *84 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr10_94988852">chr10:94988852</td>
               <td id="rs776908257">rs776908257</td>
               
@@ -12700,286 +13778,6 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </td>
             </tr>
           
-            <tr>
-              <td id="chr10_94938719">chr10:94938719</td>
-              <td id=""></td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                T
-              </td>
-              <td>
-                *80 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94938788">chr10:94938788</td>
-              <td id=""></td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *83 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94938800">chr10:94938800</td>
-              <td id="rs1364419386">rs1364419386</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                G
-              </td>
-              <td>
-                *76 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94941975">chr10:94941975</td>
-              <td id=""></td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                G
-              </td>
-              <td>
-                *77 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94942243">chr10:94942243</td>
-              <td id="rs1375956433">rs1375956433</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                T
-              </td>
-              <td>
-                *78 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94942306">chr10:94942306</td>
-              <td id="rs1289704600">rs1289704600</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *72 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94942308">chr10:94942308</td>
-              <td id="rs17847037">rs17847037</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *73 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94947939">chr10:94947939</td>
-              <td id="rs370100007">rs370100007</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                G
-              </td>
-              <td>
-                *74 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94949145">chr10:94949145</td>
-              <td id="rs772782449">rs772782449</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *82 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94949161">chr10:94949161</td>
-              <td id=""></td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                AT
-              </td>
-              <td>
-                *85 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94972183">chr10:94972183</td>
-              <td id=""></td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                A
-              </td>
-              <td>
-                *81 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94981258">chr10:94981258</td>
-              <td id="rs1297714792">rs1297714792</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *79 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94986136">chr10:94986136</td>
-              <td id="rs1254213342">rs1254213342</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                A
-              </td>
-              <td>
-                *75 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr10_94986174">chr10:94986174</td>
-              <td id="rs1441296358">rs1441296358</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                G
-              </td>
-              <td>
-                *84 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
           </tbody>
         </table>
       
@@ -13051,7 +13849,7 @@ It is not known whether it is possible to reduce the dose to such an extent that
       <h4>Genotype matched</h4>
       <ul>
         
-          <li>not called</li>
+          <li>*1/*1</li>
         
       </ul>
 
@@ -13061,10 +13859,6 @@ It is not known whether it is possible to reduce the dose to such an extent that
         <p>PharmCAT reports the genotype(s) that receive the highest score during the matcher process. In case of unphased data, additional genotypes might be possible and cannot be ruled out.</p>
       
 
-      
-        <h4>Alleles Not Considered</h4>
-        <p>The following alleles are not considered due to 33 missing positions of the total 33 positions: *1, *10, *11, *12, *13, *14, *15, *16, *17, *18, *19, *2, *20, *21, *22, *23, *24, *26, *28, *29, *3, *30, *31, *32, *33, *34, *35, *36, *4, *5, *6, *7, *8, *9</p>
-        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
       
 
       
@@ -13092,8 +13886,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99758183">chr7:99758183</td>
               <td id="rs67666821">rs67666821</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13112,8 +13906,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99760836">chr7:99760836</td>
               <td id="rs4986913">rs4986913</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13132,8 +13926,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99760901">chr7:99760901</td>
               <td id="rs4986910">rs4986910</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">A/A</td>
               
               <td>
                 A
@@ -13152,8 +13946,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99760956">chr7:99760956</td>
               <td id="rs774109750">rs774109750</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">T/T</td>
               
               <td>
                 T
@@ -13172,8 +13966,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99762047">chr7:99762047</td>
               <td id="rs4986909">rs4986909</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13192,8 +13986,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99762177">chr7:99762177</td>
               <td id="rs12721629">rs12721629</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13212,8 +14006,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99762186">chr7:99762186</td>
               <td id="rs756833413">rs756833413</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">C/C</td>
               
               <td>
                 C
@@ -13232,8 +14026,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99762206">chr7:99762206</td>
               <td id="rs67784355">rs67784355</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13252,8 +14046,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99763843">chr7:99763843</td>
               <td id="rs2242480">rs2242480</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">C/C</td>
               
               <td>
                 C
@@ -13272,8 +14066,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99763877">chr7:99763877</td>
               <td id="rs368296206">rs368296206</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">A/A</td>
               
               <td>
                 A
@@ -13292,8 +14086,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99763909">chr7:99763909</td>
               <td id="rs1303250043">rs1303250043</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13312,8 +14106,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99763925">chr7:99763925</td>
               <td id="rs201821708">rs201821708</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">T/T</td>
               
               <td>
                 T
@@ -13332,8 +14126,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99764003">chr7:99764003</td>
               <td id="rs28371759">rs28371759</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">A/A</td>
               
               <td>
                 A
@@ -13352,8 +14146,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99766411">chr7:99766411</td>
               <td id="rs4646438">rs4646438</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13372,8 +14166,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99766440">chr7:99766440</td>
               <td id="rs138105638">rs138105638</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13392,8 +14186,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99768360">chr7:99768360</td>
               <td id="rs55785340">rs55785340</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">A/A</td>
               
               <td>
                 A
@@ -13412,8 +14206,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99768371">chr7:99768371</td>
               <td id="rs55901263">rs55901263</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13432,8 +14226,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99768424">chr7:99768424</td>
               <td id="rs113667357">rs113667357</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">T/T</td>
               
               <td>
                 T
@@ -13452,8 +14246,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99768458">chr7:99768458</td>
               <td id="rs4987161">rs4987161</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">A/A</td>
               
               <td>
                 A
@@ -13472,8 +14266,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99768470">chr7:99768470</td>
               <td id="rs12721627">rs12721627</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13492,8 +14286,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99768693">chr7:99768693</td>
               <td id="rs35599367">rs35599367</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13512,8 +14306,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99769769">chr7:99769769</td>
               <td id="rs4986908">rs4986908</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">C/C</td>
               
               <td>
                 C
@@ -13532,8 +14326,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99769781">chr7:99769781</td>
               <td id="rs72552798">rs72552798</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">C/C</td>
               
               <td>
                 C
@@ -13552,8 +14346,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99769804">chr7:99769804</td>
               <td id="rs4986907">rs4986907</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">C/C</td>
               
               <td>
                 C
@@ -13572,8 +14366,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99769805">chr7:99769805</td>
               <td id="rs57409622">rs57409622</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13592,8 +14386,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99770165">chr7:99770165</td>
               <td id="rs72552799">rs72552799</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">C/C</td>
               
               <td>
                 C
@@ -13612,8 +14406,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99770166">chr7:99770166</td>
               <td id="rs778013004">rs778013004</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13632,8 +14426,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99770202">chr7:99770202</td>
               <td id="rs55951658">rs55951658</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">T/T</td>
               
               <td>
                 T
@@ -13652,8 +14446,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99770217">chr7:99770217</td>
               <td id="rs1449865051">rs1449865051</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">A/A</td>
               
               <td>
                 A
@@ -13672,8 +14466,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99778079">chr7:99778079</td>
               <td id="rs56324128">rs56324128</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">C/C</td>
               
               <td>
                 C
@@ -13692,8 +14486,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99784018">chr7:99784018</td>
               <td id="rs570051168">rs570051168</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -13712,8 +14506,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99784038">chr7:99784038</td>
               <td id="rs12721634">rs12721634</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">A/A</td>
               
               <td>
                 A
@@ -13732,8 +14526,8 @@ It is not known whether it is possible to reduce the dose to such an extent that
               <td id="chr7_99784075">chr7:99784075</td>
               <td id="rs188389063">rs188389063</td>
               
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
               
+                <td class="">G/G</td>
               
               <td>
                 G
@@ -17254,10 +18048,6 @@ It is not known whether it is possible to reduce the dose to such an extent that
       
 
       
-        <h4>Alleles Not Considered</h4>
-        <p>The following alleles are not considered due to 7 missing positions of the total 31 positions: *38, *41, *45</p>
-        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
-      
 
       
 
@@ -17401,6 +18191,26 @@ It is not known whether it is possible to reduce the dose to such an extent that
             </tr>
           
             <tr>
+              <td id="chr12_21176871">chr12:21176871</td>
+              <td id=""></td>
+              
+              
+                <td class="">G/G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *38 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr12_21176879">chr12:21176879</td>
               <td id="rs11045819">rs11045819</td>
               
@@ -17432,6 +18242,46 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </td>
               <td>
                 *3 *13 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21176898">chr12:21176898</td>
+              <td id="rs77271279">rs77271279</td>
+              
+              
+                <td class="">G/G</td>
+              
+              <td>
+                G
+              </td>
+              <td>
+                *41 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21178612">chr12:21178612</td>
+              <td id="rs141467543">rs141467543</td>
+              
+              
+                <td class="">A/A</td>
+              
+              <td>
+                A
+              </td>
+              <td>
+                *42 
               </td>
               <td>
                 <ul class="warningList">
@@ -17501,6 +18351,26 @@ It is not known whether it is possible to reduce the dose to such an extent that
             </tr>
           
             <tr>
+              <td id="chr12_21196975">chr12:21196975</td>
+              <td id="rs183501729">rs183501729</td>
+              
+              
+                <td class="">C/C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *39 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr12_21196976">chr12:21196976</td>
               <td id="rs11045853">rs11045853</td>
               
@@ -17512,6 +18382,26 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </td>
               <td>
                 *25 *28 *33 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21200544">chr12:21200544</td>
+              <td id="rs72559747">rs72559747</td>
+              
+              
+                <td class="">C/C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *47 
               </td>
               <td>
                 <ul class="warningList">
@@ -17661,6 +18551,46 @@ It is not known whether it is possible to reduce the dose to such an extent that
             </tr>
           
             <tr>
+              <td id="chr12_21206031">chr12:21206031</td>
+              <td id="rs74064213">rs74064213</td>
+              
+              
+                <td class="">A/A</td>
+              
+              <td>
+                A
+              </td>
+              <td>
+                *43 *44 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
+              <td id="chr12_21222355">chr12:21222355</td>
+              <td id="rs71581941">rs71581941</td>
+              
+              
+                <td class="">C/C</td>
+              
+              <td>
+                C
+              </td>
+              <td>
+                *45 *46 
+              </td>
+              <td>
+                <ul class="warningList">
+                
+                </ul>
+              </td>
+            </tr>
+          
+            <tr>
               <td id="chr12_21239042">chr12:21239042</td>
               <td id="rs34671512">rs34671512</td>
               
@@ -17752,146 +18682,6 @@ It is not known whether it is possible to reduce the dose to such an extent that
               </td>
               <td>
                 *29 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21176871">chr12:21176871</td>
-              <td id=""></td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                G
-              </td>
-              <td>
-                *38 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21176898">chr12:21176898</td>
-              <td id="rs77271279">rs77271279</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                G
-              </td>
-              <td>
-                *41 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21178612">chr12:21178612</td>
-              <td id="rs141467543">rs141467543</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                A
-              </td>
-              <td>
-                *42 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21196975">chr12:21196975</td>
-              <td id="rs183501729">rs183501729</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *39 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21200544">chr12:21200544</td>
-              <td id="rs72559747">rs72559747</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *47 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21206031">chr12:21206031</td>
-              <td id="rs74064213">rs74064213</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                A
-              </td>
-              <td>
-                *43 *44 
-              </td>
-              <td>
-                <ul class="warningList">
-                
-                </ul>
-              </td>
-            </tr>
-          
-            <tr>
-              <td id="chr12_21222355">chr12:21222355</td>
-              <td id="rs71581941">rs71581941</td>
-              
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              
-              
-              <td>
-                C
-              </td>
-              <td>
-                *45 *46 
               </td>
               <td>
                 <ul class="warningList">
