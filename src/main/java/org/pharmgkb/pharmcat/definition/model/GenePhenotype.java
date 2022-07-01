@@ -105,6 +105,14 @@ public class GenePhenotype {
     return Optional.ofNullable(m_haplotypes.get(haplotype));
   }
 
+  public Optional<String> findHaplotypeActivity(String haplotype) {
+    if (StringUtils.isBlank(haplotype) || m_activityValues == null) {
+      return Optional.empty();
+    } else {
+      return Optional.ofNullable(m_activityValues.get(haplotype));
+    }
+  }
+
   /**
    * List of all diplotype to phenotype mappings for this gene
    */
@@ -142,6 +150,9 @@ public class GenePhenotype {
     if (phenos.size()>1) {
       throw new IllegalStateException("More than one phenotype match made for " + getGene() + " " + diplotype + ": " + String.join("; ", phenos));
     } else if (phenos.size() == 0) {
+      if (diplotype.getAllele2() == null && diplotype.getGene().equals("DPYD")) {
+        return "";
+      }
       return "N/A";
     } else {
       return phenos.iterator().next();

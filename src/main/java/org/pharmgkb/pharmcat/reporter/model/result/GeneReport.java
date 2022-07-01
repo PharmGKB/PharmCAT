@@ -133,8 +133,10 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   public void setDiplotypes(DiplotypeFactory diplotypeFactory, GeneCall geneCall) {
+    diplotypeFactory.setMode(DiplotypeFactory.Mode.MATCHER);
     m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
 
+    diplotypeFactory.setMode(DiplotypeFactory.Mode.LOOKUP);
     if (Slco1b1CustomCaller.shouldBeUsedOn(this)) {
       Slco1b1CustomCaller
           .makeLookupCalls(this, diplotypeFactory)

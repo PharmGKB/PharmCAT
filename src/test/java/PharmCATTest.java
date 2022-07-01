@@ -970,6 +970,57 @@ class PharmCATTest {
     testWrapper.testAnyMatchFromSource("capecitabine", DataSource.DPWG);
   }
 
+  /**
+   * This test puts 2 alleles on each strand of a phased DPYD and then asserts that the least-function allele is used
+   * for lookup on each of the strands.
+   */
+  @Test
+  void testDpydPhasedMultiTrans() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.phased.multi.trans", false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        .reference("DPYD")
+        .variation("DPYD", "rs67376798", "A", "T") // Strand 1 decreased - c.2846A>T
+        .variation("DPYD", "rs72547601", "C", "T") // Strand 1 no function - c.2933A>G
+        .variation("DPYD", "rs60139309", "T", "C") // Strand 2 normal function - c.2582A>G
+        .variation("DPYD", "rs139834141", "C", "T") // Strand 2 normal function - c.498G>A
+    ;
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testPrintCalls("DPYD", "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G");
+    testWrapper.testLookup("DPYD", "c.2933A>G", "c.498G>A");
+
+    testWrapper.testAnyMatchFromSource("fluorouracil", DataSource.CPIC);
+
+    testWrapper.testAnyMatchFromSource("capecitabine", DataSource.CPIC);
+  }
+
+  /**
+   * This test is the same as the previous test but DPYD is unphased instead of phased. This means the individual found
+   * alleles should be reported and then the two least-function alleles should be used for recommendation lookup.
+   */
+  @Test
+  void testDpydUnphasedMulti() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.unphased.multi", false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+        .variation("DPYD", "rs67376798", "A", "T") // decreased - c.2846A>T
+        .variation("DPYD", "rs72547601", "C", "T") // no function - c.2933A>G
+        .variation("DPYD", "rs60139309", "T", "C") // normal function - c.2582A>G
+        .variation("DPYD", "rs139834141", "C", "T") // normal function - c.498G>A
+    ;
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testPrintCalls("DPYD", "c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G", "Reference");
+    testWrapper.testLookup("DPYD", "c.2933A>G", "c.2846A>T");
+
+    testWrapper.testAnyMatchFromSource("fluorouracil", DataSource.CPIC);
+
+    testWrapper.testAnyMatchFromSource("capecitabine", DataSource.CPIC);
+  }
+
   @Test
   void testDpydS12het() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.c1156het", false);
@@ -1909,9 +1960,9 @@ class PharmCATTest {
       }
 
       GeneReport geneReport = getContext().getGeneReport(gene);
-      assertTrue(geneReport.isReportable());
+      assertTrue(geneReport.isReportable(), "Not reportable: " + geneReport.getReporterDiplotypes());
       assertTrue(geneReport.getReporterDiplotypes().stream()
-          .anyMatch(d -> d.makeLookupMap().equals(lookup)));
+          .anyMatch(d -> d.makeLookupMap().equals(lookup)), "Lookup key " + lookup + " not found in lookup " + geneReport.getReporterDiplotypes().stream().map(Diplotype::makeLookupMap).toList());
     }
 
     private void testLookupByActivity(String gene, String activityScore) {

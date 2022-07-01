@@ -1,8 +1,10 @@
 package org.pharmgkb.pharmcat.reporter.caller;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
@@ -26,20 +28,25 @@ public class DpydCustomCaller {
     Preconditions.checkNotNull(report);
     Preconditions.checkArgument(report.getGene().equals(DPYD), "Can only be used on DPYD");
 
-    List<Haplotype> haplotypes = report.getMatcherDiplotypes().stream()
-        .map(Diplotype::getAllele1)
-        .sorted(HaplotypeActivityComparator.getComparator())
-        .toList();
-
-    if (haplotypes.size() >= 2) {
-      String diplotypeName = haplotypes.subList(0,2).stream()
-          .map(Haplotype::getName)
-          .sorted(HaplotypeNameComparator.getComparator())
-          .collect(Collectors.joining("/"));
-      List<Diplotype> newDiplotypes = diplotypeFactory.makeDiplotypes(ImmutableList.of(diplotypeName));
-      return Optional.of(newDiplotypes.get(0));
-    } else {
+    if (report.isPhased()) {
       return Optional.empty();
+    } else {
+      List<Haplotype> haplotypes = report.getMatcherDiplotypes().stream()
+          .flatMap(d -> Stream.of(d.getAllele1(), d.getAllele2()))
+          .filter(Objects::nonNull)
+          .sorted(HaplotypeActivityComparator.getComparator())
+          .toList();
+
+      if (haplotypes.size() >= 2) {
+        String diplotypeName = haplotypes.subList(0, 2).stream()
+            .map(Haplotype::getName)
+            .sorted(HaplotypeNameComparator.getComparator())
+            .collect(Collectors.joining("/"));
+        List<Diplotype> newDiplotypes = diplotypeFactory.makeDiplotypes(ImmutableList.of(diplotypeName));
+        return Optional.of(newDiplotypes.get(0));
+      } else {
+        return Optional.empty();
+      }
     }
   }
 }

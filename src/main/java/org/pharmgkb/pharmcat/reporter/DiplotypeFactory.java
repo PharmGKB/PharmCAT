@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
@@ -13,13 +14,16 @@ import com.google.common.collect.ImmutableSet;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
+import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
+import org.pharmgkb.pharmcat.util.HaplotypeActivityComparator;
 
 
 /**
@@ -38,6 +42,7 @@ public class DiplotypeFactory {
   private final String f_referenceAlleleName;
   private final GenePhenotype f_genePhenotype;
   private final Map<String,Haplotype> m_haplotypeCache = new HashMap<>();
+  private Mode m_mode = Mode.MATCHER;
 
   /**
    * public constructor
@@ -194,6 +199,7 @@ public class DiplotypeFactory {
     Haplotype haplotype = new Haplotype(f_gene, name);
     if (f_genePhenotype != null) {
       haplotype.setFunction(f_genePhenotype.findHaplotypeFunction(name).orElse(UNASSIGNED_FUNCTION));
+      haplotype.setActivityValue(f_genePhenotype.findHaplotypeActivity(name).orElse(null));
     }
     haplotype.setReference(name.equals(f_referenceAlleleName));
 
@@ -201,8 +207,13 @@ public class DiplotypeFactory {
     return haplotype;
   }
 
-  private Haplotype makeHaplotype(BaseMatch haplotypeMatch) {
-    return makeHaplotype(haplotypeMatch.getName());
+  private Haplotype makeHaplotype(BaseMatch baseMatch) {
+    if (m_mode == Mode.LOOKUP && isLeastFunction() && baseMatch instanceof CombinationMatch comboMatch) {
+      return makeLeastFunctionHaplotype(comboMatch.getComponentHaplotypes())
+          .orElseThrow(() -> new RuntimeException("Could not find least function haplotype"));
+    } else {
+      return makeHaplotype(baseMatch.getName());
+    }
   }
 
   private List<String> makeHlaPhenotype(Diplotype diplotype) {
@@ -225,5 +236,26 @@ public class DiplotypeFactory {
 
   public boolean isLeastFunction() {
     return LEAST_FUNCTION.contains(f_gene);
+  }
+
+  public Optional<Haplotype> makeLeastFunctionHaplotype(Set<NamedAllele> namedAllele) {
+//    return namedAllele.stream()
+//        .map(a -> makeHaplotype(a.getName()))
+//        .min(HaplotypeActivityComparator.getComparator());
+    List<Haplotype> haplotypes = new ArrayList<>();
+    namedAllele.stream()
+        .map(a -> makeHaplotype(a.getName()))
+        .forEach(haplotypes::add);
+    haplotypes.sort(HaplotypeActivityComparator.getComparator());
+    return Optional.ofNullable(haplotypes.get(0));
+  }
+
+  public void setMode(Mode mode) {
+    m_mode = mode;
+  }
+
+  public static enum Mode {
+    MATCHER,
+    LOOKUP
   }
 }
