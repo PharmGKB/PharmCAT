@@ -34,9 +34,6 @@ public class Haplotype implements Comparable<Haplotype> {
 
   /**
    * public constructor
-   *
-   * this can apply some known transformations to the allele name in some cases. the name you get out may not match the
-   * name you put in.
    */
   public Haplotype(String gene, String name) {
     f_gene = gene;
