@@ -231,7 +231,7 @@ referenceFasta:
 	@echo "Removing old files..."
 	@rm -f GRCh38_reference_fasta.tar reference.fna.bgz reference.fna.bgz.fai reference.fna.bgz.gzi genomic.fna genomic.fna.gz chrfix.fna
 	@echo "Downloading from NCBI..."
-	@curl -#fSL https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.fna.gz -o genomic.fna.gz
+	@curl -#fSL https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_genomic.fna.gz -o genomic.fna.gz
 	@echo "Uncompressing..."
 	@gunzip genomic.fna.gz
 	@echo "Fixing chromosomes:"

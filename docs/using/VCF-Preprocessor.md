@@ -86,7 +86,7 @@ VCF files can have more than 1 sample and should be bgzip compressed.  If not bg
 : A sorted, compressed VCF of PGx core allele defining positions used by PharmCAT, by default, `pharmcat_positions.vcf.bgz` under the current working directory. You can find this VCF in the `pharmcat_preprocessor-<release_version>.tar.gz` available from the PharmCAT GitHub releases page.
  
 --ref_seq
-: The [GRCh38.p14](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.40/) FASTA file. The FASTA file has to be decompressed and indexed (.fai). These mandatory files will be automatically downloaded (~1GB) to the current working directory if not provided by user (see [Notes](#notes) for details).
+: The [GRCh38.p13](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39/) FASTA file. The FASTA file has to be decompressed and indexed (.fai). These mandatory files will be automatically downloaded (~1GB) to the current working directory if not provided by user (see [Notes](#notes) for details).
 
 --sample_file
 : The list of samples to be processed and prepared for PharmCAT. The file should contain one sample per line.
@@ -224,12 +224,12 @@ chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	0/0
 
 ### Notes
 
-As of June 2022, the latest Human Reference Genome assembly is [**GRCh38.p14**](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.40).  It is available through the [NCBI RefSeq FTP site](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.fna.gz).
+PharmCAT uses [**GRCh38.p13**](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39).  It is available through the [NCBI RefSeq FTP site](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_genomic.fna.gz).
 
 PharmCAT takes this file and prepares it for use with the following commands:
 
 ```console
-# curl -#fSL https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.fna.gz -o genomic.fna.gz
+# curl -#fSL https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_genomic.fna.gz -o genomic.fna.gz
 # gunzip genomic.fna.gz
 # cat genomic.fna |  sed -r 's/^>(NC_0+([0-9]+)\.*)/>chr\2 \1/g' > chrfix.fna
 # bgzip -c chrfix.fna > reference.fna.bgz
@@ -237,4 +237,4 @@ PharmCAT takes this file and prepares it for use with the following commands:
 # tar -czvf GRCh38_reference_fasta.tar reference.fna.bgz reference.fna.bgz.fai reference.fna.bgz.gzi
 ```
 
-PharmCAT makes this indexed FASTA files available on [Zenodo](https://zenodo.org/record/6640691). 
+PharmCAT makes this indexed FASTA files available on [Zenodo](https://zenodo.org/record/6804231). 
