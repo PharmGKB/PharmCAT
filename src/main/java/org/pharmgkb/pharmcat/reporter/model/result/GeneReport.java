@@ -20,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
+import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.caller.DpydCustomCaller;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -90,12 +91,21 @@ public class GeneReport implements Comparable<GeneReport> {
 
   /**
    * public constructor
+   *
+   * Basic constructor that will just house the gene symbol and no call information.
    */
   public GeneReport(String geneSymbol) {
     f_gene = geneSymbol;
     f_callSource = CallSource.NONE;
   }
 
+  /**
+   * public constructor
+   *
+   * This constructor will use {@link GeneCall} data to compile all the diplotype and variant information for use in
+   * later reports.
+   * @param call a {@link GeneCall} object from the {@link NamedAlleleMatcher}
+   */
   public GeneReport(GeneCall call) {
     f_gene = call.getGene();
     f_callSource = CallSource.MATCHER;
@@ -127,11 +137,25 @@ public class GeneReport implements Comparable<GeneReport> {
     }
   }
 
+  /**
+   * public constructor
+   *
+   * This constructor is meant for genes that get their data from an {@link OutsideCall} that comes from the
+   * {@link Phenotyper}.
+   * @param call an outside call from the {@link Phenotyper}
+   */
   public GeneReport(OutsideCall call) {
     f_gene = call.getGene();
     f_callSource = CallSource.OUTSIDE;
   }
 
+  /**
+   * Fills in diplotype information based on information found in the {@link GeneCall}.
+   * This will fill in data in both the {@link GeneReport#getMatcherDiplotypes()} and
+   * {@link GeneReport#getReporterDiplotypes()} properties.
+   * @param diplotypeFactory a {@link DiplotypeFactory} object for this gene
+   * @param geneCall the {@link GeneCall} object from the matcher
+   */
   public void setDiplotypes(DiplotypeFactory diplotypeFactory, GeneCall geneCall) {
     diplotypeFactory.setMode(DiplotypeFactory.Mode.MATCHER);
     m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
@@ -152,6 +176,12 @@ public class GeneReport implements Comparable<GeneReport> {
     }
   }
 
+  /**
+   * Fills in diplotype information based on information found in the {@link OutsideCall}.
+   * This will fill in data in the {@link GeneReport#getReporterDiplotypes()} property.
+   * @param diplotypeFactory a {@link DiplotypeFactory} object for this gene
+   * @param outsideCall the {@link OutsideCall} object from the phenotyper
+   */
   public void setDiplotypes(DiplotypeFactory diplotypeFactory, OutsideCall outsideCall) {
     m_reporterDiplotypes.removeIf(Diplotype::isUnknown);
     m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(outsideCall));
@@ -309,6 +339,10 @@ public class GeneReport implements Comparable<GeneReport> {
     return ALLELE_PRESENCE.contains(gene);
   }
 
+  /**
+   * Gets whether this gene should use the "least function" algorithm for determining alleles
+   * @return true if this gene should use the "least function" algorithm
+   */
   public boolean isLeastFunction() {
     return LEAST_FUNCTION.contains(f_gene);
   }
@@ -351,6 +385,10 @@ public class GeneReport implements Comparable<GeneReport> {
     return f_callSource == CallSource.OUTSIDE;
   }
 
+  /**
+   * Gets an enum value {@link CallSource} that describes where the diplotype call for this gene came from.
+   * @return an enum value of the source of the diplotype call
+   */
   public CallSource getCallSource() {
     return f_callSource;
   }
@@ -443,14 +481,33 @@ public class GeneReport implements Comparable<GeneReport> {
         .anyMatch((d) -> d.hasAllele(haplotype));
   }
 
+  /**
+   * Gets the list of {@link Diplotype} objects that the {@link NamedAlleleMatcher} found from data in the input VCF
+   * file. This collection may not contian data if no input VCF data was used to make diplotype calls.
+   * @return the list of {@link Diplotype} objects from the {@link NamedAlleleMatcher}.
+   */
   public List<Diplotype> getMatcherDiplotypes() {
     return m_matcherDiplotypes;
   }
 
+  /**
+   * Gets the list of {@link NamedAllele} objects that the {@link NamedAlleleMatcher} found from data in the input VCF
+   * file. This collection may not contian data if no input VCF data was used to make diplotype calls.
+   * @return the list of {@link NamedAllele} objects from the {@link NamedAlleleMatcher}.
+   */
   public List<NamedAllele> getMatcherAlleles() {
     return f_matcherAlleles;
   }
 
+  /**
+   * Gets the list of {@link Diplotype} objects that the {@link Phenotyper} compiled from all sources, including the
+   * {@link NamedAlleleMatcher}.
+   *
+   * This list will include matcher diplotypes and diplotypes that were determined in the {@link Phenotyper}.
+   *
+   * This is the list of diplotypes that should be used for final reporting to the user.
+   * @return the list of {@link Diplotype} objects for any final reporting
+   */
   public List<Diplotype> getReporterDiplotypes() {
     return m_reporterDiplotypes;
   }

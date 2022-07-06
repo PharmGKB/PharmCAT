@@ -24,13 +24,6 @@ import org.pharmgkb.pharmcat.util.CliUtils;
 /**
  * This class acts as a central context for all data needed to generate the final report.
  *
- * It currently gathers
- * <ul>
- *   <li>{@link GeneCall} objects from the named allele matcher</li>
- *   <li>{@link DrugReport} objects from dosing guideline annotations</li>
- *   <li>Allele definitions on a per-gene basis</li>
- * </ul>
- *
  * @author greytwist
  * @author Ryan Whaley
  */
@@ -54,6 +47,7 @@ public class ReportContext {
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
    * @param geneReports {@link GeneReport} objects, non-null but can be empty
+   * @param title the optional text to show as a user-friendly title or identifier for this report
    */
   public ReportContext(Collection<GeneReport> geneReports, String title) throws IOException {
     f_title = title;
@@ -130,18 +124,38 @@ public class ReportContext {
     }
   }
 
+  /**
+   * Gets the set of all {@link DrugReport} objects that hold drug information and thier recommendations
+   * @return a set of {@link DrugReport} objects
+   */
   public SortedSet<DrugReport> getDrugReports() {
     return f_drugReports;
   }
 
+  /**
+   * Gets the set of all {@link GeneReport} objects that are reported in this context
+   * @return a set of {@link GeneReport} objects
+   */
   public Collection<GeneReport> getGeneReports() {
     return f_geneReports;
   }
 
+  /**
+   * Find a {@link DrugReport} record based on an existing {@link Drug} object and if it doesn't exist create a new
+   * minimal {@link DrugReport}.
+   * @param drug a drug to find a corresponding {@link DrugReport} for, will use drug name
+   * @return an existing or new {@link DrugReport}
+   */
   private DrugReport createOrFindDrugReport(@Nonnull Drug drug) {
     return createOrFindDrugReport(drug.getDrugName());
   }
 
+  /**
+   * Find a {@link DrugReport} record based on drug name String and if it doesn't exist create a new
+   * minimal {@link DrugReport}.
+   * @param drugName a drug name to find a corresponding {@link DrugReport} for
+   * @return an existing or new {@link DrugReport}
+   */
   private DrugReport createOrFindDrugReport(@Nonnull String drugName) {
     Preconditions.checkNotNull(drugName);
     return getDrugReports().stream()
@@ -191,6 +205,12 @@ public class ReportContext {
     return findDrugReport(drugName).orElseThrow(() -> new RuntimeException("No drug exists for " + drugName));
   }
 
+  /**
+   * Makes a list of {@link Genotype} objects, one for each possible combination of existing diplotypes for the given
+   * collection of gene symbols strings.
+   * @param geneSymbols a collection of gene symbol strings
+   * @return a List of all possible genotpes for the given genes
+   */
   private List<Genotype> makePossibleGenotypes(Collection<String> geneSymbols) {
     List<GeneReport> geneReports = getGeneReports().stream()
         .filter(r -> geneSymbols.contains(r.getGene()))
@@ -198,14 +218,26 @@ public class ReportContext {
     return Genotype.makeGenotypes(geneReports);
   }
 
+  /**
+   * The user-freindly title for the report
+   * @return the title string
+   */
   public String getTitle() {
     return f_title;
   }
 
+  /**
+   * Gets the timestamp this context was compiled
+   * @return the timestamp this context was compiled
+   */
   public Date getGeneratedOn() {
     return f_generatedOn;
   }
 
+  /**
+   * Gets the PharmCAT version tag this context was created with
+   * @return a verstion tag string in the form vX.Y
+   */
   public String getPharmcatVersion() {
     return f_pharmcatVersion;
   }
