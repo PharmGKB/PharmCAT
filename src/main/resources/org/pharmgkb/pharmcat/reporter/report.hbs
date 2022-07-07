@@ -165,7 +165,16 @@
               </th>
               <td>
                 <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;">{{#each genotypes}}<li>{{this}}</li>{{/each}}</ul>
+                  <ul style="margin:0;padding:0;list-style-type: none;">
+                    {{#each genotypes}}
+                      <li>
+                        {{this}}
+                        {{#if inferred}}
+                          <div style="margin-left: .5rem; font-style: italic">Inferred Genotype used to look up Phenotype</div>
+                        {{/if}}
+                      </li>
+                    {{/each}}
+                  </ul>
                 </div>
                 <div style="margin-top: 1rem">
                   {{phenotypes}}

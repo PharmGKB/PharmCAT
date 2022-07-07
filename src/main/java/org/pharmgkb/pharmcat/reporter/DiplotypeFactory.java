@@ -23,6 +23,7 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
+import org.pharmgkb.pharmcat.reporter.model.result.Observation;
 import org.pharmgkb.pharmcat.util.HaplotypeActivityComparator;
 
 
@@ -75,6 +76,7 @@ public class DiplotypeFactory {
     else if (isLeastFunction()) {
       return geneCall.getHaplotypes().stream()
           .map(this::makeDiplotype)
+          .peek(d -> d.setObserved(Observation.INFERRED))
           .toList();
     }
 
@@ -125,6 +127,9 @@ public class DiplotypeFactory {
 
     Diplotype diplotype = new Diplotype(f_gene, makeHaplotype(h1), makeHaplotype(h2));
     fillDiplotype(diplotype);
+    if (m_mode == Mode.LOOKUP && isLeastFunction() && (h1 instanceof CombinationMatch || h2 instanceof CombinationMatch)) {
+      diplotype.setObserved(Observation.INFERRED);
+    }
 
     return diplotype;
   }

@@ -37,6 +37,10 @@ public class Genotype {
     this.diplotypes.add(diplotype);
   }
 
+  public boolean isInferred() {
+    return diplotypes.stream().anyMatch(d -> d.getObserved() == Observation.INFERRED);
+  }
+
   public String toString() {
     if (this.diplotypes.size() == 0) {
       return "Empty Genotype";

@@ -66,6 +66,9 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("activityScore")
   private String m_activityScore;
+  @Expose
+  @SerializedName("observed")
+  private Observation m_observed = Observation.DIRECT;
 
   /**
    * This Function can be used in reduce() calls
@@ -505,6 +508,14 @@ public class Diplotype implements Comparable<Diplotype> {
     } else {
       return haplotype.getActivityValue();
     }
+  }
+
+  public Observation getObserved() {
+    return m_observed;
+  }
+
+  public void setObserved(Observation observed) {
+    m_observed = observed;
   }
 
   private boolean isAvailable(String value) {

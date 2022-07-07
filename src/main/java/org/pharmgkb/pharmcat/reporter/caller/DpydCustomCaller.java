@@ -12,6 +12,7 @@ import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
+import org.pharmgkb.pharmcat.reporter.model.result.Observation;
 import org.pharmgkb.pharmcat.util.HaplotypeActivityComparator;
 
 
@@ -43,6 +44,7 @@ public class DpydCustomCaller {
             .sorted(HaplotypeNameComparator.getComparator())
             .collect(Collectors.joining("/"));
         List<Diplotype> newDiplotypes = diplotypeFactory.makeDiplotypes(ImmutableList.of(diplotypeName));
+        newDiplotypes.forEach(d -> d.setObserved(Observation.INFERRED));
         return Optional.of(newDiplotypes.get(0));
       } else {
         return Optional.empty();
