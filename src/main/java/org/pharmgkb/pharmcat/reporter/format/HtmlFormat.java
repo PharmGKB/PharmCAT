@@ -278,7 +278,11 @@ public class HtmlFormat extends AbstractFormat {
         return;
       }
       m_call = diplotype.printDisplay();
-      m_function = diplotype.printFunctionPhrase();
+      if (diplotype.isCombination() && diplotype.getGene().equals("DPYD")) {
+        m_function = "See drug sections";
+      } else {
+        m_function = diplotype.printFunctionPhrase();
+      }
       m_phenotype = diplotype.printPhenotypes();
     }
 

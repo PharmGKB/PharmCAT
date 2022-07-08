@@ -69,6 +69,9 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("observed")
   private Observation m_observed = Observation.DIRECT;
+  @Expose
+  @SerializedName("combination")
+  private boolean m_combination = false;
 
   /**
    * This Function can be used in reduce() calls
@@ -516,6 +519,14 @@ public class Diplotype implements Comparable<Diplotype> {
 
   public void setObserved(Observation observed) {
     m_observed = observed;
+  }
+
+  public boolean isCombination() {
+    return m_combination;
+  }
+
+  public void setCombination(boolean combination) {
+    m_combination = combination;
   }
 
   private boolean isAvailable(String value) {

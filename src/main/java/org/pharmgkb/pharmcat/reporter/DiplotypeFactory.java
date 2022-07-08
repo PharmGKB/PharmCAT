@@ -69,7 +69,9 @@ public class DiplotypeFactory {
 
     // do the regular processing when diplotypes are called
     if (geneCall.getDiplotypes().size() > 0) {
-      return geneCall.getDiplotypes().stream().map(this::makeDiplotype).collect(Collectors.toList());
+      return geneCall.getDiplotypes().stream()
+          .map(this::makeDiplotype)
+          .collect(Collectors.toList());
     }
 
     // do the haplotype-based process for "least-function" genes
@@ -124,10 +126,12 @@ public class DiplotypeFactory {
   private Diplotype makeDiplotype(DiplotypeMatch diplotypeMatch) {
     BaseMatch h1 = diplotypeMatch.getHaplotype1();
     BaseMatch h2 = diplotypeMatch.getHaplotype2();
+    boolean comboMatch = h1 instanceof CombinationMatch || h2 instanceof CombinationMatch;
 
     Diplotype diplotype = new Diplotype(f_gene, makeHaplotype(h1), makeHaplotype(h2));
     fillDiplotype(diplotype);
-    if (m_mode == Mode.LOOKUP && isLeastFunction() && (h1 instanceof CombinationMatch || h2 instanceof CombinationMatch)) {
+    diplotype.setCombination(comboMatch);
+    if (m_mode == Mode.LOOKUP && isLeastFunction() && comboMatch) {
       diplotype.setObserved(Observation.INFERRED);
     }
 
