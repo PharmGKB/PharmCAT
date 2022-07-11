@@ -64,6 +64,9 @@ def bgzipped_vcf(bgzip_path, file):
         if os.path.exists(file + '.tbi'):
             print("Removing pre-existing .tbi")
             os.remove(file + '.tbi')
+        if os.path.exists(file + '.csi'):
+            print("Removing pre-existing .csi")
+            os.remove(file + '.csi')
     return file
 
 
