@@ -49,7 +49,7 @@ $ pip3 install -r PharmCAT_VCF_Preprocess_py3_requirements.txt
 To normalize and prepare a VCF file (single or multiple samples) for PharmCAT, run the following code substituted with proper arguments/inputs:
 
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py --input_vcf path/to/compressed_vcf.vcf.gz
+$ python3 PharmCAT_VCF_Preprocess.py --input_vcf path/to/file.vcf(.bgz)
 ```
 
 **Mandatory** argument: _either_ `--input_vcf` _or_ `--input_list`.
@@ -77,7 +77,7 @@ $ python3 PharmCAT_VCF_Preprocess.py --input_vcf path/to/compressed_vcf.vcf.gz
   ...
   ```
 
-VCF files can have more than 1 sample and should be bgzip compressed.  If not bgzip compressed, they will be automatically bgzipped.
+VCF files can have more than 1 sample and should be bgzip compressed. If not bgzip compressed, they will be automatically bgzipped.
 
 
 **Optional** arguments:
@@ -104,7 +104,7 @@ VCF files can have more than 1 sample and should be bgzip compressed.  If not bg
 : Output a compressed PharmCAT VCF file to `/path/to/output/pharmcat/vcf`. The default is the parent directory of the input.
 
 --output_prefix
-: Prefix of the output VCF files. Default is `pharmcat_ready_vcf`.
+: Prefix of the output VCF files. Default is sample IDs from the input VCF(s). 
 
 --keep_intermediate_files
 : This option will help you save useful intermediate files, for example, a normalized, multiallelic VCF named `input_prefix.pgx_regions.normalized.multiallelic.vcf.gz`, which will include all PGx regions from the first position to the last one in each chromosome as listed in the reference PGx VCF.
@@ -144,18 +144,18 @@ $ python3 PharmCAT_VCF_Preprocess.py --input_vcf test_1.vcf.gz
 ```
 
 VCF preprocessor will return two files in this test case.
-1. one named *"pharmcat_ready_vcf.Sample_1.vcf"*, which is a PharmCAT-ready VCF
-2. the other named *"pharmcat_ready_vcf.missing_pgx_var.vcf.gz"* as a report of missing PGx positions.
+1. one named *"Sample_1.vcf"*, which is a PharmCAT-ready VCF
+2. the other named *"test_1.missing_pgx_var.vcf.gz"* as a report of missing PGx positions.
 
 To be noted, the chr7 variant is not used in PharmCAT and as such, was accordingly removed by the PharmCAT VCF preprocessor.
 
 ```console
-$ cat reference.Sample_1.vcf
+$ cat Sample_1.vcf
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
 chr2	233760233	rs3064744	CAT	C,CATATAT,CATAT	.	PASS	PX=UGT1A1	3/2
 
-$ gunzip -c reference.missing_pgx_var.vcf.gz
+$ gunzip -c test_1.missing_pgx_var.vcf.gz
 $ cat reference.missing_pgx_var.vcf
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PharmCAT
@@ -166,9 +166,9 @@ chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	0/0
 ```
 
 ### Case 2 - multi-sample VCF
-Imagine we have a VCF named *"test_2.vcf.gz"* that has two samples with different sample names from the case 1.
+Imagine we have a VCF named *"test_2.vcf.gz"* that has two samples.
 ```console
-$ gunzip -c example.vcf.gz
+$ gunzip -c test_2.vcf.gz
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2
 1	97740414	rs72549309	AATGA	A	.	PASS	.	GT	1/0	0/1
@@ -189,12 +189,12 @@ $ python3 PharmCAT_VCF_Preprocess.py --input_vcf test_2.vcf.gz
 ```
 
 VCF preprocessor will return three (3) files in this test case.
-1. one named *"pharmcat_ready_vcf.s1.vcf"*. Note that the output PharmCAT-ready VCFs will use the exact sample names from the input VCF.
-2. one named *"pharmcat_ready_vcf.s2.vcf"*
-3. the third named *"pharmcat_ready_vcf.missing_pgx_var.vcf.gz"* as a report of missing PGx positions.
+1. one named *"Sample_1.vcf"*. Note that the output PharmCAT-ready VCFs will use the exact sample names from the input VCF.
+2. one named *"Sample_2.vcf"*
+3. the third named *"test_2.missing_pgx_var.vcf.gz"* as a report of missing PGx positions.
 
 ```console
-$ cat reference.Sample_1.vcf
+$ cat Sample_1.vcf
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
 chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      1/0
@@ -203,7 +203,7 @@ chr10   94942205        rs1304490498    CAATGGAAAGA     C       .       PASS    
 chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT15     GT      1/0
 chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      1/0
 
-$ cat reference.Sample_2.vcf
+$ cat Sample_2.vcf
 <...header truncated...>
 #CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  Sample_2
 chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      0/1
@@ -213,7 +213,7 @@ chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT1
 chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      0/1
 
 
-$ gunzip -c reference.missing_pgx_var.vcf.gz
+$ gunzip -c test_2.missing_pgx_var.vcf.gz
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PharmCAT
 chr1	97078987	rs114096998	G	T	.	PASS	PX=DPYD	GT	0/0
