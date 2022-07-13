@@ -47,12 +47,15 @@ def run(args):
             sys.exit(1)
         # compress if the input vcf is not bgzipped
         input_vcf = util.bgzipped_vcf(bgzip_path, input_vcf)
+        # get input basename
+        input_basename = util.get_vcf_prefix(input_vcf)
     # if a list of vcfs, validate the list file; and bgzip later
     if input_list:
         if not os.path.exists(input_list):
             print("Cannot find", input_list)
             sys.exit(1)
-
+        # set the input basename to the name of the list file
+        input_basename = os.path.basename(os.path.splitext(input_list)[0])
     # validate the reference vcf of PharmCAT PGx positions
     ref_pgx = args.ref_pgx_vcf
     if not os.path.exists(ref_pgx):
@@ -63,9 +66,10 @@ def run(args):
     organize the rest of the arguments
     """
     sample_file = args.sample_file
-    output_prefix = args.output_prefix
     keep_intermediate_files = args.keep_intermediate_files
     missing_to_ref = args.missing_to_ref
+    # define output base name, default to the input base name
+    output_prefix = args.output_prefix if args.output_prefix else ''
     # define working directory, default the directory of the first input VCF
     if args.output_folder:
         output_dir = args.output_folder
@@ -129,20 +133,20 @@ def run(args):
     # modify input VCF chromosomes naming format to <chr##>
     if input_list:
         vcf_pgx_regions = util.extract_regions_from_multiple_files(bcftools_path, bgzip_path, input_list,
-                                                                   ref_pgx, output_dir, output_prefix, sample_list)
+                                                                   ref_pgx, output_dir, input_basename, sample_list)
     else:
         vcf_pgx_regions = util.extract_regions_from_single_file(bcftools_path, input_vcf,
-                                                                ref_pgx, output_dir, output_prefix, sample_list)
+                                                                ref_pgx, output_dir, input_basename, sample_list)
     tmp_files_to_be_removed.append(vcf_pgx_regions)
 
     # normalize the input VCF
-    vcf_normalized = util.normalize_vcf(bcftools_path, vcf_pgx_regions, ref_seq)
+    vcf_normalized = util.normalize_vcf(bcftools_path, vcf_pgx_regions, ref_seq, output_dir)
     tmp_files_to_be_removed.append(vcf_normalized)
 
     # extract the specific PGx genetic variants in the reference PGx VCF
     # this step also generates a report of missing PGx positions in the input VCF
     vcf_normalized_pgx_only = util.filter_pgx_variants(bcftools_path, bgzip_path, vcf_normalized, ref_seq,
-                                                       ref_pgx, missing_to_ref, output_dir, output_prefix)
+                                                       ref_pgx, missing_to_ref, output_dir, input_basename)
     tmp_files_to_be_removed.append(vcf_normalized_pgx_only)
 
     # output PharmCAT-ready single-sample VCF
@@ -180,11 +184,12 @@ if __name__ == "__main__":
                         help="(Optional) an alternative path to the executable bcftools.")
     parser.add_argument("--path_to_bgzip",
                         help="(Optional) an alternative path to the executable bgzip.")
-    parser.add_argument("--output_folder", type=str,
+    parser.add_argument("-d", "--output_folder", type=str,
                         help="(Optional) directory for outputs, by default, directory of the first input VCF.")
-    parser.add_argument("--output_prefix", default='pharmcat_ready_vcf', type=str,
-                        help="(Optional) prefix of the output VCF, default = \'pharmcat_ready_vcf\'.")
-    parser.add_argument("--keep_intermediate_files", action='store_true',
+    parser.add_argument("-o", "--output_prefix", type=str,
+                        help="(Optional) output prefix (without file extensions), "
+                             "by default the same base name as the input.")
+    parser.add_argument("-k", "--keep_intermediate_files", action='store_true',
                         help="(Optional) keep intermediate files, false by default.")
     parser.add_argument("-0", "--missing_to_ref", action='store_true',
                         help="(Optional) assume genotypes at missing PGx sites are 0/0.  DANGEROUS!.")
