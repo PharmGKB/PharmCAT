@@ -117,8 +117,8 @@ VCF files can have more than 1 sample and should be bgzip compressed. If not bgz
 
 
 **Output**
-1. 1 or more PharmCAT-ready VCF file(s), which will be named as `output_prefix>_<sample_ID>.vcf`, for example, `pharmcat_ready_vcf.sample_1.vcf`, `pharmcat_ready_vcf.sample_2.vcf`, etc.
-2. The report of missing PGx positions, which will be named as `<output_prefix>.missing_pgx_var.vcf.gz`, for example `pharmcat_ready_vcf.missing_pgx_var.vcf.gz`. This file only reports positions that are missing in all samples.
+1. 1 or more PharmCAT-ready VCF file(s), which will be named as `output_prefix>_<sample_ID>.vcf`, for example, `sample_1.vcf`, `sample_2.vcf`, etc.
+2. The report of missing PGx positions, which will be named as `<output_prefix>.missing_pgx_var.vcf.gz`, for example `missing_pgx_var.vcf.gz`. This file only reports positions that are missing in all samples.
   
   If `--missing_to_ref` is turned on, you can use this report to trace positions whose genotypes are missing in all samples (`./.`) in the original input but have now been added into the output VCF(s) as reference (`0/0`).
 

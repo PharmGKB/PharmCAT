@@ -92,7 +92,7 @@ python3 PharmCAT_VCF_Preprocess.py --input_list data/input_vcf_list.txt
 
 ###  Running PharmCAT
 
-Assuming the users have run the PharmCAT VCF preprocessor to generate multiple single-sample VCFs which is named such as `pharmcat_ready_vcf.<sample_id>.vcf`. Use the following command to batch annotate multiple VCFs using PharmCAT. A full example can be found at [PharmCAT-tutorial/src/03_PharmCAT.sh](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/03_PharmCAT.sh).
+Assuming the users have run the PharmCAT VCF preprocessor to generate multiple single-sample VCFs which is named such as `<sample_id>.vcf`. Use the following command to batch annotate multiple VCFs using PharmCAT. A full example can be found at [PharmCAT-tutorial/src/03_PharmCAT.sh](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/03_PharmCAT.sh).
 
 On the command line:
 ```console
@@ -106,7 +106,7 @@ cd PharmCAT-tutorial/
 for SINGLE_SAMPLE in $(cat data/test_get-rm_samples.txt)
 do
   # always use the latest PharmCAT
-  java -jar pharmcat.jar -vcf results/pharmcat_ready/pharmcat_ready."$SINGLE_SAMPLE".vcf
+  java -jar pharmcat.jar -vcf results/pharmcat_ready/${SINGLE_SAMPLE}.vcf
 done
 ```
 
@@ -132,7 +132,7 @@ Sample script:
 cd PharmCAT-tutorial/
 for SINGLE_SAMPLE in "$(cat data/test_get-rm_samples.txt)"
 do
-  java -jar pharmcat.jar -matcher -vcf results/pharmcat_ready/pharmcat_ready_vcf."$SINGLE_SAMPLE".vcf
+  java -jar pharmcat.jar -matcher -vcf results/pharmcat_ready/${SINGLE_SAMPLE}.vcf
 done
 ```
 
@@ -148,7 +148,7 @@ Sample script:
 cd PharmCAT-tutorial/
 for SINGLE_SAMPLE in "$(cat data/test_get-rm_samples.txt)"
 do
-  java -jar pharmcat.jar -phenotyper -pi results/pharmcat_ready/"$SINGLE_SAMPLE".match.json
+  java -jar pharmcat.jar -phenotyper -pi results/pharmcat_ready/${SINGLE_SAMPLE}.match.json
 done
 ```
 
@@ -164,8 +164,8 @@ Sample script:
 cd PharmCAT-tutorial/
 for SINGLE_SAMPLE in "$(cat <sample_list.txt>)"
 do
-  java -jar pharmcat.jar -reporter -ri "$SINGLE_SAMPLE".phenotype.json -reporterJson \
-    -t 'Report for '"$SINGLE_SAMPLE"
+  java -jar pharmcat.jar -reporter -ri ${SINGLE_SAMPLE}.phenotype.json -reporterJson \
+    -t "Report for ${SINGLE_SAMPLE}"
 done
 ```
 

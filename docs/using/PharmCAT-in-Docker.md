@@ -84,10 +84,10 @@ Note: the GRCh38 reference is included in the Docker image, so you do not need t
 # docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat
 ```
 
-After running the file `/path/to/data/sample.vcf` through the preprocessor, assuming the sample ID was "SAMPLE1", you would have gotten a file called `pharmcat_ready_vcf.SAMPLE1.vcf`.  You can then run this through PharmCAT with:
+After running the file `/path/to/data/sample.vcf` through the preprocessor, assuming the sample ID was "SAMPLE1", you would have gotten a file called `SAMPLE1.vcf`.  You can then run this through PharmCAT with:
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat -vcf data/pharmcat_ready_vcf.SAMPLE1.vcf
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat -vcf data/SAMPLE1.vcf
 ```
 
 
