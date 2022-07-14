@@ -265,7 +265,7 @@ class NamedAlleleMatcherTest {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-cyp2d6.json");
     // without wobble scoring, if wobble is reference, this will only return *1/*2
     Path vcfFile = new TestVcfBuilder("*1/*12")
-        .reference("CYP2D6")
+        .withDefinition(definitionFile)
         .variation("CYP2D6", "rs1135840", "C", "G")
         .variation("CYP2D6", "rs16947", "G", "A")
         // wobble on *12
@@ -314,7 +314,7 @@ class NamedAlleleMatcherTest {
   void testCombinationHomozygous() throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-cyp2b6.json");
     Path vcfFile = new TestVcfBuilder("*2 + *5/*2 + *5")
-        .reference("CYP2B6")
+        .withDefinition(definitionFile)
         // *2
         .variation("CYP2B6", "rs8192709", "T", "T")
         // *5
@@ -626,7 +626,7 @@ class NamedAlleleMatcherTest {
   void testDpydEffectivelyPhased() throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
     Path vcfFile = new TestVcfBuilder("Reference/c.62G>A")
-        .reference("DPYD")
+        .withDefinition(definitionFile)
         // c.62G>A
         .variation("DPYD", "rs80081766", "C", "T")
         .generate();
@@ -658,7 +658,7 @@ class NamedAlleleMatcherTest {
   void testDpydPhased() throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
     Path vcfFile = new TestVcfBuilder("Reference/c.62G>A + c.1129-5923C>G, c.1236G>A (HapB3) + c.3067C>A")
-        .reference("DPYD")
+        .withDefinition(definitionFile)
         // c.1129-5923C>G, c.1236G>A (HapB3)
         .variation("DPYD", "rs75017182", "G", "C")
         .variation("DPYD", "rs56038477", "C", "T")
@@ -695,7 +695,7 @@ class NamedAlleleMatcherTest {
   void testDpydUnPhased() throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
     Path vcfFile = new TestVcfBuilder("Reference/c.62G>A + c.1129-5923C>G, c.1236G>A (HapB3) + c.3067C>A")
-        .reference("DPYD")
+        .withDefinition(definitionFile)
         // c.1129-5923C>G, c.1236G>A (HapB3)
         .variation("DPYD", "rs75017182", "G", "C")
         .variation("DPYD", "rs56038477", "C", "T")
@@ -729,7 +729,7 @@ class NamedAlleleMatcherTest {
   void testDpydPhasedDouble() throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
     Path vcfFile = new TestVcfBuilder("c.62G>A + c.3067C>A/c.62G>A + c.1129-5923C>G, c.1236G>A (HapB3) + c.3067C>A")
-        .reference("DPYD")
+        .withDefinition(definitionFile)
         // c.1129-5923C>G, c.1236G>A (HapB3)
         .variation("DPYD", "rs75017182", "G", "C")
         .variation("DPYD", "rs56038477", "C", "T")
@@ -769,7 +769,7 @@ class NamedAlleleMatcherTest {
   void testDpydHomozygous() throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
     Path vcfFile = new TestVcfBuilder("c.62G>A + c.3067C>A/c.62G>A + c.3067C>A")
-        .reference("DPYD")
+        .withDefinition(definitionFile)
         // c.62G>A
         .variation("DPYD", "rs80081766", "T", "T")
         // c.3067C>A

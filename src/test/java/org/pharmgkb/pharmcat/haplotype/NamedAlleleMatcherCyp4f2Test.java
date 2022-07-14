@@ -21,7 +21,6 @@ class NamedAlleleMatcherCyp4f2Test {
   @Test
   void s2_s3() throws Exception {
     Path vcfFile = new TestVcfBuilder("*2/*3")
-        .reference("CYP4F2")
         .saveFile()
         .variation("CYP4F2", "rs3093105", "C", "A")
         .variation("CYP4F2", "rs2108622", "C", "T")
@@ -32,7 +31,6 @@ class NamedAlleleMatcherCyp4f2Test {
   @Test
   void s2_s2s3() throws Exception {
     Path vcfFile = new TestVcfBuilder("*2/*2+*3")
-        .reference("CYP4F2")
         .saveFile()
         .variation("CYP4F2", "rs3093105", "C", "C")
         .variation("CYP4F2", "rs2108622", "C", "T")
@@ -43,7 +41,6 @@ class NamedAlleleMatcherCyp4f2Test {
   @Test
   void s2s3_s2s3() throws Exception {
     Path vcfFile = new TestVcfBuilder("*2+*3/*2+*3")
-        .reference("CYP4F2")
         .saveFile()
         .variation("CYP4F2", "rs3093105", "C", "C")
         .variation("CYP4F2", "rs2108622", "T", "T")

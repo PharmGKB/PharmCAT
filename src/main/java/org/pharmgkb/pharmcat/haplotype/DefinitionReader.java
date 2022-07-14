@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
@@ -91,13 +92,14 @@ public class DefinitionReader {
   public void read(Path path) throws IOException {
 
     if (Files.isDirectory(path)) {
-      List<Path> files = Files.list(path)
-          .filter(f -> f.toString().endsWith("_translation.json"))
-          .toList();
-      for (Path file : files) {
-        readFile(file);
+      try (Stream<Path> fileStream = Files.list(path)) {
+        List<Path> files = fileStream.filter(f -> f.toString().endsWith("_translation.json"))
+            .toList();
+        for (Path file : files) {
+          readFile(file);
+        }
+        readExemptions(path);
       }
-      readExemptions(path);
     } else {
       readFile(path);
     }

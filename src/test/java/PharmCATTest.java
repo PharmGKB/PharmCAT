@@ -471,7 +471,6 @@ class PharmCATTest {
   void testCyp2c19() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.singleGeneMatch", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2C19")
         .variation("CYP2C19", "rs3758581", "G", "G");
     testWrapper.execute(s_otherOutsideCallFilePath);
 
@@ -495,7 +494,6 @@ class PharmCATTest {
   void testCyp2c19_s1s2rs58973490het() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s1s2rs58973490het", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2C19")
         .variation("CYP2C19", "rs12769205", "A", "G")
         .variation("CYP2C19", "rs58973490", "G", "A")
         .variation("CYP2C19", "rs4244285", "G", "A")
@@ -541,7 +539,6 @@ class PharmCATTest {
   void testCyp2c19_s1s2() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s1s2", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2C19")
         .variation("CYP2C19", "rs12769205", "A", "G")
         .variation("CYP2C19", "rs4244285", "G", "A")
         .variation("CYP2C19", "rs3758581", "G", "G");
@@ -582,7 +579,6 @@ class PharmCATTest {
   void testClomipramineCall() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.clomipramine", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2C19")
         .variation("CYP2C19", "rs12769205", "G", "G")
         .variation("CYP2C19", "rs4244285", "A", "A")
         .variation("CYP2C19", "rs3758581", "G", "G");
@@ -628,7 +624,6 @@ class PharmCATTest {
   void testCyp2c19noCall() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.noCall", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2C19")
         .variation("CYP2C19", "rs12769205", "A", "G")
         .variation("CYP2C19", "rs4244285", "A", "A");
     testWrapper.execute(s_otherOutsideCallFilePath);
@@ -645,7 +640,6 @@ class PharmCATTest {
   void testCyp2c19s4bs17rs28399504missing() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s4bs17rs28399504missing", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2C19")
         .variation("CYP2C19", "rs12248560", "T", "T")
         .missing("CYP2C19", "rs28399504")
         .variation("CYP2C19", "rs3758581", "G", "G");
@@ -665,7 +659,6 @@ class PharmCATTest {
   void testCyp2c19s1s4het() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s1s4het", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2C19")
         .variation("CYP2C19", "rs12248560", "T", "T")
         .variation("CYP2C19", "rs28399504", "A", "G")
         .variation("CYP2C19", "rs3758581", "G", "G");
@@ -684,7 +677,6 @@ class PharmCATTest {
   void testCyp2c19s1s4missingS1() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s1s4missingS1", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2C19")
         .variation("CYP2C19", "rs12248560", "C", "T")
         .variation("CYP2C19", "rs28399504", "A", "G")
         .missing("CYP2C19", "rs3758581");
@@ -719,7 +711,6 @@ class PharmCATTest {
   void testCyp2c19s4s17() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c19.s1s4missingS1", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2C19")
         .variation("CYP2C19", "rs12248560", "C", "T")
         .variation("CYP2C19", "rs28399504", "A", "G")
         .variation("CYP2C19", "rs3758581", "G", "G");
@@ -752,7 +743,6 @@ class PharmCATTest {
   void testCftrD1270NHet() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cftr.ref_D1270N", false);
     testWrapper.getVcfBuilder()
-        .reference("CFTR")
         .variation("CFTR", "rs11971167", "G", "A");
     testWrapper.execute(null);
 
@@ -767,7 +757,6 @@ class PharmCATTest {
   void testCftrD1270NG551D() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cftr.ref_D1270NG551D", false);
     testWrapper.getVcfBuilder()
-        .reference("CFTR")
         .variation("CFTR", "rs11971167", "G", "A")
         .variation("CFTR", "rs75527207", "G", "A");
     testWrapper.execute(null);
@@ -783,8 +772,6 @@ class PharmCATTest {
   void testRosuvastatin() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("rosuvastatin", false);
     testWrapper.getVcfBuilder()
-        .reference("ABCG2")
-        .reference("SLCO1B1")
         .variation("ABCG2", "rs2231142", "G", "T")
         .variation("SLCO1B1", "rs56101265", "T", "C");
     testWrapper.execute(null);
@@ -830,7 +817,6 @@ class PharmCATTest {
   void testSlco1b1HomVar() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("slco1b1.s5s15", false);
     testWrapper.getVcfBuilder()
-        .reference("SLCO1B1")
         .variation("SLCO1B1", "rs2306283", "A", "G")
         .variation("SLCO1B1", "rs4149056", "C", "C");
     testWrapper.execute(null);
@@ -844,7 +830,6 @@ class PharmCATTest {
   void testSlco1b1Test5() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("slco1b1.s1s44", false);
     testWrapper.getVcfBuilder()
-        .reference("SLCO1B1")
         .variation("SLCO1B1", "rs2306283", "A", "G")
         .variation("SLCO1B1", "rs11045852", "A", "G")
         .variation("SLCO1B1", "rs74064213", "A", "G");
@@ -859,7 +844,6 @@ class PharmCATTest {
   void testSlco1b1Test3() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("slco1b1.s1s15", false);
     testWrapper.getVcfBuilder()
-        .reference("SLCO1B1")
         .variation("SLCO1B1", "rs2306283", "A", "G")
         .variation("SLCO1B1", "rs4149056", "T", "C");
     testWrapper.execute(null);
@@ -873,7 +857,6 @@ class PharmCATTest {
   void testSlco1b1Test4() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("slco1b1.s5s45", false);
     testWrapper.getVcfBuilder()
-        .reference("SLCO1B1")
         .variation("SLCO1B1", "rs4149056", "T", "C")
         .variation("SLCO1B1", "rs71581941", "C", "T");
     testWrapper.execute(null);
@@ -890,7 +873,6 @@ class PharmCATTest {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.s1s2b", false);
     testWrapper.getVcfBuilder()
         .phased()
-        .reference("DPYD")
         .variation("DPYD", "rs3918290", "C", "T")
         .variation("DPYD", "rs1801159", "C", "T");
     testWrapper.execute(null);
@@ -910,7 +892,6 @@ class PharmCATTest {
   void testDpydUnphased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.unphased", false);
     testWrapper.getVcfBuilder()
-        .reference("DPYD")
         .variation("DPYD", "rs3918290", "C", "T")
         .variation("DPYD", "rs1801159", "C", "T");
     testWrapper.execute(null);
@@ -931,7 +912,6 @@ class PharmCATTest {
   void testDpydUnphasedMultiple() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.unphased.multiple", false);
     testWrapper.getVcfBuilder()
-        .reference("DPYD")
         .variation("DPYD", "rs183385770", "C", "T")  // 0 activity value
         .variation("DPYD", "rs186169810", "A", "C") // 0.5 activity value
         .variation("DPYD", "rs112766203", "G", "A") // 0.5 activity value
@@ -955,7 +935,6 @@ class PharmCATTest {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.c2846het", false);
     testWrapper.getVcfBuilder()
         .phased()
-        .reference("DPYD")
         .variation("DPYD", "rs67376798", "T", "A");
     testWrapper.execute(null);
 
@@ -979,7 +958,6 @@ class PharmCATTest {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.phased.multi.trans", false);
     testWrapper.getVcfBuilder()
         .phased()
-        .reference("DPYD")
         .variation("DPYD", "rs67376798", "A", "T") // Strand 1 decreased - c.2846A>T
         .variation("DPYD", "rs72547601", "C", "T") // Strand 1 no function - c.2933A>G
         .variation("DPYD", "rs60139309", "T", "C") // Strand 2 normal function - c.2582A>G
@@ -1004,7 +982,6 @@ class PharmCATTest {
   void testDpydUnphasedMulti() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.unphased.multi", false);
     testWrapper.getVcfBuilder()
-        .reference("DPYD")
         .variation("DPYD", "rs67376798", "A", "T") // decreased - c.2846A>T
         .variation("DPYD", "rs72547601", "C", "T") // no function - c.2933A>G
         .variation("DPYD", "rs60139309", "T", "C") // normal function - c.2582A>G
@@ -1026,7 +1003,6 @@ class PharmCATTest {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.c1156het", false);
     testWrapper.getVcfBuilder()
         .phased()
-        .reference("DPYD")
         .variation("DPYD", "rs78060119", "C", "A");
     testWrapper.execute(null);
 
@@ -1047,7 +1023,6 @@ class PharmCATTest {
   void testSlco1b1TestMulti() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("slco1b1.multi", false);
     testWrapper.getVcfBuilder()
-        .reference("SLCO1B1")
         .variation("SLCO1B1", "rs2306283", "G", "G")
         .variation("SLCO1B1", "rs4149056", "T", "C")
         .variation("SLCO1B1", "rs11045853", "A", "A")
@@ -1065,7 +1040,6 @@ class PharmCATTest {
   void testUgt1a1Phased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s80.phased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .phased()
         .variation("UGT1A1", "rs887829", "C", "T");
     testWrapper.execute(null);
@@ -1079,7 +1053,6 @@ class PharmCATTest {
   void testUgt1a1Unphased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s80.unphased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .phased()
         .variation("UGT1A1", "rs887829", "C", "T");
     testWrapper.execute(null);
@@ -1105,7 +1078,6 @@ class PharmCATTest {
   void testUgt1a1S1S80S28() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s80s28unphased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .variation("UGT1A1", "rs887829", "C", "T")
         .variation("UGT1A1", "rs3064744", "TA(7)", "TA(8)");
     testWrapper.execute(null);
@@ -1119,7 +1091,6 @@ class PharmCATTest {
   void testUgt1a1S28S37() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s28s37", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(9)");
     testWrapper.execute(null);
 
@@ -1132,7 +1103,6 @@ class PharmCATTest {
   void testUgt1a1s28s80phased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s80s28phased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .phased()
         .variation("UGT1A1", "rs887829", "C", "T")
         .variation("UGT1A1", "rs3064744", "TA(7)", "TA(8)");
@@ -1151,7 +1121,6 @@ class PharmCATTest {
   void testUgt1a1s28s80s6s60phased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s28s80s6s60phased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .phased()
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)")
@@ -1167,7 +1136,6 @@ class PharmCATTest {
   void testUgt1a1s28s80s6s60unphased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s28s80s6s60unphased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)")
         .variation("UGT1A1", "rs4148323", "G", "A");
@@ -1182,7 +1150,6 @@ class PharmCATTest {
   void testUgt1a1s6s6() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s6s6", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .variation("UGT1A1", "rs4148323", "A", "A");
     testWrapper.execute(null);
 
@@ -1195,7 +1162,6 @@ class PharmCATTest {
   void testUgt1a1s6s60s80s28MissingPhased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s6s60s80s28MissingPhased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .phased()
         .missing("UGT1A1", "rs3064744")
         .variation("UGT1A1", "rs887829", "C", "T")
@@ -1213,7 +1179,6 @@ class PharmCATTest {
   void testUgt1a1s6s60s80s28MissingUnphased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s6s60s80s28MissingUnphased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .missing("UGT1A1", "rs3064744")
         .variation("UGT1A1", "rs887829", "C", "T")
         .variation("UGT1A1", "rs4148323", "A", "G");
@@ -1230,7 +1195,6 @@ class PharmCATTest {
   void testUgt1a1s80s28missing() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s80s28missing", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .missing("UGT1A1", "rs3064744")
         .variation("UGT1A1", "rs887829", "C", "T");
     testWrapper.execute(null);
@@ -1246,7 +1210,6 @@ class PharmCATTest {
   void testUgt1a1na12717() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.na12717", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .variation("UGT1A1", "rs887829", "T", "T")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)");
     testWrapper.execute(null);
@@ -1260,7 +1223,6 @@ class PharmCATTest {
   void testUgt1a1s28homMissing() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s28s28unphaseds60s80miss", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .missing("UGT1A1", "rs887829")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(8)");
     testWrapper.execute(null);
@@ -1276,7 +1238,6 @@ class PharmCATTest {
   void testUgt1a1s28s60Hom() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s28hom", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)");
     testWrapper.execute(null);
 
@@ -1289,7 +1250,6 @@ class PharmCATTest {
   void testUgt1a1s27s28unphaseds80s60missing() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s27s28unphaseds80s60missing", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .missing("UGT1A1", "rs887829")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)")
         .variation("UGT1A1", "rs35350960", "C", "A");
@@ -1305,7 +1265,6 @@ class PharmCATTest {
   void testUgt1a1HG00436() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.HG00436", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .phased()
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)")
@@ -1319,7 +1278,6 @@ class PharmCATTest {
   void testUgt1a1s1s80s27s60s28missingphased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s80s27s60s28missingphased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .phased()
         .missing("UGT1A1", "rs3064744")
         .variation("UGT1A1", "rs887829", "T", "C")
@@ -1335,7 +1293,6 @@ class PharmCATTest {
   void testUgt1a1s1s60s80s6phased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s60s80s6phased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .phased()
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs35350960", "A", "C");
@@ -1350,7 +1307,6 @@ class PharmCATTest {
   void testUgt1a1s1s60s80s28s6phased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s60s80s28s6phased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .phased()
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)")
@@ -1366,7 +1322,6 @@ class PharmCATTest {
   void testUgt1a1s1s37s80s60phased() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("ugt1a1.s1s37s80s60phased", false);
     testWrapper.getVcfBuilder()
-        .reference("UGT1A1")
         .phased()
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs3064744", "TA(9)", "TA(7)");
@@ -1384,7 +1339,6 @@ class PharmCATTest {
   void testCyp3a5Missing3Message() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp3a5.s3missing", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP3A5")
         .missing("CYP3A5", "rs776746");
     testWrapper.execute(null);
 
@@ -1410,7 +1364,6 @@ class PharmCATTest {
   void testCyp3a5v1() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp3a5.s1s3rs776746rs55965422het", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP3A5")
         .variation("CYP3A5", "rs776746", "T", "C");
     testWrapper.execute(null);
 
@@ -1424,7 +1377,6 @@ class PharmCATTest {
   void testCyp3a5v2() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp3a5.v2", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP3A5")
         .variation("CYP3A5", "rs28383479", "C", "T")
         .variation("CYP3A5", "rs776746", "C", "T")
     ;
@@ -1439,7 +1391,6 @@ class PharmCATTest {
   void testCyp3a5v3() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp3a5.v3", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP3A5")
         .variation("CYP3A5", "rs776746", "C", "C")
     ;
     testWrapper.execute(null);
@@ -1453,7 +1404,6 @@ class PharmCATTest {
   void testCyp3a5v4() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp3a5.v4", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP3A5")
         .variation("CYP3A5", "rs776746", "T", "C")
     ;
     testWrapper.execute(null);
@@ -1467,7 +1417,6 @@ class PharmCATTest {
   void testCyp3a5v5() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp3a5.v4", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP3A5")
         .variation("CYP3A5", "rs28383479", "T", "C")
         .variation("CYP3A5", "rs776746", "T", "C")
     ;
@@ -1556,7 +1505,6 @@ class PharmCATTest {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("recommendation.examples", false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C9")
-        .reference("CYP2C19")
         .variation("CYP2C19", "rs12769205", "G", "G")
         .variation("CYP2C19", "rs4244285", "A", "A")
         .variation("CYP2C19", "rs3758581", "G", "G");
@@ -1591,7 +1539,6 @@ class PharmCATTest {
   void testTpmtStar1s() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("tpmt.star1s", false);
     testWrapper.getVcfBuilder()
-        .reference("TPMT")
         .variation("TPMT", "rs1800460", "C", "T")
         .variation("TPMT", "rs1142345", "T", "C");
     testWrapper.execute(null);
@@ -1610,7 +1557,6 @@ class PharmCATTest {
   void testCyp2c9star61() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2c9.s1s61", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2C9")
         .variation("CYP2C9", "rs1799853", "C", "T")
         .variation("CYP2C9", "rs202201137", "A", "G");
     testWrapper.execute(null);
@@ -1645,7 +1591,6 @@ class PharmCATTest {
   void testCyp2b6star1star34() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2b6.s1s34", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2B6")
         .variation("CYP2B6", "rs34223104", "T", "C")
         .variation("CYP2B6", "rs3211371", "C", "A")
         .variation("CYP2B6", "rs3745274", "G", "T")
@@ -1668,7 +1613,6 @@ class PharmCATTest {
   void testCyp2b6star1star34AllMatch() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2b6.s1s34.allMatches", true);
     testWrapper.getVcfBuilder()
-        .reference("CYP2B6")
         .variation("CYP2B6", "rs34223104", "T", "C")
         .variation("CYP2B6", "rs3211371", "C", "A")
         .variation("CYP2B6", "rs3745274", "G", "T")
@@ -1708,7 +1652,6 @@ class PharmCATTest {
   void testNudt15S2() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("nudt15.s1s2", false);
     testWrapper.getVcfBuilder()
-        .reference("NUDT15")
         .variation("NUDT15", "rs746071566", "GAGTCG(3)", "GAGTCG(4)")
         .variation("NUDT15", "rs116855232", "C", "T")
     ;
@@ -1725,7 +1668,6 @@ class PharmCATTest {
   void testNudt15S3() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("nudt15.s1s3", false);
     testWrapper.getVcfBuilder()
-        .reference("NUDT15")
         .variation("NUDT15", "rs116855232", "C", "T")
     ;
     testWrapper.execute(null);
@@ -1866,7 +1808,6 @@ class PharmCATTest {
   void testCyp3a4() throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp3a4", false);
     testWrapper.getVcfBuilder()
-        .reference("CYP3A4")
         .variation("CYP3A4", "rs72552799", "T", "T")
         .variation("CYP3A4", "rs2242480", "T", "T")
     ;

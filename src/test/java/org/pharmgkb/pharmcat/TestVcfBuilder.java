@@ -28,6 +28,7 @@ public class TestVcfBuilder {
   private final Map<String, Map<String, VcfEdit>> m_edits = new HashMap<>();
   private final Map<String, Map<String, VcfEdit>> m_extraPositions = new HashMap<>();
   private final String m_name;
+  private final List<Path> m_definitionFiles = new ArrayList<>();
   private boolean m_isPhased;
   private boolean m_deleteOnExit = true;
 
@@ -44,6 +45,18 @@ public class TestVcfBuilder {
 
   public TestVcfBuilder saveFile() {
     m_deleteOnExit = false;
+    return this;
+  }
+
+  /**
+   * Specify a specific definition file.
+   * If not provided, will use default.
+   */
+  public TestVcfBuilder withDefinition(Path file) {
+    if (!Files.isRegularFile(file)) {
+      throw new IllegalArgumentException("Not a file: " + file);
+    }
+    m_definitionFiles.add(file);
     return this;
   }
 
@@ -86,6 +99,10 @@ public class TestVcfBuilder {
   }
 
 
+  /**
+   * Adds reference for specified gene.
+   * This is only necessary to add gene positions to VCF when there is no variation.
+   */
   public TestVcfBuilder reference(String gene) {
     m_edits.computeIfAbsent(gene, g -> new HashMap<>());
     return this;
@@ -98,7 +115,13 @@ public class TestVcfBuilder {
 
   public Path generate(Path dir) throws IOException {
     DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
+    if (m_definitionFiles.size() > 0) {
+      for (Path file : m_definitionFiles) {
+        definitionReader.read(file);
+      }
+    } else {
+      definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
+    }
     definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
 
     String filename = m_name.replaceAll("\\*", "s")
