@@ -107,7 +107,7 @@ VCF files can have more than 1 sample and should be bgzip compressed. If not bgz
 : Prefix of the output VCF files. Default is sample IDs from the input VCF(s). 
 
 --keep_intermediate_files
-: This option will help you save useful intermediate files, for example, a normalized, multiallelic VCF named `input_prefix.pgx_regions.normalized.multiallelic.vcf.gz`, which will include all PGx regions from the first position to the last one in each chromosome as listed in the reference PGx VCF.
+: This option will help you save useful intermediate files, for example, a normalized, multiallelic VCF named `<base_input_file_name>.pgx_regions.normalized.multiallelic.vcf.gz`, which will include all PGx regions from the first position to the last one in each chromosome as listed in the reference PGx VCF.
 
 -0 <span class="altArg"><br />or --missing_to_ref</span>
 : This option will add missing PGx positions to the output. Missing PGx positions are those whose genotypes are all missing "./." in every single sample.
@@ -117,8 +117,8 @@ VCF files can have more than 1 sample and should be bgzip compressed. If not bgz
 
 
 **Output**
-1. 1 or more PharmCAT-ready VCF file(s), which will be named as `output_prefix>_<sample_ID>.vcf`, for example, `sample_1.vcf`, `sample_2.vcf`, etc.
-2. The report of missing PGx positions, which will be named as `<output_prefix>.missing_pgx_var.vcf.gz`, for example `missing_pgx_var.vcf.gz`. This file only reports positions that are missing in all samples.
+1. 1 or more PharmCAT-ready VCF file(s), which will be named as `<output_prefix>.<sample_ID>.preprocessed.vcf`, or `<sample_ID>.preprocessed.vcf` if `--output_prefix` is not supplied, for example, `sample_1.preprocessed.vcf`, `sample_2.preprocessed.vcf`, etc.
+2. The report of missing PGx positions, which will be named as `<base_input_file_name>.missing_pgx_var.vcf.gz`. This file only reports positions that are missing in all samples.
   
   If `--missing_to_ref` is turned on, you can use this report to trace positions whose genotypes are missing in all samples (`./.`) in the original input but have now been added into the output VCF(s) as reference (`0/0`).
 
@@ -144,13 +144,13 @@ $ python3 PharmCAT_VCF_Preprocess.py --input_vcf test_1.vcf.gz
 ```
 
 VCF preprocessor will return two files in this test case.
-1. one named *"Sample_1.vcf"*, which is a PharmCAT-ready VCF
+1. one named *"Sample_1.preprocessed.vcf"*, which is a PharmCAT-ready VCF
 2. the other named *"test_1.missing_pgx_var.vcf.gz"* as a report of missing PGx positions.
 
 To be noted, the chr7 variant is not used in PharmCAT and as such, was accordingly removed by the PharmCAT VCF preprocessor.
 
 ```console
-$ cat Sample_1.vcf
+$ cat Sample_1.preprocessed.vcf
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
 chr2	233760233	rs3064744	CAT	C,CATATAT,CATAT	.	PASS	PX=UGT1A1	3/2
@@ -189,12 +189,12 @@ $ python3 PharmCAT_VCF_Preprocess.py --input_vcf test_2.vcf.gz
 ```
 
 VCF preprocessor will return three (3) files in this test case.
-1. one named *"Sample_1.vcf"*. Note that the output PharmCAT-ready VCFs will use the exact sample names from the input VCF.
-2. one named *"Sample_2.vcf"*
+1. one named *"Sample_1.preprocessed.vcf"*. Note that the output PharmCAT-ready VCFs will use the exact sample names from the input VCF.
+2. one named *"Sample_2.preprocessed.vcf"*
 3. the third named *"test_2.missing_pgx_var.vcf.gz"* as a report of missing PGx positions.
 
 ```console
-$ cat Sample_1.vcf
+$ cat Sample_1.preprocessed.vcf
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
 chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      1/0
@@ -203,7 +203,7 @@ chr10   94942205        rs1304490498    CAATGGAAAGA     C       .       PASS    
 chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT15     GT      1/0
 chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      1/0
 
-$ cat Sample_2.vcf
+$ cat Sample_2.preprocessed.vcf
 <...header truncated...>
 #CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  Sample_2
 chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      0/1
