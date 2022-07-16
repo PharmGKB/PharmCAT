@@ -86,7 +86,13 @@ public class OutsideCall {
 
   @Override
   public String toString() {
-    return getGene();
+    if (getDiplotypes().size() > 0) {
+      return getGene() + ":" + String.join(",", getDiplotypes());
+    } else if (getPhenotype() != null) {
+      return getGene() + ":" + getPhenotype();
+    } else {
+      return getGene();
+    }
   }
 
   public String getGene() {

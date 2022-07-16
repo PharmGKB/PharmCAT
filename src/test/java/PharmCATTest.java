@@ -487,6 +487,31 @@ class PharmCATTest {
   }
 
   /**
+   * Tests how PharmCAT handles that state when sample VCF data exists for a gene and an outside call also exists for
+   * that gene. Currently, this should execute successfully by ignoring outside call data and using the sample data
+   */
+  @Test
+  void testCallerCollision() throws Exception {
+    Path outsideCallPath = Files.createTempFile("cyp2c19_collision", ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("CYP2C19\t*2/*2\n");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("caller.collision", false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19");
+    testWrapper.execute(outsideCallPath);
+
+    testWrapper.testCalledByMatcher("CYP2C19");
+    // this is the diplotype indicated in the VCF, not the one in the outside call
+    testWrapper.testPrintCalls( "CYP2C19", "*38/*38");
+
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2C19");
+    assertEquals(1, geneReport.getMessages().size());
+    assertTrue(geneReport.getMessages().stream().allMatch(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_NOTE)));
+  }
+
+  /**
    * This test case demos that an "ambiguity" {@link MessageAnnotation} which specifies a variant and a diplotype call
    * for a given drug report will be matched and added to the {@link DrugReport}
    */

@@ -18,6 +18,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.pharmgkb.pharmcat.ReportableException;
@@ -30,6 +31,7 @@ import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -76,7 +78,12 @@ public class Phenotyper {
       if (geneReport != null) {
         // DO NOT allow both a report from the matcher/caller and from an outside source
         if (geneReport.getCallSource() == CallSource.MATCHER && geneReport.isCalled()) {
-          throw new ReportableException("Cannot specify outside call for " + geneReport.getGene() + ", it is already called in sample data");
+          geneReport.addMessage(new MessageAnnotation(
+              MessageAnnotation.TYPE_NOTE,
+              "prefer-sample-data",
+              "Outside call of " + outsideCall + " ignored in favor of sample genotype data. If you want to use the outside call for this gene remove the gene from the sample genotype data."
+          ));
+          continue;
         } else {
           // if the caller already made a report but it's uncalled let's remove it so we can replace it
           removeGeneReport(outsideCall.getGene());

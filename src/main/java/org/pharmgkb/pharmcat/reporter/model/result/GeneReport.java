@@ -231,34 +231,38 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_messages;
   }
 
+  /**
+   * Add a message annotation. Separates the general messages from specific genotype call messages
+   */
+  public void addMessage(MessageAnnotation ma) {
+    if (ma == null) return;
+    if (ma.getExceptionType().equals(MessageAnnotation.TYPE_GENOTYPE)) {
+      String rsid = ma.getMatches().getVariant();
+
+      Optional<String> call = getVariantReports().stream()
+          .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(rsid) && !v.isMissing())
+          .map(VariantReport::getCall)
+          .reduce((a,b) -> {throw new RuntimeException();});
+      String genotype;
+      if (call.isEmpty() || StringUtils.isBlank(call.get())) {
+        genotype = "missing";
+      }
+      else {
+        genotype = rsid + call.get().replaceAll("[|/]", "/"+rsid);
+      }
+      m_highlightedVariants.add(genotype);
+
+    }
+    else {
+      m_messages.add(ma);
+    }
+  }
+
   public void addMessages(Collection<MessageAnnotation> messages) {
     if (messages == null) {
       return;
     }
-
-    // separate the general messages from specific genotype call messages
-    messages.forEach(ma -> {
-      if (ma.getExceptionType().equals(MessageAnnotation.TYPE_GENOTYPE)) {
-        String rsid = ma.getMatches().getVariant();
-
-        Optional<String> call = getVariantReports().stream()
-            .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(rsid) && !v.isMissing())
-            .map(VariantReport::getCall)
-            .reduce((a,b) -> {throw new RuntimeException();});
-        String genotype;
-        if (call.isEmpty() || StringUtils.isBlank(call.get())) {
-          genotype = "missing";
-        }
-        else {
-          genotype = rsid + call.get().replaceAll("[|/]", "/"+rsid);
-        }
-        m_highlightedVariants.add(genotype);
-
-      }
-      else {
-        m_messages.add(ma);
-      }
-    });
+    messages.forEach(this::addMessage);
   }
 
   /**

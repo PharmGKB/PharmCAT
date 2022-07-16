@@ -69,6 +69,12 @@ public class MessageAnnotation {
     m_message = message;
   }
 
+  public MessageAnnotation(String type, String name, String message) {
+    m_exceptionType = type;
+    m_name = name;
+    m_message = message;
+  }
+
   @Expose
   @SerializedName("rule_name")
   private String m_name;
