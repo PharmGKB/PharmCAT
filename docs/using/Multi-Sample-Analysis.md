@@ -44,9 +44,9 @@ For example:
 ```console
 $ cd PharmCAT-tutorial/
 $ cat data/single_sample_vcf_list.txt
-data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18526.vcf.gz
-data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18565.vcf.gz
-data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18861.vcf.gz
+data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18526.vcf.bgz
+data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18565.vcf.bgz
+data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18861.vcf.bgz
 ```
 
 Sample script:
@@ -71,7 +71,7 @@ $ python3 PharmCAT_VCF_Preprocess.py -vcf <multi_sample_vcf>
 Sample script:
 ```shell
 cd PharmCAT-tutorial/
-python3 PharmCAT_VCF_Preprocess.py -vcf data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.vcf.gz
+python3 PharmCAT_VCF_Preprocess.py -vcf data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.vcf.bgz
 ```
 
 #### Case 3 - multi-sample VCF divided by chromosome or into consecutive genetic blocks

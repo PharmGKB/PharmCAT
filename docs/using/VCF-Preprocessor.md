@@ -80,7 +80,7 @@ VCF files can have more than 1 sample and should be bgzip compressed. If not bgz
 **Optional** arguments:
 
 -refVcf, --reference-pgx-vcf
-: A sorted, compressed VCF of PGx core allele defining positions used by PharmCAT, by default, `pharmcat_positions.vcf.bgz` under the current working directory. You can find this VCF in the `pharmcat_preprocessor-<release_version>.tar.gz` available from the PharmCAT GitHub releases page.
+: A sorted, compressed VCF of PGx core allele defining positions used by PharmCAT, by default, `pharmcat_positions.vcf.bgz` under the current working directory. You can find this VCF in the `pharmcat_preprocessor-<release_version>.tar.bgz` available from the PharmCAT GitHub releases page.
  
 -refFna, --reference-genome
 : The [GRCh38.p13](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39/) FASTA file. The FASTA file has to be decompressed and indexed (.fai). These mandatory files will be automatically downloaded (~1GB) to the current working directory if not provided by user (see [Notes](#notes) for details).
@@ -112,7 +112,7 @@ VCF files can have more than 1 sample and should be bgzip compressed. If not bgz
 
 **Output**
 1. 1 or more PharmCAT-ready VCF file(s), which will be named as `<base_filename>.<sample_ID>.preprocessed.vcf`, or `<sample_ID>.preprocessed.vcf` if `--base-filename` or `-bf` is not supplied, for example, `sample_1.preprocessed.vcf`, `sample_2.preprocessed.vcf`, etc.
-2. The report of missing PGx positions, which will be named as `<base_input_filename>.missing_pgx_var.vcf.gz`. This file only reports positions that are missing in all samples.
+2. The report of missing PGx positions, which will be named as `<base_input_filename>.missing_pgx_var.vcf.bgz`. This file only reports positions that are missing in all samples.
   
   If `--missing-to-ref` is turned on, you can use this report to trace positions whose genotypes are missing in all samples (`./.`) in the original input but have now been added into the output VCF(s) as reference (`0/0`).
 
@@ -120,9 +120,9 @@ VCF files can have more than 1 sample and should be bgzip compressed. If not bgz
 ## Tutorial
 
 ### Case 1 - single-sample VCF
-Imagine we have a VCF named *"test_1.vcf.gz"* to be used in PharmCAT.
+Imagine we have a VCF named *"test_1.vcf.bgz"* to be used in PharmCAT.
 ```console
-$ gunzip -c test_1.vcf.gz
+$ gunzip -c test_1.vcf.bgz
 $ cat test_1.vcf
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
@@ -134,12 +134,12 @@ $ cat test_1.vcf
 
 Command to run the PharmCAT VCF preprocessor:
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py -vcf test_1.vcf.gz
+$ python3 PharmCAT_VCF_Preprocess.py -vcf test_1.vcf.bgz
 ```
 
 VCF preprocessor will return two files in this test case.
 1. one named *"Sample_1.preprocessed.vcf"*, which is a PharmCAT-ready VCF
-2. the other named *"test_1.missing_pgx_var.vcf.gz"* as a report of missing PGx positions.
+2. the other named *"test_1.missing_pgx_var.vcf.bgz"* as a report of missing PGx positions.
 
 To be noted, the chr7 variant is not used in PharmCAT and as such, was accordingly removed by the PharmCAT VCF preprocessor.
 
@@ -149,7 +149,7 @@ $ cat Sample_1.preprocessed.vcf
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
 chr2	233760233	rs3064744	CAT	C,CATATAT,CATAT	.	PASS	PX=UGT1A1	3/2
 
-$ gunzip -c test_1.missing_pgx_var.vcf.gz
+$ gunzip -c test_1.missing_pgx_var.vcf.bgz
 $ cat reference.missing_pgx_var.vcf
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PharmCAT
@@ -160,9 +160,9 @@ chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	0/0
 ```
 
 ### Case 2 - multi-sample VCF
-Imagine we have a VCF named *"test_2.vcf.gz"* that has two samples.
+Imagine we have a VCF named *"test_2.vcf.bgz"* that has two samples.
 ```console
-$ gunzip -c test_2.vcf.gz
+$ gunzip -c test_2.vcf.bgz
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2
 1	97740414	rs72549309	AATGA	A	.	PASS	.	GT	1/0	0/1
@@ -179,13 +179,13 @@ M	1555	.	G	A	PASS	.	GT	1/0	0/1
 
 Command to run the PharmCAT VCF preprocessor:
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py -vcf test_2.vcf.gz
+$ python3 PharmCAT_VCF_Preprocess.py -vcf test_2.vcf.bgz
 ```
 
 VCF preprocessor will return three (3) files in this test case.
 1. one named *"Sample_1.preprocessed.vcf"*. Note that the output PharmCAT-ready VCFs will use the exact sample names from the input VCF.
 2. one named *"Sample_2.preprocessed.vcf"*
-3. the third named *"test_2.missing_pgx_var.vcf.gz"* as a report of missing PGx positions.
+3. the third named *"test_2.missing_pgx_var.vcf.bgz"* as a report of missing PGx positions.
 
 ```console
 $ cat Sample_1.preprocessed.vcf
@@ -207,7 +207,7 @@ chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT1
 chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      0/1
 
 
-$ gunzip -c test_2.missing_pgx_var.vcf.gz
+$ gunzip -c test_2.missing_pgx_var.vcf.bgz
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PharmCAT
 chr1	97078987	rs114096998	G	T	.	PASS	PX=DPYD	GT	0/0
