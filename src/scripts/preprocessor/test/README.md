@@ -24,9 +24,9 @@ The data was the 1000 Genomes Project sequences of Coriell samples with correspo
 
 # run VCF preprocessing
 python3 PharmCAT_VCF_Preprocess.py \
---input_vcf PharmCAT_calling_pipeline-master/data/1kg_data/GeT-RM_sample_data/PGx.chrAllPGx.GRCh38.genotypes.20170504.vcf.gz \
---ref_seq GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
---ref_pgx_vcf pharmcat_positions_0.8.0_updated_06222021.vcf.gz 
+-vcf PharmCAT_calling_pipeline-master/data/1kg_data/GeT-RM_sample_data/PGx.chrAllPGx.GRCh38.genotypes.20170504.vcf.gz \
+-refFna GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+-refVcf pharmcat_positions_0.8.0_updated_06222021.vcf.gz 
 ```
 
 

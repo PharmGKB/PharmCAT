@@ -49,18 +49,15 @@ $ pip3 install -r PharmCAT_VCF_Preprocess_py3_requirements.txt
 To normalize and prepare a VCF file (single or multiple samples) for PharmCAT, run the following code substituted with proper arguments/inputs:
 
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py --input_vcf path/to/file.vcf(.bgz)
+$ python3 PharmCAT_VCF_Preprocess.py -vcf path/to/file.vcf(.bgz)
 ```
 
-**Mandatory** argument: _either_ `--input_vcf` _or_ `--input_list`.
+**Mandatory** argument: `-vcf`.
 
---input_vcf
-: Path to a single VCF file
+-vcf
+: Path to a single VCF file or a file containing the list of VCF file paths (one per line), sorted by chromosome position. All VCF files must have the same set of samples.  Use this when data for a sample has been split among multiple files (e.g. VCF files from large cohorts, such as UK Biobank).
 
---input_list
-: Path to file containing list of paths to VCF files (one per line), sorted by chromosome position. All VCF files must have the same set of samples.  Use this when data for a sample has been split among multiple files (e.g. VCF files from large cohorts, such as UK Biobank).
-
-  Example valid `input_list` file:
+  Example valid list file:
   ```
   chr1_set1.vcf
   chr1_set2.vcf
@@ -68,7 +65,7 @@ $ python3 PharmCAT_VCF_Preprocess.py --input_vcf path/to/file.vcf(.bgz)
   chr2_set2.vcf
   ...
   ```
-  Example invalid `input_list` file:
+  Example invalid list file:
   ```
   chr3_set2.vcf
   chr2_set2.vcf
@@ -82,32 +79,29 @@ VCF files can have more than 1 sample and should be bgzip compressed. If not bgz
 
 **Optional** arguments:
 
---ref_pgx_vcf
+-refVcf, --reference-pgx-vcf
 : A sorted, compressed VCF of PGx core allele defining positions used by PharmCAT, by default, `pharmcat_positions.vcf.bgz` under the current working directory. You can find this VCF in the `pharmcat_preprocessor-<release_version>.tar.gz` available from the PharmCAT GitHub releases page.
  
---ref_seq
+-refFna, --reference-genome
 : The [GRCh38.p13](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39/) FASTA file. The FASTA file has to be decompressed and indexed (.fai). These mandatory files will be automatically downloaded (~1GB) to the current working directory if not provided by user (see [Notes](#notes) for details).
 
---sample_file
+-S, --sample-file
 : The list of samples to be processed and prepared for PharmCAT. The file should contain one sample per line.
 
---path_to_bcftools
+-bcftools, --path-to-bcftools
 : Bcftools must be installed. This argument is optional if users can run bcftools directly using the command line `bcftools <commands>`. Alternatively, users can download and compile [bcftools](http://www.htslib.org/download/) and provide the path to the executable bcftools program as `/path/to/executable/bcftools`.
 
---path_to_tabix
-: Similar to bcftools, tabix must be installed. Tabix is a part of the [htslib](http://www.htslib.org/download/). If users cannot directly run tabix using the command line `tabix <commands>`, the alternative is to download and compile [htslib](http://www.htslib.org/download/) and provide the path to the executable tabix program as `/path/to/executable/tabix` which should be under the htslib program folder.
-
---path_to_bgzip
+-bgzip, --path-to-bgzip
 : Similar to tabix, bgzip must be installed. Bgzip is a part of the [htslib](http://www.htslib.org/download/). If users cannot directly run bgzip using the command line `bgzip <commands>`, the alternative is to download and compile [htslib](http://www.htslib.org/download/) and provide the path to the executable bgzip program as `/path/to/executable/bgzip` which should be under the htslib program folder.
 
---output_folder
+-o, --output-dir
 : Output a compressed PharmCAT VCF file to `/path/to/output/pharmcat/vcf`. The default is the parent directory of the input.
 
---output_prefix
+-bf, --base-filename
 : Prefix of the output VCF files. Default is sample IDs from the input VCF(s). 
 
---keep_intermediate_files
-: This option will help you save useful intermediate files, for example, a normalized, multiallelic VCF named `<base_input_file_name>.pgx_regions.normalized.multiallelic.vcf.gz`, which will include all PGx regions from the first position to the last one in each chromosome as listed in the reference PGx VCF.
+-k, --keep-intermediate-files
+: This option will help you save useful intermediate files, for example, a normalized, multiallelic VCF named `<base_input_file_name>.pgx_regions.normalized.multiallelic.vcf.bgz`, which will include all PGx regions from the first position to the last one in each chromosome as listed in the reference PGx VCF.
 
 -0 <span class="altArg"><br />or --missing_to_ref</span>
 : This option will add missing PGx positions to the output. Missing PGx positions are those whose genotypes are all missing "./." in every single sample.
@@ -117,10 +111,10 @@ VCF files can have more than 1 sample and should be bgzip compressed. If not bgz
 
 
 **Output**
-1. 1 or more PharmCAT-ready VCF file(s), which will be named as `<output_prefix>.<sample_ID>.preprocessed.vcf`, or `<sample_ID>.preprocessed.vcf` if `--output_prefix` is not supplied, for example, `sample_1.preprocessed.vcf`, `sample_2.preprocessed.vcf`, etc.
-2. The report of missing PGx positions, which will be named as `<base_input_file_name>.missing_pgx_var.vcf.gz`. This file only reports positions that are missing in all samples.
+1. 1 or more PharmCAT-ready VCF file(s), which will be named as `<base_filename>.<sample_ID>.preprocessed.vcf`, or `<sample_ID>.preprocessed.vcf` if `--base-filename` or `-bf` is not supplied, for example, `sample_1.preprocessed.vcf`, `sample_2.preprocessed.vcf`, etc.
+2. The report of missing PGx positions, which will be named as `<base_input_filename>.missing_pgx_var.vcf.gz`. This file only reports positions that are missing in all samples.
   
-  If `--missing_to_ref` is turned on, you can use this report to trace positions whose genotypes are missing in all samples (`./.`) in the original input but have now been added into the output VCF(s) as reference (`0/0`).
+  If `--missing-to-ref` is turned on, you can use this report to trace positions whose genotypes are missing in all samples (`./.`) in the original input but have now been added into the output VCF(s) as reference (`0/0`).
 
 
 ## Tutorial
@@ -140,7 +134,7 @@ $ cat test_1.vcf
 
 Command to run the PharmCAT VCF preprocessor:
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py --input_vcf test_1.vcf.gz
+$ python3 PharmCAT_VCF_Preprocess.py -vcf test_1.vcf.gz
 ```
 
 VCF preprocessor will return two files in this test case.
@@ -185,7 +179,7 @@ M	1555	.	G	A	PASS	.	GT	1/0	0/1
 
 Command to run the PharmCAT VCF preprocessor:
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py --input_vcf test_2.vcf.gz
+$ python3 PharmCAT_VCF_Preprocess.py -vcf test_2.vcf.gz
 ```
 
 VCF preprocessor will return three (3) files in this test case.

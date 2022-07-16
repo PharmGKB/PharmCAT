@@ -37,7 +37,7 @@ If your genetic data is already stored in single-sample VCFs, you are one step c
 
 On the command line:
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py --input_vcf <single_sample_vcf>
+$ python3 PharmCAT_VCF_Preprocess.py -vcf <single_sample_vcf>
 ```
 
 For example:
@@ -55,7 +55,7 @@ Sample script:
 for SINGLE_VCF in $(cat data/single_sample_vcf_list.txt)
 do
   # run the PharmCAT VCF preprocessor for a single-sample VCF
-  python3 PharmCAT_VCF_Preprocess.py --input_vcf "$SINGLE_VCF"
+  python3 PharmCAT_VCF_Preprocess.py -vcf "$SINGLE_VCF"
 done
 ```
 
@@ -65,13 +65,13 @@ Population- or biobank-scale VCFs most likely come in multi-sample format. The P
 
 On the command line:
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py --input_vcf <multi_sample_vcf>
+$ python3 PharmCAT_VCF_Preprocess.py -vcf <multi_sample_vcf>
 ```
 
 Sample script:
 ```shell
 cd PharmCAT-tutorial/
-python3 PharmCAT_VCF_Preprocess.py --input_vcf data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.vcf.gz
+python3 PharmCAT_VCF_Preprocess.py -vcf data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.vcf.gz
 ```
 
 #### Case 3 - multi-sample VCF divided by chromosome or into consecutive genetic blocks
@@ -80,14 +80,14 @@ As sometimes seen with large-scale genetic studies, the genetic data may be divi
 
 On the command line:
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py --input_list <list_of_input_vcf>
+$ python3 PharmCAT_VCF_Preprocess.py -vcf <list_of_input_vcf>
 ```
 
 Sample script:
 ```shell
 cd PharmCAT-tutorial/
 # run the PharmCAT VCF preprocessor for multiple VCFs with non-overlapping genetic regions of the same cohort
-python3 PharmCAT_VCF_Preprocess.py --input_list data/input_vcf_list.txt
+python3 PharmCAT_VCF_Preprocess.py -vcf data/input_vcf_list.txt
 ```
 
 ###  Running PharmCAT

@@ -72,7 +72,7 @@ Your VCF files needs to comply with [PharmCAT's requirements](/specifications/VC
 If you have a file `/path/to/data/sample.vcf`, you would use:
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./PharmCAT_VCF_Preprocess.py --input_vcf data/sample.vcf
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./PharmCAT_VCF_Preprocess.py -vcf data/sample.vcf
 ```
 
 Note: the GRCh38 reference is included in the Docker image, so you do not need to provide it unless you have special reference requirements.
