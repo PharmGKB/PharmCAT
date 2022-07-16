@@ -38,11 +38,11 @@ General usage:
 
 -v
 : Bind mounts `/path/to/data` on your machine to `/pharmcat/data` in the Docker image.  This will make the data available under the `data` subdirectory.
- 
+
 `<xxx>`
 : Command to run
 
-If you run `ls`, it will list the contents of the `/pharmcat` directory: 
+If you run `ls`, it will list the contents of the `/pharmcat` directory:
 
 ```console
 # docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ls
@@ -52,8 +52,8 @@ data
 pharmcat
 pharmcat.jar
 pharmcat_positions.vcf
-pharmcat_positions.vcf.bgz
-pharmcat_positions.vcf.bgz.tbi
+pharmcat_positions.vcf.gz
+pharmcat_positions.vcf.gz.tbi
 reference.fna.bgz
 reference.fna.bgz.fai
 reference.fna.bgz.gzi

@@ -11,7 +11,7 @@ As of March 2022, PharmCAT only takes a single-sample VCF. If a multi-sample VCF
 
 This documentation shares concrete examples of how to use PharmCAT to batch process multiple samples in a High-Performance Computing (HPC) environment.
 
-We expect readers to be familiar with using both PharmCAT's [VCF preprocessor](/using/VCF-Preprocessor) and the core [PharmCAT tool](/using/Running-PharmCAT).  In addition to the documentation, we also have a [tutorial](https://github.com/PharmGKB/PharmCAT-tutorial) available that walks you through working with real genetic data sets. 
+We expect readers to be familiar with using both PharmCAT's [VCF preprocessor](/using/VCF-Preprocessor) and the core [PharmCAT tool](/using/Running-PharmCAT).  In addition to the documentation, we also have a [tutorial](https://github.com/PharmGKB/PharmCAT-tutorial) available that walks you through working with real genetic data sets.
 
 ---
 
@@ -44,9 +44,9 @@ For example:
 ```console
 $ cd PharmCAT-tutorial/
 $ cat data/single_sample_vcf_list.txt
-data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18526.vcf.bgz
-data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18565.vcf.bgz
-data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18861.vcf.bgz
+data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18526.vcf.gz
+data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18565.vcf.gz
+data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.NA18861.vcf.gz
 ```
 
 Sample script:
@@ -71,7 +71,7 @@ $ python3 PharmCAT_VCF_Preprocess.py -vcf <multi_sample_vcf>
 Sample script:
 ```shell
 cd PharmCAT-tutorial/
-python3 PharmCAT_VCF_Preprocess.py -vcf data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.vcf.bgz
+python3 PharmCAT_VCF_Preprocess.py -vcf data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.vcf.gz
 ```
 
 #### Case 3 - multi-sample VCF divided by chromosome or into consecutive genetic blocks
