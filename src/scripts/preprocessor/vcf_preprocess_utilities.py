@@ -76,7 +76,7 @@ def bgzipped_vcf(bgzip_path, file):
     if not is_gz_file(file):
         print("Bgzipping VCF!")
         bgzip_file(bgzip_path, file)
-        file = file + '.gz'
+        file = file + '.bgz'
         if os.path.exists(file + '.tbi'):
             print("Removing pre-existing .tbi")
             os.remove(file + '.tbi')
@@ -335,14 +335,14 @@ def extract_regions_from_multiple_files(bcftools_path, bgzip_path, input_list, r
     return path_output
 
 
-def normalize_vcf(bcftools_path, input_vcf, ref_seq, output_dir):
+def normalize_vcf(bcftools_path, input_vcf, reference_genome, output_dir):
     """
     Normalize the input VCF against the human reference genome sequence GRCh38/hg38
 
     "bcftools norm <options> <input_vcf>". For bcftools common options, see running_bcftools().
     "-m +|-" joins biallelic sites into multiallelic records (+)
         and convert multiallelic records into uniallelic format (-).
-    "-f <ref_seq_fasta>" reference sequence. Supplying this option turns on left-alignment and normalization.
+    "-f <reference_genome_fasta>" reference sequence. Supplying this option turns on left-alignment and normalization.
     "-c ws" when incorrect or missing REF allele is encountered, warn (w) and set/fix(s) bad sites.  's' will swap
     alleles and update GT and AC acounts. Importantly, s will NOT fix strand issues in a VCF.
     """
@@ -350,14 +350,14 @@ def normalize_vcf(bcftools_path, input_vcf, ref_seq, output_dir):
     path_output = os.path.join(output_dir, get_vcf_prefix(input_vcf) + '.normalized.vcf.gz')
 
     bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-Oz', '-o',
-                        path_output, '-f', ref_seq, input_vcf]
+                        path_output, '-f', reference_genome, input_vcf]
     run_bcftools(bcftools_command, show_msg='Normalizing VCF')
     index_vcf(bcftools_path, path_output)
 
     return path_output
 
 
-def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
+def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, ref_pgx,
         missing_to_ref, output_dir, output_prefix):
     """
     Extract specific pgx positions that are present in the reference PGx VCF
@@ -376,7 +376,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
         # convert reference PGx variants to the uniallelic format
         # needed for extracting exact PGx positions and generating an accurate missing report
         file_ref_pgx_uniallelic = os.path.join(temp_dir, get_vcf_prefix(ref_pgx) + '.uniallelic.vcf.gz')
-        bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', ref_seq,
+        bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', reference_genome,
                             '-Oz', '-o', file_ref_pgx_uniallelic, ref_pgx]
         run_bcftools(bcftools_command, show_msg='Preparing the reference PGx VCF')
         index_vcf(bcftools_path, file_ref_pgx_uniallelic)
@@ -628,7 +628,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
         if len(non_pgx_records) >= 1:
             # enforces the output to comply with the multi-allelic format
             normed_vcf = os.path.join(temp_dir, get_vcf_prefix(sorted_vcf) + '.normed.vcf.gz')
-            bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', ref_seq,
+            bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', reference_genome,
                                 '-Oz', '-o', normed_vcf, sorted_vcf]
             run_bcftools(bcftools_command,
                          show_msg='Enforcing the multi-allelic variant representation per PharmCAT')
@@ -677,7 +677,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
             index_vcf(bcftools_path, path_output)
         else:
             # enforces the output to comply with the multi-allelic format
-            bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', ref_seq,
+            bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', reference_genome,
                                 '-Oz', '-o', path_output, sorted_vcf]
             run_bcftools(bcftools_command,
                          show_msg='Enforcing the multi-allelic variant representation per PharmCAT')

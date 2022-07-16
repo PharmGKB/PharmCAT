@@ -5,6 +5,7 @@ __author__ = 'BinglanLi'
 import os
 import subprocess
 import sys
+import re
 from pathlib import Path
 from timeit import default_timer as timer
 
@@ -25,6 +26,7 @@ def run(args):
     except:
         print('Error: %s not found or not executable' % bcftools_path)
         sys.exit(1)
+
     # validate bgzip
     bgzip_path = args.path_to_bgzip if args.path_to_bgzip else 'bgzip'
     try:
@@ -33,13 +35,16 @@ def run(args):
         print('Error: %s not found or not executable' % bgzip_path)
         sys.exit(1)
 
-    # validate input
-    input_list = args.input_list
-    input_vcf = args.input_vcf
-    # check input arguments. can only take one of the two input options
-    if bool(input_vcf) == bool(input_list):
-        print("Invalid input file(s). Provide either [--input_vcf] or [--input_list].")
-        sys.exit(1)
+    # validate input vcf or file list
+    # set up empty variables
+    input_vcf = ''
+    input_list = ''
+    # check whether input is a vcf or a list
+    if re.search('[.]vcf([.]b?gz)?$', os.path.basename(args.vcf)):
+        input_vcf = args.vcf
+    else:
+        input_list = args.vcf
+    print('--------\n\n' + input_vcf + '-----\n\n------' + input_list + '\n\n-------------\n\n')
     # if single input vcf, validate and bgzip
     if input_vcf:
         if not os.path.exists(input_vcf):
@@ -57,7 +62,7 @@ def run(args):
         # set the input basename to the name of the list file
         input_basename = os.path.basename(os.path.splitext(input_list)[0])
     # validate the reference vcf of PharmCAT PGx positions
-    ref_pgx = args.ref_pgx_vcf
+    ref_pgx = args.reference_pgx_vcf
     if not os.path.exists(ref_pgx):
         print('Error: VCF of the reference PGx positions was not found at: %s' % ref_pgx)
         sys.exit(1)
@@ -69,10 +74,10 @@ def run(args):
     keep_intermediate_files = args.keep_intermediate_files
     missing_to_ref = args.missing_to_ref
     # define output base name, default to the input base name
-    output_prefix = args.output_prefix if args.output_prefix else ''
+    base_filename = args.base_filename if args.base_filename else ''
     # define working directory, default the directory of the first input VCF
-    if args.output_folder:
-        output_dir = args.output_folder
+    if args.output_dir:
+        output_dir = args.output_dir
         # create the output folder
         Path(output_dir).mkdir(parents=True, exist_ok=True)
     elif input_vcf:
@@ -82,18 +87,18 @@ def run(args):
     print("Saving output to", output_dir)
 
     # download the human reference sequence if not provided
-    if args.ref_seq:
-        ref_seq = args.ref_seq
+    if args.reference_genome:
+        reference_genome = args.reference_genome
     else:
         if os.path.exists(os.path.join(output_dir, 'reference.fna.bgz')):
-            ref_seq = os.path.join(output_dir, 'reference.fna.bgz')
-            print("Using default FASTA reference at ", ref_seq)
+            reference_genome = os.path.join(output_dir, 'reference.fna.bgz')
+            print("Using default FASTA reference at ", reference_genome)
         elif os.path.exists(os.path.join(os.getcwd(), 'reference.fna.bgz')):
-            ref_seq = os.path.join(os.getcwd(), 'reference.fna.bgz')
-            print("Using default FASTA reference at ", ref_seq)
+            reference_genome = os.path.join(os.getcwd(), 'reference.fna.bgz')
+            print("Using default FASTA reference at ", reference_genome)
         else:
-            ref_seq = util.get_default_grch38_ref_fasta_and_index(output_dir)
-            print("Downloaded to %s" % ref_seq)
+            reference_genome = util.get_default_grch38_ref_fasta_and_index(output_dir)
+            print("Downloaded to %s" % reference_genome)
 
     # index ref_pgx if not already so
     if not os.path.exists(ref_pgx + '.csi'):
@@ -140,18 +145,18 @@ def run(args):
     tmp_files_to_be_removed.append(vcf_pgx_regions)
 
     # normalize the input VCF
-    vcf_normalized = util.normalize_vcf(bcftools_path, vcf_pgx_regions, ref_seq, output_dir)
+    vcf_normalized = util.normalize_vcf(bcftools_path, vcf_pgx_regions, reference_genome, output_dir)
     tmp_files_to_be_removed.append(vcf_normalized)
 
     # extract the specific PGx genetic variants in the reference PGx VCF
     # this step also generates a report of missing PGx positions in the input VCF
-    vcf_normalized_pgx_only = util.filter_pgx_variants(bcftools_path, bgzip_path, vcf_normalized, ref_seq,
+    vcf_normalized_pgx_only = util.filter_pgx_variants(bcftools_path, bgzip_path, vcf_normalized, reference_genome,
                                                        ref_pgx, missing_to_ref, output_dir, input_basename)
     tmp_files_to_be_removed.append(vcf_normalized_pgx_only)
 
     # output PharmCAT-ready single-sample VCF
     # retain only the PharmCAT allele defining positions in the output VCF file
-    util.output_pharmcat_ready_vcf(bcftools_path, vcf_normalized_pgx_only, output_dir, output_prefix, sample_list)
+    util.output_pharmcat_ready_vcf(bcftools_path, vcf_normalized_pgx_only, output_dir, base_filename, sample_list)
 
     # remove intermediate files
     if not keep_intermediate_files:
@@ -169,29 +174,28 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Prepare an input VCF for the PharmCAT')
 
     # list arguments
-    parser.add_argument("-i", "--input_vcf", type=str, help="Path to a VCF file.")
-    parser.add_argument("--input_list", type=str,
-                        help="A file containing paths to VCF files (one file per line), sorted by chromosome position.")
-    parser.add_argument("-p", "--ref_pgx_vcf", type=str,
+    parser.add_argument("-vcf", "--vcf", type=str, help="Path to a VCF file or a file of paths to VCF files "
+                                                        "(one file per line), sorted by chromosome position.")
+    parser.add_argument("-refVcf", "--reference-pgx-vcf", type=str,
                         default=os.path.join(os.getcwd(), "pharmcat_positions.vcf.bgz"),
                         help="A sorted VCF of PharmCAT PGx variants, gzipped with preprocessor scripts. Default = "
                              "\'pharmcat_positions.vcf.bgz\' in the current working directory.")
-    parser.add_argument("-g", "--ref_seq",
+    parser.add_argument("-refFna", "--reference-genome",
                         help="(Optional) the Human Reference Genome GRCh38/hg38 in the fasta format.")
-    parser.add_argument("-S", "--sample_file",
+    parser.add_argument("-S", "--sample-file",
                         help="(Optional) a file of samples to be prepared for the PharmCAT, one sample at a line.")
-    parser.add_argument("--path_to_bcftools",
+    parser.add_argument("-bcftools", "--path-to-bcftools",
                         help="(Optional) an alternative path to the executable bcftools.")
-    parser.add_argument("--path_to_bgzip",
+    parser.add_argument("-bgzip", "--path-to-bgzip",
                         help="(Optional) an alternative path to the executable bgzip.")
-    parser.add_argument("-d", "--output_folder", type=str,
+    parser.add_argument("-o", "--output-dir", type=str,
                         help="(Optional) directory for outputs, by default, directory of the first input VCF.")
-    parser.add_argument("-o", "--output_prefix", type=str,
+    parser.add_argument("-bf", "--base-filename", type=str,
                         help="(Optional) output prefix (without file extensions), "
                              "by default the same base name as the input.")
-    parser.add_argument("-k", "--keep_intermediate_files", action='store_true',
+    parser.add_argument("-k", "--keep-intermediate-files", action='store_true',
                         help="(Optional) keep intermediate files, false by default.")
-    parser.add_argument("-0", "--missing_to_ref", action='store_true',
+    parser.add_argument("-0", "--missing-to-ref", action='store_true',
                         help="(Optional) assume genotypes at missing PGx sites are 0/0.  DANGEROUS!.")
 
     # parse arguments
@@ -201,7 +205,7 @@ if __name__ == "__main__":
     # alternatively, could use the "warnings" module
     if args.missing_to_ref:
         print('=============================================================\n'
-              'Warning: Argument "-0"/"--missing_to_ref" supplied\n'
+              'Warning: Argument "-0"/"--missing-to-ref" supplied\n'
               '\n'
               'THIS SHOULD ONLY BE USED IF: you sure your data is reference\n'
               'at the missing positions instead of unreadable/uncallable at\n'
