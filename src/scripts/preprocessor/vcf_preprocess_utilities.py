@@ -35,7 +35,7 @@ if len(_chr_invalid) != len(_chr_valid):
 
 def get_vcf_prefix(path):
     """
-    return vcf or vcf.gz file prefix
+    return vcf or vcf.bgz file prefix
     """
     vcf_basename = os.path.basename(path)
     if re.search('[.]vcf[.]b?gz$', vcf_basename):
@@ -274,7 +274,7 @@ def extract_regions_from_single_file(bcftools_path, input_vcf, pgx_vcf, output_d
             sys.exit(1)
 
         # extract pgx regions and modify chromosome names if necessary
-        path_output = os.path.join(output_dir, output_prefix + '.pgx_regions.vcf.gz')
+        path_output = os.path.join(output_dir, output_prefix + '.pgx_regions.vcf.bgz')
         bcftools_command = [bcftools_path, 'annotate', '--no-version', '-S', file_sample_list,
                             '--rename-chrs', file_chr_rename, '-r', ref_pgx_regions, '-i', 'ALT="."', '-k',
                             '-Oz', '-o', path_output, input_vcf]
@@ -325,7 +325,7 @@ def extract_regions_from_multiple_files(bcftools_path, bgzip_path, input_list, r
                 f.write(processed_input_list[j] + "\n")
 
         # concatenate vcfs
-        path_output = os.path.join(output_dir, output_prefix + '.pgx_regions.vcf.gz')
+        path_output = os.path.join(output_dir, output_prefix + '.pgx_regions.vcf.bgz')
         bcftools_command = [bcftools_path, 'concat', '--no-version', '-a', '-f', temp_file_list, '-Oz', '-o',
                             path_output]
         run_bcftools(bcftools_command, show_msg='Concatenating chromosome VCFs.')
@@ -347,7 +347,7 @@ def normalize_vcf(bcftools_path, input_vcf, reference_genome, output_dir):
     alleles and update GT and AC acounts. Importantly, s will NOT fix strand issues in a VCF.
     """
 
-    path_output = os.path.join(output_dir, get_vcf_prefix(input_vcf) + '.normalized.vcf.gz')
+    path_output = os.path.join(output_dir, get_vcf_prefix(input_vcf) + '.normalized.vcf.bgz')
 
     bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-Oz', '-o',
                         path_output, '-f', reference_genome, input_vcf]
@@ -375,7 +375,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
     with tempfile.TemporaryDirectory(suffix='extract_pgx_variants', dir=output_dir) as temp_dir:
         # convert reference PGx variants to the uniallelic format
         # needed for extracting exact PGx positions and generating an accurate missing report
-        file_ref_pgx_uniallelic = os.path.join(temp_dir, get_vcf_prefix(ref_pgx) + '.uniallelic.vcf.gz')
+        file_ref_pgx_uniallelic = os.path.join(temp_dir, get_vcf_prefix(ref_pgx) + '.uniallelic.vcf.bgz')
         bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', reference_genome,
                             '-Oz', '-o', file_ref_pgx_uniallelic, ref_pgx]
         run_bcftools(bcftools_command, show_msg='Preparing the reference PGx VCF')
@@ -385,7 +385,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
         extracg PGx positions from input using "bcftools view"
         '''
         # extract any variants with matching positions
-        input_pgx_pos_only = os.path.join(temp_dir, get_vcf_prefix(input_vcf) + '.pgx_pos_only.vcf.gz')
+        input_pgx_pos_only = os.path.join(temp_dir, get_vcf_prefix(input_vcf) + '.pgx_pos_only.vcf.bgz')
         bcftools_command = [bcftools_path, 'view', '--no-version', '-T', file_ref_pgx_uniallelic,
                             '-Oz', '-o', input_pgx_pos_only, input_vcf]
         run_bcftools(bcftools_command, show_msg='Retaining PGx positions, regardless of alleles')
@@ -618,16 +618,16 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
                         continue
 
         # sort vcf
-        sorted_vcf = os.path.join(temp_dir, get_vcf_prefix(input_pgx_pos_updated) + '.sorted.vcf.gz')
+        sorted_vcf = os.path.join(temp_dir, get_vcf_prefix(input_pgx_pos_updated) + '.sorted.vcf.bgz')
         bcftools_command = [bcftools_path, 'sort', '-Oz', '-o', sorted_vcf, input_pgx_pos_updated]
         run_bcftools(bcftools_command, show_msg='Sorting file')
         index_vcf(bcftools_path, sorted_vcf)
 
         # if there was non-PGx variant at PGx positions, need to put back the non-PGx variants into VCF
-        path_output = os.path.join(output_dir, get_vcf_prefix(input_vcf) + '.multiallelic.vcf.gz')
+        path_output = os.path.join(output_dir, get_vcf_prefix(input_vcf) + '.multiallelic.vcf.bgz')
         if len(non_pgx_records) >= 1:
             # enforces the output to comply with the multi-allelic format
-            normed_vcf = os.path.join(temp_dir, get_vcf_prefix(sorted_vcf) + '.normed.vcf.gz')
+            normed_vcf = os.path.join(temp_dir, get_vcf_prefix(sorted_vcf) + '.normed.vcf.bgz')
             bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', reference_genome,
                                 '-Oz', '-o', normed_vcf, sorted_vcf]
             run_bcftools(bcftools_command,
