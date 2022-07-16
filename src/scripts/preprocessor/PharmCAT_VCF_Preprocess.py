@@ -44,7 +44,6 @@ def run(args):
         input_vcf = args.vcf
     else:
         input_list = args.vcf
-    print('--------\n\n' + input_vcf + '-----\n\n------' + input_list + '\n\n-------------\n\n')
     # if single input vcf, validate and bgzip
     if input_vcf:
         if not os.path.exists(input_vcf):
