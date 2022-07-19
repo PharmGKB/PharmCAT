@@ -215,10 +215,9 @@ class PharmCATTest {
             "-vcf", vcfFile.toString(),
             "-po", outsideCallFile.toString(),
             "-o", outputDir.toString(),
-            "-research", "cyp2d6" });
+            "-matcher", "-research", "cyp2d6" });
       });
       System.out.println(systemOut);
-      assertTrue(systemOut.contains("Cannot specify outside call for CYP2D6, it is already called in sample data"));
       assertTrue(Files.exists(refMatcherOutput));
       assertFalse(Files.exists(refPhenotyperOutput));
       assertFalse(Files.exists(refReporterOutput));
@@ -1804,29 +1803,6 @@ class PharmCATTest {
     assertEquals(2, geneReport.getReporterDiplotypes().size());
     Diplotype diplotype = geneReport.getReporterDiplotypes().get(0);
     assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
-  }
-
-  /**
-   * This tests the case when the incoming sample file has coverage for a gene but then an outside call is also
-   * supplied. This should result in an error
-   */
-  @Test
-  void testCallerCollision(TestInfo testInfo) throws Exception {
-    Path outsidePath = TestUtils.createTempFile(testInfo, ".tsv");
-    try (FileWriter fw = new FileWriter(outsidePath.toFile())) {
-      fw.write("CYP2C19\t*2/*2");
-    }
-
-    try {
-      PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("conflict.two.data.sources", false);
-      testWrapper.getVcfBuilder()
-          .reference("CYP2C19");
-      testWrapper.execute(outsidePath);
-      fail("Should have failed due to a duplicate gene definition between matcher and outside caller");
-    }
-    catch (ReportableException ex) {
-      // we want this to fail so ignore handling the exception
-    }
   }
 
   @Test
