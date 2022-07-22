@@ -263,14 +263,28 @@
         </div>
       {{/if}}
 
-      {{#if variantsUnspecified}}
-        <div class="alert alert-info">No variant data available.</div>
-      {{/if}}
-
       {{#each messages}}
         <div class="alert alert-warning">{{{this}}}</div>
       {{/each}}
 
+
+      {{#if variantsUnspecified}}
+        <table>
+          <thead>
+            <tr>
+              <th>Position in VCF</th>
+              <th>RSID</th>
+              <th>Call in VCF</th>
+              <th>Reference</th>
+              <th>Related Alleles</th>
+              <th>Warnings</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="6" style="font-style: italic">Variant data unspecified</td></tr>
+            </tbody>
+        </table>
+      {{/if}}
       {{#unless variantsUnspecified}}
         <h4>Calls at Positions</h4>
         <table>

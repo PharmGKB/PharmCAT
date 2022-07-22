@@ -20,7 +20,6 @@ import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.PharmCAT;
-import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
@@ -487,7 +486,7 @@ class PharmCATTest {
 
   /**
    * Tests how PharmCAT handles that state when sample VCF data exists for a gene and an outside call also exists for
-   * that gene. Currently, this should execute successfully by ignoring outside call data and using the sample data
+   * that gene. Currently, this should execute successfully by ignoring VCF data and using the outside call
    */
   @Test
   void testCallerCollision() throws Exception {
@@ -501,9 +500,9 @@ class PharmCATTest {
         .reference("CYP2C19");
     testWrapper.execute(outsideCallPath);
 
-    testWrapper.testCalledByMatcher("CYP2C19");
-    // this is the diplotype indicated in the VCF, not the one in the outside call
-    testWrapper.testPrintCalls( "CYP2C19", "*38/*38");
+    testWrapper.testNotCalledByMatcher("CYP2C19");
+    // this is the diplotype indicated in the outside call, not the one matched
+    testWrapper.testPrintCalls( "CYP2C19", "*2/*2");
 
     GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2C19");
     assertEquals(1, geneReport.getMessages().size());

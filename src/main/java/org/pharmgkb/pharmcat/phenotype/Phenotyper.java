@@ -18,10 +18,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.definition.MessageList;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.ReferenceAlleleMap;
@@ -56,7 +54,7 @@ public class Phenotyper {
    * @param outsideCalls a List of {@link OutsideCall} objects
    */
   public Phenotyper(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls,
-      @Nullable Map<String, Collection<String>> variantWarnings) throws ReportableException {
+      @Nullable Map<String, Collection<String>> variantWarnings) {
     ReferenceAlleleMap referenceAlleleMap = new ReferenceAlleleMap();
     PhenotypeMap phenotypeMap = new PhenotypeMap();
 
@@ -75,20 +73,25 @@ public class Phenotyper {
       GeneReport geneReport = findGeneReport(outsideCall.getGene())
           .orElse(null);
 
-      if (geneReport != null) {
-        // DO NOT allow both a report from the matcher/caller and from an outside source
-        if (geneReport.getCallSource() == CallSource.MATCHER && geneReport.isCalled()) {
-          geneReport.addMessage(new MessageAnnotation(
-              MessageAnnotation.TYPE_NOTE,
-              "prefer-sample-data",
-              "Outside call of " + outsideCall + " ignored in favor of sample genotype data. If you want to use the outside call for this gene remove the gene from the sample genotype data."
-          ));
-          continue;
-        } else {
-          // if the caller already made a report but it's uncalled let's remove it so we can replace it
-          removeGeneReport(outsideCall.getGene());
-        }
-      } else {
+      if (geneReport != null && geneReport.getCallSource() != CallSource.OUTSIDE) {
+        String matcherCall = String.join("; ", geneReport.printDisplayCalls());
+
+        // remove the existing call so we can use the new outside call
+        removeGeneReport(outsideCall.getGene());
+
+        // use this new outside call instead
+        geneReport = new GeneReport(outsideCall);
+        f_geneReports.add(geneReport);
+
+        // warn the user of the conflict
+        geneReport.addMessage(new MessageAnnotation(
+            MessageAnnotation.TYPE_NOTE,
+            "prefer-sample-data",
+            "VCF data would call " + matcherCall + " but it has been ignored in favor of an outside call. If you want to use the matcher call for this gene then remove the gene from the outside call data."
+        ));
+      }
+
+      if (geneReport == null) {
         geneReport = new GeneReport(outsideCall);
         f_geneReports.add(geneReport);
       }
