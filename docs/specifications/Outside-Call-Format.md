@@ -12,6 +12,9 @@ diplotypes, phenotypes, or other allele calls to PharmCAT that were called by ot
 These **outside call files** can be supplied to the [PharmCAT](/using/Running-PharmCAT#outside-calls) tool using the 
 `-po` flag.
 
+Calls specified in this file will override results from the `Named Allele Matcher`.
+
+
 ## File format
 
 The **outside call file** format is a tab-separated file. Lines starting with `#` will be ignored.
@@ -34,5 +37,6 @@ HLA-B		*57:01 positive
 MT-RNR1	1555A>G
 ```
 
-Note that the HLA-B line has two tabs between the gene name and the allele presence. Also, the MT-RNR1 line specifies a 
-since that gene is monoploid.
+Notes:
+* the HLA-B line has two tabs between the gene name and the gene result (`*57:01 positive`)
+* the MT-RNR1 line specifies a single allele call since that gene is monoploid
