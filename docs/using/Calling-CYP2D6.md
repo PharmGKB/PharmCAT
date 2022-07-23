@@ -44,7 +44,7 @@ There is drastic variation in the calls produced by the three sequencing technol
 
 PharmCAT supports pulling in results from other tools using what we call ["outside calls"](/specifications/Outside-Call-Format).  This allows you to select your preferred CYP2D6 caller and use PharmCAT for the phenotype translation and to include CYP2D6 results in a PharmCAT report.
 
-To include external calls you need to use the `-po` flag in PharmCAT to specify the external calls file. For example:
+To include outside calls you need to use the `-po` flag in PharmCAT to specify the outside calls file. For example:
 
 ```commandline
 # java -jar pharmcat.jar -vcf patient_001.vcf -po patient_001_cyp2d6.txt
@@ -66,7 +66,7 @@ For more information:
 
 As mentioned above, if you have whole genome sequencing (WGS) CRAM/BAM files, your best option is a tool like StellarPGx.  Please note we are not affiliated with the StellarPGx team and offer no guarantees about its performance. Any questions or concerns on StellarPGx should be directed to the StellarPGx maintainer at [twesigomwedavid@gmail.com](twesigomwedavid@gmail.com). Usage instructions for StellarPGx can be found on their [GitHub repo](https://github.com/SBIMB/StellarPGx).
 
-While this tutorial is StellarPGx specific, it should illustrate how to integrate other external callers with PharmCAT.
+While this tutorial is StellarPGx specific, it should illustrate how to integrate outside calls by other tools.
 
 After running StellarPGx with CYP2D6 as the target gene, it should produce a `<run_name>_summary.txt` file which looks like:
 
@@ -81,7 +81,7 @@ NA21105	*111/*3
 
 Column 1 is the sample name and column 2 is the CYP2D6 call. In order to convert this into a PharmCAT-readable format you must split this into a separate file for each sample.
 
-The following is a simple python script that parses StellarPGx's `summary.txt` file and outputs PharmCAT-ready external calls files for use with the `-a` flag.
+The following is a simple python script that parses StellarPGx's `summary.txt` file and outputs PharmCAT-ready outside calls files for use with the `-a` flag.
 
 ```python
 import sys
