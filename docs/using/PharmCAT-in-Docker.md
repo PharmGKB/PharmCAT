@@ -52,8 +52,8 @@ data
 pharmcat
 pharmcat.jar
 pharmcat_positions.vcf
-pharmcat_positions.vcf.gz
-pharmcat_positions.vcf.gz.tbi
+pharmcat_positions.vcf.bgz
+pharmcat_positions.vcf.bgz.tbi
 reference.fna.bgz
 reference.fna.bgz.fai
 reference.fna.bgz.gzi
