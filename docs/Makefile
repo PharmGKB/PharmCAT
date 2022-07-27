@@ -11,5 +11,5 @@ build:
 clean:
 	rm -rf _site
 
-prototype: clean build
-	surge _site
+next: clean build
+	surge _site next.pharmcat.org
