@@ -33,11 +33,18 @@ public class ResultBuilder {
   private final DefinitionReader m_definitionReader;
   private final Result m_result = new Result();
   private final SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
+  private final boolean m_topCandidatesOnly;
+  private final boolean m_findCombinations;
+  private final boolean m_callCyp2d6;
 
 
-  public ResultBuilder(DefinitionReader definitionReader) {
+  public ResultBuilder(DefinitionReader definitionReader, boolean topCandidatesOnly, boolean findCombinations,
+      boolean callCyp2d6) {
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
+    m_topCandidatesOnly = topCandidatesOnly;
+    m_findCombinations = findCombinations;
+    m_callCyp2d6 = callCyp2d6;
   }
 
   public Result build() {
@@ -51,7 +58,7 @@ public class ResultBuilder {
     Preconditions.checkArgument(Files.isRegularFile(vcfFile));
 
     m_result.setMetadata(new Metadata(NamedAlleleMatcher.VERSION, m_definitionReader.getGenomeBuild(),
-        PathUtils.getFilename(vcfFile), new Date()));
+        PathUtils.getFilename(vcfFile), new Date(), m_topCandidatesOnly, m_findCombinations, m_callCyp2d6));
     if (warnings != null) {
       m_result.setVcfWarnings(warnings);
     }

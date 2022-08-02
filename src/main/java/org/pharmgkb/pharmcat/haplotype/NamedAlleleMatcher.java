@@ -207,7 +207,7 @@ public class NamedAlleleMatcher {
 
     VcfReader vcfReader = buildVcfReader(vcfFile);
     SortedMap<String, SampleAllele> alleleMap = vcfReader.getAlleleMap();
-    ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader)
+    ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader, m_topCandidateOnly, m_findCombinations, m_callCyp2d6)
         .forFile(vcfFile, vcfReader.getWarnings().asMap());
     if (m_printWarnings) {
       vcfReader.getWarnings().keySet()

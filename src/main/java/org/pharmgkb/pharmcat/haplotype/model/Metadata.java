@@ -19,13 +19,26 @@ public class Metadata {
   @Expose
   @SerializedName("timestamp")
   private Date m_timetamp;
+  @Expose
+  @SerializedName("topCandidatesOnly")
+  private boolean m_topCandidatesOnly;
+  @Expose
+  @SerializedName("findCombinations")
+  private boolean m_findCombinations;
+  @Expose
+  @SerializedName("callCyp2d")
+  private boolean m_callCyp2d6;
 
 
-  public Metadata(String namedAlleleMatcherVersion, String genomeBuild, String vcfFilename, Date date) {
+  public Metadata(String namedAlleleMatcherVersion, String genomeBuild, String vcfFilename, Date date,
+      boolean topCandidatesOnly, boolean findCombinations, boolean callCyp2d6) {
     m_namedAlleleMatcherVersion = namedAlleleMatcherVersion;
     m_genomeBuild = genomeBuild;
     m_inputFilename = vcfFilename;
     m_timetamp = date;
+    m_topCandidatesOnly = topCandidatesOnly;
+    m_findCombinations = findCombinations;
+    m_callCyp2d6 = callCyp2d6;
   }
 
 
@@ -43,5 +56,17 @@ public class Metadata {
 
   public Date getTimetamp() {
     return m_timetamp;
+  }
+
+  public boolean isTopCandidatesOnly() {
+    return m_topCandidatesOnly;
+  }
+
+  public boolean isFindCombinations() {
+    return m_findCombinations;
+  }
+
+  public boolean isCallCyp2d6() {
+    return m_callCyp2d6;
   }
 }
