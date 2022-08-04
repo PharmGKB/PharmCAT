@@ -537,7 +537,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
   private void applyMessages(GeneCall geneCall) {
     boolean comboOrPartialCall = geneCall.getHaplotypes().stream()
-        .anyMatch((h) -> h.getHaplotype().isCombination() || h.getHaplotype().isPartial());
+        .anyMatch((h) -> h.getHaplotype() != null && (h.getHaplotype().isCombination() || h.getHaplotype().isPartial()));
     if (comboOrPartialCall) {
       addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_COMBO_NAMING));
 
