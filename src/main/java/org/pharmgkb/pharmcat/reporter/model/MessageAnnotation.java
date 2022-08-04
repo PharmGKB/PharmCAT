@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.function.Predicate;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
@@ -21,11 +22,24 @@ public class MessageAnnotation {
   public static final String TYPE_GENOTYPE = "report-genotype";
   public static final String TYPE_AMBIGUITY = "ambiguity";
   public static final String TYPE_NOTE = "note";
+  public static final String TYPE_COMBO = "combo-partial";
+  private static final String TYPE_FOOTNOTE = "footnote";
+  private static final String TYPE_EXTRA_POSITION = "extra-position-notes";
+  public static final String TYPE_COMBO_UNPHASED = "combo-unphased";
+  public static final String TYPE_COMBO_NAMING = "combo-naming";
+  public static final String TYPE_CYP2D6_GENERAL = "cyp2d6-general";
+  public static final String TYPE_CYP2D6_MODE = "cyp2d6-mode";
   private static final int sf_rowLength = 12;
 
-  public static Predicate<MessageAnnotation> isFootnote = m -> m.getExceptionType().equals("footnote");
-  public static Predicate<MessageAnnotation> isExtraPositionNote = m -> m.getExceptionType().equals("extra-position-notes");
-  public static Predicate<MessageAnnotation> isMessage = m -> !m.getExceptionType().equals("footnote") && !m.getExceptionType().equals("extra-position-notes");
+  public static Predicate<MessageAnnotation> isFootnote = m -> m.getExceptionType().equals(TYPE_FOOTNOTE);
+  public static Predicate<MessageAnnotation> isExtraPositionNote = m -> m.getExceptionType().equals(TYPE_EXTRA_POSITION);
+  public static Predicate<MessageAnnotation> isMessage = m -> !m.getExceptionType().equals(TYPE_FOOTNOTE) && !m.getExceptionType().equals(TYPE_EXTRA_POSITION);
+
+
+  public static MessageAnnotation newMessage(String type) {
+    ResourceBundle resources = ResourceBundle.getBundle("messages");
+    return new MessageAnnotation(type, resources.getString(type + "_name"), resources.getString(type + "_message"));
+  }
 
   /**
    * constructor based off of a row of text from a TSV
@@ -119,16 +133,8 @@ public class MessageAnnotation {
     return m_exceptionType;
   }
 
-  public void setExceptionType(String exceptionType) {
-    m_exceptionType = exceptionType;
-  }
-
   public String getMessage() {
     return m_message;
-  }
-
-  public void setMessage(String message) {
-    m_message = message;
   }
 
   @Override

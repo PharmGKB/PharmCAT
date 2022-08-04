@@ -26,6 +26,7 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.format.HtmlFormat;
 import org.pharmgkb.pharmcat.reporter.format.JsonFormat;
 import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -339,6 +340,9 @@ public class PharmCAT {
     if (m_runReporter) {
       Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
       m_reportContext = new ReportContext(Phenotyper.readGeneReports(inputFile), m_reporterTitle);
+      if (matcherResult != null && matcherResult.getMetadata().isCallCyp2d6()) {
+        m_reportContext.addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_CYP2D6_MODE));
+      }
       if (m_cliMode) {
         if (!m_deleteIntermediateFiles) {
           System.out.println("Saving reporter HTML results to " + m_reporterHtmlFile);

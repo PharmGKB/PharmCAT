@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.reporter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -42,6 +43,9 @@ public class ReportContext {
   @Expose
   @SerializedName("drugs")
   private final SortedSet<DrugReport> f_drugReports = new TreeSet<>();
+  @Expose
+  @SerializedName("messages")
+  private final List<MessageAnnotation> f_messages = new ArrayList<>();
 
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
@@ -239,5 +243,13 @@ public class ReportContext {
    */
   public String getPharmcatVersion() {
     return f_pharmcatVersion;
+  }
+
+  public List<MessageAnnotation> getMessages() {
+    return f_messages;
+  }
+
+  public void addMessage(MessageAnnotation message) {
+    f_messages.add(message);
   }
 }

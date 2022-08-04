@@ -1818,6 +1818,38 @@ class PharmCATTest {
     testWrapper.testMatchedGroups("quetiapine", 1);
   }
 
+  /**
+   * Added to check the output of a partial match for CYP2C19 and make sure messages are applied
+   */
+  @Test
+  void testPartialCall() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("partial.call", true, true, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs367543002", "C", "T")
+        .variation("CYP2C19", "rs3758581", "G", "G")
+        .missing("CYP2C19", "rs367543003");
+    testWrapper.execute(null);
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testReportable("CYP2C19");
+  }
+
+
+  /**
+   * Added to have an example of running in CYP2D6-matching mode and make sure messages are applied
+   */
+  @Test
+  void testCallCyp2d6() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("cyp2d6.match", false, true, true);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2D6")
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs3758581", "G", "G");
+    testWrapper.execute(null);
+    testWrapper.testCalledByMatcher("CYP2C19", "CYP2D6");
+    testWrapper.testReportable("CYP2C19", "CYP2D6");
+  }
+
 
   private static String printDiagnostic(GeneReport geneReport) {
     return String.format(
@@ -1835,10 +1867,10 @@ class PharmCATTest {
     private final TestVcfBuilder m_vcfBuilder;
 
     PharmCATTestWrapper(String testKey, boolean allMatches) throws IOException {
-      this(testKey, false, allMatches);
+      this(testKey, false, allMatches, false);
     }
 
-    PharmCATTestWrapper(String testKey, boolean findCombinations, boolean allMatches) throws IOException {
+    PharmCATTestWrapper(String testKey, boolean findCombinations, boolean allMatches, boolean callCyp2d6) throws IOException {
 
       m_outputPath = sf_outputDir.resolve(testKey);
       if (!Files.isDirectory(m_outputPath)) {
@@ -1848,7 +1880,8 @@ class PharmCATTest {
 
       m_pharmcat = new PharmCAT(true)
           .matchCombinations(findCombinations)
-          .matchTopCandidateOnly(!allMatches);
+          .matchTopCandidateOnly(!allMatches)
+          .matchCyp2d6(callCyp2d6);
     }
 
     ReportContext getContext() {

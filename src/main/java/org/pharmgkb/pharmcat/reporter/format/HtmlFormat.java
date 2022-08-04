@@ -82,6 +82,7 @@ public class HtmlFormat extends AbstractFormat {
     List<Map<String,Object>> genotypes = new ArrayList<>();
     int calledGenes = 0;
     int totalGenes = 0;
+    boolean hasCombo = false;
     for (GeneReport geneReport : reportContext.getGeneReports()) {
       // skip any genes on the blacklist
       if (geneReport.isIgnored()) {
@@ -112,6 +113,8 @@ public class HtmlFormat extends AbstractFormat {
 
       genotypes.add(genotype);
 
+      hasCombo = hasCombo || geneReport.getMessages().stream().anyMatch(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_COMBO));
+
       if (geneReport.isReportable()) {
         calledGenes += 1;
       }
@@ -119,6 +122,8 @@ public class HtmlFormat extends AbstractFormat {
     result.put("genotypes", genotypes);
     result.put("totalGenes", totalGenes);
     result.put("calledGenes", calledGenes);
+    result.put("hasCombo", hasCombo);
+    result.put("messages", reportContext.getMessages().stream().map(MessageAnnotation::getMessage).collect(Collectors.toList()));
 
     // Drugs section
     List<Map<String,Object>> drugReports = new ArrayList<>();

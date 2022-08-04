@@ -114,6 +114,13 @@
   <div class="footnote">
     For a full list of disclaimers and limitations see the <a href="#disclaimer">Disclaimer section</a>.
   </div>
+
+  {{#if hasCombo}}
+    <div class="alert alert-info">Partial and combination allele calls are based on the variants identified in the VCF file. Matches to different star allele definitions or star allele with additional position combinations are connected by a '+', which represents combinations in a single gene copy per allele and does NOT indicate gene duplications.</div>
+  {{/if}}
+  {{#each messages}}
+    <div class="alert alert-info">{{this}}</div>
+  {{/each}}
 </section>
 
 <section id="guidelines">

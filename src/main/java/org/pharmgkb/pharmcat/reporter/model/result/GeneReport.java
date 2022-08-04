@@ -20,17 +20,17 @@ import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
-import org.pharmgkb.pharmcat.phenotype.Phenotyper;
-import org.pharmgkb.pharmcat.reporter.caller.DpydCustomCaller;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
+import org.pharmgkb.pharmcat.reporter.caller.DpydCustomCaller;
+import org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller;
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
-import org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller;
 
 
 /**
@@ -92,7 +92,7 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * public constructor
    *
-   * Basic constructor that will just house the gene symbol and no call information.
+   * <p>Basic constructor that will just house the gene symbol and no call information.</p>
    */
   public GeneReport(String geneSymbol) {
     f_gene = geneSymbol;
@@ -102,8 +102,8 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * public constructor
    *
-   * This constructor will use {@link GeneCall} data to compile all the diplotype and variant information for use in
-   * later reports.
+   * <p>This constructor will use {@link GeneCall} data to compile all the diplotype and variant information for use in
+   * later reports.</p>
    * @param call a {@link GeneCall} object from the {@link NamedAlleleMatcher}
    */
   public GeneReport(GeneCall call) {
@@ -132,6 +132,8 @@ public class GeneReport implements Comparable<GeneReport> {
           .map(BaseMatch::getHaplotype)
           .filter(Predicate.not(Objects::isNull))
           .forEach(f_matcherAlleles::add);
+
+      applyMessages(call);
     } catch (IOException ex) {
       throw new RuntimeException("Could not start a gene report", ex);
     }
@@ -140,8 +142,8 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * public constructor
    *
-   * This constructor is meant for genes that get their data from an {@link OutsideCall} that comes from the
-   * {@link Phenotyper}.
+   * <p>This constructor is meant for genes that get their data from an {@link OutsideCall} that comes from the
+   * {@link Phenotyper}.</p>
    * @param call an outside call from the {@link Phenotyper}
    */
   public GeneReport(OutsideCall call) {
@@ -531,5 +533,22 @@ public class GeneReport implements Comparable<GeneReport> {
     if (getCallSource() == CallSource.OUTSIDE) return NA;
     
     return m_variantReports.stream().anyMatch(VariantReport::isMissing) ? YES : NO;
+  }
+
+  private void applyMessages(GeneCall geneCall) {
+    boolean comboOrPartialCall = geneCall.getHaplotypes().stream()
+        .anyMatch((h) -> h.getHaplotype().isCombination() || h.getHaplotype().isPartial());
+    if (comboOrPartialCall) {
+      addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_COMBO_NAMING));
+
+      if (!isPhased()) {
+        addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_COMBO_UNPHASED));
+      }
+    }
+
+    if (geneCall.getGene().equals("CYP2D6")) {
+      addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_CYP2D6_GENERAL));
+      addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_CYP2D6_MODE));
+    }
   }
 }
