@@ -584,7 +584,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
                                 # update filter
                                 fields[6] = 'PCATxALT'
                                 # save the line in the dictionary for non-PGx variants
-                                dict_non_pgx_records[input_chr_pos] = line
+                                dict_non_pgx_records[input_chr_pos] = '\t'.join(fields)
                             # flag if the variant doesn't match PharmCAT REF
                             else:
                                 for i in range(len(ref_alleles)):
