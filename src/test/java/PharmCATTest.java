@@ -990,6 +990,7 @@ class PharmCATTest {
 
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testPrintCalls("DPYD", "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G");
+    assertEquals(1, testWrapper.getContext().getGeneReport("DPYD").getReporterDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.2933A>G", "c.498G>A");
 
     testWrapper.testAnyMatchFromSource("fluorouracil", DataSource.CPIC);
@@ -1032,6 +1033,43 @@ class PharmCATTest {
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testPrintCalls("DPYD", "Reference/c.1156G>T (*12)");
     testWrapper.testLookup("DPYD", "Reference", "c.1156G>T (*12)");
+
+    testWrapper.testMatchedGroups("fluorouracil", 1);
+    testWrapper.testMatchedGroups("capecitabine", 1);
+  }
+
+  @Test
+  void testDpydHomNoFunction() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.homNoFunction", false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+        .variation("DPYD", "rs72549310", "A", "A")   // c.61C>T, hom variant (No function)
+        .variation("DPYD", "rs150385342", "C", "T"); // c.313G>A het variant (Normal function)
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testPrintCalls("DPYD", "c.61C>T", "c.61C>T", "c.313G>A");
+    assertEquals(1, testWrapper.getContext().getGeneReport("DPYD").getReporterDiplotypes().size());
+    testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
+
+    testWrapper.testMatchedGroups("fluorouracil", 1);
+    testWrapper.testMatchedGroups("capecitabine", 1);
+  }
+
+  @Test
+  void testDpydHomNoFunctionPhased() throws Exception {
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.homNoFunctionPhased", false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        .reference("DPYD")
+        .variation("DPYD", "rs72549310", "A", "A")   // c.61C>T, hom variant (No function)
+        .variation("DPYD", "rs150385342", "C", "T"); // c.313G>A het variant (Normal function)
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testPrintCalls("DPYD", "c.61C>T/c.61C>T", "c.61C>T/c.313G>A");
+    assertEquals(1, testWrapper.getContext().getGeneReport("DPYD").getReporterDiplotypes().size());
+    testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
     testWrapper.testMatchedGroups("fluorouracil", 1);
     testWrapper.testMatchedGroups("capecitabine", 1);

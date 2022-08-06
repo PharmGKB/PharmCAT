@@ -67,19 +67,19 @@ public class DiplotypeFactory {
     Preconditions.checkNotNull(geneCall);
     Preconditions.checkArgument(geneCall.getGene().equals(f_gene));
 
-    // do the regular processing when diplotypes are called
-    if (geneCall.getDiplotypes().size() > 0) {
-      return geneCall.getDiplotypes().stream()
-          .map(this::makeDiplotype)
-          .collect(Collectors.toList());
-    }
-
     // do the haplotype-based process for "least-function" genes
-    else if (isLeastFunction()) {
+    if (isLeastFunction() && !geneCall.isPhased()) {
       return geneCall.getHaplotypes().stream()
           .map(this::makeDiplotype)
           .peek(d -> d.setObserved(Observation.INFERRED))
           .toList();
+    }
+
+    // do the regular processing when diplotypes are called
+    else if (geneCall.getDiplotypes().size() > 0) {
+      return geneCall.getDiplotypes().stream()
+          .map(this::makeDiplotype)
+          .collect(Collectors.toList());
     }
 
     // if no diplotypes are matched then mark it as unknown
@@ -248,12 +248,18 @@ public class DiplotypeFactory {
   }
 
   public Optional<Haplotype> makeLeastFunctionHaplotype(Set<NamedAllele> namedAllele) {
-//    return namedAllele.stream()
-//        .map(a -> makeHaplotype(a.getName()))
-//        .min(HaplotypeActivityComparator.getComparator());
     List<Haplotype> haplotypes = new ArrayList<>();
     namedAllele.stream()
         .map(a -> makeHaplotype(a.getName()))
+        .forEach(haplotypes::add);
+    haplotypes.sort(HaplotypeActivityComparator.getComparator());
+    return Optional.ofNullable(haplotypes.get(0));
+  }
+
+  public Optional<Haplotype> makeLeastFunctionHaplotypeByName(Collection<String> haplotypeNames) {
+    List<Haplotype> haplotypes = new ArrayList<>();
+    haplotypeNames.stream()
+        .map(this::makeHaplotype)
         .forEach(haplotypes::add);
     haplotypes.sort(HaplotypeActivityComparator.getComparator());
     return Optional.ofNullable(haplotypes.get(0));
@@ -263,7 +269,7 @@ public class DiplotypeFactory {
     m_mode = mode;
   }
 
-  public static enum Mode {
+  public enum Mode {
     MATCHER,
     LOOKUP
   }

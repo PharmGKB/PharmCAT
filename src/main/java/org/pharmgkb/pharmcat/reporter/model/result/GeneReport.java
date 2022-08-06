@@ -170,7 +170,7 @@ public class GeneReport implements Comparable<GeneReport> {
     }
     else if (DpydCustomCaller.shouldBeUsedOn(this)) {
       DpydCustomCaller
-          .makeLookupCalls(this, diplotypeFactory)
+          .makeLookupCalls(this, diplotypeFactory, geneCall)
           .ifPresent(m_reporterDiplotypes::add);
     }
     else {
