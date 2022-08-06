@@ -13,7 +13,7 @@ import vcf_preprocess_utilities as util
 
 
 def run(args):
-    ''' normalize and prepare the input VCF for PharmCAT'''
+    """ normalize and prepare the input VCF for PharmCAT """
     start = timer()
 
     """
@@ -27,7 +27,7 @@ def run(args):
         print('Error: %s not found or not executable' % bcftools_path)
         sys.exit(1)
     # warn for lower versions of bcftools that have not been tested
-    tool_version = re.search('^bcftools (\d\.\d+)*', version_message).group(1)
+    tool_version = re.search(r'^bcftools (\d\.\d+)*', version_message).group(1)
     if float(tool_version) < 1.14:
         print("Please use bcftools 1.14 or higher")
         sys.exit(1)
@@ -56,15 +56,13 @@ def run(args):
             sys.exit(1)
         # compress if the input vcf is not bgzipped
         input_vcf = util.bgzipped_vcf(bgzip_path, input_vcf)
-        # get input basename
-        input_basename = util.get_vcf_prefix(input_vcf)
     # if a list of vcfs, validate the list file; and bgzip later
     if input_list:
         if not os.path.exists(input_list):
             print("Cannot find", input_list)
             sys.exit(1)
-        # set the input basename to the name of the list file
-        input_basename = os.path.basename(os.path.splitext(input_list)[0])
+    # get input basename
+    input_basename = os.path.basename(os.path.splitext(input_list)[0]) if input_list else util.get_vcf_prefix(input_vcf)
     # validate the reference vcf of PharmCAT PGx positions
     ref_pgx = args.reference_pgx_vcf
     if not os.path.exists(ref_pgx):
