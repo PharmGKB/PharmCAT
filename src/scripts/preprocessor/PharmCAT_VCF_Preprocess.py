@@ -22,9 +22,14 @@ def run(args):
     # validate bcftools
     bcftools_path = args.path_to_bcftools if args.path_to_bcftools else 'bcftools'
     try:
-        subprocess.run([bcftools_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        version_message = subprocess.run([bcftools_path, '-v'], capture_output=True, text=True).stdout
     except:
         print('Error: %s not found or not executable' % bcftools_path)
+        sys.exit(1)
+    # warn for lower versions of bcftools that have not been tested
+    tool_version = re.search('^bcftools (\d\.\d+)*', version_message).group(1)
+    if float(tool_version) < 1.14:
+        print("Please use bcftools 1.14 or higher")
         sys.exit(1)
 
     # validate bgzip
