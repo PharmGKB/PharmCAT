@@ -9,7 +9,7 @@ nav_order: 4
 The basic process:
 
 1. Read in all named allele definitions from the gene definition table.
-   Each gene has a reference allele defined by the first definition row in the table (eg. _*1_).  By default, any non-reference named allele that does not contain a base call for a given position (eg. blank spots in the definition table) will default to the reference row's base call.
+   Each gene has a reference allele defined by the first definition row in the table (eg. _*1_).  By default, any non-reference named allele that does not contain a base call for a given position (ie. blank spots in the definition table) will default to the reference row's base call.
 2. Read in sample data (VCF file), ignoring positions that are not used in the gene definition tables.
 3. For each gene:
     1. If data is unphased, generate all possible combinations of genotypes for the positions of interest.

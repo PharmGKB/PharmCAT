@@ -284,7 +284,7 @@ public class NamedAlleleMatcher {
     MatchData comboData = null;
     // try for diplotypes if effectively phased
     if (refData.getPermutations().size() <= 2) {
-     // first look for exact matches (must use topCandidateOnly = false)
+     // first look for exact matches (use topCandidateOnly = false because looking for exact match)
       List<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(refData)
           .compute(false, false);
       if (diplotypeMatches.size() == 1) {
@@ -296,12 +296,10 @@ public class NamedAlleleMatcher {
       diplotypeMatches = new DiplotypeMatcher(comboData)
           .compute(true, false, false, true);
       if (!diplotypeMatches.isEmpty()) {
-
         DiplotypeMatch[] matches = diplotypeMatches.toArray(new DiplotypeMatch[0]);
         for (int x = 0; x < matches.length; x += 1) {
           matches = removeSubCombos(matches, x);
         }
-
         resultBuilder.gene(gene, comboData, Arrays.asList(matches));
         return;
       }
@@ -313,6 +311,9 @@ public class NamedAlleleMatcher {
     resultBuilder.gene(gene, refData, comboData.comparePermutations());
   }
 
+  /**
+   * Removes diplotypes that are partial combinations.
+   */
   private DiplotypeMatch[] removeSubCombos(DiplotypeMatch[] diplotypeMatches, int idx) {
 
     List<DiplotypeMatch> cleaned = new ArrayList<>(Arrays.asList(diplotypeMatches).subList(0, idx));

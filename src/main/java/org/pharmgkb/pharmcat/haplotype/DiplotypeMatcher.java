@@ -40,6 +40,11 @@ public class DiplotypeMatcher {
     return compute(findCombinations, findCombinations, topCandidateOnly, false);
   }
 
+  /**
+   *
+   * @param boostComboScores false by default, which means scoring will prefer fewer combos; if true, scoring will
+   * prefer more combos
+   */
   public List<DiplotypeMatch> compute(boolean findCombinations, boolean findPartials, boolean topCandidateOnly,
       boolean boostComboScores) {
 
