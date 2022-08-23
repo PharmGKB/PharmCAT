@@ -28,7 +28,7 @@ PharmCAT will not be supporting this.
 We want people to be 100% clear on how PharmCAT works and what happens with the data you provide to it.  It does not accept arbitrary VCF for many reasons (see [VCF Requirements](/specifications/VCF-Requirements) for the full list of requirements), but the main one is that we will not make any assumptions on the input you provide.  We have already encountered users making assumptions on how PharmCAT works or should work which has led to confusion down the line.
 
 For one thing, we do not know what "wild type" is because it can vary based on your reference sequence. Did you convert it from GRCh37 to GRCh38? If so, the "wild types" from the two could have changed and your VCF would not provide any indications that this is the case.  Secondly, a missing entry can mean that the reference base was detected OR it can mean the base was not assayed or has no call.  We cannot distinguish between uncalled positions and reference in a VCF file. So we ask that you declare each required position for PharmCAT to be clear about the input.
-  
+
 You have to decide on how accurate you want the data you provide to PharmCAT should be, especially if you're making any clinical decisions based on PharmCAT's results.  If you wish to make assumptions of your data, you are welcome to do so.  Instructions on how to do this can be found [here](/specifications/Preparing-VCF-Files).
 
 
@@ -44,3 +44,14 @@ Second, go to the [PharmCAT repository](https://github.com/PharmGKB/PharmCAT), c
 ## When does PharmCAT release new versions?
 
 PharmCAT releases new versions when substantial updates are ready to be released and not on a time-based schedule. For more information see the [Versioning documentation](/methods/versioning).
+
+## What are the meanings of _unassigned function_, _uncertain function_, _unknown function_ for allele function? And _N/A_, _no call_, _indeterminate_ for phenotype?
+Uncertain function and unknown function are standarized CPIC allele function terms. Alleles with uncertain function are alleles that have been reviewed by CPIC experts but there has not been enough evidence to sufficiently draw a conclusion about the allele's clinical functional status to inform prescirbing actionability. On the other hand, unknown function suggests that there is no literature descibing the function.
+
+Unassigned function is a PharmCAT term that describes a known allele which has not been assigned an allele function by CPIC. New alleles defined by e.g. PharmVar or the _TPMT_ nomenclature committee, will be included in the corresponding CPIC gene allele definition files based on the SOP and thus, subsequently becomes part of PharmCAT. Nonetheless, allele function is generally only assigned when there is a new guideline or a guideline update that involves that gene. In this case, these newer alleles are included and reported in PharmCAT as unassigned function since they have not been assigned an allele function term by CPIC.
+
+For genotype, no calls (shown as empty phenotype field or N/A in PharmCAT JSON outputs) indicate that a genotype cannot be determined based on the input VCF file and the allele definitions. Similarly, for phenotype, these suggest that 1) these genes do not have a diplotype-phenotype translation table (diplotypes are interpreted as is), or 2) a phenotype cannot be determined based on the genotype calls or diplotype-phenotype translation table due to, e.g., an allele with unassigned function that is yet to be reviewed.
+
+Indeterminate is a standardized CPIC phenotype term assigned to genotypes containing uncertain function or unknown function alleles.
+
+Please review the latest [CPIC SOP for assigning allele function](https://cpicpgx.org/resources/cpic-draft-allele-function-sop/) for further details or any updates on the definitions.
