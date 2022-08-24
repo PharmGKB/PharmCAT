@@ -32,7 +32,6 @@ class SyntheticBatchTest {
   private static final Path sf_outsideCYP2D6G6PDFile
       = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/outside_CYP2D6_G6PD.tsv");
 
-  private final PharmCAT f_pharmcat;
   private final Path f_outputDir;
 
   public static void main(String[] args) {
@@ -450,7 +449,6 @@ class SyntheticBatchTest {
 
   private SyntheticBatchTest(Path outputDir) throws IOException {
     f_outputDir = outputDir;
-    f_pharmcat = new PharmCAT(true).includeMatcherHtml();
 
     String readmeContent = String.format(
         "# PharmCAT Example Reports\n\nGenerated on: %s  \nPharmCAT Version: %s",
@@ -469,7 +467,11 @@ class SyntheticBatchTest {
     }
 
     Path sampleVcf = writeVcf(sampleDir.resolve(key + ".vcf"), testVcfs);
-    f_pharmcat.execute(sampleVcf, outsideCallPath);
+    new PharmCAT(true, sampleVcf, null, true, false, false, true,
+        true, null, outsideCallPath,
+        true, null, null, false,
+        f_outputDir, null, false, PharmCAT.Mode.TEST
+    ).execute();
   }
 
   private void makeReportWithOutputString(String key, String[] testVcfs, String outsideCalls) throws Exception {

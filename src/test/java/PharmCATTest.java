@@ -92,9 +92,7 @@ class PharmCATTest {
 
     // require VCF
     try {
-      String systemOut = tapSystemOut(() -> {
-        PharmCAT.main(null);
-      });
+      String systemOut = tapSystemOut(() -> PharmCAT.main(null));
       //System.out.println(systemOut);
       assertTrue(systemOut.contains("No input"));
       assertTrue(systemOut.contains("-vcf"));
@@ -106,9 +104,9 @@ class PharmCATTest {
 
     // standard full run
     try {
-      String systemOut = tapSystemOut(() -> {
-        PharmCAT.main(new String[] {"-vcf", vcfFile.toString()});
-      });
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+          "-vcf", vcfFile.toString()
+      }));
       //System.out.println(systemOut);
       assertTrue(systemOut.contains("Done."));
       assertTrue(Files.exists(refMatcherOutput));
@@ -152,12 +150,11 @@ class PharmCATTest {
     Path refReporterOutput = outputDir.resolve("reference.report.html");
 
     try {
-      String systemOut = tapSystemOut(() -> {
-        PharmCAT.main(new String[]{
-            "-vcf", vcfFile.toString(),
-            "-o", outputDir.toString(),
-            "-research", "cyp2d6" });
-      });
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[]{
+          "-vcf", vcfFile.toString(),
+          "-o", outputDir.toString(),
+          "-research", "cyp2d6"
+      }));
       //System.out.println(systemOut);
       assertTrue(systemOut.contains("Done."));
       assertTrue(Files.exists(refMatcherOutput));
@@ -209,13 +206,12 @@ class PharmCATTest {
     Path refReporterOutput = outputDir.resolve("reference.report.html");
 
     try {
-      String systemOut = tapSystemOut(() -> {
-        PharmCAT.main(new String[]{
-            "-vcf", vcfFile.toString(),
-            "-po", outsideCallFile.toString(),
-            "-o", outputDir.toString(),
-            "-matcher", "-research", "cyp2d6" });
-      });
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[]{
+          "-vcf", vcfFile.toString(),
+          "-po", outsideCallFile.toString(),
+          "-o", outputDir.toString(),
+          "-matcher", "-research", "cyp2d6"
+      }));
       System.out.println(systemOut);
       assertTrue(Files.exists(refMatcherOutput));
       assertFalse(Files.exists(refPhenotyperOutput));
@@ -238,13 +234,11 @@ class PharmCATTest {
     Path outsideReporterOutput = outputDir.resolve("PharmCATTest-cyp2d6.report.html");
 
     try {
-      String systemOut = tapSystemOut(() -> {
-        PharmCAT.main(new String[] {
-            "-o", outputDir.toString(),
-            "-phenotyper",
-            "-po", outsideCallFile.toString()
-        });
-      });
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+          "-o", outputDir.toString(),
+          "-phenotyper",
+          "-po", outsideCallFile.toString()
+      }));
       System.out.println(systemOut);
       assertTrue(systemOut.contains("Done."));
       assertFalse(Files.exists(outsideMatcherOutput));
@@ -282,14 +276,12 @@ class PharmCATTest {
 
     // matcher only, expecting 1 CYP2C19 matches
     try {
-      String systemOut = tapSystemOut(() -> {
-        PharmCAT.main(new String[] {
-            "-vcf", vcfFile.toString(),
-            "-matcher",
-            "-o", outputDir.toString(),
-            "-bf", baseFilename,
-        });
-      });
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+          "-vcf", vcfFile.toString(),
+          "-matcher",
+          "-o", outputDir.toString(),
+          "-bf", baseFilename,
+      }));
       //System.out.println(systemOut);
       assertTrue(systemOut.contains("Done."));
       assertTrue(Files.exists(matcherOutput));
@@ -313,15 +305,13 @@ class PharmCATTest {
 
     // matcher only, expecting many CYP2C19 matches
     try {
-      String systemOut = tapSystemOut(() -> {
-        PharmCAT.main(new String[] {
-            "-vcf", vcfFile.toString(),
-            "-matcher",
-            "-ma",
-            "-o", outputDir.toString(),
-            "-bf", baseFilename,
-        });
-      });
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+          "-vcf", vcfFile.toString(),
+          "-matcher",
+          "-ma",
+          "-o", outputDir.toString(),
+          "-bf", baseFilename,
+      }));
       //System.out.println(systemOut);
       assertTrue(systemOut.contains("Done."));
       assertTrue(Files.exists(matcherOutput));
@@ -358,25 +348,24 @@ class PharmCATTest {
     Path doublePhenotyperOutput = vcfFile.getParent().resolve("double.phenotype.json");
 
     try {
-      String systemOut = tapSystemOut(() -> {
-        PharmCAT.main(new String[] {"-matcher", "-bf", "singles", "-vcf", vcfFile.toString()});
-      });
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+          "-matcher", "-bf", "singles", "-vcf", vcfFile.toString()
+      }));
       assertTrue(systemOut.contains("Done."));
       assertTrue(Files.exists(singlesMatcherOutput));
 
-      String singlesPhenoOut = tapSystemOut(() -> {
-        PharmCAT.main(new String[]{"-phenotyper", "-pi", singlesMatcherOutput.toString(), "-bf", "singles"});
-      });
+      String singlesPhenoOut = tapSystemOut(() -> PharmCAT.main(new String[]{
+          "-phenotyper", "-pi", singlesMatcherOutput.toString(), "-bf", "singles"
+      }));
       assertTrue(singlesPhenoOut.contains("Done."));
       assertTrue(Files.exists(singlesPhenotyperOutput));
 
-      String doubleOut = tapSystemOut(() -> {
-        PharmCAT.main(new String[]{
-            "-matcher",
-            "-phenotyper",
-            "-vcf", vcfFile.toString(),
-            "-bf", "double"});
-      });
+      String doubleOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+          "-matcher",
+          "-phenotyper",
+          "-vcf", vcfFile.toString(),
+          "-bf", "double"
+      }));
       assertTrue(doubleOut.contains("Done."));
       assertTrue(Files.exists(doublePhenotyperOutput));
 
@@ -1900,9 +1889,12 @@ class PharmCATTest {
 
   
   private static class PharmCATTestWrapper {
-    private final PharmCAT m_pharmcat;
     private final Path m_outputPath;
     private final TestVcfBuilder m_vcfBuilder;
+    private final boolean m_findCombinations;
+    private final boolean m_callCyp2d6;
+    private final boolean m_topCandidatesOnly;
+    private ReportContext m_reportContext;
 
     PharmCATTestWrapper(String testKey, boolean allMatches) throws IOException {
       this(testKey, false, allMatches, false);
@@ -1915,15 +1907,13 @@ class PharmCATTest {
         Files.createDirectories(m_outputPath);
       }
       m_vcfBuilder = new TestVcfBuilder(testKey).saveFile();
-
-      m_pharmcat = new PharmCAT(true)
-          .matchCombinations(findCombinations)
-          .matchTopCandidateOnly(!allMatches)
-          .matchCyp2d6(callCyp2d6);
+      m_findCombinations = findCombinations;
+      m_callCyp2d6 = callCyp2d6;
+      m_topCandidatesOnly = !allMatches;
     }
 
     ReportContext getContext() {
-      return m_pharmcat.getReportContext();
+      return m_reportContext;
     }
 
     TestVcfBuilder getVcfBuilder() {
@@ -1932,7 +1922,13 @@ class PharmCATTest {
 
     void execute(Path outsideCallPath) throws Exception {
       Path vcfFile = m_vcfBuilder.generate(m_outputPath);
-      m_pharmcat.execute(vcfFile, outsideCallPath);
+      PharmCAT pcat = new PharmCAT(true, vcfFile, null, m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
+          true, null, outsideCallPath,
+          true, null, null, true,
+          m_outputPath, null, false, PharmCAT.Mode.TEST
+      );
+      pcat.execute();
+      m_reportContext = pcat.getReportContext();
     }
 
     /**

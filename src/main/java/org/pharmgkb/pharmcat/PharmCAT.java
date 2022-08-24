@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 import com.google.common.base.Splitter;
 import com.google.common.base.Stopwatch;
 import org.apache.commons.io.FilenameUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
@@ -39,32 +40,39 @@ import org.pharmgkb.pharmcat.util.DataManager;
  */
 public class PharmCAT {
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
+  public enum Mode {
+    /**
+     * Default mode.  Prints informative messages to console.
+     */
+    CLI,
+    /**
+     * In test mode, PharmCAT tries not to include version/timestamp in output to simplify diffing.
+     */
+    TEST
+  };
   private DefinitionReader m_definitionReader;
-  private boolean m_runMatcher = true;
+  private final boolean m_runMatcher;
   private Path m_vcfFile;
-  private Path m_namedAlleleDefinitionDir = DataManager.DEFAULT_DEFINITION_DIR;
   private boolean m_topCandidateOnly = true;
   private boolean m_findCombinations;
   private boolean m_callCyp2d6;
   private Path m_matcherJsonFile;
   private Path m_matcherHtmlFile;
-  private boolean m_matcherHtml = false;
 
-  private boolean m_runPhenotyper = true;
+  private final boolean m_runPhenotyper;
   private Path m_phenotyperInputFile;
   private Path m_phenotyperOutsideCallsFile;
   private Path m_phenotyperJsonFile;
 
-  private boolean m_runReporter = true;
+  private final boolean m_runReporter;
   private Path m_reporterInputFile;
   private String m_reporterTitle;
   private Path m_reporterJsonFile;
   private Path m_reporterHtmlFile;
   private ReportContext m_reportContext;
 
-  private boolean m_deleteIntermediateFiles;
-  private boolean m_cliMode;
-  private boolean m_testMode;
+  private final boolean m_deleteIntermediateFiles;
+  private final Mode m_mode;
 
 
   public static void main(String[] args) {
@@ -98,183 +106,163 @@ public class PharmCAT {
           .addOption("del", "delete-intermediary-files", "delete intermediary output files")
           .addOption("research", "research-mode", "comma-separated list of research features to enable [cyp2d6, combinations]", false, "type");
       if (!cliHelper.parse(args)) {
-        return;
+        System.exit(1);
       }
 
-      if (!new PharmCAT(cliHelper).execute()) {
-        cliHelper.printHelp();
-      } else {
-        System.out.println("Done.");
-        if (cliHelper.isVerbose()) {
-          System.out.println("Took " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms");
+      BaseConfig config = new BaseConfig(cliHelper);
+
+      Path vcfFile = null;
+      if (config.runMatcher) {
+        if (cliHelper.hasOption("vcf")) {
+          vcfFile = cliHelper.getValidFile("vcf", true);
+        } else {
+          System.out.println(
+              """
+                  No input for Named Allele Matcher!
+
+                  Please specify a VCF file (-vcf)"""
+          );
+          System.exit(1);
+        }
+        if (cliHelper.hasOption("pi")) {
+          System.out.println("Cannot specify phenotyper-input (-pi) if running named allele matcher");
+          System.exit(1);
         }
       }
 
-    } catch (CliHelper.InvalidPathException | ReportableException ex) {
+      Path phenotyperInputFile = null;
+      Path phenotyperOutsideCallsFile = null;
+      if (config.runPhenotyper) {
+        if (cliHelper.hasOption("pi")) {
+          phenotyperInputFile = cliHelper.getValidFile("pi", true);
+        }
+        if (cliHelper.hasOption("po")) {
+          phenotyperOutsideCallsFile = cliHelper.getValidFile("po", true);
+        }
+
+        if (vcfFile == null && phenotyperInputFile == null && phenotyperOutsideCallsFile == null) {
+          System.out.println("""
+              No input for Phenotyper!
+
+              Either:
+                1. Run named allele matcher with VCF input, or
+                2. Specify phenotyper-input (-pi) and/or phenotyper-outside-call-file (-po)"""
+          );
+          System.exit(1);
+        }
+      }
+
+      Path reporterInputFile = null;
+      if (config.runReporter) {
+        if (cliHelper.hasOption("ri")) {
+          reporterInputFile = cliHelper.getValidFile("ri", true);
+        }
+
+        if (vcfFile == null && phenotyperInputFile == null && phenotyperOutsideCallsFile == null &&
+            reporterInputFile == null) {
+          System.out.println(
+              """
+                  No input for Reporter!
+
+                  Either:
+                    1. Run phenotyper, or
+                    2. Specify reporter-input (-ri)"""
+          );
+          System.exit(1);
+        }
+      }
+
+      PharmCAT pharmcat = new PharmCAT(config.runMatcher, vcfFile, config.definitionReader,
+          config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
+          config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
+          config.runReporter, reporterInputFile, config.reporterTitle, config.reporterJson,
+          config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Mode.CLI);
+
+      if (!pharmcat.execute()) {
+        cliHelper.printHelp();
+        System.exit(1);
+      }
+
+      System.out.println("Done.");
+      if (cliHelper.isVerbose()) {
+        System.out.println("Took " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms");
+      }
+
+    } catch (CliHelper.InvalidPathException ex) {
       System.out.println(ex.getMessage());
+      System.exit(1);
     } catch (Exception e) {
       e.printStackTrace();
+      System.exit(1);
     }
   }
 
 
-  /**
-   * Constructor for running entire PharmCAT pipeline.
-   *
-   * @param isTest this value is used in report formats
-   */
-  public PharmCAT(boolean isTest) {
-    m_testMode = isTest;
+  public PharmCAT(Path vcfFile) throws IOException {
+    this(true, vcfFile, null, true, false, false, false,
+        true, null, null,
+        true, null, null, false,
+        null, null, true, Mode.CLI);
   }
 
-  /**
-   * Constructor for running PharmCAT via command line.
-   */
-  public PharmCAT(CliHelper cliHelper) throws Exception {
-    if (cliHelper.hasOption("matcher") || cliHelper.hasOption("phenotyper") || cliHelper.hasOption("reporter")) {
-      m_runMatcher = cliHelper.hasOption("matcher");
-      m_runPhenotyper = cliHelper.hasOption("phenotyper");
-      m_runReporter = cliHelper.hasOption("reporter");
-    }
-
-    if (m_runMatcher) {
-      if (cliHelper.hasOption("vcf")) {
-        m_vcfFile = cliHelper.getValidFile("vcf", true);
-        m_matcherJsonFile = getOutputFile(cliHelper, m_vcfFile, ".match.json");
+  public PharmCAT(boolean runMatcher, Path vcfFile, @Nullable DefinitionReader definitionReader,
+      boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
+      boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
+      boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle, boolean reporterJson,
+      @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles, Mode mode)
+      throws IOException {
+    m_runMatcher = runMatcher;
+    if (runMatcher) {
+      m_vcfFile = vcfFile;
+      m_matcherJsonFile = getOutputFile(m_vcfFile, outputDir, baseFilename, ".match.json");
+      if (definitionReader != null) {
+        m_definitionReader = definitionReader;
       } else {
-        throw new ReportableException(
-            "No input for Named Allele Matcher!",
-            "",
-            "Please specify a VCF file (-vcf)"
-        );
+        m_definitionReader = new DefinitionReader();
+        m_definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
       }
-      if (cliHelper.hasOption("ma")) {
-        m_topCandidateOnly = !cliHelper.hasOption("ma");
-      }
-      if (cliHelper.hasOption("md")) {
-        m_namedAlleleDefinitionDir = cliHelper.getValidDirectory("md", false);
-      }
-      if (cliHelper.hasOption("research")) {
-        //noinspection UnstableApiUsage
-        List<String> types = sf_commaSplitter.splitToStream(Objects.requireNonNull(cliHelper.getValue("research")))
-            .map(String::toLowerCase)
-            .collect(Collectors.toList());
-        if (types.contains("cyp2d6")) {
-          types.remove("cyp2d6");
-          System.out.println("WARNING: CYP2D6 RESEARCH MODE ENABLED");
-          m_callCyp2d6 = true;
-        }
-        if (types.contains("combinations") || types.contains("combination")) {
-          types.remove("combinations");
-          types.remove("combination");
-          System.out.println("WARNING: COMBINATIONS RESEARCH MODE ENABLED");
-          m_findCombinations = true;
-        }
-        if (types.size() > 0) {
-          throw new ReportableException("Unrecognized research option: " + String.join(",", types));
-        }
-      }
-      if (cliHelper.hasOption("matcherHtml")) {
-        m_matcherHtmlFile = getOutputFile(cliHelper, m_vcfFile, ".match.html");
-      }
-
-      if (cliHelper.hasOption("pi")) {
-        throw new ReportableException("Cannot specify phenotyper-input (-pi) if running named allele matcher");
+      m_topCandidateOnly = topCandidateOnly;
+      m_callCyp2d6 = callCyp2d6;
+      m_findCombinations = findCombinations;
+      if (matcherHtml) {
+        m_matcherHtmlFile = getOutputFile(m_vcfFile, outputDir, baseFilename, ".match.html");
       }
     }
 
-    if (m_runPhenotyper) {
+    m_runPhenotyper = runPhenotyper;
+    if (runPhenotyper) {
+      m_phenotyperInputFile = phenotyperInputFile;
+      m_phenotyperOutsideCallsFile = phenotyperOutsideCallsFile;
       Path inputFile = m_matcherJsonFile;
-      if (cliHelper.hasOption("pi")) {
-        m_phenotyperInputFile = cliHelper.getValidFile("pi", true);
+      if (m_phenotyperInputFile != null) {
         inputFile = m_phenotyperInputFile;
+      } else if (m_phenotyperOutsideCallsFile != null) {
+        inputFile = m_phenotyperOutsideCallsFile;
       }
-      if (cliHelper.hasOption("po")) {
-        m_phenotyperOutsideCallsFile = cliHelper.getValidFile("po", true);
-        if (inputFile == null) {
-          inputFile = m_phenotyperOutsideCallsFile;
-        }
-      }
-
       if (inputFile == null) {
-        throw new ReportableException(
-            "No input for Phenotyper!",
-            "",
-            "Either:",
-            "  1. Run named allele matcher with VCF input, or",
-            "  2. Specify phenotyper-input (-pi) and/or phenotyper-outside-call-file (-po)"
-        );
+        throw new IllegalStateException("No phenotyper input file");
       }
-      m_phenotyperJsonFile = getOutputFile(cliHelper, inputFile, ".phenotype.json");
-
-      if (cliHelper.hasOption("ri")) {
-        throw new ReportableException("Cannot specify reporter-input (-ri) if running phenotyper");
-      }
+      m_phenotyperJsonFile = getOutputFile(inputFile, outputDir, baseFilename, ".phenotype.json");
     }
 
-    if (m_runReporter) {
+    m_runReporter = runReporter;
+    if (runReporter) {
+      m_reporterInputFile = reporterInputFile;
       Path inputFile = m_phenotyperJsonFile;
-      if (cliHelper.hasOption("ri")) {
-        m_reporterInputFile = cliHelper.getValidFile("ri", true);
+      if (m_reporterInputFile != null) {
         inputFile = m_reporterInputFile;
       }
-      m_reporterTitle = cliHelper.getValue("rt");
-
       if (inputFile == null) {
-        throw new ReportableException(
-            "No input for Reporter!",
-            "",
-            "Either:",
-            "  1. Run phenotyper, or",
-            "  2. Specify reporter-input (-ri)"
-        );
+        throw new IllegalStateException("No reporter input file");
       }
-      m_reporterHtmlFile = getOutputFile(cliHelper, inputFile, ".report.html");
-      if (cliHelper.hasOption("reporterJson")) {
-        m_reporterJsonFile = getOutputFile(cliHelper, inputFile, ".report.json");
+      m_reporterHtmlFile = getOutputFile(inputFile, outputDir, baseFilename, ".report.html");
+      if (reporterJson) {
+        m_reporterJsonFile = getOutputFile(inputFile, outputDir, baseFilename, ".report.json");
       }
+      m_reporterTitle = reporterTitle;
     }
-
-    m_deleteIntermediateFiles = cliHelper.hasOption("del");
-    m_cliMode = true;
-  }
-
-  public PharmCAT includeMatcherHtml() {
-    m_matcherHtml = true;
-    return this;
-  }
-
-
-  public PharmCAT matchTopCandidateOnly(boolean topCandidateOnly) {
-    m_topCandidateOnly = topCandidateOnly;
-    return this;
-  }
-
-  public PharmCAT matchCombinations(boolean matchCombinations) {
-    m_findCombinations = matchCombinations;
-    return this;
-  }
-
-  public PharmCAT matchCyp2d6(boolean matchCyp2d6) {
-    m_callCyp2d6 = matchCyp2d6;
-    return this;
-  }
-
-
-  public void execute(Path vcfFile, Path outsideCallsFile) throws ReportableException, IOException {
-    m_vcfFile = vcfFile;
-    m_phenotyperOutsideCallsFile = outsideCallsFile;
-
-    String baseFilename = FilenameUtils.getBaseName(m_vcfFile.getFileName().toString());
-    m_matcherJsonFile = m_vcfFile.getParent().resolve(baseFilename + ".match.json");
-    if (m_matcherHtml) {
-      m_matcherHtmlFile = m_vcfFile.getParent().resolve(baseFilename + ".match.html");
-    }
-    m_phenotyperJsonFile = m_vcfFile.getParent().resolve(baseFilename + ".phenotype.json");
-    m_reporterTitle = baseFilename;
-    m_reporterJsonFile = m_vcfFile.getParent().resolve(baseFilename + ".report.json");
-    m_reporterHtmlFile = m_vcfFile.getParent().resolve(baseFilename + ".report.html");
-    execute();
+    m_deleteIntermediateFiles = deleteIntermediateFiles;
+    m_mode = mode;
   }
 
 
@@ -283,21 +271,17 @@ public class PharmCAT {
    *
    * @return true if some any PharmCAT module was run, false if nothing was run
    */
-  private boolean execute() throws ReportableException, IOException {
+  public boolean execute() throws IOException {
     boolean didSomething = false;
 
     Result matcherResult = null;
     if (m_runMatcher) {
-      if (m_definitionReader == null) {
-        m_definitionReader = initalizeDefinitionReader();
-      }
-
       NamedAlleleMatcher namedAlleleMatcher =
           new NamedAlleleMatcher(m_definitionReader, m_findCombinations, m_topCandidateOnly, m_callCyp2d6)
               .printWarnings();
       matcherResult = namedAlleleMatcher.call(m_vcfFile);
 
-      if (m_cliMode) {
+      if (m_mode == Mode.CLI) {
         if (!m_deleteIntermediateFiles) {
           System.out.println("Saving named allele matcher JSON results to " + m_matcherJsonFile);
         }
@@ -330,7 +314,7 @@ public class PharmCAT {
       }
 
       Phenotyper phenotyper = new Phenotyper(calls, outsideCalls, warnings);
-      if (m_cliMode) {
+      if (m_mode == Mode.CLI) {
         System.out.println("Saving phenotyper JSON results to " + m_phenotyperJsonFile);
       }
       phenotyper.write(m_phenotyperJsonFile);
@@ -343,7 +327,7 @@ public class PharmCAT {
       if (matcherResult != null && matcherResult.getMetadata().isCallCyp2d6()) {
         m_reportContext.addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_CYP2D6_MODE));
       }
-      if (m_cliMode) {
+      if (m_mode == Mode.CLI) {
         if (!m_deleteIntermediateFiles) {
           System.out.println("Saving reporter HTML results to " + m_reporterHtmlFile);
         }
@@ -351,7 +335,7 @@ public class PharmCAT {
           System.out.println("Saving reporter JSON results to " + m_reporterJsonFile);
         }
       }
-      new HtmlFormat(m_reporterHtmlFile, m_testMode).write(m_reportContext);
+      new HtmlFormat(m_reporterHtmlFile, m_mode == Mode.TEST).write(m_reportContext);
       if (m_reporterJsonFile != null) {
         new JsonFormat(m_reporterJsonFile).write(m_reportContext);
       }
@@ -370,39 +354,113 @@ public class PharmCAT {
   /**
    * Gets {@link Path} to an output file based on command line arguments.
    */
-  private Path getOutputFile(CliHelper cliHelper, Path inputFile, String defaultSuffix) throws IOException {
-    Path outputDir;
-    if (cliHelper.hasOption("o")) {
-      outputDir = cliHelper.getValidDirectory("o", true);
+  private Path getOutputFile(Path inputFile, @Nullable Path outputDir, @Nullable String baseFilename,
+      String defaultSuffix) {
+    Path dir;
+    if (outputDir != null) {
+      dir = outputDir;
     } else {
-      outputDir = inputFile.getParent();
+      dir = inputFile.getParent();
     }
-    String baseFilename;
-    if (cliHelper.hasOption("bf")) {
-      baseFilename = cliHelper.getValue("bf");
-    } else {
-      baseFilename = FilenameUtils.getBaseName(inputFile.getFileName().toString());
-      if (baseFilename.endsWith(".match")) {
-        baseFilename = baseFilename.substring(0, baseFilename.length() - ".match".length());
-      }
-      if (baseFilename.endsWith(".phenotype")) {
-        baseFilename = baseFilename.substring(0, baseFilename.length() - ".phenotype".length());
-      }
-    }
-    return outputDir.resolve(baseFilename + defaultSuffix);
+    String filename = Objects.requireNonNullElseGet(baseFilename, () -> getBaseFilename(inputFile));
+    return dir.resolve(filename + defaultSuffix);
   }
 
-
-  private DefinitionReader initalizeDefinitionReader() throws ReportableException, IOException {
-    DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(m_namedAlleleDefinitionDir);
-    if (definitionReader.getGenes().size() == 0) {
-      throw new ReportableException("Did not find any allele definitions at " + m_namedAlleleDefinitionDir);
+  public static String getBaseFilename(Path inputFile) {
+    String filename = FilenameUtils.getBaseName(inputFile.getFileName().toString());
+    if (filename.endsWith(".preprocesed")) {
+      filename = filename.substring(0, filename.length() - ".preprocesed".length());
     }
-    return definitionReader;
+    if (filename.endsWith(".match")) {
+      filename = filename.substring(0, filename.length() - ".match".length());
+    }
+    if (filename.endsWith(".outside")) {
+      filename = filename.substring(0, filename.length() - ".outside".length());
+    }
+    if (filename.endsWith(".phenotype")) {
+      filename = filename.substring(0, filename.length() - ".phenotype".length());
+    }
+    return filename;
   }
+
 
   public ReportContext getReportContext() {
     return m_reportContext;
+  }
+
+
+
+
+  public static class BaseConfig {
+    boolean runMatcher = true;
+    DefinitionReader definitionReader;
+    boolean topCandidateOnly = true;
+    boolean findCombinations;
+    boolean callCyp2d6;
+    boolean matcherHtml;
+    boolean runPhenotyper = true;
+    boolean runReporter = true;
+    String reporterTitle;
+    boolean reporterJson;
+    Path outputDir;
+    String baseFilename;
+    boolean deleteIntermediateFiles;
+
+
+    BaseConfig(CliHelper cliHelper) throws IOException, ReportableException {
+      if (cliHelper.hasOption("matcher") || cliHelper.hasOption("phenotyper") || cliHelper.hasOption("reporter")) {
+        runMatcher = cliHelper.hasOption("matcher");
+        runPhenotyper = cliHelper.hasOption("phenotyper");
+        runReporter = cliHelper.hasOption("reporter");
+      }
+
+      if (runMatcher) {
+        Path namedAlleleDefinitionDir = DataManager.DEFAULT_DEFINITION_DIR;
+        if (cliHelper.hasOption("md")) {
+          namedAlleleDefinitionDir = cliHelper.getValidDirectory("md", false);
+        }
+        definitionReader = new DefinitionReader();
+        definitionReader.read(namedAlleleDefinitionDir);
+        if (definitionReader.getGenes().size() == 0) {
+          throw new ReportableException("Did not find any allele definitions at " + namedAlleleDefinitionDir);
+        }
+
+        topCandidateOnly = !cliHelper.hasOption("ma");
+
+        if (cliHelper.hasOption("research")) {
+          //noinspection UnstableApiUsage
+          List<String> types = sf_commaSplitter.splitToStream(Objects.requireNonNull(cliHelper.getValue("research")))
+              .map(String::toLowerCase)
+              .collect(Collectors.toList());
+          if (types.contains("cyp2d6")) {
+            types.remove("cyp2d6");
+            System.out.println("WARNING: CYP2D6 RESEARCH MODE ENABLED");
+            callCyp2d6 = true;
+          }
+          if (types.contains("combinations") || types.contains("combination")) {
+            types.remove("combinations");
+            types.remove("combination");
+            System.out.println("WARNING: COMBINATIONS RESEARCH MODE ENABLED");
+            findCombinations = true;
+          }
+          if (types.size() > 0) {
+            throw new ReportableException("Unrecognized research option: " + String.join(",", types));
+          }
+        }
+        matcherHtml = cliHelper.hasOption("matcherHtml");
+      }
+
+      if (runReporter) {
+        reporterTitle = cliHelper.getValue("rt");
+        reporterJson = cliHelper.hasOption("reporterJson");
+      }
+
+      outputDir = null;
+      if (cliHelper.hasOption("o")) {
+        outputDir = cliHelper.getValidDirectory("o", true);
+      }
+      baseFilename = cliHelper.getValue("bf");
+      deleteIntermediateFiles = cliHelper.hasOption("del");
+    }
   }
 }
