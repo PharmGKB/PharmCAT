@@ -6,13 +6,12 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-import javax.swing.text.html.Option;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
-import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 
@@ -79,7 +78,8 @@ public class GenePhenotype {
     if (haplotype == null || haplotype.isUnknown()) {
       return;
     }
-    haplotype.setActivityValue(lookupActivityValue(haplotype.getName()).orElse(GeneReport.NA));
+    haplotype.setActivityValue(lookupActivityValue(haplotype.getName())
+        .orElse(TextConstants.NA));
   }
 
   public void assignActivity(Diplotype diplotype) {

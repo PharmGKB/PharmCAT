@@ -20,6 +20,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
 import static org.pharmgkb.pharmcat.definition.model.GenePhenotype.NO_RESULT;
@@ -33,7 +34,6 @@ import static org.pharmgkb.pharmcat.definition.model.GenePhenotype.NO_RESULT;
 public class Diplotype implements Comparable<Diplotype> {
   public static final String UNKNOWN = Haplotype.UNKNOWN + "/" + Haplotype.UNKNOWN;
 
-  private static final String NA = "N/A";
   private static final String sf_toStringPattern = "%s:%s";
   public static final String DELIMITER = "/";
   private static final String sf_termDelimiter = "; ";
@@ -256,7 +256,7 @@ public class Diplotype implements Comparable<Diplotype> {
       } else if (m_allele1 != null) {
         return m_allele1.getName();
       } else {
-        return NA;
+        return TextConstants.NA;
       }
     });
   }
@@ -301,7 +301,7 @@ public class Diplotype implements Comparable<Diplotype> {
     } else if (isSinglePloidy() && StringUtils.isNotBlank(f1)) {
       return f1;
     }
-    return GeneReport.NA;
+    return TextConstants.NA;
   }
 
   /**
@@ -312,14 +312,14 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   /**
-   * Gets a String term for the overall phenotype of this Diplotype
-   *
-   * Will print a default N/A String if no phenotype exists
-   *
+   * Gets a String term for the overall phenotype of this Diplotype.
+   * <p>
+   * Will print a default N/A String if no phenotype exists.
+   * <p>
    * <strong>Use only for display purposes, not for matching recommendations</strong>
    */
   public List<String> getPhenotypes() {
-    return m_phenotypes == null ? ImmutableList.of(NA) : m_phenotypes;
+    return m_phenotypes == null ? ImmutableList.of(TextConstants.NA) : m_phenotypes;
   }
 
   public void setPhenotypes(List<String> phenotypes) {
@@ -327,12 +327,17 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   public void addPhenotype(String phenotype) {
-    m_phenotypes.add(phenotype);
+    if (phenotype != null) {
+      m_phenotypes.add(phenotype);
+    }
   }
 
   public String printPhenotypes() {
+    if (m_gene.equals("DPYD")) {
+      return TextConstants.SEE_DRUG;
+    }
     if (m_phenotypes.size() == 0) {
-      return NA;
+      return TextConstants.NA;
     } else {
       return String.join(sf_termDelimiter, m_phenotypes);
     }
@@ -491,7 +496,7 @@ public class Diplotype implements Comparable<Diplotype> {
 
         setActivityScore(String.valueOf(av1f + av2f));
       } catch (NumberFormatException ex) {
-        setActivityScore(NA);
+        setActivityScore(TextConstants.NA);
       }
     }
     else if (isAvailable(av1)) {
@@ -501,13 +506,13 @@ public class Diplotype implements Comparable<Diplotype> {
       setActivityScore(av2);
     }
     else {
-      setActivityScore(GeneReport.NA);
+      setActivityScore(TextConstants.NA);
     }
   }
 
   private String calculateActivityValue(Haplotype haplotype) {
     if (haplotype == null) {
-      return NA;
+      return TextConstants.NA;
     } else {
       return haplotype.getActivityValue();
     }
@@ -530,6 +535,6 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   private boolean isAvailable(String value) {
-    return value != null && !value.equals(NA);
+    return value != null && !value.equals(TextConstants.NA);
   }
 }

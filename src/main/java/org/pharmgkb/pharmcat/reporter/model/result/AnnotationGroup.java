@@ -7,6 +7,7 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
 
@@ -88,8 +89,8 @@ public class AnnotationGroup {
     if (group.getMetabolizerStatus() != null) {
       phenotypes.put(gene, group.getMetabolizerStatus().getHtmlStripped());
     }
-    population = GeneReport.NA;
-    comments = GeneReport.NA;
+    population = TextConstants.NA;
+    comments = TextConstants.NA;
   }
 
   public void addGenotype(Genotype genotype) {
@@ -122,7 +123,7 @@ public class AnnotationGroup {
 
   public String getActivityScores() {
     return activityScore.keySet().stream()
-        .filter(k -> !GeneReport.NA.equalsIgnoreCase(activityScore.get(k)))
+        .filter(k -> !TextConstants.NA.equalsIgnoreCase(activityScore.get(k)))
         .map(k -> k + ": " + activityScore.get(k))
         .collect(Collectors.joining("\n"));
   }

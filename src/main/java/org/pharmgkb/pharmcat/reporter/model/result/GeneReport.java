@@ -32,6 +32,8 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
+import static org.pharmgkb.pharmcat.reporter.TextConstants.NA;
+
 
 /**
  * This class is used to help collect Gene-related data for later reporting
@@ -45,7 +47,6 @@ public class GeneReport implements Comparable<GeneReport> {
   private static final Set<String> ALLELE_PRESENCE     = ImmutableSet.of("HLA-A", "HLA-B");
   private static final Set<String> LEAST_FUNCTION      = ImmutableSet.of("DPYD");
   public static final String UNCALLED = "not called";
-  public static  final String NA = "N/A";
   public static  final String YES = "Yes";
   public static  final String NO  = "No";
 
@@ -90,9 +91,9 @@ public class GeneReport implements Comparable<GeneReport> {
   private final List<String> m_highlightedVariants = new ArrayList<>();
 
   /**
-   * public constructor
-   *
-   * <p>Basic constructor that will just house the gene symbol and no call information.</p>
+   * Public constructor.
+   * <p>
+   * Basic constructor that will just house the gene symbol and no call information.
    */
   public GeneReport(String geneSymbol) {
     f_gene = geneSymbol;
@@ -100,10 +101,11 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * public constructor
+   * Public constructor.
+   * <p>
+   * This constructor will use {@link GeneCall} data to compile all the diplotype and variant information for use in
+   * later reports.
    *
-   * <p>This constructor will use {@link GeneCall} data to compile all the diplotype and variant information for use in
-   * later reports.</p>
    * @param call a {@link GeneCall} object from the {@link NamedAlleleMatcher}
    */
   public GeneReport(GeneCall call) {
@@ -140,10 +142,11 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * public constructor
+   * Public constructor.
+   * <p>
+   * This constructor is meant for genes that get their data from an {@link OutsideCall} that comes from the
+   * {@link Phenotyper}.
    *
-   * <p>This constructor is meant for genes that get their data from an {@link OutsideCall} that comes from the
-   * {@link Phenotyper}.</p>
    * @param call an outside call from the {@link Phenotyper}
    */
   public GeneReport(OutsideCall call) {

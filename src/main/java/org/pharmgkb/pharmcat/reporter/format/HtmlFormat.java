@@ -19,6 +19,7 @@ import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
@@ -26,7 +27,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
-import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.NA;
+import static org.pharmgkb.pharmcat.reporter.TextConstants.NA;
 import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.UNCALLED;
 
 
@@ -284,7 +285,7 @@ public class HtmlFormat extends AbstractFormat {
       }
       m_call = diplotype.printDisplay();
       if (diplotype.isCombination() && diplotype.getGene().equals("DPYD")) {
-        m_function = "See drug sections";
+        m_function = TextConstants.SEE_DRUG;
       } else {
         m_function = diplotype.printFunctionPhrase();
       }
