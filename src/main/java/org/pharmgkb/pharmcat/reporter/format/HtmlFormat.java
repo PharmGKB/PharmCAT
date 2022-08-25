@@ -73,6 +73,7 @@ public class HtmlFormat extends AbstractFormat {
     if (!f_testMode) {
       result.put("generatedOn", new SimpleDateFormat("MMMMM dd, yyyy").format(reportContext.getGeneratedOn()));
       result.put("pharmcatVersion", reportContext.getPharmcatVersion());
+      result.put("cpicVersion", reportContext.getCpicVersion());
     }
 
     if (StringUtils.isNotBlank(reportContext.getTitle())) {

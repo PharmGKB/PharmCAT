@@ -23,6 +23,9 @@ public class GeneCall {
   @SerializedName("alleleDefinitionVersion")
   private final String m_alleleDefinitionVersion;
   @Expose
+  @SerializedName("cpicVersion")
+  private final String m_cpicVersion;
+  @Expose
   @SerializedName("chromosome")
   private final String m_chromosome;
   @Expose
@@ -54,10 +57,11 @@ public class GeneCall {
   private final Set<String> m_ignoredHaplotypes;
 
 
-  public GeneCall(String alleleDefinitionVersion, String chromosome, String gene,
+  public GeneCall(String alleleDefinitionVersion, String cpicVersion, String chromosome, String gene,
       MatchData matchData, Set<String> uncallableHaplotypes, Set<String> ignoredHaplotypes) {
 
     m_alleleDefinitionVersion = alleleDefinitionVersion;
+    m_cpicVersion = cpicVersion;
     m_chromosome = chromosome;
     m_gene = gene;
     m_matchData = matchData;
@@ -72,6 +76,10 @@ public class GeneCall {
    */
   public String getAlleleDefinitionVersion() {
     return m_alleleDefinitionVersion;
+  }
+
+  public String getCpicVersion() {
+    return m_cpicVersion;
   }
 
   public String getChromosome() {

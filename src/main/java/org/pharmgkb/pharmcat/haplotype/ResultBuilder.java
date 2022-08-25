@@ -111,10 +111,6 @@ public class ResultBuilder {
 
 
   private GeneCall initGeneCall(String gene, MatchData matchData) {
-    DefinitionFile definitionFile = m_definitionReader.getDefinitionFile(gene);
-    String definitionVersion = m_dateFormat.format(definitionFile.getModificationDate());
-    String chromosome = definitionFile.getChromosome();
-
     Set<String> matchableHaps = matchData.getHaplotypes().stream()
         .map(NamedAllele::getName)
         .collect(Collectors.toSet());
@@ -135,8 +131,10 @@ public class ResultBuilder {
       ignoredHaplotypes = new HashSet<>();
     }
 
-    GeneCall geneCall = new GeneCall(definitionVersion, chromosome, gene, matchData, uncallableHaplotypes,
-        ignoredHaplotypes);
+    DefinitionFile definitionFile = m_definitionReader.getDefinitionFile(gene);
+    String definitionVersion = m_dateFormat.format(definitionFile.getModificationDate());
+    GeneCall geneCall = new GeneCall(definitionVersion, definitionFile.getCpicVersion(), definitionFile.getChromosome(),
+        gene, matchData, uncallableHaplotypes, ignoredHaplotypes);
 
     // get position info
     for (VariantLocus variant : matchData.getPositions()) {

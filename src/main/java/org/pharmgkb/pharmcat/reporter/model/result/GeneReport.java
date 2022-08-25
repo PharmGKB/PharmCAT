@@ -17,6 +17,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
@@ -50,6 +51,9 @@ public class GeneReport implements Comparable<GeneReport> {
   public static  final String YES = "Yes";
   public static  final String NO  = "No";
 
+  @Expose
+  @SerializedName("cpicVersion")
+  private String m_cpicVersion;
   @Expose
   @SerializedName("geneSymbol")
   private final String f_gene;
@@ -110,6 +114,7 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public GeneReport(GeneCall call) {
     f_gene = call.getGene();
+    m_cpicVersion = call.getCpicVersion();
     f_callSource = CallSource.MATCHER;
     try {
       m_chr = call.getChromosome();
@@ -204,6 +209,16 @@ public class GeneReport implements Comparable<GeneReport> {
   protected void addReporterDiplotype(Diplotype diplotype) {
     m_reporterDiplotypes.add(diplotype);
   }
+
+
+  /**
+   * The CPIC version this gene report is based on.
+   * Can be {code null} if not based on a CPIC definition.
+   */
+  public @Nullable String getCpicVersion() {
+    return m_cpicVersion;
+  }
+
 
   /**
    * The gene symbol for this gene

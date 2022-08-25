@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.annotation.Nonnull;
@@ -38,8 +40,11 @@ public class ReportContext {
   @SerializedName("pharmcatVersion")
   private final String f_pharmcatVersion = CliUtils.getVersion();
   @Expose
+  @SerializedName("cpicVersion")
+  private String m_cpicVersion;
+  @Expose
   @SerializedName("genes")
-  private final SortedSet<GeneReport> f_geneReports;
+  private final SortedSet<GeneReport> f_geneReports = new TreeSet<>();
   @Expose
   @SerializedName("drugs")
   private final SortedSet<DrugReport> f_drugReports = new TreeSet<>();
@@ -55,13 +60,35 @@ public class ReportContext {
   public ReportContext(Collection<GeneReport> geneReports, String title) throws IOException {
     f_title = title;
 
-    MessageList messageList = new MessageList();
+    Set<String> cpicVersions = new HashSet<>();
 
     // add GeneReports from the Phenotyper
-    f_geneReports = new TreeSet<>(geneReports);
+    f_geneReports.addAll(geneReports);
+    for (GeneReport geneReport : f_geneReports) {
+      if (geneReport.getCpicVersion() == null || geneReport.getCpicVersion().equals("n/a")) {
+        continue;
+      }
+      cpicVersions.add(geneReport.getCpicVersion());
+    }
 
     // get CPIC drug data
     DrugCollection drugCollection = new DrugCollection();
+    for (Drug drug : drugCollection.list()) {
+      if (drug.getCpicVersion() == null || drug.getCpicVersion().equals("n/a")) {
+        continue;
+      }
+      cpicVersions.add(drug.getCpicVersion());
+    }
+
+    if (cpicVersions.size() == 0) {
+      m_cpicVersion = TextConstants.NA;
+    } else {
+      m_cpicVersion = String.join(", ", cpicVersions);
+      if (cpicVersions.size() > 1) {
+        System.out.println("WARNING: multiple CPIC versions used to generate gene and drug reports! (" + m_cpicVersion + ")");
+      }
+    }
+
     // get DPWG/PharmGKB drug data
     PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection();
 
@@ -103,6 +130,7 @@ public class ReportContext {
     }
 
     // now that all reports are generated, apply the applicable messages
+    MessageList messageList = new MessageList();
     for (DrugReport drugReport : getDrugReports()) {
       messageList.match(drugReport, this);
 
@@ -139,7 +167,7 @@ public class ReportContext {
    * Gets the set of all {@link GeneReport} objects that are reported in this context
    * @return a set of {@link GeneReport} objects
    */
-  public Collection<GeneReport> getGeneReports() {
+  public SortedSet<GeneReport> getGeneReports() {
     return f_geneReports;
   }
 
@@ -243,6 +271,10 @@ public class ReportContext {
    */
   public String getPharmcatVersion() {
     return f_pharmcatVersion;
+  }
+
+  public String getCpicVersion() {
+    return m_cpicVersion;
   }
 
   public List<MessageAnnotation> getMessages() {
