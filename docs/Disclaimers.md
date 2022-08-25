@@ -21,9 +21,9 @@ and that they are using PharmCAT at their own risk.__
    submitted vcf file; all missing queried positions are not considered in the allele determination process. See
    the [gene definition tables](https://github.com/PharmGKB/PharmCAT/releases) for more information about what positions
    are queried in the vcf file. Missing positions might alter the assigned genotype, subsequent phenotype prediction and
-   CPIC recommendation. If the supplied vcf file is missing positions, those positions will be noted in Section 3:
-   Allele Calls for each gene of this report. For the most reliable allele determination, reference calls as well as
-   variant calls in the vcf file for every queried position must be provided by the user.
+   CPIC recommendation. If the supplied vcf file is missing positions, those positions will be noted in Section III:
+   Allele Matching Details for each gene of this report. For the most reliable allele determination, reference calls as 
+   well as variant calls in the vcf file for every queried position must be provided by the user.
 3. For cytochrome P450 genes, TPMT, NUDT15, UGT1A1, and SLCO1B1, the \*1 allele is defined by the absence of variation
    specified in the gene definition tables. This allele cannot be identified by variants; rather, \*1 is assigned by
    default when no variation for the queried positions is reported in the submitted vcf file. The same is true for all
@@ -36,11 +36,11 @@ and that they are using PharmCAT at their own risk.__
    activity allele which could lead to inaccurate phenotype and CPIC recommendation, similar to the situation in point
    3, above.
 5. Nucleotide base calls are displayed on the positive chromosomal strand regardless of the gene strand; further
-   information is provided under Gene-specific warnings in Section 3: Allele Calls.
+   information is provided under Gene-specific warnings in Section III: Allele Matching Details.
 6. PharmCAT matches variants to genotypes assuming unphased data (unless phased data is provided in the vcf file and
    noted as such, see
    [pharmcat.org](https://pharmcat.org/) for details). The assumption is that defined alleles exist in trans
-   configuration, i.e. on opposite chromosomes, with exceptions noted in Section 3: Allele Calls under
+   configuration, i.e. on opposite chromosomes, with exceptions noted in Section III: Allele Matching Details under
    "Gene-specific warnings." However, in cases where an allele is defined by a combination of two or more variants,
    where each variant alone also defines an allele, the match is based on the longer allele. For example, TPMT\*3B is
    defined by one SNP, \*3C is defined by another SNP, and \*3A is defined by the combination of those two SNPs. In the
@@ -110,7 +110,7 @@ that define the non-\*1 allele in the genotype with the higher score.
    drug-drug interactions and clinical factors to consider, please see individual CPIC guidelines
    ([cpicpgx.org](https://cpicpgx.org)).
     1. "CPIC guidelines reflect expert consensus based on clinical evidence and peer-reviewed literature available at
-       the time they are written and are intended only to assist clinicians in decision making and to identify questions
+       the time they are written and are intended only to assist clinicians in decision-making and to identify questions
        for further research. New evidence may have emerged since the time a guideline was submitted for publication.
        Guidelines are limited in scope and are not applicable to interventions or diseases not specifically identified.
        Guidelines do not account for all individual variations among patients and cannot be considered inclusive of all

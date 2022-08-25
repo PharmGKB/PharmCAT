@@ -1,15 +1,10 @@
 <section id="disclaimer">
-  <h2>
-    <a id="user-content-disclaimers-and-other-information" class="anchor" href="#disclaimers-and-other-information"
-        aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Disclaimers and Other Information
-  </h2>
+  <h2>Section IV: Disclaimers and Other Information</h2>
   <p><strong>Liability: PhamCAT assumes no responsibility for any injury to person or damage to persons or property arising out of,
     or related to any use of PharmCAT, or for any errors or omissions. The user recognizes that PharmCAT is a research tool
     and that they are using PharmCAT at their own risk.</strong>
   </p>
-  <h3>
-    <a id="user-content-a-allele-and-genotype-determination" class="anchor" href="#a-allele-and-genotype-determination"
-        aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A. Allele and Genotype Determination</h3>
+  <h3>A. Allele and Genotype Determination</h3>
   <ol>
     <li>
       <p>PharmCAT uses gene allele definitions included in the CPIC database, with exceptions as noted
@@ -25,8 +20,8 @@
         submitted vcf file; all missing queried positions are not considered in the allele determination process. See
         the <a href="https://github.com/PharmGKB/PharmCAT/releases">gene definition tables</a> for more information about what positions
         are queried in the vcf file. Missing positions might alter the assigned genotype, subsequent phenotype prediction and
-        CPIC recommendation. If the supplied vcf file is missing positions, those positions will be noted in Section 3:
-        Allele Calls for each gene of this report. For the most reliable allele determination, reference calls as well as
+        CPIC recommendation. If the supplied vcf file is missing positions, those positions will be noted in Section III:
+        Allele Matching Details for each gene of this report. For the most reliable allele determination, reference calls as well as
         variant calls in the vcf file for every queried position must be provided by the user.</p>
     </li>
     <li>
@@ -46,13 +41,13 @@
     </li>
     <li>
       <p>Nucleotide base calls are displayed on the positive chromosomal strand regardless of the gene strand; further
-        information is provided under Gene-specific warnings in Section 3: Allele Calls.</p>
+        information is provided under Gene-specific warnings in Section III: Allele Matching Details.</p>
     </li>
     <li>
       <p>PharmCAT matches variants to genotypes assuming unphased data (unless phased data is provided in the vcf file and
         noted as such, see
         <a href="https://pharmcat.org/" rel="nofollow">pharmcat.org</a> for details). The assumption is that defined alleles exist in trans
-        configuration, i.e. on opposite chromosomes, with exceptions noted in Section 3: Allele Calls under
+        configuration, i.e. on opposite chromosomes, with exceptions noted in Section III: Allele Matching Details under
         "Gene-specific warnings." However, in cases where an allele is defined by a combination of two or more variants,
         where each variant alone also defines an allele, the match is based on the longer allele. For example, TPMT*3B is
         defined by one SNP, *3C is defined by another SNP, and *3A is defined by the combination of those two SNPs. In the
@@ -299,27 +294,18 @@
     </tr>
     </tbody>
   </table>
-  <h3>
-    <a id="user-content-b-cpic-allele-function-phenotype-and-recommendation" class="anchor"
-        href="#b-cpic-allele-function-phenotype-and-recommendation" aria-hidden="true"><span aria-hidden="true"
-        class="octicon octicon-link"></span></a>B. CPIC Allele Function, Phenotype and Recommendation</h3>
+  <h3>B. CPIC Allele Function, Phenotype and Recommendation</h3>
   <ol>
     <li>All content is sourced from the <a href="https://github.com/cpicpgx/cpic-data">CPIC database</a>.</li>
   </ol>
-  <h3>
-    <a id="user-content-c-pharmcat-exceptions-to-the-cpic-guideline-gene-list" class="anchor"
-        href="#c-pharmcat-exceptions-to-the-cpic-guideline-gene-list" aria-hidden="true"><span aria-hidden="true"
-        class="octicon octicon-link"></span></a>C. PharmCAT Exceptions to the CPIC Guideline Gene List</h3>
+  <h3>C. PharmCAT Exceptions to the CPIC Guideline Gene List</h3>
   <ol>
     <li>PharmCAT does not determine CYP2D6, G6PD, MT-RNR1, or HLA genotypes from the vcf file, but genotypes for CYP2D6,
       G6PD, and MT-RNR1 can be provided to PharmCAT from an outside source and the corresponding phenotype and prescribing
       recommendations will be included in the generated report.</li>
     <li>HLAs are currently not included in PharmCAT.</li>
   </ol>
-  <h3>
-    <a id="user-content-d-cpic-guideline-disclaimers-and-caveats" class="anchor"
-        href="#d-cpic-guideline-disclaimers-and-caveats" aria-hidden="true"><span aria-hidden="true"
-        class="octicon octicon-link"></span></a>D. CPIC Guideline Disclaimers and Caveats</h3>
+  <h3>D. CPIC Guideline Disclaimers and Caveats</h3>
   <ol>
     <li>A version of the following quoted disclaimer is part of each CPIC guideline and applies to the CPIC recommendations
       as used in PharmCAT. For the full description of potential benefits and risks, additional considerations (general and
@@ -328,7 +314,7 @@
       (<a href="https://cpicpgx.org" rel="nofollow">cpicpgx.org</a>).
       <ol>
         <li>"CPIC guidelines reflect expert consensus based on clinical evidence and peer-reviewed literature available at
-          the time they are written and are intended only to assist clinicians in decision making and to identify questions
+          the time they are written and are intended only to assist clinicians in decision-making and to identify questions
           for further research. New evidence may have emerged since the time a guideline was submitted for publication.
           Guidelines are limited in scope and are not applicable to interventions or diseases not specifically identified.
           Guidelines do not account for all individual variations among patients and cannot be considered inclusive of all
@@ -352,9 +338,7 @@
       extensive allele definitions might exist by the representative gene nomenclatures for various genes.</li>
     <li>CPIC is a registered service mark of the U.S. Department of Health &amp; Human Services (HHS).</li>
   </ol>
-  <h3>
-    <a id="user-content-e-pharmgkb-disclaimers-and-caveats" class="anchor" href="#e-pharmgkb-disclaimers-and-caveats"
-        aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>E. PharmGKB Disclaimers and Caveats</h3>
+  <h3>E. PharmGKB Disclaimers and Caveats</h3>
   <ol>
     <li>PharmGKB is a registered service mark of the U.S. Department of Health &amp; Human Services (HHS).</li>
   </ol>
