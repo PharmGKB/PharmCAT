@@ -64,7 +64,7 @@ public class HtmlFormat extends AbstractFormat {
 
   /**
    * Make a Map of data that will be used in the final report. This map will be serialized and then applied to the
-   * handlebars template.
+   * Handlebars template.
    * @return a Map of data to serialize into JSON
    */
   private Map<String,Object> compile(ReportContext reportContext) {
@@ -84,6 +84,7 @@ public class HtmlFormat extends AbstractFormat {
     int calledGenes = 0;
     int totalGenes = 0;
     boolean hasCombo = false;
+    boolean hasMissingVariants = false;
     for (GeneReport geneReport : reportContext.getGeneReports()) {
       // skip any genes on the blacklist
       if (geneReport.isIgnored()) {
@@ -111,6 +112,9 @@ public class HtmlFormat extends AbstractFormat {
       genotype.put("unphased", !geneReport.isOutsideCall() && !geneReport.isPhased());
       genotype.put("hasMessages", geneReport.getMessages().size()>0);
       genotype.put("outsideCall", geneReport.isOutsideCall());
+      if (geneReport.isReportable() && geneReport.isMissingVariants()) {
+        hasMissingVariants = true;
+      }
 
       genotypes.add(genotype);
 
@@ -124,6 +128,7 @@ public class HtmlFormat extends AbstractFormat {
     result.put("totalGenes", totalGenes);
     result.put("calledGenes", calledGenes);
     result.put("hasCombo", hasCombo);
+    result.put("hasMissingVariants", hasMissingVariants);
     result.put("messages", reportContext.getMessages().stream().map(MessageAnnotation::getMessage).collect(Collectors.toList()));
 
     // Drugs section

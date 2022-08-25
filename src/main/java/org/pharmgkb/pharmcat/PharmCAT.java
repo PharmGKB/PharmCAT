@@ -335,9 +335,11 @@ public class PharmCAT {
           System.out.println("Saving reporter JSON results to " + m_reporterJsonFile);
         }
       }
-      new HtmlFormat(m_reporterHtmlFile, m_mode == Mode.TEST).write(m_reportContext);
+      new HtmlFormat(m_reporterHtmlFile, m_mode == Mode.TEST)
+          .write(m_reportContext);
       if (m_reporterJsonFile != null) {
-        new JsonFormat(m_reporterJsonFile).write(m_reportContext);
+        new JsonFormat(m_reporterJsonFile)
+            .write(m_reportContext);
       }
       didSomething = true;
     }

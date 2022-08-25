@@ -532,10 +532,11 @@ public class GeneReport implements Comparable<GeneReport> {
    * Is there any missing variant in this gene?
    * @return true if there is any missing variant
    */
-  public String isMissingVariants() {
-    if (getCallSource() == CallSource.OUTSIDE) return NA;
-    
-    return m_variantReports.stream().anyMatch(VariantReport::isMissing) ? YES : NO;
+  public boolean isMissingVariants() {
+    if (getCallSource() == CallSource.OUTSIDE) {
+      return false;
+    }
+    return m_variantReports.stream().anyMatch(VariantReport::isMissing);
   }
 
   private void applyMessages(GeneCall geneCall) {

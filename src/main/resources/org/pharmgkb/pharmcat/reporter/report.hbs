@@ -44,11 +44,11 @@
 </section>
 
 <section id="genotypes">
-  <h2>Genotype Summary</h2>
+  <h2>Section I: Genotype Summary</h2>
 
   <p>Genotypes called: {{calledGenes}} / {{totalGenes}} </p>
 
-  <table>
+  <table class="genotypeSummary">
     <thead>
     <tr>
       <th>Drugs</th>
@@ -65,7 +65,6 @@
           </tbody>
         </table>
       </th>
-      <th>Missing Variant<br/>Input<sup><a href="#genotypes-star">*</a></sup></th>
     </tr>
     </thead>
     <tbody>
@@ -92,9 +91,11 @@
             {{/each}}
             </tbody>
           </table>
-        </td>
-        <td>
-          {{missingVariants}}
+          {{#if missingVariants}}
+            <p class="missingVariantsNote">
+              Genotypes based on missing variant input<sup><a href="#genotypes-star">*</a></sup>.
+            </p>
+          {{/if}}
         </td>
       </tr>
       {{/if}}
@@ -102,9 +103,13 @@
     </tbody>
   </table>
 
-  <div class="footnote" id="genotypes-star">
-    <sup>*</sup> Indicates there are alleles not considered for the genotype calls due to missing variant information, please see Allele calls section. Alleles that could not be considered due to missing input might change the metabolizer phenotype and possible CPIC recommendation.
-  </div>
+  {{#if hasMissingVariants}}
+    <div class="footnote" id="genotypes-star">
+      <sup>*</sup> Some alleles were not considered for the genotype calls due to missing variant information.
+      Please see Allele calls section. Alleles that could not be considered due to missing input might change the
+      metabolizer phenotype and possible CPIC recommendation.
+    </div>
+  {{/if}}
   <div class="footnote" id="genotypes-dagger">
     <sup>&dagger;</sup> Check the allele call details for this gene for more details about this call.
   </div>
@@ -124,7 +129,7 @@
 </section>
 
 <section id="guidelines">
-  <h2>Prescribing Recommendations</h2>
+  <h2>Section II: Prescribing Recommendations</h2>
 
   {{#each guidelines}}
     <section class="guideline">
@@ -230,7 +235,7 @@
 </section>
 
 <section id="genes">
-  <h2>Allele Matching Details</h2>
+  <h2>Section III: Allele Matching Details</h2>
 
   <div>
   <ol>

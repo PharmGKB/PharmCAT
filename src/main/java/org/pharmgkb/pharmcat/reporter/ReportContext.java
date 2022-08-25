@@ -120,7 +120,7 @@ public class ReportContext {
 
       // add a message for any gene that has missing data
       drugReport.getRelatedGeneSymbols().stream()
-          .filter((s) -> !getGeneReport(s).isOutsideCall() && getGeneReport(s).isMissingVariants().equals(GeneReport.YES))
+          .filter((s) -> !getGeneReport(s).isOutsideCall() && getGeneReport(s).isMissingVariants())
           .map((s) -> "Some position data used to define " + s + " alleles is missing which may change the matched " +
               "genotype. See the gene section for " + s + " for more information.")
           .forEach((m) -> drugReport.addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, m)));
