@@ -106,7 +106,7 @@ public class PharmCAT {
           .addOption("del", "delete-intermediary-files", "delete intermediary output files")
           .addOption("research", "research-mode", "comma-separated list of research features to enable [cyp2d6, combinations]", false, "type");
       if (!cliHelper.parse(args)) {
-        System.exit(1);
+        return;
       }
 
       BaseConfig config = new BaseConfig(cliHelper);
@@ -122,11 +122,11 @@ public class PharmCAT {
 
                   Please specify a VCF file (-vcf)"""
           );
-          System.exit(1);
+          return;
         }
         if (cliHelper.hasOption("pi")) {
           System.out.println("Cannot specify phenotyper-input (-pi) if running named allele matcher");
-          System.exit(1);
+          return;
         }
       }
 
@@ -148,7 +148,7 @@ public class PharmCAT {
                 1. Run named allele matcher with VCF input, or
                 2. Specify phenotyper-input (-pi) and/or phenotyper-outside-call-file (-po)"""
           );
-          System.exit(1);
+          return;
         }
       }
 
@@ -168,7 +168,7 @@ public class PharmCAT {
                     1. Run phenotyper, or
                     2. Specify reporter-input (-ri)"""
           );
-          System.exit(1);
+          return;
         }
       }
 
@@ -180,7 +180,7 @@ public class PharmCAT {
 
       if (!pharmcat.execute()) {
         cliHelper.printHelp();
-        System.exit(1);
+        return;
       }
 
       System.out.println("Done.");
@@ -190,10 +190,8 @@ public class PharmCAT {
 
     } catch (CliHelper.InvalidPathException ex) {
       System.out.println(ex.getMessage());
-      System.exit(1);
     } catch (Exception e) {
       e.printStackTrace();
-      System.exit(1);
     }
   }
 
