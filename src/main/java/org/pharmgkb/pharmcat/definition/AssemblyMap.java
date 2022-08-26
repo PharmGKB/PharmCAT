@@ -2,9 +2,12 @@ package org.pharmgkb.pharmcat.definition;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
+import org.pharmgkb.common.util.PathUtils;
+
 
 /**
  * This will give a map of RefSeq chromosome identifier to GRC build number.
@@ -12,14 +15,14 @@ import java.util.Map;
  * @author Ryan Whaley
  */
 public class AssemblyMap {
-
   public static final String GRCH38 = "b38";
   public static final String GRCH37 = "b37";
-
-  private Map<String,String> m_assemblyMap = new HashMap<>();
+  private static final Path sf_mappingFile =
+      PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/chr_build_mapping.tsv");
+  private final Map<String,String> m_assemblyMap = new HashMap<>();
 
   public AssemblyMap() throws IOException {
-    try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("chr_build_mapping.tsv")))) {
+    try (BufferedReader reader = Files.newBufferedReader(sf_mappingFile)) {
       String line;
       while ((line = reader.readLine()) != null) {
         String[] fields = line.split("\t");
