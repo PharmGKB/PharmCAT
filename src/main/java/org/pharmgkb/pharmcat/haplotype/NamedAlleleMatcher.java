@@ -283,7 +283,7 @@ public class NamedAlleleMatcher {
 
     MatchData comboData = null;
     // try for diplotypes if effectively phased
-    if (refData.getPermutations().size() <= 2) {
+    if (refData.isEffectivelyPhased()) {
      // first look for exact matches (use topCandidateOnly = false because looking for exact match)
       List<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(refData)
           .compute(false, false);

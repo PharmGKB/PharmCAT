@@ -163,6 +163,14 @@ public class GeneCall {
     return m_isPhased;
   }
 
+  /**
+   * Gets if call was based on "effectively phased" data (i.e. actually phased or unphased but homozygous at all
+   * positions).
+   */
+  public boolean isEffectivelyPhased() {
+    return m_matchData.isEffectivelyPhased();
+  }
+
 
   @Override
   public String toString() {

@@ -79,7 +79,7 @@ public class DiplotypeMatcher {
       if (findPartials) {
         // add off-reference partial match
         // this needs to come after check for partials and added matches do not need to have finalizeHaplotype called
-        if (m_dataset.getPermutations().size() <= 2) {
+        if (m_dataset.isEffectivelyPhased()) {
           Optional<NamedAllele> opt = m_dataset.getHaplotypes().stream()
               .filter(NamedAllele::isReference)
               .findFirst();

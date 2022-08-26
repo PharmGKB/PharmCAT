@@ -46,6 +46,9 @@ public class MatchData {
   private final SortedSet<VariantLocus> m_mismatchedAlleles = new TreeSet<>();
   private SortedSet<NamedAllele> m_haplotypes;
   private Set<String> m_permutations;
+  @Expose
+  @SerializedName("effectivelyPhased")
+  private boolean m_effectivelyPhased;
   private final Map<String, Map<Object, Object>> m_sequenceAlleleCache = new HashMap<>();
 
 
@@ -246,7 +249,16 @@ public class MatchData {
             .sorted()
             .toList()
     );
+    m_effectivelyPhased = m_permutations.size() <= 2;
   }
+
+  /**
+   * Gets data is "effectively phased" data (i.e. actually phased or unphased but homozygous at all positions).
+   */
+  public boolean isEffectivelyPhased() {
+    return m_effectivelyPhased;
+  }
+
 
 
   /**
