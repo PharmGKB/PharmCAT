@@ -76,10 +76,12 @@ public class TestVcfBuilder {
   }
 
 
-  public TestVcfBuilder missing(String gene, String rsid) {
-    VcfEdit edit = new VcfEdit(rsid, null);
-    m_edits.computeIfAbsent(gene, g -> new HashMap<>())
-        .put(edit.id, edit);
+  public TestVcfBuilder missing(String gene, String... rsids) {
+    for (String rsid : rsids) {
+      VcfEdit edit = new VcfEdit(rsid, null);
+      m_edits.computeIfAbsent(gene, g -> new HashMap<>())
+          .put(edit.id, edit);
+    }
     return this;
   }
 

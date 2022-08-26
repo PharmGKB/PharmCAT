@@ -800,6 +800,45 @@ class NamedAlleleMatcherTest {
   }
 
 
+  @Test
+  void testDpydEffectivelyPhasedCombination() throws Exception {
+    // this test is based on NA18973
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
+    Path vcfFile = new TestVcfBuilder("c.1627A>G (*5)/c.1627A>G (*5) + c.85T>C (*9A)")
+        .withDefinition(definitionFile)
+        .variation("DPYD", "rs1801159", "C", "C")
+        .variation("DPYD", "rs1801265", "A", "G")
+        .missing("DPYD", "rs148799944", "rs140114515", "rs1801268", "rs72547601", "rs72547602",
+            "rs141044036", "rs147545709", "rs55674432", "rs146529561", "rs137999090", "rs138545885", "rs55971861",
+            "rs72549303", "rs147601618", "rs145773863", "rs138616379", "rs148994843", "rs138391898", "rs111858276",
+            "rs72549304", "rs142512579", "rs764666241", "rs140602333", "rs78060119", "rs143154602", "rs72549306",
+            "rs145112791", "rs150437414", "rs1801266", "rs72549307", "rs72549308", "rs139834141", "rs141462178",
+            "rs150385342", "rs72549309", "rs80081766", "rs150036960")
+        .generate();
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    // ignore novel bases
+    //printWarnings(result);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    printMatches(geneCall);
+    System.out.println(geneCall.getHaplotypes());
+    assertEquals(1, geneCall.getDiplotypes().size());
+    DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
+    assertEquals("c.1627A>G (*5)/c.1627A>G (*5) + c.85T>C (*9A)", dm.getName());
+    assertEquals(2, geneCall.getHaplotypes().size());
+    List<String> names = geneCall.getHaplotypes().stream()
+        .map(BaseMatch::getName)
+        .toList();
+    assertThat(names, contains("c.1627A>G (*5)", "c.1627A>G (*5) + c.85T>C (*9A)"));
+  }
+
+
   @SuppressWarnings("unused")
   private static void printWarnings(Result result) {
     for (String key : result.getVcfWarnings().keySet()) {

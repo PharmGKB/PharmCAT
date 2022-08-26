@@ -182,6 +182,7 @@ class PharmCATTest {
       assertNotNull(document.getElementById("genotypes"));
       Element geneTitle = document.getElementById("CYP2D6");
       assertNotNull(geneTitle);
+      assertNotNull(geneTitle.parent());
       Elements diplotypes = geneTitle.parent().getElementsByTag("li");
       for (String diplotype : diplotypes.eachText()) {
         assertEquals("*1/*1", diplotype);
@@ -400,10 +401,11 @@ class PharmCATTest {
     Path outsideCallPath = TestUtils.createTempFile("hlab", ".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write(
-          "CYP2D6\t*3/*4\n" +
-          "G6PD\tB (wildtype)/B (wildtype)\n" +
-          "HLA-A\t\t*31:01 positive\n" +
-          "HLA-B\t*15:02/*57:01"
+          """
+              CYP2D6\t*3/*4
+              G6PD\tB (wildtype)/B (wildtype)
+              HLA-A\t\t*31:01 positive
+              HLA-B\t*15:02/*57:01"""
       );
     }
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("all", false);
@@ -702,7 +704,7 @@ class PharmCATTest {
 
     assertTrue(testWrapper.getContext().getGeneReport("CYP2D6").isOutsideCall());
     GeneReport cyp2c19report = testWrapper.getContext().getGeneReport("CYP2C19");
-    assertEquals("Yes", cyp2c19report.isMissingVariants());
+    assertTrue(cyp2c19report.isMissingVariants());
 
     assertFalse(cyp2c19report.isPhased());
     assertTrue(cyp2c19report.findVariantReport("rs12248560").map(VariantReport::isHetCall).orElse(false));
@@ -1029,6 +1031,7 @@ class PharmCATTest {
 
   @Test
   void testDpydHomNoFunction() throws Exception {
+    // effectively phased
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper("dpyd.homNoFunction", false);
     testWrapper.getVcfBuilder()
         .reference("DPYD")
@@ -1037,7 +1040,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testPrintCalls("DPYD", "c.61C>T", "c.61C>T", "c.313G>A");
+    testWrapper.testPrintCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
     assertEquals(1, testWrapper.getContext().getGeneReport("DPYD").getReporterDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
@@ -1056,7 +1059,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testPrintCalls("DPYD", "c.61C>T/c.61C>T", "c.61C>T/c.313G>A");
+    testWrapper.testPrintCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
     assertEquals(1, testWrapper.getContext().getGeneReport("DPYD").getReporterDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
@@ -1940,7 +1943,8 @@ class PharmCATTest {
     private void testPrintCalls(String gene, String... calls) {
       GeneReport geneReport = getContext().getGeneReport(gene);
       Collection<String> dips = geneReport.printDisplayCalls();
-      assertEquals(calls.length, dips.size(), "Expected " + gene + " call count (" + calls.length + ") doesn't match actual call count (" + dips.size() + "): " + String.join(", ", dips));
+      assertEquals(calls.length, dips.size(), "Expected " + gene + " call count (" + calls.length +
+          ") doesn't match actual call count (" + dips.size() + "): " + String.join(", ", dips));
       Arrays.stream(calls)
           .forEach(c -> assertTrue(dips.contains(c),
               c + " not in " + gene + ":" + dips + printDiagnostic(geneReport)));

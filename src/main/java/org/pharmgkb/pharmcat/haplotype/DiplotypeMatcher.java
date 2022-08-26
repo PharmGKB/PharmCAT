@@ -247,7 +247,7 @@ public class DiplotypeMatcher {
           }
         } else {
           if (findCombinations) {
-            if (hm1s.size() == 2) {
+            if (hm1s.first() instanceof CombinationMatch && hm1s.size() == 2) {
               hm2s = new TreeSet<>();
               hm2s.add(hm1s.first());
               hm1s.remove(hm1s.first());
