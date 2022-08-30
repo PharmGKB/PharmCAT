@@ -44,6 +44,11 @@ import org.slf4j.LoggerFactory;
  */
 public class Phenotyper {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final Gson sf_gson = new GsonBuilder()
+      .serializeNulls()
+      .excludeFieldsWithoutExposeAnnotation()
+      .setPrettyPrinting()
+      .create();
   private final SortedSet<GeneReport> f_geneReports = new TreeSet<>();
 
 
@@ -74,8 +79,6 @@ public class Phenotyper {
           .orElse(null);
 
       if (geneReport != null && geneReport.getCallSource() != CallSource.OUTSIDE) {
-        String matcherCall = String.join("; ", geneReport.printDisplayCalls());
-
         // remove the existing call so we can use the new outside call
         removeGeneReport(outsideCall.getGene());
 
@@ -84,10 +87,12 @@ public class Phenotyper {
         f_geneReports.add(geneReport);
 
         // warn the user of the conflict
+        String matcherCall = String.join("; ", geneReport.printDisplayCalls());
         geneReport.addMessage(new MessageAnnotation(
             MessageAnnotation.TYPE_NOTE,
             "prefer-sample-data",
-            "VCF data would call " + matcherCall + " but it has been ignored in favor of an outside call. If you want to use the matcher call for this gene then remove the gene from the outside call data."
+            "VCF data would call " + matcherCall + " but it has been ignored in favor of an outside call. If " +
+                "you want to use the matcher call for this gene then remove the gene from the outside call data."
         ));
       }
 
@@ -130,9 +135,7 @@ public class Phenotyper {
    */
   public void write(Path outputPath) throws IOException {
     try (BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardCharsets.UTF_8)) {
-      Gson gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
-          .setPrettyPrinting().create();
-      writer.write(gson.toJson(f_geneReports));
+      writer.write(sf_gson.toJson(f_geneReports));
       sf_logger.info("Writing Phenotyper JSON to " + outputPath);
     }
   }
@@ -167,9 +170,8 @@ public class Phenotyper {
     Preconditions.checkNotNull(filePath);
     Preconditions.checkArgument(filePath.toFile().exists());
     Preconditions.checkArgument(filePath.toFile().isFile());
-    Gson gson = new GsonBuilder().create();
     try (BufferedReader reader = Files.newBufferedReader(filePath)) {
-      return Arrays.asList(gson.fromJson(reader, GeneReport[].class));
+      return Arrays.asList(sf_gson.fromJson(reader, GeneReport[].class));
     }
   }
 
