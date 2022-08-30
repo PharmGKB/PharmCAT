@@ -55,3 +55,7 @@ For genotype, no calls (shown as empty phenotype field or N/A in PharmCAT JSON o
 Indeterminate is a standardized CPIC phenotype term assigned to genotypes containing uncertain function or unknown function alleles.
 
 Please review the latest [CPIC SOP for assigning allele function](https://cpicpgx.org/resources/cpic-draft-allele-function-sop/) for further details or any updates on the definitions.
+
+## How to render PharmCAT outputs into a tabular-formated file
+PharmCAT is designed to take a single-sample VCF file and generate an individual PGx report in JSON or HTML formats. To support data analysis, we provide scripts and examples that render PharmCAT JSON ouputs to tabular-formatted files. You can follow the instructions on this [PharmCAT multi-sample analysis page](https://pharmcat.org/technical-docs/multi-sample-analysis) for how to convert PharmCAT JSONs into TSV or CSV files.
+
