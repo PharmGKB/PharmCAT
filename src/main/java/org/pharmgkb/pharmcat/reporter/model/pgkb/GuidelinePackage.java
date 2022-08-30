@@ -1,7 +1,6 @@
 package org.pharmgkb.pharmcat.reporter.model.pgkb;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -93,7 +92,7 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   public void match(Genotype genotype) {
     for (Diplotype diplotype : genotype.getDiplotypes()) {
       if (diplotype.isPhenotypeOnly() || diplotype.isAllelePresenceType()) {
-        getGroups().stream()
+        groups.stream()
             .filter(group -> diplotype.getPhenotypes().stream().anyMatch(p -> group.getName().equalsIgnoreCase(p)))
             .forEach(g -> {
               g.addMatchingDiplotype(diplotype);

@@ -10,368 +10,440 @@
   {{> "header"}}
 
 </head>
-
 <body>
-
 <!--[if lt IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
+<header class="pageHeader">
+  <div class="title">
+    PharmCAT Report
+    {{#if title}}<div class="subtitle">{{title}}</div>{{/if}}
+  </div>
+  <div class="metadata">
+    <table>
+      <tr><th>Date created</th><td>{{generatedOn}}</td></tr>
+      <tr><th>PharmCAT Version</th><td>{{pharmcatVersion}}</td></tr>
+      <tr><th>CPIC Version</th><td>{{cpicVersion}}</td></tr>
+    </table>
+  </div>
+</header>
+<main>
+  <section>
+    <h2>Sections</h2>
+    <ol type="I">
+      <li><a href="#section-i">Genotype Summary</a></li>
+      <li><a href="#section-ii">Prescribing Recommendations</a></li>
+      <li><a href="#section-iii">Allele Matching Details</a></li>
+      <li><a href="#disclaimer">Disclaimers</a></li>
+    </ol>
 
-<h1>PharmCAT Report</h1>
+    <div class="alert alert-info">
+      <em>Disclaimer:</em> PharmCAT is only able to generate recommendations based on the information provided to the
+      software. The gene and variant information for all reported sections are interpreted directly from user-supplied data.
+      The user recognizes they are using PharmCAT at their own risk. For a detailed disclaimer see
+      <a href="#disclaimer">section IV</a>.
+    </div>
+  </section>
 
-<table class="table-small">
-  {{#if title}}<tr><th>Title</th><td>{{title}}</td></tr>{{/if}}
-  <tr><th>Date created</th><td>{{generatedOn}}</td></tr>
-  <tr><th>PharmCAT Version</th><td>{{pharmcatVersion}}</td></tr>
-  <tr><th>CPIC Version</th><td>{{cpicVersion}}</td></tr>
-</table>
 
-<div class="alert alert-info">
-  <em>Disclaimer:</em> PharmCAT is only able to generate recommendations based on the information provided to the
-  software. The gene and variant information for all reported sections are interpreted directly from user-supplied data.
-  The user recognizes they are using PharmCAT at their own risk. For a detailed disclaimer see
-  <a href="#disclaimer">section IV</a>.
-</div>
+  <section id="section-i">
+    <h2>Section I: Genotype Summary</h2>
 
-<section>
-  <h2>Sections</h2>
-  <ol type="I">
-    <li><a href="#genotypes">Genotype Summary</a></li>
-    <li><a href="#guidelines">Prescribing Recommendations</a></li>
-    <li><a href="#genes">Allele Matching Details</a></li>
-    <li><a href="#disclaimer">Disclaimers</a></li>
-  </ol>
-</section>
+    <p>Genotypes called: {{calledGenes}} / {{totalGenes}} </p>
 
-<section id="genotypes">
-  <h2>Section I: Genotype Summary</h2>
-
-  <p>Genotypes called: {{calledGenes}} / {{totalGenes}} </p>
-
-  <table class="genotypeSummary">
-    <thead>
-    <tr>
-      <th>Drugs</th>
-      <th>Gene</th>
-      <th>
-        Genotypes
-        <table class="diplotype table-small">
-          <tbody>
-          <tr>
-            <td>Genotype</td>
-            <td>Allele Functionality</td>
-            <td>Phenotype</td>
-          </tr>
-          </tbody>
-        </table>
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    {{#each genotypes}}
-      {{#if reportable}}
-      <tr class="top-aligned">
-        <td>{{#each drugs}}
-          {{{drug this}}}
-        {{/each}}</td>
-        <td>
-          <a href="#{{gene}}">{{gene}}</a>
-          {{#if hasMessages}}<sup style="margin-left: 0.2em;"><a href="#genotypes-dagger">&dagger;</a></sup>{{/if}}
-          {{#if unphased}}<sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>{{/if}}
-        </td>
-        <td>
-          <table class="diplotype">
+    <table class="genotypeSummary">
+      <thead>
+      <tr>
+        <th>Drugs</th>
+        <th>Gene</th>
+        <th>
+          Genotypes
+          <table class="diplotype table-small">
             <tbody>
-            {{#each diplotypes}}
-              <tr class="top-aligned">
-                <td>{{call}}</td>
-                <td>{{function}}</td>
-                <td>{{phenotype}}</td>
-              </tr>
-            {{/each}}
+            <tr>
+              <td>Genotype</td>
+              <td>Allele Functionality</td>
+              <td>Phenotype</td>
+            </tr>
             </tbody>
           </table>
-          {{#if missingVariants}}
-            <p class="missingVariantsNote">
-              Genotypes based on missing variant input<sup><a href="#genotypes-star">*</a></sup>.
-            </p>
-          {{/if}}
-        </td>
+        </th>
       </tr>
-      {{/if}}
-    {{/each}}
-    </tbody>
-  </table>
-
-  {{#if hasMissingVariants}}
-    <div class="footnote" id="genotypes-star">
-      <sup>*</sup> Some alleles were not considered for the genotype calls due to missing variant information.
-      Please see Allele calls section. Alleles that could not be considered due to missing input might change the
-      metabolizer phenotype and possible CPIC recommendation.
-    </div>
-  {{/if}}
-  <div class="footnote" id="genotypes-dagger">
-    <sup>&dagger;</sup> Check the allele call details for this gene for more details about this call.
-  </div>
-  <div class="footnote" id="genotypes-ddagger">
-    <sup>&ddagger;</sup> PharmCAT reports the genotype(s) that receive the highest score during the matcher process. In case of unphased data, additional genotypes might be possible and cannot be ruled out.
-  </div>
-  <div class="footnote">
-    For a full list of disclaimers and limitations see the <a href="#disclaimer">Disclaimer section</a>.
-  </div>
-
-  {{#if hasCombo}}
-    <div class="alert alert-info">Partial and combination allele calls are based on the variants identified in the VCF file. Matches to different star allele definitions or star allele with additional position combinations are connected by a '+', which represents combinations in a single gene copy per allele and does NOT indicate gene duplications.</div>
-  {{/if}}
-  {{#each messages}}
-    <div class="alert alert-info">{{this}}</div>
-  {{/each}}
-</section>
-
-<section id="guidelines">
-  <h2>Section II: Prescribing Recommendations</h2>
-
-  {{#each guidelines}}
-    <section class="guideline">
-      <h3 id="{{id}}">{{name}}</h3>
-
-      {{#if multiMatch}}
-        <div class="alert alert-info"><strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups could be shown</div>
-      {{/if}}
-
-      <section>
-        {{#each messages}}
-          <div class="alert alert-info">{{{this}}}</div>
-        {{/each}}
-      </section>
-
-      {{#if reportable}}
-        {{#unless matched}}
-          <div class="alert alert-warning">No CPIC recommendation for this allele combination.</div>
-        {{/unless}}
-      {{/if}}
-
-      {{#if image}}
-        <div class="image"><img src="{{image/url}}" alt="{{image/altText}}"/></div>
-      {{/if}}
-
-      <table>
-        <thead>
-        <tr>
-          <th>Guideline</th>
-          <th>Genes</th>
-          <th>Implications</th>
-          <th>Recommendation</th>
-          <th>Comments</th>
-          <th>Classification</th>
+      </thead>
+      <tbody>
+      {{#each summaries}}
+        <tr class="top-aligned">
+          <td>
+            {{#each relatedDrugs}}
+              {{#if (gsShowDrug this ../../drugs) }}
+                <div class="drugName"><a href="#{{this}}">{{this}}</a></div>
+              {{/if}}
+            {{/each}}
+          </td>
+          <td>
+            <span class="noWrap">
+              <a href="#{{symbol}}" class="normalWrap">{{symbol}}</a>
+              {{#if hasMessages}}<sup style="margin-left: 0.2em;"><a href="#genotypes-dagger">&dagger;</a></sup>{{/if}}
+              {{#if isUnphased}}<sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>{{/if}}
+            </span>
+          </td>
+          <td>
+            <table class="diplotype">
+              <tbody>
+              {{#if showComponents}}
+                {{#with diplotypes}}
+                  <tr class="leastFunctionDiplotype">
+                    <td colspan="3"><b>{{gsCall}}</b></td>
+                  </tr>
+                {{/with}}
+                {{#each componentDiplotypes}}
+                  <tr class="top-aligned">
+                    <td>{{gsCall}}</td>
+                    <td>{{gsFunction}}</td>
+                    <td>{{gsPhenotype}}</td>
+                  </tr>
+                {{/each}}
+              {{else}}
+                <!-- standard diplotype -->
+                {{#each diplotypes}}
+                  <tr class="top-aligned">
+                    <td>{{gsCall}}</td>
+                    <td>{{gsFunction}}</td>
+                    <td>{{gsPhenotype}}</td>
+                  </tr>
+                {{/each}}
+              {{/if}}
+              </tbody>
+            </table>
+            {{#if missingVariants}}
+              <p class="missingVariantsNote">
+                Genotypes based on missing variant input<sup><a href="#genotypes-star">*</a></sup>.
+              </p>
+            {{/if}}
+          </td>
         </tr>
-        </thead>
-        <tbody>
-        {{#each guidelines}}
-          {{#each annotationGroups}}
-            <tr class="top-aligned">
-              <th>
-                <div>{{../source.displayName}}</div>
-                <div style="margin-top: .5rem; font-weight: normal;">Population: {{population}}</div>
-                <div style="margin-top: .5rem; font-weight: normal;"><a href="{{../url}}">source</a></div>
-              </th>
-              <td>
-                <div>
-                  <ul style="margin:0;padding:0;list-style-type: none;">
-                    {{#each genotypes}}
-                      <li>
-                        {{this}}
-                        {{#if inferred}}
-                          <div style="margin-left: .5rem; font-style: italic">Inferred Genotype used to look up Phenotype</div>
-                        {{/if}}
-                      </li>
+      {{/each}}
+      </tbody>
+    </table>
+
+    {{#if hasMissingVariants}}
+      <div class="footnote" id="genotypes-star">
+        <sup>*</sup> Some alleles were not considered for the genotype calls due to missing variant information.
+        Please see Allele calls section. Alleles that could not be considered due to missing input might change the
+        metabolizer phenotype and possible CPIC recommendation.
+      </div>
+    {{/if}}
+    {{#if hasMessages}}
+        <div class="footnote" id="genotypes-dagger">
+          <sup>&dagger;</sup> Check <a href="#section-iii">Section III</a> for more details about this call.
+        </div>
+    {{/if}}
+    {{#if hasUnphased}}
+      <div class="footnote" id="genotypes-ddagger">
+        <sup>&ddagger;</sup> PharmCAT reports the genotype(s) that receive the highest score during the matcher process.
+        In case of unphased data, additional genotypes might be possible and cannot be ruled out.
+      </div>
+    {{/if}}
+    <div class="footnote">
+      For a full list of disclaimers and limitations see the <a href="#disclaimer">Disclaimer section</a>.
+    </div>
+
+    {{#if hasCombo}}
+      <div class="alert alert-info">
+        Partial and combination allele calls are based on the variants identified in the VCF file. Matches to different
+        star allele definitions or star allele with additional position combinations are connected by a '+', which
+        represents combinations in a single gene copy per allele and does NOT indicate gene duplications.
+      </div>
+    {{/if}}
+    {{#each summaryMessages}}
+      <div class="alert alert-info">{{this}}</div>
+    {{/each}}
+  </section>
+
+
+  <section id="section-ii">
+    <h2>Section II: Prescribing Recommendations</h2>
+
+    {{#each recommendations}}
+      <section class="guideline">
+        <h3 id="{{drug}}">{{drug}}</h3>
+
+        {{#if multiMatch}}
+          <div class="alert alert-info">
+            <strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups
+            could be shown.
+          </div>
+        {{/if}}
+
+        <section>
+          {{#each messages}}
+            <div class="alert alert-info">{{{this}}}</div>
+          {{/each}}
+        </section>
+
+        {{#if image}}
+          <div class="image"><img src="{{image/url}}" alt="{{image/altText}}"/></div>
+        {{/if}}
+
+        <table>
+          <thead>
+          <tr>
+            <th>Guideline</th>
+            <th>Genes</th>
+            <th>Implications</th>
+            <th>Recommendation</th>
+            <th>Comments</th>
+            <th>Classification</th>
+          </tr>
+          </thead>
+          <tbody>
+          {{#each reports}}
+            {{#if matched}}
+              {{#each guidelines}}
+                {{#each annotationGroups}}
+                  <tr class="top-aligned" id="#{{../id}}">
+                    <td>
+                      <p><b>{{../source.displayName}}</b></p>
+                      <p>Population:<br />{{population}}</p>
+                      <p><a href="{{../url}}">source</a></p>
+                    </td>
+                    <td>
+                      <div class="hint">{{pluralize "Genotype" genotypes}}</div>
+                      <ul class="{{#if (moreThanOne genotypes) }}noPadding{{else}}noBullet{{/if}} mt-0">
+                        {{#each genotypes}}
+                          <li>
+                            <span class="noWrap"><span class="normalWrap">{{this}}</span>
+                              {{#if (rxInferred this)}}<sup style="margin-left: 0.2em;"><a href="#rx-dagger" title="Inferred">&dagger;</a></sup>{{/if}}
+                              {{#if (rxDpydInferred this)}}<sup style="margin-left: 0.2em;"><a href="#rx-ddagger" title="Inferred">&ddagger;</a></sup>{{/if}}
+                            </span>
+                          </li>
+                        {{/each}}
+                      </ul>
+                      {{#if (thereAre phenotypes)}}
+                        <div class="hint">{{pluralize "Phenotype" phenotypes}}</div>
+                        {{{printRecMap phenotypes}}}
+                      {{/if}}
+                      {{#if (thereAre activityScores)}}
+                        <div class="hint">{{pluralize "Activity Score" activityScores}}</div>
+                        {{{printRecMap activityScores}}}
+                      {{/if}}
+                    </td>
+                    <td>{{{implications}}}</td>
+                    <td>{{{drugRecommendation}}}</td>
+                    <td>{{comments}}</td>
+                    <td>{{classification}}</td>
+                  </tr>
+                {{/each}}
+              {{/each}}
+            {{else}}
+              <tr>
+                <td class="top-aligned">
+                  <p><b>{{source.displayName}}</b></p>
+                  {{#unless uncallable}}
+                      <p>
+                        {{{listSources urls}}}
+                      </p>
+                  {{/unless}}
+                </td>
+                <td colspan="5" class="top-aligned">
+                  {{#if uncallable}}
+                    No call data for {{uncalledGenes}}.
+                  {{else}}
+                    No annotation for {{{unmatchedCalls}}}.
+                  {{/if}}
+                </td>
+              </tr>
+            {{/if}}
+          {{/each}}
+          </tbody>
+        </table>
+
+        <section>
+          {{#if hasInferred}}
+            <div class="footnote" id="rx-dagger">
+              <sup>&dagger;</sup> Inferred Genotype used to look up Phenotype.
+            </div>
+          {{/if}}
+          {{#if hasDpydInferred}}
+            <div class="footnote" id="rx-ddagger">
+              <sup>&ddagger;</sup> The DPYD genotype used to look up phenotype in inferred from two lowest function
+              haplotypes.
+            </div>
+          {{/if}}
+
+          {{#each footnotes}}
+            <div class="footnote">{{this}}</div>
+          {{/each}}
+        </section>
+
+        {{#if citations}}
+          <section class="citations">
+            <p>Citations:</p>
+            <ul>
+              {{#each citations}}
+                <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/{{pmid}}">{{title}}</a> [PMID:{{pmid}}] <em>{{journal}}</em>. {{year}}.</li>
+              {{/each}}
+            </ul>
+          </section>
+        {{/if}}
+      </section>
+    {{/each}}
+  </section>
+
+
+  <section id="section-iii">
+    <h2>Section III: Allele Matching Details</h2>
+
+    <ol>
+      {{#each geneReports}}
+        <li><a href="#{{geneDisplay}}">{{geneDisplay}} allele match data</a></li>
+      {{/each}}
+    </ol>
+
+    {{#each geneReports}}
+      <section class="gene">
+        <h3 id="{{geneDisplay}}">{{geneDisplay}} allele match data</h3>
+
+        {{#if (amdNoCall)}}
+          <div class="alert alert-warning">
+            {{amdGeneCall this}}.
+          </div>
+        {{else}}
+          <table>
+            <tbody>
+            <tr>
+              <th style="width: 12em;">{{amdSubtitle this}}:</th>
+              <td class="top-aligned">
+                {{#if (amdIsSingleCall this) }}
+                  {{amdGeneCall this}}
+                {{else}}
+                  <ul class="noPadding mt-0">
+                    {{#each (amdGeneCalls this) }}
+                      <li>{{this}}</li>
                     {{/each}}
                   </ul>
-                </div>
-                <div style="margin-top: 1rem">
-                  {{phenotypes}}
-                </div>
-                <div style="margin-top: 1rem">
-                  {{activityScores}}
-                </div>
+                {{/if}}
               </td>
-              <td>{{{implications}}}</td>
-              <td>{{{drugRecommendation}}}</td>
-              <td>{{comments}}</td>
-              <td>{{classification}}</td>
             </tr>
-          {{/each}}
-          {{#unless matched}}
-            <tr>
-              <th>
-                <p style="font-weight: bold">{{source.displayName}}</p>
-                <a href="{{url}}">source</a>
-              </th>
-              <td colspan="5">No matched annotation.{{#if uncallable}} No call data for {{uncalledGenes}}{{/if}}</td>
-            </tr>
-          {{/unless}}
-        {{/each}}
-        </tbody>
-      </table>
-
-      <section>
-        {{#each footnotes}}
-          <div class="footnote">{{this}}</div>
-        {{/each}}
-      </section>
-
-      {{#if citations}}
-        <section>
-          <p>Citations:</p>
-          <ul>
-            {{#each citations}}
-              <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/{{pmid}}">{{title}}</a> [PMID:{{pmid}}] <em>{{journal}}</em>. {{year}}.</li>
-            {{/each}}
-          </ul>
-        </section>
-      {{/if}}
-    </section>
-  {{/each}}
-</section>
-
-<section id="genes">
-  <h2>Section III: Allele Matching Details</h2>
-
-  <div>
-  <ol>
-  {{#each geneCalls}}
-    <li><a href="#{{gene}}">{{gene}} allele match data</a></li>
-  {{/each}}
-  </ol>
-  </div>
-
-  {{#each geneCalls}}
-    <section class="gene">
-      <h3 id="{{gene}}">{{gene}} allele match data</h3>
-
-      <h4>Genotype {{#if outsideCall}}reported{{/if}}{{#unless outsideCall}}matched{{/unless}}</h4>
-      <ul>
-        {{#each diplotypes}}
-          <li>{{this}}</li>
-        {{/each}}
-      </ul>
-
-      <p><strong>Phasing status:</strong> {{phaseStatus}}</p>
-
-      {{#if unphased}}
-        <p>PharmCAT reports the genotype(s) that receive the highest score during the matcher process. In case of unphased data, additional genotypes might be possible and cannot be ruled out.</p>
-      {{/if}}
-
-      {{#if hasUncalledHaps}}
-        <h4>Alleles Not Considered</h4>
-        <p>The following alleles are not considered due to {{totalMissingVariants}} missing positions of the total {{totalVariants}} positions: {{uncalledHaps}}</p>
-        <p>Carriage of these alleles might result in a different phenotype and different guideline recommendations.</p>
-      {{/if}}
-
-      {{#if outsideCall}}
-        <div class="alert alert-info">
-          The call for {{gene}} comes from an outside data source which does not supply position-level detail. For specific
-          disclaimers and limitations, see the original genotyping source.
-        </div>
-      {{/if}}
-
-      {{#each messages}}
-        <div class="alert alert-warning">{{{this}}}</div>
-      {{/each}}
-
-
-      {{#if variantsUnspecified}}
-        <table>
-          <thead>
-            <tr>
-              <th>Position in VCF</th>
-              <th>RSID</th>
-              <th>Call in VCF</th>
-              <th>Reference</th>
-              <th>Related Alleles</th>
-              <th>Warnings</th>
-            </tr>
-            </thead>
-            <tbody>
-              <tr><td colspan="6" style="font-style: italic">Variant data unspecified</td></tr>
+            {{#if (thereAre variantReports)}}
+              <tr>
+                <th>Phasing Status:</th>
+                <td class="top-aligned">
+                  <p>
+                    {{amdPhaseStatus this}}
+                  </p>
+                  {{#if (showUnphasedNote this) }}
+                    <p>
+                      PharmCAT reports the genotype(s) that receive the highest score during the matcher process. In
+                      case of unphased data, additional genotypes might be possible and cannot be ruled out.
+                    </p>
+                  {{/if}}
+                </td>
+              </tr>
+            {{/if}}
+            {{#if (amdHasUncalledHaps this) }}
+              <tr>
+                <th>Alleles Not Considered:</th>
+                <td class="top-aligned">
+                  <p>
+                    The following alleles are not considered due to {{amdTotalMissingVariants this}} missing positions of the
+                    total {{amdTotalVariants this}} positions: {{amdUncalledHaps this}}
+                  </p>
+                  <p>
+                    Carriage of these alleles might result in a different phenotype and different guideline recommendations.
+                  </p>
+                </td>
+              </tr>
+            {{/if}}
             </tbody>
-        </table>
-      {{/if}}
-      {{#unless variantsUnspecified}}
-        <h4>Calls at Positions</h4>
-        <table>
-          <thead>
-          <tr>
-            <th>Position in VCF</th>
-            <th>RSID</th>
-            <th>Call in VCF</th>
-            <th>Reference</th>
-            <th>Related Alleles</th>
-            <th>Warnings</th>
-          </tr>
-          </thead>
-          <tbody>
-          {{#each variants}}
-            <tr>
-              <td id="{{chr}}_{{position}}">{{chr}}:{{position}}</td>
-              <td id="{{dbSnpId}}">{{dbSnpId}}</td>
-              {{#if missing}}
-                <td class="missingVariant"><div class="callMessage">Missing</div></td>
-              {{/if}}
-              {{#unless missing}}
-                {{{variantAlleles this}}}
-              {{/unless}}
-              <td>
-                {{wildtypeAllele}}
-              </td>
-              <td>
-                {{#each alleles}}{{this}} {{/each}}
-              </td>
-              <td>
-                <ul class="warningList">
-                {{#each warnings}}<li>{{this}}</li>{{/each}}
-                </ul>
-              </td>
-            </tr>
-          {{/each}}
-          </tbody>
-        </table>
-      {{/unless}}
+          </table>
+        {{/if}}
 
-      {{#unless variantsOfInterestUnspecified}}
-        <h4>Other Positions of Interest</h4>
-        {{#each extra-position-notes}}
+        {{#each (amdMessages this) }}
           <div class="alert alert-warning">{{{this}}}</div>
         {{/each}}
-        <table>
-          <thead>
-          <tr>
-            <th>Position in VCF</th>
-            <th>RSID</th>
-            <th>Call in VCF</th>
-          </tr>
-          </thead>
-          <tbody>
-          {{#each variantsOfInterest}}
-            <tr>
-              <td id="{{position}}">{{chr}}:{{position}}</td>
-              <td id="{{dbSnpId}}">{{dbSnpId}}</td>
-              {{#if missing}}
-                <td class="missingVariant"><em>missing</em></td>
-              {{/if}}
-              {{#unless missing}}
-                {{{variantAlleles this}}}
-              {{/unless}}
-            </tr>
+
+      {{#unless (amdNoCall) }}
+        {{#if (thereAre variantReports)}}
+            <h4>Calls at Positions</h4>
+            <table>
+              <thead>
+              <tr>
+                <th>Position in VCF</th>
+                <th>RSID</th>
+                <th>Call in VCF</th>
+                <th>Reference</th>
+                <th>Related Alleles</th>
+                <th>Warnings</th>
+              </tr>
+              </thead>
+              <tbody>
+              {{#each variantReports}}
+                <tr>
+                  <td id="{{chr}}_{{position}}">{{chr}}:{{position}}</td>
+                  <td id="{{dbSnpId}}">{{dbSnpId}}</td>
+                  {{#if missing}}
+                    <td class="missingVariant"><div class="callMessage">Missing</div></td>
+                  {{/if}}
+                  {{#unless missing}}
+                    {{{variantAlleles this}}}
+                  {{/unless}}
+                  <td>
+                    {{wildtypeAllele}}
+                  </td>
+                  <td>
+                    {{#each alleles}}{{this}} {{/each}}
+                  </td>
+                  <td>
+                    <ul class="warningList">
+                      {{#each warnings}}<li>{{this}}</li>{{/each}}
+                    </ul>
+                  </td>
+                </tr>
+              {{/each}}
+              </tbody>
+            </table>
+        {{/if}}
+
+        {{#if (thereAre variantOfInterestReports) }}
+            <h4>Other Positions of Interest</h4>
+          {{#each (amdExtraPositionNotes this) }}
+              <div class="alert alert-warning">{{{this}}}</div>
           {{/each}}
-          </tbody>
-        </table>
+            <table>
+              <thead>
+              <tr>
+                <th>Position in VCF</th>
+                <th>RSID</th>
+                <th>Call in VCF</th>
+              </tr>
+              </thead>
+              <tbody>
+              {{#each variantOfInterestReports}}
+                <tr>
+                  <td id="{{position}}">{{chr}}:{{position}}</td>
+                  <td id="{{dbSnpId}}">{{dbSnpId}}</td>
+                  {{#if missing}}
+                    <td class="missingVariant"><em>missing</em></td>
+                  {{/if}}
+                  {{#unless missing}}
+                    {{{variantAlleles this}}}
+                  {{/unless}}
+                </tr>
+              {{/each}}
+              </tbody>
+            </table>
+        {{/if}}
+
       {{/unless}}
-    </section>
-  {{/each}}
-</section>
 
-{{> "disclaimers"}}
+      </section>
+    {{/each}}
 
+  </section>
+
+  {{> "disclaimers"}}
+
+</main>
 </body>
 </html>

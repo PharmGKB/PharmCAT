@@ -12,6 +12,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.gson.annotations.Expose;
@@ -19,21 +20,27 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
+import org.pharmgkb.pharmcat.definition.PhenotypeMap;
+import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
-import org.pharmgkb.pharmcat.reporter.caller.DpydCustomCaller;
 import org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.util.DataManager;
 
-import static org.pharmgkb.pharmcat.reporter.TextConstants.NA;
+import static org.pharmgkb.pharmcat.reporter.LeastFunctionUtils.hasTrueDiplotype;
+import static org.pharmgkb.pharmcat.reporter.LeastFunctionUtils.useLeastFunction;
+import static org.pharmgkb.pharmcat.reporter.TextConstants.*;
 
 
 /**
@@ -42,18 +49,27 @@ import static org.pharmgkb.pharmcat.reporter.TextConstants.NA;
 public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
   private static final Set<String> IGNORED_GENES       = ImmutableSet.of("IFNL4");
-  private static final Set<String> OVERRIDE_DIPLOTYPES = ImmutableSet.of("SLCO1B1");
+  /**
+   * These genes have custom callers that can potentially infer a diplotype eventhough the {@link NamedAlleleMatcher}
+   * cannot make a call.
+   */
+  public static final Set<String> OVERRIDE_DIPLOTYPES = ImmutableSet.of("SLCO1B1");
   private static final Set<String> SINGLE_PLOIDY       = ImmutableSet.of("G6PD", "MT-RNR1");
   private static final Set<String> CHROMO_X            = ImmutableSet.of("G6PD");
   private static final Set<String> ALLELE_PRESENCE     = ImmutableSet.of("HLA-A", "HLA-B");
-  private static final Set<String> LEAST_FUNCTION      = ImmutableSet.of("DPYD");
-  public static final String UNCALLED = "not called";
   public static  final String YES = "Yes";
   public static  final String NO  = "No";
 
+  private static final DefinitionReader sf_definitionReader = new DefinitionReader();
+
+
   @Expose
-  @SerializedName("cpicVersion")
-  private String m_cpicVersion;
+  @SerializedName("phenotypeVersion")
+  private String m_phenotypeVersion;
+  @Expose
+  @SerializedName("phenotypeSource")
+  private DataSource m_phenotypeSource;
+
   @Expose
   @SerializedName("geneSymbol")
   private final String f_gene;
@@ -64,8 +80,11 @@ public class GeneReport implements Comparable<GeneReport> {
   @SerializedName("phased")
   private boolean m_phased = false;
   @Expose
+  @SerializedName("effectivelyPhased")
+  private boolean m_effectivelyPhased = false;
+  @Expose
   @SerializedName("callSource")
-  private final CallSource f_callSource;
+  private final CallSource m_callSource;
   @Expose
   @SerializedName("uncalledHaplotypes")
   private final SortedSet<String> m_uncalledHaplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
@@ -75,9 +94,14 @@ public class GeneReport implements Comparable<GeneReport> {
   @Expose
   @SerializedName("relatedDrugs")
   private SortedSet<DrugLink> m_relatedDrugs = new TreeSet<>();
+
   @Expose
   @SerializedName("matcherDiplotypes")
   private final List<Diplotype> m_matcherDiplotypes = new ArrayList<>();
+  @Expose
+  @SerializedName("componentDiplotypes")
+  private final SortedSet<Diplotype> m_componentDiplotypes = new TreeSet<>();
+
   @Expose
   @SerializedName("matcherAlleles")
   private final List<NamedAllele> f_matcherAlleles = new ArrayList<>();
@@ -94,34 +118,24 @@ public class GeneReport implements Comparable<GeneReport> {
   @SerializedName("highlightedVariants")
   private final List<String> m_highlightedVariants = new ArrayList<>();
 
-  /**
-   * Public constructor.
-   * <p>
-   * Basic constructor that will just house the gene symbol and no call information.
-   */
-  public GeneReport(String geneSymbol) {
-    f_gene = geneSymbol;
-    f_callSource = CallSource.NONE;
-  }
 
   /**
-   * Public constructor.
-   * <p>
-   * This constructor will use {@link GeneCall} data to compile all the diplotype and variant information for use in
-   * later reports.
-   *
-   * @param call a {@link GeneCall} object from the {@link NamedAlleleMatcher}
+   * Constructor for genes that get their data from {@link GeneCall}.
    */
-  public GeneReport(GeneCall call) {
+  public GeneReport(GeneCall call, String referenceAllele, PhenotypeMap phenotypeMap, DataSource phenotypeSource) {
+    Preconditions.checkNotNull(phenotypeSource);
+
     f_gene = call.getGene();
-    m_cpicVersion = call.getCpicVersion();
-    f_callSource = CallSource.MATCHER;
-    try {
-      m_chr = call.getChromosome();
-      m_uncalledHaplotypes.clear();
-      m_uncalledHaplotypes.addAll(call.getUncallableHaplotypes());
-      m_phased = call.isPhased();
+    m_phenotypeSource = phenotypeSource;
+    m_phenotypeVersion = phenotypeMap.getVersion(f_gene, phenotypeSource);
+    m_callSource = CallSource.MATCHER;
 
+    m_chr = call.getChromosome();
+    m_uncalledHaplotypes.clear();
+    m_uncalledHaplotypes.addAll(call.getUncallableHaplotypes());
+    m_phased = call.isPhased();
+    m_effectivelyPhased = call.isEffectivelyPhased();
+    try {
       VariantReportFactory variantReportFactory = new VariantReportFactory(f_gene, m_chr);
       call.getVariants().stream()
           .map(variantReportFactory::make).forEach(m_variantReports::add);
@@ -129,99 +143,133 @@ public class GeneReport implements Comparable<GeneReport> {
           .map(variantReportFactory::make).forEach(m_variantReports::add);
       call.getVariantsOfInterest().stream()
           .map(variantReportFactory::make).forEach(m_variantOfInterestReports::add);
-
-      // set the flag in reports for the variants with mismatched alleles
-      call.getMatchData().getMismatchedPositions().stream()
-          .flatMap(a -> m_variantReports.stream().filter(v -> v.getPosition() == a.getPosition()))
-          .forEach(r -> r.setMismatch(true));
-
-      call.getHaplotypes().stream()
-          .map(BaseMatch::getHaplotype)
-          .filter(Predicate.not(Objects::isNull))
-          .forEach(f_matcherAlleles::add);
-
-      applyMessages(call);
     } catch (IOException ex) {
       throw new RuntimeException("Could not start a gene report", ex);
     }
-  }
 
-  /**
-   * Public constructor.
-   * <p>
-   * This constructor is meant for genes that get their data from an {@link OutsideCall} that comes from the
-   * {@link Phenotyper}.
-   *
-   * @param call an outside call from the {@link Phenotyper}
-   */
-  public GeneReport(OutsideCall call) {
-    f_gene = call.getGene();
-    f_callSource = CallSource.OUTSIDE;
-  }
+    // set the flag in reports for the variants with mismatched alleles
+    call.getMatchData().getMismatchedPositions().stream()
+        .flatMap(a -> m_variantReports.stream().filter(v -> v.getPosition() == a.getPosition()))
+        .forEach(r -> r.setMismatch(true));
 
-  /**
-   * Fills in diplotype information based on information found in the {@link GeneCall}.
-   * This will fill in data in both the {@link GeneReport#getMatcherDiplotypes()} and
-   * {@link GeneReport#getReporterDiplotypes()} properties.
-   * @param diplotypeFactory a {@link DiplotypeFactory} object for this gene
-   * @param geneCall the {@link GeneCall} object from the matcher
-   */
-  public void setDiplotypes(DiplotypeFactory diplotypeFactory, GeneCall geneCall) {
-    diplotypeFactory.setMode(DiplotypeFactory.Mode.MATCHER);
-    m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
+    call.getHaplotypes().stream()
+        .map(BaseMatch::getHaplotype)
+        .filter(Predicate.not(Objects::isNull))
+        .forEach(f_matcherAlleles::add);
 
-    diplotypeFactory.setMode(DiplotypeFactory.Mode.LOOKUP);
-    if (Slco1b1CustomCaller.shouldBeUsedOn(this)) {
+    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(f_gene, phenotypeMap, referenceAllele);
+    //noinspection rawtypes
+    Collection matches = null;
+    if (useLeastFunction(f_gene)) {
+      if (hasTrueDiplotype(call)) {
+        m_componentDiplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
+      } else {
+        matches = call.getHaplotypes();
+      }
+    }
+    if (matches == null) {
+      matches = call.getDiplotypes();
+    }
+    m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(matches, m_phenotypeSource));
+
+    if (useLeastFunction(f_gene)) {
+      m_reporterDiplotypes.addAll(diplotypeFactory.makeLeastFunctionDiplotypes(matches, m_phenotypeSource,
+          hasTrueDiplotype(call)));
+    } else if (Slco1b1CustomCaller.shouldBeUsedOn(this)) {
       Slco1b1CustomCaller
-          .makeLookupCalls(this, diplotypeFactory)
+          .makeLookupCalls(this, diplotypeFactory, m_phenotypeSource)
           .ifPresent(m_reporterDiplotypes::add);
+    } else {
+      m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(matches, m_phenotypeSource));
     }
-    else if (DpydCustomCaller.shouldBeUsedOn(this)) {
-      DpydCustomCaller
-          .makeLookupCalls(this, diplotypeFactory, geneCall)
-          .ifPresent(m_reporterDiplotypes::add);
-    }
-    else {
-      m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(geneCall));
-    }
+
+    applyMatcherMessages(call);
+  }
+
+
+  /**
+   * Constructor for genes that get their data from an {@link OutsideCall} that comes from the {@link Phenotyper}.
+   */
+  public GeneReport(OutsideCall call, String referenceAllele, PhenotypeMap phenotypeMap, DataSource phenotypeSource) {
+    Preconditions.checkNotNull(phenotypeSource);
+
+    f_gene = call.getGene();
+    m_phenotypeSource = phenotypeSource;
+    m_phenotypeVersion = phenotypeMap.getVersion(f_gene, phenotypeSource);
+    m_callSource = CallSource.OUTSIDE;
+
+    addOutsideCall(call, referenceAllele, phenotypeMap);
+    applyOutsideCallMessages();
   }
 
   /**
-   * Fills in diplotype information based on information found in the {@link OutsideCall}.
-   * This will fill in data in the {@link GeneReport#getReporterDiplotypes()} property.
-   * @param diplotypeFactory a {@link DiplotypeFactory} object for this gene
-   * @param outsideCall the {@link OutsideCall} object from the phenotyper
+   * Enable adding multiple {@link OutsideCall}s for same gene as multiple diplotypes.
    */
-  public void setDiplotypes(DiplotypeFactory diplotypeFactory, OutsideCall outsideCall) {
-    m_reporterDiplotypes.removeIf(Diplotype::isUnknown);
-    m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(outsideCall));
+  public void addOutsideCall(OutsideCall call, String referenceAllele, PhenotypeMap phenotypeMap) {
+    Preconditions.checkState(m_callSource == CallSource.OUTSIDE);
+    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(f_gene, phenotypeMap, referenceAllele);
+
+    if (useLeastFunction(f_gene)) {
+      m_reporterDiplotypes.addAll(diplotypeFactory.makeLeastFunctionDiplotypes(call.getDiplotypes(), m_phenotypeSource,
+          true));
+    } else {
+      m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call, m_phenotypeSource));
+    }
+  }
+
+
+  /**
+   * Constructor for unspecified {@link GeneReport}.
+   */
+  private GeneReport(String geneSymbol, PhenotypeMap phenotypeMap, DataSource phenotypeSource) {
+    f_gene = geneSymbol;
+    m_phenotypeSource = phenotypeSource;
+    m_phenotypeVersion = phenotypeMap.getVersion(f_gene, phenotypeSource);
+    m_callSource = CallSource.NONE;
+    Diplotype unknownDiplotype = DiplotypeFactory.makeUnknownDiplotype(geneSymbol, phenotypeMap, phenotypeSource);
+    m_matcherDiplotypes.add(unknownDiplotype);
+    m_reporterDiplotypes.add(unknownDiplotype);
+  }
+
+  public static GeneReport unspecifiedGeneReport(String gene, PhenotypeMap phenotypeMap, DataSource source) {
+    return new GeneReport(gene, phenotypeMap, source);
+  }
+
+
+  /**
+   * Constructor for tests.
+   */
+  protected GeneReport(String geneSymbol, DataSource phenotypeSource, @Nullable String phenotypeVersion) {
+    Preconditions.checkNotNull(phenotypeSource);
+
+    f_gene = geneSymbol;
+    m_phenotypeSource = phenotypeSource;
+    m_phenotypeVersion = phenotypeVersion;
+    m_callSource = CallSource.NONE;
   }
 
   /**
-   * Adds a diplotype record indicating this gene is unknown so it can be used in subsequent modules.
-   * @param diplotypeFactory a {@link DiplotypeFactory} for this gene
+   * Should only be used by tests!
    */
-  public void setUnknownDiplotype(DiplotypeFactory diplotypeFactory) {
-    String unknownText = isSinglePloidy(getGene()) ? Haplotype.UNKNOWN : Diplotype.UNKNOWN;
-    m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(ImmutableList.of(unknownText)));
-  }
-
   protected void addReporterDiplotype(Diplotype diplotype) {
     m_reporterDiplotypes.add(diplotype);
   }
 
 
   /**
-   * The CPIC version this gene report is based on.
-   * Can be {code null} if not based on a CPIC definition.
+   * The version this gene report is based on.
    */
-  public @Nullable String getCpicVersion() {
-    return m_cpicVersion;
+  public @Nullable String getPhenotypeVersion() {
+    return m_phenotypeVersion;
+  }
+
+  public DataSource getPhenotypeSource() {
+    return m_phenotypeSource;
   }
 
 
   /**
-   * The gene symbol for this gene
+   * The gene symbol for this gene.
    */
   public String getGene(){
     return f_gene;
@@ -363,17 +411,22 @@ public class GeneReport implements Comparable<GeneReport> {
     return ALLELE_PRESENCE.contains(gene);
   }
 
-  /**
-   * Gets whether this gene should use the "least function" algorithm for determining alleles
-   * @return true if this gene should use the "least function" algorithm
-   */
-  public boolean isLeastFunction() {
-    return LEAST_FUNCTION.contains(f_gene);
-  }
-
   @Override
   public int compareTo(GeneReport o) {
-    return Objects.compare(getGene(), o.getGene(), String.CASE_INSENSITIVE_ORDER);
+    if (this == o) {
+      return 0;
+    }
+    int rez = Objects.compare(getGene(), o.getGene(), String.CASE_INSENSITIVE_ORDER);
+    if (rez != 0) {
+      return rez;
+    }
+    rez = m_phenotypeSource.compareTo(o.getPhenotypeSource());
+    if (rez != 0) {
+      return rez;
+    }
+    rez = CallSource.compare(m_callSource, o.getCallSource());
+
+    return rez;
   }
 
   /**
@@ -406,7 +459,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if the genotyping data in the report comes from outside PharmCAT, false if match is made by PharmCAT
    */
   public boolean isOutsideCall() {
-    return f_callSource == CallSource.OUTSIDE;
+    return m_callSource == CallSource.OUTSIDE;
   }
 
   /**
@@ -414,37 +467,57 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return an enum value of the source of the diplotype call
    */
   public CallSource getCallSource() {
-    return f_callSource;
+    return m_callSource;
   }
 
+
   /**
-   * Used in the final report template in the Genotype Summary table in the "Genotype" column
+   * Gets the String representations of the genotypes in this report for display.
+   * This should <em>NOT</em> be used for matching!
+   *
    * @return a Collection of diplotype Strings (e.g. *2/*3, *4 (heterozygote))
    */
-  public Collection<String> printDisplayCalls() {
-    if (!isReportable()) {
-      if (OVERRIDE_DIPLOTYPES.contains(getGene()) && !m_reporterDiplotypes.isEmpty()) {
-        return m_reporterDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
+  public List<String> printDisplayCalls() {
+    if (m_callSource == CallSource.NONE) {
+      return LIST_UNCALLED_NO_DATA;
+
+    } else if (m_callSource == CallSource.MATCHER) {
+      if (!isCalled()) {
+        if (m_variantReports.size() == 0 ||
+            m_variantReports.stream().allMatch(VariantReport::isMissing)) {
+          return LIST_UNCALLED_NO_DATA;
+        }
+        if (OVERRIDE_DIPLOTYPES.contains(getGeneDisplay()) && isReportable()) {
+          return ImmutableList.of(m_reporterDiplotypes.get(0).printDisplay());
+        }
+        return LIST_UNCALLED;
       }
-      return ImmutableList.of(UNCALLED);
+      return m_matcherDiplotypes.stream()
+          .map(Diplotype::printDisplay)
+          .toList();
+    } else {
+      return m_reporterDiplotypes.stream()
+          .map(Diplotype::printDisplay)
+          .toList();
     }
-
-    if (isLeastFunction()) {
-      return m_matcherDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
-    }
-    return m_reporterDiplotypes.stream().sorted().map(Diplotype::printDisplay).collect(Collectors.toList());
   }
 
-  /**
-   * Used in the final report template in the Genotype Summary table in the "Allele Functionality" column
-   * @return a Collection of function Strings (e.g. Two no function alleles)
-   */
-  public Collection<String> printDisplayFunctions() {
-    if (!isReportable() || isAllelePresenceType()) {
-      return new ArrayList<>();
+  public List<String> printDisplayInferredCalls() {
+    if (m_callSource == CallSource.NONE) {
+      return LIST_UNCALLED_NO_DATA;
+    } else if (m_callSource == CallSource.MATCHER) {
+      if (!isCalled()) {
+        if (m_variantReports.size() == 0 ||
+            m_variantReports.stream().allMatch(VariantReport::isMissing)) {
+          return LIST_UNCALLED_NO_DATA;
+        }
+      }
     }
-    return m_reporterDiplotypes.stream().sorted().map(Diplotype::printFunctionPhrase).collect(Collectors.toList());
+    return m_reporterDiplotypes.stream()
+        .map(Diplotype::printDisplay)
+        .toList();
   }
+
 
   /**
    * Used in the final report template in the Genotype Summary table in the "Phenotype" column
@@ -458,10 +531,17 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Wether this gene has been marked as phased by the matcher
+   * Whether this gene has been marked as phased by the matcher.
    */
   public boolean isPhased() {
     return m_phased;
+  }
+
+  /**
+   * Whether this gene has been marked as effectively phased by the matcher.
+   */
+  public boolean isEffectivelyPhased() {
+    return m_effectivelyPhased;
   }
 
   /**
@@ -515,6 +595,14 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
+   * Gets the list of component haplotypes as {@link Diplotype}s if using lowest function mode and
+   * {@link #getMatcherDiplotypes()} has an actual diplotype.
+   */
+  public SortedSet<Diplotype> getComponentDiplotypes() {
+    return m_componentDiplotypes;
+  }
+
+  /**
    * Gets the list of {@link NamedAllele} objects that the {@link NamedAlleleMatcher} found from data in the input VCF
    * file. This collection may not contian data if no input VCF data was used to make diplotype calls.
    * @return the list of {@link NamedAllele} objects from the {@link NamedAlleleMatcher}.
@@ -526,9 +614,9 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Gets the list of {@link Diplotype} objects that the {@link Phenotyper} compiled from all sources, including the
    * {@link NamedAlleleMatcher}.
-   *
+   * <p>
    * This list will include matcher diplotypes and diplotypes that were determined in the {@link Phenotyper}.
-   *
+   * <p>
    * This is the list of diplotypes that should be used for final reporting to the user.
    * @return the list of {@link Diplotype} objects for any final reporting
    */
@@ -554,20 +642,77 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_variantReports.stream().anyMatch(VariantReport::isMissing);
   }
 
-  private void applyMessages(GeneCall geneCall) {
+  private void applyMatcherMessages(GeneCall geneCall) {
     boolean comboOrPartialCall = geneCall.getHaplotypes().stream()
         .anyMatch((h) -> h.getHaplotype() != null && (h.getHaplotype().isCombination() || h.getHaplotype().isPartial()));
-    if (comboOrPartialCall) {
-      addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_COMBO_NAMING));
+    if (comboOrPartialCall && !useLeastFunction(geneCall.getGene())) {
+      addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_COMBO_NAMING));
 
       if (!isPhased()) {
-        addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_COMBO_UNPHASED));
+        addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_COMBO_UNPHASED));
       }
     }
 
     if (geneCall.getGene().equals("CYP2D6")) {
-      addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_CYP2D6_GENERAL));
-      addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_CYP2D6_MODE));
+      addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_CYP2D6_GENERAL));
+      addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_CYP2D6_MODE));
+    }
+
+    if (!geneCall.getGene().equals("CFTR")) {
+      // add reference allele message
+      m_matcherDiplotypes.stream()
+          .map((d) -> {
+            if (showReferenceMessage(d.getAllele1())) {
+              return d.getAllele1();
+            }
+            if (d.getAllele2() != null && showReferenceMessage(d.getAllele2())) {
+              return d.getAllele2();
+            }
+            return null;
+          })
+          .filter(Objects::nonNull)
+          .findFirst()
+          .ifPresent((h) -> {
+
+            StringBuilder builder = new StringBuilder()
+                .append("The ")
+                .append(h.getGene())
+                .append(" ")
+                .append(h.getName())
+                .append(" allele assignment is characterized by the absence of variants at the positions that are " +
+                    "included in the underlying allele definitions");
+            if (this.isMissingVariants()) {
+              builder.append(" either because the position is reference or missing");
+            }
+            builder.append(".");
+
+            addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "reference-allele", builder.toString()));
+          });
+    }
+  }
+
+  private void applyOutsideCallMessages() {
+    addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "outside-call",
+        "The call for " + getGeneDisplay() + " comes from an outside data source which does not supply " +
+            "position-level detail.  For specific disclaimers and limitations, see the original genotyping source."));
+  }
+
+  /**
+   * Checks if {@link Haplotype} is reference for display purposes (don't call reference if gene only has 1 varint).
+   */
+  private boolean showReferenceMessage(Haplotype hap) {
+    if (!hap.isReference()) {
+      return false;
+    }
+    try {
+      if (sf_definitionReader.getGenes().size() == 0) {
+        sf_definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
+      }
+      Optional<DefinitionFile> definitionFile = sf_definitionReader.lookupDefinitionFile(hap.getGene());
+      return definitionFile.isPresent() && definitionFile.get().getVariants().length > 1;
+
+    } catch (IOException ex) {
+      throw new RuntimeException("Error checking reference", ex);
     }
   }
 }

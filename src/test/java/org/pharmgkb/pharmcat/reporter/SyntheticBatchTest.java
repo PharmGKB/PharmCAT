@@ -469,7 +469,7 @@ class SyntheticBatchTest {
     Path sampleVcf = writeVcf(sampleDir.resolve(key + ".vcf"), testVcfs);
     new PharmCAT(true, sampleVcf, null, true, false, false, true,
         true, null, outsideCallPath,
-        true, null, null, false,
+        true, null, null, null, false, false,
         f_outputDir, null, false, PharmCAT.Mode.TEST
     ).execute();
   }

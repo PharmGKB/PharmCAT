@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.google.gson.Gson;
@@ -37,11 +38,13 @@ public class PgkbGuidelineCollection {
 
   public PgkbGuidelineCollection() throws IOException {
     Path guidelinesDir = PathUtils.getPathToResource(GUIDELINES_DIR);
-    List<Path> annotationFiles = Files.list(guidelinesDir)
-        .filter(f -> f.getFileName().toString().endsWith(".json"))
-        .toList();
+    List<Path> annotationFiles = new ArrayList<>();
+    try (Stream<Path> stream = Files.list(guidelinesDir)) { {
+        stream.filter(f -> f.getFileName().toString().endsWith(".json"))
+            .forEach(annotationFiles::add);
+    }}
     if (annotationFiles.size() == 0) {
-      throw new IOException("No annotation definitions to read from");
+      throw new IOException("Cannot find annotations");
     }
 
     Gson gson = new Gson();

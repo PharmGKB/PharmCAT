@@ -8,6 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.SortedSet;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+import com.google.common.base.Preconditions;
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -35,6 +39,8 @@ import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -97,17 +103,15 @@ class PharmCATTest {
       assertTrue(systemOut.contains("No input"));
       assertTrue(systemOut.contains("-vcf"));
     } finally {
-      Files.deleteIfExists(refMatcherOutput);
-      Files.deleteIfExists(refPhenotyperOutput);
-      Files.deleteIfExists(refReporterOutput);
+      deleteFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput);
     }
 
     // standard full run
     try {
       String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
-          "-vcf", vcfFile.toString()
+          "-vcf", vcfFile.toString(),
       }));
-      //System.out.println(systemOut);
+      System.out.println(systemOut);
       assertTrue(systemOut.contains("Done."));
       assertTrue(Files.exists(refMatcherOutput));
       assertTrue(Files.exists(refPhenotyperOutput));
@@ -120,7 +124,8 @@ class PharmCATTest {
           .findFirst();
       assertTrue(gcOpt.isEmpty());
 
-      List<GeneReport> reports = Phenotyper.readGeneReports(refPhenotyperOutput);
+      Collection<GeneReport> reports = Phenotyper.read(refPhenotyperOutput).getGeneReports().get(DataSource.CPIC)
+          .values();
       Optional<GeneReport> grOpt = reports.stream()
           .filter(gr -> gr.getGene().equals("CYP2D6"))
           .findFirst();
@@ -130,12 +135,10 @@ class PharmCATTest {
       Document document = Jsoup.parse(refReporterOutput.toFile());
       assertNotNull(document.getElementById("genotypes"));
       assertNotNull(document.getElementById("CYP2D6"));
-      assertNotNull(document.getElementById("PA166104937"));
+      assertNotNull(document.getElementById("aripiprazole"));
 
     } finally {
-      Files.deleteIfExists(refMatcherOutput);
-      Files.deleteIfExists(refPhenotyperOutput);
-      Files.deleteIfExists(refReporterOutput);
+      deleteFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput);
     }
   }
 
@@ -170,7 +173,8 @@ class PharmCATTest {
       assertEquals(1, opt.get().getDiplotypes().size());
       assertEquals("*1/*1", opt.get().getDiplotypes().iterator().next().getName());
 
-      List<GeneReport> reports = Phenotyper.readGeneReports(refPhenotyperOutput);
+      Collection<GeneReport> reports = Phenotyper.read(refPhenotyperOutput).getGeneReports().get(DataSource.CPIC)
+          .values();
       Optional<GeneReport> grOpt = reports.stream()
           .filter(gr -> gr.getGene().equals("CYP2D6"))
           .findFirst();
@@ -187,12 +191,10 @@ class PharmCATTest {
       for (String diplotype : diplotypes.eachText()) {
         assertEquals("*1/*1", diplotype);
       }
-      assertNotNull(document.getElementById("PA166104937"));
+      assertNotNull(document.getElementById("aripiprazole"));
 
     } finally {
-      Files.deleteIfExists(refMatcherOutput);
-      Files.deleteIfExists(refPhenotyperOutput);
-      Files.deleteIfExists(refReporterOutput);
+      deleteFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput);
     }
   }
 
@@ -219,9 +221,7 @@ class PharmCATTest {
       assertFalse(Files.exists(refReporterOutput));
 
     } finally {
-      Files.deleteIfExists(refMatcherOutput);
-      Files.deleteIfExists(refPhenotyperOutput);
-      Files.deleteIfExists(refReporterOutput);
+      deleteFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput);
     }
   }
 
@@ -230,9 +230,9 @@ class PharmCATTest {
     Path outsideCallFile = PathUtils.getPathToResource("PharmCATTest-cyp2d6.tsv");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
-    Path outsideMatcherOutput = outputDir.resolve("PharmCATTest-cyp2d6.match.json");
-    Path outsidePhenotyperOutput = outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json");
-    Path outsideReporterOutput = outputDir.resolve("PharmCATTest-cyp2d6.report.html");
+    Path matcherOutput = outputDir.resolve("PharmCATTest-cyp2d6.match.json");
+    Path phenotyperOutput = outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json");
+    Path reporterOutput = outputDir.resolve("PharmCATTest-cyp2d6.report.html");
 
     try {
       String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
@@ -242,11 +242,12 @@ class PharmCATTest {
       }));
       System.out.println(systemOut);
       assertTrue(systemOut.contains("Done."));
-      assertFalse(Files.exists(outsideMatcherOutput));
-      assertTrue(Files.exists(outsidePhenotyperOutput));
-      assertFalse(Files.exists(outsideReporterOutput));
+      assertFalse(Files.exists(matcherOutput));
+      assertTrue(Files.exists(phenotyperOutput));
+      assertFalse(Files.exists(reporterOutput));
 
-      List<GeneReport> reports = Phenotyper.readGeneReports(outsidePhenotyperOutput);
+      Collection<GeneReport> reports = Phenotyper.read(phenotyperOutput).getGeneReports().get(DataSource.CPIC)
+          .values();
       Optional<GeneReport> grOpt = reports.stream()
           .filter(gr -> gr.getGene().equals("CYP2D6"))
           .findFirst();
@@ -255,9 +256,7 @@ class PharmCATTest {
       assertTrue(grOpt.get().isOutsideCall());
 
     } finally {
-      Files.deleteIfExists(outsideMatcherOutput);
-      Files.deleteIfExists(outsidePhenotyperOutput);
-      Files.deleteIfExists(outsideReporterOutput);
+      deleteFiles(matcherOutput, phenotyperOutput, reporterOutput);
     }
   }
 
@@ -299,9 +298,7 @@ class PharmCATTest {
       assertEquals(1, gc.getDiplotypes().size());
 
     } finally {
-      Files.deleteIfExists(matcherOutput);
-      Files.deleteIfExists(phenotyperOutput);
-      Files.deleteIfExists(reporterOutput);
+      deleteFiles(matcherOutput, phenotyperOutput, reporterOutput);
     }
 
     // matcher only, expecting many CYP2C19 matches
@@ -329,9 +326,7 @@ class PharmCATTest {
       assertTrue(gc.getDiplotypes().size() > 50);
 
     } finally {
-      Files.deleteIfExists(matcherOutput);
-      Files.deleteIfExists(phenotyperOutput);
-      Files.deleteIfExists(reporterOutput);
+      deleteFiles(matcherOutput, phenotyperOutput, reporterOutput);
     }
   }
 
@@ -370,13 +365,9 @@ class PharmCATTest {
       assertTrue(doubleOut.contains("Done."));
       assertTrue(Files.exists(doublePhenotyperOutput));
 
-      assertEquals(
-          Files.readString(singlesPhenotyperOutput),
-          Files.readString(doublePhenotyperOutput));
+      assertEquals(Files.readString(singlesPhenotyperOutput), Files.readString(doublePhenotyperOutput));
     } finally {
-      Files.deleteIfExists(singlesMatcherOutput);
-      Files.deleteIfExists(singlesPhenotyperOutput);
-      Files.deleteIfExists(doublePhenotyperOutput);
+      deleteFiles(singlesMatcherOutput, singlesPhenotyperOutput, doublePhenotyperOutput);
     }
   }
 
@@ -392,8 +383,17 @@ class PharmCATTest {
     testWrapper.getVcfBuilder()
             .reference("CYP2C9");
     testWrapper.execute(null);
-    assertEquals(23, testWrapper.getContext().getGeneReports().size());
-    assertEquals(93, testWrapper.getContext().getDrugReports().size());
+    assertEquals(23, testWrapper.getContext().getGeneReports().keySet().stream()
+        .flatMap((k) -> testWrapper.getContext().getGeneReports().get(k).values().stream()
+            .map(GeneReport::getGeneDisplay))
+        .collect(Collectors.toSet())
+        .size()
+    );
+    assertEquals(93, testWrapper.getContext().getDrugReports().keySet().stream()
+        .flatMap((k) -> testWrapper.getContext().getDrugReports().get(k).values().stream()
+            .map(DrugReport::getName))
+        .collect(Collectors.toSet())
+        .size());
   }
 
   @Test
@@ -495,9 +495,11 @@ class PharmCATTest {
     // this is the diplotype indicated in the outside call, not the one matched
     testWrapper.testPrintCalls( "CYP2C19", "*2/*2");
 
-    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2C19");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
     assertEquals(1, geneReport.getMessages().size());
-    assertTrue(geneReport.getMessages().stream().allMatch(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_NOTE)));
+    assertEquals(MessageAnnotation.TYPE_NOTE, geneReport.getMessages().get(0).getExceptionType());
+    assertEquals("prefer-sample-data", geneReport.getMessages().get(0).getName());
+
   }
 
   /**
@@ -530,7 +532,7 @@ class PharmCATTest {
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.DPWG);
     testWrapper.testMatchedGroups("ivacaftor", 0);
 
-    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport("CYP2C19");
+    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
 
     VariantReport vr = cyp2c19report.findVariantReport("rs58973490")
         .orElseThrow(() -> new RuntimeException("Variant missing from test data"));
@@ -542,7 +544,7 @@ class PharmCATTest {
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
         .count());
 
-    testWrapper.testMessageCountForDrug("amitriptyline", 2);
+    testWrapper.testMessageCountForDrug(DataSource.CPIC, "amitriptyline", 2);
   }
 
   /**
@@ -572,7 +574,7 @@ class PharmCATTest {
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.DPWG);
     testWrapper.testMatchedGroups("ivacaftor", 0);
 
-    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport("CYP2C19");
+    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
 
     // make sure the variant in question is not a het call
     VariantReport vr = cyp2c19report.findVariantReport("rs58973490")
@@ -584,7 +586,8 @@ class PharmCATTest {
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
         .count());
 
-    DrugReport amiReport = testWrapper.getContext().getDrugReport("amitriptyline");
+    DrugReport amiReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "amitriptyline");
+    assertNotNull(amiReport);
     // should only get the *1 message, the variant is hom so ambiguity message should not match
     assertEquals(1, amiReport.getMessages().size());
   }
@@ -684,7 +687,7 @@ class PharmCATTest {
     testWrapper.testPrintCalls("CYP2D6", "*1/*4");
     testWrapper.testPrintCalls("CYP2C19", "*4/*17");
 
-    assertTrue(testWrapper.getContext().getGeneReport("CYP2D6").isOutsideCall());
+    assertTrue(testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6").isOutsideCall());
   }
 
   @Test
@@ -702,8 +705,8 @@ class PharmCATTest {
     testWrapper.testPrintCalls("CYP2D6", "*1/*4");
     testWrapper.testPrintCalls("CYP2C19",  "*1/*4", "*4/*38");
 
-    assertTrue(testWrapper.getContext().getGeneReport("CYP2D6").isOutsideCall());
-    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport("CYP2C19");
+    assertTrue(testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6").isOutsideCall());
+    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
     assertTrue(cyp2c19report.isMissingVariants());
 
     assertFalse(cyp2c19report.isPhased());
@@ -717,7 +720,8 @@ class PharmCATTest {
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY))
         .count());
 
-    DrugReport amiReport = testWrapper.getContext().getDrugReport("amitriptyline");
+    DrugReport amiReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "amitriptyline");
+    assertNotNull(amiReport);
     assertEquals(3, amiReport.getMessages().size());
   }
 
@@ -736,7 +740,7 @@ class PharmCATTest {
     testWrapper.testPrintCalls("CYP2D6", "*1/*4");
     testWrapper.testPrintCalls("CYP2C19", "*1/*4");
 
-    assertTrue(testWrapper.getContext().getGeneReport("CYP2D6").isOutsideCall());
+    assertTrue(testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6").isOutsideCall());
   }
 
   @Test
@@ -823,7 +827,7 @@ class PharmCATTest {
     testWrapper.testPrintCalls("SLCO1B1", "*1/*1");
     testWrapper.testLookup("SLCO1B1", "*1");
 
-    GeneReport slco1b1Report = testWrapper.getContext().getGeneReport("SLCO1B1");
+    GeneReport slco1b1Report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "SLCO1B1");
     assertTrue(slco1b1Report.getHighlightedVariants().contains("rs4149056T/rs4149056T"));
   }
 
@@ -893,7 +897,7 @@ class PharmCATTest {
 
     testWrapper.testCalledByMatcher("DPYD");
 
-    GeneReport dpyd = testWrapper.getContext().getGeneReport("DPYD");
+    GeneReport dpyd = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
     assertEquals(2, dpyd.getMatcherAlleles().size());
     testWrapper.testPrintCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
     testWrapper.testLookup("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
@@ -912,10 +916,10 @@ class PharmCATTest {
 
     testWrapper.testCalledByMatcher("DPYD");
 
-    GeneReport dpyd = testWrapper.getContext().getGeneReport("DPYD");
-    assertEquals(3, dpyd.getMatcherAlleles().size());
+    GeneReport dpyd = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
+    assertEquals(2, dpyd.getMatcherAlleles().size());
     assertEquals(1, dpyd.getReporterDiplotypes().size());
-    testWrapper.testPrintCalls("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)", "Reference");
+    testWrapper.testPrintCalls("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
     testWrapper.testLookupByActivity("DPYD", "1");
 
     testWrapper.testMatchedGroups("fluorouracil", 1);
@@ -934,10 +938,10 @@ class PharmCATTest {
 
     testWrapper.testCalledByMatcher("DPYD");
 
-    GeneReport dpyd = testWrapper.getContext().getGeneReport("DPYD");
-    assertEquals(5, dpyd.getMatcherAlleles().size());
+    GeneReport dpyd = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
+    assertEquals(4, dpyd.getMatcherAlleles().size());
     assertEquals(1, dpyd.getReporterDiplotypes().size());
-    testWrapper.testPrintCalls("DPYD", "Reference", "c.1024G>A", "c.1314T>G", "c.1358C>G", "c.2279C>T");
+    testWrapper.testPrintCalls("DPYD", "c.1024G>A", "c.1314T>G", "c.1358C>G", "c.2279C>T");
     testWrapper.testLookupByActivity("DPYD", "0.5");
 
     testWrapper.testMatchedGroups("fluorouracil", 1);
@@ -980,8 +984,9 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testPrintCalls("DPYD", "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G");
-    assertEquals(1, testWrapper.getContext().getGeneReport("DPYD").getReporterDiplotypes().size());
+    testWrapper.testMatcher("DPYD", "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G");
+    testWrapper.testPrintCalls("DPYD", "c.498G>A/c.2933A>G");
+    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.2933A>G", "c.498G>A");
 
     testWrapper.testAnyMatchFromSource("fluorouracil", DataSource.CPIC);
@@ -1005,7 +1010,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testPrintCalls("DPYD", "c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G", "Reference");
+    testWrapper.testPrintCalls("DPYD", "c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G");
     testWrapper.testLookup("DPYD", "c.2933A>G", "c.2846A>T");
 
     testWrapper.testAnyMatchFromSource("fluorouracil", DataSource.CPIC);
@@ -1040,8 +1045,9 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testPrintCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
-    assertEquals(1, testWrapper.getContext().getGeneReport("DPYD").getReporterDiplotypes().size());
+    testWrapper.testMatcher("DPYD", "c.61C>T/c.61C>T + c.313G>A");
+    testWrapper.testPrintCalls("DPYD", "c.61C>T/c.61C>T");
+    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
     testWrapper.testMatchedGroups("fluorouracil", 1);
@@ -1059,8 +1065,9 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testPrintCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
-    assertEquals(1, testWrapper.getContext().getGeneReport("DPYD").getReporterDiplotypes().size());
+    testWrapper.testMatcher("DPYD", "c.61C>T/c.61C>T + c.313G>A");
+    testWrapper.testPrintCalls("DPYD", "c.61C>T/c.61C>T");
+    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
     testWrapper.testMatchedGroups("fluorouracil", 1);
@@ -1083,7 +1090,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testNotCalledByMatcher("SLCO1B1");
-    testWrapper.testPrintCalls("SLCO1B1", "rs4149056T/rs4149056C");
+    testWrapper.testInferredCalls("SLCO1B1", "rs4149056T/rs4149056C");
     testWrapper.testLookup("SLCO1B1", "*1", "*5");
 
     testWrapper.testMatchedGroups("simvastatin", 1);
@@ -1167,7 +1174,7 @@ class PharmCATTest {
 
     // the guideline should have a matching message for the *1 call but no ambiguity call
     testWrapper.testMatchedGroups("atazanavir", 1);
-    testWrapper.testMessageCountForDrug("atazanavir", 1);
+    testWrapper.testMessageCountForDrug(DataSource.CPIC, "atazanavir", 1);
   }
 
   @Test
@@ -1338,7 +1345,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testNotCalledByMatcher("UGT1A1");
-    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
     assertTrue(geneReport.isPhased());
   }
 
@@ -1352,7 +1359,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testNotCalledByMatcher("UGT1A1");
-    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
     assertTrue(geneReport.isPhased());
   }
 
@@ -1367,7 +1374,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testNotCalledByMatcher("UGT1A1");
-    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
     assertTrue(geneReport.isPhased());
   }
 
@@ -1384,7 +1391,7 @@ class PharmCATTest {
     testWrapper.testReportable("UGT1A1");
     testWrapper.testPrintCalls("UGT1A1", "*1/*80+*37");
     testWrapper.testLookup("UGT1A1", "*1", "*80+*37");
-    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
     assertTrue(geneReport.isPhased());
   }
 
@@ -1400,13 +1407,13 @@ class PharmCATTest {
     testWrapper.testPrintCalls("CYP3A5", "*1/*1");
     testWrapper.testLookup("CYP3A5", "*1", "*1");
 
-    GeneReport gene = testWrapper.getContext().getGeneReport("CYP3A5");
+    GeneReport gene = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP3A5");
     // rs776746 should be missing from this report
     assertNotNull(gene.getVariantReports());
     assertTrue(gene.getVariantReports().stream().anyMatch(v -> v.isMissing() && v.getDbSnpId().equals("rs776746")));
 
     // the guideline should have a matching message
-    assertTrue(testWrapper.getContext().getDrugReports().stream()
+    assertTrue(testWrapper.getContext().getDrugReports().get(DataSource.CPIC).values().stream()
         .filter(r -> r.getRelatedDrugs().contains("tacrolimus"))
         .allMatch(r -> r.getMessages().size() > 0));
 
@@ -1566,7 +1573,7 @@ class PharmCATTest {
     testWrapper.testLookup("CYP2C19", "*2", "*2");
     testWrapper.testPrintCalls("CYP2C19", "*2/*2");
 
-    GeneReport cyp2c9 = testWrapper.getContext().getGeneReport("CYP2C9");
+    GeneReport cyp2c9 = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C9");
     assertEquals(1, cyp2c9.getReporterDiplotypes().size());
     assertTrue(cyp2c9.getReporterDiplotypes().stream().allMatch(d -> d.getActivityScore().equals("2.0")));
 
@@ -1600,7 +1607,7 @@ class PharmCATTest {
     testWrapper.testPrintCalls("TPMT", "*1/*3A");
     testWrapper.testLookup("TPMT", "*1", "*3A");
 
-    GeneReport tpmtReport = testWrapper.getContext().getGeneReport("TPMT");
+    GeneReport tpmtReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "TPMT");
     assertEquals(43, tpmtReport.getVariantReports().size());
     assertEquals(0, tpmtReport.getHighlightedVariants().size());
   }
@@ -1808,12 +1815,13 @@ class PharmCATTest {
         .reference("CYP2C19");
     testWrapper.execute(outsideCallPath);
 
-    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2D6");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
     assertEquals(1, geneReport.getReporterDiplotypes().size());
     Diplotype diplotype = geneReport.getReporterDiplotypes().get(0);
     assertEquals("One normal function allele and one unassigned function allele", diplotype.printFunctionPhrase());
   }
+
 
   @Test
   void testCyp2d6DoubleCall(TestInfo testInfo) throws Exception {
@@ -1827,7 +1835,7 @@ class PharmCATTest {
         .reference("CYP2C19");
     testWrapper.execute(outsideCallPath);
 
-    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2D6");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
     assertEquals(2, geneReport.getReporterDiplotypes().size());
     Diplotype diplotype = geneReport.getReporterDiplotypes().get(0);
@@ -1927,34 +1935,65 @@ class PharmCATTest {
       Path vcfFile = m_vcfBuilder.generate(m_outputPath);
       PharmCAT pcat = new PharmCAT(true, vcfFile, null, m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
           true, null, outsideCallPath,
-          true, null, null, true,
+          true, null, null, null, false, true,
           m_outputPath, null, false, PharmCAT.Mode.TEST
       );
       pcat.execute();
       m_reportContext = pcat.getReportContext();
     }
 
+
+    private void testMatcher(String gene, String... diplotypes) {
+      GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
+      List<String> dips = geneReport.getMatcherDiplotypes().stream()
+          .map(Diplotype::printBare)
+          .toList();
+      try {
+        assertThat(dips, contains(diplotypes));
+      } catch (AssertionError ex) {
+        System.out.println(printDiagnostic(geneReport));
+        throw ex;
+      }
+    }
+
     /**
-     * Test the "print" calls for a gene that will display in the final report or in the phenotyper. This will check that
-     * the call count matches and then check each individual call is present (can be 1 or more).
+     * Test the "print" calls for a gene that will display in the final report or in the phenotyper. This will check
+     * that the call count matches and then check each individual call is present (can be 1 or more).
+     *
      * @param gene the gene to get diplotypes for
      * @param calls the expected display of the calls, 1 or more
      */
     private void testPrintCalls(String gene, String... calls) {
-      GeneReport geneReport = getContext().getGeneReport(gene);
-      Collection<String> dips = geneReport.printDisplayCalls();
-      assertEquals(calls.length, dips.size(), "Expected " + gene + " call count (" + calls.length +
-          ") doesn't match actual call count (" + dips.size() + "): " + String.join(", ", dips));
-      Arrays.stream(calls)
-          .forEach(c -> assertTrue(dips.contains(c),
-              c + " not in " + gene + ":" + dips + printDiagnostic(geneReport)));
+      GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
+      SortedSet<String> dips = new TreeSet<>(geneReport.printDisplayCalls());
+      Arrays.sort(calls);
+      try {
+        assertThat(dips, contains(calls));
+      } catch (AssertionError ex) {
+        System.out.println(printDiagnostic(geneReport));
+        throw ex;
+      }
+    }
+
+    private void testInferredCalls(String gene, String... calls) {
+      GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
+      SortedSet<String> dips = new TreeSet<>(geneReport.printDisplayInferredCalls());
+      Arrays.sort(calls);
+      try {
+        assertThat(dips, contains(calls));
+      } catch (AssertionError ex) {
+        System.out.println(printDiagnostic(geneReport));
+        throw ex;
+      }
     }
 
     /**
      * Test the diplotype that will be used for looking up the recommendation. This will mostly match what's printed in
-     * displays but will differ for particular genes
+     * displays but will differ for particular genes.
+     *
      * @param gene the gene to get diplotypes for
-     * @param haplotypes the expected haplotypes names used for calling, specifying one will assume homozygous, otherwise specify two haplotype names
+     * @param haplotypes the expected haplotypes names used for calling, specifying one will assume homozygous,
+     * otherwise specify two haplotype names
      */
     private void testLookup(String gene, String... haplotypes) {
       Map<String, Integer> lookup = new HashMap<>();
@@ -1971,14 +2010,14 @@ class PharmCATTest {
         fail("Can only test on 1 or 2 haplotypes");
       }
 
-      GeneReport geneReport = getContext().getGeneReport(gene);
+      GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
       assertTrue(geneReport.isReportable(), "Not reportable: " + geneReport.getReporterDiplotypes());
       assertTrue(geneReport.getReporterDiplotypes().stream()
           .anyMatch(d -> d.makeLookupMap().equals(lookup)), "Lookup key " + lookup + " not found in lookup " + geneReport.getReporterDiplotypes().stream().map(Diplotype::makeLookupMap).toList());
     }
 
     private void testLookupByActivity(String gene, String activityScore) {
-      GeneReport geneReport = getContext().getGeneReport(gene);
+      GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
       assertTrue(geneReport.isReportable());
       assertTrue(geneReport.getReporterDiplotypes().stream()
           .allMatch(d -> d.printLookupKeys().equals(activityScore)));
@@ -1991,23 +2030,23 @@ class PharmCATTest {
       assertTrue(genes != null && genes.length > 0);
 
       Arrays.stream(genes)
-          .forEach(g -> assertTrue(getContext().getGeneReport(g).isCalled(), g + " is not called"));
+          .forEach(g -> assertTrue(getContext().getGeneReport(DataSource.CPIC, g).isCalled(), g + " is not called"));
     }
 
     private void testReportable(String... genes) {
       assertTrue(genes != null && genes.length > 0);
       Arrays.stream(genes)
-          .forEach(g -> assertTrue(getContext().getGeneReport(g).isReportable(), g + " is not reportable"));
+          .forEach(g -> assertTrue(getContext().getGeneReport(DataSource.CPIC, g).isReportable(), g + " is not reportable"));
     }
 
     /**
      * Check to see if none of the given genes have been called by the matcher
      */
     private void testNotCalledByMatcher(String... genes) {
-      assertTrue(genes != null && genes.length > 0);
+      Preconditions.checkArgument(genes != null && genes.length > 0);
 
       Arrays.stream(genes)
-          .forEach(g -> assertFalse(getContext().getGeneReport(g).isCalled(), g + " is called"));
+          .forEach(g -> assertFalse(getContext().getGeneReport(DataSource.CPIC, g).isCalled(), g + " is called"));
     }
 
     /**
@@ -2016,37 +2055,50 @@ class PharmCATTest {
      * @param expectedCount the number of matching recommendations you expect
      */
     private void testMatchedGroups(String drugName, int expectedCount) {
-      DrugReport drugReport = getContext().getDrugReport(drugName);
-      assertEquals(expectedCount, drugReport.getMatchedGroupCount(),
-          drugName + " does not have matching recommendation count of " + expectedCount + " (found " +
-              drugReport.getMatchedGroupCount() + ")");
+      List<DrugReport> drugReports = getContext().getDrugReports(drugName);
+      int numMatched = drugReports.stream()
+          .mapToInt(DrugReport::getMatchedGroupCount)
+          .sum();
+      assertEquals(expectedCount, numMatched,
+          drugName + " has " + numMatched + " matching recommendation(s) instead of " + expectedCount);
     }
 
     private void testMatchedGroups(String drugName, DataSource source, int expectedCount) {
-      DrugReport drugReport = getContext().getDrugReport(drugName);
-      assertEquals(
-          expectedCount,
-          drugReport.getGuidelines().stream().filter(g -> g.getSource() == source).mapToLong(g -> g.getAnnotationGroups().size()).sum(),
-          drugName + " does not have matching recommendation count of " + expectedCount + " (found " +
-              drugReport.getMatchedGroupCount() + ")");
+      DrugReport drugReport = getContext().getDrugReport(source, drugName);
+      assertNotNull(drugReport);
+      assertEquals(expectedCount, drugReport.getMatchedGroupCount(),
+          drugName + " has " + drugReport.getMatchedGroupCount() + " matching " + source +
+              " recommendation(s) instead of " + expectedCount);
     }
 
     private void testAnyMatchFromSource(String drugName, DataSource source) {
-      DrugReport drugReport = getContext().getDrugReport(drugName);
+      DrugReport drugReport = getContext().getDrugReport(source, drugName);
+      assertNotNull(drugReport);
       assertTrue(drugReport.getGuidelines().stream().anyMatch((g) -> g.getSource() == source && g.isMatched()),
           drugName + " does not have matching recommendation from " + source);
     }
 
     private void testNoMatchFromSource(String drugName, DataSource source) {
-      DrugReport drugReport = getContext().getDrugReport(drugName);
-      assertTrue(drugReport.getGuidelines().stream().noneMatch(r -> r.getSource() == source && r.isMatched()),
-          drugName + " has a matching recommendation from " + source + " and expected none");
+      DrugReport drugReport = getContext().getDrugReport(source, drugName);
+      if (drugReport != null) {
+        assertTrue(drugReport.getGuidelines().stream().noneMatch(r -> r.getSource() == source && r.isMatched()),
+            drugName + " has a matching recommendation from " + source + " and expected none");
+      }
     }
 
-    private void testMessageCountForDrug(String drugName, int messageCount) {
-      DrugReport guideline = getContext().getDrugReport(drugName);
-      assertEquals(messageCount, guideline.getMessages().size(),
-          drugName + " expected " + messageCount + " messages and got " + guideline.getMessages());
+    private void testMessageCountForDrug(DataSource source, String drugName, int messageCount) {
+      DrugReport drugReport = getContext().getDrugReport(source, drugName);
+      assertNotNull(drugReport);
+      assertEquals(messageCount, drugReport.getMessages().size(),
+          drugName + " expected " + messageCount + " messages and got " + drugReport.getMessages());
+    }
+  }
+
+  private static void deleteFiles(Path... files) throws IOException {
+    if (!SAVE_TEST_OUTPUT) {
+      for (Path file : files) {
+        Files.deleteIfExists(file);
+      }
     }
   }
 }

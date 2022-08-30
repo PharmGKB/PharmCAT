@@ -6,29 +6,32 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
+import com.google.common.collect.SortedSetMultimap;
+import com.google.common.collect.TreeMultimap;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
-import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
+import org.pharmgkb.pharmcat.reporter.model.result.AnnotationGroup;
+import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
+import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
-import static org.pharmgkb.pharmcat.reporter.TextConstants.NA;
-import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.UNCALLED;
+import static org.pharmgkb.pharmcat.reporter.LeastFunctionUtils.useLeastFunction;
 
 
 /**
@@ -37,6 +40,8 @@ import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.UNCALLED;
 public class HtmlFormat extends AbstractFormat {
   private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
   private static final String FINAL_REPORT = "report";
+  private List<DataSource> m_sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
+  private boolean m_compact;
   private final boolean f_testMode;
 
   /**
@@ -49,6 +54,19 @@ public class HtmlFormat extends AbstractFormat {
     super(outputPath);
     f_testMode = testMode;
   }
+
+  public HtmlFormat sources(List<DataSource> sources) {
+    if (sources != null) {
+      m_sources = sources;
+    }
+    return this;
+  }
+
+  public HtmlFormat compact(boolean compact) {
+    m_compact = compact;
+    return this;
+  }
+
 
   public void write(ReportContext reportContext) throws IOException {
     Map<String, Object> reportData = compile(reportContext);
@@ -75,239 +93,326 @@ public class HtmlFormat extends AbstractFormat {
       result.put("pharmcatVersion", reportContext.getPharmcatVersion());
       result.put("cpicVersion", reportContext.getCpicVersion());
     }
+    result.put("compact", m_compact);
 
     if (StringUtils.isNotBlank(reportContext.getTitle())) {
       result.put("title", reportContext.getTitle());
     }
 
-    // Genotypes section
-    List<Map<String,Object>> genotypes = new ArrayList<>();
-    int calledGenes = 0;
-    int totalGenes = 0;
+
+    // Section I: Genotype Summary
+    Set<String> totalGenes = new HashSet<>();
+    Set<String> calledGenes = new HashSet<>();
     boolean hasCombo = false;
+    boolean hasMessages = false;
     boolean hasMissingVariants = false;
-    for (GeneReport geneReport : reportContext.getGeneReports()) {
-      // skip any genes on the blacklist
-      if (geneReport.isIgnored()) {
+    boolean hasUnphased = false;
+
+    SortedSetMultimap<String, GeneReport> geneReportMap = TreeMultimap.create();
+    for (DataSource source : reportContext.getGeneReports().keySet()) {
+      if (!m_sources.contains(source)) {
         continue;
       }
-      totalGenes += 1;
+      for (GeneReport geneReport : reportContext.getGeneReports().get(source).values()) {
+        // skip any genes on the blacklist
+        if (geneReport.isIgnored()) {
+          continue;
+        }
+        String symbol = geneReport.getGeneDisplay();
+        totalGenes.add(symbol);
+        if (!m_compact) {
+          geneReportMap.put(symbol, geneReport);
+        }
 
-      // skip any uncalled genes
-      boolean allVariantsMissing = geneReport.getVariantReports().stream().allMatch(VariantReport::isMissing);
-      if ((!geneReport.isCalled() || allVariantsMissing) && (geneReport.getReporterDiplotypes().isEmpty())) {
-        continue;
-      }
+        // skip any uncalled genes
+        boolean allVariantsMissing = geneReport.getVariantReports().stream().allMatch(VariantReport::isMissing);
+        if ((!geneReport.isCalled() || allVariantsMissing) && (geneReport.getReporterDiplotypes().isEmpty())) {
+          continue;
+        }
+        if (geneReport.getRelatedDrugs().size() == 0) {
+          continue;
+        }
 
-      if (geneReport.getRelatedDrugs().size() == 0) {
-        continue;
-      }
+        if (geneReport.isReportable()) {
+          calledGenes.add(symbol);
+          if (m_compact) {
+            geneReportMap.put(symbol, geneReport);
+          }
 
-      Map<String,Object> genotype = new HashMap<>();
-      genotype.put("gene", geneReport.getGeneDisplay());
-      genotype.put("called", geneReport.isCalled());
-      genotype.put("reportable", geneReport.isReportable());
-      genotype.put("drugs", geneReport.getRelatedDrugs());
-      genotype.put("diplotypes", makeSummaryDiplotypes(geneReport));
-      genotype.put("missingVariants", geneReport.isMissingVariants());
-      genotype.put("unphased", !geneReport.isOutsideCall() && !geneReport.isPhased());
-      genotype.put("hasMessages", geneReport.getMessages().size()>0);
-      genotype.put("outsideCall", geneReport.isOutsideCall());
-      if (geneReport.isReportable() && geneReport.isMissingVariants()) {
-        hasMissingVariants = true;
-      }
-
-      genotypes.add(genotype);
-
-      hasCombo = hasCombo || geneReport.getMessages().stream().anyMatch(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_COMBO));
-
-      if (geneReport.isReportable()) {
-        calledGenes += 1;
+          if (geneReport.isMissingVariants()) {
+            hasMissingVariants = true;
+          }
+          hasCombo = hasCombo || geneReport.getMessages().stream()
+              .anyMatch(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_COMBO));
+          hasMessages = hasMessages || hasMessages(geneReport);
+          hasUnphased = hasUnphased || isUnphased(geneReport);
+        }
       }
     }
-    result.put("genotypes", genotypes);
-    result.put("totalGenes", totalGenes);
-    result.put("calledGenes", calledGenes);
+
+    SortedSet<String> genes = new TreeSet<>(geneReportMap.keySet());
+    List<Map<String, Object>> summaries = new ArrayList<>();
+    List<GeneReport> geneReports = new ArrayList<>();
+    for (String symbol : genes) {
+      SortedSet<GeneReport> reports = geneReportMap.get(symbol);
+      if (reports.size() > 2) {
+        throw new IllegalStateException("More than 2 gene reports for " + symbol);
+      }
+      Optional<Map<String, Object>> opt = buildGenotypeSummary(symbol, reports);
+      opt.ifPresent(summaries::add);
+      if (!m_compact || opt.isPresent()) {
+        geneReports.add(reports.first());
+      }
+    }
+    result.put("genes", genes);
+    result.put("summaries", summaries);
+    result.put("totalGenes", totalGenes.size());
+    result.put("calledGenes", calledGenes.size());
     result.put("hasCombo", hasCombo);
+    result.put("hasMessages", hasMessages);
     result.put("hasMissingVariants", hasMissingVariants);
-    result.put("messages", reportContext.getMessages().stream().map(MessageAnnotation::getMessage).collect(Collectors.toList()));
+    result.put("hasUnphased", hasUnphased);
+    result.put("summaryMessages", reportContext.getMessages().stream().map(MessageAnnotation::getMessage).toList());
+    // Section III
+    result.put("geneReports", geneReports);
 
-    // Drugs section
-    List<Map<String,Object>> drugReports = new ArrayList<>();
-    for (DrugReport drugReport : reportContext.getDrugReports()) {
-      Map<String,Object> drugMap = new LinkedHashMap<>();
+    // Section II: Prescribing Recommendations
+    SortedMap<String, Map<DataSource, DrugReport>> drugReports = new TreeMap<>();
+    SortedMap<String, Recommendation> recommendationMap = new TreeMap<>();
 
-      drugMap.put("id", drugReport.getId());
-      drugMap.put("name", drugReport.getName());
-      drugMap.put("urls", drugReport.getUrls());
-
-      List<Map<String,Object>> geneCallList = new ArrayList<>();
-      for (String gene : drugReport.getRelatedGeneSymbols()) {
-        reportContext.findGeneReport(gene).ifPresent((geneReport) -> {
-          String functions = geneReport.isReportable() ? String.join("; ", geneReport.printDisplayFunctions()) : null;
-          Map<String,Object> geneCall = new LinkedHashMap<>();
-          geneCall.put("gene", geneReport.getGeneDisplay());
-          geneCall.put("diplotypes", String.join(", ", geneReport.printDisplayCalls()));
-          geneCall.put("showHighlights", !geneReport.getHighlightedVariants().isEmpty());
-          geneCall.put("highlightedVariants", geneReport.getHighlightedVariants());
-          geneCall.put("functions", functions);
-          geneCall.put("outsideCall", geneReport.isOutsideCall());
-          geneCallList.add(geneCall);
-        });
-      }
-      for (String variant : drugReport.getReportVariants()) {
-        String call = reportContext.getGeneReports().stream()
-            .flatMap(g -> Stream.concat(g.getVariantReports().stream(), g.getVariantOfInterestReports().stream()))
-            .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(variant) && !v.isMissing())
-            .map(VariantReport::getCall)
-            .collect(Collectors.joining(", "));
-        Map<String,Object> geneCall = new LinkedHashMap<>();
-        geneCall.put("gene", variant);
-        geneCall.put("diplotypes", StringUtils.isBlank(call) ? "missing" : call);
-        geneCall.put("outsideCall", false);
-        geneCallList.add(geneCall);
-      }
-      if (geneCallList.size() > 0) {
-        drugMap.put("geneCalls", geneCallList);
-      }
-
-      drugMap.put("matched", drugReport.isMatched());
-
-      drugMap.put("messages", drugReport.getMessages().stream()
-          .filter(MessageAnnotation.isMessage)
-          .map(MessageAnnotation::getMessage)
-          .collect(Collectors.toList()));
-
-      drugMap.put("footnotes", drugReport.getMessages().stream()
-          .filter(MessageAnnotation.isFootnote)
-          .map(MessageAnnotation::getMessage)
-          .collect(Collectors.toList()));
-
-      if (drugReport.getCitations() != null && drugReport.getCitations().size()>0) {
-        drugMap.put("citations", drugReport.getCitations());
-      }
-
-      // special case the display for warfarin recommendation since it's an image
-      if (drugReport.toString().equals("warfarin")) {
-        Map<String,String> imageData = new LinkedHashMap<>();
-        imageData.put("url", "https://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png");
-        imageData.put("altText", "Figure 2 from the CPIC guideline for warfarin");
-        drugMap.put("image", imageData);
-      }
-
-      drugMap.put("guidelines", drugReport.getGuidelines());
-
-      drugReports.add(drugMap);
-    }
-    result.put("guidelines", drugReports);
-
-
-    // Gene calls
-
-    List<Map<String,Object>> geneCallList = new ArrayList<>();
-    for (GeneReport geneReport : reportContext.getGeneReports()) {
-      if (geneReport.isIgnored()) {
+    for (DataSource source : reportContext.getDrugReports().keySet()) {
+      if (!m_sources.contains(source)) {
         continue;
       }
+      for (DrugReport drugReport : reportContext.getDrugReports().get(source).values()) {
+        // don't use drugReport.isMatch() directly because it escapes warfarin
+        if (m_compact && drugReport.getGuidelines().stream().allMatch(GuidelineReport::isUncallable)) {
+          continue;
+        }
 
-      Map<String,Object> geneCallMap = new HashMap<>();
+        Recommendation rec = recommendationMap.computeIfAbsent(drugReport.getName(), Recommendation::new);
+        rec.addReport(source, drugReport);
 
-      geneCallMap.put("gene", geneReport.getGeneDisplay());
-
-      String phaseStatus;
-      boolean unphased = false;
-      if (geneReport.isOutsideCall()) {
-        phaseStatus = "Unavailable for calls made outside PharmCAT";
-      } else {
-        phaseStatus = geneReport.isPhased() ? "Phased" : "Unphased";
-        unphased = !geneReport.isPhased();
+        drugReports.computeIfAbsent(drugReport.getName(), (n) -> new HashMap<>())
+            .put(source, drugReport);
       }
-      geneCallMap.put("phaseStatus", phaseStatus);
-      geneCallMap.put("unphased", unphased);
-
-      boolean hasUncalledHaplotypes = geneReport.getUncalledHaplotypes() != null && geneReport.getUncalledHaplotypes().size() > 0;
-      geneCallMap.put("hasUncalledHaps", hasUncalledHaplotypes);
-      if (hasUncalledHaplotypes) {
-        geneCallMap.put("uncalledHaps", String.join(", ", geneReport.getUncalledHaplotypes()));
-      }
-
-      List<String> diplotypes = new ArrayList<>(geneReport.printDisplayCalls());
-      diplotypes.addAll(geneReport.getHighlightedVariants());
-      geneCallMap.put("diplotypes", diplotypes);
-
-      if (geneReport.getMessages() != null && geneReport.getMessages().size() > 0) {
-        geneCallMap.put("warnings", geneReport.getMessages().stream().map(MessageAnnotation::getMessage).collect(Collectors.toList()));
-      }
-
-      if (geneReport.getVariantReports().size() > 0) {
-        geneCallMap.put("variants", new TreeSet<>(geneReport.getVariantReports()));
-      } else {
-        geneCallMap.put("variantsUnspecified", true);
-      }
-
-      if (geneReport.getVariantOfInterestReports().size() > 0) {
-        geneCallMap.put("variantsOfInterest", geneReport.getVariantOfInterestReports());
-      } else {
-        geneCallMap.put("variantsOfInterestUnspecified", true);
-      }
-
-      geneCallMap.put("outsideCall", geneReport.isOutsideCall());
-
-      geneCallMap.put("totalMissingVariants",
-          geneReport.getVariantReports().stream().filter(VariantReport::isMissing).count());
-      geneCallMap.put("totalVariants", geneReport.getVariantReports().size());
-
-      geneCallMap.put("messages", geneReport.getMessages().stream()
-          .filter(MessageAnnotation.isMessage)
-          .map(MessageAnnotation::getMessage)
-          .collect(Collectors.toList()));
-      geneCallMap.put("extra-position-notes", geneReport.getMessages().stream()
-          .filter(MessageAnnotation.isExtraPositionNote)
-          .map(MessageAnnotation::getMessage)
-          .collect(Collectors.toList()));
-
-      geneCallList.add(geneCallMap);
     }
-    result.put("geneCalls", geneCallList);
+
+    result.put("recommendations", new TreeSet<>(recommendationMap.values()));
+    result.put("drugs", recommendationMap.keySet());
 
     return result;
   }
 
-  private List<HtmlDiplotype> makeSummaryDiplotypes(GeneReport geneReport) {
-    List<Diplotype> diplotypesToUse = geneReport.isLeastFunction()
-        ? geneReport.getMatcherDiplotypes()
-        : geneReport.getReporterDiplotypes();
-    return diplotypesToUse.stream().map(HtmlDiplotype::new).toList();
+
+  private Optional<Map<String, Object>> buildGenotypeSummary(String symbol, SortedSet<GeneReport> geneReports) {
+
+    List<GeneReport> calledReports = geneReports.stream()
+        .filter(GeneReport::isReportable)
+        .toList();
+    if (calledReports.size() == 0) {
+      return Optional.empty();
+    }
+
+    Map<String, Object> summary = new HashMap<>();
+    summary.put("symbol", symbol);
+
+    Set<String> relatedDrugs = new TreeSet<>();
+    boolean hasMessages = false;
+    // CPIC gets sorted first, this will pick CPIC over DPWG
+    for (GeneReport report : calledReports) {
+      report.getRelatedDrugs().stream()
+          .map(DrugLink::getName)
+          .forEach(relatedDrugs::add);
+      hasMessages = hasMessages || hasMessages(report);
+
+      if (!summary.containsKey("diplotypes")) {
+        summary.put("source", report.getPhenotypeSource());
+        if (report.getCallSource() == CallSource.MATCHER) {
+          if (useLeastFunction(symbol) && report.getComponentDiplotypes().size() > 0) {
+            summary.put("showComponents", true);
+            summary.put("diplotypes", report.getMatcherDiplotypes().get(0));
+            summary.put("componentDiplotypes", report.getComponentDiplotypes());
+          } else {
+            summary.put("diplotypes", report.getMatcherDiplotypes());
+          }
+        } else {
+          summary.put("diplotypes", report.getReporterDiplotypes());
+        }
+        summary.put("hasMissingVariants", report.isMissingVariants());
+        summary.put("isUnphased", isUnphased(report));
+        summary.put("geneReport", report);
+
+      } else {
+        // TODO(markwoon): check if functionality is different?
+      }
+    }
+
+    summary.put("relatedDrugs", relatedDrugs);
+    summary.put("hasMessages", hasMessages);
+    return Optional.of(summary);
   }
 
-  private static class HtmlDiplotype {
-    private String m_call = UNCALLED;
-    private String m_function;
-    private String m_phenotype = NA;
+  private static boolean isUnphased(GeneReport geneReport) {
+    return !geneReport.isOutsideCall() && !geneReport.isPhased() && !useLeastFunction(geneReport.getGeneDisplay());
+  }
 
-    HtmlDiplotype(Diplotype diplotype) {
-      if (diplotype == null) {
-        return;
+  private static boolean hasMessages(GeneReport geneReport) {
+    return geneReport.getMessages().size() > 0;
+  }
+
+
+  private static class Recommendation implements Comparable<Recommendation> {
+    private final String m_drug;
+    private Map<String, Object> m_cpicReport;
+    private Map<String, Object> m_dpwgReport;
+    private boolean m_isMultiMatch;
+    private boolean m_hasInferred;
+    private boolean m_hasDpydInferred;
+    private final Set<String> m_messages = new LinkedHashSet<>();
+    private final Set<String> m_footnotes = new LinkedHashSet<>();
+    private final List<Publication> m_citations = new ArrayList<>();
+
+    public Recommendation(String drug) {
+      m_drug = drug;
+    }
+
+    void addReport(DataSource source, DrugReport report) {
+      Preconditions.checkArgument(m_drug.equals(report.getName()));
+
+      switch (source) {
+        case CPIC -> {
+          if (m_cpicReport != null) {
+            throw new IllegalStateException("Multiple drug reports for " + report.getName() + " from " +
+                source.getDisplayName());
+          }
+          m_cpicReport = buildReport(source, report);
+        }
+        case DPWG -> {
+          if (m_dpwgReport != null) {
+            throw new IllegalStateException("Multiple drug reports for " + report.getName() + " from " +
+                source.getDisplayName());
+          }
+          m_dpwgReport = buildReport(source, report);;
+        }
       }
-      m_call = diplotype.printDisplay();
-      if (diplotype.isCombination() && diplotype.getGene().equals("DPYD")) {
-        m_function = TextConstants.SEE_DRUG;
+
+      // messages
+      report.getMessages().stream()
+          .filter(MessageAnnotation.isMessage)
+          .map(MessageAnnotation::getMessage)
+          .forEach(m_messages::add);
+      // footnotes
+      report.getMessages().stream()
+          .filter(MessageAnnotation.isFootnote)
+          .map(MessageAnnotation::getMessage)
+          .forEach(m_footnotes::add);
+      // citations
+      if (report.getCitations() != null && report.getCitations().size() > 0) {
+        m_citations.addAll(report.getCitations());
+      }
+
+      for (GuidelineReport guideline : report.getGuidelines()) {
+        for (AnnotationGroup annGroup : guideline.getAnnotationGroups()) {
+          for (Genotype genotype : annGroup.getGenotypes()) {
+            if (genotype.isInferred()) {
+              if (genotype.getDiplotypes().stream()
+                  .map(Diplotype::getGene)
+                  .anyMatch(g -> g.equals("DPYD"))) {
+                m_hasDpydInferred = true;
+              } else {
+                m_hasInferred = true;
+              }
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    private Map<String, Object> buildReport(DataSource source, DrugReport drugReport) {
+      Map<String, Object> report = new LinkedHashMap<>();
+      report.put("id", drugReport.getId());
+      report.put("matched", drugReport.isMatched());
+      report.put("source", source);
+      report.put("urls", drugReport.getUrls());
+
+      if (drugReport.isMatched()) {
+        report.put("guidelines", drugReport.getGuidelines());
       } else {
-        m_function = diplotype.printFunctionPhrase();
+        boolean uncallable = drugReport.getGuidelines().stream().allMatch(GuidelineReport::isUncallable);
+        report.put("uncallable", uncallable);
+        if (uncallable) {
+          report.put("uncalledGenes", String.join(", ", drugReport.getGuidelines().stream()
+              .flatMap(gr -> gr.getUncalledGenes().stream())
+              .collect(Collectors.toCollection(TreeSet::new))));
+        } else {
+          report.put("unmatchedCalls", String.join(" and ", drugReport.getGuidelines().stream()
+              .flatMap((gr) -> gr.getRelatedGeneReports().stream())
+              .flatMap((gr) -> {
+                String geneLink = "<a href=\"#" + gr.getGeneDisplay() + "\">" + gr.getGeneDisplay() + "</a>";
+                return gr.getReporterDiplotypes().stream()
+                    .map((d) -> geneLink + " " + d.printBare());
+              })
+              .collect(Collectors.toCollection(TreeSet::new))));
+        }
       }
-      m_phenotype = diplotype.printPhenotypes();
+
+      return report;
     }
 
-    public String getCall() {
-      return m_call;
+
+    public String getDrug() {
+      return m_drug;
     }
 
-    public String getFunction() {
-      return m_function;
+    public List<Map<String, Object>> getReports() {
+      List<Map<String, Object>> reports = new ArrayList<>();
+      if (m_cpicReport != null) {
+        reports.add(m_cpicReport);
+      }
+      if (m_dpwgReport != null) {
+        reports.add(m_dpwgReport);
+      }
+      return reports;
     }
 
-    public String getPhenotype() {
-      return m_phenotype;
+    public Map<String, Object> getCpicReport() {
+      return m_cpicReport;
+    }
+
+    public Map<String, Object> getDpwgReport() {
+      return m_dpwgReport;
+    }
+
+    public boolean isMultiMatch() {
+      return m_isMultiMatch;
+    }
+
+    public boolean isHasInferred() {
+      return m_hasInferred;
+    }
+
+    public boolean isHasDpydInferred() {
+      return m_hasDpydInferred;
+    }
+
+    public Set<String> getMessages() {
+      return m_messages;
+    }
+
+    public Set<String> getFootnotes() {
+      return m_footnotes;
+    }
+
+    public List<Publication> getCitations() {
+      return m_citations;
+    }
+
+
+    @Override
+    public int compareTo(Recommendation o) {
+      return m_drug.compareTo(o.getDrug());
     }
   }
 }

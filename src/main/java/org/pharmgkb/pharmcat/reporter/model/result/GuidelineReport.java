@@ -14,7 +14,6 @@ import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 
 
 public class GuidelineReport {
-
   @Expose
   @SerializedName("name")
   private String name;
@@ -35,6 +34,7 @@ public class GuidelineReport {
   private List<AnnotationGroup> annotationGroups = new ArrayList<>();
   private transient final SortedSet<GeneReport> relatedGeneReports = new TreeSet<>();
 
+
   public GuidelineReport(Drug cpicDrug) {
     setVersion(cpicDrug.getCpicVersion());
     setId(cpicDrug.getDrugId());
@@ -50,6 +50,7 @@ public class GuidelineReport {
     setSource(DataSource.DPWG);
     setUrl(guidelinePackage.getGuideline().getUrl());
   }
+
 
   public String getName() {
     return name;
@@ -121,11 +122,11 @@ public class GuidelineReport {
     }
   }
 
-  public String getUncalledGenes() {
+  public List<String> getUncalledGenes() {
     return relatedGeneReports.stream()
         .filter(g -> !g.isCalled())
-        .map(GeneReport::getGene)
-        .collect(Collectors.joining(", "));
+        .map(GeneReport::getGeneDisplay)
+        .toList();
   }
 
   public boolean isUncallable() {

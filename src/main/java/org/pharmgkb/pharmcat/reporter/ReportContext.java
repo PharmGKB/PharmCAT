@@ -4,17 +4,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
-import javax.annotation.Nonnull;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.MessageList;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
@@ -44,10 +47,10 @@ public class ReportContext {
   private String m_cpicVersion;
   @Expose
   @SerializedName("genes")
-  private final SortedSet<GeneReport> f_geneReports = new TreeSet<>();
+  private final Map<DataSource, SortedMap<String, GeneReport>> m_geneReports;
   @Expose
   @SerializedName("drugs")
-  private final SortedSet<DrugReport> f_drugReports = new TreeSet<>();
+  private final Map<DataSource, SortedMap<String, DrugReport>> m_drugReports = new HashMap<>();
   @Expose
   @SerializedName("messages")
   private final List<MessageAnnotation> f_messages = new ArrayList<>();
@@ -57,22 +60,78 @@ public class ReportContext {
    * @param geneReports {@link GeneReport} objects, non-null but can be empty
    * @param title the optional text to show as a user-friendly title or identifier for this report
    */
-  public ReportContext(Collection<GeneReport> geneReports, String title) throws IOException {
+  public ReportContext(Map<DataSource, SortedMap<String, GeneReport>> geneReports, String title) throws IOException {
     f_title = title;
-
-    Set<String> cpicVersions = new HashSet<>();
-
-    // add GeneReports from the Phenotyper
-    f_geneReports.addAll(geneReports);
-    for (GeneReport geneReport : f_geneReports) {
-      if (geneReport.getCpicVersion() == null || geneReport.getCpicVersion().equals("n/a")) {
-        continue;
-      }
-      cpicVersions.add(geneReport.getCpicVersion());
-    }
+    m_geneReports = geneReports;
 
     // get CPIC drug data
     DrugCollection drugCollection = new DrugCollection();
+    // go through all CPIC drugs
+    for (Drug drug : drugCollection.listReportable()) {
+      DrugReport drugReport = createOrFindDrugReport(DataSource.CPIC, drug);
+      drugReport.addDrugData(drug, this);
+
+      // add matching recommendations
+      List<Genotype> possibleGenotypes = makePossibleGenotypes(DataSource.CPIC, drugReport.getRelatedGeneSymbols());
+      for (Genotype genotype : possibleGenotypes) {
+        drugReport.matchAnnotationsToGenotype(genotype, drug);
+      }
+
+      // add the inverse relationship to gene reports
+      for (String gene : drugReport.getRelatedGeneSymbols()) {
+        getGeneReport(DataSource.CPIC, gene).addRelatedDrugs(drugReport);
+      }
+    }
+    m_cpicVersion = validateCpicVersions(drugCollection);
+
+    // get DPWG/PharmGKB drug data
+    PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection();
+    // go through all DPWG-PharmGKB drugs, we iterate this way because one guideline may have multiple chemicals/drugs
+    for (String drugName : pgkbGuidelineCollection.getChemicals()) {
+      pgkbGuidelineCollection.findGuidelinePackages(drugName).forEach(guidelinePackage -> {
+        DrugReport drugReport = createOrFindDrugReport(DataSource.DPWG, drugName);
+
+        // add matching groups for possible genotypes
+        List<Genotype> possibleGenotypes = makePossibleGenotypes(DataSource.DPWG, guidelinePackage.getGenes());
+        for (Genotype genotype : possibleGenotypes) {
+          guidelinePackage.match(genotype);
+        }
+
+        drugReport.addDrugData(guidelinePackage, this);
+
+        for (String gene : drugReport.getRelatedGeneSymbols()) {
+          getGeneReport(DataSource.DPWG, gene).addRelatedDrugs(drugReport);
+        }
+      });
+    }
+
+    // now that all reports are generated, apply the applicable messages
+    MessageList messageList = new MessageList();
+    for (DataSource source : m_drugReports.keySet()) {
+      for (DrugReport drugReport : m_drugReports.get(source).values()) {
+        messageList.match(drugReport, this, source);
+
+        // add a message for any gene that has missing data
+        drugReport.getRelatedGeneSymbols().stream()
+            .filter((s) -> !getGeneReport(source, s).isOutsideCall() && getGeneReport(source, s).isMissingVariants())
+            .forEach((s) -> drugReport.addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE,
+                "missing-variants",
+                "Some position data used to define " + s + " alleles is missing which may change the matched " +
+                    "genotype. See the gene section for " + s + " for more information.")));
+      }
+    }
+  }
+
+  private String validateCpicVersions(DrugCollection drugCollection) {
+    Set<String> cpicVersions = new HashSet<>();
+    // check GeneReports from the Phenotyper
+    for (GeneReport geneReport : m_geneReports.get(DataSource.CPIC).values()) {
+      if (geneReport.getPhenotypeVersion() != null) {
+        cpicVersions.add(geneReport.getPhenotypeVersion());
+      }
+    }
+
+    // check CPIC drug data
     for (Drug drug : drugCollection.list()) {
       if (drug.getCpicVersion() == null || drug.getCpicVersion().equals("n/a")) {
         continue;
@@ -81,94 +140,32 @@ public class ReportContext {
     }
 
     if (cpicVersions.size() == 0) {
-      m_cpicVersion = TextConstants.NA;
+      return TextConstants.NA;
     } else {
-      m_cpicVersion = String.join(", ", cpicVersions);
       if (cpicVersions.size() > 1) {
-        System.out.println("WARNING: multiple CPIC versions used to generate gene and drug reports! (" + m_cpicVersion + ")");
-      }
-    }
-
-    // get DPWG/PharmGKB drug data
-    PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection();
-
-    // go through all CPIC drugs
-    for (Drug drug : drugCollection.listReportable()) {
-      DrugReport drugReport = createOrFindDrugReport(drug);
-      drugReport.addDrugData(drug, this);
-
-      // add matching recommendations
-      List<Genotype> possibleGenotypes = makePossibleGenotypes(drugReport.getRelatedGeneSymbols());
-      for (Genotype genotype : possibleGenotypes) {
-        drugReport.matchAnnotationsToGenotype(genotype, drug);
-      }
-      f_drugReports.add(drugReport);
-
-      // add the inverse relationship to gene reports
-      for (String gene : drugReport.getRelatedGeneSymbols()) {
-        getGeneReport(gene).addRelatedDrugs(drugReport);
-      }
-    }
-
-    // go through all DPWG-PharmGKB drugs, we iterate this way because one guideline may have multiple chemicals/drugs
-    for (String drugName : pgkbGuidelineCollection.getChemicals()) {
-      pgkbGuidelineCollection.findGuidelinePackages(drugName).forEach(guidelinePackage -> {
-        DrugReport drugReport = createOrFindDrugReport(drugName);
-
-        // add matching groups for possible genotypes
-        List<Genotype> possibleGenotypes = makePossibleGenotypes(guidelinePackage.getGenes());
-        for (Genotype genotype : possibleGenotypes) {
-          guidelinePackage.match(genotype);
-        }
-
-        drugReport.addDrugData(guidelinePackage, this);
-        f_drugReports.add(drugReport);
-        for (String gene : drugReport.getRelatedGeneSymbols()) {
-          getGeneReport(gene).addRelatedDrugs(drugReport);
-        }
-      });
-    }
-
-    // now that all reports are generated, apply the applicable messages
-    MessageList messageList = new MessageList();
-    for (DrugReport drugReport : getDrugReports()) {
-      messageList.match(drugReport, this);
-
-      // add message to drug when a related gene has a *1 allele
-      boolean hasStarOne = drugReport.getRelatedGeneSymbols().stream()
-          .flatMap((s) -> getGeneReport(s).getReporterDiplotypes().stream())
-          .anyMatch((d) -> d.hasAllele("*1"));
-      if (hasStarOne) {
-        drugReport.addMessage(new MessageAnnotation(
-            MessageAnnotation.TYPE_NOTE,
-            "The *1 allele assignment is characterized by the absence of variants that are included in the " +
-                "underlying allele definitions by either position being reference or missing."
+        addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "multiple-cpic-versions",
+            "Multiple CPIC versions used to generate gene and drug reports: " + cpicVersions + "."
         ));
       }
-
-      // add a message for any gene that has missing data
-      drugReport.getRelatedGeneSymbols().stream()
-          .filter((s) -> !getGeneReport(s).isOutsideCall() && getGeneReport(s).isMissingVariants())
-          .map((s) -> "Some position data used to define " + s + " alleles is missing which may change the matched " +
-              "genotype. See the gene section for " + s + " for more information.")
-          .forEach((m) -> drugReport.addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, m)));
+      return String.join(", ", cpicVersions);
     }
   }
+
+
 
   /**
    * Gets the set of all {@link DrugReport} objects that hold drug information and thier recommendations
    * @return a set of {@link DrugReport} objects
    */
-  public SortedSet<DrugReport> getDrugReports() {
-    return f_drugReports;
+  public Map<DataSource, SortedMap<String, DrugReport>> getDrugReports() {
+    return m_drugReports;
   }
 
   /**
    * Gets the set of all {@link GeneReport} objects that are reported in this context
-   * @return a set of {@link GeneReport} objects
    */
-  public SortedSet<GeneReport> getGeneReports() {
-    return f_geneReports;
+  public Map<DataSource, SortedMap<String, GeneReport>> getGeneReports() {
+    return m_geneReports;
   }
 
   /**
@@ -177,8 +174,8 @@ public class ReportContext {
    * @param drug a drug to find a corresponding {@link DrugReport} for, will use drug name
    * @return an existing or new {@link DrugReport}
    */
-  private DrugReport createOrFindDrugReport(@Nonnull Drug drug) {
-    return createOrFindDrugReport(drug.getDrugName());
+  private DrugReport createOrFindDrugReport(DataSource source, Drug drug) {
+    return createOrFindDrugReport(source, drug.getDrugName());
   }
 
   /**
@@ -187,53 +184,36 @@ public class ReportContext {
    * @param drugName a drug name to find a corresponding {@link DrugReport} for
    * @return an existing or new {@link DrugReport}
    */
-  private DrugReport createOrFindDrugReport(@Nonnull String drugName) {
+  private DrugReport createOrFindDrugReport(DataSource source, String drugName) {
     Preconditions.checkNotNull(drugName);
-    return getDrugReports().stream()
-        .filter(r -> r.getName().equalsIgnoreCase(drugName))
-        .findFirst()
-        .orElse(new DrugReport(drugName));
+    SortedMap<String, DrugReport> map = m_drugReports.computeIfAbsent(source, (s) -> new TreeMap<>());
+    return map.computeIfAbsent(drugName.toLowerCase(), (n) -> new DrugReport(drugName));
   }
 
-  /**
-   * Find a {@link GeneReport} based on the gene symbol
-   * @param geneSymbol a gene symbol
-   */
-  public Optional<GeneReport> findGeneReport(String geneSymbol) {
-    return getGeneReports().stream().filter(r -> r.getGene().equals(geneSymbol)).findFirst();
+  public List<DrugReport> getDrugReports(String drug) {
+    return m_drugReports.keySet().stream()
+        .map((k) -> m_drugReports.get(k).get(drug))
+        .filter(Objects::nonNull)
+        .toList();
   }
 
-  /**
-   * Finds the {@link GeneReport} for the given gene symbol and will throw a RuntimeException if it's not found,
-   * effectively guaranteeing a non-null result
-   * @param geneSymbol a gene symbol to find a report for
-   * @return a GeneReport object
-   * @throws RuntimeException if the desired gene report does not exist
-   */
-  public GeneReport getGeneReport(String geneSymbol) {
-    return findGeneReport(geneSymbol)
-        .orElseThrow(() -> new RuntimeException("No gene exists for " + geneSymbol));
+  public @Nullable DrugReport getDrugReport(DataSource source, String drug) {
+    return m_drugReports.get(source).get(drug);
   }
 
-  /**
-   * Find a {@link DrugReport} for the drug with the given name.
-   * @param drugName the name of the drug to find a report for
-   * @return an Optional {@link DrugReport}
-   */
-  private Optional<DrugReport> findDrugReport(String drugName) {
-    return f_drugReports.stream()
-        .filter(r -> r.getRelatedDrugs().contains(drugName))
-        .findFirst();
+  public List<GeneReport> getGeneReports(String gene) {
+    return m_geneReports.keySet().stream()
+        .map((k) -> m_geneReports.get(k).get(gene))
+        .filter(Objects::nonNull)
+        .toList();
   }
 
-  /**
-   * Gets a {@link DrugReport} for the drug with the given name. Will throw a {@link RuntimeException} if the drug is
-   * not found.
-   * @param drugName the name of the drug to find
-   * @return a non-null {@link DrugReport}
-   */
-  public DrugReport getDrugReport(String drugName) {
-    return findDrugReport(drugName).orElseThrow(() -> new RuntimeException("No drug exists for " + drugName));
+  public GeneReport getGeneReport(DataSource source, String gene) {
+    GeneReport geneReport = m_geneReports.get(source).get(gene);
+    if (geneReport == null) {
+      throw new IllegalStateException("No gene report for " + gene);
+    }
+    return geneReport;
   }
 
   /**
@@ -242,8 +222,8 @@ public class ReportContext {
    * @param geneSymbols a collection of gene symbol strings
    * @return a List of all possible genotpes for the given genes
    */
-  private List<Genotype> makePossibleGenotypes(Collection<String> geneSymbols) {
-    List<GeneReport> geneReports = getGeneReports().stream()
+  private List<Genotype> makePossibleGenotypes(DataSource source, Collection<String> geneSymbols) {
+    List<GeneReport> geneReports = getGeneReports().get(source).values().stream()
         .filter(r -> geneSymbols.contains(r.getGene()))
         .toList();
     return Genotype.makeGenotypes(geneReports);

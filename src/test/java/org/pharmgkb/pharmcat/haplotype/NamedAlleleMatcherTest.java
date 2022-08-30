@@ -718,11 +718,11 @@ class NamedAlleleMatcherTest {
     printMatches(geneCall);
     assertEquals(0, geneCall.getDiplotypes().size());
     System.out.println(geneCall.getHaplotypes());
-    assertEquals(4, geneCall.getHaplotypes().size());
+    assertEquals(3, geneCall.getHaplotypes().size());
     List<String> names = geneCall.getHaplotypes().stream()
         .map(BaseMatch::getName)
         .toList();
-    assertThat(names, contains("Reference", "c.62G>A", "c.1129-5923C>G, c.1236G>A (HapB3)", "c.3067C>A"));
+    assertThat(names, contains("c.62G>A", "c.1129-5923C>G, c.1236G>A (HapB3)", "c.3067C>A"));
   }
 
   @Test

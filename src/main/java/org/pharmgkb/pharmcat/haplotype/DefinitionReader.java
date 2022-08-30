@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
@@ -70,6 +71,10 @@ public class DefinitionReader {
   public DefinitionFile getDefinitionFile(String gene) {
     Preconditions.checkArgument(m_definitionFiles.containsKey(gene));
     return m_definitionFiles.get(gene);
+  }
+
+  public Optional<DefinitionFile> lookupDefinitionFile(String gene) {
+    return Optional.ofNullable(m_definitionFiles.get(gene));
   }
 
 

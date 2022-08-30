@@ -115,17 +115,12 @@ public class AnnotationGroup {
         .collect(Collectors.joining("\n"));
   }
 
-  public String getPhenotypes() {
-    return phenotypes.keySet().stream()
-        .map(k -> k + ": " + phenotypes.get(k))
-        .collect(Collectors.joining("\n"));
+  public Map<String, String> getPhenotypes() {
+    return phenotypes;
   }
 
-  public String getActivityScores() {
-    return activityScore.keySet().stream()
-        .filter(k -> !TextConstants.NA.equalsIgnoreCase(activityScore.get(k)))
-        .map(k -> k + ": " + activityScore.get(k))
-        .collect(Collectors.joining("\n"));
+  public Map<String, String> getActivityScores() {
+    return activityScore;
   }
 
   public List<Genotype> getGenotypes() {

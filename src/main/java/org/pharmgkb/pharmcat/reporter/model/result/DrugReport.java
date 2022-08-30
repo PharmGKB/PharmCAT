@@ -59,6 +59,9 @@ public class DrugReport implements Comparable<DrugReport> {
     f_name = name;
   }
 
+  /**
+   * Add CPIC drug data.
+   */
   public void addDrugData(Drug drug, ReportContext reportContext) {
     m_cpicId = drug.getDrugId();
     Preconditions.checkArgument(f_name.equalsIgnoreCase(drug.getDrugName()));
@@ -68,16 +71,21 @@ public class DrugReport implements Comparable<DrugReport> {
     }
 
     GuidelineReport guidelineReport = new GuidelineReport(drug);
-    drug.getGenes().forEach((geneSymbol) -> guidelineReport.addRelatedGeneReport(reportContext.getGeneReport(geneSymbol)));
+    drug.getGenes().forEach((geneSymbol) ->
+        guidelineReport.addRelatedGeneReport(reportContext.getGeneReport(DataSource.CPIC, geneSymbol)));
     addGuideline(guidelineReport);
   }
 
+  /**
+   * Add DPWG drug data.
+   */
   public void addDrugData(GuidelinePackage guidelinePackage, ReportContext reportContext) {
     m_pgkbId = guidelinePackage.getGuideline().getId();
     f_urls.add(guidelinePackage.getGuideline().getUrl());
 
     GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage);
-    guidelinePackage.getGenes().forEach((geneSymbol) -> guidelineReport.addRelatedGeneReport(reportContext.getGeneReport(geneSymbol)));
+    guidelinePackage.getGenes().forEach((geneSymbol) ->
+        guidelineReport.addRelatedGeneReport(reportContext.getGeneReport(DataSource.DPWG, geneSymbol)));
     guidelinePackage.getMatchedGroups()
         .forEach((group) -> {
           AnnotationGroup annGroup = new AnnotationGroup(group, guidelinePackage.getGenes().iterator().next());
@@ -153,21 +161,19 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   /**
-   * Experimental new genotype matcher
-   * TODO: fill out docs here
+   * Experimental new genotype matcher.
+   *
    * @param genotype a possible genotype for this report
    */
   public void matchAnnotationsToGenotype(Genotype genotype, Drug cpicDrug) {
     if (cpicDrug.getRecommendations() != null) {
       cpicDrug.getRecommendations().stream()
           .filter((r) -> r.matchesGenotype(genotype))
-          .forEach((r) -> f_guidelines.stream()
-              .filter((g) -> g.getSource() == DataSource.CPIC)
-              .forEach((g) -> {
-                AnnotationGroup annGroup = new AnnotationGroup(r);
-                annGroup.addGenotype(genotype);
-                g.addAnnotationGroup(annGroup);
-              }));
+          .forEach((r) -> f_guidelines.forEach((guidelineReport) -> {
+            AnnotationGroup annGroup = new AnnotationGroup(r);
+            annGroup.addGenotype(genotype);
+            guidelineReport.addAnnotationGroup(annGroup);
+          }));
     }
   }
 
@@ -226,7 +232,7 @@ public class DrugReport implements Comparable<DrugReport> {
     f_guidelines.add(guidelineReport);
   }
 
-  public long getMatchedGroupCount() {
-    return getGuidelines().stream().mapToLong(g -> g.getAnnotationGroups().size()).sum();
+  public int getMatchedGroupCount() {
+    return getGuidelines().stream().mapToInt(g -> g.getAnnotationGroups().size()).sum();
   }
 }

@@ -38,6 +38,8 @@ public class BatchPharmCAT {
           // reporter args
           .addOption("reporter", "reporter", "run reporter")
           .addOption("rt", "reporter-title", "optional, text to add to the report title", false, "title")
+          .addOption("rs", "reporter-sources", "comma-separated list of sources to limit report to", false, "sources")
+          .addOption("rc", "reporter-compact", "output compact report")
           .addOption("reporterJson", "reporter-save-json", "save reporter results as JSON")
 
           // outputs
@@ -138,7 +140,8 @@ public class BatchPharmCAT {
         new PharmCAT(config.runMatcher, vcfFile, config.definitionReader,
             config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
             config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
-            config.runReporter, reporterInputFile, config.reporterTitle, config.reporterJson,
+            config.runReporter, reporterInputFile, config.reporterTitle,
+            config.reporterSources, config.reporterCompact, config.reporterJson,
             config.outputDir, config.baseFilename, config.deleteIntermediateFiles, PharmCAT.Mode.CLI)
             .execute();
         System.out.println("---");

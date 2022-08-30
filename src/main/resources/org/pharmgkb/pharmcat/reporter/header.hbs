@@ -10,6 +10,7 @@
   <style>
     html {
       font-size: 16px;
+      background-color: #666666;
     }
     body {
       font-weight: 300;
@@ -19,14 +20,17 @@
       font-size: 1rem;
       font-family: "Museo Sans W01 Rounded",Arial,Helvetica,sans-serif;
       color: rgb(25, 31, 42);
-      background-color: #FEFEFE;
+      background-color: #ffffff;
       margin: 0 auto;
       max-width: 70em;
-      padding: 1em 1em;
+      padding: 0;
     }
     header {
-      overflow: auto;
       margin-bottom: 1em;
+    }
+    main {
+      margin: 1em 1em 0 1em;
+      padding-bottom: 2em;
     }
     h1, h2, h3, h4 {
       margin-top: 0.5rem;
@@ -73,6 +77,9 @@
       word-wrap: break-word;
       padding: 1em 1.3em;
     }
+    td p:last-child {
+      margin-bottom: 0;
+    }
     th {
       text-align: left;
     }
@@ -101,7 +108,13 @@
       border-width: 1px 0 0 0;
     }
     table.diplotype tbody tr:first-child td {
-      border-top-width: 0;
+      border-top: 0;
+    }
+    tr.leastFunctionDiplotype td {
+      color: #3f3f3f;
+    }
+    tr.leastFunctionDiplotype + tr td {
+      border-top: 0;
     }
     table.diplotype tbody tr td:first-child {
       padding: .2em;
@@ -110,18 +123,88 @@
     table.diplotype tbody tr td {
       border-left-width: 1px;
     }
+
+
+    .pageHeader {
+      display: flex;
+      align-items: center;
+      padding: 1em 1em;
+      background-color: #3e4c6c;
+      color: #ffffff;
+      min-width: 20em;
+    }
+    .pageHeader .title {
+      font-weight: bold;
+      font-size: 2em;
+      min-width: 10em;
+      width: 30%;
+    }
+    .pageHeader .subtitle {
+      margin-left: .5em;
+      font-size: .75em;
+    }
+    .pageHeader .metadata {
+      min-width: 10em;
+      width: 69%;
+    }
+    .pageHeader .metadata table {
+      line-height: 1;
+      margin: 0 .5em 0 auto;
+      min-width: unset;
+    }
+    .pageHeader .metadata th {
+      padding: 0 .5em 0 0;
+      font-size: .8em;
+      font-style: normal;
+      font-weight: normal;
+      text-align: right;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+    .pageHeader .metadata td {
+      font-size: .8em;
+      padding: 0;
+      vertical-align: top;
+    }
+
     .missingVariantsNote {
       margin-top: 1.2em;
       margin-bottom: 0;
       font-size: 0.9em;
+    }
+    .citations {
+      font-size: .9em;
     }
 
     hr {
       margin-bottom: 2em;
     }
     section.gene, section.guideline {
-      margin-bottom: 4em;
-      border-top: 1px solid #DDD;
+      margin-top: 2em;
+      margin-bottom: 2em;
+      border-bottom: 1px solid #DDD;
+    }
+    section.gene:last-child, section.guideline:last-child {
+      border-bottom: 0;
+    }
+
+    ol.noPadding, ul.noPadding {
+      list-style-position: inside;
+      padding-left: 0;
+    }
+    ol.noBullet, ul.noBullet {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    dl.compact dd {
+      margin-left: 1em;
+    }
+
+    div.hint {
+      text-transform: capitalize;
+      font-size: .8em;
+      color: #666666;
     }
 
     .alert {
@@ -151,8 +234,11 @@
       font-weight: bold;
     }
 
-    .drugName {
+    .drugName, .noWrap {
       white-space: nowrap;
+    }
+    .normalWrap {
+      white-space: normal;
     }
 
     td.missingVariant {
@@ -163,6 +249,13 @@
     td.mismatch {
       background-color: palegoldenrod;
       print-color-adjust: exact !important;
+    }
+
+    .mt-0 {
+      margin-top: 0;
+    }
+    .mt-1 {
+      margin-top: 1em;
     }
     
     div.callMessage {
@@ -175,9 +268,11 @@
     }
 
     .footnote {
-      padding: .5em 3em;
-      font-style: italic;
+      padding: .25em .5em;
       font-size: .8em;
+    }
+    .smallFont {
+      font-size: .9em;
     }
 
     .footnote sup {

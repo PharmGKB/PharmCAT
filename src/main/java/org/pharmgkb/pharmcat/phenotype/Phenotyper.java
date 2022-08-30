@@ -7,25 +7,28 @@ import java.lang.invoke.MethodHandles;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.definition.MessageList;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.ReferenceAlleleMap;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
@@ -33,6 +36,7 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
+import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +54,9 @@ public class Phenotyper {
       .excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting()
       .create();
-  private final SortedSet<GeneReport> f_geneReports = new TreeSet<>();
+  @Expose
+  @SerializedName("geneReports")
+  private final Map<DataSource, SortedMap<String, GeneReport>> m_geneReports = new HashMap<>();
 
 
   /**
@@ -64,132 +70,131 @@ public class Phenotyper {
     ReferenceAlleleMap referenceAlleleMap = new ReferenceAlleleMap();
     PhenotypeMap phenotypeMap = new PhenotypeMap();
 
+    initialize(geneCalls, outsideCalls, referenceAlleleMap, phenotypeMap, DataSource.CPIC, variantWarnings);
+    initialize(geneCalls, outsideCalls, referenceAlleleMap, phenotypeMap, DataSource.DPWG, variantWarnings);
+  }
+
+
+  private void initialize(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls,
+      ReferenceAlleleMap referenceAlleleMap, PhenotypeMap phenotypeMap, DataSource source,
+      @Nullable Map<String, Collection<String>> variantWarnings) {
+    SortedMap<String, GeneReport> reportMap = m_geneReports.computeIfAbsent(source, (s) -> new TreeMap<>());
+
+    // matcher calls
     for (GeneCall geneCall : geneCalls) {
-      GeneReport geneReport = new GeneReport(geneCall);
-      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
-          geneReport.getGene(),
-          phenotypeMap.lookupPhenotype(geneReport.getGene(), DataSource.CPIC),
-          phenotypeMap.lookupPhenotype(geneReport.getGene(), DataSource.DPWG),
-          referenceAlleleMap.get(geneReport.getGene()));
-      geneReport.setDiplotypes(diplotypeFactory, geneCall);
-
-      f_geneReports.add(geneReport);
+      String referenceAllele = referenceAlleleMap.get(geneCall.getGene());
+      GeneReport geneReport = new GeneReport(geneCall, referenceAllele, phenotypeMap, source);
+      reportMap.put(geneReport.getGene(), geneReport);
     }
 
+    //  outside calls
     for (OutsideCall outsideCall : outsideCalls) {
-      GeneReport geneReport = findGeneReport(outsideCall.getGene())
-          .orElse(null);
+      GeneReport geneReport = reportMap.get(outsideCall.getGene());
+      MessageAnnotation msgAnnotation = null;
+      if (geneReport != null) {
+        if (geneReport.getCallSource() != CallSource.OUTSIDE) {
+          // outside call trumps matcher
+          // warn the user of the conflict
+          String matcherCall = geneReport.getMatcherDiplotypes().stream()
+              .sorted()
+              .map(Diplotype::printBare)
+              .collect(Collectors.joining("; "));
+          msgAnnotation = new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "prefer-sample-data",
+              "PharmCAT would have called " + matcherCall + " based on the VCF but it has been ignored in " +
+                  "favor of the outside call. If you want to use the PharmCAT call for this gene then remove the " +
+                  "gene from the outside call data."
+          );
 
-      if (geneReport != null && geneReport.getCallSource() != CallSource.OUTSIDE) {
-        // remove the existing call so we can use the new outside call
-        removeGeneReport(outsideCall.getGene());
-
-        // use this new outside call instead
-        geneReport = new GeneReport(outsideCall);
-        f_geneReports.add(geneReport);
-
-        // warn the user of the conflict
-        String matcherCall = String.join("; ", geneReport.printDisplayCalls());
-        geneReport.addMessage(new MessageAnnotation(
-            MessageAnnotation.TYPE_NOTE,
-            "prefer-sample-data",
-            "VCF data would call " + matcherCall + " but it has been ignored in favor of an outside call. If " +
-                "you want to use the matcher call for this gene then remove the gene from the outside call data."
-        ));
+        } else {
+          // add alternate outside call
+          System.out.println("WARNING: Multiple outside calls for " + outsideCall.getGene());
+          String referenceAllele = referenceAlleleMap.get(outsideCall.getGene());
+          geneReport.addOutsideCall(outsideCall, referenceAllele, phenotypeMap);
+          continue;
+        }
       }
 
-      if (geneReport == null) {
-        geneReport = new GeneReport(outsideCall);
-        f_geneReports.add(geneReport);
+      String referenceAllele = referenceAlleleMap.get(outsideCall.getGene());
+      geneReport = new GeneReport(outsideCall, referenceAllele, phenotypeMap, source);
+      if (msgAnnotation != null) {
+        geneReport.addMessage(msgAnnotation);
       }
-
-      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
-          geneReport.getGene(),
-          phenotypeMap.lookupPhenotype(geneReport.getGene(), DataSource.CPIC),
-          phenotypeMap.lookupPhenotype(geneReport.getGene(), DataSource.DPWG),
-          referenceAlleleMap.get(geneReport.getGene()));
-      geneReport.setDiplotypes(diplotypeFactory, outsideCall);
-
-      f_geneReports.add(geneReport);
+      reportMap.put(geneReport.getGene(), geneReport);
     }
 
-    Set<String> unspecifiedGenes = listUnspecifiedGenes();
-    for (String geneSymbol : unspecifiedGenes) {
-      GeneReport geneReport = new GeneReport(geneSymbol);
-      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(geneSymbol,
-          phenotypeMap.lookupPhenotype(geneSymbol, DataSource.CPIC),
-          phenotypeMap.lookupPhenotype(geneSymbol, DataSource.DPWG),
-          null);
-      geneReport.setUnknownDiplotype(diplotypeFactory);
-      f_geneReports.add(geneReport);
+    // all other genes
+    for (String geneSymbol : listUnspecifiedGenes(source)) {
+      reportMap.put(geneSymbol, GeneReport.unspecifiedGeneReport(geneSymbol, phenotypeMap, source));
     }
-
-    f_geneReports.forEach(r -> r.addVariantWarningMessages(variantWarnings));
 
     try {
       MessageList messageList = new MessageList();
-      getGeneReports().forEach(messageList::addMatchingMessagesTo);
+      reportMap.values().forEach(r -> {
+        r.addVariantWarningMessages(variantWarnings);
+        messageList.addMatchingMessagesTo(r);
+      });
     } catch (IOException ex) {
       throw new RuntimeException("Could not load messages", ex);
     }
   }
 
+
+  public Map<DataSource, SortedMap<String, GeneReport>> getGeneReports() {
+    return m_geneReports;
+  }
+
   /**
-   * Write the collection of {@link GeneReport} objects
+   * Find a {@link GeneReport} based on the gene symbol
+   */
+  public Optional<GeneReport> findGeneReport(DataSource source, String geneSymbol) {
+    if (m_geneReports.containsKey(source)) {
+      return Optional.ofNullable(m_geneReports.get(source).get(geneSymbol));
+    }
+    return Optional.empty();
+  }
+
+
+  /**
+   * Writes out {@link Phenotyper} data.
+   *
    * @param outputPath the path to write a JSON file of data to
    * @throws IOException can occur from writing the file to the filesystem
    */
   public void write(Path outputPath) throws IOException {
     try (BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardCharsets.UTF_8)) {
-      writer.write(sf_gson.toJson(f_geneReports));
+      writer.write(sf_gson.toJson(this));
       sf_logger.info("Writing Phenotyper JSON to " + outputPath);
     }
   }
 
   /**
-   * Get the {@link GeneReport} objects that were created from call data in the constructor
-   * @return a SortedSet of {@link GeneReport} objects
+   * Read in {@link Phenotyper} data.
    */
-  public SortedSet<GeneReport> getGeneReports() {
-    return f_geneReports;
-  }
-
-  /**
-   * Find a {@link GeneReport} based on the gene symbol
-   * @param geneSymbol a gene symbol
-   */
-  public Optional<GeneReport> findGeneReport(String geneSymbol) {
-    return getGeneReports().stream().filter(r -> r.getGene().equals(geneSymbol)).findFirst();
-  }
-
-  private void removeGeneReport(String geneSymbol) {
-    findGeneReport(geneSymbol).ifPresent(f_geneReports::remove);
-  }
-
-  /**
-   * Read gene resport information from a given JSON file path. This should be the JSON output of this class.
-   * @param filePath a path to an existing JSON file
-   * @return a List of {@link GeneReport} objects
-   * @throws IOException can occur if file is unable to be read
-   */
-  public static List<GeneReport> readGeneReports(Path filePath) throws IOException {
+  public static Phenotyper read(Path filePath) throws IOException {
     Preconditions.checkNotNull(filePath);
     Preconditions.checkArgument(filePath.toFile().exists());
     Preconditions.checkArgument(filePath.toFile().isFile());
     try (BufferedReader reader = Files.newBufferedReader(filePath)) {
-      return Arrays.asList(sf_gson.fromJson(reader, GeneReport[].class));
+      return sf_gson.fromJson(reader, Phenotyper.class);
     }
   }
 
-  public Set<String> listUnspecifiedGenes() {
+
+  private Set<String> listUnspecifiedGenes(DataSource source) {
+    if (source == DataSource.UNKNOWN) {
+      return Collections.emptySet();
+    }
     try {
       DrugCollection cpicDrugs = new DrugCollection();
       PgkbGuidelineCollection dpwgDrugs = new PgkbGuidelineCollection();
 
       Set<String> unspecifiedGenes = new HashSet<>();
-      unspecifiedGenes.addAll(cpicDrugs.getAllReportableGenes());
-      unspecifiedGenes.addAll(dpwgDrugs.getGenes());
-      f_geneReports.stream()
+      if (source == DataSource.CPIC) {
+        unspecifiedGenes.addAll(cpicDrugs.getAllReportableGenes());
+      } else {
+        unspecifiedGenes.addAll(dpwgDrugs.getGenes());
+      }
+      m_geneReports.get(source).values().stream()
           .map(GeneReport::getGene)
           .forEach(unspecifiedGenes::remove);
       return unspecifiedGenes;

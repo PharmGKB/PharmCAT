@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableSet;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -43,7 +43,8 @@ public class Slco1b1CustomCaller {
    * @param diplotypeFactory The factory class responsible for constructing diplotypes
    * @return an Optional Diplotype result, can be empty if the necessary position is missing
    */
-  public static Optional<Diplotype> makeLookupCalls(GeneReport report, DiplotypeFactory diplotypeFactory) {
+  public static Optional<Diplotype> makeLookupCalls(GeneReport report, DiplotypeFactory diplotypeFactory,
+      DataSource source) {
     Preconditions.checkNotNull(report);
     Preconditions.checkArgument(report.getGene().equals(SLCO1B1), "Can only be used on SLCO1B1");
     
@@ -56,7 +57,7 @@ public class Slco1b1CustomCaller {
     if (StringUtils.isBlank(variant.getCall())) return Optional.empty();
     
     String diplotypeText = makeDiplotype(variant);
-    Diplotype diplotype = diplotypeFactory.makeDiplotypes(ImmutableSet.of(diplotypeText)).get(0);
+    Diplotype diplotype = diplotypeFactory.makeDiplotype(diplotypeText, source);
     
     diplotype.setVariant(variant);
     diplotype.setObserved(Observation.INFERRED);

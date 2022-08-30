@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.reporter;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
@@ -21,10 +22,11 @@ class ReporterTest {
   @Test
   void testCypc2c9VariantPassthrough() throws Exception {
 
-    ReportContext reportContext = new ReportContext(Phenotyper.readGeneReports(PathUtils.getPathToResource(PHENOTYPER_FILE_PATH)), null);
+    ReportContext reportContext =
+        new ReportContext(Phenotyper.read(PathUtils.getPathToResource(PHENOTYPER_FILE_PATH)).getGeneReports(), null);
 
     // test the CYP2C9 data
-    GeneReport geneReport = reportContext.getGeneReport("CYP2C9");
+    GeneReport geneReport = reportContext.getGeneReport(DataSource.CPIC, "CYP2C9");
     assertTrue(geneReport.isReportable());
     assertTrue(geneReport.isCalled());
     assertFalse(geneReport.isOutsideCall());
@@ -36,13 +38,13 @@ class ReporterTest {
     );
 
     // test that messages were applied for a drug
-    DrugReport warfarinReport = reportContext.getDrugReports().stream()
+    DrugReport warfarinReport = reportContext.getDrugReports().get(DataSource.CPIC).values().stream()
         .filter(d -> d.getRelatedDrugs().contains("warfarin")).findFirst()
         .orElseThrow(() -> new RuntimeException("No warfarin drug report found"));
-    assertEquals(4, warfarinReport.getMessages().size());
+    assertEquals(3, warfarinReport.getMessages().size());
 
     // test that recommendations were matched
-    DrugReport desfluraneReport = reportContext.getDrugReports().stream()
+    DrugReport desfluraneReport = reportContext.getDrugReports().get(DataSource.CPIC).values().stream()
         .filter(d -> d.getRelatedDrugs().contains("desflurane")).findFirst()
         .orElseThrow(() -> new RuntimeException("No desflurane drug report found"));
     assertEquals(1, desfluraneReport.getGuidelines().stream().filter(GuidelineReport::isMatched).count());

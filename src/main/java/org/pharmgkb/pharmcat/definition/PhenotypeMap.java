@@ -4,10 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import com.google.common.base.Preconditions;
@@ -30,7 +28,6 @@ public class PhenotypeMap {
   public static final String DPWG_PHENOTYPES_JSON_FILE_NAME = "dpwg_phenotypes.json";
   private static final Path sf_dpwgPhenotypesFile =
       PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/" + DPWG_PHENOTYPES_JSON_FILE_NAME);
-  private final List<GenePhenotype> m_allGenes = new ArrayList<>();
   private final Map<String, GenePhenotype> m_cpicMap = new HashMap<>();
   private final Map<String, GenePhenotype> m_dpwgMap = new HashMap<>();
 
@@ -76,6 +73,14 @@ public class PhenotypeMap {
     }
   }
 
+  public @Nullable String getVersion(String gene, DataSource source) {
+    GenePhenotype gp = lookupPhenotype(gene, source);
+    if (gp != null) {
+      return gp.getVersion();
+    }
+    return null;
+
+  }
 
   public Collection<GenePhenotype> getCpicGenes() {
     return m_cpicMap.values();

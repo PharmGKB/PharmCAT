@@ -9,6 +9,7 @@ import java.util.TreeSet;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.ParseException;
+import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
 
 
 /**
@@ -40,19 +41,19 @@ public class OutsideCall {
   public OutsideCall(String line) throws RuntimeException {
     String[] fields = line.split(sf_lineSeparator);
     if (fields.length < 2) {
-      throw new RuntimeException("Expected at least 2 TSV fields, got " + fields.length);
+      throw new BadOutsideCallException("Expected at least 2 TSV fields, got " + fields.length);
     }
 
     String gene = fields[IDX_GENE];
     String dips = fields[IDX_DIPS];
 
     if (StringUtils.isBlank(gene)) {
-      throw new RuntimeException("No gene specified");
+      throw new BadOutsideCallException("No gene specified");
     }
     m_gene = gene;
 
     if (fields.length == 2 && StringUtils.isBlank(dips)) {
-      throw new RuntimeException("No diplotypes specified");
+      throw new BadOutsideCallException("No diplotypes specified");
     }
     String diplotypes = dips.replaceAll(gene, "");
     m_diplotypes = new ArrayList<>();

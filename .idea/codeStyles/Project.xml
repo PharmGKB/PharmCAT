@@ -22,6 +22,8 @@
     <JavaCodeStyleSettings>
       <option name="FIELD_NAME_PREFIX" value="m_" />
       <option name="STATIC_FIELD_NAME_PREFIX" value="s_" />
+      <option name="USE_EXTERNAL_ANNOTATIONS" value="true" />
+      <option name="REPLACE_INSTANCEOF_AND_CAST" value="true" />
       <option name="CLASS_NAMES_IN_JAVADOC" value="3" />
       <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="12" />
       <option name="PACKAGES_TO_USE_IMPORT_ON_DEMAND">

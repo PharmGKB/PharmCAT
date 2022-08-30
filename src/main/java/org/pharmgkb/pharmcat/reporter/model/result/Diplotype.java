@@ -24,6 +24,7 @@ import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
 import static org.pharmgkb.pharmcat.definition.model.GenePhenotype.NO_RESULT;
+import static org.pharmgkb.pharmcat.reporter.LeastFunctionUtils.useLeastFunction;
 
 
 /**
@@ -72,6 +73,7 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("combination")
   private boolean m_combination = false;
+
 
   /**
    * This Function can be used in reduce() calls
@@ -154,7 +156,7 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   /**
-   * public constructor
+   * Public constructor.
    */
   public Diplotype(String gene, Haplotype h1, Haplotype h2) {
     m_allele1 = h1;
@@ -185,6 +187,10 @@ public class Diplotype implements Comparable<Diplotype> {
    */
   public String getGene() {
     return m_gene;
+  }
+
+  public String getLabel() {
+    return f_label;
   }
 
   /**
@@ -263,7 +269,8 @@ public class Diplotype implements Comparable<Diplotype> {
 
   /**
    * Gets a String representation of this Diplotype that can be used to display in output. This should <em>NOT</em> be
-   * used for matching to annotation groups
+   * used for matching to annotation groups.
+   *
    * @return a String display for this diplotype, without Gene symbol
    */
   public String printDisplay() {
@@ -277,7 +284,7 @@ public class Diplotype implements Comparable<Diplotype> {
 
   /**
    * Gets a String phrase describing the individual haplotype functions, e.g. "Two low function alleles"
-   *
+   * <p>
    * Will print a default N/A String if no functions exist
    */
   public String printFunctionPhrase() {
@@ -333,7 +340,7 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   public String printPhenotypes() {
-    if (m_gene.equals("DPYD")) {
+    if (useLeastFunction(m_gene)) {
       return TextConstants.SEE_DRUG;
     }
     if (m_phenotypes.size() == 0) {
@@ -438,15 +445,17 @@ public class Diplotype implements Comparable<Diplotype> {
       return lookupMap;
     }
 
-    if (m_allele1 != null && m_allele2 != null) {
-      if (m_allele1.equals(m_allele2)) {
-        lookupMap.put(m_allele1.getName(), 2);
+    if (m_allele1 != null) {
+      if (m_allele2 != null) {
+        if (m_allele1.equals(m_allele2)) {
+          lookupMap.put(m_allele1.getName(), 2);
+        } else {
+          lookupMap.put(m_allele1.getName(), 1);
+          lookupMap.put(m_allele2.getName(), 1);
+        }
       } else {
         lookupMap.put(m_allele1.getName(), 1);
-        lookupMap.put(m_allele2.getName(), 1);
       }
-    } else if (m_allele1 != null) {
-      lookupMap.put(m_allele1.getName(), 1);
     }
     return lookupMap;
   }

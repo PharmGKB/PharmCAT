@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
@@ -98,24 +99,25 @@ public class MessageList {
    * @param drugReport a {@link DrugReport} to add message annotations to
    * @param reportContext the report context to pull related information from
    */
-  public void match(DrugReport drugReport, ReportContext reportContext) {
+  public void match(DrugReport drugReport, ReportContext reportContext, DataSource source) {
     List<MessageAnnotation> matchedMessages = f_messages.stream()
-        .filter(m -> match(m, drugReport, reportContext))
+        .filter(m -> match(m, drugReport, reportContext, source))
         .collect(Collectors.toList());
     drugReport.addMessages(matchedMessages);
   }
 
   /**
    * See if the supplied {@link MessageAnnotation} applies to the given {@link DrugReport}.
-   *
+   * <p>
    * <strong>NOTE:</strong> This method assumes that {@link MessageAnnotation} objects have already been assigned to
    * {@link GeneReport} objects.
+   *
    * @param message a message annotation to test for a match
    * @param report a drug report to possibly add the message annotation to
    * @param reportContext the report context to look up related gene information
    * @return true if the message is a match, false otherwise
    */
-  private boolean match(MessageAnnotation message, DrugReport report, ReportContext reportContext) {
+  private boolean match(MessageAnnotation message, DrugReport report, ReportContext reportContext, DataSource source) {
     MatchLogic match = message.getMatches();
 
     // if there's no drug specified don't continue
@@ -126,12 +128,11 @@ public class MessageList {
       return false;
     }
     // at this point we know the drug is a match, now check the other criteria
+    if (StringUtils.isBlank(match.getGene())) {
+      return true;
+    }
 
-    if (StringUtils.isBlank(match.getGene())) return true;
-
-    GeneReport geneReport = reportContext.findGeneReport(match.getGene())
-        .orElseThrow(() -> new RuntimeException("Unexpected missing gene report for [" + match.getGene() + "]"));
-
+    GeneReport geneReport = reportContext.getGeneReport(source, match.getGene());
     return geneReport.getMessages().stream()
         .map(MessageAnnotation::getName)
         .anyMatch((n) -> n.equals(message.getName()));

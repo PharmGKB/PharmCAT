@@ -27,6 +27,7 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.format.HtmlFormat;
 import org.pharmgkb.pharmcat.reporter.format.JsonFormat;
 import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.util.CliUtils;
@@ -67,6 +68,8 @@ public class PharmCAT {
   private final boolean m_runReporter;
   private Path m_reporterInputFile;
   private String m_reporterTitle;
+  private boolean m_reporterCompact;
+  private List<DataSource> m_reporterSources;
   private Path m_reporterJsonFile;
   private Path m_reporterHtmlFile;
   private ReportContext m_reportContext;
@@ -97,6 +100,8 @@ public class PharmCAT {
           .addOption("reporter", "reporter", "run reporter")
           .addOption("ri", "reporter-input", "JSON results from phenotyper", false, "file")
           .addOption("rt", "reporter-title", "optional, text to add to the report title", false, "title")
+          .addOption("rs", "reporter-sources", "comma-separated list of sources to limit report to", false, "sources")
+          .addOption("rc", "reporter-compact", "output compact report")
           .addOption("reporterJson", "reporter-save-json", "save reporter results as JSON")
 
           // outputs
@@ -175,7 +180,8 @@ public class PharmCAT {
       PharmCAT pharmcat = new PharmCAT(config.runMatcher, vcfFile, config.definitionReader,
           config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
           config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
-          config.runReporter, reporterInputFile, config.reporterTitle, config.reporterJson,
+          config.runReporter, reporterInputFile, config.reporterTitle,
+          config.reporterSources, config.reporterCompact, config.reporterJson,
           config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Mode.CLI);
 
       if (!pharmcat.execute()) {
@@ -188,7 +194,7 @@ public class PharmCAT {
         System.out.println("Took " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms");
       }
 
-    } catch (CliHelper.InvalidPathException ex) {
+    } catch (CliHelper.InvalidPathException | ReportableException ex) {
       System.out.println(ex.getMessage());
     } catch (Exception e) {
       e.printStackTrace();
@@ -199,14 +205,15 @@ public class PharmCAT {
   public PharmCAT(Path vcfFile) throws IOException {
     this(true, vcfFile, null, true, false, false, false,
         true, null, null,
-        true, null, null, false,
+        true, null, null, null, false, false,
         null, null, true, Mode.CLI);
   }
 
   public PharmCAT(boolean runMatcher, Path vcfFile, @Nullable DefinitionReader definitionReader,
       boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
-      boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle, boolean reporterJson,
+      boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
+      @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson,
       @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles, Mode mode)
       throws IOException {
     m_runMatcher = runMatcher;
@@ -258,6 +265,8 @@ public class PharmCAT {
         m_reporterJsonFile = getOutputFile(inputFile, outputDir, baseFilename, ".report.json");
       }
       m_reporterTitle = reporterTitle;
+      m_reporterSources = reporterSources;
+      m_reporterCompact = reporterCompact;
     }
     m_deleteIntermediateFiles = deleteIntermediateFiles;
     m_mode = mode;
@@ -321,9 +330,11 @@ public class PharmCAT {
 
     if (m_runReporter) {
       Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
-      m_reportContext = new ReportContext(Phenotyper.readGeneReports(inputFile), m_reporterTitle);
+
+      Phenotyper phenotyper = Phenotyper.read(inputFile);
+      m_reportContext = new ReportContext(phenotyper.getGeneReports(), m_reporterTitle);
       if (matcherResult != null && matcherResult.getMetadata().isCallCyp2d6()) {
-        m_reportContext.addMessage(MessageAnnotation.newMessage(MessageAnnotation.TYPE_CYP2D6_MODE));
+        m_reportContext.addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_CYP2D6_MODE));
       }
       if (m_mode == Mode.CLI) {
         if (!m_deleteIntermediateFiles) {
@@ -334,6 +345,8 @@ public class PharmCAT {
         }
       }
       new HtmlFormat(m_reporterHtmlFile, m_mode == Mode.TEST)
+          .sources(m_reporterSources)
+          .compact(m_reporterCompact)
           .write(m_reportContext);
       if (m_reporterJsonFile != null) {
         new JsonFormat(m_reporterJsonFile)
@@ -401,6 +414,8 @@ public class PharmCAT {
     boolean runPhenotyper = true;
     boolean runReporter = true;
     String reporterTitle;
+    boolean reporterCompact;
+    List<DataSource> reporterSources;
     boolean reporterJson;
     Path outputDir;
     String baseFilename;
@@ -452,7 +467,18 @@ public class PharmCAT {
 
       if (runReporter) {
         reporterTitle = cliHelper.getValue("rt");
+        reporterCompact = cliHelper.hasOption("rc");
         reporterJson = cliHelper.hasOption("reporterJson");
+        if (cliHelper.hasOption("rs")) {
+          reporterSources = new ArrayList<>();
+          for (String src : sf_commaSplitter.splitToList(Objects.requireNonNull(cliHelper.getValue("rs")))) {
+            try {
+              reporterSources.add(DataSource.valueOf(src.toUpperCase()));
+            } catch (IllegalArgumentException ex) {
+              throw new ReportableException("Unknown source: " + src);
+            }
+          }
+        }
       }
 
       outputDir = null;

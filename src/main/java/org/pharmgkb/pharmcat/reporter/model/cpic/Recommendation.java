@@ -1,12 +1,10 @@
 package org.pharmgkb.pharmcat.reporter.model.cpic;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Predicate;
 import com.google.gson.annotations.Expose;
@@ -159,6 +157,9 @@ public class Recommendation {
    * @return true if a match
    */
   public boolean matchesGenotype(Genotype genotype) {
+    if (m_lookupKey == null) {
+      return false;
+    }
     return genotype.toLookupKeys().stream()
         .anyMatch(matchesLookupKey);
   }

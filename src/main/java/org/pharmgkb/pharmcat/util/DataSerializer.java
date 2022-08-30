@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
@@ -123,10 +123,25 @@ public class DataSerializer {
     Preconditions.checkArgument(tsvFile.toString().endsWith(".tsv"), "Invalid format: %s does not end with .tsv", tsvFile);
     Preconditions.checkArgument(Files.isRegularFile(tsvFile), "%s is not a file", tsvFile);
 
-    try (Stream<String> lines = Files.lines(tsvFile)) {
-      return lines.skip(1) // skip the header
-          .map(MessageAnnotation::new)
-          .collect(Collectors.toList());
+    List<MessageAnnotation> messageAnnotations = new ArrayList<>();
+    try (BufferedReader reader = Files.newBufferedReader(tsvFile)) {
+      // skip the header
+      reader.readLine();
+      String line;
+      int x = 1;
+      Set<String> names = new HashSet<>();
+      while ((line = reader.readLine()) != null) {
+        x += 1;
+        if (StringUtils.isBlank(line)) {
+          continue;
+        }
+        MessageAnnotation ma = new MessageAnnotation(line);
+        if (ma.getName() == null) {
+          throw new IllegalStateException("Row " + x + ": Missing name");
+        }
+        messageAnnotations.add(ma);
+      }
     }
+    return messageAnnotations;
   }
 }

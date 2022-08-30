@@ -11,6 +11,7 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
@@ -28,16 +29,17 @@ public class GenePhenotype {
   private String m_gene;
   @SerializedName("haplotypes")
   @Expose
-  private Map<String,String> m_haplotypes;
+  private Map<String, String> m_haplotypes;
   @SerializedName("activityValues")
   @Expose
   private Map<String,String> m_activityValues = new HashMap<>();
   @SerializedName("diplotypes")
   @Expose
   private List<DiplotypeRecord> m_diplotypes;
-  @SerializedName("drugId")
+  @SerializedName("version")
   @Expose
-  private String m_drugId;
+  private String m_version;
+
 
   /**
    * The HGNC gene symbol
@@ -82,10 +84,6 @@ public class GenePhenotype {
         .orElse(TextConstants.NA));
   }
 
-  public void assignActivity(Diplotype diplotype) {
-
-  }
-
 
   @Nullable
   public String lookupHaplotype(@Nullable String hap) {
@@ -122,14 +120,6 @@ public class GenePhenotype {
 
   public void setDiplotypes(List<DiplotypeRecord> diplotypes) {
     m_diplotypes = diplotypes;
-  }
-
-  public String getDrugId() {
-    return m_drugId;
-  }
-
-  public void setDrugId(String drugId) {
-    m_drugId = drugId;
   }
 
   /**
@@ -181,6 +171,19 @@ public class GenePhenotype {
       return keys.iterator().next();
     }
   }
+
+
+  /**
+   * Gets the version of the {@link DataSource} the phenotype mapping is from.
+   */
+  public String getVersion() {
+    return m_version;
+  }
+
+  public void setVersion(String version) {
+    m_version = version;
+  }
+
 
   public String toString() {
     return m_gene;
