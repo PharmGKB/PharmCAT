@@ -23,6 +23,7 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -308,7 +309,14 @@ public class NamedAlleleMatcher {
     if (comboData == null) {
       comboData = initializeCallData(alleleMap, gene, false, true);
     }
-    resultBuilder.gene(gene, refData, comboData.comparePermutations());
+    SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
+    if (hapMatches.size() > 2) {
+      // cannot have reference if there is more than 1 variant
+      hapMatches = hapMatches.stream()
+          .filter(m -> !m.getName().equals("Reference"))
+          .collect(Collectors.toCollection(TreeSet::new));
+    }
+    resultBuilder.gene(gene, refData, hapMatches);
   }
 
   /**
