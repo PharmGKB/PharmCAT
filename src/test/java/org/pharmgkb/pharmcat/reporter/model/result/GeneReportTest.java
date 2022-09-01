@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.ReferenceAlleleMap;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,7 +30,8 @@ class GeneReportTest {
   void testOutsideGene() {
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
         GENE_SYMBOL2,
-        sf_phenotypeMap.lookup(GENE_SYMBOL2).orElse(null),
+        sf_phenotypeMap.lookupPhenotype(GENE_SYMBOL2, DataSource.CPIC),
+        null,
         sf_referenceAlleleMap.get(GENE_SYMBOL2));
 
     OutsideCall outsideCall = new OutsideCall(OUTSIDE_CALL_DATA2);
@@ -55,7 +57,8 @@ class GeneReportTest {
   void testOutsideCyp2c19() {
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
         GENE_SYMBOL3,
-        sf_phenotypeMap.lookup(GENE_SYMBOL3).orElse(null),
+        sf_phenotypeMap.lookupPhenotype(GENE_SYMBOL3, DataSource.CPIC),
+        null,
         sf_referenceAlleleMap.get(GENE_SYMBOL3));
 
     OutsideCall outsideCall = new OutsideCall(OUTSIDE_CALL_DATA3);
@@ -74,7 +77,8 @@ class GeneReportTest {
   void testNoFunctionCyp2D6() {
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
         "CYP2D6",
-        sf_phenotypeMap.lookup("CYP2D6").orElse(null),
+        sf_phenotypeMap.lookupPhenotype("CYP2D6", DataSource.CPIC),
+        null,
         sf_referenceAlleleMap.get("CYP2D6"));
 
     OutsideCall outsideCall = new OutsideCall("CYP2D6\t*1/*XXX");

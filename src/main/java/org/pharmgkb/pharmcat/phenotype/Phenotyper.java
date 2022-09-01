@@ -29,6 +29,7 @@ import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
@@ -67,7 +68,8 @@ public class Phenotyper {
       GeneReport geneReport = new GeneReport(geneCall);
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
           geneReport.getGene(),
-          phenotypeMap.lookup(geneReport.getGene()).orElse(null),
+          phenotypeMap.lookupPhenotype(geneReport.getGene(), DataSource.CPIC),
+          phenotypeMap.lookupPhenotype(geneReport.getGene(), DataSource.DPWG),
           referenceAlleleMap.get(geneReport.getGene()));
       geneReport.setDiplotypes(diplotypeFactory, geneCall);
 
@@ -103,7 +105,8 @@ public class Phenotyper {
 
       DiplotypeFactory diplotypeFactory = new DiplotypeFactory(
           geneReport.getGene(),
-          phenotypeMap.lookup(geneReport.getGene()).orElse(null),
+          phenotypeMap.lookupPhenotype(geneReport.getGene(), DataSource.CPIC),
+          phenotypeMap.lookupPhenotype(geneReport.getGene(), DataSource.DPWG),
           referenceAlleleMap.get(geneReport.getGene()));
       geneReport.setDiplotypes(diplotypeFactory, outsideCall);
 
@@ -113,7 +116,10 @@ public class Phenotyper {
     Set<String> unspecifiedGenes = listUnspecifiedGenes();
     for (String geneSymbol : unspecifiedGenes) {
       GeneReport geneReport = new GeneReport(geneSymbol);
-      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(geneSymbol, phenotypeMap.lookup(geneSymbol).orElse(null), null);
+      DiplotypeFactory diplotypeFactory = new DiplotypeFactory(geneSymbol,
+          phenotypeMap.lookupPhenotype(geneSymbol, DataSource.CPIC),
+          phenotypeMap.lookupPhenotype(geneSymbol, DataSource.DPWG),
+          null);
       geneReport.setUnknownDiplotype(diplotypeFactory);
       f_geneReports.add(geneReport);
     }

@@ -60,7 +60,8 @@ public class GeneDrugSummary {
     }
   }
 
-  public void write(Path documentationDir, Map<String,Integer> geneAlleleCount, DrugCollection drugs, PhenotypeMap phenotypeMap) throws IOException {
+  public void write(Path documentationDir, Map<String,Integer> geneAlleleCount, DrugCollection drugs,
+      PhenotypeMap phenotypeMap) throws IOException {
     PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection();
     Multimap<String, DataSource> geneToUsageMap = makeGeneToUsageMap(drugs, pgkbGuidelineCollection);
     try (
@@ -81,10 +82,9 @@ public class GeneDrugSummary {
             .collect(Collectors.joining("\n"));
 
         String outsideGeneList = PREFER_OUTSIDE_CALL.stream()
-            .map(g ->
-              phenotypeMap.lookup(g).map((genePhenotype) -> "- " + genePhenotype.getGene() + " (" + genePhenotype.getHaplotypes().size() + " alleles)" + makeUsageSuffix(geneToUsageMap.get(g)))
-                  .orElse("- " + g + makeUsageSuffix(geneToUsageMap.get(g))
-              )
+            .map(g -> phenotypeMap.lookupCpic(g)
+                .map((genePhenotype) -> "- " + genePhenotype.getGene() + " (" + genePhenotype.getHaplotypes().size() + " alleles)" + makeUsageSuffix(geneToUsageMap.get(g)))
+                .orElse("- " + g + makeUsageSuffix(geneToUsageMap.get(g)))
             )
             .collect(Collectors.joining("\n"));
 

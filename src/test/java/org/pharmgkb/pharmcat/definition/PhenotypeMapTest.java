@@ -28,9 +28,9 @@ class PhenotypeMapTest {
 
     assertEquals(
         "No function",
-        phenotypeMap.lookup("CYP2C9").orElseThrow(Exception::new).getHaplotypes().get("*6"));
+        phenotypeMap.lookupCpic("CYP2C9").orElseThrow(Exception::new).getHaplotypes().get("*6"));
 
-    GenePhenotype genePhenotype = phenotypeMap.lookup("DPYD").orElseThrow(Exception::new);
+    GenePhenotype genePhenotype = phenotypeMap.lookupCpic("DPYD").orElseThrow(Exception::new);
     assertNotNull(genePhenotype);
     assertEquals("Normal function", genePhenotype.lookupHaplotype("Reference"));
   }
@@ -44,7 +44,7 @@ class PhenotypeMapTest {
         new Haplotype("CYP2C19", "*1")
     );
 
-    GenePhenotype genePhenotype = phenotypeMap.lookup("CYP2C9")
+    GenePhenotype genePhenotype = phenotypeMap.lookupCpic("CYP2C9")
         .orElseThrow(() -> new RuntimeException("No CYP2C9 phenotype map found"));
     assertNotNull(genePhenotype.getDiplotypes());
     assertEquals("2", genePhenotype.getLookupKeyForDiplotype(diplotype));
@@ -54,7 +54,7 @@ class PhenotypeMapTest {
   void testLookupDpyd() {
     PhenotypeMap phenotypeMap = new PhenotypeMap();
 
-    GenePhenotype genePhenotype = phenotypeMap.lookup("DPYD")
+    GenePhenotype genePhenotype = phenotypeMap.lookupCpic("DPYD")
         .orElseThrow(() -> new RuntimeException("No DPYD phenotype map found"));
     assertNotNull(genePhenotype.getDiplotypes());
 

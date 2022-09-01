@@ -10,13 +10,11 @@ import java.nio.file.StandardCopyOption;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.zip.ZipFile;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
 import org.pharmgkb.common.util.CliHelper;
@@ -45,12 +43,10 @@ public class DataManager {
   private static final Path DEFAULT_GUIDELINES_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines");
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   private static final String MESSAGES_JSON_FILE_NAME = "messages.json";
-  private static final String PHENOTYPES_JSON_FILE_NAME = "gene_phenotypes.json";
   private static final String PGKB_GUIDELINE_ZIP_FILE_NAME = "guidelineAnnotations.extended.json.zip";
   private static final String POSITIONS_VCF = "pharmcat_positions.vcf";
   private static final String DPWG_ALLELES_FILE_NAME = "dpwg_allele_translations.json";
   private static final String CPIC_ALLELES_FILE_NAME = "allele_definitions.json";
-  private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "G6PD", "HLA-A", "HLA-B", "MT-RNR1");
   private static final Splitter sf_semicolonSplitter = Splitter.on(";").trimResults().omitEmptyStrings();
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
   private final DataSerializer m_dataSerializer = new DataSerializer();
@@ -146,7 +142,9 @@ public class DataManager {
         PhenotypeMap phenotypeMap;
         if (cliHelper.hasOption("p")) {
           Path phenoDir = cliHelper.getValidDirectory("p", true);
-          phenotypeMap = new PhenotypeMap(manager.writePhenotypes(downloadDir, phenoDir));
+          manager.writeCpicPhenotypes(downloadDir, phenoDir);
+          // TODO(markwoon): this will break because if it's a non-default location because there is no DPWG definition
+          phenotypeMap = new PhenotypeMap(phenoDir);
         } else {
           phenotypeMap = new PhenotypeMap();
         }
@@ -180,7 +178,7 @@ public class DataManager {
 
     FileUtils.copyURLToFile(
         new URL("https://files.cpicpgx.org/data/report/current/gene_phenotypes.json"),
-        downloadDir.resolve(PHENOTYPES_JSON_FILE_NAME).toFile());
+        downloadDir.resolve(PhenotypeMap.CPIC_PHENOTYPES_JSON_FILE_NAME).toFile());
 
     FileUtils.copyURLToFile(
         new URL("https://s3.pgkb.org/data/guidelineAnnotations.extended.json.zip"),
@@ -595,10 +593,10 @@ public class DataManager {
     }
   }
 
-  private Path writePhenotypes(Path downloadDir, Path outputDir) throws IOException {
-    Path outputPath = outputDir.resolve(PHENOTYPES_JSON_FILE_NAME);
+  private Path writeCpicPhenotypes(Path downloadDir, Path outputDir) throws IOException {
+    Path outputPath = outputDir.resolve(PhenotypeMap.CPIC_PHENOTYPES_JSON_FILE_NAME);
     FileUtils.copyFile(
-        downloadDir.resolve(PHENOTYPES_JSON_FILE_NAME).toFile(),
+        downloadDir.resolve(PhenotypeMap.CPIC_PHENOTYPES_JSON_FILE_NAME).toFile(),
         outputPath.toFile()
     );
     System.out.println("Saving phenotypes to " + outputPath);
