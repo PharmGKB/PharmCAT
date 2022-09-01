@@ -145,7 +145,7 @@ public class GenePhenotype {
 
     Set<String> phenos = getDiplotypes().stream()
         .filter(d -> d.getDiplotypeKey().equals(diplotype.makeLookupMap()))
-        .map(DiplotypeRecord::getGeneresult)
+        .map(DiplotypeRecord::getGeneResult)
         .collect(Collectors.toSet());
     if (phenos.size()>1) {
       throw new IllegalStateException("More than one phenotype match made for " + getGene() + " " + diplotype + ": " + String.join("; ", phenos));
