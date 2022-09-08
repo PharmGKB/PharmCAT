@@ -23,6 +23,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.concurrent.TimeUnit;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -36,6 +37,7 @@ import org.apache.http.util.EntityUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.common.util.Throttler;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -56,6 +58,7 @@ public class VcfHelper implements AutoCloseable {
       .setPrettyPrinting()
       .create();
 
+  private final Throttler m_throttler = new Throttler(500, TimeUnit.MILLISECONDS);
   private final CloseableHttpClient m_httpclient;
   private Map<String, Map<String, Object>> m_queryCache;
   private boolean m_queryCacheUpdated;
@@ -135,7 +138,7 @@ public class VcfHelper implements AutoCloseable {
     if (m_queryCache.containsKey(url)) {
       return m_queryCache.get(url);
     }
-
+    m_throttler.next();
     HttpGet httpGet = new HttpGet(url);
     httpGet.setHeader(HttpHeaders.ACCEPT, "application/json");
     try (CloseableHttpResponse response = m_httpclient.execute(httpGet)) {

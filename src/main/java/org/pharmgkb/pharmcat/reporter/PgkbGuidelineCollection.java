@@ -24,6 +24,8 @@ import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 
 
 public class PgkbGuidelineCollection {
+  public static final Path GUIDELINES_DIR =
+      PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines");
   public static final Predicate<GuidelinePackage> ONLY_EXTENDED_GUIDELINES = guidelinePackage -> {
     DosingGuideline guideline = guidelinePackage.getGuideline();
     return guideline.getSource().equals(DataSource.DPWG.name())
@@ -31,15 +33,17 @@ public class PgkbGuidelineCollection {
         && guidelinePackage.getGroups().size() > 0;
   };
 
-  private static final String GUIDELINES_DIR = "org/pharmgkb/pharmcat/reporter/guidelines";
 
   private final List<GuidelinePackage> f_guidelinePackages = new ArrayList<>();
   private final Multimap<String,GuidelinePackage> f_guidelineMap = TreeMultimap.create();
 
   public PgkbGuidelineCollection() throws IOException {
-    Path guidelinesDir = PathUtils.getPathToResource(GUIDELINES_DIR);
+    this(GUIDELINES_DIR);
+  }
+
+  public PgkbGuidelineCollection(Path dir) throws IOException {
     List<Path> annotationFiles = new ArrayList<>();
-    try (Stream<Path> stream = Files.list(guidelinesDir)) { {
+    try (Stream<Path> stream = Files.list(dir)) { {
         stream.filter(f -> f.getFileName().toString().endsWith(".json"))
             .forEach(annotationFiles::add);
     }}

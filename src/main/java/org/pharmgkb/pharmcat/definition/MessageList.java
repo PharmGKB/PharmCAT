@@ -24,7 +24,8 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
  * Wrapper class that will load message data and then help match the messages to applicable models
  */
 public class MessageList {
-  private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/definition/messages.json";
+  public static final String MESSAGES_JSON_FILE_NAME = "messages.json";
+  private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/definition/" + MESSAGES_JSON_FILE_NAME;
   private final List<MessageAnnotation> f_messages;
 
   /**
