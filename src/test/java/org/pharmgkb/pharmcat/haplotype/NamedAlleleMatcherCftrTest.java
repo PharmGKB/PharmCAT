@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.util.DataManager;
 
@@ -19,18 +20,18 @@ class NamedAlleleMatcherCftrTest {
 
 
   @Test
-  void cftrReferenceReference() throws Exception {
+  void reference_Reference(TestInfo testInfo) throws Exception {
     assertDiplotypePairs("ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence",
-        testMatchNamedAlleles(sf_definitionFile, new TestVcfBuilder("ref/ref")
+        testMatchNamedAlleles(sf_definitionFile, new TestVcfBuilder(testInfo, "ref/ref")
             .reference("CFTR")
             .generate()));
   }
 
 
   @Test
-  void G1244Eref() throws Exception {
+  void G1244E_reference(TestInfo testInfo) throws Exception {
     assertDiplotypePairs("G1244E/ivacaftor non-responsive CFTR sequence",
-        testMatchNamedAlleles(sf_definitionFile, new TestVcfBuilder("G1244E/ref")
+        testMatchNamedAlleles(sf_definitionFile, new TestVcfBuilder(testInfo, "G1244E/ref")
             .variation("CFTR", "rs267606723", "G", "A")
             .generate()));
   }

@@ -41,7 +41,7 @@ class ReporterTest {
     DrugReport warfarinReport = reportContext.getDrugReports().get(DataSource.CPIC).values().stream()
         .filter(d -> d.getRelatedDrugs().contains("warfarin")).findFirst()
         .orElseThrow(() -> new RuntimeException("No warfarin drug report found"));
-    assertEquals(3, warfarinReport.getMessages().size());
+    assertEquals(2, warfarinReport.getMessages().size());
 
     // test that recommendations were matched
     DrugReport desfluraneReport = reportContext.getDrugReports().get(DataSource.CPIC).values().stream()

@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.reporter;
+package org.pharmgkb.pharmcat;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,20 +7,24 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.junit.platform.launcher.Launcher;
+import org.junit.platform.launcher.LauncherDiscoveryRequest;
+import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
+import org.junit.platform.launcher.core.LauncherFactory;
+import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.PharmCAT;
-import org.pharmgkb.pharmcat.TestUtils;
-import org.pharmgkb.pharmcat.VcfTestUtils;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
 
 
 /**
  * This test generates a collection of synthetic sample VCF files from our test resources and then runs the matcher and
  * reporter on those samples, writing the output to a desired directory.
- *
+ * <p>
  * This is especially useful to see how different allele calls will be called and displayed in the final output report.
  *
  * @author Ryan Whaley
@@ -32,19 +36,35 @@ class SyntheticBatchTest {
   private static final Path sf_outsideCYP2D6G6PDFile
       = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/outside_CYP2D6_G6PD.tsv");
 
-  private final Path f_outputDir;
-
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        .addOption("o", "output-dir", "directory to output to", false, "o");
+        .addOption("o", "output-dir", "directory to output to", false, "o")
+        .addOption("a", "all-tests", "run all tests for Katrin")
+        ;
+
     try {
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
-      Path outputDir = cliHelper.hasOption("o") ? cliHelper.getValidDirectory("o", true)
-          : TestUtils.TEST_OUTPUT_DIR;
-      SyntheticBatchTest piplelineTest = new SyntheticBatchTest(outputDir);
+      if (cliHelper.hasOption("o")) {
+        TestUtils.setTestOutputDir(cliHelper.getValidDirectory("o", true));
+      }
+      TestUtils.setSaveTestOutput(true);
+
+      SyntheticBatchTest piplelineTest = new SyntheticBatchTest();
       piplelineTest.execute();
+
+      if (cliHelper.hasOption("a")) {
+        SummaryGeneratingListener listener = new SummaryGeneratingListener();
+        LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
+            .selectors(selectClass(PharmCATTest.class))
+            .build();
+        Launcher launcher = LauncherFactory.create();
+        launcher.discover(request);
+        launcher.registerTestExecutionListeners(listener);
+        launcher.execute(request);
+      }
+
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -447,26 +467,27 @@ class SyntheticBatchTest {
   }
 
 
-  private SyntheticBatchTest(Path outputDir) throws IOException {
-    f_outputDir = outputDir;
+  private final Path f_outputDir;
+  private SyntheticBatchTest() throws IOException {
+    f_outputDir = TestUtils.getTestOutputDir(getClass(), true);
 
     String readmeContent = String.format(
         "# PharmCAT Example Reports\n\nGenerated on: %s  \nPharmCAT Version: %s",
         new SimpleDateFormat("MMMMM dd, yyyy").format(new Date()),
         CliUtils.getVersion()
     );
-    Files.writeString(outputDir.resolve("README.md"), readmeContent);
+    Files.writeString(f_outputDir.resolve("README.md"), readmeContent);
   }
 
   private void makeReport(String key, String[] testVcfs, Path outsideCallPath) throws Exception {
-    Path sampleDir = f_outputDir.resolve(key);
-    if (!sampleDir.toFile().exists()) {
-      if (!sampleDir.toFile().mkdirs()) {
-        throw new RuntimeException("Output directory could not be created " + sampleDir.toAbsolutePath());
+    Path testDir = f_outputDir.resolve(key);
+    if (!Files.exists(testDir)) {
+      if (!testDir.toFile().mkdirs()) {
+        throw new RuntimeException("Output directory could not be created " + testDir.toAbsolutePath());
       }
     }
 
-    Path sampleVcf = writeVcf(sampleDir.resolve(key + ".vcf"), testVcfs);
+    Path sampleVcf = writeVcf(testDir.resolve(key + ".vcf"), testVcfs);
     new PharmCAT(true, sampleVcf, null, true, false, false, true,
         true, null, outsideCallPath,
         true, null, null, null, false, false,
@@ -475,7 +496,14 @@ class SyntheticBatchTest {
   }
 
   private void makeReportWithOutputString(String key, String[] testVcfs, String outsideCalls) throws Exception {
-    Path outsideCallPath = TestUtils.createTempFile("outsideCall", ".tsv");
+    Path testDir = f_outputDir.resolve(key);
+    if (!Files.exists(testDir)) {
+      if (!testDir.toFile().mkdirs()) {
+        throw new RuntimeException("Output directory could not be created " + testDir.toAbsolutePath());
+      }
+    }
+
+    Path outsideCallPath = f_outputDir.resolve("outsideCall.tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write(outsideCalls);
     }

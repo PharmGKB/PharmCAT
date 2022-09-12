@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedSet;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
@@ -26,53 +27,53 @@ class NamedAlleleMatcherCyp2c9Test {
 
 
   @Test
-  void cyp2c9s1s1() throws Exception {
+  void s1_s1(TestInfo testInfo) throws Exception {
     assertDiplotypePairs("*1/*1", testMatchNamedAlleles(sf_definitionFile,
-        new TestVcfBuilder("*1/*1")
+        new TestVcfBuilder(testInfo, "*1/*1")
             .reference("CYP2C9")
             .generate()));
   }
 
   @Test
-  void cyp2c9s2s3() throws Exception {
+  void s2_s3(TestInfo testInfo) throws Exception {
     assertDiplotypePairs("*2/*3", testMatchNamedAlleles(sf_definitionFile,
-        new TestVcfBuilder("*2/*3")
+        new TestVcfBuilder(testInfo, "*2/*3")
             .variation("CYP2C9", "rs1799853", "C", "T")
             .variation("CYP2C9", "rs1057910", "A", "C")
             .generate()));
   }
 
   @Test
-  void cyp2c9s2s24() throws Exception {
+  void s2_s24(TestInfo testInfo) throws Exception {
     assertDiplotypePairs("*2/*24", testMatchNamedAlleles(sf_definitionFile,
-        new TestVcfBuilder("*2/*24")
+        new TestVcfBuilder(testInfo, "*2/*24")
             .variation("CYP2C9", "rs1799853", "C", "T")
             .variation("CYP2C9", "rs749060448", "A", "G")
             .generate()));
   }
 
   @Test
-  void cyp2c9s2s24Only() throws Exception {
+  void s2_s24Only(TestInfo testInfo) throws Exception {
     // no expected match
     assertDiplotypePairs(new ArrayList<>(), testMatchNamedAlleles(sf_definitionFile,
-        new TestVcfBuilder("*2/*24 only")
+        new TestVcfBuilder(testInfo, "*2/*24 only")
         .variation("CYP2C9", "rs1799853", "C", "T")
         .variation("CYP2C9", "rs749060448", "A", "A")
         .generate()));
   }
 
   @Test
-  void cyp2c9s24s24() throws Exception {
+  void s24_s24(TestInfo testInfo) throws Exception {
     assertDiplotypePairs("*24/*24", testMatchNamedAlleles(sf_definitionFile,
-        new TestVcfBuilder("*24/*24")
+        new TestVcfBuilder(testInfo, "*24/*24")
             .variation("CYP2C9", "rs749060448", "A", "A")
             .generate()));
   }
 
   @Test
-  void cyp2c9s2s25() throws Exception {
+  void s2_s25(TestInfo testInfo) throws Exception {
     assertDiplotypePairs("*2/*25", testMatchNamedAlleles(sf_definitionFile,
-        new TestVcfBuilder("*2/*25")
+        new TestVcfBuilder(testInfo, "*2/*25")
             .variation("CYP2C9", "rs1799853", "C", "T")
             .variation("CYP2C9", "rs1304490498", "AGAAATGGAA", "delAGAAATGGAA")
             .generate()));
@@ -81,12 +82,12 @@ class NamedAlleleMatcherCyp2c9Test {
   /**
    * This tests what happens when a homozygous allele is mixed with a heterozygous allele. It should result in a
    * non-call since the matcher cannot match to a single definition.
-   *
+   * <p>
    * This also asserts that no missing or mismatched data exists to ensure the mismatch is not due to invalid input.
    */
   @Test
-  void cyp2c9s24s2s24() throws Exception {
-    Path vcfFile = new TestVcfBuilder("*24/*2+*24")
+  void s24_s2s24(TestInfo testInfo) throws Exception {
+    Path vcfFile = new TestVcfBuilder(testInfo, "*24/*2+*24")
         .variation("CYP2C9", "rs1799853", "C", "T")
         .variation("CYP2C9", "rs749060448", "A", "A")
         .generate();
@@ -105,8 +106,8 @@ class NamedAlleleMatcherCyp2c9Test {
 
 
   @Test
-  void testExtraPosition() throws Exception {
-    Path vcfFile = new TestVcfBuilder("*1/*1")
+  void extraPosition(TestInfo testInfo) throws Exception {
+    Path vcfFile = new TestVcfBuilder(testInfo, "*1/*1")
         .reference("CYP2C9")
         .extraPosition("CYP2C9", "rs12777823", "G", "A")
         .generate();

@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -27,13 +28,20 @@ import org.pharmgkb.pharmcat.util.VcfHelper;
 public class TestVcfBuilder {
   private final Map<String, Map<String, VcfEdit>> m_edits = new HashMap<>();
   private final Map<String, Map<String, VcfEdit>> m_extraPositions = new HashMap<>();
+  private final TestInfo m_testInfo;
   private final String m_name;
   private final List<Path> m_definitionFiles = new ArrayList<>();
   private boolean m_isPhased;
   private boolean m_deleteOnExit = true;
 
 
-  public TestVcfBuilder(String name) {
+  public TestVcfBuilder(TestInfo testInfo) {
+    m_testInfo = testInfo;
+    m_name = TestUtils.getTestName(testInfo);
+  }
+
+  public TestVcfBuilder(TestInfo testInfo, String name) {
+    m_testInfo = testInfo;
     m_name = name;
   }
 
@@ -112,10 +120,6 @@ public class TestVcfBuilder {
 
 
   public Path generate() throws IOException {
-    return generate(TestUtils.createTempDirectory("pharmcat"));
-  }
-
-  public Path generate(Path dir) throws IOException {
     DefinitionReader definitionReader = new DefinitionReader();
     if (m_definitionFiles.size() > 0) {
       for (Path file : m_definitionFiles) {
@@ -129,6 +133,8 @@ public class TestVcfBuilder {
     String filename = m_name.replaceAll("\\*", "s")
         .replaceAll("/", "-")
         .replaceAll("[^a-zA-Z0-9_\\-]", "_") + ".vcf";
+
+    Path dir = TestUtils.getTestOutputDir(m_testInfo, false);
     Path file = dir.resolve(filename);
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(file))) {
       VcfHelper.printVcfHeaders(writer, "PharmCAT test (" + m_name + ")",

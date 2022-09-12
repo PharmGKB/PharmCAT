@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.util.DataManager;
 
@@ -19,8 +20,8 @@ class NamedAlleleMatcherCyp4f2Test {
 
 
   @Test
-  void s2_s3() throws Exception {
-    Path vcfFile = new TestVcfBuilder("*2/*3")
+  void s2_s3(TestInfo testInfo) throws Exception {
+    Path vcfFile = new TestVcfBuilder(testInfo, "*2/*3")
         .saveFile()
         .variation("CYP4F2", "rs3093105", "C", "A")
         .variation("CYP4F2", "rs2108622", "C", "T")
@@ -29,8 +30,8 @@ class NamedAlleleMatcherCyp4f2Test {
   }
 
   @Test
-  void s2_s2s3() throws Exception {
-    Path vcfFile = new TestVcfBuilder("*2/*2+*3")
+  void s2_s2s3(TestInfo testInfo) throws Exception {
+    Path vcfFile = new TestVcfBuilder(testInfo, "*2/*2+*3")
         .saveFile()
         .variation("CYP4F2", "rs3093105", "C", "C")
         .variation("CYP4F2", "rs2108622", "C", "T")
@@ -39,8 +40,8 @@ class NamedAlleleMatcherCyp4f2Test {
   }
 
   @Test
-  void s2s3_s2s3() throws Exception {
-    Path vcfFile = new TestVcfBuilder("*2+*3/*2+*3")
+  void s2s3_s2s3(TestInfo testInfo) throws Exception {
+    Path vcfFile = new TestVcfBuilder(testInfo, "*2+*3/*2+*3")
         .saveFile()
         .variation("CYP4F2", "rs3093105", "C", "C")
         .variation("CYP4F2", "rs2108622", "T", "T")

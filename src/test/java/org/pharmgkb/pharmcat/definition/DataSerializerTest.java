@@ -8,6 +8,7 @@ import java.util.Set;
 import com.google.common.base.Charsets;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
@@ -24,10 +25,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class DataSerializerTest {
 
   @Test
-  void testExemptions() throws Exception {
+  void testExemptions(TestInfo testInfo) throws Exception {
 
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.tsv");
-    Path jsonFile = TestUtils.createTempFile("transformExemptions", ".json");
+    Path jsonFile = TestUtils.createTestFile(testInfo, ".json");
     Path refJsonFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.json");
 
     try {
@@ -68,10 +69,10 @@ class DataSerializerTest {
   }
 
   @Test
-  void testValuedBooleanExemptions() throws Exception {
+  void testValuedBooleanExemptions(TestInfo testInfo) throws Exception {
 
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.tsv");
-    Path jsonFile = TestUtils.createTempFile("transformExemptions", ".json");
+    Path jsonFile = TestUtils.createTestFile(testInfo, ".json");
     Path refJsonFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.json");
 
     try {
