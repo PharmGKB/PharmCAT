@@ -49,7 +49,7 @@ public class PharmCAT {
      */
     TEST
   };
-  private Env m_env;
+  private final Env m_env;
   private final boolean m_runMatcher;
   private Path m_vcfFile;
   private boolean m_topCandidateOnly = true;
@@ -292,11 +292,14 @@ public class PharmCAT {
           System.out.println("Saving named allele matcher HTML results to " + m_matcherHtmlFile);
         }
       }
-      namedAlleleMatcher.saveResults(matcherResult, m_matcherJsonFile, m_matcherHtmlFile);
+      if (!m_deleteIntermediateFiles || !m_runPhenotyper) {
+        namedAlleleMatcher.saveResults(matcherResult, m_matcherJsonFile, m_matcherHtmlFile);
+      }
 
       didSomething = true;
     }
 
+    Phenotyper phenotyper = null;
     if (m_runPhenotyper) {
       List<GeneCall> calls;
       Map<String,Collection<String>> warnings = new HashMap<>();
@@ -316,18 +319,21 @@ public class PharmCAT {
         outsideCalls = OutsideCallParser.parse(m_phenotyperOutsideCallsFile);
       }
 
-      Phenotyper phenotyper = new Phenotyper(m_env, calls, outsideCalls, warnings);
+      phenotyper = new Phenotyper(m_env, calls, outsideCalls, warnings);
       if (m_mode == Mode.CLI) {
         System.out.println("Saving phenotyper JSON results to " + m_phenotyperJsonFile);
       }
-      phenotyper.write(m_phenotyperJsonFile);
+      if (!m_deleteIntermediateFiles || !m_runReporter) {
+        phenotyper.write(m_phenotyperJsonFile);
+      }
       didSomething = true;
     }
 
     if (m_runReporter) {
-      Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
-
-      Phenotyper phenotyper = Phenotyper.read(inputFile);
+      if (phenotyper == null) {
+        Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
+        phenotyper = Phenotyper.read(inputFile);
+      }
       m_reportContext = new ReportContext(phenotyper.getGeneReports(), m_reporterTitle);
       if (matcherResult != null && matcherResult.getMetadata().isCallCyp2d6()) {
         m_reportContext.addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_CYP2D6_MODE));
