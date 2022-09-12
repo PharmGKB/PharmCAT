@@ -128,6 +128,7 @@ public class BatchPharmCAT {
         return;
       }
 
+      Env env = new Env(config.definitionDir);
       int x = 0;
       for (String key : new TreeSet<>(keys)) {
         Path vcfFile = vcfFiles.get(key);
@@ -137,8 +138,9 @@ public class BatchPharmCAT {
 
         x += 1;
         System.out.println(x + ": " + key);
-        new PharmCAT(config.runMatcher, vcfFile, config.definitionReader,
-            config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
+        new PharmCAT(env,
+            config.runMatcher, vcfFile, config.topCandidateOnly, config.callCyp2d6, config.findCombinations,
+            config.matcherHtml,
             config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
             config.runReporter, reporterInputFile, config.reporterTitle,
             config.reporterSources, config.reporterCompact, config.reporterJson,

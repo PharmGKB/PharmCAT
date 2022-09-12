@@ -38,10 +38,10 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.common.util.Throttler;
+import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
-import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 
 
 /**

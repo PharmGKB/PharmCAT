@@ -14,8 +14,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
-import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.definition.PhenotypeMap;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
@@ -46,8 +45,7 @@ public class DiplotypeFactory {
   private final Map<DataSource, Map<String, Haplotype>> m_haplotypeCache = new HashMap<>();
 
   private final String m_gene;
-  private final String m_referenceAlleleName;
-  private final PhenotypeMap m_phenotypeMap;
+  private final Env m_env;
 
   /**
    * Public constructor.
@@ -55,12 +53,10 @@ public class DiplotypeFactory {
    * Initialize the factory with all the necessary information to make haplotype and diplotype calls
    *
    * @param gene the gene symbol for the diplotypes this will call
-   * @param referenceAlleleName the name of the reference allele
    */
-  public DiplotypeFactory(String gene, PhenotypeMap phenotypeMap, @Nullable String referenceAlleleName) {
+  public DiplotypeFactory(String gene, Env env) {
     m_gene = gene;
-    m_referenceAlleleName = referenceAlleleName;
-    m_phenotypeMap = phenotypeMap;
+    m_env = env;
   }
 
 
@@ -97,13 +93,13 @@ public class DiplotypeFactory {
       }
       return diplotypes;
     } else {
-      return ImmutableList.of(makeUnknownDiplotype(m_gene, m_phenotypeMap, source));
+      return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env, source));
     }
   }
 
   private Diplotype makeDiplotype(BaseMatch baseMatch, DataSource source) {
     Diplotype diplotype = new Diplotype(m_gene, makeHaplotype(baseMatch.getName(), source));
-    fillDiplotype(diplotype, m_phenotypeMap, source);
+    fillDiplotype(diplotype, m_env, source);
     return diplotype;
     }
 
@@ -113,7 +109,7 @@ public class DiplotypeFactory {
 
     Diplotype diplotype = new Diplotype(m_gene, makeHaplotype(h1.getName(), source),
         makeHaplotype(h2.getName(), source));
-    fillDiplotype(diplotype, m_phenotypeMap, source);
+    fillDiplotype(diplotype, m_env, source);
 
     diplotype.setCombination(h1 instanceof CombinationMatch || h2 instanceof CombinationMatch);
     return diplotype;
@@ -151,7 +147,7 @@ public class DiplotypeFactory {
       }
       return diplotypes;
     } else {
-      return ImmutableList.of(makeUnknownDiplotype(m_gene, m_phenotypeMap, source));
+      return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env, source));
     }
   }
 
@@ -166,7 +162,7 @@ public class DiplotypeFactory {
       hap2 = haplotypes.get(1);
     }
     Diplotype diplotype = new Diplotype(m_gene, hap1, hap2);
-    fillDiplotype(diplotype, m_phenotypeMap, source);
+    fillDiplotype(diplotype, m_env, source);
     if (haplotypes.size() > 2) {
       diplotype.setObserved(Observation.INFERRED);
     }
@@ -233,7 +229,7 @@ public class DiplotypeFactory {
     Haplotype hap1 = makeHaplotype(alleles[0], source);
     Haplotype hap2 = alleles.length == 2 ? makeHaplotype(alleles[1], source) : null;
     Diplotype diplotype = new Diplotype(m_gene, hap1, hap2);
-    fillDiplotype(diplotype, m_phenotypeMap, source);
+    fillDiplotype(diplotype, m_env, source);
     return diplotype;
   }
 
@@ -246,7 +242,7 @@ public class DiplotypeFactory {
   }
 
 
-  public static Diplotype makeUnknownDiplotype(String gene, PhenotypeMap phenotypeMap, DataSource source) {
+  public static Diplotype makeUnknownDiplotype(String gene, Env env, DataSource source) {
     Haplotype haplotype = new Haplotype(gene, Haplotype.UNKNOWN);
     Diplotype diplotype;
     if (isSinglePloidy(gene)) {
@@ -254,17 +250,17 @@ public class DiplotypeFactory {
     } else {
       diplotype = new Diplotype(gene, haplotype, haplotype);
     }
-    fillDiplotype(diplotype, phenotypeMap, source);
+    fillDiplotype(diplotype, env, source);
     return diplotype;
   }
 
-  private static void fillDiplotype(Diplotype diplotype, PhenotypeMap phenotypeMap, DataSource source) {
+  private static void fillDiplotype(Diplotype diplotype, Env env, DataSource source) {
     if (diplotype.getGene().startsWith("HLA")) {
       diplotype.setPhenotypes(makeHlaPhenotype(diplotype));
       diplotype.setLookupKeys(makeHlaPhenotype(diplotype));
       return;
     }
-    GenePhenotype gp = phenotypeMap.lookupPhenotype(diplotype.getGene(), source);
+    GenePhenotype gp = env.getPhenotype(diplotype.getGene(), source);
     if (gp == null) {
       return;
     }
@@ -306,12 +302,12 @@ public class DiplotypeFactory {
     }
 
     Haplotype haplotype = new Haplotype(m_gene, name);
-    GenePhenotype gp = m_phenotypeMap.lookupPhenotype(m_gene, source);
+    GenePhenotype gp = m_env.getPhenotype(m_gene, source);
     if (gp != null) {
       haplotype.setFunction(gp.findHaplotypeFunction(name).orElse(DiplotypeFactory.UNASSIGNED_FUNCTION));
       haplotype.setActivityValue(gp.findHaplotypeActivity(name).orElse(null));
   }
-    haplotype.setReference(name.equals(m_referenceAlleleName));
+    haplotype.setReference(name.equals(m_env.getReferenceAllele(m_gene)));
 
     m_haplotypeCache.computeIfAbsent(source, (s) -> new HashMap<>())
         .put(name, haplotype);

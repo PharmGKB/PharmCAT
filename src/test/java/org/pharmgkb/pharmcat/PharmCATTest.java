@@ -26,6 +26,7 @@ import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
+import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -164,7 +165,7 @@ class PharmCATTest {
       assertNotNull(document.getElementById("aripiprazole"));
 
     } finally {
-      TestUtils.deleteTestFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput, outputDir);
+      TestUtils.deleteTestFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput);
     }
   }
 
@@ -219,7 +220,7 @@ class PharmCATTest {
       assertNotNull(document.getElementById("aripiprazole"));
 
     } finally {
-      TestUtils.deleteTestFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput, outputDir);
+      TestUtils.deleteTestFiles(outputDir);
     }
   }
 
@@ -246,7 +247,7 @@ class PharmCATTest {
       assertFalse(Files.exists(refReporterOutput));
 
     } finally {
-      TestUtils.deleteTestFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput, outputDir);
+      TestUtils.deleteTestFiles(outputDir);
     }
   }
 
@@ -281,7 +282,7 @@ class PharmCATTest {
       assertTrue(grOpt.get().isOutsideCall());
 
     } finally {
-      TestUtils.deleteTestFiles(matcherOutput, phenotyperOutput, reporterOutput, outputDir);
+      TestUtils.deleteTestFiles(outputDir);
     }
   }
 
@@ -323,7 +324,7 @@ class PharmCATTest {
       assertEquals(1, gc.getDiplotypes().size());
 
     } finally {
-      TestUtils.deleteTestFiles(matcherOutput, phenotyperOutput, reporterOutput, outputDir);
+      TestUtils.deleteTestFiles(outputDir);
     }
 
     // matcher only, expecting many CYP2C19 matches
@@ -351,7 +352,7 @@ class PharmCATTest {
       assertTrue(gc.getDiplotypes().size() > 50);
 
     } finally {
-      TestUtils.deleteTestFiles(matcherOutput, phenotyperOutput, reporterOutput, outputDir);
+      TestUtils.deleteTestFiles(outputDir);
     }
   }
 
@@ -401,7 +402,7 @@ class PharmCATTest {
 
       assertEquals(Files.readString(singlesPhenotyperOutput), Files.readString(doublePhenotyperOutput));
     } finally {
-      TestUtils.deleteTestFiles(singlesMatcherOutput, singlesPhenotyperOutput, doublePhenotyperOutput, outputDir);
+      TestUtils.deleteTestFiles(outputDir);
     }
   }
 
@@ -1828,16 +1829,12 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
       fw.write("CYP2D6\t*1/*2\tfoo\nCYP2D6\t*3/*4");
     }
 
-    try {
+    assertThrows(BadOutsideCallException.class, () -> {
       PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
       testWrapper.getVcfBuilder()
-              .reference("CYP2C19");
+          .reference("CYP2C19");
       testWrapper.execute(badOutsideDataPath);
-      fail("Should have failed due to a duplicate gene definition in outside call");
-    }
-    catch (ParseException ex) {
-      // we want this to fail so ignore handling the exception
-    }
+    });
   }
 
   @Test
@@ -1972,7 +1969,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     void execute(Path outsideCallPath) throws Exception {
       Path vcfFile = m_vcfBuilder.generate();
-      PharmCAT pcat = new PharmCAT(true, vcfFile, null, m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
+      PharmCAT pcat = new PharmCAT(new Env(),
+          true, vcfFile, m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
           true, null, outsideCallPath,
           true, null, null, null, false, true,
           m_outputPath, null, false, PharmCAT.Mode.TEST

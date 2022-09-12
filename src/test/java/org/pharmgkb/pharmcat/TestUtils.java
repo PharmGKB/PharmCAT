@@ -188,7 +188,11 @@ public class TestUtils {
   public static void deleteTestFiles(Path... files) throws IOException {
     if (!isSaveTestOutput()) {
       for (Path file : files) {
-        Files.deleteIfExists(file);
+        if (Files.isDirectory(file)) {
+          FileUtils.deleteDirectory(file.toFile());
+        } else {
+          Files.deleteIfExists(file);
+        }
       }
     }
   }

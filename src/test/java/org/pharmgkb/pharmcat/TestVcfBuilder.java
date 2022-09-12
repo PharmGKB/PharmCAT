@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Map;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.TestInfo;
+import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
-import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.util.DataManager;
 import org.pharmgkb.pharmcat.util.VcfHelper;
 

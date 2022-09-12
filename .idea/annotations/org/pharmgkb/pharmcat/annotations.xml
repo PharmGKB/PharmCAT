@@ -1,0 +1,7 @@
+<root><item
+    name='org.pharmgkb.pharmcat.TestUtils java.nio.file.Path createTestFile(java.lang.Class, java.lang.String) 0'>  <annotation
+    name='java.lang.SuppressWarnings'>
+<val val="&quot;rawtypes&quot;" />  </annotation></item><item
+    name='org.pharmgkb.pharmcat.TestUtils java.nio.file.Path getTestOutputDir(java.lang.Class, boolean) 0'>  <annotation
+    name='java.lang.SuppressWarnings'>
+<val val="&quot;rawtypes&quot;" />  </annotation></item></root>

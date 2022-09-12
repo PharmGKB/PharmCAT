@@ -488,7 +488,8 @@ class SyntheticBatchTest {
     }
 
     Path sampleVcf = writeVcf(testDir.resolve(key + ".vcf"), testVcfs);
-    new PharmCAT(true, sampleVcf, null, true, false, false, true,
+    new PharmCAT(new Env(),
+        true, sampleVcf, true, false, false, true,
         true, null, outsideCallPath,
         true, null, null, null, false, false,
         f_outputDir, null, false, PharmCAT.Mode.TEST

@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;

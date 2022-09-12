@@ -10,7 +10,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 import com.google.common.collect.ImmutableList;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.io.OutsideCallParser;
@@ -27,6 +29,12 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class PhenotyperTest {
   private static final Supplier<RuntimeException> unfoundGene = () -> new RuntimeException("Gene report not found");
+  private static Env s_env;
+
+  @BeforeAll
+  static void prepare() throws Exception {
+    s_env = new Env();
+  }
 
   @Test
   void testCyp2C19Het() throws Exception {
@@ -34,7 +42,7 @@ class PhenotyperTest {
     warnings.put("chr10:94775453", ImmutableList.of("Test warning message"));
     warnings.put("chr10:94852914", ImmutableList.of("Test other message"));
 
-    Phenotyper phenotyper = new Phenotyper(
+    Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("Cyp2C19Het_call.json"),
         OutsideCallParser.parse("CYP2D6\t*1/*3"), warnings);
 
@@ -54,7 +62,7 @@ class PhenotyperTest {
 
   @Test
   void testCyp2D6Only() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(
+    Phenotyper phenotyper = new Phenotyper(s_env,
         new ArrayList<>(),
         OutsideCallParser.parse("CYP2D6\t*1/*3"), null);
 
@@ -74,7 +82,7 @@ class PhenotyperTest {
 
   @Test
   void testCyp2C19Hom() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(
+    Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("Cyp2C19s2s2_call.json"),
         new ArrayList<>(), null);
 
@@ -85,7 +93,7 @@ class PhenotyperTest {
 
   @Test
   void testUGT1A1Phased() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(
+    Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("UGT1A1s1s60s80phased_call.json"),
         new ArrayList<>(), null);
 
@@ -98,7 +106,7 @@ class PhenotyperTest {
 
   @Test
   void testUGT1A1Unphased() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(
+    Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("UGT1A1s1s60s80unphased_call.json"),
         new ArrayList<>(), null);
 
@@ -111,7 +119,7 @@ class PhenotyperTest {
 
   @Test
   void testNUDT15() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(
+    Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("NUDT15ref_call.json"),
         new ArrayList<>(), null);
 
@@ -123,7 +131,7 @@ class PhenotyperTest {
 
   @Test
   void testNUDT15star3() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(
+    Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("NUDT15s3_call.json"),
         new ArrayList<>(), null);
 

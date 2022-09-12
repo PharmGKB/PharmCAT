@@ -17,7 +17,6 @@ import com.google.common.base.Stopwatch;
 import org.apache.commons.io.FilenameUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
-import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -31,7 +30,6 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.util.CliUtils;
-import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
@@ -51,7 +49,7 @@ public class PharmCAT {
      */
     TEST
   };
-  private DefinitionReader m_definitionReader;
+  private Env m_env;
   private final boolean m_runMatcher;
   private Path m_vcfFile;
   private boolean m_topCandidateOnly = true;
@@ -88,7 +86,6 @@ public class PharmCAT {
           .addOption("matcher", "matcher", "run named allele matcher")
           .addOption("vcf", "matcher-vcf", "input VCF file for named allele matcher", false, "file")
           .addOption("ma", "matcher-all-results", "return all possible diplotypes, not just top hits")
-          .addOption("md", "matcher-definitions-dir", "directory containing named allele definitions (JSON files)", false, "dir")
           .addOption("matcherHtml", "matcher-save-html", "save named allele matcher results as HTML")
 
           // phenotyper args
@@ -108,6 +105,7 @@ public class PharmCAT {
           .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "directory")
           .addOption("bf", "base-filename", "the base name (without file extensions) used for output files, will default to base filename of input if not specified", false, "name")
           // controls
+          .addOption("def", "definitions-dir", "directory containing named allele definitions (JSON files)", false, "dir")
           .addOption("del", "delete-intermediary-files", "delete intermediary output files")
           .addOption("research", "research-mode", "comma-separated list of research features to enable [cyp2d6, combinations]", false, "type");
       if (!cliHelper.parse(args)) {
@@ -177,8 +175,9 @@ public class PharmCAT {
         }
       }
 
-      PharmCAT pharmcat = new PharmCAT(config.runMatcher, vcfFile, config.definitionReader,
-          config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
+      PharmCAT pharmcat = new PharmCAT(new Env(config.definitionDir),
+          config.runMatcher, vcfFile, config.topCandidateOnly, config.callCyp2d6, config.findCombinations,
+          config.matcherHtml,
           config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
           config.runReporter, reporterInputFile, config.reporterTitle,
           config.reporterSources, config.reporterCompact, config.reporterJson,
@@ -202,30 +201,27 @@ public class PharmCAT {
   }
 
 
-  public PharmCAT(Path vcfFile) throws IOException {
-    this(true, vcfFile, null, true, false, false, false,
+  public PharmCAT(Path vcfFile) throws IOException, ReportableException {
+    this(new Env(), true, vcfFile, true, false, false, false,
         true, null, null,
         true, null, null, null, false, false,
         null, null, true, Mode.CLI);
   }
 
-  public PharmCAT(boolean runMatcher, Path vcfFile, @Nullable DefinitionReader definitionReader,
-      boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
+  public PharmCAT(Env env,
+      boolean runMatcher, Path vcfFile, boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations,
+      boolean matcherHtml,
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
       @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson,
       @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles, Mode mode)
-      throws IOException {
+      throws IOException, ReportableException {
+    m_env = env;
+
     m_runMatcher = runMatcher;
     if (runMatcher) {
       m_vcfFile = vcfFile;
       m_matcherJsonFile = getOutputFile(m_vcfFile, outputDir, baseFilename, ".match.json");
-      if (definitionReader != null) {
-        m_definitionReader = definitionReader;
-      } else {
-        m_definitionReader = new DefinitionReader();
-        m_definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
-      }
       m_topCandidateOnly = topCandidateOnly;
       m_callCyp2d6 = callCyp2d6;
       m_findCombinations = findCombinations;
@@ -284,7 +280,7 @@ public class PharmCAT {
     Result matcherResult = null;
     if (m_runMatcher) {
       NamedAlleleMatcher namedAlleleMatcher =
-          new NamedAlleleMatcher(m_definitionReader, m_findCombinations, m_topCandidateOnly, m_callCyp2d6)
+          new NamedAlleleMatcher(m_env.getDefinitionReader(), m_findCombinations, m_topCandidateOnly, m_callCyp2d6)
               .printWarnings();
       matcherResult = namedAlleleMatcher.call(m_vcfFile);
 
@@ -320,7 +316,7 @@ public class PharmCAT {
         outsideCalls = OutsideCallParser.parse(m_phenotyperOutsideCallsFile);
       }
 
-      Phenotyper phenotyper = new Phenotyper(calls, outsideCalls, warnings);
+      Phenotyper phenotyper = new Phenotyper(m_env, calls, outsideCalls, warnings);
       if (m_mode == Mode.CLI) {
         System.out.println("Saving phenotyper JSON results to " + m_phenotyperJsonFile);
       }
@@ -402,11 +398,9 @@ public class PharmCAT {
   }
 
 
-
-
-  public static class BaseConfig {
+  static class BaseConfig {
     boolean runMatcher = true;
-    DefinitionReader definitionReader;
+    Path definitionDir;
     boolean topCandidateOnly = true;
     boolean findCombinations;
     boolean callCyp2d6;
@@ -430,14 +424,8 @@ public class PharmCAT {
       }
 
       if (runMatcher) {
-        Path namedAlleleDefinitionDir = DataManager.DEFAULT_DEFINITION_DIR;
         if (cliHelper.hasOption("md")) {
-          namedAlleleDefinitionDir = cliHelper.getValidDirectory("md", false);
-        }
-        definitionReader = new DefinitionReader();
-        definitionReader.read(namedAlleleDefinitionDir);
-        if (definitionReader.getGenes().size() == 0) {
-          throw new ReportableException("Did not find any allele definitions at " + namedAlleleDefinitionDir);
+          definitionDir = cliHelper.getValidDirectory("md", false);
         }
 
         topCandidateOnly = !cliHelper.hasOption("ma");

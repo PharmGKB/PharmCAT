@@ -20,10 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
-import org.pharmgkb.pharmcat.definition.PhenotypeMap;
+import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
-import org.pharmgkb.pharmcat.haplotype.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -122,12 +122,12 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Constructor for genes that get their data from {@link GeneCall}.
    */
-  public GeneReport(GeneCall call, String referenceAllele, PhenotypeMap phenotypeMap, DataSource phenotypeSource) {
+  public GeneReport(GeneCall call, Env env, DataSource phenotypeSource) {
     Preconditions.checkNotNull(phenotypeSource);
 
     f_gene = call.getGene();
     m_phenotypeSource = phenotypeSource;
-    m_phenotypeVersion = phenotypeMap.getVersion(f_gene, phenotypeSource);
+    m_phenotypeVersion = env.getPhenotypeVersion(f_gene, phenotypeSource);
     m_callSource = CallSource.MATCHER;
 
     m_chr = call.getChromosome();
@@ -157,7 +157,7 @@ public class GeneReport implements Comparable<GeneReport> {
         .filter(Predicate.not(Objects::isNull))
         .forEach(f_matcherAlleles::add);
 
-    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(f_gene, phenotypeMap, referenceAllele);
+    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(f_gene, env);
     //noinspection rawtypes
     Collection matches = null;
     if (useLeastFunction(f_gene)) {
@@ -190,24 +190,24 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Constructor for genes that get their data from an {@link OutsideCall} that comes from the {@link Phenotyper}.
    */
-  public GeneReport(OutsideCall call, String referenceAllele, PhenotypeMap phenotypeMap, DataSource phenotypeSource) {
+  public GeneReport(OutsideCall call, Env env, DataSource phenotypeSource) {
     Preconditions.checkNotNull(phenotypeSource);
 
     f_gene = call.getGene();
     m_phenotypeSource = phenotypeSource;
-    m_phenotypeVersion = phenotypeMap.getVersion(f_gene, phenotypeSource);
+    m_phenotypeVersion = env.getPhenotypeVersion(f_gene, phenotypeSource);
     m_callSource = CallSource.OUTSIDE;
 
-    addOutsideCall(call, referenceAllele, phenotypeMap);
+    addOutsideCall(call, env);
     applyOutsideCallMessages();
   }
 
   /**
    * Enable adding multiple {@link OutsideCall}s for same gene as multiple diplotypes.
    */
-  public void addOutsideCall(OutsideCall call, String referenceAllele, PhenotypeMap phenotypeMap) {
+  public void addOutsideCall(OutsideCall call, Env env) {
     Preconditions.checkState(m_callSource == CallSource.OUTSIDE);
-    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(f_gene, phenotypeMap, referenceAllele);
+    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(f_gene, env);
 
     if (useLeastFunction(f_gene)) {
       m_reporterDiplotypes.addAll(diplotypeFactory.makeLeastFunctionDiplotypes(call.getDiplotypes(), m_phenotypeSource,
@@ -221,18 +221,18 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Constructor for unspecified {@link GeneReport}.
    */
-  private GeneReport(String geneSymbol, PhenotypeMap phenotypeMap, DataSource phenotypeSource) {
+  private GeneReport(String geneSymbol, Env env, DataSource phenotypeSource) {
     f_gene = geneSymbol;
     m_phenotypeSource = phenotypeSource;
-    m_phenotypeVersion = phenotypeMap.getVersion(f_gene, phenotypeSource);
+    m_phenotypeVersion = env.getPhenotypeVersion(f_gene, phenotypeSource);
     m_callSource = CallSource.NONE;
-    Diplotype unknownDiplotype = DiplotypeFactory.makeUnknownDiplotype(geneSymbol, phenotypeMap, phenotypeSource);
+    Diplotype unknownDiplotype = DiplotypeFactory.makeUnknownDiplotype(geneSymbol, env, phenotypeSource);
     m_matcherDiplotypes.add(unknownDiplotype);
     m_reporterDiplotypes.add(unknownDiplotype);
   }
 
-  public static GeneReport unspecifiedGeneReport(String gene, PhenotypeMap phenotypeMap, DataSource source) {
-    return new GeneReport(gene, phenotypeMap, source);
+  public static GeneReport unspecifiedGeneReport(String gene, Env env, DataSource source) {
+    return new GeneReport(gene, env, source);
   }
 
 

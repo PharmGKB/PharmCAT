@@ -8,7 +8,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
-import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
 
 
@@ -65,7 +64,7 @@ public class OutsideCall {
     m_diplotypes.forEach(d -> {
       String[] alleles = d.split(sf_dipSeparator);
       if (alleles.length > 2) {
-        throw new ParseException("Too many alleles specified in " + d);
+        throw new BadOutsideCallException("Too many alleles specified in " + d);
       }
       m_haplotypes.add(alleles[0]);
       if (alleles.length == 2) {
@@ -77,10 +76,10 @@ public class OutsideCall {
       String pheno = fields[IDX_PHENO];
       m_phenotype = StringUtils.stripToNull(pheno.replaceAll(gene, ""));
       if (StringUtils.isBlank(m_phenotype) && m_diplotypes.size() == 0) {
-        throw new ParseException("Specify a diplotype or phenotype for " + gene);
+        throw new BadOutsideCallException("Specify a diplotype or phenotype for " + gene);
       }
       if (StringUtils.isNotBlank(m_phenotype) && m_diplotypes.size() > 0) {
-        throw new ParseException("Specify either diplotype OR phenotype, not both for " + gene);
+        throw new BadOutsideCallException("Specify either diplotype OR phenotype, not both for " + gene);
       }
     }
   }

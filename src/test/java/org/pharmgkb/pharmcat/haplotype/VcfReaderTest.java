@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.definition.DefinitionReader;
 
 import static org.junit.jupiter.api.Assertions.*;
 

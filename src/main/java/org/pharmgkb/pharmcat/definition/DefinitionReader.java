@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.haplotype;
+package org.pharmgkb.pharmcat.definition;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,6 +31,7 @@ public class DefinitionReader {
   private final SortedMap<String, DefinitionFile> m_definitionFiles = new TreeMap<>();
   private final Map<String, DefinitionExemption> m_exemptions = new TreeMap<>();
   private String m_genomeBuild;
+  private ReferenceAlleleMap m_referenceAlleleMap;
 
 
   /**
@@ -137,5 +138,12 @@ public class DefinitionReader {
     for (DefinitionExemption de : exemptions) {
       m_exemptions.put(de.getGene().toLowerCase(), de);
     }
+  }
+
+  public ReferenceAlleleMap getReferenceAlleleMap() {
+    if (m_referenceAlleleMap == null) {
+      m_referenceAlleleMap = new ReferenceAlleleMap(this);
+    }
+    return m_referenceAlleleMap;
   }
 }

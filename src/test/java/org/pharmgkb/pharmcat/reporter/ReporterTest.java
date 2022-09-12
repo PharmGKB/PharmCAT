@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Ryan Whaley
  */
 class ReporterTest {
-  private static final String PHENOTYPER_FILE_PATH = "org/pharmgkb/pharmcat/phenotyper_output.json";
+  private static final String PHENOTYPER_FILE_PATH = "org/pharmgkb/pharmcat/reporter/phenotyper_output.json";
 
   @Test
   void testCypc2c9VariantPassthrough() throws Exception {

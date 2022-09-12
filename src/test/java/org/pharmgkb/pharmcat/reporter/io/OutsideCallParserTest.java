@@ -6,8 +6,8 @@ import java.nio.file.Path;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
-import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.TestUtils;
+import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -103,12 +103,8 @@ class OutsideCallParserTest {
       fw.write(sf_astrolabeOutput);
     }
 
-    try {
+    assertThrows(BadOutsideCallException.class, () -> {
       OutsideCallParser.parse(tempAstroPath);
-      fail("Bad ouside call format should have failed");
-    }
-    catch (ParseException ex) {
-      // ignore this exception since we want it to happen
-    }
+    });
   }
 }

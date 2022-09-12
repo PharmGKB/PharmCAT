@@ -24,9 +24,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.MessageList;
-import org.pharmgkb.pharmcat.definition.PhenotypeMap;
-import org.pharmgkb.pharmcat.definition.ReferenceAlleleMap;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
@@ -65,25 +64,20 @@ public class Phenotyper {
    * @param geneCalls a List of {@link GeneCall} objects
    * @param outsideCalls a List of {@link OutsideCall} objects
    */
-  public Phenotyper(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls,
+  public Phenotyper(Env env, List<GeneCall> geneCalls, List<OutsideCall> outsideCalls,
       @Nullable Map<String, Collection<String>> variantWarnings) {
-    ReferenceAlleleMap referenceAlleleMap = new ReferenceAlleleMap();
-    PhenotypeMap phenotypeMap = new PhenotypeMap();
-
-    initialize(geneCalls, outsideCalls, referenceAlleleMap, phenotypeMap, DataSource.CPIC, variantWarnings);
-    initialize(geneCalls, outsideCalls, referenceAlleleMap, phenotypeMap, DataSource.DPWG, variantWarnings);
+    initialize(geneCalls, outsideCalls, env, DataSource.CPIC, variantWarnings);
+    initialize(geneCalls, outsideCalls, env, DataSource.DPWG, variantWarnings);
   }
 
 
-  private void initialize(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls,
-      ReferenceAlleleMap referenceAlleleMap, PhenotypeMap phenotypeMap, DataSource source,
+  private void initialize(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls, Env env, DataSource source,
       @Nullable Map<String, Collection<String>> variantWarnings) {
     SortedMap<String, GeneReport> reportMap = m_geneReports.computeIfAbsent(source, (s) -> new TreeMap<>());
 
     // matcher calls
     for (GeneCall geneCall : geneCalls) {
-      String referenceAllele = referenceAlleleMap.get(geneCall.getGene());
-      GeneReport geneReport = new GeneReport(geneCall, referenceAllele, phenotypeMap, source);
+      GeneReport geneReport = new GeneReport(geneCall, env, source);
       reportMap.put(geneReport.getGene(), geneReport);
     }
 
@@ -108,14 +102,12 @@ public class Phenotyper {
         } else {
           // add alternate outside call
           System.out.println("WARNING: Multiple outside calls for " + outsideCall.getGene());
-          String referenceAllele = referenceAlleleMap.get(outsideCall.getGene());
-          geneReport.addOutsideCall(outsideCall, referenceAllele, phenotypeMap);
+          geneReport.addOutsideCall(outsideCall, env);
           continue;
         }
       }
 
-      String referenceAllele = referenceAlleleMap.get(outsideCall.getGene());
-      geneReport = new GeneReport(outsideCall, referenceAllele, phenotypeMap, source);
+      geneReport = new GeneReport(outsideCall, env, source);
       if (msgAnnotation != null) {
         geneReport.addMessage(msgAnnotation);
       }
@@ -124,7 +116,7 @@ public class Phenotyper {
 
     // all other genes
     for (String geneSymbol : listUnspecifiedGenes(source)) {
-      reportMap.put(geneSymbol, GeneReport.unspecifiedGeneReport(geneSymbol, phenotypeMap, source));
+      reportMap.put(geneSymbol, GeneReport.unspecifiedGeneReport(geneSymbol, env, source));
     }
 
     try {
