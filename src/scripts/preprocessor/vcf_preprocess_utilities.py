@@ -421,6 +421,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
                 if (fields[0], fields[1]) not in ref_pos_dynamic.keys():
                     ref_pos_dynamic[(fields[0], fields[1])] = {}
                 ref_pos_dynamic[(fields[0], fields[1])][(fields[3], fields[4])] = fields[0:9]
+        # deep copy the ref_pos_dynamic to have a consistent reference of PharmCAT PGx positions
         ref_pos_static = copy.deepcopy(ref_pos_dynamic)
 
         # use input_pos to record PGx positions that are present in the input VCF
@@ -428,7 +429,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
         input_pos_phased = {}
         # this dictionary saves genetic variants concurrent at PGx positions
         dict_non_pgx_records = {}
-        input_pgx_pos_updated = os.path.join(temp_dir, get_vcf_prefix(input_pgx_pos_only) +
+        input_pgx_pos_updated = os.path.join(output_dir, get_vcf_prefix(input_pgx_pos_only) +
                                              '.update_pgx_annotations.vcf')
         with open(input_pgx_pos_updated, 'w') as out_f:
             # get header of samples from merged vcf, add in new contig info
