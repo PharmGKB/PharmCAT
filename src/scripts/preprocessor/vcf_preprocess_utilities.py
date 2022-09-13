@@ -429,7 +429,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
         input_pos_phased = {}
         # this dictionary saves genetic variants concurrent at PGx positions
         dict_non_pgx_records = {}
-        input_pgx_pos_updated = os.path.join(output_dir, get_vcf_prefix(input_pgx_pos_only) +
+        input_pgx_pos_updated = os.path.join(temp_dir, get_vcf_prefix(input_pgx_pos_only) +
                                              '.update_pgx_annotations.vcf')
         with open(input_pgx_pos_updated, 'w') as out_f:
             # get header of samples from merged vcf, add in new contig info
