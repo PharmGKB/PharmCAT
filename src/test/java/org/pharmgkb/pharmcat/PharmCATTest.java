@@ -14,6 +14,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -54,8 +55,19 @@ class PharmCATTest {
       """;
   private static final String sf_otherOutsideCalls = "CYP2D6\t*3/*4\nG6PD\tB (wildtype)/B (wildtype)\n";
   private static final String sf_diplotypesTemplate = "\nmatcher: %s\nreporter: %s\nprint (displayCalls): %s";
+  private static boolean m_compact;
+  private static List<DataSource> m_sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
   private static Path s_outsideCallFilePath;
   private static Path s_otherOutsideCallFilePath;
+
+
+  static void setCompact(boolean compact) {
+    m_compact = compact;
+  }
+
+  static void setSources(List<DataSource> sources) {
+    m_sources = sources;
+  }
 
 
   @BeforeAll
@@ -119,7 +131,11 @@ class PharmCATTest {
       assertNotNull(document.getElementById("aripiprazole"));
 
     } finally {
+      // always delete
+      boolean save = TestUtils.isSaveTestOutput();
+      TestUtils.setSaveTestOutput(false);
       TestUtils.deleteTestFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput);
+      TestUtils.setSaveTestOutput(save);
     }
   }
 
@@ -1972,8 +1988,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
       PharmCAT pcat = new PharmCAT(new Env(),
           true, vcfFile, m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
           true, null, outsideCallPath,
-          true, null, null, null, false, true,
-          m_outputPath, null, false, PharmCAT.Mode.TEST
+          true, null, null, m_sources, m_compact, true,
+          m_outputPath, null, m_compact, PharmCAT.Mode.TEST
       );
       pcat.execute();
       m_reportContext = pcat.getReportContext();

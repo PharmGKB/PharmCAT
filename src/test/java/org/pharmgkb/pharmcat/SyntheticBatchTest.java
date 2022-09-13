@@ -7,6 +7,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+import com.google.common.collect.Lists;
 import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.LauncherDiscoveryRequest;
 import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
@@ -14,6 +17,7 @@ import org.junit.platform.launcher.core.LauncherFactory;
 import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,26 +39,48 @@ class SyntheticBatchTest {
       = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/outside_CYP2D6.tsv");
   private static final Path sf_outsideCYP2D6G6PDFile
       = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/outside_CYP2D6_G6PD.tsv");
+  private final boolean m_compact;
+  private final List<DataSource> m_sources;
+
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("o", "output-dir", "directory to output to", false, "o")
         .addOption("a", "all-tests", "run all tests for Katrin")
+        .addOption("rc", "reporter-compact", "output compact report")
+        .addOption("cpic", "cpic", "CPIC reports")
+        .addOption("dpwg", "dpwg", "DPWG reports")
         ;
 
     try {
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
+      boolean compact = cliHelper.hasOption("rc");
+      List<DataSource> sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
+      boolean cpic = cliHelper.hasOption("cpic");
+      boolean dpwg = cliHelper.hasOption("dpwg");
+      if (cpic || dpwg) {
+        sources.clear();
+        if (cpic) {
+          sources.add(DataSource.CPIC);
+        }
+        if (dpwg) {
+          sources.add(DataSource.DPWG);
+        }
+      }
+
       if (cliHelper.hasOption("o")) {
         TestUtils.setTestOutputDir(cliHelper.getValidDirectory("o", true));
       }
       TestUtils.setSaveTestOutput(true);
 
-      SyntheticBatchTest piplelineTest = new SyntheticBatchTest();
+      SyntheticBatchTest piplelineTest = new SyntheticBatchTest(compact, sources);
       piplelineTest.execute();
 
       if (cliHelper.hasOption("a")) {
+        PharmCATTest.setCompact(compact);
+        PharmCATTest.setSources(sources);
         SummaryGeneratingListener listener = new SummaryGeneratingListener();
         LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
             .selectors(selectClass(PharmCATTest.class))
@@ -463,24 +489,31 @@ class SyntheticBatchTest {
         "cyp2c9/s1s61.vcf"
     }, "MT-RNR1\t1555A>G\n");
 
-    sf_logger.info("Wrote reports to {}", f_outputDir);
+    sf_logger.info("Wrote reports to {}", TestUtils.getTestOutputDir());
   }
 
 
-  private final Path f_outputDir;
-  private SyntheticBatchTest() throws IOException {
-    f_outputDir = TestUtils.getTestOutputDir(getClass(), true);
+  private SyntheticBatchTest(boolean compact, List<DataSource> sources) throws IOException {
+    m_compact = compact;
+    m_sources = sources;
 
-    String readmeContent = String.format(
-        "# PharmCAT Example Reports\n\nGenerated on: %s  \nPharmCAT Version: %s",
-        new SimpleDateFormat("MMMMM dd, yyyy").format(new Date()),
-        CliUtils.getVersion()
+    String readmeContent = String.format("""
+        # PharmCAT Example Reports
+        
+        Generated on: %s
+        PharmCAT Version: %s",
+        Sources: %s
+        Style: %s
+            """, new SimpleDateFormat("MMMMM dd, yyyy").format(new Date()), CliUtils.getVersion(),
+        (compact ? "Compact" : "Full"),
+        sources.stream().map(DataSource::toString).collect(Collectors.joining(", "))
+
     );
-    Files.writeString(f_outputDir.resolve("README.md"), readmeContent);
+    Files.writeString(TestUtils.createTestFile(getClass(), "README.md"), readmeContent);
   }
 
   private void makeReport(String key, String[] testVcfs, Path outsideCallPath) throws Exception {
-    Path testDir = f_outputDir.resolve(key);
+    Path testDir = TestUtils.getTestOutputDir(getClass(), false);
     if (!Files.exists(testDir)) {
       if (!testDir.toFile().mkdirs()) {
         throw new RuntimeException("Output directory could not be created " + testDir.toAbsolutePath());
@@ -491,20 +524,13 @@ class SyntheticBatchTest {
     new PharmCAT(new Env(),
         true, sampleVcf, true, false, false, true,
         true, null, outsideCallPath,
-        true, null, null, null, false, false,
-        f_outputDir, null, false, PharmCAT.Mode.TEST
+        true, null, null, m_sources, m_compact, false,
+        testDir, null, m_compact, PharmCAT.Mode.TEST
     ).execute();
   }
 
   private void makeReportWithOutputString(String key, String[] testVcfs, String outsideCalls) throws Exception {
-    Path testDir = f_outputDir.resolve(key);
-    if (!Files.exists(testDir)) {
-      if (!testDir.toFile().mkdirs()) {
-        throw new RuntimeException("Output directory could not be created " + testDir.toAbsolutePath());
-      }
-    }
-
-    Path outsideCallPath = f_outputDir.resolve("outsideCall.tsv");
+    Path outsideCallPath = TestUtils.createTestFile(getClass(), "outsideCall.tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write(outsideCalls);
     }
@@ -517,7 +543,6 @@ class SyntheticBatchTest {
     } catch (IOException e) {
       e.printStackTrace();
     }
-
     return outputVcf;
   }
 }

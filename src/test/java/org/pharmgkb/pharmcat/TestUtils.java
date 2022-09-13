@@ -47,8 +47,9 @@ public class TestUtils {
 
   /**
    * Checks if test is running in a continuous integration environment.
-   * This is determined based on the `CI` envinorment variable on GH Actions:
-   * https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
+   * This is determined based on the <a
+   * href="https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables">`CI`
+   * environment variable on GH Actions</a>.
    */
   public static boolean isContinuousIntegration() {
     return Boolean.parseBoolean(System.getenv("CI"));
@@ -119,6 +120,12 @@ public class TestUtils {
     return dir;
   }
 
+  /**
+   * Gets the output directory for the given class.
+   * Directory is guaranteed to exist.
+   *
+   * @param deleteIfExist if directory exists, it will be deleted and re-created
+   */
   public static Path getTestOutputDir(Class testClass, boolean deleteIfExist) throws IOException {
     Path dir = s_testOutputDir.resolve(testClass.getSimpleName());
     if (Files.exists(dir)) {
@@ -129,6 +136,9 @@ public class TestUtils {
       } else {
         throw new RuntimeException("Not a directory: " + dir);
       }
+    }
+    if (!Files.exists(dir)) {
+      Files.createDirectories(dir);
     }
     return dir;
   }
@@ -186,7 +196,7 @@ public class TestUtils {
   }
 
   public static void deleteTestFiles(Path... files) throws IOException {
-    if (!isSaveTestOutput()) {
+    if (!s_saveTestOutput) {
       for (Path file : files) {
         if (Files.isDirectory(file)) {
           FileUtils.deleteDirectory(file.toFile());

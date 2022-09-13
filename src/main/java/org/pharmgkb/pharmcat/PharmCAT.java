@@ -261,6 +261,19 @@ public class PharmCAT {
         m_reporterJsonFile = getOutputFile(inputFile, outputDir, baseFilename, ".report.json");
       }
       m_reporterTitle = reporterTitle;
+      if (m_reporterTitle == null) {
+        if (baseFilename != null) {
+          m_reporterTitle = baseFilename;
+        } else if (vcfFile != null) {
+          m_reporterTitle = getBaseFilename(vcfFile);
+        } else if (phenotyperInputFile != null) {
+          m_reporterTitle = getBaseFilename(phenotyperInputFile);
+        } else if (phenotyperOutsideCallsFile != null) {
+          m_reporterTitle = getBaseFilename(phenotyperOutsideCallsFile);
+        } else if (reporterInputFile != null) {
+          m_reporterTitle = getBaseFilename(reporterInputFile);
+        }
+      }
       m_reporterSources = reporterSources;
       m_reporterCompact = reporterCompact;
     }
