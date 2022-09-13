@@ -32,7 +32,7 @@ class PhenotypeMapTest {
 
     GenePhenotype genePhenotype = phenotypeMap.lookupCpic("DPYD").orElseThrow(Exception::new);
     assertNotNull(genePhenotype);
-    assertEquals("Normal function", genePhenotype.lookupHaplotype("Reference"));
+    assertEquals("Normal function", genePhenotype.getHaplotypeFunction("Reference"));
   }
 
   @Test

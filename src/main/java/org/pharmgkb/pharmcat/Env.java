@@ -2,20 +2,27 @@ package org.pharmgkb.pharmcat;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
+ * Global environment for PharmCAT.
+ *
  * @author Mark Woon
  */
 public class Env {
   private final DefinitionReader m_definitionReader;
   private final PhenotypeMap m_phenotypeMap;
+  private final Map<DataSource, Map<String, Haplotype>> m_haplotypeCache = new HashMap<>();
+
 
   public Env() throws IOException, ReportableException {
     this(null);
@@ -34,6 +41,7 @@ public class Env {
     m_phenotypeMap = new PhenotypeMap();
   }
 
+
   public DefinitionReader getDefinitionReader() {
     return m_definitionReader;
   }
@@ -42,11 +50,35 @@ public class Env {
     return m_definitionReader.getReferenceAlleleMap().get(gene);
   }
 
+
   public @Nullable String getPhenotypeVersion(String gene, DataSource source) {
     return m_phenotypeMap.getVersion(gene, source);
   }
 
   public @Nullable GenePhenotype getPhenotype(String gene, DataSource source) {
-    return m_phenotypeMap.lookupPhenotype(gene, source);
+    return m_phenotypeMap.getPhenotype(gene, source);
+  }
+
+
+  /**
+   * Make or retrieve a cached {@link Haplotype} object that corresponds to the given allele name.
+   */
+  public Haplotype makeHaplotype(String gene, String name, DataSource source) {
+    // return cache value if possible
+    if (m_haplotypeCache.containsKey(source) && m_haplotypeCache.get(source).containsKey(name)) {
+      return m_haplotypeCache.get(source).get(name);
+    }
+
+    Haplotype haplotype = new Haplotype(gene, name);
+    GenePhenotype gp = getPhenotype(gene, source);
+    if (gp != null) {
+      haplotype.setFunction(gp.getHaplotypeFunction(name));
+      haplotype.setActivityValue(gp.getHaplotypeActivity(name));
+    }
+    haplotype.setReference(name.equals(getReferenceAllele(gene)));
+
+    m_haplotypeCache.computeIfAbsent(source, (s) -> new HashMap<>())
+        .put(name, haplotype);
+    return haplotype;
   }
 }

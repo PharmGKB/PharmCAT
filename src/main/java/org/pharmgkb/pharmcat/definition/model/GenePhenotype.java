@@ -3,7 +3,6 @@ package org.pharmgkb.pharmcat.definition.model;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
@@ -17,12 +16,13 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 
 /**
- * Model object that contains all the phenotype mapping data needed for a gene
+ * Model object that contains all the phenotype mapping data needed for a gene.
  *
  * @author Ryan Whaley
  */
 public class GenePhenotype {
   public static final String NO_RESULT = "No Result";
+  public static final String UNASSIGNED_FUNCTION = "Unassigned function";
 
   @SerializedName("gene")
   @Expose
@@ -72,44 +72,34 @@ public class GenePhenotype {
     m_activityValues = activityValues;
   }
 
-  public Optional<String> lookupActivityValue(String name) {
-    return Optional.ofNullable(getActivityValues().get(name));
-  }
-
   public void assignActivity(Haplotype haplotype) {
     if (haplotype == null || haplotype.isUnknown()) {
       return;
     }
-    haplotype.setActivityValue(lookupActivityValue(haplotype.getName())
-        .orElse(TextConstants.NA));
+    haplotype.setActivityValue(m_activityValues.getOrDefault(haplotype.getName(), TextConstants.NA));
   }
 
 
-  @Nullable
-  public String lookupHaplotype(@Nullable String hap) {
-    if (hap == null) {
+  public String getHaplotypeFunction(String haplotype) {
+    if (StringUtils.isBlank(haplotype) || m_haplotypes == null) {
+      return UNASSIGNED_FUNCTION;
+    }
+    return m_haplotypes.getOrDefault(haplotype, UNASSIGNED_FUNCTION);
+  }
+
+  public @Nullable String getHaplotypeActivity(String haplotype) {
+    return m_activityValues.get(haplotype);
+  }
+
+  public @Nullable Float getHaplotypeActivityScore(String haplotype) {
+    String value = m_activityValues.get(haplotype);
+    if (value == null || value.equalsIgnoreCase(TextConstants.NA)) {
       return null;
     }
-    return m_haplotypes.get(hap);
+    return Float.valueOf(value);
   }
 
-  public Optional<String> findHaplotypeFunction(String haplotype) {
-    if (StringUtils.isBlank(haplotype)) {
-      return Optional.empty();
-    }
-    if (m_haplotypes == null) {
-      return Optional.empty();
-    }
-    return Optional.ofNullable(m_haplotypes.get(haplotype));
-  }
 
-  public Optional<String> findHaplotypeActivity(String haplotype) {
-    if (StringUtils.isBlank(haplotype) || m_activityValues == null) {
-      return Optional.empty();
-    } else {
-      return Optional.ofNullable(m_activityValues.get(haplotype));
-    }
-  }
 
   /**
    * List of all diplotype to phenotype mappings for this gene
@@ -185,6 +175,7 @@ public class GenePhenotype {
   }
 
 
+  @Override
   public String toString() {
     return m_gene;
   }

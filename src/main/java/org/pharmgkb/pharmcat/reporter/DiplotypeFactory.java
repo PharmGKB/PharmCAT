@@ -2,9 +2,7 @@ package org.pharmgkb.pharmcat.reporter;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -26,8 +24,6 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
-import org.pharmgkb.pharmcat.reporter.model.result.Observation;
-import org.pharmgkb.pharmcat.util.HaplotypeActivityComparator;
 
 import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.isSinglePloidy;
 
@@ -40,9 +36,7 @@ import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.isSinglePlo
  * @author Ryan Whaley
  */
 public class DiplotypeFactory {
-  public static final String UNASSIGNED_FUNCTION = "Unassigned function";
   private static final Set<String> PHENOTYPE_ONLY = ImmutableSet.of("HLA-A", "HLA-B");
-  private final Map<DataSource, Map<String, Haplotype>> m_haplotypeCache = new HashMap<>();
 
   private final String m_gene;
   private final Env m_env;
@@ -71,7 +65,7 @@ public class DiplotypeFactory {
       }
     }
     for (NamedAllele na : haps) {
-      dips.add(new Diplotype(m_gene, makeHaplotype(na.getName(), source)));
+      dips.add(new Diplotype(m_gene, m_env.makeHaplotype(m_gene, na.getName(), source)));
     }
     return dips;
   }
@@ -98,7 +92,7 @@ public class DiplotypeFactory {
   }
 
   private Diplotype makeDiplotype(BaseMatch baseMatch, DataSource source) {
-    Diplotype diplotype = new Diplotype(m_gene, makeHaplotype(baseMatch.getName(), source));
+    Diplotype diplotype = new Diplotype(m_gene, m_env.makeHaplotype(m_gene, baseMatch.getName(), source));
     fillDiplotype(diplotype, m_env, source);
     return diplotype;
     }
@@ -107,68 +101,13 @@ public class DiplotypeFactory {
     BaseMatch h1 = diplotypeMatch.getHaplotype1();
     BaseMatch h2 = diplotypeMatch.getHaplotype2();
 
-    Diplotype diplotype = new Diplotype(m_gene, makeHaplotype(h1.getName(), source),
-        makeHaplotype(h2.getName(), source));
+    Diplotype diplotype = new Diplotype(m_gene, m_env.makeHaplotype(m_gene, h1.getName(), source),
+        m_env.makeHaplotype(m_gene, h2.getName(), source));
     fillDiplotype(diplotype, m_env, source);
 
     diplotype.setCombination(h1 instanceof CombinationMatch || h2 instanceof CombinationMatch);
     return diplotype;
   }
-
-
-
-  public List<Diplotype> makeLeastFunctionDiplotypes(@SuppressWarnings("rawtypes") Collection matches,
-      DataSource source, boolean hasTrueDiplotype) {
-
-    if (matches.size() > 0) {
-      List<Diplotype> diplotypes = new ArrayList<>();
-      if (hasTrueDiplotype) {
-        for (Object obj : matches) {
-          List<String> hapNames = new ArrayList<>();
-          if (obj instanceof BaseMatch bm) {
-            hapNames.addAll(getHaps(bm));
-          } else if (obj instanceof DiplotypeMatch dm) {
-            hapNames.addAll(getHaps(dm.getHaplotype1()));
-            hapNames.addAll(getHaps(dm.getHaplotype2()));
-          } else if (obj instanceof String text) {
-            String[] haplotypes = DiplotypeFactory.splitDiplotype(m_gene, text);
-            for (String hap : haplotypes) {
-              hapNames.addAll(DiplotypeFactory.splitHaplotype(hap));
-            }
-          }
-          diplotypes.add(makeLeastFunctionDiplotype(hapNames, source));
-        }
-      } else {
-        List<String> hapNames = new ArrayList<>();
-        for (Object obj : matches) {
-          hapNames.addAll(getHaps((BaseMatch)obj));
-        }
-        diplotypes.add(makeLeastFunctionDiplotype(hapNames, source));
-      }
-      return diplotypes;
-    } else {
-      return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env, source));
-    }
-  }
-
-  private Diplotype makeLeastFunctionDiplotype(List<String> hapNames, DataSource source) {
-    List<Haplotype> haplotypes = hapNames.stream()
-        .map(h -> makeHaplotype(h, source))
-        .sorted(HaplotypeActivityComparator.getComparator())
-        .toList();
-    Haplotype hap1 = haplotypes.get(0);
-    Haplotype hap2 = null;
-    if (haplotypes.size() > 1) {
-      hap2 = haplotypes.get(1);
-    }
-    Diplotype diplotype = new Diplotype(m_gene, hap1, hap2);
-    fillDiplotype(diplotype, m_env, source);
-    if (haplotypes.size() > 2) {
-      diplotype.setObserved(Observation.INFERRED);
-    }
-    return diplotype;
-  }
-
 
 
   /**
@@ -226,16 +165,13 @@ public class DiplotypeFactory {
     Preconditions.checkArgument(StringUtils.isNotBlank(diplotypeText));
 
     String[] alleles = splitDiplotype(m_gene, diplotypeText);
-    Haplotype hap1 = makeHaplotype(alleles[0], source);
-    Haplotype hap2 = alleles.length == 2 ? makeHaplotype(alleles[1], source) : null;
+    Haplotype hap1 = m_env.makeHaplotype(m_gene, alleles[0], source);
+    Haplotype hap2 = alleles.length == 2 ? m_env.makeHaplotype(m_gene, alleles[1], source) : null;
     Diplotype diplotype = new Diplotype(m_gene, hap1, hap2);
     fillDiplotype(diplotype, m_env, source);
     return diplotype;
   }
 
-  private boolean isPhenotypeOnly() {
-    return isPhenotypeOnly(m_gene);
-  }
 
   private static boolean isPhenotypeOnly(String gene) {
     return PHENOTYPE_ONLY.contains(gene);
@@ -254,7 +190,7 @@ public class DiplotypeFactory {
     return diplotype;
   }
 
-  private static void fillDiplotype(Diplotype diplotype, Env env, DataSource source) {
+  public static void fillDiplotype(Diplotype diplotype, Env env, DataSource source) {
     if (diplotype.getGene().startsWith("HLA")) {
       diplotype.setPhenotypes(makeHlaPhenotype(diplotype));
       diplotype.setLookupKeys(makeHlaPhenotype(diplotype));
@@ -290,32 +226,7 @@ public class DiplotypeFactory {
   }
 
 
-  /**
-   * Make or retrieve a cached Haplotype object that corresponds to the given allele name.
-   * @param name an allele name (e.g. *20)
-   * @return a Haplotype object for that allele (new or cached)
-   */
-  public Haplotype makeHaplotype(String name, DataSource source) {
-    // return cache value if possible
-    if (m_haplotypeCache.containsKey(source) && m_haplotypeCache.get(source).containsKey(name)) {
-      return m_haplotypeCache.get(source).get(name);
-    }
-
-    Haplotype haplotype = new Haplotype(m_gene, name);
-    GenePhenotype gp = m_env.getPhenotype(m_gene, source);
-    if (gp != null) {
-      haplotype.setFunction(gp.findHaplotypeFunction(name).orElse(DiplotypeFactory.UNASSIGNED_FUNCTION));
-      haplotype.setActivityValue(gp.findHaplotypeActivity(name).orElse(null));
-  }
-    haplotype.setReference(name.equals(m_env.getReferenceAllele(m_gene)));
-
-    m_haplotypeCache.computeIfAbsent(source, (s) -> new HashMap<>())
-        .put(name, haplotype);
-    return haplotype;
-  }
-
-
-  private static List<String> getHaps(BaseMatch baseMatch) {
+  static List<String> getHaps(BaseMatch baseMatch) {
     if (baseMatch instanceof CombinationMatch cm) {
       return cm.getComponentHaplotypes().stream()
           .map(NamedAllele::getName)

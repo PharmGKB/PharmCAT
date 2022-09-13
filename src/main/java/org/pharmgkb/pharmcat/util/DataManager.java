@@ -24,11 +24,13 @@ import org.pharmgkb.pharmcat.definition.MessageList;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -146,6 +148,7 @@ public class DataManager {
           // if we're skipping new phenotype data, then use the default data
           phenotypeMap = new PhenotypeMap();
         }
+        validatePhenotypes(phenotypeMap);
 
         Map<String,Integer> geneAlleleCountMap;
         if (!cliHelper.hasOption("sa")) {
@@ -631,6 +634,18 @@ public class DataManager {
     }
     if (!copied.getPlain()) {
       throw new IOException("Could not find " + PhenotypeMap.DPWG_PHENOTYPES_JSON_FILE_NAME + " in " + dpwgZipFile);
+    }
+  }
+
+
+  private static void validatePhenotypes(PhenotypeMap phenotypeMap) {
+    // validate DPYD phenotypes (DpydCaller depends on this expectation)
+    GenePhenotype dpwgGp = Objects.requireNonNull(phenotypeMap.getPhenotype("DPYD", DataSource.DPWG));
+    GenePhenotype cpicGp = Objects.requireNonNull(phenotypeMap.getPhenotype("DPYD", DataSource.CPIC));
+    for (String hap : dpwgGp.getHaplotypes().keySet()) {
+      if (cpicGp.getHaplotypes().containsKey(hap)) {
+        throw new IllegalStateException("DPWG has DPYD " + hap + " but CPIC does not");
+      }
     }
   }
 }

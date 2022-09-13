@@ -24,7 +24,7 @@ import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
 import static org.pharmgkb.pharmcat.definition.model.GenePhenotype.NO_RESULT;
-import static org.pharmgkb.pharmcat.reporter.LeastFunctionUtils.useLeastFunction;
+import static org.pharmgkb.pharmcat.reporter.DpydCaller.isDpyd;
 
 
 /**
@@ -340,7 +340,7 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   public String printPhenotypes() {
-    if (useLeastFunction(m_gene)) {
+    if (isDpyd(m_gene)) {
       return TextConstants.SEE_DRUG;
     }
     if (m_phenotypes.size() == 0) {

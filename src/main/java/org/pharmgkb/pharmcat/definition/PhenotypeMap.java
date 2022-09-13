@@ -74,7 +74,7 @@ public class PhenotypeMap {
   }
 
   public @Nullable String getVersion(String gene, DataSource source) {
-    GenePhenotype gp = lookupPhenotype(gene, source);
+    GenePhenotype gp = getPhenotype(gene, source);
     if (gp != null) {
       return gp.getVersion();
     }
@@ -94,7 +94,7 @@ public class PhenotypeMap {
   /**
    * Lookup the phenotypes for the specified {@code gene} and {@code source}.
    */
-  public @Nullable GenePhenotype lookupPhenotype(String gene, DataSource source) {
+  public @Nullable GenePhenotype getPhenotype(String gene, DataSource source) {
     switch (source) {
       case CPIC -> {
         return m_cpicMap.get(gene);

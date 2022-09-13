@@ -14,9 +14,9 @@ public class ReferenceAlleleMap {
 
 
   ReferenceAlleleMap(DefinitionReader definitionReader) {
-    f_refAlleleForGene.put("CYP2D6", "*1");
     f_refAlleleForGene.put("G6PD", "B (wildtype)");
     f_refAlleleForGene.put("MT-RNR1", "Reference");
+    // use reference prop
     definitionReader.getGenes()
         .forEach(g -> f_refAlleleForGene.put(g, definitionReader.getHaplotypes(g).first().getName()));
   }

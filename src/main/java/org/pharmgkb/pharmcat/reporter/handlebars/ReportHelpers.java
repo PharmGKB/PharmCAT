@@ -13,7 +13,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
-import static org.pharmgkb.pharmcat.reporter.LeastFunctionUtils.useLeastFunction;
+import static org.pharmgkb.pharmcat.reporter.DpydCaller.isDpyd;
 import static org.pharmgkb.pharmcat.reporter.TextConstants.UNCALLED;
 
 
@@ -119,7 +119,7 @@ public class ReportHelpers {
   }
 
   public static String gsFunction(Diplotype diplotype) {
-    if (diplotype.isCombination() && useLeastFunction(diplotype.getGene())) {
+    if (diplotype.isCombination() && isDpyd(diplotype.getGene())) {
       return TextConstants.SEE_DRUG;
     } else {
       return diplotype.printFunctionPhrase();
@@ -146,7 +146,7 @@ public class ReportHelpers {
   public static String amdSubtitle(GeneReport geneReport) {
     StringBuilder builder = new StringBuilder();
 
-    if (useLeastFunction(geneReport.getGene()) && geneReport.getComponentDiplotypes().size() == 0) {
+    if (isDpyd(geneReport.getGene()) && geneReport.getComponentDiplotypes().size() == 0) {
       builder.append("Haplotype");
     } else {
       builder.append("Genotype");
@@ -195,8 +195,8 @@ public class ReportHelpers {
     return geneReport.isPhased() ? "Phased" : "Unphased";
   }
 
-  public static boolean showUnphasedNote(GeneReport geneReport) {
-    return !geneReport.isPhased() && !useLeastFunction(geneReport.getGeneDisplay());
+  public static boolean amdShowUnphasedNote(GeneReport geneReport) {
+    return !geneReport.isPhased() && !isDpyd(geneReport.getGeneDisplay());
   }
 
   public static boolean amdHasUncalledHaps(GeneReport geneReport) {

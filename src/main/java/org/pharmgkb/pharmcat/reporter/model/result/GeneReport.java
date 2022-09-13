@@ -29,6 +29,7 @@ import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
+import org.pharmgkb.pharmcat.reporter.DpydCaller;
 import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
 import org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -38,8 +39,8 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.util.DataManager;
 
-import static org.pharmgkb.pharmcat.reporter.LeastFunctionUtils.hasTrueDiplotype;
-import static org.pharmgkb.pharmcat.reporter.LeastFunctionUtils.useLeastFunction;
+import static org.pharmgkb.pharmcat.reporter.DpydCaller.hasTrueDiplotype;
+import static org.pharmgkb.pharmcat.reporter.DpydCaller.isDpyd;
 import static org.pharmgkb.pharmcat.reporter.TextConstants.*;
 
 
@@ -160,7 +161,7 @@ public class GeneReport implements Comparable<GeneReport> {
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory(f_gene, env);
     //noinspection rawtypes
     Collection matches = null;
-    if (useLeastFunction(f_gene)) {
+    if (isDpyd(f_gene)) {
       if (hasTrueDiplotype(call)) {
         m_componentDiplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
       } else {
@@ -172,9 +173,8 @@ public class GeneReport implements Comparable<GeneReport> {
     }
     m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(matches, m_phenotypeSource));
 
-    if (useLeastFunction(f_gene)) {
-      m_reporterDiplotypes.addAll(diplotypeFactory.makeLeastFunctionDiplotypes(matches, m_phenotypeSource,
-          hasTrueDiplotype(call)));
+    if (isDpyd(f_gene)) {
+      m_reporterDiplotypes.addAll(DpydCaller.inferDiplotypes(matches, hasTrueDiplotype(call), env, phenotypeSource));
     } else if (Slco1b1CustomCaller.shouldBeUsedOn(this)) {
       Slco1b1CustomCaller
           .makeLookupCalls(this, diplotypeFactory, m_phenotypeSource)
@@ -209,9 +209,9 @@ public class GeneReport implements Comparable<GeneReport> {
     Preconditions.checkState(m_callSource == CallSource.OUTSIDE);
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory(f_gene, env);
 
-    if (useLeastFunction(f_gene)) {
-      m_reporterDiplotypes.addAll(diplotypeFactory.makeLeastFunctionDiplotypes(call.getDiplotypes(), m_phenotypeSource,
-          true));
+    if (isDpyd(f_gene)) {
+      m_reporterDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getDiplotypes(), true, env,
+          m_phenotypeSource));
     } else {
       m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call, m_phenotypeSource));
     }
@@ -645,7 +645,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private void applyMatcherMessages(GeneCall geneCall) {
     boolean comboOrPartialCall = geneCall.getHaplotypes().stream()
         .anyMatch((h) -> h.getHaplotype() != null && (h.getHaplotype().isCombination() || h.getHaplotype().isPartial()));
-    if (comboOrPartialCall && !useLeastFunction(geneCall.getGene())) {
+    if (comboOrPartialCall && !isDpyd(geneCall.getGene())) {
       addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_COMBO_NAMING));
 
       if (!isPhased()) {

@@ -31,7 +31,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
-import static org.pharmgkb.pharmcat.reporter.LeastFunctionUtils.useLeastFunction;
+import static org.pharmgkb.pharmcat.reporter.DpydCaller.isDpyd;
 
 
 /**
@@ -106,7 +106,7 @@ public class HtmlFormat extends AbstractFormat {
     boolean hasCombo = false;
     boolean hasMessages = false;
     boolean hasMissingVariants = false;
-    boolean hasUnphased = false;
+    boolean hasUnphasedNote = false;
 
     SortedSetMultimap<String, GeneReport> geneReportMap = TreeMultimap.create();
     for (DataSource source : reportContext.getGeneReports().keySet()) {
@@ -145,7 +145,7 @@ public class HtmlFormat extends AbstractFormat {
           hasCombo = hasCombo || geneReport.getMessages().stream()
               .anyMatch(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_COMBO));
           hasMessages = hasMessages || hasMessages(geneReport);
-          hasUnphased = hasUnphased || isUnphased(geneReport);
+          hasUnphasedNote = hasUnphasedNote || showUnphasedNote(geneReport);
         }
       }
     }
@@ -171,7 +171,7 @@ public class HtmlFormat extends AbstractFormat {
     result.put("hasCombo", hasCombo);
     result.put("hasMessages", hasMessages);
     result.put("hasMissingVariants", hasMissingVariants);
-    result.put("hasUnphased", hasUnphased);
+    result.put("hasUnphasedNote", hasUnphasedNote);
     result.put("summaryMessages", reportContext.getMessages().stream().map(MessageAnnotation::getMessage).toList());
     // Section III
     result.put("geneReports", geneReports);
@@ -229,7 +229,7 @@ public class HtmlFormat extends AbstractFormat {
       if (!summary.containsKey("diplotypes")) {
         summary.put("source", report.getPhenotypeSource());
         if (report.getCallSource() == CallSource.MATCHER) {
-          if (useLeastFunction(symbol) && report.getComponentDiplotypes().size() > 0) {
+          if (isDpyd(symbol) && report.getComponentDiplotypes().size() > 0) {
             summary.put("showComponents", true);
             summary.put("diplotypes", report.getMatcherDiplotypes().get(0));
             summary.put("componentDiplotypes", report.getComponentDiplotypes());
@@ -240,7 +240,7 @@ public class HtmlFormat extends AbstractFormat {
           summary.put("diplotypes", report.getReporterDiplotypes());
         }
         summary.put("hasMissingVariants", report.isMissingVariants());
-        summary.put("isUnphased", isUnphased(report));
+        summary.put("showUnphasedNote", showUnphasedNote(report));
         summary.put("geneReport", report);
 
       } else {
@@ -253,8 +253,8 @@ public class HtmlFormat extends AbstractFormat {
     return Optional.of(summary);
   }
 
-  private static boolean isUnphased(GeneReport geneReport) {
-    return !geneReport.isOutsideCall() && !geneReport.isPhased() && !useLeastFunction(geneReport.getGeneDisplay());
+  private static boolean showUnphasedNote(GeneReport geneReport) {
+    return !geneReport.isOutsideCall() && !geneReport.isPhased() && !isDpyd(geneReport.getGeneDisplay());
   }
 
   private static boolean hasMessages(GeneReport geneReport) {
