@@ -34,17 +34,24 @@ All variants in the CPIC DPYD allele definition file are considered for the geno
 
 ### Phased data
 
-If phased data is provided in the vcf file, the Named Allele Matcher produces an output that lists all detected variant per allele, e.g., c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G (sample includes more than one DPYD variant per allele) or c.1627A>G (\*5)/c.1905+1G>A (\*2A) (sample one variant per allele).
+If phased data is provided in the vcf file, the Named Allele Matcher produces an output that lists all detected variants per allele, e.g., c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G (sample includes more than one DPYD variant per allele) or c.1627A>G (\*5)/c.1905+1G>A (\*2A) (sample with one variant per allele).
 
-The report lists the respective allele functionality for each variant or the reference. If the sample only includes none or one variant per allele, the genotype can be directly used to detemined the gene activity score and DPYD phenotype. In case the sample includes more than one DPYD variant per allele, the genotype to determine the gene activity score and DPYD phenotype is inferred based on the variant with the lowest activity value (variant activity scores) per allele. The phenotype and gene activity score are utelized to retrieve the corresponding drug recommendations. 
+The report lists the respective allele functionality for each variant or the reference. If the sample only includes none or one variant per allele, the genotype can be directly used to determine the gene activity score and DPYD phenotype. In case the sample includes more than one DPYD variant per allele, the genotype to determine the gene activity score and DPYD phenotype is inferred based on the variant with the lowest activity value (variant activity scores) per allele. The phenotype and gene activity score are utilized to retrieve the corresponding drug recommendations. 
 
 ### Unphased data
 
-If unphased data is provided in the vcf file, the Named Allele Matcher produces a list of all detected DPYD variants in the sample. 
+If unphased data is provided in the vcf file, the Named Allele Matcher produces a list of all detected DPYD variants in the sample. In case the sample includes none or only one variant, "Reference" is reported.  
 
-The report includes the variants and the respective allele functionality. If the sample only includes none, one or two variants (variants assumed on different gene copies - see above), the genotype can be directly used to detemined the gene activity score and DPYD phenotype. In case the sample includes more than two DPYD variants, the genotype to determine the gene activity score and DPYD phenotype is inferred based on the two variants with the lowest activity value. The phenotype and gene activity score are utelized to retrieve the corresponding drug recommendations. 
+The report includes the variants and the respective allele functionality. If the sample only includes none, one or two variants (variants assumed on different gene copies - see above), the genotype can be directly used to determine the gene activity score and DPYD phenotype. In case the sample includes more than two DPYD variants, the genotype to determine the gene activity score and DPYD phenotype is inferred based on the two variants with the lowest activity value. The phenotype and gene activity score are utilized to retrieve the corresponding drug recommendations. 
 
 ### DPWG recommendation 
+
+As of October 2022, DPWG recommendations are available for 4 DPYD variation: c.1129-5923C>G, c.1236G>A (HapB3); 2846A>T; c.1905+1G>A (\*2A); 1679T>G (\*13). 
+
+In case the DPYD genotype to determine the gene activity score and DPYD phenotype is inferred based on the two variants with the lowest activity value (unphased data) or the lowest per allele (phased data), priority is given to variants that are included in both CPIC and DPWG if more than one variant with the same activity value is a valid option. E.g., if an sample with __phased__ data includes the following variants c.1905+1G>A (\*2A)(no function), c.2933A>G (no function), c.498G>A (normal function) with a Named Allele Matcher determined genotype of c.1905+1G>A (\*2A)+c.2933A>G/c.498G>A, the genotype to look up the DPYD phenotype and recommendation will be inferred as c.1905+1G>A (\*2A)/c.498G>A rather than c.2933A>G/c.498G>A.
+
+Since PharmCAT considers all variant positions in the CPIC DPYD allele definition file including common normal function variants but only reference but no normal function variants are part of the DPWG recommendation, the following exception is made to be able to provide DPWG recommendation:
+If the DPYD genotype that is used to determine gene activity score and phenotype, either provided by the Named Allele Matcher directly or inferred, includes a normal function variant, this is translated into 'Reference' to be able to retrieve the relevant DPWG recommendation if available. E.g., in the above sample, the inferred genotype c.1905+1G>A (\*2A)/c.498G>A will be translated into c.1905+1G>A (\*2A)/Reference and used to query DPWG data. Since c.1905+1G>A (\*2A) is a no function variant included in the DPWG data, DPWG guidance for c.1905+1G>A (\*2A)/Reference will be included in the report.
 
 
 ### Mark's original
