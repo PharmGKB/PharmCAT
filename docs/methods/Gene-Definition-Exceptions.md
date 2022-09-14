@@ -34,15 +34,17 @@ All variants in the CPIC DPYD allele definition file are considered for the geno
 
 ### Phased data
 
-If phased data is provided in the vcf file, the Named Allele Matcher produces an output that lists all detected variant per allele. 
+If phased data is provided in the vcf file, the Named Allele Matcher produces an output that lists all detected variant per allele, e.g., c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G (sample includes more than one DPYD variant per allele) or c.1627A>G (\*5)/c.1905+1G>A (\*2A) (sample one variant per allele).
 
-If the sample only includes none or one variant per allele the genotype is given as e.g., c.1627A>G (\*5)/c.1905+1G>A (\*2A) with a corresponding functionality (One no function allele and one normal function allele) and the phenotype assignment (Intermediate Metabolizer) in the json output and HTML/PDF report summary table. The genotype and phenotype are also included in the drug sections of the report.
-
-In case the sample includes more than one DPYD variant per allele e.g., c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G, the genotype is listed as such in the json output and HTML/PDF report summary table. The report drug section will include the genotype with the two lowest activity values (variant activity scores), which is used to determine the phenotype and gene activity score and the corresponding drug recommendations. This information is also available in the json format.
+The report lists the respective allele functionality for each variant or the reference. If the sample only includes none or one variant per allele, the genotype can be directly used to detemined the gene activity score and DPYD phenotype. In case the sample includes more than one DPYD variant per allele, the genotype to determine the gene activity score and DPYD phenotype is inferred based on the variant with the lowest activity value (variant activity scores) per allele. The phenotype and gene activity score are utelized to retrieve the corresponding drug recommendations. 
 
 ### Unphased data
 
-If unphased data is provided in the vcf file, the Named Allele Matcher produces a list of all detected DPYD variants in the sample. The Phenotyper assigns function to each variant which is provided in the json output and HTML/PDF report summary table. The report drug section will include the genotype with the two lowest activity values (variant activity scores), which is used to determine the phenotype and gene activity score and the corresponding drug recommendations. For normal function variants, reference is used in the calculated genotype to present normal function alleles. This information is also available in the json format.
+If unphased data is provided in the vcf file, the Named Allele Matcher produces a list of all detected DPYD variants in the sample. 
+
+The report includes the variants and the respective allele functionality. If the sample only includes none, one or two variants (variants assumed on different gene copies - see above), the genotype can be directly used to detemined the gene activity score and DPYD phenotype. In case the sample includes more than two DPYD variants, the genotype to determine the gene activity score and DPYD phenotype is inferred based on the two variants with the lowest activity value. The phenotype and gene activity score are utelized to retrieve the corresponding drug recommendations. 
+
+### DPWG recommendation 
 
 
 ### Mark's original
