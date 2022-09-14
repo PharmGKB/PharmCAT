@@ -404,6 +404,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
 
         # use input_pos to record PGx positions that are present in the input VCF
         input_pos = []
+        input_pos_phased = {}
         # this list saves genetic variants concurrent at PGx positions
         non_pgx_records = []
         vcf_pgx_only = os.path.join(temp_dir, 'temp_update_pgx_variants_annotations.vcf')
@@ -489,6 +490,14 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                 # use this to fill up multiallelic ALT later
                                 if input_chr_pos not in input_pos:
                                     input_pos.append(input_chr_pos)
+                                    # determine the phasing status of a position
+                                    # the position is unphased if any sample is unphased
+                                    # if the GT fields can be split by '/', this means at least one sample is unphased
+                                    for x in fields[9:]:
+                                        if len(x.split('/')) > 1:
+                                            input_pos_phased[input_chr_pos] = False
+                                        else:
+                                            input_pos_phased[input_chr_pos] = True
                                 # update id
                                 fields[2] = updated_id
                                 # concat and write to output file
@@ -528,6 +537,12 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                 # use this to fill up multiallelic ALT later
                                 if input_chr_pos not in input_pos:
                                     input_pos.append(input_chr_pos)
+                                    # same as above determine the phasing status of a position
+                                    for x in fields[9:]:
+                                        if len(x.split('/')) > 1:
+                                            input_pos_phased[input_chr_pos] = False
+                                        else:
+                                            input_pos_phased[input_chr_pos] = True
                                 # write to output
                                 line = '\t'.join(fields)
                                 out_f.write(line + '\n')
@@ -566,18 +581,22 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, ref_seq, ref_pgx,
                                 # output the  line
                                 line = '\t'.join(fields)
                                 non_pgx_records.append(line)
-            if missing_to_ref:
-                for input_ref_alt in ref_pos_dynamic.values():
-                    for val in input_ref_alt.values():
+            # complete lines of multiallelic loci or missing positions
+            for key_chr_pos in ref_pos_dynamic:
+                for val in ref_pos_dynamic[key_chr_pos].values():
+                    # complete multiallelic loci
+                    if key_chr_pos in input_pos:
+                        if input_pos_phased[key_chr_pos]:
+                            line = '\t'.join(val + ['0|0'] * n_sample)
+                        else:
+                            line = '\t'.join(val + ['0/0'] * n_sample)
+                        out_f.write(line + '\n')
+                    # if missing_to_ref is true, output lines of missing positions as homozygous reference
+                    elif missing_to_ref:
                         line = '\t'.join(val + ['0|0'] * n_sample)
                         out_f.write(line + '\n')
-            # otherwise, only complete lines for multiallelic loci
-            else:
-                for single_pos in input_pos:
-                    if single_pos in ref_pos_dynamic:
-                        for val in ref_pos_dynamic[single_pos].values():
-                            line = '\t'.join(val + ['0|0'] * n_sample)
-                            out_f.write(line + '\n')
+                    else:
+                        continue
 
         # sort vcf
         sorted_vcf = os.path.join(temp_dir, 'temp_sorted.vcf.gz')
