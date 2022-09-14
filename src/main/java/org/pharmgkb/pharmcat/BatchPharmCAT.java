@@ -64,6 +64,7 @@ public class BatchPharmCAT {
           .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit report to: [CPIC, DPWG]", false, "sources")
           .addOption("re", "reporter-extended", "Output extended report")
           .addOption("reporterJson", "reporter-save-json", "Save reporter results as JSON")
+          .addOption("reporterHl7", "reporter-save-hl7", "Save reporter results as HL7")
 
           // outputs
           .addOption("o", "output-dir", "Directory to output to (optional, default is input file directory)", false, "directory")
@@ -391,7 +392,7 @@ public class BatchPharmCAT {
           m_config.topCandidateOnly, m_config.callCyp2d6, m_config.findCombinations, m_config.matcherHtml,
           m_runPhenotyper, m_piFile, m_poFile,
           m_runReporter, m_riFile, m_config.reporterTitle,
-          m_config.reporterSources, m_config.reporterCompact, m_config.reporterJson,
+          m_config.reporterSources, m_config.reporterCompact, m_config.reporterJson, m_config.reporterHl7,
           m_config.outputDir, m_config.baseFilename, m_config.deleteIntermediateFiles,
           mode, (index + "/" + totalTasks), m_verbose);
     }

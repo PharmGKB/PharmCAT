@@ -42,6 +42,7 @@ public class BaseConfig {
   boolean reporterCompact = true;
   List<DataSource> reporterSources;
   boolean reporterJson;
+  boolean reporterHl7;
   Path outputDir;
   String baseFilename;
   boolean deleteIntermediateFiles;
@@ -117,6 +118,7 @@ public class BaseConfig {
       reporterTitle = cliHelper.getValue("rt");
       reporterCompact = !cliHelper.hasOption("re");
       reporterJson = cliHelper.hasOption("reporterJson");
+      reporterHl7 = cliHelper.hasOption("reporterHl7");
       if (cliHelper.hasOption("rs")) {
         reporterSources = new ArrayList<>();
         for (String src : sf_commaSplitter.splitToList(Objects.requireNonNull(cliHelper.getValue("rs")))) {

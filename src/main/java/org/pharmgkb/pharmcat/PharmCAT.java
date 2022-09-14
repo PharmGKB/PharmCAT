@@ -46,6 +46,7 @@ public class PharmCAT {
           .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit report to: [CPIC, DPWG]", false, "sources")
           .addOption("re", "reporter-extended", "Output extended report")
           .addOption("reporterJson", "reporter-save-json", "Save reporter results as JSON")
+          .addOption("reporterHl7", "reporter-save-hl7", "Save reporter results as HL7")
 
           // outputs
           .addOption("o", "output-dir", "Directory to output to (optional, default is input file directory)", false, "directory")
@@ -160,7 +161,7 @@ public class PharmCAT {
               config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
               config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
               config.runReporter, reporterInputFile, config.reporterTitle,
-              config.reporterSources, config.reporterCompact, config.reporterJson,
+              config.reporterSources, config.reporterCompact, config.reporterJson, config.reporterHl7,
               config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
               Pipeline.Mode.CLI, null, cliHelper.isVerbose());
           if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
@@ -184,7 +185,7 @@ public class PharmCAT {
             config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
             config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
             config.runReporter, reporterInputFile, config.reporterTitle,
-            config.reporterSources, config.reporterCompact, config.reporterJson,
+            config.reporterSources, config.reporterCompact, config.reporterJson, config.reporterHl7,
             config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
             Pipeline.Mode.CLI, null, cliHelper.isVerbose());
         if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {

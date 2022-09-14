@@ -22,6 +22,7 @@ import org.pharmgkb.pharmcat.phenotype.OutsideCallParser;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.format.Hl7Format;
 import org.pharmgkb.pharmcat.reporter.format.HtmlFormat;
 import org.pharmgkb.pharmcat.reporter.format.JsonFormat;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -71,6 +72,7 @@ public class Pipeline implements Callable<PipelineResult> {
   private List<DataSource> m_reporterSources;
   private Path m_reporterJsonFile;
   private Path m_reporterHtmlFile;
+  private Path m_reporterHl7File;
   private ReportContext m_reportContext;
 
   private final boolean m_deleteIntermediateFiles;
@@ -87,7 +89,7 @@ public class Pipeline implements Callable<PipelineResult> {
       boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
-      @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson,
+      @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson, boolean reporterHl7,
       @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles,
       Mode mode, @Nullable String displayCount, boolean verbose) throws ReportableException {
     m_env = env;
@@ -147,6 +149,9 @@ public class Pipeline implements Callable<PipelineResult> {
       m_reporterHtmlFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".html");
       if (reporterJson) {
         m_reporterJsonFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".json");
+      }
+      if (reporterHl7) {
+        m_reporterHl7File = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".hl7.txt");
       }
       m_reporterTitle = reporterTitle;
       if (m_reporterTitle == null) {
@@ -328,6 +333,15 @@ public class Pipeline implements Callable<PipelineResult> {
             output.add("Saving reporter JSON results to " + m_reporterJsonFile);
           }
           new JsonFormat(m_reporterJsonFile, m_env)
+              .write(m_reportContext);
+        }
+        if (m_reporterHl7File != null) {
+          if (!batchDisplayMode) {
+            output.add("Saving reporter HL7 results to " + m_reporterHl7File);
+          }
+
+          //TODO 6/29/23 - NK: Pass in the string read in from the HL7 input file
+          new Hl7Format(m_reporterHl7File, m_env, "")
               .write(m_reportContext);
         }
         didSomething = true;
