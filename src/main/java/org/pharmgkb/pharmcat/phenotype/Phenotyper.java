@@ -20,8 +20,6 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.Env;
@@ -37,6 +35,7 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.util.DataSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,11 +47,6 @@ import org.slf4j.LoggerFactory;
  */
 public class Phenotyper {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private static final Gson sf_gson = new GsonBuilder()
-      .serializeNulls()
-      .excludeFieldsWithoutExposeAnnotation()
-      .setPrettyPrinting()
-      .create();
   @Expose
   @SerializedName("geneReports")
   private final Map<DataSource, SortedMap<String, GeneReport>> m_geneReports = new HashMap<>();
@@ -154,7 +148,7 @@ public class Phenotyper {
    */
   public void write(Path outputPath) throws IOException {
     try (BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardCharsets.UTF_8)) {
-      writer.write(sf_gson.toJson(this));
+      writer.write(DataSerializer.GSON.toJson(this));
       sf_logger.info("Writing Phenotyper JSON to " + outputPath);
     }
   }
@@ -167,7 +161,7 @@ public class Phenotyper {
     Preconditions.checkArgument(filePath.toFile().exists());
     Preconditions.checkArgument(filePath.toFile().isFile());
     try (BufferedReader reader = Files.newBufferedReader(filePath)) {
-      return sf_gson.fromJson(reader, Phenotyper.class);
+      return DataSerializer.GSON.fromJson(reader, Phenotyper.class);
     }
   }
 

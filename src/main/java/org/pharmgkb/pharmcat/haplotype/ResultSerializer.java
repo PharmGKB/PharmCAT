@@ -19,8 +19,6 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.text.StringSubstitutor;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -32,6 +30,7 @@ import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
+import org.pharmgkb.pharmcat.util.DataSerializer;
 
 
 /**
@@ -40,8 +39,6 @@ import org.pharmgkb.pharmcat.haplotype.model.Variant;
  * @author Mark Woon
  */
 public class ResultSerializer {
-  private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
-      .setPrettyPrinting().create();
   private boolean m_alwaysShowUnmatchedHaplotypes;
   private final SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
   private String m_htmlTemplate;
@@ -73,7 +70,7 @@ public class ResultSerializer {
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Output JSON file needs to end in '.json'");
 
     try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
-      writer.write(sf_gson.toJson(result));
+      writer.write(DataSerializer.GSON.toJson(result));
     }
     return this;
   }
@@ -85,7 +82,7 @@ public class ResultSerializer {
     Preconditions.checkArgument(Files.isRegularFile(jsonFile));
 
     try (BufferedReader reader = Files.newBufferedReader(jsonFile, StandardCharsets.UTF_8)) {
-      return sf_gson.fromJson(reader, Result.class);
+      return DataSerializer.GSON.fromJson(reader, Result.class);
     }
   }
 

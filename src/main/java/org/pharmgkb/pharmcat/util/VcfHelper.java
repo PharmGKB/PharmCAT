@@ -24,8 +24,6 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.concurrent.TimeUnit;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
@@ -38,6 +36,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.common.util.Throttler;
+import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
@@ -54,9 +53,6 @@ public class VcfHelper implements AutoCloseable {
   private static final String sf_extraPositionUrl = "https://api.pharmgkb.org/v1/pharmcat/extraPosition/%s";
   private static final String sf_vcfCacheFile   = "vcfQueryCache.json";
   private static final String sf_defaultAssembly = "GRCh38";
-  private static final Gson sf_gson = new GsonBuilder()
-      .setPrettyPrinting()
-      .create();
 
   private final Throttler m_throttler = new Throttler(500, TimeUnit.MILLISECONDS);
   private final CloseableHttpClient m_httpclient;
@@ -70,7 +66,7 @@ public class VcfHelper implements AutoCloseable {
     // load cached data
     try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(getClass(), sf_vcfCacheFile))) {
       Type mapType = new TypeToken<Map<String, Map<String, Object>>>() {}.getType();
-      m_queryCache = sf_gson.fromJson(reader, mapType);
+      m_queryCache = DataSerializer.GSON.fromJson(reader, mapType);
       if (m_queryCache == null) {
         m_queryCache = new HashMap<>();
       }
@@ -87,7 +83,7 @@ public class VcfHelper implements AutoCloseable {
       System.out.println("Query cache updated!  Saving cache file to " + cacheFile);
       System.out.println("Don't forget to save this file!");
       try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(cacheFile))) {
-        sf_gson.toJson(m_queryCache, writer);
+        DataSerializer.GSON.toJson(m_queryCache, writer);
       } catch (Exception ex) {
         throw new IOException("Error writing new " + sf_vcfCacheFile, ex);
       }
@@ -99,7 +95,7 @@ public class VcfHelper implements AutoCloseable {
    * Translate HGVS to VCF.
    */
   public VcfData hgvsToVcf(String hgvs) throws IOException {
-    String url = String.format(sf_vcfUrl, URLEncoder.encode(hgvs, StandardCharsets.UTF_8.name()));
+    String url = String.format(sf_vcfUrl, URLEncoder.encode(hgvs, StandardCharsets.UTF_8));
     return new VcfData(runQuery(url));
   }
 
@@ -107,7 +103,7 @@ public class VcfHelper implements AutoCloseable {
    * Translate RSID to {@link VariantLocus}.
    */
   public VariantLocus rsidToVariantLocus(String rsid) throws IOException {
-    String url = String.format(sf_extraPositionUrl, URLEncoder.encode(rsid, StandardCharsets.UTF_8.name()));
+    String url = String.format(sf_extraPositionUrl, URLEncoder.encode(rsid, StandardCharsets.UTF_8));
     try {
       VcfData vcfData = new VcfData(runQuery(url));
 

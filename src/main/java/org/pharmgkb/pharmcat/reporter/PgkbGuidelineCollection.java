@@ -14,18 +14,19 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.google.gson.Gson;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.AccessionObject;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
+import org.pharmgkb.pharmcat.util.DataSerializer;
 
 
 public class PgkbGuidelineCollection {
   public static final Path GUIDELINES_DIR =
       PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines");
+
   public static final Predicate<GuidelinePackage> ONLY_EXTENDED_GUIDELINES = guidelinePackage -> {
     DosingGuideline guideline = guidelinePackage.getGuideline();
     return guideline.getSource().equals(DataSource.DPWG.name())
@@ -33,9 +34,9 @@ public class PgkbGuidelineCollection {
         && guidelinePackage.getGroups().size() > 0;
   };
 
-
   private final List<GuidelinePackage> f_guidelinePackages = new ArrayList<>();
   private final Multimap<String,GuidelinePackage> f_guidelineMap = TreeMultimap.create();
+
 
   public PgkbGuidelineCollection() throws IOException {
     this(GUIDELINES_DIR);
@@ -51,10 +52,9 @@ public class PgkbGuidelineCollection {
       throw new IOException("Cannot find annotations");
     }
 
-    Gson gson = new Gson();
     for (Path guidelineFile : annotationFiles) {
       try (BufferedReader br = Files.newBufferedReader(guidelineFile)) {
-        GuidelinePackage guidelinePackage = gson.fromJson(br, GuidelinePackage.class);
+        GuidelinePackage guidelinePackage = DataSerializer.GSON.fromJson(br, GuidelinePackage.class);
         if (ONLY_EXTENDED_GUIDELINES.test(guidelinePackage)) {
           if (guidelinePackage.getGuideline().getGuidelineGenes().size() > 1) {
             throw new RuntimeException("DPWG Guidelines with more than one gene are not yet supported");

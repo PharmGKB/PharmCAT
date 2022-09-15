@@ -5,18 +5,14 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
-
+import org.pharmgkb.pharmcat.util.DataSerializer;
 
 
 /**
  * A JSON-formatted version of {@link ReportContext} data.
  */
 public class JsonFormat extends AbstractFormat {
-  private static final Gson sf_gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation()
-      .setPrettyPrinting().create();
 
   public JsonFormat(Path outputPath) {
     super(outputPath);
@@ -25,7 +21,7 @@ public class JsonFormat extends AbstractFormat {
   @Override
   public void write(ReportContext reportContext) throws IOException {
     try (BufferedWriter writer = Files.newBufferedWriter(getOutputPath(), StandardCharsets.UTF_8)) {
-      writer.write(sf_gson.toJson(reportContext));
+      writer.write(DataSerializer.GSON.toJson(reportContext));
     }
   }
 }

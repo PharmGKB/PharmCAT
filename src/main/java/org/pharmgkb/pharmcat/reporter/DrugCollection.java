@@ -21,8 +21,6 @@ import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -30,6 +28,7 @@ import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.util.DataSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,12 +42,9 @@ public class DrugCollection implements Iterable<Drug> {
   private static final String CPIC_FILE_NAME = "drugs.json";
   private static final String CPIC_URL = "https://files.cpicpgx.org/data/report/current/drugs.json";
   private static final Type DRUG_LIST_TYPE = new TypeToken<ArrayList<Drug>>(){}.getType();
-  private static final Gson GSON = new GsonBuilder()
-      .serializeNulls()
-      .excludeFieldsWithoutExposeAnnotation()
-      .setPrettyPrinting().create();
 
   private final Set<Drug> m_drugList = new TreeSet<>();
+
 
   /**
    * Default constructor. Will use the drugs.json file defined in the codebase
@@ -106,7 +102,7 @@ public class DrugCollection implements Iterable<Drug> {
 
   private void addDrugsFromStream(InputStream inputStream, DataSource source) throws IOException {
     try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
-      List<Drug> drugs = GSON.fromJson(br, DRUG_LIST_TYPE);
+      List<Drug> drugs = DataSerializer.GSON.fromJson(br, DRUG_LIST_TYPE);
       drugs.sort(Comparator.naturalOrder());
       drugs.forEach(d -> d.setSource(source));
       m_drugList.addAll(drugs);

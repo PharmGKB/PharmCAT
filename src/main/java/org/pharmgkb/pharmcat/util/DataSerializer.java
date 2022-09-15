@@ -31,12 +31,12 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
  * @author Mark Woon
  */
 public class DataSerializer {
-  private static final Gson sf_gson = new GsonBuilder()
+  public static final Gson GSON = new GsonBuilder()
       .serializeNulls()
       .disableHtmlEscaping()
       .excludeFieldsWithoutExposeAnnotation()
-      .setDateFormat("MMM d, yyyy hh:mm:ss aaa")
-      .setPrettyPrinting().create();
+      .setPrettyPrinting()
+      .create();
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
 
 
@@ -46,7 +46,7 @@ public class DataSerializer {
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: %s does not end with .json", jsonFile);
 
     try (BufferedWriter writer = Files.newBufferedWriter(jsonFile, StandardCharsets.UTF_8)) {
-      sf_gson.toJson(data, writer);
+      GSON.toJson(data, writer);
     }
   }
 
@@ -57,7 +57,7 @@ public class DataSerializer {
     Preconditions.checkArgument(Files.isRegularFile(jsonFile), "%s is not a file", jsonFile);
 
     try (BufferedReader reader = Files.newBufferedReader(jsonFile, StandardCharsets.UTF_8)) {
-      DefinitionFile definitionFile = sf_gson.fromJson(reader, DefinitionFile.class);
+      DefinitionFile definitionFile = GSON.fromJson(reader, DefinitionFile.class);
       for (NamedAllele namedAllele : definitionFile.getNamedAlleles()) {
         namedAllele.initialize(definitionFile.getVariants());
       }
@@ -72,7 +72,7 @@ public class DataSerializer {
     Preconditions.checkArgument(Files.isRegularFile(jsonFile), "%s is not a file", jsonFile);
 
     try (BufferedReader reader = Files.newBufferedReader(jsonFile, StandardCharsets.UTF_8)) {
-      DefinitionExemption[] exemptions = sf_gson.fromJson(reader, DefinitionExemption[].class);
+      DefinitionExemption[] exemptions = GSON.fromJson(reader, DefinitionExemption[].class);
       return Sets.newHashSet(exemptions);
     }
   }
