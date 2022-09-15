@@ -31,7 +31,6 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.PathUtils;
@@ -129,28 +128,48 @@ public class VcfHelper implements AutoCloseable {
     }
   }
 
-  private Map<String, Object> runQuery(String url) throws IOException {
+  private Map<String, Object> runQuery(String url) throws IOException, ParseException {
 
     if (m_queryCache.containsKey(url)) {
       return m_queryCache.get(url);
     }
+    int retryCount = 0;
+    while (true) {
+      try {
+        return doRunQuery(url);
+      } catch (IOException ex) {
+        if (ex.getMessage().contains("please retry") && retryCount < 3) {
+          retryCount += 1;
+          System.out.println("Retry " + retryCount + " for " + url);
+        } else {
+          throw ex;
+        }
+      }
+    }
+  }
+
+  private Map<String, Object> doRunQuery(String url) throws IOException, ParseException {
     m_throttler.next();
     HttpGet httpGet = new HttpGet(url);
     httpGet.setHeader(HttpHeaders.ACCEPT, "application/json");
     try (CloseableHttpResponse response = m_httpclient.execute(httpGet)) {
       HttpEntity entity = response.getEntity();
-      if (response.getStatusLine().getStatusCode() != 200) {
-        String error = EntityUtils.toString(response.getEntity());
-        EntityUtils.consume(response.getEntity());
-        throw new IOException(response.getStatusLine().getStatusCode() + " error querying " + url + ": " + error);
-      }
+
+      Map<String, Object> data;
       try (InputStreamReader reader = new InputStreamReader(entity.getContent())) {
-        @SuppressWarnings("unchecked")
-        Map<String, Object> data = (Map<String, Object>)sf_gson.fromJson(reader, Map.class).get("data");
-        m_queryCache.put(url, data);
-        m_queryCacheUpdated = true;
-        return data;
+        //noinspection unchecked
+        data = (Map<String, Object>)DataSerializer.GSON.fromJson(reader, Map.class).get("data");
       }
+      if (response.getStatusLine().getStatusCode() != 200) {
+        //noinspection unchecked
+        String msg = ((List<Map<String, String>>)data.get("errors")).get(0).get("message");
+        ParseException ex = new ParseException(msg);
+        ex.setAdditionalInfo(response.getStatusLine().getStatusCode() + " error querying " + url);
+        throw ex;
+      }
+      m_queryCache.put(url, data);
+      m_queryCacheUpdated = true;
+      return data;
     }
   }
 

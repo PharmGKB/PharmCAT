@@ -73,7 +73,7 @@ public class DrugReport implements Comparable<DrugReport> {
     GuidelineReport guidelineReport = new GuidelineReport(drug);
     drug.getGenes().forEach((geneSymbol) ->
         guidelineReport.addRelatedGeneReport(reportContext.getGeneReport(DataSource.CPIC, geneSymbol)));
-    addGuideline(guidelineReport);
+    f_guidelines.add(guidelineReport);
   }
 
   /**
@@ -95,7 +95,7 @@ public class DrugReport implements Comparable<DrugReport> {
           });
           guidelineReport.addAnnotationGroup(annGroup);
         });
-    addGuideline(guidelineReport);
+    f_guidelines.add(guidelineReport);
   }
 
   /**
@@ -226,10 +226,6 @@ public class DrugReport implements Comparable<DrugReport> {
 
   public List<GuidelineReport> getGuidelines() {
     return f_guidelines;
-  }
-
-  public void addGuideline(GuidelineReport guidelineReport) {
-    f_guidelines.add(guidelineReport);
   }
 
   public int getMatchedGroupCount() {

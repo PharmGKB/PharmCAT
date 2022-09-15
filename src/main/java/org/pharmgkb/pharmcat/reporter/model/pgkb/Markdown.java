@@ -12,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author Ryan Whaley
  */
 public class Markdown {
-  private static final Pattern PTAG_PATTERN = Pattern.compile("\\<\\/?p\\>");
+  private static final Pattern PTAG_PATTERN = Pattern.compile("</?p>");
 
   @SerializedName("id")
   @Expose

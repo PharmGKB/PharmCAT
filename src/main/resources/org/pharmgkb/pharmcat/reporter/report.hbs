@@ -41,7 +41,7 @@
       <em>Disclaimer:</em> PharmCAT is only able to generate recommendations based on the information provided to the
       software. The gene and variant information for all reported sections are interpreted directly from user-supplied data.
       The user recognizes they are using PharmCAT at their own risk. For a detailed disclaimer see
-      <a href="#disclaimer">section IV</a>.
+      <a href="#disclaimer">Section IV</a>.
     </div>
   </section>
 
@@ -83,8 +83,8 @@
           <td>
             <span class="noWrap">
               <a href="#{{symbol}}" class="normalWrap">{{symbol}}</a>
-              {{#if hasMessages}}<sup style="margin-left: 0.2em;"><a href="#genotypes-dagger">&dagger;</a></sup>{{/if}}
-              {{#if showUnphasedNote}}<sup style="margin-left: 0.2em;"><a href="#genotypes-ddagger">&ddagger;</a></sup>{{/if}}
+              {{#if hasMessages}}<sup><a href="#genotypes-dagger">&dagger;</a></sup>{{/if}}
+              {{#if showUnphasedNote}}<sup><a href="#genotypes-ddagger">&ddagger;</a></sup>{{/if}}
             </span>
           </td>
           <td>
@@ -115,9 +115,9 @@
               {{/if}}
               </tbody>
             </table>
-            {{#if missingVariants}}
+            {{#if hasMissingVariants}}
               <p class="missingVariantsNote">
-                Genotypes based on missing variant input<sup><a href="#genotypes-star">*</a></sup>.
+                Genotypes based on missing variant input <sup><a href="#genotypes-star">*</a></sup>.
               </p>
             {{/if}}
           </td>
@@ -129,8 +129,8 @@
     {{#if hasMissingVariants}}
       <div class="footnote" id="genotypes-star">
         <sup>*</sup> Some alleles were not considered for the genotype calls due to missing variant information.
-        Please see Allele calls section. Alleles that could not be considered due to missing input might change the
-        metabolizer phenotype and possible CPIC recommendation.
+        Please see <a href="#section-iii">Section III</a> for details. Alleles that could not be considered due to
+        missing input might change the metabolizer phenotype and possible recommendation.
       </div>
     {{/if}}
     {{#if hasMessages}}
@@ -213,8 +213,8 @@
                         {{#each genotypes}}
                           <li>
                             <span class="noWrap"><span class="normalWrap">{{this}}</span>
-                              {{#if (rxInferred this)}}<sup style="margin-left: 0.2em;"><a href="#rx-dagger" title="Inferred">&dagger;</a></sup>{{/if}}
-                              {{#if (rxDpydInferred this)}}<sup style="margin-left: 0.2em;"><a href="#rx-ddagger" title="Inferred">&ddagger;</a></sup>{{/if}}
+                              {{#if (rxInferred this)}}<sup><a href="#rx-dagger" title="Inferred">&dagger;</a></sup>{{/if}}
+                              {{#if (rxDpydInferred this)}}<sup><a href="#rx-ddagger" title="Inferred">&ddagger;</a></sup>{{/if}}
                             </span>
                           </li>
                         {{/each}}
@@ -282,7 +282,10 @@
             <p>Citations:</p>
             <ul>
               {{#each citations}}
-                <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/{{pmid}}">{{title}}</a> [PMID:{{pmid}}] <em>{{journal}}</em>. {{year}}.</li>
+                <li>
+                  <a href="https://www.ncbi.nlm.nih.gov/pubmed/{{pmid}}" target="_blank"
+                      rel="noopener noreferrer">{{title}}</a> [PMID:{{pmid}}] <em>{{journal}}</em>. {{year}}.
+                </li>
               {{/each}}
             </ul>
           </section>

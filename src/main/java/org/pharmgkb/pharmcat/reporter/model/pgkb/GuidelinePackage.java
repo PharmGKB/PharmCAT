@@ -7,6 +7,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
@@ -17,21 +18,19 @@ import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
  * @author Ryan Whaley
  */
 public class GuidelinePackage implements Comparable<GuidelinePackage> {
-
+  @Expose
   @SerializedName("guideline")
-  @Expose
   private DosingGuideline guideline;
+  @Expose
   @SerializedName("annotationGroups")
-  @Expose
   private List<Group> groups = new ArrayList<>();
-  @SerializedName("matchedGroups")
   @Expose
-  private Set<Group> matchedGroups = new TreeSet<>();
   @SerializedName("citations")
-  @Expose
-  private List<Literature> citations = new ArrayList<>();
+  private List<Publication> citations = new ArrayList<>();
 
-  
+  private final Set<Group> matchedGroups = new TreeSet<>();
+
+
   public DosingGuideline getGuideline() {
     return guideline;
   }
@@ -55,7 +54,7 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   }
 
   
-  public List<Literature> getCitations() {
+  public List<Publication> getCitations() {
     return citations;
   }
 
@@ -100,7 +99,7 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
               matchedGroups.add(g);
             });
       } else if (!diplotype.isUnknownAlleles()) {
-        Set<String> functionKeys = getGuideline().getFunctionKeysForDiplotype(diplotype);
+        Set<String> functionKeys = guideline.getFunctionKeysForDiplotype(diplotype);
         for (String functionKey : functionKeys) {
           getGroups().stream()
               .filter(group -> group.matchesKey(functionKey))

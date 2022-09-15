@@ -1,6 +1,9 @@
 package org.pharmgkb.pharmcat.util;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.Writer;
 import java.lang.invoke.MethodHandles;
 import java.net.URL;
 import java.nio.file.Files;
@@ -15,10 +18,10 @@ import java.util.zip.ZipFile;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
-import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.MessageList;
 import org.pharmgkb.pharmcat.definition.PhenotypeMap;
@@ -31,6 +34,8 @@ import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,6 +72,7 @@ public class DataManager {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addOption("dl", "download-dir", "directory to save downloaded files", false, "dl")
+          .addOption("sdl", "skip-download", "skip download")
           .addOption("a", "alleles-dir", "directory to save generated allele definition files", false, "a")
           .addOption("sa", "skip-alleles", "skip alleles")
           .addOption("g", "guidelines-dir", "directory to save guidelines data to", false, "dir")
@@ -83,10 +89,16 @@ public class DataManager {
         System.exit(1);
       }
 
+      boolean skipDownload = cliHelper.hasOption("sdl");
       Path downloadDir;
       if (cliHelper.hasOption("dl")) {
         downloadDir = cliHelper.getValidDirectory("dl", true);
+        System.out.println("Downloading to " + downloadDir);
       } else {
+        if (skipDownload) {
+          System.out.println("Cannot skip download without providing download directory containing necessary files");
+          System.exit(1);
+        }
         downloadDir = Files.createTempDirectory("pharmcat");
         downloadDir.toFile().deleteOnExit();
       }
@@ -96,9 +108,11 @@ public class DataManager {
 
         if (!cliHelper.hasOption("sm")) {
           Path messagesTsv = downloadDir.resolve("messages.tsv");
-          // download messages
-          FileUtils.copyURLToFile(new URL(String.format(sf_googleDocUrlFmt, "1MkWV6TlJTnw-KRNWeylyUJAUocCgupcJLlmV2fRdtcM")),
-              messagesTsv.toFile());
+          if (!skipDownload) {
+            // download messages
+            FileUtils.copyURLToFile(new URL(String.format(sf_googleDocUrlFmt, "1MkWV6TlJTnw-KRNWeylyUJAUocCgupcJLlmV2fRdtcM")),
+                messagesTsv.toFile());
+          }
 
           Path messageDir = cliHelper.getValidDirectory("m", true);
           Path messagesJson = messageDir.resolve(MessageList.MESSAGES_JSON_FILE_NAME);
@@ -116,10 +130,12 @@ public class DataManager {
           existingDrugs.diff(drugs).forEach(sf_logger::info);
 
           Path dpwgGuidelinesZip = downloadDir.resolve(PGKB_GUIDELINE_ZIP_FILE_NAME);
-          // download DPWG guidelines
-          FileUtils.copyURLToFile(
-              new URL("https://s3.pgkb.org/data/guidelineAnnotations.extended.json.zip"),
-              dpwgGuidelinesZip.toFile());
+          if (!skipDownload) {
+            // download DPWG guidelines
+            FileUtils.copyURLToFile(
+                new URL("https://s3.pgkb.org/data/guidelineAnnotations.extended.json.zip"),
+                dpwgGuidelinesZip.toFile());
+          }
           // transform DPWG guidelines
           Path dpwgGuidelinesDir = drugsDir.resolve("guidelines");
           manager.transformPgkbGuidelines(dpwgGuidelinesZip, dpwgGuidelinesDir);
@@ -132,13 +148,15 @@ public class DataManager {
 
         PhenotypeMap phenotypeMap;
         if (!cliHelper.hasOption("sp")) {
-          // download phenotypes
-          FileUtils.copyURLToFile(
-              new URL("https://files.cpicpgx.org/data/report/current/gene_phenotypes.json"),
-              downloadDir.resolve(PhenotypeMap.CPIC_PHENOTYPES_JSON_FILE_NAME).toFile());
+          if (!skipDownload) {
+            // download phenotypes
+            FileUtils.copyURLToFile(
+                new URL("https://files.cpicpgx.org/data/report/current/gene_phenotypes.json"),
+                downloadDir.resolve(PhenotypeMap.CPIC_PHENOTYPES_JSON_FILE_NAME).toFile());
           FileUtils.copyURLToFile(
               new URL("https://s3.pgkb.org/data/dpwg_phenotypes.zip"),
               downloadDir.resolve(sf_dpwgPhenotypesZipFileName).toFile());
+          }
 
           // transform phenotypes
           Path phenoDir = cliHelper.getValidDirectory("p", true);
@@ -155,20 +173,24 @@ public class DataManager {
           Path allelesDir = cliHelper.getValidDirectory("a", true);
 
           Path exemptionsTsv = downloadDir.resolve("exemptions.tsv");
-          // download exemptions
-          FileUtils.copyURLToFile(new URL(String.format(sf_googleDocUrlFmt, "1xHvvXQIMv3xbqNhuN7zG6WP4DB7lpQDmLvz18w-u_lk")),
-              exemptionsTsv.toFile());
+          if (!skipDownload) {
+            // download exemptions
+            FileUtils.copyURLToFile(new URL(String.format(sf_googleDocUrlFmt, "1xHvvXQIMv3xbqNhuN7zG6WP4DB7lpQDmLvz18w-u_lk")),
+                exemptionsTsv.toFile());
+          }
           // transform exemptions
           Path exemptionsJson = allelesDir.resolve(EXEMPTIONS_JSON_FILE_NAME);
           Map<String, DefinitionExemption> exemptionsMap = manager.transformExemptions(exemptionsTsv, exemptionsJson);
 
-          // download allele definitions
-          FileUtils.copyURLToFile(
-              new URL("https://files.cpicpgx.org/data/report/current/allele_definitions.json"),
-              downloadDir.resolve(CPIC_ALLELES_FILE_NAME).toFile());
-          FileUtils.copyURLToFile(
-              new URL("https://s3.pgkb.org/data/dpwg_allele_translations.json"),
-              downloadDir.resolve(DPWG_ALLELES_FILE_NAME).toFile());
+          if (!skipDownload) {
+            // download allele definitions
+            FileUtils.copyURLToFile(
+                new URL("https://files.cpicpgx.org/data/report/current/allele_definitions.json"),
+                downloadDir.resolve(CPIC_ALLELES_FILE_NAME).toFile());
+            FileUtils.copyURLToFile(
+                new URL("https://s3.pgkb.org/data/dpwg_allele_translations.json"),
+                downloadDir.resolve(DPWG_ALLELES_FILE_NAME).toFile());
+          }
           // transform allele definitions
           geneAlleleCountMap = manager.transformAlleleDefinitions(downloadDir, allelesDir, exemptionsMap);
 
@@ -196,7 +218,7 @@ public class DataManager {
         }
 
       } finally {
-        if (downloadDir != null) {
+        if (downloadDir != null && !cliHelper.hasOption("dl")) {
           FileUtils.deleteQuietly(downloadDir.toFile());
         }
       }
@@ -216,10 +238,13 @@ public class DataManager {
         try {
           Path expectedGuideline = PgkbGuidelineCollection.GUIDELINES_DIR.resolve(zipEntry.getName());
           if (Files.exists(expectedGuideline)) {
-            Files.copy(
-                zipFile.getInputStream(zipEntry),
-                guidelinesDir.resolve(zipEntry.getName()),
-                StandardCopyOption.REPLACE_EXISTING);
+            try (Reader reader = new InputStreamReader(zipFile.getInputStream(zipEntry))) {
+              GuidelinePackage guidelinePackage = DataSerializer.GSON.fromJson(reader, GuidelinePackage.class);
+              guidelinePackage.getCitations().forEach(Publication::normalize);
+              try (Writer writer = Files.newBufferedWriter(guidelinesDir.resolve(zipEntry.getName()))) {
+                DataSerializer.GSON.toJson(guidelinePackage, writer);
+              }
+            }
           }
         } catch (IOException ex) {
           throw new RuntimeException("Error copying " + zipEntry, ex);
@@ -230,13 +255,12 @@ public class DataManager {
 
 
   private DefinitionFile[] parseDefinitionFiles(Path downloadDir, String fileName) throws IOException {
-    Gson gson = new Gson();
     Path definitionsFile = downloadDir.resolve(fileName);
     if (!Files.exists(definitionsFile)) {
       throw new IOException("Cannot find alleles definitions (" + definitionsFile + ")");
     }
     String json = FileUtils.readFileToString(definitionsFile.toFile(), Charsets.UTF_8);
-    return gson.fromJson(json, DefinitionFile[].class);
+    return DataSerializer.GSON.fromJson(json, DefinitionFile[].class);
   }
 
 
@@ -383,27 +407,32 @@ public class DataManager {
 
       if (isSnp) {
         for (String h : hgvsNames) {
-          String hgvs = df.getRefSeqChromosome() + ":" + h;
-          VcfHelper.VcfData vcf = vcfHelper.hgvsToVcf(hgvs);
+            String hgvs = df.getRefSeqChromosome() + ":" + h;
+          VcfHelper.VcfData vcf;
+          try {
+            vcf = vcfHelper.hgvsToVcf(hgvs);
+          } catch (ParseException ex) {
+            throw new ParseException(errorLocation + " / " + hgvs + ": " + ex.getMessage(), ex);
+          }
 
           if (vcfPosition == -1) {
             vcfPosition = vcf.pos;
           } else if (vcfPosition != vcf.pos) {
-            throw new IllegalStateException(errorLocation + ": SNP position mismatch (" + vcfPosition + " vs. " +
+            throw new ParseException(errorLocation + ": SNP position mismatch (" + vcfPosition + " vs. " +
                 vcf.pos + " for " + hgvs + ")");
           }
 
           if (!refAllele.equals(vcf.ref)) {
-            throw new IllegalStateException(errorLocation + ": VCF's reference allele does not match (" +
-                refAllele + " vs. " + vcf.ref + " for " + hgvs + ")");
-          }
-          if (!missingAlts.remove(vcf.alt)) {
-            throw new IllegalStateException(errorLocation + ": VCF's alt allele does not match (expecting " +
-                altAlleles + ",  got " + vcf.alt + " for " + hgvs + ")");
-          }
+              throw new ParseException(errorLocation + ": VCF's reference allele does not match (" +
+                  refAllele + " vs. " + vcf.ref + " for " + hgvs + ")");
+            }
+            if (!missingAlts.remove(vcf.alt)) {
+              throw new ParseException(errorLocation + ": VCF's alt allele does not match (expecting " +
+                  altAlleles + ",  got " + vcf.alt + " for " + hgvs + ")");
+            }
 
-          vcfMap.put(refAllele, vcf.ref);
-          vcfMap.put(vcf.alt, vcf.alt);
+            vcfMap.put(refAllele, vcf.ref);
+            vcfMap.put(vcf.alt, vcf.alt);
         }
         // warnings
         if (vcfPosition != vl.getCpicPosition()) {
@@ -643,7 +672,7 @@ public class DataManager {
     GenePhenotype dpwgGp = Objects.requireNonNull(phenotypeMap.getPhenotype("DPYD", DataSource.DPWG));
     GenePhenotype cpicGp = Objects.requireNonNull(phenotypeMap.getPhenotype("DPYD", DataSource.CPIC));
     for (String hap : dpwgGp.getHaplotypes().keySet()) {
-      if (cpicGp.getHaplotypes().containsKey(hap)) {
+      if (!cpicGp.getHaplotypes().containsKey(hap)) {
         throw new IllegalStateException("DPWG has DPYD " + hap + " but CPIC does not");
       }
     }

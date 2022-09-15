@@ -37,7 +37,7 @@ public class GuidelineGene {
   }
 
   private Optional<String> findFunctionForAllele(String alleleName) {
-    return getAlleles().stream()
+    return m_alleles.stream()
         .filter(a -> a.getLabel().equals(alleleName))
         .findFirst()
         .map(a -> a.getFunctionTerm().getTerm());

@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
@@ -15,195 +16,58 @@ import static org.pharmgkb.pharmcat.reporter.model.result.Diplotype.DELIMITER;
 
 
 /**
- * PharmGKB Guideline Annotation Model
+ * PharmGKB Guideline Annotation Model.
  */
 public class DosingGuideline {
-
-  @SerializedName("objCls")
   @Expose
-  private String objCls;
   @SerializedName("id")
-  @Expose
   private String id;
+  @Expose
   @SerializedName("name")
-  @Expose
   private String name;
+  @Expose
   @SerializedName("relatedChemicals")
-  @Expose
   private List<AccessionObject> relatedChemicals = new ArrayList<>();
+  @Expose
   @SerializedName("relatedGenes")
-  @Expose
   private List<AccessionObject> relatedGenes = new ArrayList<>();
+  @Expose
   @SerializedName("source")
-  @Expose
   private String source;
-  @SerializedName("summaryMarkdown")
   @Expose
-  private Markdown m_summaryMarkdown;
-  @SerializedName("textMarkdown")
-  @Expose
-  private Markdown m_textMarkdown;
-  @SerializedName("history")
-  @Expose
-  private List<History> m_history;
   @SerializedName("recommendation")
-  @Expose
   private boolean m_recommendation;
+  @Expose
   @SerializedName("guidelineGenes")
-  @Expose
   private List<GuidelineGene> m_guidelineGenes;
+  @Expose
   @SerializedName("@id")
-  @Expose
   private String url;
-  @SerializedName("version")
   @Expose
+  @SerializedName("version")
   private Integer m_version;
 
-  /**
-   *
-   * @return
-   *     The objCls
-   */
-  public String getObjCls() {
-    return objCls;
-  }
 
-  /**
-   *
-   * @param objCls
-   *     The objCls
-   */
-  public void setObjCls(String objCls) {
-    this.objCls = objCls;
-  }
-
-  /**
-   *
-   * @return
-   *     The id
-   */
   public String getId() {
     return id;
   }
 
-  /**
-   *
-   * @param id
-   *     The id
-   */
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  /**
-   *
-   * @return
-   *     The name
-   */
   public String getName() {
     return name;
   }
 
-  /**
-   *
-   * @param name
-   *     The name
-   */
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /**
-   *
-   * @return
-   *     The relatedChemicals
-   */
   public List<AccessionObject> getRelatedChemicals() {
     return relatedChemicals;
   }
 
-  /**
-   *
-   * @param relatedChemicals
-   *     The relatedChemicals
-   */
-  public void setRelatedChemicals(List<AccessionObject> relatedChemicals) {
-    this.relatedChemicals = relatedChemicals;
-  }
-
-  /**
-   *
-   * @return
-   *     The relatedGenes
-   */
   public List<AccessionObject> getRelatedGenes() {
     return relatedGenes;
   }
 
-  /**
-   *
-   * @param relatedGenes
-   *     The relatedGenes
-   */
-  public void setRelatedGenes(List<AccessionObject> relatedGenes) {
-    this.relatedGenes = relatedGenes;
-  }
-
-  /**
-   *
-   * @return
-   *     The source
-   */
   public String getSource() {
     return source;
   }
 
-  /**
-   *
-   * @param source
-   *     The source
-   */
-  public void setSource(String source) {
-    this.source = source;
-  }
-
-  /**
-   *
-   * @return
-   *     The summaryHtml
-   */
-  public String getSummaryHtml() {
-    return m_summaryMarkdown.getHtml();
-  }
-
-  /**
-   *
-   * @return
-   *     The textHtml
-   */
-  public String getTextHtml() {
-    return m_textMarkdown.getHtml();
-  }
-
-  public Markdown getSummaryMarkdown() {
-    return m_summaryMarkdown;
-  }
-
-  public void setSummaryMarkdown(Markdown summaryMarkdown) {
-    m_summaryMarkdown = summaryMarkdown;
-  }
-
-  public Markdown getTextMarkdown() {
-    return m_textMarkdown;
-  }
-
-  public void setTextMarkdown(Markdown textMarkdown) {
-    m_textMarkdown = textMarkdown;
-  }
-
-  public List<History> getHistory() {
-    return m_history;
-  }
 
   public boolean isRecommendation() {
     return m_recommendation;
@@ -237,8 +101,8 @@ public class DosingGuideline {
     Set<String> functionKeys = new TreeSet<>();
     findGuidelineGeneFor(diplotype.getGene()).ifPresent(guidelineGene -> {
       List<String> functions = new ArrayList<>();
-      functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele1()).orElse("Unknown"));
-      functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele2()).orElse("Unknown"));
+      functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele1()).orElse(TextConstants.UNKNOWN_FUNCTION));
+      functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele2()).orElse(TextConstants.UNKNOWN_FUNCTION));
       functions.sort(Comparator.naturalOrder());
       functionKeys.add(diplotype.getGene() + ":" + String.join(DELIMITER, functions));
     });
